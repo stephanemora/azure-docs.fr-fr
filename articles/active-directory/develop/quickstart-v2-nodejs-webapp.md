@@ -1,30 +1,25 @@
 ---
-title: Guide de démarrage rapide pour les applications web OIDC Node.js de la Plateforme d'identités Microsoft | Azure
+title: Ajouter la connexion OIDC à une application web node.js - Plateforme d’identités Microsoft | Azure
 description: Apprenez à implémenter l'authentification dans une application web Node.js à l'aide d'OpenID Connect.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac3344fe16d24ae116a5fde289421998f11f18
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182027"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968015"
 ---
-# <a name="quickstart-add-sign-in-using-oidc-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l'aide d'OIDC dans une application web Node.js
+# <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web node.js
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 

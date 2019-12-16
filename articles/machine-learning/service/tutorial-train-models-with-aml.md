@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca0f64fe67865e18c47009779cf8bd307a21c961
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581538"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978728"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Didacticiel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Suivre le [Tutoriel : Commencez à créer votre première expérience ML](tutorial-1st-experiment-sdk-setup.md) pour :
+* Suivre le [Tutoriel : Commencez à créer votre première expérience Azure ML](tutorial-1st-experiment-sdk-setup.md) pour :
     * Créer un espace de travail
     * Clonez le notebook des tutoriels dans votre dossier au sein de l’espace de travail.
     * Créez une machine virtuelle Notebook basée sur le cloud.
@@ -92,7 +92,7 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-an-experiment"></a>Créer une expérience
 
 Créez une expérience pour effectuer le suivi des exécutions dans votre espace de travail. Un espace de travail peut avoir plusieurs expériences :
 
@@ -430,7 +430,7 @@ print(model.name, model.id, model.version, sep='\t')
 Vous pouvez aussi supprimer uniquement le cluster de calcul Machine Learning. Toutefois, la mise à l’échelle automatique est activée et le minimal de cluster est égal à zéro. Par conséquent, cette ressource n’entraînera aucun frais de calcul supplémentaires quand elle ne sera pas en cours d’utilisation :
 
 ```python
-# optionally, delete the Azure Machine Learning Compute cluster
+# Optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 

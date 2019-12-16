@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôle de blueprint UK OFFICIAL et UK NHS
 description: Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
-ms.date: 06/26/2019
+ms.date: 12/04/2019
 ms.topic: sample
-ms.openlocfilehash: 79c39ee058a74bc740e72b75fe85882a89f9cd85
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546446"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851364"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mappage des contrôles des exemples de blueprint UK OFFICIAL et UK NHS
 
@@ -25,16 +25,19 @@ Le blueprint vous aide à vérifier que le transfert d’informations avec les s
 
 - Seules les connexions sécurisées à votre cache Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
+- Afficher les résultats d’audit des serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
+- Déployer des prérequis pour auditer les serveurs web Windows qui n’utilisent pas de protocole de communication sécurisé
+- La dernière version de TLS doit être utilisée dans votre application API
+- La dernière version de TLS doit être utilisée dans votre application web
+- La dernière version de TLS doit être utilisée dans votre application de fonction
 
 ## <a name="23-data-at-rest-protection"></a>2.3 Protection des données au repos
 
 Ce blueprint vous aide à appliquer votre stratégie sur l’utilisation des contrôles de chiffrement en affectant des définitions [Azure Policy](../../../policy/overview.md) qui appliquent des contrôles de chiffrement spécifiques et détectent l’utilisation de paramètres de chiffrement faibles.
 Le fait de savoir où vos ressources Azure peuvent avoir des configurations de chiffrement non optimales peut vous aider à prendre des mesures correctives visant à vérifier que les ressources sont configurées conformément à votre stratégie de sécurité des informations. Plus précisément, les stratégies assignées par ce blueprint exigent le chiffrement des comptes Data Lake Storage ; exigent le chiffrement transparent des données dans les bases de données SQL ; vérifient le chiffrement sur les comptes de stockage, bases de données SQL, disques de machine virtuelle et variables de compte Automation ; vérifient les connexions non sécurisées aux comptes de stockage et au Cache Redis ; vérifient si le chiffrement par mot de passe des machines virtuelles est faible ; et vérifient les communication Service Fabric non chiffrées.
 
-- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
 - Le chiffrement de disque doit être appliqué sur les machines virtuelles
 - Les variables de compte Automation doivent être chiffrées
-- La sécurisation du transfert vers des comptes de stockage doit être activée
 - La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
 - La technologie Transparent Data Encryption sur les bases de données SQL doit être activée
 - Déployer le chiffrement transparent des données sur les bases de données SQL
@@ -47,23 +50,44 @@ Le fait de savoir où vos ressources Azure peuvent avoir des configurations de c
 Ce blueprint vous permet de gérer les vulnérabilités du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui surveillent l’absence de protection de point de terminaison, les mises à jour système manquantes, ainsi que les vulnérabilités en rapport avec le système d’exploitation, SQL et les machines virtuelles. Ces insights fournissent des informations en temps réel sur l’état de la sécurité de vos ressources déployées et peuvent vous aider à classer par ordre de priorité les actions de correction.
 
 - Superviser les agents Endpoint Protection manquants dans Azure Security Center
-- Les mises à jour système doivent être installées sur vos machines
+- Des mises à jour système doivent être installées sur vos machines
+- Les mises à jour système doivent être installées sur les groupes de machines virtuelles identiques
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
-- Les vulnérabilités doivent être corrigées à l’aide d’une solution d’évaluation des vulnérabilités
+- Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
+- L’évaluation des vulnérabilités doit être activée sur vos serveurs SQL
+- L’évaluation des vulnérabilités doit être activée sur vos instances managées SQL
+- Les vulnérabilités détectées dans la configuration de la sécurité de vos groupes de machines virtuelles identiques doivent être corrigées
+- Advanced Data Security doit être activée sur vos instances managées SQL.
+- Advanced Data Security doit être activé sur vos serveurs SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Surveillance à des fins de protection
 
-Ce blueprint vous aide à protéger les ressources du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui fournissent une surveillance de protection sur l’accès illimité, l’activité de liste verte et les menaces.
+Ce blueprint vous aide à protéger les ressources du système d’informations en affectant des définitions [Azure Policy](../../../policy/overview.md) qui fournissent une supervision de protection sur l’accès illimité, l’activité de liste verte et les menaces.
 
 - Auditer l'accès réseau non restreint aux comptes de stockage
-- Des contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Auditer des machines virtuelles pour lesquelles la reprise d’activité après sinistre n’est pas configurée
+- DDoS Protection Standard doit être activé
+- Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security de l’instance gérée SQL.
+- Les types Advanced Threat Protection doivent être définis sur « Tous » dans les paramètres Advanced Data Security du serveur SQL.
 - Déployer la détection de menaces sur les serveurs SQL
-- Déployer l’extension Microsoft IaaS Anti-malware par défaut pour Windows Server
+- Déployer l’extension Microsoft IaaSAntimalware par défaut pour Windows Server
 
-## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 Gestion sécurisée des utilisateurs / 10 Identité et authentification
+## <a name="9-secure-user-management"></a>9 Gestion sécurisée des utilisateurs 
 
 Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint vous permet de limiter et de contrôler les droits d’accès en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire ou de lecture/écriture, et les comptes avec des autorisations de propriétaire, de lecture ou d’écriture pour lesquels l’authentification multifacteur n’est pas activée.
+
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture sur votre abonnement
+- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
+
+## <a name="10-identity-and-authentication"></a>10 Identité et authentification
+
+Ce blueprint vous permet de limiter et de contrôler les droits d’accès en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire ou de lecture/écriture, et les comptes avec des autorisations de propriétaire, de lecture ou d’écriture pour lesquels l’authentification multifacteur n’est pas activée.
 
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
@@ -86,20 +110,20 @@ Ce blueprint affecte également des définitions Azure Policy qui permettent de 
 
 Ce blueprint affecte également une définition Azure Policy qui vérifie les autorisations associées aux fichiers de mot de passe des machines virtuelles Linux qui émettent une alerte si elles sont définies incorrectement. Cette conception vous d’appliquer une action corrective pour vérifier que les authentificateurs ne sont pas compromis.
 
-- \[Préversion\] : Vérifier que les autorisations de fichiers /etc/passwd de machine virtuelle Linux sont définies sur 0644
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Linux qui n’ont pas les autorisations de fichier passwd définies sur 0644
 
 Ce blueprint vous aide à appliquer des mots de passe forts en affectant des définitions Azure Policy qui détectent les machines virtuelles Windows ne mettant pas en œuvre une force minimale ou d’autres exigences relatives aux mots de passe. Le fait d’avoir connaissance des machines virtuelles qui enfreignent la stratégie de force des mots de passe peut vous aider à prendre des actions correctives visant à rendre les mots de passe de tous les comptes d’utilisateurs de machine virtuelle conformes à la stratégie.
 
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
-- \[Préversion\] : Auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
-- \[Préversion\] : Auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
-- \[Préversion\] : Auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Déployer des prérequis pour auditer les machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas le paramètre de complexité de mot de passe activé
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité maximale du mot de passe définie sur 70 jours
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui n’ont pas l’antériorité minimale du mot de passe définie sur 1 jour
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui ne limitent pas la longueur minimale du mot de passe à 14 caractères
+- \[Préversion\] : Afficher les résultats d’audit des machines virtuelles Windows qui autorisent la réutilisation des 24 mots de passe précédents
 
 Ce blueprint vous permet également de contrôler l’accès aux ressources Azure en affectant des définitions Azure Policy. Ces stratégies vérifient l’utilisation des types de ressources et des configurations susceptibles d’accorder un accès plus permissif aux ressources. Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider à prendre des actions correctives visant à limiter l’accès aux ressources Azure aux utilisateurs autorisés.
 
@@ -116,7 +140,19 @@ Ce blueprint vous permet également de contrôler l’accès aux ressources Azur
 Outre l’utilisation de plus de 25 stratégies pour une gestion sécurisée appropriée des utilisateurs, ce blueprint vous aide à protéger les interfaces de service contre les accès non autorisés en attribuant une définition [ Stratégie Azure](../../../policy/overview.md) qui surveille les comptes de stockage non restreints. Des comptes de stockage avec un accès illimité, peuvent permettre un accès involontaire à des informations contenues dans le système d’information. Cet blueprint attribue également une stratégie qui active des contrôles d’application adaptatifs sur des machines virtuelles.
 
 - Auditer l'accès réseau non restreint aux comptes de stockage
-- Des contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les ces contrôles d’application adaptatifs doit être activés sur les machines virtuelles
+- Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées
+- L'accès via un point de terminaison accessible sur Internet doit être limité
+- Les règles de groupe de sécurité réseau pour les machines virtuelles accessibles sur Internet doivent être renforcées
+- La solution de protection des points de terminaison doit être installée sur les groupes de machines virtuelles identiques
+- Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles
+- Auditer l'accès réseau non restreint aux comptes de stockage
+- Le débogage à distance devrait être désactivé pour Function App
+- Le débogage à distance doit être désactivé pour l'application web
+- Le débogage à distance doit être désactivé pour l’application API
+- L'application web ne doit pas être accessible via HTTPS
+- Function App ne doit pas être accessible via HTTPS
+- L'application API doit uniquement être accessible via HTTPS
 
 ## <a name="12-secure-service-administration"></a>12 Administration sécurisée des services
 
@@ -151,7 +187,6 @@ Ce blueprint vous permet de garantir que les événements système sont journali
 
 - L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server
 - Auditer le paramètre de diagnostic
-- Auditer les paramètres d'audit au niveau du serveur SQL
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux
 - \[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows
 - Déployer Network Watcher lors de la création de réseaux virtuels

@@ -1,21 +1,22 @@
 ---
-title: 'Didacticiel : Simuler un échec d’accès au stockage redondant avec accès en lecture dans Azure | Microsoft Docs'
-description: Simuler une erreur d’accès au stockage géoredondant avec accès en lecture
+title: Tutoriel - Simuler une défaillance lors de la lecture de données à partir de la région primaire
+titleSuffix: Azure Storage
+description: Simulez une erreur lors de la lecture de données à partir de la région primaire lorsque le stockage géoredondant avec accès en lecture (RA-GRS) est activé pour le compte de stockage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 1f5c404e410ded2714be761e35060f3c07379bd3
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508095"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892445"
 ---
-# <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Didacticiel : Simuler un échec d’accès au stockage redondant avec accès en lecture
+# <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>Didacticiel : Simuler une défaillance lors de la lecture de données à partir de la région primaire
 
 Ce tutoriel est le deuxième d’une série. Il vous permet de découvrir les avantages d’un [stockage géographiquement redondant avec accès en lecture](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) en simulant une défaillance.
 
@@ -32,7 +33,7 @@ Dans ce deuxième volet, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce tutoriel, suivez le tutoriel précédent : [Rendre vos données d’application hautement disponibles avec Stockage Azure][previous-tutorial].
+Avant de commencer ce tutoriel, suivez le tutoriel précédent : [Rendre vos données d’application hautement disponibles avec le stockage Azure][previous-tutorial].
 
 Pour simuler une défaillance avec un routage statique, vous allez utiliser une invite de commandes avec élévation de privilèges.
 
@@ -68,7 +69,7 @@ Pour ajouter un routage statique pour un hôte de destination, tapez la commande
 route add <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route add <destination_ip> <gateway_ip>
@@ -86,7 +87,7 @@ Pour simuler le fait que le point de terminaison principal devient à nouveau fo
 route del <destination_ip> gw <gateway_ip>
 ```
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 ```
 route delete <destination_ip>

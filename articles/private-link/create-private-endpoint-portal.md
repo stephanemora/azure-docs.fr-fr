@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419768"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899860"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure
 
@@ -144,7 +144,7 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
-    | Nom | Entrez * myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
+    | Nom | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
     |Région|Sélectionnez **WestCentralUS**.|
     |||
 5. Sélectionnez **Suivant : Ressource**.
@@ -177,7 +177,7 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Se connecter à une machine virtuelle à l’aide du Bureau à distance (RDP)
 
 
-Après avoir créé **myVm*, connectez-vous à cette machine virtuelle à partir d’Internet comme suit : 
+Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à partir d’Internet comme suit : 
 
 1. Dans la barre de recherche du portail, entrez *myVm*.
 
@@ -185,7 +185,7 @@ Après avoir créé **myVm*, connectez-vous à cette machine virtuelle à partir
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier .rdp* téléchargé.
+1. Ouvrez le fichier *downloaded.rdp*.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 

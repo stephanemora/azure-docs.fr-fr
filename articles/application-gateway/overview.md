@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a61b1a44419ac35efa5888de2b5a6e4988dfb512
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422300"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996576"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -111,7 +111,7 @@ Pour plus d’informations, consultez [Prise en charge de WebSocket](https://doc
 
 ## <a name="connection-draining"></a>Vidage des connexions
 
-Le vidage des connexions permet d’éliminer délicatement les membres du pool principal lors des mises à jour planifiées de maintenance. Ce paramètre est activé via le paramètre du http principal et peut s’appliquer à tous les membres d’un pool principal pendant la création de règles. Une fois activée, Application Gateway s’assure que toutes les instances de désinscription d’un pool principal ne reçoivent aucune nouvelle requête tout en permettant aux requêtes existantes de se terminer dans un délai défini. Cela s’applique à la fois aux instances principales explicitement supprimées du pool principal par un appel d’API et aux instances secondaires signalées comme étant non intègres d’après les résultats des sondes d’intégrité.
+Le vidage des connexions permet d’éliminer délicatement les membres du pool principal lors des mises à jour planifiées de maintenance. Ce paramètre est activé via le paramètre du http principal et peut s’appliquer à tous les membres d’un pool principal pendant la création de règles. Une fois activée, Application Gateway s’assure que toutes les instances de désinscription d’un pool back-end ne reçoivent aucune nouvelle requête tout en permettant aux requêtes existantes de se terminer dans un délai défini. Cela s’applique à la fois aux instances back-end explicitement supprimées du pool back-end par une modification de configuration utilisateur et aux instances backend signalées comme n’étant pas saines d’après les résultats des sondes d’intégrité. La seule exception concerne les demandes liées à la désinscription des instances, qui ont été désinscrites explicitement, en raison d’une affinité de session gérée par la passerelle et qui continueront d’être transmises par proxy aux instances de désinscription.
 
 Pour plus d’informations, consultez la section relative au drainage des connexions de [Vue d’ensemble de la configuration d’Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#connection-draining).
 

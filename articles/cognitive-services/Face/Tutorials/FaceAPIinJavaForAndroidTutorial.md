@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 740b3fae81521fec2cba31e3b8fd161f767c4380
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858973"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977792"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : Créer une application Android pour détecter et encadrer des visages dans une image
 
-Dans ce tutoriel, vous allez créer une application Android simple qui utilise l’API Visage Azure par le biais du SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
+Dans ce tutoriel, vous allez créer une application Android qui utilise l’API Visage Azure via le SDK Java pour détecter des visages humains dans une image. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -103,7 +103,7 @@ Votre application détecte les visages en appelant la méthode **faceClient.Face
 
 Chaque **visage** retourné inclut un rectangle pour indiquer son emplacement, combiné avec une série d’attributs de visage facultatifs. Dans cet exemple, seuls les rectangles de visage sont demandés.
 
-Insérez les deux méthodes suivantes dans la classe **MainActivity**. Notez qu’une fois la détection de visage terminée, l’application appelle la méthode **drawFaceRectanglesOnBitmap** pour modifier **ImageView**. Vous allez définir cette méthode dans la procédure suivante.
+Insérez les deux méthodes suivantes dans la classe **MainActivity**. Une fois la détection de visage terminée, l’application appelle la méthode **drawFaceRectanglesOnBitmap** pour modifier **ImageView**. Vous allez définir cette méthode dans la procédure suivante.
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?name=snippet_detection_methods)]
 
@@ -115,7 +115,7 @@ Insérez la méthode d’assistance suivante dans la classe **MainActivity**. Ce
 
 Enfin, décommentez l’appel à la méthode **detectAndFrame** dans **onActivityResult**.
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 Exécutez l’application et recherchez une image contenant un visage. Patientez pendant quelques secondes pour laisser à l’API Visage le temps de répondre. Un rectangle rouge doit apparaître autour de chaque visage de l’image.
 

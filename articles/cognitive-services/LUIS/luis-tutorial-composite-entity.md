@@ -9,27 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498990"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893181"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Didacticiel : Regrouper et extraire les données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 
-L’objectif de l’entité composite est de regrouper des entités connexes dans une entité de catégorie parente. Les informations existent en tant qu’entités distinctes avant la création d’un composite. 
+L’objectif de l’entité composite est de regrouper des entités connexes dans une entité de catégorie parente. Les informations existent en tant qu’entités distinctes avant la création d’un composite.
 
 Elle est adaptée à ce type de données, car les données :
 
-* Sont associées. 
+* Sont associées.
 * Utilisent divers types d’entités.
 * Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -37,7 +37,7 @@ Elle est adaptée à ce type de données, car les données :
 > [!div class="checklist"]
 > * Importer l’exemple d’application
 > * Créer une intention
-> * Ajouter une entité composite 
+> * Ajouter une entité composite
 > * Former
 > * Publish
 > * Obtenir les intentions et les entités à partir du point de terminaison
@@ -54,9 +54,9 @@ Elle est adaptée à ce type de données, car les données :
 
 ## <a name="composite-entity"></a>Entité composite
 
-Dans cette application, le nom du service est défini dans l’entité de liste **Department** et inclut des synonymes. 
+Dans cette application, le nom du service est défini dans l’entité de liste **Department** et inclut des synonymes.
 
-L’intention **TransferEmployeeToDepartment** comprend des exemples d’énoncés pour demander l’affectation d’un employé à un nouveau service. 
+L’intention **TransferEmployeeToDepartment** comprend des exemples d’énoncés pour demander l’affectation d’un employé à un nouveau service.
 
 Exemples d’énoncés pour cette intention :
 
@@ -64,12 +64,12 @@ Exemples d’énoncés pour cette intention :
 |--|
 |Affecter John W. Smith au service de comptabilité|
 |Transférer Jill Jones à partir du service R&D|
- 
-La demande d’affectation doit inclure le nom du service et le nom de l’employé. 
+
+La demande d’affectation doit inclure le nom du service et le nom de l’employé.
 
 ## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>Ajouter l’entité prédéfini PersonName pour faciliter l’extraction de types de données courants
 
-LUIS fournit plusieurs entités prédéfinies pour l’extraction de données courantes. 
+LUIS fournit plusieurs entités prédéfinies pour l’extraction de données courantes.
 
 1. Sélectionnez **Build** (Générer) dans le volet de navigation supérieur, puis **Entities** (Entités) dans le menu de navigation gauche.
 
@@ -87,11 +87,11 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Sélectionnez **TransferEmployeeToDepartment** dans la liste des intentions.
 
-1. Dans l’énoncé `place John Jackson in engineering`, sélectionnez l’entité personName, `John Jackson`, puis **Inclure dans un wrapper d’entité composite** dans la liste de menu contextuel pour l’énoncé suivant. 
+1. Dans l’énoncé `place John Jackson in engineering`, sélectionnez l’entité personName, `John Jackson`, puis **Inclure dans un wrapper d’entité composite** dans la liste de menu contextuel pour l’énoncé suivant.
 
     ![Capture d'écran de la sélection de l’encapsulage d’entité composite dans la boîte de dialogue déroulante](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
-1. Puis sélectionnez immédiatement la dernière entité, `engineering`, dans l’énoncé. Une barre verte sous les termes sélectionnés indique une entité composite. Dans le menu contextuel, entrez le nom composite `TransferEmployeeInfo`, puis appuyez sur Entrée. 
+1. Puis sélectionnez immédiatement la dernière entité, `engineering`, dans l’énoncé. Une barre verte sous les termes sélectionnés indique une entité composite. Dans le menu contextuel, entrez le nom composite `TransferEmployeeInfo`, puis appuyez sur Entrée.
 
     ![Capture d'écran de la sélection du nom de l’entité composite dans la boîte de dialogue déroulante](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
@@ -103,11 +103,11 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Dans chaque exemple d’énoncé, sélectionnez l’entité la plus à gauche, qui devrait se trouver dans le composite. Ensuite, sélectionnez **Inclure dans un wrapper d’entité composite**.
 
-1. Sélectionnez le dernier mot dans l’entité composite, puis **TransferEmployeeInfo** dans le menu contextuel. 
+1. Sélectionnez le dernier mot dans l’entité composite, puis **TransferEmployeeInfo** dans le menu contextuel.
 
-1. Vérifiez que tous les énoncés de l’intention sont étiquetés avec l’entité composite. 
+1. Vérifiez que tous les énoncés de l’intention sont étiquetés avec l’entité composite.
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les changements apportés à l’intention puissent être testés 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Entraîner l’application pour que les changements apportés à l’intention puissent être testés
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
@@ -115,11 +115,11 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenir l’intention et la prédiction d’entité à partir du point de terminaison 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Obtenir l’intention et la prédiction d’entité à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move Jill Jones to DevOps`. Le dernier paramètre de la chaîne de requête est `q`, la requête de l’énoncé. 
+2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move Jill Jones to DevOps`. Le dernier paramètre de la chaîne de requête est `q`, la requête de l’énoncé.
 
     Étant donné que ce test consiste à vérifier que le composite est extrait correctement, un test peut inclure soit un exemple d’énoncé existant, soit un nouvel énoncé. Un bon test consiste à inclure toutes les entités enfants dans l’entité composite.
 
@@ -185,7 +185,7 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
     }
     ```
 
-   Cet énoncé retourne un tableau d’entités composites. Chaque entité se voit attribuer un type et une valeur. Pour une plus grande précision de chaque entité enfant, utilisez la combinaison de type et de valeur de l’élément de tableau composite pour trouver l’élément correspondant dans le tableau d’entités.  
+   Cet énoncé retourne un tableau d’entités composites. Chaque entité se voit attribuer un type et une valeur. Pour une plus grande précision de chaque entité enfant, utilisez la combinaison de type et de valeur de l’élément de tableau composite pour trouver l’élément correspondant dans le tableau d’entités.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -202,7 +202,7 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce tutoriel a créé une entité composite pour encapsuler des entités existantes. Cela permet à l’application cliente de trouver un groupe de données associées dans différents types de données afin de poursuivre la conversation. Une application cliente pour cette application de ressources humaines peut demander le jour et l’heure de début et de fin du déplacement. Elle peut également demander des informations concernant d’autres aspects logistiques du déplacement, comme un téléphone physique. 
+Ce tutoriel a créé une entité composite pour encapsuler des entités existantes. Cela permet à l’application cliente de trouver un groupe de données associées dans différents types de données afin de poursuivre la conversation. Une application cliente pour cette application de ressources humaines peut demander le jour et l’heure de début et de fin du déplacement. Elle peut également demander des informations concernant d’autres aspects logistiques du déplacement, comme un téléphone physique.
 
-> [!div class="nextstepaction"] 
-> [Découvrez comment ajouter une entité simple avec une liste d’expressions](luis-quickstart-primary-and-secondary-data.md)  
+> [!div class="nextstepaction"]
+> [Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)

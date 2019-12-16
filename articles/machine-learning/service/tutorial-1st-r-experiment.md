@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: 52dc0ff27ad2f04b9faeab24c6bdba68d9ec138e
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 62c9ac0020db92c1540d0ecb4fa996d9b8405a58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307290"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974255"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>Didacticiel : Effectuer l’apprentissage de votre premier modèle et le déployer dans R avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -142,7 +142,7 @@ saveRDS(accidents, file="accidents.Rd")
 ```
 
 ### <a name="upload-data-to-the-datastore"></a>Charger les données dans le magasin de données
-Chargez des données dans le cloud afin qu’elles puissent être accessibles à votre environnement d’apprentissage à distance. Chaque espace de travail Azure ML est fourni avec un magasin de données par défaut qui stocke les informations de connexion dans le conteneur Blob Azure qui est provisionné dans le compte de stockage associé à l’espace de travail. Le code suivant permet de charger dans ce magasin de données les données relatives aux accidents que vous avez créées précédemment.
+Chargez des données dans le cloud afin qu’elles puissent être accessibles à votre environnement d’apprentissage à distance. Chaque espace de travail Azure Machine Learning est fourni avec un magasin de données par défaut qui stocke les informations de connexion dans le conteneur Blob Azure provisionné dans le compte de stockage associé à l’espace de travail. Le code suivant permet de charger dans ce magasin de données les données relatives aux accidents que vous avez créées précédemment.
 
 ```R
 ds <- get_default_datastore(ws)
@@ -164,10 +164,10 @@ Pour ce tutoriel, placez un modèle de régression logistique sur vos données c
 * Envoi du travail
 
 ### <a name="prepare-the-training-script"></a>Préparer le script d’apprentissage
-Un script d’apprentissage appelé `accidents.R` vous est fourni dans le même répertoire que ce tutoriel. Notez les détails suivants **dans le script d’apprentissage** qui permettent de tirer parti du service Azure ML pour l’apprentissage :
+Un script d’apprentissage appelé `accidents.R` vous est fourni dans le même répertoire que ce tutoriel. Notez les détails suivants **dans le script d’entraînement** qui permettent de tirer parti du service Azure Machine Learning pour l’entraînement :
 
 * Le script d’apprentissage prend un argument `-d` pour rechercher le répertoire qui contient les données d’apprentissage. Quand vous définissez et soumettez votre travail ultérieurement, vous pointez vers le magasin de données pour cet argument. Azure ML monte le dossier de stockage sur le cluster distant pour le travail d’apprentissage.
-* Le script d’apprentissage journalise la précision finale sous forme de métrique dans l’enregistrement d’exécution dans Azure ML à l’aide de `log_metric_to_run()`. Le SDK Azure ML fournit un ensemble d’API de journalisation pour la journalisation de diverses métriques pendant les exécutions d’apprentissage. Ces métriques sont enregistrées et conservées dans l’enregistrement d’exécution de l’expérience. Les métriques sont ensuite accessibles à tout moment ou peuvent être affichées dans la page des détails de l’exécution de [Azure Machine Learning Studio](https://ml.azure.com). Consultez la [référence](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) pour obtenir l’ensemble complet des méthodes de journalisation `log_*()`.
+* Le script d’apprentissage journalise la précision finale sous forme de métrique dans l’enregistrement d’exécution dans Azure ML à l’aide de `log_metric_to_run()`. Le SDK Azure ML fournit un ensemble d’API de journalisation pour la journalisation de diverses métriques pendant les exécutions d’apprentissage. Ces métriques sont enregistrées et conservées dans l’enregistrement d’exécution de l’expérience. Les métriques sont ensuite accessibles à tout moment ou peuvent être affichées dans la page des détails de l’exécution de [Studio](https://ml.azure.com). Consultez la [référence](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) pour obtenir l’ensemble complet des méthodes de journalisation `log_*()`.
 * Le script d’entraînement enregistre votre modèle dans un répertoire nommé **outputs**. Le dossier `./outputs` bénéficie d’un traitement spécial de la part d’Azure ML. Au cours de l’apprentissage, les fichiers écrits dans `./outputs` sont automatiquement chargés dans votre enregistrement d’exécution par Azure ML et conservés en tant qu’artefacts. En enregistrant le modèle entraîné dans `./outputs`, vous pouvez accéder à votre fichier de modèle et le récupérer même lorsque l’exécution est terminée et que vous n’avez plus accès à votre environnement de formation à distance.
 
 ### <a name="create-an-estimator"></a>Créer un estimateur

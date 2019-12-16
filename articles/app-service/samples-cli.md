@@ -6,12 +6,12 @@ ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
 ms.date: 12/12/2017
 ms.custom: mvc
-ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 0b3acb1b421962cde7d90398f42bdfeefda578e3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688508"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971500"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Exemples d’interface CLI pour Azure App Service
 
@@ -32,6 +32,8 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 |**Mettre à l’échelle une application**||
 | [Mettre à l’échelle une application manuellement](./scripts/cli-scale-manual.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et la met à l’échelle entre deux instances. |
 | [Mettre à l’échelle une application dans le monde entier avec une architecture haute disponibilité](./scripts/cli-scale-high-availability.md?toc=%2fcli%2fazure%2ftoc.json) | Crée deux applications App Service dans deux régions géographiques différentes et les rend disponibles par le biais d’un point de terminaison unique à l’aide d’Azure Traffic Manager. |
+|**Protéger l’application**||
+| [Intégration à Azure Application Gateway](./scripts/cli-integrate-app-service-with-application-gateway.md?toc=%2fcli%2fazure%2ftoc.json) | Crée une application App Service et l’intègre à Application Gateway à l’aide du point de terminaison de service et des restrictions d’accès. |
 |**Connecter l’application aux ressources**||
 | [Connecter une application à une instance SQL Database](./scripts/cli-connect-to-sql.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et une base de données SQL, puis ajoute la chaîne de connexion de base de données aux paramètres d’application. |
 | [Connecter une application à un compte de stockage](./scripts/cli-connect-to-storage.md?toc=%2fcli%2fazure%2ftoc.json)| Crée une application App Service et un compte de stockage, puis ajoute la chaîne de connexion de stockage aux paramètres d’application. |

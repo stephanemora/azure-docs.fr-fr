@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 07/22/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f8a827cf19bec0796fc0e9743d1a2599071468af
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8bdc6acb17cde29b99bad20a45f41d6bfc174363
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899688"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976347"
 ---
 # <a name="quickstart-use-java-to-search-the-web-with-the-bing-web-search-rest-api-an-azure-cognitive-service"></a>Démarrage rapide : Utiliser Java pour effectuer des recherches sur le web avec l’API REST Recherche Web Bing, un service cognitif d’Azure
 
@@ -73,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>Définir des variables
 
-Ce code définit `subscriptionKey`, `host`, `path`, et `searchTerm`. Vérifiez que le point de terminaison est correct et remplacez la valeur `subscriptionKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`. N’oubliez pas d’ajouter ce code à la classe `BingWebSearch` comme indiqué ci-dessus.
+Ce code définit `subscriptionKey`, `host`, `path`, et `searchTerm`. `host` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource. Remplacez la valeur `subscriptionKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`. N’oubliez pas d’ajouter ce code à la classe `BingWebSearch` comme indiqué ci-dessus.
 
 ```java
 // Enter a valid subscription key.

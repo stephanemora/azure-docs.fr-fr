@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 4d150a1f6793cc20d58bebc67d5c6b58c03139d4
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304705"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893346"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
 
@@ -70,7 +70,7 @@ Les données de surveillance de votre abonnement sont maintenant transférées d
 
 ## <a name="route-resource-data-to-the-storage-account"></a>Router les données de ressource vers le compte de stockage
 
-Nous configurons à présent les données au niveau des ressources (journaux de diagnostic et de métriques des ressources) pour qu’elles soient routées vers le compte de stockage en configurant les **paramètres de diagnostic des ressources**.
+À présent, nous allons configurer les données au niveau des ressources (journaux des ressources et métriques des ressources) pour qu’elles soient routées vers le compte de stockage en configurant les **paramètres de diagnostic des ressources**.
 
 1. Cliquez sur le bouton **Moniteur** dans la liste de navigation de gauche, puis sur **Paramètres de diagnostic**. Vous trouverez la liste de toutes les ressources dans votre abonnement, qui produisent des données de surveillance dans Azure Monitor. Si vous n’avez pas de ressources dans cette liste, vous pouvez [créer une application logique](../../logic-apps/quickstart-create-first-logic-app-workflow.md) avant de poursuivre afin que de disposer d’une ressource sur laquelle configurer un paramètre de diagnostic.
 
@@ -162,7 +162,7 @@ Si vous avez suivi les étapes précédentes, les données ont commencé à circ
 
 5. Accédez au fichier PT1H.json en cliquant dans les conteneurs pour l’ID de ressource, la date et l’heure. Cliquez sur le fichier PT1H.json, puis sur **Télécharger**. Chaque objet blob PT1H.json contient un objet blob d’événements JSON qui se sont produits pendant l’heure spécifiée dans l’URL de l’objet blob (par exemple, h=12). Pendant l’heure en cours, les événements sont ajoutés au fichier PT1H.json à mesure qu’ils se produisent. La valeur de minute (m=00) est toujours 00, car les événements du journal sont répartis en objets blob par heure.
 
-   Vous pouvez à présent afficher l’événement JSON stocké dans le compte de stockage. Pour les journaux de diagnostic de ressource, le format de l’objet blob est le suivant :
+   Vous pouvez à présent afficher l’événement JSON stocké dans le compte de stockage. Pour les journaux de ressources, le format des objets blob est le suivant :
 
    insights-logs-{nom de la catégorie de journal}/resourceId=/{ID de la ressource}/y={année, quatre chiffres}/m={mois, deux chiffres}/d={jour, deux chiffres}/h={heure, deux chiffres, format 24 h}/m=00/PT1H.json
 

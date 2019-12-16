@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 6fc55130bd840de3960a44ddc1bd0617af185148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787601"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969630"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Workplace by Facebook
 
@@ -48,8 +48,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Workplace by Facebook prend en charge l’authentification unique initiée par **SP**
+* Workplace by Facebook prend en charge le **[provisionnement et le déprovisionnement automatiques des utilisateurs (recommandé)](workplacebyfacebook-provisioning-tutorial.md)**
 * Workplace by Facebook prend en charge **l’approvisionnement juste-à-temps**
-* Workplace by Facebook prend en charge **[l’approvisionnement automatique d’utilisateurs](workplacebyfacebook-provisioning-tutorial.md)**
 * L’application mobile Workplace by Facebook peut désormais être configurée avec Azure AD pour activer l’authentification unique. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Ajout de Workplace by Facebook à partir de la galerie

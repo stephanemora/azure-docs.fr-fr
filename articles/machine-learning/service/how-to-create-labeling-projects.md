@@ -1,20 +1,20 @@
 ---
-title: Obtenir des étiquettes pour des données
+title: Créer un projet d’étiquetage des données
 titleSuffix: Azure Machine Learning
-description: Cet article explique comment créer et exécuter des projets d’étiquetage afin de baliser des données pour le Machine Learning.
+description: Découvrez comment créer et exécuter des projets d’étiquetage afin de marquer des données pour le machine learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: e66a9f8a775a46c906601ea08be52ca9dfbe0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bdedc3ee0c76eafc4b4bc95116fb5be846f4bee5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689292"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978234"
 ---
-# <a name="get-labels-for-data"></a>Obtenir des étiquettes pour des données
+# <a name="create-a-data-labeling-project-and-export-labels"></a>Créer un projet d’étiquetage des données et exporter des étiquettes 
 
 L’étiquetage de grandes quantités de données est souvent un casse-tête dans les projets de Machine Learning. Les projets qui ont un composant de vision par ordinateur, par exemple la classification d’images ou la détection d’objet, nécessitent généralement des étiquettes pour des milliers d’images.
  
@@ -24,6 +24,9 @@ Machine Learning effectue un suivi de la progression et gère la file d’attent
 
 Dans Machine Learning, vous pouvez démarrer et arrêter le projet, ajouter et supprimer des personnes ou des équipes, et superviser la progression. Vous pouvez exporter des données étiquetées au format COCO ou en tant que jeu de données Azure Machine Learning.
 
+> [!Important]
+> Seuls les projets d’étiquetage de classification des images et d’identification des objets sont actuellement pris en charge. De plus, les images de données doivent être disponibles dans un magasin de données blob Azure. (Si vous ne disposez pas d’un magasin de données, vous pouvez charger des images pendant la création du projet.) 
+
 Cet article porte sur les points suivants :
 
 > [!div class="checklist"]
@@ -32,6 +35,7 @@ Cet article porte sur les points suivants :
 > * Gérer les équipes et les personnes qui travaillent sur le projet
 > * Exécuter et surveiller le projet
 > * Exporter les étiquettes
+
 
 ## <a name="prerequisites"></a>Prérequis
 

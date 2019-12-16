@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que l’intelligence artificielle géométrique ?
+title: Qu’est-ce que l’intelligence artificielle géométrique DSVM ?
 titleSuffix: Azure Data Science Virtual Machine
 description: La Data Science Virtual Machine d’intelligence artificielle géographique fournit ArcGIS Pro pour le traitement de données géographiques, ainsi que Python, R et des kits de ressources de science des données pour exploiter le machine learning et l’intelligence artificielle.
 keywords: apprentissage profond, IA, outils de science des données, machine virtuelle de science des données, analyse géospatiale
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 3d17006b9d35f0abbcc0e9c60f38ab693c1d088d
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195582"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899916"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Qu’est-ce que la Data Science Virtual Machine d’intelligence artificielle géographique ?
 
@@ -31,7 +31,7 @@ La Data Science Virtual Machine d’intelligence artificielle géographique (ég
 Geo AI Data Science VM est pris en charge sur la DSVM Windows 2016. Dans ArcGis, les interfaces R et Python sont aussi préconfigurées sur Geo-DSVM, permettant ainsi un accès programmatique à une analytique géospatiale au sein de vos applications d’IA. De plus, des exemples Jupyter Notebook sont fournis pour vous aider à commencer à générer des applications d’IA contenant des informations géospatiales.
 
 
-## <a name="why-geo-ai-data-science-vm"></a>Pourquoi Geo AI Data Science VM ? 
+## <a name="why-geo-ai-data-science-vm"></a>Pourquoi utiliser une machine virtuelle de science des données de l’intelligence artificielle de géoréplication ? 
 
 L’intégration d’informations positionnelles et géographiques dans vos données apporte une nouvelle dimension à la compréhension d’un monde de plus en plus régi par les appareils IoT. Un large éventail d’applications existe désormais dans quasiment chaque segment de la société civile, qu’il soit commercial, administratif, éducatif ou à but non lucratif. L’analytique géospatiale fournit des outils fiables pour collecter, gérer et analyser des données géographiques et géoréférencées. Elle offre également une visualisation puissante avec un angle de vue unique sur l’importance de ces données.
 

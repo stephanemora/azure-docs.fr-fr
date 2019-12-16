@@ -1,20 +1,20 @@
 ---
-title: Optimiser le débit lors de l’importation en bloc de données vers un compte d'API SQL Azure Cosmos DB
-description: Découvrez comment créer une application console .NET qui optimise le débit approvisionné (RU/s) requis pour importer des données dans Azure Cosmos DB.
+title: Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
+description: Découvrez comment importer ou ingérer des données dans Azure Cosmos DB en générant une application console .NET qui optimise le débit provisionné (RU/s) nécessaire pour importer des données
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d80d762338744c0ca783d1768bacb8443dbc5020
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606218"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896274"
 ---
-# <a name="optimize-throughput-when-bulk-importing-data-to-azure-cosmos-db-sql-api-account"></a>Optimiser le débit lors de l’importation en bloc de données vers un compte d'API SQL Azure Cosmos DB
+# <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Importer des données en bloc dans un compte d’API SQL Azure Cosmos DB à l’aide du kit SDK .NET
 
 Ce tutoriel vous montre comment créer une application console .NET qui optimise le débit approvisionné (RU/s) requis pour importer des données dans Azure Cosmos DB. Dans cet article, vous allez lire des données à partir d’un exemple de source de données et les importer dans un conteneur Azure Cosmos.
 Ce tutoriel utilise la [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) du kit de développement logiciel (SDK) .NET Azure Cosmos DB, qui peut être ciblé sur le .NET Framework ou .NET Core.

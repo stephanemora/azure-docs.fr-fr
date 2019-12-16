@@ -1,18 +1,18 @@
 ---
-title: Guide pratique pour l’utilisation de l’outil d’étiquetage des données d’Azure Machine Learning
+title: Étiqueter des images dans un projet d’étiquetage
 title.suffix: Azure Machine Learning
-description: Cet article explique comment utiliser les outils d’étiquetage des données dans un projet d’étiquetage Azure Machine Learning.
+description: Découvrez comment utiliser les outils de marquage des données dans un projet d’étiquetage Azure Machine Learning.
 author: lobrien
 ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bc7eaeefcef042417b29eb7c887cc19acf8c5c02
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: b36eed1918be2c769bcf74c0d8dee09a5bd62756
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688229"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978132"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Étiqueter des images dans un projet d’étiquetage
 
@@ -108,7 +108,7 @@ Après avoir créé les cadres englobants d’une image, sélectionnez **Envoyer
 
 ## <a name="finish-up"></a>Terminer
 
-Quand vous envoyez une page de données étiquetées, Azure vous affecte de nouvelles données non étiquetées en provenance d’une file d’attente de travail. S’il ne reste plus de données non étiquetées, vous recevez un message correspondant ainsi qu’un lien vers la page d’accueil du portail.
+Quand vous envoyez une page de données marquées, Azure vous affecte de nouvelles données non étiquetées en provenance d’une file d’attente de travail. S’il ne reste plus de données non étiquetées, vous recevez un message correspondant ainsi qu’un lien vers la page d’accueil du portail.
 
 Une fois l’étiquetage terminé, sélectionnez votre nom dans le coin supérieur droit du portail d’étiquetage, puis sélectionnez **Déconnexion**. Si vous ne vous déconnectez pas, Azure finit par faire expirer votre session et attribuer vos données à un autre « étiqueteur ».
 

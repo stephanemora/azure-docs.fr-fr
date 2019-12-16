@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
-ms.openlocfilehash: b369dc82e98dff58a42b63b9733e7b786593d534
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: e52101b873e03cd6fcd847e9aa2a2d801f8f583d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034665"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918851"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Démarrage rapide : Rechercher des images à l’aide de l’API REST Recherche d’images Bing et de C#
 
@@ -42,7 +42,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
     using Newtonsoft.Json.Linq;
     ```
 
-2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et le terme de recherche.
+2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et le terme de recherche. `uriBase` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```csharp
     //...

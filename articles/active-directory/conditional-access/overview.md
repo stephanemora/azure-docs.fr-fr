@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0463ffad87d00421c2fcb5c8357406d5f692144
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a4c85fbc2c1f926f89dbfe9f2a5ae47cc48edf73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075328"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966275"
 ---
 # <a name="what-is-conditional-access"></a>Qu’est-ce que l’accès conditionnel ?
 
@@ -80,6 +80,13 @@ De nombreuses organisations rencontrent des problèmes d’accès courants que l
 - Blocage ou octroi de l’accès à partir d’emplacements spécifiques
 - Blocage des comportements de connexion à risque
 - Demande d’appareils gérés par l’organisation pour des applications spécifiques
+
+## <a name="customer-case-studies"></a>Études de cas clients
+
+Découvrez comment d’autres organisations utilisent l’accès conditionnel Azure AD pour définir et implémenter des décisions de contrôle d’accès automatisées. Les récits présentés ci-après montrent comment ces besoins client sont respectés.
+
+* [Wipro favorise la productivité mobile avec les outils de sécurité cloud Microsoft pour améliorer les engagements des clients.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Les stratégies d’accès conditionnel dans Azure AD ont permis à la société de partager des documents, des ressources et des applications avec des entités approuvées extérieures, qui peuvent utiliser leurs propres informations d’identification, tout en conservant le contrôle sur ses propres données d’entreprise.
+* [Aramex delivery limited - L’entreprise de transport et de logistique mondiale crée un bureau connecté au cloud avec une solution de gestion des accès et des identités.](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en) Garantir un accès sécurisé était particulièrement difficile avec les employés distants d’Aramex. La société applique désormais l’accès conditionnel pour permettre à ces employés distants d’accéder à leurs applications SaaS à partir de l’extérieur du réseau. La règle d’accès conditionnel décide s’il faut appliquer Multi-Factor Authentication, ce qui donne uniquement l’accès approprié aux personnes appropriées.
 
 ## <a name="license-requirements"></a>Conditions de licence :
 

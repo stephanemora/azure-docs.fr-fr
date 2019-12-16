@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ac464593e14a712cf0f137b5f3522d018d5874d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0085db3f38fb8af014434f36893182e1682b05a7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884534"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972130"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Slack
 
@@ -45,8 +45,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Slack prend en charge l’authentification unique initiée par le **fournisseur de services**
-* Slack prend en charge l’attribution d’utilisateurs **Juste-à-temps**
-* Slack prend en charge [l’attribution d’utilisateurs **automatique**](slack-provisioning-tutorial.md)
+* Slack prend en charge le [provisionnement et le déprovisionnement **automatisés** des utilisateurs](slack-provisioning-tutorial.md) (recommandé)
 
 > [!NOTE]
 > L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.

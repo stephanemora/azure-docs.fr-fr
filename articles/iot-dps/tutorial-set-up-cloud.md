@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Configurer le cloud pour le service Azure IoT Hub Device Provisioning dans le portail
-description: Ce tutoriel vous montre comment configurer les ressources cloud pour le provisionnement d’appareils dans le [portail Azure](https://portal.azure.com) à l’aide du service IoT Hub Device Provisioning
+description: Ce tutoriel montre comment configurer les ressources cloud pour le provisionnement d’appareils dans le [portail Azure](https://portal.azure.com) à l’aide du service IoT Hub Device Provisioning
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: ad7ccf9dd91d635cfaab30a51e1b145a98117079
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702487"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976721"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Didacticiel : Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 

@@ -1,24 +1,25 @@
 ---
-title: Sécuriser l’accès aux données d’une application dans le cloud avec le stockage Azure | Microsoft Docs
+title: Sécuriser l’accès aux données d’application
+titleSuffix: Azure Storage
 description: Utilisez les jetons SAS, le chiffrement et HTTPS pour sécuriser les données de votre application dans le cloud.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 05/30/2018
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986696"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892428"
 ---
-# <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Sécuriser l’accès aux données d’une application dans le cloud
+# <a name="secure-access-to-application-data"></a>Sécuriser l’accès aux données d’application
 
-Ce didacticiel est le troisième volet d’une série. Vous apprenez à sécuriser l’accès au compte de stockage. 
+Ce tutoriel est le troisième de la série. Vous apprenez à sécuriser l’accès au compte de stockage. 
 
 Dans ce troisième volet, vous apprenez à :
 
@@ -31,7 +32,7 @@ Le [stockage Blob Azure](../common/storage-introduction.md#blob-storage) fournit
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce tutoriel, vous devez avoir terminé le tutoriel précédent sur le stockage : [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid][previous-tutorial]. 
+Pour suivre ce tutoriel, vous devez avoir terminé le tutoriel précédent sur le stockage : [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid][previous-tutorial].
 
 ## <a name="set-container-public-access"></a>Définir un conteneur d’accès public
 

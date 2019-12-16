@@ -1,14 +1,28 @@
 ---
-author: erhopf
-ms.author: erhopf
+author: aahill
+ms.author: aahi
 ms.service: cognitiveservices
 ms.topic: include
-ms.date: 08/16/2018
-ms.openlocfilehash: d0c46c6a315166df0c72642675f01c4726fc0e8c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 12/09/2019
+ms.openlocfilehash: e68a61e570ae878432089bb93235e08c3b71225f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177345"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961475"
 ---
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les API Recherche Bing. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour obtenir une clé d’abonnement.
+## <a name="create-an-azure-resource"></a>Créer une ressource Azure
+
+Commencez à utiliser l’API Recherche Web Bing en créant une des ressources Azure ci-dessous.
+
+* [Créez une ressource d’essai](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) :
+    * Aucun abonnement Azure n’est nécessaire.
+    * Valable pendant sept jours, gratuitement. Une fois l’inscription terminée, une clé d’essai et un point de terminaison seront disponibles sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+
+* [Créez une ressource Recherche Bing v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) :
+    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.
+    * Utilisez le niveau tarifaire Gratuit pour tester le service, puis effectuez par la suite une mise à niveau vers un niveau payant pour la production.
+
+* [Créer une ressource multiservice](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) :
+    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.  
+    * Utilisez la même clé et le même point de terminaison pour vos applications, dans plusieurs services Cognitive Services.

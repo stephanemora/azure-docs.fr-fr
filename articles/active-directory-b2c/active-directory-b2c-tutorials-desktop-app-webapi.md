@@ -1,6 +1,6 @@
 ---
-title: Tutoriel - Accorder l’accès à une API web Node.js à partir d’une application de bureau avec Azure Active Directory B2C | Microsoft Docs
-description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API web Node.js et l’appeler depuis une application de bureau .NET.
+title: 'Didacticiel : Accorder l’accès à une API web Node.js à partir d’une application de bureau'
+description: Tutoriel sur l’utilisation d’Active Directory B2C pour protéger une API web Node.js et l’appeler à partir d’une application de bureau .NET.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: f271dd23501aa0514faff29f638f695c80c844f2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641850"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949770"
 ---
-# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
 Ce didacticiel vous montre comment appeler une API web Node.js protégée par Azure Active Directory B2C (Azure AD B2C) à partir d’une application de bureau Windows Presentation Foundation (WPF) également protégée par Azure AD B2C.
 

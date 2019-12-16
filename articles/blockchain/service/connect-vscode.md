@@ -1,15 +1,15 @@
 ---
 title: Utiliser Visual Studio Code pour se connecter à Azure Blockchain Service
 description: Se connecter à un réseau du consortium Azure Blockchain Service avec l’extension Kit de développement Azure Blockchain pour Ethereum dans Visual Studio Code
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.topic: quickstart
 ms.reviewer: chrisseg
-ms.openlocfilehash: 4d4625df1cb07818dcadb88e2c98bf9ae1da1b1f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1bcdfdafa9253fc4dc20ccb7cc237cb794b0af53
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455987"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977061"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-to-an-azure-blockchain-service-consortium-network"></a>Démarrage rapide : Utiliser Visual Studio Code pour se connecter à un réseau du consortium Azure Blockchain Service
 
@@ -22,9 +22,9 @@ Dans ce guide de démarrage rapide, vous allez installer et utiliser l’extensi
 * Effectuer l’étape [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [Azure Blockchain Development Kit pour l’extension Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
-* [Node.js 10.15.x ou version ultérieure](https://nodejs.org/download)
-* [Git 2.10.x ou version ultérieure](https://git-scm.com)
-* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Ajoutez python.exe à votre chemin. La présence de Python version 2.7.15 dans votre chemin est obligatoire pour Azure Blockchain Development Kit.
+* [Node.js 10.15.x ou ultérieur](https://nodejs.org/download)
+* [Git 2.10.x ou ultérieur](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) Ajoutez python.exe à votre chemin. La présence de Python version 2.7.15 dans votre chemin est obligatoire pour le Kit de développement Azure Blockchain.
 * [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
 * [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
 
@@ -59,12 +59,12 @@ Vous pouvez vous connecter à des membres de consortium au moyen de l’extensio
 Si vous n’avez pas accès à un membre de consortium Azure Blockchain Service, suivez l’un des deux prérequis suivants [Démarrage rapide : Créer un membre blockchain à l’aide du portail Azure](create-member.md) ou [Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide de l’interface Azure CLI](create-member-cli.md).
 
 1. Dans le volet de l’Explorateur de VS code, développez l’extension **Azure Blockchain**.
-1. Sélectionnez **Se connecter au consortium**.
+1. Sélectionnez **Se connecter au réseau**.
 
-   ![Se connecter au consortium](./media/connect-vscode/connect-consortium.png)
+   ![Se connecter au réseau](./media/connect-vscode/connect-consortium.png)
 
     Si vous êtes invité à utiliser l’authentification Azure, suivez les invites pour vous authentifier avec un navigateur.
-1. Choisissez **Se connecter au consortium Azure Blockchain Service** dans la liste déroulante de la palette de commandes.
+1. Choisissez **Azure Blockchain Service** dans la liste déroulante de la palette de commandes.
 1. Choisissez l’abonnement et le groupe de ressources qui sont associés à votre membre de consortium Azure Blockchain Service.
 1. Choisissez votre consortium dans la liste.
 

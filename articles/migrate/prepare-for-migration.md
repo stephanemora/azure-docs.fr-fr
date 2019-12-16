@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 12/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196437"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974782"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -99,7 +99,7 @@ Par exemple, si le lecteur de disque de données de votre installation utilise l
 1. Sur l’ordinateur local (et non sur le serveur hôte), ouvrez une invite de commandes avec élévation de privilèges.
 2. Tapez **diskpart**.
 3. Tapez **SAN**. Si la lettre de lecteur du système d’exploitation invité n’est pas conservée, **Mettre hors connexion tous les disques** ou **Mettre hors connexion les disques partagés** est retourné.
-4. À l’invite **DISKPART**, tapez **SANPOLICY=ONLINEALL**. Avec cette définition, vous êtes assuré que les disques sont mis en ligne et accessibles en lecture et écriture.
+4. À l’invite **DISKPART**, tapez **Stratégie SAN=OnlineAll**. Avec cette définition, vous êtes assuré que les disques sont mis en ligne et accessibles en lecture et écriture.
 5. Pendant le test de migration, vous pouvez vérifier que les lettres de lecteurs sont conservées.
 
 

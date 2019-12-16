@@ -1,24 +1,24 @@
 ---
-title: "Didacticiel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Azure à l'aide d'Azure Key Vault | Microsoft Docs"
-description: Comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client pour le service Stockage Microsoft Azure avec Azure Key Vault.
+title: Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
+titleSuffix: Azure Storage
+description: Découvrez comment chiffrer et déchiffrer un objet blob en utilisant le chiffrement côté client avec Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: tutorial
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 34dbcaeedb544a8a8808aab3e8e3315f1790dd9a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c83e56a47f4b212a5612cb9e6965ce8e73228dcb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003435"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892887"
 ---
-# <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Didacticiel : Chiffrement et déchiffrement d'objets blob dans le service Stockage Microsoft Azure à l'aide d'Azure Key Vault
+# <a name="tutorial---encrypt-and-decrypt-blobs-using-azure-key-vault"></a>Tutoriel - Chiffrer et déchiffrer des objets blob avec Azure Key Vault
 
-## <a name="introduction"></a>Introduction
 Ce didacticiel décrit comment utiliser le chiffrement de stockage côté client avec Azure Key Vault. Il vous explique comment chiffrer et déchiffrer un objet blob dans une application console à l'aide de ces technologies.
 
 **Durée estimée :** 20 minutes
@@ -121,7 +121,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 }
 ```
 
-## <a name="access-storage-and-key-vault-in-your-program"></a>Accéder à Storage et à Key Vault dans votre programme
+## <a name="access-azure-storage-and-key-vault-in-your-program"></a>Accéder au stockage Azure et à Key Vault dans votre programme
 
 Ajoutez le code suivant à la méthode Main().
 
@@ -229,6 +229,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
     "https://contosokeyvault.vault.azure.net/secrets/TestSecret2/",
     CancellationToken.None).GetAwaiter().GetResult();
 ```
+
 Vous avez terminé. Vous n’avez plus qu’à l’utiliser !
 
 ## <a name="next-steps"></a>Étapes suivantes

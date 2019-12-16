@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93c88b167884c455ffb995f35356b121bce8a207
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fbaafdce6f2510b58966f4b6c18e45a3fcd4a664
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794989"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997086"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -42,7 +42,7 @@ Oui. Le provisionnement cloud permet d’effectuer une synchronisation à partir
 
 **Q : Comment l’agent est-il mis à jour ?**
 
-Les agents sont mis à niveau automatiquement par Microsoft. Cela ôte aux équipes informatiques la charge d’avoir à tester et valider les nouvelles versions des agents. 
+Les agents sont mis à niveau automatiquement par Microsoft. Pour l’équipe informatique, cela réduit les efforts de test et de validation des nouvelles versions de l’agent. 
 
 **Q : Puis-je désactiver la mise à niveau automatique ?**
 

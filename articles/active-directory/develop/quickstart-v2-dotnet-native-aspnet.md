@@ -1,28 +1,23 @@
 ---
-title: Appeler une API web ASP.NET protégée par Azure AD – Identité Microsoft
+title: Appeler une API web ASP.NET protégée par Azure AD - Plateforme d’identités Microsoft
 description: Ce démarrage rapide explique comment appeler une API web ASP.NET protégée par Azure Active Directory à partir d’une application de bureau Windows (WPF). Le client WPF authentifie un utilisateur, demande un jeton d’accès et appelle l’API web.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e0fdeb2c1955eab18b440c3ef3bcac725ad92b6
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200244"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963305"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Démarrage rapide : Appeler une API web ASP.NET protégée par Azure AD
 
@@ -79,7 +74,7 @@ Si vous souhaitez inscrire vos applications manuellement, commencez par effectue
      - Dans **Nom d’affichage du consentement de l’utilisateur**, tapez `Access TodoListService as a user`.
      - Dans **Description du consentement de l’utilisateur**, tapez `Accesses the TodoListService Web API as a user`.
      - Conservez l’**État** **activée**.
-     - Sélectionnez **Ajouter une étendue**.
+     - Sélectionnez **Ajouter une étendue**
 
 ### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>Configurer les projets de service et de client pour qu’ils correspondent à l’API web inscrite 
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743708"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961537"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 
@@ -45,11 +45,11 @@ L’exemple suivant montre le visage cible :
 
 ![Une femme qui sourit](./Images/FaceFindSimilar.QueryFace.jpg)
 
-Et voici les visages candidats :
+Et ces images sont les visages candidats :
 
 ![Cinq images de personnes qui sourient. Les images a et b correspondent à la même personne.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Pour rechercher quatre visages similaires, le mode matchPerson renvoie a et b, qui représentent le même visage que la cible. Le mode matchFace renvoie a, b, c et d, soit exactement quatre candidats, même si certains n’appartiennent pas à la même personne que le visage cible ou s’ils présentent une faible similarité. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de recherche de visages semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
+Pour rechercher quatre visages similaires, le mode matchPerson renvoie a et b, qui représentent le même visage que la cible. Le mode matchFace retourne a, b, c et d, soit exactement quatre candidats, même si certains ne sont pas la même personne que la cible ou s’ils présentent une faible similarité. Pour plus d’informations, consultez le guide relatif aux concepts de la [reconnaissance faciale](concepts/face-recognition.md) ou la documentation de référence de l’[API de recherche de visages semblables](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 
 ## <a name="face-grouping"></a>Regroupement de visages
 

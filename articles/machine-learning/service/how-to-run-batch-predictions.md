@@ -11,21 +11,21 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 62a2c3324df70c7ccdbbac273d314ff94cbb7b9a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 207e8def168227cb419d25c8e98aa15c09c72b2c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671562"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851602"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cette procédure, vous allez voir comment obtenir des inférences sur de grandes quantités de données de façon asynchrone et parallèle, à l’aide d’Azure Machine Learning. La fonctionnalité d’inférence par lots décrite ici est disponible sous la forme d’une préversion publique. Il s’agit d’une méthode très performante à débit élevé qui permet de générer des inférences et de traiter des données. Elle fournit des fonctionnalités asynchrones prêtes à l’emploi.
+Découvrez comment obtenir des inférences sur de grandes quantités de données de façon asynchrone et en parallèle avec Azure Machine Learning. La fonctionnalité d’inférence par lots décrite ici est disponible sous la forme d’une préversion publique. Il s’agit d’une méthode très performante à débit élevé qui permet de générer des inférences et de traiter des données. Elle fournit des fonctionnalités asynchrones prêtes à l’emploi.
 
 Avec l’inférence par lots, il est facile de mettre à l’échelle des inférences hors connexion vers de gros clusters de machines pour des téraoctets de données de production. De cette façon, vous améliorez la productivité et optimisez les coûts.
 
-Dans cette procédure, vous allez apprendre à effectuer les tâches suivantes :
+Dans cet article, vous apprenez à effectuer les tâches suivantes :
 
 > * Créer une ressource de calcul distante
 > * Écrire un script d’inférence personnalisé
@@ -189,7 +189,7 @@ model = Model.register(model_path="models/",
 Le script *doit contenir* deux fonctions :
 - `init()`: utilisez cette fonction pour toute préparation coûteuse ou courante à une prochaine inférence. Par exemple, utilisez-la pour charger le modèle dans un objet global.
 -  `run(mini_batch)`: cette fonction s’exécute pour chaque instance de `mini_batch`.
-    -  `mini_batch`: l’inférence par lots va appeler la méthode d’exécution et passer soit une liste, soit un dataframe Pandas en tant qu’argument de la méthode. Chaque entrée de min_batch sera un FilePath (chemin de fichier) si l’entrée est un FileDataset (jeu de données de fichiers), ou un dataframe Pandas si l’entrée est un TabularDataset (jeu de données tabulaire).
+    -  `mini_batch`: l’inférence par lots va appeler la méthode d’exécution et passer soit une liste, soit un dataframe Pandas en tant qu’argument de la méthode. Chaque entrée de min_batch sera un chemin de fichier si l’entrée est un FileDataset (jeu de données de fichiers) ou un dataframe Pandas si l’entrée est un TabularDataset (jeu de données tabulaire).
     -  `response`: la méthode run() doit retourner un dataframe Pandas ou un tableau. Pour append_row output_action, les éléments retournés sont ajoutés au fichier de sortie commun. Pour summary_only, le contenu des éléments est ignoré. Pour toutes les actions de sortie, chaque élément de sortie retourné indique la réussite de son inférence dans le mini-lot d’entrée. L’utilisateur doit s’assurer qu’un nombre suffisant de données est inclus dans le résultat de l’inférence pour mapper l’entrée à l’inférence. La sortie de l’inférence sera écrite dans le fichier de sortie et pas nécessairement dans l’ordre. L’utilisateur doit utiliser une clé de la sortie pour la mapper à l’entrée.
 
 ```python
@@ -237,6 +237,15 @@ def run(mini_batch):
     return resultList
 ```
 
+### <a name="how-to-access-other-files-in-init-or-run-functions"></a>Comment accéder à d’autres fichiers dans des fonctions `init()` ou `run()`
+
+Si vous avez un autre fichier ou dossier dans le même répertoire que votre script d’inférence, vous pouvez le référencer en recherchant le répertoire de travail actuel.
+
+```python
+script_dir = os.path.realpath(os.path.join(__file__, '..',))
+file_path = os.path.join(script_dir, "<file_name>")
+```
+
 ## <a name="build-and-run-the-batch-inference-pipeline"></a>Créer et exécuter le pipeline d’inférence par lots
 
 Vous disposez désormais de tout ce dont vous avez besoin pour créer le pipeline.
@@ -261,11 +270,11 @@ batch_env.spark.precache_packages = False
 
 ### <a name="specify-the-parameters-for-your-batch-inference-pipeline-step"></a>Spécifier les paramètres de votre étape de pipeline d’inférence par lots
 
-`ParallelRunConfig` est la configuration principale de la nouvelle instance `ParallelRunStep` d’inférence par lots dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, y compris les suivants :
+`ParallelRunConfig` est la configuration principale de la nouvelle instance `ParallelRunStep` d’inférence par lots dans le pipeline Azure Machine Learning. Elle permet de wrapper votre script et de configurer les paramètres nécessaires, dont tous les suivants :
 - `entry_script`: script utilisateur utilisé comme un chemin de fichier local qui sera exécuté en parallèle sur plusieurs nœuds. Si `source_directly` est présent, utilisez un chemin relatif. Dans le cas contraire, utilisez un chemin accessible sur la machine.
 - `mini_batch_size`: taille du mini-lot passé à un appel `run()` unique (facultatif ; la valeur par défaut est `1`).
     - Pour `FileDataset`, il s’agit du nombre de fichiers avec une valeur minimale de `1`. Vous pouvez combiner plusieurs fichiers dans un mini-lot.
-    - Pour `TabularDataset`, il s’agit de la taille des données. Par exemple, il peut s’agir des valeurs `1024`, `1024KB`, `10MB` ou `1GB`. `1MB` est la valeur recommandée. Notez que le mini-lot de `TabularDataset` ne franchira jamais les limites du fichier. Par exemple, si vous avez des fichiers .csv de différentes tailles, le plus petit fichier aura une taille de 100 Ko et le plus grand une taille de 10 Mo. Si vous définissez `mini_batch_size = 1MB`, les fichiers dont la taille est inférieure à 1 Mo seront traités ensemble comme un mini-lot. Les fichiers dont la taille est supérieure à 1 Mo seront répartis dans plusieurs mini-lots.
+    - Pour `TabularDataset`, il s’agit de la taille des données. Par exemple, il peut s’agir des valeurs `1024`, `1024KB`, `10MB` ou `1GB`. `1MB` est la valeur recommandée. Le mini-lot de `TabularDataset` ne franchira jamais les limites du fichier. Par exemple, si vous avez des fichiers .csv de différentes tailles, le plus petit fichier aura une taille de 100 Ko et le plus grand une taille de 10 Mo. Si vous définissez `mini_batch_size = 1MB`, les fichiers dont la taille est inférieure à 1 Mo seront traités ensemble comme un mini-lot. Les fichiers dont la taille est supérieure à 1 Mo seront répartis dans plusieurs mini-lots.
 - `error_threshold`: nombre d’échecs d’enregistrement pour `TabularDataset` et d’échecs de fichiers pour `FileDataset` qui doivent être ignorés pendant le traitement. Si le nombre d’erreurs présentes dans la totalité de l’entrée dépasse cette valeur, le travail est interrompu. Le seuil d’erreurs concerne la totalité de l’entrée et non chacun des mini-lots envoyés à la méthode `run()`. La plage est la suivante : `[-1, int.max]`. La partie `-1` indique qu’il faut ignorer tous les échecs au cours du traitement.
 - `output_action`: l’une des valeurs suivantes indique comment la sortie sera organisée :
     - `summary_only`: le script utilisateur va stocker la sortie. `ParallelRunStep` utilisera la sortie uniquement pour le calcul du seuil d’erreurs.
@@ -348,6 +357,8 @@ pipeline_run.wait_for_completion(show_output=True)
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour voir le déroulement complet de ce processus, essayez le [notebook d’inférence par lots](https://aka.ms/batch-inference-notebooks). 
+
+Pour obtenir des conseils de débogage et de dépannage de ParallelRunStep, consultez le [guide pratique](how-to-debug-batch-predictions.md).
 
 Pour obtenir des conseils sur le débogage et le dépannage des pipelines, consultez le [guide pratique](how-to-debug-pipelines.md).
 

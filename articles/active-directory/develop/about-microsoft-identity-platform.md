@@ -2,27 +2,23 @@
 title: Évolution de la plateforme d’identités Microsoft - Azure
 description: En savoir plus sur la plateforme d’identités Microsoft, une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD).
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 7e5faf9db9a6ba97f353b54a4fb8123fde072574
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533103"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996984"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Évolution de la plateforme d’identités Microsoft
 
@@ -30,13 +26,13 @@ La plateforme d’identités Microsoft est une évolution de la plateforme de d�
 
 Jusqu’à présent, la plupart des développeurs utilisaient la plateforme Azure AD v1.0 pour authentifier les comptes professionnels et scolaires (approvisionnés par Azure AD) en demandant des jetons du point de terminaison Azure AD v1.0, à l’aide de la bibliothèque d’authentification Azure AD (ADAL), du portail Azure pour l’inscription et la configuration de l’application, et de l’API Graph Azure AD pour la configuration de l’application par programme.
 
-Avec la plateforme d’identités Microsoft (v2.0), atteignez également ces types d’utilisateurs :
+Avec la plateforme d’identités Microsoft unifiée (v2.0), vous pouvez écrire du code une seule fois et authentifier n’importe quelle identité Microsoft dans votre application. Pour plusieurs plateformes, la bibliothèque d’authentification Microsoft (MSAL) open source et totalement prise en charge est recommandée pour être utilisée sur les points de terminaison de la plateforme d’identités. La bibliothèque MSAL est simple à utiliser, offre d’excellentes expériences d’authentification unique (SSO) pour vos utilisateurs, vous aide à atteindre des niveaux de fiabilité et de performances élevés, et est développée avec Microsoft Secure Development Lifecycle (SDL). Lorsque vous appelez des API, vous pouvez configurer votre application pour tirer parti du consentement incrémentiel, qui vous permet de retarder la demande de consentement pour les étendues plus invasives jusqu’à ce que l’utilisation de l’application garantisse cela lors de l’exécution.  La bibliothèque MSAL prend également en charge Azure Active Directory B2C, donc vos clients utilisent leurs identités de compte local, d’entreprise ou de réseau social préférées pour bénéficier d’un accès par authentification unique à vos applications et API.
+
+Avec la plateforme d’identités Microsoft, atteignez également ces types d’utilisateurs :
 
 - Comptes professionnels et scolaires (comptes Azure AD approvisionnés)
 - Comptes personnels (comme Outlook.com ou Hotmail.com)
-- Vos clients qui ont déjà leur propre adresse e-mail ou identité sociale (comme LinkedIn, Facebook, Google) via l’offre Azure AD B2C
-
-Avec la plateforme d’identités Microsoft unifiée, vous pouvez écrire du code une seule fois et authentifier n’importe quelle identité Microsoft dans votre application. Pour plusieurs plateformes, il existe une bibliothèque open source entièrement prise en charge appelée Bibliothèque d’authentification Microsoft (MSAL). La bibliothèque MSAL est simple à utiliser, offre d’excellentes expériences d’authentification unique (SSO) pour vos utilisateurs, vous aide à atteindre des niveaux de fiabilité et de performances élevés, et est développée avec Microsoft Secure Development Lifecycle (SDL). Lorsque vous appelez des API, vous pouvez configurer votre application pour tirer parti du consentement incrémentiel, qui vous permet de retarder la demande de consentement pour les étendues plus invasives jusqu’à ce que l’utilisation de l’application garantisse cela lors de l’exécution.
+- Vos clients qui ont déjà leur propre adresse e-mail ou identité de réseau social (comme LinkedIn, Facebook, Google) via MSAL et Azure AD B2C
 
 Vous pouvez utiliser le portail Azure pour inscrire et configurer votre application, et utiliser l’API Microsoft Graph pour la configuration d’application par programme.
 

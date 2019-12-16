@@ -3,12 +3,12 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484019"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885464"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -16,7 +16,9 @@ La gouvernance valide le fait que votre organisation peut atteindre ses objectif
 
 Votre société rencontre un nombre important de problèmes informatiques qui ne semblent jamais résolus ? Une bonne gouvernance informatique implique la planification de vos initiatives et la définition de priorités à un niveau stratégique. De cette manière, vous pouvez gérer et éviter les problèmes de manière plus efficace. C’est pour répondre à ce besoin stratégique qu’Azure Policy entre en jeu,
 
-Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise. en évaluant vos ressources pour vérifier leur conformité par rapport aux stratégies affectées. Par exemple, vous pouvez disposer d’une stratégie qui n’autorise qu’une certaine taille de référence SKU de machines virtuelles dans votre environnement. Une fois que cette stratégie est implémentée, les ressources nouvelles et existantes sont évaluées en termes de conformité. Avec le bon type de stratégie, les ressources existantes peuvent être mises en conformité. Plus tard dans ce document, nous allons parler plus en détail de la manière de créer et d’implémenter des stratégies avec Azure Policy.
+Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et gérer des stratégies. Ces stratégies appliquent différentes règles et effets sur vos ressources, qui restent donc conformes aux normes et aux contrats de niveau de service de l’entreprise. en évaluant vos ressources pour vérifier leur conformité par rapport aux stratégies affectées. Toutes les données stockées par Azure Policy sont chiffrées au repos.
+
+Par exemple, vous pouvez disposer d’une stratégie qui n’autorise qu’une certaine taille de référence SKU de machines virtuelles dans votre environnement. Une fois que cette stratégie est implémentée, les ressources nouvelles et existantes sont évaluées en termes de conformité. Avec le bon type de stratégie, les ressources existantes peuvent être mises en conformité. Plus tard dans ce document, nous allons parler plus en détail de la manière de créer et d’implémenter des stratégies avec Azure Policy.
 
 > [!IMPORTANT]
 > L’évaluation de la conformité Azure Policy est désormais fournie pour toutes les affectations, quel que soit le niveau de tarification. Si vos affectations n’affichent pas les données de conformité, vérifiez que l’abonnement est inscrit auprès du fournisseur de ressources Microsoft.PolicyInsights.

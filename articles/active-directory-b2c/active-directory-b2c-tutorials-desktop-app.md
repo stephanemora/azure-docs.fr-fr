@@ -1,5 +1,6 @@
 ---
-title: Didacticiel - Authentifier les utilisateurs dans une application cliente native - Azure Active Directory B2C
+title: 'Didacticiel : Authentifier les utilisateurs dans une application cliente native'
+titleSuffix: Azure AD B2C
 description: Tutoriel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur à une application de bureau .NET.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 54a2fe4f0eee5c926878682ea1fccdfdd005e68b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538918"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950186"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>Didacticiel : Authentifier les utilisateurs dans un client de bureau natif à l’aide d’Azure Active Directory B2C
 

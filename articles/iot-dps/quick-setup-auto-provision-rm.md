@@ -1,6 +1,6 @@
 ---
 title: Configurer Azure IoT Hub Device Provisioning avec un modèle Azure Resource Manager
-description: Démarrage rapide Azure - Configurer le service Azure IoT Hub Device Provisioning avec un modèle
+description: 'Démarrage rapide Azure : Configurer le service Azure IoT Hub Device Provisioning (DPS) avec un modèle'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: b40e126ca23190fbe50a717016b18719be6950e2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 482401b75cadf44e2cef03cced8dd216d0980524
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276378"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969579"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Démarrage rapide : Configurer le service IoT Hub Device Provisioning avec le modèle Azure Resource Manager
 

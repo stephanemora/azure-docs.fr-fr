@@ -1,28 +1,24 @@
 ---
-title: Configurer une application pour exposer des API web - Plateforme d’identités Microsoft
+title: Configurer une application pour exposer des API web - Plateforme d’identités Microsoft | Azure
 description: Découvrez comment configurer une application pour exposer une nouvelle autorisation/étendue ainsi qu’un rôle pour rendre l’application disponible sur les applications clientes.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68989269"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966110"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 

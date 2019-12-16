@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec iOS et macOS – Plateforme d’identités Microsoft | Azure
+title: Bien démarrer avec iOS et macOS - Plateforme d’identités Microsoft | Azure
 description: Comment les applications iOS et macOS (Swift) peuvent appeler une API qui nécessite des jetons d’accès en utilisant la plateforme d’identités Microsoft
 services: active-directory
 documentationcenter: dev-center-name
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960666"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964666"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 

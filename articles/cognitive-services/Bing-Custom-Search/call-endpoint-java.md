@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: afb804dd3fd0fecd676f04f18db577f87861a163
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6a470979ce4276d510f1a89bc9bc192d609c2083
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564679"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973507"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec Java
 
@@ -50,7 +50,7 @@ Utilisez ce guide de démarrage rapide pour commencer à demander des résultats
     import com.google.gson.JsonParser;
     ```
 
-2. Créez une classe nommée `CustomSrchJava`et créez des variables pour votre clé d’abonnement, le point de terminaison de recherche personnalisée et l’ID de configuration personnalisée de votre instance de recherche. 
+2. Créez une classe nommée `CustomSrchJava` et créez des variables pour votre clé d’abonnement, le point de terminaison de recherche personnalisée et l’ID de configuration personnalisée de votre instance de recherche. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
     ```java
     public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";

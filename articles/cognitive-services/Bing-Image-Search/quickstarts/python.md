@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 17864ed471537f80b537af4b3a8679cb9deaab57
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3d00688feb0f9d42e80cdbb51753483e53c388d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323813"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930737"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Démarrage rapide : Rechercher des images à l'aide de l'API REST Recherche d'images Bing et de Python
 
@@ -40,7 +40,7 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 ## <a name="create-and-initialize-the-application"></a>Créer et initialiser l’application
 
-1. Créez un fichier Python dans votre environnement de développement intégré (IDE) ou éditeur favori, et importez les modules suivants. Créez une variable pour votre clé d’abonnement, le point de terminaison de recherche et un terme de recherche.
+1. Créez un fichier Python dans votre environnement de développement intégré (IDE) ou éditeur favori, et importez les modules suivants. Créez une variable pour votre clé d’abonnement, le point de terminaison de recherche et un terme de recherche. `search_url` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```python
     import requests

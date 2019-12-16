@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6f1f812bb7d31319476e6b940443e067fac895f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 7b00fff9c979fe6bd2c52f67801a94cb50b1c660
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420452"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970344"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Didacticiel : Ajouter une application locale pour un accès à distance via le service Proxy d'application d'Azure Active Directory
 
@@ -217,8 +217,9 @@ Pour ajouter un utilisateur de test :
 
 Pour tester l’authentification auprès de l’application :
 
-1. Dans votre navigateur, accédez à l’URL externe que vous avez configurée au cours de l’étape de publication. L’écran d’accueil doit s’afficher.
-1. Connectez-vous avec le compte de l’utilisateur créé à la section précédente.
+1. À partir de l’application que vous souhaitez tester, sélectionnez **Proxy d’application**.
+2. En haut de la page, sélectionnez **Tester l’application** pour exécuter un test sur l’application et vérifier les éventuels problèmes de configuration.
+3. Veillez à lancer d’abord l’application pour tester la connexion à l’application, puis téléchargez le rapport de diagnostic pour consulter les conseils de dépannage en fonction des problèmes détectés.
 
 Pour tout dépannage, consultez [Résoudre les problèmes de proxy d'application et les messages d'erreur](application-proxy-troubleshoot.md).
 

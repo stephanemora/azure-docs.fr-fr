@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 370ccd2508e9dda35ccc5815dce42a7b7089c07e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160005"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972459"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Didacticiel : Intégration d’Azure Active Directory à Snowflake
 
@@ -47,6 +47,7 @@ Pour configurer l’intégration d’Azure AD avec Snowflake, vous avez besoin 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Snowflake prend en charge l’authentification unique initiée par **le fournisseur de services et le fournisseur d’identité**
+* Snowflake prend en charge le [provisionnement et le déprovisionnement automatisés des utilisateurs](snowflake-provisioning-tutorial.md) (recommandé)
 
 ## <a name="adding-snowflake-from-the-gallery"></a>Ajout de Snowflake depuis la galerie
 

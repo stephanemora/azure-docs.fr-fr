@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a78a92a33075a97ddadb2e1fe677b7ded541d12c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c1ff74bc358f167612b2bfe05ca47e21203d8702
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565579"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973490"
 ---
 # <a name="what-is-azure-content-moderator"></a>Qu’est-ce qu’Azure Content Moderator ?
 
-L’API Azure Content Moderator est un service cognitif qui vérifie le texte, les images et le contenu vidéo à la recherche d’éléments potentiellement dangereux, offensants ou indésirables. Lorsque des éléments de ce type sont détectés, le service applique les étiquettes appropriées (indicateurs) au contenu. L’application peut ensuite gérer le contenu marqué afin de se conformer aux réglementations ou pour maintenir l’environnement souhaité pour les utilisateurs. Consultez la section [API de modération](#moderation-apis) pour en savoir plus sur les différents indicateurs de contenu.
+Azure Content Moderator est un service cognitif qui vérifie le texte, les images et le contenu vidéo à la recherche d’éléments potentiellement dangereux, offensants ou indésirables. Quand des éléments de ce type sont détectés, le service applique les étiquettes appropriées (indicateurs) au contenu. L’application peut ensuite gérer le contenu marqué afin de se conformer aux réglementations ou pour maintenir l’environnement souhaité pour les utilisateurs. Consultez la section [API de modération](#moderation-apis) pour en savoir plus sur les différents indicateurs de contenu.
 
-## <a name="where-it-is-used"></a>Utilisation
+## <a name="where-its-used"></a>Utilisation
 
 Voici quelques scénarios dans lesquels un développeur de logiciels ou une équipe utilise Content Moderator :
 
@@ -32,7 +32,7 @@ Voici quelques scénarios dans lesquels un développeur de logiciels ou une équ
 - Filtrage du contenu inapproprié pour les élèves et les enseignants par les fournisseurs de solutions éducatives (maternelle-terminale)
 
 > [!NOTE]
-> Vous ne pouvez pas utiliser Content Moderator pour détecter des images illégales d’exploitation d’enfants. Toutefois, les organisations qualifiées peuvent utiliser le [service cloud PhotoDNA](https://www.microsoft.com/photodna "service cloud PhotoDNA de Microsoft") pour détecter ce type de contenu.
+> Vous ne pouvez pas utiliser Content Moderator pour détecter des images illégales d’exploitation d’enfants. Cependant, les organisations qualifiées peuvent utiliser le [service cloud PhotoDNA](https://www.microsoft.com/photodna "Service cloud PhotoDNA de Microsoft") pour détecter ce type de contenu.
 
 ## <a name="what-it-includes"></a>Contenu
 
@@ -65,7 +65,7 @@ Les API de révision vous permettent d’intégrer votre pipeline de modération
 
 ## <a name="the-review-tool"></a>L’outil de révision
 
-Le service Content Moderator inclut également l’[Outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) basé sur le web, qui héberge les révisions de contenu en vue de leur traitement par des modérateurs humains. Le service n’apprend pas de l’entrée humaine, mais le travail combiné du service et des équipes de vérification humaine permet aux développeurs de trouver le bon équilibre entre efficacité et précision. L’outil de révision fournit également un front-end convivial pour toute une variété de ressources Content Moderator.
+Le service Content Moderator inclut également l’[Outil de révision](Review-Tool-User-Guide/human-in-the-loop.md) basé sur le web, qui héberge les révisions de contenu en vue de leur traitement par des modérateurs humains. Les entrées humaines n’entraînent pas le service, mais le travail combiné du service et des équipes de vérification humaine permet aux développeurs de trouver le bon équilibre entre efficacité et précision. L’outil de révision fournit également un front-end convivial pour plusieurs ressources Content Moderator.
 
 ![Page d'accueil de l’outil de vérification humaine de Content Moderator](images/homepage.PNG)
 

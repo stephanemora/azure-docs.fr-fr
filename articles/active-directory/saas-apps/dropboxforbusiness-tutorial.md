@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 615c10357e099b547008b128ca5f5a773ff1aa14
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ae1e537665739c055121fd82cf14f733a90142e4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158304"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964189"
 ---
 # <a name="tutorial-integrate-dropbox-for-business-with-azure-active-directory"></a>Didacticiel : Intégrer Dropbox for Business à Azure Active Directory
 
@@ -44,7 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 * Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Dropbox for Business prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
 
-* Dropbox for Business prend en charge l’attribution d’utilisateurs **Juste-à-temps**
+* Dropbox for Business prend en charge le [provisionnement et le déprovisionnement automatisés des utilisateurs](dropboxforbusiness-tutorial.md)
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Ajout de Dropbox for Business à partir de la galerie
 

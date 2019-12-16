@@ -1,21 +1,22 @@
 ---
-title: 'Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets'
-description: Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’Explorateur Stockage Azure pour créer un conteneur et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un conteneur. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de conteneur et créer une signature d’accès partagé.
+title: 'Démarrage rapide : Créer un objet blob avec l’Explorateur Stockage Azure'
+titleSuffix: Azure Storage
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser l’Explorateur Stockage Azure pour créer un conteneur et un objet blob, télécharger l’objet blob sur votre ordinateur local et voir tous les objets blob du conteneur.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/15/2018
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: cd31d1c40f30ebc8341c2126da22f8a74cb05438
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f19152b5b8bc569fa07109b6135fa85b9b55bff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640514"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892462"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob
 
 Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour créer un conteneur et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un conteneur. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de conteneur et créer une signature d’accès partagé.
 

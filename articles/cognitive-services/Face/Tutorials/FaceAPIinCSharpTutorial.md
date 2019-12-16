@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 93932fac9a5e5d4c21adc99bd31e9366a9709cc2
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859118"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977962"
 ---
-# <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>Didacticiel : Créer une application WPF pour afficher les données relatives au visage dans une image
+# <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Didacticiel : Créer une application WPF (Windows Presentation Framework) pour afficher les données sur les visages dans une image
 
-Dans ce tutoriel, vous allez apprendre à utiliser l’API Visage Azure via le kit SDK .NET client pour détecter des visages dans une image et présenter les données dans l’IU. Vous allez créer une application WPF (Windows Presentation Framework) qui détecte les visages, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. 
+Dans ce tutoriel, vous allez apprendre à utiliser l’API Visage Azure via le kit SDK .NET client pour détecter des visages dans une image et présenter les données dans l’IU. Vous allez créer une application WPF qui détecte les visages, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. 
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -117,7 +117,7 @@ Ajoutez le code suivant à la méthode **FacePhoto_MouseMove**. Ce gestionnaire 
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?name=snippet_mousemove_mid)]
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 Exécutez cette application et recherchez une image contenant un visage. Patientez pendant quelques secondes pour laisser à l’API Visage le temps de répondre. Un rectangle rouge doit apparaître autour de chaque visage de l’image. Si vous déplacez la souris sur le rectangle d’un visage, la description de ce visage doit apparaître dans la barre d’état.
 

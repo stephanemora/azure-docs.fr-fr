@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f45b6ce402a5f61faeabd1534d7e3562af81294c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834487"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973864"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Démarrage rapide : Effectuer des recherches sur le web à l’aide de l’API REST Recherche Web Bing et de Node.js
 
@@ -57,7 +57,7 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Créer une fonction pour formuler la requête
 
-Cette fonction constitue une requête GET sécurisée en enregistrant la requête de recherche comme paramètre de requête dans le chemin. L’élément `encodeURIComponent` est utilisé pour éviter les caractères non valides, et la clé d’abonnement est transmise dans un en-tête. Le rappel reçoit une [réponse](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) qui s’abonne à l’événement `data` pour agréger le corps JSON, à l’événement `error` pour consigner les problèmes dans un journal, et à l’événement `end` pour savoir à quel moment le message doit être considéré comme terminé. Lorsque vous avez terminé, l’application imprime les en-têtes et corps de message intéressants. Vous pouvez jouer avec les couleurs et définir la profondeur en fonction de vos préférences, une profondeur de `1` fournit un bon résumé de la réponse.
+Cette fonction constitue une requête GET sécurisée en enregistrant la requête de recherche comme paramètre de requête dans le chemin. `hostname` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.  L’élément `encodeURIComponent` est utilisé pour éviter les caractères non valides, et la clé d’abonnement est transmise dans un en-tête. Le rappel reçoit une [réponse](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) qui s’abonne à l’événement `data` pour agréger le corps JSON, à l’événement `error` pour consigner les problèmes dans un journal, et à l’événement `end` pour savoir à quel moment le message doit être considéré comme terminé. Lorsque vous avez terminé, l’application imprime les en-têtes et corps de message intéressants. Vous pouvez jouer avec les couleurs et définir la profondeur en fonction de vos préférences, une profondeur de `1` fournit un bon résumé de la réponse.
 
 ```javascript
 function bingWebSearch(query) {

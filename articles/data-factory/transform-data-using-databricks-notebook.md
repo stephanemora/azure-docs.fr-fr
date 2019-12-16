@@ -1,5 +1,5 @@
 ---
-title: Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook
+title: Exécuter une instance Databricks Notebook avec l’activité
 description: Découvrez comment vous pouvez utiliser l’activité Databricks Notebook d’une fabrique de données Azure pour exécuter une instance Databricks Notebook sur un cluster de travaux Databricks.
 services: data-factory
 ms.service: data-factory
@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: 7ad7c8e70d8669612baf00f19d3695dc7fab07f5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 39b8745b65eccd8e4d1b5986490e30be443ad656
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217874"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913518"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Exécuter une instance Databricks Notebook avec l’activité Databricks Notebook dans Azure Data Factory
 
@@ -162,8 +162,7 @@ Dans cette section, vous allez créer un service Databricks lié. Ce service li�
            # Creating widgets for leveraging parameters, and printing the parameters
 
            dbutils.widgets.text("input", "","")
-           dbutils.widgets.get("input")
-           y = getArgument("input")
+           y = dbutils.widgets.get("input")
            print ("Param -\'input':")
            print (y)
            ```

@@ -1,28 +1,22 @@
 ---
-title: Exemple de script Microsoft Azure PowerShell - Rotation des clés d’accès au compte de stockage | Microsoft Docs
+title: Passer d’une clé d’accès au compte de stockage à une autre avec PowerShell
+titleSuffix: Azure Storage
 description: Créez un compte de stockage Azure, puis récupérez l’une de ses clés d’accès et organisez sa rotation.
 services: storage
-documentationcenter: na
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: azurecli
 ms.topic: sample
-ms.date: 06/13/2017
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 0aae733f94ab4a217ca41ca3de6df2e5da47df50
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 54a7a6cb89c88726853a39ab5b2a61e1f0cde0b5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244349"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894924"
 ---
-# <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Créer un compte de stockage et faire tourner ses clés d’accès
+# <a name="rotate-storage-account-access-keys-with-powershell"></a>Passer d’une clé d’accès au compte de stockage à une autre avec PowerShell
 
 Ce script crée un compte de stockage Azure, affiche la clé d’accès primaire du nouveau compte, puis renouvelle (fait tourner) la clé.
 
@@ -34,7 +28,7 @@ Ce script crée un compte de stockage Azure, affiche la clé d’accès primaire
 
 [!code-powershell[main](../../../powershell_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.ps1 "Rotate storage account keys")]
 
-## <a name="clean-up-deployment"></a>Nettoyer le déploiement 
+## <a name="clean-up-deployment"></a>Nettoyer le déploiement
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, le compte de stockage et toutes les ressources associées.
 

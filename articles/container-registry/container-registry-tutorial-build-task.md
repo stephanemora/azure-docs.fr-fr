@@ -4,16 +4,19 @@ description: Dans ce didacticiel, vous allez découvrir comment configurer une t
 ms.topic: tutorial
 ms.date: 05/04/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8af8daa4233fe6461b4e129f56a063e7cc212245
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a26f1207eccd615804babe230df689d27beae49f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454759"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840780"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Didacticiel : automatiser la génération des images de conteneur dans le cloud lorsque vous validez le code source
 
-En plus d'une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération d'images de conteneur Docker dans le cloud lorsque vous validez le code source dans un référentiel Git.
+En plus d'une [tâche rapide](container-registry-tutorial-quick-task.md), ACR Tasks prend en charge la génération d'images de conteneur Docker dans le cloud lorsque vous validez le code source dans un référentiel Git. Les contextes Git pris en charge par ACR Tasks incluent les dépôts GitHub publics ou privés, et les dépôts Azure.
+
+> [!NOTE]
+> ACR Tasks ne prend pas en charge les déclencheurs de validation et de demande de tirage (pull request) dans les dépôts GitHub Enterprise.
 
 Dans ce tutoriel, votre tâche ACR génère et envoie (push) une seule image conteneur spécifiée dans un Dockerfile lorsque vous validez le code source dans un référentiel Git. Pour créer une [tâche à plusieurs étapes](container-registry-tasks-multi-step.md) utilisant un fichier YAML pour définir les étapes permettant de créer, d’envoyer (push) et éventuellement de tester plusieurs conteneurs lors de la validation du code, consultez [Tutoriel : Exécuter un workflow de conteneur à plusieurs étapes dans le cloud lorsque vous validez le code source](container-registry-tutorial-multistep-task.md). Pour une vue d’ensemble d’ACR Tasks, consultez [Automatiser les mises à jour correctives du système d’exploitation et de l'infrastructure avec ACR Tasks](container-registry-tasks-overview.md).
 

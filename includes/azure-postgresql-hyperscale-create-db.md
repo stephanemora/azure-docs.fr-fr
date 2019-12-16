@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: e7a6f7b4ba4219483cd3eb8f4600bc94213df131
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73992190"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973410"
 ---
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -46,7 +46,7 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
    ![Adresse IP du client ajoutée](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
-   > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 5432.
+   > Le serveur Azure PostgreSQL communique sur le port 5432. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 5432 peut être bloqué par le pare-feu de votre réseau. Si c’est le cas, vous ne pourrez pas vous connecter à votre cluster Hyperscale (Citus), sauf si votre service informatique ouvre le port 5432.
    >
 
 9. Cliquez sur **Vérifier + créer**, puis sur **Créer** pour provisionner le serveur. Le provisionnement prend quelques minutes.
@@ -57,10 +57,10 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 
 Lorsque vous créez votre serveur Azure Database pour PostgreSQL, une base de données par défaut nommée **citus** est créée. Pour vous connecter à votre serveur de base de données, vous devez disposer d'une chaîne de connexion et du mot de passe d'administration.
 
-1. Récupérez la chaîne de connexion. Sur la page du groupe de serveurs, cliquez sur l'élément de menu **Chaînes de connexion**. (Celui-ci se trouve sous **Paramètres**.) Recherchez la chaîne marquée **C++ (libpq)** . Celle-ci se présente sous la forme suivante :
+1. Récupérez la chaîne de connexion. Sur la page du groupe de serveurs, cliquez sur l'élément de menu **Chaînes de connexion**. (Celui-ci se trouve sous **Paramètres**.) Recherchez la chaîne portant l’étiquette **psql**. Celle-ci se présente sous la forme suivante :
 
    ```
-   host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
+   psql "host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"
    ```
 
    Copiez la chaîne. Vous devez remplacer « {votre\_mot de passe} » par le mot de passe d'administration que vous avez choisi précédemment. Comme le système ne stocke pas votre mot de passe en clair, il ne peut pas l'afficher pour vous dans la chaîne de connexion.
@@ -69,7 +69,7 @@ Lorsque vous créez votre serveur Azure Database pour PostgreSQL, une base de do
 
 3. À l'invite, connectez-vous à votre serveur Azure Database pour PostgreSQL à l'aide de l'utilitaire [psql](https://www.postgresql.org/docs/current/app-psql.html). Passez votre chaîne de connexion entre guillemets, en vous assurant qu'elle contient bien votre mot de passe :
    ```bash
-   psql "{connection_string}"
+   psql "host=..."
    ```
 
    Par exemple, la commande suivante vous connecte au nœud coordinateur du groupe de serveurs **mydemoserver** :

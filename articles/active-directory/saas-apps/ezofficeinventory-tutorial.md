@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ebfe5f75d5d8546e0f5e8ad6f8c5d0063e5bda2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: cc73d7ec81ea0105a5868ec698289bd27526a43b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377281"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893499"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ezofficeinventory"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à EZOfficeInventory
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Votre application EZOfficeInventory s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![image](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
 1. En plus de ce qui précède, l’application EZOfficeInventory s’attend à ce que quelques attributs supplémentaires, indiqués ci-après, soient passés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
@@ -144,13 +144,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-ezofficeinventory-sso"></a>Configurer l’authentification unique EZOfficeInventory
 
-1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise EZOfficeInventory en tant qu’administrateur.
+1. Pour automatiser la configuration dans EZOfficeInventory, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-2. Dans le coin supérieur droit de la page, cliquez sur  **Profile** (Profil), puis accédez à  **Settings** (Paramètres) > **Add Ons** (Modules complémentaires).
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer EZOfficeInventory** pour être dirigé vers l’application EZOfficeInventory. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à EZOfficeInventory. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 5.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous souhaitez configurer manuellement EZOfficeInventory, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise EZOfficeInventory en tant qu’administrateur et effectuez les étapes suivantes :
+
+1. En haut à droite de la page, cliquez sur **Profile** (Profil), puis accédez à **Settings** > **Add Ons** (Paramètres > Compléments).
 
     ![Configuration de EZOfficeInventory](./media/ezofficeinventory-tutorial/configure01.png)
 
-3. Faites défiler jusqu’à la section **SAML Integration** (Intégration SAML) et effectuez les étapes suivantes :
+1. Faites défiler jusqu’à la section **SAML Integration** (Intégration SAML) et effectuez les étapes suivantes :
 
     ![Configuration de EZOfficeInventory](./media/ezofficeinventory-tutorial/configure02.png)
 
@@ -176,7 +184,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 Dans cette section, un utilisateur appelé Britta Simon est créé dans EZOfficeInventory. EZOfficeInventory prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans EZOfficeInventory, il est créé après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -191,4 +199,3 @@ Quand vous cliquez sur la vignette EZOfficeInventory dans le volet d’accès, v
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer EZOfficeInventory avec Azure AD](https://aad.portal.azure.com/)
-

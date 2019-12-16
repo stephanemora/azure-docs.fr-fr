@@ -1,17 +1,17 @@
 ---
 title: Téléchargement de l’émulateur Cosmos Azure et notes de publication
-description: Lisez les notes de publication de l’émulateur Azure Cosmos et téléchargez-le.
+description: Procurez-vous les notes de publication de l’émulateur Azure Cosmos pour connaître les différentes versions et les informations de téléchargement.
 ms.service: cosmos-db
 ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: cda3b0db1a4f1b098d8ea57887a047fcdef04243
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: eb73551c4226df8bc20428558720c0ebbfff96d9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286492"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873588"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 

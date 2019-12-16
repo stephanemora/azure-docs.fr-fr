@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec le serveur web ASP.NET Azure AD v2.0
+title: Ajouter la capacité de connexion à une application web ASP.NET Azure AD
 titleSuffix: Microsoft identity platform
 description: Implémentation de la connexion Microsoft dans une solution ASP.NET à l’aide d’une application basée sur un navigateur web traditionnel et la norme OpenID Connect
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 9ff89d3c11ca88db14d2efd772be44aef7165a8a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803718"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964733"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Ajouter la connexion à Microsoft à une application web ASP.NET
 

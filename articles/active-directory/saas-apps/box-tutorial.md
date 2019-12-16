@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b808e13ec37b9667a3ab1aaa233532a076bf4970
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: aceec8ad6ca23a1bd89b93a6442d48aa81597e55
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558926"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964172"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-box"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Box
 
@@ -45,8 +45,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Box prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**.
+* Box prend en charge le [provisionnement et le déprovisionnement **automatisés** des utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) (recommandé)
 * Box prend en charge l’approvisionnement d’utilisateur **juste-à-temps**.
-* Box prend en charge l’attribution d’utilisateurs [**Automatisée**](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial)
 
 ## <a name="adding-box-from-the-gallery"></a>Ajout de Box à partir de la galerie
 

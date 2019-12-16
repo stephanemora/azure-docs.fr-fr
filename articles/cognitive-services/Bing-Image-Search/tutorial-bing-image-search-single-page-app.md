@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c0f06f02a274780085fdb3c4c270ad541a0daa8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868255"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930697"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutoriel : Créer une application monopage avec l’API Recherche d’images Bing
 
@@ -40,7 +40,7 @@ L’intégralité du code source pour ce tutoriel est disponible sur [GitHub](ht
 
 ## <a name="manage-and-store-user-subscription-keys"></a>Gérer et stocker des clés d’abonnement utilisateur
 
-Cette application utilise le stockage persistant des navigateurs web pour stocker les clés d’abonnement d’API. Si aucune clé n’est stockée, la page web demande sa clé à l’utilisateur et la stocke pour l’utiliser ultérieurement. Si la clé est ensuite rejetée par l’API, l’application la supprime du stockage.
+Cette application utilise le stockage persistant des navigateurs web pour stocker les clés d’abonnement d’API. Si aucune clé n’est stockée, la page web demande sa clé à l’utilisateur et la stocke pour l’utiliser ultérieurement. Si la clé est ensuite rejetée par l’API, l’application la supprime du stockage. Cet exemple utilise le point de terminaison global. Vous pouvez aussi utiliser le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
 
 Définissez les fonctions `storeValue` et `retrieveValue` pour utiliser l’objet `localStorage` (si le navigateur le prend en charge) ou un cookie.

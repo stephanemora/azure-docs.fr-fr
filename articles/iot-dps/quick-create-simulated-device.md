@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Provisionner un appareil TPM simulé auprès du service Azure IoT Hub à l’aide de C'
-description: Ce démarrage rapide utilise des inscriptions individuelles. Dans ce démarrage rapide, vous allez créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) d’appareil C auprès du service Azure IoT Hub Device Provisioning.
+description: Ce démarrage rapide utilise des inscriptions individuelles. Dans ce guide de démarrage rapide, vous allez créer et provisionner un appareil TPM simulé à l’aide du SDK d’appareil C auprès du service Azure IoT Hub Device Provisioning (DPS).
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0330476650af205854b6d0d4be098c28b46e78a1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 9ee40d4dadd25e37028a7381583d1f333bc4f19a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423170"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976857"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide : Approvisionner un appareil TPM simulé à l'aide du Kit de développement logiciel (SDK) Azure IoT pour C
 

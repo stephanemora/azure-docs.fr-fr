@@ -4,12 +4,12 @@ description: Découvrez comment ajouter une liaison de sortie pour connecter vos
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd899c5cc7aafc5b3349cf4cec9098a849665a2d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 171479a0f60741b545a171315e99cc5e4e8bc843
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227421"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849205"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connecter des fonctions à Stockage Azure avec Visual Studio
 
@@ -23,7 +23,7 @@ La plupart des liaisons requièrent une chaîne de connexion stockée que Functi
 
 Avant de commencer cet article : 
 
- - Suivez la [partie 1 du guide de démarrage rapide de Visual Studio][./functions-create-first-function-vs-code.md]. 
+ - Effectuez la [partie 1 du guide de démarrage rapide de Visual Studio](./functions-create-first-function-vs-code.md). 
 
 - Connectez-vous à votre abonnement Azure à partir de Visual Studio.
 

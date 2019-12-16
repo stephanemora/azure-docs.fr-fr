@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce qu’Azure Load Balancer ?
 titleSuffix: Azure Load Balancer
-description: Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne Load Balancer et l’exploiter dans le cloud.
+description: Présentation des fonctionnalités, de l'architecture et de l'implémentation de l'équilibrage de charge Azure. Découvrez comment fonctionne Load Balancer et comment en tirer parti dans le cloud.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -12,96 +12,56 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 335549f4ccae01fa36921e0e4668fa15e8b33835
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423912"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926267"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
-Azure Load Balancer vous permet de mettre à l’échelle vos applications et de créer une haute disponibilité pour vos services. Load Balancer prend en charge les scénarios entrants et sortants, offre une latence faible et un débit élevé, et peut augmenter l’échelle jusqu’à des millions de flux pour toutes les applications TCP et UDP.
+L’*équilibrage de charge* fait référence à une distribution efficace de la charge ou du trafic réseau entrant au sein d’un groupe de ressources ou serveurs back-end. Azure propose une [variété d’options d’équilibrage de charge](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview) que vous pouvez choisir en fonction de vos besoins. Ce document présente Azure Load Balancer.
 
-Load Balancer distribue les nouveaux flux entrants arrivant sur le serveur frontal de Load Balancer sur des instances de pool principal en fonction des règles et des sondes d’intégrité spécifiées.
+Azure Load Balancer opère à la couche quatre du modèle OSI (Open Systems Interconnection). Il s’agit du point de contact unique pour les clients. Load Balancer distribue les nouveaux flux entrants arrivant sur le serveur front-end de Load Balancer aux instances de pool de back-ends selon des règles d’équilibrage de charge et des sondes d’intégrité spécifiées. Les instances de pool de back-ends peuvent être des machines virtuelles Azure ou des instances d’un groupe de machines virtuelles identiques. 
 
-Un Load Balancer public peut fournir des connexions sortantes pour des machines virtuelles à l’intérieur de votre réseau virtuel en traduisant leurs adresses IP privées en adresses IP publiques.
+Azure Load Balancer vous permet de mettre à l’échelle vos applications et de créer des services à haute disponibilité. Load Balancer prend à la fois en charge les scénarios entrants et sortants, offre une latence faible et un débit élevé, et permet d’effectuer un scale-up jusqu’à des millions de flux pour toutes les applications TCP et UDP.
 
-Azure Load Balancer se décline en deux niveaux tarifaires ou *références SKU* : De base et Standard. Celles-ci présentent des différences en termes de mise à l’échelle, de fonctionnalités et de tarification. N’importe quel scénario possible avec Load Balancer De base peut également être créé avec Load Balancer Standard, même si l’approche à suivre varie légèrement. Pour bien comprendre le fonctionnement de Load Balancer, familiarisez-vous avec ses capacités de base et les différences propres aux références SKU.
+Un **[équilibreur de charge public](#publicloadbalancer)** peut fournir des connexions sortantes pour des machines virtuelles à l’intérieur de votre réseau virtuel en traduisant leurs adresses IP privées en adresses IP publiques. Les équilibreurs de charge publics sont utilisés pour équilibrer la charge du trafic Internet sur vos machines virtuelles.
 
-## <a name="why-use-load-balancer"></a>Pourquoi utiliser Load Balancer ?
+Un **[équilibreur de charge interne (ou privé)](#internalloadbalancer)** peut être utilisé dans les scénarios où seules des adresses IP privées sont nécessaires sur le front-end. Les équilibreurs de charge internes sont utilisés pour équilibrer la charge du trafic au sein d’un réseau virtuel. Vous pouvez également communiquer avec un serveur frontal d’équilibreur de charge à partir d’un réseau local dans le cadre d’un scénario hybride.
 
-Vous pouvez utiliser Azure Load Balancer pour :
+## <a name="load-balancer-components"></a>Composants Load Balancer
+* **Configurations IP front-end** : Adresse IP de l’équilibreur de charge. Il s’agit du point de contact pour les clients. Il peut s’agir d’adresses IP publiques ou privées, qui créent ainsi des équilibreurs de charge publics ou internes, respectivement.
+* **Pool principal** : Groupe de machines virtuelles ou d’instances dans le groupe de machines virtuelles identiques qui vont servir la requête entrante. Pour une mise à l’échelle rentable visant à répondre à des volumes élevés de trafic entrant, les bonnes pratiques de calcul recommandent généralement d’ajouter plus d’instances au pool de back-ends. Load Balancer se reconfigure instantanément par le biais d’une reconfiguration automatique quand vous effectuez un scale-up ou un scale-down des instances. Quand vous ajoutez ou supprimez des machines virtuelles du pool du serveur principal, l’équilibreur de charge est reconfiguré sans opérations supplémentaires sur la ressource Load Balancer.
+* **Sondes d’intégrité** : Une sonde d’intégrité est utilisée pour déterminer l’intégrité des instances incluses dans le pool de back-ends. Vous pouvez définir le seuil de défaillance sur le plan de l’intégrité pour vos sondes d’intégrité. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions aux instances défaillantes. Un échec de la sonde n’affecte pas les connexions existantes. La connexion est maintenue tant que l’application ne met pas fin au flux, qu’un délai d’inactivité n’a pas lieu ou que la machine virtuelle n’est pas arrêtée. Load Balancer fournit des types de sonde d’intégrité différents pour les points de terminaison TCP, HTTP et HTTPS. Pour plus d’informations, consultez [Types de sondes](load-balancer-custom-probe-overview.md#types).
+* **Règles d’équilibrage de charge** : Les règles d’équilibrage de charge sont celles qui indiquent à Load Balancer ce qui doit être fait et quand. 
+* **Règles NAT entrantes** : Une règle NAT de trafic entrant réachemine le trafic d’un port spécifique d’une adresse IP donnée du serveur front-end vers un port spécifique d’une instance donnée du serveur back-end à l’intérieur du réseau virtuel. Ce réacheminement de port est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge. Les scénarios courants pour cette fonctionnalité incluent les sessions de protocole RDP (Remote Desktop Protocol) ou SSH (Secure Shell) avec des instances de machines virtuelles individuelles à l’intérieur du réseau virtuel Azure. Vous pouvez mapper plusieurs points de terminaison internes à des ports sur la même adresse IP de serveur frontal. Vous pouvez utiliser les adresses IP frontales pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
+* **Règles de trafic sortant** : Une règle de trafic sortant configure la traduction d’adresses réseau (NAT) du trafic sortant pour que toutes les machines virtuelles ou instances identifiées par le pool de back-ends soient traduites sur le front-end.
 
-* équilibrer la charge du trafic Internet entrant sur vos machines virtuelles. Cette configuration est appelée [équilibreur de charge public](#publicloadbalancer).
-* Équilibrez la charge du trafic entre les machines virtuelles à l’intérieur d’un réseau virtuel. Vous pouvez également communiquer avec un frontend d’équilibreur de charge à partir d’un réseau local dans le cadre d’un scénario hybride. Ces deux scénarios s’appuient sur une configuration appelée [équilibreur de charge interne](#internalloadbalancer).
-* réacheminer le trafic d’un port vers un port spécifique sur des machines virtuelles données avec des règles de traduction d’adresses réseau (NAT) entrantes.
-* Fournir une [connectivité sortante](load-balancer-outbound-connections.md) aux machines virtuelles de votre réseau virtuel à l’aide d’un équilibreur de charge public.
-
->[!NOTE]
-> Azure offre une suite de solutions d’équilibrage de charge entièrement managées pour vos scénarios. Si vous recherchez des informations sur l’arrêt du protocole TLS (Transport Layer Security) (« déchargement SSL ») ou sur le traitement au niveau de la couche application par requête HTTP/HTTPS, consultez [Présentation d’Azure Application Gateway](../application-gateway/overview.md) Si vous recherchez des informations sur l’équilibrage de charge du DNS global, consultez [Présentation de Traffic Manager](../traffic-manager/traffic-manager-overview.md) Vos scénarios de bout en bout peuvent tirer parti de la combinaison de ces solutions.
->
-> Pour obtenir une comparaison des options d’équilibrage de charge Azure, consultez [Vue d’ensemble des options d’équilibrage de charge dans Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
-
-## <a name="what-are-load-balancer-resources"></a>Que sont les ressources Load Balancer ?
-
-Les ressources Load Balancer sont des objets indiquant la manière dont Azure doit programmer son infrastructure multilocataire pour obtenir le scénario que vous souhaitez créer. Il n’existe aucune relation directe entre les ressources Load Balancer et l’infrastructure réelle. La création d’un équilibreur de charge ne crée pas d’instance et la capacité demeure toujours disponible.
-
-Une ressource Load Balancer peut être un Load Balancer public ou un Load Balancer interne. Les fonctions de la ressource de Load Balancer sont définies par un serveur frontal, une règle, une sonde d’intégrité et un pool principal. Vous placez des machines virtuelles dans le pool principal en spécifiant le pool principal à partir de la machine virtuelle.
-
-## <a name="fundamental-load-balancer-features"></a>Fonctionnalités de base de Load Balancer
+## <a name="load-balancer-concepts"></a>Concepts de Load Balancer
 
 Load Balancer offre les fonctionnalités de base suivantes pour les applications TCP et UDP :
 
-* **Équilibrage de charge**
-
-  Azure Load Balancer permet de créer une règle pour distribuer le trafic arrivant sur un serveur frontal sur des instances de pool principal. Load Balancer utilise un algorithme de hachage pour la distribution des flux entrants et réécrit les en-têtes des flux sur les instances de pool principal. Un serveur est disponible pour recevoir les nouveaux flux quand une sonde d’intégrité indique un point de terminaison de serveur principal sain.
-
-  Par défaut, Load Balancer utilise un hachage à 5 tuples. Le hachage est composé de l’adresse IP source, du port source, de l’adresse IP de destination, du port de destination et du numéro de protocole IP pour mapper les flux vers les serveurs disponibles. Vous pouvez créer une affinité avec une adresse IP source en utilisant un hachage à 2 ou 3 tuples pour une règle donnée. Tous les paquets d’un même flux arrivent sur la même instance derrière le serveur frontal soumis à l’équilibrage de charge. Quand le client démarre un nouveau flux à partir de la même adresse IP source, le port source est modifié. Par conséquent, le hachage à 5 tuples peut provoquer l’acheminement du trafic vers un autre point de terminaison de serveur principal.
-
-  Pour plus d’informations, consultez [Configuration du mode de distribution pour Azure Load Balancer](load-balancer-distribution-mode.md). L’image suivante montre la distribution basée sur le hachage :
+* **Algorithme d’équilibrage de charge** : Azure Load Balancer permet de créer une règle pour distribuer le trafic arrivant sur un serveur front-end sur des instances de pool de back-ends. Load Balancer utilise un algorithme de hachage pour la distribution des flux entrants et réécrit les en-têtes des flux sur les instances de pool de back-ends. Un serveur est disponible pour recevoir les nouveaux flux quand une sonde d’intégrité indique un point de terminaison de serveur principal sain.
+Par défaut, Load Balancer utilise un hachage à 5 tuples. Le hachage est composé de l’adresse IP source, du port source, de l’adresse IP de destination, du port de destination et du numéro de protocole IP pour mapper les flux vers les serveurs disponibles. Vous pouvez créer une affinité avec une adresse IP source en utilisant un hachage à 2 ou 3 tuples pour une règle donnée. Tous les paquets d’un même flux arrivent sur la même instance derrière le serveur frontal soumis à l’équilibrage de charge. Quand le client démarre un nouveau flux à partir de la même adresse IP source, le port source est modifié. Par conséquent, le hachage à 5 tuples peut provoquer l’acheminement du trafic vers un autre point de terminaison back-end.
+Pour plus d’informations, consultez [Configuration du mode de distribution pour Azure Load Balancer](load-balancer-distribution-mode.md). L’image suivante montre la distribution basée sur le hachage :
 
   ![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
 
   *Figure : Distribution basée sur le hachage*
 
-* **Réacheminement de port**
-
-  Load Balancer vous permet de créer une règle NAT de trafic entrant. Cette règle NAT réachemine le trafic d’un port spécifique d’une adresse IP donnée du serveur frontal vers un port spécifique d’une instance donnée du serveur principal à l’intérieur du réseau virtuel. Ce réacheminement est accompli à l’aide de la même distribution basée sur le hachage que l’équilibrage de charge. Les scénarios courants pour cette fonctionnalité incluent les sessions de protocole RDP (Remote Desktop Protocol) ou SSH (Secure Shell) avec des instances de machines virtuelles individuelles à l’intérieur du réseau virtuel Azure.
-  
-  Vous pouvez mapper plusieurs points de terminaison internes à des ports sur la même adresse IP de serveur frontal. Vous pouvez utiliser les adresses IP frontales pour administrer à distance vos machines virtuelles sans serveur de rebond supplémentaire.
-
-* **Indépendance d’application et transparence**
-
-  Load Balancer n’interagit pas directement avec TCP, UDP ou la couche Application. Tous les scénarios d’application TCP ou UDP peuvent être pris en charge. Load Balancer ne met pas fin aux flux ou n’initie pas de flux, n’interagit pas avec la charge utile du flux et ne fournit aucune fonction de passerelle de couche Application. Les liaisons de protocole se produisent toujours directement entre le client et l’instance de pool principal. La réponse à un flux entrant provient toujours d’une machine virtuelle. Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.
-
+* **Indépendance d’application et transparence** : Load Balancer n’interagit pas directement avec TCP, UDP ou la couche Application. Tous les scénarios d’application TCP ou UDP peuvent être pris en charge. Load Balancer ne met pas fin aux flux ou n’initie pas de flux, n’interagit pas avec la charge utile du flux et ne fournit aucune fonction de passerelle de couche Application. Les liaisons de protocole se produisent toujours directement entre le client et l’instance de pool principal. La réponse à un flux entrant provient toujours d’une machine virtuelle. Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.
   * Chaque point de terminaison obtient uniquement une réponse d’une machine virtuelle. Par exemple, l’établissement d’une liaison TCP se fait toujours entre le client et la machine virtuelle du serveur principal sélectionnée. La réponse à une demande d’un serveur frontal est une réponse générée par la machine virtuelle du serveur principal. Lorsque vous validez correctement la connectivité à un serveur frontal, vous validez la connectivité de bout en bout à au moins une machine virtuelle du serveur principal.
-  * Les charges utiles d’application sont transparentes pour Load Balancer. Toutes les applications UDP ou TCP peuvent être prises en charge. Pour les charges de travail qui nécessitent un traitement par requête HTTP ou une manipulation des charges utiles de couche Application (par exemple, l’analyse des URL HTTP), vous devez utiliser un équilibreur de charge de couche 7 comme [Application Gateway](https://azure.microsoft.com/services/application-gateway).
-  * Étant donné que Load Balancer n'interagit pas avec la charge utile TCP et fournit le déchargement TLS, vous pouvez générer des scénarios chiffrés de bout en bout. L’utilisation de Load Balancer permet d’obtenir de vastes systèmes de montée en charge pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle proprement dite. Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal. Si vous avez besoin du déchargement SSL, d’un traitement de couche Application ou si vous souhaitez déléguer la gestion des certificats à Azure, utilisez plutôt l’équilibreur de charge couche 7 Azure, à savoir [Application Gateway](https://azure.microsoft.com/services/application-gateway).
+  * Les charges utiles d’application sont transparentes pour Load Balancer. Toutes les applications UDP ou TCP peuvent être prises en charge.
+  * Étant donné que Load Balancer n'interagit pas avec la charge utile TCP et fournit le déchargement TLS, vous pouvez générer des scénarios chiffrés de bout en bout. L’utilisation de Load Balancer permet d’obtenir de vastes systèmes de montée en charge pour les applications TLS en mettant fin à la connexion TLS sur la machine virtuelle proprement dite. Par exemple, la capacité de création de clés pour votre session TLS est uniquement limitée par le type et le nombre de machines virtuelles que vous ajoutez au pool du serveur principal.
 
-* **Reconfiguration automatique**
-
-  Load Balancer se reconfigure instantanément lors de la mise à l’échelle d’instances vers le haut ou vers le bas. Quand vous ajoutez ou supprimez des machines virtuelles du pool principal, Load Balancer est reconfiguré sans opérations supplémentaires sur la ressource de Load Balancer.
-
-* **Sondes d’intégrité**
-
-  Pour déterminer l’intégrité des instances du pool du serveur principal, Load Balancer fait appel à des sondes d’intégrité définies par vos soins. Quand une sonde ne répond pas, l’équilibreur de charge n’envoie plus de nouvelles connexions aux instances défaillantes. Un échec de la sonde n’affecte pas les connexions existantes. La connexion est maintenue tant que l’application ne met pas fin au flux, qu’un délai d’inactivité n’a pas lieu ou que la machine virtuelle n’est pas arrêtée.
-
-  Load Balancer fournit des types de sonde d’intégrité différents pour les points de terminaison TCP, HTTP et HTTPS. Pour plus d’informations, consultez [Types de sondes](load-balancer-custom-probe-overview.md#types).
-
-  Quand vous utilisez des services cloud classiques, un type supplémentaire est autorisé : [Agent invité](load-balancer-custom-probe-overview.md#guestagent). Un agent invité doit être considéré comme une sonde d’intégrité en dernier recours. Microsoft ne les recommande pas si d’autres options sont disponibles.
-
-* **Connexions sortantes (SNAT)**
-
-  Tous les flux sortants circulant d’adresses IP privées à l’intérieur de votre réseau virtuel vers des adresses IP publiques sur Internet peuvent être traduits en une adresse IP de serveur frontal de Load Balancer. Quand un serveur frontal public est lié à une machine virtuelle de serveur principal par le biais d’une règle d’équilibrage de charge, Azure traduit les connexions sortantes en adresses IP du serveur frontal public. Cette configuration offre les avantages suivants :
-
+* **Connexions sortantes (SNAT)**  : Tous les flux sortants circulant d’adresses IP privées à l’intérieur de votre réseau virtuel vers des adresses IP publiques sur Internet peuvent être traduits en une adresse IP de serveur frontal de Load Balancer. Quand un serveur frontal public est lié à une machine virtuelle de serveur principal par le biais d’une règle d’équilibrage de charge, Azure traduit les connexions sortantes en adresses IP du serveur frontal public. Cette configuration offre les avantages suivants :
   * Elle permet une mise à niveau et une récupération d’urgence simples des services, étant donné que le serveur frontal peut être dynamiquement mappé à une autre instance du service.
   * Elle facilite la gestion des listes de contrôle d’accès (ACL). Les ACL exprimées comme des adresses IP de serveur frontal ne changent pas quand les services montent en puissance, descendent en puissance ou sont redéployés. La traduction des connexions sortantes en un plus petit nombre d’adresses IP que de machines réduit la charge liée à l’implémentation de listes vertes de destinataires.
-
-  Pour plus d’informations, consultez [Connexions sortantes dans Azure](load-balancer-outbound-connections.md).
-
+Pour plus d’informations, consultez [Connexions sortantes dans Azure](load-balancer-outbound-connections.md).
 La référence SKU Standard de Load Balancer offre des fonctionnalités spécifiques en plus de ces capacités de base, comme décrit ci-dessous.
 
 ## <a name="skus"></a> Comparaison des références SKU de Load Balancer
@@ -111,20 +71,14 @@ Load Balancer prend en charge les références SKU De base et Standard. Ces réf
 La configuration du scénario complet peut varier légèrement selon la référence SKU. Dans la documentation relative à Load Balancer, les articles applicables uniquement à une référence SKU spécifique sont signalés. Pour comparer les références SKU et comprendre leurs différences, consultez le tableau ci-dessous. Pour plus d’informations, consultez [Vue d’ensemble du niveau Standard d’Azure Load Balancer](load-balancer-standard-overview.md).
 
 >[!NOTE]
-> Les nouvelles conceptions doivent adopter Standard Load Balancer.
-
+> Microsoft recommande Standard Load Balancer.
 Les machines virtuelles autonomes, les groupes à haute disponibilité et les groupes de machines virtuelles identiques peuvent uniquement être connectés à une référence SKU, jamais aux deux. Les références SKU de Load Balancer et des adresses IP publiques doivent correspondre lorsque vous les utilisez avec des adresses IP publiques. Les références SKU de Load Balancer et des adresses IP publiques ne sont pas mutables.
-
-La meilleure pratique consiste à spécifier explicitement les références SKU. Pour l’heure, les modifications requises sont réduites au minimum. Si une référence SKU n’est pas spécifiée, la valeur par défaut est la version d’API `2017-08-01` de la référence SKU De base.
-
->[!IMPORTANT]
->Load Balancer Standard est un nouveau produit de Load Balancer. C’est essentiellement un surensemble de Load Balancer De base, mais il existe d’importantes différences entre les deux produits. N’importe quel scénario complet possible avec la référence SKU De base de Load Balancer peut également être créé avec la référence SKU Standard. Si vous connaissez déjà Load Balancer De base, comparez-le avec Load Balancer Standard pour comprendre les dernières modifications de leur comportement.
 
 [!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Pour plus d’informations, consultez [Limites de Load balancer](https://aka.ms/lblimits). Pour obtenir plus d’informations sur la référence SKU Standard de Load Balancer, consultez également la [présentation](load-balancer-standard-overview.md), la page relative à la [tarification](https://aka.ms/lbpricing) et la page relative au [SLA](https://aka.ms/lbsla).
 
-## <a name="concepts"></a>Concepts
+## <a name="load-balancer-types"></a>Types d’équilibreurs de charge
 
 ### <a name = "publicloadbalancer"></a>Équilibreur de charge public
 
@@ -139,7 +93,7 @@ La figure suivante présente un point de terminaison à charge équilibrée pour
 
 *Figure : Équilibrage du trafic web à l’aide d’un Load Balancer public*
 
-Les clients Internet envoient des requêtes de page web à l’adresse IP publique d’une application web sur le port TCP 80. Azure Load Balancer répartit les requêtes entre les trois machines virtuelles du groupe à charge équilibrée. Pour plus d’informations sur les algorithmes de Load Balancer, consultez les [Fonctionnalités de base de Load Balancer](load-balancer-overview.md##fundamental-load-balancer-features).
+Les clients Internet envoient des requêtes de page web à l’adresse IP publique d’une application web sur le port TCP 80. Azure Load Balancer répartit les requêtes entre les trois machines virtuelles du groupe à charge équilibrée. Pour plus d’informations sur les algorithmes de Load Balancer, consultez [Concepts de Load Balancer](load-balancer-overview.md##load-balancer-concepts).
 
 Azure Load Balancer répartit par défaut le trafic réseau équitablement sur plusieurs instances de machine virtuelle. Vous pouvez également configurer l’affinité de session. Pour plus d’informations, consultez [Configuration du mode de distribution pour Azure Load Balancer](load-balancer-distribution-mode.md).
 
@@ -195,4 +149,4 @@ Pour plus d’informations sur le contrat de niveau de service (SLA) de Load Bal
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Créer un Load Balancer De base public](quickstart-create-basic-load-balancer-portal.md) pour commencer à utiliser un Load Balancer : créez-en un, créez des machines virtuelles avec une extension IIS personnalisée installée et équilibrez la charge de l’application web entre les machines virtuelles.
+Consultez [Créer un service Standard Load Balancer public](quickstart-load-balancer-standard-public-portal.md) pour bien démarrer avec Load Balancer : créez un équilibreur de charge, créez des machines virtuelles avec une extension IIS personnalisée installée et équilibrez la charge de l’application web entre les machines virtuelles.

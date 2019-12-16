@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2019
+ms.date: 12/08/2019
 ms.author: alehall
-ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6af0881049e52cbead5cca9719d4c9b06be29491
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121277"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951545"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
@@ -101,7 +101,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **6.0*.
+   * Pour cet article, créez un cluster avec le runtime **6.0**.
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
    Sélectionnez la taille des nœuds worker et de pilote adaptée à vos critères techniques et à votre [budget](https://azure.microsoft.com/pricing/details/databricks/).
@@ -138,14 +138,10 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
    ![Boîte de dialogue Ajouter une bibliothèque](./media/databricks-stream-from-eventhubs/databricks-add-library-install-new.png "Ajouter une bibliothèque - Installer")
 
-2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Pour **Coordonnées**, cliquez sur **Rechercher des packages** pour le package que vous voulez ajouter. Voici les coordonnées Maven des bibliothèques utilisées dans ce didacticiel :
+2. Dans la page Nouvelle bibliothèque, pour **Source**, sélectionnez **Maven**. Entrez séparément les coordonnées suivantes pour le connecteur Spark Event Hubs et l’API Twitter dans **Coordonnées**.
 
-   * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+   * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.12`
    * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
-
-     ![Fournir les coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Fournir les coordonnées Maven")
-
-     ![Fournir les coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Rechercher les coordonnées Maven")
 
 3. Sélectionnez **Installer**.
 

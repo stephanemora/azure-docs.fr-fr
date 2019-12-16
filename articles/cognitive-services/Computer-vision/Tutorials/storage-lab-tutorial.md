@@ -1,27 +1,27 @@
 ---
 title: 'Didacticiel : Générer des métadonnées pour les images Azure'
 titleSuffix: Azure Cognitive Services
-description: Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images.
+description: Ce tutoriel vous montre comment intégrer le service Azure Vision par ordinateur dans une application web afin de générer des métadonnées pour des images.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7c83350dbecaf20e9b35f159b2c01824777bc665
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604656"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973711"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Didacticiel : Utiliser le service Vision par ordinateur pour générer des métadonnées des images dans le stockage Azure
 
 Ce tutoriel vous montre comment intégrer le service Vision par ordinateur d’Azure dans une application web afin de générer ensuite des métadonnées pour les images chargées. Cela est utile pour les scénarios de [gestion des actifs numériques](../Home.md#computer-vision-for-digital-asset-management), par exemple si une entreprise souhaite générer rapidement des sous-titres descriptifs ou des mots clés de recherche pour toutes ses images.
 
-Vous trouverez un guide complet de l’application dans le [lab Azure Storage and Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) sur GitHub. Ce tutoriel couvre essentiellement l’exercice 5 du lab. Si vous souhaitez créer l’application de bout en bout, vous pouvez suivre toutes les étapes, mais si vous voulez seulement voir de quelle façon intégrer Vision par ordinateur à une application web existante, lisez le présent tutoriel.
+Vous trouverez un guide complet de l’application dans le [lab Azure Storage and Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) sur GitHub. Ce tutoriel couvre essentiellement l’exercice 5 du lab. Vous pouvez créer l’application complète en suivant chaque étape, mais si vous voulez seulement découvrir comment intégrer Vision par ordinateur à une application web existante, lisez le présent tutoriel.
 
 Ce didacticiel vous explique les procédures suivantes :
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - [Visual Studio 2017 Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ou ultérieur, avec les charges de travail « ASP.NET et développement web » et « Développement Azure » installées.
-- Un compte de stockage Azure avec un conteneur d’objets blob alloué aux images (suivez l’[exercice 1 du lab Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) si vous avez besoin d’aide pour cette étape).
+- Un compte de stockage Azure avec un conteneur d’objets blob configuré pour le stockage d’images (suivez l’[exercice 1 du lab Stockage Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) si vous avez besoin d’aide pour cette étape).
 - L’outil Explorateur Stockage Azure (suivez l’[exercice 2 du lab Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise2) si vous avez besoin d’aide pour cette étape).
 - Une application web ASP.NET avec accès au stockage Azure (suivez l’[exercice 3 du lab Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3) pour créer une application de ce type rapidement).
 
@@ -59,9 +59,9 @@ Vous devez créer une ressource Vision par ordinateur pour votre compte Azure ;
 
 ## <a name="add-computer-vision-credentials"></a>Ajouter les informations d’identification pour Vision par ordinateur
 
-Vous devez maintenant ajouter les informations d’identification dont votre application a besoin pour accéder aux ressources Vision par ordinateur.
+Vous devez ensuite ajouter les informations d’identification nécessaire à votre application pour pouvoir accéder aux ressources Vision par ordinateur.
 
-Ouvrez votre application web ASP.NET dans Visual Studio et accédez au fichier **Web.config** à la racine du projet. Ajoutez les instructions suivantes dans la section `<appSettings>` du fichier, puis remplacez `VISION_KEY` par la clé que vous aviez copiée à l’étape précédente, et `VISION_ENDPOINT` par l’URL que vous aviez enregistrée à l’étape d’avant.
+Ouvrez votre application web ASP.NET dans Visual Studio et accédez au fichier **Web.config** à la racine du projet. Ajoutez les instructions suivantes dans la section `<appSettings>` du fichier, en remplaçant `VISION_KEY` par la clé que vous aviez copiée à l’étape précédente et `VISION_ENDPOINT` par l’URL que vous avez enregistrée à l’étape précédente.
 
 ```xml
 <add key="SubscriptionKey" value="VISION_KEY" />
@@ -72,7 +72,7 @@ Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet, p
 
 ## <a name="add-metadata-generation-code"></a>Ajouter le code de génération des métadonnées
 
-Ensuite, vous allez ajouter le code qui utilise le service Vision par ordinateur pour créer des métadonnées des images. Ces étapes sont conçues pour l’application ASP.NET du lab, mais vous pouvez les adapter à votre propre application. À ce stade, l’important est de vous assurer que votre application web ASP.NET peut charger des images dans un conteneur de stockage Azure, lire les images de ce conteneur et afficher les images dans la vue. Si vous avez besoin d’aide, suivez l’[exercice 3 du lab Azure Storage](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
+Ensuite, vous allez ajouter le code qui utilise le service Vision par ordinateur pour créer des métadonnées pour les images. Ces étapes sont conçues pour l’application ASP.NET du lab, mais vous pouvez les adapter à votre propre application. À ce stade, l’important est de vous assurer que votre application web ASP.NET peut charger des images dans un conteneur de stockage Azure, lire les images de ce conteneur et afficher les images dans la vue. Si vous avez besoin d’aide sur cette étape, le mieux est de suivre l’[exercice 3 du lab Stockage Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise3). 
 
 1. Ouvrez le fichier *HomeController.cs* dans le dossier **Contrôleurs** du projet et ajoutez les instructions `using` suivantes en haut du fichier :
 
@@ -105,7 +105,7 @@ Ensuite, vous allez ajouter le code qui utilise le service Vision par ordinateur
     await photo.SetMetadataAsync();
     ```
 
-1. Ensuite, accédez à la méthode **Index** dans le même fichier ; cette méthode énumère les objets blob d’image stockés dans le conteneur d’objets blob ciblé (comme les instances **IListBlobItem**) et les passe à la vue de l’application. Remplacez le bloc `foreach` dans cette méthode par le code suivant. Ce code appelle **CloudBlockBlob.FetchAttributes** pour obtenir les métadonnées attachées à chaque objet blob. Il extrait la description générée par ordinateur (`caption`) à partir des métadonnées et l’ajoute à l’objet **BlobInfo**, qui est alors passé à la vue.
+1. Ensuite, accédez à la méthode **Index** dans le même fichier. Cette méthode énumère les objets blob d’image stockés dans le conteneur d’objets blob ciblé (comme les instances de **IListBlobItem**) et les passe à la vue de l’application. Remplacez le bloc `foreach` dans cette méthode par le code suivant. Ce code appelle **CloudBlockBlob.FetchAttributes** pour obtenir les métadonnées attachées à chaque objet blob. Il extrait la description générée par ordinateur (`caption`) à partir des métadonnées et l’ajoute à l’objet **BlobInfo**, qui est alors passé à la vue.
     
     ```csharp
     foreach (IListBlobItem item in container.ListBlobs())
@@ -139,13 +139,13 @@ Pour voir toutes les métadonnées attachées, affichez le conteneur de stockage
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous souhaitez continuer à travailler sur votre application web, passez à la section [Étapes suivantes](#next-steps). Si vous n’avez plus besoin de cette application, supprimez toutes les ressources propres à l’application. Pour cela, il vous suffit de supprimer le groupe de ressources qui contient votre abonnement Stockage Azure et la ressource Vision par ordinateur. Cette opération supprime le compte de stockage, les objets blob qui y ont été chargés ainsi que la ressource App Service utilisée pour vous connecter à l’application web ASP.NET. 
+Si vous souhaitez continuer à travailler sur votre application web, passez à la section [Étapes suivantes](#next-steps). Si vous n’avez plus besoin de cette application, supprimez toutes les ressources propres à l’application. Pour supprimer les ressources, vous pouvez supprimer le groupe de ressources qui contient votre abonnement Stockage Azure et la ressource Vision par ordinateur. Cette opération supprime le compte de stockage, les objets blob qui y ont été chargés ainsi que la ressource App Service utilisée pour vous connecter à l’application web ASP.NET. 
 
-Pour supprimer le groupe de ressources, ouvrez le panneau **Groupes de ressources** dans le portail, accédez au groupe de ressources que vous avez utilisé dans ce projet, puis cliquez sur **Supprimer le groupe de ressources** en haut de la vue. Vous êtes alors invité à taper le nom du groupe de ressources pour confirmer sa suppression, qui est définitive.
+Pour supprimer le groupe de ressources, ouvrez l’onglet **Groupes de ressources** dans le portail, accédez au groupe de ressources que vous avez utilisé dans ce projet, puis cliquez sur **Supprimer le groupe de ressources** en haut de la vue. Vous êtes alors invité à taper le nom du groupe de ressources pour confirmer sa suppression, car une fois qu’il est supprimé, vous ne pouvez pas le récupérer.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez intégré le service Vision par ordinateur d’Azure dans une application web existante pour générer automatiquement des légendes et des mots clés pour les images d’objet blob que vous chargez. Effectuez maintenant l’exercice 6 du lab Azure Storage pour savoir comment ajouter des fonctionnalités de recherche à votre application web. Cet exercice utilise les mots clés de recherche générés par le service Vision par ordinateur.
+Dans ce tutoriel, vous avez configuré le service Vision par ordinateur d’Azure dans une application web existante pour générer automatiquement des légendes et des mots clés pour les images d’objet blob au fil de leur chargement. Effectuez maintenant l’exercice 6 du lab Azure Storage pour savoir comment ajouter des fonctionnalités de recherche à votre application web. Cet exercice utilise les mots clés de recherche générés par le service Vision par ordinateur.
 
 > [!div class="nextstepaction"]
 > [Ajouter une recherche à votre application](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise6)

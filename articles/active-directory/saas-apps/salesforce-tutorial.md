@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63cc4b902c0bd0281228e23076be6e0a18461597
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4d137a96a967e017c67da7dfabf25502de32ba7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241427"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970004"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Salesforce
 
@@ -46,9 +46,9 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Salesforce prend en charge l’authentification unique (SSO) initiée par le **fournisseur de services**
 
-* Salesforce prend en charge l’attribution d’utilisateurs **juste-à-temps**
+* Salesforce prend en charge le [provisionnement et le déprovisionnement **automatisés** des utilisateurs](salesforce-provisioning-tutorial.md) (recommandé)
 
-* Salesforce prend en charge [l’attribution d’utilisateurs **automatique**](salesforce-provisioning-tutorial.md)
+* Salesforce prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 * L’application Salesforce Mobile peut désormais être configurée avec Azure AD pour activer l’authentification unique. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 

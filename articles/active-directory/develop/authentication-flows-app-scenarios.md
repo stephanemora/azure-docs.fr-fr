@@ -1,28 +1,24 @@
 ---
-title: Scénarios d’authentification pour la Plateforme d’identités Microsoft | Azure
+title: Scénarios d’authentification pour la plateforme d’identités Microsoft | Azure
 description: Découvrez les flux d’authentification et scénarios d’applications pour la plateforme d’identités Microsoft. Découvrez les différents types d’applications qui peuvent authentifier des identités, acquérir des jetons et appeler des API protégées.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c891c3de9126de6b833dea30c78c14b709384d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 969c7b6c86e09ec73ccf1ffa5cc4dc9703a3d25c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963798"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flux d’authentification et scénarios d’applications
 

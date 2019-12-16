@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/04/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4974f4e39b0b16971d0d666134618d5a1f64e11
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 529c2a453bade8745a596b5cd2e374907a66f613
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424320"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893720"
 ---
 # <a name="tutorial-integrate-productboard-with-azure-active-directory"></a>Didacticiel : Intégrer productboard à Azure Active Directory
 
@@ -65,11 +65,11 @@ Configurez et testez l’authentification unique Azure AD avec productboard pour
 Pour configurer et tester l’authentification unique (SSO) Azure AD avec productboard, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique productboard](#configure-productboard-sso)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test productboard](#create-productboard-test-user)** pour avoir un équivalent de Britta Simon dans productboard, lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique productboard](#configure-productboard-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    * **[Créer un utilisateur de test productboard](#create-productboard-test-user)** pour avoir un équivalent de B.Simon dans productboard lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
@@ -81,24 +81,20 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, si vous voulez configurer l’application en mode lancé par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<projectname>.productboard.com/users/auth/saml/callback`
 
-1. Cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes si vous voulez configurer l’application en mode lancé par le **fournisseur de services** :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<projectname>.productboard.com/`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe de support technique productboard](mailto:support@productboard.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
+1. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML** , cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération d’application** et enregistrez-la sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/copy-metadataurl.png)
-
-### <a name="configure-productboard-sso"></a>Configurer l’authentification unique productboard
-
-Pour configurer l’authentification unique côté **productboard**, vous devez envoyer **l’URL des métadonnées de fédération d’application** à [l’équipe de support technique productboard](mailto:support@productboard.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -130,9 +126,21 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+## <a name="configure-productboard-sso"></a>Configurer l’authentification unique productboard
+
+1. Pour automatiser la configuration dans productboard, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+1. Après avoir ajouté l’extension au navigateur, cliquez sur **Configurer productboard**, ce qui vous dirige vers l’application productboard. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à productboard. Cette extension de navigateur configure automatiquement l’application pour vous.
+
+    ![Configuration](common/setup-sso.png)
+
+1. Si vous souhaitez configurer manuellement l’authentification unique sur **productboard**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe de support technique productboard](mailto:support@productboard.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+
 ### <a name="create-productboard-test-user"></a>Créer un utilisateur de test productboard
 
-Dans cette section, un utilisateur appelé B.Simon est créé dans productboard. productboard prend en charge le provisionnement d’utilisateurs juste-à-temps, qui représente l’option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans productboard, un nouvel utilisateur est créé après l’authentification.
+Dans cette section, un utilisateur appelé Britta Simon est créé dans productboard. productboard prend en charge le provisionnement d’utilisateurs juste-à-temps, qui représente l’option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. Si l’utilisateur souhaité n’existe pas déjà dans productboard, un nouvel utilisateur est créé après l’authentification.
 
 ### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
@@ -142,8 +150,10 @@ Le fait de cliquer sur la vignette productboard dans le panneau d’accès doit 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Essayer productboard avec Azure AD](https://aad.portal.azure.com/)

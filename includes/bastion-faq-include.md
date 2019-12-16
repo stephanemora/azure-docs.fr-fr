@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796025"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875453"
 ---
 ### <a name="regions"></a>Quelles régions sont disponibles ?
 
@@ -59,3 +59,7 @@ Azure Bastion prend actuellement en charge la disposition de clavier en-US-QWERT
 
 Non. Le routage UDR n’est pas pris en charge sur un sous-réseau Azure Bastion.
 Pour les scénarios qui incluent Azure Bastion et Pare-feu Azure/Appliance virtuelle réseau (NVA) dans le même réseau virtuel, vous n’avez pas besoin de forcer le trafic d’un sous-réseau Azure Bastion vers le Pare-feu Azure, car la communication entre Azure Bastion et vos machines virtuelles est privée. Pour plus d’informations, consultez [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+
+### <a name="filetransfer"></a>Le transfert de fichiers est-il pris en charge avec une session RDP Azure Bastion ?
+
+Nous déployons tous les efforts nécessaires pour ajouter de nouvelles fonctionnalités. Pour le moment, le transfert de fichiers n’est pas pris en charge, mais il fait partie de notre feuille de route. N’hésitez pas à nous faire part de vos commentaires sur les nouvelles fonctionnalités dans la [page des commentaires Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).

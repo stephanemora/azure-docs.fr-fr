@@ -1,5 +1,6 @@
 ---
-title: Tutoriel - Accorder l’accès à une API web ASP.NET Core dans une application monopage - Azure Active Directory B2C
+title: 'Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage'
+titleSuffix: Azure AD B2C
 description: Dans ce tutoriel, découvrez comment utiliser Active Directory B2C pour protéger une API web .NET Core et l’appeler depuis une application Node.js monopage.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 7dae8bb552fe12d1cdf1f3d8a5fe124491933a87
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e5ced0c3e4ad05c33866548acb09189e03ed22f4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420327"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949702"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
 

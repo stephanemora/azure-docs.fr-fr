@@ -1,29 +1,25 @@
 ---
-title: Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console | Azure
+title: Obtenir un jeton et appeler Microsoft Graph avec l’identité de l’application console | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment un processus .NET Core peut obtenir un jeton d’accès et appeler une API protégée par un point de terminaison de plateforme d’identité Microsoft à l’aide de l’identité de l’application
+description: Découvrez comment obtenir un jeton avant d’appeler une API Microsoft Graph protégée à partir d’une application .NET Core.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2617013b90cc9709a27ff8ab8c5046ebdcc9951
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: edcfe4d7dff5d84ceaf07a8aafd5f9b485308bd5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149432"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920665"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph en utilisant l'identité de l'application console
 
