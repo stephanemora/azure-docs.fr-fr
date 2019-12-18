@@ -1,29 +1,25 @@
 ---
-title: Utiliser Internet Explorer (bibliothèque d’authentification Microsoft pour JavaScript)
+title: Utiliser Internet Explorer avec MSAL.js | Azure
 titleSuffix: Microsoft identity platform
-description: En savoir plus sur l’utilisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec le navigateur Internet Explorer.
+description: Utilisez la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec le navigateur Internet Explorer.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15502217edc6f3fd723076eda78d06fcf090aa49
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 715e92a10ca0b4cbe38119931bc66d36c3b9259a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150488"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916279"
 ---
 # <a name="use-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Utiliser les navigateurs Internet Explorer et Microsoft Edge avec MSAL.js
 

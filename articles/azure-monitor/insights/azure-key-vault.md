@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899208"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889105"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solution Azure Key Vault Analytics dans Azure Monitor
 
@@ -51,7 +51,7 @@ Suivez les instructions suivantes pour installer et configurer la solution Azure
 8. Cliquez sur *Enregistrer* pour activer la journalisation des diagnostics dans un espace de travail Log Analytics.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Activer les diagnostics Key Vault avec PowerShell
-Le script PowerShell suivant fournit un exemple illustrant comment utiliser `Set-AzDiagnosticSetting` pour activer la journalisation des diagnostics pour Key Vault :
+Le script PowerShell suivant fournit un exemple illustrant comment utiliser `Set-AzDiagnosticSetting` pour activer la journalisation des ressources pour Key Vault :
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

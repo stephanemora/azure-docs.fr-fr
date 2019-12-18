@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : FLOOR'
-description: Découvrez la fonction système SQL FLOOR dans Azure Cosmos DB.
+description: Découvrez la fonction système SQL FLOOR dans Azure Cosmos DB, qui retourne le plus grand entier inférieur ou égal à l’expression numérique spécifiée
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 94bcb6794dce9ccc22001e6d0e0e3e71d133ac42
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8faf223a4871f6f109f9d133716989b1bcfdee08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351218"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871174"
 ---
 # <a name="floor-azure-cosmos-db"></a>FLOOR (Azure Cosmos DB)
  Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée.  

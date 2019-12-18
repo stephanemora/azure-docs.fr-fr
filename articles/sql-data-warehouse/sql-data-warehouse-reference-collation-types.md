@@ -6,16 +6,16 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692551"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851789"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Prise en charge des classements de base de données pour Azure SQL Data Warehouse
 
@@ -100,5 +100,9 @@ Par exemple, si vous souhaitez modifier le classement par défaut en respectant 
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>Vérification du classement actuel
-Pour vérifier le classement actuel de la base de données, vous pouvez exécuter l’extrait de code T-SQL suivant : SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation; Quand « Collation » est transmis en tant que paramètre de propriété, la fonction DatabasePropertyEx retourne le classement actuel de la base de données spécifiée. Vous pouvez en savoir plus sur la fonction DatabasePropertyEx sur MSDN.
+Pour vérifier le classement actuel de la base de données, vous pouvez exécuter l’extrait de code T-SQL suivant :
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
+Quand « Classement » est transmis en tant que paramètre de propriété, la fonction DatabasePropertyEx retourne le classement actuel de la base de données indiquée. Vous pouvez en savoir plus sur la fonction DatabasePropertyEx sur MSDN.
 

@@ -1,6 +1,6 @@
 ---
 title: Utiliser des lecteurs existants pour lire du contenu - Azure | Microsoft Docs
-description: Cette rubrique répertorie les lecteurs existants que vous pouvez utiliser pour lire votre contenu.
+description: Cet article répertorie les lecteurs existants que vous pouvez utiliser pour lire votre contenu.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015292"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895870"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Lecture de votre contenu à l’aide des lecteurs existants
 Azure Media Services prend en charge de nombreux formats de streaming populaires, tels que Smooth Streaming, le streaming HTTP et MPEG-Dash. Cette rubrique vous oriente vers les lecteurs existants que vous pouvez utiliser pour tester votre flux de données.

@@ -1,32 +1,27 @@
 ---
-title: Authentification répartie dans Android | Azure
+title: Authentification répartie dans Android | Azure
+titlesuffix: Microsoft identity platform
 description: Vue d’ensemble de l’authentification répartie et de l’autorisation pour Android dans la plateforme d’identité Microsoft
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175660"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843714"
 ---
-# <a name="brokered-auth-in-android"></a>Authentification répartie dans Android
-
-## <a name="introduction"></a>Introduction
+# <a name="brokered-authentication-in-android"></a>Authentification répartie dans Android
 
 Vous devez utiliser l’un des répartiteurs d’authentification de Microsoft pour participer à l’authentification unique (SSO) des appareils et répondre aux stratégies d’accès conditionnel de l’organisation. L’intégration d'un répartiteur vous offre les avantages suivants :
 
@@ -39,7 +34,7 @@ Vous devez utiliser l’un des répartiteurs d’authentification de Microsoft p
   -  via Android AccountManager et les paramètres de compte
   - « Compte professionnel » - type de compte personnalisé
 
-Sur Android, le répartiteur d'authentification Microsoft est un composant fourni avec l'[application Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) et le [Portail d’entreprise Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
+Sur Android, le répartiteur d’authentification Microsoft est un composant fourni avec l’[application Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) et le [Portail d’entreprise Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
 
 > [!TIP]
 > Seule une application hébergeant le répartiteur est active en tant que répartiteur à la fois. L’application active en tant que répartiteur est déterminée par l’ordre d’installation sur l’appareil. La première application à être installée ou la dernière application présente sur l'appareil fait office de répartiteur actif.
@@ -52,9 +47,9 @@ Le diagramme suivant illustre la relation entre votre application, la bibliothè
 
 Les applications hébergeant un répartiteur peuvent à tout moment être installées par le propriétaire de l’appareil à partir de son magasin d’applications (généralement Google Play Store). Toutefois, certaines API (ressources) sont protégées par des stratégies d’accès conditionnel qui impliquent que les appareils soient :
 
-- inscrits (rattachés à l'espace de travail) et/ou
-- inscrits dans Gestion des appareils ou
-- inscrits dans Intune App Protection
+- Inscrits (rattachés à l’espace de travail) et/ou
+- Inscrits dans la Gestion des appareils ou
+- Inscrits dans Intune App Protection
 
 Si aucune application de répartiteur n'est installée sur un appareil, MSAL demande à l’utilisateur d’en installer une dès que l’application tente d’obtenir un jeton de manière interactive. L’application doit alors guider l’utilisateur à travers les étapes visant à assurer la conformité de l'appareil avec la stratégie requise.
 

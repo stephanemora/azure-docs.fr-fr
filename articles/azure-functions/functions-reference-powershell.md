@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de PowerSh
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 26e52e8aa498c37bd4cef95fb2b54b2fe9322f90
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226682"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974238"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -50,7 +50,7 @@ PSFunctionApp
 
 À la racine du projet se trouve un fichier [`host.json`](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a un dossier avec ses propres fichier de code (.ps1) et fichier de configuration de liaison (`function.json`). Le nom du répertoire parent du fichier function.json est toujours le nom de votre fonction.
 
-Certaines liaisons nécessitent la présence d’un fichier `extensions.csproj`. Les extensions de liaison, requises dans la [version 2.x](functions-versions.md) du runtime Functions, sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-bindings-register.md#extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
+Certaines liaisons nécessitent la présence d’un fichier `extensions.csproj`. Les extensions de liaison, nécessaires dans la [version 2.x et les versions ultérieures](functions-versions.md) du runtime Functions, sont définies dans le fichier `extensions.csproj`, les fichiers bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-bindings-register.md#extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 Dans une Function App PowerShell, vous pouvez éventuellement disposer d’un `profile.ps1` qui s’exécute au démarrage d’une application de fonction (sinon, c’est ce qu’on appelle un *[démarrage à froid](#cold-start)* ). Pour plus d’informations, consultez [Profil PowerShell](#powershell-profile).
 

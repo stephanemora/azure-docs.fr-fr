@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219491"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849103"
 ---
 # <a name="common-cost-analysis-uses"></a>Usages courants de l’analyse des coûts
 
@@ -64,6 +64,8 @@ La consultation des coûts par jour et par mois peut vous aider à mieux compren
 ## <a name="view-costs-for-a-specific-tag"></a>Voir les coûts pour une étiquette spécifique
 
 De nombreux utilisateurs d’Azure appliquent des étiquettes à leurs ressources pour mieux catégoriser les frais. Il peut s’agir, par exemple, d’un centre de coûts ou d’un environnement de développement (de production ou de test). Les étiquettes apparaissent en tant que dimension dans l’analyse des coûts. Vous pouvez utiliser la dimension pour obtenir des insights sur vos catégories personnalisées de ressources étiquetées.
+
+La prise en charge des étiquettes s’applique à l’utilisation signalée *après* l’application de l’étiquette à la ressource. Les étiquettes ne sont pas appliquées rétroactivement pour les cumuls de coûts.
 
 1. Dans le portail Azure, accédez à l’analyse des coûts pour votre étendue. Par exemple :  **Gestion des coûts + facturation** > **Gestion des coûts** > **Analyse du coût**.
 1. Sélectionnez l’option d’étiquette sous **Grouper par**.

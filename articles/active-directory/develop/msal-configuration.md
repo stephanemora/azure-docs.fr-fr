@@ -1,33 +1,29 @@
 ---
-title: Comprendre le fichier de configuration de la bibliothèque d’authentification Microsoft (MSAL) Android
+title: Fichier de configuration de la bibliothèque d’authentification Microsoft Android | Azure
 titleSuffix: Microsoft identity platform
 description: Vue d’ensemble du fichier de configuration Microsoft Authentication Library (MSAL) Android, qui représente la configuration d’une application dans Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803160"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916824"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Fichier de configuration Microsoft Authentication Library (MSAL) Android
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Fichier de configuration de la bibliothèque d’authentification Microsoft Authentication Android
 
-MSAL est fourni avec un [fichier JSON de configuration par défaut](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que vous personnalisez pour définir le comportement de votre application cliente publique, notamment l’autorité par défaut, les autorités que vous allez utiliser, etc.
+La bibliothèque d’authentification Microsoft (MSAL) Android est fourni avec un [fichier JSON de configuration par défaut](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) que vous personnalisez pour définir le comportement de votre application cliente publique, notamment l’autorité par défaut, les autorités que vous allez utiliser, etc.
 
 Cet article vous permet de comprendre les différents paramètres inclus dans ce fichier de configuration et la manière de spécifier le fichier de configuration à utiliser dans votre application MSAL.
 

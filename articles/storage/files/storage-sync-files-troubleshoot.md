@@ -4,15 +4,15 @@ description: Découvrez comment résoudre les problèmes courants avec Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: ee8d71cb913dd17bc72023326dbc2ce8a33a3776
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274881"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976228"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -137,6 +137,9 @@ Cette erreur se produit si la limite des points de terminaison de serveur par se
 <a id="-2134376427"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d’erreur : -2134376427 or 0x80c80015)**  
 Cette erreur se produit si un autre nœud final de serveur est déjà en train de synchroniser le chemin du nœud final de serveur spécifié. Azure File Sync ne prend pas en charge plusieurs points de terminaison de serveur qui synchronisent le même répertoire ou volume.
 
+<a id="-2160590967"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d’erreur : -2160590967 ou 0x80c80077)**  
+Cette erreur se produit si le chemin du point de terminaison de serveur contient des fichiers hiérarchisés orphelins. Si un point de terminaison de serveur a été récemment supprimé, patientez jusqu’à la fin du nettoyage des fichiers hiérarchisés orphelins. Un ID d’événement 6662 est enregistré dans le journal des événements de télémétrie une fois que le nettoyage des fichiers hiérarchisés orphelins a démarré. Un ID d’événement 6661 est enregistré une fois que le nettoyage des fichiers hiérarchisés orphelins est terminé et qu’un point de terminaison de serveur peut être recréé à l’aide du chemin. Si la création du point de terminaison de serveur échoue après l’enregistrement d’un ID d’événement 6661, supprimez les fichiers hiérarchisés orphelins en effectuant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’une section de point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
+
 <a id="-2134347757"></a>**La suppression du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobExpired » (Code d'erreur : -2134347757 ou 0x80c87013)**  
 Cette erreur se produit si le serveur est hors connexion ou n’a pas de connectivité réseau. Si le serveur n’est plus disponible, désinscrivez le serveur dans le portail pour supprimer les points de terminaison de serveur. Pour supprimer les points de terminaison de serveur, suivez les étapes décrites dans [Désinscrire un serveur dans Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
@@ -159,28 +162,31 @@ Set-AzStorageSyncServerEndpoint `
 ```
 <a id="server-endpoint-noactivity"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits correspond à « Apparaît hors connexion »**  
 
-Ce problème peut se produire si le processus de surveillance de la synchronisation du stockage ne s’exécute pas ou que le serveur ne peut pas communiquer avec le service Azure File Sync en raison d’un pare-feu ou d’un proxy.
+Ce problème peut se produire si le processus de supervision de la synchronisation du stockage (AzureStorageSyncMonitor.exe) ne s’exécute pas ou que le serveur ne peut pas accéder au service Azure File Sync.
 
-Pour résoudre ce problème, procédez comme suit :
+Sur le serveur qui porte la mention « Apparaît hors connexion » dans le portail, examinez l’ID d’événement 9301 dans le journal des événements de télémétrie (situé sous Applications et services\Microsoft\FileSync\Agent dans l’Observateur d’événements) pour déterminer la raison pour laquelle le serveur ne peut pas accéder au service Azure File Sync. 
 
-1. Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, procédez à une mise à niveau vers la dernière [version de l'agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) Azure File Sync.
-2. Vérifiez que les paramètres de pare-feu et de proxy sont correctement configurés :
+- Si l’événement **GetNextJob s’est terminé avec l’état : 0** est enregistré, le serveur peut communiquer avec le service Azure File Sync. 
+    - Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, procédez à une mise à niveau vers la dernière [version de l'agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) Azure File Sync. 
+
+- Si l’événement **GetNextJob s’est terminé avec l’état : -2134347756** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause d’un pare-feu ou d’un proxy. 
     - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) du pare-feu sont accessibles.
     - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) du proxy.
+
+- Si l’événement **GetNextJob s’est terminé avec l’état : -2134347764** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause de l’expiration ou de la suppression d’un certificat.  
+    - Exécutez la commande PowerShell suivante sur le serveur pour réinitialiser le certificat utilisé pour l’authentification :
+    ```powershell
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
+    ```
+
 
 <a id="endpoint-noactivity-sync"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » et l’état du serveur dans le panneau des serveurs inscrits indique « En ligne »**  
 
 Si un point de terminaison de serveur a l’état d’intégrité « Aucune activité », cela signifie qu’il n’a journalisé aucune activité de synchronisation au cours des deux dernières heures.
 
-Il peut être impossible pour un point de terminaison de serveur de journaliser l’activité de synchronisation pour les raisons suivantes :
+Pour vérifier l’activité de synchronisation active sur un serveur, consultez [Comment suivre la progression d’une session de synchronisation active ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-- La version 4.3.0.0 ou antérieure de l'agent est installée et le serveur dispose d'une session de synchronisation VSS active (SnapshotSync). Quand une session de synchronisation VSS est active pour un point de terminaison de serveur, les autres points de terminaison de serveur sur le même volume ne peuvent pas démarrer une session de synchronisation tant que la session de synchronisation VSS n’est pas terminée. Pour résoudre ce problème, installez la version 5.0.2.0 ou ultérieure de l'agent car elle prend en charge la synchronisation de plusieurs points de terminaison de serveur sur un volume lorsqu'une session de synchronisation VSS est active.
-
-    Pour vérifier l’activité de synchronisation active sur un serveur, consultez [Comment suivre la progression d’une session de synchronisation active ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
-
-- Le serveur a atteint le nombre maximal de sessions de synchronisation simultanées. 
-    - Agent version 4.x et versions ultérieures : La limitation varie selon les ressources système disponibles.
-    - Agent version 3.x : 2 sessions de synchronisation actives par processeur ou un maximum de 8 sessions de synchronisation actives par serveur.
+Un point de terminaison de serveur risque de ne pas journaliser l’activité de synchronisation pendant plusieurs heures en raison d’un bogue ou de ressources système insuffisantes. Vérifiez que la dernière [version de l’agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes) Azure File Sync est installée. Si le problème persiste, ouvrez une demande de support.
 
 > [!Note]  
 > Si l’état du serveur dans le panneau des serveurs inscrits est « Apparaît hors connexion », effectuez les étapes décrites dans la section [Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits indique « Apparaît hors connexion »](#server-endpoint-noactivity).
@@ -278,12 +284,15 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 |---------|-------------------|--------------|-------|-------------|
 | 0x80070043 | -2147942467 | ERROR_BAD_NET_NAME | Le fichier hiérarchisé sur le serveur n’est pas accessible. Ce problème se produit si le fichier hiérarchisé n’a pas été rappelé avant la suppression d’un point de terminaison de serveur. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. |
+| 0x80c80284 | -2134375804 | ECS_E_SYNC_CONSTRAINT_CONFLICT_SESSION_FAILED | La modification de fichier ou de répertoire ne peut pas encore être synchronisée, car un dossier dépendant n’est pas encore synchronisé et la session de synchronisation a échoué. Cet élément sera synchronisé une fois que les modifications dépendantes seront synchronisées. | Aucune action requise. Si l’erreur persiste, recherchez la cause de l’échec de la session de synchronisation. |
 | 0x8007007b | -2147024773 | ERROR_INVALID_NAME | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80255 | -2134375851 | ECS_E_XSMB_REST_INCOMPATIBILITY | Le nom de répertoire est non valide. | Renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
 | 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Le fichier ne peut pas être synchronisé, car il est en cours d’utilisation. Le fichier sera synchronisé lorsqu’il ne sera plus en cours d’utilisation. | Aucune action requise. Azure File Sync crée une capture instantanée VSS temporaire une fois par jour sur le serveur pour synchroniser les fichiers qui ont des descripteurs ouverts. |
 | 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Le fichier a changé, mais la modification n’a pas encore été détectée par la synchronisation. La synchronisation sera rétablie une fois cette modification détectée. | Aucune action requise. |
 | 0x80070002 | -2147024894 | ERROR_FILE_NOT_FOUND | Le fichier a été supprimé et la synchronisation n’est pas au courant de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications a détecté que le fichier a été supprimé. |
-| 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Le fichier a été ignoré, mais sera synchronisé au cours de la prochaine session de synchronisation. | Aucune action requise. |
+| 0x80070003 | -2147942403 | ERROR_PATH_NOT_FOUND | La suppression d’un fichier ou d’un répertoire ne peut pas être synchronisée, car l’élément a déjà été supprimé dans la destination et la synchronisation n’a pas connaissance de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications s’est exécutée sur la destination et que la synchronisation a détecté que l’élément a été supprimé. |
+| 0x80c80205 | -2134375931 | ECS_E_SYNC_ITEM_SKIP | Le fichier ou le répertoire a été ignoré, mais sera synchronisé au cours de la prochaine session de synchronisation. Si cette erreur est signalée lors du téléchargement de l’élément, il est plus que probable que le nom du fichier ou du répertoire n’est pas valide. | Aucune action n’est requise si cette erreur est signalée lors du chargement du fichier. Si l’erreur est signalée lors du téléchargement du fichier, renommez le fichier ou le répertoire en question. Pour plus d’informations, voir [Gestion des caractères non pris en charge](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters). |
+| 0x800700B7 | -2147024713 | ERROR_ALREADY_EXISTS | La création d’un fichier ou d’un répertoire ne peut pas être synchronisée, car l’élément existe déjà dans la destination et la synchronisation n’a pas connaissance de la modification. | Aucune action requise. La synchronisation arrête la journalisation de cette erreur une fois que la détection des modifications s’est exécutée sur la destination et que la synchronisation a connaissance de ce nouvel élément. |
 | 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Le fichier ne peut pas être synchronisé parce que la limite de partage de fichiers Azure est atteinte. | Pour résoudre ce problème, voir la section [Vous avez atteint la limite de stockage du partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) dans le guide de dépannage. |
 | 0x80c8027C | -2134375812 | ECS_E_ACCESS_DENIED_EFS | Le fichier est chiffré par une solution non prise en charge (comme NTFS EFS). | Déchiffrez le fichier et utilisez une solution de chiffrement prise en charge. Pour obtenir la liste des solutions prises en charge, voir la section [Solutions de chiffrement](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#encryption-solutions) du guide de planification. |
 | 0x80c80283 | -2160591491 | ECS_E_ACCESS_DENIED_DFSRRO | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. | Le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers de réplication en lecture seule DFS-R. Consultez le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) pour plus d’informations. |
@@ -808,6 +817,17 @@ Pour résoudre ce problème, supprimez et recréez le groupe de synchronisation 
 
 Cette erreur se produit car Azure File Sync ne prend pas en charge la redirection HTTP (code d’état 3xx). Pour résoudre ce problème, désactivez la redirection HTTP sur votre serveur proxy ou périphérique réseau.
 
+<a id="-2134364027"></a>**Un dépassement de délai s’est produit lors du transfert de données hors connexion, mais il est toujours en cours.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83085 |
+| **HRESULT (décimal)** | -2134364027 |
+| **Chaîne d’erreur** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
+| **Correction requise** | Non |
+
+Cette erreur se produit quand une opération d’ingestion de données dépasse le délai d’attente. Cette erreur peut être ignorée si la synchronisation progresse (AppliedItemCount est supérieur à 0). Voir [Comment surveiller la progression d’une session en cours de synchronisation ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -1025,7 +1045,7 @@ Si le rappel de fichiers échoue :
 
 | HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | Le rappel du fichier a échoué à cause d’un délai d’expiration E/S. Ce problème peut se produire pour plusieurs raisons : contraintes de ressources du serveur, connectivité réseau médiocre ou problème de stockage Azure (par exemple une limitation). | Aucune action requise. Si l’erreur persiste pendant plusieurs heures, veuillez ouvrir un cas de support. |
+| 0x80070079 | -2147942521 | ERROR_SEM_TIMEOUT | Le rappel du fichier a échoué à cause d’un délai d’expiration E/S. Ce problème peut se produire pour plusieurs raisons : contraintes de ressources du serveur, connectivité réseau médiocre ou problème de stockage Azure (par exemple une limitation). | Aucune action requise. Si l’erreur persiste pendant plusieurs heures, veuillez ouvrir un cas de support. |
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Le rappel du fichier a échoué à cause d’un problème réseau.  | Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Le rappel du fichier a échoué car le point de terminaison de serveur a été supprimé. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Le rappel du fichier a échoué à cause d’une erreur de refus d’accès. Ce problème peut se produire si les paramètres du pare-feu et du réseau virtuel sur le compte de stockage sont activés et que le serveur n’a pas accès au compte de stockage. | Pour résoudre ce problème, ajoutez le réseau virtuel ou l’adresse IP du serveur en suivant les étapes décrites dans la section [Configurer les paramètres de pare-feu et de réseau virtuel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) du Guide de déploiement. |

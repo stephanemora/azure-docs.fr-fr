@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: 5830e0b7ee49a7d954dbdb3f897ee7ac5901c6a5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 76ca8a5d781c22279ccad633cc7c5bc98d645df8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421764"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901355"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL
 
@@ -138,7 +138,7 @@ Votre instance gérée a besoin d’autorisations de lecture pour Azure AD afin 
 
    La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent pas être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. Voir la liste des administrateurs pris en charge dans [Fonctionnalités et limitations Azure AD](sql-database-aad-authentication.md#azure-ad-features-and-limitations). Le contrôle d’accès basé sur les rôles (RBAC) s'applique uniquement au portail Azure et n’est pas propagé vers SQL Server.
 
-    ![add-admin](./media/sql-database-aad-authentication/add-admin.png)
+    ![Ajouter un administrateur Azure Active Directory](./media/sql-database-aad-authentication/add-azure-active-directory-admin.png)
 
 8. En haut de la page Administrateur Active Directory, sélectionnez **Enregistrer**.
 
@@ -238,11 +238,13 @@ Les deux procédures suivantes vous montrent comment approvisionner un administr
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Dans le [portail Azure](https://portal.azure.com/), dans le coin supérieur droit, sélectionnez votre connexion pour développer une liste déroulante de répertoires Active Directories potentiels. Choisissez l’annuaire Active Directory approprié en tant qu’Azure AD par défaut. Cette étape lie l’association de l’abonnement avec Active Directory et le serveur SQL Azure, ce qui garantit que le même abonnement est utilisé à la fois pour Azure AD et pour SQL Server. (Le serveur Azure SQL peut héberger Azure SQL Database ou Azure SQL Data Warehouse.) ![choose-ad][8]
+1. Dans le [portail Azure](https://portal.azure.com/), dans le coin supérieur droit, sélectionnez votre connexion pour développer une liste déroulante de répertoires Active Directories potentiels. Choisissez l’annuaire Active Directory approprié en tant qu’Azure AD par défaut. Cette étape lie l’association de l’abonnement avec Active Directory et le serveur SQL Azure, ce qui garantit que le même abonnement est utilisé à la fois pour Azure AD et pour SQL Server. (Le serveur Azure SQL peut héberger Azure SQL Database ou Azure SQL Data Warehouse.)
 
-2. Dans la bannière de gauche, sélectionnez **Tous les services** puis entrez **SQL server** dans le filtre. Sélectionnez **Serveurs SQL**.
+    ![choose-ad][8]
 
-    ![sqlservers.png](media/sql-database-aad-authentication/sqlservers.png)
+2. Recherchez et sélectionnez **Serveur SQL**.
+
+    ![Rechercher et sélectionner des serveurs SQL](media/sql-database-aad-authentication/search-for-and-select-sql-servers.png)
 
     >[!NOTE]
     > Dans cette page, avant de choisir **Serveurs SQL**, vous pouvez sélectionner l **’étoile** en regard du nom pour ajouter la catégorie à vos *favoris* puis placer **Serveurs SQL** dans la barre de navigation gauche.
@@ -251,11 +253,11 @@ Les deux procédures suivantes vous montrent comment approvisionner un administr
 
 4. À la page **Administrateur Active Directory**, sélectionnez **Définir l’administrateur**.
 
-    ![Sélectionner Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+    ![Les serveurs SQL définissent l’administrateur Active Directory](./media/sql-database-aad-authentication/sql-servers-set-active-directory-admin.png)  
 
 5. À la page **Ajouter un administrateur**, recherchez un utilisateur, sélectionnez l’utilisateur ou le groupe à définir en tant qu’administrateur, puis choisissez **Sélectionner**. (La page Administrateur Active Directory affiche tous les membres et groupes présents dans Active Directory. Les utilisateurs ou les groupes grisés ne peuvent être sélectionnés, car ils ne sont pas pris en charge en tant qu’administrateurs Azure AD. (Consultez la liste des administrateurs de prise en charge dans la section **Fonctionnalités et limitations d’Azure AD** de [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database ou de SQL Data Warehouse](sql-database-aad-authentication.md).) Le contrôle d'accès basé sur les rôles (RBAC) s'applique uniquement au portail et n'est pas propagé vers SQL Server.
 
-    ![sélectionner l’administrateur](./media/sql-database-aad-authentication/select-admin.png)  
+    ![Sélectionner un administrateur Azure Active Directory](./media/sql-database-aad-authentication/select-azure-active-directory-admin.png)  
 
 6. En haut de la page **Administrateur Active Directory**, sélectionnez **ENREGISTRER**.
 

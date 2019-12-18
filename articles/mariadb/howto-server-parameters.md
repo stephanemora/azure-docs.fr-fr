@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 3477820cb20d856c2e979cdfbe5528113bf4b562
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769402"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976296"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Guide pratique pour configurer des paramètres de serveur dans Azure Database for MariaDB à l’aide du portail Azure
 
@@ -37,21 +37,21 @@ La liste des paramètres de serveur pris en charge s’allonge en permanence. Ut
 
 Le pool de mémoires tampons InnoDB et le nombre maximal de connexions ne sont pas configurables et dépendent de votre [niveau tarifaire](concepts-pricing-tiers.md).
 
-|**Niveau tarifaire**| **vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**| **Nombre maximal de connexions**|
-|---|---|---|---|
-|De base| 1| 1 024| 50|
-|De base| 2| 2560| 100|
-|Usage général| 2| 3584| 300|
-|Usage général| 4| 7680| 625|
-|Usage général| 8| 15360| 1250|
-|Usage général| 16| 31232| 2 500|
-|Usage général| 32| 62976| 5 000|
-|Usage général| 64| 125952| 10000|
-|Mémoire optimisée| 2| 7168| 600|
-|Mémoire optimisée| 4| 15360| 1250|
-|Mémoire optimisée| 8| 30720| 2 500|
-|Mémoire optimisée| 16| 62464| 5 000|
-|Mémoire optimisée| 32| 125952| 10000|
+|**Niveau tarifaire**| **vCore(s)**|**Pool de mémoires tampons InnoDB (Mo)**|
+|---|---|---|
+|De base| 1| 1 024|
+|De base| 2| 2560|
+|Usage général| 2| 3584|
+|Usage général| 4| 7680|
+|Usage général| 8| 15360|
+|Usage général| 16| 31232|
+|Usage général| 32| 62976|
+|Usage général| 64| 125952|
+|Mémoire optimisée| 2| 7168|
+|Mémoire optimisée| 4| 15360|
+|Mémoire optimisée| 8| 30720|
+|Mémoire optimisée| 16| 62464|
+|Mémoire optimisée| 32| 125952|
 
 Ces paramètres de serveur ne sont pas configurables dans le système :
 
@@ -77,6 +77,8 @@ Les tables de fuseaux horaires sur votre serveur peuvent être remplies en appel
 CALL mysql.az_load_timezone();
 ```
 
+> [!IMPORTANT]
+> Vous devez redémarrer le serveur pour vous assurer que les tables des fuseaux horaires sont correctement remplies. Pour redémarrer le serveur, utilisez le [Portail Azure](howto-restart-server-portal.md) ou [CLI](howto-restart-server-cli.md).
 Pour afficher les valeurs de fuseau horaire disponibles, exécutez la commande suivante :
 
 ```sql

@@ -1,5 +1,5 @@
 ---
-title: API web qui appelle des API web en aval (inscription d’application) - Plateforme d’identités Microsoft
+title: Inscrire une API web appelant des API web – Plateforme d’identités Microsoft | Azure
 description: Apprenez à créer une API web qui appelle des API web en aval (inscription d’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb03869cdea2150b6e922e2d6d81e577c3be02da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb5f4763e13935b99564bfcb6d8b6e7f463ed59e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65075384"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919798"
 ---
 # <a name="web-api-that-calls-web-apis---app-registration"></a>API web qui appelle des API web - inscription d’application
 

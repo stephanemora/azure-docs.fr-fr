@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618574"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924634"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -67,6 +67,8 @@ Pour plus d’informations sur la messagerie Service Bus, consultez les articles
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+Dans les scénarios où le code client ne peut pas renvoyer de message avec le même *MessageId* que précédemment, il est important de concevoir des messages qui peuvent être retraités en toute sécurité. Ce [billet de blog sur l’idempotence](https://particular.net/blog/what-does-idempotent-mean) décrit diverses techniques permettant de le faire.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077117"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851772"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -51,10 +51,12 @@ Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide de l’une
 * [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
-Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.  
+Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jour partielles ne sont pas prises en charge. 
 
 > [!NOTE]
 > Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions pour les services Microsoft approuvés. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
+
+Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.  
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 

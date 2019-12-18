@@ -1,6 +1,6 @@
 ---
 title: Schéma de métadonnées d’entrée Azure Media Services | Microsoft Docs
-description: Cette rubrique fournit une vue d’ensemble du schéma de métadonnées d’entrée d’Azure Media Services.
+description: Cet article fournit une vue d’ensemble du schéma de métadonnées d’entrée d’Azure Media Services.
 author: Juliako
 manager: femila
 editor: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: fa4487b07f130947ac5da2a5dbae6776b06acbe7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a81d6edfd887dc935a53742b7bc1492651c9bda5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463767"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887116"
 ---
 # <a name="input-metadata"></a>Métadonnées d'entrée 
 

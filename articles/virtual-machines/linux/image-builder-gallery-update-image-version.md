@@ -1,20 +1,20 @@
 ---
-title: Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure (préversion)
-description: Créez une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure.
+title: Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure (préversion)
+description: Créez une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671497"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976330"
 ---
-# <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Aperçu : Créer une nouvelle version de l’image à partir d’une version existante à l’aide du Générateur d’images Azure
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Aperçu : Créer une nouvelle version d’image de machine virtuelle à partir d’une version existante à l’aide du Générateur d’images Azure
 
 Cet article explique comment récupérer une version existante d’une image dans une [Bibliothèque d’images partagées](shared-image-galleries.md), la mettre à jour et la publier sous la forme d’une nouvelle version dans la bibliothèque.
 

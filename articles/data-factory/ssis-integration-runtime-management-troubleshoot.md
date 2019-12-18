@@ -1,23 +1,22 @@
 ---
-title: 'Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory '
+title: Détecter un problème de gestion de l’Azure-SSIS Integration Runtime
 description: Cet article explique comment résoudre les problèmes liés à la gestion du runtime d’intégration SSIS (SSIS IR).
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684029"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941851"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -157,3 +156,38 @@ Lorsque vous arrêtez le runtime d’intégration SSIS, toutes les ressources li
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 Cette erreur se produit lorsque le runtime d’intégration est en cours d’exécution et elle signifie que celui-ci est devenu défectueux. Cette erreur est toujours due à une modification de la configuration du serveur DNS ou du groupe de sécurité réseau qui empêche le runtime d’intégration SSIS de se connecter à un service nécessaire. Étant donné que la configuration du serveur DNS et du groupe de sécurité réseau est contrôlée par le client, le client doit résoudre les problèmes bloquants de son côté. Pour plus d'informations, consultez [Configuration du réseau virtuel de runtime d’intégration SSIS](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si vous rencontrez toujours des problèmes, contactez l’équipe du support technique Azure Data Factory.
+
+## <a name="static-public-ip-addresses-configuration"></a>Configuration d’IP publiques statiques
+
+Quand vous joignez l’Azure-SSIS Integration Runtime (Azure-SSIS IR) au Réseau virtuel Azure, vous pouvez également apporter vos propres IP publiques statiques pour le runtime d’intégration de manière à ce que ce dernier puisse accéder aux sources de données qui limitent l’accès à des adresses IP spécifiques. Pour plus d’informations, consultez [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+
+Outre les problèmes de réseau virtuel mentionnés ci-dessus, vous pouvez également rencontrer un problème lié aux IP publiques statiques. Veuillez vérifier les erreurs suivantes pour obtenir de l’aide.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+Cette erreur peut se produire pour diverses raisons quand vous démarrez l’Azure-SSIS IR :
+
+| Message d’erreur | Solution|
+|:--- |:--- |
+| L’IP publique statique fournie est déjà utilisée, fournissez-en deux non utilisées pour votre Azure-SSIS Integration Runtime. | Vous devez sélectionner deux IP publiques statiques inutilisées ou supprimer les références actuelles à l’IP publique spécifiée, puis redémarrer l’Azure-SSIS IR. |
+| L’IP publique statique fournie n’a pas de nom DNS, fournissez-en deux dotées d’un nom DNS pour votre Azure-SSIS Integration Runtime. | Vous pouvez configurer le nom DNS de l’IP publique dans le Portail Azure, comme le montre l’image ci-dessous. Les étapes spécifiques sont les suivantes : (1) Ouvrez le Portail Azure et accédez à la page des ressources de cette IP publique ; (2) sélectionnez la section **Configuration** et configurez le nom DNS, puis cliquez sur bouton **Enregistrer** ; (3) redémarrez votre Azure-SSIS IR. |
+| Le réseau virtuel et les IP publiques statiques fournis pour votre Azure-SSIS Integration Runtime doivent se trouver au même emplacement. | Selon les exigences du réseau Azure, l’IP publique statique et le réseau virtuel doivent se trouver dans le même emplacement et le même abonnement. Indiquez deux IP publiques statiques valides et redémarrez l’Azure-SSIS IR. |
+| L’IP publique statique fournie est une adresse de base, fournissez-en deux standard pour votre Azure-SSIS Integration Runtime. | Pour obtenir de l’aide, consultez [SKU d’IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku). |
+
+![Runtime d’intégration Azure SSIS](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+Si l’approvisionnement Azure-SSIS IR échoue, toutes les ressources qui ont été créées sont supprimées. Toutefois, s’il existe un verrou de suppression de ressource au niveau de l’abonnement ou du groupe de ressources (qui contient votre IP publique statique), les ressources réseau ne sont pas supprimées comme prévu. Pour corriger l’erreur, supprimez le verrou de suppression et redémarrez le runtime d’intégration.
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+Lorsque vous arrêtez Azure-SSIS IR, toutes les ressources réseau créées dans le groupe de ressources contenant votre IP publique seront supprimées. Toutefois, la suppression peut échouer s’il existe un verrou de suppression de ressource au niveau de l’abonnement ou du groupe de ressources (qui contient votre IP publique statique). Veuillez supprimer le verrou de suppression et redémarrer le runtime d’intégration.
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR est automatiquement mis à jour de façon régulière. De nouveaux nœuds IR sont créés lors de la mise à niveau et les anciens nœuds sont supprimés. En outre, les ressources réseau créées (par exemple, l’équilibreur de charge et le groupe de sécurité réseau) pour les anciens nœuds sont supprimées, et les nouvelles ressources réseau sont créées dans le cadre de votre abonnement. Cette erreur signifie que la suppression des ressources réseau pour les anciens nœuds a échoué en raison d’un verrou de suppression de ressource au niveau de l’abonnement ou du groupe de ressources (qui contient votre IP publique statique). Supprimez le verrou de suppression pour pouvoir nettoyer les anciens nœuds et libérer l’IP publique statique pour ces derniers. Dans le cas contraire, l’IP publique statique ne peut pas être libérée et nous ne pourrons plus mettre à niveau votre runtime d’intégration.
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+Si vous souhaitez apporter vos propres IP publiques statiques, vous devez fournir deux IP publiques. L’une d’elles est utilisée pour créer les nœuds IR immédiatement, et l’autre sera utilisée lors la mise à niveau de l’IR. Cette erreur peut se produire lorsque l’autre IP publique est inutilisable pendant la mise à niveau. Reportez-vous à [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) pour les causes possibles.

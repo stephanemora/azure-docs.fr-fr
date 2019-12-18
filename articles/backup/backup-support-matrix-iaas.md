@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559045"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996168"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -44,7 +44,7 @@ Sauvegarder des disques managés après l’activation d’un verrou de groupe d
 Modifier la stratégie de sauvegarde pour une machine virtuelle | Pris en charge.<br/><br/> La machine virtuelle est sauvegardée selon la planification et les paramètres de conservation de la nouvelle stratégie. Si les paramètres de conservation sont étendus, les points de récupération existants sont marqués et conservés. S’ils sont réduits, les points de récupération existants sont nettoyés lors de la prochaine tâche de nettoyage et ils sont finalement supprimés.
 Annuler un travail de sauvegarde| Pris en charge pendant le processus de capture instantanée.<br/><br/> Non pris en charge quand l’instantané est transféré vers le coffre.
 Sauvegarder la machine virtuelle vers une autre région ou un autre abonnement |Non pris en charge.
-Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Une sauvegarde planifiée par jour.<br/><br/> Le service autorise jusqu’à neuf sauvegardes à la demande par jour, mais Microsoft recommande et prend en charge jusqu’à quatre sauvegardes.
+Sauvegardes par jour (via l’extension de machine virtuelle Azure) | Une sauvegarde planifiée par jour.<br/><br/>Le service Sauvegarde Azure prend en charge jusqu’à neuf sauvegardes à la demande par jour, mais Microsoft recommande d’effectuer au maximum quatre sauvegardes quotidiennes à la demande afin de garantir des performances optimales.
 Sauvegardes par jour (via l’agent MARS) | Trois sauvegardes planifiées par jour.
 Sauvegardes par jour (via DPM/MABS) | Deux sauvegardes planifiées par jour.
 Sauvegarde mensuelle/annuelle| Non pris en charge lors de la sauvegarde avec l’extension de machine virtuelle Azure. Seules les sauvegardes quotidiennes et hebdomadaires sont prises en charge.<br/><br/> Vous pouvez configurer la stratégie pour conserver des sauvegardes quotidiennes/hebdomadaires pour une période de conservation mensuelle/annuelle.

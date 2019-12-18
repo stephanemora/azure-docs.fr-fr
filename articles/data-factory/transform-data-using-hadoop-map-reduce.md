@@ -1,24 +1,24 @@
 ---
-title: Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
+title: Transformer des données à l’aide d’une activité Hadoop MapReduce
 description: Découvrez comment traiter des données en exécutant des programmes Hadoop MapReduce sur un cluster Azure HDInsight à partir d’une fabrique de données Azure.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 49e00d9a47f92fb30a29e7051cba35f54bde3700
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 01/16/2018
+ms.openlocfilehash: 5d38e3126442bcf34c96cead2b2ea59507b50b8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683853"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912861"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-map-reduce.md)
 > * [Version actuelle](transform-data-using-hadoop-map-reduce.md)

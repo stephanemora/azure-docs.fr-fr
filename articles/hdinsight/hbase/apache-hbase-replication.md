@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/15/2018
-ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/06/2019
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468411"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995913"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -275,6 +275,10 @@ Lorsque vous répliquez un cluster, vous devez spécifier les tables à répliqu
 
 Pour créer une table **Contacts** et y insérer des données, suivez les instructions du [tutoriel HBase : bien démarrer avec Apache HBase dans HDInsight Linux](apache-hbase-tutorial-get-started-linux.md).
 
+> [!NOTE]
+> Si vous voulez répliquer des tables à partir d’un espace de noms personnalisé, vous devez vous assurer que les espaces de noms personnalisés appropriés sont également définis sur le cluster de destination.
+>
+
 ## <a name="enable-replication"></a>Activer la réplication
 
 Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script en utilisant Azure PowerShell et Azure Classic CLI, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](../hdinsight-hadoop-customize-cluster-linux.md).
@@ -296,6 +300,8 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
     
       > [!NOTE]
       > Utilisez le nom d’hôte plutôt que le nom de domaine complet (FQDN) pour le nom DNS du cluster source et du cluster de destination.
+      >
+      > Cette procédure pas à pas suppose que hn1 est le nœud principal actif. Vérifiez votre cluster pour identifier le nœud principal actif.
 
 6. Sélectionnez **Create** (Créer). L’exécution du script peut prendre un certain temps, en particulier lorsque vous utilisez l’argument **-copydata**.
 
@@ -315,7 +321,7 @@ Arguments facultatifs :
 |-su, --src-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase source. La valeur par défaut est **admin**. |
 |-du, --dst-ambari-user | Spécifie le nom d’utilisateur administrateur pour Ambari sur le cluster HBase de destination. La valeur par défaut est **admin**. |
 |-t, --table-list | Spécifie les tables à répliquer. Par exemple : --table-list="table1;table2;table3". Si vous ne spécifiez pas de tables, toutes les tables HBase existantes sont répliquées.|
-|-m, --machine | Spécifie le nœud principal sur lequel l’action de script s’exécute. La valeur est soit **hn0**, soit **hn1**, et doit être choisie en fonction du nœud principal actif. Utilisez cette option lorsque vous exécutez le script $0 comme une action de script à partir du portail HDInsight ou d’Azure PowerShell.|
+|-m, --machine | Spécifie le nœud principal sur lequel l’action de script s’exécute. La valeur doit être choisie en fonction du nœud principal actif. Utilisez cette option lorsque vous exécutez le script $0 comme une action de script à partir du portail HDInsight ou d’Azure PowerShell.|
 |-cp, -copydata | Active la migration des données existantes sur les tables pour lesquelles la réplication est activée. |
 |-rpm, -replicate-phoenix-meta | Active la réplication sur les tables système Phoenix. <br><br>*Utilisez cette option avec précaution.* Nous vous recommandons de recréer des tables Phoenix sur les clusters de réplica avant d’utiliser ce script. |
 |-h, --help | Affiche des informations sur l’utilisation. |
@@ -393,6 +399,10 @@ La section `print_usage()` du [script](https://raw.githubusercontent.com/Azure/h
 - **Désactiver la réplication sur les tables spécifiées (table1, table2 et table3)**  :
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> Si vous envisagez de supprimer le cluster de destination, veillez à le faire à partir de la liste des pairs du cluster source. Pour cela, vous pouvez exécuter la commande remove_peer '1' dans l’interpréteur de commandes hbase sur le cluster source. Si vous ne procédez pas ainsi, le cluster source risque de ne pas fonctionner correctement.
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

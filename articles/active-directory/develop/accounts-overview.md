@@ -1,28 +1,25 @@
 ---
-title: Comptes de la plate-forme d'identité Microsoft et profils de locataires (Android) | Azure
+title: Comptes de plateforme d’identités Microsoft et profils de locataires sur Android | Azure
 description: Vue d'ensemble des comptes de la plate-forme d'identité Microsoft pour Android
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7beab6759524037f86c83429644c1bb1fffe4d07
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f2a61176f43960d14cecf4db881b94b24ae580bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678857"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963883"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Comptes et profils de locataire (Android)
 
@@ -32,10 +29,10 @@ L'API Microsoft Authentication Library (MSAL) remplace le terme *user (utilisate
 
 Dans la plate-forme d'identité Microsoft, un compte comprend les éléments suivants :
 
-  - Un identificateur unique.
-  - Une ou plusieurs informations d'identification prouvant la propriété ou le contrôle du compte.
-  - Un ou plusieurs profils constitués d'attributs tels que :
-    - Photo, prénom, nom de famille, poste, bureau
+- Un identificateur unique.  
+- Une ou plusieurs informations d'identification prouvant la propriété ou le contrôle du compte.
+- Un ou plusieurs profils constitués d'attributs tels que :
+  - Photo, prénom, nom de famille, poste, bureau
 - Un compte comporte une source d'autorité ou un système d'enregistrement. Il s'agit du système où le compte est créé et où sont stockées les informations d'identification associées à ce compte. Dans les systèmes multilocataires comme la plate-forme d'identité Microsoft, le système d'enregistrement correspond au `tenant` où le compte a été créé. Ce locataire est également appelé `home tenant`.
 - Dans la plate-forme d'identité Microsoft, les comptes comportent les systèmes d'enregistrement suivants :
   - Azure Active Directory, y compris Azure Active Directory B2C.
@@ -49,7 +46,6 @@ Dans la plate-forme d'identité Microsoft, un compte comprend les éléments sui
   - Cet enregistrement local, c'est-à-dire la représentation du compte, est lié au compte original.
   - MSAL expose cet enregistrement local comme un `Tenant Profile`.
   - Le profil du locataire peut avoir différents attributs adaptés au contexte local, comme le poste, le bureau, les coordonnées du contact, etc.
- 
 - Étant donné qu’un compte peut être présent dans un ou plusieurs locataires, il peut avoir plusieurs profils.
 
 > [!NOTE]

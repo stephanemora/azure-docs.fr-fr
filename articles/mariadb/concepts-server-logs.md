@@ -1,17 +1,17 @@
 ---
 title: Journaux des requêtes lentes - Azure Database for MariaDB
 description: Décrit les journaux d’activité disponibles dans Azure Database for MariaDB et les paramètres disponibles pour l’activation de différents niveaux de journalisation.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8a451b06c8166b48fd892050e53204e2b65856c3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9b9babc9db9dd7fa225b9649d4ac96b15debec2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772102"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976313"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -24,6 +24,8 @@ Vous pouvez lister et télécharger les journaux des requêtes lentes Azure Data
 Dans le portail Azure, sélectionnez votre serveur Azure Database for MariaDB. Sous l’en-tête **Supervision**, sélectionnez la page **Journaux d’activité des serveurs**.
 
 Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Configuration et accès aux journaux d’activité du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-cli.md).
+
+De même, vous pouvez diriger les journaux vers Azure Monitor à l’aide des journaux de diagnostic. Pour plus d’informations, voir [plus bas](concepts-server-logs.md#diagnostic-logs).
 
 ## <a name="log-retention"></a>Rétention des journaux
 Les journaux d’activité sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux d’activité disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible.
@@ -39,6 +41,7 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - **log_slow_admin_statements** : si ce paramètre est activé, inclut des instructions d’administration telles que ALTER_TABLE et ANALYZE_TABLE dans les instructions écrites dans le journal des requêtes lentes.
 - **log_queries_not_using_indexes** : détermine si les requêtes qui n’utilisent pas les index sont enregistrées dans le journal des requêtes lentes.
 - **log_throttle_queries_not_using_indexes** : Ce paramètre limite le nombre de requêtes hors index qui peuvent être écrites dans le journal des requêtes lentes. Ce paramètre prend effet lorsque log_queries_not_using_indexes est défini sur ON.
+- **log_output** : si défini sur « File », permet au journal des requêtes lentes d’être écrit dans le stockage du serveur local et dans les journaux de diagnostic Azure Monitor. S’il est défini sur « None », le journal des requêtes lentes est uniquement écrit dans le stockage du serveur local. 
 
 Consultez la [documentation MariaDB consacrée au journal des requêtes lentes](https://mariadb.com/kb/en/library/slow-query-log-overview/) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 

@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 570699fe83197a1b5442909d8b89e285a1dfa73b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275433"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996950"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Les liens de la page ne fonctionnent pas pour une application avec proxy d’application
 
@@ -38,7 +38,11 @@ Il existe trois façons de résoudre ce type de problème. Les solutions ci-dess
 
 1.  Vérifiez que l’URL interne est une URL racine qui contient tous les liens nécessaires à l’application. Cela permet à tous les liens d’être résolus en tant que contenu publié au sein de la même application.
 
-    Si vous modifiez l’URL interne, mais ne souhaitez pas modifier la page d’arrivée pour les utilisateurs, remplacez l’URL de la page d’accueil par l’URL interne publiée précédemment. Pour cela, accédez à « Active Directory Azure » -&gt; Inscriptions des applications -&gt; sélectionnez l’application -&gt; Propriétés. Dans l’onglet Propriétés, vous voyez le champ « URL de la page d’accueil » que vous pouvez configurer sur la page d’arrivée de votre choix.
+    Si vous modifiez l’URL interne, mais ne souhaitez pas modifier la page d’arrivée pour les utilisateurs, remplacez l’URL de la page d’accueil par l’URL interne publiée précédemment. Pour ce faire, accédez à « Active Directory Azure » -&gt; Inscriptions des applications -&gt; sélectionnez l’application -&gt; Personnalisation. Dans la section de personnalisation, vous voyez le champ « URL de la page d’accueil » que vous pouvez configurer sur la page d’arrivée de votre choix. Si vous utilisez toujours l’expérience d’inscription d’applications héritée, l’onglet Propriétés montre les détails « URL de la page d’accueil ». 
+    
+    > [!IMPORTANT]
+    > Pour apporter les changements ci-dessus, vous devez disposer des droits nécessaires pour modifier les objets d’application dans Azure AD. L’utilisateur doit se voir attribuer le rôle « [Administrateur d’application](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles) », qui accorde des droits de modification d’application dans Azure AD à l’utilisateur. 
+    >
 
 2.  Si vos applications utilisent des noms de domaine complets (FQDN), utilisez des [domaines personnalisés](application-proxy-configure-custom-domain.md) pour publier vos applications. Cette fonctionnalité permet à la même URL d’être utilisée à la fois en interne et en externe.
 

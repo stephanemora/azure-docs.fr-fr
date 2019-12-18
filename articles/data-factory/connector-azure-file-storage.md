@@ -1,23 +1,22 @@
 ---
-title: Copier des données vers/à partir du Stockage Fichier Azure à l’aide d’Azure Data Factory
+title: Copier des données depuis/vers Stockage Fichier Azure
 description: Découvrez comment copier des données depuis Stockage Fichier Azure vers des magasins de données récepteurs pris en charge (ou) depuis des magasins de données sources pris en charge vers Stockage Fichier Azure à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: bf7ae7f9dc3bb45482f20df07be5e2358a388714
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 37ec461edc587d8ad55cdf40bcd55736ce84c316
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681198"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929690"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copier des données depuis ou vers Stockage Fichier Azure à l’aide d’Azure Data Factory
 
@@ -125,7 +124,7 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 
 >[!NOTE]
->Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle de jeu de données suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans la section ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -237,7 +236,7 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 #### <a name="legacy-source-model"></a>Modèle source hérité
 
 >[!NOTE]
->Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle source de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -327,7 +326,7 @@ Les propriétés suivantes sont prises en charge pour Stockage Fichier Azure dan
 #### <a name="legacy-sink-model"></a>Modèle récepteur hérité
 
 >[!NOTE]
->Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’IU de création ADF peut désormais générer ce nouveau modèle.
+>Le modèle récepteur de copie suivant est toujours pris en charge tel quel à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné plus haut à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: rkarlin
-ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0479eba13fd747ea1bcab2672fce1df2156802e8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762700"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947584"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Autorisations dans Azure Sentinel
 
@@ -70,7 +70,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Azure Sent
 >
 ## <a name="building-custom-rbac-roles"></a>Génération de rôles RBAC personnalisés
 
-En plus d’utiliser des rôles RBAC intégrés, ou au lieu d’en utiliser, vous pouvez créer des rôles RBAC personnalisés pour Azure Sentinel. Les rôles RBAC personnalisés pour Azure Sentinel sont créés de la même façon que vous créez d’autres rôles [RBAC Azure personnalisés](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), en fonction d’autorisations spécifiques pour les ressources Azure Sentinel.
+En plus d’utiliser des rôles RBAC intégrés, ou au lieu d’en utiliser, vous pouvez créer des rôles RBAC personnalisés pour Azure Sentinel. Les rôles RBAC personnalisés pour Azure Sentinel sont créés de la même façon que les autres rôles [RBAC Azure personnalisés](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), c’est-à-dire selon des [autorisations pour les ressources Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) et pour les [ressources Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 ## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>Contrôle d’accès en fonction du rôle (RBAC) avancé sur les données que vous stockez dans Azure Sentinel
   

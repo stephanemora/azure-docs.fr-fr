@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626379"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978507"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
@@ -124,28 +124,30 @@ Pour installer Git sur les machines Linux (CentOS), exécutez la commande bash s
 
 Si vous exécutez les commandes Git sur une machine Linux (CentOS), vous devez ajouter la clé SSH publique de votre machine à vos Azure DevOps Services pour que ceux-ci reconnaissent la machine. Vous devez d’abord générer une clé SSH publique, puis l’ajouter aux clés publiques SSH dans la page de vos paramètres de sécurité Azure DevOps Services. 
 
-- Pour générer la clé SSH, exécutez les deux commandes suivantes : 
+1. Pour générer la clé SSH, exécutez les deux commandes suivantes : 
 
-        ssh-keygen
-        cat .ssh/id_rsa.pub
+   ```
+   ssh-keygen
+   cat .ssh/id_rsa.pub
+   ```
+   
+   ![Commandes pour générer la clé SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
-![Commandes pour générer la clé SSH](./media/platforms-and-tools/resources-1-generate_ssh.png)
-
-- Copiez l’intégralité de la clé ssh, y compris *ssh-rsa*. 
-- Connectez-vous à vos Azure DevOps Services. 
-- Cliquez sur **<Votre nom\>** en haut à droite de la page et cliquez sur **Sécurité**. 
+1. Copiez l’intégralité de la clé ssh, y compris *ssh-rsa*. 
+1. Connectez-vous à vos Azure DevOps Services. 
+1. Cliquez sur **<Votre nom\>** en haut à droite de la page et cliquez sur **Sécurité**. 
     
-    ![Cliquez sur votre nom, puis sur Sécurité](./media/platforms-and-tools/resources-2-user-setting.png)
+   ![Cliquez sur votre nom, puis sur Sécurité](./media/platforms-and-tools/resources-2-user-setting.png)
 
-- Cliquez sur **Clés publiques SSH**, puis cliquez sur **+ Ajouter**. 
+1. Cliquez sur **Clés publiques SSH**, puis cliquez sur **+ Ajouter**. 
 
-    ![Cliquer sur Clés publiques SSH, puis cliquer sur + Ajouter](./media/platforms-and-tools/resources-3-add-ssh.png)
+   ![Cliquer sur Clés publiques SSH, puis cliquer sur + Ajouter](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-- Collez la clé ssh que vous venez de copier dans la zone de texte et enregistrez-la.
+1. Collez la clé ssh que vous venez de copier dans la zone de texte et enregistrez-la.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Des procédures pas à pas complètes illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. La rubrique [Exemples de procédures pas à pas](walkthroughs.md) les répertorie et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
-Pour obtenir des exemples d’exécution des étapes du processus TDSP qui utilisent Azure Machine Learning Studio, consultez le parcours d’apprentissage [Avec Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Pour obtenir des exemples d’exécution des étapes du processus TDSP qui utilisent Azure Machine Learning Studio (classique), consultez le parcours d’apprentissage [Avec Azure ML](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

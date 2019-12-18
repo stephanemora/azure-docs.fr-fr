@@ -2,18 +2,18 @@
 title: 'Infrastructure : Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques sur l’infrastructure pour la migration des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499228"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951511"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques sur l’infrastructure
 
@@ -23,10 +23,17 @@ Cet article fournit des recommandations pour la gestion de l’infrastructure de
 
 Les principaux choix à effectuer pour la planification de la capacité des clusters HDInsight sont les suivants :
 
-- **Choisir la région** : la région Azure détermine où le cluster est physiquement provisionné. Pour réduire la latence de lecture et d’écriture, le cluster doit être dans la même région que les données.
-- **Choisir la taille et l’emplacement de stockage** : le stockage par défaut doit être dans la même région que le cluster. Pour un cluster à 48 nœuds, il est recommandé d’avoir de 4 à 8 comptes de stockage. Bien que le stockage total actuel puisse être suffisant, chaque compte de stockage fournit une bande passante réseau supplémentaire pour les nœuds de calcul. Quand il existe plusieurs comptes de stockage, utilisez un nom aléatoire pour chaque compte de stockage, sans préfixe. L’objectif de l’attribution aléatoire des noms est de réduire le risque de goulot d’étranglement de stockage (limitation) ou les défaillances en mode commun parmi tous les comptes. Pour de meilleures performances, utilisez un seul conteneur par compte de stockage.
-- **Choisir la taille et le type de machine virtuelle (série G désormais prise en charge)**  : chaque type de cluster a un ensemble de types de nœuds, et chaque type de nœud a des options spécifiques pour la taille et le type de machine virtuelle. La taille et le type de machine virtuelle sont déterminés par la puissance de traitement de l’UC, la taille de la RAM et la latence du réseau. Une charge de travail simulée peut être utilisée pour déterminer la taille de machine virtuelle optimale et le type de chaque nœud.
-- **Choisir le nombre de nœuds worker** : le nombre initial de nœuds worker peut être déterminé à l’aide des charges de travail simulées. Le cluster peut être mis à l’échelle par la suite en ajoutant d’autres nœuds worker pour répondre aux pics de charge. Le cluster peut ensuite revenir au niveau de départ quand les nœuds worker supplémentaires ne sont pas nécessaires.
+**Région**  
+La région Azure détermine où le cluster est physiquement approvisionné. Pour réduire la latence de lecture et d’écriture, le cluster doit être dans la même région que les données.
+
+**Emplacement et taille de stockage**  
+Le stockage par défaut doit être dans la même région que le cluster. Pour un cluster à 48 nœuds, il est recommandé d’avoir 4 à 8 comptes de stockage. Bien que le stockage total actuel puisse être suffisant, chaque compte de stockage fournit une bande passante réseau supplémentaire pour les nœuds de calcul. Quand il existe plusieurs comptes de stockage, utilisez un nom aléatoire pour chaque compte de stockage, sans préfixe. L’objectif de l’attribution aléatoire des noms est de réduire le risque de goulot d’étranglement de stockage (limitation) ou les défaillances en mode commun parmi tous les comptes. Pour de meilleures performances, utilisez un seul conteneur par compte de stockage.
+
+**Taille et type de machine virtuelle (prend désormais en charge la série G)**  
+Chaque type de cluster a un ensemble de types de nœuds, et chaque type de nœud a des options spécifiques pour la taille et le type de machine virtuelle. La taille et le type de machine virtuelle sont déterminés par la puissance de traitement de l’UC, la taille de la RAM et la latence du réseau. Une charge de travail simulée peut être utilisée pour déterminer la taille de machine virtuelle optimale et le type de chaque nœud.
+
+**Nombre de nœuds Worker**  
+Le nombre initial de nœuds Worker peut être déterminé à l’aide des charges de travail simulées. Le cluster peut être mis à l’échelle par la suite en ajoutant d’autres nœuds worker pour répondre aux pics de charge. Le cluster peut ensuite revenir au niveau de départs si les nœuds Worker supplémentaires ne sont pas nécessaires.
 
 Pour plus d’informations, consultez l’article [Planification de la capacité pour les clusters HDInsight](../hdinsight-capacity-planning.md).
 
@@ -191,6 +198,4 @@ Pour plus d’informations, consultez l’article [Connecter HDInsight à votre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez l’article suivant de cette série :
-
-- [Bonnes pratiques concernant le stockage pour une migration locale vers Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md)
+Lisez l’article suivant de cette série : [Meilleures pratiques concernant le stockage pour une migration locale vers Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

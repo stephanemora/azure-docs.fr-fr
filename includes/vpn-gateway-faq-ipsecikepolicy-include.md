@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075412"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903136"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie IPsec/IKE personnalisée est prise en charge sur toutes les références SKU Azure, à l’exception de la référence SKU De base.
@@ -110,7 +110,7 @@ Les connexions IKEv1 peuvent être créées sur toutes les références SKU de t
 Oui. Le transit entre les connexions IKEv1 et IKEv2 est pris en charge.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>Puis-je avoir des connexions de site à site IKEv1 sur les références SKU de base de type VPN RouteBased ?
-Non. Toutes les références SKU VPN RouteBased, à l’exception des références SKU de base de type VPN basé sur les routes prennent en charge les connexions IKEv1 pour le site à site.
+Non. La référence SKU de base ne prend pas cela en charge.
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>Puis-je changer le type de protocole de connexion une fois la connexion créée (IKEv1 en IKEv2 et vice versa) ?
 Non. Une fois la connexion créée, les protocoles IKEv1/IKEv2 ne peuvent pas être changés. Vous devez supprimer et recréer une connexion avec le type de protocole souhaité.

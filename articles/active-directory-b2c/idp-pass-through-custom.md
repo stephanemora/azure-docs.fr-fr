@@ -1,6 +1,7 @@
 ---
-title: Passer un jeton d’accès par le biais d’une stratégie personnalisée à une application dans Azure Active Directory B2C
-description: Découvrez comment passer à votre application, par le biais d’une stratégie personnalisée, un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication dans Azure Active Directory B2C.
+title: Passer un jeton d’accès via une stratégie personnalisée à votre application
+titleSuffix: Azure AD B2C
+description: Découvrez comment vous pouvez passer un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication via une stratégie personnalisée à votre application dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b6795af0829a288c36cad5b848fed50a99dc1bfc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510128"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949838"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’une stratégie personnalisée à une application dans Azure Active Directory B2C
 

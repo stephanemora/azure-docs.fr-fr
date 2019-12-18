@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: d25b9b3bb155dced973d415b396ebfaa4403b011
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510830"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841572"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
@@ -282,6 +282,25 @@ Une fois que vous avez correctement déployé le graphique, vous pouvez examiner
 
 >[!NOTE]
 >La latence d’ingestion est de cinq à dix minutes entre l’agent et la validation dans l’espace de travail Azure Log Analytics. L’état du cluster affiche la valeur **Pas de données** ou **Inconnu** jusqu’à ce que toutes les données d’analyse requises soient disponibles dans Azure Monitor. 
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Si vous rencontrez une erreur lors de la tentative d’activation de la surveillance de votre cluster Kubernetes hybride, copiez le script PowerShell [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) et enregistrez-le dans un dossier sur votre ordinateur. Ce script est fourni pour aider à détecter et à résoudre les problèmes rencontrés. Les problèmes qu’il est conçu de détecter et tenter de corriger sont les suivants :
+
+* L’espace de travail Log Analytics spécifié est valide 
+* L’espace de travail Log Analytics est configuré avec la solution Azure Monitor pour conteneurs. Si ce n’est pas le cas, configurez l’espace de travail.
+* Le pod replicaset OmsAgent est en cours d’exécution
+* Le pod daemonset OmsAgent est en cours d’exécution
+* Le service Intégrité OmsAgent est en cours d’exécution 
+* L’ID et la clé de l’espace de travail Log Analytics configurés sur l’agent en conteneur correspondent à l’espace de travail avec lequel Insight est configuré.
+* Vérifiez que tous les nœuds Worker Linux ont l’étiquette `kubernetes.io/role=agent` pour planifier le pod rs. Si ce n’est pas le cas, ajoutez-la.
+* Vérifiez que `cAdvisor port: 10255` est ouvert sur tous les nœuds du cluster.
+
+Pour exécuter avec Azure PowerShell, utilisez les commandes suivantes dans le dossier qui contient le script :
+
+```powershell
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

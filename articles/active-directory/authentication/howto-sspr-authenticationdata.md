@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.date: 12/09/2019
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a14338e552250ac63c344365099a16f20616ea9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358025"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964024"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
-Pour déployer la réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les données d’authentification doivent être présentes. Certaines organisations demandent à leurs utilisateurs d’entrer leurs données d’authentification eux-mêmes, mais la plupart préfèrent synchroniser avec des données qui existent déjà dans Active Directory. Les données synchronisées sont mises à disposition d’Azure AD et de la réinitialisation du mot de passe libre-service sans nécessiter l’intervention de l’utilisateur si vous :
+Pour déployer la réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les données d’authentification doivent être présentes. Certaines organisations demandent à leurs utilisateurs d’entrer leurs données d’authentification eux-mêmes, quand d’autres préfèrent synchroniser avec des données qui existent déjà dans Active Directory. Ces données synchronisées sont mises à disposition d’Azure AD et de la SSPR sans nécessiter l’intervention de l’utilisateur si vous remplissez les conditions suivantes :
 
 * Mettez correctement en forme les données dans votre annuaire local.
 * Configurez [Azure AD Connect en utilisant les paramètres express](../hybrid/how-to-connect-install-express.md).
@@ -41,21 +41,18 @@ Si vous utilisez les paramètres par défaut dans Azure AD Connect, les mappages
 | telephoneNumber | Téléphone de bureau |
 | mobile | Téléphone mobile |
 
-Lorsqu’un utilisateur confirme son numéro de téléphone mobile, le champ Téléphone situé sous Informations de contact d’authentification dans Azure AD est également renseigné avec ce numéro.
+Une fois qu’un utilisateur confirme son numéro de téléphone mobile, le champ *Téléphone* situé sous **Informations de contact d’authentification** dans Azure AD est également renseigné avec ce numéro.
 
 ## <a name="authentication-contact-info"></a>Informations de contact d’authentification
 
-Comme le montre la capture d’écran suivante, un administrateur général peut définir manuellement les informations de contact d’authentification de l’utilisateur.
+Sur la page **Méthodes d’authentification** d’un utilisateur Azure AD dans le Portail Azure, un administrateur général peut définir manuellement les informations de contact d’authentification, comme le montre la capture d’écran suivante :
 
 ![Informations de contact d'authentification sur un utilisateur dans Azure AD][Contact]
 
-Si le champ Téléphone est renseigné et si l’option Téléphone mobile est activée dans la stratégie SSPR, l’utilisateur voit ce numéro dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
-
-Le champ Autre téléphone n’est pas utilisé pour la réinitialisation du mot de passe.
-
-Si le champ Adresse e-mail est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur voit cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe, et lors du flux de travail de réinitialisation du mot de passe.
-
-Si le champ Autre adresse de messagerie est renseigné et si l’option Adresse e-mail est activée dans la stratégie SSPR, l’utilisateur **ne voit pas** cette adresse e-mail dans la page d’inscription de réinitialisation du mot de passe. Toutefois, il la voit lors du flux de travail de réinitialisation du mot de passe.
+* Si le champ **Téléphone** est renseigné et si l’option **Téléphone mobile** est activée dans la stratégie SSPR, l’utilisateur voit ce numéro sur la page d’inscription de réinitialisation du mot de passe et lors du workflow de réinitialisation du mot de passe.
+* Le champ **Autre téléphone** n’est pas utilisé pour la réinitialisation du mot de passe.
+* Si le champ **Adresse e-mail** est renseigné et si l’option **Adresse e-mail** est activée dans la stratégie SSPR, l’utilisateur voit cette adresse e-mail sur la page d’inscription de réinitialisation du mot de passe et lors du workflow de réinitialisation du mot de passe.
+* Si le champ **Autre adresse e-mail** est renseigné et si l’option **Adresse e-mail** est activée dans la stratégie SSPR, l’utilisateur **ne voit pas** cette adresse e-mail sur la page d’inscription de réinitialisation du mot de passe. Toutefois, il la voit lors du workflow de réinitialisation du mot de passe.
 
 ## <a name="security-questions-and-answers"></a>Questions et réponses de sécurité
 
@@ -69,7 +66,7 @@ Lorsqu’un utilisateur s'inscrit, la page d’inscription définit les champs s
 * **E-mail d’authentification**
 * **Questions et réponses de sécurité**
 
-Si vous avez fourni une valeur pour **Téléphone mobile** ou **Adresse électronique secondaire**, les utilisateurs peuvent immédiatement l’utiliser pour réinitialiser leur mot de passe, même s’ils ne se sont pas inscrits au service. Les utilisateurs voient ces valeurs quand ils s’inscrivent pour la première fois et ils peuvent les modifier s’ils le souhaitent. Une fois les utilisateurs inscrits, ces valeurs sont conservées respectivement dans les champs **Téléphone d’authentification** et **E-mail d’authentification**.
+Si vous avez fourni une valeur pour **Téléphone mobile** ou **Adresse électronique secondaire**, les utilisateurs peuvent immédiatement l’utiliser pour réinitialiser leur mot de passe, même s’ils ne se sont pas inscrits au service. Les utilisateurs voient ces valeurs quand ils s’inscrivent pour la première fois et ils peuvent les modifier s’ils le souhaitent. Une fois les utilisateurs inscrits, ces valeurs sont conservées respectivement dans les champs **Téléphone d’authentification** et **Adresse e-mail d’authentification**.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Définir et lire les données d’authentification par le biais de PowerShell
 

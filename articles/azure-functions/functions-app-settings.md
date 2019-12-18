@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 35ecebfb1956422470bf20e6d510543897ca0910
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c7f5f9f8f6f198c5fe74baa613306732fa9b55b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227387"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977265"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -28,7 +28,7 @@ Clé d’instrumentation d’Application Insights si vous utilisez Application�
 
 ## <a name="azure_functions_environment"></a>AZURE_FUNCTIONS_ENVIRONMENT
 
-Dans la version 2.x du runtime Functions, configure le comportement de l’application en fonction de l’environnement d’exécution. Cette valeur est [lue lors de l’initialisation](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Vous pouvez définir `AZURE_FUNCTIONS_ENVIRONMENT` sur n’importe quelle valeur, mais [trois valeurs](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) sont prises en charge : [Développement](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Préproduction](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) et [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Lorsque `AZURE_FUNCTIONS_ENVIRONMENT` n’est pas défini, la valeur `Development` par défaut est sur un environnement local et `Production` sur Azure. Ce paramètre doit être utilisé à la place de `ASPNETCORE_ENVIRONMENT` pour définir l’environnement d’exécution. 
+Dans la version 2.x et les versions ultérieures du runtime Functions, configure le comportement de l’application en fonction de l’environnement d’exécution. Cette valeur est [lue lors de l’initialisation](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Vous pouvez définir `AZURE_FUNCTIONS_ENVIRONMENT` sur n’importe quelle valeur, mais [trois valeurs](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) sont prises en charge : [Développement](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [Préproduction](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) et [Production](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Lorsque `AZURE_FUNCTIONS_ENVIRONMENT` n’est pas défini, la valeur `Development` par défaut est sur un environnement local et `Production` sur Azure. Ce paramètre doit être utilisé à la place de `ASPNETCORE_ENVIRONMENT` pour définir l’environnement d’exécution. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 

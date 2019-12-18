@@ -3,19 +3,19 @@ title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464030"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928001"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
 En tant que fournisseur de services, vous pouvez utiliser la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) pour gérer des ressources Azure pour plusieurs clients à partir de votre propre locataire dans le [portail Azure](https://portal.azure.com). La plupart des tâches et des services peuvent être exécutés sur des ressources Azure déléguées sur des locataires gérés. Cet article décrit quelques-uns des scénarios améliorés dans lesquels la gestion des ressources déléguées Azure peut être efficace.
 
 > [!NOTE]
-> La gestion des ressources déléguées Azure peut également être utilisée au sein d’une entreprise qui dispose de plusieurs locataires pour simplifier l’administration inter-locataire.
+> La gestion des ressources déléguées Azure peut également être utilisée [au sein d’une entreprise qui dispose de plusieurs locataires Azure AD](enterprise.md) pour simplifier l’administration entre locataires.
 
 ## <a name="understanding-customer-tenants"></a>Compréhension des locataires du client
 

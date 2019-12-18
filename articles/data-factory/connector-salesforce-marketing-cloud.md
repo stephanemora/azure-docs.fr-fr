@@ -1,23 +1,23 @@
 ---
-title: Copier des données de Salesforce Marketing Cloud avec Azure Data Factory
+title: Copier des données à partir de Salesforce Marketing Cloud
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Salesforce Marketing Cloud vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/25/2019
-ms.author: jingwang
-ms.openlocfilehash: d66341507b9237e4d41c31997fd59b8a038cb433
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aa996ae14276ecf246104d8778fbb6b723448e04
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680377"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931717"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory"></a>Copier des données de Salesforce Marketing Cloud avec Azure Data Factory
 

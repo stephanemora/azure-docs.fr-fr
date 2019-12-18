@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932345"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894213"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -147,7 +147,7 @@ Ce scénario couvre une seule conception d’espace de travail dans votre abonne
 
 L’ensemble des ressources, solutions de surveillance et insights tels que Application Insights et Azure Monitor pour machines virtuelles, qui prennent en charge l’infrastructure et les applications gérées par les différentes équipes, sont configurées pour transférer leurs données de journal collectées à l’espace de travail partagé centralisé du service informatique. Les utilisateurs de chaque équipe sont autorisés à accéder aux journaux des ressources auxquelles ils ont accès.
 
-Une fois que vous avez déployé l’architecture de votre espace de travail, vous devez appliquer cette stratégie sur les ressources Azure avec [Azure Policy](../../governance/policy/overview.md). Cela fournit un moyen de définir des stratégies et de garantir la conformité avec vos ressources Azure afin d’envoyer tous les journaux de diagnostic dans un espace de travail particulier. Par exemple, avec des machines virtuelles Azure ou des groupes de machines virtuelles identiques, vous pouvez utiliser des stratégies existantes qui évaluent la conformité de l’espace de travail et rendent compte des résultats, ou personnaliser des stratégies pour apporter des corrections en cas de non-conformité.  
+Une fois que vous avez déployé l’architecture de votre espace de travail, vous devez appliquer cette stratégie sur les ressources Azure avec [Azure Policy](../../governance/policy/overview.md). Cela fournit un moyen de définir des stratégies et de garantir la conformité avec vos ressources Azure afin d’envoyer tous les journaux de ressources à un espace de travail particulier. Par exemple, avec des machines virtuelles Azure ou des groupes de machines virtuelles identiques, vous pouvez utiliser des stratégies existantes qui évaluent la conformité de l’espace de travail et rendent compte des résultats, ou personnaliser des stratégies pour apporter des corrections en cas de non-conformité.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>Stratégie de migration pour la consolidation de l’espace de travail
 

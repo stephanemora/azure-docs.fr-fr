@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: ec87146c721222702073eae067a259aa9848d0f7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048986"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977129"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -203,7 +203,9 @@ Les exigences métier définissent jusqu’où le modèle doit prédire dans le 
 #### <a name="rolling-aggregates"></a>Agrégats cumulatifs
 Pour chaque enregistrement d’un équipement, une fenêtre propagée de taille « W » est choisie comme nombre d’unités de temps pour calculer les agrégats. Nous calculons ensuite les caractéristiques antérieures correspondantes en utilisant les périodes W _antérieures à la date_ de cet enregistrement. Dans la Figure 1, les lignes bleues indiquent les valeurs de capteur enregistrées sur un équipement pour chaque unité de temps. Elles indiquent une moyenne propagée des valeurs de fonctionnalité sur une fenêtre de taille W = 3. La moyenne propagée est calculée sur tous les enregistrements dont les horodatages se situent dans la plage de t<sub>1</sub> (en orange) à t<sub>2</sub> (en vert). La valeur de W est généralement exprimée en minutes ou en heures, en fonction de la nature des données. Mais, pour certains problèmes, la sélection d’une grande fenêtre de taille W (par exemple, 12 mois) peut fournir tout l’historique d’un équipement jusqu’au moment de l’enregistrement.
 
-![Figure 1 : Caractéristiques des agrégats cumulatifs](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Figure 1. Caractéristiques des agrégats cumulatifs
+![Figure 1. Caractéristiques des agrégats cumulatifs](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+
+Figure 1. Caractéristiques des agrégats cumulatifs
 
 Des exemples d’agrégats cumulatifs sur une fenêtre de temps sont le nombre, la moyenne, les mesures CUMESUM (somme cumulée) et les valeurs mini/maxi. La variance, l’écart standard et le nombre de valeurs aberrantes au-delà des écarts standard N sont également souvent utilisés. Les exemples d’agrégats qui peuvent être appliqués aux [cas d’usage](#sample-pdm-use-cases) de ce guide sont répertoriés ci-dessous. 
 - _Retard de vol_ : nombre de codes d’erreurs le jour précédent/la semaine précédente.
@@ -217,7 +219,9 @@ Une autre technique utile dans la PdM consiste à capturer les changements de te
 #### <a name="tumbling-aggregates"></a>Agrégats bascules
 Pour chaque intitulé enregistrement d’un équipement, une fenêtre de taille _W -<sub>k</sub>_  est définie, où _k_ est le nombre de fenêtres de taille _W_. Les agrégats sont ensuite créés sur _k_ _fenêtres bascules_ _W-k, W -<sub>(k-1)</sub>,..., W -<sub>2</sub>, W -<sub>1</sub>_  pour les périodes précédant l’horodatage d’un enregistrement. _k_ peut être un petit nombre pour capturer des effets à court terme, ou un grand nombre pour capturer des modèles de dégradation à long terme. (voir Figure 2).
 
-![Figure 2 : Caractéristiques des agrégats bascules](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png) Figure 2. Caractéristiques des agrégats bascules
+![Figure 2 : Caractéristiques des agrégats bascules](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
+
+Figure 2 : Caractéristiques des agrégats bascules
 
 Par exemple, les caractéristiques antérieures correspondantes pour le cas d’usage des éoliennes peuvent être créées avec W = 1 et k = 3. Elles impliquent le décalage pour chacun des trois derniers mois à l’aide de valeurs aberrantes supérieures et inférieures.
 
@@ -262,7 +266,9 @@ Dans cette technique, deux types d’exemples d’apprentissage sont identifiés
 #### <a name="label-construction-for-binary-classification"></a>Construction des étiquettes pour la classification binaire
 La question ici est : « Quelle est la probabilité de défaillance de l’équipement pendant les X prochaines unités de temps ? » Pour répondre à cette question, étiquetez X enregistrements avant la défaillance d’un équipement comme « sur le point de tomber en panne » (étiquette = 1) et étiquetez tous les autres enregistrements comme « normaux » (label = 0). (voir Figure 3).
 
-![Figure 3 : Étiquetage pour la classification binaire](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png) Figure 3. Étiquetage pour la classification binaire
+![Figure 3. Étiquetage pour la classification binaire](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+
+Figure 3. Étiquetage pour la classification binaire
 
 Des exemples de stratégies d’étiquetage pour certains des cas d’usage sont répertoriés ci-dessous.
 - _Retards des vols_ : X peut être choisi comme représentant 1 jour pour prédire des retards dans les prochaines 24 heures. Tous les vols programmés dans les 24 heures avant les défaillances sont étiquetés 1.
@@ -277,7 +283,9 @@ Des modèles de régression sont utilisés pour _calculer la durée de vie utile
 #### <a name="label-construction-for-regression"></a>Construction des étiquettes pour la régression
 La question ici est : « Quelle est la durée de vie restante de l’équipement ? » Pour chaque enregistrement précédant la défaillance, calculez l’étiquette afin qu’elle correspond au nombre d’unités de temps résiduelles avant la défaillance suivante. Dans cette méthode, les étiquettes sont des variables continues. (Figure 4)
 
-![Figure 4 : Étiquetage pour la régression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png) Figure 4. Étiquetage pour la régression
+![Figure 4. Étiquetage pour la régression](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+
+Figure 4. Étiquetage pour la régression
 
 Pour la régression, l’étiquetage est effectué avec une référence à un point de défaillance. Son calcul n’est pas possible sans connaître la durée pendant laquelle l’équipement a survécu avant une défaillance. Par opposition à la classification binaire, les équipements dont les données ne contiennent pas de défaillances ne peuvent pas être utilisés pour la modélisation. Ce problème est mieux résolu par une autre technique statistique appelée [Analyse de survie](https://en.wikipedia.org/wiki/Survival_analysis). Cependant, des complications peuvent survenir lors de l’application de cette technique à des cas d’usage de la PdM impliquant des données qui varient dans le temps à des intervalles fréquents. Pour plus d’informations sur l’analyse de survie, consultez [ce document d’une page](https://www.cscu.cornell.edu/news/news.php/stnews78.pdf).
 
@@ -289,11 +297,15 @@ Les techniques de classification multiclasse peuvent être utilisées dans des s
 #### <a name="label-construction-for-multi-class-classification"></a>Construction des étiquettes pour la classification multiclasse
 La question ici est : « Quelle est la probabilité de défaillance d’un équipement pendant les _nZ_ prochaines unités de temps, où _n_ représente le nombre de périodes ? » Pour répondre à cette question, étiquetez nZ enregistrements avant la défaillance d’un équipement à l’aide de compartiments de temps (3Z, 2Z, Z). Étiquetez tous les autres enregistrements comme « normaux » (étiquette = 0). Dans cette méthode, la variable cible contient des valeurs _de catégorie_. (voir Figure 5).
 
-![Figure 5 : Étiquettes de prédiction du moment des défaillances pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png) Figure 5. Étiquetage pour la classification multiclasse en vue de la prédiction de l’heure de la défaillance
+![Figure 5. Étiquettes de prédiction du moment de l’échec pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+
+Figure 5. Étiquetage pour la classification multiclasse en vue de la prédiction de l’heure de la défaillance
 
 La question ici est : « Quelle est la probabilité de défaillance de l’équipement pendant les X prochaines unités de temps en raison de la cause racine/du problème _P<sub>i</sub>_  ? » où _i_ est le nombre de causes racines possibles. Pour répondre à cette question, étiquetez X enregistrements avant la défaillance d’un équipement comme « sur le point de tomber en panne » en raison de la cause racine _P<sub>i</sub>_ (étiquette = _P<sub>i</sub>_ ). Étiquetez tous les autres enregistrements comme étant « normaux » (étiquette = 0). Dans cette méthode également, les étiquettes sont catégorielles (voir Figure 6).
 
-![Figure 6 : Étiquettes de prédiction de la cause racine pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png) Figure 6. Étiquetage pour la classification multiclasse, pour la prédiction de la cause racine
+![Figure 6. Étiquettes de prédiction de la cause racine pour la classification multiclasse](./media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+
+Figure 6. Étiquetage pour la classification multiclasse, pour la prédiction de la cause racine
 
 Le modèle affecte une probabilité de défaillance en raison de chaque _P<sub>i</sub>_ , ainsi que la probabilité qu’il n’y ait pas de défaillance. Ces probabilités peuvent être classées par ordre de grandeur pour permettre la prédiction des problèmes les plus susceptibles de se produire dans le futur.
 
@@ -329,7 +341,9 @@ Supposons que nous avons un flux d'événements horodatés tels que des mesures 
 
 Pour le fractionnement temporel, choisissez une _limite d’apprentissage T<sub>c</sub>_ pour développer un modèle, avec des hyperparamètres réglés à l’aide des données historiques jusqu’à T<sub>c</sub>. Pour empêcher la fuite des étiquettes futures qui dépassent T<sub>c</sub> dans les données d'apprentissage, nous choisissons X unités avant T<sub>c</sub> comme dernière période pour étiqueter des exemples d’apprentissage. Dans l’exemple illustré dans la Figure 7, chaque carré représente un enregistrement dans le jeu de données, où les fonctionnalités et les étiquettes sont calculées comme décrit ci-dessus. La figure illustre les enregistrements qui doivent être placés dans des jeux d’apprentissage et de test pour X = 2 et W = 3 :
 
-![Figure 7 : Fractionnement temporel pour la classification binaire](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png) Figure 7. Fractionnement temporel pour la classification binaire
+![Figure 7. Fractionnement temporel pour la classification binaire](./media/cortana-analytics-playbook-predictive-maintenance/time-dependent-split-for-binary-classification.png)
+
+Figure 7. Fractionnement temporel pour la classification binaire
 
 Les carrés verts représentent des enregistrements appartenant aux unités de temps qui peuvent être utilisées pour l'apprentissage. Chaque exemple d’apprentissage est généré en prenant en compte les trois dernières périodes de génération de caractéristiques et les deux périodes futures pour l’étiquetage avant<sub>c</sub>. Lorsqu’une partie des deux périodes futures va au-delà de T<sub>c</sub>, excluez cet exemple du jeu de données d’apprentissage, car aucune visibilité n’est supposée au-delà de T<sub>c</sub>.
 
@@ -411,11 +425,11 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 
 | # | Intitulé | Description |
 |--:|:------|-------------|
-| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modèle de solution open source qui illustre la modélisation ML et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la surveillance à distance IoT. |
+| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modèle de solution open source qui illustre la modélisation Azure ML et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la supervision à distance IoT. |
 | 3 | [Apprentissage profond pour la maintenance prédictive](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook avec une solution de démonstration de l’utilisation des réseaux LSTM (Long Short-Term Memory) (une classe de réseaux de neurones récurrents) pour une maintenance prédictive, avec un [billet de blog sur cet échantillon](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide de modélisation de maintenance prédictive dans R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide de modélisation de PdM avec scripts dans R.|
 | 5\. | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
-| 6\. | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge à l’aide de TensorFlow ; le kit d’outils réunit des modèles d’apprentissage profond dans des conteneurs Docker compatibles Edge et les présente sous forme d’API REST.
+| 6\. | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge avec TensorFlow ; le kit d’outils réunit des modèles Deep Learning dans des conteneurs Docker compatibles Azure IoT Edge et les présente sous forme d’API REST.
 | 7 | [Microsoft Azure IoT – Maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS – Solution préconfigurée Modèle de PdM d’avions avec IoT Suite. [Un autre document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) et [une procédure pas à pas](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) associés au même projet. |
 | 8 | [Modèle de maintenance prédictive avec les services SQL Server R](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Démonstration du scénario de durée de vie utile résiduelle basée sur les services de R. |
 | 9 | [Guide de modélisation de maintenance prédictive](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Caractéristique de jeu de données de maintenance d’avions conçue à l’aide de R avec [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) et [jeux de données](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) et [bloc-notes Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) et [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)dans AzureML v1.0|

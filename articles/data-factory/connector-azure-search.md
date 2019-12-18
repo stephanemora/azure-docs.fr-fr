@@ -1,23 +1,22 @@
 ---
-title: Copier des données vers l’index de recherche à l’aide d’Azure Data Factory
+title: Copier les données dans l’index de recherche
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour envoyer ou copier des données vers un index de recherche Azure.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.author: jingwang
-ms.openlocfilehash: ffdde571bbd2ae967003c520b09349ea9dcff414
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806084"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929673"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche cognitive Azure à l’aide d’Azure Data Factory
 

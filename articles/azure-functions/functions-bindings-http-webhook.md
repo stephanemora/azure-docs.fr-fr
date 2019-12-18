@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231168"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972368"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -22,7 +22,7 @@ Vous pouvez personnaliser un déclencheur HTTP pour répondre aux [webhooks](htt
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-Le code de cet article est défini par défaut dans la syntaxe Functions 2.x utilisant .NET Core. Pour plus d'informations sur la syntaxe 1.x, consultez les [modèles Functions 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Le code de cet article utilise par défaut la syntaxe .NET Core, utilisée dans les versions 2.x et ultérieures de Functions. Pour plus d'informations sur la syntaxe 1.x, consultez les [modèles Functions 1.x](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
@@ -30,7 +30,7 @@ Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.E
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages – Functions 2.x et versions ultérieures
 
 Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/).
 
@@ -40,7 +40,7 @@ Les liaisons HTTP sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.E
 
 Le déclencheur HTTP vous permet d’appeler une fonction avec une requête HTTP. Vous pouvez utiliser un déclencheur HTTP pour générer des API serverless et répondre aux webhooks.
 
-Par défaut, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x. Pour modifier la réponse, configurez une [liaison de sortie HTTP](#output).
+Par défaut, un déclencheur HTTP retourne le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x et versions ultérieures. Pour modifier la réponse, configurez une [liaison de sortie HTTP](#output).
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 
@@ -680,11 +680,29 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 }
 ```
 
+### <a name="using-route-parameters"></a>Utilisation des paramètres de routage
+
+Les paramètres de routage définissant le modèle `route` d’une fonction sont disponibles pour chaque liaison. Par exemple, si vous avez un itinéraire défini en tant que `"route": "products/{id}"`, une liaison de stockage de table peut utiliser la valeur du paramètre `{id}` dans la configuration de liaison.
+
+La configuration suivante montre comment le paramètre `{id}` est passé au `rowKey` de la liaison.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
+
 ### <a name="working-with-client-identities"></a>Utilisation d’identités de clients
 
 S votre application de fonction utilise [Authentification d’App Service/Autorisation](../app-service/overview-authentication-authorization.md), vous pouvez afficher des informations sur les clients authentifiés à partir de votre code. Ces informations sont disponibles en tant qu’[en-têtes de demande injectées par la plateforme](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime de Functions 2.x. Elle n’est actuellement également disponible que pour les langages .NET.
+Vous pouvez également lire ces informations à partir de la liaison de données. Cette fonctionnalité est uniquement disponible pour le runtime Functions dans les versions 2.x et ultérieures. Elle n’est actuellement également disponible que pour les langages .NET.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -774,7 +792,7 @@ Functions vous permet d’utiliser des clés pour rendre plus difficile l’acc�
 > Alors que les clés peuvent aider à masquer vos points de terminaison HTTP pendant le développement, elles ne sont pas destinées à sécuriser un déclencheur HTTP en production. Pour plus d’informations, consultez [Sécuriser un point de terminaison HTTP en production](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> Dans le runtime Functions 1.x, les fournisseurs de webhooks peuvent utiliser des clés pour autoriser des requêtes de plusieurs façons, selon ce que le fournisseur prend en charge. Ceci est expliqué dans [Webhooks et clés](#webhooks-and-keys). Le runtime version 2.x n’inclut pas la prise en charge intégrée pour les fournisseurs de webhooks.
+> Dans le runtime Functions 1.x, les fournisseurs de webhooks peuvent utiliser des clés pour autoriser des requêtes de plusieurs façons, selon ce que le fournisseur prend en charge. Ceci est expliqué dans [Webhooks et clés](#webhooks-and-keys). Le runtime Functions dans les versions 2.x et ultérieures n’inclut pas la prise en charge intégrée pour les fournisseurs de webhooks.
 
 Il existe deux types de clés :
 
@@ -825,9 +843,9 @@ Quand vous utilisez une de ces méthodes de sécurité au niveau de l’applicat
 ### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
-> Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans la version 2.x.
+> Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions. Cette modification a été apportée afin d’améliorer les performances des déclencheurs HTTP dans les versions 2.x et ultérieures.
 
-Dans la version 1.x, les modèles de webhook offrent une validation supplémentaire pour les charges utiles de webhook. Dans la version 2.x, le déclencheur HTTP de base fonctionne néanmoins toujours et constitue l’approche recommandée pour les webhooks. 
+Dans la version 1.x, les modèles de webhook offrent une validation supplémentaire pour les charges utiles de webhook. Dans les versions 2.x et ultérieures, le déclencheur HTTP de base continue néanmoins de fonctionner et constitue l’approche recommandée pour les webhooks. 
 
 #### <a name="github-webhooks"></a>Webhooks GitHub
 
@@ -854,7 +872,7 @@ Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’env
 
 ## <a name="output"></a>Output
 
-Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si une liaison de sortie HTTP n’est pas fournie, un déclencheur HTTP renvoie le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x.
+Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la demande HTTP. Cette liaison requiert un déclencheur HTTP, et vous permet de personnaliser la réponse associée à la demande du déclencheur. Si une liaison de sortie HTTP n’est pas fournie, un déclencheur HTTP retourne le message HTTP 200 OK avec un corps vide dans Functions 1.x, ou le message HTTP 204 Aucun contenu avec un corps vide dans Functions 2.x et les versions ultérieures.
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -874,7 +892,7 @@ Par obtenir des exemples de réponse, consultez [l’exemple de déclencheur](#t
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
-Cette section décrit les paramètres de configuration globale disponibles pour cette liaison dans la version 2.x. L’exemple de fichier host.json ci-dessous contient uniquement les paramètres de la version 2.x pour cette liaison. Pour plus d’informations sur les paramètres de configuration globale dans la version 2.x, consultez les [informations de référence sur le fichier host.json pour Azure Functions version 2.x](functions-host-json.md).
+Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier host.json ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](functions-host-json.md).
 
 > [!NOTE]
 > Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md#http).

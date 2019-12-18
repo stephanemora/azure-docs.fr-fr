@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669401"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973167"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Data Warehouse
 Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’un modèle d’apprentissage automatique utilisant SQL Data Warehouse (SQL DW) pour un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). Le modèle de classification binaire établi prédit si un pourboire a été donné pour une course. Des modèles de classification multiclasse et de régression sont également présentés, qui prévoient la distribution des montants de pourboire réglés.
@@ -24,7 +24,7 @@ Dans ce didacticiel, nous vous guidons dans la création et le déploiement d’
 La procédure suit le flux de travail [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Nous montrons comment configurer un environnement de science des données, comment charger les données dans SQL DW et comment utiliser SQL DW ou un IPython Notebook pour explorer les données et les caractéristiques d’ingénierie à modéliser. Nous expliquons ensuite comment générer et déployer un modèle avec Azure Machine Learning.
 
 ## <a name="dataset"></a>Jeu de données NYC Taxi Trips
-Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), correspondant à plus de 173 millions de courses et au prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
+Les données NYC Taxi Trip sont constituées de fichiers CSV compressés d’une taille totale approximative de 20 Go (soit environ 48 Go après la décompression des fichiers), correspondant à plus de 173 millions de courses et au prix de chacune. Chaque enregistrement de course inclut le lieu et l’heure de prise en charge et de dépose, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (numéro d’identification unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
 1. Le fichier **trip_data.csv** contient les détails de chaque course, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
 
@@ -540,7 +540,7 @@ Voici un exemple d’appel de cette fonction pour générer des fonctionnalités
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0,7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Préparer les données pour la création de modèles
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon des données de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement.  Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance de base de données SQL dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon des données de l’intégralité du jeu de données joint. L’échantillonnage est effectué en récupérant un sous-ensemble des courses basé sur l’heure d’embarquement.  Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio (classique)](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance de base de données SQL dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,15 +567,15 @@ Dans cette section, nous allons effectuer des tâches d’exploration des donné
 
 Les informations d’Azure SQL DW nécessaires dans l’exemple de IPython Notebook et dans le fichier de script Python téléchargés sur votre ordinateur local ont été reliées précédemment par le script PowerShell. Elles peuvent être exécutées sans aucune modification.
 
-Si vous avez déjà configuré un espace de travail AzureML, vous pouvez directement charger l’exemple de IPython Notebook vers le service AzureML IPython Notebook et commencer à l’exécuter. Pour effectuer le chargement vers le service AzureML IPython Notebook, procédez comme suit :
+Si vous avez déjà configuré un espace de travail Azure Machine Learning, vous pouvez directement charger l’exemple IPython Notebook dans le service AzureML IPython Notebook et lancer son exécution. Pour charger l’exemple dans le service AzureML IPython Notebook, effectuez les étapes suivantes :
 
-1. Connectez-vous à votre espace de travail AzureML et cliquez successivement sur Studio en haut de l’écran et sur NOTEBOOKS sur la gauche de la page web.
+1. Connectez-vous à votre espace de travail Azure Machine Learning, et cliquez successivement sur **Studio** en haut de l’écran, puis sur **NOTEBOOKS** sur la gauche de la page web.
 
     ![Cliquer sur Studio puis sur NOTEBOOKS][22]
-2. Cliquez sur NOUVEAU dans le coin inférieur gauche de la page web, puis sélectionnez Python 2. Indiquez alors un nom pour le notebook et cochez la case pour créer le IPython Notebook vide.
+2. Cliquez sur **NOUVEAU** dans le coin inférieur gauche de la page web, puis sélectionnez **Python 2**. Indiquez alors un nom pour le notebook et cochez la case pour créer le IPython Notebook vide.
 
     ![Cliquer sur Nouveau, puis sélectionner Python 2][23]
-3. Cliquez sur le symbole Jupyter dans le coin supérieur gauche du nouvel IPython Notebook.
+3. Cliquez sur le symbole **Jupyter** dans le coin supérieur gauche du nouvel IPython Notebook.
 
     ![Cliquer sur le symbole Jupyter][24]
 4. Effectuez un glisser-déplacer de l’exemple d’IPython Notebook vers la page **d’arborescence** du service AzureML IPython Notebook, puis cliquez sur **Charger**. L’exemple de IPython Notebook est alors chargé vers le service AzureML IPython Notebook.
@@ -590,7 +590,7 @@ Pour exécuter l’exemple de IPython Notebook ou le fichier de script Python, v
 - pyodbc
 - PyTables
 
-Il est recommandé de suivre la séquence ci-après lors de la génération de solutions analytiques avancées dans AzureML comportant de nombreuses données :
+Il est recommandé de suivre les étapes ci-dessous dans l’ordre indiqué lorsque vous générez des solutions analytiques avancées comportant de nombreuses données dans Azure Machine Learning :
 
 * Lisez un petit échantillon des données dans une trame de données en mémoire.
 * Procédez à certaines visualisations et explorations à l’aide des données échantillonnées.
@@ -811,14 +811,14 @@ Nous pouvons à présent passer aux phases de création et de déploiement de mo
 
 Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de travail **Azure Machine Learning (classique)** . Si vous n’avez pas encore créé d’espace de travail Machine Learning, consultez l’article [Créer un espace de travail Azure Machine Learning Studio (classique)](../studio/create-workspace.md).
 
-1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](../studio/what-is-ml-studio.md)
-2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
-3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+1. Pour bien démarrer avec Azure Machine Learning, consultez la page [Azure Machine Learning Studio (classique) - De quoi s’agit-il ?](../studio/what-is-ml-studio.md)
+2. Connectez-vous à [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
+3. La page d’accueil de Machine Learning Studio (classique) permet d’accéder à une multitude d’informations, notamment des vidéos, des tutoriels, des liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 Une expérience de formation classique se déroule comme suit :
 
 1. Création d’une expérience à l’aide du bouton **+NOUVEAU** .
-2. Obtention des données dans Azure Machine Learning Studio.
+2. Obtention des données dans Azure Machine Learning Studio (classique).
 3. Prétraitement, transformation et manipulation des données en fonction des besoins.
 4. Génération des fonctionnalités requises.
 5. Fractionnement des données sous forme de jeux de données d’apprentissage/de validation/de test (ou utilisation de jeux de données distincts pour chacune de ces opérations).
@@ -828,7 +828,7 @@ Une expérience de formation classique se déroule comme suit :
 9. Évaluation des modèles afin de calculer les métriques pertinents pour le problème d’apprentissage.
 10. Ajustement des modèles et sélection du meilleur modèle à déployer.
 
-Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Data Warehouse, et déterminé la taille de l’échantillon à ingérer dans Azure Machine Learning Studio. Pour créer un ou plusieurs des modèles de prédiction, procédez comme suit :
+Dans cet exercice, nous avons déjà exploré et généré les données dans SQL Data Warehouse, et déterminé la taille de l’échantillon à ingérer dans Azure Machine Learning Studio (classique). Pour créer un ou plusieurs des modèles de prédiction, procédez comme suit :
 
 1. Importez les données dans Azure Machine Learning Studio (classique) avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data].
 
@@ -881,7 +881,9 @@ Pour résumer ce didacticiel pas à pas, vous avez créé un environnement de sc
 Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui sont associés sont partagés par Microsoft sous licence MIT. Pour plus d’informations, consultez le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ## <a name="references"></a>Références
-•    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/) •    [Données FOILing NYC’s Taxi Trip par Chris Whong (en anglais)](https://chriswhong.com/open-data/foil_nyc_taxi/) •    [Recherche et statistiques NYC Taxi and Limousine Commission (en anglais)](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy](https://www.andresmh.com/nyctaxitrips/)
+- [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

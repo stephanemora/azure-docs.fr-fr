@@ -1,6 +1,6 @@
 ---
 title: Mettre à jour des modèles d’apprentissage automatique à l’aide d’Azure Data Factory
-description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning.
+description: Décrit comment créer des pipelines prédictifs à l’aide d’Azure Data Factory et d’Azure Machine Learning
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 190a4e704b002a4d6d4876d048c693a5fffe0114
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afc79badd19fa180e631f1f8fa9735567a0b1e33
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683119"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978711"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Mettre à jour les modèles Azure Machine Learning à l’aide de l’activité des ressources de mise à jour
 
@@ -41,8 +41,8 @@ Cet article vient compléter l’article principal sur l’intégration Azure Da
 ## <a name="overview"></a>Vue d'ensemble
 Au fil du temps, les modèles prédictifs dans les expériences de notation Azure ML doivent être reformés à l’aide de nouveaux jeux de données d’entrée. Une fois que vous avez fini la reformation, vous souhaitez mettre à jour le service web de notation avec le modèle ML reformé. Les étapes classiques pour activer la reformation et la mise à jour des modèles Azure ML via les services web sont les suivantes :
 
-1. Créez une expérience dans [Azure ML Studio](https://studio.azureml.net).
-2. Lorsque vous êtes satisfait du modèle, utilisez Azure ML Studio pour publier des services web à la fois pour l’**expérience de formation** et l’expérience de notation/**prédictive**.
+1. Créer une expérience dans [Azure Machine Learning Studio (classique)](https://studio.azureml.net).
+2. Lorsque vous êtes satisfait du modèle, utilisez Azure Machine Learning Studio (classique) pour publier des services web à la fois pour l’**expérience de formation** et l’**expérience prédictive**/de scoring.
 
 Le tableau suivant décrit les services web utilisés dans cet exemple.  Pour plus d’informations, consultez [Reformation des modèles Machine Learning par programme](../../machine-learning/machine-learning-retrain-models-programmatically.md) .
 
@@ -88,7 +88,7 @@ Si le service web est un nouveau type de service web qui expose un point de term
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Vous pouvez obtenir des valeurs pour les espaces réservés dans l’URL lors de l’interrogation du service web sur le [portail des services web Azure Machine Learning](https://services.azureml.net/). Le nouveau type de point de terminaison de ressource de mise à jour requiert un jeton AAD (Azure Active Directory). Spécifiez **servicePrincipalId** et **servicePrincipalKey**dans le service lié AzureML. Consultez [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md) (comment créer le principal de service et affecter des autorisations de gestion de ressources Azure). Voici un exemple de définition de service lié AzureML : 
+Vous pouvez obtenir des valeurs pour les espaces réservés dans l’URL lors de l’interrogation du service web sur le [portail des services web Azure Machine Learning](https://services.azureml.net/). Le nouveau type de point de terminaison de ressource de mise à jour requiert un jeton AAD (Azure Active Directory). Spécifiez **servicePrincipalId** et **servicePrincipalKey**dans le service lié Azure Machine Learning. Consultez [how to create service principal and assign permissions to manage Azure resource](../../active-directory/develop/howto-create-service-principal-portal.md) (comment créer le principal de service et affecter des autorisations de gestion de ressources Azure). Voici un exemple de définition de service lié AzureML : 
 
 ```json
 {
@@ -138,7 +138,7 @@ Voici la définition d’exemple JSON du service lié :
 ```
 
 ### <a name="training-input-dataset"></a>Jeu de données d’entrée de formation
-Le jeu de données suivant représente les données de formation d’entrée pour le service web de formation Azure ML. L’activité d’exécution par lots Azure ML prend ce jeu de données comme entrée.
+Le jeu de données suivant représente les données de formation d’entrée pour le service web de formation Azure Machine Learning. L’activité d’exécution par lots Azure Machine Learning prend ce jeu de données comme entrée.
 
 ```JSON
 {
@@ -192,7 +192,7 @@ Le jeu de données suivant représente le fichier iLearner de sortie issu du ser
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Service lié pour le point de terminaison de formation Azure ML
+### <a name="linked-service-for-azure-machine-learning-training-endpoint"></a>Service lié pour le point de terminaison de formation Azure Machine Learning
 L’extrait de code JSON suivant définit un service lié Azure Machine Learning qui pointe vers le point de terminaison par défaut du service web de formation.
 
 ```JSON
@@ -208,12 +208,12 @@ L’extrait de code JSON suivant définit un service lié Azure Machine Learning
 }
 ```
 
-Dans **Azure ML Studio**, procédez comme suit pour obtenir les valeurs pour **mlEndpoint** et **apiKey** :
+Dans **Azure Machine Learning Studio (classique)** , procédez comme suit afin d’obtenir les valeurs pour **mlEndpoint** et **apiKey** :
 
 1. Cliquez sur **SERVICES WEB** dans le menu de gauche.
 2. Cliquez sur le **service web de formation** dans la liste des services web.
 3. Cliquez sur Copier regard de la zone de texte **Clé API** . Collez la clé copiée dans l’éditeur JSON Data Factory.
-4. Dans le **studio Azure ML**, cliquez sur le lien **EXÉCUTION PAR LOT**.
+4. Dans **Azure Machine Learning Studio (classique)** , cliquez sur le lien **EXÉCUTION PAR LOTS**.
 5. Copiez l’**URI de demande** à partir de la section **Demande**, et collez-le dans l’éditeur JSON Data Factory.   
 
 ### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Service lié pour le point de terminaison de notation pouvant être mis à jour Azure ML :

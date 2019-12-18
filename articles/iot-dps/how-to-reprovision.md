@@ -1,18 +1,18 @@
 ---
 title: Réapprovisionner des appareils dans le service Azure IoT Hub Device Provisioning
-description: Découvrez comment reprovisionner des appareils avec votre instance du service de provisionnement des appareils et pourquoi vous pourriez devoir le faire.
+description: Découvrez comment reprovisionner des appareils avec votre instance DPS (Device Provisioning Service) et pourquoi vous devrez peut-être effectuer cette opération.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: f28dc20a107e9dfdbf252ea614ed4007eafddcd4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ded494debab19daa15a953715b1ab7b0b10ad18
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229703"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974902"
 ---
 # <a name="how-to-reprovision-devices"></a>Comment reprovisionner des appareils
 

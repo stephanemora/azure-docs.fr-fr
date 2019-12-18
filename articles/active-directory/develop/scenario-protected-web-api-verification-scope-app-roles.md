@@ -1,5 +1,5 @@
 ---
-title: Vérifier les étendues et les rôles d’application avec l’API web protégée
+title: Vérifier les étendues et les rôles d’application | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment créer une API web protégée et configurer le code de votre application.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a20a7a5a0df87910d2093bfee47e46c9c1a06530
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149237"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965379"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protégée : Vérifier les étendues et les rôles d’application
 

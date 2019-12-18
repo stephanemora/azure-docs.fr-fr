@@ -1,18 +1,18 @@
 ---
 title: Haute disponibilité dans Azure Cosmos DB
-description: Cet article décrit comment Azure Cosmos DB offre une haute disponibilité
+description: Cet article explique comment Azure Cosmos DB fournit une haute disponibilité en répliquant en toute transparence les données sur toutes les régions associées à votre compte Azure Cosmos.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 1dab10592c8a34bc9df4425785e6dae95e44f219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146662"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872092"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 

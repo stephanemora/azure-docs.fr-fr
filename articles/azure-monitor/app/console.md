@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: 9e198d3ea24383a532c5fbc3bfdcb1d1d7e49a92
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689038"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889139"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights pour les applications console .NET
 
@@ -27,7 +27,7 @@ Vous avez besoin d’un abonnement à [Microsoft Azure](https://azure.com). Conn
 ## <a name="getting-started"></a>Prise en main
 
 * Dans le [portail Azure](https://portal.azure.com), [créez une ressource Application Insights](../../azure-monitor/app/create-new-resource.md). Choisissez **Général** comme type d’application.
-* Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante **Essentials** de la ressource créée. 
+* Copiez la clé d'instrumentation. Recherchez la clé dans la liste déroulante **Essentials** de la ressource créée.
 * Installez le package [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) le plus récent.
 * Définissez la clé d’instrumentation dans votre code avant d’effectuer le suivi de la télémétrie (ou définissez la variable d’environnement APPINSIGHTS_INSTRUMENTATIONKEY). Après cela, vous devriez pouvoir suivre manuellement les données de télémétrie et les visualiser dans le portail Azure.
 
@@ -39,6 +39,10 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
+> [!NOTE]
+> Les données de télémétrie ne sont pas envoyées instantanément. Les éléments de télémétrie sont traités par lot et envoyés par le SDK Application Insights. Dans les applications de console, qui se ferment juste après avoir appelé des méthodes `Track()`, la télémétrie ne peut pas être envoyée, sauf si `Flush()` et `Sleep` sont exécutés avant l’arrêt de l’application, comme le montre l’[exemple complet](#full-example) plus loin dans cet article.
+
+
 * Installez la version la plus récente du package [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) : il effectue automatiquement le suivi des appels SQL, HTTP ou autres appels de dépendance externe.
 
 Vous pouvez initialiser et configurer Application Insights à partir du code ou à l’aide du fichier `ApplicationInsights.config`. Vérifiez que l’initialisation se produit dès que possible. 
@@ -47,6 +51,7 @@ Vous pouvez initialiser et configurer Application Insights à partir du code ou 
 > Les instructions faisant référence à **ApplicationInsights.config** ne s’appliquent qu’aux applications qui ciblent .NET Framework, et non aux applications .NET Core.
 
 ### <a name="using-config-file"></a>Utilisation du fichier de configuration
+
 Par défaut, le SDK Application Insights recherche le fichier `ApplicationInsights.config` dans le répertoire de travail lors de la création de `TelemetryConfiguration`.
 
 ```csharp

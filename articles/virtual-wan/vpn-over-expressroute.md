@@ -1,53 +1,58 @@
 ---
 title: Créer une connexion VPN de site à site par peering privé ExpressRoute dans Azure Virtual WAN | Microsoft Docs
-description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN de site à site par peering privé ExpressRoute.
+description: Dans ce tutoriel, découvrez comment utiliser Azure Virtual WAN pour créer une connexion VPN site à site par Peering privé ExpressRoute.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my VNets using S2S VPN connection over my ExpressRoute private peering using Azure Virtual WAN.
-ms.openlocfilehash: 6272d6fe6f8c35c06a8121e10be2dd5a2e5512a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
+ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510958"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896623"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-using-azure-virtual-wan"></a>Créer une connexion VPN de site à site par peering privé ExpressRoute avec Azure Virtual WAN
+# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Créer une connexion VPN site à site par Peering privé ExpressRoute à l’aide d’Azure Virtual WAN
 
-Cet article explique comment utiliser Virtual WAN pour établir une connexion VPN IPsec/IKE d’un réseau local vers Azure par peering privé d’un circuit ExpressRoute. Cette technique peut assurer un transit chiffré entre les réseaux locaux et les réseaux virtuels Azure par ExpressRoute, sans passer par l’Internet public ou utiliser des adresses IP publiques.
+Cet article explique comment utiliser Azure Virtual WAN pour établir une connexion VPN IPsec/IKE d’un réseau local vers Azure par Peering privé d’un circuit Azure ExpressRoute. Cette technique peut assurer un transit chiffré entre les réseaux locaux et les réseaux virtuels Azure par ExpressRoute, sans passer par l’Internet public ni utiliser des IP publiques.
 
 ## <a name="topology-and-routing"></a>Topologie et routage
 
-Le diagramme suivant illustre un exemple de connexion VPN par peering privé ExpressRoute :
+Le diagramme suivant illustre un exemple de connectivité VPN par Peering privé ExpressRoute :
 
 ![VPN par ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
 
 Le diagramme illustre un réseau du réseau local connecté à la passerelle VPN du hub Azure par peering privé ExpressRoute. L’établissement de la connectivité est simple :
 
-1. Établir une connectivité ExpressRoute avec un circuit ExpressRoute et le peering privé
-2. Établir la connectivité VPN comme l’explique ce document
+1. Établir une connectivité ExpressRoute avec un circuit ExpressRoute et un Peering privé.
+2. Établir la connectivité VPN comme l’explique cet article.
 
 L’un des aspects importants de cette configuration est le routage entre les réseaux locaux et Azure sur le chemin VPN et le chemin ExpressRoute.
 
 ### <a name="traffic-from-on-premises-networks-to-azure"></a>Trafic de réseaux locaux vers Azure
 
-Pour le trafic de réseaux locaux vers Azure, les préfixes Azure (y compris le hub virtuel et tous les réseaux virtuels spoke qui y sont connectés) sont publiés via le protocole BGP de peering privé ExpressRoute et le protocole BGP de VPN, ce qui donne deux itinéraires (chemins) réseau des réseaux locaux vers Azure : l’un par le chemin protégé par IPsec, l’autre directement par ExpressRoute **sans** protection IPsec. Pour que le chiffrement s’applique bien à la communication, les itinéraires Azure qui passent par la passerelle VPN locale doivent être préférés au chemin ExpressRoute direct pour le réseau connecté par VPN dans le diagramme.
+Pour le trafic de réseaux locaux vers Azure, les préfixes Azure (y compris le hub virtuel et tous les réseaux virtuels spoke qui y sont connectés) sont publiés via le protocole BGP de Peering privé ExpressRoute et le protocole BGP de VPN. Cela aboutit à deux itinéraires réseau (chemins d’accès) vers Azure à partir des réseaux locaux :
+
+- Un sur le chemin d’accès protégé par IPsec
+- Un directement sur ExpressRoute *sans* protection IPsec 
+
+Pour appliquer le chiffrement à la communication, vous devez vous assurer que les itinéraires Azure qui passent par la passerelle VPN locale sont préférés au chemin ExpressRoute direct pour le réseau connecté par VPN dans le diagramme.
 
 ### <a name="traffic-from-azure-to-on-premises-networks"></a>Trafic d’Azure vers des réseaux locaux
 
 La même condition s’applique au trafic d’Azure vers les réseaux locaux. Il existe deux moyens de faire en sorte que le chemin IPsec soit préféré au chemin ExpressRoute direct (sans IPsec) :
 
-- Publiez des préfixes plus spécifiques sur la session BGP VPN pour le réseau connecté par VPN : une grande plage englobant le « réseau connecté par VPN » par peering privé ExpressRoute, puis des plages plus spécifiques dans la session BGP VPN. Par exemple, publiez 10.0.0.0/16 par ExpressRoute et 10.0.1.0/24 par VPN.
+- Publiez des préfixes plus spécifiques sur la session BGP VPN pour le réseau connecté par VPN : Vous pouvez publier une plus grande plage qui englobe le réseau connecté par VPN par Peering privé ExpressRoute, puis des plages plus spécifiques dans la session BGP VPN. Par exemple, publiez 10.0.0.0/16 par ExpressRoute et 10.0.1.0/24 par VPN.
 
-- Publiez des préfixes disjoints pour VPN et ExpressRoute. Si les plages réseau par VPN sont disjointes d’un autre réseau connecté par ExpressRoute, vous pouvez publier les préfixes respectivement dans les sessions VPN et BGP ExpressRoute. Par exemple, publiez 10.0.0.0/24 par ExpressRoute et 10.0.1.0/24 par VPN.
+- Publiez des préfixes disjoints pour VPN et ExpressRoute. Si les plages de réseaux connectés par VPN sont disjointes d’autres réseaux connectés par ExpressRoute, vous pouvez publier les préfixes respectivement dans les sessions VPN et BGP ExpressRoute. Par exemple, publiez 10.0.0.0/24 par ExpressRoute et 10.0.1.0/24 par VPN.
 
 Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion VPN, plutôt que directement par ExpressRoute sans protection VPN.
 
 > [!WARNING]
-> Si vous publiez les **mêmes** préfixes sur les connexions ExpressRoute et VPN, Azure **utilisera directement le chemin ExpressRoute sans protection VPN**.
+> Si vous publiez les *mêmes* préfixes sur les connexions ExpressRoute et VPN, Azure utilisera directement le chemin ExpressRoute sans protection VPN.
 >
 
 ## <a name="before-you-begin"></a>Avant de commencer
@@ -56,98 +61,92 @@ Dans ces deux exemples, Azure envoie le trafic à 10.0.1.0/24 via la connexion V
 
 ## <a name="openvwan"></a>1. Créer un réseau Virtual WAN et un hub avec des passerelles
 
-Avant toute chose, les ressources Azure suivantes et les configurations locales correspondantes doivent être en place :
+Avant de continuer, les ressources Azure suivantes et les configurations locales correspondantes doivent être en place :
 
-1. Un réseau Azure Virtual WAN
-2. Un hub Virtual WAN avec une passerelle [ExpressRoute](virtual-wan-expressroute-portal.md) et une [passerelle VPN](virtual-wan-site-to-site-portal.md)
+- Un réseau Azure Virtual WAN
+- Un hub Virtual WAN avec une passerelle [ExpressRoute](virtual-wan-expressroute-portal.md) et une [passerelle VPN](virtual-wan-site-to-site-portal.md)
 
-Pour savoir comment créer un réseau Azure Virtual WAN et un hub avec une association ExpressRoute, voir [Créer une association ExpressRoute avec Azure Virtual WAN](virtual-wan-expressroute-portal.md) ; pour savoir comment créer une passerelle VPN dans le réseau Virtual WAN, voir [Créer une connexion de site à site avec Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
+Pour connaître les étapes de création d’un réseau étendu (WAN) virtuel Azure et d’un hub avec une association ExpressRoute, consultez [Créer une association ExpressRoute à l’aide d’Azure Virtual WAN](virtual-wan-expressroute-portal.md). Pour connaître les étapes de création d’une passerelle VPN dans le WAN virtuel, consultez [Créer une connexion site à site à l’aide d’Azure Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="site"></a>2. Créer un site pour le réseau local
 
-La ressource de site est la même que les sites VPN non ExpressRoute pour Virtual WAN. Il est important de noter que l’adresse IP du périphérique VPN local peut désormais être une adresse IP privée ou une adresse IP publique dans le réseau local accessible par le peering privé ExpressRoute créée à l’étape 1.
+La ressource de site est la même que les sites VPN non ExpressRoute pour un WAN virtuel. L’adresse IP du périphérique VPN local peut désormais être une IP privée, ou une IP publique dans le réseau local accessible par le Peering privé ExpressRoute créée à l’étape 1.
 
 > [!NOTE]
-> L’adresse IP du périphérique VPN local DOIT faire partie des préfixes d’adresse publiés sur le hub Virtual WAN par peering privé Azure ExpressRoute.
+> L’adresse IP du périphérique VPN local *doit* faire partie des préfixes d’adresse publiés sur le hub de WAN virtuel par Peering privé Azure ExpressRoute.
 >
 
-1. Accédez au Portail Azure dans votre navigateur. Cliquez sur le WAN que vous avez créé. Sur la page WAN, sous **Connectivité**, cliquez sur **Sites VPN** pour ouvrir la page des sites VPN.
+1. Dans votre navigateur, accédez au Portail Azure. 
+1. Sélectionnez le réseau étendu que vous avez créé. Sur la page Réseau étendu, sous **Connectivité**, sélectionnez **Sites VPN**.
+1. Sur la page **Sites VPN**, sélectionnez **+Créer un site**.
+1. Sur la page **Créer un site**, renseignez les champs suivants :
+   * **Abonnement**: Vérifiez l’abonnement.
+   * **Groupe de ressources** : Sélectionnez ou créez le groupe de ressources à utiliser.
+   * **Région** : Entrez la région Azure pour la ressource de site VPN.
+   * **Nom** : Entrez le nom par lequel vous souhaitez faire référence à votre site local.
+   * **Fournisseur de l’appareil** : Entrez le fournisseur du périphérique VPN local.
+   * **Border Gateway Protocol** : Sélectionnez « Activer » si votre réseau local utilise le protocole BGP.
+   * **Espace d’adressage privé** : Entrez l’espace d’adressage IP qui se trouve sur votre site local. Le trafic destiné à cet espace d’adressage est routé vers le réseau local via la passerelle VPN.
+   * **Hubs** : Sélectionnez un ou plusieurs hubs pour connecter ce site VPN. Les hubs sélectionnés doivent disposer déjà de passerelles VPN.
+1. Sélectionnez **Suivant : Liens >** pour les paramètres de liaison VPN :
+   * **Nom de la liaison** : Nom par lequel vous souhaitez faire référence à cette connexion.
+   * **Nom du fournisseur** : Nom du fournisseur de services Internet de ce site. Dans le cas d’un réseau local ExpressRoute, il s’agit du nom du fournisseur de services ExpressRoute.
+   * **Vitesse** : Vitesse de la liaison du service Internet ou du circuit ExpressRoute.
+   * **Adresse IP** : IP publique du périphérique VPN qui réside sur votre site local. Ou, dans le cas d’un réseau local ExpressRoute, IP privée du périphérique VPN par ExpressRoute.
 
-2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
+   Si le protocole BGP est activé, il s’applique à toutes les connexions créées pour ce site dans Azure. La configuration du protocole BGP sur un WAN virtuel équivaut à configurer le protocole BGP sur une passerelle VPN Azure. 
+   
+   L’adresse du peer BGP local *ne doit pas* être identique à l’adresse IP du réseau VPN vers l’appareil ou à l’espace d’adressage du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il *ne peut pas* s’agir d’une adresse APIPA (169.254.*x*.*x*). Spécifiez cette adresse sur la passerelle de réseau local correspondante qui représente l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
 
-3. Sur la page **Créer un site**, renseignez les champs suivants :
-
-   * **Abonnement** : vérifiez l’abonnement.
-   * **Groupe de ressources** : sélectionnez ou créez le groupe de ressources que vous souhaitez utiliser.
-   * **Région** : région Azure de la ressource de site VPN.
-   * **Nom** : nom par lequel vous souhaitez faire référence à votre site local.
-   * **Fournisseur du périphérique** : fournisseur du périphérique VPN local.
-   * **Border Gateway Protocol** : sélectionnez « Activer » si votre réseau local utilise le protocole BGP.
-   * **Espace d’adressage privé** : il s’agit de l’espace d’adresse IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est routé vers le réseau local via la passerelle VPN.
-   * **Hubs** : sélectionnez un ou plusieurs hubs pour connecter ce site VPN. Les hubs sélectionnés doivent disposer déjà de passerelles VPN.
-
-4. Cliquez sur **Suivant : Liens >** pour les paramètres de liaison VPN :
-
-   * **Nom de la liaison** : nom par lequel vous souhaitez faire référence à cette connexion.
-   * **Nom du fournisseur** : nom du fournisseur de services Internet de ce site. Dans le cas d’un réseau local ExpressRoute, nom du fournisseur de services ExpressRoute.
-   * **Vitesse** : vitesse de la liaison du service Internet ou du circuit ExpressRoute.
-   * **Adresse IP** : adresse IP publique du périphérique VPN qui se trouve sur le site local. Dans le cas d’ExpressRoute en local, adresse IP privée du périphérique VPN par ExpressRoute.
-
-   Si le protocole BGP est activé, il s’applique à toutes les connexions créées pour ce site dans Azure. La configuration du protocole BGP sur un réseau Virtual WAN équivaut à configurer le protocole BGP sur une passerelle VPN Azure. L’adresse du peer BGP local *ne doit pas* être identique à l’adresse IP publique du réseau VPN vers l’appareil ou à l’espace d’adressage du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il *ne peut pas* s’agir d’une adresse APIPA (169.254.*x*.*x*). Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
-
-5. Cliquez sur **Suivant : Vérifier + créer >** pour vérifier les valeurs des paramètres et créer le site VPN. Si vous avez sélectionné **Hubs** pour vous connecter, la connexion sera établie entre le réseau local et la passerelle VPN Hub.
+1. Sélectionnez **Suivant : Vérifier + créer >** pour vérifier les valeurs des paramètres et créer le site VPN. Si vous avez sélectionné **Hubs** pour vous connecter, la connexion sera établie entre le réseau local et la passerelle VPN du hub.
 
 ## <a name="hub"></a>3. Mettre à jour le paramètre de connexion VPN de façon à utiliser ExpressRoute
 
-Après avoir créé le site VPN et établi la connexion au hub, suivez les étapes ci-dessous pour configurer la connexion de façon à utiliser le peering privé ExpressRoute :
+Après avoir créé le site VPN et établi la connexion au hub, suivez les étapes ci-dessous pour configurer la connexion de façon à utiliser le Peering privé ExpressRoute :
 
-1. Revenez à la page des ressources Virtual WAN et cliquez sur la ressource du hub, ou accédez au hub connecté à partir du site VPN.
+1. Revenez à la page des ressources du WAN virtuel, puis sélectionnez la ressource du hub ou accédez au hub connecté à partir du site VPN.
+1. Sous **Connectivité**, sélectionnez **VPN (site à site)** .
+1. Sélectionnez les points de suspension ( **…** ) sur le site VPN par ExpressRoute, puis **Modifier la connexion VPN à ce hub**.
+1. Pour **Utiliser une adresse IP privée Azure**, sélectionnez **Oui**. Le paramètre configure la passerelle VPN du hub de façon à utiliser des adresses IP privées situées dans la plage d’adresses du hub sur la passerelle pour cette connexion, au lieu des adresses IP publiques. Ainsi, le trafic provenant du réseau local parcourra les chemins de Peering privé ExpressRoute plutôt que d’utiliser l’Internet public pour cette connexion VPN. La capture d’écran qui suit présente le réglage.
 
-2. Sous **Connectivité**, cliquez sur **VPN (de site à site)** .
-
-3. Cliquez sur « … » sur le site VPN par ExpressRoute et sélectionnez « **Modifier la connexion VPN à ce hub** ».
-
-4. Sélectionnez « Oui » pour « **Utiliser une adresse IP privée Azure** ». Le paramètre configure la passerelle VPN du hub de façon à utiliser des adresses IP privées situées dans la plage d’adresses du hub sur la passerelle pour cette connexion, au lieu des adresses IP publiques. Ainsi, le trafic provenant du réseau local parcourra les chemins de peering privé ExpressRoute plutôt que d’utiliser l’Internet public pour cette connexion VPN. La capture d’écran qui suit présente la fenêtre des paramètres.
-
-   ![Paramètres de connexion VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
+   ![Réglage de l’utilisation d’une adresse IP privée pour la connexion VPN](./media/vpn-over-expressroute/vpn-link-configuration.png)
    
-5. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
-Une fois enregistrée, la passerelle VPN du hub utilisera les adresses IP privées pour établir les connexions IPsec/IKE avec le périphérique VPN local par ExpressRoute.
+Une fois que vous avez enregistré vos modifications, la passerelle VPN du hub utilisera les adresses IP privées pour établir les connexions IPsec/IKE avec le périphérique VPN local par ExpressRoute.
 
 ## <a name="associate"></a>4. Récupérer les adresses IP privées de la passerelle VPN du hub
 
-Téléchargez la configuration du périphérique VPN pour obtenir les adresses IP privées de la passerelle VPN du hub. Elles sont nécessaires pour configurer le périphérique VPN local.
+Téléchargez la configuration du périphérique VPN pour obtenir les adresses IP privées de la passerelle VPN du hub. Vous avez besoin de ces adresses pour configurer le périphérique VPN local.
 
-1. Sur la page de votre hub, cliquez sur **VPN (de site à site)** sous **Connectivité**
+1. Sur la page de votre hub, sélectionnez **VPN (site à site)** sous **Connectivité**.
+1. En haut de la page **Vue d’ensemble**, sélectionnez **Télécharger la configuration VPN**. 
 
-2. En haut de la page Vue d’ensemble, cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
+   Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[location] », où *location* est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
+1. Une fois le fichier créé, sélectionnez le lien pour le télécharger.
+1. Appliquez la configuration à votre périphérique VPN.
 
-3. Une fois que le fichier a terminé la création, vous pouvez cliquer sur le lien pour le télécharger.
+### <a name="vpn-device-configuration-file"></a>Fichier config du périphérique VPN
 
-4. Appliquez la configuration à votre périphérique VPN.
+Le fichier config du périphérique contient les paramètres à utiliser lors de la configuration de votre périphérique VPN local. Lorsque vous affichez ce fichier, notez les informations suivantes :
 
-### <a name="understanding-the-vpn-device-configuration-file"></a>Comprendre le fichier de configuration de périphérique VPN
+* **vpnSiteConfiguration** : Cette section indique les détails de l’appareil configuré comme un site se connectant au WAN virtuel. Cela inclut le nom et l’IP publique du périphérique de branche.
+* **vpnSiteConnections** : Cette section fournit des informations sur les paramètres suivants :
 
-Le fichier de configuration de périphérique contient les paramètres à utiliser lors de la configuration de votre périphérique VPN sur site. Lorsque vous affichez ce fichier, notez les informations suivantes :
-
-* **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
-* **vpnSiteConnections -** Cette section fournit des informations sur les paramètres suivants :
-
-    * **Espace d’adressage** du réseau virtuel du/des hub(s)<br/>Exemple :
+    * Espace d’adressage du réseau virtuel du hub virtuel.<br/>Exemple :
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub<br>Exemple :
+    * Espace d’adressage des réseaux virtuels qui sont connectés au hub.<br>Exemple :
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que chaque connexion effectuée avec la passerelle VPN est composée de deux tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, « Instance0 » et « Instance1 » apparaissent pour chaque site ; il s’agit d’adresses IP privées et non d’adresses IP publiques.<br>Exemple :
+    * Adresses IP de la passerelle VPN du hub virtuel. Étant donné que chaque connexion de la passerelle VPN est composée de deux tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, `Instance0` et `Instance1` apparaissent pour chaque site ; il s’agit d’adresses IP privées et non d’IP publiques.<br>Exemple :
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"
            ```
-    * **Détails de configuration de connexion de passerelle VPN**, comme BGP, une clé prépartagée, etc. La clé PSK est la clé prépartagée automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page Vue d’ensemble pour une clé PSK personnalisée.
+    * Détails de configuration de la connexion de la passerelle VPN, comme un protocole BGP et une clé prépartagée. La clé prépartagée est automatiquement générée pour vous. Vous pouvez toujours modifier la connexion dans la page **Vue d’ensemble** pour une clé prépartagée personnalisée.
   
 ### <a name="example-device-configuration-file"></a>Exemple de fichier de configuration de périphérique
 
@@ -216,24 +215,21 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
 
 Si vous avez besoin d’instructions pour configurer votre périphérique, vous pouvez utiliser les instructions de la [page de scripts de configuration de périphérique VPN](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) en prenant les précautions suivantes :
 
-* Les instructions sur la page des périphériques VPN ne sont pas écrites pour un réseau étendu virtuel, mais vous pouvez utiliser les valeurs WAN virtuel à partir du fichier de configuration pour configurer manuellement votre périphérique VPN. 
-* Les scripts de configuration de périphérique téléchargeables qui sont pour la passerelle VPN ne fonctionnent pas pour le réseau étendu virtuel, étant donné que la configuration est différente.
-* Un nouvel élément Virtual WAN peut prendre en charge IKEv1 et IKEv2.
+* Les instructions figurant sur la page du périphérique VPN ne sont pas écrites pour un WAN virtuel. Toutefois, vous pouvez utiliser les valeurs de WAN virtuel du fichier config pour configurer manuellement votre périphérique VPN. 
+* Les scripts téléchargeables de configuration de périphérique qui sont pour la passerelle VPN ne fonctionnent pas pour le WAN virtuel, car la configuration est différente.
+* Un nouveau WAN virtuel peut prendre en charge IKEv1 et IKEv2.
 * Le WAN virtuel peut uniquement utiliser des périphériques VPN basés sur un itinéraire et des instructions de périphérique.
 
 ## <a name="viewwan"></a>5. Afficher votre WAN virtuel
 
 1. Accédez au WAN virtuel.
-
-2. Dans la page Vue d’ensemble, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher le résumé de l’intégrité du hub.
-
-3. Dans la section des hubs et des connexions, vous pouvez afficher l’état du hub, le site, la région, l’état de la connexion VPN et les octets entrés et sortis.
+1. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher un résumé de l’intégrité du hub.
+1. Dans la section **Hubs et connexions**, vous pouvez afficher l’état du hub, du site, de la région et de la connexion VPN. Vous pouvez également afficher les octets entrés et sortis.
 
 ## <a name="viewhealth"></a>6. Afficher l’intégrité des ressources
 
-1. Accédez à votre réseau étendu.
-
-2. Sur la page de votre WAN, dans la section **SUPPORT + Dépannage**, cliquez sur **Intégrité** pour afficher votre ressource.
+1. Accédez à votre WAN.
+1. Dans la section **SUPPORT + résolution des problèmes**, sélectionnez **Intégrité** pour afficher votre ressource.
 
 ## <a name="connectmon"></a>7. Surveiller une connexion
 
@@ -241,7 +237,7 @@ Créez une connexion pour surveiller les communications entre une machine virtue
 
 ## <a name="cleanup"></a>8. Supprimer des ressources
 
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
+Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Exécutez la commande PowerShell suivante et remplacez `myResourceGroup` par le nom de votre groupe de ressources :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -249,4 +245,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article explique comment créer une connexion VPN par peering privé ExpressRoute avec Virtual WAN. Pour plus d’informations sur Virtual WAN et d’autres fonctionnalités liées, voir la page [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).
+Cet article explique comment créer une connexion VPN par Peering privé ExpressRoute à l’aide de Virtual WAN. Pour plus d’informations sur Virtual WAN et les fonctionnalités associées, consultez la [Vue d’ensemble de Virtual WAN](virtual-wan-about.md).

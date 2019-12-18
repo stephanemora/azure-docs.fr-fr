@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132207"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929006"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurer Azure Monitor pour votre application Python (préversion)
 
@@ -61,7 +61,16 @@ Pour obtenir la liste complète des packages et intégrations, consultez [Packag
 
 Le Kit de développement logiciel (SDK) utilise trois exportateurs Azure Monitor pour envoyer différents types de télémétrie à Azure Monitor : traces, métriques et journaux. Pour plus d’informations sur ces types de télémétrie, consultez [la vue d’ensemble de la plateforme de données](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Utilisez les instructions suivantes pour envoyer ces types de télémétrie par le biais des trois exportateurs.
 
+## <a name="telemetry-type-mappings"></a>Mappages des types de données de télémétrie
+
+Voici les exportateurs fournis par OpenCensus, mappés aux types de données de télémétrie que vous verrez dans Azure Monitor.
+
+![Capture d’écran du mappage des types de données de télémétrie d’OpenCensus à Azure Monitor](./media/opencensus-python/0012-telemetry-types.png)
+
 ### <a name="trace"></a>Trace
+
+> [!NOTE]
+> `Trace` dans OpenCensus fait référence au [traçage distribué](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter` envoie de la télémétrie pour `requests` et `dependency` à Azure Monitor.
 
 1. Commençons par générer des données de trace en local. Dans IDLE pour Python ou l’éditeur de votre choix, entrez le code suivant.
 
@@ -268,7 +277,7 @@ Le Kit de développement logiciel (SDK) utilise trois exportateurs Azure Monitor
     90
     ```
 
-3. Bien qu’entrer des valeurs soit utile à des fins de démonstration, nous souhaitons surtout émettre les données de métrique vers Azure Monitor. Modifiez le code de l’étape précédente sur la base de l’exemple de code suivant :
+3. Bien qu’entrer des valeurs soit utile à des fins de démonstration, nous voulons au final émettre les données du journal pour Azure Monitor. Modifiez le code de l’étape précédente sur la base de l’exemple de code suivant :
 
     ```python
     import logging
@@ -293,9 +302,58 @@ Le Kit de développement logiciel (SDK) utilise trois exportateurs Azure Monitor
         main()
     ```
 
-4. L’exportateur envoie les données de journal à Azure Monitor. Vous pouvez trouver les données sous `traces`.
+4. L’exportateur envoie les données de journal à Azure Monitor. Vous pouvez trouver les données sous `traces`. 
 
-5. Pour plus d’informations sur l’enrichissement de vos journaux avec les données de contexte de trace, consultez [Intégration des journaux](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation) OpenCensus Python.
+> [!NOTE]
+> `traces` dans ce contexte n’est pas identique à `Tracing`. `traces` fait référence au type de données de télémétrie que vous verrez dans Azure Monitor lors de l’utilisation du `AzureLogHandler`. `Tracing` fait référence à un concept dans OpenCensus et est relatif au [traçage distribué](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+
+5. Pour mettre en forme vos messages de journalisation, vous pouvez utiliser des `formatters` dans l’[API de journalisation](https://docs.python.org/3/library/logging.html#formatter-objects) Python intégrée.
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. Vous pouvez également ajouter des dimensions personnalisées à vos journaux. Celles-ci s’affichent sous forme de paires clé-valeur dans `customDimensions`, dans Azure Monitor.
+> [!NOTE]
+> Pour que cette fonctionnalité fonctionne, vous devez passer un dictionnaire en tant qu’argument à vos journaux ; toute autre structure de données sera ignorée. Pour conserver la mise en forme des chaînes, stockez-les dans un dictionnaire et passez-les en tant qu’arguments.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. Pour plus d’informations sur l’enrichissement de vos journaux avec les données de contexte de trace, consultez [Intégration des journaux](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation) OpenCensus Python.
 
 ## <a name="view-your-data-with-queries"></a>Voir vos données avec des requêtes
 

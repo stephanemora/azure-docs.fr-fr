@@ -6,23 +6,29 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/18/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37f375b6d4284b4728b2337dc5ab5186ce22772c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167768"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967300"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
 Ce forum aux questions répond aux questions courantes sur Azure Multi-Factor Authentication et sur l’utilisation du service Multi-Factor Authentication. Il est divisé en questions relatives au service en général, aux modèles de facturation, aux expériences utilisateur et au dépannage.
 
 ## <a name="general"></a>Généralités
+
+> [!IMPORTANT]
+> À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> [!NOTE]
+> Les informations partagées ci-dessous concernant le serveur Azure Multi-Factor Authentication s’appliquent uniquement aux utilisateurs qui ont déjà le serveur MFA en cours d’exécution.
+
 
 **Q : Comment le serveur Azure Multi-Factor Authentication gère les données utilisateur ?**
 

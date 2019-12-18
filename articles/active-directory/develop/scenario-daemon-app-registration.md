@@ -1,5 +1,5 @@
 ---
-title: Application démon conçue pour appeler des API web (inscription d'application) - Plateforme d'identités Microsoft
+title: Inscrire une application démon appelant des API web - Plateforme d’identités Microsoft | Azure
 description: Apprenez à générer une application démon qui appelle des API web - inscription d'application
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bcdad9b1ea56a41613c5d8d815d1418783fea4ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175451"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965583"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Application démon qui appelle des API web - inscription d'application
 

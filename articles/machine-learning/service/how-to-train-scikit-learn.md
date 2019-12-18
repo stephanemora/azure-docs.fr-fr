@@ -1,7 +1,7 @@
 ---
 title: Entraîner des modèles Machine Learning scikit-learn
 titleSuffix: Azure Machine Learning
-description: Découvrez comment exécuter vos scripts de formation scikit-Learn à l’échelle de l’entreprise à l’aide de la classe SKlearn estimateur d’Azure Machine Learning. Les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le jeu de données iris de scikit-learn.
+description: Découvrez comment exécuter vos scripts de formation scikit-learn à l’échelle de l’entreprise à l’aide de la classe Estimateur SKlearn d’Azure Machine Learning. Les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le jeu de données iris de scikit-learn.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224839"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976109"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Créer des modèles scikit-learn à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, découvrez comment exécuter vos scripts de formation scikit-Learn à l’échelle de l’entreprise à l’aide de la classe [SKlearn estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) d’Azure Machine Learning. 
+Dans cet article, découvrez comment exécuter vos scripts de formation scikit-learn à l’échelle de l’entreprise à l’aide de la classe [Estimateur SKlearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) d’Azure Machine Learning. 
 
 Dans cet article, les exemples de scripts classifient les images de fleurs d'iris afin de créer un modèle d'apprentissage automatique basé sur le [jeu de données iris](https://archive.ics.uci.edu/ml/datasets/iris) de scikit-learn.
 
@@ -89,7 +89,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 Dans ce tutoriel, le script d’entraînement **train_iris.py** est déjà fourni. Dans la pratique, vous devez être capable de prendre n’importe quel script d’apprentissage personnalisé et de l’exécuter avec Azure Machine Learning sans avoir à modifier votre code.
 
-Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, ajoutez une petite quantité de code Azure Machine Learning à l’intérieur de votre script d’apprentissage.  Le script d’entraînement **train_iris.py** montre comment journaliser certaines métriques dans votre exécution Azure ML en utilisant l’objet `Run` dans le script.
+Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, ajoutez une petite quantité de code Azure Machine Learning à l’intérieur de votre script de formation.  Le script d’entraînement **train_iris.py** montre comment journaliser certaines métriques dans votre exécution Azure ML en utilisant l’objet `Run` dans le script.
 
 Le script d’entraînement fourni utilise les exemples de données de la fonction `iris = datasets.load_iris()`.  Pour vos propres données, vous devrez peut-être suivre des étapes telles que [Charger un jeu de données et des scripts](how-to-train-keras.md#data-upload) pour rendre les données disponibles pendant l’apprentissage.
 

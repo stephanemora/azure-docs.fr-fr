@@ -1,5 +1,6 @@
 ---
-title: Définir un profil technique SAML dans une stratégie personnalisée dans Azure Active Directory B2C
+title: Définir un profil technique SAML dans une stratégie personnalisée
+titleSuffix: Azure AD B2C
 description: Définir un profil technique SAML dans une stratégie personnalisée dans Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b75367a90ce557f055ff4a9b1ff85f5b1f8f9637
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 74666b1dc2ba4fac25aff0a56a52d048d746d465
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603060"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950933"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 

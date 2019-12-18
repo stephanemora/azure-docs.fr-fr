@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 77f95cf02b5216f1946283143b828f915b351abc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1308463694754231aa6d770bf716fd3def219981
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230995"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925325"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Liaisons de stockage Table Azure pour Azure Functions
 
@@ -26,7 +26,7 @@ Les liaisons du Stockage Table sont fournies dans le package NuGet [Microsoft.Az
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages - Functions 2.x et ultérieur
 
 Les liaisons du Stockage Table sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables).
 
@@ -105,7 +105,7 @@ public class TableStorage
 
 ### <a name="input---c-example---cloudtable"></a>Entrée - Exemple C# - CloudTable
 
-`IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction 2.x qui interroge une table de journal Azure Functions :
+`IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction qui interroge une table du journal Azure Functions :
 
 ```csharp
 using Microsoft.Azure.WebJobs;
@@ -258,7 +258,7 @@ public class Person : TableEntity
 
 ### <a name="input---c-script-example---cloudtable"></a>Entrée - Exemple de script C# - CloudTable
 
-`IQueryable` n’est pas pris en charge dans le [runtime Functions v2](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction 2.x qui interroge une table de journal Azure Functions :
+`IQueryable` n’est pas pris en charge dans le runtime Functions pour les [versions 2.x et ultérieures](functions-versions.md). Une alternative consiste à utiliser un paramètre de méthode `CloudTable` pour lire la table en utilisant le kit SDK Stockage Azure. Voici un exemple d’une fonction qui interroge une table du journal Azure Functions :
 
 ```json
 {

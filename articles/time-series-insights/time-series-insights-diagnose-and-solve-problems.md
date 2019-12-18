@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007062"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900249"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -38,7 +38,7 @@ Azure Time Series Insights prend uniquement en charge les données JSON. Pour ob
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Raison B : il manque une autorisation nécessaire pour la clé de la source des événements
 
-* Pour un hub IoT dans Azure IoT Hub, vous devez fournir la clé qui dispose des autorisations **Connexion de service**. Les stratégies **iothubowner** et **service** fonctionnent, car elles disposent toutes deux d’autorisations **Connexion de service**.
+* Pour un hub IoT dans Azure IoT Hub, vous devez fournir la clé qui dispose des autorisations **Connexion de service**. Sélectionnez les stratégies **iothubowner** ou **service**, car elles disposent toutes deux des autorisations **Connexion de service**.
 
    [![Autorisations de connexion de service IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ Azure Time Series Insights prend uniquement en charge les données JSON. Pour ob
 
 Lorsque vous inscrivez un hub IoT ou un Event Hub, il est important de définir le groupe de consommateurs que vous souhaitez utiliser pour lire les données. Ce groupe de consommateurs *ne peut pas être partagé*. Si le groupe de consommateurs est partagé, le hub IoT ou l’Event Hub sous-jacent déconnecte de manière automatique et aléatoire l’un des lecteurs. Fournissez un groupe de consommateurs unique auprès duquel Time Series Insights lira les informations.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>Cause D : l’environnement vient d’être provisionné
+
+Les données s’afficheront dans votre explorateur Time Series Insights quelques minutes après la création initiale de l’environnement et de ses données.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problème : certaines données sont affichées, mais d’autres sont manquantes
 
 Lorsque les données n’apparaissent que partiellement et semblent être en décalage, vous devez envisager plusieurs possibilités.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>Raison A : votre environnement est sujet à des limitations
 
-La limitation est un problème courant lors de la configuration des environnements après la création d’une source de l’événement qui comporte des données. Azure IoT Hub et Azure Events Hubs stockent les données jusqu’à sept jours. Time Series Insights commence toujours par l’événement le plus ancien dans la source de l’événement (premier entré, premier sorti, ou *FIFO*).
+La [limitation](time-series-insights-environment-mitigate-latency.md) est un problème courant lors du provisionnement des environnements après la création d’une source d’événement qui comporte des données. Azure IoT Hub et Azure Events Hubs stockent les données jusqu’à sept jours. Time Series Insights commence toujours par l’événement le plus ancien dans la source de l’événement (premier entré, premier sorti, ou *FIFO*).
 
 Par exemple, si 5 millions d’événements se trouvent dans une source de l’événement lorsque vous vous connectez à un S1 (environnement Time Series Insights à une unité), Time Series Insights lit environ 1 million d’événements par jour. Time Series Insights peut donc subir cinq jours de latence. En réalité, l’environnement est limité.
 

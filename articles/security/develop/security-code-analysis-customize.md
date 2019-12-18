@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c0d49c3ce06f6fa72daf7aff466ef65e09ced09a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241809"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851534"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Configurer et personnaliser les tâches de build
 
@@ -40,12 +40,14 @@ Windows Defender utilise le client Windows Update pour télécharger et installe
 
 Pour plus d’informations sur les erreurs de Windows Update et leur atténuation, consultez [, Codes d'erreur de Windows Update par composant](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) et l'article TechNet [Agent Windows Update - Codes d'erreur](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour les logiciels anti-programme malveillant](yaml-configuration.md#anti-malware-scanner-task)
+
 ## <a name="binskim-task"></a>Tâche BinSkim
 
 > [!NOTE]
 > Avant d'exécuter la tâche BinSkim, votre build doit respecter l’une des conditions suivantes :
->    - Votre build produit des artefacts binaires à partir de code managé.
->    - Vous avez des artefacts binaires validés que vous souhaitez analyser avec BinSkim.
+>  - Votre build produit des artefacts binaires à partir de code managé.
+>  - Vous avez des artefacts binaires validés que vous souhaitez analyser avec BinSkim.
 
 Les détails de configuration des tâches sont affichés dans la capture d’écran et la liste suivantes.
 
@@ -79,6 +81,8 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 
 Pour plus d’informations sur les arguments de ligne de commande, les règles par ID ou les codes de sortie pour BinSkim, consultez le [Guide de l’utilisateur BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour BinSkim](yaml-configuration.md#binskim-task)
+
 ## <a name="credential-scanner-task"></a>Tâche Credential Scanner
 
 Les détails de configuration des tâches sont affichés dans la capture d’écran et la liste suivantes.
@@ -99,6 +103,8 @@ Les options disponibles sont les suivantes :
   - **Nombre maximal d’octets lus pour l’analyse des fichiers** : Nombre maximal d’octets à lire dans un fichier donné lors de l’analyse du contenu. La valeur par défaut 104,857,600.
   - **Options de contrôle** > **Exécuter cette tâche** : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
   - **Version** : Version de la tâche de build dans Azure DevOps. Cette option n’est pas fréquemment utilisée.
+
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour Credential Scanner](yaml-configuration.md#credential-scanner-task)
 
 ## <a name="microsoft-security-risk-detection-task"></a>Tâche Microsoft Security Risk Detection
 
@@ -128,10 +134,13 @@ Pour plus d’informations sur la configuration de cette tâche, consultez la li
        - **Test Driver Can Be Renamed** (Le pilote de test peut être renommé) : Cochez la case si le fichier exécutable du pilote de test peut être renommé et continuer à fonctionner correctement.
        - **The Fuzzing Application Runs as a Single OS Process** (L’application de test à données aléatoires (fuzzing) s’exécute sous la forme d’un seul processus du système d’exploitation) : Cochez cette case si le pilote de test s’exécute sous la forme d'un seul processus du système d’exploitation. Décochez-la si le pilote de test génère des processus supplémentaires.
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour Microsoft Security Risk Detection](yaml-configuration.md#microsoft-security-risk-detection-task)
+
 ## <a name="roslyn-analyzers-task"></a>Tâche Analyseurs Roslyn
 
 > [!NOTE]
 > Avant d'exécuter la tâche Analyseurs Roslyn, votre build doit respecter les conditions suivantes :
+>
 > - Votre définition de build comprend la tâche de build intégrée MSBuild ou VSBuild pour compiler du code C# ou code Visual Basic. La tâche des analyseurs s’appuie sur l’entrée et la sortie de la tâche intégrée pour exécuter la compilation MSBuild avec les analyseurs Roslyn activés.
 > - Visual Studio 2017 version 15.15.5 ou ultérieure est installée sur l’agent de build qui exécute cette tâche de build de manière à ce qu'il utilise le compilateur version 2.6 ou ultérieure.
 
@@ -145,6 +154,7 @@ Les options disponibles sont les suivantes :
 - **Options de contrôle** > **Exécuter cette tâche** : Spécifie le moment où la tâche s'exécutera. Sélectionnez **Conditions personnalisées** pour spécifier des conditions plus complexes.
 
 > [!NOTE]
+>
 > - Les analyseurs Roslyn sont intégrés au compilateur et peuvent être exécutés seulement dans le cadre de la compilation csc.exe. Par conséquent, cette tâche nécessite la relecture/réexécution de la commande du compilateur exécutée précédemment dans la build. Cette relecture ou exécution s’effectue en interrogeant Visual Studio Team Services (VSTS) pour les journaux des tâches de build MSBuild.
 >
 >   Il n’existe aucun autre moyen pour la tâche d’obtenir de façon fiable la ligne de commande de compilation MSBuild à partir de la définition de build. Nous avons envisagé d’ajouter une zone de texte de forme libre pour permettre aux utilisateurs d’entrer leurs lignes de commande. Mais il serait difficile de les maintenir à jour et de les synchroniser avec la build principale.
@@ -161,12 +171,16 @@ Pour obtenir des ressources supplémentaires pour la tâche Analyseurs Roslyn, c
 
 Pour connaître le package de l’analyseur installé et utilisé par cette tâche de build, consultez la page NuGet [Microsoft.CodeAnalysis.FxCopAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers).
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour analyseurs Roslyn](yaml-configuration.md#roslyn-analyzers-task)
+
 ## <a name="tslint-task"></a>Tâche TSLint
 
 Pour plus d’informations sur TSLint, accédez au [référentiel GitHub TSLint](https://github.com/palantir/tslint).
 
 >[!NOTE] 
 >Comme vous devez le savoir, la page d'accueil du [référentiel GitHub TSLint](https://github.com/palantir/tslint) indique que TSLint sera déconseillé en 2019. Microsoft examine la possibilité d'utiliser [ESLint](https://github.com/eslint/eslint) en guise d'alternative.
+
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour TSLint](yaml-configuration.md#tslint-task)
 
 ## <a name="publish-security-analysis-logs-task"></a>Tâche Publier les journaux d’analyse de la sécurité
 
@@ -175,8 +189,10 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 ![Configuration de la tâche de build Publier les journaux d’analyse de la sécurité](./media/security-tools/9-publish-security-analsis-logs600.png)  
 
 - **Nom de l’artefact** : N’importe quel identificateur de chaîne.
-- **Type d’artefact** : Selon votre sélection, vous pouvez publier des journaux sur votre serveur Azure-DevOps ou sur un fichier partagé accessible à l’agent de build.
+- **Type d’artefact** : Selon votre sélection, vous pouvez publier des journaux sur votre Azure DevOps Server ou sur un fichier partagé accessible à l’agent de build.
 - **Outils** : Vous pouvez choisir de conserver les journaux pour des outils spécifiques ou sélectionner **Tous les outils** pour conserver tous les journaux.
+
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour la tâche Publier des journaux de sécurité](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## <a name="security-report-task"></a>Tâche Rapport de sécurité
 
@@ -189,6 +205,8 @@ Les détails de configuration du rapport de sécurité sont affichés dans la ca
 - **Options avancées** : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
 - **Dossier des journaux de base** : Vous pouvez personnaliser le dossier des journaux de base où les journaux doivent se trouver. Cette option n'est cependant pas courante.
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour les rapports de sécurité](yaml-configuration.md#security-report-task)
+
 ## <a name="post-analysis-task"></a>Tâche Post-analyse
 
 Les détails de configuration des tâches sont affichés dans la capture d’écran et la liste suivantes.
@@ -199,6 +217,10 @@ Les détails de configuration des tâches sont affichés dans la capture d’éc
 - **Rapport** : Vous pouvez écrire les résultats qui provoquent l’arrêt de la build. Les résultats sont écrits dans la fenêtre de la console Azure DevOps et dans le fichier journal.
 - **Options avancées** : S'il n’existe pas de journal pour un des outils sélectionnés, vous pouvez choisir de consigner un avertissement ou une erreur. Si vous consignez une erreur, la tâche échoue.
 
+Pour plus d’informations sur la configuration YAML de cette tâche, consultez nos [Options YAML pour l’analyse postérieure](yaml-configuration.md#post-analysis-task)
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur la configuration basée sur YAML, reportez-vous à notre [guide de configuration YAML](yaml-configuration.md).
 
 Si vous avez d'autres questions sur l'extension Microsoft Security Code Analysis et les outils proposés, consultez notre [page Forum aux questions](security-code-analysis-faq.md).

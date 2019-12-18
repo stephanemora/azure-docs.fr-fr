@@ -1,6 +1,6 @@
 ---
 title: Effectuer des opérations sur Stockage Table Azure avec PowerShell | Microsoft Docs
-description: Effectuez des opérations sur le Stockage Table Azure avec PowerShell.
+description: Découvrir comment exécuter des tâches courantes telles que la création, l’interrogation et la suppression de données depuis un compte de stockage de table Azure à l’aide de PowerShell.
 services: cosmos-db
 author: roygara
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
-ms.openlocfilehash: b1cae7dc553ce324349e66f1bcb8a281d7c7c7e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4591cded820bbefb741d55a22d10a91bd4fff383
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101278"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868505"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage Table Azure avec Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]

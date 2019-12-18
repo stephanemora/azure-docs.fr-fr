@@ -1,5 +1,6 @@
 ---
-title: Application de bureau qui appelle des API web (acquisition d’un jeton pour l’application) - Plateforme d’identités Microsoft
+title: Obtenir un jeton pour les applications de bureau appelant des API web | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrir comment générer une application de bureau qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175468"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920224"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau conçue pour appeler des API web - acquérir un jeton
 

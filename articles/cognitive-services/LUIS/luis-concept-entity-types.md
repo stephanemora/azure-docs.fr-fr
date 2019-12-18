@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422585"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976959"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>Entités et leur objectif dans LUIS
 
@@ -75,7 +75,7 @@ Les [**entités issues de machine learning**](tutorial-machine-learned-entity.md
 
 Une entité issue de machine learning est déclenchée en fonction du contexte appris par le biais d’énoncés d’entraînement. Les **contraintes** sont des règles facultatives appliquées à une entité issue de machine learning qui limitent davantage le déclenchement en fonction de la définition de correspondance de texte exacte d’une entité non issue de machine learning comme [Liste](reference-entity-list.md) ou [Expression régulière](reference-entity-regular-expression.md). Par exemple, une entité issue de machine learning `size` peut avoir une contrainte d’une entité de liste `sizeList` qui limite l’entité `size` à se déclencher uniquement en présence de valeurs contenues dans l’entité `sizeList`.
 
-Les [**descripteurs**](luis-concept-feature.md) sont des fonctionnalités appliquées afin d’améliorer la pertinence des mots ou expressions pour la prédiction. Ces fonctionnalités sont appelées *descripteurs* parce qu’elles sont utilisées pour *décrire* une intention ou une entité. Les descripteurs décrivent des caractéristiques ou des attributs de données distinctifs, tels que des expressions ou mots importants, que LUIS examine et apprend.
+Les [**descripteurs**](luis-concept-feature.md) sont des fonctionnalités appliquées afin d’améliorer la pertinence des mots ou expressions pour la prédiction. Ces fonctionnalités sont appelées *descripteurs* parce qu’elles sont utilisées pour *décrire* une intention ou une entité. Les descripteurs décrivent des caractéristiques ou des attributs de données distinctifs, tels que des expressions ou des mots importants que Luis examine et apprend.
 
 Lorsque vous créez une fonctionnalité de liste d’expressions dans votre application LUIS, elle est activée globalement par défaut et s’applique uniformément à l’ensemble des intentions et des entités. Toutefois, si vous appliquez la liste d’expressions comme descripteur (fonctionnalité) d’une entité issue de machine learning (ou *modèle*), sa portée diminue pour s’appliquer uniquement à ce modèle et n’est plus utilisée avec aucun autre modèle. L’utilisation d’une liste d’expressions comme descripteur d’un modèle participe à la décomposition en aidant à la précision du modèle auquel elle est appliquée.
 
@@ -141,3 +141,4 @@ Découvrez les concepts relatifs aux bons [énoncés](luis-concept-utterance.md)
 Consulter [Ajouter des entités](luis-how-to-add-entities.md) pour découvrir comment ajouter des entités à votre application LUIS.
 
 Consultez le [tutoriel : Extraire des données structurées à partir d’un énoncé utilisateur avec des entités issues du Machine Learning dans LUIS](tutorial-machine-learned-entity.md) pour apprendre à extraire des données structurées d’un énoncé à l’aide de l’entité issue de machine learning.
+ 

@@ -1,6 +1,6 @@
 ---
-title: Application de bureau appelant des API web (passage en production) - plateforme d’identités Microsoft
-description: Apprenez à générer une application de bureau qui appelle des API web (passage en production)
+title: Passer en production une application de bureau appelant des API web - Plateforme d’identités Microsoft | Azure
+description: Découvrir comment passer en production une application de bureau qui appelle des API web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175556"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919981"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Application de bureau appelant des API web : passage en production
 
-Cet article présente des informations pour améliorer davantage votre application et la faire passer en production.
+Cet article vous fournit des détails pour passer en production votre application de bureau qui appelle des API web.
 
 ## <a name="handling-errors-in-desktop-applications"></a>Gestion des erreurs dans les applications de bureau
 

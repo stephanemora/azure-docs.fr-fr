@@ -1,6 +1,6 @@
 ---
-title: Application web appelant des API web (passage en production) - plateforme d’identités Microsoft
-description: Apprenez à générer une application web qui appelle des API web (passage en production)
+title: Passer en production une application web appelant des API web - Plateforme d’identités Microsoft | Azure
+description: Découvrez comment passer en production une application web qui appelle des API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b326cdb7303ff392c6129e0f0fa460ffe088305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074934"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964954"
 ---
 # <a name="web-app-that-calls-web-apis---move-to-production"></a>Application web appelant des API web - passage en production
 

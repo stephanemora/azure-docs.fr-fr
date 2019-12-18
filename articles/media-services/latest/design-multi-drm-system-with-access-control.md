@@ -1,6 +1,6 @@
 ---
 title: Conception d’un système de protection de contenu multi-DRM avec contrôle d’accès - Azure Media Services | Microsoft Docs
-description: En savoir plus sur l’octroi d’une licence pour le kit de portage client Microsoft Smooth Streaming.
+description: Cet article fournit une description détaillée de la conception d’un système de protection du contenu multi-DRM avec Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: willzhan
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: ffbf53c0bb0aaf2832afecc2d0df935f04eeff19
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 00ddedf135d13c07e8abe1094dd5366acb0f4ae5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310326"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896167"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 

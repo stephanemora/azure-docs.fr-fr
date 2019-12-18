@@ -1,5 +1,6 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte Microsoft – Azure Active Directory B2C
+title: Configurer l’inscription et la connexion avec un compte Microsoft
+titleSuffix: Azure AD B2C
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Microsoft dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc79211f55edb471eb95fc55fe8519d228ca192e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642074"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949319"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 

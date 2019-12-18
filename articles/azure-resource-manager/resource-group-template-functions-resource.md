@@ -2,13 +2,13 @@
 title: Fonctions de modèle - Ressources
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150679"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978847"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -672,21 +672,20 @@ La propriété **ManagedBy** est retournée uniquement pour les groupes de resso
 
 La fonction `resourceGroup()` ne peut pas être utilisée dans un modèle qui est [déployé au niveau abonnement](deploy-to-subscription.md). Elle n’est utilisable que dans les modèles déployés sur un groupe de ressources.
 
-Une utilisation courante de la fonction resourceGroup consiste à créer des ressources dans le même emplacement que le groupe de ressources. L'exemple suivant utilise l'emplacement du groupe de ressources pour affecter l'emplacement d'un site web.
+Une utilisation courante de la fonction resourceGroup consiste à créer des ressources dans le même emplacement que le groupe de ressources. L’exemple suivant utilise l’emplacement du groupe de ressources pour une valeur de paramètre par défaut.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 Vous pouvez également utiliser la fonction resourceGroup pour appliquer des balises du groupe de ressources à une ressource. Pour plus d’informations, voir [Appliquer les balises d’un groupe de ressources](resource-group-using-tags.md#apply-tags-from-resource-group).
+
+Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs groupes de ressources, vous pouvez spécifier l’étendue de l’évaluation de la fonction resourceGroup. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="resource-group-example"></a>Exemple de groupe de ressources
 
@@ -891,6 +890,10 @@ La fonction retourne les informations au format suivant :
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### <a name="remarks"></a>Remarques
+
+Quand vous utilisez des modèles imbriqués pour effectuer un déploiement sur plusieurs abonnements, vous pouvez spécifier l’étendue de l’évaluation de la fonction subscription. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
 
 ### <a name="subscription-example"></a>Exemple d’abonnement
 

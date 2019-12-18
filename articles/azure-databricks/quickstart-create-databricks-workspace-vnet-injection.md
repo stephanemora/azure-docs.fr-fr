@@ -1,5 +1,5 @@
 ---
-title: Créer un espace de travail Azure Databricks dans un réseau virtuel
+title: Guide de démarrage rapide pour la création d’un espace de travail Azure Databricks dans votre propre réseau virtuel
 description: Cet article explique comment déployer Azure Databricks sur votre réseau virtuel.
 services: azure-databricks
 author: mamccrea
@@ -7,19 +7,21 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 69afe2aab3c10707f7160d727b970ad73d59a952
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/04/2019
+ms.openlocfilehash: 404aa1d345bb1e30a0fe55d033d49d7dd8ba5a1b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791559"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893417"
 ---
-# <a name="quickstart-create-an-azure-databricks-workspace-in-a-virtual-network"></a>Démarrage rapide : Créer un espace de travail Azure Databricks dans un réseau virtuel
+# <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>Démarrage rapide : Créer un espace de travail Azure Databricks dans votre propre réseau virtuel
 
-Ce démarrage rapide montre comment créer un espace de travail Azure Databricks dans un réseau virtuel. Vous allez également créer un cluster Apache Spark au sein de cet espace de travail.
+Le déploiement par défaut d’Azure Databricks crée un réseau virtuel qui est géré par Databricks. Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks dans votre propre réseau virtuel à la place. Vous allez également créer un cluster Apache Spark au sein de cet espace de travail. 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
+Pour plus d’informations sur les raisons pour lesquelles vous pouvez choisir de créer un espace de travail Azure Databricks dans votre propre réseau virtuel, consultez [Déployer Azure Databricks dans votre réseau virtuel Azure (Injection de réseau virtuel)] (/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/databricks/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -31,14 +33,16 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**. Sélectionnez ensuite **Mise en réseau > Réseau virtuel**.
+
+    ![Créer un réseau virtuel dans le portail Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
 2. Sous **Créer un réseau virtuel**, appliquez les paramètres suivants : 
 
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
     |Nom|databricks-quickstart|Sélectionnez un nom pour votre réseau virtuel.|
-    |Espace d’adressage|10.1.0.0/16|Plage d’adresses du réseau virtuel en notation CIDR.|
+    |Espace d’adressage|10.1.0.0/16|Plage d’adresses du réseau virtuel en notation CIDR. La plage CIDR doit être comprise entre /16 et /24|
     |Subscription|\<Votre abonnement\>|Sélectionnez l’abonnement Azure que vous souhaitez utiliser.|
     |Resource group|databricks-quickstart|Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte.|
     |Location|\<Sélectionnez la région la plus proche de vos utilisateurs\>|Sélectionnez l’emplacement géographique où vous pouvez héberger votre réseau virtuel. Utilisez l’emplacement le plus proche de vos utilisateurs.|
@@ -53,7 +57,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Analytics** > **Databricks**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**. Sélectionnez ensuite **Analytics > Databricks**.
+
+    ![Créer un espace de travail Azure Databricks dans le portail Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
 2. Sous **Service Azure Databricks**, appliquez les paramètres suivants :
 
@@ -67,9 +73,9 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
     |Déployer l’espace de travail Azure Databricks dans votre réseau virtuel|OUI|Ce paramètre vous permet de déployer un espace de travail Azure Databricks dans votre réseau virtuel.|
     |Réseau virtuel|databricks-quickstart|Sélectionnez le réseau virtuel créé dans la section précédente.|
     |Nom du sous-réseau public|public-subnet|Utilisez le nom de sous-réseau public par défaut.|
-    |Plage CIDR du sous-réseau public|10.179.64.0/18|La plage CIDR pour ce sous-réseau doit être comprise entre /18 et /26.|
+    |Plage CIDR du sous-réseau public|10.179.64.0/18|Utilisez une plage CIDR allant jusqu’à /26 inclus.|
     |Nom du sous-réseau privé|private-subnet|Utilisez le nom de sous-réseau privé par défaut.|
-    |Plage CIDR du sous-réseau privé|10.179.0.0/18|La plage CIDR pour ce sous-réseau doit être comprise entre /18 et /26.|
+    |Plage CIDR du sous-réseau privé|10.179.0.0/18|Utilisez une plage CIDR allant jusqu’à /26 inclus.|
 
     ![Créer un espace de travail Azure Databricks dans le portail Azure](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
@@ -77,7 +83,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
     ![Présentation d’Azure Databricks dans le portail Azure](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-overview-portal.png)
 
-    Le groupe de ressources managé contient l’emplacement physique du compte de stockage (DBFS), worker-sg (groupe de sécurité réseau) workers-vnet (réseau virtuel). C’est également l’emplacement de création des machines virtuelles, du disque, de l’adresse IP et de l’interface réseau. Ce groupe de ressources est verrouillé par défaut. Toutefois lorsqu’un cluster est démarré dans le réseau virtuel, une interface réseau est créée entre workers-vnet dans le groupe de ressources managé et le réseau virtuel « hub ».
+    Le groupe de ressources managé n’est pas modifiable et n’est pas utilisé pour créer des machines virtuelles. Vous pouvez uniquement créer des machines virtuelles dans le groupe de ressources que vous gérez.
 
     ![Groupe de ressources managé Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group.png)
 

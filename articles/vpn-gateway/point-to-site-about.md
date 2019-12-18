@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: f1e014bb14b2b5c1ae924f4371e08aa8bf8698f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7305976060cb5df01f683b3310e59644d7e45b35
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056477"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975089"
 ---
 # <a name="about-point-to-site-vpn"></a>À propos du VPN de point à site
 
@@ -43,6 +43,21 @@ Lorsque vous utilisez l’authentification par certificat Azure native, un certi
 
 La validation du certificat client est effectuée par la passerelle VPN et se produit pendant l’établissement de la connexion VPN P2S. Le certificat racine est requis pour la validation et doit être chargé sur Azure.
 
+### <a name="authenticate-using-native-azure-active-directory-authentication"></a>S’authentifier à l’aide d’une authentification Azure Active Directory native
+
+L’authentification Azure AD permet aux utilisateurs de se connecter à Azure à l’aide de leurs informations d’identification Azure Active Directory. L’authentification Azure AD native est uniquement prise en charge pour le protocole OpenVPN et Windows 10, et nécessite l’utilisation d’[Azure VPN Client (préversion)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab).
+
+Avec l’authentification Azure AD native, vous pouvez tirer parti de l’accès conditionnel d’Azure AD ainsi que des fonctionnalités d’authentification multifacteur (MFA) pour le VPN.
+
+De façon générale, vous devez effectuer les étapes suivantes pour configurer l’authentification Azure AD :
+
+[1. Configurer un locataire Azure AD](openvpn-azure-ad-tenant.md)
+
+[2. Activer l’authentification Azure AD sur la passerelle](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+
+[3. Télécharger et configurer Azure VPN Client (préversion)](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)
+
+
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>S’authentifier à l’aide du serveur de domaine Active Directory (AD)
 
 L’authentification de domaine AD permet aux utilisateurs de se connecter à Azure à l’aide des informations d’identification du domaine de l’organisation. Un serveur RADIUS qui s’intègre avec le serveur AD est requis. Les organisations peuvent aussi exploiter un déploiement RADIUS existant.   
@@ -57,7 +72,7 @@ Un serveur RADIUS permet également l’intégration avec d’autres systèmes d
 >**Le protocole OpenVPN®** n’est pas pris en charge avec l’authentification RADIUS.
 >
 
-![point à site](./media/point-to-site-about/p2s.png "Point à site")
+![point à site](./media/point-to-site-about/p2s.png "De point à site")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>Quelle est la configuration requise pour les clients ?
 

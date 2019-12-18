@@ -1,14 +1,14 @@
 ---
 title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
-ms.date: 10/21/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959051"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851211"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -72,7 +72,8 @@ Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph 
 |[extend](/azure/kusto/query/extendoperator) |[Compter les machines virtuelles par type de système d’exploitation](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[Coffre de clés avec nom d’abonnement](../samples/advanced.md#join) |Variantes de jointure prises en charge : [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` dans une requête unique. Les stratégies de jointure personnalisées comme la jointure de diffusion ne sont pas autorisées. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
 |[limit](/azure/kusto/query/limitoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `take` |
-|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_  maximale de 400 |
+|[mvexpand](/azure/kusto/query/mvexpandoperator) | | Opérateur hérité, utilisez `mv-expand` à la place. Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_ maximale de 400. La valeur par défaut est 128. |
 |[order](/azure/kusto/query/orderoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) |Identique à `sort` |
 |[project](/azure/kusto/query/projectoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[Supprimer des colonnes des résultats](../samples/advanced.md#remove-column) | |

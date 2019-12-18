@@ -1,6 +1,7 @@
 ---
-title: À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C | Microsoft Docs
-description: Découvrez comment sont utilisés les résolveurs de revendication dans une stratégie personnalisée dans Azure Active Directory B2C.
+title: Programmes de résolution de revendication
+titleSuffix: Azure AD B2C
+description: Découvrez comment utiliser les programme de résolution de revendication dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064395"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949872"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -49,7 +50,7 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Code ISO à deux lettres pour la langue. | en |
 | {Culture:LCID}   | LCID du code de langue | 1033 |
-| {Culture:RegionName} | Code ISO à deux lettres pour la région. | FR |
+| {Culture:RegionName} | Code ISO à deux lettres pour la région. | US |
 | {Culture:RFC5646} | Code de langue RFC5646. | en-US |
 
 ### <a name="policy"></a>Stratégie

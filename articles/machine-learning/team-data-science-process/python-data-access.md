@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498108"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978490"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -56,13 +56,13 @@ Si vous avez installé git sur votre ordinateur, vous pouvez utiliser pip pour l
     pip install git+https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python.git
 
 
-## <a name="datasetAccess"></a>Utilisation des extraits de code Studio pour accéder aux jeux de données
+## <a name="datasetAccess"></a>Utilisation des extraits de code pour accéder aux jeux de données
 La bibliothèque cliente Python vous offre un accès par programme à vos jeux de données existants à partir des expériences qui ont été exécutées.
 
-Depuis l’interface web Studio, vous pouvez générer des extraits de code qui incluent toutes les informations nécessaires pour télécharger et désérialiser des jeux de données en tant qu’objets DataFrame de pandas sur votre ordinateur local.
+Depuis l’interface web Azure Machine Learning Studio (classique), vous pouvez générer des extraits de code qui incluent toutes les informations nécessaires pour télécharger et désérialiser des jeux de données en tant qu’objets DataFrame de pandas sur votre ordinateur local.
 
 ### <a name="security"></a>Sécurité relative à l'accès aux données
-Les extraits de code fournis par Studio pour une utilisation avec la bibliothèque cliente Python incluent l'ID de votre d'espace de travail et le jeton d'autorisation. Ceux-ci vous permettent un accès complet à votre espace de travail et doivent être protégés, par exemple avec un mot de passe.
+Les extraits de code fournis par Azure Machine Learning Studio (classique) pour une utilisation avec la bibliothèque de client Python incluent votre ID d’espace de travail et votre jeton d’autorisation. Ceux-ci vous permettent un accès complet à votre espace de travail et doivent être protégés, par exemple avec un mot de passe.
 
 Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquement disponible pour les utilisateurs qui ont leur rôle défini en tant que **Propriétaire** de l'espace de travail. Votre rôle s’affiche dans Azure Machine Learning Studio (classique) dans la page **UTILISATEURS** sous **Paramètres**.
 
@@ -72,18 +72,18 @@ Si votre rôle n’est pas défini en tant que **Propriétaire**, vous pouvez de
 
 Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opérations suivantes :
 
-* Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d'autorisation à partir de la page Paramètres de leur espace de travail dans Studio. Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D’AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
+* Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d’autorisation à partir de la page Paramètres de leur espace de travail dans Azure Machine Learning Studio (classique). Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D’AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
 
-![Jetons d’autorisation](./media/python-data-access/ml-python-access-settings-tokens.png)
+   ![Jetons d’autorisation](./media/python-data-access/ml-python-access-settings-tokens.png)
 
 * Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
-Une fois que les développeurs ont obtenu l’ID de l’espace de travail et les jetons d’autorisation, ils peuvent accéder à l’espace de travail à l’aide de l’extrait de code, quel que soit leur rôle.
+Une fois que les développeurs ont obtenu l’ID de l’espace de travail et le jeton d’autorisation, ils peuvent accéder à l’espace de travail à l’aide de l’extrait de code, indépendamment de leur rôle.
 
 Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION** sous **PARAMÈTRES**. Vous pouvez les régénérer, mais cette procédure entraîne la révocation de l’accès au jeton précédent.
 
 ### <a name="accessingDatasets"></a>Accès aux jeux de données depuis une application Python locale
-1. Dans Machine Learning Studio, cliquez sur **JEUX DE DONNÉES** dans la barre de navigation à gauche.
+1. Dans Machine Learning Studio (classique), cliquez sur **JEUX DE DONNÉES** dans la barre de navigation à gauche.
 2. Sélectionnez le jeu de données auquel vous souhaitez accéder. Vous pouvez sélectionner un des jeux de données depuis la liste **MES JEUX DE DONNÉES** ou **EXEMPLES**.
 3. Dans la barre d’outils inférieure, cliquez sur **Générer un code d’accès aux données**. Ce bouton est désactivé si les données sont dans un format incompatible avec la bibliothèque cliente Python.
    
@@ -96,7 +96,7 @@ Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION**
     ![Collez le code dans le notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accès aux jeux de données intermédiaires à partir d'expériences de Machine Learning
-Après l'exécution d'une expérience dans Machine Learning Studio, il est possible d'accéder aux jeux de données intermédiaires depuis les nœuds de modules de sortie. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
+Après l’exécution d’une expérience dans la version classique de Machine Learning Studio, il est possible d’accéder aux jeux de données intermédiaires depuis les nœuds de sortie des modules. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
 
 Les jeux de données intermédiaires sont accessibles tant que le format de données est compatible avec la bibliothèque cliente Python.
 
@@ -141,7 +141,7 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
 
 ## <a name="clientApis"></a>Utilisation de la bibliothèque cliente Python de Machine Learning pour accéder, lire, créer et gérer des jeux de données
 ### <a name="workspace"></a>Espace de travail
-L'espace de travail est le point d'entrée de la bibliothèque cliente Python. Il fournit la classe `Workspace` avec l'ID de votre espace de travail et le jeton d'autorisation pour créer une instance :
+L'espace de travail est le point d'entrée de la bibliothèque cliente Python. Il fournit la classe `Workspace` avec l’ID de votre espace de travail et le jeton d’autorisation pour créer une instance :
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
                    authorization_token='f4f3ade2c6aefdb1afb043cd8bcf3daf')

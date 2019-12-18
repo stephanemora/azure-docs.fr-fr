@@ -1,25 +1,26 @@
 ---
-title: Déplacer des données de MongoDB à l’aide d’Azure Data Factory
+title: Copier des données à partir de MongoDB
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 089064cee68170ab44fc1cc05e630781529b7b60
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680668"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931297"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Version actuelle](connector-mongodb.md)

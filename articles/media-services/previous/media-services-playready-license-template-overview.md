@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463206"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976398"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Présentation du modèle de licence PlayReady de Media Services
 Azure Media Services fournit à présent un service pour la distribution de licences PlayReady. Lorsque le lecteur (par exemple Silverlight) tente de lire votre contenu PlayReady protégé, une requête est envoyée au service de remise des licences pour obtenir une licence. Si le service de licence approuve la requête, il émet la licence qui est envoyée au client et sert à déchiffrer et lire le contenu spécifié.
@@ -306,6 +306,9 @@ Pour obtenir un exemple des niveaux de protection que Silverlight prend charge, 
     </xs:schema>
 
 
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

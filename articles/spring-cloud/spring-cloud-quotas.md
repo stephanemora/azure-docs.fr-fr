@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607672"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851551"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Quotas et plans de service pour Azure Spring Cloud
 
@@ -25,11 +25,10 @@ Pendant la période de préversion, Azure Spring Cloud n’offre qu’un seul ni
 
 Ressource | Montant
 ------- | -------
-Processeurs virtuels | 4
-Mémoire | 8 Go
-Abonnement Azure Spring Cloud | 1
-Instances du service Azure Spring Cloud par région et par abonnement | 2
-Nombre total d’instances d’application par instance du service Azure Spring Cloud | 50
+Processeurs virtuels | 4 par instance de service
+Mémoire | 8 Go par instance de service
+Instances du service Azure Spring Cloud par région et par abonnement | 10
+Nombre total d’instances d’application par instance du service Azure Spring Cloud | 500
 Nombre total d’instances d’application par application Spring | 20
 Volumes persistants | 10 x 50 Go
 

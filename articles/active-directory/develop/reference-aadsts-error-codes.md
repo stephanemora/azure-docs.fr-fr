@@ -1,5 +1,5 @@
 ---
-title: Codes d’erreur d’authentification et d’autorisation Azure Active Directory | Microsoft Docs
+title: Codes d’erreur d’authentification et d’autorisation Azure AD | Azure
 description: En savoir plus sur les codes d’erreur AADSTS retournés par le service d’émission de jeton de sécurité de Azure AD (STS).
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 261fe2142fc3bc45625b5d088a46ad92c34222db
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 02ed0b84a29ea0c3ce3b58db1c029798655bfb06
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193173"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965804"
 ---
-# <a name="authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation
+# <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
 Vous souhaitez en savoir plus sur les codes d’erreur AADSTS retournés par le service d’émission de jeton de sécurité (STS) de Azure Active Directory (Azure AD) ? Lisez ce document pour rechercher les descriptions des erreurs AADSTS, leurs correctifs ainsi que d’autres solutions de contournement.
 
@@ -170,7 +170,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy : dans la requête d’authentification SAML2, NameIdPolicy n’est pas valide. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable : l’agent d’authentification ne peut pas se connecter à Active Directory. Assurez-vous que les serveurs des agents sont membres de la même forêt Active Directory que les utilisateurs dont les mots de passe doivent être validés, et qu’ils peuvent se connecter à Active Directory. |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout : La requête de validation du mot de passe est arrivée à expiration. Vérifiez qu’Active Directory est disponible et répond aux requêtes des agents. |
-| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. relancez la requête. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur. |
+| AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException : une erreur inconnue s’est produite lors du traitement de la réponse provenant de l’agent d’authentification. Relancez la requête. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) pour plus d’informations sur l’erreur. |
 | AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem : l’agent d’authentification n’est pas en mesure de valider le mot de passe de l’utilisateur. Consultez les journaux d’activité de l’agent pour plus d’informations, et vérifiez qu’Active Directory fonctionne comme prévu. |
 | AADSTS80010 | OnPremisePasswordValidationEncryptionException : l’agent d’authentification n’est pas en mesure de déchiffrer le mot de passe. |
 | AADSTS80012 | OnPremisePasswordValidationAccountLogonInvalidHours : les utilisateurs ont essayé de se connecter en dehors des heures autorisées (spécifiées dans Active Directory). |

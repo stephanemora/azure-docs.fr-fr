@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c9da29ad288811bbed225fd906f2a7eb1fd9edf7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338830"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977724"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Media Services v3
 
@@ -118,6 +118,9 @@ Souvent, les clients investissent dans une batterie de serveurs qu’ils héberg
 
 * Le service STS doit émettre des jetons acceptables et pouvant être vérifiés par la batterie de serveurs de licence. Par exemple, les serveurs de licences Widevine fournis par Axinom exigent un jeton JWT spécifique contenant un message d’octroi de droit. Par conséquent, vous devez disposer d’un STS pour émettre un jeton JWT. 
 * Vous n’avez plus besoin de configurer le service de distribution de licences dans Media Services. Vous devez fournir les URL d’acquisition de la licence (pour PlayReady, Widevine et FairPlay) au moment où vous configurez ContentKeyPolicies.
+
+> [!NOTE]
+> Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-v2-vs-v3"></a>Media Services v2 et v3 
 

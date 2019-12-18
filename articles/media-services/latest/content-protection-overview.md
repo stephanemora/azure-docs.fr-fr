@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eeb1dc44341768984bd6e337a2fe65a277f5aa77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581216"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977775"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -244,7 +244,10 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` a une valeur de la clé demandée. Vous pouvez utiliser `AlternativeMediaId` si vous souhaitez mapper la demande à une entité de votre côté. Par exemple, `AlternativeMediaId` peut être utilisé pour vous aider à rechercher des autorisations.
 
- Pour accéder à des exemples REST qui utilisent des URL d’acquisition de clé ou de licence personnalisées, voir [Stratégies de diffusion en continu – Créer](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Pour accéder à des exemples REST qui utilisent des URL d’acquisition de clé ou de licence personnalisées, voir [Stratégies de diffusion en continu – Créer](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+
+> [!NOTE]
+> Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

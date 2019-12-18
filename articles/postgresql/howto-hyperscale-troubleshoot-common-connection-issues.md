@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de connexion à Azure Database pour PostgreSQL - Hyperscale (Citus)
+title: Résoudre les problèmes de connexion – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Découvrez comme résoudre les problèmes de connexion à Azure Database pour PostgreSQL - Hyperscale (Citus)
 keywords: connexion postgresql,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
 author: jonels-msft
@@ -7,12 +7,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: b812b730cebba4dbf0735f49f544e53bf7f8787c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c064aca484f85c44dada9888012140784a96863f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942086"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977503"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---hyperscale-citus"></a>Résoudre les problèmes de connexion à Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -50,7 +50,7 @@ Si, à plusieurs reprises, l’application ne parvient pas à se connecter à Hy
 
 * Configuration du pare-feu du nœud coordinateur : Assurez-vous que le pare-feu du serveur Hyperscale est configuré pour autoriser les connexions côté client, y compris les serveurs proxy et les passerelles.
 * Configuration du pare-feu côté client : le pare-feu du client doit autoriser les connexions au serveur de base de données. Certains pare-feu nécessitent non seulement l’autorisation d’une application par son nom, mais aussi des adresses IP et des ports du serveur.
-* Erreur utilisateur : Vérifiez la chaîne de connexion. Vous avez peut-être mal tapé des paramètres tels que le nom du serveur ou vous avez oublié un suffixe *\@nomserveur* dans le nom d’utilisateur.
+* Erreur utilisateur : Vérifiez la chaîne de connexion. Vous avez peut-être mal saisi des paramètres comme le nom du serveur. Vous pouvez rechercher des chaînes de connexion pour différentes infrastructures de langage et psql dans le Portail Azure. Accédez à la page **Chaînes de connexion** dans votre groupe de serveurs Hyperscale (Citus). Gardez également à l’esprit que les clusters Citus ne possèdent qu’une seule base de données et que son nom prédéfini est **citus**.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Étapes permettant résoudre les problèmes de connectivité persistants
 

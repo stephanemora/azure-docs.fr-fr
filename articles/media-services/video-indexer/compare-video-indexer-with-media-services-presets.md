@@ -1,6 +1,6 @@
 ---
 title: Comparaison des préréglages de Video Indexer et d’Azure Media Services v3 | Microsoft Docs
-description: Cette rubrique compare les préréglages de Video Indexer et d’Azure Media Services v3.
+description: Cet article compare les fonctionnalités de Video Indexer et les préréglages d’Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 275178998948e357a6a72fbe5d0b3c9c01485a3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 055e210efbb01268654e7823a0fc1320e9c27646
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65800174"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892819"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Comparer les préréglages d’Azure Media Services v3 et de Video Indexer 
 

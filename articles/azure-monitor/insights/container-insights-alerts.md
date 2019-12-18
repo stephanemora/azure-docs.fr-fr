@@ -1,20 +1,21 @@
 ---
-title: Créer des alertes de performances à l’aide d’Azure Monitor pour conteneurs | Microsoft Docs
-description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et de l’UC à partir d’Azure Monitor pour conteneurs.
+title: Créer des alertes de performances pour Azure Monitor pour conteneurs | Microsoft Docs
+description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et du processeur à partir d’Azure Monitor pour conteneurs.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195018"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841623"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
+
 Azure Monitor pour conteneurs supervise les performances des charges de travail de conteneur déployées sur Azure Container Instances ou sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS).
 
 Cet article décrit comment activer les alertes pour les situations suivantes :
@@ -30,6 +31,7 @@ Pour alerter en cas d’utilisation élevée de la mémoire ou de l’UC, ou de 
 Avant de commencer, si vous n’êtes pas familiarisé avec les alertes d’Azure Monitor, consultez [Vue d’ensemble des alertes dans Microsoft Azure](../platform/alerts-overview.md). Pour en savoir plus sur les alertes utilisant des requêtes de journal, consultez [Alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md). Pour en savoir plus sur les alertes de métrique, consultez [Alertes de métriques dans Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Requêtes de recherche de journal concernant l’utilisation des ressources
+
 Les requêtes de cette section prennent en charge chaque scénario d’alerte. Elles sont utilisées à l’étape 7 de la section [Créer une alerte](#create-an-alert-rule) de cet article.
 
 La requête suivante calcule l’utilisation moyenne de l’UC en tant que moyenne de l’utilisation par l’UC par les nœuds membres à chaque minute.  
@@ -278,7 +280,8 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
-Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utilisant l’une des règles de recherche dans les journaux fournis précédemment.  
+
+Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utilisant l’une des règles de recherche dans les journaux fournis précédemment. Pour créer en utilisant un modèle Resource Manager, consultez [Exemple de création d’alerte de journal à l’aide du modèle de ressource Azure](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template).
 
 >[!NOTE]
 >La procédure suivante visant à créer une règle d’alerte pour l’utilisation des ressources de conteneur requiert de basculer vers une nouvelle API d’alertes de journal, comme décrit dans [Changer de préférence d’API pour les alertes de journal](../platform/alerts-log-api-switch.md).

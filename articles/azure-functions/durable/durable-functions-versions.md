@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 93c35eb4f69cc4f9b16f669d96c2df53f50bcf84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 789af25cc37183e9eeae253e1e8529615abdd308
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231195"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849800"
 ---
 # <a name="durable-functions-versions-overview"></a>Vue d’ensemble des versions de Durable Functions
 
@@ -55,7 +55,7 @@ Durable Functions 2.x introduit plusieurs changements cassants. Les applications
 Durable Functions 2.x utilise un nouveau schéma host.json. Les principales modifications apportées par rapport à la version 1.x sont les suivantes :
 
 * `"storageProvider"` (et la sous-section `"azureStorage"`) pour la configuration spécifique au stockage.
-* `"tracking"` pour la configuration du suivi et de la journalisation.
+* `"tracing"` pour la configuration du suivi et de la journalisation.
 * `"notifications"` (et la sous-section `"eventGrid"`) pour la configuration de notification de grille d’événement.
 
 Pour plus d’informations, consultez la [documentation de référence pour host.json de Durable Functions](durable-functions-bindings.md#durable-functions-2-0-host-json).

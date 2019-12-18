@@ -1,5 +1,5 @@
 ---
-title: Limitations et restrictions des URL de réponse/URI de redirection - Plateforme d’identité Microsoft
+title: Restrictions des URI de redirection et des URL de réponse - Plateforme d’identités Microsoft | Azure
 description: Limitations et restrictions des URL de réponse/URI de redirection
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389595"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920325"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 

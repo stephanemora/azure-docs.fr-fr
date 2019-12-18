@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: 6d13ca5b3657f1deac9e6b4218decf8fe57eb1d9
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113742"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969104"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
@@ -74,6 +74,9 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 ```
 
 Si vous souhaitez également chiffrer votre flux HLS avec CBCS (FairPlay), utilisez la stratégie « Predefined_MultiDrmStreaming ».
+
+> [!NOTE]
+> Widevine est un service fourni par Google Inc. soumis aux conditions d’utilisation du service et à la politique de confidentialité de Google Inc.
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associer des filtres à des localisateurs de streaming
 

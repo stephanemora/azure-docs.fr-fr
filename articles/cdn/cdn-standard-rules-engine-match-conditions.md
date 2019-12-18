@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
-ms.openlocfilehash: c4c2b1f334e37691655b18d2c629fbd8edc95382
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 425266e2a7ca42bb17ca598ddfc2f2b86591f32e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171605"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900190"
 ---
 # <a name="match-conditions-in-the-standard-rules-engine-for-azure-cdn"></a>Conditions de correspondance du moteur de règles Standard pour Azure CDN
 
@@ -62,7 +62,7 @@ Chaîne | [Liste des opérateurs standard](#standard-operator-list) | Chaîne, I
 
 #### <a name="key-information"></a>Informations essentielles
 
-- Vous ne pouvez pas utiliser de valeurs de caractère générique (y compris des astérisques [\*]) lorsque vous spécifiez un nom de cookie. Vous devez utiliser un nom de cookie exact.
+- Vous ne pouvez pas utiliser de valeurs de caractère générique (y compris des astérisques [\*]) quand vous spécifiez un nom de cookie. Vous devez utiliser un nom de cookie exact.
 - Vous pouvez spécifier un seul nom de cookie par instance de cette condition de correspondance.
 - Les comparaisons de noms de cookie respectent la casse.
 - Pour spécifier plusieurs valeurs de cookie, utilisez un seul espace entre chaque valeur de cookie. 

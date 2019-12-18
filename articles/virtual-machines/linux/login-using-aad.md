@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cccdb54b89dff7c6a1fc9dac55c63b19d661ab65
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035925"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951307"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -67,6 +67,19 @@ Les régions Azure suivantes sont actuellement prises en charge dans la prévers
 
 
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+
+## <a name="network-requirements"></a>Configuration requise pour le réseau
+
+Pour activer l’authentification Azure AD pour vos machines virtuelles Linux dans Azure, vous devez vérifier que la configuration de votre réseau de machines virtuelles autorise un accès sortant aux points de terminaison suivants sur le port TCP 443 :
+
+* https://login.microsoftonline.com
+* https://device.login.microsoftonline.com
+* https://pas.windows.net
+* https://management.azure.com
+* https://packages.microsoft.com
+
+> [!NOTE]
+> Actuellement, les groupes de sécurité réseau Azure ne peuvent pas être configurés pour les machines virtuelles activées avec l’authentification Azure AD.
 
 ## <a name="create-a-linux-virtual-machine"></a>Créer une machine virtuelle Linux
 
@@ -193,6 +206,10 @@ Si vous effectuez correctement l’étape d’authentification dans un navigateu
 - Vérifiez que le nom de connexion spécifié à l’invite SSH est correct. Une faute de frappe dans le nom de connexion peut provoquer une incompatibilité entre le nom de connexion spécifié à l’invite SSH et le compte avec lequel vous vous êtes connecté à Azure AD. Par exemple, que vous avez tapé *azuresuer\@contoso.onmicrosoft.com* au lieu de *azureuser\@contoso.onmicrosoft.com*.
 - Si vous possédez plusieurs comptes d’utilisateurs, veillez à ne pas indiquer un autre compte d’utilisateur dans la fenêtre du navigateur lorsque vous vous connectez à Azure AD.
 - Linux est un système d’exploitation qui respecte la casse. La différence entre « Azureuser@contoso.onmicrosoft.com » et « azureuser@contoso.onmicrosoft.com » peut entraîner une incompatibilité. Assurez-vous que vous spécifiez l’UPN en respectant la casse appropriée à l’invite SSH.
+
+### <a name="other-limitations"></a>Autres limitations
+
+Les utilisateurs qui héritent de droits d’accès par le biais de groupes imbriqués ou d’attributions de rôles ne sont pas pris en charge actuellement. L’utilisateur ou le groupe doit recevoir directement les [attributions de rôles requises](#configure-role-assignments-for-the-vm). Par exemple, l’utilisation d’attributions de rôles de groupes imbriqués ou de groupes d’administration n’accorde pas les autorisations appropriées pour permettre à l’utilisateur de se connecter.
 
 ## <a name="preview-feedback"></a>Commentaires de la préversion
 

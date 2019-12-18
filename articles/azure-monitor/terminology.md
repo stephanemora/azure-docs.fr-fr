@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5324c17cdf2593d8e1022e6ddbf52b4e24ee64e8
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01d4c8b3b803c5fce4fe24a5c96e649212fc4dca
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597821"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894346"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Modification des noms et de la terminologie d’Azure Monitor
 Des modifications significatives ont récemment été apportées à Azure Monitor, différents services étant en cours de consolidation afin de simplifier la surveillance pour les clients Azure. Cet article décrit les dernières évolutions des noms et de la terminologie de la documentation d’Azure Monitor.
 
 ## <a name="october-2019---diagnostic-log-to-resource-log"></a>Octobre 2019 – Journal de diagnostic renommé en Journal des ressources
-Les journaux de diagnostic ont été renommés en « journaux des ressources » pour mieux refléter ce qui est réellement collecté. Le terme « paramètres de diagnostic » est conservé.  
+Les « journaux de diagnostic » ont été renommés en « journaux de ressources » pour mieux refléter ce qui est réellement collecté. Le terme « paramètres de diagnostic » est conservé.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Février 2019 – Terminologie de Log Analytics
 Après la consolidation de différents services sous Azure Monitor, nous passons à la vitesse supérieure en modifiant la terminologie dans notre documentation de façon à mieux décrire le service Azure Monitor et ses différents composants. 

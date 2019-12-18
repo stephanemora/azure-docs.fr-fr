@@ -1,25 +1,25 @@
 ---
-title: Copier et transformer des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
+title: Copier et transformer des données dans Azure SQL Data Warehouse
 description: Découvrez comment copier des données depuis et vers Azure SQL Data Warehouse et comment transformer des données dans Azure SQL Data Warehouse à l’aide de Data Factory.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 25c00caf359a502487fc4ffbb7a1b9bc253d730a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076764"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929634"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
+
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Version actuelle](connector-azure-sql-data-warehouse.md)

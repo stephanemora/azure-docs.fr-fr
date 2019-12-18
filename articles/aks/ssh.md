@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089539"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926368"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>Se connecter avec SSH à des nœuds de cluster AKS (Azure Kubernetes Service) pour effectuer des tâches de maintenance ou de dépannage
 
@@ -41,7 +41,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite *CLUSTER_RESOURCE_GROUP* pour afficher le nom du groupe identique et l’affecter à *SCALE_SET_NAME*.  
+L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite *CLUSTER_RESOURCE_GROUP* pour afficher le nom du groupe identique et l’affecter à *SCALE_SET_NAME*.
 
 > [!IMPORTANT]
 > À ce stade, vous devez uniquement mettre à jour vos clés SSH pour les clusters AKS basés sur un groupe de machines virtuelles identiques à l’aide d’Azure CLI.
@@ -100,7 +100,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite la variable *CLUSTER_RESOURCE_GROUP* pour afficher le nom de la machine virtuelle. L’exemple de sortie affiche le nom de la machine virtuelle : 
+L’exemple ci-dessus affecte le nom du groupe de ressources de cluster pour *myAKSCluster* dans *myResourceGroup* sur *CLUSTER_RESOURCE_GROUP*. L’exemple utilise ensuite la variable *CLUSTER_RESOURCE_GROUP* pour afficher le nom de la machine virtuelle. L’exemple de sortie affiche le nom de la machine virtuelle :
 
 ```
 Name                      ResourceGroup                                  Location
@@ -144,7 +144,7 @@ Pour créer une connexion SSH à un nœud AKS, vous exécutez un pod d’assista
 1. Exécutez une image conteneur `debian` et attachez-y une session de terminal. Vous pouvez ensuite utiliser ce conteneur pour créer une session SSH avec n’importe quel nœud du cluster AKS :
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -158,21 +158,12 @@ Pour créer une connexion SSH à un nœud AKS, vous exécutez un pod d’assista
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. Dans une nouvelle fenêtre de terminal, non connectée à votre conteneur, répertoriez les pods sur votre cluster AKS à l’aide de la commande [kubectl get pods][kubectl-get]. Le pod créé à l’étape précédente commence par le nom *aks-ssh*, comme illustré dans l’exemple suivant :
+1. Ouvrez une nouvelle fenêtre de terminal, qui n’est pas connectée à votre conteneur, puis copiez votre clé SSH privée dans le pod d’assistance. Cette clé privée permet de créer la clé SSH permettant d’accéder au nœud AKS. 
 
-    ```
-    $ kubectl get pods
-    
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. Au cours d’une étape précédente, vous avez ajouté votre clé SSH publique au nœud AKS que vous souhaitiez dépanner. À présent, copiez votre clé SSH privée dans le pod d’assistance. Cette clé privée permet de créer la clé SSH permettant d’accéder au nœud AKS.
-
-    Fournissez votre propre nom de pod *aks-ssh* obtenu à l’étape précédente. Si nécessaire, remplacez *~/.ssh/id_rsa* par l’emplacement de votre clé SSH privée :
+   Si nécessaire, remplacez *~/.ssh/id_rsa* par l’emplacement de votre clé SSH privée :
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. Revenez à la session de terminal de votre conteneur, mettez à jour les autorisations sur la clé SSH privée `id_rsa` copiée afin qu’elle soit accessible à l’utilisateur en lecture seule :
@@ -185,22 +176,22 @@ Pour créer une connexion SSH à un nœud AKS, vous exécutez un pod d’assista
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 

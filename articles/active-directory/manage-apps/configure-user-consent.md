@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8ba3cc27777d13448b0e1114413128b550b0b2f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273991"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842286"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurer le consentement de l'utilisateur final pour une application dans Azure Active Directory
 Découvrez comment configurer la manière dont les utilisateurs accordent leur consentement pour les autorisations d’application. Vous pouvez simplifier l’expérience utilisateur en accordant le consentement de l’administrateur. Cet article présente les différentes façons de configurer le consentement de l’utilisateur. Les méthodes s’appliquent à tous les utilisateurs finaux de votre client Azure Active Directory (Azure AD). 
@@ -27,6 +27,8 @@ Pour plus d’informations sur le consentement des applications, consultez [Infr
 ## <a name="prerequisites"></a>Prérequis
 
 L’octroi du consentement de l’administrateur vous oblige à vous connecter en tant qu’administrateur général, administrateur d’application ou administrateur d’application cloud.
+
+Pour accorder le consentement administrateur aux autorisations sur Microsoft Graph et Azure AD Graph, vous avez besoin de privilèges d’administrateur général. 
 
 Pour restreindre l’accès aux applications, vous devez demander l’affectation d’utilisateurs, puis affecter des utilisateurs ou des groupes à l’application.  Pour plus d'informations, voir [Méthodes d'affectation d'utilisateurs et de groupes](methods-for-assigning-users-and-groups.md).
 

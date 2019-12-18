@@ -1,17 +1,17 @@
 ---
-title: Règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+title: Règles de pare-feu – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Cet article décrit les règles de pare-feu d’Azure Database pour PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 567fb27ed942a24ab7d031d791e18fa487956fad
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71275303"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975565"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 Le pare-feu du serveur Azure Database pour PostgreSQL empêche tout accès à votre nœud coordinateur Hyperscale (Citus) tant que vous n’avez pas spécifié les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.

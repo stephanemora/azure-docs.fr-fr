@@ -1,17 +1,17 @@
 ---
 title: Requêtes JOIN SQL pour Azure Cosmos DB
-description: Découvrez la syntaxe SQL JOIN pour Azure Cosmos DB.
+description: Découvrez comment joindre (JOIN) plusieurs tables dans Azure Cosmos DB pour interroger les données
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494405"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871140"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Jointures dans Azure Cosmos DB
 

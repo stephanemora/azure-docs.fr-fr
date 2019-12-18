@@ -1,17 +1,17 @@
 ---
-title: Créer des utilisateurs dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+title: Créer des utilisateurs - Hyperscale (Citus) - Azure Database pour PostgreSQL
 description: Cet article décrit comment vous pouvez créer des comptes d’utilisateurs pour interagir avec un serveur Azure Database pour PostgreSQL - Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511238"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977571"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Créer des utilisateurs dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -26,15 +26,13 @@ Un groupe de serveurs Hyperscale (Citus) nouvellement créé est fourni avec plu
 * *postgres*
 * *citus*
 
-Votre utilisateur administrateur de serveur *citus* est un membre du rôle *azure_pg_admin*.
-Toutefois, il ne fait pas partie du rôle *postgre* (super utilisateur).  Étant donné qu’Hyperscale est un service PaaS géré, seul Microsoft fait partie du rôle de super utilisateur.
-
 Le moteur PostgreSQL utilise des privilèges pour contrôler l’accès aux objets de base de données, comme indiqué dans la [documentation du produit PostgreSQL](https://www.postgresql.org/docs/current/static/sql-createrole.html).
-Dans Azure Database pour PostgreSQL, l’utilisateur administrateur du serveur reçoit ces privilèges : LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
+Votre utilisateur administrateur de serveur *citus* est un membre du rôle *azure_pg_admin*.
+Toutefois, il ne fait pas partie du rôle *postgre* (super utilisateur).  Étant donné qu’Hyperscale est un service PaaS géré, seul Microsoft fait partie du rôle de super utilisateur. L’utilisateur *citus* dispose d’autorisations limitées et ne peut pas créer de nouvelles bases de données.
 
 ## <a name="how-to-create-additional-users"></a>Comment créer des utilisateurs supplémentaires
 
-Le compte administrateur *citus* ne dispose pas des autorisations nécessaires pour créer des utilisateurs supplémentaires. Pour ajouter un utilisateur, utilisez le portail Azure à la place.
+Le compte administrateur *citus* ne dispose pas des autorisations nécessaires pour créer des utilisateurs supplémentaires. Pour ajouter un utilisateur, utilisez le portail Azure.
 
 1. Accédez à la page **Rôles** pour votre groupe de serveurs Hyperscale, puis cliquez sur **+ Ajouter** :
 

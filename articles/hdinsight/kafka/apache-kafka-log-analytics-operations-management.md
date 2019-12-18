@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122592"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894273"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyser les journaux d’activité pour Apache Kafka sur HDInsight
 
@@ -56,7 +56,7 @@ Les étapes permettant d’activer les journaux Azure Monitor pour HDInsight son
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* Messages entrants par seconde :
+* Messages entrants par seconde : (Remplacez `your_kafka_cluster_name` par le nom de votre cluster.)
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ Les étapes permettant d’activer les journaux Azure Monitor pour HDInsight son
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* Octets entrants par seconde :
+* Octets entrants par seconde : (Remplacez `wn0-kafka` par un nom d’hôte du nœud Worker.)
 
     ```kusto
     metrics_kafka_CL 
@@ -72,16 +72,13 @@ Les étapes permettant d’activer les journaux Azure Monitor pour HDInsight son
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* Octets sortants par seconde :
+* Octets sortants par seconde : (Remplacez `your_kafka_cluster_name` par le nom de votre cluster.)
 
     ```kusto
     metrics_kafka_CL 
     | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" 
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
-
-    > [!IMPORTANT]  
-    > Remplacez les valeurs de la requête par les informations spécifiques à votre cluster. Par exemple, `ClusterName_s` doit être définie sur le nom de votre cluster. La valeur `HostName_s` doit être définie sur le nom de domaine d’un nœud de travail dans le cluster.
 
     Vous pouvez également entrer `*` pour rechercher tous les types consignés. Actuellement, les fichiers journaux d’activité suivants sont disponibles pour les requêtes :
 
@@ -100,6 +97,6 @@ Pour plus d’informations sur Azure Monitor, consultez [Vue d’ensemble d’Az
 Pour plus d’informations sur l’utilisation d’Apache Kafka, consultez les documents suivants :
 
 * [Mettre en miroir Apache Kafka entre plusieurs clusters HDInsight](apache-kafka-mirroring.md)
-* [Augmenter la scalabilité d’Apache Kafka sur HDInsight](apache-kafka-scalability.md)
+* [Augmenter l’échelle d’Apache Kafka sur HDInsight](apache-kafka-scalability.md)
 * [Utiliser le streaming Apache Spark (DStreams) avec Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 * [Utiliser Apache Spark Structured Streaming avec Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

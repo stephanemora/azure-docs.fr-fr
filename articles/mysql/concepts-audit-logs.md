@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773566"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972351"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
 
@@ -29,7 +29,7 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - `audit_log_events` : contrôle les événements à enregistrer. Consultez le tableau ci-dessous pour des événements d’audit spécifiques.
 - `audit_log_include_users`: Utilisateurs MySQL à inclure pour la journalisation. La valeur par défaut de ce paramètre est vide, ce qui inclut tous les utilisateurs pour la journalisation. Il a une plus grande priorité que `audit_log_exclude_users`. La longueur maximale du paramètre est de 512 caractères.
 > [!Note]
-> `audit_log_include_users` a une plus grande priorité que `audit_log_exclude_users`. Par exemple, si audit_log_include_users = `demouser` et audit_log_exclude_users = `demouser`, il effectue un audit des journaux, car `audit_log_include_users` a une priorité plus élevée.
+> `audit_log_include_users` a une priorité plus élevée que `audit_log_exclude_users`. Par exemple, si `audit_log_include_users` = `demouser` et `audit_log_exclude_users` = `demouser`, l’utilisateur sera inclus dans les journaux d’audit, car `audit_log_include_users` a une priorité plus élevée.
 - `audit_log_exclude_users`: utilisateurs MySQL à exclure de la journalisation. La longueur maximale du paramètre est de 512 caractères.
 
 > [!Note]

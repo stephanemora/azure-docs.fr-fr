@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771034"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931077"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -77,7 +77,8 @@ Les notes de publication suivantes concernent la version 9.0.0.0 de l’agent A
     - Réduction des échecs de rappel. La taille de rappel est désormais automatiquement ajustée en fonction de la bande passante réseau. 
     - Amélioration des performances de téléchargement lors de l’ajout d’un nouveau serveur à un groupe de synchronisation. 
     - Réduction de la proportion de fichiers non synchronisés en raison de conflits de contrainte. 
-
+    - Les fichiers ne sont pas hiérarchisés ou sont rappelés de manière inattendue dans certains scénarios si le chemin du point de terminaison de serveur est un point de montage de volume.
+    
 ### <a name="evaluation-tool"></a>Outil d’évaluation
 Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande Azure PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Pour des instructions d’installation et d’utilisation, voir la section [Outil d’évaluation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) du guide de planification. 
 

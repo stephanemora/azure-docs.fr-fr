@@ -3,12 +3,12 @@ title: Informations de référence pour les développeurs C# sur Azure Functions
 description: Découvrez comment développer sur Azure Functions à l’aide de C#.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: 9ecaff438eb30e6a05a7e744e17d2d713eef21cd
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665574"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975480"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -25,7 +25,15 @@ Cet article suppose que vous avez déjà lu les articles suivants :
 
 ## <a name="supported-versions"></a>Versions prises en charge
 
-Le runtime Azure Functions 2.x utilise .NET Core 2.2. Votre code de fonction peut utiliser les API .NET Core 2.2 en mettant à jour les paramètres de projet Visual Studio. Les modèles Function n’utilisent pas par défaut .NET Core 2.2 pour éviter d’affecter négativement les clients qui n’ont pas .NET Core 2.2 installé.
+Les versions du runtime Functions fonctionnent avec des versions spécifiques de .NET. Le tableau suivant indique le niveau le plus élevé de .NET Core et .NET Framework qui peuvent être utilisés avec une version spécifique d’Azure Functions dans votre projet. 
+
+| Version du runtime Functions | Version maximale de .NET |
+| ---- | ---- |
+| Functions 3.x | .NET Core 3.1 |
+| Functions 2.x | .NET Core 2.2 |
+| Functions 1.x | .NET Framework 4.6 |
+
+Pour en savoir plus, voir [Versions du runtime Azure Functions](functions-versions.md)
 
 ## <a name="functions-class-library-project"></a>Projet de bibliothèque de classes Azure Functions
 
@@ -49,7 +57,7 @@ Lorsque vous créez le projet, une structure de dossiers qui ressemble à l’ex
 Ce répertoire correspond à ce qui est déployé dans votre application de fonction dans Azure. Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Azure Functions sont [ajoutées au projet en tant que packages NuGet](./functions-bindings-register.md#vs).
 
 > [!IMPORTANT]
-> Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour savoir comment désactiver une fonction, consultez le [Guide pratique pour désactiver des fonctions](disable-function.md#functions-2x---c-class-libraries).
+> Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour savoir comment désactiver une fonction, consultez le [Guide pratique pour désactiver des fonctions](disable-function.md).
 
 
 ## <a name="methods-recognized-as-functions"></a>Méthodes reconnues en tant que fonctions

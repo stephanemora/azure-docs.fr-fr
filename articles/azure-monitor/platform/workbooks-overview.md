@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec les classeurs Azure Monitor | Microsoft Docs
+title: Vue d’ensemble des classeurs Azure Monitor
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cbc128e59472e36e2b5685efdf4cd02144edf15
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164439"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872857"
 ---
 # <a name="azure-monitor-workbooks"></a>Classeurs Azure Monitor
 
@@ -128,4 +128,4 @@ Une fois que vous avez commencé à créer vos propres modèles de classeur, vou
 ## <a name="next-step"></a>Étape suivante
 
 * [Commencez](workbooks-visualizations.md) à en savoir plus sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôler](workbooks-access-control.md) et partager l’accès aux ressources de votre classeur.
+* [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

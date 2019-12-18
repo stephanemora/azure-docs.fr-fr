@@ -1,17 +1,17 @@
 ---
-title: Mettre à l’échelle Azure Database pour PostgreSQL – Groupe de serveurs Hyperscale (Citus)
+title: Mettre à l’échelle un groupe de serveurs - Hyperscale (Citus) - Azure Database pour PostgreSQL
 description: Ajustez la mémoire du groupe de serveurs, le disque et les ressources du processeur pour gérer l’augmentation de la charge
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492294"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977554"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 

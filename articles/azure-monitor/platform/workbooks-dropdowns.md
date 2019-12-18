@@ -1,5 +1,5 @@
 ---
-title: Découvrir les paramètres de liste déroulante des classeurs Azure Monitor | Microsoft Docs
+title: Paramètres de liste déroulante des classeurs Azure Monitor
 description: Créez des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés contenant des paramètres de liste déroulante.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 20a1c5f4b4ef12f81e801769a2ee1b5f08860e38
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164219"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872874"
 ---
 # <a name="workbook-drop-down-parameters"></a>Paramètres de liste déroulante des classeurs
 
@@ -152,5 +152,5 @@ Voici un exemple de liste déroulante à sélection multiple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez](workbooks-visualizations.md) les nombreuses options des visualisations enrichies des classeurs.
+* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545725"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928379"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -26,7 +26,7 @@ Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.We
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages – Functions 2.x et versions ultérieures
 
 Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/).
 
@@ -327,7 +327,7 @@ Si vous partagez des comptes de stockage entre des applications de fonction qui 
 
 | Version de Functions | Paramètre                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | `AzureFunctionsWebHost__hostid` variable d’environnement |
+| 2.x (et ultérieures)  | `AzureFunctionsWebHost__hostid` variable d’environnement |
 | 1.x               | `id` dans *host.json*                                  |
 
 Vous pouvez omettre la valeur d’identification ou définir manuellement la configuration d’identification de chaque application de fonction sur une valeur différente.

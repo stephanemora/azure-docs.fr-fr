@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: f2514fff2a3bb292a86c9f4c0e92c37ed2709097
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341038"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974119"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
 
@@ -28,6 +28,8 @@ ms.locfileid: "67341038"
 
 - Microsoft PlayReady
 - Google Widevine
+    
+    Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 - Apple FairPlay
 - Chiffrement AES-128
 

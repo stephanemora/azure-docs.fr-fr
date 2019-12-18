@@ -1,17 +1,17 @@
 ---
-title: Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+title: Surveiller et régler – Hyperscale (Citus) – Azure Database pour PostgreSQL
 description: Cet article décrit les fonctionnalités de surveillance et de réglage dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6c9bf7a427c0d3d26c3accd1d0d7098413916993
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510238"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975514"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>Surveiller et régler dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 

@@ -1,23 +1,22 @@
 ---
-title: Déplacer des fichiers entre des stockages basés sur fichier en utilisant Azure Data Factory
+title: Déplacer des fichiers entre des stockages basés sur des fichiers
 description: Découvrez comment utiliser un modèle de solution pour déplacer des fichiers entre les stockages basés sur fichier à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684091"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941906"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Déplacer des fichiers à l’aide de Azure Data Factory
 
@@ -37,9 +36,11 @@ Le modèle contient cinq activités :
 - **Copier** copie un fichier de la source vers le stockage de destination.
 - **Supprimer** supprime le même fichier du stockage source.
 
-Le modèle définit deux paramètres :
-- *FolderPath_SourceStore* est le chemin d’accès au dossier de votre stockage source à partir duquel vous souhaitez déplacer des fichiers. 
-- *FolderPath_DestinationStore* est le chemin d’accès au dossier de votre stockage de destination vers lequel vous souhaitez déplacer des fichiers. 
+Le modèle définit quatre paramètres :
+- *SourceStore_Location* est le chemin du dossier de votre stockage source à partir duquel vous souhaitez déplacer des fichiers. 
+- *SourceStore_Directory* est le chemin du sous-dossier de votre stockage source à partir duquel vous souhaitez déplacer des fichiers.
+- *DestinationStore_Location* est le chemin du dossier de votre stockage de destination vers lequel vous souhaitez déplacer des fichiers. 
+- *DestinationStore_Directory* est le chemin du sous-dossier de votre stockage de destination vers lequel vous souhaitez déplacer des fichiers.
 
 ## <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 
@@ -51,9 +52,7 @@ Le modèle définit deux paramètres :
 
     ![Créer une connexion à la destination](media/solution-template-move-files/move-files2.png)
 
-3. Sélectionnez **Utiliser ce modèle**.
-
-    ![Utiliser ce modèle](media/solution-template-move-files/move-files3.png)
+3. Sélectionnez l’onglet **Utiliser ce modèle**.
     
 4. Vous verrez le pipeline, comme indiqué dans l’exemple suivant :
 

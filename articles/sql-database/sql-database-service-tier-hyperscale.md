@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b2a8ad40092a2c02f00803e699de9d6dd8feebd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805754"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978626"
 ---
 # <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
@@ -196,21 +196,21 @@ Si vous souhaitez créer une base de données Hyperscale dans une région non r�
 
 Pour demander à pouvoir créer des bases de données Hyperscale dans des régions non répertoriées :
 
-1. Accédez au [panneau Aide et support d’Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+1. Dans le menu du portail Azure, sélectionnez **Aide + support**, ou recherchez et sélectionnez **Aide + support** à partir de n’importe quelle page.
 
-2. Cliquez sur [**Nouvelle demande de support**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-    ![Panneau Aide et support d’Azure](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+2. Dans [Aide et support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview), sélectionnez [**Nouvelle demande de support**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 3. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
 
 4. Choisissez l’abonnement à utiliser pour créer les bases de données.
 
-5. Pour **Type de Quota**, sélectionnez **Base de données SQL**.
+5. Dans **Type de quota**, sélectionnez **Base de données SQL**.
 
-6. Cliquez sur **Suivant : Solutions**
+    ![Panneau Aide et support d’Azure](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-1. Cliquez sur **Fournir les détails**.
+6. Cliquez sur **Suivant : Solutions**.
+
+7. Cliquez sur **Fournir les détails**.
 
     ![Détails du problème](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
@@ -227,7 +227,7 @@ Pour demander à pouvoir créer des bases de données Hyperscale dans des régio
     > Nombre de To estimé 
     >
 
-10. Choisissez **Gravité C**
+10. Choisissez **Gravité C**.
 
 11. Choisissez la méthode de contact appropriée et renseignez les détails.
 
@@ -245,13 +245,14 @@ Voici les limitations actuelles du niveau de service Hyperscale depuis la dispon
 | Instance gérée | L’option Azure SQL Database Managed Instance n’est pas prise en charge actuellement avec des bases de données Hyperscale. |
 | Pools élastiques |  Les Pools élastiques ne sont actuellement pas pris en charge avec les bases de données SQL Hyperscale.|
 | La migration vers Hyperscale est actuellement une opération unidirectionnelle | Une fois qu’une base de données est migrée vers Hyperscale, elle ne peut pas être migrée directement vers un niveau de service non Hyperscale. À l’heure actuelle, la seule façon de migrer une base de données d’Hyperscale vers non-Hyperscale consiste à exporter/importer à l’aide d’un fichier BACPAC ou d’autres technologies de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS, etc.)|
-| Migration de bases de données avec des objets en mémoire persistants | Hyperscale ne prend en charge que les objets en mémoire non persistants (types de tables, SP et fonctions natifs).  Les tables en mémoire persistantes doivent être supprimées et recréées en tant qu’objets qui ne sont pas en mémoire avant de migrer une base de données vers le niveau de service Hyperscale.|
+| Migration de bases de données avec des objets OLTP en mémoire | Hyperscale ne prend en charge qu’une partie des types d’objets OLTP en mémoire, notamment les types de tables à mémoire optimisée, les procédures stockées compilées en mode natif et les fonctions. Toutefois, quand des objets OLTP en mémoire sont présents dans la base de données, la migration directe des niveaux de service Premium et Critique pour l’entreprise vers Hyperscale n’est pas prise en charge. La migration d’une base de données de ce type vers Hyperscale nécessite trois étapes : (1) Supprimer tous les objets OLTP en mémoire et leurs dépendances. Pour conserver les données dans des tables à mémoire optimisée durables, convertissez-les en tables de disques. (2) Remplacer le niveau de service de la base de données par Hyperscale. (3) Recréer les objets précédemment supprimés. Les tables à mémoire optimisée durables et non durables ne sont actuellement pas prises en charge dans Hyperscale et doivent rester des tables de disques. Les variables de table à mémoire optimisée sont prises en charge. |
 | Suivi des modifications | Change Tracking est actuellement en préversion publique et peut être activé sur des bases de données Hyperscale nouvelles ou existantes. |
 | Géo-réplication  | Vous ne pouvez pas encore configurer la géo-réplication pour Azure SQL Database Hyperscale. |
 | Copie de base de données | Vous ne pouvez pas encore utiliser la copie de base de données pour créer une base de données dans Azure SQL Hyperscale. |
 | Intégration du chiffrement transparent des données (TDE) avec Azure Key Vault | Le chiffrement transparent de base de données à l’aide d’Azure Key Vault (communément appelé Bring Your Own Key ou BYOK) n’est pas encore pris en charge pour Azure SQL Database Hyperscale, contrairement au chiffrement transparent des données à l’aide de Clés gérées par le service qui est pleinement pris en charge. |
 |Fonctionnalités de base de données intelligente | À l’exception de l’option « Forcer le plan », aucune option de réglage automatique n’est encore prise en charge sur Hyperscale : les options peuvent sembler être activées, mais il n’y aura aucune recommandation ou aucune action ne sera effectuée. |
-| Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas actuellement pris en charge avec les bases de données Azure SQL Hyperscale. |
+| Réduire la base de données | DBCC SHRINKDATABASE ou DBCC SHRINKFILE n’est pas pris en charge actuellement pour les bases de données Hyperscale. |
+| Vérification de l’intégrité de la base de données | DBCC CHECKDB n’est pas pris en charge actuellement pour les bases de données Hyperscale. Pour plus d’informations sur la gestion de l’intégrité des données dans Azure SQL Database, consultez [Intégrité des données dans Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

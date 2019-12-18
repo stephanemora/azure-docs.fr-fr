@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/25/2019
+ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485543"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981396"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -33,7 +33,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Adresses IP privées par machine virtuelle |256 |
 | Adresses IP publiques par interface réseau |256 |
 | Adresses IP publiques par machine virtuelle |256 |
-| Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle |500 000 |
+| [Flux TCP ou UDP simultanés par carte réseau de machine virtuelle ou instance de rôle](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500 000 |
 | Cartes d’interface réseau |65 536 |
 | Network Security Group |5 000 |
 | Règles de groupe de sécurité réseau par groupe de sécurité réseau |1 000 |

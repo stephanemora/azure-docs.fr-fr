@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083209"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978166"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -252,6 +252,10 @@ Pour plus d’informations, consultez la section sur la [mise à l’échelle](#
 |S1|GA|Tous|
 |S2|GA|Tous, à l’exception des régions Brésil Sud et Inde Ouest|
 |S3|GA|Tous, à l’exception de la région Inde Ouest|
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

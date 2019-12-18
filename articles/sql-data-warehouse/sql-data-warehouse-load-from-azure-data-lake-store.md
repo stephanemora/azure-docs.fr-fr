@@ -7,21 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 12/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685696"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923642"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Chargement de données d’Azure Data Lake Storage dans Azure SQL Data Warehouse
-Utilisez des tables externes PolyBase pour charger des données d’Azure Data Lake Storage dans Azure SQL Data Warehouse. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage, pour optimiser les performances, nous vous recommandons d’importer les données dans SQL Data Warehouse.
+Ce guide explique comment utiliser des tables externes PolyBase pour charger des données Azure Data Lake Storage dans Azure SQL Data Warehouse. Même si vous pouvez exécuter des requêtes ad hoc sur des données stockées dans Data Lake Storage, pour optimiser les performances, nous vous recommandons d’importer les données dans SQL Data Warehouse. 
 
+> [!NOTE]  
+> Une alternative au chargement est [l’instruction COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) actuellement en préversion publique. Pour nous faire part de vos commentaires sur l’instruction COPY, envoyez un e-mail à la liste de distribution suivante : sqldwcopypreview@service.microsoft.com.
+>
 > [!div class="checklist"]
+
 > * Créez les objets de base de données requis pour charger à partir de Data Lake Storage.
 > * Connectez-vous à un répertoire Data Lake Storage.
 > * Charger des données dans Azure SQL Data Warehouse.
@@ -33,14 +37,13 @@ Avant de commencer ce didacticiel, téléchargez et installez la dernière versi
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* Une application Azure Active Directory pour l’authentification de service à service. Pour créer, suivez la procédure [Authentification Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
 * Un entrepôt de données SQL Azure. Consultez [Créer et interroger un entrepôt de données SQL Azure](create-data-warehouse-portal.md).
-
-* Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
+* Un compte Data Lake Storage. Voir [Prise en main d’Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). Pour ce compte de stockage, vous devez configurer ou spécifier l’une des informations d’identification suivantes pour le chargement : une clé de compte de stockage, un utilisateur d’application Azure Directory ou un utilisateur AAD qui a le rôle RBAC approprié pour le compte de stockage. 
 
 ##  <a name="create-a-credential"></a>Créer des informations d’identification
-Pour accéder à votre compte Data Lake Storage, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification au cours de l’étape suivante. Vous créez ensuite des informations d’identification incluses dans l’étendue de la base de données. Lors de l’authentification à l’aide des principaux de service, les informations d’identification incluses dans l’étendue de la base de données contiennent les informations d’identification du principal du service configurées dans AAD. Vous pouvez également utiliser la clé du compte de stockage dans les informations d’identification incluses dans l’étendue de la base de données pour Gen2. 
+Vous pouvez ignorer cette section et passer à l’étape « Créer la source de données externe » lors de l’authentification à l’aide d’un transfert AAD. Il n’est pas nécessaire de créer ou de spécifier des informations d’identification incluses dans l’étendue de la base de données lors de l’utilisation du transfert AAD, mais assurez-vous que votre utilisateur AAD a le rôle RBAC approprié (Lecteur des données Blob du stockage, Contributeur ou Propriétaire) sur le compte de stockage. Pour plus d’informations, cliquez [ici](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260). 
+
+Pour accéder à votre compte Data Lake Storage, vous devez créer une clé principale de base de données afin de chiffrer les informations secrètes d’identification. Vous créez ensuite des informations d’identification incluses dans l’étendue de la base de données pour stocker votre secret. Lors de l’authentification à l’aide des principaux de service (utilisateur de l’application Azure Directory), les informations d’identification incluses dans l’étendue de la base de données contiennent les informations d’identification du principal du service configurées dans AAD. Vous pouvez également utiliser les informations d’identification incluses dans l’étendue de la base de données pour stocker la clé du compte de stockage de Gen2.
 
 Pour vous connecter à Data Lake Storage à l’aide de principaux de service, vous devez **tout d’abord** créer une application Azure Active Directory, créer une clé d’accès et accorder l’accès aux applications au compte Data Lake Storage. Pour obtenir des instructions, consultez [S’authentifier auprès d’Azure Data Lake Storage en utilisant Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
@@ -75,7 +78,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this when authenticating using service principals:
+-- It should look something like this when authenticating using service principal:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -84,7 +87,7 @@ WITH
 ```
 
 ## <a name="create-the-external-data-source"></a>Créer la source de données externe
-Utilisez cette commande [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) pour stocker l’emplacement des données. 
+Utilisez cette commande [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) pour stocker l’emplacement des données. Si vous vous authentifiez par l’intermédiaire du transfert AAD, le paramètre CREDENTIAL n’est pas requis. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -216,8 +219,8 @@ Dans ce tutoriel, vous avez créé des tables externes pour définir la structur
 
 Voici les étapes que vous avez effectuées :
 > [!div class="checklist"]
-> * Création des objets de base de données à charger à partir de Data Lake Storage Gen1.
-> * Connexion à un répertoire Data Lake Storage Gen1.
+> * Création des objets de base de données à charger à partir de Data Lake Storage.
+> * Connexion à un répertoire Data Lake Storage.
 > * Chargement de données dans Azure SQL Data Warehouse.
 >
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108728"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996628"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -256,7 +256,7 @@ Cette fonctionnalité s’avère utile quand vous voulez garder une session util
 
 ### <a name="connection-draining"></a>Vidage des connexions
 
-Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Il garantit que toutes les instances de désinscription d’un pool de back-ends ne reçoivent pas de nouvelles demandes. Dans l’intervalle, les demandes existantes sont autorisées à se terminer dans un délai configuré. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends.
+Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Elle garantit que toutes les instances de désinscription d’un pool de back-ends continuent à gérer les connexions existantes et à traiter les demandes en cours pendant un délai d’expiration configurable, et ne reçoivent aucune nouvelle demande ou connexion. La seule exception concerne les demandes liées à la désinscription des instances en raison d’une affinité de session gérée par la passerelle et qui continueront d’être transmises par proxy aux instances de désinscription. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends.
 
 ### <a name="protocol"></a>Protocol
 

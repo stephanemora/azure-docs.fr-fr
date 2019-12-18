@@ -1,6 +1,6 @@
 ---
 title: Présélection de tâches Media Encoder Standard H264 multidébit 4K - Azure | Microsoft Docs
-description: Cette rubrique offre une vue d’ensemble de la présélection de tâches **H264 multidébit 4K**.
+description: Cet article offre une vue d’ensemble de la présélection de tâches **H264 – Vitesse de transmission multiple – 4K** de Media Encoder Standard.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e2c5339731267a00e3423e79bc25b9d03d274bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129577"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887015"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 multidébit 4 K
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  

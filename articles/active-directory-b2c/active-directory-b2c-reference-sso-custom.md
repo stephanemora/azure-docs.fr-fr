@@ -1,5 +1,6 @@
 ---
-title: Gestion de session d’authentification unique à l’aide de stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+title: Gestion de sessions d’authentification unique avec des stratégies personnalisées
+titleSuffix: Azure AD B2C
 description: Découvrez comment gérer des sessions d’authentification unique (SSO) à l’aide de stratégies personnalisées dans Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065392"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950491"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 

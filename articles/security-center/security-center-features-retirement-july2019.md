@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bb8cfae73d84135858733899e6441f564106e9d1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438633"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997222"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Mise hors service de fonctionnalités de Security Center (juillet 2019)
 
@@ -169,7 +169,7 @@ Si vous disposez de solutions connectées, nous vous conseillons de migrer vers 
 
 Azure Security Center supervise les configurations de sécurité en appliquant un ensemble de [plus de 150 règles recommandées](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) pour renforcer le système d’exploitation. Ces règles concernent les pare-feux, l’audit, les stratégies de mot de passe et bien plus encore. Si une configuration vulnérable est identifiée sur un ordinateur, Security Center génère une recommandation de sécurité. L’écran [Modification des paramètres de configuration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permet aux clients de personnaliser la configuration de sécurité par défaut de leur système d’exploitation dans Security Center.
 
-Nous avons mis hors service cette fonctionnalité en préversion. Si vous voulez réinitialiser vos configurations de sécurité à leurs valeurs par défaut après la date de mise hors service, vous pouvez le faire via l’API ou Powershell en suivant les [instructions suivantes](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
+Nous avons mis hors service cette fonctionnalité en préversion. Si vous voulez réinitialiser vos configurations de sécurité à leurs valeurs par défaut après la date de mise hors service, vous pouvez le faire via l’API ou Powershell en suivant les [instructions suivantes](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization).
 
 ![Modifier les configurations de la sécurité][17]
 

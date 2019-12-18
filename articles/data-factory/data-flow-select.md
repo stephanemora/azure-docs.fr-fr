@@ -1,17 +1,18 @@
 ---
-title: Transformation de sélection (Select) de mappage de Data Flow pour Azure Data Factory
+title: Transformation de sélection de flux de données de mappage
 description: Transformation de sélection (Select) de mappage de Data Flow pour Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387195"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930242"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformation de sélection de mappage de flux de données
 

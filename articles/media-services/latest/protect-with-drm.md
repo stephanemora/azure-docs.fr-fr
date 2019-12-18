@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b88257271f5177657e66cadc23abad36ad14e890
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186046"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974068"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Didacticiel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
@@ -175,6 +175,10 @@ Exécutez la commande CLI suivante :
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 

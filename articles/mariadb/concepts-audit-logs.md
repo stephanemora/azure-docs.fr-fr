@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 64662499b4ee782bbf04e9e706cd659e84c90eec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: 9c5f6aa2900570aa00ddbc50ec8be4dbb0d16a34
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773071"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978047"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Journaux d’audit dans Azure Database for MariaDB
 
@@ -27,6 +27,9 @@ Par défaut, le journal d’audit est désactivé. Pour l’activer, affectez la
 Les autres paramètres que vous pouvez ajuster incluent :
 
 - `audit_log_events` : contrôle les événements à enregistrer. Consultez le tableau ci-dessous pour des événements d’audit spécifiques.
+- `audit_log_include_users`: Utilisateurs MariaDB à inclure pour la journalisation. La valeur par défaut de ce paramètre est vide, ce qui inclut tous les utilisateurs pour la journalisation. Il a une plus grande priorité que `audit_log_exclude_users`. La longueur maximale du paramètre est de 512 caractères.
+> [!Note]
+> `audit_log_include_users` a une priorité plus élevée que `audit_log_exclude_users`. Par exemple, si `audit_log_include_users` = `demouser` et `audit_log_exclude_users` = `demouser`, l’utilisateur sera inclus dans les journaux d’audit, car `audit_log_include_users` a une priorité plus élevée.
 - `audit_log_exclude_users`: utilisateurs MariaDB à exclure de l’enregistrement. Quatre utilisateurs maximum sont autorisés. La longueur maximale du paramètre est de 256 caractères.
 
 | **Event** | **Description** |

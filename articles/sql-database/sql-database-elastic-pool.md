@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 0cda55d42f0d89d61919b751335ec95ef8143274
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186470"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901170"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL
 
@@ -24,7 +24,7 @@ Les pools élastiques SQL Database représentent une solution simple et rentable
 
 ## <a name="what-are-sql-elastic-pools"></a>Présentation des pools élastiques SQL
 
-Les développeurs SaaS créent des applications qui reposent sur des couches de données à grande échelle composées de plusieurs bases de données. Un modèle d’application courant consiste à approvisionner une base de données pour chaque client. Toutefois, les modèles d’utilisation sont souvent imprévisibles et varient d’un client à l’autre, et il est difficile de prévoir les besoins en ressources de chaque utilisateur de base de données spécifique. Vous disposez généralement de deux options :
+Les développeurs SaaS créent des applications qui reposent sur des couches de données à grande échelle composées de plusieurs bases de données. Un modèle d’application courant consiste à approvisionner une base de données pour chaque client. Toutefois, les modèles d’utilisation sont souvent imprévisibles et varient d’un client à l’autre, et il est difficile de prévoir les besoins en ressources de chaque utilisateur de base de données. Vous disposez généralement de deux options :
 
 - Sur-approvisionner les ressources en fonction de l’utilisation maximale et payer trop, ou
 - Sous-approvisionner pour réduire les coûts, au détriment des performances et de la satisfaction des clients au moment des pics d’utilisation.
@@ -95,7 +95,7 @@ Lorsque les ressources sont partagées, toutes les bases de données d’un pool
 
 Pour réduire les coûts pour trois bases de données S3 dans un pool de 200 eDTU, au moins deux de ces bases de données peuvent connaître un pic simultané au niveau de leur utilisation. Sinon, si plus de deux de ces quatre bases de données S3 connaissent un pic simultané, le pool devra être redimensionné à plus de 200 eDTU. Si le pool est redimensionné à plus de 200 eDTU, vous devez ajouter plusieurs bases de données S3 au pool pour maintenir des coûts inférieurs aux tailles de calcul pour les bases de données uniques.
 
-Notez que cet exemple ne tient pas compte de l'utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
+Notez que cet exemple ne tient pas compte de l’utilisation des autres bases de données dans le pool. Si toutes les bases de données connaissent une utilisation à un moment donné, moins de 2/3 (ou 67 %) des bases de données peuvent connaître un pic simultané.
 
 ### <a name="resource-utilization-per-database"></a>Utilisation des ressources par base de données
 
@@ -155,7 +155,7 @@ Les bases de données mises en pool prennent généralement en charge les mêmes
 
 Vous pouvez créer un pool élastique dans le portail Azure de deux façons.
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si Azure SQL ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+1. Accédez au [portail Azure](https://portal.azure.com) pour créer un pool élastique. Recherchez et sélectionnez **Azure SQL**.
 2. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les pools élastiques en sélectionnant **Afficher les détails** sur la vignette **Bases de données**.
 3. Sur la vignette **Bases de données**, sélectionnez **Pool élastique** dans la liste déroulante **Type de ressource**, puis sélectionnez **Créer** :
 

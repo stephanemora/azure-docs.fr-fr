@@ -1,23 +1,23 @@
 ---
-title: Exécuter des packages SSIS dans Azure Data Factory à partir de SSDT
+title: Exécuter des packages SSIS dans SSDT
 description: Découvrez comment exécuter des packages SSIS dans Azure à partir de SSDT.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/31/2019
-author: swinarko
 ms.author: sawinark
+author: swinarko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 4c89bdddce7b7318e184994ddf627d853e29fd7e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/31/2019
+ms.openlocfilehash: 5f21623af9b89bbb020063dfb72f7b60e65a6ebe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673606"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927719"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Exécuter des packages SSIS dans Azure à partir de SSDT
 Cet article décrit la fonctionnalité des projets Azure SQL Server Integration Services (SSIS) sur SQL Server Data Tools (SSDT), qui vous permet d’exécuter des packages sur Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF).  Vous pouvez utiliser cette fonctionnalité pour tester vos packages SSIS existants avant d'effectuer une opération lift-and-shift ou de les migrer vers Azure, ou de développer de nouveaux packages SSIS à exécuter dans Azure.

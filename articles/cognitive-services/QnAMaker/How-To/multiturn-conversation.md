@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486887"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872296"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -30,7 +30,7 @@ Pour voir comment fonctionne la conversation multitour, regardez la vidéo de d�
 
 Il n’est pas possible de répondre à certaines questions en un seul tour. Quand vous concevez votre application cliente (bot conversationnel), un utilisateur peut poser une question qui a besoin d’être filtrée ou affinée pour déterminer la bonne réponse. Pour que ce flux puisse se dérouler par le biais des questions, vous devez présenter des *invites de suivi* à l’utilisateur.
 
-Quand un utilisateur pose une question, QnA Maker retourne la réponse _et_ les éventuelles invites de suivi. Cette réponse vous permet de présenter les questions de suivi sous forme de choix. 
+Quand un utilisateur pose une question, QnA Maker retourne la réponse _et_ les éventuelles invites de suivi. Cette réponse vous permet de présenter les questions de suivi sous forme de choix.
 
 ## <a name="example-multi-turn-conversation-with-chat-bot"></a>Exemple de conversation multitour avec un bot conversationnel
 
@@ -38,7 +38,7 @@ Avec la conversation multitour, un bot conversationnel gère une conversation av
 
 ![Boîte de dialogue multitour à invites qui guident un utilisateur au cours d’une conversation](../media/conversational-context/conversation-in-bot.png)
 
-Dans l’image précédente, un utilisateur a lancé une conversation en entrant **My account**. La base de connaissances contient trois paires de questions/réponses liées. Pour affiner la réponse, l’utilisateur sélectionne un des trois choix de la base de connaissances. La question (#1) comporte trois invites de suivi, qui sont présentées dans le bot conversationnel comme trois options (#2). 
+Dans l’image précédente, un utilisateur a lancé une conversation en entrant **My account**. La base de connaissances contient trois paires de questions/réponses liées. Pour affiner la réponse, l’utilisateur sélectionne un des trois choix de la base de connaissances. La question (#1) comporte trois invites de suivi, qui sont présentées dans le bot conversationnel comme trois options (#2).
 
 Quand l’utilisateur sélectionne une option (#3), la liste suivante d’options d’affinage (#4) est présentée. Cette séquence se poursuit (#5) jusqu’à ce que l’utilisateur détermine la réponse finale correcte (#6).
 
@@ -49,32 +49,34 @@ Après avoir publié votre base de connaissances, vous pouvez sélectionner le b
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Créer une conversation multitour à partir de la structure d’un document
 
-Quand vous créez une base de connaissances, la section **Populate your KB** présente une case à cocher **Enable multi-turn extraction from URLs, .pdf or .docx files**. 
+Quand vous créez une base de connaissances, la section **Populate your KB** présente une case à cocher **Enable multi-turn extraction from URLs, .pdf or .docx files**.
 
 ![Case à cocher permettant d’activer l’extraction multitour](../media/conversational-context/enable-multi-turn.png)
 
-Lorsque vous sélectionnez cette option, QnA Maker extrait la hiérarchie présente dans la structure du document. La hiérarchie est convertie en invites de suivi et la racine de la hiérarchie faite office de QnA parente. Dans certains documents où la racine de la hiérarchie n’a pas de contenu qui pourrait servir de réponse, vous pouvez fournir un texte de réponse par défaut  à utiliser comme texte de réponse de substitution pour extraire de telles hiérarchies.   
+Lorsque vous sélectionnez cette option, QnA Maker extrait la hiérarchie présente dans la structure du document. La hiérarchie est convertie en invites de suivi et la racine de la hiérarchie faite office de QnA parente. Dans certains documents où la racine de la hiérarchie n’a pas de contenu qui pourrait servir de réponse, vous pouvez fournir un texte de réponse par défaut  à utiliser comme texte de réponse de substitution pour extraire de telles hiérarchies.
 
-La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
+La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Exemple de structure dans un manuel utilisateur](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+![![Exemple de structure dans un manuel utilisateur]\(../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
 ### <a name="building-your-own-multi-turn-document"></a>Création de votre propre document multitour
 
 Si vous créez un document multitour, gardez à l’esprit les instructions suivantes :
 
-* Utilisez des titres et sous-titres pour montrer la hiérarchie. Par exemple, vous pouvez H1 pour dénoter la QnA parente et H2 pour dénoter la QnA à considérer comme invite. Utilisez une petite taille de titre pour dénoter la hiérarchie suivante. N’utilisez pas de style, de couleur ou d’autre mécanisme pour montrer la structure de votre document. QnA Maker n’extrait pas les invites multitours. 
+* Utilisez des titres et sous-titres pour montrer la hiérarchie. Par exemple, vous pouvez H1 pour dénoter la QnA parente et H2 pour dénoter la QnA à considérer comme invite. Utilisez une petite taille de titre pour dénoter la hiérarchie suivante. N’utilisez pas de style, de couleur ou d’autre mécanisme pour montrer la structure de votre document. QnA Maker n’extrait pas les invites multitours.
 
-* Ne pas terminer un titre par un point d’interrogation (`?`). 
+* Le premier caractère de l’en-tête doit être en majuscule. 
+
+* Ne pas terminer un titre par un point d’interrogation (`?`).
 
 * Vous pouvez utiliser l’[exemple de document](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) en tant qu’exemple pour créer votre propre document multitour.
 
 ### <a name="adding-files-to-a-multi-turn-kb"></a>Ajout de fichiers à une base de connaissances multitour
 
-Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation. 
+Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation.
 
-1. Dans QnA Maker, sélectionnez une base de connaissances existante créée avec la case **Enable multi-turn extraction from URLs, .pdf or .docx files** cochée. 
-1. Accédez à la page **Settings** (Paramètres), puis sélectionnez le fichier ou l’URL à ajouter. 
+1. Dans QnA Maker, sélectionnez une base de connaissances existante créée avec la case **Enable multi-turn extraction from URLs, .pdf or .docx files** cochée.
+1. Accédez à la page **Settings** (Paramètres), puis sélectionnez le fichier ou l’URL à ajouter.
 1. Sélectionnez **Save and train** pour enregistrer et entraîner la base de connaissances.
 
 > [!Caution]
@@ -83,25 +85,25 @@ Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites d
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
 
-Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`. 
+Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`.
 
 ## <a name="show-questions-and-answers-with-context"></a>Présenter les questions et les réponses avec du contexte
 
-Affichez uniquement les paires de questions/réponses assorties de conversations contextuelles. 
+Affichez uniquement les paires de questions/réponses assorties de conversations contextuelles.
 
-Sélectionnez **Options d’affichage**, puis **Afficher le contexte**. La liste affiche les paires de questions/réponses qui contiennent des invites de suivi. 
+Sélectionnez **Options d’affichage**, puis **Afficher le contexte**. La liste affiche les paires de questions/réponses qui contiennent des invites de suivi.
 
 ![Filtrer les paires questions/réponses par conversations contextuelles](../media/conversational-context/filter-question-and-answers-by-context.png)
 
 Le contexte multitour s’affiche dans la première colonne.
 
-![! [La colonne « Context (PREVIEW) »](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+![! [La colonne « Context (PREVIEW) »]\(../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-Dans l’image précédente, **#1** désigne le texte en gras dans la colonne, qui représente la question actuelle. La question parente est le premier élément de la ligne. Les questions situées en dessous sont les paires de questions/réponses liées. Vous pouvez sélectionner ces éléments pour accéder immédiatement aux autres éléments contextuels. 
+Dans l’image précédente, **#1** désigne le texte en gras dans la colonne, qui représente la question actuelle. La question parente est le premier élément de la ligne. Les questions situées en dessous sont les paires de questions/réponses liées. Vous pouvez sélectionner ces éléments pour accéder immédiatement aux autres éléments contextuels.
 
 ## <a name="add-an-existing-question-and-answer-pair-as-a-follow-up-prompt"></a>Ajouter une paire de questions/réponses existante comme invite de suivi
 
-La question d’origine, **My account**, comporte des invites de suivi, comme **Accounts and signing in**. 
+La question d’origine, **My account**, comporte des invites de suivi, comme **Accounts and signing in**.
 
 ![Réponses et invites de suivi pour « Accounts and signing in »](../media/conversational-context/detected-and-linked-follow-up-prompts.png)
 
@@ -118,24 +120,24 @@ Ajoutez une invite de suivi à une paire de questions/réponses existante qui n�
     |Link to answer|Entrez **Use the sign-in screen** pour rechercher la paire de questions/réponses existante.|
 
 
-1.  Une seule correspondance est retournée. Sélectionnez cette réponse comme suivi, puis choisissez **Save**. 
+1.  Une seule correspondance est retournée. Sélectionnez cette réponse comme suivi, puis choisissez **Save**.
 
     ![Page « Follow-up prompt (PREVIEW) »](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
 
 1. Une fois que vous avez ajouté l’invite de suivi, sélectionnez **Save and train** dans le volet de navigation supérieur.
-  
-### <a name="edit-the-display-text"></a>Modifier le texte d’affichage 
 
-Quand une invite de suivi est créée et qu’une paire de questions/réponses existante est entrée en tant que lien vers la réponse (**Link to Answer**), vous pouvez entrer un nouveau texte d’affichage (**Display text**). Ce texte ne remplace pas la question existante et n’ajoute pas une nouvelle question de substitution. Elle est différente de ces valeurs. 
+### <a name="edit-the-display-text"></a>Modifier le texte d’affichage
+
+Quand une invite de suivi est créée et qu’une paire de questions/réponses existante est entrée en tant que lien vers la réponse (**Link to Answer**), vous pouvez entrer un nouveau texte d’affichage (**Display text**). Ce texte ne remplace pas la question existante et n’ajoute pas une nouvelle question de substitution. Elle est différente de ces valeurs.
 
 1. Pour modifier le texte d’affichage, recherchez la question dans le champ **Context** et sélectionnez-la.
-1. Dans la ligne correspondant à cette question, sélectionnez l’invite de suivi dans la colonne de réponse (answer). 
+1. Dans la ligne correspondant à cette question, sélectionnez l’invite de suivi dans la colonne de réponse (answer).
 1. Sélectionnez le texte d’affichage à modifier, puis sélectionnez **Edit**.
 
     ![Commande Edit pour le texte d’affichage](../media/conversational-context/edit-existing-display-text.png)
 
-1. Dans la fenêtre indépendante **Follow-up prompt**, modifiez le texte d’affichage existant. 
-1. Une fois le texte d’affichage modifié, sélectionnez **Save**. 
+1. Dans la fenêtre indépendante **Follow-up prompt**, modifiez le texte d’affichage existant.
+1. Une fois le texte d’affichage modifié, sélectionnez **Save**.
 1. Dans la barre de navigation du haut, choisissez **Save and train**.
 
 
@@ -143,10 +145,10 @@ Quand une invite de suivi est créée et qu’une paire de questions/réponses e
 
 Quand vous ajoutez une nouvelle paire de questions/réponses à la base de connaissances, chaque paire doit être liée à une question existante en tant qu’invite de suivi.
 
-1. Dans la barre d’outils de la base de connaissances, recherchez la paire de questions/réponses existante pour **Accounts and signing in** et sélectionnez-la. 
+1. Dans la barre d’outils de la base de connaissances, recherchez la paire de questions/réponses existante pour **Accounts and signing in** et sélectionnez-la.
 
-1. Dans la colonne **Answer** de cette question, sélectionnez **Add follow-up prompt**. 
-1. Sous **Follow-up prompt (PREVIEW)** , créez une nouvelle invite de suivi en entrant les valeurs suivantes : 
+1. Dans la colonne **Answer** de cette question, sélectionnez **Add follow-up prompt**.
+1. Sous **Follow-up prompt (PREVIEW)** , créez une nouvelle invite de suivi en entrant les valeurs suivantes :
 
     |Champ|Valeur|
     |--|--|
@@ -158,9 +160,9 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
     ![Créer une nouvelle question et réponse d’invite](../media/conversational-context/create-child-prompt-from-parent.png)
 
 
-1. Sélectionnez **Create new**, puis **Save**. 
+1. Sélectionnez **Create new**, puis **Save**.
 
-    Cette action a pour effet de créer une nouvelle paire de questions/réponses et de lier la question sélectionnée en tant qu’invite de suivi. La colonne **Context**, pour ces deux questions, indique une relation d’invite de suivi. 
+    Cette action a pour effet de créer une nouvelle paire de questions/réponses et de lier la question sélectionnée en tant qu’invite de suivi. La colonne **Context**, pour ces deux questions, indique une relation d’invite de suivi.
 
 1. Sélectionnez **View options**, puis [**Show context (PREVIEW)** ](#show-questions-and-answers-with-context).
 
@@ -170,7 +172,7 @@ Quand vous ajoutez une nouvelle paire de questions/réponses à la base de conna
 
     La question parente affiche une nouvelle question parmi ses différents choix.
 
-    ![! [La colonne Context, pour ces deux questions, indique une relation d’invite de suivi](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![! [La colonne Context, pour ces deux questions, indique une relation d’invite de suivi]\(../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
 1. Une fois que vous avez ajouté l’invite de suivi, sélectionnez **Save and train** dans la barre de navigation supérieure.
 
@@ -184,7 +186,7 @@ Si vous n’activez pas la conversation multitour, la réponse est retournée, m
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>Demande JSON de retour d’une réponse initiale et d’invites de suivi
 
-Utilisez l’objet `context` vide pour demander la réponse à la question de l’utilisateur et inclure des invites de suivi. 
+Utilisez l’objet `context` vide pour demander la réponse à la question de l’utilisateur et inclure des invites de suivi.
 
 ```JSON
 {
@@ -198,7 +200,7 @@ Utilisez l’objet `context` vide pour demander la réponse à la question de l�
 
 ## <a name="a-json-response-to-return-an-initial-answer-and-follow-up-prompts"></a>Réponse JSON de retour d’une réponse initiale et d’invites de suivi
 
-Dans la section précédente, une réponse et les invites de suivi éventuelles à été demandée à **Accounts and signing in**. La réponse comprend les informations d’invite, qui se trouvent dans *answers[0].context*, et le texte à présenter à l’utilisateur. 
+Dans la section précédente, une réponse et les invites de suivi éventuelles à été demandée à **Accounts and signing in**. La réponse comprend les informations d’invite, qui se trouvent dans *answers[0].context*, et le texte à présenter à l’utilisateur.
 
 ```JSON
 {
@@ -263,7 +265,7 @@ Dans la section précédente, une réponse et les invites de suivi éventuelles 
 }
 ```
 
-Le tableau `prompts` fournit le texte dans la propriété `displayText` et la valeur `qnaId`. Vous pouvez présenter ces réponses comme les choix suivants affichés dans le flux de conversation, puis renvoyer le `qnaId` sélectionné à QnA Maker dans la demande suivante. 
+Le tableau `prompts` fournit le texte dans la propriété `displayText` et la valeur `qnaId`. Vous pouvez présenter ces réponses comme les choix suivants affichés dans le flux de conversation, puis renvoyer le `qnaId` sélectionné à QnA Maker dans la demande suivante.
 
 <!--
 
@@ -275,7 +277,7 @@ The `promptsToDelete` array provides the ...
 
 Remplissez l’objet `context` pour inclure le contexte précédent.
 
-Dans la demande JSON suivante, la question actuelle est *Use Windows Hello to sign in* et la question précédente était *accounts and signing in*. 
+Dans la demande JSON suivante, la question actuelle est *Use Windows Hello to sign in* et la question précédente était *accounts and signing in*.
 
 ```JSON
 {
@@ -289,7 +291,7 @@ Dans la demande JSON suivante, la question actuelle est *Use Windows Hello to si
     "previousUserQuery": "accounts and signing in"
   }
 }
-``` 
+```
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Réponse JSON de retour d’une réponse non initiale et d’invites de suivi
 
@@ -353,16 +355,16 @@ La réponse JSON _GenerateAnswer_ de QnA Maker comprend les invites de suivi dan
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Interroger la base de connaissances avec l’ID QnA Maker
 
-Si vous créez une application personnalisée à l’aide de la fonctionnalité multitour. Dans la réponse de la question initiale, les éventuelles invites de suivi et leurs `qnaId` associés sont retournés. Maintenant que vous disposez de l’ID, vous pouvez le transmettre dans le corps de la demande de l’invite de suivi. Si le corps de la demande contient le `qnaId` et l’objet de contexte (qui contient les propriétés QnA Maker précédentes), GenerateAnswer retourne la question exacte par ID, au lieu d’utiliser l’algorithme de classement pour trouver la réponse à partir du texte de la question. 
+Si vous créez une application personnalisée à l’aide de la fonctionnalité multitour. Dans la réponse de la question initiale, les éventuelles invites de suivi et leurs `qnaId` associés sont retournés. Maintenant que vous disposez de l’ID, vous pouvez le transmettre dans le corps de la demande de l’invite de suivi. Si le corps de la demande contient le `qnaId` et l’objet de contexte (qui contient les propriétés QnA Maker précédentes), GenerateAnswer retourne la question exacte par ID, au lieu d’utiliser l’algorithme de classement pour trouver la réponse à partir du texte de la question.
 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L’ordre d’affichage est pris en charge dans l’API Update
 
-Le [texte d’affichage et l’ordre d’affichage](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retournés dans la réponse JSON, sont pris en charge par l’[API Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) et peuvent être modifiés. 
+Le [texte d’affichage et l’ordre d’affichage](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retournés dans la réponse JSON, sont pris en charge par l’[API Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) et peuvent être modifiés.
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Ajouter ou supprimer des invites multitours à l’aide de l’API Update
 
-Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`. 
+Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`.
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exporter la base de connaissances pour la gestion de versions
 

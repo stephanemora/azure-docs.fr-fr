@@ -4,12 +4,12 @@ description: En savoir plus sur les groupes de conteneurs dans Azure Container I
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706325"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896579"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -68,7 +68,9 @@ Pour plus d’informations, consultez la propriété [ResourceRequirements][reso
 
 ## <a name="networking"></a>Mise en réseau
 
-Les groupes du conteneur partagent une adresse IP et un espace de noms de port sur cette adresse IP. Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. Les conteneurs au sein d’un groupe peuvent s’atteindre les uns les autres via localhost sur les ports qu’ils ont exposés, même si ces ports ne sont pas exposés en externe sur l’adresse IP du groupe.
+Les groupes de conteneurs peuvent partager une adresse IP externe et un espace de noms de port sur cette adresse IP. Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. 
+
+Dans un groupe de conteneurs, les instances de conteneur peuvent s’atteindre les unes les autres via localhost sur n’importe quel port, même si ce port n’est pas exposé en externe sur l’adresse IP du groupe ou à partir du conteneur.
 
 Déployez éventuellement des groupes de conteneurs dans un [réseau virtuel Azure][virtual-network] (préversion) pour permettre à vos conteneurs de communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
 

@@ -1,6 +1,7 @@
 ---
-title: Exemples de transformations de revendications de chaînes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
-description: Exemples de transformations de revendications de chaînes pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
+title: Exemples de transformation de revendications de chaînes pour les stratégies personnalisées
+titleSuffix: Azure AD B2C
+description: Exemples de transformations de revendications de chaînes pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936809"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950814"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 

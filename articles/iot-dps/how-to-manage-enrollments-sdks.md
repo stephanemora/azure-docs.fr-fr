@@ -1,18 +1,18 @@
 ---
 title: Gérer les inscriptions d’appareils à l’aide des Kits de développement logiciel (SDK) Azure DPS
-description: Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning à l’aide des SDK du service
+description: Guide pratique pour gérer les inscriptions d’appareil dans le service IoT Hub Device Provisioning (DPS) à l’aide des SDK du service
 author: robinsh
 ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cb0e25ec70956e66f7b867f0d0b9473160fc3ad
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228797"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975072"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Guide pratique pour gérer les inscriptions d’appareil avec les SDK du service de provisionnement des appareils Azure
 Une *inscription d’appareil* crée un enregistrement d’un appareil ou d’un groupe d’appareils susceptibles d’être inscrits au service de provisionnement des appareils à un moment donné. L’enregistrement contient la configuration initiale souhaitée pour le ou les appareils dans le cadre de cette inscription, y compris le hub IoT souhaité. Cet article explique comment gérer les inscriptions d’appareils pour votre service de provisionnement par programmation en utilisant les SDK du service de provisionnement des appareils Azure IoT.  Les SDK sont disponibles sur GitHub dans le même dépôt que les SDK Azure IoT.

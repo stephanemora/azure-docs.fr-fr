@@ -1,12 +1,12 @@
 ---
 title: Interrogation des opérations de longue durée | Microsoft Docs
-description: Ce sujet montre comment interroger les opérations de longue durée.
+description: 'Azure Media Services propose des API qui envoient des requêtes à Media Services pour démarrer des opérations (par exemple : créer, démarrer, arrêter ou supprimer un canal). Ce sont toutes des opérations de longue durée. Ce sujet montre comment interroger les opérations de longue durée.'
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Juliako
+writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 752c502268ef53d3c0575d92e75ce6a965fccd9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43d9a6adc935010eab6e5e52d73f2019c8afcf5f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61464978"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887156"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Diffusion vidéo en flux continu avec Azure Media Services
 

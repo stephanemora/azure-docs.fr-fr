@@ -1,6 +1,7 @@
 ---
-title: Définir un profil technique de validation dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
-description: Définissez un profil technique Azure Active Directory dans une stratégie personnalisée dans Azure Active Directory B2C.
+title: Définir un profil technique de validation dans une stratégie personnalisée
+titleSuffix: Azure AD B2C
+description: Validez les revendications en utilisant un profil technique de validation dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ad15342e6d35a5c6101beb1ddc09d4ce1f2089d5
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167560"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950797"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique de validation dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -40,7 +41,7 @@ Un profil technique de validation peut être exécuté de manière conditionnell
 Un profil technique autodéclaré peut définir un profil technique de validation à utiliser pour valider toutes ou certaines de ses revendications de sortie. Toutes les revendications d’entrée du profil technique référencé doivent apparaître dans les revendications de sortie du profil technique de validation de référencement.
 
 > [!NOTE]
-> Seuls les profils techniques à déclaration automatique peuvent utiliser des profils techniques de validation. Si vous devez valider les revendications de sortie à partir de profils techniques non déclarés automatiquement, envisagez d’utiliser une étape d’orchestration supplémentaire dans votre parcours utilisateur pour prendre en compte le profil technique en charge de la validation.    
+> Seuls les profils techniques à déclaration automatique peuvent utiliser des profils techniques de validation. Si vous devez valider les revendications de sortie à partir de profils techniques non déclarés automatiquement, envisagez d’utiliser une étape d’orchestration supplémentaire dans votre parcours utilisateur pour prendre en compte le profil technique en charge de la validation.
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 

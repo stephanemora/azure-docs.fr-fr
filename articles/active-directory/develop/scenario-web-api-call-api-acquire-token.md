@@ -1,6 +1,7 @@
 ---
-title: API web qui appelle d’autres API web (acquisition d’un jeton pour l’application) - Plateforme d’identités Microsoft
-description: Découvrez comment générer une API web qui appelle d’autres API web (acquisition d’un jeton pour l’application).
+title: Obtenir un jeton pour une API web appelant des API web | Azure
+titleSuffix: Microsoft identity platform
+description: Découvrez comment générer une API web qui appelle des API web nécessitant l’acquisition d’un jeton pour l’application.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 986e2e0f8a481d61dc870af2548290658b44d2d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276ff1e5e9f709aa5b38d1efa4055dfe3baf3cc5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65231099"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919781"
 ---
 # <a name="web-api-that-calls-web-apis---acquire-a-token-for-the-app"></a>API web qui appelle d’autres API web - Acquisition d’un jeton pour l’application
 

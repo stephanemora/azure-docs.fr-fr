@@ -1,5 +1,6 @@
 ---
-title: Sécuriser votre service RESTful en utilisant les certificats clients dans Azure Active Directory B2C | Microsoft Docs
+title: Sécuriser un service RESTful en utilisant des certificats clients
+titleSuffix: Azure AD B2C
 description: Sécuriser vos échanges de revendications d’API REST dans votre instance Azure AD B2C à l’aide de certificats clients
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835608"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949855"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 
@@ -66,7 +67,7 @@ Après avoir défini `clientCertEnabled` sur *true*, la communication avec votre
 
     ![Chargez la clé de stratégie dans la page Créer une clé du Portail Azure](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
-7. Sélectionnez **Créer**.
+7. Sélectionnez **Create** (Créer).
 
 8. Pour afficher les clés qui sont disponibles dans votre locataire et confirmer que vous avez créé la clé `B2C_1A_B2cRestClientCertificate`, sélectionnez **Clés de stratégie**.
 

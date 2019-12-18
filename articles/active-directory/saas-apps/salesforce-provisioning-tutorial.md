@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120536"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849171"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
@@ -129,6 +129,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 * **SalesforceDuplicateUserName :** L'utilisateur ne peut pas être approvisionné car il dispose d'un attribut 'Username' Salesforce.com qui est dupliqué dans un autre locataire Salesforce.com.  Dans Salesforce.com, les valeurs de l'attribut 'Username' doivent être uniques pour tous les locataires Salesforce.com.  Par défaut, l’attribut userPrincipalName d'un utilisateur dans Azure Active Directory devient son attribut 'Username' dans Salesforce.com.   Deux options s’offrent à vous.  Une option consiste à trouver et à renommer l'utilisateur avec le doublon 'Username' dans l'autre locataire Salesforce.com, si vous administrez également cet autre locataire.  L'autre option consiste à supprimer l'accès de l'utilisateur Azure Active Directory au locataire Salesforce.com auquel votre répertoire est intégré. Nous réessayerons cette opération lors de la prochaine tentative de synchronisation. 
 * **SalesforceRequiredFieldMissing :** Salesforce exige que certains attributs soient présents sur l'utilisateur pour créer ou mettre à jour avec succès cet utilisateur. Il manque à cet utilisateur un des attributs requis. Assurez-vous que tous les utilisateurs que vous souhaitez approvisionner dans Salesforce possèdent des attributs tels que l'e-mail et l'alias. Vous pouvez définir l’étendue des utilisateurs qui n'ont pas ces attributs à l'aide de [filtres d’étendue basés sur des attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Le mappage d'attributs par défaut pour l’approvisionnement dans Salesforce inclut l'expression SingleAppRoleAssignments permettant de mapper appRoleAssignments dans Azure AD à ProfileName dans Salesforce. Assurez-vous que les utilisateurs n'ont pas plusieurs affectations de rôles d'applications dans Azure AD car le mappage d’attributs ne prend en charge qu'un seul rôle. 
+* Salesforce requiert l’approbation manuelle des mises à jour de la messagerie électronique avant leur modification. Par conséquent, vous pouvez voir plusieurs entrées dans les journaux d’approvisionnement pour mettre à jour la messagerie de l’utilisateur (jusqu’à ce que la modification de la messagerie ait été approuvée).
 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires

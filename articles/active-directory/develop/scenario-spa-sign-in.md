@@ -1,5 +1,5 @@
 ---
-title: Application monopage (connexion) - Plateforme d’identités Microsoft
+title: Connexion à une application monopage - Plateforme d’identités Microsoft | Azure
 description: Apprendre à créer une application monopage (connexion)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764642"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962421"
 ---
 # <a name="single-page-application-sign-in"></a>Application monopage : Connexion
 

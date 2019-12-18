@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958629"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997069"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 
@@ -30,7 +30,7 @@ Ce guide explique comment utiliser l’API Microsoft Graph et son Afficheur pour
 * Si ***SkipOutOfScopeDeletions*** est défini sur 0 (false), les comptes qui sortent de l’étendue sont désactivés dans la cible.
 * Si ***SkipOutOfScopeDeletions*** est défini sur 1 (true), les comptes qui sortent de l’étendue ne sont pas désactivés dans la cible. Cet indicateur est défini au niveau de l’*application de provisionnement* et peut être configuré à l’aide de l’API Graph. 
 
-Comme cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes ci-dessous incluent des captures d’écran de l’application Workday. Cependant, elles peuvent servir aussi pour d’autres applications de provisionnement.
+Comme cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes ci-dessous incluent des captures d’écran de l’application Workday. Cependant, elles peuvent aussi être utilisées pour **toutes les autres applications**, comme ServiceNow, Salesforce, Dropbox, etc.
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 

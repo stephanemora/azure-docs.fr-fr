@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028449"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900798"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -94,7 +94,7 @@ Après avoir activé Azure AD Privileged Identity Management :
 
 2. Pour sélectionner le client sur lequel vous souhaitez utiliser Privileged Identity Management, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du portail Azure.
 
-3. Sélectionnez **Tous les services** et filtrez la liste pour rechercher **Azure AD Privileged Identity Management**.
+3. Dans le menu du portail Azure, sélectionnez **Tous les services** et filtrez la liste pour **Azure AD Privileged Identity Management**.
 
 4. Ouvrez Privileged Identity Management à partir de la liste **Tous les services** et épinglez-le à votre tableau de bord.
 
@@ -261,7 +261,7 @@ Si vous utilisez déjà Azure AD Privileged Identity Management, ajustez la plag
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Déterminer l’exposition à des protocoles de connexion basés sur un mot de passe (si vous utilisez Exchange Online)
 
-Auparavant, les protocoles supposaient que les combinaisons de nom d’utilisateur/mot de passe étaient intégrées dans les appareils, comptes de messagerie, téléphones, etc. Or de nos jours, compte tenu du risque de cyber-attaques dans le cloud, nous vous recommandons d’identifier chaque utilisateur potentiel dont la compromission des informations d’identification pourrait être catastrophique pour l’organisation, et de les empêcher de se connecter à leur messagerie via leur nom d’utilisateur/mot de passe en implémentant des exigences d’authentification forte et un accès conditionnel. Vous pouvez bloquer l’[authentification héritée à l’aide de l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Pour en savoir plus, consultez [Bloquer l’authentification de base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online. 
+Auparavant, les protocoles supposaient que les combinaisons de nom d’utilisateur/mot de passe étaient intégrées dans les appareils, comptes de messagerie, téléphones, etc. Or de nos jours, compte tenu du risque de cyber-attaques dans le cloud, nous vous recommandons d’identifier chaque utilisateur potentiel dont la compromission des informations d’identification pourrait être catastrophique pour l’organisation, et de les empêcher de se connecter à leur messagerie via leur nom d’utilisateur/mot de passe en implémentant des exigences d’authentification forte et un accès conditionnel. Vous pouvez bloquer l’[authentification héritée à l’aide de l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Pour plus d’informations, consultez [Bloquer l’authentification de base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange Online. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Effectuer une évaluation de révision des rôles pour les rôles Office 365 (si vous utilisez Office 365)
 

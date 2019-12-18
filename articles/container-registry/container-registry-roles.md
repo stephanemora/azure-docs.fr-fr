@@ -2,17 +2,17 @@
 title: Rôles et les autorisations RBAC
 description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) et la gestion des identités et des accès (IAM) d’Azure pour fournir des autorisations de granularité fine aux ressources dans un registre de conteneurs Azure.
 ms.topic: article
-ms.date: 03/20/2019
-ms.openlocfilehash: 8ef4f26dfd59c7b3b177ef58fa23e08f7e66d328
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 12/02/2019
+ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456242"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893482"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
-Le service Azure Container Registry prend en charge un ensemble de rôles Azure fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) d’Azure pour attribuer des autorisations spécifiques aux utilisateurs ou aux principaux de service qui doivent interagir avec un registre.
+Le service Azure Container Registry prend en charge un ensemble de [rôles Azure intégrés](../role-based-access-control/built-in-roles.md) fournissant des niveaux d’autorisation différents à un registre de conteneurs Azure. Utilisez le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) d’Azure pour attribuer des autorisations spécifiques aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
 
 | Rôle/autorisation       | [Accéder à Resource Manager](#access-resource-manager) | [Créer/supprimer le Registre](#create-and-delete-registry) | [Pousser (push) l’image](#push-image) | [Extraire (pull) l’image](#pull-image) | [Supprimer les données d’image](#delete-image-data) | [Changer de stratégies](#change-policies) |   [Signer les images](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -68,8 +68,25 @@ Possibilité de configurer des stratégies sur un registre. Les stratégies comp
 
 Capacité de signer des images, habituellement affectées à un processus automatique, qui utiliserait un principal de service. Cette autorisation est typiquement associée à un [envoi (push) d’image](#push-image) pour permettre l’envoi d’une image de confiance à un registre. Pour plus d’informations, consultez [Approbation de contenu dans Azure Container Registry](container-registry-content-trust.md).
 
+## <a name="custom-roles"></a>Rôles personnalisés
+
+Comme pour les autres ressources Azure, vous pouvez créer vos propres [rôles personnalisés](../role-based-access-control/custom-roles.md) avec des autorisations affinées pour Azure Container Registry. Attribuez ensuite les rôles personnalisés aux utilisateurs, aux principaux de service ou à d’autres identités qui doivent interagir avec un registre. 
+
+Pour déterminer les autorisations à appliquer à un rôle personnalisé, consultez la liste des [actions](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry) Microsoft.ContainerRegistry, passez en revue les actions autorisées des [rôles ACR intégrés](../role-based-access-control/built-in-roles.md) ou exécutez la commande suivante :
+
+```azurecli
+az provider operation show --namespace Microsoft.ContainerRegistry
+```
+
+Pour définir un rôle personnalisé, consultez [Procédure de création d’un rôle personnalisé](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
+
+> [!IMPORTANT]
+> Dans un rôle personnalisé, Azure Container Registry ne prend actuellement pas en charge les caractères génériques tels que `Microsoft.ContainerRegistry/*` ou `Microsoft.ContainerRegistry/registries/*` qui accordent l’accès à toutes les actions correspondantes. Spécifiez une action requise individuellement dans le rôle.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur l’attribution de rôles RBAC à une identité Azure à l’aide du [portail Azure](../role-based-access-control/role-assignments-portal.md), l’[interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md) ou d’autres outils Azure.
 
 * Apprenez-en davantage sur les [options d’authentification](container-registry-authentication.md) pour Azure Container Registry.
+
+* Apprenez-en davantage sur l’activation des [autorisations étendues au référentiel](container-registry-repository-scoped-permissions.md) (préversion) dans un registre de conteneurs.

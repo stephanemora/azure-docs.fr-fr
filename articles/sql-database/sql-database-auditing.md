@@ -4,19 +4,17 @@ description: Utilisez la fonctionnalité d’audit d’Azure SQL Database pour e
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: e7d79b15b6f55d925713e4ef7e49df391e087162
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687703"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928694"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -154,9 +152,9 @@ Si vous avez choisi d’écrire les journaux d’audit dans un hub d’événeme
 Si vous choisissez d’écrire les journaux d’audit dans un compte de stockage Azure, plusieurs méthodes existent pour afficher les journaux d’activité :
 
 > [!NOTE] 
-> L’audit sur un réplica en lecture seule est automatiquement activé. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions d’affectation de noms et sur le format de journal, consultez la documentation relative au [Format des journaux d’audit SQL Database](sql-database-audit-log-format.md). 
+> L’audit sur les [réplicas en lecture seule](sql-database-read-scale-out.md) est activé automatiquement. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](sql-database-audit-log-format.md). 
 
-- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions d’affectation de noms et sur le format de journal, consultez la documentation relative au [Format des journaux d’audit SQL Database](https://go.microsoft.com/fwlink/?linkid=829599).
+- Les journaux d’audit sont agrégés dans le compte choisi lors de la configuration. Vous pouvez explorer les journaux d’audit avec un outil comme [l’Explorateur de stockage Azure](https://storageexplorer.com/). Dans le stockage Azure, les journaux d’activité d’audit sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**. Pour plus d’informations sur la hiérarchie des dossiers de stockage, sur les conventions de nommage et sur le format des journaux, consultez la documentation relative au [Format des journaux d’audit SQL Database](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Utilisez le [portail Azure](https://portal.azure.com).  Ouvrez la base de données appropriée. En haut de la page **Audit** de la base de données, cliquez sur **Afficher les journaux d’audit**.
 

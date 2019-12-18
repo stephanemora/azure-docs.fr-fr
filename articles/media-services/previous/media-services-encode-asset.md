@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’encodeurs multimédia à la demande Azure | Microsoft Docs
-description: Cette rubrique donne une vue d’ensemble des encodeurs multimédia à la demande Azure.
+description: Azure Media Services fournit plusieurs options pour l’encodage de fichiers multimédias dans le cloud. Cet article donne une vue d’ensemble des encodeurs multimédias à la demande Azure.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019028"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901513"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Vue d’ensemble d’encodeurs multimédia à la demande Azure 
 

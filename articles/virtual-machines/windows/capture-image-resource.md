@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033677"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842056"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
@@ -70,9 +70,9 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Créer une image managée dans le portail 
 
-1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Accédez au [Portail Azure](https://portal.azure.com) pour gérer l’image de machine virtuelle. Recherchez et sélectionnez **Machines virtuelles**.
 
-2. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis cliquez sur la machine virtuelle dans la liste.
+2. Sélectionnez votre machine virtuelle dans la liste.
 
 3. Dans la page **Machine virtuelle** relative à la machine virtuelle, dans le menu supérieur, sélectionnez **Capturer**.
 
@@ -80,7 +80,7 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 4. Pour **nom**, acceptez le nom prérempli ou entrez un nom à utiliser pour l’image.
 
-5. Pour **Groupe de ressources**, sélectionnez **Créer** et tapez un nom, ou sélectionnez **Utiliser un groupe existant** et choisissez un groupe de ressources à utiliser dans la liste déroulante.
+5. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez un nom, ou sélectionnez un groupe de ressources à utiliser dans la liste déroulante.
 
 6. Pour supprimer la machine virtuelle source une fois que l’image a été créée, sélectionnez **Supprimer automatiquement cette machine virtuelle après avoir créé l’image**.
 
@@ -88,7 +88,7 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 8. Sélectionnez **Créer** pour créer l’image.
 
-9. Une fois l’image créée, elle apparaît en tant que ressource **Image** dans la liste des ressources du groupe de ressources.
+Une fois l’image créée, elle apparaît en tant que ressource **Image** dans la liste des ressources du groupe de ressources.
 
 
 

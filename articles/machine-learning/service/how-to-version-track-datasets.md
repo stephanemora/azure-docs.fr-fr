@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6940b6ecc231befba908271920e31d4821338baa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716100"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928953"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Gérer les versions et suivre des jeux de données dans les expériences
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,6 +126,7 @@ Comme les pipelines Machine Learning remplissent la sortie de chaque étape dans
 from azureml.core import Dataset
 from azureml.pipeline.steps import PythonScriptStep
 from azureml.pipeline.core import Pipeline, PipelineData
+from azureml.core. runconfig import CondaDependencies, RunConfiguration
 
 # get input dataset 
 input_ds = Dataset.get_by_name(workspace, 'weather_ds')
@@ -134,10 +135,19 @@ input_ds = Dataset.get_by_name(workspace, 'weather_ds')
 output_ds = PipelineData('prepared_weather_ds', datastore=datastore).as_dataset()
 output_ds = output_ds.register(name='prepared_weather_ds', create_new_version=True)
 
+conda = CondaDependencies.create(
+    pip_packages=['azureml-defaults', 'azureml-dataprep[fuse,pandas]'], 
+    pin_sdk_version=False)
+
+run_config = RunConfiguration()
+run_config.environment.docker.enabled = True
+run_config.environment.python.conda_dependencies = conda
+
 # configure pipeline step to use dataset as the input and output
 prep_step = PythonScriptStep(script_name="prepare.py",
                              inputs=[input_ds.as_named_input('weather_ds')],
                              outputs=[output_ds],
+                             runconfig=run_config,
                              compute_target=compute_target,
                              source_directory=project_folder)
 ```
@@ -146,7 +156,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>Suivre des jeux de données dans les expériences
 
-Pour chaque expérience Machine Learning, vous pouvez facilement suivre les jeux de données utilisés comme entrée via l’objet `Run` du modèle inscrit.
+Pour chaque expérience Machine Learning, vous pouvez facilement suivre les jeux de données utilisés comme entrée via l’objet `Run` de l’expérience.
+
+Le code suivant utilise la méthode [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) pour suivre les jeux de données d’entrée qui ont été utilisés lors de l’exécution de l’expérimentation :
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+Vous pouvez également trouver `input_datasets` à partir d’expériences à l’aide d’[Azure Machine Learning Studio](https://ml.azure.com/). 
+
+L’illustration suivante montre où trouver le jeu de données d’entrée d’une expérience sur Azure Machine Learning Studio. Pour cet exemple, accédez à votre volet **Expériences** et ouvrez l’onglet **Propriétés** pour une exécution spécifique de votre expérience, `keras-mnist`.
+
+![Jeux de données d'entrée](media/how-to-version-datasets/input-datasets.png)
 
 Utilisez le code suivant pour inscrire des modèles avec des jeux de données :
 
@@ -156,26 +183,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou d’[Azure Machine Learning Studio](https://ml.azure.com/).
-
-Le code suivant utilise la méthode [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) pour suivre les jeux de données d’entrée qui ont été utilisés lors de l’exécution de l’expérimentation :
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-Vous pouvez également trouver `input_datasets` à partir d’expériences à l’aide d’[Azure Machine Learning Studio](https://ml.azure.com/). 
-
-L’illustration suivante montre où trouver le jeu de données d’entrée d’une expérience sur Azure Machine Learning Studio. Pour cet exemple, accédez à votre volet **Expériences** et ouvrez l’onglet **Propriétés** pour une exécution spécifique de votre expérience, `keras-mnist`.
-
-![Jeux de données d'entrée](media/how-to-version-datasets/input-datasets.png)
-
-Vous pouvez également trouver les modèles ayant utilisé votre jeu de données. L’affichage suivant est issu du volet **Jeux de données** sous **Ressources**. Sélectionnez le jeu de données, puis sélectionnez l’onglet **Modèles** pour obtenir la liste des modèles qui utilisent ce jeu de données. 
+Après l’inscription, vous pouvez voir la liste des modèles inscrits auprès du jeu de données à l’aide de Python ou d’[Azure Machine Learning Studio](https://ml.azure.com/). L’affichage suivant est issu du volet **Jeux de données** sous **Ressources**. Sélectionnez le jeu de données, puis l’onglet **Modèles** pour obtenir la liste des modèles qui sont inscrits avec le jeu de données. 
 
 ![Jeux de données d'entrée](media/how-to-version-datasets/dataset-models.png)
 

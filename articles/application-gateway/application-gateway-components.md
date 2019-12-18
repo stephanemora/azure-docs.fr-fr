@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348944"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971143"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -53,7 +53,7 @@ Application Gateway prend en charge quatre protocoles : HTTP, HTTPS, HTTP/2 et 
 >La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant aux écouteurs Application Gateway uniquement. La communication avec les pools de serveurs back-end s’effectue toujours sur HTTP/1.1. Par défaut, la prise en charge du protocole HTTP/2 est désactivée. Vous pouvez choisir de l’activer.
 
 - Spécifiez les protocoles HTTP ou HTTPS dans la configuration de l’écouteur.
-- La prise en charge des [protocoles WebSockets et HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
+- La prise en charge des [protocoles WebSockets et HTTP/2](overview.md#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](application-gateway-websocket.md) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
 
 Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS déplace les tâches de chiffrement et de déchiffrement vers votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge.
 
@@ -61,7 +61,7 @@ Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS déplace les
 
 Application Gateway vous permet de créer des pages d’erreur personnalisées qui s’affichent à la place des pages d’erreur par défaut. Vous pouvez utiliser votre marque et votre mise en page personnelle à l’aide d’une page d’erreur personnalisée. Application Gateway affiche une page d’erreur personnalisée quand une requête ne peut pas atteindre le back-end.
 
-Pour plus d’informations, consultez [Pages d’erreur personnalisées pour votre passerelle d’application](https://docs.microsoft.com/azure/application-gateway/custom-error).
+Pour plus d’informations, consultez [Pages d’erreur personnalisées pour votre passerelle d’application](custom-error.md).
 
 ### <a name="types-of-listeners"></a>Types d’écouteur
 
@@ -71,11 +71,11 @@ Il existe deux types d’écouteur :
 
 - **Multisite**. Cette configuration d’écouteur est obligatoire quand vous configurez plusieurs applications web sur la même instance de passerelle d’application. Elle vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle d’application. Chaque site web peut être dirigé vers son propre pool principal. Par exemple, trois sous-domaines, abc.contoso.com, xyz.contoso.com et pqr.contoso.com, pointent vers l’adresse IP de la passerelle d’application. Vous créez trois écouteurs multisites, et vous configurez les paramètres de port et de protocole de chaque écouteur.
 
-    Pour plus d’informations, consultez [Hébergement de plusieurs sites](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    Pour plus d’informations, consultez [Hébergement de plusieurs sites](application-gateway-web-app-overview.md).
 
 Après avoir créé un écouteur, vous devez l’associer à une règle de routage de requête. Cette règle détermine la manière dont la requête reçue sur l’écouteur doit être routée vers le back-end.
 
-Application Gateway traite les écouteurs dans l’ordre indiqué. Si l’écouteur de base correspond à une requête entrante, elle est traitée en premier. Pour router le trafic vers le back-end approprié, configurez un écouteur multisite avant un écouteur de base.
+Application Gateway traite les écouteurs dans l’[ordre indiqué](configuration-overview.md#order-of-processing-listeners).
 
 ## <a name="request-routing-rules"></a>Règles de routage des requêtes
 
@@ -89,7 +89,7 @@ Il existe deux types de règle de routage des requêtes :
 
 - **Basé sur le chemin**. Ce type de règle de routage vous permet de router les requêtes de l’écouteur associé vers un pool de back-ends spécifique, en fonction de l’URL de la requête. Si le chemin de l’URL d’une requête correspond au modèle de chemin d’une règle basée sur le chemin, la règle route cette requête. Elle applique le modèle de chemin uniquement au chemin de l’URL. Elle ne l’applique pas à ses paramètres de requête. Si le chemin de l’URL d’une requête d’écouteur ne correspond à aucune des règles basées sur le chemin, elle route la requête vers le pool de back-ends et les paramètres HTTP par défaut.
 
-Pour plus d’informations, consultez [Routage basé sur des URL](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
+Pour plus d’informations, consultez [Routage basé sur des URL](url-route-overview.md).
 
 ### <a name="redirection-support"></a>Prise en charge de la redirection
 
@@ -97,7 +97,7 @@ La règle de routage de requête vous permet également de rediriger le trafic v
 
 Vous pouvez choisir si la cible de redirection doit être un autre écouteur (ce qui permet d’activer la redirection automatique de HTTP vers HTTPS) ou un site externe. Vous pouvez également choisir si la redirection doit être temporaire ou permanente, ou si le chemin de l’URI et la chaîne de requête doivent être ajoutés à l’URL redirigée.
 
-Pour plus d’informations, consultez [Rediriger le trafic vers votre passerelle d’application](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+Pour plus d’informations, consultez [Rediriger le trafic vers votre passerelle d’application](redirect-overview.md).
 
 ### <a name="rewrite-http-headers"></a>Réécrire les en-têtes HTTP
 
@@ -105,7 +105,7 @@ Pour plus d’informations, consultez [Rediriger le trafic vers votre passerelle
 
 Vous pouvez affecter aux en-têtes des valeurs statiques ou d’autres en-têtes et variables de serveur. Cela facilite les cas d’usage importants, tels que l’extraction d’adresses IP des clients, la suppression d’informations sensibles relatives au back-end, le renforcement de la sécurité, etc.
 
-Pour plus d’informations, consultez [Réécrire les en-têtes HTTP sur votre passerelle d’application](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Pour plus d’informations, consultez [Réécrire les en-têtes HTTP sur votre passerelle d’application](rewrite-http-headers.md).
 
 ## <a name="http-settings"></a>Paramètres HTTP
 
@@ -115,9 +115,9 @@ Le port et le protocole utilisés dans les paramètres HTTP permettent de déter
 
 Ce composant est également utilisé pour :
 
-- Déterminer si une session utilisateur doit être conservée sur le même serveur à l’aide de l’[affinité de session basée sur les cookies](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)
+- Déterminer si une session utilisateur doit être conservée sur le même serveur à l’aide de l’[affinité de session basée sur les cookies](overview.md#session-affinity)
 
-- Supprimer de manière appropriée les membres du pool de back-ends à l’aide du [drainage de connexion](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining)
+- Supprimer de manière appropriée les membres du pool de back-ends à l’aide du [drainage de connexion](overview.md#connection-draining)
 
 - Associer un probe personnalisé pour superviser l’intégrité du back-end, définir le délai d’expiration de la requête, remplacer le nom d’hôte et le chemin dans la requête, et permettre de spécifier en un clic les paramètres du back-end App Service
 
@@ -134,7 +134,7 @@ Un pool de back-ends route la requête vers les back-ends, qui traitent la requ�
 
 Les membres du pool de back-ends Application Gateway ne sont pas liés à un groupe à haute disponibilité. Une passerelle d’application peut communiquer avec des instances extérieures au réseau virtuel dans lequel elle se trouve. Ainsi, les membres des pools de back-ends peuvent se trouver sur des clusters, des centres de données ou en dehors d’Azure, à condition qu’il existe une connectivité IP.
 
-Si vous employez des adresses IP internes en tant que membres de pool de back-ends, vous devez utiliser le [Peering de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou une [passerelle VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Le peering de réseaux virtuels est pris en charge et sert à l’équilibrage de charge du trafic des autres réseaux virtuels.
+Si vous employez des adresses IP internes en tant que membres de pool de back-ends, vous devez utiliser le [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) ou une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Le peering de réseaux virtuels est pris en charge et sert à l’équilibrage de charge du trafic des autres réseaux virtuels.
 
 Une passerelle d’application peut également communiquer avec des serveurs locaux quand ils sont connectés par Azure ExpressRoute ou des tunnels VPN, si le trafic est autorisé.
 
@@ -146,7 +146,7 @@ Par défaut, une passerelle d’application supervise l’intégrité de toutes 
 
 En plus d’utiliser la surveillance par sonde d’intégrité par défaut, vous pouvez aussi personnaliser la sonde d’intégrité pour répondre aux exigences de votre application. Les sondes personnalisées permettent un contrôle plus précis de la supervision de l’intégrité. Quand vous utilisez des sondes personnalisées, vous pouvez configurer l’intervalle des sondes, l’URL et le chemin à tester ainsi que le nombre d’échecs de réponses à accepter avant de marquer l’instance de pool de back-ends comme étant non saine. Nous vous recommandons de configurer des sondes personnalisées pour superviser l’intégrité de chaque pool de back-ends.
 
-Pour plus d’informations, consultez [Superviser l’intégrité de votre passerelle d’application](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+Pour plus d’informations, consultez [Superviser l’intégrité de votre passerelle d’application](../application-gateway/application-gateway-probe-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

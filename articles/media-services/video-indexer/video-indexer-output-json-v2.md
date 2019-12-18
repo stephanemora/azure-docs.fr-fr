@@ -1,25 +1,30 @@
 ---
 title: Examiner la sortie de Video Indexer Azure Media Services générée par l’API v2
 titleSuffix: Azure Media Services
-description: Cette rubrique examine la sortie de Video Indexer générée par l’API v2.
+description: Cette rubrique examine la sortie de Video Indexer Azure Media Services générée par l’API v2.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: 0a42c2dce3976a1bf83c85644f56f4c1d8abc9c8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839536"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978302"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
 
 Si vous appelez l’API **Get Video Index** (Obtenir un index vidéo) et si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse. Le contenu JSON détaille les insights des vidéos spécifiées. Ces insights incluent des dimensions telles que des transcriptions, des OCR, des visages, des rubriques, des blocs, etc. Les dimensions comptent des instances d’intervalles de temps qui indiquent le moment auquel chaque dimension apparaît dans la vidéo.  
+
+1. Pour récupérer le fichier JSON, appelez [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
+1. Si vous êtes également intéressé par des artefacts spécifiques, appelez [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
+
+    Dans l’appel d’API, spécifiez le type d’artefact demandé (OCR, Faces, Key frames etc.)
 
 Vous pouvez également examiner visuellement les insights résumés de la vidéo en appuyant sur le bouton **Lire** sur le site web [Video Indexer](https://www.videoindexer.ai/). Pour plus d’informations, voir [View and edit video insights](video-indexer-view-edit.md) (Afficher et modifier les insights des vidéos).
 

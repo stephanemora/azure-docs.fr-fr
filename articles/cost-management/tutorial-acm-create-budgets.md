@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: edb46bc361c515439a93d9c3d0b9987bebe4b1b1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4b0e5be0e5f71fa61e3a6c6fa39e720c4c298898
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229873"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967936"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -27,7 +27,7 @@ Les budgets sont automatiquement réinitialisés à la fin d’une période (men
 
 Les exemples de ce tutoriel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
 
-Regardez la vidéo de [création d’un budget pour surveiller vos dépenses avec Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) pour voir comment vous pouvez créer des budgets dans Azure pour surveiller les dépenses.
+Regardez la vidéo [Appliquer des budgets aux abonnements à l’aide du Portail Azure](https://www.youtube.com/watch?v=UrkHiUx19Po) pour voir comment vous pouvez créer des budgets dans Azure afin de surveiller les dépenses.
 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
@@ -62,7 +62,7 @@ Pour créer ou afficher un budget, ouvrez l’étendue souhaitée dans le Portai
 
 Une fois des budgets créés, ils affichent une vue simple de vos dépenses actuelles par rapport à ces budgets.
 
-Cliquez sur **Add**.
+Sélectionnez **Ajouter**.
 
 ![Exemple de liste de budgets déjà créés](./media/tutorial-acm-create-budgets/budgets01.png)
 
@@ -78,7 +78,7 @@ Selon les champs choisis dans le budget jusqu’à présent, un graphique s’af
 
 ![Exemple de création de budget avec des données de coût mensuel ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Après avoir configuré le montant du budget, cliquez sur **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement reçues en moins de 20 heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md). Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets).
+Après avoir configuré le montant du budget, sélectionnez **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement reçues en moins de 20 heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md). Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints. Si vous créez un budget avec l’API Budgets, vous pouvez également attribuer des rôles à des personnes pour qu’elles reçoivent des alertes. L’attribution de rôles à des personnes n’est pas prise en charge dans le Portail Azure. Pour plus d’informations sur l’API Budgets d’Azure, consultez [API Budgets](/rest/api/consumption/budgets).
 
 ![Exemple de conditions d’alerte](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -94,12 +94,12 @@ Lorsque vous créez ou modifiez un budget pour l’étendue d’un abonnement ou
 
 
 
-Pour créer ou mettre à jour des groupes d’actions, cliquez sur **Gérer les groupes d’actions** pendant la création ou la modification d’un budget.
+Pour créer ou mettre à jour des groupes d’actions, sélectionnez **Gérer les groupes d’actions** pendant la création ou la modification d’un budget.
 
 ![Exemple de création d’un budget pour afficher Gérer les groupes d’actions](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
 
 
-Cliquez ensuite sur **Ajouter un groupe d’actions** et créez le groupe d’actions.
+Sélectionnez ensuite **Ajouter un groupe d’actions** et créez le groupe d’actions.
 
 
 ![Image de la zone Ajouter un groupe d’actions](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
@@ -115,6 +115,12 @@ L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 10
 ![Exemple montrant des conditions d’alerte configurées avec divers groupes d’actions et le type d’actions](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 L’intégration au budget avec les groupes d’actions ne fonctionne que pour les groupes d’actions pour lesquels le schéma d’alerte commun est désactivé. Pour plus d’informations sur la désactivation du schéma, consultez [Comment activer le schéma d’alerte commun ?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+
+## <a name="edit-an-existing-budget"></a>Modifier un budget existant
+Si vous souhaitez apporter des modifications à un budget existant, accédez à la fenêtre principale des budgets et sélectionnez le budget que vous souhaitez modifier. Dans la fenêtre Détails du budget, sélectionnez **Modifier le budget** et apportez les modifications nécessaires, puis sélectionnez **Enregistrer**.
+
+![Exemple de modification du budget](./media/tutorial-acm-create-budgets/edit-budget.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

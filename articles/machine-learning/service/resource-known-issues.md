@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ed67981a79e2bc998d0f1f64858206243c0a7070
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784610"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997205"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -90,9 +90,22 @@ Les graphiques de classification binaire (rappel de précision, ROC, obtenir la 
 
 Il s’agit de problèmes connus pour les jeux de données Azure Machine Learning.
 
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>Type d’erreur : FileNotFound: No such file or directory
+
+Cette erreur se produit si le chemin d’accès au fichier que vous fournissez n’est pas l’emplacement du fichier. Vous devez vous assurer que la façon dont vous faites référence au fichier est cohérente avec l’emplacement où vous avez monté votre jeu de données sur votre cible de calcul. Pour garantir un état déterministe, nous vous recommandons d’utiliser le chemin d’accès abstrait lors du montage d’un jeu de données sur une cible de calcul. Par exemple, dans le code suivant, nous montons le jeu de données sous la racine du système de fichiers de la cible de calcul, `/tmp`. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+Si vous n’incluez pas la barre oblique « / » de début, vous devez préfixer le répertoire de travail, par exemple `/mnt/batch/.../tmp/dataset`, sur la cible de calcul pour indiquer l’emplacement où vous souhaitez monter le jeu de données. 
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>Échec de la lecture du fichier Parquet à partir de HTTP ou ADLS Gen 2
 
-Il existe un problème connu dans le kit de développement logiciel (SDK) AzureML DataPrep version 1.1.25 qui provoque un échec lors de la création d’un jeu de données en lisant les fichiers Parquet à partir de HTTP ou ADLS Gen 2. Elle échouera avec `Cannot seek once reading started.`. Pour résoudre ce problème, effectuez une mise à niveau de `azureml-dataprep` vers une version ultérieure à 1.1.26 ou passez à une version antérieure à 1.1.24.
+Il existe un problème connu dans la version 1.1.25 du Kit de développement logiciel (SDK) AzureML DataPrep qui provoque un échec lors de la création d’un jeu de données en lisant les fichiers Parquet à partir de HTTP ou ADLS Gen 2. Elle échouera avec `Cannot seek once reading started.`. Pour résoudre ce problème, effectuez une mise à niveau de `azureml-dataprep` vers une version ultérieure à 1.1.26 ou passez à une version antérieure à 1.1.24.
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -128,7 +141,7 @@ Si vous utilisez les fonctionnalités de machine learning automatisé sur Azure 
 
 Dans les paramètres de machine learning automatisé, si vous avez plus de 10 itérations, définissez `show_output` sur `False` lorsque vous soumettez l’exécution.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget pour le Kit de développement logiciel (SDK) Azure Machine Learning/apprentissage automatique automatisé
+### <a name="widget-for-the-azure-machine-learning-sdk-and-automated-machine-learning"></a>Widget pour le Kit de développement logiciel (SDK) Azure Machine Learning et le Machine Learning automatisé
 
 Le widget du Kit de développement logiciel (SDK) Azure Machine Learning n’est pas pris en charge dans un notebook Azure Databricks, car les notebooks ne peuvent pas analyser les widgets HTML. Vous pouvez afficher le widget dans le portail à l’aide de ce code Python dans la cellule du notebook Azure Databricks :
 
@@ -215,7 +228,7 @@ Les mises à jour des composants Azure Machine Learning installés dans un clust
 > [!WARNING]
 > Avant d’effectuer les actions suivantes, vérifiez la version de votre cluster Azure Kubernetes Service. Si la version du cluster est supérieure ou égale à 1.14, vous ne pourrez pas rattacher votre cluster à l’espace de travail Azure Machine Learning.
 
-Vous pouvez appliquer ces mises à jour en détachant le cluster de l’espace de travail Azure Machine Learning, puis en réattachant le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
+Vous pouvez appliquer ces mises à jour en détachant le cluster de l’espace de travail Azure Machine Learning, puis en rattachant le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -248,23 +261,34 @@ kubectl get secret/azuremlfessl -o yaml
 ## <a name="recommendations-for-error-fix"></a>Suggestions pour la correction d’erreurs
 Suite à une observation générale, voici les suggestions d’Azure ML pour résoudre certaines erreurs courantes dans Azure ML.
 
+### <a name="metric-document-is-too-large"></a>Le document métrique est trop volumineux
+Azure Machine Learning service a des limites internes sur la taille des objets métriques qui peuvent être enregistrés simultanément à partir d’une exécution de formation. Si vous rencontrez une erreur « Le document de métrique est trop volumineux » lors de l’enregistrement d’une mesure de liste, essayez de fractionner la liste en segments plus petits, par exemple :
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+ En interne, le service d’historique des exécutions concatène les blocs portant le même nom métrique dans une liste contiguë.
+
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (aucun module nommé)
 Si vous rencontrez des erreurs de module (ModuleErrors) lors de la soumission d’expériences dans Azure ML, cela signifie que le script d’apprentissage attend qu’un package soit installé, mais qu’il n’est pas ajouté. Une fois que vous avez fourni le nom du package, Azure ML installe le package dans l’environnement utilisé pour l’apprentissage. 
 
 Si vous utilisez des [Estimateurs](concept-azure-machine-learning-architecture.md#estimators) pour soumettre des expériences, vous pouvez spécifier un nom de package à l’aide du paramètre `pip_packages` ou `conda_packages` dans l’estimateur en fonction de la source à partir de laquelle vous souhaitez installer le package. Vous pouvez également spécifier un fichier yml avec toutes vos dépendances à l’aide de `conda_dependencies_file` ou répertorier toutes vos exigences PIP dans un fichier txt à l’aide du paramètre `pip_requirements_file`.
 
-Azure ML fournit également des estimateurs spécifiques de l’infrastructure pour Tensorflow, PyTorch, Chainer et SKLearn. À l’aide de ces estimateurs, assurez-vous que les dépendances d’infrastructure sont installées pour vous dans l’environnement utilisé pour l’apprentissage. Vous avez la possibilité de spécifier des dépendances supplémentaires comme décrit ci-dessus. 
+Azure ML fournit également des estimateurs spécifiques à l’infrastructure pour Tensorflow, PyTorch, Chainer et SKLearn. À l’aide de ces estimateurs, assurez-vous que les dépendances d’infrastructure sont installées pour vous dans l’environnement utilisé pour l’apprentissage. Vous avez la possibilité de spécifier des dépendances supplémentaires comme décrit ci-dessus. 
  
- Azure ML a géré les images Docker dont le contenu est visible dans [AzureML Containers](https://github.com/Azure/AzureML-Containers).
-Les dépendances spécifiques de l’infrastructure sont répertoriées dans la documentation de celle-ci, [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+Azure ML a géré les images Docker dont le contenu est visible dans [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Les dépendances spécifiques à l’infrastructure sont répertoriées dans la documentation de l’infrastructure correspondante, [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks) et [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
 
->[Remarque] Si vous pensez qu’un package est suffisamment courant pour être ajouté dans des environnements et images gérés Azure ML, soulevez un problème GitHub dans [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+> [!Note]
+> Si vous pensez qu’un package particulier est suffisamment courant pour être ajouté dans des environnements et images gérés par Azure ML, signalez un problème GitHub dans [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (nom non défini), AttributeError (objet sans attribut)
 Cette exception doit provenir de vos scripts d’apprentissage. Vous pouvez consulter les fichiers journaux du portail Azure pour obtenir des informations supplémentaire sur l’erreur de nom non défini ou d’attribut. À partir du Kit de développement logiciel (SDK), vous pouvez utiliser `run.get_details()` pour examiner le message d’erreur. Cette opération répertorie également tous les fichiers journaux générés pour votre exécution. Veillez à examiner votre script d’apprentissage et à corriger l’erreur avant de réessayer. 
 
-### <a name="horovod-is-shutdown"></a>Horovod est arrêté
-Dans la plupart des cas, cette exception signifie qu’une exception sous-jacente dans l’un des processus à entraîné l’arrêt de horovod. Chaque rang dans le travail MPI obtient son propre fichier journal dédié dans Azure ML. Ces journaux sont nommés `70_driver_logs`. Dans le cas d’un apprentissage distribué, les noms de journaux sont suivis du suffixe `_rank` pour faciliter leur différenciation. Pour trouver l’erreur exacte qui a provoqué l’arrêt de horovod, parcourez tous les fichiers journaux et recherchez `Traceback` à la fin des fichiers driver_log. L’un de ces fichiers indiquera l’exception sous-jacente réelle. 
+### <a name="horovod-is-shut-down"></a>Horovod est arrêté
+Dans la plupart des cas, cette exception signifie qu’une exception sous-jacente dans l’un des processus a entraîné l’arrêt de horovod. Chaque rang dans le travail MPI obtient son propre fichier journal dédié dans Azure ML. Ces journaux sont nommés `70_driver_logs`. Dans le cas d’un apprentissage distribué, les noms de journaux sont suivis du suffixe `_rank` pour faciliter leur différenciation. Pour trouver l’erreur exacte qui a provoqué l’arrêt de horovod, parcourez tous les fichiers journaux et recherchez `Traceback` à la fin des fichiers driver_log. L’un de ces fichiers indiquera l’exception sous-jacente réelle. 
 
 ## <a name="labeling-projects-issues"></a>Problèmes d’étiquetage des projets
 
@@ -282,6 +306,6 @@ Actualisez la page manuellement. L’initialisation doit se faire à environ 20�
 
 Pour charger toutes les images étiquetées, choisissez le bouton **Premier**. Le bouton **Premier** vous ramène au début de la liste, mais charge toutes les données étiquetées.
 
-### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Un appui sur la touche Échap lors de l’étiquetage pour la détection d’objets crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>Appuyer sur la touche Échap lors de l’étiquetage pour la détection d’objet crée une étiquette de taille zéro dans l’angle supérieur gauche. L’envoi d’étiquettes dans cet état échoue.
 
 Pour supprimer l’étiquette, cliquez sur la croix en regard de celle-ci.

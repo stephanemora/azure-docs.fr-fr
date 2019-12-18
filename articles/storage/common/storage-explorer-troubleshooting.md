@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775831"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931205"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -301,7 +301,7 @@ Vous pouvez aussi télécharger l’application sous forme de fichier. tar. gz, 
 
 Les packages suivants correspondent aux exigences les plus courantes pour l'Explorateur Stockage sous Linux :
 
-* [Runtime .NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [Runtime .NET Core 2.2](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` ou `libgnome-keyring-dev`
 * `libgnome-keyring-common`

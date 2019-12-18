@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766784"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997137"
 ---
 # <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -27,7 +27,7 @@ Cet article explique la page **Mise en réseau** de la section de sécurité des
 
 Pour obtenir la liste complète des recommandations relatives à la mise en réseau, consultez [Recommandations relatives à la mise en réseau](recommendations-network.md).
 
-Cet article traite des suggestions relatives à la sécurité réseau qui s’appliquent à vos ressources Azure. Les suggestions relatives à la mise en réseau se concentrent autour des pare-feux nouvelle génération, des groupes de sécurité réseau, des règles de trafic entrant trop permissives concernant l’accès juste-à-temps aux machines virtuelles, et bien plus encore. Pour obtenir la liste des suggestions relatives à la mise en réseau et des actions de correction, consultez [Gestion des suggestions de sécurité dans Azure Security Center.](security-center-recommendations.md)
+Cet article traite des suggestions relatives à la sécurité réseau qui s’appliquent à vos ressources Azure. Les suggestions relatives aux réseaux concernent les pare-feux nouvelle génération, les groupes de sécurité réseau, les règles de trafic entrant trop permissives concernant l’accès juste-à-temps aux machines virtuelles et plus encore. Pour obtenir la liste des suggestions relatives à la mise en réseau et des actions de correction, consultez [Gestion des suggestions de sécurité dans Azure Security Center.](security-center-recommendations.md)
 
 > [!NOTE]
 > La page **Mise en réseau** vous permet d’en apprendre davantage sur l’intégrité de vos ressources Azure relative au réseau. Le mappage réseau et les contrôles réseau adaptatifs sont disponibles pour le niveau standard d’Azure Security Center uniquement. [Si vous utilisez le niveau gratuit, vous pouvez cliquer sur le bouton pour **Afficher la mise en réseau héritée** et recevoir des suggestions de ressources de mise en réseau](#legacy-networking).

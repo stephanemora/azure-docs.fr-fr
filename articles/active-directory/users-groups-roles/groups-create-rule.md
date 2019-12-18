@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027239"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900930"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
 
@@ -47,10 +47,10 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 ## <a name="to-create-a-group-membership-rule"></a>Pour créer une règle d’appartenance à un groupe
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans le locataire.
-1. Sélectionnez **Groupes**.
+1. Recherchez et sélectionnez **Groupes**.
 1. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
 
-   ![Sélectionnez la commande pour ajouter le nouveau groupe](./media/groups-create-rule/new-group-creation.png)
+   ![Sélectionnez la commande pour ajouter le nouveau groupe](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. Dans la page **Groupe**, entrez le nom et la description du nouveau groupe. Sélectionnez un **Type d’appartenance** pour les utilisateurs ou les appareils, puis sélectionnez **Ajouter une requête dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
 
@@ -88,7 +88,7 @@ Les messages d’état suivants peuvent être affichés pour l’état **Derniè
 - **En cours** : les mises à jour sont en cours d’exécution.
 - **Inconnue** : impossible de récupérer l’heure de la dernière mise à jour. Le groupe est peut-être nouveau.
 
-Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
+Si une erreur se produit lors du traitement de la règle d’appartenance pour un groupe spécifique, une alerte s’affiche en haut de la page **Vue d’ensemble** du groupe. Si aucune mise à jour d’appartenance dynamique en attente ne peut être traitée pour tous les groupes au sein du locataire pendant plus de 24 heures, une alerte s’affiche en haut de **Tous les groupes**.
 
 ![alertes de message d’erreur de traitement](./media/groups-create-rule/processing-error.png)
 

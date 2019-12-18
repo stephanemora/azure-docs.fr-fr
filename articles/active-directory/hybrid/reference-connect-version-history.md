@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944223"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922290"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -38,9 +38,23 @@ Téléchargement| [Téléchargez Azure AD Connect](https://go.microsoft.com/fwli
 Pendant que nous effectuons ce processus, le numéro de la version s’affiche avec un « X » en position de numéro de version mineure, comme dans « 1.3.X.0 ». Cela indique que les notes de publication de ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous aurons finalisé le processus de publication, le numéro de version sera mis à jour vers la version la plus récente, et l’état de lancement sera mis à jour vers « Lancé pour le téléchargement et la mise à niveau automatique ».
 La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](how-to-connect-install-automatic-upgrade.md)
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>État de la version
+6/12/2019 : Publication pour le téléchargement. Non disponible par le biais de la mise à niveau automatique.
+### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
+- Nous avons mis à jour la synchronisation du hachage de mot de passe pour Azure AD Domain Services afin de prendre en compte le remplissage dans les hachages Kerberos.  Cela permet d’améliorer les performances pendant la synchronisation du mot de passe d’AAD avec Azure AD Domain Services.
+- Nous avons ajouté la prise en charge de sessions fiables entre l’agent d’authentification et Service Bus.
+- Cette version applique TLS 1.2 pour la communication entre l’agent d’authentification et les services cloud.
+- Nous avons ajouté un cache DNS pour les connexions WebSocket entre l’agent d’authentification et les services cloud.
+- Nous avons ajouté la possibilité de cibler un agent spécifique à partir du cloud pour tester la connectivité de l’agent.
+
+### <a name="fixed-issues"></a>Problèmes résolus
+- La version 1.4.18.0 comportait un bogue où l’applet de commande PowerShell pour DSSO utilisait les informations d’identification Windows de connexion au lieu des informations d’identification d’administrateur fournies lors de l’exécution de PowerShell. Par conséquent, il n’était pas possible d’activer DSSO dans plusieurs forêts par le biais de l’interface utilisateur AADConnect. 
+- Un correctif a été effectué pour activer DSSO simultanément dans toutes les forêts par le biais de l’interface utilisateur AADConnect
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>État de la version
-08/11/2019 : publiée pour téléchargement. Non disponible pour la mise à niveau automatique
+08/11/2019 : publiée pour téléchargement. Non disponible par le biais de la mise à niveau automatique.
 
 >[!IMPORTANT]
 >En raison d’une modification de schéma interne dans cette version d’Azure AD Connect, si vous gérez les paramètres de configuration d’une relation d’approbation ADFS à l’aide de MSOnline PowerShell, vous devez mettre à jour votre module MSOnline PowerShell vers la version 1.1.183.57 ou ultérieure
@@ -70,7 +84,7 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 
 
 ### <a name="release-status"></a>État de la version
-25/9/2019 : Suppression du téléchargement manuel jusqu’à la fin des recherches sur l’incident.
+25/9/2019 : Publiée pour la mise à niveau automatique uniquement.
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 - De nouveaux outils de résolution des problèmes permettent de corriger les scénarios « utilisateur non synchronisé », « groupe non synchronisé » ou « membre de groupe non synchronisé ».

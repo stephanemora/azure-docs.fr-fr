@@ -1,22 +1,22 @@
 ---
-title: Fonctions d’expression de la fonctionnalité de flux de données de mappage d’Azure Data Factory
+title: Fonctions d’expression dans le flux de données de mappage
 description: Découvrez les fonctions d’expression du flux de données de mappage.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 230305b66ec093043e4c2dca9515da4ce0793712
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596963"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930373"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressions de transformation de données dans le flux de données de mappage 
-
-
 
 ## <a name="expression-functions"></a>Fonctions d’expression
 
@@ -312,7 +312,7 @@ La fonction CumeDist calcule la position d’une valeur par rapport à toutes le
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Obtient la date à laquelle l’exécution du travail commence. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient la date à laquelle l’exécution du travail commence. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``currentDate() == toDate('2250-12-31') -> false``
 
@@ -465,7 +465,7 @@ Retourne le plus grand entier qui n’est pas supérieur au nombre
 ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convertit vers l’horodatage à partir du temps universel coordonné. Vous pouvez, si vous le souhaitez, passer un fuseau horaire au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Il est défini par défaut sur le SimpleDateFormat du timezoneRefer Java pour les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Convertit vers l’horodatage à partir du temps universel coordonné. Vous pouvez, si vous le souhaitez, passer un fuseau horaire au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Il est défini par défaut sur le SimpleDateFormat du timezoneRefer Java pour les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 
@@ -515,7 +515,7 @@ Vérifie une valeur de colonne par son nom dans le flux de données. Vous pouvez
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtient la valeur d’heure d’un horodatage. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient la valeur d’heure d’un horodatage. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
 
@@ -863,7 +863,7 @@ Selon certains critères, obtient la moyenne des valeurs d’une colonne. Identi
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtient la valeur en millisecondes d'une date. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient la valeur en millisecondes d'une date. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 
@@ -908,7 +908,7 @@ Soustrait des nombres. Soustrait un nombre de jours à partir d’une date. Sous
 ___
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtient la valeur de minute d’un horodatage. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient la valeur de minute d’un horodatage. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
 
@@ -940,7 +940,7 @@ Obtient la valeur de mois d’une date ou d’un horodatage
 ___
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Obtient le nombre de mois entre deux dates. Vous pouvez arrondir le résultat du calcul. Vous pouvez transmettre un fuseau horaire facultatif au format « GMT », « PST », « UTC », « America/Caïman ». Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient le nombre de mois entre deux dates. Vous pouvez arrondir le résultat du calcul. Vous pouvez transmettre un fuseau horaire facultatif au format « GMT », « PST », « UTC », « America/Caïman ». Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
 
@@ -1181,7 +1181,7 @@ Supprime une chaîne de caractères de début situés sur la droite. Si le deuxi
 ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Obtient la deuxième valeur d’une date. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Obtient la deuxième valeur d’une date. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Le fuseau horaire local est utilisé comme valeur par défaut. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
 
@@ -1536,7 +1536,7 @@ Convertit un type de données primitif en une chaîne. Vous pouvez spécifier un
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convertit une chaîne en timestamp en fonction d’un format de timestamp facultatif. Pour connaître tous les formats possibles, reportez-vous à Java SimpleDateFormat. Si l’horodatage est omis, le modèle par défaut est utilisé : aaaa-[M]M-[j]j hh:mm:ss[.f...]. Vous pouvez passer un fuseau horaire facultatif au format « GMT », « PST », « UTC », « America/Caïmans ». L’horodatage prend en charge une précision de l’ordre de la milliseconde avec la valeur 999. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Convertit une chaîne en timestamp en fonction d’un format de timestamp facultatif. Pour connaître tous les formats possibles, reportez-vous à Java SimpleDateFormat. Si l’horodatage est omis, le modèle par défaut est utilisé : aaaa-[M]M-[j]j hh:mm:ss[.f...]. Vous pouvez passer un fuseau horaire facultatif au format « GMT », « PST », « UTC », « America/Caïmans ». L’horodatage prend en charge une précision de l’ordre de la milliseconde avec la valeur 999. Reportez-vous au SimpleDateFormat de Java pour connaître les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 
@@ -1549,7 +1549,7 @@ Convertit une chaîne en timestamp en fonction d’un format de timestamp facult
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Convertit l’horodatage au format UTC. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Il est défini par défaut sur le SimpleDateFormat du timezoneRefer Java pour les formats disponibles. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html )
+Convertit l’horodatage au format UTC. Vous pouvez passer un fuseau horaire facultatif au format 'GMT', 'PST', 'UTC', 'Amérique/Caïmans'. Il est défini par défaut sur le SimpleDateFormat du timezoneRefer Java pour les formats disponibles. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 
 * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 

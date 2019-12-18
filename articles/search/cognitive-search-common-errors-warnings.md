@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555046"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973966"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -307,3 +307,9 @@ Les [modes d’analyse de l’indexeur](https://docs.microsoft.com/rest/api/sear
 Si aucune marque d’ordre d’octet n’est présente, le texte est supposé être encodé au format UTF-8.
 
 Pour contourner cet avertissement, déterminez l’encodage de texte pour ce blob et ajoutez la marque d’ordre d’octet appropriée.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avertissement : La collection « X » de Cosmos DB a une stratégie d’indexation différée. Certaines données peuvent être perdues.
+
+Les collections dotées de stratégies d’indexation [différée](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) ne peuvent pas être interrogées de manière cohérente, ce qui entraîne une absence de données dans votre indexeur. Pour contourner cet avertissement, modifiez votre stratégie d’indexation sur Cohérent.

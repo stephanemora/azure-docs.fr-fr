@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173106"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892565"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -70,6 +70,18 @@ La sauvegarde pour les partages de fichiers Azure est actuellement en préversio
 - US Gov Arizona (UGA)
 - US Gov Texas (UGT)
 - US Gov Virginie (UGV)
+- Australie Centre (ACL)
+- Inde Ouest (INW)
+- Afrique du Sud Nord (SAN)
+- Émirats arabes unis Nord (UAN)
+- France Centre (FRC)
+- Allemagne Nord (GN)                       
+- Allemagne Centre-Ouest (GWC)
+- Afrique du Sud Ouest (SAW)
+- Émirats arabes unis Centre (UAC)
+- NWE (Norvège Est)     
+- NWW (Norvège Ouest)
+- SZN (Suisse Nord)
 
 Écrivez à [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) si vous souhaitez l’utiliser dans une région qui n’est pas spécifiée ci-dessus.
 

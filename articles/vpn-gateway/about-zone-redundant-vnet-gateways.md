@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725596"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896647"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure
 
@@ -39,21 +39,9 @@ Pour le déploiement de passerelles dans une zone spécifique, vous pouvez utili
 
 ## <a name="gwskus"></a>SKU de passerelle
 
-Les passerelles zonales et redondantes interzone sont disponibles en tant que nouvelles références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes interzone.
+Les passerelles zonales et redondantes interzone sont disponibles en tant que nouvelles références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes interzone. Vous pouvez identifier ces références SKU par le « AZ » dans leur nom.
 
-Les nouvelles références SKU de passerelle sont :
-
-### <a name="vpn-gateway"></a>Passerelle VPN
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+Pour plus d’informations sur les références SKU de passerelle, consultez [SKU de passerelle VPN](vpn-gateway-about-vpngateways.md#gwsku) et [SKU de passerelle ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku).
 
 ## <a name="pipskus"></a>Références SKU d’adresse IP publique
 

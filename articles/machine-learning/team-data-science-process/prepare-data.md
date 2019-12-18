@@ -1,5 +1,5 @@
 ---
-title: Nettoyer et préparer des données pour Azure Machine Learning - Team Data Science Process
+title: Préparer les données pour ML Studio (classique) – Team Data Science Process
 description: Prétraitez et nettoyez les données afin de les préparer pour les utiliser efficacement dans le cadre d’un apprentissage automatique.
 services: machine-learning
 author: marktab
@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2b3ec3352d6e1939b195bbba87b8a824404346ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0754f7ac85976b5ef307bf1266d26a9380ab1c6
+ms.sourcegitcommit: 6e42ce0ca0a7ac572398e9d024fcf69906670d74
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044598"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74936035"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tâches de préparation des données pour l'apprentissage automatique amélioré
 Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](overview.md).
 
 Les tâches de traitement préalable et de nettoyage, comme la tâche d'exploration de données, peuvent être exécutées dans une grande variété d'environnements, tels que SQL ou Hive ou Azure Machine Learning Studio et avec différents outils et langages, tels que R ou Python, en fonction de l'emplacement de stockage de vos données et leur mise en forme. Étant donné que le processus TDSP est itératif par nature, ces tâches peuvent avoir lieu à diverses étapes du flux de travail du processus.
 
-Cet article présente différents concepts et tâches de prétraitement des données, à effectuer avant ou après l'intégration de ces données dans Azure Machine Learning.
+Cet article présente différents concepts et tâches de traitement des données à effectuer avant ou après l’ingestion de données dans Azure ML Studio (classique).
 
-Pour obtenir un exemple d'exploration de données et de prétraitement effectués dans Azure Machine Learning Studio, consultez la vidéo [Prétraitement des données dans Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/) .
+Pour obtenir un exemple d’exploration de données et de prétraitement effectués dans Azure ML Studio (classique), regardez la vidéo [Prétraitement des données](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 ## <a name="why-pre-process-and-clean-data"></a>Pourquoi prétraiter et nettoyer les données ?
 Dans le monde réel, les données proviennent de plusieurs sources et processus. Elles peuvent contenir des anomalies ou des valeurs incorrectes qui compromettent la qualité du jeu de données. Les problèmes de qualité les plus fréquents sont les suivants :
@@ -51,7 +51,7 @@ Il est possible d’évaluer la qualité globale des données en vérifiant les 
 
 Lorsque vous détectez des problèmes dans les données, des **étapes de traitement** s'imposent : nettoyage des valeurs manquantes, normalisation des données, discrétisation, traitement de texte pour supprimer et/ou remplacer des caractères susceptibles de perturber l'alignement des données, types de données mixtes dans les champs communs, etc.
 
-**Azure Machine Learning n'exploite que les données tabulaires bien formées**.  Si les données sont déjà au format tabulaire, Azure Machine Learning peut les prétraiter directement dans Machine Learning Studio.  Si elles ne sont pas au format tabulaire, comme le format XML, une analyse peut être nécessaire pour les convertir.  
+**Azure Machine Learning n'exploite que les données tabulaires bien formées**.  Si les données sont déjà au format tabulaire, Azure ML Studio (classique) peut les prétraiter directement dans Machine Learning.  Si elles ne sont pas au format tabulaire, comme le format XML, une analyse peut être nécessaire pour les convertir.  
 
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>Quelles sont les principales opérations effectuées lors du prétraitement des données ?
 * **Nettoyage des données** :  compléter les valeurs manquantes, détecter et supprimer les données bruyantes et les aberrations.

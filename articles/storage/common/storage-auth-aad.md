@@ -1,22 +1,23 @@
 ---
-title: Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory | Microsoft Docs
+title: Autoriser l’accès aux objets blob et aux files d’attente avec Active Directory
+titleSuffix: Azure Storage
 description: Autorisez l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598108"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891811"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente Azure avec Azure Active Directory
+# <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Autoriser l’accès aux objets blob et aux files d’attente avec Azure Active Directory
 
 Le stockage Azure prend en charge l’utilisation d’Azure Active Directory pour autoriser les requêtes sur les stockages Blob et File d’attente. Avec Azure AD, vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour accorder des autorisations à un principal de sécurité, qui peut être un utilisateur, un groupe ou un principal de service d’application. Le principal de sécurité est authentifié par Azure AD pour retourner un jeton OAuth 2.0. Vous pouvez utiliser le jeton pour autoriser l’accès d’une requête à une ressource dans le stockage Blob ou le stockage File d’attente.
 

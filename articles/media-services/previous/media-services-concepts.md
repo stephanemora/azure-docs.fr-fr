@@ -1,6 +1,6 @@
 ---
 title: Concepts Azure Media Services | Microsoft Docs
-description: Cette rubrique fournit une vue d'ensemble des concepts liés à Azure Media Services
+description: Cet article fournit une brève vue d’ensemble des concepts de Microsoft Azure Media Services et des liens vers d’autres articles pour plus d’informations.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 2b28dde812dcce120c951730c27809f7f024e122
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2126fed5231f2264ba9a0bbc13be9410bb8294da
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681554"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978830"
 ---
 # <a name="azure-media-services-concepts"></a>Concepts Azure Media Services 
 
@@ -160,7 +160,7 @@ Pour plus d’informations, consultez les articles suivants :
 - [Protéger avec PlayReady/Widevine](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>Remise
-### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetage dynamique
+### <a name="a-iddynamic_packagingdynamic-packaging"></a><a id="dynamic_packaging"/>Empaquetage dynamique
 Lors de l’utilisation de Media Services, il est recommandé de toujours encoder vos fichiers mezzanine en un ensemble de fichiers MP4 à vitesse de transmission adaptative, puis de convertir le jeu au format souhaité en utilisant l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md).
 
 ### <a name="streaming-endpoint"></a>point de terminaison de diffusion en continu
@@ -227,6 +227,10 @@ http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46
 {nom du point de terminaison de diffusion en continu-nom du compte media services}.streaming.mediaservices.windows.net/{ID_de_localisateur}/{nom_de_fichier}.ISM/Manifest(format=m3u8-aapl-v3)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -1,18 +1,18 @@
 ---
-title: Concepts de serveur dans Azure Database pour PostgreSQL
-description: Cet article indique les éléments à prendre en considération et fournit des instructions pour configurer et gérer des serveurs Azure Database pour PostgreSQL.
+title: Colocation de tables – Hyperscale (Citus) – Azure Database pour PostgreSQL
+description: Guide pratique pour stocker ensemble des informations associées afin d’accélérer les requêtes
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482754"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967335"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocation de tables dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 

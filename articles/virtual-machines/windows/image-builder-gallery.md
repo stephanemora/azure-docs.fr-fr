@@ -1,18 +1,18 @@
 ---
-title: Utiliser le Générateur d’images Azure avec une bibliothèque d’images pour machines virtuelles Windows (préversion)
-description: Créez des images Windows avec le Générateur d’images Azure et la bibliothèque d’images partagées.
+title: Utiliser le Générateur d’images Azure avec une galerie d’images pour machines virtuelles Windows (préversion)
+description: Créez des images pour machines virtuelles Windows avec le Générateur d’images Azure et Shared Image Gallery.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698682"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976075"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Aperçu : Créer une image Windows et la distribuer sur une bibliothèque d’images partagées 
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 9aed19c88517868c2e8cb860dc01d01b7a7c3127
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 269744d5e9552d87c3fa619f33e02c833b3841be
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262075"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894162"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "71262075"
 Les journaux dans Azure Monitor sont particulièrement utiles pour effectuer des analyses complexes de données provenant de diverses sources. Cet article décrit comment les journaux sont structurés dans Azure Monitor, ce que vous pouvez faire des données, et identifie les différentes sources de données qui stockent des données dans des Journaux.
 
 > [!NOTE]
-> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de diagnostic](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux et des journaux de diagnostic ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
+> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations fonctionnelles dans un [journal de ressources](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de ressources ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
 
 ## <a name="what-are-azure-monitor-logs"></a>Présentation des journaux Azure Monitor
 
@@ -85,9 +85,9 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 
 | Données | Description |
 |:---|:---|
-| Diagnostics de ressources | Configurer les paramètres de diagnostic pour écrire des données de diagnostic, dont des métriques, dans un espace de travail Log Analytics. Voir [Diffuser en continu les journaux de diagnostic Azure vers Log Analytics](resource-logs-collect-storage.md). |
+| Diagnostics de ressources | Configurer les paramètres de diagnostic pour écrire des données de diagnostic, dont des métriques, dans un espace de travail Log Analytics. Consultez [Envoyer en streaming les journaux de ressources Azure à Log Analytics](resource-logs-collect-storage.md). |
 | Solutions de supervision | Les solutions de supervision écrivent des données qu’elles collectent dans leur espace de travail Log Analytics. Pour la liste des solutions, voir [Détails sur la collecte de données pour les solutions de gestion dans Azure](../insights/solutions-inventory.md). Pour plus de détails sur l’installation et l’utilisation de solutions, voir [Solutions de monitoring dans Azure Monitor](../insights/solutions.md). |
-| Mesures | Envoyer des métriques de plateforme pour des ressources Azure Monitor à un espace de travail Log Analytics afin de conserver les données de journal plus longtemps et d’effectuer une analyse complexe avec d’autres types de données à l’aide du [langage de requête Kusto](/azure/kusto/query/). Voir [Diffuser en continu les journaux de diagnostic Azure vers Log Analytics](resource-logs-collect-storage.md). |
+| Mesures | Envoyer des métriques de plateforme pour des ressources Azure Monitor à un espace de travail Log Analytics afin de conserver les données de journal plus longtemps et d’effectuer une analyse complexe avec d’autres types de données à l’aide du [langage de requête Kusto](/azure/kusto/query/). Consultez [Envoyer en streaming les journaux de ressources Azure à Log Analytics](resource-logs-collect-storage.md). |
 | Stockage de table Azure | Collecter des données à partir d’un stockage Azure où certaines ressources Azure écrivent des données de surveillance. Voir [Utiliser un Stockage Blob Azure pour IIS et un Stockage Table Azure pour des événements avec Log Analytics](azure-storage-iis-table.md). |
 
 ### <a name="virtual-machines"></a>Virtual Machines

@@ -1,6 +1,6 @@
 ---
 title: En savoir plus sur les encodeurs recommandés par Azure Media Services | Microsoft Docs
-description: En savoir plus sur les encodeurs recommandés par Media Services
+description: Cet article liste les encodeurs locaux recommandés par Azure Media Services.
 services: media-services
 keywords: encodage;encodeurs;média
 author: dbgeorge
@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4a0af9d040c801c125d04a5af72b2ea53322ccdb
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854246"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886569"
 ---
 # <a name="recommended-on-premises-encoders"></a>Encodeurs locaux recommandés
 Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez spécifier la manière dont vous souhaitez que votre canal reçoive le flux d’entrée. Si vous choisissez d’utiliser un encodeur local avec un canal d’encodage live, votre encodeur doit transmettre un flux à débit unique de haute qualité en tant que sortie. Si vous choisissez d’utiliser un encodeur local avec un canal de transmission directe, votre encodeur doit transmettre un flux à multidébit en tant que sortie, avec toutes les qualités de sortie souhaitées. Pour plus d’informations, consultez [Vidéo en flux continu avec des encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).

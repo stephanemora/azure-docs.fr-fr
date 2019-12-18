@@ -2,21 +2,21 @@
 title: Gérer des ressources de calcul
 description: Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039100"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923596"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 
@@ -59,7 +59,7 @@ Pour découvrir les avantages d’une montée en puissance en termes de niveau d
 
 Recommandations en matière de recherche de la valeur DWU optimale :
 
-- Si vous disposez d’un entrepôt de données en développement, commencez par sélectionner un nombre réduit d’unités DWU.  DW400 ou DW200 est un bon point de départ.
+- Si vous disposez d’un entrepôt de données en développement, commencez par sélectionner un nombre réduit d’unités DWU.  DW400c ou DW200c est un bon point de départ.
 - Analysez les performances de votre application, en observant notamment le nombre d’unités DWU sélectionné.
 - Déterminez la mesure dans laquelle vous devez augmenter ou diminuer le nombre d’unités DWU à l’aide d’une mise à l’échelle linéaire. 
 - Continuez à effectuer des ajustements jusqu’à ce que vous atteigniez le niveau de performances requis par vos activités.

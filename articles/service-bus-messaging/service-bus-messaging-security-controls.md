@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d2b92759384a9a0b63d784a8cb1afb3d18d55aeb
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219311"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894406"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Contrôles de sécurité pour la messagerie Azure Service Bus
 
@@ -48,8 +48,8 @@ Cet article décrit les contrôles de sécurité intégrés à la messagerie Azu
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
-| Chiffrement côté serveur au repos : Clés managées par Microsoft |  Oui pour le chiffrement côté serveur au repos par défaut. | Les clés gérées par le client et du BYOK ne sont pas encore prises en charge. Le chiffrement côté client est sous la responsabilité du client |
-| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Non |   |   |
+| Chiffrement côté serveur au repos : Clés managées par Microsoft |  Oui pour le chiffrement côté serveur au repos par défaut. |  |  |
+| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui. Actuellement en préversion | Une clé gérée par le client dans Azure KeyVault peut être utilisée pour chiffrer les données sur l’espace de noms Service Bus au repos. | [Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du Portail Azure (Préversion)](configure-customer-managed-key.md)  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |   |
 | Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Prend en charge le mécanisme HTTPS/TLS standard. |   |
 | Appels d’API chiffrés| OUI | Les appels d’API sont effectués via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |   |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200508"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894528"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor
 Dans Azure, les [journaux de ressources](resource-logs-overview.md) fournissent des informations complètes et fréquentes sur le fonctionnement interne d’une ressource Azure. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
@@ -110,7 +110,7 @@ Consultez régulièrement le blog [Mises à jour Azure](https://azure.microsoft.
 ### <a name="column-limit-in-azurediagnostics"></a>Limite de colonnes dans AzureDiagnostics
 Dans les journaux d'activité Azure Monitor, les propriétés sont limitées à 500. Une fois cette limite atteinte, toutes les lignes contenant des données avec plus de 500 propriétés sont supprimées au moment de l'ingestion. La table *AzureDiagnostics* est particulièrement sensible à cette limite car elle comprend les propriétés de tous les services Azure qui y écrivent.
 
-Si vous collectez des journaux de diagnostic à partir de plusieurs services, _AzureDiagnostics_ peut dépasser cette limite et certaines données n'y seront pas consignées. En attendant que tous les services Azure prennent en charge le mode Spécifique à la ressources, il vous est conseillé de configurer les ressources de manière à ce qu'elles écrivent dans plusieurs espaces de travail afin d'éviter d’atteindre la limite de 500 colonnes.
+Si vous collectez des journaux de ressources à partir de plusieurs services, _AzureDiagnostics_ peut dépasser cette limite et certaines données n’y seront pas consignées. En attendant que tous les services Azure prennent en charge le mode Spécifique à la ressources, il vous est conseillé de configurer les ressources de manière à ce qu'elles écrivent dans plusieurs espaces de travail afin d'éviter d’atteindre la limite de 500 colonnes.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 En raison d’un ensemble très détaillé de journaux, Azure Data Factory est connu pour écrire un grand nombre de colonnes et, peut amener _AzureDiagnostics_ à dépasser sa limite. Pour tous les paramètres de diagnostic configurés avant l’activation du mode Spécifique à la ressource, une colonne est créée pour chaque paramètre utilisateur portant un nom unique par rapport à une activité. D’autres colonnes sont créées en raison de la nature détaillée des entrées et des sorties d’activité.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596356"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900374"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identité d’appareil et virtualisation de bureau
 
@@ -44,10 +44,11 @@ Avant de configurer les identités d’appareil dans Azure AD pour votre environ
 | Type d’identité d’appareil | Infrastructure d’identité | Appareils Windows | Version de la plateforme VDI | Pris en charge |
 | --- | --- | --- | --- | --- |
 | Appareils joints Azure AD hybrides | Fédérée* | Windows actuel*** et Windows de bas niveau**** | Persistante | OUI |
-|   |   |   | Non persistante | OUI |
-|   | Managée** | Windows actuel et Windows de bas niveau | Persistante | OUI |
-|   |   | Appareils Windows de bas niveau | Non persistante | OUI |
 |   |   | Windows actuel | Non persistante | Non |
+|   |   | Appareils Windows de bas niveau | Non persistante | OUI |
+|   | Managée** | Windows actuel et Windows de bas niveau | Persistante | OUI |
+|   |   | Windows actuel | Non persistante | Non |
+|   |   | Appareils Windows de bas niveau | Non persistante | OUI |
 | Appareil joints Azure AD | Adresses IP fédérées | Windows actuel | Persistante | Non |
 |   |   |   | Non persistante | Non |
 |   | Adresses IP gérées | Windows actuel | Persistante | Non |
@@ -79,8 +80,7 @@ Si vous utilisez une capture instantanée de machine virtuelle pour créer des m
 Lors du déploiement d’une infrastructure VDI non persistante, les administrateurs informatiques doivent prêter une attention toute particulière à la gestion des appareils obsolètes dans Azure AD. Microsoft recommande aux administrateurs informatiques d’implémenter les instructions ci-dessous. Dans le cas contraire, l’annuaire reçoit un grand nombre d’appareils Azure AD Hybride joints, qui ont été enregistrés depuis la plateforme VDI non persistante.
 
 - Créez et utilisez un préfixe pour le nom d’affichage de l’ordinateur qui indique le bureau comme étant basé sur VDI.
-- Implémentez les commandes suivantes, dans le cadre du script de fermeture de session. Ces commandes déclenchent le meilleur appel possible à Azure AD pour supprimer l’appareil.
-   - Pour les appareils Windows actuels – dsregcmd.exe /Leave
+- Implémentez la commande suivante dans le cadre du script de fermeture de session. Cette commande déclenche le meilleur appel possible à Azure AD pour supprimer l’appareil.
    - Pour les appareils Windows de bas niveau – autoworkplace.exe /leave
 - Définissez et implémentez le processus de [gestion des appareils obsolètes](manage-stale-devices.md).
    - Une fois que vous disposez d’une stratégie d’identification de vos appareils Azure AD Hybride joints non persistants, vous pouvez être plus agressif lors du nettoyage de ces appareils, pour être certain que votre annuaire ne sera pas consommé par un grand nombre d’appareils obsolètes.

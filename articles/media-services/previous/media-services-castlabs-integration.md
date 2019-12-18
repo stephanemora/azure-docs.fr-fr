@@ -1,6 +1,6 @@
 ---
 title: Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services | Microsoft Docs
-description: Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine. La licence PlayReady provient du serveur de licences Media Services PlayReady et la licence Widevine est délivrée par le serveur de licences castLabs.
+description: Cet article décrit comment vous pouvez utiliser Azure Media Services (AMS) pour fournir un flux chiffré dynamiquement par AMS avec des DRM PlayReady et Widevine.
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016688"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969137"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Utilisation de castLabs pour fournir des licences Widevine à Azure Media Services 
 > [!div class="op_single_selector"]
@@ -114,6 +114,10 @@ Pour lire une vidéo chiffrée par chiffrement commun (PlayReady et/ou Widevine)
    Le serveur de licences castLab n'a pas besoin du préfixe « Bearer= » devant le jeton. Par conséquent, supprimez-le avant d'envoyer le jeton.
 7. Mettez à jour le lecteur.
 8. La vidéo doit pouvoir être lue.
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

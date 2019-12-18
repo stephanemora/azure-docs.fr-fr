@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e416087df6c27eff42db487e90ff908d7d49df8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261096"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977690"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schémas des journaux de diagnostic
 
@@ -107,6 +107,10 @@ Propriétés du schéma de demande de remise de clé.
     }
 } 
 ```
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

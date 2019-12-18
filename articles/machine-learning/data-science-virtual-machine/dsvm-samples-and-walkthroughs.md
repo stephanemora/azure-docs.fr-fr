@@ -1,5 +1,5 @@
 ---
-title: Exemples et procédures pas à pas
+title: Exemples de programmes et procédures pas à pas sur le ML
 titleSuffix: Azure Data Science Virtual Machine
 description: Grâce à ces exemples et procédures pas à pas, découvrez comment gérer les tâches et les scénarios courants avec la machine Data Science Virtual Machine.
 keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d064e940997d13e51be4fd38e9f678b778ce31f4
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802457"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900049"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemples sur Data Science Virtual Machine
 

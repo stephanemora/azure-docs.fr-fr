@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 590e2e7e735af55f8c7ad96f87f947115f8783fc
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 3a1c7f6542ebdf1617982fbb50a239b66a6675ba
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770558"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926714"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL
 La base de données Azure pour MySQL prend en charge la connexion de votre serveur Azure Database pour MySQL aux applications clientes à l’aide de Secure Sockets Layer (SSL). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -67,6 +67,8 @@ Confirmez le chiffrement de la connexion en vérifiant la sortie, qui doit indiq
 
 ## <a name="sample-code"></a>Exemple de code
 Pour établir une connexion sécurisée vers une base de données Azure Database pour MySQL sur SSL à partir de votre application, consultez les exemples de code suivants :
+
+Reportez-vous à la liste des [pilotes compatibles](concepts-compatibility.md) pris en charge par le service Azure Database pour MySQL.
 
 ### <a name="php"></a>PHP
 ```php

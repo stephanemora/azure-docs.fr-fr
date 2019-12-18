@@ -1,6 +1,6 @@
 ---
 title: Création de clés de contenu avec REST | Microsoft Docs
-description: Apprenez à créer des clés de contenu qui fournissent un accès sécurisé aux ressources.
+description: Cet article explique comment créer des clés de contenu qui fournissent un accès sécurisé aux ressources.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9927de3ab3fb68cea17095d7255fd8a68f66c9a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711524"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901471"
 ---
 # <a name="create-content-keys-with-rest"></a>Création de clés de contenu avec REST
 > [!div class="op_single_selector"]

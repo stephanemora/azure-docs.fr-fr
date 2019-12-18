@@ -1,6 +1,6 @@
 ---
 title: Mettre à l’échelle le traitement multimédia en ajoutant des unités d’encodage - Azure | Microsoft Docs
-description: Découvrez comment ajouter des unités d’encodage avec .NET
+description: Cet article explique comment ajouter des unités d’encodage avec Azure Media Services .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milangada
-ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 86fd923c121b9d46109529f75bc3d0d040f1a7a9
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016564"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887286"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Mise à l’échelle de l’encodage avec le Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]

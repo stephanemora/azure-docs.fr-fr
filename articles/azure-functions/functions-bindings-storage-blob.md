@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: b2782ce39bbc2ca86c63b178535fc6b67b9dadfe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d6a17322c360040b8fa77ac243a1b568f0d10c1f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231038"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996491"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -33,7 +33,7 @@ Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azu
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>Packages - Functions 2.x et ultérieur
 
 Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs).
 
@@ -463,7 +463,7 @@ Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et l
 
 ## <a name="trigger---polling"></a>Déclencheur : interrogation
 
-Si le conteneur d’objets blob surveillé contient plus de 10 000 objets blob (sur tous les conteneurs), le runtime Functions recherche les objets blob nouveaux ou modifiés dans les fichiers journaux. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.
+L’interrogation fonctionne de façon hybride entre l’inspection des journaux et l’exécution d’analyses régulières des conteneurs. Les objets blob sont analysés dans des groupes de 10 000 à la fois avec un jeton de continuation utilisé entre les intervalles.
 
 > [!WARNING]
 > En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.

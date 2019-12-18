@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175767"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963934"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Meilleures pratiques pour l’accès conditionnel dans Azure Active Directory
 
@@ -45,17 +45,18 @@ Pour que votre stratégie fonctionne, vous devez configurer les éléments suiva
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Comment les stratégies d’accès conditionnel sont-elles appliquées ?
 
-Plusieurs stratégies d’accès conditionnel peuvent s’appliquer lorsque vous accédez à une application cloud. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification MFA et que la seconde demande un appareil conforme, vous devez passer par l’authentification multifacteur et utiliser un appareil compatible. 
+Plusieurs stratégies d’accès conditionnel peuvent s’appliquer lorsque vous accédez à une application cloud. Dans ce cas, toutes les stratégies qui s’appliquent doivent être satisfaites. Par exemple, si une première stratégie demande une authentification multifacteur (MFA) et qu’une autre demande un appareil conforme, vous devez procéder à la MFA et utiliser un appareil compatible. 
 
 Toutes les stratégies sont appliquées en deux phases :
 
-- Dans la **première** phase, toutes les stratégies sont évaluées et tous les contrôles d’accès qui ne sont pas satisfaits sont collectés. 
-
-- Dans la **deuxième** phase, vous êtes invité à vous conformer aux exigences que vous n’avez pas satisfaites. Si l’une des stratégies verrouille l’accès, vous êtes bloqué et n’êtes pas invité à répondre à d’autres contrôles de stratégie. Si aucune de ces stratégie ne vous bloque, vous êtes invité à répondre à d’autres contrôles de stratégie dans l’ordre suivant :
-
-   ![Ordre](./media/best-practices/06.png)
-    
-   Les fournisseurs d’authentification multifacteur externes et les conditions d’utilisation viennent ensuite.
+- Phase 1 : 
+   - Collecte des détails : Rassemblez les détails pour identifier les stratégies qui seraient déjà satisfaites.
+   - Pendant cette phase, les utilisateurs peuvent voir une invite de certificat si la conformité de l’appareil fait partie de vos stratégies d’accès conditionnel. Cette invite peut s’afficher pour les applications de navigateur lorsque le système d’exploitation de l’appareil n’est pas Windows 10.
+   - La phase 1 de l’évaluation de la stratégie se produit pour toutes les stratégies activées et les stratégies en [mode Rapport uniquement](concept-conditional-access-report-only.md).
+- Phase 2 :
+   - Application : En tenant compte des détails collectés lors de la phase 1, demandez à l’utilisateur de satisfaire toutes les autres exigences qui n’ont pas été respectées.
+   - Appliquez les résultats à la session. 
+   - La phase 2 de l’évaluation de la stratégie se produit pour toutes les stratégies activées.
 
 ### <a name="how-are-assignments-evaluated"></a>Comment les affectations sont-elles évaluées ?
 

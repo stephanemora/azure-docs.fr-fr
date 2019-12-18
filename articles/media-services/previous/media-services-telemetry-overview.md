@@ -1,6 +1,6 @@
 ---
 title: Télémétrie d’Azure Media Services | Microsoft Docs
-description: Cet article donne une vue d’ensemble des données de télémétrie d’Azure Media Services.
+description: Cet article donne une vue d’ensemble des données de télémétrie de Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545518"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895773"
 ---
 # <a name="azure-media-services-telemetry"></a>Télémétrie Azure Media Services  
 

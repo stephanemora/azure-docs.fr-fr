@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des classeurs Azure Monitor + Paramètres texte | Microsoft Docs
+title: Paramètres texte des classeurs Azure Monitor
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés. Apprenez-en davantage sur les paramètres de texte de classeur.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: ee3e24444b87c461841b591176774d4e945e4fcc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b7affb9c7d7be790d4279c1db8174a5dd3b2c2a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164203"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872772"
 ---
 # <a name="workbook-text-parameters"></a>Paramètres texte de classeur
 
@@ -26,7 +26,7 @@ Les zones de texte sont couramment utilisées en tant que variables internes par
 ## <a name="creating-a-text-parameter"></a>Création d’un paramètre de texte
 1. Démarrez avec un classeur vide en mode d’édition.
 2. Choisissez _Ajouter des paramètres_ dans les liens du classeur.
-3. Cliquez sur le bouton bleu _ajouter un paramètre_.
+3. Cliquez sur le bouton bleu _Ajouter un paramètre_.
 4. Dans le volet Nouveau paramètre qui apparaît, entrez :
     1. Nom du paramètre : `SlowRequestThreshold`
     2. Type de paramètre : `Text`
@@ -64,7 +64,7 @@ Voici à quoi ressemble le classeur en mode lecture.
 ## <a name="setting-default-values"></a>Définir les valeurs par défaut
 1. Démarrez avec un classeur vide en mode d’édition.
 2. Choisissez _Ajouter des paramètres_ dans les liens du classeur.
-3. Cliquez sur le bouton bleu _ajouter un paramètre_.
+3. Cliquez sur le bouton bleu _Ajouter un paramètre_.
 4. Dans le volet Nouveau paramètre qui apparaît, entrez :
     1. Nom du paramètre : `SlowRequestThreshold`
     2. Type de paramètre : `Text`
@@ -87,4 +87,4 @@ Voici à quoi ressemble le classeur en mode lecture.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](workbooks-access-control.md) et partagez l’accès aux ressources de votre classeur.
+* [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

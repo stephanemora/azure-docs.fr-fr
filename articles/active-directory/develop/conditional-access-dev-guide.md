@@ -1,8 +1,7 @@
 ---
-title: Guide du développeur pour l’accès conditionnel à Azure Active Directory
+title: Guide du développeur pour l’accès conditionnel Azure AD
 description: Guide du développeur et scénarios pour l’accès conditionnel à Azure AD
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,17 +10,15 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: f6bd060e0c627e8183f8d7f7b449f8d6f19c951b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374004"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967045"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 

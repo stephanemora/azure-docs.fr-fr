@@ -1,17 +1,17 @@
 ---
 title: Fonctions d’agrégation dans Azure Cosmos DB
-description: Découvrez la syntaxe des fonctions d’agrégation SQL pour Azure Cosmos DB.
+description: Découvrez la syntaxe de la fonction d’agrégation SQL et les types de fonctions d’agrégation prises en charge par Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: a6937e9e811ea8e44eda6f2bcb5d2c7d78db4934
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 1ce3b18dd31944a1a4d4e6fad8fb49e63996dace
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343171"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871837"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Fonctions d’agrégation dans Azure Cosmos DB
 
@@ -61,7 +61,7 @@ Les résultats sont :
 
 ## <a name="types-of-aggregate-functions"></a>Types de fonctions d’agrégation
 
-L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG opèrent sur des valeurs numériques, tandis que COUNT, MIN et MAX fonctionnent sur des nombres, des chaînes, des valeurs booléennes et des valeurs Null.
+L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG opèrent sur des valeurs numériques, tandis que COUNT, MIN et MAX fonctionnent sur des nombres, des chaînes, des booléens et des valeurs Null.
 
 | Fonction | Description |
 |-------|-------------|
@@ -74,7 +74,7 @@ L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG 
 Vous pouvez également effectuer des agrégations sur les résultats d’une itération de tableau.
 
 > [!NOTE]
-> Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du SDK .NET 1.12.0, du SDK .NET Core 1.1.0 ou du SDK Java 1.9.5 ou ultérieur.
+> Dans l’Explorateur de données du portail Azure, les requêtes d’agrégation peuvent agréger des résultats partiels sur une seule page de requête. Le kit SDK génère une valeur cumulée unique sur toutes les pages. Pour effectuer des requêtes d’agrégation à l’aide de code, vous avez besoin du SDK .NET 1.12.0, du SDK .NET Core 1.1.0 ou du SDK Java 1.9.5 ou ultérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

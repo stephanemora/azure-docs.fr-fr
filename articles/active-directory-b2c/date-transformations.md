@@ -1,6 +1,6 @@
 ---
-title: Exemples de transformations de revendications Date pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
-description: Exemples de transformations de revendications Date pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
+title: Exemples de transformation de revendications de date pour les stratégies personnalisées
+description: Exemples de transformation de revendications de date pour le schéma IEF (Identity Experience Framework) d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936784"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949114"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 

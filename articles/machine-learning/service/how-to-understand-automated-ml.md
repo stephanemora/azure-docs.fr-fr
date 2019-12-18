@@ -3,19 +3,19 @@ title: Comprendre les résultats des ML automatisés
 titleSuffix: Azure Machine Learning
 description: Apprenez à visualiser et à comprendre les graphiques et les métriques pour chacune de vos exécutions de Machine Learning automatisées.
 services: machine-learning
-author: cartacioS
-ms.author: sacartac
+author: RachelKellam
+ms.author: rakellam
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 12/05/2019
+ms.openlocfilehash: 81f17de7627658b756edd19438a80fb32add859d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571402"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974085"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -98,65 +98,109 @@ recall_score_macro|Le rappel est le pourcentage d’éléments d’une certaine 
 recall_score_micro|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Micro » est calculé globalement en comptant le total des vrais positifs, des faux négatifs et des faux positifs.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|Le rappel est le pourcentage d’éléments d’une certaine classe correctement étiquetés. « Weighted » est la moyenne arithmétique du rappel pour chaque classe, pondérée par le nombre d’instances « true » dans chaque classe.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|La précision pondérée est la précision où le poids donné à chaque exemple est égal à la proportion d’instances « true » dans la classe « true » de cet exemple.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight est un vecteur égal à la proportion de cette classe pour chaque élément dans la cible|
-
+<a name="confusion-matrix"></a>
 ### <a name="confusion-matrix"></a>Matrice de confusion
+#### <a name="what-is-a-confusion-matrix"></a>Qu’est-ce qu’une matrice de confusion ?
+Une matrice de confusion décrit les performances d’un modèle de classification. Chaque ligne affiche les instances de la classe true, ou de la classe actuelle dans votre jeu de données, et chaque colonne représente les instances de la classe qui a été prédite par le modèle. 
 
-Une matrice de confusion décrit les performances d’un modèle de classification. Chaque ligne affiche les instances de la classe true, et chaque colonne représente les instances de la classe prévue. La matrice de confusion montre les étiquettes bien et mal classées pour un modèle donné.
+#### <a name="what-does-automated-ml-do-with-the-confusion-matrix"></a>Que fait le Machine Learning automatisé avec la matrice de confusion ?
+Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, le Machine Learning automatisé affiche la fréquence de chaque étiquette Prédiction (colonne) par rapport à celle de chaque étiquette True (ligne). Plus la couleur est sombre, plus le nombre dans cette partie de la matrice est élevé. 
 
-Pour les problèmes de classification, Azure Machine Learning fournit automatiquement une matrice de confusion associée à chaque modèle généré. Pour chaque matrice de confusion, l’apprentissage automatique automatisé présente la fréquence de chaque étiquette prédite et chaque intersection d’étiquette vraie. Plus la couleur est sombre, plus le nombre dans cette partie de la matrice est élevé. Idéalement, les couleurs les plus sombres se trouvent le long de la diagonale de la matrice. 
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+Nous comparons la valeur réelle du jeu de données aux valeurs prédites par le modèle. Pour cette raison, les modèles Machine Learning seront d’une plus grande justesse si la plupart de leurs valeurs se trouvent le long de la diagonale (ce qui signifie que le modèle a prédit la bonne valeur). Si un modèle a un déséquilibre de classe, la matrice de confusion permet de détecter un modèle biaisé.
 
-Exemple 1 : Modèle de classification avec précision médiocre ![Modèle de classification avec précision médiocre](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+##### <a name="example-1-a-classification-model-with-poor-accuracy"></a>Exemple 1 : Modèle de classification avec un niveau de justesse bas
+![Modèle de classification avec un niveau de justesse bas](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-Exemple 2 : Modèle de classification avec précision élevée (idéal) ![Modèle de classification avec précision élevée](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+##### <a name="example-2-a-classification-model-with-high-accuracy"></a>Exemple 2 : Modèle de classification avec un niveau de justesse élevé 
+![Modèle de classification avec un niveau de justesse élevé](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
+##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>Exemple 3 : Modèle de classification avec un niveau de justesse élevé et un biais élevé dans les prédictions de modèle
+![Modèle de classification avec un niveau de justesse élevé et un biais élevé dans les prédictions de modèle](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
+<a name="precision-recall-chart"></a>
 ### <a name="precision-recall-chart"></a>Graphique de rappel de précision
+#### <a name="what-is-a-precision-recall-chart"></a>Qu’est-ce qu’un graphique Précision et rappel ?
+La courbe Précision et rappel montre la relation qui existe entre la précision et le rappel dans un modèle. Le terme « précision » désigne la capacité d’un modèle à étiqueter correctement toutes les instances. Le rappel représente la capacité d’un classifieur à rechercher toutes les instances d’une étiquette spécifique.
 
-Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour chaque modèle afin de déterminer quel modèle présente une relation acceptable entre précision et rappel pour votre problème d’entreprise spécifique. Ce graphique montre le rappel de précision de macro-moyenne, le rappel de précision de micro-moyenne et le rappel de précision associé à toutes les classes d’un modèle.
+#### <a name="what-does-automated-ml-do-with-the-precision-recall-chart"></a>Que fait le Machine Learning automatisé avec le graphique Précision et rappel ?
 
-Le terme Précision représente la capacité d’un classifieur à étiqueter correctement toutes les instances. Le rappel représente la capacité d’un classifieur à rechercher toutes les instances d’une étiquette spécifique. La courbe de rappel de précision montre la relation entre ces deux concepts. Dans l’idéal, le modèle aurait une précision de 100 % et une exactitude de 100 %.
+Avec ce graphique, vous pouvez comparer les courbes de rappel de précision pour chaque modèle afin de déterminer quel modèle présente une relation acceptable entre précision et rappel pour votre problème d’entreprise spécifique. Ce graphique montre le rappel de précision de macro-moyenne, le rappel de précision de micro-moyenne et le rappel de précision associé à toutes les classes d’un modèle. 
 
-Exemple 1 : Modèle de classification avec une précision faible et un rappel faible ![Modèle de classification avec une précision faible et un rappel faible](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+La macro-moyenne calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La micro-moyenne, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. La micro-moyenne est préférable si le jeu de données contient un déséquilibre de classe.
 
-Exemple 2 : Modèle de classification avec une précision d’environ 100 % et un rappel d’environ 100 % (idéal)![Modèle de classification avec une précision élevée et un rappel élevé](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+La courbe Précision et rappel idéale dépend de l’objectif du problème métier. Voici quelques exemples :
 
-### <a name="roc"></a>ROC
+##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>Exemple 1 : Modèle de classification avec un niveau faible de précision et de rappel
+![Modèle de classification avec un niveau faible de précision et de rappel](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
+##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>Exemple 2 : Modèle de classification avec une précision et un rappel d’environ 100 % 
+![Modèle de classification avec une précision et un rappel élevés](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+<a name="roc"></a>
+### <a name="roc-chart"></a>Graphique ROC
+
+#### <a name="what-is-a-roc-chart"></a>Qu’est-ce qu’un graphique ROC ?
 Le ROC (Receiver Operating Characteristic) est un tracé d’étiquettes bien classées et mal classées pour un modèle spécifique. La courbe ROC peut être moins informative lors de la formation de modèles sur des jeux de données présentant un biais élevé, car elle n’affiche pas les étiquettes de type faux positif.
 
-Exemple 1 : Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées![Modèle de classification avec des étiquettes true faibles et des étiquettes false élevées](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+#### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>Que fait le Machine Learning automatisé avec un graphique ROC ?
+Le Machine Learning automatisé génère la macro-moyenne Précision et rappel, la micro-moyenne Précision et rappel, ainsi que la valeur Précision et rappel associée à toutes les classes d’un modèle. 
 
-Exemple 2 : Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles![Modèle de classification avec des étiquettes true élevées et des étiquettes false faibles](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+La macro-moyenne calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La micro-moyenne, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. La micro-moyenne est préférable si le jeu de données contient un déséquilibre de classe.
 
-### <a name="lift-curve"></a>Courbe d’élévation
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+Dans l’idéal, le modèle aura un taux de vrais positifs proche de 100 %, et un taux de faux positifs proche de 0 %. 
 
+##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>Exemple 1 : Modèle de classification avec un nombre faible d’étiquettes Vrais et un nombre élevé d’étiquettes Faux
+![Modèle de classification avec un nombre faible d’étiquettes Vrais et un nombre élevé d’étiquettes Faux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+
+##### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>Exemple 2 : Modèle de classification avec un nombre élevé d’étiquettes Vrais et un nombre faible d’étiquettes Faux
+![Modèle de classification avec un nombre élevé d’étiquettes Vrais et un nombre faible d’étiquettes Faux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+<a name="lift-curve"></a>
+### <a name="lift-chart"></a>Graphique de courbes d’élévation
+#### <a name="what-is-a-lift-chart"></a>Qu’est-ce qu’un graphique de courbes d’élévation ?
+Les graphiques de courbes d’élévation permettent d’évaluer les performances d’un modèle de classification. Ils montrent que l’utilisation du modèle généré permet une plus grande précision.
+#### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>Que fait le Machine Learning automatisé avec un graphique de courbes d’élévation ?
 Vous pouvez comparer l’élévation du modèle généré automatiquement avec Azure Machine Learning par rapport à la ligne de base afin d’afficher le gain de valeur de ce modèle spécifique.
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
 
-Les graphiques de courbes d’élévation permettent d’évaluer les performances d’un modèle de classification. Ils montrent tous les atouts d’un modèle par rapport à une utilisation sans ce modèle. 
-
-Exemple 1 : Les performances du modèle sont inférieures à celles d’un modèle de sélection aléatoire ![Modèle de classification dont les performances sont inférieures à celles d’un modèle de sélection aléatoire](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-
-Exemple 2 : Les performances du modèle sont supérieures à celles d’un modèle de sélection aléatoire ![Modèle de classification qui offre de meilleures performances](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
-### <a name="gains-curve"></a>Courbe de gains
+##### <a name="example-1-a-classification-model-that-does-worse-than-a-random-selection-model"></a>Exemple 1 : Modèle de classification avec des performances moins élevées que celles d’un modèle de sélection aléatoire
+![Modèle de classification avec des performances moins élevées que celles d’un modèle de sélection aléatoire](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>Exemple 2 : Modèle de classification avec des performances plus élevées que celles d’un modèle de sélection aléatoire
+![Modèle de classification plus efficace](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+<a name="gains-curve"></a>
+### <a name="gains-chart"></a>Graphique des gains
+#### <a name="what-is-a-gains-chart"></a>Qu’est-ce qu’un graphique des gains ?
 
 Un graphique de gains évalue les performances d’un modèle de classification pour chaque partie des données. Il montre, pour chaque centile du jeu de données, les résultats que vous pouvez attendre par rapport à un modèle de sélection aléatoire.
 
+#### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>Que fait le Machine Learning automatisé avec un graphique des gains ?
 Utilisez le graphique de gains cumulés pour choisir la limite de classification au moyen d’un pourcentage qui correspond à un gain souhaité à partir du modèle. Ces informations offrent une autre façon d’observer les résultats dans le graphique de courbes d’élévation associé.
 
-Exemple 1 : Modèle de classification avec gain minimal ![Modèle de classification avec gain minimal](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+##### <a name="example-1-a-classification-model-with-minimal-gain"></a>Exemple 1 : Modèle de classification avec des gains minimaux
+![Modèle de classification avec des gains minimaux](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-Exemple 2 : Modèle de classification avec gain significatif ![Modèle de classification avec gain significatif](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+##### <a name="example-2-a-classification-model-with-significant-gain"></a>Exemple 2 : Modèle de classification avec des gains importants
+![Modèle de classification avec des gains importants](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+<a name="calibration-plot"></a>
+### <a name="calibration-chart"></a>Graphique d’étalonnage
 
-### <a name="calibration-plot"></a>Tracé d’étalonnage
+#### <a name="what-is-a-calibration-chart"></a>Qu’est-ce qu’un graphique d’étalonnage ?
+Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il affiche la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette.
+#### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>Que fait le Machine Learning automatisé avec un graphique d’étalonnage ?
+Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné.
 
-Pour tous les problèmes de classification, vous pouvez consulter la ligne d’étalonnage concernant la micro-moyenne, la macro-moyenne et chaque classe dans un modèle prédictif donné. 
+La macro-moyenne calcule la métrique indépendamment de chaque classe, puis elle prend la moyenne en traitant toutes les classes de manière égale. La micro-moyenne, quant à elle, agrège les contributions de toutes les classes pour calculer la moyenne. 
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+ Un modèle bien étalonné s’aligne sur la ligne y=x, où il est raisonnablement confiant dans ses prédictions. Un modèle trop confiant s’aligne sur la ligne y=0, où la probabilité prévue est présente alors qu’il n’existe aucune probabilité réelle. 
 
-Un tracé d’étalonnage permet d’afficher le niveau de confiance d’un modèle prédictif. Pour ce faire, il affiche la relation entre la probabilité prévue et la probabilité réelle, où le terme « probabilité » représente la vraisemblance pour une instance spécifique d’appartenir à une étiquette. Un modèle bien étalonné s’aligne avec la ligne y=x, où il est raisonnablement confiant dans ses prédictions. Un modèle trop confiant s’aligne sur la ligne y=0, où la probabilité prévue est présente alors qu’il n’existe aucune probabilité réelle.
 
-Exemple 1 : Modèle mieux étalonné ![ Modèle mieux étalonné](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+##### <a name="example-1-a-well-calibrated-model"></a>Exemple 1 : Modèle bien étalonné
+![ Autre modèle bien étalonné](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-Exemple 2 : Modèle trop confiant ![Modèle trop confiant](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+##### <a name="example-2-an-over-confident-model"></a>Exemple 2 : Modèle trop confiant
+![Modèle trop confiant](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression"></a> Résultats de la régression
 
@@ -186,36 +230,40 @@ root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine 
 normalized_root_mean_squared_log_error|L’erreur logarithmique quadratique moyenne racine normalisée est l’erreur logarithmique quadratique moyenne racine divisée par la plage des données|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Diviser par la plage de données|
 
 ### <a name="pvt"></a> Prédiction et True
-
+#### <a name="what-is-a-predicted-vs-true-chart"></a>Qu’est-ce qu’un graphique Prédiction et True ?
 Prédiction et True indique la relation entre une valeur prévue et sa valeur true en corrélation pour un problème de régression. Ce graphique peut servir à mesurer les performances d’un modèle, car plus les valeurs prévues sont proches de la ligne y=x, plus le modèle prédictif est précis.
 
+#### <a name="what-does-automated-ml-do-with-the-predicted-vs-true-chart"></a>Que fait le Machine Learning automatisé avec un graphique Prédictions et True ?
 Après chaque exécution, vous pouvez afficher un graphique de type Prédiction et True pour chaque modèle de régression. Pour protéger la confidentialité des données, les valeurs sont réunies dans un conteneur et la taille de chaque emplacement est affichée sous la forme d’un graphique à barres au bas de la zone de graphique. Vous pouvez comparer le modèle prédictif, dont la zone la plus claire indique les marges d’erreur, par rapport à la valeur idéale du modèle.
 
-Exemple 1 : Modèle de régression avec faible précision dans les prédictions ![Modèle de régression avec faible précision dans les prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+##### <a name="example-1-a-classification-model-with-low-accuracy"></a>Exemple 1 : Modèle de classification avec un niveau de justesse faible
+![Modèle de régression avec une justesse faible des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-Exemple 2 : Modèle de régression avec précision élevée dans les prédictions [![Modèle de régression avec précision élevée dans les prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+##### <a name="example-2-a-regression-model-with-high-accuracy"></a>Exemple 2 : Modèle de régression avec un niveau de justesse élevé 
+[![Modèle de régression avec un niveau de justesse élevé des prédictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
 ### <a name="histo"></a> Histogramme des résidus
-
+#### <a name="what-is-a-residuals-chart"></a>Qu’est-ce qu’un graphique des résidus ?
 Un résidu représente une valeur y observée : la valeur y prévue. Pour afficher une marge d’erreur avec un biais faible, l’histogramme des résidus doit avoir la forme d’une cloche centrée sur 0. 
+#### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>Que fait le Machine Learning automatisé avec un graphique des résidus ?
+Le Machine Learning automatisé fournit automatiquement un graphique des résidus pour montrer comment sont réparties les erreurs au sein des prédictions.
+#### <a name="what-does-a-good-model-look-like"></a>À quoi ressemble un bon modèle ?
+Un bon modèle a généralement une courbe en cloche ou un taux d’erreurs proche de zéro.
 
-Exemple 1 : Modèle de régression avec biais dans ses erreurs ![Modèle de régression avec biais dans ses erreurs](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemple 1 : Modèle de régression avec des erreurs comprenant un biais
+![Modèle de régression avec des erreurs comprenant un biais](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-Exemple 2 : Modèle de régression avec distribution plus équilibrée des erreurs ![Modèle de régression avec distribution plus équilibrée des erreurs](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemple 2 : Modèle de régression avec des erreurs mieux réparties
+![Modèle de régression avec des erreurs mieux réparties](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 ## <a name="explain-model"></a> Interprétabilité du modèle et importance des fonctionnalités
-
-L’importance des fonctionnalités vous permet d’évaluer l’importance de chaque fonctionnalité dans la construction d’un modèle. Ce calcul est désactivé par défaut, car il peut augmenter considérablement le temps d'exécution.   Vous pouvez activer l'explication du modèle pour tous les modèles ou n'expliquer que le modèle le mieux adapté.
-
-Vous pouvez consulter le score d’importance des fonctionnalités pour le modèle global, mais aussi pour chaque classe dans un modèle prédictif. Vous pouvez comparer l’importance d’une fonctionnalité dans chaque classe et de manière globale.
-
-![Explication des fonctionnalités](./media/how-to-understand-automated-ml/feature-importance.gif)
-
+Le Machine Learning automatisé fournit un tableau de bord d’interprétation Machine Learning pour vos exécutions.
 Pour plus d’informations sur l’activation des caractéristiques d’interprétabilité, consultez le [guide pratique](how-to-machine-learning-interpretability-automl.md) sur l’activation de l’interprétabilité dans des expériences de machine learning automatisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 + Apprenez-en davantage sur le [ML automatisé](concept-automated-ml.md) dans Azure Machine Learning.
-+ Testez l’exemple de notebook [Automated Machine Learning Model Explanation (Explication du modèle Machine Learning automatisé)](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/model-explanation).
++ Testez les exemples de notebooks disponibles dans [Automated Machine Learning Model Explanation ](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

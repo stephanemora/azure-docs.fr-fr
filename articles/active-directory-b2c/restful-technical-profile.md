@@ -1,5 +1,6 @@
 ---
-title: Définir un profil technique RESTful dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
+title: Définir un profil technique RESTful dans une stratégie personnalisée
+titleSuffix: Azure AD B2C
 description: Définir un profil technique RESTful dans une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 13eedeb66d826d212b814fac321f920e78758cb8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: aa14854807727506f5d697d7871c97e219c096a3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063735"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950882"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 

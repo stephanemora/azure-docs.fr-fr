@@ -1,6 +1,6 @@
 ---
 title: Configurer Postman pour les appels d’API REST Azure Media Services
-description: Découvrez comment configurer Postman pour les appels d’API REST Media Services.
+description: Cet article vous montre comment configurer Postman afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839599"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888102"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 

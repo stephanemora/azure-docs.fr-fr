@@ -1,5 +1,6 @@
 ---
-title: Passer un jeton d’accès via un flux utilisateur à votre application – Azure Active Directory B2C
+title: Passer un jeton d’accès via un flux utilisateur à votre application
+titleSuffix: Azure AD B2C
 description: Découvrez comment passer un jeton d’accès pour les fournisseurs d’identité OAuth 2.0 en tant que revendication dans un flux utilisateur dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064297"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948809"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’un flux utilisateur à une application dans Azure Active Directory B2C
 

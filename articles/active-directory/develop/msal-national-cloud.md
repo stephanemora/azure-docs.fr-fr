@@ -1,28 +1,25 @@
 ---
-title: Utiliser Microsoft Authentication Library (MSAL) dans les clouds nationaux - Plateforme d’identité Microsoft
+title: Utiliser MSAL dans une application cloud nationale | Azure
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library (MSAL) permet aux développeurs d’applications d’acquérir des jetons afin d’appeler des API web sécurisées. Ces API web peuvent être Microsoft Graph, d’autres API Microsoft, des API web de partenaires ou vos propres API web. MSAL prend en charge plusieurs architectures et plateformes d’application.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481859"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916051"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 

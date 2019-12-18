@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des journaux de plateforme Azure | Microsoft Docs
-description: Vue d’ensemble des journaux de diagnostic dans Azure qui fournissent des données riches et fréquentes sur le fonctionnement d’une ressource Azure.
+description: Vue d’ensemble des journaux dans Azure Monitor qui fournissent des données riches et fréquentes sur le fonctionnement d’une ressource Azure.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1602b9beb5e667caf1688901c7ae4e67e5f5839
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 480c028f11de9a7c44168b217ad3553d721d01e1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263040"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894561"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Vue d’ensemble des journaux de plateforme Azure
 Les journaux de plateforme fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Elles sont générées automatiquement, même si vous devez configurer certains journaux de plateforme à transférer vers une ou plusieurs destinations à des fins de rétention. Cet article fournit une vue d’ensemble des journaux de plateforme, y compris les informations fournies et de la façon dont vous pouvez les configurer pour la collecte et l’analyse.

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d9ca8d0df3eb0186add5c40765c87a4409a5660
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185597"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926425"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -55,7 +55,7 @@ La fonctionnalité Écritures accélérées utilise des disques managés SSD Pre
 
 ### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
 
-HDInsight offre désormais une nouvelle capacité pour permettre aux clients d’utiliser leur propre base de données SQL pour Ambari. À présent, les clients peuvent choisir la base de données SQL appropriée pour Ambari et facilement la mettre à niveau en fonction de leurs propres besoins en matière de croissance commerciale. Le déploiement est effectué avec un modèle Azure Resource Manager. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+HDInsight offre désormais une nouvelle capacité pour permettre aux clients d’utiliser leur propre base de données SQL pour Ambari. À présent, les clients peuvent choisir la base de données SQL appropriée pour Ambari et facilement la mettre à niveau en fonction de leurs propres besoins en croissance commerciale. Le déploiement est effectué avec un modèle Azure Resource Manager. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
 
 ### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>Les machines virtuelles de la série F sont désormais disponibles avec HDInsight
 

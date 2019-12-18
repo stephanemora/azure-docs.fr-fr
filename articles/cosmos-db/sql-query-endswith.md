@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : ENDSWITH'
-description: Découvrez la fonction système SQL ENDSWITH dans Azure Cosmos DB.
+description: Découvrir la fonction système SQL ENDSWITH dans Azure Cosmos DB, qui retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 37c988d63e597c77bc09a1d21ad391909bb55901
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6b3e692877faab8a8d507a44068d4cdfdc73a916
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351060"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873350"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
  Retourne une valeur booléenne indiquant si la première expression de chaîne se termine par la seconde.  

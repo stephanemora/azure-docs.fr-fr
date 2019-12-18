@@ -3,23 +3,23 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: bb10f15db1d152ff1d8fd8d38ba22e312a2031b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323073"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975446"
 ---
-# <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
+# <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
-Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres disponibles pour le runtime v2.  
+Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article liste les paramètres disponibles à compter de la version 2.x du runtime Azure Functions.  
 
 > [!NOTE]
-> Cet article concerne Azure Functions 2.x.  Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
+> Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
 
 Les autres options de configuration d’application de fonction sont managées dans vos [paramètres d’application](functions-app-settings.md).
 
@@ -216,7 +216,7 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. La version 2.x suit la disposition d’ASP.NET Core pour le filtrage de catégorie de journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
+|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. Les versions 2.x et ultérieures suivent la disposition d’ASP.NET Core pour le filtrage des catégories du journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
 |console|n/a| Le paramètre de journalisation de la [console](#console). |
 |applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
 

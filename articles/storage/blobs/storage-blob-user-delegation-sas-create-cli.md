@@ -1,20 +1,21 @@
 ---
-title: Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec l’interface de ligne de commande Azure (préversion) – Stockage Azure
-description: Découvrez comment créer une SAP de délégation d’utilisateur à l’aide des informations d’identification Azure Active Directory dans stockage Azure à l’aide de l’interface de ligne de commande Azure.
+title: Utiliser Azure CLI pour créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob
+titleSuffix: Azure Storage
+description: Découvrez comment créer une SAS de délégation d’utilisateur (préversion) avec des informations d’identification Azure Active Directory avec Azure CLI.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673317"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892547"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion)
 

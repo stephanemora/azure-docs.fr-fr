@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 6004e08f5f30c7f3c63bb87437147db15da5e335
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b0fec44a59bd70c6f1d0236861d93e81aaba033c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69016780"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969428"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Conception d’un système de protection du contenu avec contrôle d’accès à l’aide d’Azure Media Services 
 
@@ -463,11 +463,16 @@ La capture d’écran suivante montre un scénario qui utilise une clé asymétr
 Dans les deux cas ci-dessus, l’authentification utilisateur reste la même. Elle passe par Azure AD. La seule différence est que les jetons JWT sont émis par le STS personnalisé et non par Azure AD. Lorsque vous configurez la protection CENC dynamique, la restriction du service de distribution de licences spécifie le type de jeton JWT, soit avec une clé symétrique soit avec une clé asymétrique.
 
 ## <a name="summary"></a>Résumé
+
 Dans ce document, nous avons évoqué l’utilisation de CENC avec un système multi-DRM natif et un contrôle d’accès via une authentification par jeton. Nous avons vu sa conception et son implémentation à l’aide d’Azure, de Media Services et de Media Player.
 
 * Nous avons proposé une conception de référence contenant tous les composants nécessaires dans un sous-système DRM/CENC.
 * Nous avons également présenté une implémentation de référence sur Azure, Media Services et Media Player.
 * Certains aspects directement impliqués dans la conception et l’implémentation ont également été abordés.
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

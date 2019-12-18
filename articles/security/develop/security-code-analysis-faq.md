@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828250"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851517"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 Vous avez des questions ? Pour plus d’informations, consultez le forum aux questions suivant.
@@ -86,7 +86,7 @@ Les tâches de build peuvent télécharger les packages NuGet des outils à part
 
 ### <a name="what-effect-does-installing-the-extension-have-on-my-azure-devops-organization"></a>Quel est l’effet de l’installation de l’extension sur mon organisation Azure DevOps ? 
 
-Après installation, les tâches de build de sécurité fournies par l’extension peuvent être utilisées par tous les utilisateurs de votre organisation. Lorsque vous créez ou modifiez un pipeline Azure, ces tâches sont disponibles à partir de la liste des collections de tâches de build. À part cela, l’installation de l’extension dans votre organisation Azure DevOps n’a aucun effet. L’installation ne modifie aucun paramètre de compte, paramètre de projet ou pipeline.
+Après installation, les tâches de build de sécurité fournies par l’extension peuvent être utilisées par tous les utilisateurs de votre organisation. Lorsque vous créez ou modifiez un pipeline Azure, ces tâches sont disponibles à partir de la liste des collections de tâches de génération. À part cela, l’installation de l’extension dans votre organisation Azure DevOps n’a aucun effet. L’installation ne modifie aucun paramètre de compte, paramètre de projet ou pipeline.
 
 ### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>L’installation de l’extension modifie-t-elle mes pipelines Azure existants ? 
 
@@ -222,9 +222,6 @@ La tâche de build Analyseurs Roslyn doit interroger Azure DevOps pour le journa
 
 Si vous avez besoin d’une aide supplémentaire, notez que le support de Microsoft Security Code Analysis est disponible du lundi au vendredi, de 9h00 à 17h00 (Heure standard du Pacifique).
 
-  - Intégration : Contactez vos responsables de comptes techniques pour commencer.
+- Intégration : Consultez notre [documentation sur l’intégration](security-code-analysis-onboard.md)
   
-  - Support : Envoyez un e-mail à notre équipe au [Support de Microsoft Security Code Analysis](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request).
-
-  >[!NOTE] 
-  >Vous n'avez peut-être pas de relation de support payant avec Microsoft. Vous disposez peut-être d'une offre de support qui ne vous permet pas d'acheter des services à partir du catalogue Phoenix. Si tel est le cas, consultez notre [page d'accueil des services de support](https://www.microsoft.com/enterprise/services/support) pour plus d’informations.
+- Support : Envoyez un e-mail à notre équipe au [Support de Microsoft Security Code Analysis](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)

@@ -10,16 +10,16 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: f4d94536a8c1b509e0ce435a764e69984b5d415e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11c964bedce7a8b979434b888d756c2121d06a60
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60425479"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873826"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Analyse du plan de données
 
-Cet article décrit l’analyse du plan de données de l’[initialisation (tearDown) de test][Setup]. Vous pouvez également consulter la [configuration] [ Configuration] et l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation (tearDown) de test.
+Cet article décrit l’analyse du plan de données de l’[initialisation (tearDown) de test][Setup]. Vous pouvez également consulter la [configuration de l’initialisation (tearDown) de test][Configuration] et l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation (tearDown) de test.
 
 L’analyse du plan de données examine le chemin emprunté par les paquets qui vont d’un réseau local (LAN ou réseau virtuel) à l’autre au sein d’une topologie. Le chemin des données entre deux réseaux locaux n’est pas nécessairement symétrique. Dans cet article, nous analysons donc le chemin de transfert d’un réseau local vers un autre réseau qui est distinct du chemin inverse.
 
@@ -40,7 +40,7 @@ Le peering de réseau virtuel émule les fonctionnalités de pont réseau entre 
 La figure suivante présente la vue graphique de la connexion entre le réseau virtuel hub et le réseau virtuel spoke du point de vue d’Azure Network Watcher :
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>Chemin vers le réseau virtuel branch
 
@@ -60,11 +60,11 @@ Dans cette détermination d’itinéraire, le premier tronçon est la passerelle
 
 La figure suivante présente la vue graphique de la connexion entre le réseau virtuel hub et le réseau virtuel branch du point de vue de Network Watcher :
 
-[![2]][2]
+![2][2]
 
 Pour la même connexion, la figure suivante montre le mode Grille dans Network Watcher :
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>Chemin vers l’emplacement Location 1 local
 
@@ -302,7 +302,7 @@ Network Watcher fournit uniquement une vue centrée sur Azure. D’un point de v
 
 La figure suivante présente la vue de la topologie de la connectivité de la machine virtuelle Location 1 locale à la machine virtuelle sur le réseau virtuel hub via ExpressRoute :
 
-[![4]][4]
+![4][4]
 
 Comme indiqué précédemment, l’initialisation (tearDown) de test utilise un VPN de site à site comme connectivité de secours pour ExpressRoute entre l’emplacement Location 1 local et le réseau virtuel hub. Pour tester le chemin des données de sauvegarde, nous allons provoquer un échec de la liaison ExpressRoute entre le routeur CE principal de l’emplacement Location 1 local et le composant MSEE correspondant. Pour provoquer l’échec d’une liaison ExpressRoute, arrêtez l’interface CE qui est accessible sur le composant MSEE :
 
@@ -318,7 +318,7 @@ Comme indiqué précédemment, l’initialisation (tearDown) de test utilise un 
 
 La figure suivante présente la vue de la topologie de la connectivité de la machine virtuelle Location 1 locale à la machine virtuelle sur le réseau virtuel hub via la connectivité VPN de site à site quand la connectivité ExpressRoute est à l’arrêt :
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>Chemin vers le réseau virtuel spoke
 
@@ -420,7 +420,7 @@ La sortie de détermination d’itinéraire d’un emplacement Location 2 local
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>Chemin du réseau virtuel branch, de l’emplacement Location 1 local et du réseau virtuel distant
 
-Comme nous l’avons indiqué dans l’[analyse du plan de contrôle][Control-Analysis], l’emplacement Location 1 local n’a aucune visibilité sur le réseau virtuel branch, l’emplacement Location 1 local ou le réseau virtuel distant selon la configuration réseau. 
+Comme nous l’avons indiqué dans l’[analyse du plan de contrôle][Control-Analysis], l’emplacement Location 1 local n’a aucune visibilité sur le réseau virtuel branche, l’emplacement Location 1 local ou le réseau virtuel distant selon la configuration réseau. 
 
 ## <a name="data-path-from-the-remote-vnet"></a>Chemin des données à partir du réseau virtuel distant
 
@@ -454,7 +454,7 @@ La sortie de détermination d’itinéraire du réseau virtuel distant vers une 
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>Chemin du réseau virtuel branch et de l’emplacement Location 2 local
 
-Comme nous l’avons indiqué dans l’[analyse du plan de contrôle][Control-Analysis], le réseau virtuel distant n’a aucune visibilité sur le réseau virtuel branch ni sur l’emplacement Location 2 local selon la configuration réseau. 
+Comme nous l’avons indiqué dans l’[analyse du plan de contrôle][Control-Analysis], le réseau virtuel distant n’a aucune visibilité sur le réseau virtuel branche ni sur l’emplacement Location 2 local selon la configuration réseau. 
 
 ### <a name="path-to-on-premises-location-1"></a>Chemin vers l’emplacement Location 1 local
 
@@ -476,7 +476,7 @@ La sortie de détermination d’itinéraire du réseau virtuel distant vers une 
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site à site sur ExpressRoute
 
-Vous pouvez configurer un VPN de site à site à l’aide du peering Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via le peering Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via le peering Microsoft ExpressRoute][S2S-Over-ExR]. 
+Vous pouvez configurer un VPN de site à site à l’aide du peering Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPsec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via le Peering Microsoft ExpressRoute][S2S-Over-ExR]. 
 
 La principale limitation liée à la configuration d’un VPN de site à site qui utilise le peering Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser le peering privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
 
@@ -503,7 +503,7 @@ Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle VPN ?][V
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [Forum Aux Questions sur ExpressRoute][ExR-FAQ] pour :
+Consultez le [FAQ ExpressRoute][ExR-FAQ] pour :
 -   Connaître le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
 -   Connaître le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
 -   Découvrir les autres limites de mise à l’échelle d’ExpressRoute.
@@ -511,8 +511,8 @@ Consultez le [Forum Aux Questions sur ExpressRoute][ExR-FAQ] pour :
 
 <!--Image References-->
 [1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "Vue Network Watcher de la connectivité d’un réseau virtuel hub à un réseau virtuel spoke"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Vue Network Watcher de la connectivité d’un réseau virtuel hub à un réseau virtuel branch"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Mode Grille Network Watcher de la connectivité d’un réseau virtuel hub à un réseau virtuel branch"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "Vue Network Watcher de la connectivité d’un réseau virtuel hub à un réseau virtuel branche"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "Mode Grille Network Watcher de la connectivité d’un réseau virtuel hub à un réseau virtuel branche"
 [4]: ./media/backend-interoperability/Loc1-HubVM.jpg "Vue Network Performance Monitor de la connectivité de la machine virtuelle Location 1 au réseau virtuel hub via ExpressRoute 1"
 [5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "Vue Network Performance Monitor de la connectivité de la machine virtuelle Location 1 au réseau virtuel hub via un VPN de site à site"
 

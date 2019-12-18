@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: b0056df16dccaf1dc7e94aad1a2c6c262ffd89ee
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383375"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922157"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer (préversion)
 
@@ -21,13 +21,8 @@ Azure Data Lake Storage est une solution Data Lake hautement évolutive et écon
 Azure Data Explorer s’intègre à Stockage Blob Azure et Azure Data Lake Storage Gen2 pour offrir un accès rapide, en cache et indexé aux données du lac. Vous pouvez analyser et interroger les données du lac, sans ingestion préalable dans Azure Data Explorer. Vous pouvez également interroger simultanément des données de lac natives ingérées ou non ingérées.  
 
 > [!TIP]
-> Pour des requêtes plus performantes, l'ingestion des données dans Azure Data Explorer est requise. La possibilité d’interroger les données dans Azure Data Lake Storage Gen2 sans ingestion préalable est à réserver aux données historiques ou aux données rarement interrogées.
+> Pour des requêtes plus performantes, l'ingestion des données dans Azure Data Explorer est requise. La possibilité d’interroger les données dans Azure Data Lake Storage Gen2 sans ingestion préalable est à réserver aux données historiques ou aux données rarement interrogées. [Optimisez les performances de vos requêtes dans le lac](#optimize-your-query-performance) pour obtenir de meilleurs résultats.
  
-## <a name="optimize-query-performance-in-the-lake"></a>Optimiser les performances des requêtes dans le lac 
-
-* Partitionnez les données pour un niveau de performance améliorée et un temps de requête optimisé.
-* Compressez les données pour améliorer le niveau de performance (gzip pour une meilleure compression, lz4 pour un meilleur niveau de performance).
-* Utilisez Stockage Blob Azure ou Azure Data Lake Storage Gen2 avec la même région que votre cluster Azure Data Explorer. 
 
 ## <a name="create-an-external-table"></a>Créer une table externe
 
@@ -231,6 +226,37 @@ Cette requête utilise le partitionnement, ce qui optimise le temps de requête 
 ![afficher la requête partitionnée](media/data-lake-query-data/taxirides-with-partition.png)
   
 Vous pouvez écrire des requêtes supplémentaires à exécuter sur la table externe *TaxiRides* et en savoir plus sur les données. 
+
+## <a name="optimize-your-query-performance"></a>Optimiser les performances de vos requêtes
+
+Optimisez les performances de vos requêtes dans le lac en observant les bonnes pratiques suivantes pour interroger des données externes. 
+ 
+### <a name="data-format"></a>Format de données
+ 
+Utilisez un format en colonnes pour les requêtes analytiques dans la mesure où :
+* Seules les colonnes appropriées à une requête peuvent être lues. 
+* Les techniques d’encodage de colonne peuvent réduire considérablement la taille des données.  
+Azure Data Explorer prend en charge les formats en colonnes Parquet et ORC. Nous suggérons le format Parquet car son implémentation est optimisée. 
+ 
+### <a name="azure-region"></a>Région Azure 
+ 
+Veillez à ce que les données externes se trouvent dans la même région Azure que votre cluster Azure Data Explorer. Cela réduit le coût et le temps de l’extraction des données.
+ 
+### <a name="file-size"></a>Taille du fichier
+ 
+La taille de fichier optimale est de plusieurs centaines de Mo (jusqu’à 1 Go) par fichier. Évitez d’avoir un grand nombre de petits fichiers qui nécessitent une surcharge inutile, par exemple un processus d’énumération de fichiers plus lent et une utilisation limitée du format en colonnes. Notez que le nombre de fichiers doit être supérieur au nombre de cœurs de processeur dans votre cluster Azure Data Explorer. 
+ 
+### <a name="compression"></a>Compression
+ 
+Utilisez la compression pour réduire la quantité de données extraites du stockage distant. Pour le format Parquet, utilisez le mécanisme de compression Parquet interne qui compresse les groupes de colonnes séparément, ce qui vous permet de les lire séparément. Pour valider l’utilisation du mécanisme de compression, vérifiez que les fichiers sont nommés comme suit : « <filename>.gz.parquet » ou « <filename>.snappy.parquet », et non « <filename>.parquet.gz »). 
+ 
+### <a name="partitioning"></a>Partitionnement
+ 
+Organisez vos données en utilisant des partitions de « dossier » qui permettent à la requête d’ignorer les chemins non pertinents. Lors de la planification du partitionnement, tenez compte de la taille de fichier et des filtres courants dans vos requêtes, tels que l’horodatage ou l’ID de locataire.
+ 
+### <a name="vm-size"></a>Taille de la machine virtuelle
+ 
+Sélectionnez les références SKU de machine virtuelle avec plus de cœurs et un débit réseau plus élevé (la mémoire est moins importante). Pour plus d’informations, consultez [Sélectionner la bonne référence SKU de machine virtuelle pour votre cluster Azure Data Explorer](manage-cluster-choose-sku.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

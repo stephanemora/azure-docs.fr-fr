@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806702"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976602"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -36,7 +36,7 @@ Video Indexer détermine quand une capture change dans la vidéo selon des signa
 
 ## <a name="keyframe-detection"></a>Détection d’une image clé
 
-Sélectionne les images représentant au mieux la capture. Les images clés sont des images représentatives sélectionnées à partir de la vidéo complète, en fonction des propriétés esthétiques (par exemple, contraste et stabilité). Video Indexer récupère une liste d’ID d’images clés faisant partie des métadonnées de la capture, en fonction des clients pouvant extraire la miniature de l’image clé. 
+Video Indexer sélectionne les images représentant au mieux chaque capture. Les images clés sont des images représentatives sélectionnées à partir de la vidéo complète, en fonction des propriétés esthétiques (par exemple, contraste et stabilité). Video Indexer récupère une liste d’ID d’images clés faisant partie des métadonnées de la capture, en fonction des clients qui peuvent extraire l’image clé en tant qu’image haute résolution.  
 
 ### <a name="extracting-keyframes"></a>Extraction d’images clés
 

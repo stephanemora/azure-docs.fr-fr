@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
-ms.openlocfilehash: 31eefbad8e8d7cb626d87d53690388d09b85257e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: e035c1ff4c8e16fbf40883b54e3153eab9729040
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122642"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894280"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Utiliser Azure Kubernetes Service avec Apache Kafka sur HDInsight
 
@@ -41,7 +41,7 @@ Ce document suppose également que vous avez parcouru le [tutoriel Azure Kuberne
 
 ### <a name="network-topology"></a>Topologie du réseau
 
-HDInsight et AKS utilisent un réseau virtuel Azure comme conteneur pour les ressources de calcul. Pour activer la communication entre HDInsight et AKS, vous devez activer la communication entre leurs réseaux. Les étapes décrites dans ce document utilisent l’homologation de réseau virtuel pour les réseaux. D’autres connexions, comme les VPN, doivent également fonctionner. Pour plus d’informations sur l’homologation, consultez le document [Homologation de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
+HDInsight et AKS utilisent un réseau virtuel Azure comme conteneur pour les ressources de calcul. Pour activer la communication entre HDInsight et AKS, vous devez activer la communication entre leurs réseaux. Les étapes décrites dans ce document utilisent le peering de réseau virtuel pour les réseaux. D’autres connexions, comme les VPN, doivent également fonctionner. Pour plus d’informations sur le peering, consultez le document [Peering de réseaux virtuels](../../virtual-network/virtual-network-peering-overview.md).
 
 Le diagramme suivant illustre la topologie de réseau utilisée dans ce document :
 
@@ -57,52 +57,56 @@ Si vous n’avez pas déjà un cluster AKS, utilisez un des documents suivants p
 * [Déployer un cluster Azure Kubernetes Service (AKS) : portail](../../aks/kubernetes-walkthrough-portal.md)
 * [Déployer un cluster Azure Kubernetes Service (AKS) : CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]  
-> AKS crée un réseau virtuel lors de l’installation. Ce réseau est homologué avec celui créé pour HDInsight dans la section suivante.
+> [!IMPORTANT]  
+> AKS crée un réseau virtuel pendant l’installation dans un groupe de ressources **supplémentaire**. Le groupe de ressources supplémentaire suit la convention de nommage de **MC_resourceGroup_AKSclusterName_location**.  
+> Ce réseau est homologué avec celui créé pour HDInsight dans la section suivante.
 
-## <a name="configure-virtual-network-peering"></a>Configurer l’homologation de réseaux virtuels
+## <a name="configure-virtual-network-peering"></a>Configurer le peering de réseaux virtuels
 
-1. À partir du [portail Azure](https://portal.azure.com), sélectionnez __Groupes de ressources__, puis recherchez le groupe de ressources qui contient le réseau virtuel pour votre cluster AKS. Le nom du groupe de ressources est `MC_<resourcegroup>_<akscluster>_<location>`. Les entrées `resourcegroup` et `akscluster` sont le nom du groupe de ressources dans lequel vous avez créé le cluster et le nom du cluster. `location` est l’emplacement dans lequel le cluster a été créé.
+### <a name="identify-preliminary-information"></a>Identifier des informations préliminaires
 
-2. Dans le groupe de ressources, sélectionnez la ressource __Réseau virtuel__.
+1. À partir du [portail Azure](https://portal.azure.com), localisez le **groupe de ressources** supplémentaire qui contient le réseau virtuel de votre cluster AKS.
 
-3. Sélectionnez __Espace d’adressage__. Notez l’espace d’adressage indiqué.
+2. À partir du groupe de ressources, sélectionnez la ressource __Réseau virtuel__. Notez le nom. Il sera utile plus tard.
 
-4. Pour créer un réseau virtuel pour HDInsight, sélectionnez __+ Créer une ressource__, __Mise en réseau__, puis __Réseau virtuel__.
+3. Sous **Paramètres**, sélectionnez __Espace d’adressage__. Notez l’espace d’adressage indiqué.
 
-    > [!IMPORTANT]  
-    > Lorsque vous entrez les valeurs pour le nouveau réseau virtuel, vous devez utiliser un espace d’adressage qui ne chevauche pas celui utilisé par le réseau de cluster AKS.
+### <a name="create-virtual-network"></a>Création d’un réseau virtuel
 
-    Utilisez le même __emplacement__ pour le réseau virtuel que celui que vous avez utilisé pour le cluster AKS.
+1. Pour créer un réseau virtuel pour HDInsight, accédez à __+ Créer une ressource__ > __Mise en réseau__ > __Réseau virtuel__.
 
-    Attendez que le réseau virtuel ait été créé avant de passer à l’étape suivante.
+1. Créez le réseau à l’aide des instructions suivantes pour certaines propriétés :
 
-5. Pour configurer l’homologation entre le réseau HDInsight et le réseau de cluster AKS, sélectionnez le réseau virtuel, puis sélectionnez __Homologations__. Sélectionnez __+ Ajouter__ et utilisez les valeurs suivantes pour remplir le formulaire :
+    |Propriété | Valeur |
+    |---|---|
+    |Espace d’adressage|Vous devez utiliser un espace d’adressage qui ne chevauche pas celui utilisé par le réseau en cluster AKS.|
+    |Location|Utilisez le même __emplacement__ pour le réseau virtuel que celui que vous avez utilisé pour le cluster AKS.|
 
-   * __Nom__ : entrez un nom unique pour cette configuration de peering.
-   * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le **cluster AKS**.
+1. Attendez que le réseau virtuel ait été créé avant de passer à l’étape suivante.
 
-     Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
+### <a name="configure-peering"></a>Configurer le peering
 
-6. Pour configurer l’homologation entre le réseau de cluster AKS et le réseau HDInsight, sélectionnez le __réseau virtuel du cluster AKS__, puis sélectionnez __Homologations__. Sélectionnez __+ Ajouter__ et utilisez les valeurs suivantes pour remplir le formulaire :
+1. Pour configurer le peering entre le réseau HDInsight et le réseau de cluster AKS, sélectionnez le réseau virtuel, puis sélectionnez __Peerings__.
 
-   * __Nom__ : entrez un nom unique pour cette configuration de peering.
-   * __Réseau virtuel__ : ce champ permet de sélectionner le réseau virtuel pour le __cluster HDInsight__.
+1. Sélectionnez __+ Ajouter__ et utilisez les valeurs suivantes pour remplir le formulaire :
 
-     Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer l’homologation.
+    |Propriété |Valeur |
+    |---|---|
+    |Nom du peering de \<ce réseau virtuel> avec un réseau virtuel distant|entrez un nom unique pour cette configuration de peering.|
+    |Réseau virtuel|Sélectionnez le réseau virtuel pour le **cluster AKS**.|
+    |Nom du peering de \<réseau virtuel AKS> avec \<ce réseau virtuel>|Entrez un nom unique.|
 
-## <a name="install-apache-kafka-on-hdinsight"></a>Installer Apache Kafka sur HDInsight
+    Laissez tous les autres champs sur la valeur par défaut, puis sélectionnez __OK__ pour configurer le peering.
+
+## <a name="create-apache-kafka-cluster-on-hdinsight"></a>Créer un cluster Apache Kafka sur HDInsight
 
 Lorsque vous créez le cluster Kafka sur le cluster HDInsight, vous devez joindre le réseau virtuel créé précédemment pour HDInsight. Pour plus d’informations sur la création d’un cluster Kafka, consultez le document [Créer un cluster Apache Kafka](apache-kafka-get-started.md).
-
-> [!IMPORTANT]  
-> Lorsque vous créez le cluster, vous devez utiliser les __paramètres avancés__ pour joindre le réseau virtuel que vous avez créé pour HDInsight.
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>Configurer la publication d’adresses IP Apache Kafka
 
 Suivez les étapes ci-dessous pour configurer Kafka afin qu’il publie des adresses IP plutôt que des noms de domaine :
 
-1. À l’aide d’un navigateur web, accédez à https://CLUSTERNAME.azurehdinsight.net. Remplacez __CLUSTERNAME__ par le nom du cluster Kafka sur HDInsight.
+1. À l’aide d’un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`. Remplacez CLUSTERNAME par le nom du cluster Kafka sur HDInsight.
 
     Lorsque vous y êtes invité, utilisez le nom et le mot de passe utilisateur HTTPS correspondant au cluster. L’interface utilisateur web d’Ambari pour le cluster s’affiche.
 

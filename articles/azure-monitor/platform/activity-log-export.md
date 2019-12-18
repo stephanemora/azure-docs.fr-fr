@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 33302d7252c56badfed1dc7adea6a4f7cbf961b6
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: ff8956d942aa54500a08cac4ebd94127b14b0bd4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048251"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931774"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
-> [!NOTE]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md).
+> [!WARNING]
+> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
 
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
 
@@ -33,7 +33,7 @@ Archiver le journal d'activité vers un compte de stockage est utile si vous sou
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="storage-account"></a>Compte de stockage
-Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Si vous archivez également des journaux de diagnostic et des métriques sur un compte de stockage cependant, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
+Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
 
 Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 > [!NOTE]
@@ -169,7 +169,7 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 Qu'il soit envoyé à Stockage Azure ou Event Hub, le journal d’activité est écrit dans un JSON au format suivant.
 
 
-> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
+> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
 
 ``` JSON
 {

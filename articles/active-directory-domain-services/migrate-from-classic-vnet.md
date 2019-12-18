@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 8cba2cbf8fcbad1acae8c36892308c3249fc4181
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674916"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893057"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Préversion - Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
@@ -306,12 +306,13 @@ Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les por
 
 En cas d’erreur survenant lors de l’exécution de l’applet de commande PowerShell pour préparer la migration à l’étape 2, ou pour la migration elle-même à l’étape 3, le domaine managé Azure AD DS peut revenir à la configuration d’origine. Cette opération d’annulation nécessite l’existence du réseau virtuel classique d’origine. Notez que les adresses IP peuvent toujours changer après la restauration.
 
-Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Abort*. Fournissez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé dans une des sections précédentes, par exemple *contoso.com* :
+Exécutez l’applet de commande `Migrate-Aadds` à l’aide du paramètre *-Abort*. Indiquez le *-ManagedDomainFqdn* de votre propre domaine managé Azure AD DS préparé dans une des sections précédentes, par exemple *contoso.com*, et le nom du réseau virtuel Classique, par exemple *myClassicVnet* :
 
 ```powershell
 Migrate-Aadds `
     -Abort `
     -ManagedDomainFqdn contoso.com `
+    -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```
 
@@ -360,4 +361,4 @@ Une fois la migration de votre domaine managé Azure AD DS effectuée vers le mo
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
 
 <!-- EXTERNAL LINKS -->
-[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/

@@ -1,34 +1,32 @@
 ---
 title: Protocoles d’authentification Azure Active Directory | Microsoft Docs
 description: Vue d’ensemble des protocoles d’authentification pris en charge par Azure Active Directory (AD)
-documentationcenter: dev-center-name
 author: rwike77
 services: active-directory
 manager: CelesteDG
-editor: ''
 ms.assetid: 7a838ae2-c24c-4304-b6c0-e77fb888e6c0
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f292d4804adf7e1a58e5c2097f689aac182ff783
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b370736a5e4994651499716e3a923cf59465ca96
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835482"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845414"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocoles d’authentification d’Azure Active Directory
+
 Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés. Les rubriques de cette section décrivent les protocoles pris en charge et leur implémentation dans Azure AD. Les rubriques comprennent une revue des types de revendications pris en charge, une présentation de l’utilisation des métadonnées de fédération, de la documentation de référence détaillée sur les protocoles OAuth 2.0. et SAML 2.0 et une section de dépannage.
 
-## <a name="authentication-protocols-articles-and-reference"></a>Articles et référence relatifs aux protocoles d’authentification
+## <a name="authentication-protocols-articles-and-reference"></a>Articles et références sur les protocoles d’authentification
+
 * [Informations importantes sur la substitution des clés de signature dans Azure AD](active-directory-signing-key-rollover.md) : découvrez le rythme de substitution des clés de signature d’Azure AD, les modifications que vous pouvez effectuer pour mettre la clé à jour automatiquement et une description de la mise à jour des scénarios d’application les plus courants.
 * [Types de jeton et de revendication pris en charge](v1-id-and-access-tokens.md) : découvrez les revendications des jetons émis par Azure AD.
 * [Métadonnées de fédération](azure-ad-federation-metadata.md) : découvrez comment trouver et interpréter les documents de métadonnées générés par Azure AD.
@@ -39,6 +37,6 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 * [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : découvrez les profils SAML d’authentification unique et de déconnexion unique d’Azure AD.
 
 ## <a name="see-also"></a>Voir aussi
-[Guide du développeur Azure Active Directory](v1-overview.md)
 
-[Exemples de code Azure Active Directory](sample-v1-code.md)
+* [Guide du développeur Azure Active Directory](v1-overview.md)
+* [Exemples de code Azure Active Directory](sample-v1-code.md)

@@ -1,33 +1,29 @@
 ---
-title: Personnaliser les navigateurs et les vues web
+title: Personnaliser les navigateurs et les vues web | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez comment personnaliser l’expérience de navigateur utilisée par MSAL pour iOS et macOS pour la connexion des utilisateurs
+description: Découvrez comment personnaliser l’expérience de navigateur iOS/macOS MSAL pour la connexion des utilisateurs.
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803379"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963713"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Activation personnaliser les navigateurs et les vues web pour iOS/macOS
 
-Un navigateur web est nécessaire pour l’authentification interactive. Sur iOS, la bibliothèque MSAL (Microsoft Authentication Library) utilise le navigateur web système par défaut (qui peut apparaître au-dessus de votre application) afin d’effectuer une authentification interactive pour la connexion des utilisateurs. L’utilisation du navigateur système présente l’avantage de partager l’état d’authentification unique avec d’autres applications et avec les applications web.
+Un navigateur web est nécessaire pour l’authentification interactive. Sur iOS, la bibliothèque MSAL (Microsoft Authentication Library) utilise le navigateur web système par défaut (qui peut apparaître au-dessus de votre application) afin d’effectuer une authentification interactive pour la connexion des utilisateurs. L’utilisation du navigateur système présente l’avantage de partager l’état d’authentification unique (SSO) avec d’autres applications et avec les applications web.
 
 Vous pouvez changer l’expérience en personnalisant la configuration avec d’autres options d’affichage du contenu web, telles que :
 
@@ -68,7 +64,7 @@ Les développeurs peuvent également sélectionner un autre navigateur système 
 
 Le navigateur que vous utilisez a un impact sur l’expérience d’authentification unique, en raison de la façon dont il partage les cookies. Les tableaux suivants récapitulent les expériences d’authentification unique par navigateur.
 
-| Technology    | Type de navigateur  | Disponibilité iOS | Disponibilité macOS | Partage des cookies et d’autres données  | Disponibilité MSAL | Authentification unique |
+| Technology    | Type de navigateur  | Disponibilité iOS | Disponibilité macOS | Partage des cookies et d’autres données  | Disponibilité MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 et ultérieur | macOS 10.15 et ultérieur | OUI | iOS uniquement | avec instances de Safari
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 et ultérieur | N/A | OUI | iOS uniquement |  avec instances de Safari

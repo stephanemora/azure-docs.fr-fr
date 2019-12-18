@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546345"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927873"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -159,14 +159,14 @@ Le clustering de basculement Windows Server est pris en charge par Azure File Sy
 
 ### <a name="data-deduplication"></a>Déduplication des données
 **Windows Server 2016 et Windows Server 2019**   
-La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
+La déduplication des données est prise en charge sur les volumes avec hiérarchisation cloud sur Windows Server 2016 et Windows Server 2019. Le fait d’activer la déduplication des données sur un volume pour lequel la hiérarchisation cloud est activée vous permet de mettre en cache plus de fichiers en local sans avoir à provisionner plus de stockage. 
 
 Quand la déduplication des données est activée sur un volume où la hiérarchisation cloud est activée, les fichiers optimisés par la déduplication à l’emplacement du point de terminaison de serveur sont hiérarchisés d’une façon similaire à un fichier normal, en fonction des paramètres de stratégie de hiérarchisation cloud. Une fois que les fichiers optimisés par la déduplication ont été hiérarchisés, le travail de nettoyage de la mémoire de la déduplication des données s’exécute automatiquement pour récupérer de l’espace disque en supprimant les blocs inutiles qui ne sont plus référencés par d’autres fichiers sur le volume.
 
 Notez que les économies faites sur les volumes s’appliquent seulement au serveur ; vos données dans le partage de fichiers Azure ne sont pas dédupliquées.
 
 > [!Note]  
-> La déduplication des données et la hiérarchisation cloud ne sont à l’heure actuelle pas prises en charge sur le même volume sur Server 2019 en raison d’un bogue qui sera résolu dans une prochaine mise à jour.
+> Pour prendre en charge la déduplication des données sur des volumes en ayant activé la hiérarchisation cloud sur Windows Server 2019, la mise à jour Windows [KB4520062](https://support.microsoft.com/help/4520062) doit être installé et la version 9.0.0.0 (ou supérieure) de l’agent Azure File Sync est requise.
 
 **Windows Server 2012 R2**  
 Azure File Sync ne prend pas en charge la déduplication des données et la hiérarchisation cloud sur le même volume sur Windows Serveur 2012 R2. Si la déduplication des données est activée sur un volume, la hiérarchisation cloud doit être désactivée. 

@@ -3,21 +3,20 @@ title: Faire fonctionner des appareils hors connexion - Azure IoT Edge | Microso
 description: Découvrez comment des appareils et des modules IoT Edge peuvent fonctionner sans connexion Internet pendant de longues périodes de temps, et comment IoT Edge permet aussi aux appareils IoT standard de continuer à fonctionner hors connexion.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456887"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924865"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
-Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos appareils IoT Edge et permet également certaines opérations hors connexion sur les appareils enfants non IoT Edge. Dès lors qu’un appareil IoT Edge s’est connecté au moins une fois à IoT Hub, cet appareil et tous les appareils enfants assignés peuvent continuer à fonctionner même s’ils sont déconnectés de façon prolongée ou intermittente. 
-
+Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos appareils IoT Edge et permet également certaines opérations hors connexion sur les appareils enfants non IoT Edge. Dès lors qu’un appareil IoT Edge s’est connecté au moins une fois à IoT Hub, cet appareil et tous les appareils enfants peuvent continuer à fonctionner même s’ils sont déconnectés de façon prolongée ou intermittente.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -39,7 +38,9 @@ L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors 
 
 4. **Reconnecter et resynchroniser avec IoT Hub**
 
-   Après la restauration de la connexion à IoT Hub, l’appareil IoT Edge est resynchronisé. Les messages stockés localement sont remis dans l’ordre dans lequel ils ont été stockés. Les éventuelles différences entre les propriétés désirées et rapportées des modules et des appareils sont rapprochées. L’appareil IoT Edge apporte les modifications nécessaires aux appareils IoT enfants qui lui sont assignés.
+   Après la restauration de la connexion à IoT Hub, l’appareil IoT Edge est resynchronisé. Les messages stockés localement sont remis au hub IoT immédiatement, mais dépendent de la vitesse de la connexion, de la latence du hub IoT et d’autres facteurs associés. Ils sont remis dans l’ordre dans lequel ils ont été stockés.
+
+   Les éventuelles différences entre les propriétés désirées et rapportées des modules et des appareils sont rapprochées. L’appareil IoT Edge apporte les modifications nécessaires aux appareils IoT enfants qui lui sont assignés.
 
 ## <a name="restrictions-and-limits"></a>Restrictions et limites
 

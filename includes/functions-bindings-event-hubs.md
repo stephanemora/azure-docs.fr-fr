@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73799814"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924431"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -105,7 +105,7 @@ L’exemple suivant illustre une liaison de déclencheur de hub d’événements
 
 Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*.
 
-#### <a name="version-2x"></a>Version 2.x
+#### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
 ```json
 {
@@ -186,7 +186,7 @@ L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichi
 
 Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. 
 
-#### <a name="version-2x"></a>Version 2.x
+#### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
 ```json
 {
@@ -223,7 +223,7 @@ L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichi
 
 Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*.
 
-#### <a name="version-2x"></a>Version 2.x
+#### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
 ```json
 {
@@ -262,7 +262,7 @@ module.exports = function (context, myEventHubMessage) {
 
 Pour recevoir les événements dans un lot, définissez `cardinality` sur `many` dans le fichier *function.json*, comme le montrent les exemples suivants.
 
-#### <a name="version-2x"></a>Version 2.x
+#### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
 ```json
 {
@@ -389,7 +389,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’élément d’événement dans le code de la fonction. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**eventHubName** |**EventHubName** | Functions 2.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
+|**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../articles/event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. |
 |**cardinalité** | n/a | Pour Javascript. Définissez sur `many` afin d’activer le traitement par lot.  Si omis ou défini sur `one`, un message unique est transmis à la fonction. |
 |**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.|
@@ -423,7 +423,7 @@ Le fichier [host.json](../articles/azure-functions/functions-host-json.md#eventh
 
 Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un flux d’événements du hub d’événements. Vous devez disposer de l’autorisation d’envoi à un hub d’événements pour y écrire les événements.
 
-Vérifiez que les références de package nécessaires sont en place : Functions 1.x ou Functions 2.x
+Vérifiez que les références de package nécessaires sont en place avant d’essayer d’implémenter une liaison de sortie.
 
 ## <a name="output---example"></a>Sortie - exemple
 
@@ -474,7 +474,7 @@ public static async Task Run(
 
 L’exemple suivant illustre une liaison de déclencheur de hub d’événements dans un fichier *function.json* et une [fonction de script C#](../articles/azure-functions/functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x et versions ultérieures, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
@@ -526,7 +526,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction F#](../articles/azure-functions/functions-reference-fsharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x et versions ultérieures, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
@@ -560,7 +560,7 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) 
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction JavaScript](../articles/azure-functions/functions-reference-node.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x et versions ultérieures, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
@@ -680,7 +680,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Doit être défini sur « out ». Ce paramètre est défini automatiquement lorsque vous créez la liaison dans le portail Azure. |
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente l’événement. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**eventHubName** |**EventHubName** | Functions 2.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
+|**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
 |**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
@@ -701,7 +701,7 @@ Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.b
 
 ## <a name="hostjson-settings"></a>Paramètres host.json
 
-Cette section décrit les paramètres de configuration globale disponibles pour cette liaison dans la version 2.x. L’exemple de fichier host.json ci-dessous contient uniquement les paramètres de la version 2.x pour cette liaison. Pour plus d’informations sur les paramètres de configuration globale dans la version 2.x, consultez les [informations de référence sur le fichier host.json pour Azure Functions version 2.x](../articles/azure-functions/functions-host-json.md).
+Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier host.json ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
 > Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).

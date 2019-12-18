@@ -1,6 +1,7 @@
 ---
-title: Exemples et définitions de journaux d’audit dans Azure Active Directory B2C
-description: Guide et exemples relatifs à l’accès aux journaux d’audit Azure AD B2C.
+title: Accéder aux journaux d’audit et les consulter
+titleSuffix: Azure AD B2C
+description: Comment accéder aux journaux d’audit Azure AD B2C par programme et dans le Portail Azure.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643599"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948230"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 

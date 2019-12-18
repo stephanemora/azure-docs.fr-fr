@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9f3dd3c7d1a1352d40f9a15ba9aa1c012d1784d6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580761"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978268"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -73,8 +73,8 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 |---------------------------|---------|---------|------------|------------|
 | Créer un espace de travail        | **&check;**     | | **&check;** | **&check;** |
 | Gérer les accès à l’espace de travail    | **&check;**   || |  **&check;**    |
-| Mise à jour vers l’édition Enterprise    | **&check;** |  | |     |
-| Créer et gérer des ressources de calcul    |   | **&check;** | **&check;** |  **&check;**   |
+| Mise à jour vers l’édition Enterprise    | **&check;** | **&check;**  | |     |
+| Créer et gérer des ressources de calcul    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | Créer une machine virtuelle de notebooks |   | **&check;** | |     |
 
 
@@ -113,6 +113,6 @@ Pour bien démarrer avec Azure Machine Learning, voir :
 + [Créer un espace de travail](how-to-manage-workspace.md)
 + [Gérer un espace de travail](how-to-manage-workspace.md)
 + [Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python](tutorial-1st-experiment-sdk-setup.md)
-+ [Tutoriel : Prise en main d’Azure Machine Learning avec le kit SDK R]( tutorial-1st-r-experiment.md)
++ [Tutoriel : Bien démarrer avec Azure Machine Learning et le SDK R]( tutorial-1st-r-experiment.md)
 + [Tutoriel : Créer votre premier modèle de classification avec Machine Learning automatisé](tutorial-first-experiment-automated-ml.md) (disponible uniquement dans les espaces de travail [d’édition Enterprise](overview-what-is-azure-ml.md#sku))
 + [Tutoriel : Prédire le prix des véhicules à l’aide du concepteur](tutorial-designer-automobile-price-train-score.md) (disponible uniquement dans les espaces de travail [d’édition Enterprise](overview-what-is-azure-ml.md#sku))

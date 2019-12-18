@@ -10,20 +10,20 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671520"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894757"
 ---
-# <a name="simple-entity"></a>Entité simple 
+# <a name="simple-entity"></a>Entité simple
 
-Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Les entités simples étant généralement des noms tels que des noms de société, des noms de produits ou d’autres catégories de noms, ajoutez une [liste de phrases](luis-concept-feature.md) lorsque vous utilisez une entité simple pour renforcer le signal des noms utilisés. 
+Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Les entités simples étant généralement des noms tels que des noms de société, des noms de produits ou d’autres catégories de noms, ajoutez une [liste de phrases](luis-concept-feature.md) lorsque vous utilisez une entité simple pour renforcer le signal des noms utilisés.
 
 **L’entité convient bien quand :**
 
-* Les données ne sont mises en forme de façon cohérente, mais indiquent la même chose. 
+* Les données ne sont mises en forme de façon cohérente, mais indiquent la même chose.
 
 ![entité simple](./media/luis-concept-entities/simple-entity.png)
 
@@ -86,7 +86,7 @@ This is the JSON if `verbose=true` is set in the query string:
 }
 ```
 
-* * * 
+* * *
 
 |Objet de données|Nom de l’entité|Valeur|
 |--|--|--|
@@ -94,4 +94,5 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [tutoriel](luis-quickstart-primary-and-secondary-data.md), vous allez extraire les données de nom de poste de travail issues de l’apprentissage automatique à partir d’un énoncé utilisant l’**entité Simple**. Pour augmenter la précision de l’extraction, ajoutez une [liste d’expressions](luis-concept-feature.md) dont les termes sont spécifiques à l’entité simple.
+> [!div class="nextstepaction"]
+> [En savoir plus sur la syntaxe des modèles](reference-pattern-syntax.md)

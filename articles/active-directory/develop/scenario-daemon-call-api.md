@@ -1,6 +1,6 @@
 ---
-title: Application démon conçue pour appeler des API web (appel des API web) - Plateforme d’identités Microsoft
-description: Apprendre à générer une application démon qui appelle des API web (appel des API web)
+title: Appeler une API web à partir d’une application démon - Plateforme d’identités Microsoft | Azure
+description: Découvrez comment générer une application démon appelant des API web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8af0bb023136ba07057e4078d5abfcb4a3194a56
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175384"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962608"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Application démon appelant des API web - appeler une API web à partir de l’application
 
@@ -29,7 +29,7 @@ Une application démon peut appeler une API web à partir d’une application d�
 
 ## <a name="calling-a-web-api-daemon-application"></a>Appel une application démon d’API web
 
-Voici comment utiliser le jeton pour appeler une API
+Voici comment utiliser le jeton pour appeler une API :
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

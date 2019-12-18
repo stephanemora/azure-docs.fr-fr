@@ -1,5 +1,6 @@
 ---
-title: Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure Active Directory B2C
+title: Intégrer les échanges de revendications de l’API REST dans un parcours utilisateur
+titleSuffix: Azure AD B2C
 description: Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 49cd049c56e0c1d80318f9323aefe2d128774f3f
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69645124"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950916"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/09/2019
+ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970530"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971925"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -26,15 +26,15 @@ Azure Database pour MySQL prend actuellement en charge les versions suivantes :
 
 ## <a name="mysql-version-56"></a>MySQL version 5.6
 
-Version du correctif de bogue : 5.6.44
+Version du correctif de bogue : 5.6.45
 
-Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-44.html) MySQL.
+Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-45.html) MySQL.
 
 ## <a name="mysql-version-57"></a>MySQL version 5.7
 
-Version du correctif de bogue : 5.7.26
+Version du correctif de bogue : 5.7.27
 
-Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-26.html) MySQL.
+Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) MySQL.
 
 ## <a name="mysql-version-80"></a>MySQL Version 8.0
 

@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3de34c1da20df17fb5fb65cef28669fb73ff33a5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584526"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978558"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -232,6 +232,25 @@ L’article [Start, monitor and cancel training runs (Démarrer, surveiller et a
 
 ## <a name="view-run-details"></a>Afficher les détails de l’exécution
 
+### <a name="view-activequeued-runs-from-the-browser"></a>Afficher les exécutions actives ou en file d’attente dans le navigateur
+
+Les cibles de calcul utilisées pour l’entraînement des modèles sont des ressources partagées. Par conséquent, il peut arriver que plusieurs exécutions soient actives ou se trouvent en file d’attente au même moment. Pour voir les exécutions d’une cible de calcul dans votre navigateur, effectuez les étapes suivantes :
+
+1. Dans [Azure Machine Learning Studio](https://ml.azure.com/), sélectionnez votre espace de travail, puis sélectionnez __Calcul__ sur le côté gauche de la page.
+
+1. Sélectionnez __Clusters d’entraînement__ pour afficher la liste des cibles de calcul utilisées pour l’entraînement. Ensuite, sélectionnez le cluster.
+
+    ![Sélectionner le cluster d’entraînement](./media/how-to-track-experiments/select-training-compute.png)
+
+1. Sélectionnez __Exécutions__. La liste des exécutions qui utilisent ce cluster s’affiche. Pour voir les détails d’une exécution, utilisez le lien qui se trouve dans la colonne __Exécution__. Pour voir les détails d’une expérience, utilisez le lien qui se trouve dans la colonne __Expérience__.
+
+    ![Sélectionner des exécutions pour le cluster d’entraînement](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > Une exécution peut contenir des exécutions enfants. De fait, une tâche d’entraînement peut créer plusieurs entrées.
+
+Une fois l’exécution terminée, elle n’est plus affichée dans cette page. Pour voir des informations sur les exécutions terminées, consultez la section __Expériences__ dans le studio, puis sélectionnez l’expérience et l’exécution. Pour plus d’informations, consultez la section [Interroger les métriques d’exécution](#queryrunmetrics).
+
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Superviser l’exécution avec le widget de notebook Jupyter
 Quand vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
 
@@ -244,11 +263,11 @@ Quand vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions
 
    ![Capture d’écran du widget de notebook Jupyter](./media/how-to-track-experiments/run-details-widget.png)
 
-Vous pouvez également obtenir un lien vers le même affichage dans votre espace de travail.
+   Vous pouvez également obtenir un lien vers le même affichage dans votre espace de travail.
 
-```python
-print(run.get_portal_url())
-```
+   ```python
+   print(run.get_portal_url())
+   ```
 
 2. **[Pour l’exécution de Machine Learning automatisé]**  Pour accéder aux graphiques à partir d’une exécution précédente. Remplacez `<<experiment_name>>` par le nom d’une expérience appropriée :
 
@@ -271,6 +290,7 @@ Pour afficher d’autres détails sur un pipeline, cliquez sur le pipeline que v
 
 L’entraînement et la supervision du modèle se produisent en arrière-plan afin que vous puissiez exécuter d’autres tâches pendant que vous attendez. Vous pouvez également attendre que l’entraînement du modèle soit terminé avant d’exécuter davantage de code. Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. 
 
+<a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>Interroger les métriques d’exécution
 

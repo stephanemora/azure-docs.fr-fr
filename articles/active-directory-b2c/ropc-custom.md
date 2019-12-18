@@ -1,6 +1,7 @@
 ---
-title: Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C | Microsoft Docs
-description: Découvrez comment configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C.
+title: Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource avec des stratégies personnalisées
+titleSuffix: Azure AD B2C
+description: Découvrez comment configurer le flux des informations d’identification par mot de passe de propriétaire de ressource (ROPC) à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2f3eb2c0071eecb20bbf5616a01c80e55645207a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678143"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951062"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 

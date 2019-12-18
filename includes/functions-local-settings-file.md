@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 04/14/2019
 ms.author: glenga
-ms.openlocfilehash: fef5cd38461fec67790fb67faf8e466d46b247fc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: c505909599b6b69719de1cb9224db52d2f524b2b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669620"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935842"
 ---
 ## <a name="local-settings-file"></a>Fichier de paramètres locaux
 
@@ -40,7 +40,7 @@ Ces paramètres sont pris en charge lorsque vous exécutez des projets localemen
 | Paramètre      | Description                            |
 | ------------ | -------------------------------------- |
 | **`IsEncrypted`** | Lorsque ce paramètre est défini sur `true`, toutes les valeurs sont chiffrées à l’aide d’une clé d’ordinateur local. Utilisé avec les commandes `func settings`. La valeur par défaut est `false`. |
-| **`Values`** | Tableau des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale d’un projet. Ces paires clé-valeur (chaîne-chaîne) correspondent aux paramètres d’application dans votre Function App dans Azure, tels que [`AzureWebJobsStorage`]. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre d’application de chaîne de connexion, par exemple `Connection` pour le [déclencheur de stockage blob](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le tableau `Values`. <br/>[`AzureWebJobsStorage`] est un paramètre d’application requis pour les déclencheurs autres que HTTP. <br/>La version 2.x du runtime Functions requiert le paramètre [`FUNCTIONS_WORKER_RUNTIME`], qui est généré pour votre projet par Core Tools. <br/> Lorsque vous installez [l’émulateur de stockage Azure](../articles/storage/common/storage-use-emulator.md) localement et définissez [`AzureWebJobsStorage`] sur `UseDevelopmentStorage=true`, et Core Tools utilise l’émulateur. L’émulateur est utile lors du développement, mais vous devez le tester avec une connexion de stockage réelle avant le déploiement.<br/> Les valeurs doivent être des chaînes et non des objets JSON ou des tableaux. Les noms de paramètres ne peuvent pas contenir le signe deux points (`:`) ou un trait de soulignement double (`__`). Ces caractères sont réservés par le runtime.  |
+| **`Values`** | Tableau des paramètres d’application et des chaînes de connexion utilisés lors de l’exécution locale d’un projet. Ces paires clé-valeur (chaîne-chaîne) correspondent aux paramètres d’application dans votre Function App dans Azure, tels que [`AzureWebJobsStorage`]. Plusieurs déclencheurs et liaisons ont une propriété qui fait référence à un paramètre d’application de chaîne de connexion, par exemple `Connection` pour le [déclencheur de stockage blob](../articles/azure-functions/functions-bindings-storage-blob.md#trigger---configuration). Pour ces propriétés, vous avez besoin d’un paramètre d’application défini dans le tableau `Values`. <br/>[`AzureWebJobsStorage`] est un paramètre d’application requis pour les déclencheurs autres que HTTP. <br/>Les versions 2.x et ultérieures du runtime Functions nécessitent le paramètre [`FUNCTIONS_WORKER_RUNTIME`], qui est généré pour votre projet par Core Tools. <br/> Lorsque vous installez [l’émulateur de stockage Azure](../articles/storage/common/storage-use-emulator.md) localement et définissez [`AzureWebJobsStorage`] sur `UseDevelopmentStorage=true`, et Core Tools utilise l’émulateur. L’émulateur est utile lors du développement, mais vous devez le tester avec une connexion de stockage réelle avant le déploiement.<br/> Les valeurs doivent être des chaînes et non des objets JSON ou des tableaux. Les noms de paramètres ne peuvent pas contenir le signe deux points (`:`) ou un trait de soulignement double (`__`). Ces caractères sont réservés par le runtime.  |
 | **`Host`** | Les paramètres de cette section personnalisent le processus hôte Functions lorsque vous exécutez localement des projets. Ces paramètres sont séparés des paramètres host.json, qui s’appliquent également lorsque vous exécutez localement des projets dans Azure. |
 | **`LocalHttpPort`** | Définit le port par défaut utilisé lors de l’exécution de l’hôte Functions local (`func host start` et `func run`). `--port`L’option de ligne de commande est prioritaire sur ce paramètre. |
 | **`CORS`** | Définit les origines autorisées pour [cross-origin resource sharing (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Les origines sont fournies sous la forme d’une liste séparée par des virgules, sans espaces. La valeur de caractère générique (\*) est prise en charge, ce qui autorise les demandes à partir de toute origine. |

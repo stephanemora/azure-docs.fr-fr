@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006268"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997341"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
-> S’applique à : Windows 7 et Windows 10
+> S’applique à : Windows 7, Windows 10 et Windows 10 IoT Entreprise
 
-Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7 ou Windows 10 à l’aide du client Windows Desktop.
+Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7, Windows 10 ou Windows 10 IoT Entreprise à l’aide du client Bureau Windows.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).

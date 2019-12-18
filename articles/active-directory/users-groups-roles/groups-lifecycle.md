@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024782"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914070"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -62,7 +62,7 @@ Voici les rôles pour lesquels vous pouvez configurer et utiliser l’expiration
 
 Role | Autorisations
 -------- | --------
-Administrateur général ou Administrateur d’utilisateurs | Peut créer, lire, mettre à jour ou supprimer les paramètres de stratégie d’expiration de groupes Office 365<br>Peut renouveler n’importe quel groupe Office 365
+Administrateur général, Administrateur de groupes ou Administrateur d’utilisateurs. | Peut créer, lire, mettre à jour ou supprimer les paramètres de stratégie d’expiration de groupes Office 365<br>Peut renouveler n’importe quel groupe Office 365
 Utilisateur | Peut renouveler un groupe Office 365 dont il est propriétaire<br>Peut restaurer un groupe Office 365 dont il est propriétaire<br>Peut lire les paramètres de stratégie d’expiration
 
 Pour plus d’informations sur les autorisations nécessaires pour restaurer un groupe supprimé, consultez [Restaurer un groupe Office 365 supprimé dans Azure Active Directory](groups-restore-deleted.md).

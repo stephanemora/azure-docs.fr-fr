@@ -1,17 +1,17 @@
 ---
-title: Gérer des règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
+title: Gérer des règles de pare-feu - Hyperscale (Citus) - Azure Database pour PostgreSQL
 description: Créer et gérer des règles de pare-feu pour Azure Database pour PostgreSQL - Hyperscale (Citus) à l’aide du portail Azure
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 1b132eb168f3d873c8150bc33b581aa0f0f8d124
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 660c395e6cff81b0abcac07e66385f80a538695f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71275291"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977537"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gérer des règles de pare-feu dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 Les règles de pare-feu au niveau du serveur peuvent être utilisées pour gérer l’accès à un nœud coordinateur Hyperscale (Citus) à partir d’une adresse IP ou d’une plage d’adresses IP spécifique.

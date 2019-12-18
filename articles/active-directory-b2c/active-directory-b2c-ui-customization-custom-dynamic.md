@@ -1,5 +1,6 @@
 ---
-title: Personnaliser l’interface utilisateur d’Azure Active Directory B2C de manière dynamique en utilisant des stratégies personnalisées | Microsoft Docs
+title: Personnaliser dynamiquement l’interface utilisateur avec des stratégies personnalisées
+titleSuffix: Azure AD B2C
 description: Prendre en charge plusieurs expériences de personnalisation avec du contenu HTML5/CSS qui change de façon dynamique au moment de l’exécution.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227218"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950236"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 

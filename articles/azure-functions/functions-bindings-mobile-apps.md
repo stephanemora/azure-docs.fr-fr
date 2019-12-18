@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231126"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928598"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Liaisons Mobile Apps pour Azure Functions 
 
 > [!NOTE]
-> Les liaisons Azure Mobile Apps sont disponibles uniquement pour Azure Functions 1.x. Elles ne sont pas prises en charge dans Azure Functions 2.x.
+> Les liaisons Azure Mobile Apps sont disponibles uniquement pour Azure Functions 1.x. Elles ne sont pas prises en charge dans Azure Functions 2.x et ultérieur.
 
 Cet article explique comment utiliser des liaisons [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) dans Azure Functions. Azure Functions prend en charge des liaisons d’entrée et de sortie pour Mobile Apps.
 

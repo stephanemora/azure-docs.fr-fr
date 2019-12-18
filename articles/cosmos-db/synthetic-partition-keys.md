@@ -1,17 +1,17 @@
 ---
 title: Créez une clé de partition synthétique dans Azure Cosmos DB pour répartir uniformément vos données et la charge de travail.
-description: Apprenez à utiliser des clés de partition synthétiques dans vos conteneurs Azure Cosmos
+description: Découvrez comment utiliser des clés de partition synthétiques dans vos conteneurs Azure Cosmos pour distribuer les données et la charge de travail uniformément entre les clés
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8b4e2b8abac39f3268e0da7838acd566f40fdccc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 093610777b150c90ad55f1ce18337f1de8b17219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754818"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870494"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Créer une clé de partition synthétique
 

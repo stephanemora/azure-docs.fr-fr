@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dc79582efd2f009f1715e04b769d030cfd36561f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815634"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972458"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -592,7 +592,7 @@ Pour définir un service lié Azure Data Lake Store, définissez le type du serv
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **AzureDataLakeStore** | OUI |
 | dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il se présente au format suivant : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | OUI |
-| subscriptionId | ID d’abonnement Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
+| subscriptionId | ID d’abonnement Azure auquel appartient Data Lake Store. | Requis pour le récepteur |
 | resourceGroupName | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui (pour l’authentification du principal du service) |
 | servicePrincipalKey | Spécifiez la clé de l’application. | Oui (pour l’authentification du principal du service) |
@@ -1312,7 +1312,7 @@ Pour définir un jeu de données Recherche cognitive Azure, définissez son **ty
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
 | Type | La propriété de type doit être définie sur **AzureSearchIndex**.| OUI |
-| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans la Recherche cognitive Azure. | OUI |
+| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | OUI |
 
 #### <a name="example"></a>Exemples
 
@@ -3311,7 +3311,7 @@ Pour plus d’informations, consultez l’article [Amazon S3 connector (connecte
 
 
 ### <a name="linked-service"></a>Service lié
-Vous pouvez lier un système de fichiers local à une fabrique de données Azure avec le service lié **Serveur de fichiers local**. Le tableau suivant décrit les éléments JSON spécifiques au service lié Serveur de fichiers local.
+Vous pouvez lier un système de fichiers local à une fabrique de données Azure grâce au service lié **Serveur de fichiers local**. Le tableau suivant décrit les éléments JSON spécifiques au service lié Serveur de fichiers local.
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
@@ -4973,7 +4973,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |OUI |
 | subscriptionId |ID d’abonnement Azure |Non (si non spécifié, l’abonnement de la fabrique de données est utilisé). |
 | resourceGroupName |Nom du groupe de ressources Azure |Non (si non spécifié, le groupe de ressources de la fabrique de données est utilisé). |
-| sessionId |ID de session issu de la session d'autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Voici l’ID de session généré automatiquement lorsque vous utilisez Data Factory. |OUI |
+| sessionId |ID de session issu de la session d’autorisation OAuth. Chaque ID de session est unique et ne peut être utilisé qu’une seule fois. Voici l’ID de session généré automatiquement lorsque vous utilisez Data Factory. |OUI |
 
 
 #### <a name="json-example"></a>Exemple JSON

@@ -1,6 +1,6 @@
 ---
 title: Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs
-description: 'Concepts : Comment contrôler l’accès au service de provisionnement des appareils IoT pour les applications principales. Inclut des informations sur les jetons de sécurité.'
+description: 'Concepts : comment contrôler l’accès au service IoT Device Provisioning Service (DPS) pour les applications back-end. Inclut des informations sur les jetons de sécurité.'
 author: wesmc7777
 manager: philmea
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626646"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975123"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -32,7 +32,7 @@ Vous devez disposer des autorisations appropriées pour accéder à l’un des p
 
 Vous pouvez accorder des [autorisations](#device-provisioning-service-permissions) de différentes manières :
 
-* **Stratégies d’autorisation d’accès partagé**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#device-provisioning-service-permissions). Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal], ou par programmation à l’aide des [API REST du service de provisionnement d’appareils][lnk-resource-provider-apis]. Tout service de provisionnement créé comporte la stratégie par défaut suivante :
+* **Stratégies d’autorisation d’accès partagé**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#device-provisioning-service-permissions). Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal], ou programmatiquement avec des [API REST du service Device Provisioning][lnk-resource-provider-apis]. Tout service de provisionnement créé comporte la stratégie par défaut suivante :
 
 * **provisioningserviceowner** : stratégie jouissant de toutes les autorisations.
 
@@ -44,7 +44,7 @@ Vous pouvez accorder des [autorisations](#device-provisioning-service-permission
 Le service de provisionnement d’appareils Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant la validité d’un jeton par rapport aux stratégies d’accès partagé. Les informations d’identification de sécurité telles que les clés symétriques ne sont jamais envoyées sur le réseau.
 
 > [!NOTE]
-> Le fournisseur de ressources du service de provisionnement d’appareils est sécurisé via votre abonnement Azure, comme le sont tous les fournisseurs, dans [Azure Resource Manager][lnk-azure-resource-manager].
+> Le fournisseur de ressources du service Device Provisioning est sécurisé par le biais de votre abonnement Azure, comme le sont tous les fournisseurs dans [Azure Resource Manager][lnk-azure-resource-manager].
 
 Pour plus d’informations sur la façon de construire et d’utiliser les jetons de sécurité, consultez la section suivante.
 
@@ -57,11 +57,11 @@ SharedAccessSignature sr =
 ```
 
 > [!NOTE]
-> Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons durant la connexion au service.
+> Les [kits SDK du service Azure IoT Device Provisioning][lnk-sdks] génèrent automatiquement des jetons durant la connexion au service.
 
 ## <a name="security-tokens"></a>Jetons de sécurité
 
-Le service de provisionnement d’appareils utilise des jetons de sécurité pour authentifier les services et éviter l’envoi de clés. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons sans nécessiter de configuration particulière. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Ces scénarios incluent l’utilisation directe du protocole HTTP.
+Le service de provisionnement d’appareils utilise des jetons de sécurité pour authentifier les services et éviter l’envoi de clés. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [kits SDK du service Azure IoT Device Provisioning][lnk-sdks] génèrent automatiquement des jetons sans nécessiter de configuration particulière. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Ces scénarios incluent l’utilisation directe du protocole HTTP.
 
 ### <a name="security-token-structure"></a>Structure du jeton de sécurité
 

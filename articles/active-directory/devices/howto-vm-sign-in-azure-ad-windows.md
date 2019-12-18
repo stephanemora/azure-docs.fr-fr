@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420538"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842405"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -116,6 +116,9 @@ az vm create \
     --admin-username azureuser \
     --admin-password yourpassword
 ```
+
+> [!NOTE]
+> Vous devez activer l’option Identité managée affectée par le système sur votre machine virtuelle avant d’installer l’extension de machine virtuelle de connexion Azure AD.
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes.
 

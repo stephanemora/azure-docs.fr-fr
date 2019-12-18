@@ -1,5 +1,6 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte LinkedIn – Azure Active Directory B2C
+title: Configurer l’inscription et la connexion avec un compte LinkedIn
+titleSuffix: Azure AD B2C
 description: Proposez l’inscription et la connexion aux clients disposant de comptes LinkedIn dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be347fe33e03b4c2a7ecc1015a407c5a58062326
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fc6537b56b26d6becfe0851a09d3bfe0f13050ab
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065147"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947705"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte LinkedIn à l’aide d’Azure Active Directory B2C
 

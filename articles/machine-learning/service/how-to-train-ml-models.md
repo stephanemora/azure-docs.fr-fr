@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ce1076446fb704bb64bac98c7afe53e63d3b3450
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961694"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912420"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -122,6 +122,16 @@ Enfin, envoyez la tâche d’entraînement :
 ```Python
 run = experiment.submit(estimator)
 print(run.get_portal_url())
+```
+
+## <a name="registering-a-model"></a>Inscription d’un modèle
+
+Une fois que vous avez entraîné le modèle, vous pouvez l’enregistrer et l’inscrire sur votre espace de travail. L’inscription du modèle vous permet de stocker vos modèles et de suivre leurs versions dans votre espace de travail afin de simplifier [la gestion et le déploiement des modèles](concept-model-management-and-deployment.md).
+
+L’exécution du code suivant va inscrire le modèle dans votre espace de travail et permettre son référencement (à l’aide de son nom) dans des contextes de calcul distant ou des scripts de déploiement. Pour plus d’informations, notamment sur les autres paramètres disponibles, consultez [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) dans la documentation de référence.
+
+```python
+model = run.register_model(model_name='sklearn-sample')
 ```
 
 ## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub

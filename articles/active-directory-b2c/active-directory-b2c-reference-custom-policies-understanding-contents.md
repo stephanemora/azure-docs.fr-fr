@@ -1,6 +1,7 @@
 ---
-title: Présentation des stratégies personnalisées du pack de démarrage dans Azure Active Directory B2C | Microsoft Docs
-description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C.
+title: Composants du pack de démarrage de stratégie personnalisée
+titleSuffix: Azure AD B2C
+description: Vue d’ensemble des stratégies du pack de démarrage de stratégie personnalisée Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b52f1a4cb6837dd779dcf4edac140bb13e06eacb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d49bd9af80b1bb9bd86466269b14ba0a47181e0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509558"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948179"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Présentation des stratégies personnalisées du pack de démarrage Azure AD B2C Custom Policy
 

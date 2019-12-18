@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ab9725dd50487cf9df9d6fb967959b276f39979f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c7511279e66ab598e4ae3c26f053915b7393b39d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162464"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978388"
 ---
 # <a name="widevine-license-template-overview"></a>Vue d’ensemble du modèle de licence Widevine 
 Vous pouvez utiliser Azure Media Services pour configurer et demander des licences Google Widevine. Quand le lecteur tente de lire votre contenu Widevine protégé, une demande est envoyée au service de remise de licence pour obtenir une licence. Si le service de licence approuve la demande, le service émet la licence. Elle est envoyée au client et utilisée pour déchiffrer et lire le contenu spécifié.
@@ -189,6 +189,9 @@ L’exemple suivant montre comment utiliser les API .NET pour configurer une lic
         return configuration;
     }
 
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

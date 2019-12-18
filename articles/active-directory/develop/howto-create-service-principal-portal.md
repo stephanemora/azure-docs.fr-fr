@@ -1,28 +1,24 @@
 ---
-title: Créer une identité pour une application Azure dans le portail
+title: Créer une application et un principal de service Azure AD à l’aide du portail
 titleSuffix: Microsoft identity platform
-description: Décrit comment créer une application et un principal du service Azure Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources.
+description: Créez une application et un principal de service Azure Active Directory pour gérer l’accès aux ressources avec un contrôle d’accès en fonction du rôle dans Azure Resource Manager.
 services: active-directory
-documentationcenter: na
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 249c313f8f6195371985f3dad2e707638e52d0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473871"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967114"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Activation Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 

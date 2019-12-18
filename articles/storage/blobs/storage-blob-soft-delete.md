@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6f6aa90553f3a69d2d287c7d59e166884a1a8f66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113732"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978115"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 
@@ -152,7 +152,17 @@ Les étapes suivantes montrent comment prendre en main la suppression réversibl
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Pour activer la suppression réversible, accédez à l’option **Suppression réversible** sous **Service Blob**. Cliquez ensuite sur **Activé**, puis entrez le nombre de jours pendant lesquels vous souhaitez retenir les données supprimées de manière réversible.
+Activez la suppression réversible pour blob sur votre compte de stockage à l’aide du Portail Azure :
+
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+
+2. Accédez à l’option **Protection des données** sous **Service blob**.
+
+3. Cliquez sur **Activé** sous **Suppression réversible blob**
+
+4. Entrez le nombre de jours que vous souhaitez *conserver* sous **Stratégies de rétention**
+
+5. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de protection des données
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 

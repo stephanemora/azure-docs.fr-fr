@@ -1,5 +1,5 @@
 ---
-title: Application web qui connecte des utilisateurs (vue d’ensemble) - Plateforme d’identités Microsoft
+title: Connecter des utilisateurs à partir d’une application web - Plateforme d’identités Microsoft | Azure
 description: Découvrez comment générer une application web qui connecte des utilisateurs (vue d’ensemble)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10a53f88a97cdba8626c9d6c421093e4ec327e19
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482473"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961605"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 

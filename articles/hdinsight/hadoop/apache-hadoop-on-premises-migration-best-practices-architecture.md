@@ -2,18 +2,18 @@
 title: 'Architecture : Apache Hadoop local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant l’architecture pour la migration des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: 4ef3cded9aba7bd95ecc48e1feadf6c55acd7bdc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499267"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951528"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
 
@@ -25,7 +25,7 @@ De nombreux déploiements Apache Hadoop locaux se composent d’un unique cluste
 
 Les clusters Azure HDInsight sont conçus pour une utilisation de calcul de type spécifique. Étant donné qu’il est possible de partager le stockage entre plusieurs clusters, vous pouvez créer plusieurs clusters de calcul pour les charges de travail optimisées afin de répondre aux besoins des différents travaux. Chaque type de cluster est configuré de façon optimale pour une charge de travail spécifique. Le tableau suivant répertorie les types de clusters pris en charge dans HDInsight ainsi que les charges de travail correspondantes.
 
-|**Charge de travail**|**Type de cluster HDInsight**|
+|Charge de travail|Type de cluster HDInsight|
 |---|---|
 |Traitement par lots (ETL/ELT)|Hadoop, Spark|
 |Entrepôt de données|Hadoop, Spark, Interactive Query|
@@ -36,7 +36,7 @@ Les clusters Azure HDInsight sont conçus pour une utilisation de calcul de type
 
 Le tableau suivant présente les différentes méthodes permettant de créer un cluster HDInsight.
 
-|**Outil**|**Basé sur le navigateur**|**Ligne de commande**|**API REST**|**Kit SDK**|
+|Outil|Basé sur le navigateur|Ligne de commande|API REST|Kit SDK|
 |---|---|---|---|---|
 |[Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
@@ -74,9 +74,7 @@ Les clusters de calcul sont créés à proximité des ressources du compte de st
 
 ## <a name="use-external-metadata-stores"></a>Utiliser des magasins de métadonnées externes
 
-
 Deux principaux metastores fonctionnent avec les clusters HDInsight : [Apache Hive](https://hive.apache.org/) et [Apache Oozie](https://oozie.apache.org/). Le metastore Hive est le dépôt central de schémas qui peut être utilisé par les moteurs de traitement des données (y compris Hadoop, Spark, LLAP, Presto et Apache Pig). Le metastore Oozie stocke les détails à propos de la planification ainsi que l’état des travaux Hadoop en cours et achevés.
-
 
 HDInsight utilise Azure SQL Database pour les metastores Hive et Oozie. Deux méthodes différentes permettent de configurer un metastore dans les clusters HDInsight :
 
@@ -105,7 +103,7 @@ Certaines des meilleures pratiques applicables aux metastores Hive dans HDInsigh
 - Sauvegardez régulièrement le metastore personnalisé.
 - Conservez le metastore et le cluster HDInsight dans la même région.
 - Surveillez les performances et la disponibilité du metastore à l'aide des outils de surveillance d'Azure SQL Database, comme le portail Azure ou les journaux Azure Monitor.
-- Exécutez la commande **ANALYZE TABLE** afin de générer des statistiques pour les tables et les colonnes. Par exemple : `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Exécutez la commande `ANALYZE TABLE` comme indiqué afin de générer des statistiques pour les tables et les colonnes. Par exemple : `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Bonnes pratiques applicables aux différentes charges de travail
 

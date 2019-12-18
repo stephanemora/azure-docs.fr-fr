@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177425"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931337"
 ---
 # <a name="virtual-network-tap"></a>TAP de réseau virtuel
 
@@ -52,7 +52,7 @@ Le TAP (point d’accès terminal) de réseau virtuel Azure vous permet de diffu
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
-L’image suivante illustre le fonctionnement d’un TAP de réseau virtuel. Vous pouvez ajouter une configuration TAP sur une [interface réseau](virtual-network-network-interface.md) attachée à une machine virtuelle déployée dans votre réseau virtuel. La destination est une adresse IP de réseau virtuel dans le même réseau virtuel que l’interface réseau supervisée ou un réseau [virtuel appairé](virtual-network-peering-overview.md). La solution du collecteur pour le TAP de réseau virtuel peut être déployée derrière un [équilibreur de charge interne Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#concepts) pour une haute disponibilité. Pour évaluer les options de déploiement de chaque solution, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions).
+L’image suivante illustre le fonctionnement d’un TAP de réseau virtuel. Vous pouvez ajouter une configuration TAP sur une [interface réseau](virtual-network-network-interface.md) attachée à une machine virtuelle déployée dans votre réseau virtuel. La destination est une adresse IP de réseau virtuel dans le même réseau virtuel que l’interface réseau supervisée ou un réseau [virtuel appairé](virtual-network-peering-overview.md). La solution du collecteur pour le TAP de réseau virtuel peut être déployée derrière un équilibreur de charge interne Azure pour une haute disponibilité. Pour évaluer les options de déploiement de chaque solution, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions).
 
 ![Fonctionnement d’un TAP de réseau virtuel](./media/virtual-network-tap/architecture.png)
 

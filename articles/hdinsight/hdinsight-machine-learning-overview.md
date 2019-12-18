@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: a770fca4f14e5441e5ef4f7bc99d9c0abd9a59d3
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241637"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951783"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 
@@ -27,17 +27,17 @@ La bibliothèque Microsoft Machine Learning pour Apache Spark est [MMLSpark](htt
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) est actuellement le langage de programmation statistique le plus populaire au monde. C’est un outil de visualisation de données open source, dont la communauté compte plus de 2,5 millions d’utilisateurs et augmente régulièrement. Avec sa base d’utilisateurs en plein essor et plus de 8 000 packages créés collectivement, R est un choix probable pour de nombreuses entreprises qui ont besoin du Machine Learning. Vous pouvez créer un cluster HDInsight avec ML Services prêt à être utilisé avec des modèles et des jeux de données volumineux. Cette fonctionnalité fournit aux chercheurs de données et aux statisticiens une interface R familière et évolutive à la demande via HDInsight, sans les tâches fastidieuses de création et de maintenance de cluster.
+[R](https://www.r-project.org/) est actuellement le langage de programmation statistique le plus populaire au monde. C’est un outil de visualisation des données open source, dont la communauté compte plus de 2,5 millions d’utilisateurs en pleine croissance. Avec sa base d’utilisateurs en plein essor et plus de 8 000 packages créés collectivement, R est un choix probable pour de nombreuses entreprises qui ont besoin du Machine Learning. Vous pouvez créer un cluster HDInsight avec ML Services prêt à être utilisé avec des modèles et des jeux de données volumineux. Cette fonctionnalité fournit aux chercheurs de données et aux statisticiens une interface R familière et évolutive à la demande via HDInsight, sans les tâches fastidieuses de création et de maintenance de cluster.
 
 ![Formation à la prédiction avec R Server](./media/hdinsight-machine-learning-overview/training-for-prediction.png)
 
-Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R.  Vous pouvez également exécuter des scripts R sur les nœuds du cluster, à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
+Le nœud de périmètre d’un cluster fournit un lieu d’accueil pratique pour la connexion au cluster et l’exécution de vos scripts R.  Vous pouvez également exécuter des scripts R sur les différents nœuds du cluster à l’aide des contextes de calcul Hadoop Map Reduce ou Spark de ScaleR.
 
-ML Services sur HDInsight avec Spark vous permet de paralléliser la formation sur les nœuds d’un cluster en utilisant un contexte de calcul Spark. Vous pouvez exécuter des scripts R directement sur le nœud de périphérie, grâce à tous les cœurs disponibles en parallèle, en fonction des besoins. L’autre solution consiste à exécuter votre code à partir du nœud de périphérie pour amorcer le traitement qui est réparti entre tous les nœuds du cluster. ML Services sur HDInsight avec Spark vous permet aussi de paralléliser les fonctions de packages R open source, si vous le souhaitez.
+ML Services sur HDInsight avec Spark vous permet de paralléliser la formation sur les nœuds d’un cluster en utilisant un contexte de calcul Spark. Vous pouvez exécuter des scripts R directement sur le nœud de périphérie, grâce à tous les cœurs disponibles en parallèle, en fonction des besoins. L’autre solution consiste à exécuter votre code à partir du nœud de périphérie pour amorcer le traitement qui est réparti entre tous les nœuds du cluster. ML Services sur HDInsight avec Spark vous permet aussi de paralléliser les fonctions de packages R open source, si vous le souhaitez.
 
 ## <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning et Apache Hive
 
-Azure Machine Learning fournit des outils de modélisation d’analyses prédictives, ainsi qu’un service entièrement géré permettant de déployer vos modèles prédictifs sous la forme de services web prêts à l’emploi. Azure Machine Learning est une solution complète d’analyse prédictive sur le cloud, que vous pouvez utiliser pour créer, tester, mettre en service et gérer rapidement des modèles prédictifs. Effectuez une sélection dans une volumineuse bibliothèque d’algorithmes, utilisez un studio web pour générer des modèles et déployez facilement votre modèle en tant que service web.
+Azure Machine Learning fournit des outils de modélisation d’analyses prédictives et un service complètement managé vous permettant de déployer vos modèles prédictifs sous la forme de services web prêts à l’emploi. Azure Machine Learning est une solution complète d’analyse prédictive sur le cloud, que vous pouvez utiliser pour créer, tester, mettre en service et gérer rapidement des modèles prédictifs. Effectuez une sélection dans une volumineuse bibliothèque d’algorithmes, utilisez un studio web pour générer des modèles et déployez facilement votre modèle en tant que service web.
 
 ![Vue d’ensemble de Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 

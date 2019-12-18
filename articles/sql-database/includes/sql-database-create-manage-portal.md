@@ -5,29 +5,29 @@ ms.subservice: operations
 ms.topic: include
 ms.date: 08/23/2019
 ms.author: sstein
-ms.openlocfilehash: 9e189d0582d2e81193c892cb349b475ed0d68df8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 2a8b9322f7c03d76cd8a31c832c343cde9e2e355
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014764"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935769"
 ---
 ## <a name="create-and-manage-azure-sql-resources-with-the-azure-portal"></a>Créer et gérer des ressources Azure SQL avec le portail Azure
 
 Le portail Azure fournit une page unique sur laquelle vous pouvez gérer [toutes vos ressources Azure SQL](https://go.microsoft.com/fwlink/?linkid=2100641), y compris vos machines virtuelles SQL.
 
-Pour accéder à la page **Ressources Azure SQL**, sélectionnez **Azure SQL** dans le menu de gauche du portail Azure. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez *Azure SQL* dans la zone de recherche.
+Pour accéder à la page **Ressources Azure SQL**, dans le menu du Portail Azure, sélectionnez **Azure SQL** ou recherchez et sélectionnez **Azure SQL** dans n’importe quelle page.
 
 > [!NOTE]
 > **Azure SQL** permet d'accéder rapidement et facilement à l'ensemble de vos bases de données SQL, pools élastiques, serveurs de base de données, instances managées SQL et machines virtuelles SQL. Azure SQL n'est pas un service ou une ressource. 
 
 Pour gérer les ressources existantes, sélectionnez l'élément souhaité dans la liste. Pour créer des ressources Azure SQL, sélectionnez **+ Ajouter**. 
 
-![Page du portail Azure SQL](../media/sql-database-technical-overview/azure-sql.png)
+![Page du portail Azure SQL](../media/sql-database-technical-overview/add-azure-sql-resources.png)
 
 Après avoir sélectionné **+ Ajouter**, affichez des informations supplémentaires sur les différentes options en sélectionnant **Afficher les détails** sur une vignette.
 
-![Détails de la vignette Bases de données](../media/sql-database-technical-overview/create-single-database.png)
+![Détails de la vignette Bases de données](../media/sql-database-technical-overview/single-sql-database-deployment-options.png)
 
 Pour plus d'informations, consultez les rubriques :
 

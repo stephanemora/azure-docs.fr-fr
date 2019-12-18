@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: cb3bb6a91c25298535cfba1107b85f200031a7d6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035911"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930003"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure
 
@@ -38,10 +38,10 @@ Pour découvrir d’autres méthodes permettant de générer et d’utiliser des
 
 Utilisez la commande `ssh-keygen` pour générer des fichiers de clés SSH publiques et privées. Par défaut, ces fichiers sont créés dans le répertoire ~/.ssh. Vous pouvez spécifier un autre emplacement et un mot de passe facultatif (*phrase secrète*) pour accéder au fichier de clé privée. Si une paire de clés SSH portant le même nom existe dans l’emplacement choisi, les fichiers sont remplacés.
 
-La commande suivante crée une paire de clés SSH à l’aide du chiffrement RSA avec une longueur de 2 048 bits :
+La commande suivante crée une paire de clés SSH à l’aide du chiffrement RSA avec une longueur de 4096 :
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 Si vous utilisez [Azure CLI](/cli/azure) pour créer votre machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create), vous pouvez éventuellement générer des fichiers de clés SSH publiques et privées à l’aide de l’option `--generate-ssh-keys`. Les fichiers de clés sont stockés dans le répertoire ~/.ssh, sauf indication contraire avec l’option `--ssh-dest-key-path`. L’option `--generate-ssh-keys` ne remplace pas les fichiers de clés existants, mais retourne une erreur à la place. Dans la commande suivante, remplacez *VMname* et *RGname* par vos propres valeurs :

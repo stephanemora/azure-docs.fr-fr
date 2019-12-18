@@ -1,24 +1,25 @@
 ---
-title: Utiliser le portail Azure pour gérer les droits d’accès Azure AD aux données blob et de file d’attente avec RBAC - Stockage Azure | Microsoft Docs
-description: Utilisez le contrôle d’accès en fonction du rôle (RBAC) à partir du portail Azure pour attribuer l’accès aux conteneurs et files d’attente aux principaux de sécurité. Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
+title: Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données
+titleSuffix: Azure Storage
+description: Découvrez comment utiliser le Portail Azure pour attribuer des autorisations à un principal de sécurité Azure Active Directory avec le contrôle d’accès en fonction du rôle (RBAC). Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés pour l’authentification via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b11b2c42087b8724c7d90b87bc33965eb7270dc6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422005"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891950"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Octroyer l’accès aux données d’objet blob et de file d’attente Azure dans le portail Azure
+# <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données de blob et de file d’attente
 
-Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente. 
+Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux données blob ou de file d’attente.
 
 Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

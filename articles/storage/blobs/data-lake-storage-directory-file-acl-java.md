@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534263"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930783"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Utiliser Java pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
@@ -32,15 +32,7 @@ Cet article vous explique comment utiliser Java pour créer et gérer des réper
 
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
-Pour commencer, ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez l’élément dépendance suivant au groupe de dépendances.
-
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
+Pour commencer, ouvrez [cette page](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) et recherchez la dernière version de la bibliothèque Java. Ensuite, ouvrez le fichier *pom.xml* dans votre éditeur de texte. Ajoutez un élément de dépendance qui référence cette version.
 
 Ajoutez ensuite ces instructions Imports à votre fichier de code.
 
@@ -133,7 +125,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-Cet exemple déplace un répertoire nommé `my-subdirectory-renamed` vers le sous-répertoire d’un répertoire nommé `my-directory-2`. 
+Cet exemple déplace un répertoire nommé `my-subdirectory-renamed` vers un sous-répertoire d’un répertoire nommé `my-directory-2`. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory

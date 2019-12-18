@@ -2,18 +2,18 @@
 title: C#, Apache Hive et Apache Pig sur Apache Hadoop - Azure HDInsight
 description: Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig dans Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: b8baf8ee11d34756e55f3a78fd5916e042785587
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 9ef9eada9b9aec50642a8bf357edab0677868817
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821622"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949387"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
@@ -52,11 +52,11 @@ Les sections suivantes décrivent comment créer un projet C# dans Visual Studio
 
 Pour créer un projet C# pour une fonction définie par l’utilisateur Apache Hive :
 
-1. Ouvrez Visual Studio.
+1. Lancez Visual Studio.
 
-2. Dans la fenêtre **Démarrer**, sélectionnez **Créer un projet**.
+2. Sélectionnez **Créer un projet**.
 
-3. Dans la fenêtre **Créer un nouveau projet**, faites défiler la liste jusqu’au modèle **Application console (.NET Framework)** (la version C#) et sélectionnez-le. Sélectionnez ensuite **Suivant**.
+3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
 4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *HiveCSharp*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
@@ -111,7 +111,9 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
     }
     ```
 
-6. Dans la barre de menus, choisissez **Générer** > **Générer la solution** pour générer le projet.
+6. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution** pour générer le projet.
+
+7. Fermez la solution.
 
 ### <a name="apache-pig-udf"></a>Fonction définie par l’utilisateur Apache Pig
 
@@ -121,7 +123,7 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 2. Dans la fenêtre **Démarrer**, sélectionnez **Créer un projet**.
 
-3. Dans la fenêtre **Créer un nouveau projet**, faites défiler la liste jusqu’au modèle **Application console (.NET Framework)** (la version C#) et sélectionnez-le. Sélectionnez ensuite **Suivant**.
+3. Dans la fenêtre **Créer un projet**, choisissez le modèle **Application console (.NET Framework)** (version C#). Sélectionnez ensuite **Suivant**.
 
 4. Dans la fenêtre **Configurer votre nouveau projet**, entrez le **Nom de projet** *PigUDF*, puis accédez à ou créez un **Emplacement** auquel enregistrer le nouveau projet. Sélectionnez ensuite **Créer**.
 
@@ -160,17 +162,17 @@ Pour créer un projet C# pour une fonction définie par l’utilisateur Apache H
 
 6. Dans la barre de menus, choisissez **Générer** > **Générer la solution** pour générer le projet.
 
+7. Laissez la solution ouverte.
+
 ## <a name="upload-to-storage"></a>Téléchargement vers le stockage
 
 Ensuite, chargez les applications de fonction définie par l’utilisateur Hive et Pig dans le stockage sur un cluster HDInsight.
 
-1. Dans Visual Studio, choisissez **Affichage** > **Explorateur de serveurs**.
+1. Dans Visual Studio, accédez à **Affichage** > **Explorateur de serveurs**.
 
-2. Développez **Azure**, puis **HDInsight**.
+1. À partir de l’**Explorateur de serveurs**, cliquez avec le bouton droit sur **Azure**, sélectionnez **Se connecter à un abonnement Microsoft Azure**, puis effectuez le processus de connexion.
 
-3. Si vous y êtes invité, entrez les informations d’identification de votre abonnement Azure, puis sélectionnez **Se connecter**.
-
-4. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte **(compte de stockage par défaut)** est répertoriée.
+1. Développez le cluster HDInsight sur lequel vous souhaitez déployer cette application. Une entrée avec le texte **(compte de stockage par défaut)** est répertoriée.
 
     ![Compte de stockage par défaut, cluster HDInsight, explorateur de serveurs](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
@@ -178,14 +180,14 @@ Ensuite, chargez les applications de fonction définie par l’utilisateur Hive 
 
     * Si cette entrée ne peut pas être développée, vous utilisez **Azure Data Lake Storage** comme stockage par défaut pour le cluster. Pour afficher les fichiers sur le stockage par défaut pour le cluster, double-cliquez sur l’entrée **(compte de stockage par défaut)** .
 
-5. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
+1. Pour charger les fichiers .exe, appliquez l’une des méthodes suivantes :
 
     * Si vous utilisez un **compte de stockage Azure**, sélectionnez l’icône **Télécharger un objet Blob**.
 
         ![Icône de chargement de HDInsight pour le nouveau projet](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-upload-icon.png)
 
         Dans la boîte de dialogue **Télécharger un nouveau fichier**, sous **Nom de fichier**, sélectionnez **Parcourir**. Dans la boîte de dialogue **Télécharger un objet Blob**, accédez au dossier *bin\debug* pour le projet *HiveCSharp*, puis sélectionnez le fichier *HiveCSharp.exe*. Enfin, sélectionnez **Ouvrir**, puis **OK** pour terminer le téléchargement.
-    
+
     * Si vous utilisez **Azure Data Lake Storage**, cliquez avec le bouton droit sur une zone vide de la liste des fichiers, puis sélectionnez **Charger**. Enfin, sélectionnez le fichier *HiveCSharp.exe* et sélectionnez **Ouvrir**.
 
     Une fois le chargement de *HiveCSharp.exe* terminé, répétez le processus de chargement pour le fichier *PigUDF.exe*.
@@ -194,7 +196,7 @@ Ensuite, chargez les applications de fonction définie par l’utilisateur Hive 
 
 Vous pouvez maintenant exécuter une requête Hive qui utilise votre application de fonction définie par l’utilisateur Hive.
 
-1. Dans Visual Studio, choisissez **Affichage** > **Explorateur de serveurs**.
+1. Dans Visual Studio, accédez à **Affichage** > **Explorateur de serveurs**.
 
 2. Développez **Azure**, puis **HDInsight**.
 
@@ -204,7 +206,7 @@ Vous pouvez maintenant exécuter une requête Hive qui utilise votre application
 
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
-    -- add file wasb:///HiveCSharp.exe;
+    -- add file wasbs:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Storage Gen1
     -- add file adl:///HiveCSharp.exe;
     -- Uncomment the following if you are using Azure Data Lake Storage Gen2
@@ -222,7 +224,7 @@ Vous pouvez maintenant exécuter une requête Hive qui utilise votre application
 
     Cette requête permet de sélectionner les champs `clientid`, `devicemake` et `devicemodel` dans `hivesampletable`, puis de les transmettre à l’application *HiveCSharp.exe*. La requête s’attend à ce que l’application renvoie les trois champs, qui sont stockés en tant que `clientid`, `phoneLabel` et `phoneHash`. Elle s’attend également à trouver *HiveCSharp.exe* à la racine du conteneur de stockage par défaut.
 
-5. Sélectionnez **Envoyer** pour envoyer la tâche au cluster HDInsight. La fenêtre **Résumé de la tâche Hive** s’ouvre.
+5. Basculez du mode **Interactif** par défaut vers le mode **Batch**, puis sélectionnez **Envoyer** pour envoyer le travail au cluster HDInsight. La fenêtre **Résumé de la tâche Hive** s’ouvre.
 
 6. Sélectionnez **Actualiser** pour actualiser le résumé jusqu’à ce que **État du travail** soit défini sur **Terminé**. Pour afficher le résultat de la tâche, sélectionnez **Sortie de la tâche**.
 
@@ -265,6 +267,8 @@ Vous pouvez également exécuter une tâche Pig qui utilise votre application de
     (2019-07-15 16:43:25 SampleClass7 [DEBUG] detail for id 1475865947)
     ```
 
+5. Utilisez `exit` pour quitter Pig.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce document, vous avez appris à utiliser une application .NET Framework à partir de Hive et Pig sur HDInsight. Si vous voulez apprendre à utiliser Python avec Hive et Pig, consultez [Utiliser Python avec Apache Hive et Apache Pig dans HDInsight](python-udf-hdinsight.md).
@@ -273,3 +277,4 @@ Pour connaître d’autres façons d’utiliser Hive et en savoir plus sur l’u
 
 * [Utilisation d’Apache Hive avec HDInsight](hdinsight-use-hive.md)
 * [Utilisation de MapReduce avec HDInsight](hdinsight-use-mapreduce.md)
+* [Notions de base sur Pig Latin](https://pig.apache.org/docs/latest/basic.html)

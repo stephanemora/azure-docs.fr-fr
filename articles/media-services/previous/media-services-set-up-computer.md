@@ -1,6 +1,6 @@
 ---
 title: Configurer votre environnement de développement Azure Media Services | Microsoft Docs
-description: Configurer votre environnement en vue d’un développement avec Azure Media Services.
+description: Cet article explique comment configurer votre environnement en vue d’un développement avec Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 546e8e50bc34307c46d33e217d5bc0887b548774
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ef9b3d6f13de70cdf2fff87d9aed0a8efc2b782
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410023"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895799"
 ---
 # <a name="set-up-your-media-services-development-environment"></a>Configurer votre environnement de développement Media Services  
 
