@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/04/2019
-ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/04/2019
+ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230293"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850072"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -37,7 +37,9 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 > [!NOTE]
 > Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un Kit de développement logiciel (SDK), sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="enable-agent-based-monitoring-for-net-applications"></a>Activer la surveillance basée sur les agents pour les applications .NET
+## <a name="enable-agent-based-monitoring"></a>Activer la supervision basée sur un agent
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression ne peuvent pas être utilisés ensemble. Pour plus d’informations, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
@@ -73,7 +75,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
     * Pour obtenir la liste des paramètres du processeur de télémétrie pris en charge pour l’échantillonnage adaptatif, consultez le [code](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) et la [documentation associée](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
-## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>Activer la surveillance basée sur les agents pour les applications .NET Core
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
@@ -94,7 +96,23 @@ Le ciblage du framework complet à partir de .NET Core, le déploiement autonome
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-for-net-applications"></a>Activer la surveillance côté client pour les applications .NET
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+À partir de votre application web App Service, sous **Paramètres** > **sélectionnez Application Insights** > **Activer**. La supervision basée sur l’agent Node.js est actuellement en préversion.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Les applications web Java basées sur App Service ne prennent pas en charge la supervision automatique basée sur les agents/extensions. Pour activer la supervision de votre application Java, vous devez [instrumenter manuellement votre application](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started).
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les applications web Python basées sur App Service ne prennent pas en charge la supervision automatique basée sur les agents/extensions. Pour activer la supervision de votre application Python, vous devez [instrumenter manuellement votre application](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python).
+
+---
+
+## <a name="enable-client-side-monitoring"></a>Activer la supervision côté client
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
@@ -111,7 +129,7 @@ La supervision côté client est activée pour ASP.NET. Pour activer la supervis
 
 Pour désactiver la supervision côté client, supprimez la paire clé-valeur associée dans les paramètres de l’application, ou définissez la valeur sur false.
 
-## <a name="enable-client-side-monitoring-for-net-core-applications"></a>Activer la surveillance côté client pour les applications .NET Core
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 La supervision côté client est **activée par défaut** pour les applications .NET Core configurées avec le niveau de **collecte Recommandé**, que le paramètre d’application « APPINSIGHTS_JAVASCRIPT_ENABLED » soit défini ou non.
 
@@ -127,6 +145,20 @@ Si vous avez besoin de désactiver la supervision côté client, effectuez les �
    * **Enregistrez** les paramètres et **Redémarrez** votre application.
 
 ![Capture d’écran de l’interface utilisateur Paramètres de l’application](./media/azure-web-apps/appinsights-javascript-disabled.png)
+
+# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+
+Pour activer la supervision côté client pour votre application Node.js, vous devez [ajouter manuellement le SDK JavaScript côté client à votre application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Pour activer la supervision côté client pour votre application Java, vous devez [ajouter manuellement le SDK JavaScript côté client à votre application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Pour activer la supervision côté client pour votre application Python, vous devez [ajouter manuellement le SDK JavaScript côté client à votre application](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+---
 
 ## <a name="automate-monitoring"></a>Automatiser la supervision
 
@@ -322,7 +354,7 @@ Si vous réalisez la mise à niveau à partir d’une version antérieure à 2.
 Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les problèmes rencontrés avec la supervision basée sur un agent/une extension pour les applications .NET et .NET Core exécutées sur Azure App Services.
 
 > [!NOTE]
-> Les applications Java et Node.js sont uniquement prises en charge sur Azure App Services avec l’instrumentation manuelle basée sur un SDK. Les étapes ci-dessous ne s’appliquent donc pas à ces scénarios.
+> Les applications Java sont prises en charge sur Azure App Services seulement via l’instrumentation manuelle basée sur un SDK. Les étapes ci-dessous ne s’appliquent donc pas à ces scénarios.
 
 1. Vérifiez que l’application est supervisée via `ApplicationInsightsAgent`.
     * Vérifiez que le paramètre d’application `ApplicationInsightsAgent_EXTENSION_VERSION` est défini à une valeur « ~2 ».

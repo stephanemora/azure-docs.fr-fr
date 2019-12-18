@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807015"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931948"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 
@@ -185,18 +185,22 @@ Consultez [Démarrage rapide : Créez une base de données unique dans Azure SQ
 
 L’exemple suivant crée une base de données dans le niveau de calcul serverless.  Cet exemple spécifie explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-New-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -ComputeModel Serverless `
-  -Edition GeneralPurpose `
-  -ComputeGeneration Gen5 `
-  -MinVcore 0.5 `
-  -MaxVcore 2 `
-  -AutoPauseDelayInMinutes 720
+New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
+  -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+
+```powershell
+az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
+  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
@@ -215,22 +219,26 @@ Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/cr
 
 L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless. Cet exemple spécifie explicitement le nombre minimal de vCores, le nombre maximal de vCores et le délai de mise en pause automatique.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Set-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -Edition GeneralPurpose `
-  -ComputeModel Serverless `
-  -ComputeGeneration Gen5 `
-  -MinVcore 1 `
-  -MaxVcore 4 `
-  -AutoPauseDelayInMinutes 1440
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
+  -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+
+```powershell
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
+  --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Utiliser Transact-SQL (T-SQL)
 
-L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless. 
+L’exemple suivant déplace une base de données du niveau de calcul provisionné vers le niveau de calcul serverless.
 
 ```sql
 ALTER DATABASE testdb 
@@ -245,23 +253,15 @@ Vous pouvez déplacer une base de données serverless dans un niveau de calcul p
 
 ## <a name="modifying-serverless-configuration"></a>Modifier la configuration serverless
 
-### <a name="maximum-vcores"></a>Nombre maximal de vCores
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-#### <a name="use-powershell"></a>Utiliser PowerShell
+Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) dans PowerShell à l’aide des arguments `MaxVcore`, `MinVcore` et `AutoPauseDelayInMinutes`.
 
-Pour modifier le nombre maximal de vCores, utilisez la commande [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) dans PowerShell avec l’argument `MaxVcore`.
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
-### <a name="minimum-vcores"></a>Nombre minimal de vCores
+Pour modifier le nombre maximal ou minimal de vCores et le délai de mise en pause automatique, utilisez la commande [az sql db update](/cli/azure/sql/db#az-sql-db-update) dans Azure CLI à l’aide des arguments `capacity`, `min-capacity` et `auto-pause-delay`.
 
-#### <a name="use-powershell"></a>Utiliser PowerShell
-
-Pour modifier le nombre minimal de vCores, utilisez la commande [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) dans PowerShell avec l’argument `MinVcore`.
-
-### <a name="autopause-delay"></a>Délai de la mise en pause automatique
-
-#### <a name="use-powershell"></a>Utiliser PowerShell
-
-Pour modifier le délai de mise en pause automatique, utilisez la commande [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) dans PowerShell avec l’argument `AutoPauseDelayInMinutes`.
+* * *
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -298,13 +298,20 @@ Dans le portail Azure, l’état de la base de données est affiché dans le vol
 
 Utilisation de la commande PowerShell suivante pour interroger l’état de mise en pause et de reprise d’une base de données :
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Get-AzSqlDatabase `
-  -ResourceGroupName $resourcegroupname `
-  -ServerName $servername `
-  -DatabaseName $databasename `
+Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+
+```powershell
+az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
+```
+
+* * *
 
 ## <a name="resource-limits"></a>Limites des ressources
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf338ad0c555038cd99c3604d69ab80371d6ea22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74804972"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846111"
 ---
 # <a name="common-conditional-access-policies"></a>Stratégies d’accès conditionnel courantes
 
@@ -44,4 +44,5 @@ Pour plus d’informations sur les comptes d’accès d’urgence et la raison p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)
+- [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel.](troubleshoot-conditional-access-what-if.md)
+- [Utilisez le mode Rapport uniquement pour l’accès conditionnel afin de déterminer l’impact des nouvelles décisions de stratégie.](concept-conditional-access-report-only.md)

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f3ee958484fdb8cacad0a3bfa0c3385374ac7487
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 00d4487abed97084976d81ee1ec78316fc688193
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185738"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851381"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -123,9 +123,10 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | [Lecteur de surveillance](#monitoring-reader) | Peut lire toutes les données de supervision (métriques, journaux d’activité, etc.) Consultez aussi [Bien démarrer avec les rôles, les autorisations et la sécurité dans Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Contributeur de réseau](#network-contributor) | Permet de gérer des réseaux, mais pas d’y accéder. | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
 > | [Contributeur de compte NewRelic APM](#new-relic-apm-account-contributor) | Vous permet de gérer des comptes et applications New Relic Application Performance Management, mais pas d’y accéder. | 5d28c62d-5b37-4476-8438-e587778df237 |
+> | [Policy Insights Data Writer (préversion)](#policy-insights-data-writer-preview) | Permet de lire les stratégies de ressources et d’écrire les événements de stratégie de composant de ressource. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | [Lecteur et accès aux données](#reader-and-data-access) | Permet d’afficher tous les éléments, mais pas de supprimer ou de créer un compte de stockage ou une ressource contenue. En outre, autorise l’accès en lecture/écriture à toutes les données contenues dans un compte de stockage via l’accès aux clés de compte de stockage. | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | [Contributeur Cache Redis](#redis-cache-contributor) | Permet de gérer des caches Redis, mais pas d’y accéder. | e0f68234-74aa-48ed-b826-c38b57376e17 |
-> | [Contributeur de stratégie de ressource (préversion)](#resource-policy-contributor-preview) | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | [Contributeur de stratégie de ressource](#resource-policy-contributor) | Utilisateurs dotés de droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Contributeur des collections de travaux du planificateur](#scheduler-job-collections-contributor) | Permet de gérer des collections de tâches du planificateur, mais pas d’y accéder. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Contributeur du service de recherche](#search-service-contributor) | Permet de gérer des services de recherche, mais pas d’y accéder. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Administrateur de la sécurité](#security-admin) | Seulement dans Security Center : peut afficher les stratégies de sécurité, les états de sécurité, les alertes et les recommandations, et ignorer les alertes et les recommandations | fb1c8493-542b-48eb-b624-b4c8fea62acd |
@@ -666,6 +667,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
 > | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
 > | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/* |  |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
@@ -693,6 +695,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtient une requête de recherche enregistrée. |
 > | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
 > | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/read | Lire un classeur |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
@@ -722,6 +725,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtient une requête de recherche enregistrée. |
 > | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
 > | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/query/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
 > | Microsoft.Insights/workbooks/read | Lire un classeur |
 > | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
@@ -1361,6 +1365,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | **NotActions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
 > | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
@@ -1631,6 +1636,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joint des ressources telles qu’un compte de stockage ou une base de données SQL à un sous-réseau. Impossible à alerter. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2139,6 +2145,24 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
+## <a name="policy-insights-data-writer-preview"></a>Policy Insights Data Writer (préversion)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Permet de lire les stratégies de ressources et d’écrire les événements de stratégie de composant de ressource. |
+> | **Id** | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | **Actions** |  |
+> | Microsoft.Authorization/policyassignments/read | Obtenez des informations sur une affectation de stratégie. |
+> | Microsoft.Authorization/policydefinitions/read | Obtenez des informations sur une définition de stratégie. |
+> | Microsoft.Authorization/policysetdefinitions/read | Obtient des informations sur une définition d’ensemble de stratégies |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | Microsoft.PolicyInsights/checkDataPolicyCompliance/action | Vérifie l’état de conformité d’un composant donné par rapport aux stratégies de données. |
+> | Microsoft.PolicyInsights/policyEvents/logDataEvents/action | Journalise les événements de stratégie de composant de ressource. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
 ## <a name="reader-and-data-access"></a>Lecteur et accès aux données
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2177,11 +2201,11 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
-## <a name="resource-policy-contributor-preview"></a>Contributeur de stratégie de ressource (préversion)
+## <a name="resource-policy-contributor"></a>Contributeur de la stratégie de ressource
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | (Préversion) Utilisateurs renvoyés de EA, avec des droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
+> | **Description** | Utilisateurs dotés de droits pour créer ou modifier une stratégie de ressource, créer un ticket de support et lire des ressources ou la hiérarchie. |
 > | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | **Actions** |  |
 > | */read | Lire les ressources de tous les types, à l’exception des secrets. |
@@ -2343,6 +2367,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
+> | Microsoft.RecoveryServices/vaults/replicationOperationStatus/read | Lit tout état de l’opération de réplication du coffre |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
 > | *Aucune* |  |

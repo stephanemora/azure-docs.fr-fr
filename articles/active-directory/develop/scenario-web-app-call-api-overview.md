@@ -1,5 +1,5 @@
 ---
-title: Application web qui appelle des API web (vue d’ensemble) - Plateforme d’identités Microsoft
+title: Générer une application web appelant des API web – Plateforme d’identités Microsoft | Azure
 description: Apprenez à générer une application web qui appelle des API web (vue d’ensemble)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce45f11a697b72ebdd0fe01166a70e7b47aa8e9f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3888c7f838d6009382f849bc7d3e34c49b3b70a4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65076299"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962132"
 ---
 # <a name="scenario-web-app-that-calls-web-apis"></a>Scénario : Application web qui appelle des API web
 
-Découvrez comment générer une application web qui connecte des utilisateurs à la Plateforme d’identités Microsoft et qui appelle des API web au nom de l’utilisateur connecté.
+Découvrez comment générer une application web qui connecte des utilisateurs à la plateforme d’identités Microsoft et qui appelle des API web au nom de l’utilisateur connecté.
 
 ## <a name="prerequisites"></a>Prérequis
 

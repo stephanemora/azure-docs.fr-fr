@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4fc0654aab1c68888e86dc95de658bc69a01e02d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a5d01978d8a4883d760e7ecf84afa381dfd563d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123984"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868556"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Intégration d’Azure Kubernetes Service à Security Center (préversion)
 Azure Kubernetes Service (AKS) est le service managé de Microsoft conçu pour le développement, le déploiement et la gestion d’applications conteneurisées. 
@@ -41,7 +41,7 @@ L’utilisation conjointe des deux services apporte les avantages suivants :
 
 * **Sécurisation renforcée de l’environnement** : Security Center supervise en permanence la configuration de vos clusters Kubernetes et génère des recommandations de sécurité qui reflètent les normes du secteur.
 
-* **Protection du Runtime** : par l’analyse continue des ressources AKS suivantes, Security Center vous avertit des menaces et des activités malveillantes qui sont détectées au niveau de l’hôte *et* au niveau du cluster AKS (pour plus d’informations, consultez [Azure Container Service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)) :
+* **Protection du runtime** : par l’analyse continue des sources AKS suivantes, Security Center vous avertit des menaces et des activités malveillantes détectées au niveau de l’hôte *et* au niveau du cluster AKS (pour plus d’informations, consultez [Détection des menaces pour les conteneurs Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)) :
     * Événements de sécurité bruts, tels que la création de processus et de données réseau
     * Journal d’audit Kubernetes
 

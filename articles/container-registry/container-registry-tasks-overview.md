@@ -3,12 +3,12 @@ title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: b4710591dfd78f0633d5071c78d80e300349f498
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456161"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840763"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -52,7 +52,7 @@ Découvrez comment utiliser les tâches rapides dans le premier didacticiel d’
 
 ## <a name="trigger-task-on-source-code-update"></a>Déclencher la tâche lors de la mise à jour du code source
 
-Déclenchez la création d’une image conteneur ou une tâche multiétapes lors de la validation du code, ou lorsqu’une requête de tirage (pull) est effectuée ou mise à jour, sur un référentiel Git dans GitHub ou Azure DevOps. Par exemple, configurez une tâche de création avec la commande Azure CLI [az acr task create][az-acr-task-create] en spécifiant un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe met à jour du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel. 
+Déclenchez la création d’une image conteneur ou une tâche multi-étapes lors de la validation du code, ou lorsqu’une demande de tirage (pull request) est effectuée ou mise à jour, sur un référentiel Git public ou privé dans GitHub ou Azure DevOps. Par exemple, configurez une tâche de création avec la commande Azure CLI [az acr task create][az-acr-task-create] en spécifiant un référentiel Git et éventuellement une branche et un Dockerfile. Lorsque votre équipe met à jour du code dans le référentiel, un webhook créé par ACR Tasks déclenche la génération de l’image de conteneur définie dans le référentiel. 
 
 ACR Tasks prend en charge les déclencheurs suivants lorsque vous définissez un référentiel Git comme contexte de la tâche :
 
@@ -61,7 +61,10 @@ ACR Tasks prend en charge les déclencheurs suivants lorsque vous définissez un
 | Validation | OUI |
 | Demande de tirage (pull request) | Non |
 
-Pour configurer le déclencheur, vous fournissez à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps.
+Pour configurer un déclencheur de mise à jour du code source, vous devez fournir à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps, qu’il soit public ou privé.
+
+> [!NOTE]
+> Actuellement, ACR Tasks ne prend pas en charge les déclencheurs de validation et de demande de tirage (pull request) dans les référentiels GitHub Enterprise.
 
 Découvrez comment déclencher la génération de builds lors de la validation du code source dans le deuxième didacticiel d’ACR Tasks, [Automatiser les générations d’image de conteneur avec Azure Container Registry Tasks](container-registry-tutorial-build-task.md).
 
@@ -116,17 +119,20 @@ Le tableau suivant présente quelques exemples d’emplacements de contexte pris
 | Emplacement du contexte | Description | Exemples |
 | ---------------- | ----------- | ------- |
 | Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
-| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub.  | `https://github.com/gituser/myapp-repo.git` |
-| Branche GitHub | Branche spécifique d’un référentiel GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
-| Sous-dossier Azure DevOps | Fichiers figurant dans un sous-dossier d’un référentiel Azure. L’exemple montre la combinaison de spécifications de branche et de sous-dossier. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
+| Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub public ou privé.  | `https://github.com/gituser/myapp-repo.git` |
+| Branche GitHub | Branche spécifique d’un référentiel GitHub public ou privé.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Sous-dossier Azure DevOps | Fichiers dans le sous-dossier d’un référentiel Azure public ou privé. L’exemple montre la combinaison de spécifications de branche et de sous-dossier. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
+
+> [!NOTE]
+> Lorsque vous utilisez un référentiel Git privé comme contexte pour une tâche, vous devez fournir un jeton d’accès personnel (PAT).
 
 ## <a name="image-platforms"></a>Plateformes d’images
 
 Par défaut, ACR Tasks génère des images pour le système d’exploitation Linux et l’architecture amd64. Spécifiez l’étiquette `--platform` pour créer des images Windows ou des images Linux pour d’autres architectures. Spécifiez le système d’exploitation et éventuellement une architecture prise en charge au format système d’exploitation/architecture (par exemple, `--platform Linux/arm`). Pour les architectures ARM, spécifiez éventuellement une variante au format système d’exploitation/architecture/variante (par exemple, `--platform Linux/arm64/v8`) :
 
-| OS | Architecture|
+| Système d''exploitation | Architecture|
 | --- | ------- | 
 | Linux | amd64<br/>arm<br/>arm64<br/>386 |
 | Windows | amd64 |

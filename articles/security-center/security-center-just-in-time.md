@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997188"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -176,10 +176,10 @@ Dans un souci de simplicité, il est possible de se connecter à une machine vir
 
 Pour faciliter le déploiement de l’accès juste-à-temps entre vos machines virtuelles, vous pouvez configurer une machine virtuelle pour autoriser uniquement l’accès juste-à-temps directement à partir de la machine virtuelle.
 
-1. Dans le portail Azure, sélectionnez **Machines virtuelles**.
-2. Cliquez sur la machine virtuelle pour laquelle vous voulez limiter l’accès juste-à-temps.
-3. Dans le menu, cliquez sur **Configuration**.
-4. Sous **Accès juste-à-temps**, cliquez sur **Activer une stratégie juste-à-temps**. 
+1. Dans le **portail Azure**, recherchez et sélectionnez [Machines virtuelles](https://ms.portal.azure.com). 
+2. Sélectionnez la machine virtuelle pour laquelle vous voulez limiter l’accès juste-à-temps.
+3. Dans le menu, sélectionnez **Configuration**.
+4. Sous **Accès juste-à-temps**, sélectionnez **Activer une stratégie juste-à-temps**. 
 
 Cela permet un accès juste-à-temps pour la machine virtuelle en utilisant les paramètres suivants :
 

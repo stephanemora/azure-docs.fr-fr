@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910325"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970034"
 ---
 # <a name="media-services-concepts"></a>Concepts d’Azure Media Services
 
@@ -100,6 +100,9 @@ Vous pouvez utiliser les **manifestes dynamiques** de Media Services pour diffus
 - [Protection du contenu](content-protection-overview.md)
 - [Manifestes dynamiques](filters-dynamic-manifest-overview.md)
 - [Filtres](filters-concept.md)
+
+> [!NOTE]
+> Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="live-streaming"></a>Vidéo en flux continu
 

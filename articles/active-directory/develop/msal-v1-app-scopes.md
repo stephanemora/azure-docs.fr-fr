@@ -1,28 +1,24 @@
 ---
-title: Étendues pour une application v1.0 (Microsoft Authentication Library) | Azure
+title: Étendues MSAL pour une application v1.0 | Azure
 description: Découvrez les étendues pour une application v1.0 à l’aide de la bibliothèque d’authentification Microsoft (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a8a5859c7f1e2353b53d01a25a0ca39e0b04dd
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532976"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963254"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Étendues pour une API web acceptant des jetons v1.0
 
@@ -30,7 +26,7 @@ Les autorisations OAuth2 sont des étendues d’autorisation qu’une applicatio
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Étendues pour demander l’accès à des autorisations OAuth2 spécifiques d’une application v1.0
 
-Pour acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, le graphe Azure AD, à savoir https:\//graph.windows.net), vous devez créer des étendues en concaténant un identificateur de ressource de votre choix avec une autorisation OAuth2 souhaitée pour cette ressource.
+Afin d’acquérir des jetons pour des étendues spécifiques d’une application v1.0 (par exemple, Azure AD Graph, à savoir https://graph.windows.net), créez des étendues en concaténant l’identificateur de ressource de votre choix avec l’autorisation OAuth2 souhaitée pour cette ressource.
 
 Par exemple, pour l’accès au nom de l’utilisateur, une API web v1.0 où l’URI de l’identifiant de l’application est `ResourceId` :
 

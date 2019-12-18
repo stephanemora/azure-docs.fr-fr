@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1644c00aea8eefa78550c8d0238dbedab0378492
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871638"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968696"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
 
@@ -245,6 +245,10 @@ Un fichier boot.xml en exemple :
 </HLSMoviePackage>
 ```
 
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
+
 ## <a name="summary"></a>Résumé
 Ce document inclut les étapes ci-dessous et des informations que vous pouvez utiliser pour implémenter le mode hors connexion FPS :
 
@@ -252,3 +256,7 @@ Ce document inclut les étapes ci-dessous et des informations que vous pouvez ut
 * Un lecteur iOS basé sur l’exemple du Kit SDK du serveur FPS configure un lecteur iOS pouvant lire le contenu FPS en mode de diffusion en continu en ligne ou un mode hors connexion.
 * Des exemples de vidéos FPS sont utilisés pour les tests en mode hors connexion et en diffusion continue en ligne.
 * Un forum aux questions répond aux questions sur le mode hors connexion FPS.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

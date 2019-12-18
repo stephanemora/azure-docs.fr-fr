@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228089"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899808"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
@@ -132,7 +132,7 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Subnet | Sélectionnez *mySubnet*. |
     | **INTÉGRATION À DNS PRIVÉ**|  |
     | Intégrer à une zone DNS privée  | Conservez la valeur par défaut **Oui**. |
-    | Zone DNS privée  | Conservez la valeur par défaut ** (New) privatelink.blob.core.windows.net**. |
+    | Zone DNS privée  | Conservez la valeur par défaut **(New) privatelink.blob.core.windows.net**. |
     |||
 7. Sélectionnez **OK**. 
 8. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
@@ -151,7 +151,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier .rdp* téléchargé.
+1. Ouvrez le fichier *downloaded.rdp*.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 
@@ -169,9 +169,6 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 ## <a name="access-storage-account-privately-from-the-vm"></a>Accéder au compte de stockage en privé à partir de la machine virtuelle
 
 Dans cette section, vous allez vous connecter en privé au compte de stockage à l’aide de Private Endpoint.
-
-> [!IMPORTANT]
-> La configuration DNS pour le stockage nécessite une modification manuelle du fichier hosts pour inclure le nom de domaine complet du compte spécifique. Modifiez le fichier suivant en utilisant les autorisations d’administrateur sur Windows : c:\Windows\System32\Drivers\etc\hosts ou Linux /etc/hosts. Incluez les informations DNS pour le compte de l’étape précédente au format [Adresse IP privée] myaccount.blob.core.windows.net
 
 1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
 2. Entrez `nslookup mystorageaccount.blob.core.windows.net` Vous recevez un message similaire à celui-ci :

@@ -1,25 +1,26 @@
 ---
-title: Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
+title: Copier des données depuis et vers SQL Server
 description: Découvrez comment déplacer des données vers et depuis une base de données SQL Server qui est locale ou dans une machine virtuelle Azure à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 24a9450b63ba4ed68c9c68e5054e6b02ecf7e0d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8fa4f3b7dfbebb65b1ae60791027eb5fd31a24fb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075567"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931037"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
+
 > [!div class="op_single_selector" title1="Sélectionnez la version d’Azure Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Version actuelle](connector-sql-server.md)

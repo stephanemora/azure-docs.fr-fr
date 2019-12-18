@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144441"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894585"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 
@@ -255,7 +255,7 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 - [En savoir plus sur Azure Monitor](../../azure-monitor/overview.md)
 - [Accéder aux mesures avec l’API REST](rest-api-walkthrough.md)
 - [Transmettre en continu le journal d’activité vers un service non-Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmettre en continu les journaux de diagnostic vers un service non-Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Diffuser en streaming les journaux de ressources sur un service non-Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
 
 
 

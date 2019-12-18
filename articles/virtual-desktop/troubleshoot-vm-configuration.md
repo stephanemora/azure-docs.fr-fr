@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791145"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869525"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -81,10 +81,10 @@ Pour approvisionner les machines virtuelles, il est recommandé d'utiliser le mo
 Suivez ces instructions pour vérifier que les composants sont installés et rechercher d'éventuels messages d'erreur.
 
 1. Vérifiez que les deux composants sont installés en accédant à **Panneau de configuration** > **Programmes** > **Programmes et fonctionnalités**. Si l'**agent Windows Virtual Desktop** et le **chargeur de démarrage de l'agent Windows Virtual Desktop** ne sont pas visibles, ils ne sont pas installés sur la machine virtuelle.
-2. Ouvrez **Explorateur de fichiers** et accédez à **C:\Windows\Temp\scriptlogs.log**. Si le fichier n'y figure pas, cela signifie la DSC PowerShell qui a installé les deux composants n’a pas pu s’exécuter dans le contexte de sécurité fourni.
-3. Si le fichier **C:\Windows\Temp\scriptlogs.log** y figure, ouvrez-le et recherchez les messages d’erreur.
+2. Ouvrez l’**Explorateur de fichiers** et accédez à **C:\Windows\Temp\ScriptLog.log**. Si le fichier n'y figure pas, cela signifie la DSC PowerShell qui a installé les deux composants n’a pas pu s’exécuter dans le contexte de sécurité fourni.
+3. Si le fichier **C:\Windows\Temp\ScriptLog.log** y figure, ouvrez-le et recherchez les messages d’erreur.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>Error: L'agent Windows Virtual Desktop et le chargeur de démarrage de l'agent Windows Virtual Desktop sont manquants. C:\Windows\Temp\scriptlogs.log est également manquant.
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Error: L'agent Windows Virtual Desktop et le chargeur de démarrage de l'agent Windows Virtual Desktop sont manquants. C:\Windows\Temp\ScriptLog.log est également manquant.
 
 **Cause 1 :** Les informations d’identification fournies pour le modèle Azure Resource Manager sont incorrectes ou les autorisations sont insuffisantes.
 
@@ -98,7 +98,7 @@ Suivez ces instructions pour vérifier que les composants sont installés et rec
 - Vérifiez que le nom du locataire est correct et que le locataire existe dans Windows Virtual Desktop.
 - Vérifiez que le compte dispose au minimum des autorisations Contributeur RDS.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>Error: L'authentification a échoué, erreur dans C:\Windows\Temp\scriptlogs.log
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Error: L’authentification a échoué, erreur dans C:\Windows\Temp\ScriptLog.log
 
 **Cause :** La DSC PowerShell a réussi à s'exécuter, mais pas à se connecter à Windows Virtual Desktop.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679191"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969902"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
 
@@ -26,9 +26,6 @@ Media Services vous permet de transmettre votre contenu dynamique ou à la deman
 Pour spécifier des options de chiffrement sur votre flux, vous devez créer une [stratégie de streaming](streaming-policy-concept.md), puis l’associer à votre [localisateur de streaming](streaming-locators-concept.md). Vous créez la [stratégie de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies) pour configurer la façon dont la clé de contenu (qui fournit un accès sécurisé à vos [ressources](assets-concept.md)) est remise aux clients finaux. Vous devez définir les exigences (restrictions) sur la stratégie de clé de contenu qui doivent être respectées afin que des clés ayant la configuration spécifiée soient remises à des clients. La stratégie de clé de contenu n’est pas nécessaire pour un téléchargement ou un streaming en clair. 
 
 En général, vous associez votre stratégie clé de contenu à votre [localisateur de streaming](streaming-locators-concept.md). Vous pouvez également spécifier la stratégie de clé de contenu dans une [stratégie de streaming](streaming-policy-concept.md) (lors de la création d’une stratégie de streaming personnalisée pour les scénarios avancés). 
-
-> [!NOTE]
-> Les propriétés des stratégies de clé de contenu de type `Datetime` sont toujours au format UTC.
 
 ## <a name="best-practices-and-considerations"></a>Meilleures pratiques et considérations
 
@@ -55,6 +52,11 @@ Pour accéder à la clé, utilisez `GetPolicyPropertiesWithSecretsAsync`, comme 
 ## <a name="filtering-ordering-paging"></a>Filtrage, tri, pagination
 
 Consultez [Filtrage, tri et pagination des entités Media Services](entities-overview.md).
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Les propriétés des stratégies de clé de contenu de type `Datetime` sont toujours au format UTC.
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

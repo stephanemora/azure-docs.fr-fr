@@ -4,12 +4,13 @@ description: Symptômes, causes et résolution des défaillances de la Sauvegard
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.service: backup
+ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172605"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996270"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -22,10 +23,11 @@ Cet article indique les étapes à suivre pour résoudre les erreurs de la Sauve
 **Code d’erreur** : UserErrorGuestAgentStatusUnavailable <br>
 **Message d’erreur** : L’agent de machine virtuelle ne peut pas communiquer avec la sauvegarde Microsoft Azure<br>
 
-L’agent de machine virtuelle Azure peut être arrêté, obsolète, dans un état incohérent ou non installé et empêcher le service Sauvegarde Azure de déclencher des instantanés.  
+L’agent de machine virtuelle Azure peut être arrêté, obsolète, dans un état incohérent ou non installé et empêcher le service Sauvegarde Azure de déclencher des instantanés.
 
-- Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, **redémarrez l’agent** et réessayez l’opération de sauvegarde (essayez une sauvegarde sur demande). Pour connaître les étapes de redémarrage de l’agent, consultez [Machines virtuelles Windows](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).
-- Si l’agent de machine virtuelle n’est pas installé ou est obsolète, installez/mettez à jour l’agent de machine virtuelle et réessayez l’opération de sauvegarde. Pour connaître les étapes d’installation/de mise à jour de l’agent, consultez [Machines virtuelles Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) ou [Machines virtuelles Linux](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- **Ouvrez le panneau Portail Azure > Machine virtuelle > Paramètres > Propriétés** et assurez-vous que l’**État** de la machine virtuelle est **En cours d’exécution** et que l’**État de l’agent** est **Prêt**. Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, redémarrez l’agent<br>
+  - Pour les machines virtuelles Windows, suivez ces [étapes](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) pour redémarrer l’agent invité.<br>
+  - Pour les machines virtuelles Linux, suivez ces [étapes](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) pour redémarrer l’agent invité.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané
 
@@ -41,6 +43,18 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 **Cause 3 : [Impossible de récupérer l’état de l’instantané ou de capturer un instantané](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Cause 4 : [L’extension de sauvegarde ne peut être ni mise à jour ni chargée](#the-backup-extension-fails-to-update-or-load)**
+
+**Cause 5 : [Les options de configuration de l’agent de machine virtuelle ne sont pas définies (pour les machines virtuelles Linux)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed : Échec de l’approvisionnement de la machine virtuelle
+
+**Code d’erreur** : UserErrorVmProvisioningStateFailed<br>
+**Message d’erreur** : Échec de l’approvisionnement de la machine virtuelle<br>
+
+Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez le Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez si toutes les extensions sont dans un état d’**approvisionnement réussi**.
+
+- Si l’extension VMSnapshot est en état d’échec, cliquez avec le bouton droit sur l’extension qui a échoué, puis supprimez-la. Déclenchez une sauvegarde ad hoc : cette opération réinstalle les extensions et exécute le travail de sauvegarde.  <br>
+- Si une autre extension est en état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached : Limite maximale de la collection de points de restauration atteinte
 
@@ -183,6 +197,11 @@ Si vous exigez une journalisation détaillée pour waagent, procédez comme suit
 1. Dans le fichier /etc/waagent.conf, recherchez la ligne suivante : **Activer l’enregistrement des informations détaillées (y|n)**
 2. Passez la valeur **Logs.Verbose** de *N* à *O*.
 3. Enregistrez la modification, puis redémarrez waagent en suivant les étapes détaillées plus haut dans cette section.
+
+### <a name="vm-agent-configuration-options-are-not-set-for-linux-vms"></a>Les options de configuration de l’agent de machine virtuelle ne sont pas définies (pour les machines virtuelles Linux)
+
+Un fichier de configuration (/etc/waagent.conf) contrôle les actions de waagent. Options du fichier config : **Extensions.Enable** et **Provisioning.Agent** doivent être définies sur **y** pour que la sauvegarde fonctionne.
+Pour obtenir la liste complète des options du fichier config de l’agent de machine virtuelle, rendez-vous à l’adresse <https://github.com/Azure/WALinuxAgent#configuration-file-options>
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Impossible de récupérer l’état de l’instantané ou de capturer un instantané
 

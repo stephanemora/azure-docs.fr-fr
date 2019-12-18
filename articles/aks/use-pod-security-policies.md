@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933767"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926405"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Aperçu - Sécuriser votre cluster à l’aide de stratégies de sécurité des pods dans Azure Kubernetes Service (AKS)
 
@@ -486,7 +486,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Supprimez la stratégie réseau à l’aide de la commande [kubectl delete][kubectl-delete] et précisez le nom de votre manifeste YAML :
+Supprimez la stratégie de sécurité en utilisant la commande [kubectl delete][kubectl-delete] et spécifiez le nom de votre manifeste YAML :
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml

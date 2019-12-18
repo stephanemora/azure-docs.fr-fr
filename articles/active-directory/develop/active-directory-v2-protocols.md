@@ -1,29 +1,25 @@
 ---
-title: En savoir plus sur les protocoles d’autorisation pris en charge par la plateforme d’identités Microsoft | Azure
+title: Protocoles d’autorisation pris en charge par la plateforme d’identités Microsoft | Azure
 description: Un guide relatif aux protocoles OAuth 2.0 et OpenID Connect pris en charge par le point de terminaison de la plateforme d’identités Microsoft.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835278"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918286"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocoles de la plateforme d’identités Microsoft
 
@@ -43,7 +39,7 @@ Dans presque tous les flux OAuth 2.0 et OpenID Connect, quatre parties sont con
 * Le **Client OAuth** est votre application, identifiée par son ID d’application. Le client OAuth, qui est en général la partie avec laquelle l’utilisateur final interagit, demande des jetons provenant du serveur d’autorisation. Le client doit se voir octroyer une autorisation d’accès à la ressource par le propriétaire de cette dernière.
 * Le **serveur de ressources** héberge la ressource ou les données. Il approuve le serveur d’autorisation pour authentifier et autoriser de manière sûre le client OAuth et utilise les jetons d’accès du porteur pour garantir l’octroi de l’accès à une ressource.
 
-## <a name="app-registration"></a>Inscription d’application
+## <a name="app-registration"></a>Inscription d'application
 
 Chaque application souhaitant accepter les comptes personnels ainsi que les comptes professionnels ou scolaires doit être inscrite via l’expérience **Inscriptions d’applications** dans le [portail Azure](https://aka.ms/appregistrations) avant de pouvoir connecter ces utilisateurs à l’aide d’OAuth 2.0 ou d’OpenID Connect. Le processus d’inscription des applications collecte quelques valeurs et les affecte à votre application :
 

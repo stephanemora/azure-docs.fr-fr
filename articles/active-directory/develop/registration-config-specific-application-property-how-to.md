@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour remplir les champs spécifiques d’une application personnalisée | Microsoft Docs
-description: Conseils sur la manière de remplir des champs spécifiques lorsque vous inscrivez une application personnalisée auprès d’Azure AD
+title: Champs d’inscription du portail Azure pour les applications personnalisées
+description: Conseils pour l’inscription d’une application personnalisée auprès d’Azure AD
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46bc6d2ebbb22ffc37ca73a3fff3b7b5a3a534b8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ded0ba36a8eef7adb1be5b5f07408b9f79359f44
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325331"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965634"
 ---
-# <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
+# <a name="azure-portal-registration-fields-for-custom-developed-apps"></a>Champs d’inscription du portail Azure pour les applications personnalisées
 
 Cet article décrit brièvement tous les champs disponibles dans le formulaire d’inscription d’application du [portail Azure](https://portal.azure.com).
 
@@ -39,7 +39,6 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 
 ## <a name="fields-in-the-application-registration-form"></a>Champs du formulaire d’inscription d’application
 
-
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
@@ -49,6 +48,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 Après avoir rempli les champs ci-dessus, l’application est inscrite dans le portail Azure et vous êtes redirigé vers la page de vue d’ensemble de l’application. Les pages des paramètres dans le volet gauche, sous **Gérer**, ont plus de champs pour personnaliser votre application. Les tableaux ci-dessous décrivent tous les champs. Vous voyez uniquement un sous-ensemble de ces champs. Cet affichage peut changer si vous avez créé une application web ou une application cliente publique.
 
 ### <a name="overview"></a>Vue d'ensemble
+
 | Champ           | Description        |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID de l'application  | Lorsque vous inscrivez une application, Azure AD attribue un ID d’application à votre application. Cet ID d’application peut être utilisé pour identifier de façon unique votre application dans les demandes d’authentification à Azure AD, ainsi que pour accéder à des ressources telles que l’API Graph.                                                          |
@@ -76,4 +76,5 @@ Après avoir rempli les champs ci-dessus, l’application est inscrite dans le p
 | Clés secrètes client            | Vous pouvez créer des clés secrètes client (ou clés) pour accéder par programme aux API web sécurisées par Azure AD sans aucune interaction de l’utilisateur. Depuis la page **Nouvelle clé secrète client**, saisissez une description de clé et la date d’expiration, puis enregistrez pour générer la clé. Veillez à l’enregistrer dans un endroit sûr, car vous ne pourrez pas y accéder ultérieurement.             |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 [Gestion des applications avec Azure Active Directory](../manage-apps/what-is-application-management.md)

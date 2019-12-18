@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 07/01/2019
-ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/05/2019
+ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823751"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873741"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 
@@ -56,10 +56,10 @@ Une requête de base de données élastique offre un accès facile à un ensembl
 Les scénarios clients pour une requête élastique sont caractérisés par les topologies suivantes :
 
 * **Partitionnement vertical - Requêtes sur plusieurs bases de données** (topologie 1) : les données sont partitionnées verticalement entre plusieurs bases de données d’une couche Données. En règle générale, les différents ensembles de tables résident sur des bases de données différentes. Cela signifie que le schéma est différent sur des bases de données différentes. Par exemple, toutes les tables d’inventaire se trouvent sur une base de données alors que toutes les tables liées à la comptabilité se trouvent dans une seconde base de données. Les scénarios d’utilisation courants avec cette topologie requièrent une interrogation ou la compilation de rapports englobant des tables de plusieurs bases de données.
-* **Partitionnement horizontal - Partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir les lignes dans un niveau Données ayant fait l’objet d’un scale-out. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions.
+* **Partitionnement horizontal - Partitionnement** (topologie 2) : les données sont partitionnées horizontalement pour répartir les lignes dans un niveau Données ayant fait l’objet d’un scale-out. Avec cette approche, le schéma est identique sur toutes les bases de données participantes. Cette approche est également appelée « partitionnement ». Ce partitionnement est effectué et géré à l’aide de (1) la bibliothèque d’outils de base de données élastique ou (2) la fonction d’auto-partitionnement. Une requête élastique est utilisée pour interroger ou compiler des rapports sur plusieurs partitions. Les partitions sont généralement des bases de données au sein d’un pool élastique. Vous pouvez considérer la requête élastique comme un moyen efficace d’interroger toutes les bases de données d’un pool élastique en même temps, à condition que les bases de données partagent le même schéma.
 
 > [!NOTE]
-> Une requête élastique est mieux adaptée aux scénarios de création de rapports où la plus grande partie du traitement (filtrage, agrégation) peut s’effectuer du côté de la source externe. Elle n’est pas adaptée aux opérations ETL où une grande quantité de données est transférée à partir de bases de données distantes. Pour les charges de travail de création de rapports intensive ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+> Une requête élastique est mieux adaptée aux scénarios de création de rapports où la plus grande partie du traitement (filtrage, agrégation) peut s’effectuer du côté de la source externe. Elle n’est pas adaptée aux opérations ETL où une grande quantité de données est transférée à partir de bases de données distantes. Pour les charges de travail intensives de création de rapports ou les scénarios d’entreposage de données avec des requêtes plus complexes, pensez à utiliser [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics).
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>Le partitionnement vertical - requêtes de bases de données croisées
@@ -117,6 +117,9 @@ Une fois que vous avez effectué ces opérations, vous pouvez accéder à la tab
 Vous trouverez d’autres informations sur les opérations requises pour le scénario de partitionnement horizontal dans [Requête élastique pour le partitionnement horizontal](sql-database-elastic-query-horizontal-partitioning.md).
 
 Pour commencer le codage, voir [Prise en main d’une requête élastique pour le partitionnement horizontal (partitionnement)](sql-database-elastic-query-getting-started.md).
+
+> [!IMPORTANT]
+> La réussite d’exécution d’une requête élastique sur un grand ensemble de bases de données repose essentiellement sur la disponibilité de chacune des bases de données lors de l’exécution de la requête. Si l’une des bases de données n’est pas disponible, la requête entière échoue. Si vous envisagez d’interroger des centaines ou des milliers de bases de données en même temps, assurez-vous que votre application cliente a une logique incorporée de nouvelle tentative ou envisagez de tirer parti des [tâches de base de données élastique](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (préversion) et d’interroger de plus petits sous-ensembles de bases de données, en consolidant les résultats de chaque interrogation en une seule destination.
 
 ## <a name="t-sql-querying"></a>Requêtes T-SQL
 

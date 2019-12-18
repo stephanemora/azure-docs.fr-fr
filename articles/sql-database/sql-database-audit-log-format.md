@@ -4,19 +4,17 @@ description: Comprenez comment les journaux d’audit SQL Database sont structur
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 14465e918fd4ac4e436e64d468c58e1d2ed83bb3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688169"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928635"
 ---
 # <a name="sql-database-audit-log-format"></a>Format des journaux d’audit SQL Database
 
@@ -32,15 +30,16 @@ Par exemple, pour la base de données `Database1` sur `Server1`, un chemin valid
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-Les journaux d’audit de réplicas en lecture seule sont stockés dans le même conteneur. La hiérarchie des répertoires au sein du conteneur prend la forme `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. Le nom de fichier des objets blob partage le même format.
+Les journaux d’audit de [réplicas en lecture seule](sql-database-read-scale-out.md) sont stockés dans le même conteneur. La hiérarchie des répertoires au sein du conteneur prend la forme `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. Le nom de fichier des objets blob partage le même format. Les journaux d’audit de réplicas en lecture seule sont stockés dans le même conteneur.
+
 
 ### <a name="event-hub"></a>Event Hub
 
-Les événements d’audit sont écrits dans l’espace de noms et le hub d’événements définis pendant la configuration de l’audit. Ils sont capturés dans le corps des événements [Apache Avro](https://avro.apache.org/) et stockés au format JSON avec encodage UTF-8. Pour lire les journaux d’audit, vous pouvez utiliser les [outils Avro](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) ou des outils similaires qui traitent ce format.
+Les événements d’audit sont écrits dans l’espace de noms et le hub d’événements définis pendant la configuration de l’audit. Ils sont capturés dans le corps des événements [Apache Avro](https://avro.apache.org/) et stockés au format JSON avec encodage UTF-8. Pour lire les journaux d’audit, vous pouvez utiliser les [outils Avro](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou des outils similaires qui traitent ce format.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Les événements d’audit sont écrits dans l’espace de travail Log Analytics défini pendant la configuration de l’audit, dans la table `AzureDiagnostics` avec la catégorie `SQLSecurityAuditEvents`. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search).
+Les événements d’audit sont écrits dans l’espace de travail Log Analytics défini pendant la configuration de l’audit, dans la table `AzureDiagnostics` avec la catégorie `SQLSecurityAuditEvents`. Pour plus d’informations sur le langage et les commandes de recherche Log Analytics, consultez [Référence sur les recherches Log Analytics](../log-analytics/log-analytics-log-search.md).
 
 ## <a id="subheading-1"></a>Champs de journal d’audit
 

@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531517"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850004"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>Quota standard : augmentation de la limite régionale des processeurs virtuels 
 
-Resource Manager prend en charge deux types de quotas de processeurs virtuels pour les machines virtuelles. Les **machines virtuelles avec paiement à l’utilisation** et les **instances de machine virtuelle réservées** utilisent un quota Standard. Les **machines virtuelles basse priorité** utilisent un quota Basse priorité. 
+Resource Manager prend en charge deux types de quotas de processeurs virtuels pour les machines virtuelles. Les **machines virtuelles avec paiement à l’utilisation** et les **instances de machine virtuelle réservées** utilisent un quota Standard. Les **machines virtuelles Spot** utilisent le quota Spot. 
 
 Le quota de processeurs virtuels standard pour les instances de machine virtuelle réservées et avec paiement à l’utilisation est appliqué à deux niveaux pour chaque abonnement dans chaque région.
  
@@ -26,7 +26,7 @@ Lorsqu’un nouvel abonnement est créé, la valeur par défaut du total des pro
 
 Pour en savoir plus sur les quotas de processeurs virtuels standard, consultez les pages [Quotas de processeurs virtuels pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) et [Limites des abonnements et services Azure](https://aka.ms/quotalimits).
 
-Découvrez-en plus sur l’**augmentation des limites de processeur virtuel de machine virtuelle Basse priorité** [ici](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Découvrez-en plus sur l’**augmentation des limites de processeur virtuel de machine virtuelle Spot** [ici](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Vous pouvez demander une augmentation de la **Limite du total de processeurs virtuels régionaux des machines virtuelles standard** via le panneau **Aide + support** ou le panneau **Utilisations + quota** dans le portail.
 

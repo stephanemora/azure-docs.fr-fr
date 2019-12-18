@@ -1,6 +1,6 @@
 ---
 title: Gérer la stratégie de mise en cache CDN dans Azure Media Services | Microsoft Docs
-description: Découvrez comment gérer la stratégie de mise en cache CDN dans Azure Media Services.
+description: Cet article explique comment gérer la stratégie de mise en cache d’Azure CDN dans Azure Media Services.
 services: media-services,cdn
 documentationcenter: .NET
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc0482fbcbb1c9d1618ec18e1f48b03f686a6573
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61069438"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892575"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gérer la stratégie de mise en cache CDN dans Azure Media Services
 Azure Media Services fournit la diffusion en continu adaptative HTTP et le téléchargement progressif. La diffusion en continu HTTP est hautement évolutive de par les avantages de mise en cache dans le proxy et les couches CDN, et la mise en cache côté client. Les points de terminaison de la diffusion en continu fournissent des fonctionnalités générales de diffusion en continu et de configuration pour les en-têtes HTTP du cache. Les points de terminaison de diffusion en continu définissent le contrôle de cache HTTP : les en-têtes max-age et Expires. Pour plus d'informations sur les en-têtes de cache HTTP, rendez-vous sur le site [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

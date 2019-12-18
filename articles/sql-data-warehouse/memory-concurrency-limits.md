@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686038"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851279"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse.  
@@ -50,7 +50,7 @@ La plage des niveaux de service est comprise entre DW100c et DW30000c.
 Le niveau de service maximal est DW30000c, qui correspond à 60 nœuds de calcul et une distribution par nœud de calcul. Par exemple, un entrepôt de données de 600 To à DW30000c traite environ 10 To par nœud de calcul.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>Valeurs maximales de concurrence pour les groupes de charge de travail
-Avec l’introduction des groupes de charges de travail (lien à déterminer), le concept d’emplacements de concurrence ne s’applique plus.  Les ressources par demande sont allouées selon un pourcentage et spécifiées dans la définition du groupe de charge de travail.  Toutefois, même avec la suppression des emplacements de concurrence, il existe des quantités minimales de ressources nécessaires par requête, en fonction du niveau de service.  Le tableau ci-dessous définit la quantité minimale de ressources nécessaires par requête entre les niveaux de service et la concurrence associée possible. 
+Avec l’introduction des [groupes de charges de travail](sql-data-warehouse-workload-isolation.md), le concept d’emplacements de concurrence ne s’applique plus.  Les ressources par demande sont allouées selon un pourcentage et spécifiées dans la définition du groupe de charge de travail.  Toutefois, même avec la suppression des emplacements de concurrence, il existe des quantités minimales de ressources nécessaires par requête, en fonction du niveau de service.  Le tableau ci-dessous définit la quantité minimale de ressources nécessaires par requête entre les niveaux de service et la concurrence associée possible. 
 
 |Niveau de service|Nombre maximal de requêtes concurrentes|% min. pris en charge pour REQUEST_MIN_RESOURCE_GRANT_PERCENT|
 |---|---|---|

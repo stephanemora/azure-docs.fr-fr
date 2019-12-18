@@ -1,18 +1,18 @@
 ---
 title: Mise à l'échelle du débit dans Azure Cosmos DB
-description: Cet article décrit comment Azure Cosmos DB met à l’échelle le débit de manière élastique
-author: dharmas-cosmos
+description: Cet article explique comment Azure Cosmos DB met à l’échelle le débit dans les différentes régions où le compte Azure Cosmos est provisionné.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467605"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873503"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Mettre à l’échelle le débit provisionné au niveau global 
 

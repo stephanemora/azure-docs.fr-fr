@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811150"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901242"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostics de résolution des problèmes de performances Hyperscale SQL
 
@@ -44,13 +44,14 @@ Les réplicas de calcul ne mettent pas en cache une copie complète de la base d
  
 Quand une lecture est émise sur un réplica de calcul, si les données n’existent pas dans le pool de mémoires tampons ou dans le cache RBPEX local, un appel de fonction getPage (pageId, LSN) est émis et la page est récupérée à partir du serveur de pages correspondant. Les lectures à partir des serveurs de pages étant des lectures distantes, elles sont plus lentes que les lectures à partir du cache RBPEX local. Pour résoudre les problèmes de performances liés aux E/S, il importe de connaître le nombre d’E/S liées aux lectures distantes relativement lentes effectuées à partir d’un serveur de pages.
 
-Plusieurs vues de gestion dynamique (DMV) et événements étendus contiennent des colonnes et des champs qui spécifient le nombre de lectures à distante à partir d’un serveur de pages, qui peuvent être comparées aux lectures totales. 
+Plusieurs vues de gestion dynamique (DMV) et événements étendus contiennent des colonnes et des champs qui spécifient le nombre de lectures à distante à partir d’un serveur de pages, qui peuvent être comparées aux lectures totales. Le magasin des requêtes capture également les lectures distantes dans le cadre des statistiques de durée d’exécution des requêtes.
 
-- Les colonnes où sont consignées les lectures de serveur de pages sont disponibles dans les vues DMV d’exécution, à savoir :
+- Les colonnes où sont consignées les lectures de serveur de pages sont disponibles dans les vues DMV d’exécution et les vues catalogue, à savoir :
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
     - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - Les lectures de serveur de pages sont ajoutées aux événements étendus suivants :
     - sql_statement_completed
     - sp_statement_completed

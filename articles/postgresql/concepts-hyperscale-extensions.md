@@ -1,18 +1,18 @@
 ---
-title: Extensions PostgreSQL dans Azure Database pour PostgreSQL - Hyperscale (Citus)
-description: Décrit la capacité à étendre les fonctionnalités d’une base de données à l’aide des extensions Azure Database pour PostgreSQL.
+title: Extensions - Hyperscale (Citus) - Azure Database pour PostgreSQL
+description: Décrit la capacité à étendre les fonctionnalités d’une base de données à l’aide des extensions Azure Database pour PostgreSQL - Hyperscale (Citus)
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 41edcc40bae7915e321a278592dd2f73621aae05
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f7a961b04290bd17657949877c0b81bc281da50
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975548"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 

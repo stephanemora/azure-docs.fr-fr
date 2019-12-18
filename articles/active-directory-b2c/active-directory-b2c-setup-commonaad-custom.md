@@ -1,6 +1,7 @@
 ---
-title: Configurer une connexion pour un fournisseur d’identité Azure AD multilocataire avec des stratégies personnalisées dans Azure Active Directory B2C
-description: Ajoutez un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées - Azure Active Directory B2C.
+title: Configurer la connexion pour les annuaires Azure AD multilocataires par des stratégies personnalisées
+titleSuffix: Azure AD B2C
+description: Ajoutez un fournisseur d’identité Azure AD multilocataire en utilisant des stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5e4645d0fbdcd8cd44bb5972cdc28ab7eaa2a681
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: abac9152ff71c8fbf4ed53bfd663d29616382cf9
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642615"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947778"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 

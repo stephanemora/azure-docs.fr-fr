@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c48bcab0a3d009b186832a6b728597f03788a7cd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382991"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996729"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
 * Le cluster AKS peut avoir un maximum de huit pools de nœuds.
-* Le cluster AKS peut avoir un maximum de 400 nœuds dans ces huit pools de nœuds.
+* Le cluster AKS peut avoir un maximum de 800 nœuds dans ces 8 pools de nœuds.
 * Tous les pools de nœuds doivent résider dans le même sous-réseau.
 
 ## <a name="create-an-aks-cluster"></a>Créer un cluster AKS

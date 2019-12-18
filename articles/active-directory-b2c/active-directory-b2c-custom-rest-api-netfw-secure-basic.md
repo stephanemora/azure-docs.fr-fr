@@ -1,5 +1,6 @@
 ---
-title: Sécuriser vos services RESTful en utilisant l’authentification de base HTTP dans Azure Active Directory B2C | Microsoft Docs
+title: Sécuriser un service RESTful en utilisant une authentification HTTP de base
+titleSuffix: Azure AD B2C
 description: Sécurisez vos échanges de revendications d’API REST personnalisés dans votre instance Azure AD B2C à l’aide de l’authentification HTTP de base.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8c1251056ad816af664f95abcd18d50ceca4619d
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835277"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949438"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
@@ -248,7 +249,7 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
 
 7. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 9. Vérifiez que vous avez créé la clé `B2C_1A_B2cRestClientId`.
 
@@ -269,7 +270,7 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
 
 7. Pour **Utilisation de la clé**, sélectionnez **Signature**.
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 9. Vérifiez que vous avez créé la clé `B2C_1A_B2cRestClientSecret`.
 

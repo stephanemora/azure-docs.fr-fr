@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805160"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951171"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -79,7 +79,7 @@ Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la ba
 
 ![Activité de connexion](./media/concept-sign-ins/19.png "Activité de connexion")
 
-Affiche des champs supplémentaires ou supprime des champs déjà affichés.
+La boîte de dialogue **Colonnes** vous permet d’accéder aux attributs sélectionnables. Dans un rapport de connexion, vous ne pouvez avoir que des attributs qui n’ont pas de relation un-à-plusieurs avec d’autres attributs sous forme de colonne.
 
 ![Activité de connexion](./media/concept-sign-ins/columns.png "Activité de connexion")
 

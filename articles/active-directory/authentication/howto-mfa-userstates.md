@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74785855"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964053"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Comment exiger la vérification en deux étapes pour un utilisateur
 
@@ -52,7 +52,10 @@ Les comptes d'utilisateur dans Azure Multi-Factor Authentication peuvent présen
 
 L’état d’un utilisateur indique si un administrateur l’a inscrit dans l’authentification multifacteur Azure et s’il a terminé le processus d’inscription.
 
-Tous les utilisateurs commencent avec l’état *Désactivé*. Dès lors qu’ils sont inscrits à Azure MFA, leur état devient *Activé*. Lorsque les utilisateurs activés se connectent et suivent le processus d’inscription, leur état passe à *Appliqué*.  
+Tous les utilisateurs commencent avec l’état *Désactivé*. Dès lors qu’ils sont inscrits à Azure MFA, leur état devient *Activé*. Lorsque les utilisateurs activés se connectent et suivent le processus d’inscription, leur état passe à *Appliqué*.
+
+> [!NOTE]
+> Si l’authentification multifacteur (MFA) est réactivée sur un objet utilisateur qui a déjà les détails de l’inscription, comme le téléphone ou l’e-mail, les administrateurs doivent demander à cet utilisateur de se réinscrire avec MFA par le biais du portail Azure ou de PowerShell. Si l’utilisateur ne se réinscrit pas, son état MFA ne passe pas de *Activé* à *Appliqué* dans l’interface utilisateur de la gestion MFA.
 
 ### <a name="view-the-status-for-a-user"></a>Afficher l’état d’un utilisateur
 
@@ -100,10 +103,15 @@ Commencez par installer le module au moyen de la commande suivante :
 > [!TIP]
 > N’oubliez pas de vous connecter d’abord au moyen de la commande **Connect-MsolService**.
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 Cet exemple de script PowerShell permet l’authentification multifacteur pour un utilisateur individuel :
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"
@@ -179,6 +187,8 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 > [!NOTE]
 > Nous avons récemment modifié le comportement et le script PowerShell ci-dessus en conséquence. Auparavant, le script enregistrait les méthodes MFA, désactivait l’authentification MFA et restaurait les méthodes. Ce n’est plus nécessaire maintenant que le comportement par défaut de désactivation n’efface plus les méthodes.
+>
+> Si l’authentification multifacteur (MFA) est réactivée sur un objet utilisateur qui a déjà les détails de l’inscription, comme le téléphone ou l’e-mail, les administrateurs doivent demander à cet utilisateur de se réinscrire avec MFA par le biais du portail Azure ou de PowerShell. Si l’utilisateur ne se réinscrit pas, son état MFA ne passe pas de *Activé* à *Appliqué* dans l’interface utilisateur de la gestion MFA.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

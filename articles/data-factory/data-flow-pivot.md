@@ -1,17 +1,18 @@
 ---
-title: Transformation d’ajout de tableau croisé dynamique de flux de données de mappage pour Azure Data Factory
+title: Transformation d’ajout de tableau croisé dynamique dans le flux de données de mappage
 description: Ajouter un tableau croisé dynamique à l’aide de la transformation d’ajout de tableau croisé dynamique de flux de données de mappage pour Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8f23b5e61e1aee83172a12466fac8d5b5003fea8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387794"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930284"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformation d’ajout de tableau croisé dynamique Azure Data Factory
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: damaerte
-ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 092dccab82326bb9983f11ff64fe50aee7b1084d
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097030"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951477"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitations d’Azure Cloud Shell
 
@@ -81,7 +81,7 @@ Si l'utilisateur exécute une commande susceptible de créer une boîte de dialo
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Écart important après avoir affiché la barre de progression
 
-Si l’utilisateur exécute une action qui affiche une barre de progression, comme le renseignement d’un onglet sur le lecteur `Azure:`, il est possible que le curseur ne soit pas défini correctement et un écart s’affiche dans là où la barre de progression se situait précédemment.
+Si l’utilisateur exécute une action qui affiche une barre de progression, comme le renseignement d’un onglet sur le lecteur `Azure:`, il est possible que le curseur ne soit pas défini correctement et un écart s’affiche là où la barre de progression se situait précédemment.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

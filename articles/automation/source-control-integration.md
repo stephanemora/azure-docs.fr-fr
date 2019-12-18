@@ -4,17 +4,17 @@ description: Cet article décrit l’intégration du contrôle de code source av
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/26/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886527"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996508"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
@@ -30,7 +30,7 @@ Azure Automation prend en charge trois types de contrôles de code source :
 
 * Un dépôt de contrôle de code source (GitHub ou Azure Repos)
 * Un [compte d’identification](manage-runas-account.md)
-* Vérifiez que vous disposez des [derniers modules Azure](automation-update-azure-modules.md) dans votre compte Automation.
+* Vérifiez que vous disposez des [derniers modules Azure](automation-update-azure-modules.md) dans votre compte Automation, notamment le module **AzureRM.Profile**. 
 
 > [!NOTE]
 > Les travaux de synchronisation de contrôle de code source s’exécutent sous le compte Automation des utilisateurs et sont facturés au même tarif que les autres tâches Automation.

@@ -1,5 +1,5 @@
 ---
-title: Créer des espaces de travail Azure ML dans le portail
+title: Créer des espaces de travail Azure Machine Learning dans le portail
 titleSuffix: Azure Machine Learning
 description: Découvrez comment créer, afficher et supprimer des espaces de travail Azure Machine Learning dans le portail Azure.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 80b554b7dd4f37e1a215892962d8ec5622d8ae5c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615157"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974034"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -73,15 +73,15 @@ Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si v
 
 Vous pouvez mettre à jour votre espace de travail de l’édition De base vers l’édition Entreprise pour tirer parti des fonctionnalités améliorées, telles que les expériences à faible niveau de code et les fonctionnalités de sécurité améliorées.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Sélectionnez l’espace de travail que vous souhaitez mettre à jour.
 
-1. Sélectionnez **Mettre à niveau** en haut ou dans le message de mise à niveau.
+1. Sélectionnez **En savoir plus** en haut à droite de la page.
 
-    ![Mettre à niveau un espace de travail](media/how-to-manage-workspace/upgrade.png)
+   [![Mettre à niveau un espace de travail](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Sélectionnez **Confirmer la mise à jour**.
+1. Sélectionnez **Mettre à niveau** dans la fenêtre qui s’affiche.
 
 
 > [!IMPORTANT]

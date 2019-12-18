@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977452"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Créer un plan de continuité d’activité pour votre service QnA Maker
 
@@ -33,7 +33,7 @@ L’idée générale représentée plus haut est la suivante :
 
 4. Une fois que les piles principale et secondaire ont été configurées, utilisez [Gestionnaire de trafic](https://docs.microsoft.com/azure/traffic-manager/) pour configurer les deux points de terminaison et définir une méthode de routage.
 
-5. Vous devez créer un certificat SSL pour le point de terminaison de votre gestionnaire de trafic. [Liez le certificat SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) dans vos services d’application.
+5. Vous devez créer un certificat SSL (Secure Sockets Layer) pour le point de terminaison de votre gestionnaire de trafic. [Liez le certificat SSL](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings) dans vos services d’application.
 
 6. Enfin, utilisez le point de terminaison du gestionnaire de trafic dans votre bot ou dans votre application.
 

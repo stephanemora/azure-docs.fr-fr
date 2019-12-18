@@ -1,17 +1,17 @@
 ---
 title: Bien démarrer avec les requêtes SQL dans Azure Cosmos DB
-description: Présentation des requêtes SQL
+description: Découvrez comment utiliser des requêtes SQL pour interroger des données à partir d’Azure Cosmos DB. Vous pouvez charger des exemples de données dans un conteneur dans Azure Cosmos DB et les interroger.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: tisande
-ms.openlocfilehash: 8de5140d0146ccbb18f41867e1c716aa2f3897b7
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001906"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873333"
 ---
 # <a name="getting-started-with-sql-queries"></a>Bien démarrer avec les requêtes SQL
 

@@ -1,22 +1,22 @@
 ---
 title: Utiliser des clés uniques dans Azure Cosmos DB
-description: Apprenez à utiliser des clés uniques dans votre base de données Azure Cosmos.
+description: Découvrez comment définir et utiliser des clés uniques pour une base de données Azure Cosmos. Cet article explique également comment les clés uniques ajoutent une couche d’intégrité des données.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756792"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869831"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 
-Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partition-data.md). 
+Les clés uniques renforcent l’intégrité des données dans un conteneur Azure Cosmos. Les stratégies de clé unique s’établissent lors de la création d'un conteneur Azure Cosmos. Les clés uniques permettent de certifier qu’une ou plusieurs valeurs d’une partition logique sont uniques. Vous pouvez également garantir l’unicité par [clé de partition](partition-data.md).
 
 Une fois qu’un conteneur a été généré avec une stratégie de clé unique, la création ou la mise à jour d’un élément engendrant un doublon au sein d’une partition logique sont impossibles, conformément à la contrainte de clé unique. La combinaison clé de partition-clé unique garantit l'unicité d'un élément à l’échelle d'un conteneur.
 

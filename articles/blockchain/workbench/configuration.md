@@ -1,15 +1,15 @@
 ---
 title: Référence des métadonnées de configuration Azure Blockchain Workbench
 description: Vue d’ensemble des métadonnées de configuration de l’application Azure Blockchain Workbench Preview.
-ms.date: 09/05/2019
+ms.date: 12/09/2019
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 2ee1d1da1a9a5d8e890a6578eaec42cc6bf9f3ed
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 661e795f0e85f872b1072a8f641b8938115c5d7a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326065"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972440"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Référence de configuration Azure Blockchain Workbench
 
@@ -391,6 +391,7 @@ Les identificateurs représentent une collection d’informations utilisées pou
 | Name | Nom unique de la propriété ou du paramètre. Le contrat intelligent correspondant doit utiliser la même propriété **Name** pour la propriété ou le paramètre applicable. | OUI | 50 |
 | DisplayName | Nom d’affichage convivial pour la propriété ou le paramètre. | OUI | 255 |
 | Description | Description de la propriété ou du paramètre. | Non | 255 |
+| Type | [Type de données](#type) de propriété. | OUI |
 
 ### <a name="identifiers-example"></a>Exemple d’identificateurs
 

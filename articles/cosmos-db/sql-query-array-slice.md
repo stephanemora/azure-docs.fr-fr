@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : ARRAY_SLICE'
-description: Découvrez la fonction système SQL ARRAY_SLICE dans Azure Cosmos DB.
+description: Découvrez la fonction système SQL ARRAY_SLICE dans Azure Cosmos DB, qui retourne une partie d’une expression de tableau
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1df4177bb8b56bc98977af0f5180e8df5affb257
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3c65886eabfa87f729e18fb854aca6662d1d6fac
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348551"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871786"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
  Retourne une partie d’une expression de tableau.

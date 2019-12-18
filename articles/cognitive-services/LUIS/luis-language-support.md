@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904223"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970540"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -33,6 +33,7 @@ LUIS comprend les énoncés dans les langues suivantes :
 | Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Recommandations de liste d’expression | \**[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment et<br>mots clés)|
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
+| Arabe (préversion ; arabe standard moderne) |`ar-AR`|-|-|-|-|
 | *[Chinois](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Néerlandais |`nl-NL` |✔|  -   |-|✔|
 | Français (France) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -66,7 +67,7 @@ Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognit
 Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) par la vérification orthographique Bing pour obtenir la liste des langues prises en charge et leur état.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Mots rares ou étrangers dans une application
-Dans la culture `en-us`, LUIS apprend à distinguer la plupart des mots anglais, y compris l’argot. Dans la culture `zh-cn`, LUIS apprend distinguer la plupart des caractères chinois. Si vous utilisez un mot rare en `en-us` ou caractère en `zh-cn`, et que LUIS semble incapable de distinguer ce mot ou ce caractère, vous pouvez ajouter le mot ou le caractère à une [fonctionnalité de la liste d’expressions](luis-how-to-add-features.md). Par exemple, les mots n’appartenant pas à la culture de l’application (autrement dit, les mots étrangers) doivent être ajoutés à une fonctionnalité de liste d’expressions. 
+Dans la culture `en-us`, LUIS apprend à distinguer la plupart des mots anglais, y compris l’argot. Dans la culture `zh-cn`, LUIS apprend distinguer la plupart des caractères chinois. Si vous utilisez un mot rare en `en-us` ou caractère en `zh-cn`, et que LUIS semble incapable de distinguer ce mot ou ce caractère, vous pouvez ajouter le mot ou le caractère à une [fonctionnalité de la liste d’expressions](luis-how-to-add-features.md). Par exemple, les mots n’appartenant pas à la culture de l’application (autrement dit, les mots étrangers) doivent être ajoutés à une fonctionnalité de liste d’expressions.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -78,6 +79,7 @@ Pour effectuer l’apprentissage machine, LUIS décompose l’énoncé en [jeton
 
 |Langage|  chaque espace ou caractère spécial | niveau caractère|mots composés|[entité renvoyée sous forme de jeton](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|Arabe|||||
 |Chinois||✔||✔|
 |Néerlandais|||✔|✔|
 |Anglais (en-us)|✔ ||||
@@ -103,9 +105,9 @@ Les cultures suivantes ont des versions personnalisées du générateur de jeton
 
 ### <a name="migrating-between-tokenizer-versions"></a>Changer de version du générateur de jetons
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -154,7 +156,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -204,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-La segmentation du texte en unités lexicales se produit au niveau de l’application. La tokenisation au niveau de la version n’est pas prise en charge. 
+La segmentation du texte en unités lexicales se produit au niveau de l’application. La tokenisation au niveau de la version n’est pas prise en charge.
 
-[Importez le fichier comme une nouvelle application](luis-how-to-start-new-app.md), au lieu d’une version, pour que l’application ait un autre ID, mais utilise la version du générateur de jetons spécifiée dans le fichier. 
+[Importez le fichier comme une nouvelle application](luis-how-to-start-new-app.md), au lieu d’une version, pour que l’application ait un autre ID, mais utilise la version du générateur de jetons spécifiée dans le fichier.

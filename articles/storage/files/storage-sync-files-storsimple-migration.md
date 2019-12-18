@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: StorSimple est un produit en fin de vie et Azure File Sync est la solution vers laquelle migrer. Découvrez le concept de migration et contactez-nous à l’adresse AzureFiles@microsoft.com pour une aide personnalisée sur la migration.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666537"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895079"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>Migration depuis StorSimple vers Azure File Sync
 
@@ -26,7 +26,7 @@ Cet article décrit le concept de mise en œuvre de la migration.
 Il est impératif de noter que les clients ayant besoin d’une migration à partir de StorSimple et vers Azure File Sync n’ont pas besoin de procéder de manière autonome.
 
 > [!IMPORTANT]
-> Microsoft s’engage à aider les clients lors de la migration. Contactez-nous par e-mail à l’adresse AzureFiles@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
+> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFiles@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
 
 ## <a name="migration-approach"></a>Approche de migration
 La migration vers Azure File Sync démarre dans le cloud avec un impact minimal sur l’infrastructure locale et des temps d’arrêt limités.
@@ -67,7 +67,7 @@ En outre, un même partage de fichiers Azure peut se synchroniser sur de nombreu
 Familiarisez-vous avec Azure Files et Azure File Sync. Pour réussir une migration, il est important de comprendre la terminologie et le modèle de déploiement Azure File Sync. Des informations plus détaillées sont disponibles pour chaque étape dans cet article de présentation. Veillez à contacter Microsoft pour obtenir une aide personnalisée lors de la planification et de l’exécution de votre migration.
 
 > [!IMPORTANT]
-> Microsoft s’engage à aider les clients lors de la migration. Contactez-nous par e-mail à l’adresse AzureFiles@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
+> Microsoft s’engage à aider les clients lors de la migration. Envoyez un e-mail à l’adresse AzureFiles@microsoft.com pour obtenir un plan de migration personnalisé ainsi qu’une assistance pendant la migration.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 Azure File Sync, en tant que service cible, contient deux documents fondamentaux que nous vous recommandons de lire si vous débutez avec Azure File Sync.

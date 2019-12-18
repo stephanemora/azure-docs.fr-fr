@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : ABS'
-description: Découvrez la fonction système SQL ABS dans Azure Cosmos DB.
+description: En savoir plus sur la façon dont la fonction système SQL absolu (ABS) dans Azure Cosmos DB retourne la valeur positive de l’expression numérique spécifiée
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 480c5ffcfaccfac5061e53612a2ee57235cfa626
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 70648dcf28d760c3a81c0cb426cd9b2d3ce96fff
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348758"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871854"
 ---
 # <a name="abs-azure-cosmos-db"></a>ABS (Azure Cosmos DB)
  Retourne la valeur (positive) absolue de l'expression numérique spécifiée.  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546370"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927891"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -400,6 +400,10 @@ L’approche par préamorçage a actuellement quelques limitations.
 - Une fois le point de terminaison cloud créé, Azure File Sync exécute un processus de détection des fichiers dans le cloud avant de démarrer la synchronisation initiale. Le temps nécessaire à ce processus varie en fonction de différents facteurs, comme la vitesse du réseau, la bande passante disponible et le nombre de fichiers et de dossiers. Pour donner une estimation approximative dans la préversion, le processus de détection s’exécute approximativement à une vitesse de 10 fichiers/s. Par conséquent, même si le préamorçage est rapide, le délai global nécessaire pour obtenir un système entièrement opérationnel peut se révéler beaucoup plus long lorsque les données sont préamorcées dans le cloud.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>Restauration libre-service via Versions précédentes et VSS (Volume Shadow Copy Service)
+
+> [!IMPORTANT]
+> Les informations suivantes peuvent uniquement être utilisées avec la version 9 (ou ultérieure) de l’agent de synchronisation du stockage. Les versions antérieures à la version 9 ne disposent pas des cmdlets StorageSyncSelfService.
+
 Versions précédentes est une fonctionnalité Windows qui vous offre la possibilité d’utiliser les instantanés VSS côté serveur d’un volume pour présenter les versions restaurables d’un fichier à un client SMB.
 Ce scénario puissant, communément appelé restauration libre-service, permet aux professionnels de l’information de ne plus dépendre de la restauration d’un administrateur informatique.
 

@@ -1,5 +1,6 @@
 ---
-title: Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
+title: Gérer les menaces pesant sur les ressources et les données
+titleSuffix: Azure AD B2C
 description: Découvrez les techniques de détection et de prévention d’attaques par déni de service et d’attaques de mot de passe dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b236dba9b682bc4d62ef8cfc8b95e67370b3e0ea
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256900"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947738"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gérer les menaces aux ressources et aux données dans Azure Active Directory B2C
 

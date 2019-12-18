@@ -1,20 +1,21 @@
 ---
-title: Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET (préversion) - Stockage Azure
-description: Découvrez comment créer une SAS de délégation d’utilisateur (préversion) à l’aide des informations d’identification Azure Active Directory dans le Stockage Azure à l’aide de la bibliothèque cliente .NET.
+title: Utiliser .NET pour créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob
+titleSuffix: Azure Storage
+description: Découvrez comment créer une SAS de délégation d’utilisateur (préversion) avec des informations d’identification Azure Active Directory à l’aide de la bibliothèque de client .NET pour Stockage Azure.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806930"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892530"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET (préversion)
 

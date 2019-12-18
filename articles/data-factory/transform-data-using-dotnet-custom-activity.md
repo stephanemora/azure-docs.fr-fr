@@ -1,22 +1,21 @@
 ---
-title: Utilisation des activités personnalisées dans un pipeline Azure Data Factory
+title: Utiliser des activités personnalisées dans un pipeline
 description: Découvrez comment créer des activités personnalisées et les utiliser dans un pipeline Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 8076ae81b111aa6b524b7e286ed15ca0661d748b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+manager: anandsub
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 11/26/2018
+ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062117"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913075"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 

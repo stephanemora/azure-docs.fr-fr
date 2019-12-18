@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4666a9d084f6fc12cd68b69d5c71cafc3de0439
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1c2036bf9995725e4bbef44e4c039f8336eb81a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807778"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997035"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -102,7 +102,9 @@ En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des c
 \* Cette machine a utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà des paramètres .NET recommandés. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
 
 > [!NOTE]
-> L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  
+> L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.
+>
+> Ce tableau est également axé sur les performances attendues d’un connecteur en fonction du type de machine sur laquelle il est installé. Pour les seuils de limitation du service proxy d’application, consultez [Restrictions et limites du service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## <a name="security-and-networking"></a>Sécurité et mise en réseau
 

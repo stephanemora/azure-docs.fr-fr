@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263908"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913490"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -43,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 Pour créer manuellement un principal de service avec Azure CLI, utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create]. Dans l’exemple suivant, le paramètre `--skip-assignment` empêche toute affectation par défaut supplémentaire :
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
 ```
 
 Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeurs pour `appId` et `password`. Ces valeurs sont utilisées lorsque vous créez un cluster AKS dans la section suivante.
@@ -51,8 +51,8 @@ Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeu
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2019-03-04-21-35-28",
-  "name": "http://azure-cli-2019-03-04-21-35-28",
+  "displayName": "myAKSClusterServicePrincipal",
+  "name": "http://myAKSClusterServicePrincipal",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -93,7 +93,7 @@ Les sections suivantes détaillent les délégations courantes que vous serez pe
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations au principal de service pour que votre cluster AKS puisse lire et extraire des images. Actuellement, la configuration recommandée consiste à utiliser la commande [az aks create ][az-aks-create] ou la commande [az aks update][az-aks-update] pour l’intégration à un registre et l’attribution du rôle approprié au principal de service. Pour connaître les étapes détaillées, consultez [S’authentifier avec Azure Container Registry à partir d’Azure Kubernetes Service][aks-to-acr].
+Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations au principal de service pour que votre cluster AKS puisse lire et extraire des images. Actuellement, la configuration recommandée est d’utiliser la commande [az aks create ][az-aks-create] ou la commande [az aks update][az-aks-update] pour l’intégration à un registre et l’attribution du rôle approprié au principal de service. Pour connaître les étapes détaillées, consultez [S’authentifier avec Azure Container Registry à partir d’Azure Kubernetes Service][aks-to-acr].
 
 ### <a name="networking"></a>Mise en réseau
 
@@ -173,6 +173,7 @@ Pour plus d’informations sur la mise à jour des informations d’identificati
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

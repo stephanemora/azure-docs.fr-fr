@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837744"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851092"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Déployer un service web Azure Machine Learning Studio (classique)
 
@@ -121,7 +121,7 @@ Pour plus d’informations sur l’accès à un service web Machine Learning Stu
 
 ### <a name="manage-your-new-web-service"></a>Gestion de votre nouveau service web
 
-Vous pouvez gérer vos nouveaux services web par le biais du portail des services web Machine Learning Studio (classique). Dans la [page principale du portail](https://services.azureml-test.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
+Vous pouvez gérer vos nouveaux services web par le biais du portail des services web Machine Learning Studio (classique). Dans la [page principale du portail](https://services.azureml.net/), cliquez sur **Services web**. Sur la page de services web, vous pouvez supprimer ou copier un service. Pour surveiller un service spécifique, cliquez sur le service, puis sur **Tableau de bord**. Pour surveiller les tâches de traitement par lots associées au service web, cliquez sur **Batch Request Log**(Journal de requête de traitement par lots).
 
 ### <a id="multi-region"></a> Déployer votre nouveau service web dans plusieurs régions
 

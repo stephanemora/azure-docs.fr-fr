@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: raynew
-ms.openlocfilehash: 9ddb63fcf4d960d2d8ed2671eba83fc38cddcbe4
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710050"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974663"
 ---
 # <a name="select-a-vmware-migration-option"></a>Sélectionnez une option de migration VMware
 
@@ -45,6 +45,7 @@ Après avoir examiné les limitations, la compréhension des étapes impliquées
 
 **Tâche** | **Détails** |**Sans agent** | **Basé sur un agent**
 --- | --- | --- | ---
+**Évaluation** | Évaluez les ressources avant la migration.  L’évaluation est facultative. Nous vous suggérons d’évaluer les ordinateurs avant de les migrer, mais ce n’est pas une obligation. <br/><br/> À des fins d’évaluation, Azure Migrate configure une appliance légère pour découvrir et évaluer les machines virtuelles. | Si vous exécutez une migration sans agent après l’évaluation, la même appliance Azure Migrate qui a été configurée pour l’évaluation est utilisée pour la migration.  |  Si vous exécutez une migration basée sur un agent après l’évaluation, l’appliance configurée pour l’évaluation n’est pas utilisée pour la migration. Vous pouvez conserver l’appliance en place ou la supprimer si vous ne souhaitez pas procéder ultérieurement à une détection et à une évaluation.
 **Préparez les machines virtuelles VMware pour la migration** | Configurez un certain nombre de paramètres sur les serveurs et les machines virtuelles VMware. | Obligatoire | Obligatoire
 **Ajouter l’outil de migration de serveur** | Ajoutez l’outil de migration de serveur Azure Migrate dans le projet Azure Migrate. | Obligatoire | Obligatoire
 **Déployez l’appliance Azure Migrate** | Configurez une appliance légère sur une machine virtuelle VMware pour la découverte et l’évaluation des machines virtuelles. | Obligatoire | Non requis.

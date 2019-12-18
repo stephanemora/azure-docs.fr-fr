@@ -1,29 +1,25 @@
 ---
-title: Considérations relatives aux navigateurs système Xamarin Android (bibliothèque d’authentification Microsoft pour .NET)
+title: Considérations sur les navigateurs système Xamarin Android (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
-description: Découvrez les considérations spécifiques à savoir pour utiliser des navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL .NET).
+description: Découvrez les considérations particulières à prendre en compte lors de l’utilisation de navigateurs système sur Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150362"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915462"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>Considérations relatives aux navigateurs système Xamarin Android avec MSAL.NET
 

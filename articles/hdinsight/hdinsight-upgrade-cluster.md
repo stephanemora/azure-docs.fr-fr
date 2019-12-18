@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
-ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122449"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951154"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Mettre à niveau le cluster HDInsight
 
@@ -34,14 +34,15 @@ Le workflow pour mettre à niveau un cluster HDInsight est le suivant :
 
 Une fois que vous avez vérifié que tout fonctionne comme prévu, planifiez un temps d’arrêt pour la migration. Pendant ce temps d’arrêt, effectuez les actions suivantes :
 
-1.  Sauvegardez toutes les données temporaires stockées localement sur les nœuds du cluster, par exemple si vous avez des données stockées directement sur un nœud principal.
-2.  Supprimez le cluster existant.
-3.  Créez un cluster dans le même sous-réseau de réseau virtuel avec la version HDI la plus récente (ou prise en charge) à l’aide du même magasin de données par défaut que le cluster précédent a utilisé. Cela permet au nouveau cluster de continuer à travailler sur vos données de production existantes.
-4.  Importez toutes les données temporaires que vous avez sauvegardées.
-5.  Démarrez des tâches ou poursuivez le traitement avec le nouveau cluster.
+1. Sauvegardez toutes les données temporaires stockées localement sur les nœuds du cluster, par exemple si vous avez des données stockées directement sur un nœud principal.
+1. [Supprimez le cluster existant](./hdinsight-delete-cluster.md).
+1. Créez un cluster dans le même sous-réseau de réseau virtuel avec la version HDI la plus récente (ou prise en charge) à l’aide du même magasin de données par défaut que le cluster précédent a utilisé. Cela permet au nouveau cluster de continuer à travailler sur vos données de production existantes.
+1. Importez toutes les données temporaires que vous avez sauvegardées.
+1. Démarrez des tâches ou poursuivez le traitement avec le nouveau cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Création de clusters Hadoop basés sur Linux dans HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Se connecter à HDInsight à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gérer un cluster Linux avec Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+* [Notes de publication HDInsight](./hdinsight-version-release.md)

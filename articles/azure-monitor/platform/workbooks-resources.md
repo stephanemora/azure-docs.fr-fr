@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des classeurs Azure Monitor | Paramètres de ressources | Microsoft Docs
+title: Paramètres de ressources des classeurs Azure Monitor
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cd170fdc3bed04a81c66d83b9e75ed77e3c0a5a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164415"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872806"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 
@@ -114,5 +114,5 @@ La valeur des sélecteurs de ressources peut provenir du contexte du classeur, d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez](workbooks-visualizations.md) les nombreuses options des visualisations enrichies des classeurs.
+* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

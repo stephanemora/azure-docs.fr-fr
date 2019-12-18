@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151301"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851698"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -184,13 +184,11 @@ Pour filtrer les messages avant l’envoi de données de télémétrie, vous pou
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils
 
-Pour recevoir les événements de connexion et de déconnexion d’appareils, vous devez ouvrir le lien D2C ou C2D pour votre appareil. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant l’[API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet).
+Pour recevoir des événements de l’état de la connexion de l’appareil, un appareil doit effectuer une opération « Envoi de données de télémétrie D2C » « Réception de message C2D » avec IOT Hub. Toutefois, si un appareil utilise le protocole AMQP pour se connecter à IOT Hub, il est recommandé d’effectuer une opération« Réception de message C2D ». Sinon, les notifications d’état de la connexion peuvent être retardées de quelques minutes. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant [l’API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet) pour IoT Hub C# SDK, ou [le client d’appareil pour AMQP](iot-hub-amqp-support.md#device-client).
 
 Le lien D2C est ouvert si vous envoyez des données de télémétrie. 
 
-Si la connexion de l’appareil est intermittente, ce qui signifie que l’appareil se connecte et se déconnecte fréquemment, nous n’enverrons pas chaque état de connexion, mais nous publierons le *dernier* état de connexion, qui est en fin de compte constant. Par exemple, lorsque votre appareil est d’abord à l’état connecté, puis que la connectivité est instable pendant quelques secondes avant de revenir à l’état connecté. Aucun nouvel événement d’état de connexion de l’appareil ne sera publié après l’état de connexion initial. 
-
-En cas de panne de IoT Hub, nous publierons l’état de connexion d’appareil une fois celle-ci terminée. Si l’appareil se déconnecte pendant la panne, l’événement de déconnexion d’appareil est publié dans les 10 minutes.
+Si la connexion de l’appareil est intermittente, c’est à dire que l’appareil se connecte et se déconnecte fréquemment, nous n’enverrons pas chaque état de connexion, mais nous publierons l’état de connexion actuel pris à un instantanée périodique, tant que la connexion ne sera pas rétablie. Si vous recevez un même événement d’état de connexion avec des numéros de séquence différents ou des événements d’état de connexion différents, cela signifie que l’état de connexion de l’appareil a changé.
 
 ## <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
 

@@ -1,14 +1,14 @@
 ---
 title: Fonctions Azure Blueprints
 description: Décrit les fonctions pouvant être utilisées avec les artefacts de blueprint dans les définitions et affectations Azure Blueprints.
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: reference
-ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128760"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970888"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Fonctions à utiliser avec Azure Blueprints
 
@@ -28,6 +28,9 @@ Les fonctions suivantes sont prises en charge :
 `artifacts(artifactName)`
 
 Retourne un objet de propriétés rempli avec ces sorties d’artefacts de blueprint.
+
+> [!NOTE]
+> La fonction `artifacts()` ne peut pas être utilisée à partir d’un modèle de Gestionnaire des ressources. La fonction peut être utilisée uniquement dans le JSON de définition du blueprint ou dans le JSON d’artefact lors de la gestion du blueprint avec Azure PowerShell ou l’API REST dans le cadre de [Blueprints-as-code](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>parameters
 

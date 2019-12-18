@@ -1,5 +1,5 @@
 ---
-title: Débogage d’applications à l’aide d’Azure Application Insights dans Visual Studio | Microsoft Docs
+title: Déboguer dans Visual Studio avec Azure Application Insights
 description: Analyse des performances d’application web et diagnostics en phase de débogage et de production.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -9,12 +9,12 @@ ms.author: daviste
 ms.date: 07/07/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 32596b058918d3a8859dc356f8f0b1223b7f755a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4b32d775f64d3adba4ca07fa5154e395717d599
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899276"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930660"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Débogage d’applications à l’aide d’Azure Application Insights dans Visual Studio
 Visual Studio 2015 (et versions ultérieures) vous permet d’analyser les performances et de diagnostiquer les problèmes au niveau de votre application web ASP.NET aussi bien en phase de débogage qu’en production, à l’aide des données de télémétrie [d’Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).

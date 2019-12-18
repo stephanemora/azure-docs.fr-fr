@@ -1,29 +1,26 @@
 ---
-title: Ajouter des rôles d’application dans votre application inscrite auprès d’Azure Active Directory et les recevoir dans le jeton
+title: Ajouter des rôles d’application et les obtenir à partir d’un jeton | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment ajouter des rôles d’application dans une application inscrite dans Azure Active Directory, comment affecter des utilisateurs et des groupes à ces rôles et les recevoir dans la revendication `roles` au sein du jeton.
 services: active-directory
 documentationcenter: ''
 author: kkrishna
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: kkrishna
-ms.reviewer: ''
+ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84275be5c85570a44d968dca8887b448fce09979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546843"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917912"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 

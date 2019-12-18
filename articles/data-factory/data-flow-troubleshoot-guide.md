@@ -1,18 +1,20 @@
 ---
-title: Résoudre les problèmes de flux de données Azure Data Factory
+title: Résoudre les problèmes de flux de données
 description: Découvrez comment résoudre les problèmes de flux de données dans Azure Data Factory.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721350"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930172"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Résoudre les problèmes de flux de données Azure Data Factory
 
@@ -83,6 +85,14 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 - **Cause** : Lors de la lecture à partir d’une source JSON avec un document unique sur de nombreuses lignes imbriquées, ADF, via Spark, ne peut pas déterminer l’emplacement où un nouveau document commence et où le document précédent se termine.
 
 - **Résolution** : Sur la transformation source qui utilise un jeu de données JSON, développez « Paramètres JSON » et activez « Un seul document ».
+
+### <a name="error-message-duplicate-columns-found-in-join"></a>Message d’erreur : Colonnes dupliquées trouvées dans la jointure
+
+- **Symptômes** : La transformation de jointure a généré des noms de colonnes dupliqués dans les colonnes de gauche et de droite
+
+- **Cause** : Les flux joints portent des noms de colonnes communs
+
+- **Résolution** : Ajoutez un transformation Select après la jointure et sélectionnez « Supprimer les colonnes dupliquées » pour l’entrée et la sortie.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Instructions générales pour la résolution des problèmes

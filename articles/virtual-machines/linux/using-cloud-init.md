@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: d372b94ac0df4cef3c43fab10686e9bf20633bfe
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6c522af44be51eb89ee9f64bae2dc4e9e7b24123
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034249"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873945"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment du provisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -39,6 +39,7 @@ Nous travaillons activement avec nos partenaires de distribution Linux afin de m
 |Canonical |UbuntuServer |14.04.5-LTS |latest |Oui |
 |CoreOS |CoreOS |Stable |latest |Oui |
 |OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |preview |
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01|preview |
 |RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |Oui |
 |RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |preview |
     
@@ -47,6 +48,7 @@ Azure Stack ne prend pas en charge le provisionnement de RHEL 7.x et CentOS 7.x 
 * Pour RHEL 7.6, package cloud-init, le package pris en charge est le suivant : *18.2-1.el7_6.2* 
 * Pour RHEL 7.7 (préversion), package cloud-init, le package en préversion est le suivant : *18.5-3.el7*
 * Pour CentOS 7.7 (préversion), package cloud-init, le package en préversion est le suivant : *18.5-3.el7.centos*
+* Pour Oracle 7.7 (préversion), package cloud-init, le package en préversion est le suivant : *18.5-3.0.1.el7*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Quelle est la différence entre cloud-init et l’agent Linux (WALA) ?
 WALA est un agent spécifique à la plateforme Azure, qui est utilisé pour configurer des machines virtuelles et gérer des extensions Azure. Nous améliorons la tâche de configuration des machines virtuelles afin d’utiliser cloud-init en lieu et place de l’agent Linux, ceci pour permettre aux clients cloud-init existants de s’appuyer sur leurs scripts cloud-init actuels.  Si vous possédez des investissements existants dans des scripts cloud-init pour la configuration de systèmes Linux, **aucun autre paramétrage n’est requis** pour les activer. 

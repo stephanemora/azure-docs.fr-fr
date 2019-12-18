@@ -1,38 +1,35 @@
 ---
-title: Informations d’identification de certificat dans Azure AD
+title: Informations d’identification de certificat Azure AD
 titleSuffix: Microsoft identity platform
 description: Cet article traite de l’inscription et de l’utilisation des informations d’identification de certificat pour l’authentification d’application.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca872d639ab5c2d4053656cdd3e68a59fdc1e6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d37b390e39d2b991ea01468feffbe39c9578af54
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473966"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963866"
 ---
-# <a name="certificate-credentials-for-application-authentication"></a>Informations d’identification de certificat pour l’authentification d’application
+# <a name="azure-ad-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application Azure AD
 
 Azure Active Directory (Azure AD) permet à une application d’utiliser ses propres informations d’identification pour l’authentification, par exemple, le flux d’octroi d’informations d’identification du client d’OAuth 2.0 ([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) ou le flux On-Behalf-Of ([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md)).
 
 Parmi les types d’informations d’identification qu’une application peut utiliser pour l’authentification figure l’assertion JSON Web Token (JWT) signée avec un certificat dont est propriétaire l’application.
 
 ## <a name="assertion-format"></a>Format d’assertion
+
 Pour calculer l’assertion, vous pouvez utiliser l’une des nombreuses bibliothèques [JSON Web Token](https://jwt.ms/) dans la langue de votre choix. Les informations contenues dans le jeton sont les suivantes :
 
 ### <a name="header"></a>En-tête

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899153"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893312"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Solutions de supervision réseau Azure dans Azure Monitor
 
@@ -45,7 +45,7 @@ Pour utiliser les solutions :
 
 Vous pouvez activer les diagnostics et la solution correspondante pour Application Gateway, Networking Security Groups ou les deux.
 
-Si vous n’activez pas la journalisation des diagnostics pour un type de ressource en particulier, mais que vous installez la solution, les panneaux du tableau de bord de cette ressource sont vides et affichent un message d’erreur.
+Si vous n’activez pas la journalisation des ressources pour un type de ressource en particulier, mais que vous installez la solution, les panneaux du tableau de bord de cette ressource sont vides et affichent un message d’erreur.
 
 > [!NOTE]
 > En janvier 2017, la méthode prise en charge pour envoyer des journaux d’activité dans un espace de travail Log Analytics à partir d’Application Gateways et de Network Security Groups a été modifiée. Si vous voyez la solution **Azure Networking Analytics (déconseillée)** , consultez [Migration à partir de l’ancienne solution Azure Networking](#migrating-from-the-old-networking-analytics-solution) pour connaître les étapes à suivre.
@@ -100,7 +100,7 @@ Pour installer et configurer la solution d’analytique Azure Application Gatewa
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>Activez les diagnostics de réseau Azure avec PowerShell
 
-Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des diagnostics pour les Application Gateways.
+Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des ressources pour les passerelles d’application.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ Sur l’une des pages de recherche de journal, vous pouvez afficher les résulta
 > La solution d’analytique Groupe de sécurité réseau passe au support Communauté, puisqu’elle a été remplacée par [Traffic Analytics](../../network-watcher/traffic-analytics.md).
 > - Cette solution est désormais disponible dans les [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/), et ne sera bientôt plus disponible dans la Place de marché Azure.
 > - Pour les clients existants qui ont déjà ajouté la solution à leur espace de travail, elle continuera de fonctionner comme avant.
-> - Microsoft continuera de prendre en charge l’envoi des journaux de diagnostic NSG vers votre espace de travail à l’aide des paramètres de diagnostic.
+> - Microsoft continuera de prendre en charge l’envoi des journaux de ressources NSG vers votre espace de travail à l’aide des paramètres de diagnostic.
 
 Les fichiers journaux d’activité suivants sont pris en charge pour les groupes de sécurité réseau :
 
@@ -171,7 +171,7 @@ Pour installer et configurer la solution d’analytique du réseau Azure, suivez
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>Activez les diagnostics de réseau Azure avec PowerShell
 
-Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des diagnostics pour les groupes de sécurité réseau
+Le script PowerShell suivant fournit un exemple montrant comment activer la journalisation des ressources pour les groupes de sécurité réseau
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

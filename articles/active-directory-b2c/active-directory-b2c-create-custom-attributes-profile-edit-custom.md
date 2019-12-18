@@ -1,5 +1,6 @@
 ---
-title: Ajouter vos propres attributs à des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+title: Ajouter vos propres attributs à des stratégies personnalisées
+titleSuffix: Azure AD B2C
 description: Procédure pas à pas sur l’utilisation des propriétés d’extension et des attributs personnalisés, ainsi que sur la manière de les inclure dans l’interface utilisateur.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 82a796a3252a4de6eacabcad45c61c864e963fe0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 92050261777482bae8055f697ef50c2295675c5b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066167"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948775"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C : Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil
 
@@ -302,3 +303,4 @@ Pour plus d’informations sur les propriétés d’extension, consultez l’art
 > * Un **TechnicalProfile** est un type d’élément, ou une fonction, qui définit le nom, les métadonnées et le protocole d’un point de terminaison. Le **TechnicalProfile** détaille l’échange de revendications effectué par l’infrastructure d’expérience d’identité. Lorsque cette fonction est appelée au cours d’une étape d’orchestration ou à partir d’un autre **TechnicalProfile**, **InputClaims** et **OutputClaims** sont fournis comme paramètres par l’appelant.
 > * Dans l’API Graph, les attributs d’extension sont nommés à l’aide de la convention `extension_ApplicationObjectID_attributename`.
 > * Les stratégies personnalisées référencent les attributs d’extension de la manière suivante : **extension_nomAttribut**. Cette référence omet **ApplicationObjectId** dans le code XML.
+> * Vous devez spécifier l’ID d’attribut, où qu’il soit référencé, au format suivant : **extension_attributename**.

@@ -1,5 +1,6 @@
 ---
-title: Ajouter ADFS en tant que fournisseur d’identité SAML en utilisant les stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
+title: Ajouter ADFS en tant que fournisseur d’identités SAML en utilisant des stratégies personnalisées
+titleSuffix: Azure AD B2C
 description: Configurer ADFS 2016 à l’aide du protocole SAML et de stratégies personnalisées dans Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80accdc4a14a2246ed91a92f6472490479327e2a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 202c3bfb8e9818437ff35454a1eafce008cdb00c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827202"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948672"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 

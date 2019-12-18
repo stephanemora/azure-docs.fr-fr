@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950363"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913879"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -92,7 +92,7 @@ Kubenet et Azure CNI fournissent une connectivité réseau pour vos clusters AKS
     * Vous devez gérer et mettre à jour manuellement les itinéraires définis par l’utilisateur (UDR).
     * 400 nœuds maximum par cluster.
 * **Azure CNI**
-    * Les pods obtiennent une connectivité réseau virtuel complète et sont directement accessibles depuis l’extérieur du cluster.
+    * Les pods bénéficient de la connectivité complète du réseau virtuel et sont directement accessibles via leur adresse IP privée depuis des réseaux connectés.
     * Nécessite plus d’espace d’adressage IP.
 
 Les différences de comportement suivantes existent entre kubenet et Azure CNI :

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770381"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849257"
 ---
 # <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>Comprendre l’intégrité du Runbook Worker hybride Linux dans Update Management
 
@@ -22,9 +22,9 @@ De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l�
 
 Voici les trois états de préparation possibles d’une machine :
 
-* **Prêt** : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
-* **Déconnecté** : le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
-* **Non configuré** : le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
+* **Prêt** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a moins de 1 heure.
+* **Déconnecté** - Le Runbook Worker hybride est déployé et a été vu pour la dernière fois il y a plus de 1 heure.
+* **Non configuré** - Le Runbook Worker hybride est introuvable ou n’a pas terminé son intégration.
 
 > [!NOTE]
 > L’état actuel de la machine peut s’afficher avec un certain retard sur le portail Azure.

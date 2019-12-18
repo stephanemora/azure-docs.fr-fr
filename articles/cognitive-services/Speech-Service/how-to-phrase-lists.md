@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: rhurey
-ms.openlocfilehash: 052e02ef562da0637b6b5b9683120f0c397dbfd5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: 2ceb53b50810aef501278710ae990c57fc45030c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805873"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971670"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listes d’expressions pour la reconnaissance vocale
 
@@ -23,7 +24,7 @@ En fournissant au service Speech une liste d’expressions, vous pouvez amélior
 
 Par exemple, si vous disposez d’une commande « Move to » et que parmi les destinations susceptibles d’être prononcées figurent « Ward », vous pouvez ajouter l’entrée « Move to Ward ». Ainsi, quand le contenu audio est reconnu, l’ajout de cette expression augmente la probabilité que « Move to Ward » sera reconnu et non « Move toward ».
 
-Il est possible d’ajouter des mots uniques ou des expressions entières à une liste d’expressions. Pendant la reconnaissance, une entrée de liste d’expressions est utilisée si le contenu audio contient une correspondance exacte. En partant de l’exemple précédent, si la liste comporte l’expression « Move to Ward » et que l’audio a capturé des sons proches des deux expressions « Move toward » et « Move to Ward », la reconnaissance sera vraisemblablement plus efficace avec l’expression « Move to Ward slowly ».
+Il est possible d’ajouter des mots uniques ou des expressions entières à une liste d’expressions. Pendant la reconnaissance, une entrée de liste d’expressions est utilisée si une correspondance exacte pour l’expression entière est incluse dans le contenu audio contient sous la forme d’une expression distincte. Si une correspondance exacte avec l’expression est introuvable, la reconnaissance n’est pas assistée.
 
 >[!Note]
 > Actuellement, les listes d’expressions ne prennent en charge que l’anglais pour la reconnaissance vocale.
@@ -32,12 +33,7 @@ Il est possible d’ajouter des mots uniques ou des expressions entières à une
 
 Les exemples ci-dessous montrent comment créer une liste d’expressions à l’aide de l’objet `PhraseListGrammar`.
 
-```C++
-auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
-phraselist->AddPhrase("Move to Ward");
-phraselist->AddPhrase("Move to Bill");
-phraselist->AddPhrase("Move to Ted");
-```
+::: zone pivot="programming-language-csharp"
 
 ```cs
 PhraseListGrammar phraseList = PhraseListGrammar.FromRecognizer(recognizer);
@@ -46,19 +42,20 @@ phraseList.AddPhrase("Move to Bill");
 phraseList.AddPhrase("Move to Ted");
 ```
 
-```Python
-phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
-phrase_list_grammar.addPhrase("Move to Ward")
-phrase_list_grammar.addPhrase("Move to Bill")
-phrase_list_grammar.addPhrase("Move to Ted")
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+auto phraselist = PhraseListGrammar::FromRecognizer(recognizer);
+phraselist->AddPhrase("Move to Ward");
+phraselist->AddPhrase("Move to Bill");
+phraselist->AddPhrase("Move to Ted");
 ```
 
-```JavaScript
-var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
-phraseListGrammar.addPhrase("Move to Ward");
-phraseListGrammar.addPhrase("Move to Bill");
-phraseListGrammar.addPhrase("Move to Ted");
-```
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```Java
 PhraseListGrammar phraseListGrammar = PhraseListGrammar.fromRecognizer(recognizer);
@@ -67,30 +64,74 @@ phraseListGrammar.addPhrase("Move to Bill");
 phraseListGrammar.addPhrase("Move to Ted");
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(reco)
+phrase_list_grammar.addPhrase("Move to Ward")
+phrase_list_grammar.addPhrase("Move to Bill")
+phrase_list_grammar.addPhrase("Move to Ted")
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```JavaScript
+var phraseListGrammar = SpeechSDK.PhraseListGrammar.fromRecognizer(reco);
+phraseListGrammar.addPhrase("Move to Ward");
+phraseListGrammar.addPhrase("Move to Bill");
+phraseListGrammar.addPhrase("Move to Ted");
+```
+
+::: zone-end
+
 >[!Note]
 > Le service Speech peut utiliser au maximum 1 024 listes d’expressions pour la reconnaissance vocale.
 
 Vous pouvez aussi effacer les expressions associées à `PhraseListGrammar` en appelant clear().
 
-```C++
-phraselist->Clear();
-```
+::: zone pivot="programming-language-csharp"
 
 ```cs
 phraseList.Clear();
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+phraselist->Clear();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+phraseListGrammar.clear();
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
 ```Python
 phrase_list_grammar.clear()
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
 
 ```JavaScript
 phraseListGrammar.clear();
 ```
 
-```Java
-phraseListGrammar.clear();
-```
+::: zone-end
 
 > [!NOTE]
 > Les modifications apportées à un objet `PhraseListGrammar` prennent effet lors de la reconnaissance suivante ou après une reconnexion au service Speech.

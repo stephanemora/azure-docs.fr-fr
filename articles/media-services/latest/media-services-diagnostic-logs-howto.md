@@ -1,6 +1,6 @@
 ---
 title: Surveiller les journaux de diagnostic de Media Services via Azure Monitor | Microsoft Docs
-description: Cet article explique comment acheminer et afficher les journaux de diagnostic via Azure Monitor.
+description: Cet article explique comment router et voir les journaux de diagnostic via Azure Monitor.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261107"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977707"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Surveillez les journaux de diagnostic de Media Services
 
@@ -173,6 +173,10 @@ Il se peut que vous deviez attendre cinq minutes avant que l’événement appar
   }
 }
 ```
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="see-also"></a>Voir aussi
 

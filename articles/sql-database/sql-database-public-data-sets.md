@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 763a45446771f7b13178e22b0f7a35bd68bfc8bd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4b1c1a963b065411f1a0ab84141bdf1835930ebb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821282"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973541"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 
@@ -26,7 +26,7 @@ Parcourez cette liste de jeux de données publics pour trouver des données que 
 
 | Source de données | À propos des données | À propos des fichiers |
 |---|---|---|
-| [Données du gouvernement américain](https://www.census.gov/data.html) | Plus de 190 000 jeux de données couvrant l’agriculture, le climat, mes consommateurs, les écosystèmes, l’éducation, l’énergie, la finance, la santé, les administrations locales, la fabrication, l’industrie maritime, les océans, la sécurité publique et la science et la recherche aux États-Unis. | Des fichiers de différentes tailles dans différents formats, notamment HTML, XML, CSV, JSON, Excel et bien d’autres. Vous pouvez filtrer les jeux de données disponibles par format de fichier. |
+| [Données du gouvernement américain](https://catalog.data.gov/dataset) | Plus de 250 000 jeux de données couvrant l’agriculture, le climat, les consommateurs, les écosystèmes, l’éducation, l’énergie, la finance, la santé, les administrations locales, la fabrication, l’industrie maritime, les océans, la sécurité publique et la science et la recherche aux États-Unis. | Des fichiers de différentes tailles dans différents formats, notamment HTML, XML, CSV, JSON, Excel et bien d’autres. Vous pouvez filtrer les jeux de données disponibles par format de fichier. |
 | [Données de recensement des États-Unis](https://www.census.gov/data.html) | Données statistiques relatives à la population des États-Unis. | Les jeux de données se trouvent dans différents formats. |
 | [Données de sciences de la terre de la NASA](https://earthdata.nasa.gov/) | Plus de 32 000 collections de données couvrant l’agriculture, l’atmosphère, la biosphère, le climat, la cryosphère, les dimensions humaines, l’hydrosphère, la surface terrestre, les océans, les interactions Terre-soleil et plus. | Les jeux de données se trouvent dans différents formats. |
 | [Retards de vols d’avion et autres données de transport](https://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp) | « Le statistiques du bureau des transports (BTC) du ministère des transports (DOT) américain suivant la ponctualité des vols intérieurs exploités par de grands transporteurs aériens. Un résumé des informations sur le nombre de vols à l’heure, différés, annulés et déviés est présenté (...) dans des tableaux récapitulatifs publiés sur ce site web. » | Les fichiers sont au format CSV. |

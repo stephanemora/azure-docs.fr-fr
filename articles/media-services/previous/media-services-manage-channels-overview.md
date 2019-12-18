@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services | Microsoft Docs
-description: Cette rubrique fournit une vue d’ensemble du streaming en direct à l’aide d’Azure Media Services.
+description: Cet article offre une vue d’ensemble du streaming en direct à l’aide de Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5ab4a6b96df964497e20b2b93c59febb0e24393c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 8b58e9d2eae1fbe5b0f4086f772bea3bf46399c3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035903"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895956"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Vue d’ensemble du streaming en direct à l’aide d’Azure Media Services
 

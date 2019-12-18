@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 48357adccea201aaeb99863b39e9c8cabce915ce
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4e9779f612bc4a2521459bf76a6e2b399fc89e07
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262066"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894128"
 ---
 # <a name="azure-monitor-data-platform"></a>Plateforme de données Azure Monitor
 
@@ -48,7 +48,7 @@ Les [journaux](data-platform-logs.md) sont les événements qui se sont produits
 Dans Azure Monitor, les journaux sont stockés dans un espace de travail Log Analytics basé sur [Azure Data Explorer](/azure/data-explorer/), qui fournit un moteur d’analyse puissante et un [langage de requête riche](/azure/kusto/query/). En général, les journaux contiennent suffisamment d’informations pour fournir le contexte complet du problème identifié et sont utiles pour identifier la cause racine des problèmes.
 
 > [!NOTE]
-> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de diagnostic](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de diagnostic ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
+> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de ressources](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de ressources ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
 
 
  Vous pouvez utiliser des [requêtes de journal](../log-query/log-query-overview.md) interactivement avec [Log Analytics](../log-query/portals.md) dans le portail Azure ou ajouter les résultats à un [tableau de bord Azure](../learn/tutorial-app-dashboards.md) à des fins de visualisation en combinaison avec d’autres données. Vous pouvez également créer des [alertes de journal](alerts-log.md) qui déclenchent une alerte basée sur les résultats d’une requête de planification.
@@ -74,7 +74,7 @@ Le tableau suivant compare les métriques et les journaux dans Azure Monitor.
 | Structure | Ensemble standard de propriétés, notamment l’heure de l’échantillonnage, la ressource en cours de supervision et une valeur numérique. Certaines métriques incluent plusieurs dimensions pour une définition plus précise. | Ensemble unique de propriétés en fonction du type de journal. |
 | Collection | Collectées à intervalles réguliers. | Peuvent être collectés de façon sporadique à mesure que des événements déclenchent la création d’un enregistrement. |
 | Affichage dans le portail Azure | Metrics Explorer | Log Analytics |
-| Contenu des sources de données | Métriques de plateforme collectées à partir de ressources Azure.<br>Applications supervisées par Application Insights.<br>Personnalisation définie par l’API ou l’application. | Journaux de diagnostic et d’application.<br>Solutions de supervision.<br>Agents et extensions de machine virtuelle.<br>Demandes d’application et exceptions.<br>Azure Security Center.<br>API du collecteur de données. |
+| Contenu des sources de données | Métriques de plateforme collectées à partir de ressources Azure.<br>Applications supervisées par Application Insights.<br>Personnalisation définie par l’API ou l’application. | Journaux des applications et des ressources.<br>Solutions de supervision.<br>Agents et extensions de machine virtuelle.<br>Demandes d’application et exceptions.<br>Azure Security Center.<br>API du collecteur de données. |
 
 ## <a name="collect-monitoring-data"></a>Collecter des données de supervision
 Les différentes [sources de données pour Azure Monitor](data-sources.md) écrivent dans un espace de travail Log Analytics (journaux) et/ou dans la base de données de métriques Azure Monitor (métriques). Certaines sources écrivent directement dans ces magasins de données, tandis que d’autres peuvent écrire à un autre emplacement, tel que le stockage Azure, et nécessiter une configuration pour remplir les journaux ou métriques. 

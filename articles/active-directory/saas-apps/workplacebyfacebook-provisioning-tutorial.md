@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c10171ae59772f58411997d16dc4ad1472e94e29
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574267"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996933"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Didacticiel : Configuration de Workplace by Facebook pour l’approvisionnement automatique d’utilisateurs
 
@@ -99,7 +99,7 @@ Pour plus d’informations sur la façon de configurer l’approvisionnement aut
 Vous pouvez à présent créer un compte de test. Patientez jusqu’à 20 minutes avant de vérifier que le compte a bien été synchronisé avec Workplace by Facebook.
 
 > [!NOTE]
-> Nous travaillons en étroite collaboration avec l’équipe Workplace by Facebook pour faire en sorte que l’application Azure AD soit approuvée et respecte les nouvelles directives. Le délai d’expiration de Workplace by Facebook est prévu le 16 décembre et nous souhaitons respecter cette date. Aucune action n’est requise de la part des clients ce jour-là. À partir du 28 février 2020, les clients devront passer à la nouvelle intégration. Nous posterons le chemin de migration ici dès qu’il sera disponible.    
+> L’application tierce Azure AD dans Workplace by Facebook a été approuvée. Les clients ne constateront aucune interruption de service le 16 décembre. Vous verrez une note dans la console d’administration Workplace by Facebook indiquant comme échéance le 28 février 2020, date à laquelle vous devrez basculer vers la nouvelle application. Nous nous efforçons de rendre la transition aussi simple que possible, et nous vous fournirons des informations sur la transition d’ici la fin du mois.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

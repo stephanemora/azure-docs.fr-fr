@@ -3,16 +3,16 @@ title: Installer ou mettre à jour manuellement des extensions de liaison d’Az
 description: Découvrez comment installer ou mettre à jour des extensions de liaison d’Azure Functions pour les applications de fonction déployées.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226503"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977486"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail
 
-Le runtime version 2.x d’Azure Functions utilise des extensions de liaison afin d’implémenter un code pour des déclencheurs et des liaisons. Les extensions de liaison sont fournies dans des packages NuGet. Pour inscrire une extension, vous installez essentiellement un package. Lorsque vous développez des fonctions, la façon d’installer des extensions de liaison dépend de l’environnement de développement. Pour plus d’informations, consultez [Inscrire des extensions de liaison](./functions-bindings-register.md) dans l’article des liaisons et des déclencheurs.
+À compter de la version 2.x, le runtime Azure Functions utilise des extensions de liaison afin d’implémenter du code pour des déclencheurs et des liaisons. Les extensions de liaison sont fournies dans des packages NuGet. Pour inscrire une extension, vous installez essentiellement un package. Lorsque vous développez des fonctions, la façon d’installer des extensions de liaison dépend de l’environnement de développement. Pour plus d’informations, consultez [Inscrire des extensions de liaison](./functions-bindings-register.md) dans l’article des liaisons et des déclencheurs.
 
 Parfois, vous devez installer ou mettre à jour manuellement vos extensions de liaison dans le portail Azure. Par exemple, vous devrez peut-être mettre à jour une liaison inscrite vers une version plus récente. Vous devrez peut-être également inscrire une liaison prise en charge qui ne peut pas être installée dans l’onglet **Intégrer** du portail.
 

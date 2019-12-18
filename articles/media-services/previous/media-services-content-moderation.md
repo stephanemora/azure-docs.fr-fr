@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes | Microsoft Docs
-description: La modération de vidéo permet de détecter le contenu potentiellement osé et réservé aux adultes dans des vidéos.
+description: Le processeur multimédia Azure Media Content Moderator aide à détecter du contenu osé ou pour adultes dans les vidéos.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465675"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896001"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Utiliser Azure Media Content Moderator pour détecter du contenu potentiellement osé et réservé aux adultes 
 
@@ -47,8 +47,8 @@ Le fichier JSON de sortie contient les éléments suivants :
 | Élément | Description |
 | --- | --- |
 | version |La version de Content Moderator. |
-| échelle de temps |« Cycles » par seconde de la vidéo. |
-| Offset |Le décalage des horodatages. Cette valeur sera toujours 0 dans la version 1.0 des API vidéo. Cette valeur pourrait changer à l’avenir. |
+| timescale |« Cycles » par seconde de la vidéo. |
+| offset |Le décalage des horodatages. Cette valeur sera toujours 0 dans la version 1.0 des API vidéo. Cette valeur pourrait changer à l’avenir. |
 | taux de trames |Images par seconde de la vidéo. |
 | width |La largeur de l’image vidéo de sortie, en pixels.|
 | height |La hauteur de l’image vidéo de sortie, en pixels.|

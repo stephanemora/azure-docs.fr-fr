@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 85c80a5b9f2c0ac7b73fb51fd8138e3aae0b0221
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561407"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894668"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -526,10 +526,9 @@ Vous pouvez le réactiver avec `p.enable()`. Pour plus d’informations, consult
 
 Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et de la réutilisation. Par exemple, vous pouvez choisir :
 + De **désactiver la réutilisation par défaut de la sortie d’exécution de l’étape** en définissant `allow_reuse=False` pendant la [définition de l’étape](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). La réutilisation est essentielle lors de l’utilisation des pipelines dans un environnement de collaboration. En effet, cela permet de supprimer les exécutions inutiles et ainsi d’offrir une grande souplesse. Toutefois, vous pouvez refuser la réutilisation.
-+ **D’étendre le hachage au-delà du script**, pour inclure également un chemin d’accès absolu ou des chemins d’accès relatifs au répertoire_source d’autres fichiers et répertoires à l’aide de `hash_paths=['<file or directory']` 
 + De **forcer la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Par défaut, l’option `allow_reuse` pour les étapes est activée, et seul le fichier de script principal est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et paramètres), la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles à l’étape suivante à la place.  
+Par défaut, `allow_reuse` pour les étapes est activé et le `source_directory` spécifié dans la définition de l’étape est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et paramètres) et que rien d’autre n’a changé dans le ` source_directory`, la sortie d’une exécution d’étape précédente est réutilisée, le travail n’est pas envoyé pour le calcul et les résultats de l’exécution précédente sont immédiatement disponibles pour l’étape suivante à la place.
 
 ```python
 step = PythonScriptStep(name="Hello World",

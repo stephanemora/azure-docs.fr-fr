@@ -1,20 +1,21 @@
 ---
-title: Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture ((RA-GZRS ou RA-GRS)) | Microsoft Docs
-description: Comment utiliser le stockage RA-GZRS ou RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
+title: Conception d’applications hautement disponibles à l’aide du stockage géoredondant
+titleSuffix: Azure Storage
+description: Découvrez comment utiliser le stockage géoredondant avec accès en lecture pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673111"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895342"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
 

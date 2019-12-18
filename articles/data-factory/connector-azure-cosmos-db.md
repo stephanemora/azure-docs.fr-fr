@@ -1,23 +1,22 @@
 ---
-title: Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide de Data Factory
+title: Copier et transformer des données dans Azure Cosmos DB (API SQL)
 description: Découvrez comment copier des données depuis et vers Azure Cosmos DB (API SQL) et comment transformer des données dans Azure Cosmos DB (API SQL) à l’aide de Data Factory.
 services: data-factory, cosmosdb
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/13/2019
-ms.author: jingwang
-ms.openlocfilehash: 5e9db7c63e1493e1de5593262515040f071186e8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf24c12e8f1e5b7ee5c529ebffa6c15dd8acbcfc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076793"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913403"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 

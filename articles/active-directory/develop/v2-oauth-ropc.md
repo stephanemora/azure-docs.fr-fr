@@ -1,6 +1,7 @@
 ---
-title: Utilisez la plateforme d’identité Microsoft pour connecter des utilisateurs à l’aide des informations d'identification du mot de passe du propriétaire de la ressource (ROPC) | Azure
-description: Prise en charge des flux d’authentification sans navigateur avec l’octroi des informations d’identification de mot de passe du propriétaire des ressources (ROPC, Resource Owner Password Credential).
+title: Se connecter avec l’octroi des informations d’identification du mot de passe du propriétaire de la ressource | Azure
+titleSuffix: Microsoft identity platform
+description: Prise en charge des flux d’authentification sans navigateur avec l’octroi des informations d’identification du mot de passe du propriétaire de la ressource (ROPC, Resource Owner Password Credential).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207781"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919322"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identité Microsoft et informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0
+# <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Plateforme d’identités Microsoft et informations d’identification du mot de passe du propriétaire de la ressource OAuth 2.0
 
 La plateforme d’identité Microsoft prend en charge l’[octroi des informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3), qui permet à une application de connecter l’utilisateur en gérant directement son mot de passe.  Cet article explique comment programmer directement par rapport au protocole dans votre application.  Dans la mesure du possible, nous vous recommandons d’utiliser les bibliothèques d’authentification Microsoft (MSAL) prises en charge au lieu d’[acquérir des jetons et d’appeler des API web sécurisées](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Jetez également un coup d’œil aux [exemples d’applications qui utilisent MSAL](sample-v2-code.md).
 

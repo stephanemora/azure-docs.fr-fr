@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707735"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973626"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Qu’est-ce que le concepteur Azure Machine Learning (préversion) ? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -93,7 +93,7 @@ Utilisez les ressources de calcul de votre espace de travail pour exécuter votr
 | Capacité de calcul Azure Machine Learning | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Les cibles de calcul sont associées à votre [espace de travail](concept-workspace.md) de Machine Learning. Vous gérez vos cibles de calcul dans votre espace de travail de [Azure Machine Learning Studio](https://ml.azure.com).
+Les cibles de calcul sont associées à votre [espace de travail Azure Machine Learning](concept-workspace.md). Vous gérez vos cibles de calcul dans votre espace de travail [Azure Machine Learning Studio (classique)](https://ml.azure.com).
 
 ## <a name="deploy"></a>Déployer
 

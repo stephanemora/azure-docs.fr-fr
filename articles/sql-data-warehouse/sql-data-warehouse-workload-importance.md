@@ -11,12 +11,12 @@ ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fea35325f11878373db8dd52b9b2bf08a25b81d1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 28d239d47b46a5aafdf65c72ef826a0efb79f52b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692370"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974631"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Importance de la charge de travail dans Azure SQL Data Warehouse
 
@@ -26,11 +26,11 @@ Cet article explique comment l'importance de la charge de travail peut influer s
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
-Certaines charges de travail d'entreposage de données peuvent être plus importantes que d'autres pour une entreprise.  Imaginez un scénario dans lequel les données de vente critiques sont chargées avant la clôture de la période fiscale.  Les chargements de données pour d'autres sources, telles que les données météo, n'ont pas de contrats de niveau de service stricts.   Définir une haute importance pour une requête de chargement de données de vente et une faible importance pour une demande de chargement de données météo confère au chargement des données de vente une priorité sur les ressources et permet son exécution plus rapide.
+Certaines charges de travail d'entreposage de données peuvent être plus importantes que d'autres pour une entreprise.  Imaginez un scénario dans lequel les données de vente critiques sont chargées avant la clôture de la période fiscale.  Les chargements de données pour d'autres sources, telles que les données météo, n'ont pas de contrats de niveau de service stricts. Définir une haute importance pour une requête de chargement de données de vente et une faible importance pour une demande de chargement de données météo confère au chargement des données de vente une priorité sur les ressources et permet son exécution plus rapide.
 
 ## <a name="importance-levels"></a>Niveaux d'importance
 
-Il existe cinq niveaux d’importance : low (faible), below_normal (inférieure à la normale), normal (normale), above_normal (supérieure à la normale) et high (haute).  Par défaut, les requêtes se voient attribuer une importance normale.  Les requêtes dotées du même niveau d’importance répondent au même comportement de planification qu'actuellement.
+Il existe cinq niveaux d’importance : low (faible), below_normal (inférieure à la normale), normal (normale), above_normal (supérieure à la normale) et high (haute).  Par défaut, les requêtes se voient attribuer une importance normale. Les requêtes dotées du même niveau d’importance répondent au même comportement de planification qu'actuellement.
 
 ## <a name="importance-scenarios"></a>Scénarios avec importance
 
@@ -38,7 +38,7 @@ Au-delà du scénario avec importance de base décrit ci-dessus et portant sur d
 
 ### <a name="locking"></a>Verrouillage
 
-L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle.  Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requièrent des verrous avec élévation de privilèges.  Sans importance des charges de travail, SQL Data Warehouse optimise le débit.  Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt.  L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
+L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requièrent des verrous avec élévation de privilèges.  Sans importance des charges de travail, SQL Data Warehouse optimise le débit.  Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt.  Une fois l’importance de la charge de travail appliquée aux requêtes avec des besoins de verrouillage plus élevés, les requêtes avec une importance plus élevée sont exécutées avant celles ayant une importance moindre.
 
 Considérez l'exemple suivant :
 
@@ -50,7 +50,7 @@ Si Q2 et Q3 présentent la même importance, Q1 continue de s'exécuter et Q3 va
 
 ### <a name="non-uniform-requests"></a>Requêtes non uniformes
 
-Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, en présence d'une même importance, SQL Data Warehouse optimise le débit.  Lorsque des requêtes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d'attente, SQL Data Warehouse choisit la première requête arrivée en fonction des ressources disponibles.  Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
+Les requêtes soumises avec différentes classes de ressources sont un autre exemple de scénario dans lequel l'importance contribue à répondre aux besoins d'interrogation.  Comme indiqué précédemment, en présence d'une même importance, SQL Data Warehouse optimise le débit. Lorsque des requêtes de tailles différentes (par exemple, smallrc ou mediumrc) sont mises en file d'attente, SQL Data Warehouse choisit la première requête arrivée en fonction des ressources disponibles. Si l’importance des charges de travail est appliquée, la requête présentant la plus haute importance est planifiée ensuite.
   
 Considérez l'exemple suivant sur DW500c :
 
@@ -58,11 +58,11 @@ Q1, Q2, Q3 et Q4 exécutent des requêtes smallrc.
 Q5 est soumise avec la classe de ressources mediumrc à 9h00.
 Q6 est soumise avec la classe de ressources smallrc à 9h01.
 
-La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements de concurrence.  Q5 doit attendre la fin de deux requêtes.  Cela étant, lorsqu’une des requêtes en cours d’exécution (Q1 à Q4) se termine, Q6 est immédiatement planifiée, car les ressources permettent son exécution.  Si Q5 présente une importance plus élevée que Q6, Q6 attend la fin de Q5 pour commencer à s'exécuter.
+La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements de concurrence. Q5 doit attendre la fin de deux requêtes.  Cela étant, lorsqu’une des requêtes en cours d’exécution (Q1 à Q4) se termine, Q6 est immédiatement planifiée, car les ressources permettent son exécution.  Si Q5 présente une importance plus élevée que Q6, Q6 attend la fin de Q5 pour commencer à s'exécuter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Pour plus d’informations sur la classification de la charge de travail Azure SQL Data Warehouse, consultez [Classification de la charge de travail](sql-data-warehouse-workload-classification.md).  
 - Pour savoir comment créer un classifieur de charge de travail, consultez le démarrage rapide [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md).
 - Consultez les articles qui expliquent comment [Configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [Gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).

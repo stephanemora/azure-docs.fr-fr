@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: cherylmc
-ms.openlocfilehash: 722907328fe17c4116f4f8d948e081f9582ca712
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c26c4c47cb17acf88bc545af3a1fc979138d56b1
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266572"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951732"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
@@ -99,8 +99,8 @@ Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifie
 ### 2. <a name="local"></a>Configurer le site local
 
 1. Accédez à **Toutes les ressources** et recherchez le **réseau virtuel classique** dans la liste.
-2. Dans la page **Vue d’ensemble**, dans la section **Connexions VPN**, cliquez sur **Passerelle** pour créer une passerelle.
-  ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "Configurer une passerelle VPN")
+2. Cliquez sur **Passerelle** dans la section **Paramètres** du menu, puis sur la bannière pour créer une passerelle.
+  ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "CConfigurer une passerelle VPN)
 3. Dans la page **Nouvelle connexion VPN**, pour **Type de connexion**, sélectionnez **De site à site**.
 4. Sous **Site local**, cliquez sur **Configurer les paramètres requis**. La page **Site local** s’ouvre.
 5. Dans la page **Site local**, créez un nom pour faire référence au réseau virtuel Resource Manager. Par exemple, « RMVNetLocal ».
@@ -187,16 +187,16 @@ Dans cette section, vous remplacez l’adresse IP avec espace réservé que vous
 2. Dans la page de votre réseau virtuel, cliquez sur **Vue d’ensemble**.
 3. Dans la section **Connexions VPN**, cliquez sur le nom de votre site local dans le graphique.
 
-   ![Connexions VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connexions VPN")
+   ![VPN-connections](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connexions VPN")
 4. Dans la page **Connexions VPN de site à site**, cliquez sur le nom du site.
 
-   ![Nom du site](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nom du site local")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nom du site local")
 5. Dans la page de connexion de votre site local, cliquez sur le nom du site local pour ouvrir la page **Site local**.
 
-   ![Ouvrir le site local](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Ouvrir le site local")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Ouvrir le site local")
 6. Dans la page **Site local**, remplacez l’**adresse IP de passerelle VPN** par l’adresse IP de la passerelle Resource Manager.
 
-   ![Adresse IP de la passerelle](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Adresse IP de la passerelle")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Adresse IP de la passerelle")
 7. Cliquez sur **OK** pour mettre à jour l’adresse IP.
 
 ## <a name="RMtoclassic"></a>Section 4 - Créer une connexion entre Resource Manager et le réseau virtuel classique

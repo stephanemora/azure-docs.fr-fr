@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824350"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975990"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Premiers pas avec Azure Machine Learning pour Visual Studio Code
 
@@ -94,8 +94,8 @@ Pour modifier votre projet afin de communiquer à Azure les informations importa
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ Pour modifier votre projet afin de communiquer à Azure les informations importa
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -137,14 +137,14 @@ Pour modifier votre projet afin de communiquer à Azure les informations importa
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Exécutez le script dans Azure
-Et voilà ! À présent, utilisez simplement l’extension pour exécuter votre script dans le cloud. Notez que, dans l’animation ci-dessous, la procédure pas à pas présentée est plus courte que le temps réellement nécessaire pour créer un espace de travail et un calcul Azure ML, et pour exécuter le script d’entraînement.
+Et voilà ! À présent, utilisez simplement l’extension pour exécuter votre script dans le cloud. Notez que, dans l’animation ci-dessous, la procédure pas à pas présentée est plus courte que le temps réellement nécessaire pour créer un espace de travail et un calcul Azure Machine Learning, et pour exécuter le script d’entraînement.
 
    [![Démarrer une expérience Azure ML](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 Après avoir cliqué sur le bouton Run Experiment (Exécuter l’expérience), répondez aux invites comme suit :
 
-1. Choisir votre abonnement Azure
-1. Choisissez de créer un espace de travail Azure ML *nouveau*.
+1. Choisissez votre abonnement Azure.
+1. Choisissez de créer un *nouvel* espace de travail Azure Machine Learning.
 1. Sélectionnez un modèle parmi les modèles préconfigurés afin d’initialiser l’environnement Python pour les exécutions. Les modèles fournissent un point de départ et incluent ces paramètres :
     1. **PyTorch**, **TensorFlow** ou **Scikit-learn**
     1. Entraînement de calcul **Single** (Unique) ou **Distributed** (Distribué)
@@ -181,7 +181,7 @@ Avant de commencer à entraîner et à déployer les modèles Machine Learning �
 
 1. Développez le nœud Subscription (Abonnement) pour trouver l’espace de travail que vous venez de créer.
 
-### <a name="create-an-experiment"></a>Création d'une expérience
+### <a name="create-an-experiment"></a>Créer une expérience
 Vous pouvez créer une ou plusieurs expériences dans votre espace de travail pour suivre et analyser individuellement les exécutions d’entraînement du modèle. Les exécutions peuvent être effectuées dans le cloud Azure ou sur votre machine locale.
 
 1. Développez l’espace de travail **TeamWorkspace**. Cliquez avec le bouton droit sur le nœud **Experiments** (Expériences), et choisissez **Create Experiment** (Créer une expérience) dans le menu contextuel.

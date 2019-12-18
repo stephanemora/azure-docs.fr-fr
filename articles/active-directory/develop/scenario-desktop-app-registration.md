@@ -1,5 +1,5 @@
 ---
-title: Application de bureau qui appelle des API web (inscription d’application) - Plateforme d’identité Microsoft
+title: Inscrire une application de bureau appelant des API web - Plateforme d’identités Microsoft | Azure
 description: Apprenez à générer une application de bureau qui appelle des API web (inscription d’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,16 +17,16 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 648652ed32a5dea30de665b7fa49190171a7f10a
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 94f7f2dfdbf404a092773857a0f7727618cd429a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268412"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965532"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>Application de bureau qui appelle des API web - Inscription d’application
 
-Cet article contient les spécificités d’une inscription d’application pour une application de bureau.
+Cet article porte sur les spécificités de l’inscription d’application pour une application de bureau.
 
 ## <a name="supported-accounts-types"></a>Types de comptes pris en charge
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43b6d541cfb3d2e5bd583223d9d93921982c65e0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039452"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842116"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Connexion à une machine virtuelle Azure exécutant Windows
 Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une session Bureau à distance (RDP) depuis un bureau Windows. Tout d'abord, connectez-vous à la machine virtuelle, puis ouvrez une session.
@@ -27,13 +27,11 @@ Vous utilisez le bouton **Connecter** dans le portail Azure pour démarrer une s
 Pour vous connecter à une machine virtuelle Windows à partir d’un Mac, vous devez installer un client RDP pour Mac tel que [Bureau à distance Microsoft](https://aka.ms/rdmac).
 
 ## <a name="connect-to-the-virtual-machine"></a>Connectez-vous à la machine virtuelle.
-1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
-3. Sélectionnez la machine virtuelle dans la liste.
-4. Dans la partie supérieure de la page de la machine virtuelle, sélectionnez **Connecter**.
-2. Sur la page **Connexion à la machine virtuelle**, sélectionnez l'adresse IP et le port appropriés. Dans la plupart des cas, l'adresse IP et le port par défaut doivent être utilisés. Sélectionnez **Télécharger le fichier RDP**. Si la machine virtuelle dispose d'un ensemble de stratégies juste-à-temps, vous devez d'abord sélectionner le bouton **Demander l'accès** avant de pouvoir télécharger le fichier RDP. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l'accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
-2. Ouvrez le fichier RDP téléchargé et, à l’invite, sélectionnez **Connecter**. 
-2. Un message vous avertit que le fichier `.rdp` provient d'un éditeur inconnu. Ceci est normal. Sélectionnez **Connecter** dans la fenêtre **Connexion Bureau à distance** pour continuer.
+1. Accédez au [Portail Azure](https://portal.azure.com/) pour vous connecter à une machine virtuelle. Recherchez et sélectionnez **Machines virtuelles**.
+2. Sélectionnez la machine virtuelle dans la liste.
+3. Au début de la page Machine virtuelle, sélectionnez **Connexion**.
+4. Sur la page **Connexion à la machine virtuelle**, sélectionnez **RDP**, puis l’**Adresse IP** et le **Numéro de port** appropriés. Dans la plupart des cas, l'adresse IP et le port par défaut doivent être utilisés. Sélectionnez **Télécharger le fichier RDP**. Si la machine virtuelle dispose d'un ensemble de stratégies juste-à-temps, vous devez d'abord sélectionner le bouton **Demander l'accès** avant de pouvoir télécharger le fichier RDP. Pour plus d'informations sur la stratégie juste-à-temps, consultez [Gérer l'accès à la machine virtuelle à l'aide de la stratégie juste-à-temps](../../security-center/security-center-just-in-time.md).
+5. Ouvrez le fichier RDP téléchargé et, à l’invite, sélectionnez **Connecter**. Un message vous avertit que le fichier `.rdp` provient d'un éditeur inconnu. Ceci est normal. Sélectionnez **Connecter** dans la fenêtre **Connexion Bureau à distance** pour continuer.
    
     ![Capture d’écran d’avertissement relatif à un éditeur inconnu.](./media/connect-logon/rdp-warn.png)
 3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Entrez les informations d’identification d’un compte sur la machine virtuelle, puis cliquez sur **OK**.

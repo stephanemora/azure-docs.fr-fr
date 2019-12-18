@@ -1,6 +1,6 @@
 ---
-title: 'Application démon appelant des API web (passage en production) : plateforme d’identités Microsoft'
-description: Apprenez à générer une application démon qui appelle des API web (passage en production)
+title: Passer en production une application démon appelant des API web – Plateforme d’identités Microsoft | Azure
+description: Découvrir comment passer en production une application démon qui appelle des API web
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175397"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962591"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Application démon appelant des API web : passage en production
 

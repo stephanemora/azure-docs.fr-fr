@@ -1,18 +1,18 @@
 ---
 title: Service Azure IoT Hub Device Provisioning – Concepts de sécurité
-description: Décrit les concepts d’approvisionnement de sécurité pour les appareils avec le service Device Provisioning et IoT Hub
+description: Décrit les concepts d’approvisionnement de sécurité pour les appareils avec le service Device Provisioning (DPS) et IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228825"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973456"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 

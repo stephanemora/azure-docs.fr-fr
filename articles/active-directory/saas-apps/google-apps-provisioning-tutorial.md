@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167865"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842728"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -178,7 +178,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![Mappages de groupe G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Dans la section **Mappage des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans G Suite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+12. Dans la section **Mappage des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans G Suite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications. L’interface utilisateur affiche l’ensemble par défaut de mappages d’attributs entre Azure AD et G suite. Vous pouvez choisir d’ajouter des attributs supplémentaires tels que Org Unit en cliquant sur Ajouter un nouveau mappage. 
 
     ![Attributs du groupe G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 * [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+
+## <a name="common-issues"></a>Problèmes courants
+* Des échecs d’autorisation peuvent se produire lorsque le compte utilisé pour établir une connexion n’est pas destiné à un administrateur dans G Suite. Assurez-vous que le compte utilisé pour autoriser l’accès dispose des privilèges administrateur sur **tous les domaines** avec lesquels les utilisateurs doivent être approvisionnés. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

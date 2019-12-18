@@ -1,5 +1,6 @@
 ---
-title: Suivre le comportement des utilisateurs à l’aide d’événements dans Application Insights à partir d’Azure Active Directory B2C | Microsoft Docs
+title: Suivre le comportement des utilisateurs avec Application Insights
+titleSuffix: Azure AD B2C
 description: Découvrez comment activer les journaux d’événements dans Application Insights à partir des parcours utilisateur Azure AD B2C à l’aide de stratégies personnalisées (préversion).
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066184"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948944"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Suivre le comportement des utilisateurs dans Azure Active Directory B2C à l’aide d’Application Insights
 

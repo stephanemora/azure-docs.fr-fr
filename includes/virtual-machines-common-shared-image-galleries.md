@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085238"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875505"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -36,7 +36,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 | **Image managée** | Il s’agit d’une image de base qui peut être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles [généralisées](#generalized-and-specialized-images). Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Instantané** | Copie d’un disque dur virtuel qui peut être utilisée pour effectuer une **version d’image**. Les instantanés peuvent être extraits d’une machine virtuelle [spécialisée](#generalized-and-specialized-images) (qui n’a pas été généralisée), puis utilisés seuls ou avec des instantanés de disques de données afin de créer une version d’image spécialisée.
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
-| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation dans votre organisation. Vous pouvez inclure des informations telles que le type généralisé ou spécialisé de l’image, le système d'exploitation, les exigences minimales et maximales en matière de mémoire et des notes de publication. Il s’agit d’une définition de type d’image. |
+| **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation dans votre organisation. Vous pouvez inclure des informations telles que le type généralisé ou spécialisé de l’image, le système d’exploitation, les exigences minimales et maximales en matière de mémoire et des notes de publication. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
 <br>
@@ -113,6 +113,7 @@ Certaines limites par abonnement ont été définies pour le déploiement de res
 - 100 galeries d’images partagées par abonnement et par région
 - 1 000 définitions d’images par abonnement et par région
 - 10 000 versions d’image par abonnement et par région
+- Tout disque attaché à l’image doit avoir une taille inférieure ou égale à 1 To
 
 Pour en savoir plus, consultez les exemples figurant dans la section [Vérifier l’utilisation des ressources par rapport aux limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits), qui indiquent comment vérifier l’utilisation actuelle.
  
@@ -149,7 +150,7 @@ Tout comme la Galerie d’images partagées, la définition d’image et la vers
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Définition de l’image | Version d’image |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d’images partagées | OUI                  | OUI          | OUI                  |
+| Galerie d’images partagées | OUI                  | Oui          | OUI                  |
 | Définition de l’image     | Non                   | OUI          | OUI                  |
 
 Nous vous recommandons de partager les images au niveau de la galerie, afin de proposer une expérience optimale. Nous vous déconseillons de partager des versions d’images individuelles. Pour en savoir plus sur le contrôle d’accès en fonction du rôle (RBAC), consultez la section relative à la [gestion de l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC)](../articles/role-based-access-control/role-assignments-portal.md).

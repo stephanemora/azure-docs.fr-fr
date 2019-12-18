@@ -4,17 +4,17 @@ description: Cet article décrit comment gérer vos comptes d’identification a
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690878"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951375"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -67,7 +67,7 @@ Pour configurer ou renouveler des comptes d’identification Classic, vous devez
 Dans cette section, exécutez la procédure ci-après pour mettre à jour votre compte Azure Automation dans le Portail Azure. Vous créez individuellement les comptes d’identification et les comptes d’identification Classic. Si vous n’avez pas besoin de gérer des ressources classiques, vous pouvez simplement créer le compte d’identification Azure.
 
 1. Connectez-vous au portail Azure avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
-2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Automation**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Comptes Automation**.
+2. Dans le portail Azure, recherchez et sélectionnez **Comptes Automation**.
 3. Sur la page **Comptes Automation**, sélectionnez votre compte Automation depuis la liste des comptes Automation.
 4. Dans le volet à gauche, sélectionnez **Comptes d’identification** sous la section **Paramètres de compte**.
 5. Selon le compte dont vous avez besoin, sélectionnez **Compte d’identification Azure** ou **Compte d’identification Azure Classic**. Une fois que vous avez sélectionné une option, le volet **Ajouter un compte d’identification Azure** ou **Ajouter un compte d’identification Azure Classic** s’affiche. Après avoir consulté les informations correspondantes, cliquez sur **Créer** pour procéder à la création du compte d’identification.
@@ -86,7 +86,7 @@ La liste suivante indique les configurations requises pour créer un compte d’
 
 Pour obtenir les valeurs des paramètres *SubscriptionID*, *ResourceGroup* et *AutomationAccountName*, qui sont des paramètres obligatoires pour le script, procédez comme suit :
 
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Automation**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Comptes Automation**.
+1. Dans le portail Azure, recherchez et sélectionnez **Comptes Automation**.
 1. Dans la page de compte Automation, sélectionnez votre compte Automation, puis sous **Paramètres de compte**, sélectionnez **Propriétés**.
 1. Notez les valeurs de **ID d’abonnement**, **Nom** et **Groupe de ressources** sur la page **Propriétés**.
 

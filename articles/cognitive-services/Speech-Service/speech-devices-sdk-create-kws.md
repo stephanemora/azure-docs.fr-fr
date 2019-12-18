@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815293"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896398"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Créer un mot clé personnalisé à l’aide du service Speech
 
@@ -50,17 +50,29 @@ Avant de pouvoir utiliser un mot clé personnalisé, vous devez créer un mot cl
 
 1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. Dans la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), tapez le mot clé de votre choix, puis cliquez sur **Ajouter un mot clé**. Nous avons des [instructions](#choose-an-effective-keyword) pour vous aider à choisir un mot clé efficace. La prise en charge est actuellement limitée à la langue en-US.
+1. Sur la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), créez un **Nouveau projet**. 
 
-    ![Entrez votre mot clé](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. Entrez un **Nom** et une **Description** facultative, puis sélectionnez la langue. Vous aurez besoin d’un projet par langue et la prise en charge est actuellement limitée à la variante en-US (anglais des États-Unis).
 
-1. Le portail crée des propositions de prononciations pour votre mot clé. Écoutez chaque prononciation en cliquant sur les boutons de lecture, supprimez les coches en regard des prononciations incorrectes. Une fois que seules les bonnes prononciations sont cochées, sélectionnez **Envoyer** pour commencer à générer le mot clé. Si vous souhaitez modifier le mot clé, supprimez le mot clé existant en cliquant sur le bouton Supprimer à droite de la ligne lorsque vous pointez dessus.
+    ![Décrire votre projet de mot clé](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![Vérifier votre mot clé](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. Sélectionnez votre projet dans la liste. 
 
-1. La génération du modèle peut prendre jusqu’à une minute. Vous êtes ensuite invité à télécharger le fichier.
+    ![Sélectionner votre projet de mot clé](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![Télécharger votre mot clé](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. Pour démarrer un nouveau modèle de mot clé, cliquez sur **Effectuer l’apprentissage du modèle**.
+
+1. Entrez un **Nom** pour le modèle de mot clé et une **Description** facultative, saisissez le **Mot clé** de votre choix, puis cliquez sur **Suivant**. Nous avons des [instructions](#choose-an-effective-keyword) pour vous aider à choisir un mot clé efficace.
+
+    ![Entrez votre mot clé](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. Le portail crée des propositions de prononciations pour votre mot clé. Écoutez chaque prononciation en cliquant sur les boutons de lecture, supprimez les coches en regard des prononciations incorrectes. Une fois que seules les bonnes prononciations sont cochées, cliquez sur **Effectuer l’apprentissage** pour commencer à générer le mot clé. 
+
+    ![Vérifier votre mot clé](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. La génération du modèle peut prendre jusqu’à dix minutes. La liste de mots clés passe de **Traitement en cours** à **Terminé** lorsque le modèle est terminé. Vous pouvez ensuite télécharger le fichier.
+
+    ![Vérifier votre mot clé](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot clé personnalisé sur votre appareil.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819080"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896232"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -39,6 +39,12 @@ Quand un pare-feu IP ou des règles d’accès à un réseau virtuel sont ajout�
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mes requêtes ont été bloquées lorsque j’ai activé le point de terminaison de service dans Azure Cosmos DB sur le sous-réseau. Que s’est-il passé ?
 
 Une fois que le point de terminaison de service pour Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint le compte bascule de l’adresse IP publique vers le réseau virtuel et le sous-réseau. Si votre compte Azure Cosmos est uniquement protégé par un pare-feu basé sur IP, le trafic provenant du sous-réseau avec service ne respecte plus les règles du pare-feu IP et, par conséquent, il sera rejeté. Passez en revue les étapes pour migrer en toute transparence d’un pare-feu basé sur IP à un contrôle d’accès basé sur un réseau virtuel.
+
+### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>Des privilèges RBAC supplémentaires sont-ils nécessaires pour les comptes Azure Cosmos dotés de points de terminaison de service de réseau virtuel ?
+
+Si vous souhaitez apporter des modifications aux paramètres de compte après avoir ajouté les points de terminaison de service de réseau virtuel à un compte Azure Cosmos, vous devez accéder à l’action `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` pour tous les réseaux virtuels configurés sur votre compte Azure Cosmos. Ce privilège est requis, car le processus d’autorisation valide l’accès aux ressources (telles que les ressources de base de données et de réseau virtuel) avant d’évaluer des propriétés.
+ 
+L’autorisation valide le privilège pour l’action de ressource de réseau virtuel, même si l’utilisateur ne spécifie pas les ACL de réseau virtuel à l’aide d’Azure CLI. Actuellement, le plan de contrôle du compte Azure Cosmos prend en charge la configuration de l’état complet du compte Azure Cosmos. L’un des paramètres des appels du plan de contrôle est `virtualNetworkRules`. Si ce paramètre n’est pas spécifié, Azure CLI effectue un appel d’extraction de base de données pour récupérer `virtualNetworkRules` et utilise cette valeur dans l’appel de mise à jour.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>Les réseaux virtuels homologués ont-ils également accès au compte Azure Cosmos ? 
 Seuls le réseau virtuel et ses sous-réseaux ajoutés au compte Azure Cosmos y ont accès. Leurs réseaux virtuels homologués ne peuvent pas accéder au compte tant que les sous-réseaux des réseaux virtuels homologués ne sont pas ajoutés au compte.

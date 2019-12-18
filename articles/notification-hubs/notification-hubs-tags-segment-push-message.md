@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213040"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971983"
 ---
 # <a name="routing-and-tag-expressions"></a>Routage et expressions de balise
 
@@ -41,7 +41,7 @@ La seule façon de cibler des inscriptions de notification spécifiques consiste
 
 Une balise est une chaîne de 120 caractères maximum, contenant des caractères alphanumériques ainsi que les caractères non alphanumériques suivants : « _ », « @ », « # », « . », « : » et « - ». L'exemple suivant montre une application à partir de laquelle vous pouvez recevoir des notifications toast concernant des groupes musicaux spécifiques. Dans ce scénario, une méthode simple pour acheminer des notifications consiste à étiqueter les inscriptions avec des balises représentant les différents groupes de musique, comme dans l'image suivante :
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![Vue d’ensemble des étiquettes](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 Dans cette illustration, le message étiqueté **Beatles** est uniquement envoyé à la tablette inscrite avec la balise **Beatles**.
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 Les balises n'ont pas besoin d'être provisionnées et peuvent référencer plusieurs concepts propres à l'application. Par exemple, les utilisateurs de cet exemple d'application peuvent publier des commentaires sur les groupes et recevoir des notifications toast non seulement concernant les commentaires sur leurs groupes favoris, mais également pour tous les commentaires de leurs amis, quel que soit le groupe qu’ils commentent. L'illustration suivante montre un exemple de ce scénario :
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![Étiquettes - Amis](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 Dans cette image, Alice s'intéresse à l’actualité des Beatles, et Bob à celle des Wailers. Bob est également intéressée par les commentaires de Charlie, et Charlie s'intéresse aux Wailers. Lorsqu'une notification est envoyée concernant un commentaire de Charlie sur les Beatles, Alice et Bob la reçoivent.
 
@@ -80,7 +80,7 @@ Pour obtenir un didacticiel complet et détaillé sur la façon d'utiliser des b
 
 Une autre façon d'utiliser des balises consiste à identifier tous les appareils d'un utilisateur particulier. Les inscriptions peuvent être étiquetées avec une balise contenant un ID utilisateur, comme dans l'illustration suivante :
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![Étiquette - Utilisateurs](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
 Dans cette illustration, le message étiqueté uid: Alice atteint toutes les inscriptions marquées « uid:Alice » et, par conséquent, tous les appareils d'Alice.
 
@@ -94,7 +94,7 @@ Examinons une application de sports qui envoie un rappel à tous les abonnés ha
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![Expressions de balise](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 Les expressions de balise peuvent contenir tous les opérateurs booléens, notamment AND (&&), OR (||) et NOT (!). Elles peuvent également contenir des parenthèses. Les expressions de balise sont limitées à 20 balises si elles contiennent uniquement des opérateurs OR ; sinon, elles sont limitées à 6 balises.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120490"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913718"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de stockage pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -60,8 +60,8 @@ Pour définir différents niveaux de stockage, tels que Premium et Standard, vou
 
 Dans AKS, deux classes de stockage initiales sont créées :
 
-- *default* : utilise le stockage Azure Standard pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le pod qui l’a utilisé l’est également.
-- *managed-premium* : utilise le stockage Azure Premium pour créer le disque managé. Là encore, la stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le pod qui l’a utilisé l’est également.
+- *default* : utilise le stockage Azure Standard pour créer un disque managé. La stratégie de récupération indique que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
+- *managed-premium* : utilise le stockage Azure Premium pour créer le disque managé. La stratégie de récupération indique à nouveau que le disque Azure sous-jacent est supprimé quand le volume persistant qui l’a utilisé est supprimé.
 
 Si aucune classe de stockage n’est spécifiée pour un volume persistant, la classe de stockage par défaut est utilisée. Quand vous demandez des volumes persistants, veillez à ce qu’ils utilisent le stockage dont vous avez besoin. Vous pouvez créer une classe de stockage pour des besoins supplémentaires à l’aide de `kubectl`. L’exemple suivant utilise la fonctionnalité Disques managés Premium et spécifie que le disque Azure sous-jacent doit être *conservé* quand le pod est supprimé :
 

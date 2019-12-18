@@ -1,17 +1,17 @@
 ---
 title: Requêtes paramétrables dans Azure Cosmos DB
-description: En savoir plus sur les requêtes paramétrables SQL
+description: Découvrez dans quelle mesure les requêtes SQL paramétrées fournissent une gestion et un échappement robustes de l’entrée utilisateur et empêchent l’exposition accidentelle des données via l’injection SQL.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003605"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870817"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Requêtes paramétrables dans Azure Cosmos DB
 

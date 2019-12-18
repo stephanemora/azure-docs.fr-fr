@@ -1,5 +1,5 @@
 ---
-title: Ajouter un Azure Active Directory à l’aide de Services connectés | Azure
+title: Ajouter un annuaire Azure AD à l’aide des services connectés
 description: Ajouter un annuaire Azure Active Directory à l’aide de la boîte de dialogue Visual Studio Ajouter des services connectés
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36827401060e330d57b6afac3db0abbde0c27dc2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2bbbf002110d997d18c49fb03ad599342cdf618d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941946"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964197"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Ajout d’un annuaire Azure Active Directory à l’aide de services connectés dans Visual Studio
 

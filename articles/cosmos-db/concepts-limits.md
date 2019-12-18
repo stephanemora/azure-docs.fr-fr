@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383404"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951817"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -115,13 +115,14 @@ Aucune restriction ne pèse sur les charges utiles d’élément comme le nombre
 
 ## <a name="per-request-limits"></a>Limites par demande
 
-Cosmos DB prend en charge les [opérations CRUD et de requête](https://docs.microsoft.com/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données.  
+Azure Cosmos DB prend en charge les [opérations CRUD et de requête](https://docs.microsoft.com/rest/api/cosmos-db/) sur des ressources telles que des conteneurs, des éléments et des bases de données. Il prend également en charge les [requêtes de lots transactionnels](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) sur plusieurs éléments ayant la même clé de partition dans un conteneur.
 
 | Ressource | Limite par défaut |
 | --- | --- |
 | Durée d’exécution maximale pour une seule opération (par exemple, l’exécution d’une procédure stockée ou la récupération d’une page de requête unique)| 5 secondes |
-| Taille maximale de la demande (procédure stockée, CRUD)| 2 Mo |
+| Taille maximale de la demande (par exemple : procédure stockée, CRUD)| 2 Mo |
 | Taille maximale de la réponse (par exemple, requête paginée) | 4 Mo |
+| Nombre maximal d’opérations dans un lot transactionnel | 100 |
 
 Dès qu’une opération telle qu’une requête atteint le délai d’expiration de l’exécution ou la taille limite de la réponse, elle retourne une page de résultats et un jeton de continuation au client pour reprendre l’exécution. Il n’existe aucune limite pratique quant à la durée de l’exécution d’une requête unique entre les continuations et les pages.
 

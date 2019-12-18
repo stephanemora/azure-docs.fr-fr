@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 25559c7a6f66a1092007054c72f601b428fa4e7b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845513"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974051"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
 
@@ -113,7 +113,6 @@ private async void LoadUri_Click(object sender, RoutedEventArgs e)
 
 ![Lecture en mode hors connexion de fichiers fMP4 protégés PlayReady](./media/offline-playready-for-windows/offline-playready1.jpg)
 
-
 La vidéo étant sous protection de PlayReady, elle ne pourra pas être incluse dans la capture d’écran.
 
 En résumé, nous avons mis en place le mode hors connexion dans Azure Media Services :
@@ -122,6 +121,10 @@ En résumé, nous avons mis en place le mode hors connexion dans Azure Media Ser
 * Le contenu peut être hébergé dans Azure Media Services ou Stockage Azure pour le téléchargement progressif ;
 * La distribution de licences PlayReady peut se faire avec Azure Media Services ou un autre service ;
 * Le contenu de diffusion en continu lisse préparé peut toujours être utilisé pour la diffusion en continu en ligne via DASH ou lisse avec PlayReady comme DRM.
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

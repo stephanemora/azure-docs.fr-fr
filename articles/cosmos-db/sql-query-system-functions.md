@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : fonctions système'
-description: Découvrez les fonctions système SQL dans Azure Cosmos DB.
+description: Découvrez les fonctions système SQL intégrées et définies par l’utilisateur dans Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 12/02/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 98a087f02035545b828cfcf11c58d03d02a5e76a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6f41adbb726313ef095084d079dc7852736e0c06
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349180"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870528"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Fonctions système (Azure Cosmos DB)
 

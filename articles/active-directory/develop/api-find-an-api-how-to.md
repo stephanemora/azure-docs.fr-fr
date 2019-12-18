@@ -1,26 +1,23 @@
 ---
-title: Comment rechercher une API spécifique requise pour une application personnalisée | Microsoft Docs
+title: Rechercher une API pour une application personnalisée | Azure
 description: Comment configurer les autorisations dont vous avez besoin pour accéder à une API particulière dans l’application Azure AD que vous avez développée
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2492a9346585698132e7fd9cfcde068ffd60ebc5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 8c2b88ef00a8a40134462fdc285f1e4c3f12a0b0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476169"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963900"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>Comment rechercher une API spécifique requise pour une application personnalisée
 
@@ -36,6 +33,4 @@ Lorsque vous ajoutez des autorisations à l’inscription de votre application, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
--   [Connaître le manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
-
-
+- [Connaître le manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)

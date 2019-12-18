@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305212"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925941"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
@@ -22,7 +22,7 @@ ms.locfileid: "74305212"
 Cet article explique comment utiliser des liaisons [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) dans Azure Functions. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Azure Cosmos DB.
 
 > [!NOTE]
-> Cet article concerne Azure Functions 1.x. Pour plus d’informations sur l’utilisation de ces liaisons dans Functions 2.x, consultez [Liaisons Azure Cosmos DB pour Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
+> Cet article concerne Azure Functions 1.x. Pour plus d’informations sur l’utilisation de ces liaisons dans Functions 2.x et ultérieur, consultez [Liaisons Azure Cosmos DB pour Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >Cette liaison était nommée à l’origine DocumentDB. Dans Functions version 1.x, seul le déclencheur a été renommé Cosmos DB. La liaison d’entrée, la liaison de sortie et le package NuGet conservent le nom DocumentDB.
 

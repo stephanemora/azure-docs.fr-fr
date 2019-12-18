@@ -1,5 +1,5 @@
 ---
-title: Surveiller votre application web avec des tests web à plusieurs étapes et Azure Application Insights | Microsoft Docs
+title: Surveiller à l’aide de tests web à plusieurs étapes – Azure Application Insights
 description: Configuration des tests web multiétape pour surveiller vos applications web avec Azure Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817391"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928970"
 ---
 # <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 

@@ -1,6 +1,6 @@
 ---
 title: Comment vérifier la progression des tâches à l’aide des API REST | Microsoft Docs
-description: Apprenez à suivre la progression des tâches.
+description: Cet article explique comment consulter la progression des tâches à l’aide de l’API REST Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 378a90b712af031f9d89758939afb993cee5aafd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869502"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901501"
 ---
 # <a name="how-to-check-job-progress"></a>Procédure : vérification de la progression des tâches
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de la v2 vers la v3](../latest/migrate-from-v2-to-v3.md).
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. Vous trouverez l’état de la tâche en utilisant la propriété d’état de la tâche. Pour plus d'informations sur la propriété State, consultez [Propriétés de l'entité Job](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties).
 

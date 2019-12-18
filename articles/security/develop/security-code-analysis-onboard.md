@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707249"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851500"
 ---
 # <a name="onboarding-and-installing"></a>Intégration et installation
 
@@ -31,23 +31,23 @@ Conditions préalables pour commencer à utiliser Microsoft Security Code Analys
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Intégration de l’extension Microsoft Security Code Analysis
 
 - Si vous disposez de l’une des offres de support suivantes, contactez votre responsable technique de compte pour acheter ou échanger des heures existantes afin d’accéder à l’extension :
-   - Niveau avancé de Support unifié
-   - Niveau de performance de Support unifié
-   - Support Premier pour les développeurs
-   - Support Premier pour les partenaires
-   - Support Premier pour l’entreprise
+  - Niveau avancé de Support unifié
+  - Niveau de performance de Support unifié
+  - Support Premier pour les développeurs
+  - Support Premier pour les partenaires
+  - Support Premier pour l’entreprise
 - Si vous disposez de l’un des services de support suivants ou si vous n’avez pas de plan de support Microsoft, vous devez effectuer une mise à niveau vers une offre de support éligible :
-   - Support Azure pour les partenaires
-   - Support De base Azure
-   - Azure Developer Support
-   - Support Standard Microsoft Azure
-   - Support Professional Direct Microsoft Azure
-   - Niveau de base du Support unifié
+  - Support Azure pour les partenaires
+  - Support De base Azure
+  - Azure Developer Support
+  - Support Standard Microsoft Azure
+  - Support Professional Direct Microsoft Azure
+  - Niveau de base du Support unifié
 - Pour acheter une offre de support éligible, accédez à notre [page d’accueil des services de support](https://www.microsoft.com/enterprise/services/support).
 - Une fois le contrat de support en place, contactez votre responsable technique de compte qui peut vous aider à démarrer ainsi qu’à collecter toutes les informations nécessaires.
 
 >[!NOTE]
-> Si vous êtes un partenaire inscrit du Microsoft Partner Network, vous pouvez acheter le Support Premier pour les partenaires. Dans le cas contraire, vous devez acheter l’une des offres de support précitées.
+>Si vous ne disposez pas d’un contrat de support, nous travaillons également sur un programme d’achat de partenaires dans lequel vous pouvez tirer parti de partenaires tiers pour acheter l’extension sans devoir acheter le plan Support unifié. Veuillez nous [envoyer un courrier électronique](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). pour nous faire savoir que cette option vous intéresse. Nous vous remercions de l’intérêt que vous nous portez et vous contacterons dès que cette option sera disponible.
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Installation de l’extension Microsoft Security Code Analysis
 
@@ -61,7 +61,7 @@ Conditions préalables pour commencer à utiliser Microsoft Security Code Analys
 >[!NOTE]
 > Même si vous n’avez pas accès à l’installation de l’extension, poursuivez avec les étapes d’installation. Vous pouvez demander l’accès à l’administrateur de votre organisation Azure DevOps lors du processus d’installation.
 
-Une fois l’extension installée, les tâches de build de développement sécurisé sont visibles et disponibles pour l’ajout à vos pipelines Azure.
+Une fois l’extension installée, les tâches de build de développement sécurisé sont visibles et disponibles pour l’ajout à vos Azure Pipelines.
 
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Ajout de tâches de build spécifiques à votre pipeline Azure DevOps
 
@@ -87,6 +87,6 @@ Une fois l’extension installée, les tâches de build de développement sécur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la configuration des tâches de build, voir notre [Guide de configuration](security-code-analysis-customize.md).
+Pour plus d’informations sur la configuration des tâches de build, consultez notre [Guide de configuration](security-code-analysis-customize.md) ou notre [Guide de configuration YAML](yaml-configuration.md).
 
 Si vous avez d’autres questions sur l’extension et les outils proposés, voir notre [page FAS](security-code-analysis-faq.md).

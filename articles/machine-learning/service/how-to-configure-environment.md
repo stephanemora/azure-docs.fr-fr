@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cba77b89ac9a9a93a2a3d889d4faca32708fd719
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997256"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -158,7 +158,7 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
 
     Cet exemple crée un environnement à l’aide de python 3.6.5, mais n’importe quelle sous-version spécifique peut être choisie. La compatibilité du Kit de développement logiciel (SDK) ne peut pas être garantie avec certaines versions principales (versions 3.5 et supérieures recommandées), et il est recommandé d’essayer une autre version/sous-version dans votre environnement Anaconda si vous rencontrez des erreurs. La création de l’environnement prend plusieurs minutes, le temps que les composants et les packages soient téléchargés.
 
-1. Exécutez les commandes suivantes dans votre nouvel environnement pour activer les noyaux ipython spécifiques à l’environnement. Cela permet de s’assurer du comportement d’importation du package et du noyau attendu lors de l’utilisation de Jupyter Notebook dans des environnements Anaconda :
+1. Exécutez les commandes suivantes dans votre nouvel environnement pour activer les noyaux IPython spécifiques à l’environnement. Cela permet de s’assurer du comportement d’importation du package et du noyau attendu lors de l’utilisation de Jupyter Notebook dans des environnements Anaconda :
 
     ```shell
     conda install notebook ipykernel
@@ -167,7 +167,7 @@ Lorsque vous utilisez un ordinateur local (qui peut également être une machine
     Exécutez ensuite la commande ci-dessous pour créer le noyau :
 
     ```shell
-    ipython kernel install --user
+    ipython kernel install --user --name myenv --display-name "Python (myenv)"
     ```
 
 1. Utilisez les commandes suivantes pour installer les packages :

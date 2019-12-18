@@ -1,6 +1,7 @@
 ---
-title: Exemples de transformations de revendications StringCollection pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C | Microsoft Docs
-description: Exemples de transformations de revendications StringCollection pour le schéma Infrastructure d’expérience d’identité d’Azure Active Directory B2C.
+title: Exemples de transformation de revendications StringCollection pour les stratégies personnalisées
+titleSuffix: Azure AD B2C
+description: Exemples de transformations de revendications StringCollection pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9add75b8922fe958fc348fb2a6dd48a7b300eade
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063309"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951001"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 

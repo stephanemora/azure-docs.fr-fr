@@ -1,7 +1,7 @@
 ---
 title: Entraîner des modèles Chainer de deep learning
 titleSuffix: Azure Machine Learning
-description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur Chainer de Azure Machine Learning.  L’exemple de script classifie les images de chiffres manuscrits pour créer un réseau neural de Deep Learning à l’aide de la bibliothèque python Chainer qui s’exécute sur numpy.
+description: Découvrez comment exécuter vos scripts de formation PyTorch à l’échelle de l’entreprise à l’aide de la classe d’estimateur Chainer d’Azure Machine Learning.  L’exemple de script classifie les images de chiffres manuscrits pour créer un réseau neural de Deep Learning à l’aide de la bibliothèque python Chainer qui s’exécute sur numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,17 +10,17 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f384a6a870d891bbaf6fa20a896b0251e62b8d4f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40c1b7e1e4089db3e95b0da810a961b7fd202aac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224979"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969171"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez découvrir comment exécuter vos scripts de formation [Chainer](https://chainer.org/) à l’échelle de l’entreprise à l’aide de la classe d’[estimateur Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) de Azure Machine Learning. L’exemple de script de formation de cet article utilise le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) populaire pour classifier les chiffres manuscrits à l’aide d’un réseau neural profond (DNN) créé à l’aide de la bibliothèque python Chainer qui s’exécute par-dessus [numpy](https://www.numpy.org/).
+Dans cet article, découvrez comment exécuter vos scripts de formation [Chainer](https://chainer.org/) à l’échelle de l’entreprise à l’aide de la classe d’[estimateur Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) d’Azure Machine Learning. L’exemple de script de formation de cet article utilise le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) populaire pour classifier les chiffres manuscrits à l’aide d’un réseau neural profond (DNN) créé à l’aide de la bibliothèque python Chainer qui s’exécute par-dessus [numpy](https://www.numpy.org/).
 
 Que vous soyez en train de former un modèle Chainer d’apprentissage approfondi ou que vous transmettez un modèle existant dans le Cloud, vous pouvez utiliser Azure Machine Learning pour faire évoluer les travaux de formation Open source à l’aide de ressources de calcul élastiques dans le Cloud. Vous pouvez créer, déployer, mettre à jour et surveiller des modèles de niveau production avec Azure Machine Learning. 
 
@@ -83,7 +83,7 @@ os.makedirs(project_folder, exist_ok=True)
 
 Dans ce didacticiel, le script d’apprentissage **chainer_mnist.py** est fourni. Dans la pratique, vous devez être capable de prendre n’importe quel script d’apprentissage personnalisé et de l’exécuter avec Azure Machine Learning sans avoir à modifier votre code.
 
-Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, ajoutez une petite quantité de code Azure Machine Learning à l’intérieur de votre script d’apprentissage.  Le script d’apprentissage **chainer_mnist.py** montre comment consigner des mesures dans votre exécution Azure Machine Learning à l’aide de l’objet `Run` dans le script.
+Pour utiliser les fonctionnalités de suivi et de mesures d’Azure Machine Learning, ajoutez une petite quantité de code Azure Machine Learning à l’intérieur de votre script de formation.  Le script d’apprentissage **chainer_mnist.py** montre comment consigner des mesures dans votre exécution Azure Machine Learning à l’aide de l’objet `Run` dans le script.
 
 Le script d’apprentissage fourni utilise des exemples de données de la fonction de chaînage `datasets.mnist.get_mnist`.  Pour vos propres données, vous devrez peut-être suivre des étapes telles que [Charger un jeu de données et des scripts](how-to-train-keras.md#data-upload) pour rendre les données disponibles pendant l’apprentissage.
 

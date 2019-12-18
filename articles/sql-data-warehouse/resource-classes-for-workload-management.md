@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30a3be1365f152a88713604570169091f09f0536
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685931"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975429"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
 
@@ -24,7 +24,7 @@ Conseils d’utilisation des classes de ressources pour gérer la mémoire et la
 
 ## <a name="what-are-resource-classes"></a>Que sont les classes de ressources ?
 
-La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Les classes de ressources peuvent vous aider à gérer votre charge de travail en définissant des limites quant au nombre de requêtes qui s’exécutent simultanément et sur les ressources de calcul qui leur sont respectivement attribuées.  Il faut faire un compromis entre la mémoire et la concurrence.
+La capacité de performances d’une requête est déterminée par la classe de ressources de cette dernière.  Les classes de ressources sont des limites de ressources prédéterminées dans Azure SQL Data Warehouse, qui régissent les ressources de calcul et la concurrence lors de l’exécution des requêtes. Les classes de ressources peuvent vous aider à configurer des ressources pour vos requêtes en définissant des limites applicables au nombre de requêtes qui s’exécutent simultanément et aux ressources de calcul qui leur sont respectivement attribuées.  Il faut faire un compromis entre la mémoire et la concurrence.
 
 - Des classes de ressources plus petites réduisent la mémoire maximale par requête, mais augmentent la simultanéité.
 - Des classes de ressources plus grandes augmentent la mémoire maximale par requête, mais réduisent la concurrence.
@@ -36,7 +36,7 @@ Il existe deux types de classes de ressources :
 
 Les classes de ressources utilisent des emplacements de concurrence pour mesurer la consommation des ressources.  Les [emplacements de concurrence](#concurrency-slots) sont expliqués plus loin dans cet article.
 
-- Pour afficher l’utilisation des ressources pour les classes de ressources, consultez [Limites de mémoire et de concurrence]memory-concurrency-limits.md).
+- Pour afficher l’utilisation des ressources pour les classes de ressources, consultez [Limites de mémoire et de concurrence](memory-concurrency-limits.md).
 - Pour ajuster la classe de ressources, vous pouvez exécuter la requête sous un autre utilisateur ou modifier l’appartenance [de l’utilisateur actuel à une classe de ressources](#change-a-users-resource-class).
 
 ### <a name="static-resource-classes"></a>Classes de ressources statiques
@@ -65,14 +65,18 @@ Les classes de ressources dynamiques sont implémentées avec les rôles de base
 - largerc
 - xlargerc
 
-L’allocation de mémoire pour chaque classe de ressources est la suivante, **quel que soit** le niveau de service.  La quantité minimale de requêtes d’accès concurrentiel est également indiquée.  Pour certains niveaux de service, il est possible d’obtenir plus que la concurrence minimale.
+L’allocation de mémoire pour chaque classe de ressources est la suivante. 
 
-| Classe de ressources | Pourcentage de mémoire | Nombre minimal de requêtes simultanées |
-|:--------------:|:-----------------:|:----------------------:|
-| smallrc        | 3 %                | 32                     |
-| mediumrc       | 10%               | 10                     |
-| largerc        | 22 %               | 4                      |
-| xlargerc       | 70 %               | 1                      |
+| Niveau de service  | smallrc           | mediumrc               | largerc                | xlargerc               |
+|:--------------:|:-----------------:|:----------------------:|:----------------------:|:----------------------:|
+| DW100c         | 25%               | 25%                    | 25%                    | 70 %                    |
+| DW200c         | 12,5 %             | 12,5 %                  | 22 %                    | 70 %                    |
+| DW300c         | 8 %                | 10%                    | 22 %                    | 70 %                    |
+| DW400c         | 6,25 %             | 10%                    | 22 %                    | 70 %                    |
+| DW500c         | 20%               | 10%                    | 22 %                    | 70 %                    |
+| DW1000c à<br> DW30000c | 3 %       | 10%                    | 22 %                    | 70 %                    |
+
+
 
 ### <a name="default-resource-class"></a>Classe de ressources par défaut
 
@@ -105,6 +109,8 @@ Les opérations suivantes sont régies par des classes de ressources :
 
 > [!NOTE]  
 > Les instructions SELECT sur des vues de gestion dynamique (DMV) ou d’autres vues système ne sont régies par aucune limite de concurrence. Les utilisateurs peuvent surveiller le système en toutes circonstances, quel que soit le nombre de requêtes en cours d’exécution dessus.
+>
+>
 
 ### <a name="operations-not-governed-by-resource-classes"></a>Opérations non régies par des classes de ressources
 
@@ -178,6 +184,11 @@ Les utilisateurs peuvent être membres de plusieurs classes de ressources. Quand
 - Les classes de ressources plus grandes ont la précédence sur les classes de ressources plus petites. Par exemple, si un utilisateur est membre des classes de ressources mediumrc et largerc, les requêtes s’exécutent avec la classe de ressources largerc. De même, si un utilisateur est membre des classes de ressources staticrc20 et statirc80, les requêtes s’exécutent avec les allocations de ressources de staticrc80.
 
 ## <a name="recommendations"></a>Recommandations
+
+>[!NOTE]
+>Tirez parti des fonctionnalités de gestion des charges de travail ([isolation de charge de travail](sql-data-warehouse-workload-isolation.md), [classification](sql-data-warehouse-workload-classification.md) et [importance](sql-data-warehouse-workload-importance.md)) pour obtenir un meilleur contrôle de votre charge de travail et des performances prévisibles.  
+>
+>
 
 Nous recommandons de créer un utilisateur dédié à l’exécution d’un type spécifique d’opération de requête ou de chargement. Accordez à cet utilisateur une classe de ressources permanente au lieu de modifier fréquemment la classe de ressources. Les classes de ressources statiques offrent un plus grand contrôle global de la charge de travail. Nous vous suggérons donc de les utiliser avant d’envisager l’utilisation de classes de ressources dynamiques.
 

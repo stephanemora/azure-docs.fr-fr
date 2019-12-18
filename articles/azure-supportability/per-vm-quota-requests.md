@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: ccd0c88c95ae9a752ef8ea2387bbde4f8559bc68
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 280561126186e4c70399b3a1ddd177ff4eb54400
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531667"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850038"
 ---
 # <a name="standard-quota-per-vm-series-vcpu-limit-increase"></a>Quota Standard : augmentation de la limite de processeurs virtuels de séries de machines virtuelles
 
-Resource Manager prend en charge deux types de quotas de processeurs virtuels pour les machines virtuelles. **Les machines virtuelles avec paiement à l’utilisation et les instances de machine virtuelle réservées** utilisent un quota Standard. **Les machines virtuelles Basse priorité** utilisent un quota Basse priorité. Le quota de processeurs virtuels Standard pour le paiement à l’utilisation et les instances de machine virtuelle réservées est appliqué à deux niveaux pour chaque abonnement de chaque région.
+Resource Manager prend en charge deux types de quotas de processeurs virtuels pour les machines virtuelles. **Les machines virtuelles avec paiement à l’utilisation et les instances de machine virtuelle réservées** utilisent un quota Standard. Les **machines virtuelles Spot** utilisent le quota Spot. Le quota de processeurs virtuels Standard pour le paiement à l’utilisation et les instances de machine virtuelle réservées est appliqué à deux niveaux pour chaque abonnement de chaque région.
 
 Le premier niveau est la limite **Total des processeurs virtuels régionaux** (sur toutes les séries de machines virtuelles), et le deuxième niveau est la limite **Processeurs virtuels par série de machines virtuelles** (par exemple, les processeurs virtuels de série Dv3). Chaque fois qu’une nouvelle machine virtuelle est déployée, la somme des processeurs virtuels nouveaux et existants pour cette série de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels approuvé pour cette série de machines virtuelles particulière. En outre, le nombre total de processeurs virtuels nouveaux et existants déployés sur toutes les séries de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels régionaux total approuvé pour l’abonnement. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé.
 Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. Une augmentation du quota de série de machines virtuelles augmente automatiquement la limite totale de processeurs virtuels régionaux du même montant. 
@@ -25,7 +25,7 @@ Apprenez-en davantage sur les quotas Standard des processeurs virtuels sur la pa
 
 Apprenez-en davantage sur l’augmentation de la limite de processeurs virtuels régionale pour le quota Standard [ici](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests). 
 
-Apprenez-en davantage sur l’**augmentation des limites de processeurs virtuels de machine virtuelle Basse priorité** [ici](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+Découvrez-en plus sur l’**augmentation des limites de processeur virtuel de machine virtuelle Spot** [ici](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
 
 Vous pouvez demander une augmentation des **limites de quota de processeurs virtuels Standard par série de machines virtuelles** via le panneau **Aide + support** ou le panneau **Utilisations + quota** dans le portail.
 
@@ -63,7 +63,7 @@ Vous pouvez également demander un quota pour plusieurs régions à l’aide d�
 
    ![Détails des quotas : modèle de déploiement](./media/resource-manager-core-quotas-request/1-7.png)
 
-8. Pour l’emplacement sélectionné, définissez la valeur **Type** sur **Standard**. Vous pouvez demander des types de quota Standard et Basse priorité à partir d’un seul incident de support via la prise en charge de la sélection multiple sur le champ **Type**. Apprenez-en davantage sur l’**augmentation des limites de quota Basse priorité** sur la page **<>** .
+8. Pour l’emplacement sélectionné, définissez la valeur **Type** sur **Standard**. Vous pouvez demander des types de quota Standard et Spot à partir d’un seul incident de support via la prise en charge de la sélection multiple sur le champ **Type**. En savoir plus sur l’**augmentation des limites de quota Spot** sur cette [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot)
 
    ![Famille de références](./media/resource-manager-core-quotas-request/1-8.png)
 
@@ -111,7 +111,7 @@ Vous pouvez également **demander un quota pour plusieurs régions** à l’aide
 
    ![Panneau Problème de quota](./media/resource-manager-core-quotas-request/1-1-6.png)
 
-7. Pour l’emplacement sélectionné, définissez la valeur **Type** sur **Standard**. Vous pouvez demander des types de quota Standard et Basse priorité à partir d’un seul incident de support via la prise en charge de la sélection multiple sur le champ **Type**. Apprenez-en davantage sur l’**augmentation des limites de processeurs virtuels Basse priorité** sur cette [page](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota).
+7. Pour l’emplacement sélectionné, définissez la valeur **Type** sur **Standard**. Vous pouvez demander des types de quota Standard et Basse priorité à partir d’un seul incident de support via la prise en charge de la sélection multiple sur le champ **Type**. Apprenez-en davantage sur l’**augmentation des limites de processeurs virtuels Basse priorité** sur cette [page](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
 
    ![Série de références sélectionnée](./media/resource-manager-core-quotas-request/1-1-7.png)
    

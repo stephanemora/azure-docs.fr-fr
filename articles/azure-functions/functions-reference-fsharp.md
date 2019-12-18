@@ -6,19 +6,19 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 669701f91ab28a4eb734b0346be6515dc44e8685
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226748"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975004"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
 F# for Azure Functions est une solution conçue pour exécuter facilement de petits morceaux de code, ou « fonctions », dans le cloud. Les données circulent dans votre fonction F# par le biais d’arguments de fonction. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation. 
 
 >[!IMPORTANT]
->Le script F# (.fsx) est pris en charge uniquement par la [version 1.x](functions-versions.md#creating-1x-apps) du runtime Azure Functions. Si vous voulez utiliser F# avec le runtime version 2.x, un projet de bibliothèque de classes F# précompilé (.fs) est nécessaire. Vous créez, gérez et publiez un projet de bibliothèque de classes F# en utilisant Visual Studio comme vous le feriez pour un [projet de bibliothèque de classes C# ](functions-dotnet-class-library.md). Pour plus d’informations sur les versions de Functions, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md).
+>Le script F# (.fsx) est pris en charge uniquement par la [version 1.x](functions-versions.md#creating-1x-apps) du runtime Azure Functions. Si vous voulez utiliser F# avec la version 2.x et ultérieure du runtime, vous devez utiliser un projet de bibliothèque de classes F# précompilé (.fs). Vous créez, gérez et publiez un projet de bibliothèque de classes F# en utilisant Visual Studio comme vous le feriez pour un [projet de bibliothèque de classes C# ](functions-dotnet-class-library.md). Pour plus d’informations sur les versions de Functions, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md).
 
 Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
@@ -48,7 +48,7 @@ FunctionsProject
 
 Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.fsx) et un fichier de configuration de liaison (function.json).
 
-Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
+Les extensions de liaison nécessaires dans la [version 2.x et ultérieure](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
 Chaque liaison prend en charge un ensemble spécifique d’arguments, comme décrit en détail dans [Informations de référence pour les développeurs sur les déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md). Par exemple, l’une des liaisons d’argument prises en charge par un déclencheur d’objet blob est un objet CLR traditionnel (POCO), qui peut être exprimé à l’aide d’un enregistrement F#. Par exemple :

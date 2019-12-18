@@ -1,17 +1,17 @@
 ---
 title: Sous-requêtes SQL pour Azure Cosmos DB
-description: Découvrez les sous-requêtes SQL et leurs cas d’utilisation courants dans Azure Cosmos DB
+description: Découvrez les sous-requêtes SQL et leurs cas d’utilisation courants et les différents types de sous-requêtes dans Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003479"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870562"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requêtes SQL pour Azure Cosmos DB
 

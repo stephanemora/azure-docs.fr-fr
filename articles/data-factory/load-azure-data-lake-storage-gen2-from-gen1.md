@@ -1,22 +1,23 @@
 ---
-title: Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
+title: Copier des données depuis Azure Data Lake Storage Gen1 vers Gen2
 description: Utiliser Azure Data Factory pour copier des données depuis Azure Data Lake Storage Gen1 vers Gen2
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.author: jingwang
-ms.openlocfilehash: d13dad6e87bd6c821b497138ad75d7ae2b9a052d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068989"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926300"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -52,7 +53,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     * **Version** : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les banques de données utilisées par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
    
    ![Page d’accueil Data Factory](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)

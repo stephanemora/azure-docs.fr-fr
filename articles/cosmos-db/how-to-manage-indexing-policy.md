@@ -1,17 +1,17 @@
 ---
 title: Gérer les stratégies d’indexation dans Azure Cosmos DB
-description: Découvrir comment gérer les stratégies d’indexation dans Azure Cosmos DB
+description: Découvrir comment gérer les stratégies d’indexation, inclure ou exclure une propriété de l’indexation et définir l’indexation à l’aide de différents Kits de développement logiciel (SDK) Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034455"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872058"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 

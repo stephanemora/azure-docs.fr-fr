@@ -1,6 +1,6 @@
 ---
 title: Utiliser l’interface CLI pour créer des filtres avec Azure Media Services | Microsoft Docs
-description: Cette rubrique montre comment utiliser l’interface CLI pour créer des filtres avec Media Services.
+description: Cet article montre comment utiliser l’interface CLI pour créer des filtres avec Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 26350479f0f066f45c143e1a35061b3a409de309
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 74516aa921e45917f327a193a1c972b021c9c8ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786490"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896068"
 ---
 # <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI 
 
@@ -120,7 +120,7 @@ Lorsque vous définissez des filtres, vos clients peuvent les utiliser dans l'UR
 
 Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocole|Exemples|
+|Protocol|Exemples|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

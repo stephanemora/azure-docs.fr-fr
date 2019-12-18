@@ -1,6 +1,7 @@
 ---
-title: Configurer l’inscription et la connexion avec OpenID Connect - Azure Active Directory B2C | Microsoft Docs
-description: Configurez l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C.
+title: Configurer l’inscription et la connexion avec un compte OpenID Connect
+titleSuffix: Azure AD B2C
+description: Configurez l’inscription et la connexion avec un fournisseur d’identité OpenID Connect dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 471163fc8fe8c5bad550d0615683ef2b97b818dc
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672918"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950460"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec OpenID Connect à l’aide d’Azure Active Directory B2C
 

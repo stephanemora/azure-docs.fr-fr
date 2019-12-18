@@ -1,6 +1,6 @@
 ---
 title: Implémentation d’un basculement de diffusion en continu avec Azure Media Services | Microsoft Docs
-description: Cette rubrique montre comment implémenter un scénario de basculement de diffusion en continu.
+description: Cet article explique comment implémenter un scénario de streaming de basculement avec Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051654"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887179"
 ---
 # <a name="implement-failover-streaming-with-media-services"></a>Implémentation d’une diffusion en continu de basculement avec Media Services 
 

@@ -4,17 +4,17 @@ description: Comment configurer des machines pour la gestion avec Azure Automati
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243433"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951409"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -305,6 +305,15 @@ Pour obtenir les informations requises pour le protocole d’inscription State C
 
 Pour renforcer la sécurité, les clés d’accès primaire et secondaire d’un compte Automation peuvent être régénérées à tout moment (dans la page **Gérer les clés**) pour éviter les enregistrements ultérieurs de nœuds à l’aide de clés déjà utilisées.
 
+## <a name="certificate-expiration-and-re-registration"></a>Expiration du certificat et nouvelle inscription
+
+Après avoir inscrit une machine en tant que nœud DSC dans Azure Automation State Configuration, vous êtes susceptible de réinscrire le nœud à l’avenir  pour de multiples raisons :
+
+- Pour les versions de Windows Server antérieures à Windows Server 2019, chaque nœud négocie automatiquement un certificat unique d’authentification qui expire après un an. À ce stade, le protocole d’inscription DSC PowerShell ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc réinscrire les nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de la date d’expiration du certificat, ou à tout moment après cette date, entraîne la génération et l’utilisation d’un nouveau certificat.  Une solution à ce problème est incluse dans Windows Server 2019 et ultérieur.
+- Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement par le biais d’une réinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
+
+L’inscription peut être renouvelée selon la procédure initiale, en utilisant l’une des méthodes d’intégration décrites dans ce document. Il est inutile de désinscrire un nœud dans Azure Automation State Configuration avant de le réinscrire.
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Résolution des problèmes liés à l’intégration de machines virtuelles Azure
 
 Azure Automation State Configuration vous permet d’intégrer facilement des machines virtuelles Microsoft Azure à des fins de gestion de la configuration. En arrière-plan, l’extension Azure VM Desired State Configuration est utilisée pour enregistrer la machine virtuelle auprès d’Azure Automation State Configuration. Étant donné que cette extension s’exécute de façon asynchrone, il peut être très important d’en suivre la progression et de résoudre ses éventuels problèmes d’exécution.
@@ -314,14 +323,7 @@ Azure Automation State Configuration vous permet d’intégrer facilement des ma
 
 Pour résoudre les problèmes ou afficher l’état de l’extension Azure VM Desired State Configuration, rendez-vous dans le portail Azure, accédez à la machine virtuelle en cours d’intégration, puis cliquez sur **Extensions** sous **Paramètres**. Cliquez ensuite sur **DSC** ou **DSCForLinux** selon votre système d’exploitation. Pour plus de détails, vous pouvez cliquer sur **Afficher l’état détaillé**.
 
-## <a name="certificate-expiration-and-reregistration"></a>Expiration du certificat et nouvel enregistrement
-
-Après avoir inscrit une machine en tant que nœud DSC dans Azure Automation State Configuration, il se peut que vous ayez besoin de revenir en arrière pour de multiples raisons :
-
-- Pour les versions de Windows Server antérieures à Windows Server 2019, chaque nœud négocie automatiquement un certificat unique d’authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.  Une solution à ce problème est incluse dans Windows Server 2019 et ultérieur.
-- Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement via une désinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
-
-L’inscription peut être renouvelée selon la procédure initiale, en utilisant l’une des méthodes d’intégration décrites dans ce document. Il est inutile d’annuler l’inscription d’un nœud dans Azure Automation State Configuration avant de le réinscrire.
+Pour plus d’informations sur la résolution des problèmes, consultez [Résolution des problèmes à l’aide d’Azure Automation Desired State Configuration (DSC)](./troubleshoot/desired-state-configuration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

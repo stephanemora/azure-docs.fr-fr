@@ -1,24 +1,22 @@
 ---
-title: Copier en bloc à partir d’une base de données à l’aide d’une table de contrôle avec Azure Data Factory
+title: Copier en bloc à partir d’une base de données à l’aide d’une table de contrôle
 description: Découvrez comment utiliser un modèle de solution pour copier des données en bloc à partir d’une base de données à l’aide d’une table de contrôle externe pour stocker une liste de partitions de tables sources à l’aide d’Azure Data Factory.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: b651721e9b833c02e4789c79ff5ad0b49ce31343
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684278"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927304"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copier en bloc à partir d’une base de données avec une table de contrôle
 

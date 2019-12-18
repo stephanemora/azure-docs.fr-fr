@@ -1,6 +1,6 @@
 ---
-title: Application web qui appelle des API web (connexion) - Plateforme d’identités Microsoft
-description: Apprenez à générer une application web qui appelle des API web (connexion)
+title: Supprimer des comptes du cache lors de la déconnexion – Plateforme d’identités Microsoft | Azure
+description: Découvrir comment supprimer un compte du cache de jeton lors de la déconnexion
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596380"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961656"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>Application web qui appelle des API web - Connexion
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Supprimer les comptes du cache lors de la déconnexion globale
 
 Vous savez déjà comment ajouter des informations d’identification à votre application web. Vous l’avez appris dans la section relative à [l’application web qui connecte des utilisateurs - Ajouter des infos d’identification](scenario-web-app-sign-user-sign-in.md).
 

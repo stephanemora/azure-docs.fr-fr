@@ -1,27 +1,24 @@
 ---
 title: Réactiver des espaces de noms Azure Access Control Service (ACS) désactivés
-description: Découvrez comment trouver et activer vos espaces de noms Azure Access Control Service (ACS) et demander une extension de leur activation jusqu'au 4 février 2019.
+description: Recherchez et activez vos espaces de noms Azure Access Control Service (ACS) et demandez une extension de leur activation jusqu’au 4 février 2019.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb17109d53c6e08c8607959207e367086032f6d
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482710"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966943"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Activation Réactiver des espaces de noms Access Control Service désactivés
 
@@ -100,7 +97,7 @@ Les extensions supplémentaires ne seront plus automatiquement approuvées. Si v
     | **Service** | `All services` |
     | **Ressource** | `General question/Resource not available` |
     | **Type de problème** | `ACS to SAS Migration` |
-    | **Objet** | Décrivez le problème |
+    | **Subject** | Décrivez le problème |
 
    ![Affiche un exemple de nouvelle demande de support technique](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 

@@ -4,17 +4,17 @@ description: Cette solution de gestion de machines virtuelles assure le démarra
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 11/06/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718688"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951494"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -119,7 +119,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    - Spécifiez un nom pour le nouvel **espace de travail Log Analytics**, comme « ContosoLAWorkspace ».
    - Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
    - Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
-   - Sélectionnez un **emplacement**. Actuellement, les seuls emplacements disponibles sont **Australie Sud-Est**, **Canada Centre**, **Inde Centre**, **USA Est**, **Japon Est**, **Asie Sud-Est**, **Royaume-Uni Sud**, **Europe Ouest** et **USA Ouest 2**.
+   - Sélectionnez un **emplacement**.
    - Sélectionner un **niveau de tarification**. Choisissez l’option **Par Go (autonome)** . Les journaux Azure Monitor ont mis à jour les [tarifs](https://azure.microsoft.com/pricing/details/log-analytics/), et le niveau Par Go est la seule option disponible.
 
    > [!NOTE]
@@ -428,7 +428,7 @@ Pour supprimer la solution, procédez comme suit :
 
 Le compte Automation et l’espace de travail Log Analytics ne sont pas supprimés au cours de ce processus. Si vous ne souhaitez pas conserver l’espace de travail Log Analytics, vous devez le supprimer manuellement. Cette opération peut se faire à partir du portail Azure :
 
-1. Dans l’écran d’accueil du portail Azure, sélectionnez **Espaces de travail Log Analytics**.
+1. Dans le Portail Azure, recherchez et sélectionnez **Espaces de travail Log Analytics**.
 1. Sur la page **Espaces de travail Log Analytics**, sélectionnez l’espace de travail.
 1. Sur la page des paramètres de l’espace de travail, sélectionnez **Supprimer** dans le menu.
 

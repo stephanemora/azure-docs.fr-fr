@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555687"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893584"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
 > [!NOTE]
-> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](../../azure-monitor/platform/alerts-overview.md). La [mise hors service des alertes classiques est planifiée](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).  
+> Cet article décrit comment créer des alertes de métriques classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](../../azure-monitor/platform/alerts-overview.md). Les alertes classiques ne sont [mises hors service](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement), bien qu’elles soient toujours utilisées pour les ressources qui ne prennent pas encore en charge les nouvelles alertes. 
 >
 
 Azure vous permet de définir des conditions sur des données et d’être informé quand les dernières données de monitoring répondent à ces conditions.
@@ -54,7 +54,7 @@ Deux types d’alertes classiques sont disponibles : les alertes de métriques 
 
 * **Alertes classiques du journal d’activité** : alertes du journal de streaming qui se déclenchent lorsqu’une entrée d’événement du journal d’activité correspond à vos critères de filtre. Ces alertes ne possèdent que l’état « Activé ». Le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Il ne recherche pas d’anciennes entrées. Ces alertes peuvent vous informer quand un nouvel incident d’état du service se produit ou quand un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
 
-Pour les données du journal de diagnostic disponibles dans Azure Monitor, routez les données dans Log Analytics (anciennement OMS) et utilisez une alerte de requête Log Analytics. Log Analytics utilise maintenant la [nouvelle méthode d’alerte](../../azure-monitor/platform/alerts-overview.md) 
+Pour les données des journaux de ressources disponibles dans Azure Monitor, acheminez les données dans Log Analytics et utilisez une alerte de requête de journal. Log Analytics utilise maintenant la [nouvelle méthode d’alerte](../../azure-monitor/platform/alerts-overview.md) 
 
 Le diagramme suivant récapitule les sources de données d’Azure Monitor, et explique comment créer des alertes à partir de ces données.
 

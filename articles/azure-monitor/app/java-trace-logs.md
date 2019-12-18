@@ -1,5 +1,5 @@
 ---
-title: Exploration des journaux d’activité de traçage Java dans Application Insights | Documents Microsoft
+title: Exploration des journaux des traces Java dans Azure Application Insights
 description: Recherche de suivi Log4J ou Logback dans Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f552ccdbc67df93913c698e5d763dbb62b48a4ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784593"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927241"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.

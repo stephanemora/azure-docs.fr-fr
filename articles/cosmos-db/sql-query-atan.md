@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : ATAN'
-description: Découvrez la fonction système SQL ATAN dans Azure Cosmos DB.
+description: Découvrir la fonction système SQL Arctangent (ATAN) dans Azure Cosmos DB, qui retourne l’angle, en radians, dont la tangente est l’expression numérique spécifiée
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4ee3867f3a4938358e8d61aa8a98f747756ee3e8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8fd398e343a3e617ceb9f49ca8f31ee776a7f073
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348566"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873452"
 ---
 # <a name="atan-azure-cosmos-db"></a>ATAN (Azure Cosmos DB)
  Retourne l’angle, en radians, dont la tangente est l’expression numérique spécifiée. Cette fonction est également appelée arctangente.  

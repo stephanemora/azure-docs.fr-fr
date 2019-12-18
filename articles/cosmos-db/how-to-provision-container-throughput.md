@@ -1,17 +1,17 @@
 ---
 title: Approvisionner le débit d’un conteneur dans Azure Cosmos DB
-description: Découvrez comment provisionner le débit au niveau du conteneur dans Azure Cosmos DB
+description: Apprenez à provisionner le débit au niveau du conteneur dans Azure Cosmos DB avec le portail Azure, l’interface CLI, PowerShell et différents kits SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/12/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0b48652f7b181f1254a4b20af75b83593c2aba05
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ed6a55c8b6049f16e96a4a95ecf3ef125db908d7
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147594"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872041"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
 

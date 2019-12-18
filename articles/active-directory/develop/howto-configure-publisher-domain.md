@@ -1,29 +1,25 @@
 ---
-title: Configurer un domaine d’éditeur d’application
+title: Configurer un domaine d’éditeur d’application | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment configurer un domaine d’éditeur d’application permettant aux utilisateurs de savoir où leurs informations sont envoyées.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2739f5db8c50449e3481ccdfb495b30edba54ce1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013062"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966977"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Activation Configurer un domaine d’éditeur d’application
 

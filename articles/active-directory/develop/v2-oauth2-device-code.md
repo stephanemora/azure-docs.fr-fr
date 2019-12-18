@@ -1,5 +1,6 @@
 ---
-title: Utiliser la plateforme d’identités Microsoft pour connecter des utilisateurs sur des appareils sans navigateur | Azure
+title: Connecter des utilisateurs sans navigateur | Azure
+titleSuffix: Microsoft identity platform
 description: Générez des flux d’authentification intégrés et sans navigateur à l’aide de l’octroi d’autorisation d’appareil.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c948c59a90e0db17b4704188221cfc3c3d82310
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919237"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi d’autorisation d’appareil OAuth 2.0
 

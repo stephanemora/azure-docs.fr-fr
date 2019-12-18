@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de l’API REST Media Services Operations | Microsoft Docs
-description: Vue d’ensemble de l’API REST Media Services
+description: L’API REST Media Services Operations est utilisée pour créer des tâches, des actifs multimédias, des canaux live et d’autres ressources dans un compte Media Services. Cet article fournit une vue d’ensemble de l’API REST Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 29b995d722cd304cc85580ac4f2f38a0b0d9cecd
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014848"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895814"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
 

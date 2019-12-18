@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1e67fc3a2f878e5e04834f67027c98e0b37e9059
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580613"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973592"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -144,7 +144,7 @@ Pour les tâches PyTorch, TensorFlow et Chainer, Azure Machine Learning fournit 
 
 Pour plus d’informations, consultez les articles suivants :
 
-* [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
+* [Entraîner des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 * [Former des modèles de Deep Learning Pytorch à l’échelle avec Azure Machine Learning](how-to-train-pytorch.md).
 * [Entraîner et inscrire des modèles TensorFlow à l’échelle avec Azure Machine Learning](how-to-train-tensorflow.md).
 * [Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning](how-to-train-chainer.md).

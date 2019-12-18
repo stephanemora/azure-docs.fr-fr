@@ -1,5 +1,5 @@
 ---
-title: Modifier les valeurs par défaut de la durée de vie des jetons pour une application personnalisée | Microsoft Docs
+title: Modifier les valeurs par défaut de la durée de vie des jetons pour les applications Azure AD personnalisées | Microsoft Docs
 description: Comment mettre à jour les stratégies de durée de vie des jetons pour l’application que vous développez sur Azure AD
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd69ff41c890c654fc41bb601b17d135ff0e984
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a603be6d57581541c0868b9f48a0bf9997cadd71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320943"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962829"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Modifier les valeurs par défaut de la durée de vie des jetons pour une application personnalisée
 
@@ -36,4 +36,3 @@ Cet article explique comment utiliser Azure AD PowerShell pour définir une stra
 
 * Consultez l’article [Configurable token lifetimes in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) (Durées de vie configurables des jetons dans Azure AD) pour découvrir comment configurer les durées de vie des jetons émis par Azure AD, notamment comment définir les durées de vie des jetons pour toutes les applications de votre organisation, pour une application mutualisée ou pour un principal de service spécifique de votre organisation. 
 * [Référence sur les jetons Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
-

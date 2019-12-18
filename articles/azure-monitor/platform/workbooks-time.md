@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des classeurs Azure Monitor | Paramètres de temps | Microsoft Docs
+title: Paramètres temporels des classeurs Azure Monitor
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 906ebcc49eca72744abf5854a1b320407d0384dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164311"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872755"
 ---
 # <a name="workbook-time-parameters"></a>Paramètres de temps des classeurs
 
@@ -81,5 +81,5 @@ requests
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez](workbooks-visualizations.md) les nombreuses options des visualisations enrichies des classeurs.
+* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

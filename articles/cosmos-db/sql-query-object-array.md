@@ -1,17 +1,17 @@
 ---
 title: Utilisation de tableaux et objets dans Azure Cosmos DB
-description: Découvrez la syntaxe SQL de création d’objet et de tableau pour Azure Cosmos DB.
+description: Découvrez la syntaxe SQL permettant de créer des tableaux et des objets dans Azure Cosmos DB. Cet article fournit également quelques exemples pour effectuer des opérations sur des objets de tableau
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003932"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870919"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Utilisation de tableaux et objets dans Azure Cosmos DB
 

@@ -1,5 +1,5 @@
 ---
-title: Flux de métriques temps réel avec des métriques et des diagnostics personnalisés dans Azure Application Insights | Microsoft Docs
+title: Diagnostiquer à l’aide du Flux de métriques temps réel – Azure Application Insights
 description: Surveillez votre application web en temps réel avec des métriques personnalisées, et diagnostiquez les problèmes avec un flux temps réel des échecs, des traces et des événements.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575611"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927220"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -22,7 +22,7 @@ Sondez le cœur de votre application web dynamique en production en utilisant le
 Avec les flux de métriques temps réel, vous pouvez :
 
 * Valider un correctif lors de sa publication, en observant les performances et les nombres d’échecs.
-* Observer l’effet des tests de charge et diagnostiquer les problèmes de façon dynamique. 
+* Observer l’effet des tests de charge et diagnostiquer les problèmes de façon dynamique.
 * Vous concentrer sur des sessions de tests particulières ou filtrer les problèmes connus, en sélectionnant et en filtrant les mesures que vous voulez observer.
 * Obtenir les traces des exceptions quand elles se produisent.
 * Faites des essais avec les filtres pour rechercher les indicateurs de performance clés les plus pertinents.

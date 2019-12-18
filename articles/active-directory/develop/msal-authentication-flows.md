@@ -1,29 +1,25 @@
 ---
-title: Flux d’authentification (Microsoft Authentication Library)
+title: Flux d’authentification MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez les flux d’authentification et les octrois utilisés par Microsoft Authentication Library (MSAL).
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473819"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917197"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -42,7 +38,7 @@ Cet article décrit les différents flux d’authentification fournis par Micros
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
  
-Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par la plateforme d’identité Microsoft.  Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique présente une vue d’ensemble :
+Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par la plateforme d’identité Microsoft.  Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique offre une vue d’ensemble :
  
 |Flux | Nécessite | id_token | access token | jeton d'actualisation | code d’autorisation | 
 |-----|----------|----------|--------------|---------------|--------------------|

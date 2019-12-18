@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec Azure AD dans les projets MVC .NET Visual Studio | Azure
+title: Bien démarrer avec Azure AD dans les projets .NET MVC | Azure
 description: Guide pratique pour bien démarrer avec Azure Active Directory dans les projets MVC .NET après connexion à un annuaire ou création d’un annuaire Azure AD à l’aide des Services connectés de Visual Studio.
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0a6265f76cc7c799d162487999c129ec7e6a14
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a603f37850cba13328889fcd120851f3c97c8c3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803616"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966535"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Bien démarrer avec Azure Active Directory (projets MVC ASP.NET)
 

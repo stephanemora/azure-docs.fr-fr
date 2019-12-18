@@ -1,17 +1,17 @@
 ---
 title: Approvisionner le débit d’une base de données dans Azure Cosmos DB
-description: Apprenez à approvisionner le débit au niveau de la base de données dans Azure Cosmos DB
+description: Apprenez à approvisionner le débit au niveau de la base de données dans Azure Cosmos DB à l’aide du Portail Azure, de l’interface CLI, de PowerShell et des différents Kits de développement logiciel (SDK).
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575139"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873656"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Provisionner le débit sur une base de données dans Azure Cosmos DB
 

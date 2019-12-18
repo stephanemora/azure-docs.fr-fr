@@ -3,28 +3,24 @@ title: Gérer la mise à l'échelle horizontale d'un cluster (montée en puissan
 description: Cet article décrit les étapes à suivre pour augmenter et diminuer la taille d’un cluster Azure Data Explorer en fonction des fluctuations de la demande.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/14/2019
-ms.openlocfilehash: eb204701b42436a5ae95bac97ed6fd97cf272860
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.date: 12/09/2019
+ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561861"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942237"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
 
-Dimensionner un cluster de manière appropriée est essentiel pour les performances de l’Explorateur de données Azure. Une taille de cluster statique peut conduire à une sous-utilisation ou à une surutilisation, ce qui n’est idéal dans aucun des cas.
-
-La demande de cluster n'étant pas prévisible de manière précise, la meilleure approche consiste à *mettre à l’échelle* un cluster, en ajoutant et en supprimant de la capacité et des ressources d’UC en fonction des fluctuations de la demande. 
+Dimensionner un cluster de manière appropriée est essentiel pour les performances de l’Explorateur de données Azure. Une taille de cluster statique peut conduire à une sous-utilisation ou à une surutilisation, ce qui n’est idéal dans aucun des cas. La demande de cluster n'étant pas prévisible de manière précise, la meilleure approche consiste à *mettre à l’échelle* un cluster, en ajoutant et en supprimant de la capacité et des ressources d’UC en fonction des fluctuations de la demande. 
 
 Il existe deux workflows pour la mise à l’échelle d’un cluster Azure Data Explorer : 
-
 * Mise à l’échelle horizontale, également appelée scale-in et scale-out.
 * [Mise à l’échelle verticale](manage-cluster-vertical-scaling.md), également appelée scale-up et scale-down.
-
 Cet article explique le workflow de mise à l’échelle horizontale.
 
 ## <a name="configure-horizontal-scaling"></a>Configurer la mise à l’échelle horizontale
@@ -54,6 +50,33 @@ La mise à l’échelle automatique optimisée est la méthode de mise à l’é
    ![Méthode de mise à l’échelle automatique optimisée](media/manage-cluster-horizontal-scaling/optimized-autoscale-method.png)
 
 La mise à l’échelle automatique optimisée commence. Ses actions sont désormais visibles dans le journal d’activité Azure du cluster.
+
+#### <a name="logic-of-optimized-autoscale"></a>Logique de la mise à l’échelle automatique optimisée 
+
+**Augmenter la taille des instances**
+
+Si votre cluster approche un état de surutilisation, montez-le en charge pour qu’il conserve des performances optimales. La montée en charge se produit dans les cas suivants :
+* Le nombre d’instances de cluster est inférieur au nombre maximal d’instances défini par l’utilisateur.
+* L’utilisation du cache est élevée pendant plus d’une heure.
+
+> [!NOTE]
+> La logique de montée en charge ne prend pas actuellement en compte l’utilisation de l’ingestion et les mesures UC. Si ces mesures sont importantes pour votre cas d’usage, utilisez la [mise à l’échelle automatique personnalisée](#custom-autoscale).
+
+**Diminuer la taille des instances**
+
+Si votre cluster approche un état de sous-utilisation, diminuer la taille des instances pour réduire’ les coûts tout en maintenant les performances. Plusieurs mesures sont utilisées pour vérifier qu’il est possible de diminuer la taille des instances du cluster en toute sécurité. Les règles suivantes sont évaluées quotidiennement pendant 7 jours avant la diminution de la taille des instances :
+* Le nombre d’instances est supérieur à 2 et excède le nombre minimum d’instances défini.
+* Pour garantir qu’il n’y a pas de surcharge des ressources, vérifiez les mesures suivantes avant de diminuer la taille des instances : 
+    * L’utilisation du cache n’est pas élevée
+    * L’UC est inférieur à la moyenne 
+    * L’utilisation de l’ingestion est inférieure à la moyenne 
+    * L’utilisation de l’ingestion en continu (si elle est utilisée) n’est pas élevée
+    * Les événements Keep Alive se trouvent au-dessus d’un minimum défini, sont traités correctement et à temps.
+    * Aucune limitation de requêtes 
+    * Le nombre de requêtes ayant échoué est inférieur à la valeur minimale définie.
+
+> [!NOTE]
+> La logique de diminution de la taille des instances nécessite actuellement une évaluation de 7 jours avant l’implémentation de la diminution de la taille des instances optimisée. Cette évaluation a lieu toutes les 24 heures. Si vous souhaitez effectuer un changement rapide, utilisez la [mise à l’échelle manuelle](#manual-scale).
 
 ### <a name="custom-autoscale"></a>Mise à l’échelle automatique personnalisée
 
@@ -108,5 +131,4 @@ Vous venez de configurer une mise à l'échelle horizontale pour votre cluster A
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Superviser les performances, l’intégrité et l’utilisation d’Azure Data Explorer avec des métriques](using-metrics.md)
-
 * [Gérer la mise à l’échelle verticale du cluster](manage-cluster-vertical-scaling.md) pour dimensionner ce dernier de manière appropriée.

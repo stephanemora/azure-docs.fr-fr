@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802311"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951137"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
@@ -211,6 +211,7 @@ Vous pouvez interroger les alertes sur leurs champs [essentiels](alerts-common-s
 - [En savoir plus sur les groupes d’actions](../../azure-monitor/platform/action-groups.md)
 - [Gestion des instances d’alertes dans Azure](https://aka.ms/managing-alert-instances)
 - [Gestion des groupes intelligents](https://aka.ms/managing-smart-groups)
+- [Découvrir les tarifs des alertes Azure](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

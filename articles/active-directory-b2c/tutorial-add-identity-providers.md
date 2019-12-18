@@ -1,5 +1,6 @@
 ---
-title: Didacticiel – Ajouter des fournisseurs d’identité à vos applications – Azure Active Directory B2C
+title: 'Didacticiel : Ajouter des fournisseurs d’identité à vos applications'
+titleSuffix: Azure AD B2C
 description: Découvrez comment ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc7828b7926ea6e7f2d6bc3891ee231972ae3208
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063250"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950950"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 

@@ -1,6 +1,6 @@
 ---
-title: 'Application à page unique (appeler une API web) : plateforme d’identité Microsoft'
-description: Découvrir comment créer une application monopage (appeler une API web)
+title: Générer une application monopage appelant une API web - Plateforme d’identités Microsoft | Azure
+description: Découvrir comment générer une application monopage qui appelle une API web
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -15,12 +15,12 @@ ms.date: 05/06/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4170a6642d35802581b5d1ff28eb802a6eb3482b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 1171d8c3bc28c7b325cc8daf6cc072965363339c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766155"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965329"
 ---
 # <a name="single-page-application-call-a-web-api"></a>Application monopage : Appeler une API web
 

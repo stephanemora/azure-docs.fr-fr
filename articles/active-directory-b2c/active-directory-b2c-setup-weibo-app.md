@@ -1,5 +1,6 @@
 ---
-title: Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
+title: Configurer l’inscription et la connexion avec un compte Weibo
+titleSuffix: Azure AD B2C
 description: Proposez l’inscription et la connexion aux clients disposant de comptes Weibo dans vos applications à l’aide d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4a019c3f197f123486dd28dc2bdb46e34f6cabc4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3f84d1d33874ac70a21c9d596c6fa5a9e608bb84
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064915"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950304"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 

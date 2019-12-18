@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803731"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919339"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
@@ -292,16 +292,16 @@ Si l’authentification héritée est largement utilisée dans votre environneme
 
 ### <a name="consent-grants"></a>Octrois de consentement
 
-Dans le cadre d’une attaque par octroi de consentement illicite, l’attaquant crée une application inscrite auprès d’Azure AD qui demande l’accès à des données comme des informations de contact, des e-mails ou des documents. Les utilisateurs peuvent octroyer leur consentement à des applications malveillantes via des attaques par hameçonnage ou indirectement en cas d’accès à des sites web malveillants.
+Dans le cadre d’une attaque par octroi de consentement illicite, l’attaquant crée une application inscrite auprès d’Azure AD qui demande l’accès à des données comme des informations de contact, des e-mails ou des documents. Les utilisateurs peuvent octroyer leur consentement à des applications malveillantes via des attaques par hameçonnage en cas d’accès à des sites web malveillants.
 
-Voici les autorisations qu’il peut être nécessaire d’examiner pour les services cloud Microsoft :
+Vous trouverez ci-dessous une liste d’applications avec des permissions qu’il peut être nécessaire d’examiner pour les services de cloud computing Microsoft :
 
-- Les applications avec des autorisations \*.ReadWrite accordées à l’application ou déléguées
-- Les applications avec des autorisations déléguées peuvent lire, envoyer ou gérer la messagerie pour le compte de l’utilisateur
-- Les applications disposant des autorisations suivantes :
+- Les applications avec des permissions \*.ReadWrite accordées à l’application ou déléguées
+- Les applications avec des permissions déléguées peuvent lire, envoyer ou gérer des e-mails pour le compte de l’utilisateur
+- Les applications disposant des permissions suivantes :
 
 | Ressource | Autorisation |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | EAS.AccessAsUser.All |
 | | EWS.AccessAsUser.All |
 | | Mail.Read |
@@ -309,11 +309,19 @@ Voici les autorisations qu’il peut être nécessaire d’examiner pour les ser
 | | Mail.Read.Shared |
 | | Mail.ReadWrite |
 
-Pour éviter ce scénario, vous devez vous référer à [Détecter et remédier aux octrois de consentement illicites dans Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) pour identifier et corriger les applications avec des consentements illicites ou les applications qui ont plus d’autorisations que nécessaire. Planifiez des révisions régulières des autorisations des applications et supprimez-les si elles ne sont pas nécessaires, ou supprimez entièrement le libre-service et établissez des procédures de gouvernance.
+- Les applications ont accordé un emprunt d’identité utilisateur complet de l’utilisateur connecté. Par exemple :
+
+|Ressource | Autorisation |
+| :- | :- |
+| Azure AD Graph | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| API REST Azure | user_impersonation |
+
+Pour éviter ce scénario, vous devez vous référer à [Détecter et remédier aux octrois de consentement illicites dans Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) pour identifier et corriger les applications avec des consentements illicites ou les applications qui ont plus d’autorisations que nécessaire. Ensuite, [supprimez entièrement le libre-service](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) et [établissez des procédures de gouvernance](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Enfin, planifiez des révisions régulières des permissions d’application et supprimez-les lorsqu’elles ne sont pas nécessaires.
 
 #### <a name="consent-grants-recommended-reading"></a>Lectures recommandées pour les octrois de consentement
 
-- [Étendues des autorisations de l’API Graph d’Azure Active Directory (AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Autorisations pour Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Paramètres des utilisateurs et des groupes
 

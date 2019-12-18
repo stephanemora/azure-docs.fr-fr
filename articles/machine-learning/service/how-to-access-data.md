@@ -11,27 +11,27 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b76d8f25cfb8bd1dfda43c8383a538f8cf9769b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 94cdf683bc8524786e1f32607ef18f976990ba07
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818454"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74979119"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). Pour les solutions de stockage non prises en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge pour réduire le coût de sortie des données pendant les expériences de Machine Learning. [Découvrez comment déplacer vos données](#move). 
+Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). Pour les solutions de stockage non prises en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge afin de réduire le coût de sortie des données pendant les expériences de Machine Learning. [Découvrez comment déplacer vos données](#move). 
 
 Cette procédure montre des exemples des tâches suivantes :
-* [Enregistrer les magasins de données](#access)
-* [Récupérer les magasins de données de l’espace de travail](#get)
-* [Charger et télécharger des données à l’aide de magasins de données](#up-and-down)
-* [Accéder aux données pendant l’entraînement](#train)
-* [Déplacer des données vers Azure](#move)
+* Enregistrer les magasins de données
+* Récupérer les magasins de données de l’espace de travail
+* Charger et télécharger des données à l’aide de magasins de données
+* Accéder aux données pendant l’entraînement
+* Déplacer des données vers le service de stockage Azure
 
 ## <a name="prerequisites"></a>Prérequis
-
+Vous devez disposer des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 - Un compte de stockage Azure avec un [conteneur d’objets blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ou un [partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
@@ -58,7 +58,13 @@ Quand vous inscrivez une solution de stockage Azure en tant que magasin de donn�
 
 Toutes les méthodes d’inscription sont sur la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) et ont la forme register_azure_*.
 
-Vous trouverez les informations dont vous avez besoin pour renseigner la méthode register() via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche. 
+Vous trouverez les informations dont vous avez besoin pour renseigner la méthode register() dans [Azure Machine Learning Studio](https://ml.azure.com) et dans les instructions suivantes.
+
+1. Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. 
+2. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. 
+3. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche. 
+
+>[IMPORTANT] Si votre compte de stockage se trouve dans un réseau virtuel, seule la création d’un magasin de données d’objets blob Azure est prise en charge. Définissez le paramètre, `grant_workspace_access` sur `True` pour accorder à votre espace de travail l’accès à votre compte de stockage.
 
 Les exemples suivants vous montrent comment inscrire un conteneur d’objets blob Azure ou un partage de fichiers Azure comme magasin de données.
 
@@ -74,7 +80,6 @@ Les exemples suivants vous montrent comment inscrire un conteneur d’objets blo
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
-    Si votre compte de stockage se trouve dans un réseau virtuel, seule la création d’un magasin de données d’objets blob Azure est prise en charge. Définissez le paramètre, `grant_workspace_access` sur `True` pour accorder à votre espace de travail l’accès à votre compte de stockage.
 
 + Pour un **magasin de données de partage de fichiers Azure**, utilisez [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
@@ -102,9 +107,9 @@ Créez un nouveau magasin de données en quelques étapes dans Azure Machine Lea
 1. Sélectionnez **+ Nouveau magasin de données**.
 1. Remplissez le formulaire du nouveau magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et des sélections relatives au type d’authentification.
   
-Vous trouverez les informations dont vous avez besoin pour renseigner le formulaire via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme une clé de compte ou un jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
+Vous pouvez trouver les informations dont vous avez besoin pour remplir le formulaire sur le [portail Azure](https://portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme une clé de compte ou un jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
 
-L’exemple suivant montre à quoi ressemble le formulaire si vous créez un magasin de données d’objets blob Azure. 
+L’exemple suivant montre à quoi ressemble le formulaire pour la création d’un magasin de données d’objets blob Azure. 
     
  ![Nouveau magasin de données](media/how-to-access-data/new-datastore-form.png)
 
@@ -128,7 +133,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-Lorsque vous créez un espace de travail, un conteneur d’objets Blob Azure et un partage de fichiers Azure sont inscrits dans l’espace de travail nommé `workspaceblobstore` et `workspacefilestore`, respectivement. Elles stockent les informations de connexion du conteneur d’objets Blob et du partage de fichiers qui sont approvisionnés dans le compte de stockage associé à l’espace de travail. Le `workspaceblobstore` est défini comme le magasin de données par défaut.
+Lorsque vous créez un espace de travail, un conteneur d’objets Blob Azure et un partage de fichiers Azure sont inscrits automatiquement dans les espaces de travail nommés `workspaceblobstore` et `workspacefilestore`, respectivement. Ceux-ci stockent les informations de connexion du conteneur d’objets Blob et du partage de fichiers qui sont provisionnés dans le compte de stockage associé à l’espace de travail. Le `workspaceblobstore` est défini comme le magasin de données par défaut.
 
 Pour obtenir la banque de données par défaut de l’espace de travail :
 
@@ -189,7 +194,7 @@ Le tableau suivant liste les méthodes qui indiquent à la cible de calcul comme
 
 Moyen|Méthode|Description|
 ----|-----|--------
-Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Permet de monter le magasin de données sur la cible de calcul.
+Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Permet de monter le magasin de données sur la cible de calcul. Une fois le magasin monté, tous les fichiers de votre magasin de données sont rendus accessibles à votre cible de calcul.
 Téléchargement|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Permet de télécharger le contenu de votre magasin de données à l’emplacement spécifié par `path_on_compute`. <br><br> Ce téléchargement se produit avant l’exécution.
 Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Permet de charger un fichier à partir de l’emplacement spécifié par `path_on_compute` sur votre magasin de données. <br><br> Ce chargement a lieu après votre exécution.
 
@@ -199,7 +204,7 @@ Pour référencer un dossier ou fichier spécifique dans votre magasin de donné
 #to mount the full contents in your storage to the compute target
 datastore.as_mount()
 
-#to download the contents of the `./bar` directory in your storage to the compute target
+#to download the contents of only the `./bar` directory in your storage to the compute target
 datastore.path('./bar').as_download()
 ```
 > [!NOTE]
@@ -207,13 +212,14 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>Exemples 
 
-Les exemples de code suivants sont spécifiques à la classe [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) pour accéder aux données pendant la formation. 
+Nous vous recommandons d’utiliser la classe [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) pour accéder aux données pendant l’entraînement. 
 
-`script_params` est un dictionnaire contenant les paramètres du entry_script. Utilisez-le pour transmettre une banque de données et décrire comment les données doivent être rendues disponibles sur la cible de calcul. Pour en savoir plus, consultez notre [didacticiel](tutorial-train-models-with-aml.md) de bout en bout.
+La variable `script_params` est un dictionnaire contenant les paramètres du entry_script. Utilisez-le pour transmettre une banque de données et décrire comment les données doivent être rendues disponibles sur la cible de calcul. Pour en savoir plus, consultez notre [didacticiel](tutorial-train-models-with-aml.md) de bout en bout.
 
 ```Python
 from azureml.train.estimator import Estimator
 
+# notice '/' is in front, this indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }
@@ -235,6 +241,24 @@ est = Estimator(source_directory='your code directory',
                 compute_target=compute_target,
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
+```
+Si vous préférez utiliser un objet RunConfig pour l’entraînement, vous devez configurer un objet [DataReference](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py). 
+
+Le code suivant montre comment utiliser un objet DataReference dans un pipeline d’estimation. Pour obtenir un exemple complet, consultez ce [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-estimatorstep.ipynb).
+
+```Python
+from azureml.core import Datastore
+from azureml.data.data_reference import DataReference
+from azureml.pipeline.core import PipelineData
+
+def_blob_store = Datastore(ws, "workspaceblobstore")
+
+input_data = DataReference(
+       datastore=def_blob_store,
+       data_reference_name="input_data",
+       path_on_datastore="20newsgroups/20news.pkl")
+
+   output = PipelineData("output", datastore=def_blob_store)
 ```
 <a name="matrix"></a>
 

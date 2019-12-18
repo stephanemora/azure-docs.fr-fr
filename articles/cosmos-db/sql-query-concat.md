@@ -1,18 +1,18 @@
 ---
 title: 'Langage de requête Azure Cosmos DB : CONCAT'
-description: Découvrez la fonction système SQL CONCAT dans Azure Cosmos DB.
+description: Découvrez la fonction système SQL CONCAT dans Azure Cosmos DB, qui retourne une chaîne issue de la concaténation de deux valeurs de chaîne ou plus
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 1e61d61a3d64ca7d7808619159e4dfc8e8b33d68
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: adb8564d4addaaa3f4a383b32941549aed3d53bd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351265"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871548"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
  Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne.  

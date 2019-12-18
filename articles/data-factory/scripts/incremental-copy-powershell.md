@@ -1,22 +1,21 @@
 ---
-title: 'Script PowerShell : Charger de façon incrémentielle des données avec Azure Data Factory '
+title: Charger des données de façon incrémentielle à l’aide de PowerShell
 description: Ce script PowerShell montre comment utiliser Azure Data Factory pour copier de façon incrémentielle les données d’une base de données Azure SQL Database dans un stockage Blob Azure.
 services: data-factory
+ms.author: jingwang
 author: linda33wj
-manager: craigg
-editor: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
+ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.author: jingwang
-ms.openlocfilehash: ef7b00172f0371e09d6462ed357744166b5fb08a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f1a18155a0be4bc19e723ca04cf6770166a25af
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684330"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913372"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>Script PowerShell - Charger de façon incrémentielle des données à l’aide d’Azure Data Factory
 Cet exemple de script PowerShell charge uniquement les enregistrements nouveaux ou mis à jour à partir d’un magasin de données source dans un magasin de données récepteur, après la copie initiale complète des données de la source vers le récepteur.  

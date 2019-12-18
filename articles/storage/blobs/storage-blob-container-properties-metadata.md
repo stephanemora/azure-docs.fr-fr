@@ -1,18 +1,19 @@
 ---
-title: Gérer les propriétés et les métadonnées d’un conteneur d’objets blob avec .NET - Stockage Azure
+title: Utiliser .NET pour gérer les propriétés et les métadonnées d’un conteneur d’objets blob
+titleSuffix: Azure Storage
 description: Découvrez comment définir et récupérer des propriétés système et stocker des métadonnées personnalisées dans des conteneurs d’objets blob dans votre compte de stockage Azure à l’aide de la bibliothèque cliente .NET.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673377"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894196"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gérer les métadonnées et les propriétés de conteneur avec .NET
 

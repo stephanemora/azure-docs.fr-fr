@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186181"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977741"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -42,6 +42,9 @@ Avec Media Services, vous pouvez utiliser [l’empaquetage dynamique](dynamic-pa
 ## <a name="dynamic-encryption"></a>Chiffrement dynamique
 
 Le chiffrement dynamique permet de chiffrer dynamiquement votre contenu en direct ou à la demande avec AES-128 ou un des trois systèmes principaux de gestion des droits numériques (DRM) : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés. Pour plus d’informations, consultez [Empaquetage dynamique](content-protection-overview.md).
+
+> [!NOTE]
+> Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="dynamic-manifest"></a>Manifeste dynamique
 

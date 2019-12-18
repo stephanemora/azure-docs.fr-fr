@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: b-juche
-ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173584"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894094"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Monter ou démonter un volume pour des machines virtuelles Windows ou Linux 
 
@@ -41,6 +41,12 @@ Vous pouvez monter ou démonter un volume pour des machines virtuelles Windows o
     * `$ANFIP` est l’adresse IP du volume Azure NetApp Files se trouvant dans le panneau Propriétés de volume.
     * `$FILEPATH` est le chemin d’exportation du volume Azure NetApp Files.
     * `$MOUNTPOINT`est le répertoire créé sur l’hôte Linux utilisé pour monter l’exportation NFS.
+
+4. Si vous souhaitez monter le volume sur Windows en utilisant NFS, procédez comme suit :
+
+    a. Montez d’abord le volume sur une machine virtuelle Unix ou Linux.  
+    b. Exécutez une commande `chmod 777` ou `chmod 775` sur le volume.  
+    c. Montez le volume par le biais du client NFS sur Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

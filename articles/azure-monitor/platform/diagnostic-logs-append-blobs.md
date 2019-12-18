@@ -1,6 +1,6 @@
 ---
-title: Préparation à la modification du format dans les journaux de diagnostics Azure Monitor
-description: Décrit l’impact et la façon de mettre à jour vos outils pour gérer les nouveaux journaux de diagnostic Azure qui ont été modifiés pour utiliser des blobs d’ajout le 1er novembre 2018.
+title: Préparation à la modification du format dans les journaux de ressources Azure Monitor
+description: Décrit l’impact et la façon de mettre à jour vos outils pour gérer les nouveaux journaux de ressources Azure qui ont été modifiés pour utiliser des objets blobs d’ajout le 1er novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: dc7fd8916f356414437d4def21f26f0b651ee76f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307063"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893516"
 ---
-# <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de diagnostics Azure Monitor archivés dans un compte de stockage
+# <a name="prepare-for-format-change-to-azure-monitor-resource-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage
 
 > [!WARNING]
-> Si vous envoyez des [journaux ou des métriques de diagnostics de ressources Azure à un compte de stockage via les paramètres de diagnostic de ressources](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou [des journaux d’activités à un compte de stockage via les profils de journaux d’activité](./../../azure-monitor/platform/archive-activity-log.md), le format des données dans le compte de stockage sera modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format. 
+> Si vous envoyez des [journaux de ressources ou des métriques relatifs aux ressources Azure à un compte de stockage via les paramètres de diagnostic de ressources](./../../azure-monitor/platform/archive-diagnostic-logs.md) ou des [journaux d’activités à un compte de stockage via les profils de journaux d’activité](./../../azure-monitor/platform/archive-activity-log.md), le format des données dans le compte de stockage sera modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format. 
 >
 > 
 
@@ -31,13 +31,13 @@ Azure Monitor offre une fonctionnalité qui vous permet d'envoyer des données d
 * La définition d’un paramètre de diagnostic entre aujourd’hui et le 1er novembre continue d’émettre des données dans le format actuel jusqu’au 1er novembre.
 * Cette modification s’effectuera immédiatement sur toutes les régions cloud publiques. La modification n’aura pas lieu dans Microsoft Azure géré par 21Vianet, Azure Allemagne ou Azure Government pour le moment.
 * Elle affectera les types de données suivants :
-  * [Journaux de diagnostics de ressources Azure](archive-diagnostic-logs.md) ([voir la liste des ressources ici](diagnostic-logs-schema.md))
+  * [Journaux de ressources relatifs aux ressources Azure](archive-diagnostic-logs.md) ([voir la liste des ressources ici](diagnostic-logs-schema.md))
   * [Métriques de ressources Azure en cours d’exportation par les paramètres de diagnostic](diagnostic-settings.md)
   * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](archive-activity-log.md)
 * Cette modification n’affecte pas :
   * Journaux de flux de réseau
-  * Les journaux d’activité du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de diagnostics Azure App Service, les journaux d’activité d’analyses de stockage)
-  * Routage des journaux de diagnostics et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
+  * Les journaux du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de ressources Azure App Service ou les journaux d’analytique de stockage)
+  * Routage des journaux de ressources et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Comme savoir si vous êtes affecté
 
@@ -135,6 +135,6 @@ Les outils personnalisés doivent être mis à jour pour gérer le format actuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [l’archivage des journaux de diagnostic de ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* En savoir plus sur [l’archivage des journaux de ressources relatifs aux ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * En savoir plus sur [l’archivage des données de journal d’activité dans un compte de stockage](./../../azure-monitor/platform/archive-activity-log.md)
 

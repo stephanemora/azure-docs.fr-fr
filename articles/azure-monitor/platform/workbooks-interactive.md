@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des paramètres personnalisés de classeurs Azure Monitor | Microsoft Docs
+title: Classeurs Azure Monitor dotés de paramètres personnalisés
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: eeb6eb5d8b3ad6498ff90a9afe1fa4f2c18d30e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164447"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872840"
 ---
 # <a name="interactive-workbooks"></a>Classeurs interactifs
 
@@ -144,5 +144,5 @@ L’image ci-dessous représente le cas masqué dans lequel `ShowDetails` est `N
 ## <a name="next-steps"></a>Étapes suivantes
 
 
-* [Commencez](workbooks-visualizations.md) à en savoir plus sur les nombreuses options pour les visualisations enrichies des classeurs.
-* [Contrôlez](workbooks-access-control.md) et partagez l’accès aux ressources de votre classeur.
+* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
+* [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

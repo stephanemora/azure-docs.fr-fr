@@ -1,5 +1,5 @@
 ---
-title: 'Résoudre les problèmes de performances de réseau virtuel : Azure | Microsoft Docs'
+title: 'Détecter un problème de performance de la liaison réseau : Azure'
 description: Cette page fournit une méthode standardisée pour tester le niveau de performance de la liaison réseau Azure.
 services: expressroute
 author: tracsman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883256"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869644"
 ---
 # <a name="troubleshooting-network-performance"></a>Résolution des problèmes de performances réseau
 ## <a name="overview"></a>Vue d'ensemble
@@ -28,7 +28,7 @@ Ce document vous montre comment tester la latence réseau et la bande passante e
 
 ## <a name="network-components"></a>Composants réseau
 Avant de nous plonger dans la résolution des problèmes, examinons certains composants et termes courants. Par le biais de cette discussion, nous nous penchons sur chaque composant de la chaîne de bout en bout qui assure la connectivité dans Azure.
-[![1]][1]
+![1][1]
 
 Sur le plan général, je décris trois domaines de routage réseau principaux :
 
@@ -44,8 +44,8 @@ Observons brièvement chaque composant du diagramme, de droite à gauche :
  - **Groupe de sécurité réseau de sous-réseau** : tout comme la carte réseau, des groupes de sécurité réseau peuvent être appliqués à ce sous-réseau. Assurez-vous que l’ensemble de règles NSG est approprié pour le trafic à faire passer. (Pour le trafic qui entre dans la carte réseau, le NSG du sous-réseau s’applique en premier, puis le NSG de la carte réseau ; à l’inverse, pour le trafic qui sort de la machine virtuelle, le NSG de la carte réseau s’applique en premier, puis le NSG du sous-réseau entre en jeu).
  - **UDR de sous-réseau**  : les routages définis par l’utilisateur peuvent diriger le trafic vers un tronçon intermédiaire (par exemple, un pare-feu ou un équilibreur de charge). Vérifiez s’il existe un UDR pour votre trafic et, si tel est le cas, déterminez sa position et la façon dont le tronçon suivant doit traiter le trafic. (Par exemple, un pare-feu peut laisser passer un trafic et en refuser un autre entre deux mêmes hôtes.)
  - **Sous-réseau de passerelle / groupe de sécurité réseau / UDR** : tout comme le sous-réseau de la machine virtuelle, le sous-réseau de passerelle peut avoir des groupes de sécurité réseau et des UDR. Vérifiez leur présence éventuelle et leur impact sur le trafic.
- - **Passerelle de réseau virtuel (ExpressRoute)** : une fois l’appairage (ExpressRoute) ou le VPN activé, peu de paramètres peuvent affecter le routage du trafic ou l’existence de ce routage. Si vous avez plusieurs circuits ExpressRoute ou tunnels VPN connectés à la même passerelle de réseau virtuel, vous devez connaître le paramétrage du poids de la connexion, car il affecte les préférences de connexion et le chemin emprunté par le trafic.
- - **Filtre de routage** (non affiché) : un filtre de routage s’applique seulement à l’appairage Microsoft sur ExpressRoute, mais il est essentiel de vérifier si vous ne voyez pas les itinéraires attendus sur l’appairage Microsoft. 
+ - **Passerelle de réseau virtuel (ExpressRoute)** : une fois le peering (ExpressRoute) ou le VPN activé, peu de paramètres peuvent affecter le routage du trafic ou l’existence de ce routage. Si vous avez plusieurs circuits ExpressRoute ou tunnels VPN connectés à la même passerelle de réseau virtuel, vous devez connaître le paramétrage du poids de la connexion, car il affecte les préférences de connexion et le chemin emprunté par le trafic.
+ - **Filtre de routage** (non affiché) : un filtre de routage s’applique seulement au peering Microsoft sur ExpressRoute, mais il est essentiel de vérifier si vous ne voyez pas les itinéraires attendus sur le peering Microsoft. 
 
 À ce stade, vous êtes sur la partie WAN de la liaison. Ce domaine de routage peut être votre fournisseur de services, votre réseau étendu d’entreprise ou Internet. Le nombre élevé de tronçons, de technologies et de sociétés concernés par ces liens peut rendre difficile la résolution des problèmes. Souvent, vous vous attachez d’abord à écarter Azure et vos réseaux d’entreprise avant de vous pencher sur cette multitude de sociétés et de tronçons.
 
@@ -59,7 +59,7 @@ La plupart des problèmes réseau peuvent être analysés et isolés à l’aide
 J’ai placé tous ces outils et méthodes dans un module PowerShell (AzureCT) que vous pouvez installer et utiliser.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT : la boîte à outils de connectivité Azure
-Le module PowerShell AzureCT comporte deux composants : [test de la disponibilité] [ Availability Doc] et [test de performance][Performance Doc]. Ce document ne concernant que le test de performance, concentrons-nous sur les deux commandes de test de la performance de la liaison incluses dans ce module PowerShell.
+Le module PowerShell AzureCT comporte deux composants : [test de la disponibilité][Availability Doc] et [test de performance][Performance Doc]. Ce document ne concernant que le test de performance, concentrons-nous sur les deux commandes de test de la performance de la liaison incluses dans ce module PowerShell.
 
 L’utilisation de cette boîte à outils pour tester les performances comprend trois étapes de base. (1) Installer le module PowerShell, (2) installer les applications de prise en charge iPerf et PSPing et (3) exécuter le test de performance.
 
@@ -93,7 +93,7 @@ L’utilisation de cette boîte à outils pour tester les performances comprend 
 
     Le format de sortie PowerShell est similaire à ceci :
 
-    [![4]][4]
+    ![4][4]
 
     Les résultats détaillés de tous les tests PSPing et iPerf se trouvent dans des fichiers texte individuels dans le répertoire des outils AzureCT à l’emplacement « C:\ACTTools ».
 
@@ -118,7 +118,7 @@ En outre, n’oubliez pas d’examiner d’autres couches du modèle OSI. Il est
 ## <a name="advanced-expressroute-troubleshooting"></a>Résolution avancée des problèmes quand ExpressRoute est utilisé
 Si vous ignorez le périmètre réel du cloud, l’isolation des composants Azure peut être difficile. Quand ExpressRoute est utilisé, le périmètre est un composant réseau appelé MSEE (Microsoft Enterprise Edge). **Quand vous utilisez ExpressRoute**, MSEE est le premier point de contact dans le réseau de Microsoft et le dernier tronçon en sortie de ce dernier. Quand vous créez un objet de connexion entre votre passerelle de réseau virtuel et le circuit ExpressRoute, vous établissez en fait une connexion à MSEE. Reconnaître MSEE comme premier ou dernier tronçon (en fonction de la direction dans laquelle vous allez) est crucial pour isoler un problème de réseau Azure afin d’établir qu’il se trouve dans Azure ou plus en aval dans le réseau étendu ou le réseau d’entreprise. 
 
-[![2]][2]
+![2][2]
 
 >[!NOTE]
 > Notez que MSEE ne se trouve pas dans le cloud Azure. ExpressRoute est en fait à la périphérie du réseau Microsoft, pas véritablement dans Azure. Une fois que vous êtes connecté avec ExpressRoute à un MSEE, vous êtes connecté au réseau de Microsoft, à partir duquel vous pouvez accéder à n’importe quels services cloud, tels qu’Office 365 (avec le peering Microsoft) ou Azure (avec le peering privé et/ou Microsoft).
@@ -169,7 +169,7 @@ Configuration des tests :
  - Les données de la colonne « Latence » sont issues du test avec absence de charge (test de latence TCP sans exécution d’iPerf).
  - Les données de la colonne « Bande passante maximale » sont issues du test de charge de 16 flux TCP avec une taille de fenêtre de 1 Mo.
 
-[![3]][3]
+![3][3]
 
 ### <a name="latencybandwidth-results"></a>Résultats de latence et de bande passante
 >[!IMPORTANT]
@@ -179,7 +179,7 @@ Configuration des tests :
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Lieu|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
+|ExpressRoute<br/>Location|Azure<br/>Région|Distance<br/>estimée (km)|Latence|1 Session<br/>Bande passante|Maximale<br/>Bande passante|
 | Seattle | USA Ouest 2        |    191 km |   5 ms | 262,0 Mbits/s |  3,74 Gbits/s |
 | Seattle | USA Ouest          |  1\.094 km |  18 ms |  82,3 Mbits/s |  3,70 Gbits/s |
 | Seattle | USA Centre       |  2\.357 km |  40 ms |  38,8 Mbits/s |  2,55 Gbits/s |
@@ -199,12 +199,12 @@ Configuration des tests :
 
 ## <a name="next-steps"></a>Étapes suivantes
 1. Télécharger la boîte à outils de connectivité Azure à partir de GitHub à l’adresse [https://aka.ms/AzCT][ACT]
-2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc].
+2. Suivre les instructions pour [tester le niveau de performance des liaisons][Performance Doc]
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Composants réseau Azure"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Résolution des problèmes quand ExpressRoute est utilisé"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Environnement de test des performances"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Détecter un problème ExpressRoute"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Environnement du test de performances"
 [4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "Sortie PowerShell"
 
 <!--Link References-->

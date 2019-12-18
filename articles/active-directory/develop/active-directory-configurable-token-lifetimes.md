@@ -1,30 +1,26 @@
 ---
-title: Durées de vie des jetons configurables dans Azure Active Directory
+title: Durées de vie des jetons Azure AD configurables
 titleSuffix: Microsoft identity platform
 description: Découvrez comment définir les durées de vie des jetons émis par Azure AD.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 021d0c19ecc4bf63861bf95d99b6ba6b8e910220
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c195a5da6b04a919947c0ae65d7d6109115627d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046549"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918387"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -41,7 +37,6 @@ Vous pouvez désigner une stratégie comme stratégie par défaut pour votre org
 > La stratégie configurable de durée de vie des jetons n’est pas prise en charge par SharePoint Online.  Même si vous avez la possibilité de créer cette stratégie via PowerShell, SharePoint Online ne reconnaît pas cette stratégie. Reportez-vous au [blog SharePoint Online](https://techcommunity.microsoft.com/t5/SharePoint-Blog/Introducing-Idle-Session-Timeout-in-SharePoint-and-OneDrive/ba-p/119208) pour en savoir plus sur la configuration des délais d’expiration des sessions inactives.
 >* Par défaut, la durée de vie d’un jeton d’accès SharePoint Online est d’une heure. 
 >* Par défaut, la durée de vie d’un jeton d’actualisation SharePoint Online est de 90 jours.
-
 
 ## <a name="token-types"></a>Types de jetons
 

@@ -2,13 +2,13 @@
 title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 ms.date: 09/30/2019
-ms.topic: conceptual
-ms.openlocfilehash: 00824ceed2e86683a86b172e529ba88704dbb050
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.topic: how-to
+ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210319"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973643"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -246,6 +246,8 @@ Au lieu de passer des paramètres à l’applet de commande, l’exemple illustr
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
     -AssignmentFile '.\assignment.json'
 ```
+
+Pour obtenir un exemple de fichier de définition d’attribution JSON pour une identité managée affectée par l’utilisateur, consultez le corps de la demande dans [Exemple : Attribution avec identité managée affectée par l’utilisateur](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) pour l’API REST.
 
 ## <a name="update-blueprint-assignments"></a>Mettre à jour des affectations de blueprint
 

@@ -1,17 +1,17 @@
 ---
 title: Indexation dans Azure Cosmos DB
-description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB.
+description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB et différents types d’index, tels que Range, Spatial et les index composites pris en charge.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299789"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873622"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 

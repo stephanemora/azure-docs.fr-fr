@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381022"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964087"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>Exiger une stratégie de protection des applications pour l’accès aux applications cloud à l’aide de l’accès conditionnel (préversion)
 
@@ -330,7 +330,7 @@ Les stratégies Intune App Protection doivent être appliquées avant que l’ac
 
 ### <a name="configuration"></a>Configuration
 
-**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online**
+**Étape 1 : Configurer une stratégie d’accès conditionnel Azure AD pour Exchange Online et SharePoint Online**
 
 Pour les besoins de la stratégie d’accès conditionnel de cette étape, configurez les composants suivants :
 
@@ -338,7 +338,7 @@ Pour les besoins de la stratégie d’accès conditionnel de cette étape, confi
 
 1. Entrez le nom de votre stratégie d’accès conditionnel.
 1. Sous **Affectations**, dans **Utilisateurs et groupes**, sélectionnez au moins un utilisateur ou groupe pour chaque stratégie d’accès conditionnel.
-1. Dans **Applications cloud**, sélectionnez **Office 365 Exchange Online**. 
+1. Dans les **applications cloud**, sélectionnez **Office 365 Exchange Online** et **Office 365 SharePoint Online**. 
 
    ![Accès conditionnel](./media/app-protection-based-conditional-access/02.png)
 

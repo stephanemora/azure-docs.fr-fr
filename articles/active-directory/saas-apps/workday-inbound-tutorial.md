@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80d356426fe312708d64cc4284dbb1fd925e47c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233327"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849330"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -236,16 +236,16 @@ En général, tous les connecteurs d'approvisionnement Workday ont besoin des in
 
 **Pour créer un utilisateur de système d’intégration :**
 
-1. Connectez-vous à votre client Workday à l’aide d’un compte d’administrateur. Dans **Workday Application** (Application Workday), entrez « create user » dans la zone de recherche, puis cliquez sur **Create Integration System User** (Créer un utilisateur du système d’intégration).
+1. Connectez-vous à votre locataire Workday à l’aide d’un compte administrateur. Dans **Workday Application** (Application Workday), entrez « create user » dans la zone de recherche, puis cliquez sur **Create Integration System User** (Créer un utilisateur du système d’intégration).
 
-    ![Créer un utilisateur](./media/workday-inbound-tutorial/wd_isu_01.png "Créer un utilisateur")
+   ![Créer un utilisateur](./media/workday-inbound-tutorial/wd_isu_01.png "Créer un utilisateur")
 2. Exécutez la tâche **Create Integration System User** en fournissant un nom d’utilisateur et un mot de passe pour un nouvel utilisateur du système d’intégration.  
   
-* Laissez l’option **Require New Password at Next Sign In** désactivée, étant donné que cet utilisateur se connectera par programmation.
-* Laissez la valeur par défaut de 0 pour l’option **Session Timeout Minutes** afin d’éviter que les sessions de l’utilisateur n’expirent prématurément.
-* Sélectionnez l’option **Do Not Allow UI Sessions** (Ne pas autoriser les sessions d’interface utilisateur), car elle fournit une couche de sécurité supplémentaire qui empêche un utilisateur ayant le mot de passe du système d’intégration de se connecter à Workday.
+   * Laissez l’option **Require New Password at Next Sign In** désactivée, étant donné que cet utilisateur se connectera par programmation.
+   * Laissez la valeur par défaut de 0 pour l’option **Session Timeout Minutes** afin d’éviter que les sessions de l’utilisateur n’expirent prématurément.
+   * Sélectionnez l’option **Do Not Allow UI Sessions** (Ne pas autoriser les sessions d’interface utilisateur), car elle fournit une couche de sécurité supplémentaire qui empêche un utilisateur ayant le mot de passe du système d’intégration de se connecter à Workday.
 
-    ![Créer un utilisateur de système d’intégration](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
+   ![Créer un utilisateur de système d’intégration](./media/workday-inbound-tutorial/wd_isu_02.png "Create Integration System User")
 
 ### <a name="creating-an-integration-security-group"></a>Création d'un groupe de sécurité pour le système d'intégration
 
@@ -356,20 +356,44 @@ Dans cette étape, vous accordez des autorisations de stratégies de sécurité 
 
 Cette section présente les étapes à suivre pour configurer l'approvisionnement des comptes d'utilisateur de Workday vers chacun des domaines Active Directory concernés par votre intégration.
 
-* [Installer et configurer les agents d'approvisionnement locaux](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [Ajouter l'application de connecteur d'approvisionnement et établir la connexion avec Workday](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [Configurer les mappages d'attributs](#part-3-configure-attribute-mappings)
+* [Ajouter l’application du connecteur d’approvisionnement et télécharger l’agent d’approvisionnement](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Installer et configurer les agents d'approvisionnement locaux](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Configurer la connectivité à Workday et Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [Configurer les mappages d'attributs](#part-4-configure-attribute-mappings)
 * [Activer et lancer l'approvisionnement des utilisateurs](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>Partie 1 : Installer et configurer des agents de provisionnement locaux
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Partie 1 : Ajouter l’application du connecteur d’approvisionnement et télécharger l’agent d’approvisionnement
 
-Pour tout approvisionnement vers une instance locale d'Active Directory, un agent doit être installé sur un serveur doté de .NET Framework 4.7.1+ et d'un accès réseau aux domaines Active Directory souhaités.
+**Pour configurer l’approvisionnement Workday dans Active Directory :**
+
+1. Accédez à <https://portal.azure.com>
+
+2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
+
+3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
+
+4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
+
+5. Recherchez **Approvisionnement Workday dans Active Directory** et ajoutez cette application à partir de la galerie.
+
+6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
+
+7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
+
+8. Cliquez sur la bannière d’informations affichée pour télécharger l’agent d’approvisionnement. 
+
+   ![Télécharger l’agent](./media/workday-inbound-tutorial/pa-download-agent.png "Écran Télécharger l’agent")
+
+
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Partie 2 : Installer et configurer des agents de provisionnement locaux
+
+Pour tout approvisionnement vers une instance locale d’Active Directory, l’agent d’approvisionnement doit être installé sur un serveur doté de .NET Framework 4.7.1+ et d’un accès réseau aux domaines Active Directory souhaités.
 
 > [!TIP]
 > Vous pouvez vérifier la version du .NET Framework sur votre serveur en suivant les instructions fournies [ici](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Si .NET 4.7.1 ou version ultérieure n'est pas installé sur le serveur, vous pouvez le télécharger [ici](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
-Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l' **[agent d'approvisionnement local ici](https://go.microsoft.com/fwlink/?linkid=847801)** et suivre les étapes ci-dessous pour finaliser la configuration de l'agent.
+Transférez le programme d’installation de l’agent téléchargé sur l’hôte du serveur et suivez les étapes indiquées ci-dessous pour terminer la configuration de l’agent.
 
 1. Connectez-vous au serveur Windows Server sur lequel vous souhaitez installer le nouvel agent.
 
@@ -420,25 +444,12 @@ Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l' **[agent d'app
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Partie 2 : Ajout de l’application de connecteur de provisionnement et création de la connexion à Workday
+### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Partie 3 : Dans l’application d’approvisionnement, configurer la connectivité à Workday et Active Directory
+Lors de cette étape, nous allons établir la connectivité avec Workday et Active Directory dans le Portail Azure. 
 
-**Pour configurer l’approvisionnement Workday dans Active Directory :**
+1. Dans le Portail Azure, revenez à l’application Attribution d’utilisateurs Workday vers Active Directory créée dans la [Partie 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent).
 
-1. Accédez à <https://portal.azure.com>
-
-2. Dans la barre de navigation de gauche, sélectionnez **Azure Active Directory**
-
-3. Cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**.
-
-4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
-
-5. Recherchez **Approvisionnement Workday dans Active Directory** et ajoutez cette application à partir de la galerie.
-
-6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
-
-7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
-
-8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
+1. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
    * **Nom d'utilisateur administrateur** : entrez le nom d'utilisateur du compte du système d'intégration Workday, avec le nom de domaine du locataire. Le résultat doit ressembler à : **nom d’utilisateur\@nom_locataire**
 
@@ -465,7 +476,7 @@ Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l' **[agent d'app
 
    * Une fois les informations d'identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les employés Workday avec l'instance locale d'Active Directory**.
 
-### <a name="part-3-configure-attribute-mappings"></a>Partie 3 : Configuration des mappages d’attributs
+### <a name="part-4-configure-attribute-mappings"></a>Partie 4 : Configuration des mappages d’attributs
 
 Dans cette section, vous allez configurer le flux des données de l’utilisateur de Workday vers Active Directory.
 

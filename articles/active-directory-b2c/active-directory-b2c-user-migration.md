@@ -1,5 +1,6 @@
 ---
-title: Approches de migration utilisateur dans Azure Active Directory B2C
+title: Approches de la migration des utilisateurs
+titleSuffix: Azure AD B2C
 description: Abordez les principaux concepts et les concepts avancés de la migration utilisateur avec l’API Graph Azure AD et, éventuellement, avec les stratégies personnalisées Azure AD B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9c01e22cfa96321994c16df6b61a52ebd4137549
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c5b7d477b0704db3f23919281fd61328be114dae
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322930"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950219"
 ---
 # <a name="migrate-users-to-azure-active-directory-b2c"></a>Migrer des utilisateurs vers Azure Active Directory B2C
 

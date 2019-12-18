@@ -1,18 +1,19 @@
 ---
-title: Mise à niveau vers un compte de stockage v2 à usage général - Stockage Azure | Microsoft Docs
+title: Mettre à niveau vers un compte de stockage v2 à usage général
+titleSuffix: Azure Storage
 description: Mettez à niveau vers des comptes de stockage v2 à usage général.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 03/26/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806964"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892224"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -21,7 +22,7 @@ Les comptes de stockage v2 à usage général prennent en charge les dernières 
 La mise à niveau vers un compte de stockage v2 à usage général à partir d’un compte de stockage v1 à usage général ou d’un compte de stockage d’objets blob est une opération très simple. Pour ce faire, vous pouvez utiliser le Portail Azure, PowerShell ou Azure CLI.
 
 > [!IMPORTANT]
-> La mise à niveau d’un compte de stockage v1 à usage général ou d’objets blob vers un compte v2 à usage général est définitive et ne peut pas être annulée.
+> La mise à niveau d’un compte de stockage v1 universel ou d’objets blob vers un compte v2 universel est définitive et ne peut pas être annulée.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -59,20 +60,20 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Spécifier un niveau d’accès pour les données blob
 
-Les comptes v2 universels prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès s’appliquent uniquement aux objets blob de blocs dans le stockage d’objets blob. Quand vous effectuez une mise à niveau vers un compte de stockage v2 universel, vous pouvez spécifier un niveau d’accès de compte par défaut chaud ou froid, qui indique le niveau par défaut sous lequel vos données BLOB sont chargées si le paramètre de niveau d’accès aux objets BLOB individuel n’est pas spécifié.
+Les comptes v2 universels prennent en charge tous les services de stockage et objets de données Azure, mais les niveaux d’accès s’appliquent uniquement aux objets blob de blocs dans le stockage d’objets blob. Quand vous effectuez une mise à niveau vers un compte de stockage v2 universel, vous pouvez spécifier un niveau d’accès de compte par défaut chaud ou froid, qui indique le niveau par défaut sous lequel vos données blob sont chargées si le paramètre de niveau d’accès à l’objet blob en question n’est pas spécifié.
 
 Les niveaux d’accès aux objets BLOB vous permettent de choisir la solution de stockage la plus économique en fonction des modèles d’utilisation prévus. Les objets blob de blocs peuvent être stockés dans un niveau de stockage chaud, froid ou archive. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage Blob Azure : Niveaux de stockage chaud, à froid et archivage](../blobs/storage-blob-storage-tiers.md).
 
 Par défaut, un compte de stockage est créé dans le niveau d’accès chaud, tandis qu’un compte de stockage v1 universel peut être mis à niveau vers le niveau de compte chaud ou froid. Si aucun niveau d’accès de compte n’est spécifié lors de la mise à niveau, il est mis à niveau vers le niveau chaud par défaut. Si vous cherchez à déterminer le niveau d’accès à utiliser pour votre mise à niveau, examinez votre scénario d’usage des données actuel. Les utilisateurs se trouvent généralement face à deux scénarios lors de la migration vers un compte v2 à usage général :
 
-* Vous disposez d’un compte de stockage v1 à usage général et envisagez de passer à un compte de stockage v2 à usage général, assorti du niveau d’accès de stockage adapté aux données blob.
+* Vous disposez d’un compte de stockage v1 universel et envisagez de passer à un compte de stockage v2 universel, assorti du niveau d’accès de stockage adapté aux données blob.
 * Vous avez décidé d’utiliser un compte de stockage v2 universel ou vous disposez déjà d’un tel compte et souhaitez savoir si vous devez utiliser le niveau d’accès de stockage chaud ou froid pour les données blob.
 
 Dans les deux cas, la priorité est d’estimer les coûts de stockage, d’exploitation des données stockées dans un compte de stockage v2 à usage général et d’accès à celles-ci pour les comparer avec vos frais actuels.
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
 
-La mise à niveau d’un compte de stockage v1 vers un compte v2 à usage général est gratuite. Vous pouvez spécifier le niveau de compte souhaité pendant le processus de mise à niveau. Si aucun niveau de compte n’est spécifié lors de la mise à niveau, le niveau de compte par défaut du compte mis à niveau est `Hot`. Toutefois, le changement de niveau d’accès de stockage après la mise à niveau peut avoir un impact sur votre facture. Il est donc recommandé de spécifier le nouveau niveau de compte lors de la mise à niveau.
+La mise à niveau d’un compte de stockage v1 vers un compte v2 universel est gratuite. Vous pouvez spécifier le niveau de compte souhaité pendant le processus de mise à niveau. Si aucun niveau de compte n’est spécifié lors de la mise à niveau, le niveau de compte par défaut du compte mis à niveau est `Hot`. Toutefois, le changement de niveau d’accès de stockage après la mise à niveau peut avoir un impact sur votre facture. Il est donc recommandé de spécifier le nouveau niveau de compte lors de la mise à niveau.
 
 Tous les comptes de stockage utilisent un modèle de tarification pour le stockage d’objets blob basé sur le niveau de chaque objet blob. Les considérations de facturation suivantes s’appliquent à l’utilisation des comptes de stockage :
 
@@ -96,11 +97,12 @@ Tous les comptes de stockage utilisent un modèle de tarification pour le stocka
 Pour estimer le coût de stockage et d’accès aux données blob stockées dans un compte de stockage v2 à usage général (et avec un niveau particulier), vous devez évaluer votre modèle d’utilisation existant ou faire une estimation du modèle d’utilisation souhaité. En général, vous souhaitez connaître :
 
 * Votre consommation pour le stockage d’objets blob, en gigaoctets :
-    - Quelle est la quantité des données stockées dans le compte de stockage ?
-    - Comment le volume de données est-il changé tous les mois ? Les nouvelles données remplacent-elles constamment les anciennes données ?
+  * Quelle est la quantité des données stockées dans le compte de stockage ?
+  * Comment le volume de données est-il changé tous les mois ? Les nouvelles données remplacent-elles constamment les anciennes données ?
+
 * Le principal modèle d’accès pour vos données de stockage d’objets blob :
-    - Quelle est la quantité de données lues et écrites dans le compte de stockage ?
-    - Combien d’opérations de lecture et d’écriture ont lieu sur les données dans le compte de stockage ?
+  * Quelle est la quantité de données lues et écrites dans le compte de stockage ?
+  * Combien d’opérations de lecture et d’écriture ont lieu sur les données dans le compte de stockage ?
 
 Pour choisir le niveau d’accès le plus adapté à vos besoins, vous devez déterminer votre capacité de données d’objet blob et la manière dont ces données sont utilisées. Pour ce faire, examinez les métriques de supervision de votre compte.
 
@@ -165,5 +167,5 @@ Le coût de transfert de données de géoréplication des comptes de stockage d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créez un compte de stockage](storage-quickstart-create-account.md)
-- [Gérer des comptes de stockage Azure](storage-account-manage.md)
+* [Créez un compte de stockage](storage-quickstart-create-account.md)
+* [Gérer des comptes de stockage Azure](storage-account-manage.md)

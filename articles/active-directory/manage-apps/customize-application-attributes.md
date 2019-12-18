@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641507"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997052"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -78,12 +78,12 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
   - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>Correspondance des utilisateurs dans les systèmes source et cible
-Le service de provisionnement Azure AD peut être déployé dans les deux scénarios Greenfield (les utilisateurs ne quittent pas le système cible) et Brownfield (les utilisateurs existent déjà dans le système cible). Pour prendre en charge les deux scénarios, le service d’approvisionnement utilise le concept de correspondance d’attribut(s). L’attribut ou les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et correspondre à l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
+Le service de provisionnement Azure AD peut être déployé aussi bien dans les scénarios « greenfield » (« terrain vierge », où les utilisateurs ne quittent pas le système cible) que dans les scénarios « brownfield » (« friche industrielle », où les utilisateurs existent déjà dans le système cible). Pour prendre en charge ces deux scénarios, le service de provisionnement utilise le concept de correspondance d’attributs. Les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et faire correspondre l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
 
 - **Les attributs correspondants doivent être uniques :** Les clients utilisent souvent des attributs tels que userPrincipalName, le courrier électronique ou l’ID d’objet comme attribut correspondant.
-- **Plusieurs attributs peuvent être utilisés comme attributs correspondants :** Vous pouvez définir plusieurs attributs à évaluer lors de la correspondance des utilisateurs et de l’ordre dans lequel ils sont évalués (définis comme priorité correspondante dans l’interface utilisateur). Si, par exemple, vous définissez trois attributs comme attributs correspondants et qu’un utilisateur est mis en correspondance de manière unique après l’évaluation des deux premiers attributs, le service n’évalue pas le troisième attribut. Le service évalue les attributs correspondants dans l’ordre spécifié et arrête l’évaluation lorsqu’une correspondance est trouvée.  
+- **Plusieurs attributs peuvent être utilisés comme attributs correspondants :** Vous pouvez définir plusieurs attributs à évaluer lors de la correspondance des utilisateurs et de l’ordre dans lequel ils sont évalués (définis comme priorité correspondante dans l’interface utilisateur). Si, par exemple, vous définissez trois attributs comme attributs correspondants, et qu’un utilisateur est mis en correspondance de manière unique après l’évaluation des deux premiers attributs, le service n’évalue pas le troisième attribut. Le service évalue les attributs correspondants dans l’ordre spécifié et arrête l’évaluation lorsqu’une correspondance est trouvée.  
 - **La valeur dans la source et la cible n’ont pas besoin de correspondre exactement :** La valeur de la cible peut être une fonction simple de la valeur de la source. Par conséquent, l’une d’elles peut avoir un attribut emailAddress dans la source et userPrincipalName dans la cible, et correspondre à une fonction de l’attribut emailAddress qui remplace certains caractères par une valeur constante.  
-- **La correspondance basée sur une combinaison d’attributs n’est pas prise en charge :** La plupart des applications ne prennent pas en charge l’interrogation basée sur deux propriétés et, par conséquent, il n’est pas possible d’effectuer une correspondance basée sur une combinaison d’attributs. Il est possible d’évaluer des propriétés uniques les unes après les autres.
+- **La correspondance basée sur une combinaison d’attributs n’est pas prise en charge :** La plupart des applications ne prennent pas en charge l’interrogation basée sur deux propriétés. Par conséquent, il n’est pas possible d’effectuer une correspondance basée sur une combinaison d’attributs. Il est possible d’évaluer des propriétés uniques les unes après les autres.
 - **Tous les utilisateurs doivent avoir une valeur pour au moins un attribut correspondant :** Si vous définissez un attribut correspondant, tous les utilisateurs doivent avoir une valeur pour cet attribut dans le système source. Si, par exemple, vous définissez userPrincipalName comme attribut de correspondance, tous les utilisateurs doivent avoir un userPrincipalName. Si vous définissez plusieurs attributs correspondants (par exemple, extensionAttribute1 et mail), tous les utilisateurs ne doivent pas avoir le même attribut de correspondance. Un utilisateur peut avoir extensionAttribute1 mais pas mail, alors qu’un autre utilisateur peut avoir mail, mais pas extensionAttribute1. 
 - **L’application cible doit prendre en charge le filtrage sur l’attribut correspondant :** Les développeurs d’applications permettent de filtrer un sous-ensemble d’attributs sur leur API d’utilisateur ou de groupe. Pour les applications de la galerie, nous garantissons que le mappage d’attribut par défaut concerne un attribut sur lequel l’API de l’application cible prend en charge le filtrage. Lorsque vous modifiez l’attribut correspondant par défaut pour l’application cible, vérifiez la documentation de l’API tierce pour vous assurer que l’attribut peut être filtré.  
 
@@ -134,7 +134,61 @@ Lorsque vous modifiez la liste des attributs pris en charge, les propriétés su
 - **API Expression** : ne pas utiliser, sauf si vous êtes invité à le faire dans la documentation relative à un connecteur d’approvisionnement spécifique (tel que Workday).
 - **Referenced Object Attribute** : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID primaires pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais qu’ils peuvent être modifiés à l’aide de l’[API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Pour ajouter un nouvel attribut, faites défiler jusqu'à la fin de la liste des attributs pris en charge, remplissez les champs ci-dessus à l’aide des entrées fournies, puis sélectionnez **ajouter un attribut**. Sélectionnez **Enregistrer** lorsque vous avez fini d’ajouter des attributs. Vous devez ensuite recharger l’onglet **Approvisionnement** pour que les nouveaux attributs soient disponibles dans l’éditeur de mappage d’attributs.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionnement d’un attribut d’extension personnalisé sur une application conforme à SCIM
+La RFC SCIM définit un schéma d’utilisateur et de groupe principal, tout en permettant également aux extensions du schéma de répondre aux besoins de votre application. Pour ajouter un attribut personnalisé à une application SCIM :
+   1. Connectez-vous au [portail Azure Active Directory](https://aad.portal.azure.com) et sélectionnez **Applications d’entreprise**. Sélectionnez ensuite votre application, puis **Provisionnement**.
+   2. Sous **Mappages**, sélectionnez l’objet (utilisateur ou groupe) pour lequel vous souhaitez ajouter un attribut personnalisé.
+   3. En bas de la page, sélectionnez **Afficher les options avancées**.
+   4. Sélectionnez **Modifier la liste d’attributs pour AppName**.
+   5. En bas de la liste d’attributs, entrez les informations relatives à l’attribut personnalisé dans les champs fournis. Sélectionnez ensuite **Ajouter un attribut**.
+
+Pour les applications SCIM, le nom de l’attribut doit suivre le modèle indiqué dans l’exemple ci-dessous. Les paramètres « CustomExtensionName » et « CustomAttribute » peuvent être personnalisés selon les exigences de votre application ; par exemple : urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute
+
+Ces instructions s’appliquent uniquement aux applications prenant en charge SCIM. Les applications telles que ServiceNow et Salesforce ne sont pas intégrées à Azure AD à l’aide de SCIM, et n’ont donc pas besoin de cet espace de noms spécifique lors de l’ajout d’un attribut personnalisé.
+
+Les attributs personnalisés ne peuvent pas être des attributs référentiels ou des attributs multivaleurs. Les attributs d’extension multivaleurs personnalisés sont actuellement pris en charge uniquement pour les applications de la galerie.  
+ 
+**Exemple de représentation d’un utilisateur avec un attribut d’extension :**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Approvisionnement d’un rôle sur une application SCIM
 Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisateur dans votre application. Notez que la description ci-dessous est spécifique aux applications SCIM personnalisées. Pour les applications de la galerie telles que Salesforce et ServiceNow, utilisez les mappages de rôles prédéfinis. Les puces ci-dessous décrivent comment convertir l’attribut AppRoleAssignments au format attendu par votre application.
 

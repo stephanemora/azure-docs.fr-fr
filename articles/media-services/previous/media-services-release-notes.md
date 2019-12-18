@@ -1,6 +1,6 @@
 ---
-title: Notes de publication Media Services | Microsoft Docs
-description: Notes de publication de Media Services
+title: Notes de publication Azure Media Services | Microsoft Docs
+description: Cet article traite des notes de publication de Microsoft Azure Media Services v2.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d4c8dd4b3a53d484d5240f3514d171231fc93ae0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423890"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968508"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -554,6 +554,10 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du SDK 
 * Prise en charge de la méthode asynchrone
   
     * La prise en charge asynchrone a été ajoutée à toutes les méthodes.
+
+## <a name="additional-notes"></a>Remarques supplémentaires
+
+* Widevine est un service fourni par Google Inc. soumis aux conditions d’utilisation du service et à la politique de confidentialité de Google Inc.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

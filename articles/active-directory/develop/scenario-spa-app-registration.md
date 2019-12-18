@@ -1,5 +1,5 @@
 ---
-title: Application monopage (inscription d’application) - Plateforme d’identité Microsoft
+title: Inscrire des applications monopages - Plateforme d’identités Microsoft | Azure
 description: Découvrir comment créer une application monopage (inscription d’application)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef23b08beeee4cd7e82a5fc33a01b4988ddffb6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 03115db0ad286c7a5c24590906d8e3715e43bac7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764693"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962438"
 ---
 # <a name="single-page-application-app-registration"></a>Application monopage : Inscription d'application
 

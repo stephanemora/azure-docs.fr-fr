@@ -10,26 +10,26 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 8be546c5dba4c6c694c8cef03a4bdd6005d68189
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0cbd4b620a03ed26e95679cf7cb1abef277a9471
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811107"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873793"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-setup"></a>Interopérabilité des fonctionnalités de connectivité de back-end Azure : Configuration des tests
 
 Cet article décrit une configuration de test que vous pouvez utiliser pour analyser l’interopérabilité des services de mise en réseau au niveau du plan de contrôle et du plan de données. Nous allons examiner brièvement les composants de la mise en réseau Azure :
 
 -   **Azure ExpressRoute** : Utilisez le peering privé d’Azure ExpressRoute pour connecter directement des espaces IP privés de votre réseau local à vos déploiements de réseau virtuel Azure. ExpressRoute vous permet d’obtenir une bande passante supérieure et une connexion privée. De nombreux partenaires de l’écosystème ExpressRoute proposent une connectivité ExpressRoute avec des contrats SLA. Pour en savoir plus sur ExpressRoute et sa configuration, consultez [Présentation d’ExpressRoute][ExpressRoute].
--   **VPN de site à site** : Vous pouvez utiliser la passerelle VPN Azure comme un VPN de site à site pour connecter en toute sécurité un réseau local à Azure via Internet ou ExpressRoute. Pour savoir comment configurer un VPN de site à site pour se connecter à Azure, consultez [Configurer une passerelle VPN][VPN].
--   **Homologation de réseaux virtuels** : Utilisez le peering de réseaux virtuels (VNet) pour établir la connectivité entre les réseaux virtuels d’un réseau virtuel Azure. Pour en savoir plus sur le peering de réseaux virtuels, consultez le [tutoriel sur le peering de réseaux virtuels][VNet].
+-   **VPN de site à site** : Vous pouvez utiliser la passerelle VPN Azure comme un VPN de site à site pour connecter en toute sécurité un réseau local à Azure via Internet ou ExpressRoute. Pour savoir comment configurer un VPN site à site pour se connecter à Azure, consultez [Configurer une passerelle VPN][VPN].
+-   **Peering de réseaux virtuels** : Utilisez le peering de réseaux virtuels (VNet) pour établir la connectivité entre les réseaux virtuels d’un réseau virtuel Azure. Pour en savoir plus sur le Peering de réseaux virtuels, consultez le [tutoriel sur le Peering de réseaux virtuels][VNet].
 
 ## <a name="test-setup"></a>Configuration des tests
 
 L’image suivante illustre la configuration de test :
 
-[![1]][1]
+![1][1]
 
 Le cœur de la configuration de test est le réseau virtuel Hub dans la région Azure 1. Le réseau virtuel Hub est connecté à différents réseaux, comme suit :
 
@@ -43,7 +43,7 @@ Le cœur de la configuration de test est le réseau virtuel Hub dans la région 
 
 ###  <a name="site-to-site-vpn-over-expressroute"></a>VPN de site à site sur ExpressRoute
 
-Vous pouvez configurer un VPN de site à site à l’aide du peering Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPSec de site à site en mode tunnel via le peering Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via le peering Microsoft ExpressRoute][S2S-Over-ExR]. 
+Vous pouvez configurer un VPN de site à site à l’aide du peering Microsoft ExpressRoute pour échanger des données de façon privée entre votre réseau local et vos réseaux virtuels Azure. Avec cette configuration, vous pouvez échanger des données en garantissant confidentialité, authenticité et intégrité. L’échange de données est également soumis à un système anti-relecture. Pour plus d’informations sur la configuration d’un VPN IPsec de site à site en mode tunnel via l’homologation Microsoft ExpressRoute, consultez l’article [Configurer un réseau VPN de site à site via le Peering Microsoft ExpressRoute][S2S-Over-ExR]. 
 
 La principale limitation liée à la configuration d’un VPN de site à site qui utilise le peering Microsoft est le débit. Le débit sur le tunnel IPsec est limité par la capacité de la passerelle VPN. Le débit d’une passerelle VPN est inférieur au débit ExpressRoute. Dans ce scénario, le fait d’utiliser le tunnel IPsec pour un trafic très sécurisé et d’utiliser le peering privé pour toutes les autres catégories de trafic permet d’optimiser l’utilisation de la bande passante ExpressRoute.
 
@@ -71,14 +71,14 @@ Pour plus d’informations, consultez [Qu’est-ce qu’une passerelle VPN ?][V
 
 En savoir plus sur les [détails de la configuration][Configuration] pour la topologie de test.
 
-En savoir plus sur l’[analyse de plan de contrôle][Control-Analysis] de la configuration de test et les vues de différents réseaux virtuels ou réseaux VLAN dans la topologie.
+Découvrez-en plus sur l’[analyse du plan de contrôle][Control-Analysis] de l’initialisation (tearDown) de test et les vues de différents réseaux virtuels ou réseaux locaux virtuels (VLAN) dans la topologie.
 
-En savoir plus sur l’[analyse de plan de données][Data-Analysis] de la configuration de test et les affichages des fonctionnalités de supervision de réseau Azure.
+En savoir plus sur l’[analyse de plan de données][Data-Analysis] de l’initialisation (tearDown) de test et les affichages des fonctionnalités de supervision du réseau Azure.
 
-Consultez le [Forum Aux Questions sur ExpressRoute][ExR-FAQ] pour :
+Consultez le [FAQ ExpressRoute][ExR-FAQ] pour :
 -   Connaître le nombre de circuits ExpressRoute que vous pouvez connecter à une passerelle ExpressRoute.
 -   Connaître le nombre de passerelles ExpressRoute que vous pouvez connecter à un circuit ExpressRoute.
--   En savoir plus sur les autres limites de mise à l’échelle d’ExpressRoute.
+-   Découvrir les autres limites de mise à l’échelle d’ExpressRoute.
 
 
 <!--Image References-->

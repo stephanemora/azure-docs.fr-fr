@@ -3,12 +3,12 @@ title: Résoudre les erreurs de sauvegarde de bases de données SAP HANA
 description: Décrit comment résoudre les erreurs courantes qui peuvent survenir lorsque vous utilisez le service Sauvegarde Azure pour sauvegarder des bases de données SAP HANA.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665336"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892598"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Résoudre les problèmes de sauvegarde des bases de données SAP HANA sur Azure
 
@@ -102,17 +102,19 @@ Dans plusieurs bases de données de conteneur pour HANA, la configuration standa
 Si vous protégez des bases de données SAP HANA 1.0 et que vous voulez les mettre à niveau vers la version 2.0, effectuez les étapes décrites ci-dessous :
 
 - [Arrêtez la protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) avec conservation des données pour l’ancienne base de données SDC.
+- Effectuez la mise à niveau. À l’issue de l’opération, HANA est maintenant MDC avec une base de données système et une ou plusieurs bases de données locataire.
 - Réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana) avec les détails (sid et mdc) corrects.
-- Réinscrivez l’extension (Sauvegarde > Afficher les détails-> Sélectionner la machine virtuelle Azure appropriée > Réinscrire).
+- Réinscrivez l’extension pour la même machine dans le Portail Azure (Sauvegarde > Afficher les détails > Sélectionner la machine virtuelle Azure appropriée > Réinscrire).
 - Cliquez sur Redécouvrir les bases de données pour la même machine virtuelle. Cette action a pour effet de faire apparaître les nouvelles bases de données de l’étape 2 avec des détails corrects (SYSTEMDB et Tenant DB, et non SDC).
-- Protégez ces nouvelles bases de données.
+- Configurer la sauvegarde de ces nouvelles bases de données.
 
 ## <a name="upgrading-without-an-sid-change"></a>Mise à niveau sans modification du SID
 
 Les mises à niveau vers OS ou SAP HANA qui n’entraînent pas de modification du SID peuvent être gérées de la façon suivante :
 
 - [Arrêter la protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) avec conservation des données pour la base de données
-- Réexécuter le [script de préinscription](https://aka.ms/scriptforpermsonhana)
+- Effectuez la mise à niveau.
+- Réexécutez le [script de préinscription](https://aka.ms/scriptforpermsonhana). En règle générale, nous avons vu que le processus de mise à niveau supprime les rôles nécessaires. L’exécution du script de préinscription permet de vérifier tous les rôles requis.
 - [Réactiver la protection](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) de la base de données
 
 ## <a name="next-steps"></a>Étapes suivantes

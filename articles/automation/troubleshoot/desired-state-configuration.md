@@ -4,17 +4,17 @@ description: Cet article fournit des informations sur la résolution des problè
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ab9a39cfba082ea4c4d1cc6c29764619011d8cb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231555"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951460"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
 
@@ -89,6 +89,68 @@ Cette erreur est habituellement due à un pare-feu, la machine se trouvant derri
 #### <a name="resolution"></a>Résolution :
 
 Vérifiez que votre machine a accès aux points de terminaison appropriés pour Azure Automation DSC et réessayez. Pour obtenir la liste des ports et adresses nécessaires, consultez [Planification réseau](../automation-dsc-overview.md#network-planning).
+
+### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>Scénario : Les rapports d’état retournent le code de réponse « Non autorisé »
+
+#### <a name="issue"></a>Problème
+
+Lors de l’inscription d’un nœud à l’aide de State Configuration (DSC), vous recevez l’un des messages d’erreur suivants :
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### <a name="cause"></a>Cause :
+
+Ce problème est dû à un certificat incorrect ou expiré.  Pour plus d’informations, consultez [Expiration du certificat et réinscription](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
+
+### <a name="resolution"></a>Résolution :
+
+Suivez les étapes indiquées ci-dessous pour réinscrire le nœud DSC défaillant.
+
+Tout d’abord, désinscrivez le nœud en procédant comme suit.
+
+1. À partir du Portail Azure, sous **Accueil** -> **Comptes Automation** -> {votre compte Automation} -> **State Configuration (DSC)**
+2. Cliquez sur « Nœuds », puis sur le nœud qui rencontre des problèmes.
+3. Cliquez sur « Désinscrire » pour désinscrire le nœud.
+
+Désinstallez ensuite l’extension DSC du nœud.
+
+1. À partir de la Portail Azure, sous **Accueil** -> **Machine virtuelle** -> {Noeud défaillant} -> **Extensions**
+2. Cliquez sur « Microsoft.Powershell.DSC ».
+3. Cliquez sur « Désinstaller » pour désinstaller l’extension DSC PowerShell.
+
+Puis, supprimez du nœud tous les certificats incorrects ou expirés.
+
+Sur le nœud défaillant et à partir d’une invite PowerShell avec élévation de privilèges, exécutez ce qui suit :
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+Enfin, réinscrivez le nœud défaillant en procédant comme suit.
+
+1. À partir du Portail Azure, sous **Accueil** -> **Comptes Automation** -> {votre compte Automation} -> **State Configuration (DSC)**
+2. Cliquez sur « Nœuds ».
+3. Cliquez sur le bouton « Ajouter ».
+4. Sélectionnez le nœud défaillant.
+5. Cliquez sur « Connexion », puis sélectionnez les options souhaitées.
 
 ### <a name="failed-not-found"></a>Scénario : Le nœud est en état d’échec avec une erreur « Introuvable »
 
@@ -187,6 +249,49 @@ Cette erreur se produit généralement quand le nœud est affecté à un nom de 
 
 * Assurez-vous que vous affectez le nœud avec un nom de configuration de nœud qui correspond exactement au nom dans le service.
 * Vous pouvez choisir de ne pas inclure le nom de configuration de nœud, ce qui entraîne l’intégration du nœud,sans affectation de configuration de nœud
+
+### <a name="cross-subscription"></a>Scénario : L’inscription d’un nœud avec PowerShell retourne l’erreur « Une ou plusieurs erreurs se sont produites »
+
+#### <a name="issue"></a>Problème
+
+Lors de l’inscription d’un nœud à l’aide de `Register-AzAutomationDSCNode` ou de `Register-AzureRMAutomationDSCNode`, vous recevez l’erreur suivante.
+
+```error
+One or more errors occurred.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur se produit lorsque vous tentez d’inscrire un nœud qui réside dans un abonnement distinct du compte Automation.
+
+#### <a name="resolution"></a>Résolution :
+
+Traitez ce nœud d’un autre abonnement comme s’il se trouvait dans un cloud distinct ou localement.
+
+Suivez les étapes ci-dessous pour inscrire le nœud.
+
+* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Linux : [Machines physiques/virtuelles Linux locales ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
+
+### <a name="agent-has-a-problem"></a>Scénario : Message d’erreur : « Échec de l’approvisionnement »
+
+#### <a name="issue"></a>Problème
+
+Lors de l’inscription d’un nœud, l’erreur suivante s’affiche :
+
+```error
+Provisioning has failed
+```
+
+#### <a name="cause"></a>Cause :
+
+Ce message s’affiche lorsqu’il y a un problème de connectivité entre le nœud et Azure.
+
+#### <a name="resolution"></a>Résolution :
+
+Déterminez si votre nœud se trouve dans un réseau virtuel privé ou s’il a d’autres problèmes pour se connecter à Azure.
+
+Pour plus d’informations, consultez [Résolution des erreurs d’intégration des solutions](onboarding.md).
 
 ### <a name="failure-linux-temp-noexec"></a>Scénario : Pendant l’application d’une configuration dans Linux, un échec se produit avec une erreur générale
 

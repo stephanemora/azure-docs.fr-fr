@@ -7,12 +7,13 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5fdb189fcab3da4dad52642571ac42e669828fe3
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967187"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971653"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -60,6 +61,12 @@ Pour savoir comment configurer des points de terminaison et le routage, consulte
 ### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Routage d’une application de couche 7 avec Azure Front Door Service
 
 Traffic Manager utilise DNS (couche 3) pour former le trafic. [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) propose une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires d’Azure Front Door Service incluent l’arrêt SSL, le domaine personnalisé, le pare-feu d’applications web, la réécriture d’URL et l’affinité de session. Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
+
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconnecter des régions avec l’appairage de réseau virtuel global
+
+Si les clusters doivent communiquer entre eux, il est possible de connecter les deux réseaux virtuels entre eux via [l’appairage de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Cette technologie interconnecte les réseaux virtuels entre eux pour fournir une bande passante élevée à travers le réseau principal de Microsoft, même entre différentes régions géographiques.
+
+Un prérequis pour appairer les réseaux virtuels où des clusters AKS sont en cours d’exécution est d’utiliser le service Load Balancer standard dans votre cluster AKS, de sorte que les services Kubernetes soient accessibles via l’appairage de réseau virtuel.
 
 ## <a name="enable-geo-replication-for-container-images"></a>Activer la géoréplication pour les images conteneur
 
@@ -115,7 +122,7 @@ La stratégie classique consiste à fournir un point de stockage commun où les 
 
 Si vous utilisez Azure Managed Disks, vous pouvez choisir des solutions de réplication et de récupération d’urgence comme :
 
-* [Velero sur Azure](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
+* [Velero sur Azure](https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/master/README.md)
 * [Azure Site Recovery](https://azure.microsoft.com/blog/asr-managed-disks-between-azure-regions/)
 
 ### <a name="application-based-asynchronous-replication"></a>Réplication asynchrone basée sur l’application

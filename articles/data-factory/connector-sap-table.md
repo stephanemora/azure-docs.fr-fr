@@ -1,23 +1,22 @@
 ---
-title: Copier des données d’une table SAP à l’aide d’Azure Data Factory
+title: Copier des données à partir d’une table SAP
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données à partir d’une table SAP vers des magasins de données récepteurs pris en charge.
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd363f7b685db5e309827a0c5e635264e676b388
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680239"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926193"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copier des données d’une table SAP à l’aide d’Azure Data Factory
 

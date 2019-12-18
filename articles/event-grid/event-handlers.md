@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169317"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900729"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 
@@ -79,7 +79,7 @@ Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux
 
 Vous pouvez router les événements Event Grid directement vers les files d’attente Service Bus. Cette fonctionnalité est utilisée pour les scénarios de mise en mémoire tampon ou de commande et de contrôle dans les applications d’entreprise.
 
-Dans le Portail Azure, lors de la création d’un abonnement aux événements, sélectionnez « File d’attente Service Bus » comme type de point de terminaison, puis cliquez sur « Sélectionner un point de terminaison » pour choisir une file d’attente Service Bus.
+Dans le portail Azure, lors de la création d’un abonnement aux événements, sélectionnez « File d’attente Service Bus » comme type de point de terminaison, puis cliquez sur « Sélectionner un point de terminaison » pour choisir une file d’attente Service Bus.
 
 #### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>Utilisation de l’interface CLI pour ajouter un gestionnaire de files d’attente Service Bus
 

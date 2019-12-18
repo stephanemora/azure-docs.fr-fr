@@ -1,5 +1,5 @@
 ---
-title: Créer des images de machine virtuelle Azure partagées pour Windows à l’aide du portail
+title: Créer une galerie d’images partagées Azure à l’aide du portail
 description: Découvrez comment utiliser le Portail Azure pour créer et partager des images de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6273b58d9db53cfc4f6647885c70148982f0b950
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065533"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975497"
 ---
-# <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Créer une galerie d’images partagées à l’aide du Portail Azure
+# <a name="create-an-azure-shared-image-gallery-using-the-portal"></a>Créer une galerie d’images partagées Azure à l’aide du portail
 
 Une [galerie d’images partagées](shared-image-galleries.md) simplifie considérablement le partage d’images personnalisées dans votre organisation. Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Les images personnalisées peuvent être utilisées pour amorcer des tâches de déploiement comme le préchargement des applications, les configurations d’application et d’autres configurations de système d’exploitation. 
 
@@ -63,7 +63,7 @@ Au cours de cet article, remplacez les noms du groupe de ressources et de la mac
 Vous pouvez maintenant créer une ou plusieurs machines virtuelles. Cet exemple crée une machine virtuelle nommée *myVM*, dans le groupe *myResourceGroup* du centre de données *USA Est*.
 
 1. Accédez à la définition de votre image. Vous pouvez utiliser le filtre de ressources pour afficher toutes les définitions d’images disponibles.
-1. Sur la page de définition de votre image, sélectionnez **Créer une machine virtuelle** dans le menu en haut de la page.
+1. Dans la page de définition de votre image, sélectionnez **Créer une machine virtuelle** dans le menu situé en haut.
 1. Pour **Groupe de ressources**, sélectionnez **Créer** et entrez *myResourceGroup* comme nom.
 1. Dans **Nom de la machine virtuelle**, tapez *myVM*.
 1. Pour **Région**, sélectionnez *USA Est*.

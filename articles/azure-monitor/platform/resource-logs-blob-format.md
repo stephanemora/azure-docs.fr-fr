@@ -1,6 +1,6 @@
 ---
-title: Préparation à la modification du format dans les journaux de diagnostics Azure Monitor
-description: Les journaux de diagnostics Azure seront déplacés pour utiliser des objets blob d’ajout le 1er novembre 2018.
+title: Préparation à la modification du format dans les journaux de ressources Azure Monitor
+description: Journaux de ressources Azure déplacés pour utiliser des objets blob d’ajout le 1er novembre 2018.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,23 +8,22 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: c6f21ffdcf94f23d089073710f2e6c18fd20558d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 09a5d95ead9f294d54a7491734b11c7247353444
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262996"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894504"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Préparation à la modification du format dans les journaux de plateforme Azure Monitor archivés dans un compte de stockage
 
 > [!WARNING]
-> Si vous envoyez des [journaux ou des métriques d’activité des ressources Azure à un compte de stockage via les paramètres de ressources](resource-logs-collect-storage.md) ou [des journaux d’activité à un compte de stockage via les profils de journaux d’activité](activity-log-export.md), le format des données dans le compte de stockage a été modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format. 
+> Si vous envoyez des [journaux ou des métriques d’activité des ressources Azure à un compte de stockage via les paramètres de ressources](resource-logs-collect-storage.md) ou [des journaux d’activité à un compte de stockage via les profils de journaux d’activité](activity-log-export.md), le format des données dans le compte de stockage a été modifié en lignes JSON le 1er novembre 2018. Les instructions ci-dessous détaillent les conséquences liées à ce changement et comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.
 >
-> 
 
-## <a name="what-is-changing"></a>Changements
+## <a name="what-changed"></a>Ce qui a changé
 
-Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des journaux d’activité des ressources et des journaux d’activité vers un compte de stockage Azure, un espace de noms Event Hubs ou un espace de travail Log Analytics dans Azure Monitor. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob sera modifié. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
+Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des journaux d’activité des ressources et des journaux d’activité vers un compte de stockage Azure, un espace de noms Event Hubs ou un espace de travail Log Analytics dans Azure Monitor. Afin de résoudre un problème de performances du système, le **1er novembre 2018 à 00:00 UTC**, le format des données de journaux envoyées au stockage d’objets blob a changé. Si vous disposez des outils qui lisent les données dans le stockage d’objets blob, vous devez les mettre à jour pour qu’ils comprennent le nouveau format de données.
 
 * Le jeudi 1er novembre 2018 à 00:00 UTC, le format des objets blob a été modifié en [lignes JSON](http://jsonlines.org/). Cela signifie que chaque enregistrement sera délimité par une nouvelle ligne, sans tableau d’enregistrements extérieurs ni virgule entre les enregistrements JSON.
 * Le format des objets blob a été modifié pour tous les paramètres de diagnostics sur tous les abonnements en même temps. Le premier fichier PT1H.json émis le 1er novembre a utilisé ce nouveau format. Les noms des objets blob et du conteneur ne changent pas.
@@ -36,8 +35,8 @@ Azure Monitor offre une fonctionnalité qui vous permet d’envoyer des journaux
   * [Données des journaux d’activité Azure en cours d’exportation par les profils de journaux](activity-log-collect.md)
 * Cette modification n’affecte pas :
   * Journaux de flux de réseau
-  * Les journaux d’activité du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de diagnostics Azure App Service, les journaux d’activité d’analyses de stockage)
-  * Routage des journaux de diagnostics et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
+  * Les journaux du service Azure ne sont pas encore disponibles via Azure Monitor (par exemple, les journaux de ressources Azure App Service, les journaux d’analyses de stockage)
+  * Routage des journaux de ressources et d’activité Azure vers d’autres destinations (Event Hubs, Log Analytics)
 
 ### <a name="how-to-see-if-you-are-impacted"></a>Comme savoir si vous êtes affecté
 
@@ -135,6 +134,6 @@ Les outils personnalisés doivent être mis à jour pour gérer le format actuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur [l’archivage des journaux de diagnostic de ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
+* En savoir plus sur [l’archivage des journaux de ressources dans un compte de stockage](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * En savoir plus sur [l’archivage des données de journal d’activité dans un compte de stockage](./../../azure-monitor/platform/archive-activity-log.md)
 

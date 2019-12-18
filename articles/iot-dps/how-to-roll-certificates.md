@@ -1,18 +1,18 @@
 ---
 title: Renouveler les certificats X.509 dans le service Azure IoT Hub Device Provisioning
-description: Renouvellement des certificats X.509 auprès de votre instance de service de provisionnement des appareils
+description: Comment renouveler des certificats X.509 auprès de votre instance DPS (Device Provisioning Service)
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 55ed99c434028b9761ef53fc09a01481bbd184e1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4d5ddb229cd6a41235990437bc0f8db08e3381ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228749"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974885"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 

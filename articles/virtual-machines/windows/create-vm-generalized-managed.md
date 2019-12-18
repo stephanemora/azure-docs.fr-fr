@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: de59edc2e2c702993efd6187a590264d9aac16a7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037526"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841929"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
@@ -29,8 +29,7 @@ Avant de créer une machine virtuelle, vous devez [créer une image de machine v
 
 ## <a name="use-the-portal"></a>Utiliser le portail
 
-1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Toutes les ressources**. Vous pouvez trier les ressources par **Type** pour rechercher facilement vos images.
+1. Accédez au [Portail Azure](https://portal.azure.com) pour rechercher une image managée. Recherchez et sélectionnez **Images**.
 3. Sélectionnez l’image à utiliser dans la liste. La page **Vue d’ensemble** de l’image s’ouvre.
 4. Sélectionnez **Créer une machine virtuelle** dans le menu.
 5. Saisissez les informations de la machine virtuelle. Le nom d’utilisateur et le mot de passe que vous avez entrés vous serviront pour vous connecter à la machine virtuelle. Quand vous avez terminé, sélectionnez **OK**. Vous pouvez créer la machine virtuelle dans un groupe de ressources existant ou sélectionner **Créer nouveau** pour créer un groupe de ressources pour stocker la machine virtuelle.

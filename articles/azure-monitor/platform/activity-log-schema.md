@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: d196cf4024513d891182f3b916bd8412a2f81d14
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305496"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893601"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](activity-log-export.md). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](diagnostic-logs-schema.md) est fourni à la fin de cet article.
+Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](activity-log-export.md). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux Azure](diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -771,11 +771,11 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 | properties.policies | Inclut des détails sur la définition de stratégie, l’affectation, l’effet et les paramètres dont cette évaluation Azure Policy est le résultat. |
 | relatedEvents | Ce champ est vide pour les événements Azure Policy. |
 
-## <a name="mapping-to-diagnostic-logs-schema"></a>Mappage vers le schéma des journaux de diagnostic
+## <a name="mapping-to-resource-logs-schema"></a>Schéma du mappage aux journaux de ressource
 
-Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de diagnostic Azure](./diagnostic-logs-schema.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de diagnostic :
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de ressource Azure](./diagnostic-logs-schema.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de ressource :
 
-| Propriété du schéma des journaux de diagnostic | Propriété du schéma de l’API REST Journal d’activité | Notes |
+| Propriété du schéma des journaux de ressource | Propriété du schéma de l’API REST Journal d’activité | Notes |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType et resourceGroupName sont déduits à partir de resourceId. |

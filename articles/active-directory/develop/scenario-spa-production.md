@@ -1,5 +1,5 @@
 ---
-title: Application monopage (passer en production) - Plateforme d’identité Microsoft
+title: Passer en production une application monopage - Plateforme d’identités Microsoft | Azure
 description: En savoir plus sur la création d’une application monopage (passer en production)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ba41b29cfcea2d9dfcab2cd552040eaffa4e90ff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766104"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965277"
 ---
 # <a name="single-page-application-move-to-production"></a>Application monopage : Passer en production
 

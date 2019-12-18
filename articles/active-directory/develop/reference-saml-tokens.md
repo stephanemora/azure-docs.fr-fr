@@ -1,5 +1,5 @@
 ---
-title: En savoir plus sur les différents types de jeton et de revendication pris en charge par Azure AD | Microsoft Docs
+title: Jetons Azure AD et types de revendication | Microsoft Docs
 description: Un guide pour la compréhension et l'évaluation des revendications dans les jetons SAML 2.0 et les jetons web JSON (JWT) émis par Azure Active Directory (AAD)
 documentationcenter: na
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf4c976a1232d08df1be2549d2861295adf9ee1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 4acac79d79b584dac93d63f6d478627f7e953f81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532971"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965754"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: b2d02ed5a9fb2cb10e4cf18fe7d878da5b032fe0
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: ba95723e62cec9708684665a9d141b1e39ccb831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816404"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951834"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour Custom Speech
 
@@ -62,6 +62,9 @@ Servez-vous de ce tableau pour vérifier que le format de vos fichiers audio con
 | Format d’archive | .zip |
 | Taille d’archive maximale | 2 Go |
 
+> [!TIP]
+> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Si vous avez besoin de plus de données pour la formation et les tests, divisez-le en plusieurs fichiers .zip et chargez-les séparément. Plus tard, vous pouvez choisir d’effectuer l’apprentissage et les tests à partir de *plusieurs* jeux de données.
+
 Si votre fichier audio ne satisfait pas ces propriétés ou si vous voulez vérifier s’il les respecte, nous vous suggérons de télécharger [sox](http://sox.sourceforge.net) pour vérifier ou convertir le fichier audio. Vous trouverez ci-dessous quelques exemples de la façon dont chacune de ces activités peut être effectuée via la ligne de commande :
 
 | Activité | Description | Commande sox |
@@ -71,7 +74,7 @@ Si votre fichier audio ne satisfait pas ces propriétés ou si vous voulez véri
 
 ## <a name="audio--human-labeled-transcript-data-for-testingtraining"></a>Contenu audio + données de transcription étiquetées à la main pour tester/entraîner
 
-Pour mesurer la précision de la reconnaissance vocale de Microsoft pendant le traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot par mot) pour effectuer la comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.  
+Pour mesurer la précision de la reconnaissance vocale de Microsoft pendant le traitement de vos fichiers audio, vous devez fournir des transcriptions étiquetées à la main (mot par mot) pour effectuer la comparaison. Si la transcription étiquetée à la main prend souvent beaucoup de temps, elle est nécessaire pour évaluer la précision et entraîner le modèle pour vos cas d’usage. Gardez à l’esprit que les améliorations de la reconnaissance seront proportionnelles à la qualité des données fournies. C’est pourquoi il est important de charger uniquement des transcriptions de grande qualité.
 
 | Propriété | Valeur |
 |----------|-------|
@@ -82,6 +85,9 @@ Pour mesurer la précision de la reconnaissance vocale de Microsoft pendant le t
 | Format d’échantillonnage | PCM, 16 bits |
 | Format d’archive | .zip |
 | Taille maximale de zip | 2 Go |
+
+> [!TIP]
+> Lors du chargement de données de formation et de test, la taille du fichier .zip ne peut pas dépasser 2 Go. Si vous avez besoin de plus de données pour la formation et les tests, divisez-le en plusieurs fichiers .zip et chargez-les séparément. Plus tard, vous pouvez choisir d’effectuer l’apprentissage et les tests à partir de *plusieurs* jeux de données.
 
 Pour résoudre les problèmes comme la suppression ou la substitution de mots, une quantité importante de données est nécessaire pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions mot par mot pour environ 10 à 1 000 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
 

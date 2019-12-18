@@ -1,6 +1,7 @@
 ---
-title: Exemples de transformations de revendications générales pour le schéma Identity Experience Framework d’Azure Active Directory B2C
-description: Exemples de transformations de revendications générales pour le schéma Identity Experience Framework d’Azure Active Directory B2C.
+title: Exemples de transformation de revendications générales pour les stratégies personnalisées
+titleSuffix: Azure AD B2C
+description: Exemples de transformations de revendications générales pour le schéma Identity Experience Framework (IEF) d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 08/27/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7cea33cb61f8f8d0fe305a757f11c80bc5da24ca
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032899"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948837"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
 

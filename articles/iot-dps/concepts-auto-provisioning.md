@@ -1,6 +1,6 @@
 ---
 title: Service Device Provisioning IoT Hub - Concepts de provisionnement automatique
-description: Cet article fournit une vue d’ensemble conceptuelle des phases de provisionnement automatique d’appareils à l’aide du service Device Provisioning IoT, d’IoT Hub et des kits SDK clients.
+description: Cet article fournit une vue d’ensemble conceptuelle des phases d’approvisionnement automatique d’appareils à l’aide du service Device Provisioning (DPS) IoT, d’IoT Hub et des Kits de développement logiciel (SDK) clients.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c94fa6b851dfc9923628a738a15f7c245204f73f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745999"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975327"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepts de provisionnement automatique
 
@@ -47,7 +47,7 @@ Le provisionnement automatique impose également des conditions au fabricant de 
 
 Dans la table des matières à gauche, vous trouverez une série de guides de démarrage rapide qui expliquent le provisionnement automatique par le biais d’une expérience pratique. Afin de simplifier le processus d’apprentissage, un logiciel est utilisé pour simuler un appareil physique pour l’inscription et l’enregistrement. Certains guides de démarrage rapide vous obligent à effectuer des opérations pour plusieurs rôles, notamment des opérations pour des rôles inexistants, en raison de la nature simulée de ces guides.
 
-| Rôle | Opération | Description |
+| Role | Opération | Description |
 |------| --------- | ------------|
 | Fabricant | Encoder l’URL d’inscription et l’identité | En fonction du mécanisme d’attestation utilisé, le fabricant est responsable de l’encodage des informations d’identités d’appareils et de l’URL d’inscription auprès du service Device Provisioning.<br><br>**Guides de démarrage rapide** : l’appareil étant simulé, il n’existe aucun rôle Fabricant. Pour plus d’informations sur la façon d’obtenir ces informations, qui sont utilisées pour le codage d’un exemple d’application d’inscription, consultez le rôle Développeur. |
 | | Fournir l’identité d’appareil | Étant à l’origine des informations d’identités d’appareils, le fabricant est chargé de les transmettre à l’opérateur (ou à un agent désigné), ou de les inscrire directement auprès du service Device Provisioning par le biais des API.<br><br>**Guides de démarrage rapide** : l’appareil étant simulé, il n’existe aucun rôle Fabricant. Pour plus d’informations sur la façon d’obtenir l’identité de l’appareil, qui est utilisée pour inscrire un appareil simulé dans votre instance du service Device Provisioning, consultez le rôle Opérateur. |

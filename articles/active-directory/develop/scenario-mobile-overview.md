@@ -1,5 +1,5 @@
 ---
-title: Application mobile qui appelle des API web - Vue d’ensemble
+title: Générer une application mobile qui appelle des API web | Azure
 titleSuffix: Microsoft identity platform
 description: Apprenez à générer une application mobile qui appelle des API web (vue d’ensemble)
 services: active-directory
@@ -17,16 +17,16 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803746"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965464"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scénario : Application mobile appelant des API web
 
-Découvrez tout ce que vous devez savoir pour générer une application mobile qui appelle des API web.
+Découvrez comment générer une application mobile qui appelle des API web.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -34,7 +34,7 @@ Découvrez tout ce que vous devez savoir pour générer une application mobile q
 
 ## <a name="getting-started"></a>Prise en main
 
-Créez votre première application mobile et essayez un démarrage rapide !
+Créez votre première application mobile et essayez un démarrage rapide.
 
 > [!div class="nextstepaction"]
 > [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Android](./quickstart-v2-android.md)

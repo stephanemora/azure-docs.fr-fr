@@ -4,12 +4,12 @@ description: Utilisez Azure Functions pour planifier une tâche qui se connecte 
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: f70b5b83561e7c580dd7192850c8eb50be5aac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3dafe275dcd5eb172e744f1d163b33ebb0bac7cc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230382"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972232"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -19,7 +19,7 @@ Si c’est la première fois que vous utilisez Azure Functions pour C#, vous dev
 
 ## <a name="prerequisites"></a>Prérequis
 
-+ Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible le runtime version 2.x. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
++ Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible la version 2.x ou une version ultérieure du runtime. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
 
 + Cette article montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de l’article [Création d’une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 

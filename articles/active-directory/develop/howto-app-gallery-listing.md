@@ -1,29 +1,25 @@
 ---
-title: Listing de votre application dans la galerie d’applications Azure Active Directory | Microsoft Docs
+title: Lister votre application dans la galerie d’applications Azure AD | Microsoft Docs
 description: Apprendre à lister une application qui prend en charge l’authentification unique dans la galerie d’applications Azure Active Directory
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3bfdeaba26e98f600b81b3a473326ff4086f1aa2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374070"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967148"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -46,6 +42,10 @@ Cet article montre comment lister une application dans la galerie d’applicatio
 - Pour une authentification unique par mot de passe, assurez-vous que votre application prend en charge l’authentification par formulaire de telle sorte que le mot de passe puisse être stocké dans le coffre pour que le travail d’authentification unique fonctionne comme prévu.
 - Vous avez besoin d’un compte permanent pour les tests avec au moins deux utilisateurs inscrits.
 
+**Comment obtenir Azure AD pour développeurs ?**
+
+Vous pouvez obtenir un compte de test gratuit avec toutes les fonctionnalités Azure AD Premium : 90 jours gratuits qui peuvent être étendus tant que vous l’utilisez pour effectuer des tâches de développement : https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>Envoyer la demande dans le portail
 
 Une fois que vous avez testé le bon fonctionnement de l’intégration de votre application dans Azure AD, envoyez votre demande d’accès au [portail Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Si vous avez un compte Office 365, utilisez-le pour vous connecter à ce portail. Dans le cas contraire, utilisez votre compte Microsoft, tel qu’Outlook ou Hotmail, pour vous connecter.
@@ -63,6 +63,26 @@ Si la page suivante apparaît après la connexion, fournissez une justification 
 Notre équipe examine ces informations et vous octroie l’accès en conséquence. Une fois votre demande approuvée, vous pouvez vous connecter au portail et envoyer la demande en sélectionnant la vignette **Submit Request (ISV)** (Envoyer la demande (ISV)) dans la page d’accueil.
 
 ![Vignette Submit Request (ISV) (Envoyer une demande (ISV)) dans la page d’accueil](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>Problèmes de connexion au portail
+
+Si cette erreur s’affiche lors de la connexion, voici les détails du problème et la façon de le corriger.
+
+* Si votre connexion a été bloquée comme indiqué ci-dessous :
+
+  ![problèmes lors de la résolution d’une application dans la galerie](./media/howto-app-gallery-listing/blocked.png)
+
+**Ce qui se passe :**
+
+L’utilisateur invité est fédéré en locataire de base qui est également un annuaire Azure AD. L’utilisateur invité présente un risque élevé. Microsoft n’autorise pas les utilisateurs à risque élevé à accéder à ses ressources. Tous les utilisateurs à risque élevé (employés ou invités/fournisseurs) doivent corriger/fermer leur risque pour accéder aux ressources Microsoft. Pour les utilisateurs invités, ce risque utilisateur provient du locataire de base et la stratégie provient du locataire de ressource (Microsoft, dans le cas présent).
+ 
+**Solutions sécurisées :**
+
+* Les utilisateurs invités inscrits à l’authentification MFA corrigent leur propre risque utilisateur. L’utilisateur invité peut effectuer cette opération en procédant à un changement ou une réinitialisation sécurisés du mot de passe (https://aka.ms/sspr) sur son locataire de base (ce qui nécessite MFA et SSPR sur le locataire de base). Le changement ou la réinitialisation sécurisés du mot de passe doivent être lancés sur Azure AD, et non pas en local.
+
+* Le risque lié aux utilisateurs invités peut être résolu par leurs administrateurs. Dans ce cas, l’administrateur effectue une réinitialisation du mot de passe (génération d’un mot de passe temporaire). Cette opération ne nécessite pas Identity Protection. L’administrateur de l’utilisateur invité peut accéder à https://aka.ms/RiskyUsers et cliquer sur « Réinitialiser le mot de passe ».
+
+* Le risque lié aux utilisateurs invités peut être fermé/ignoré par leurs administrateurs. Une fois encore, cette opération ne nécessite pas Identity Protection. L’administrateur peut accéder à https://aka.ms/RiskyUsers et cliquer sur « Ignorer le risque lié à l'utilisateur ». Toutefois, l’administrateur doit faire preuve de diligence pour garantir qu’il s’agissait d’un faux positif d’évaluation des risques avant de fermer le risque utilisateur. Sinon, ils font courir un risque à leurs ressources et à celles de Microsoft en supprimant une évaluation des risques sans investigation.
 
 > [!NOTE]
 > En cas de problème d’accès, contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
@@ -83,6 +103,7 @@ Pour lister une application dans la galerie d’applications Azure AD, vous deve
   ![Listing d’une application SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
 
   * Si vous souhaitez ajouter votre application à la liste dans la galerie à l’aide de **SAML 2.0** ou **WS-Fed**, sélectionnez **SAML 2.0/WS-Fed** comme illustré ici.
+
   * En cas de problème d’accès, contactez l’[équipe d’intégration Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>Implémenter l’authentification unique à l’aide de l’authentification unique par mot de passe

@@ -9,12 +9,12 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/11/2019
-ms.openlocfilehash: 851a405e5143ea5bb3a26de76f713914aa4bb569
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 2be2f50558fef41659c9a3313871b17961f6ad6d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648190"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873231"
 ---
 # <a name="azure-data-lake-analytics-is-upgrading-to-the-net-framework-v472"></a>Azure Data Lake Analytics est mis à niveau vers .NET Framework v4.7.2
 
@@ -39,7 +39,7 @@ Vérifiez la possibilité que des problèmes majeurs de compatibilité descendan
 1. Exécutez le vérificateur de compatibilité descendante sur vos DLL .NET en :
    1. Utilisant l’extension Visual Studio sur [Extension Visual Studio de l’analyseur de portabilité .NET](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
    1. Téléchargeant et utilisant l’outil autonome à partir de [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Les instructions relatives à l’exécution de l’outil autonome se trouvent dans [Changements cassants de GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-   1. Pour la version 4.7.2. lecture de compatibilité isRetargeting == True est le changement cassant.
+   1. Pour la version 4.7.2. pour une compatibilité, `read isRetargeting == True` identifie les problèmes éventuels.
 2. Si l’outil indique que votre code peut être affecté par l’une des incompatibilités descendantes possibles (des exemples courants d’incompatibilités sont répertoriés ci-dessous), vous pouvez effectuer des vérifications supplémentaires en :
    1. Analysant votre code et en identifiant si votre code transmet des valeurs aux API affectées
    1. Effectuant une vérification du runtime. Le déploiement du runtime n’est pas effectué côte à côte dans ADLA. Vous pouvez effectuer une vérification du runtime avant la mise à niveau, en utilisant l’exécution locale de VisualStudio avec un .NET Framework 4.7.2 local sur un jeu de données représentatif.

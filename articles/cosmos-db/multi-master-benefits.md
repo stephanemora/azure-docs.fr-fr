@@ -1,17 +1,17 @@
 ---
 title: Avantages d’avoir plusieurs maîtres Azure Cosmos DB
-description: Comprendre les avantages du multimaître dans Azure Cosmos DB.
+description: Découvrez les avantages du multimaître dans Azure Cosmos DB, de la comparaison des latences et des exigences SLA dans des emplacements d’écriture uniques et multiples.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: c78e5e4f8d396d777738bddfd6baf086c0b2ecf4
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: b21b6ba82ba1ada0103501b8beeca270df86abd9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788580"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872007"
 ---
 # <a name="understand-multi-master-benefits-in-azure-cosmos-db"></a>Comprendre les avantages du multimaître dans Azure Cosmos DB
 

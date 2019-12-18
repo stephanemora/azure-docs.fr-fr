@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 152b9f3974f24644e55bed68f5ed65faa90d7fe7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384138"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851653"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -51,6 +51,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureContainerRegistry** | Service Azure Container Registry. | Règle de trafic sortant | OUI | OUI |
 | **AzureCosmosDB** | Service de base de données Azure Cosmos. | Règle de trafic sortant | OUI | OUI |
 | **AzureDataLake** | Service Azure Data Lake. | Règle de trafic sortant | Non | OUI |
+| **AzureHDInsight** | Service Azure HDInsight. | Trafic entrant | OUI | Non |
 | **AzureIoTHub** | Service IoT Hub. | Règle de trafic sortant | Non | Non |
 | **AzureKeyVault** | Service Azure KeyVault.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory**. | Règle de trafic sortant | OUI | OUI |
 | **AzureLoadBalancer** | Équilibreur de charge de l’infrastructure Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure. | Les deux | Non | Non |

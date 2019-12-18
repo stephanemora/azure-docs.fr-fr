@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports interactifs avec des classeurs Azure Monitor à partir de plusieurs sources de données Azure disparates | Microsoft Docs
+title: Sources de données des classeurs Azure Monitor | Microsoft Docs
 description: Créez des rapports complexes en toute simplicité grâce à des classeurs Azure Monitor paramétrables prédéfinis et personnalisés créés à partir de plusieurs sources de données.
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164523"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872891"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Sources de données des classeurs Azure Monitor
 
@@ -84,5 +84,5 @@ Les classeurs prennent maintenant en charge l’interrogation de clusters [Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez](workbooks-visualizations.md) les nombreuses options des visualisations enrichies des classeurs.
+* [Commencez](workbooks-visualizations.md) à en apprendre davantage sur les nombreuses options pour les visualisations enrichies des classeurs.
 * [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.
