@@ -182,7 +182,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 | --- | --- | --- |
 | post_logout_redirect_uri |recommandé |URL vers laquelle l’utilisateur doit être redirigé après la déconnexion.  Cette URL doit correspondre exactement à l’un des URI de redirection inscrits pour votre application dans le portail d’inscription des applications.  Si *post_logout_redirect_uri* n’est pas inclus, un message générique est présenté à l’utilisateur. |
 
-## <a name="single-sign-out"></a>Authentification unique
+## <a name="single-sign-out"></a>Déconnexion unique
 
 Lorsque vous redirigez l’utilisateur vers `end_session_endpoint`, Azure AD efface la session de l’utilisateur dans le navigateur. Toutefois, l’utilisateur peut rester connecté à d’autres applications qui utilisent Azure AD pour l’authentification. Pour permettre à ces applications de déconnecter simultanément l’utilisateur, Azure AD envoie une requête HTTP GET au paramètre `LogoutUrl` enregistré de toutes les applications auxquelles l’utilisateur est actuellement connecté. Les applications doivent répondre à cette requête en effaçant toute session qui identifie l’utilisateur et en renvoyant une réponse `200`. Si vous souhaitez prendre en charge la déconnexion unique dans votre application, vous devez implémenter ce paramètre `LogoutUrl` dans le code de votre application. Vous pouvez définir le paramètre `LogoutUrl` à partir du portail Azure :
 

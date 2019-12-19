@@ -123,7 +123,7 @@ Si vous utilisez Azure via un Contrat client Microsoft (MCA), vous pouvez égale
 
 Utilisez les API Azure de [facturation](https://docs.microsoft.com/rest/api/billing/) et de [consommation](https://docs.microsoft.com/rest/api/consumption/) pour accéder par programmation aux données de facturation et de coût. En associant les API RateCard et Resource Usage, vous pouvez connaître l’utilisation qui vous est facturée. Pour plus d’informations, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](billing-usage-rate-card-overview.md).
 
-## <a name="other-offers"></a> Ressources supplémentaires te cas spéciaux
+## <a name="other-offers"></a> Ressources supplémentaires et cas spéciaux
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>Clients EA, CSP et Sponsoring
 Contactez votre responsable de compte ou votre partenaire Azure pour commencer.
