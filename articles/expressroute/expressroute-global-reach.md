@@ -24,7 +24,8 @@ Avec **ExpressRoute Global Reach**, vous pouvez associer des circuits ExpressRou
 ![with][2]
 
 ## <a name="use-case"></a>Cas d’utilisation
-ExpressRoute Global Reach est conçu pour compléter l’implémentation du réseau étendu (WAN) de votre fournisseur de services et connecter vos succursales à travers le monde. Par exemple, si votre fournisseur de services opère principalement aux États-Unis et a connecté toutes vos branches dans ce pays, mais qu’il n’opère ni au Japon ni à Hong Kong, ExpressRoute Global Reach vous permet de travailler avec un fournisseur de services local, et Microsoft connecte vos branches situées là-bas à celles figurant aux États-Unis à l’aide d’ExpressRoute et de notre réseau mondial.
+ExpressRoute Global Reach est conçu pour compléter l’implémentation du réseau étendu (WAN) de votre fournisseur de services et connecter vos succursales à travers le monde. Par exemple, si votre fournisseur de services opère principalement aux États-Unis et a connecté toutes vos branches dans ce pays, mais qu’il n’opère ni au Japon ni à Hong Kong (R.A.S.)
+, ExpressRoute Global Reach vous permet de travailler avec un fournisseur de services local, et Microsoft connecte vos branches situées là-bas à celles figurant aux États-Unis à l’aide d’ExpressRoute et de notre réseau mondial.
 
 ![Cas d’usage][3]
 

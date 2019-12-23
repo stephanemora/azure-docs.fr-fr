@@ -434,7 +434,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - LK(Sri Lanka)
 
-        - MM(Burma
+        - MM(Myanmar
 )
 
         - MN(Mongolie)
