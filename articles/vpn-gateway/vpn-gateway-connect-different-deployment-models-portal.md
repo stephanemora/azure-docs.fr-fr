@@ -100,7 +100,7 @@ Si vous disposez déjà d’un réseau virtuel avec une passerelle VPN, vérifie
 
 1. Accédez à **Toutes les ressources** et recherchez le **réseau virtuel classique** dans la liste.
 2. Cliquez sur **Passerelle** dans la section **Paramètres** du menu, puis sur la bannière pour créer une passerelle.
-  ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "CConfigurer une passerelle VPN)
+  ![Configurer une passerelle VPN](./media/vpn-gateway-connect-different-deployment-models-portal/gatewaygraphic.png "CConfigurer une passerelle VPN")
 3. Dans la page **Nouvelle connexion VPN**, pour **Type de connexion**, sélectionnez **De site à site**.
 4. Sous **Site local**, cliquez sur **Configurer les paramètres requis**. La page **Site local** s’ouvre.
 5. Dans la page **Site local**, créez un nom pour faire référence au réseau virtuel Resource Manager. Par exemple, « RMVNetLocal ».
