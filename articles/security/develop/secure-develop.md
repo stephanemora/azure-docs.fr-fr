@@ -48,7 +48,8 @@ Traitez toutes les entrées comme si elles n’étaient pas fiables pour protég
 
 Validez les entrées au début du flux de données pour vous assurer que seules des données correctement formatées pénètre le flux de travail. Vous ne voulez pas que des données incorrectes demeurent dans votre base de données ou déclenchent une défaillance dans un composant en aval.
 
-Établir une liste noire et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
+Établir une liste rouge
+ et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
 
   - La mise en liste rouge tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
 
