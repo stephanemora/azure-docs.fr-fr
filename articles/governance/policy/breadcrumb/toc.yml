@@ -12,3 +12,6 @@
         - name: Stratégie
           tocHref: /azure/azure-monitor
           topicHref: /azure/governance/policy
+        - name: Stratégie
+          tocHref: /azure/key-vault
+          topicHref: /azure/governance/policy

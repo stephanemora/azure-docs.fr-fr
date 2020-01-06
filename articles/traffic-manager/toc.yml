@@ -1,6 +1,6 @@
 - name: Documentation Traffic Manager
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Traffic Manager\_?"
       href: traffic-manager-overview.md
@@ -95,7 +95,7 @@
           href: traffic-manager-subnet-override-cli.md
         - name: Configurer le remplacement de sous-réseau - PowerShell
           href: traffic-manager-subnet-override-powershell.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résolution des problèmes liés à l’état détérioré d’Azure Traffic Manager
           href: traffic-manager-troubleshooting-degraded.md
@@ -105,7 +105,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=traffic-manager'
     - name: Azure PowerShell
       href: /powershell/module/az.trafficmanager
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/network/traffic-manager
     - name: Java
       href: /java/api/com.microsoft.azure.management.trafficmanager
@@ -140,7 +140,7 @@
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Limites du service
-      href: '../azure-subscription-service-limits.md#traffic-manager-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: Contrat SLA

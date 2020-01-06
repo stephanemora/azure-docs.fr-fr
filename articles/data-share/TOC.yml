@@ -1,6 +1,6 @@
 - name: Documentation Azure Data Share
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Data Share\_?"
       href: overview.md
@@ -19,6 +19,8 @@
       href: terminology.md
     - name: Rôles et conditions requises
       href: concepts-roles-permissions.md
+    - name: Récupération d'urgence
+      href: disaster-recovery.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -27,11 +29,11 @@
       href: samples-powershell.md
 - name: Guides pratiques
   items:
-    - name: Surveiller
+    - name: Moniteur
       href: how-to-monitor.md
     - name: Configurer des mappages de jeu de données
       href: how-to-configure-mapping.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: data-share-troubleshoot.md
     - name: Ajouter des jeux de données
       href: how-to-add-datasets.md

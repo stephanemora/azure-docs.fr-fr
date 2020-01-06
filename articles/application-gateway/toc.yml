@@ -31,7 +31,7 @@
   items:
     - name: Azure PowerShell
       href: powershell-samples.md
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: Modèles Resource Manager
       href: resource-manager-template-samples.md
@@ -81,7 +81,7 @@
       href: application-gateway-web-app-overview.md
     - name: Prise en charge de WebSocket
       href: application-gateway-websocket.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: application-gateway-faq.md
 - name: Guides pratiques
   items:
@@ -89,7 +89,7 @@
       items:
         - name: Azure PowerShell
           href: tutorial-manage-web-traffic-powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
     - name: Configuration de l’équilibreur de charge interne
       items:
@@ -153,13 +153,13 @@
       items:
         - name: Azure PowerShell
           href: tutorial-url-route-powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-url-route-cli.md
     - name: Héberger plusieurs sites
       items:
         - name: Azure PowerShell
           href: tutorial-multiple-sites-powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-multiple-sites-cli.md
     - name: Rediriger le trafic
       items:
@@ -207,7 +207,7 @@
           href: application-gateway-create-probe-classic-ps.md
         - name: Gestionnaire des ressources PowerShell
           href: application-gateway-create-probe-ps.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: ILB avec un environnement App Service
           href: create-gateway-internal-load-balancer-app-service-environment.md
@@ -231,7 +231,7 @@
   items:
     - name: Entrée pour les annotations AKS
       href: ingress-controller-annotations.md
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
       href: /powershell/azure/overview
@@ -247,7 +247,7 @@
       href: /rest/api/applicationgateway
     - name: Azure Resource Manager
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
     - name: Modèle Resource Manager
       displayName: ARM
       href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
@@ -255,7 +255,7 @@
   items:
     - name: Créer des modèles
       displayName: ARM
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté

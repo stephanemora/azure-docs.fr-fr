@@ -3,12 +3,12 @@ title: Réponses à des questions fréquentes
 description: 'Réponses aux questions courantes sur : les fonctionnalités de la sauvegarde Azure, y compris les coffres Recovery Services ce qu’il peut sauvegarder, son fonctionnement, son chiffrement, et ses limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4005b171ef61fa02821b4a32db3be26cfb94c9ff
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450091"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 
@@ -107,7 +107,7 @@ Windows 8 ou version ultérieure | 54 400 Go
 Windows 7 |1 700 Go
 Windows Server 2012 ou version ultérieure | 54 400 Go
 Windows Server 2008, Windows Server 2008 R2 | 1 700 Go
-Azure VM | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
+Azure VM | 16 disques de données<br/> Pour vous inscrire à la préversion privée des machines virtuelles avec plus de 16 disques (jusqu’à 32 disques), écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com <br><br> Disque de données jusqu’à 32 To
 
 ### <a name="how-is-the-data-source-size-determined"></a>Comment la taille de la source de données est-elle déterminée ?
 
@@ -118,7 +118,7 @@ Le tableau suivant explique comment la taille de chaque source de données est d
 Volume |Quantité de données sauvegardées à partir d’une machine virtuelle à volume unique.
 Base de données SQL Server |Taille d’une base de données SQL unique sauvegardée.
 SharePoint | Somme des bases de données de contenu et de configuration dans une batterie de serveurs SharePoint sauvegardée.
-Microsoft Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde.
+Exchange |Somme de toutes les bases de données Exchange sur un serveur Exchange en cours de sauvegarde.
 État système/récupération complète |Chaque copie individuelle de l’état système/récupération complète de l’ordinateur sauvegardée.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>La quantité de données sauvegardées dans un coffre Recovery Services est-elle limitée ?

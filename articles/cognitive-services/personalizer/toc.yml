@@ -1,6 +1,6 @@
 - name: Documentation Personalizer
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que Personalizer\_?"
@@ -94,11 +94,13 @@
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
+            - name: Informations de référence
+              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
             - name: Package Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Ressources
   items:
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: troubleshooting.md
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

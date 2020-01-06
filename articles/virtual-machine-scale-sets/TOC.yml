@@ -1,6 +1,6 @@
 - name: Documentation sur les groupes de machines virtuelles identiques
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Que sont les groupes de machines virtuelles identiques ?
       href: overview.md
@@ -23,25 +23,25 @@
   items:
     - name: 1 - Créer / gérer un groupe identique
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-create-and-manage-cli.md
         - name: Azure PowerShell
           href: tutorial-create-and-manage-powershell.md
     - name: 2 - Utiliser des disques de données
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-use-disks-cli.md
         - name: Azure PowerShell
           href: tutorial-use-disks-powershell.md
     - name: 3 - Utiliser une image de machine virtuelle personnalisée
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-use-custom-image-cli.md
         - name: Azure PowerShell
           href: tutorial-use-custom-image-powershell.md
     - name: 4 - Déployer des applications sur un groupe identique
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-install-apps-cli.md
         - name: Azure PowerShell
           href: tutorial-install-apps-powershell.md
@@ -49,7 +49,7 @@
           href: tutorial-install-apps-template.md
     - name: 5 - Mettre à l’échelle un groupe identique
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-autoscale-cli.md
         - name: Azure PowerShell
           href: tutorial-autoscale-powershell.md
@@ -57,14 +57,14 @@
           href: tutorial-autoscale-template.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Régions
       href: ../virtual-machines/windows/regions.md
@@ -233,7 +233,7 @@
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: Utiliser une instance Spot
           href: use-spot.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Tâches de gestion courantes
           items:
@@ -255,7 +255,7 @@
           href: virtual-machine-scale-sets-terminate-notification.md
         - name: Galeries d’images partagées
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images-cli.md

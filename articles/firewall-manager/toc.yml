@@ -1,6 +1,6 @@
 - name: Documentation Azure Firewall Manager
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Firewall Manager\_?"
       href: overview.md
@@ -11,7 +11,7 @@
       href: secure-cloud-network.md
 - name: Concepts
   items:
-    - name: "Qu’est-ce qu’un hub virtuel sécurisé\_?"
+    - name: Qu’est-ce qu’un hub virtuel sécurisé ?
       href: secured-virtual-hub.md
     - name: Processus général de déploiement
       href: deployment-overview.md
@@ -27,7 +27,7 @@
       href: migrate-to-policy.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
@@ -42,11 +42,11 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Ressources
   items:
     - name: Créer des modèles
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté

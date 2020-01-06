@@ -1,6 +1,6 @@
 - name: Documentation sur le WAN virtuel
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos du WAN virtuel
       href: virtual-wan-about.md
@@ -62,18 +62,18 @@
       href: '/powershell/module/az.network#networking'
     - name: REST
       href: /rest/api/azure
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/ext/virtual-wan
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: virtual-wan-faq.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Limites du service et de l’abonnement
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Calculatrice de prix

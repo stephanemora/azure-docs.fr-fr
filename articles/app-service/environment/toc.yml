@@ -83,10 +83,10 @@
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informations sur les quotas
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=app-service'
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
@@ -104,7 +104,7 @@
       items:
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Résolution de problèmes
+    - name: Dépannage
       items:
         - name: Résoudre les problèmes à l’aide de Visual Studio
           href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
@@ -114,7 +114,7 @@
           href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
         - name: Résoudre les problèmes de performances
           href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-        - name: Forum Aux Questions
+        - name: Questions fréquentes (FAQ)
           items:
             - name: 'FAQ sur la disponibilité, les performances et les applications'
               href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

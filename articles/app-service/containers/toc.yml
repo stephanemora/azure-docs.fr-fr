@@ -1,6 +1,6 @@
 - name: Documentation relative à App Service sur Linux
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Web Apps
       href: ../overview.md
@@ -59,7 +59,7 @@
       href: tutorial-auth-aad.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: ../samples-cli.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Azure PowerShell
       href: ../samples-powershell.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -169,7 +169,7 @@
       items:
         - name: Sauvegarder une application
           href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Restauration d'une sauvegarde
+        - name: Restaurer une sauvegarde
           href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Cloner une application
           href: ../app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -177,7 +177,7 @@
           href: '../../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-service-limitations'
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/appservice
     - name: Azure PowerShell
       href: /powershell
@@ -192,12 +192,12 @@
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: Informations sur les quotas
-      href: '../../azure-subscription-service-limits.md#app-service-limits'
+      href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=app-service'
     - name: Guides de l’Assistant Migration
       href: 'https://github.com/Azure/App-Service-Migration-Assistant/tree/master/MigrationDocs'
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: ../app-service-best-practices.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Exemples
       href: 'https://azure.microsoft.com/resources/samples/?service=app-service'
@@ -209,7 +209,7 @@
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Scripts de déploiement
           href: 'https://azure.microsoft.com/documentation/scripts/'
-    - name: Résolution de problèmes
+    - name: Dépannage
       items:
         - name: Résoudre les problèmes à l’aide de Visual Studio
           href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -219,7 +219,7 @@
           href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
         - name: Résoudre les problèmes de performances
           href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-        - name: Forum Aux Questions
+        - name: Questions fréquentes (FAQ)
           items:
             - name: 'FAQ sur la disponibilité, les performances et les applications'
               href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json

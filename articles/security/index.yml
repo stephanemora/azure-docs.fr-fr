@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: c3f75decc72cbc314309b8cfb0bd81d9c0be2774
-  ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+  ms.openlocfilehash: a25189e75bcf313a5e2e8eee410a581d50f70584
+  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73686311"
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75563749"
 highlightedContent:
   items:
   - title: Présentation de la sécurité Azure
@@ -63,17 +63,20 @@ conceptualContent:
       text: En savoir plus
   - title: Tests d’évaluation et recommandations
     links:
-    - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+    - url: ./benchmarks/introduction.md
       itemType: download
       text: Évaluation de la sécurité du cloud Azure
     - url: ../security-center/security-center-using-recommendations.md
       itemType: overview
       text: Recommandations relatives à Azure Security Center
+    footerLink:
+      url: ./benchmarks/index.yml
+      text: En savoir plus
   - title: Secrets et clés
     links:
     - url: ../key-vault/key-vault-overview.md
       itemType: overview
-      text: Qu’est-ce qu’Azure Key Vault ?
+      text: Qu'est-ce qu'Azure Key Vault ?
     - url: ../key-vault/quick-create-cli.md
       itemType: quickstart
       text: Définir et récupérer un secret
@@ -83,7 +86,7 @@ conceptualContent:
     footerLink:
       url: /azure/key-vault/
       text: En savoir plus
-  - title: Protection des données
+  - title: Protection de données
     links:
     - url: ./fundamentals/encryption-atrest.md
       itemType: concept
@@ -107,7 +110,7 @@ conceptualContent:
       text: Sécuriser votre infrastructure d’identité
     - url: ./fundamentals/identity-management-best-practices.md
       itemType: concept
-      text: Meilleures pratiques en matière de sécurité
+      text: Bonnes pratiques de sécurité
     footerLink:
       url: ./fundamentals/identity-management-overview.md
       text: En savoir plus
@@ -185,7 +188,7 @@ conceptualContent:
       text: Présentation de la sécurité
     - url: ./fundamentals/network-best-practices.md
       itemType: concept
-      text: Meilleures pratiques en matière de sécurité
+      text: Bonnes pratiques de sécurité
     - url: ./fundamentals/ddos-best-practices.md
       itemType: concept
       text: Protection DDOS
@@ -221,7 +224,7 @@ conceptualContent:
       text: Présentation de la sécurité
     - url: ./fundamentals/database-best-practices.md
       itemType: concept
-      text: Meilleures pratiques en matière de sécurité
+      text: Bonnes pratiques de sécurité
     - url: ./fundamentals/database-security-checklist.md
       itemType: concept
       text: Liste de contrôle de sécurité

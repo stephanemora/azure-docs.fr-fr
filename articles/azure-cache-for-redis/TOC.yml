@@ -1,6 +1,6 @@
 - name: Documentation du cache Azure pour Redis
-  href: index.md
-- name: Vue d'ensemble
+  href: index.yml
+- name: Vue d’ensemble
   items:
     - name: À propos du cache Azure pour Redis
       href: cache-overview.md
@@ -35,13 +35,13 @@
   items:
     - name: Basculement et correctif
       href: cache-failover.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: cache-best-practices.md
     - name: Bonnes pratiques de l’architecture pour la mise en cache
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guides pratiques
   items:
-    - name: Planification
+    - name: Plan
       items:
         - name: Sélectionner un niveau de cache
           href: 'cache-faq.md#what-redis-cache-offering-and-size-should-i-use'
@@ -77,7 +77,7 @@
           items:
             - name: Utiliser un initialiseur Spring Boot
               href: cache-java-spring-boot-initializer-with-redis-cache.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Configurer dans le portail Azure
           href: cache-configure.md
@@ -91,7 +91,7 @@
           href: cache-how-to-redis-cli-tool.md
         - name: "Supprimer TLS\_1.0 et\_1.1"
           href: cache-remove-tls-10-11.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Surveiller dans le portail Azure
           href: cache-how-to-monitor.md
@@ -105,7 +105,7 @@
           href: cache-troubleshoot-client.md
         - name: Résoudre les problèmes d’expiration du délai d’attente
           href: cache-troubleshoot-timeouts.md
-        - name: Résoudre les problèmes de perte des données
+        - name: Résoudre les problèmes de perte de données
           href: cache-troubleshoot-data-loss.md
     - name: Scale
       items:

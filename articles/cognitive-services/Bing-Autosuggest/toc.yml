@@ -1,6 +1,6 @@
 - name: Documentation Suggestion automatique Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la Suggestion automatique Bing\_?"
       href: get-suggested-search-terms.md
@@ -22,6 +22,12 @@
       href: quickstarts/python.md
     - name: Ruby
       href: quickstarts/ruby.md
+- name: Bibliothèque cliente
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp-sdk.md
+    - name: Go
+      href: quickstarts/go-sdk.md
 - name: Tutoriels
   items:
     - name: Application web à page unique

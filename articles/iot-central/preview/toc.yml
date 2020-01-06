@@ -1,11 +1,9 @@
 - name: Documentation sur Azure IoT Central (fonctionnalités en préversion)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Azure IoT Central ?
       href: overview-iot-central.md
-    - name: Options de la solution IoT
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - name: Visite guidée de l’IU
       href: overview-iot-central-tour.md
     - name: Se connecter
@@ -101,7 +99,7 @@
           items:
             - name: Changer les paramètres d’application
               href: howto-administer.md
-            - name: Gérer des utilisateurs et des rôles
+            - name: Gérer les utilisateurs et les rôles
               href: howto-manage-users-roles.md
             - name: Gérer votre facture
               href: howto-view-bill.md

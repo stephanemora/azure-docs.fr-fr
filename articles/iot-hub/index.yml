@@ -48,6 +48,7 @@ sections:
               - href: /azure/iot-hub/quickstart-send-telemetry-ios
           - title: Contrôler un appareil
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-control-device-node
               - href: /azure/iot-hub/quickstart-control-device-dotnet
               - href: /azure/iot-hub/quickstart-control-device-java
@@ -55,6 +56,7 @@ sections:
               - href: /azure/iot-hub/quickstart-control-device-android
           - title: Communiquer avec des flux d’appareil (préversion)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
               - href: null
@@ -64,6 +66,7 @@ sections:
               - href: null
           - title: Utiliser SSH/RDP avec des flux d’appareil (préversion)
             values:
+              - href: null
               - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
               - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
               - href: null
@@ -87,7 +90,7 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/cli/azure/iot">Interface de ligne de commande Azure</a></p>
+            html: <p><a href="/cli/azure/iot">Azure CLI</a></p>
           - title: Languages
             html: '<p><a href="/dotnet/api/microsoft.azure.devices">.NET (service)</a></p><p><a href="/dotnet/api/microsoft.azure.devices.client">.NET (appareils)</a></p><p><a href="https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/">C (Kit de développement logiciel (SDK) de l’appareil)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.service">Java (service)</a></p><p><a href="/java/api/com.microsoft.azure.sdk.iot.device">Java (appareils)</a></p><p><a href="/javascript/api/azure-iothub/?view=azure-iot-typescript-latest">Node.js (service)</a></p><p><a href="/javascript/api/azure-iot-device/?view=azure-iot-typescript-latest">Node.js (appareils)</a></p>'
           - title: REST

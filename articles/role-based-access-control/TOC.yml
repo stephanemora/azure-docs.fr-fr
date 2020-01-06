@@ -1,7 +1,7 @@
 - name: Documentation sur RBAC pour les ressources Azure
   href: index.yml
   items: null
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que RBAC\_?"
       href: overview.md
@@ -36,7 +36,7 @@
   items:
     - name: Lister les définitions de rôles
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: role-definitions.md
         - name: Lister les définitions de rôles
           href: role-definitions-list.md
@@ -60,7 +60,7 @@
           href: role-assignments-external-users.md
         - name: PowerShell
           href: role-assignments-powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: role-assignments-cli.md
         - name: API REST
           href: role-assignments-rest.md
@@ -68,7 +68,7 @@
           href: role-assignments-template.md
     - name: Répertorier les affectations de refus
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: deny-assignments.md
         - name: Portail
           href: deny-assignments-portal.md
@@ -78,11 +78,11 @@
           href: deny-assignments-rest.md
     - name: Créer des rôles personnalisées
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: custom-roles.md
         - name: PowerShell
           href: custom-roles-powershell.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: custom-roles-cli.md
         - name: API REST
           href: custom-roles-rest.md
@@ -92,17 +92,17 @@
       href: elevate-access-global-admin.md
     - name: Administrateurs classiques
       href: classic-administrators.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshooting.md
 - name: Informations de référence
   items:
     - name: Opérations de fournisseur de ressources
       href: resource-provider-operations.md
     - name: Limites de la fonction RBAC
-      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits'
     - name: Azure PowerShell
       href: /powershell/module/az.resources
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/role?view=azure-cli-latest
     - name: API REST
       href: /rest/api/authorization/

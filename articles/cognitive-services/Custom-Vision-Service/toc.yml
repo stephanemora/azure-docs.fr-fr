@@ -1,6 +1,6 @@
 - name: Documentation du service Vision personnalisée
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Custom Vision ?
       href: home.md
@@ -68,8 +68,6 @@
           href: export-model-python.md
     - name: Exporter ou supprimer des données de compte
       href: ./export-delete-data.md
-    - name: Déplacer votre projet d’essai limité vers Azure
-      href: ./move-your-project-to-azure.md
     - name: "Mettre à jour votre application avec l’API\_3.0"
       href: ./update-application-to-3.0-sdk.md
 - name: Informations de référence

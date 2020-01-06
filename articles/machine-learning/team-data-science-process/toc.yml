@@ -1,6 +1,6 @@
 - name: Documentation sur le processus TDSP (Team Data Science Process)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
 - name: Cycle de vie
   href: lifecycle.md
@@ -106,11 +106,11 @@
         - name: Réception de données
           displayName: 'move data, manage data logistics'
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ingest-data.md
             - name: Déplacer depuis/vers le stockage d’objets blob
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: move-azure-blob.md
                 - name: Utiliser l’Explorateur Stockage
                   href: move-data-to-azure-blob-using-azure-storage-explorer.md
@@ -134,9 +134,9 @@
           items:
             - name: Préparer les données
               href: prepare-data.md
-            - name: Explorer les données
+            - name: Explorer des données
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: explore-data.md
                 - name: Explorer le stockage Blob Azure
                   href: explore-data-blob.md
@@ -146,7 +146,7 @@
                   href: explore-data-hive-tables.md
             - name: Exemples de données
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: sample-data.md
                 - name: Utiliser le stockage d’objets blob
                   href: sample-data-blob.md
@@ -174,7 +174,7 @@
       items:
         - name: Caractéristiques d’ingénierie
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: create-features.md
             - name: Utiliser SQL + Python
               href: create-features-sql-server.md
@@ -193,7 +193,7 @@
 - name: Rubriques connexes
   items:
     - name: Azure Machine Learning
-      href: ../service/
+      href: ../
     - name: Galerie Azure AI
       href: 'https://gallery.azure.ai'
     - name: Cortana Analytics
@@ -204,7 +204,7 @@
           href: 'https://docs.microsoft.com/azure/cognitive-services/'
         - name: Maintenance prédictive
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: cortana-analytics-playbook-predictive-maintenance.md
             - name: Architecture
               href: cortana-analytics-architecture-predictive-maintenance.md

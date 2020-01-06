@@ -1,6 +1,6 @@
 - name: Documentation sur le pare-feu Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’un pare-feu Azure\_?"
       href: overview.md
@@ -55,7 +55,7 @@
       href: sql-fqdn-filtering.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
@@ -70,13 +70,13 @@
     - name: REST
       href: /rest/api/firewall
     - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+      href: ../azure-resource-manager/management/overview.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: firewall-faq.md
     - name: Créer des modèles
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
+      href: ../azure-resource-manager/templates/template-syntax.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Modèles fournis par la communauté

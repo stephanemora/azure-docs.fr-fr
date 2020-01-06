@@ -1,12 +1,12 @@
 - name: Documentation Privileged Identity Management
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure AD PIM\_?"
       href: pim-configure.md
 - name: Concepts
   items:
-    - name: Conditions de licence
+    - name: "Conditions de licence\_:"
       href: subscription-requirements.md
     - name: Rôles que vous ne pouvez pas gérer
       href: pim-roles.md
@@ -45,6 +45,8 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Gérer les rôles Azure AD
       items:
+        - name: Mise à jour des fonctionnalités
+          href: azure-ad-roles-features.md
         - name: Attribuer des rôles
           href: pim-how-to-add-role-to-user.md
         - name: Approuver les demandes

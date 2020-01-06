@@ -1,6 +1,6 @@
 - name: Documentation Stockage Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Introduction
@@ -16,7 +16,7 @@
 - name: Files d’attente
   href: ./queues/index.yml?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Tables
-  href: ./tables/table-storage-overview.md
+  href: ./tables/index.yml?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Disques
   items:
     - name: Windows

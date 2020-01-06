@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Guide du développeur
       href: azure-developer-guide.md
@@ -46,7 +46,7 @@
       href: 'https://docs.microsoft.com/azure/app-service/containers/quickstart-docker-go'
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       items:
         - name: "Web\_Apps"
           href: 'https://docs.microsoft.com/azure/app-service/samples-cli'
@@ -80,7 +80,7 @@
       href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-overview'
 - name: Guides pratiques
   items:
-    - name: Planification
+    - name: Plan
       items:
         - name: Architectures d’applications web
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app'
@@ -90,7 +90,7 @@
           href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/'
         - name: Modèles/scénarios de microservices
           href: 'https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-and-scenarios'
-    - name: Développement
+    - name: Développer
       items:
         - name: Machine virtuelle Linux
           href: 'https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-secured-vm-from-template'
@@ -136,13 +136,13 @@
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
-    - name: Sauvegarde
+    - name: Backup
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/manage-backup'
         - name: Machines virtuelles
           href: 'https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction'
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Applications web et mobiles
           href: 'https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs'
@@ -180,7 +180,7 @@
           href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
     - name: Interfaces de ligne de commande
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: 'https://docs.microsoft.com/cli/azure/'
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/'
@@ -189,7 +189,7 @@
 - name: Ressources
   items:
     - name: Limites et quotas Azure
-      href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+      href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
     - name: Régions Azure
       href: 'https://azure.microsoft.com/regions/'
     - name: Feuille de route Azure

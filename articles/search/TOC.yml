@@ -1,9 +1,9 @@
 - name: Documentation sur la recherche cognitive Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la recherche cognitive Azure\_?"
+    - name: "Qu’est-ce que la Recherche cognitive Azure\_?"
       href: search-what-is-azure-search.md
     - name: Nouveautés
       href: whats-new.md
@@ -13,9 +13,9 @@
       href: search-create-service-portal.md
     - name: Portail
       items:
-        - name: Créer un index de recherche
+        - name: Création d'un index
           href: search-get-started-portal.md
-        - name: Créer une application (préversion)
+        - name: Créer une application
           href: search-create-app-portal.md
         - name: Créer un ensemble de compétences cognitives
           href: cognitive-search-quickstart-blob.md
@@ -307,7 +307,7 @@
           href: search-monitor-usage.md
         - name: Rechercher l’analyse du trafic
           href: search-traffic-analytics.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Problèmes de l’indexeur
           href: search-indexer-troubleshooting.md
@@ -315,7 +315,7 @@
           href: cognitive-search-common-errors-warnings.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
     - name: Azure PowerShell
       href: /powershell/module/az.search
@@ -335,7 +335,7 @@
       href: /azure/templates/microsoft.search/searchservices
     - name: Informations de référence sur le langage OData
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: query-odata-filter-orderby-syntax.md
         - name: $filter
           href: search-query-odata-filter.md
@@ -413,7 +413,7 @@
           href: 'https://aka.ms/azjobsdemo'
         - name: Recherche des cas d’utilisation
           href: 'https://searchsamples.azurewebsites.net/'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: search-faq-frequently-asked-questions.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/search/'

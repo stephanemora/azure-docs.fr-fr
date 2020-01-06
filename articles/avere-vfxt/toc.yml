@@ -1,6 +1,6 @@
 - name: Documentation Avere vFXT
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "En quoi consiste Avere vFXT pour Azure\_?"
       href: avere-vfxt-overview.md
