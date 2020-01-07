@@ -18,16 +18,16 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f6740076600854f612cfdd6324d93325f0cd5c05
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766597"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667510"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
-Un groupe de sécurité réseau (NSG) permet de filtrer le trafic entrant vers une machine virtuelle ainsi que le trafic sortant qui en provient. Vous pouvez enregistrer le trafic réseau qui transite par un groupe de sécurité réseau à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Un groupe de sécurité réseau (NSG) permet de filtrer le trafic entrant vers une machine virtuelle ainsi que le trafic sortant qui en provient. Vous pouvez enregistrer le trafic réseau qui transite par un groupe de sécurité réseau à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle avec un groupe de sécurité réseau
@@ -46,11 +46,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVm|
+    |Name|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
@@ -89,15 +89,11 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
     | Paramètre        | Valeur                                                        |
     | ---            | ---   |
-    | Nom           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
+    | Name           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
     | Location       | Sélectionnez **USA Est**.                                           |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
-    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG). 
-    
-    > [!NOTE]
-    > Même si les fournisseurs Microsoft.Insight et Microsoft.Network sont actuellement pris en charge en tant que [services Microsoft approuvés pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services), les journaux de flux NSG ne sont toujours pas entièrement intégrés. Pour activer la journalisation de flux NSG, vous devez sélectionner **Tous les réseaux** comme indiqué plus haut.
-    
+    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG).     
 4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 5. Sous **JOURNAUX D’ACTIVITÉ**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 
@@ -116,8 +112,6 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
    > * L’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) est activé pour les comptes de stockage.
 1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
-    > [!IMPORTANT]
-    > Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage blob en fonction des paramètres de stratégie de rétention. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des objets blob de stockage du journal de flux NSG, consultez [Supprimer les objets blob de stockage du journal de flux NSG](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="download-flow-log"></a>Télécharger le journal de flux
 
@@ -217,8 +211,8 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 | 44931        | Port source            | Port source dont provient le flux.                                           |
 | 443         | Port de destination       | Port de destination du flux. Comme le trafic était destiné au port 443, la règle nommée **UserRule_default-allow-rdp** dans le fichier journal a traité le flux.                                                |
 | T            | Protocol               | Indique si le protocole du flux était TCP (T) ou UDP (U).                                  |
-| O            | Direction              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
-| A            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
+| O            | Sens              | Indique si le trafic était entrant (I) ou sortant (O).                                     |
+| Un            | Action                 | Indique si le trafic était autorisé (A) ou refusé (D).  
 | C            | État du flux **Version 2 uniquement** | Capture l’état du flux. Les états possibles sont **B** : début, lors de la création d’un flux. Aucune statistique n’est fournie. **C** : continuation d’un flux en cours. Des statistiques sont fournies toutes les 5 minutes. **E** : fin, quand un flux est arrêté. Des statistiques sont fournies. |
 | 30 | Paquets envoyés - Source vers destination **Version 2 uniquement** | Nombre total de paquets TCP ou UDP envoyés de la source à la destination depuis la dernière mise à jour. |
 | 16978 | Octets envoyés - Source vers destination **Version 2 uniquement** | Nombre total d’octets de paquets TCP ou UDP envoyés de la source vers la destination depuis la dernière mise à jour. Les octets de paquets incluent l’en-tête et la charge utile du paquet. |

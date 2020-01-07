@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 364ceabc3c9e7a577bd126b81bcd5256d947bbe3
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: d9778544fd9e20dc3244a37c644117d1cd505a96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476779"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438668"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Didacticiel : préparer le déploiement d’Azure Data Box Edge  
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutoriel : préparer le déploiement d’Azure Data Box Edge  
 
 Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Edge. Il explique comment préparer le portail Azure pour déployer une ressource Data Box Edge.
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une nouvelle ressource
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-### <a name="get-started"></a>Prise en main
+### <a name="get-started"></a>Bien démarrer
 
 Pour déployer Data Box Edge, consultez les didacticiels suivants dans l’ordre indiqué.
 
@@ -44,7 +44,7 @@ Pour déployer Data Box Edge, consultez les didacticiels suivants dans l’ordre
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous trouverez ci-après la configuration requise pour votre ressource Data Box Edge, votre appareil Data Box Edge et le réseau du centre de données.
 
@@ -94,7 +94,7 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
     - Au portail Azure à cette URL : [https://portal.azure.com](https://portal.azure.com)
     - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez **Data Box Edge / Data Box Gateway**. Sélectionnez **Créer**.
+2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez **Data Box Edge / Data Box Gateway**. Sélectionnez **Create** (Créer).
 3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. 
 
     Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage. 
@@ -107,14 +107,14 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
-    |Groupe de ressources  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Subscription    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 4. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
+    |Name   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |
     |Région     |Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Si vous utilisez Azure Government, toutes les régions administratives sont disponibles, comme indiqué dans [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
 
     ![Détails du projet et de l’instance](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
@@ -132,7 +132,7 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
 
     ![Passer en revue les détails de la ressource Data Box Edge et les conditions de confidentialité](media/data-box-edge-deploy-prep/data-box-edge-resource2.png)
 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 
 La création de la ressource prend quelques minutes. Un message vous informe que la ressource a été créée et déployée. Sélectionnez **Accéder à la ressource**.
 
