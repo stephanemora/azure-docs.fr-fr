@@ -10,12 +10,12 @@ ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: 62e760da58eeff265e560d7cbc5dc044bf053de2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e70a59a75531cb7c3a7e5c5573f9e50cc574ab09
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439146"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Spark et d’un service lié HDInsight à la demande. Dans ce tutoriel, vous allez effectuer les étapes suivantes :
@@ -29,7 +29,7 @@ Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure D
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -90,10 +90,7 @@ Créez un fichier JSON à l’aide de votre éditeur favori, copiez la définiti
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       }
     }
 }
@@ -132,7 +129,7 @@ Créez un fichier JSON à l’aide de votre éditeur favori, copiez la définiti
     }
 }
 ```
-Mettez à jour des valeurs des propriétés suivantes dans la définition de service lié : 
+Mettez à jour les valeurs des propriétés suivantes dans la définition de service lié : 
 
 - **hostSubscriptionId**. Remplacez &lt;subscriptionID&gt; par l’ID de votre abonnement Azure. Le cluster HDInsight à la demande est créé dans cet abonnement. 
 - **tenant** Remplacez &lt;tenantID&gt; par l’ID de votre client Azure. 
@@ -175,7 +172,7 @@ Créez un fichier JSON dans votre éditeur favori, copiez la définition JSON su
 }
 ```
 
-Notez les points suivants : 
+Notez les points suivants : 
 
 - rootPath pointe vers le dossier Spark du conteneur adftutorial. 
 - entryFilePath pointe vers le fichier WordCount_Spark.py dans le sous-dossier de script du dossier Spark. 
@@ -251,7 +248,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
     
 ## <a name="start-and-monitor-a-pipeline-run"></a>Démarrer et surveiller l’exécution d’un pipeline  
 
-1. Démarrez l’exécution d’un pipeline. Cette opération capture également l’ID d’exécution du pipeline pour une surveillance ultérieure.
+1. Démarrer une exécution de pipeline. Cette opération capture également l’ID d’exécution du pipeline pour une surveillance ultérieure.
 
     ```powershell
     $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName  
@@ -283,7 +280,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
     Write-Host "Activity `Error` section:" -foregroundcolor "Yellow"
     $result.Error -join "`r`n" 
     ```  
-3. Voici la sortie de l’exemple d’exécution : 
+3. Voici la sortie de l’exemple d’exécution : 
 
     ```
     Pipeline run status: In Progress
@@ -332,7 +329,7 @@ Vous avez créé des définitions de service lié et de pipeline dans des fichie
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes : 
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 

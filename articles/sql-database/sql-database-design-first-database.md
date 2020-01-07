@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir votre première base de données relationnelle avec SSMS'
+title: 'Tutoriel : Concevoir votre première base de données relationnelle avec SSMS'
 description: Apprenez à concevoir votre première base de données relationnelle dans une base de données unique dans Azure SQL Database à l’aide de SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -9,14 +9,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: d3fecd54e36c8a3dd43c88f5aa4e4233057c3f91
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9764c4bc794eb8d133270b762fa2bca30a056fea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459627"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Tutoriel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
 
 Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Dans ce didacticiel, vous allez apprendre à utiliser le portail Azure et [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) pour :
 
@@ -31,11 +31,11 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!TIP]
-> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [Développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
+> Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 > [!NOTE]
-> Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données mise en pool élastique ou une base de données d’instance située dans une instance managée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
+> Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données mise en pool élastique ou une base de données d’instance située dans une instance managée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés :
 
@@ -44,22 +44,22 @@ Pour suivre ce tutoriel, vérifiez que les éléments suivants sont installés 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-single-database"></a>Créer une base de données unique vide.
 
-Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
+Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
 Suivez ces étapes pour créer une base de données unique vide.
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Dans la page **Nouveau**, sélectionnez **Bases de données** dans la section Place de marché Azure, puis cliquez sur **SQL Database** dans la section **Sélection**.
 
    ![créer une base de données vide](./media/sql-database-design-first-database/create-empty-database.png)
 
 3. Remplissez le formulaire **Base de données SQL** avec les informations suivantes, comme indiqué dans l’illustration précédente :
 
-    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | Paramètre       | Valeur suggérée | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nom de la base de données** | *yourDatabase* | Pour connaître les noms de bases de données valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
     | **Abonnement** | *yourSubscription*  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Suivez ces étapes pour créer une base de données unique vide.
 
 4. Cliquez sur **Serveur** pour utiliser un serveur de base de données existant ou créez et configurez-en un. Sélectionnez un serveur existant ou cliquez sur **Créer un serveur** et remplissez le formulaire **Nouveau serveur** avec les informations suivantes :
 
-    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | Paramètre       | Valeur suggérée | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
     | **Connexion d’administrateur du serveur** | Nom valide | Pour connaître les noms de connexions valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
@@ -129,7 +129,7 @@ Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-s
 
    | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Type de serveur** | Moteur de base de données | Cette valeur est obligatoire. |
+   | **Type de serveur** | Moteur de base de données | Cette valeur est requise. |
    | **Nom du serveur** | Nom complet du serveur | Par exemple, *yourserver.database.windows.net*. |
    | **Authentification** | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce tutoriel. |
    | **Connexion** | Compte d’administrateur de serveur | Le compte que vous avez spécifié lorsque vous avez créé le serveur. |
@@ -151,7 +151,7 @@ Utilisez [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-s
 
 Créez un schéma de base de données avec quatre tables qui modélisent un système de gestion des étudiants pour les universités à l’aide de [Transact-SQL](/sql/t-sql/language-reference) :
 
-- Personne
+- Person
 - Cours
 - Étudiant
 - Crédit
@@ -238,7 +238,7 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 
 Vous avez maintenant chargé des exemples de données dans les tables que vous avez créées précédemment.
 
-## <a name="query-data"></a>Données de requête
+## <a name="query-data"></a>Interroger des données
 
 Exécutez les requêtes suivantes pour récupérer des informations à partir des tables de base de données. Pour en savoir plus sur l’écriture des requêtes SQL, consultez [Écrire des requêtes SQL](https://technet.microsoft.com/library/bb264565.aspx). La première requête réunit les quatre tables pour rechercher tous les étudiants inscrits au cours de « Dominick Pope » ayant une note supérieure à 75 %. La deuxième requête réunit les quatre tables et recherche les cours que « Noe Coleman » a déjà suivis.
 
@@ -270,7 +270,7 @@ Exécutez les requêtes suivantes pour récupérer des informations à partir de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez découvert de nombreuses tâches de base de données élémentaires. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez découvert de nombreuses tâches de base de données élémentaires. Vous avez appris à :
 
 > [!div class="checklist"]
 > - Créer une base de données unique

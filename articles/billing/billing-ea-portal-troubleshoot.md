@@ -4,16 +4,16 @@ description: Cet article décrit certains problèmes courants qui peuvent se pro
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ff8408a098049d860a614900bdeea80da1bd95e4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f48aaee34dd35f065fd7e2d065316674b72db7c5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841385"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644424"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Résoudre les problèmes d’accès au portail Azure EA
 
@@ -166,4 +166,4 @@ Si vous disposez d’un compte professionnel ou scolaire sous un autre locataire
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Les administrateurs du portail Azure EA doivent lire [Administration du portail Azure EA](billing-ea-portal-administration.md) pour découvrir les tâches d’administration courantes.
+- Les administrateurs du portail Azure EA doivent lire la [documentation consacrée à l’administration du portail Azure EA](billing-ea-portal-administration.md) pour découvrir les tâches d’administration courantes.

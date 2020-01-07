@@ -1,5 +1,6 @@
 ---
-title: Tutoriel sur l’utilisation de la configuration dynamique d’Azure App Configuration dans une application .NET Core | Microsoft Docs
+title: 'Tutoriel : Utiliser la configuration dynamique dans une application .NET Core'
+titleSuffix: Azure App Configuration
 description: Dans ce tutoriel, vous allez apprendre à mettre à jour dynamiquement les données de configuration pour les applications .NET Core.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,14 +14,14 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: ae753758a3cd5b7dfa8794ccf98f7a8a063f5b18
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afecc84748ae8ce85c07e3b482bd9b596bdca251
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433675"
 ---
-# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Didacticiel : Utiliser la configuration dynamique dans une application .NET Core
+# <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application .NET Core
 
 La bibliothèque cliente .NET Core App Configuration permet d’effectuer la mise à jour à la demande d’un ensemble de paramètres de configuration, sans entraîner le redémarrage de l’application. Vous pouvez implémenter cette configuration en obtenant d’abord une instance de `IConfigurationRefresher` parmi les options du fournisseur de configuration, puis en appelant `Refresh` sur cette instance, à n’importe quel endroit de votre code.
 
@@ -30,13 +31,13 @@ Ce tutoriel montre comment vous pouvez implémenter des mises à jour de la conf
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce tutoriel. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option qui est disponible sur les plateformes Windows, macOS et Linux.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer votre application .NET Core pour mettre à jour sa configuration en réponse aux changements survenant dans un magasin App Configuration.
 > * Utiliser la configuration la plus récente dans votre application.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, installez le [kit SDK .NET Core](https://dotnet.microsoft.com/download).
 
@@ -119,7 +120,7 @@ La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés po
 
     ![Démarrage rapide du lancement d’application local](./media/quickstarts/dotnet-core-app-run.png)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Toutes les ressources**, puis sélectionnez l’instance du magasin App Configuration que vous avez créée dans le guide de démarrage rapide.
 
 1. Sélectionnez **Explorateur de configuration**, puis mettez à jour les valeurs des clés suivantes :
 
@@ -134,7 +135,7 @@ La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés po
     > [!NOTE]
     > Étant donné que le délai d’expiration du cache a été défini sur 10 secondes à l’aide de la méthode `SetCacheExpiration` lors de la spécification de la configuration de l’opération d’actualisation, la valeur du paramètre de configuration ne sera actualisée que si 10 secondes se sont écoulées depuis la dernière actualisation de ce paramètre.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

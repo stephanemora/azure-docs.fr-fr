@@ -4,16 +4,16 @@ description: Cet article décrit les API REST qui sont disponibles avec votre in
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: ea53ad91dcb411c43b367bfb43bc9dcea3d2bba7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 58f38cc3649c1d08187a4bb93be83422c8e7911b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841419"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644526"
 ---
 # <a name="azure-enterprise-rest-apis"></a>API REST Entreprise Azure
 
@@ -70,12 +70,12 @@ Passez la clé API pour chaque appel en vue de l’authentification et l’autor
 
 | Clé d’en-tête de demande | Valeur |
 | --- | --- |
-| Authorization | Indiquez la valeur dans ce format : **bearer {API\_KEY}**
+| Autorisation | Indiquez la valeur dans ce format : **bearer {API\_KEY}**
 Exemple : bearer \&lt;APIKey\&gt; |
 
-### <a name="swagger"></a>Swagger
+### <a name="swagger"></a>Fichier Swagger
 
-Un point de terminaison Swagger est disponible sur [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) pour les API suivantes. Swagger est un outil qui facilite l’inspection de l’API. Utilisez Swagger pour générer des SDK clients avec [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](http://swagger.io/swagger-codegen/). Les données disponibles après le 1er mai 2014 sont accessibles par le biais de l’API.
+Un point de terminaison Swagger est disponible sur [Enterprise Reporting v3 APIs](https://consumption.azure.com/swagger/ui/index) pour les API suivantes. Swagger est un outil qui facilite l’inspection de l’API. Utilisez Swagger pour générer des SDK clients avec [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](https://swagger.io/swagger-codegen/). Les données disponibles après le 1er mai 2014 sont accessibles par le biais de l’API.
 
 ### <a name="api-response-codes"></a>Codes de réponse de l’API
 
@@ -122,7 +122,7 @@ Le format JSON est généré à partir du rapport CSV. Le format est donc le mê
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | Nom d'abonnement | SubscriptionName | SubscriptionName |   |
 | Date | Date | Date | Affiche la date à laquelle le rapport du catalogue de services a été généré. Le format est une chaîne de date sans horodatage. |
-| Mois | Mois | Mois |   |
+| Month | Month | Month |   |
 | jour | jour | jour |   |
 | Year | Year | Year |   |
 | Produit | BillableItemName | Produit |   |
@@ -157,7 +157,7 @@ Le format JSON est généré à partir du rapport CSV. Le format est donc le mê
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | Nom d'abonnement | SubscriptionName |  SubscriptionName |
 | Date | BillingCycle |  Date (chaîne de date uniquement, pas d’horodatage)
-| Mois | Mois |  Mois |
+| Month | Month |  Month |
 | jour | jour |  jour |
 | Year | Year |  Year |
 | ID du compteur | MeterResourceId |  ID du compteur |
@@ -211,4 +211,4 @@ Vous pouvez recevoir les erreurs 400 et 404 (non disponibles) retournées par un
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Les administrateurs du portail Azure EA doivent lire la [documentation consacrée à l’administration du portail Azure EA](billing-ea-portal-administration.md) pour découvrir les tâches d’administration courantes.
-- Si vous avez besoin d’aide pour résoudre des problèmes rencontrés avec le portail Azure EA, consultez [Résoudre les problèmes d’accès au portail Azure EA](billing-ea-portal-troubleshoot.md).
+- Si vous avez besoin d’aide pour résoudre des problèmes rencontrés avec le portail Azure EA, consultez [Résoudre les problèmes d’accès au portail Azure EA](billing-ea-portal-troubleshoot.md).

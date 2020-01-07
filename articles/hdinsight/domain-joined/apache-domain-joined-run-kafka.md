@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: cb99b747cb5de01c616c4cab0ac6c14823f7d4db
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435851"
 ---
-# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache Kafka avec le Pack Sécurité Entreprise. Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès aux rubriques `sales` et `marketingspend`.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer des utilisateurs du domaine
@@ -93,7 +93,7 @@ Pour créer les deux rubriques, `salesevents` et `marketingspend` :
    ssh DOMAINADMIN@CLUSTERNAME-ssh.azurehdinsight.net
    ```
 
-   Remplacez `DOMAINADMIN` par l’utilisateur administrateur de votre cluster qui a été configuré pendant la [création du cluster](./apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), puis remplacez `CLUSTERNAME` par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte de l’utilisateur administrateur. Pour en savoir plus sur l’utilisation de `SSH` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+   Remplacez `DOMAINADMIN` par l’utilisateur administrateur de votre cluster qui a été configuré pendant la [création du cluster](./apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp), puis remplacez `CLUSTERNAME` par le nom de votre cluster. Si vous y êtes invité, entrez le mot de passe du compte de l’utilisateur administrateur. Pour en savoir plus sur l’utilisation de `SSH` avec HDInsight, voir [Utiliser SSH avec Hadoop - Azure HDInsight](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez les commandes suivantes pour enregistrer le nom du cluster dans une variable et pour installer un utilitaire d’analyse JSON `jq`. Quand vous y êtes invité, entrez le nom du cluster Kafka.
 
@@ -185,11 +185,11 @@ En fonction des stratégies Ranger configurées, **sales_user** peut produire/co
 
    ![Événements d’accès d’audit de stratégie de l’interface utilisateur Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne comptez pas continuer à utiliser cette application, effectuez les étapes suivantes pour supprimer le cluster Kafka que vous avez créé :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Dans la zone **Recherche** située en haut, tapez **HDInsight**.
 1. Sous **Services**, sélectionnez **Clusters HDInsight**.
 1. Dans la liste des clusters HDInsight qui s’affiche, cliquez sur les points de suspension **...** à côté du cluster que vous avez créé pour ce tutoriel. 

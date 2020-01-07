@@ -4,16 +4,16 @@ description: Cet article explique dans quelle mesure les contrats et avenants Az
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 78fda5785d85b728c897bf758bc2a3cdee768d02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1f421abf1c9cff545c77a9fcbbb4acfd76d1e1d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849902"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644407"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Contrats et avenants Azure EA
 
@@ -72,7 +72,7 @@ Microsoft n’a pas accès et n’utilise pas la majoration fournie et aux prix 
 
 ### <a name="how-the-calculation-works"></a>Fonctionnement du calcul
 
-Le LSP fournit un seul pourcentage dans le portail EA.  Toutes les informations commerciales sur le portail seront réparties en fonction du pourcentage fourni par le LSP. Exemple :
+Le LSP fournit un seul pourcentage dans le portail EA.  Toutes les informations commerciales sur le portail seront réparties en fonction du pourcentage fourni par le LSP. Exemple :
 
 - Le client signe un Contrat Entreprise avec un engagement financier de 100 000 USD.
 - Le tarif de compteur pour le service A est de 10 USD/heure.
@@ -249,7 +249,7 @@ Cela peut prendre jusqu’à 24 heures pour que les nouveaux abonnements apparai
 
 Seuls les propriétaires de comptes peuvent consulter et gérer les abonnements.
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 **Propriétaire du compte affiché à l’état En attente**
 

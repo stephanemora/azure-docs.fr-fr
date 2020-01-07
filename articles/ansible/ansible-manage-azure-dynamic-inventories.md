@@ -4,14 +4,14 @@ description: Découvrez comment utiliser Ansible pour gérer vos inventaires dyn
 keywords: ansible, azure, devops, bash, cloudshell, inventaire dynamique
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: dea6b47e5e263fdd2e048a0435efbebfa90fe69e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442783"
 ---
-# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Didacticiel : Tutoriel : Configurer des inventaires dynamiques de ressources Azure avec Ansible
+# <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutoriel : Tutoriel : Configurer des inventaires dynamiques de ressources Azure avec Ansible
 
 Ansible peut être utilisé pour extraire des informations d’inventaire de diverses sources (y compris les sources cloud comme Azure) dans un *inventaire dynamique*. 
 
@@ -24,7 +24,7 @@ Ansible peut être utilisé pour extraire des informations d’inventaire de div
 > * Installer Nginx sur les machines virtuelles avec balises
 > * Configurer un inventaire dynamique comportant les ressources Azure configurées
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -32,7 +32,7 @@ Ansible peut être utilisé pour extraire des informations d’inventaire de div
 
 ## <a name="create-the-test-vms"></a>Créer les machines virtuelles de test
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Ouvrez [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -228,7 +228,7 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
           become: yes
           tasks:
           - name: install nginx
-            apt: pkg=nginx state=installed
+            apt: pkg=nginx state=present
             notify:
             - start nginx
     
@@ -239,7 +239,7 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
 
 1. Enregistrez le fichier et quittez l’éditeur.
 
-1. Exécutez le playbook avec la commande `ansible-playbook` :
+1. Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
    - Version d’Ansible antérieure à 2.8 :
 
@@ -253,7 +253,7 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
      ```
 
-1. Le playbook devrait alors donner une sortie de ce type :
+1. Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
     ```Output
     PLAY [Install and start Nginx on an Azure virtual machine] 
@@ -316,4 +316,4 @@ Cette section présente une technique de test de l’installation de Nginx sur v
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"] 
-> [Démarrage rapide : Configurer des machines virtuelles Linux dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Démarrage rapide : Configurer des machines virtuelles Linux dans Azure avec Ansible](/azure/virtual-machines/linux/ansible-create-vm)

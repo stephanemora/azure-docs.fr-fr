@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 11e5aac559370c478b774f2a503bde590dfeedf4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0805a9827474e4f52a5a10e019f7dedd1ab45fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411045"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
 Dans ce tutoriel, vous allez effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks. Vous extrayez des données d’Azure Data Lake Storage Gen2 dans Azure Databricks, exécutez des transformations sur les données dans Azure Databricks, puis chargez les données transformées dans Azure SQL Data Warehouse.
 
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
 > Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
      
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
@@ -55,7 +55,7 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
 * Créez un compte de stockage Azure Data Lake Storage Gen2. Consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Vous devrez faire certaines choses spécifiques pendant que vous suivrez les étapes décrites dans cet article.
 
@@ -65,7 +65,7 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
    * Au cours des étapes indiquées dans la section [Obtenir les valeurs de connexion](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) de l’article, collez les valeurs de l’ID de locataire, de l’ID d’application et du mot de passe dans un fichier texte. Vous en aurez besoin bientôt.
 
-* Connectez-vous au [Portail Azure](https://portal.azure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Collecter les informations dont vous avez besoin
 
@@ -89,7 +89,7 @@ Vérifiez que vous remplissez les prérequis de ce tutoriel.
 
 Dans cette section, vous créez un service Azure Databricks en utilisant le portail Azure.
 
-1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
     ![Créer une ressource sur le portail Azure](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
 
@@ -105,7 +105,7 @@ Dans cette section, vous créez un service Azure Databricks en utilisant le port
     |---------|---------|
     |**Nom de l’espace de travail**     | Fournissez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
-    |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/management/overview.md). |
     |**Lieu**     | Sélectionnez **USA Ouest 2**.  Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).      |
     |**Niveau tarifaire**     |  Sélectionnez **Standard**.     |
 
@@ -380,7 +380,7 @@ Comme mentionné précédemment, le connecteur SQL Data Warehouse utilise le Sto
 
     ![Vérifier le contenu de l’exemple de table](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Vérifier le contenu de l’exemple de table")
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez terminé le tutoriel, vous pouvez terminer le cluster. Dans l’espace de travail Azure Databricks, sélectionnez **Clusters** à gauche. Pour terminer le cluster, sous **Actions**, pointez sur les points de suspension (...) et sélectionnez l’icône **Terminer**.
 
@@ -390,7 +390,7 @@ Si vous ne terminez pas le cluster manuellement, il s’arrête automatiquement,
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un service Azure Databricks

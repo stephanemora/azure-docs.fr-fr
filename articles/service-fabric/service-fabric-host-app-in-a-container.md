@@ -1,31 +1,20 @@
 ---
-title: Déployer une application .NET dans un conteneur vers Azure Service Fabric | Microsoft Docs
+title: Déployer une application .NET dans un conteneur vers Azure Service Fabric
 description: Découvrez comment mettre en conteneur une application .NET existante à l’aide de Visual Studio et comment déboguer des conteneurs Service Fabric en local. L’application en conteneur est envoyée par push dans un registre de conteneur Azure et déployée dans un cluster Service Fabric. Lorsqu’elle est déployée dans Azure, l’application utilise Azure SQL DB pour conserver des données.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/08/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6e088d9ae201dc5a09de45b2a528b77400d8a111
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: d1602d292af24d8c0bc9139debb3967aa7183a06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232393"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463052"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutoriel : Déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
 Ce didacticiel explique comment mettre une application ASP.NET existante en conteneur et l’empaqueter en tant qu’application Service Fabric.  Exécutez les conteneurs en local sur le cluster de développement Service Fabric puis déployez l’application vers Azure.  L’application conserve les données dans [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio
@@ -36,7 +25,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Si vous n’avez pas d’abonnement Azure, [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installez [Docker CE pour Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) afin que vous puissiez exécuter des conteneurs sur Windows 10.
@@ -242,7 +231,7 @@ Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lo
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurer l’intégration et le déploiement continus (CI/CD) avec un cluster Service Fabric
 Pour savoir comment utiliser Azure DevOps en vue de configurer le déploiement d’applications CI/CD dans un cluster Service Fabric, consultez [Tutoriel : Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Le processus décrit dans ce didacticiel est identique pour ce projet (FabrikamFiber) ; vous devez simplement omettre le téléchargement de l’exemple Voting et utiliser FabrikamFiber comme nom de référentiel au lieu de Voting.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous avez terminé, veillez à supprimer toutes les ressources créées.  La façon la plus simple est de supprimer les groupes de ressources qui contiennent le cluster Service Fabric, Azure SQL DB et Azure Container Registry.
 
 ```powershell
@@ -261,7 +250,7 @@ Remove-AzResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio

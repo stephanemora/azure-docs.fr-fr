@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 5d82971cbd7781a298f3f3aeeba47e4be471e248
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1c8df388bcd3956746edba9a721b0598025b827e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439176"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure à l’aide du portail Azure
 
@@ -39,7 +39,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Passer en revue les résultats de la deuxième exécution
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media/tutorial-Incremental-copy-portal/incrementally-load.png)
@@ -49,7 +49,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 1. **Sélectionner la colonne de limite**.
     Sélectionnez une colonne dans le magasin de données sources, qui peut servir à découper les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
-2. **Préparer un magasin de données pour stocker la valeur de limite**. Dans ce didacticiel, la valeur de filigrane est stockée dans une base de données SQL.
+2. **Préparer un magasin de données pour stocker la valeur de limite**. Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
     
 3. **Créer un pipeline avec le flux de travail suivant** : 
     
@@ -62,7 +62,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
 * **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 
@@ -122,7 +122,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```sql
     Select * from watermarktable
     ```
-    Output: 
+    Sortie : 
 
     ```
     TableName  | WatermarkValue
@@ -150,7 +150,7 @@ END
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analyse** > **Data Factory** : 
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** : 
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -165,14 +165,14 @@ END
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-        Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+        Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 6. Sélectionnez **V2** pour la **version**.
 7. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 8. Cliquez sur **Créer**.      
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
-10. Cliquez sur le titre **Créer et surveiller** pour lancer l’interface utilisateur de Azure Data Factory dans un onglet séparé.
+   ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
+10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 Dans ce didacticiel, vous allez créer un pipeline avec deux activités de recherche, une activité de copie et une activité StoredProcedure chaînées dans le même pipeline. 
@@ -231,7 +231,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ![Connexion des activités de recherche à l’activité de copie](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Sélectionnez l’**activité de copie** et vérifiez que vous vouez les propriétés de l’activité dans la fenêtre **Propriétés**. 
 
-22. Basculez vers l’onglet **Source** onglet dans la fenêtre**Propriétés**, et procédez comme suit :
+22. Basculez vers l’onglet **Source** dans la fenêtre**Propriétés**, et procédez comme suit :
 
     1. Sélectionnez **SourceDataset** pour le champ **Jeu de données source**. 
     2. Sélectionnez **Requête** pour le champ **Utiliser la requête**. 
@@ -253,10 +253,10 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     2. Sélectionnez votre compte de stockage Azure comme **Nom du compte de stockage**.
     3. Testez la connexion, puis cliquez sur **Terminer**. 
 
-27. Dans la fenêtre **Définir des propriétés**, vérifiez que **AzureStorageLinkedService** est sélectionné comme **service lié**. Sélectionnez ensuite **Terminer**.
+27. Dans la fenêtre **Définir des propriétés**, vérifiez que **AzureStorageLinkedService** est sélectionné comme **service lié**. Sélectionnez **Terminer**.
 28. Accédez à l’onglet **Connexion** de SinkDataset et procédez comme suit :
     1. Pour le champ **Chemin de fichier**, entrez **adftutorial/incrementalcopy**. **adftutorial** est le nom du conteneur d’objets blob et **incrementalcopy** est le nom du dossier. Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Azure Data Factory crée automatiquement le dossier de sortie **incrementalcopy** s’il n’existe pas. Vous pouvez également utiliser le bouton **Parcourir** pour le **chemin d’accès du fichier** afin d’accéder à un dossier dans un conteneur d’objets blob.
-    2. Pour la partie **Fichier** du champ **Chemin de fichier**, sélectionnez **Ajouter du contenu dynamique [Alt+P]** , puis entrez `@CONCAT('Incremental-', pipeline().RunId, '.txt')` dans la fenêtre ouverte. Sélectionnez ensuite **Terminer**. Le nom de fichier est généré dynamiquement à l’aide de l’expression. Chaque exécution de pipeline possède un ID unique. L’activité de copie utilise l’ID d’exécution pour générer le nom de fichier. 
+    2. Pour la partie **Fichier** du champ **Chemin de fichier**, sélectionnez **Ajouter du contenu dynamique [Alt+P]** , puis entrez `@CONCAT('Incremental-', pipeline().RunId, '.txt')` dans la fenêtre ouverte. Sélectionnez **Terminer**. Le nom de fichier est généré dynamiquement à l’aide de l’expression. Chaque exécution de pipeline possède un ID unique. L’activité de copie utilise l’ID d’exécution pour générer le nom de fichier. 
 
 28. Basculez vers l’éditeur de **pipeline** en cliquant sur l’onglet du pipeline en haut ou bien en cliquant sur le nom du pipeline dans l’arborescence à gauche. 
 29. Dans la boîte à outils **Activités**, développez **Général**, et faites glisser et déposez l’activité **Procédure stockée** de la boîte à outils **Activités** sur la surface du concepteur de pipeline. **Connectez** le résultat vert (succès) de l’activité de **copie** à l’activité **Procédure stockée**. 
@@ -270,10 +270,10 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     1. Pour **Nom de la procédure stockée**, sélectionnez **usp_write_watermark**. 
     2. Pour spécifier des valeurs correspondant aux paramètres de procédure stockée, cliquez sur **Import parameter** (Paramètre d’importation), puis entrez les valeurs suivantes pour les paramètres : 
 
-        | Nom | type | Valeur | 
+        | Name | Type | Valeur | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | Chaîne | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Pour valider les paramètres du pipeline, cliquez sur **Valider** dans la barre d’outils. Vérifiez qu’il n’y a aucune erreur de validation. Pour fermer la fenêtre **Rapport de validation de pipeline**, cliquez sur >>.   
@@ -380,7 +380,7 @@ PersonID | Name | LastModifytime
 
      
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Préparer le magasin de données pour y stocker la valeur de limite.

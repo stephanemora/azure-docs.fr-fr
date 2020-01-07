@@ -8,28 +8,28 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 428b42e62f44d182de109740359544135561e54b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: fdb4b7c370d5edadf3e0e5bc0d1ae548da6bcaa9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438655"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Didacticiel : Préparer le déploiement d’Azure Data Box Gateway
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutoriel : Préparer le déploiement d’Azure Data Box Gateway
 
 
 Ce didacticiel est le premier d’une série de didacticiels permettant de déployer entièrement Azure Data Box Gateway. Il explique comment préparer le Portail Azure pour déployer la ressource Data Box Gateway. 
 
 Vous avez besoin de privilèges d’administrateur pour terminer le processus d’installation et de configuration. La préparation du portail prend moins de 10 minutes.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une nouvelle ressource
 > * Télécharger l'image de l’appareil virtuel
 > * Obtenir la clé d'activation
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Pour déployer Data Box Gateway, consultez les didacticiels suivants dans l’ordre indiqué.
 
@@ -42,7 +42,7 @@ Pour déployer Data Box Gateway, consultez les didacticiels suivants dans l’or
 
 Vous pouvez maintenant commencer à configurer le portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Dans les informations suivantes, vous trouverez la configuration requise pour votre ressource Data Box Gateway, votre appareil Data Box Gateway et le réseau du centre de données.
 
@@ -93,7 +93,7 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
     - Au portail Azure à cette URL : [https://portal.azure.com](https://portal.azure.com)
     - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
-2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez Data Box Edge / Data Box Gateway. Sélectionnez **Créer**.
+2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez Data Box Edge / Data Box Gateway. Sélectionnez **Create** (Créer).
 3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Gateway. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Gateway. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Pour l’option **Data Box Gateway**, sélectionnez **Créer**.
 
     ![Rechercher le service Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
@@ -102,21 +102,21 @@ Pour créer une ressource Data Box Gateway, effectuez les étapes suivantes dans
     
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Abonnement    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
-    |Groupe de ressources  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).     |
+    |Subscription    |Ce champ est automatiquement renseigné en fonction de la sélection antérieure. L’abonnement est lié à votre compte de facturation. |
+    |Resource group  |Sélectionnez un groupe existant ou créez-en un.<br>Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).     |
 
 5. Entrez ou sélectionnez les **détails de l’instance** suivants.
 
     |Paramètre  |Valeur  |
     |---------|---------|
-    |Nom   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
+    |Name   | Entrez un nom reconnaissable pour identifier la ressource.<br>Le nom doit être compris entre 2 et 50 caractères, et se composer uniquement de lettres, de chiffres et de traits d’union.<br> Le nom doit commencer et se terminer par une lettre ou un chiffre.        |   
     |Région     |Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles pour déployer votre ressource. Pour Azure Government, toutes les régions administratives listées dans les [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) sont disponibles. <br> Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil.|
     
     ![Créer la ressource Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
 6. Sélectionnez **Revoir + créer**.
  
-7. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Sélectionnez **Créer**.
+7. Sous l’onglet **Vérifier + créer**, passez en revue les **Détails de la tarification**, les **Conditions d’utilisation** et les détails de votre ressource. Sélectionnez **Create** (Créer).
 
     ![Passer en revue les détails de la ressource Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
@@ -177,7 +177,7 @@ Passez au didacticiel suivant pour découvrir comment approvisionner une machine
 > [!div class="nextstepaction"]
 > [Approvisionner une instance Data Box Gateway dans Hyper-V](./data-box-gateway-deploy-provision-hyperv.md)
 
-Ou
+OR
 
 > [!div class="nextstepaction"]
 > [Approvisionner une instance Data Box Gateway dans VMware](./data-box-gateway-deploy-provision-vmware.md)

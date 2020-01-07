@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/20/2018
-ms.openlocfilehash: e3ccc5a48251af181983624f0c8d0eed68c241da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2c89b53d66b93ff38a7cff07b2889faf8eda24ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439295"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données Azure SQL
 
@@ -65,7 +65,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **SQL Server**. Dans le cadre de ce tutoriel, vous allez utiliser une base de données SQL Server locale comme magasin de données source. 
 * **Azure SQL Database**. Vous allez utiliser une base de données SQL comme magasin de données récepteur. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une. 
 
@@ -231,7 +231,7 @@ END
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analyse** > **Data Factory** : 
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** : 
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -246,13 +246,13 @@ END
      
     - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
     - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
-    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 6. Sélectionnez **V2** pour la **version**.
 7. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 8. Cliquez sur **Créer**.      
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
+   ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)
 10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 
 ## <a name="create-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
@@ -295,7 +295,7 @@ Dans cette étape, vous liez votre base de données SQL Server locale à la fabr
     1. Dans le champ **Nom du serveur**, entrez le nom de l’ordinateur sur lequel réside la base de données SQL Server.
     1. Dans le champ **Nom de la base de données**, entrez le nom de la base de données de votre serveur SQL Server qui contient les données sources. Vous avez créé une table et inséré des données dans cette base de données dans le cadre des conditions préalables. 
     1. Dans le champ **Type d’authentification**, sélectionnez le **type d’authentification** à utiliser pour vous connecter à la base de données. 
-    1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données SQL Server. Si vous avez besoin d’utiliser une barre oblique (`\`) dans votre nom de serveur ou de compte d’utilisateur, utilisez le caractère d’échappement (`\`). Par exemple `mydomain\\myuser`.
+    1. Dans le champ **Nom d’utilisateur**, entrez le nom de l’utilisateur qui a accès à la base de données SQL Server. Si vous avez besoin d’utiliser une barre oblique (`\`) dans votre nom de serveur ou de compte d’utilisateur, utilisez le caractère d’échappement (`\`). par exemple `mydomain\\myuser`.
     1. Dans le champ **Mot de passe**, entrez le **mot de passe** de l’utilisateur. 
     1. Pour vérifier si Data Factory peut se connecter à votre base de données SQL Server, cliquez sur **Tester la connexion**. Corrigez les erreurs jusqu’à ce que la connexion soit établie. 
     1. Pour enregistrer le service lié, cliquez sur **Terminer**.
@@ -437,7 +437,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
 
     1. Sélectionnez **SourceDataset** pour **Jeu de données source**. 
     1. Sélectionnez **Requête** pour **Utiliser la requête**. 
-    1. Saisissez la requête SQL suivante pour **Requête**.
+    1. Entrez la requête SQL suivante pour **Requête**.
 
         ```sql
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
@@ -446,7 +446,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
         ![Activité de copie - paramètres de la source](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Passez dans l’onglet **Récepteur**, puis sélectionnez **SinkDataset** dans le champ **Jeu de données récepteur**. 
         
-1. Effectuez également les étapes suivantes :
+1. Procédez comme suit :
 
     1. Dans les **Propriétés du dataset**, pour le paramètre **SinkTableName**, entrez `@{item().TABLE_NAME}`.
     1. Pour la propriété **Nom de procédure stockée**, entrez `@{item().StoredProcedureNameForMergeOperation}`.
@@ -467,10 +467,10 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
     1. Sélectionnez **Import parameter** (Paramètre d’importation). 
     1. Indiquez les valeurs suivantes pour les paramètres : 
 
-        | Nom | type | Valeur | 
+        | Name | Type | Valeur | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Chaîne | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Activité de procédure stockée- paramètres de procédure stockée](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Sélectionnez **Publier tout** pour publier les entités que vous avez créées pour le service Data Factory. 

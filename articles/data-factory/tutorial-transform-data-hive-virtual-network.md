@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f90933dea5421d68116d29df6b9429d298bb0d88
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ab8df188027ada2119334e058ffc5a10cca23914
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439165"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous utilisez Azure PowerShell pour créer un pipeline Azure D
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -119,7 +119,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
      $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
-    Exécutez la commande suivante pour afficher la sortie : 
+    Exécutez la commande suivante pour afficher la sortie : 
 
     ```powershell
     $df
@@ -128,7 +128,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="create-self-hosted-ir"></a>Créer un runtime d’intégration autohébergé
 Dans cette section, vous créez un runtime d’intégration autohébergé et l’associez à une machine virtuelle Azure dans le même réseau virtuel Azure que celui où se trouve votre cluster HDInsight.
 
-1. Créez le runtime d’intégration autohébergé. Utilisez un nom unique au cas où il existe déjà un autre runtime d’intégration portant le même nom.
+1. Créez le runtime d’intégration autohébergé. Utilisez un nom unique au cas où il existe déjà un autre runtime d’intégration de même nom.
 
    ```powershell
    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
@@ -140,7 +140,7 @@ Dans cette section, vous créez un runtime d’intégration autohébergé et l�
    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
    ```
 
-   Voici l’exemple de sortie : 
+   Voici l'exemple de sortie : 
 
    ```powershell
    {
@@ -161,7 +161,7 @@ Dans cette section, vous créez un runtime d’intégration autohébergé et l�
 ## <a name="author-linked-services"></a>Créer des services liés
 
 Cette section explique comment créer et déployer deux services liés :
-- Un service lié Azure Storage qui relie un compte de stockage Azure à la fabrique de données. Il s’agit du stockage principal utilisé par votre cluster HDInsight. Dans ce cas, nous utilisons également ce compte de stockage Azure pour conserver le script Hive et la sortie du script.
+- Un service lié au stockage Azure relie un compte de stockage Azure à la fabrique de données. Il s’agit du stockage principal utilisé par votre cluster HDInsight. Dans ce cas, nous utilisons également ce compte de stockage Azure pour conserver le script Hive et la sortie du script.
 - Un service lié HDInsight. Azure Data Factory soumet le script Hive à ce cluster HDInsight en vue de son exécution.
 
 ### <a name="azure-storage-linked-service"></a>Service lié Stockage Azure
@@ -174,10 +174,7 @@ Créez un fichier JSON à l’aide de votre éditeur favori, copiez la définiti
     "properties": {
       "type": "AzureStorage",
       "typeProperties": {
-        "connectionString": {
-          "value": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>",
-          "type": "SecureString"
-        }
+        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<storageAccountName>;AccountKey=<storageAccountKey>"
       },
       "connectVia": {
         "referenceName": "MySelfhostedIR",
@@ -278,10 +275,10 @@ Au cours de cette étape, vous allez créer un pipeline avec une activité Hive.
 
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
-- **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin respecte la casse.
-- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. 
+- **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin d'accès respecte la casse.
+- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin d'accès respecte la casse. 
 
 Basculez sur le dossier dans lequel vous avez créé des fichiers JSON et exécutez la commande suivante pour déployer le pipeline : 
 
@@ -292,7 +289,7 @@ Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName
 
 ## <a name="start-the-pipeline"></a>Lancer le pipeline 
 
-1. Démarrez une exécution de pipeline. Cette opération capture également l’ID d’exécution du pipeline pour une surveillance ultérieure.
+1. Démarrer une exécution de pipeline. Cette opération capture également l’ID d’exécution du pipeline pour une surveillance ultérieure.
 
     ```powershell
     $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
@@ -394,7 +391,7 @@ Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName
    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
@@ -405,7 +402,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 > * Surveiller l’exécution du pipeline. 
 > * Vérifier la sortie. 
 
-Passez au didacticiel suivant pour en savoir plus sur la transformation des données à l’aide d’un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
 
 > [!div class="nextstepaction"]
 >[Création de branche et chaînage du flux de contrôle Data Factory](tutorial-control-flow.md)

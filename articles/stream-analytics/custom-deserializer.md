@@ -1,27 +1,26 @@
 ---
 title: Tutoriel - Désérialiseurs .NET personnalisés pour les travaux cloud Azure Stream Analytics
 description: Ce tutoriel montre comment créer un désérialiseur .NET personnalisé pour un travail cloud Azure Stream Analytics à l’aide de Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: f5fa0a4398c904113dbce5d80844b42b6e775df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1fffeec1434cb066487bf383589554edec2e6a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443690"
 ---
-# <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Didacticiel : Désérialiseurs .NET personnalisés pour Azure Stream Analytics
+# <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>Tutoriel : Désérialiseurs .NET personnalisés pour Azure Stream Analytics
 
 Azure Stream Analytics dispose d’une [prise en charge intégrée de trois formats de données](stream-analytics-parsing-json.md) : JSON, CSV et Avro. Avec les désérialiseurs .NET personnalisés, vous pouvez lire des données à partir d’autres formats, par exemple le [tampon de protocole](https://developers.google.com/protocol-buffers/), [Bond](https://github.com/Microsoft/bond) et d’autres formats définis par l’utilisateur pour les travaux cloud et de périphérie.
 
 Ce tutoriel montre comment créer un désérialiseur .NET personnalisé pour un travail cloud Azure Stream Analytics à l’aide de Visual Studio. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un désérialiseur personnalisé pour le tampon de protocole.
@@ -29,14 +28,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer votre travail Stream Analytics pour utiliser le désérialiseur personnalisé.
 > * Exécuter votre travail Stream Analytics localement pour tester le désérialiseur personnalisé.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) ou [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/). Les éditions Enterprise (Ultimate/Premium), Professional et Community sont prises en charge. L’édition Express n’est pas prise en charge.
 
 * [Installez les outils Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio-install.md) ou effectuez une mise à jour vers la dernière version. Les versions suivantes de Visual Studio sont prises en charge :
-   * Visual Studio 2015
+   * Visual Studio 2015
    * Visual Studio 2017
 
 * Ouvrez **Cloud Explorer** dans Visual Studio, puis connectez-vous à votre abonnement Azure.
@@ -88,7 +87,7 @@ Le conteneur que vous créez sera utilisé pour stocker les ressources associée
    |Ressource|Charger à partir de la référence de projet ASA ou du code-behind|
    |Nom de l’assembly CSharp|ProtobufDeserializer.dll|
    |Nom de la classe|MessageBodyProto.MessageBodyDeserializer|
-   |Type de compression d’événement|Aucun|
+   |Type de compression d’événement|None|
 
 3. Ajoutez la requête suivante au fichier **Script.asaql**.
 
@@ -123,7 +122,7 @@ Vous pouvez déboguer votre désérialiseur .NET localement de la même façon 
 
 2. Appuyez sur **F5** pour démarrer le débogage. Le programme s’arrête sur vos points d’arrêt comme prévu.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées au cours de ce didacticiel en procédant comme suit :
 

@@ -1,7 +1,6 @@
 ---
 title: Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
 description: Dans ce didacticiel, vous effectuez des requêtes avancées avec les fonctions JavaScript définies par l’utilisateur
-services: stream-analytics
 author: rodrigoamicrosoft
 ms.author: rodrigoa
 ms.service: stream-analytics
@@ -9,18 +8,18 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f82add78eef418e3644a5961d984708d3721a8dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990236"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426058"
 ---
-# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Didacticiel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
+# <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics
  
 Azure Stream Analytics prend en charge les fonctions définies par l’utilisateur écrites en JavaScript. Avec le large éventail de méthodes **String**, **RegExp**, **Math**, **Array** et **Date** que fournit JavaScript, les transformations complexes de données des travaux Stream Analytics sont plus faciles à créer.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Définir une fonction JavaScript définie par l’utilisateur
@@ -105,7 +104,7 @@ Stream Analytics | JavaScript
 bigint | Number (JavaScript ne peut représenter les entiers que jusqu’à 2^53 précisément)
 DateTime | Date (JavaScript ne prend en charge que les millisecondes)
 double | Number
-nvarchar(MAX) | Chaîne
+nvarchar(MAX) | String
 Enregistrement | Object
 Array | Array
 NULL | Null
@@ -118,7 +117,7 @@ JavaScript | Stream Analytics
 --- | ---
 Number | Bigint (si le nombre est rond et entre long.MinValue et long.MaxValue, sinon, double)
 Date | DateTime
-Chaîne | nvarchar(MAX)
+String | nvarchar(MAX)
 Object | Enregistrement
 Array | Array
 Null, Undefined | NULL
@@ -126,7 +125,7 @@ Un autre type (par exemple une fonction ou une erreur) | Non pris en charge (ent
 
 Le langage JavaScript respecte la casse, et la casse des champs d’objet dans le code JavaScript doit correspondre à la casse des champs dans les données entrantes. Veuillez noter que les tâches avec le niveau de compatibilité 1.0 convertiront les champs de l’instruction SQL SELECT en minuscules. À partir de la compatibilité 1.1 et dans les versions ultérieures, les champs de l’instruction SELECT auront la même casse que celle spécifiée dans la requête SQL.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Les erreurs d’exécution JavaScript sont considérées comme irrécupérables et remontées par le biais du journal d’activité. Pour récupérer le journal, dans le portail Azure, accédez à votre travail et sélectionnez **Journal d’activité**.
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>Autres modèles de fonctions JavaScript définies par l’utilisateur
@@ -155,7 +154,7 @@ FROM
     input PARTITION BY PARTITIONID
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 

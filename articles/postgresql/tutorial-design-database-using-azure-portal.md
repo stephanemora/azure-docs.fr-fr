@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL - Serveur unique - Portail Azure'
+title: 'Tutoriel : Concevoir une base de données Azure Database pour PostgreSQL - Serveur unique - Portail Azure'
 description: Ce tutoriel montre comment concevoir votre première base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure.
 author: rachel-msft
 ms.author: raagyema
@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 11276d532f0f978b127f48924e383b7aeb7f4ad5
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459953"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Didacticiel : Concevoir une base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutoriel : Concevoir une base de données Azure pour PostgreSQL (serveur unique) à l’aide du portail Azure
 
 Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. À l’aide du portail Azure, vous pouvez facilement gérer votre serveur et concevoir une base de données.
 
@@ -22,18 +22,18 @@ Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour PostgreSQL
 > * Configurer le pare-feu du serveur
-> * Utiliser l’utilitaire [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Utiliser l’utilitaire [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Créer une base de données Azure pour PostgreSQL
 
-Un serveur de base de données Azure pour PostgreSQL est créé. Il contient un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Ce serveur est créé dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+Un serveur de base de données Azure pour PostgreSQL est créé. Il contient un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Ce serveur est créé dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
 Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les étapes ci-après :
 1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
@@ -207,9 +207,9 @@ Ce didacticiel vous montre comment utiliser le portail Azure et d’autres utili
 > [!div class="checklist"]
 > * Créer un serveur Azure Database pour PostgreSQL
 > * Configurer le pare-feu du serveur
-> * Utiliser l’utilitaire [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
-> * Charger les exemples de données
-> * Données de requête
+> * Utiliser l’utilitaire [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) pour créer une base de données
+> * Charger un exemple de données
+> * Interroger des données
 > * Mettre à jour des données
 > * Restaurer des données
 

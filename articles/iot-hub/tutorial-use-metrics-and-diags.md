@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6a2057eee6cf294e401f60c889bcf58ac6fbe32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429101"
 ---
-# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Didacticiel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
+# <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutoriel : Configurer et utiliser des métriques et des journaux de diagnostic avec un hub IoT
 
 Si vous avez une solution IoT Hub en cours de production, il est conseillé de configurer certaines métriques et d’activer les journaux de diagnostic. Si un problème survient, vous disposez alors de données qui vous aident à diagnostiquer le problème et à le résoudre plus rapidement. Dans cet article, vous allez voir comment activer les journaux de diagnostic et rechercher les éventuelles erreurs qu’ils contiennent. Vous allez également configurer certaines métriques à surveiller et des alertes qui se déclenchent quand ces métriques atteignent une certaine limite. Par exemple, vous pouvez recevoir un e-mail quand le nombre de messages de télémétrie envoyés dépasse une limite spécifique ou quand le nombre de messages utilisés se rapproche du quota de messages autorisés par jour pour le hub IoT. 
 
@@ -34,7 +34,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Exécuter l’application jusqu’à ce que des alertes se déclenchent. 
 > * Afficher les résultats des métriques et examiner les journaux de diagnostic. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -50,7 +50,7 @@ Pour ce tutoriel, vous avez besoin d’un hub IoT, d’un compte de stockage et 
 
 Voici les étapes à suivre.
 
-1. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). 
+1. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md). 
 
 2. Créez un hub IoT.
 
@@ -209,7 +209,7 @@ IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](/azu
 
     Renseignez les champs :
 
-    **Nom** : entrez un nom pour votre règle d’alerte, par exemple *telemetry-messages*.
+    **Name** : entrez un nom pour votre règle d’alerte, par exemple *telemetry-messages*.
 
     **Description** : entrez la description de votre alerte, par exemple *alert when there are 1000 telemetry messages sent* (alerte quand 1 000 messages de télémétrie sont envoyés). 
 
@@ -239,7 +239,7 @@ IoT Hub ne prenant pas encore en charge les [métriques dans Azure Monitor](/azu
 
    Dans l’écran **Afficher les alertes classiques**, cliquez sur **Ajouter une alerte métrique (classique)** , puis renseignez ces champs dans le volet **Ajouter une règle**.
 
-   **Nom** : entrez un nom pour votre règle d’alerte, par exemple *number-of-messages-used*.
+   **Name** : entrez un nom pour votre règle d’alerte, par exemple *number-of-messages-used*.
 
    **Description** : entrez la description de votre alerte, par exemple *alert when getting close to quota* (alerte à l’approche du quota).
 
@@ -358,7 +358,7 @@ Cliquez sur **Télécharger** pour le télécharger et l’ouvrir. Vous voyez le
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Pour supprimer toutes les ressources que vous avez créées dans ce tutoriel, supprimez le groupe de ressources. Cette opération supprime toutes les ressources contenues dans le groupe. Dans le cas présent, le hub IoT, le compte de stockage et le groupe de ressources sont supprimés. Si vous avez épinglé des métriques au tableau de bord, vous devez les supprimer manuellement. Pour cela, cliquez sur les trois points situés dans le coin supérieur droit de chaque métrique et sélectionnez **Supprimer**.
 

@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: d52aed98549478898cb3bd263d52eeae2a69ccfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd0de5415dc001f107221add7ea223450290b3f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439263"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
 
@@ -32,7 +32,7 @@ Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azur
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -88,7 +88,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
    - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
    - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-     Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+     Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge pour la création de fabriques de données sont affichés dans la liste.
 6. Sélectionnez **Épingler au tableau de bord**.     
@@ -162,7 +162,7 @@ Cette section explique comment créer et déployer deux services liés :
    ![Sélectionner le stockage Blob Azure](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-azure-storage.png)
 3. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
 
-    1. Entrez **AzureStorageLinkedService** pour le **Nom**.
+    1. Entrez **AzureStorageLinkedService** pour **Nom**.
     2. Sélectionnez **MySelfHostedIR** pour **se connecter via le runtime d’intégration**.
     3. Sélectionnez votre compte de stockage Azure pour le **Nom du compte de stockage**. 
     4. Pour tester la connexion au compte de stockage, cliquez sur **Tester la connexion**.
@@ -200,8 +200,8 @@ Au cours de cette étape, vous allez créer un pipeline avec une activité Hive.
 
 Notez les points suivants :
 
-- **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin respecte la casse.
-- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. 
+- **scriptPath** pointe vers le chemin d’accès au script Hive sur le compte de stockage Azure que vous avez utilisé pour MyStorageLinkedService. Le chemin d'accès respecte la casse.
+- **Output** est un argument utilisé dans le script Hive. Utilisez le format `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour le faire pointer vers un dossier existant de votre stockage Azure. Le chemin d'accès respecte la casse. 
 
 1. Dans l’interface utilisateur de Data Factory, cliquez sur **+ (plus)** dans le volet gauche, puis cliquez sur **Pipeline**. 
 
@@ -259,7 +259,7 @@ Notez les points suivants :
     ![Fichier de sortie](./media/tutorial-transform-data-using-hive-in-vnet-portal/output-file.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
