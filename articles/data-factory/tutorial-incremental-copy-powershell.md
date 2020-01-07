@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: d6b41f06f9e5d64532b5684e6bc40d017a8c4434
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28a9631860691b29c1954d67e521d4ff54c901a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439194"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure à l’aide de PowerShell
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Exécuter le pipeline.
 > * Surveiller l’exécution du pipeline. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Voici le diagramme général de la solution : 
 
 ![Chargement incrémentiel de données](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
@@ -44,7 +44,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
     Sélectionnez une colonne dans le magasin de données sources, qui peut servir à découper les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
 2. **Préparer un magasin de données pour stocker la valeur de limite**.   
-    Dans ce didacticiel, la valeur de filigrane est stockée dans une base de données SQL.
+    Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
     
 3. **Créer un pipeline avec le flux de travail suivant** : 
     
@@ -57,7 +57,7 @@ Voici les étapes importantes à suivre pour créer cette solution :
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -121,7 +121,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ```sql
     Select * from watermarktable
     ```
-    Output: 
+    Sortie : 
 
     ```
     TableName  | WatermarkValue
@@ -147,7 +147,7 @@ END
 ```
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
-1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) entre des guillemets doubles, puis exécutez la commande. Par exemple `"adfrg"`. 
+1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez le texte de commande suivant dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) entre des guillemets doubles, puis exécutez la commande. par exemple `"adfrg"`. 
    
      ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
@@ -175,7 +175,7 @@ END
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Pour créer la fabrique de données, exécutez l’applet de commande **Set-AzDataFactoryV2** suivante : 
+5. Pour créer la fabrique de données, exécutez la cmdlet **Set-AzDataFactoryV2** suivante : 
     
     ```powershell       
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
@@ -205,17 +205,14 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>",
-                    "type": "SecureString"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
     ```
 2. Dans PowerShell, accédez au dossier ADF.
 
-3. Exécutez l’applet de commande **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* : 
+3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* : 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -239,10 +236,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "value": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;",
-                    "type": "SecureString"
-                }
+                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
             }
         }
     }
@@ -270,7 +264,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 
-1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
 
     ```json
     {
@@ -290,7 +284,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     ```
     Dans ce didacticiel, vous allez utiliser le nom de table data_source_table. Remplacez-le si vous utilisez une table d’un autre nom.
 
-2. Exécutez l’applet de commande **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
+2. Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -308,7 +302,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 ### <a name="create-a-sink-dataset"></a>Créer un jeu de données récepteur
 
-1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant : 
 
     ```json
     {
@@ -333,7 +327,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     > [!IMPORTANT]
     > Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Le dossier de sortie `incrementalcopy` est automatiquement créé s’il n’existe pas dans le conteneur. Dans ce didacticiel, le nom de fichier est généré dynamiquement à l’aide de l’expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-2. Exécutez l’applet de commande **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SinkDataset.
+2. Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -501,7 +495,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ```
     
 
-2. Exécutez l’applet de commande **Set-AzDataFactoryV2Pipeline** pour créer le pipeline IncrementalCopyPipeline.
+2. Exécutez la cmdlet **Set-AzDataFactoryV2Pipeline** pour créer le pipeline IncrementalCopyPipeline.
     
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -519,7 +513,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
  
 ## <a name="run-the-pipeline"></a>Exécuter le pipeline
 
-1. Exécutez le pipeline IncrementalCopyPipeline en utilisant l’applet de commande **Invoke-AzDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
+1. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
@@ -725,7 +719,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 
      
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Préparer le magasin de données pour y stocker la valeur de limite. 
