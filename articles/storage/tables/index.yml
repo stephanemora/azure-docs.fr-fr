@@ -1,0 +1,58 @@
+### YamlMime:Landing
+title: Documentation Stockage Table Azure
+summary: Le Stockage Table Azure est un service qui stocke des données NoSQL structurées dans le cloud, en fournissant une conception sans schéma à un magasin de clés/attributs.
+metadata:
+  title: Documentation Stockage Table Azure
+  description: Le Stockage Table Azure est un service qui stocke des données NoSQL structurées dans le cloud, en fournissant une conception sans schéma à un magasin de clés/attributs.
+  ms.service: storage
+  ms.subservice: tables
+  ms.topic: landing-page
+  ms.collection: collection
+  author: tamram
+  ms.author: tamram
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 73dc70fb31508667ebcab4803a9263c716ce35c2
+  ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75551894"
+landingContent:
+- title: À propos du Stockage Table
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le Stockage Table Azure ?
+      url: table-storage-overview.md
+    - text: Choisissez Stockage de tables ou API de table
+      url: ../../cosmos-db/table-support.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fstorage%2Ftables%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure%2Fbread%2Ftoc.json
+- title: Guide de conception des tables
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Conception pour des lectures et des écritures efficaces
+      url: table-storage-design-guidelines.md
+    - text: Conception pour l'interrogation
+      url: table-storage-design-for-query.md
+    - text: Conception pour la modification de données
+      url: table-storage-design-for-modification.md
+    - text: Modèles de conception de table
+      url: table-storage-design-patterns.md
+- title: Optimisation des performances, de la mise à l’échelle et des coûts
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Check-list des performances pour le Stockage Table
+      url: storage-performance-checklist.md
+    - text: Conception pour des performances optimales
+      url: table-storage-design.md
+  - linkListType: reference
+    links:
+    - text: Cibles de scalabilité pour le Stockage Table
+      url: scalability-targets.md
+- title: Bien démarrer
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une table dans le portail Azure
+      url: table-storage-quickstart-portal.md
