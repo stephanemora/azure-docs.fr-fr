@@ -1,24 +1,40 @@
 - name: Documentation sur IoT Plug-and-Play
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est ce qu’IoT Plug-and-Play\_?"
       href: overview-iot-plug-and-play.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer un appareil – Windows
-      href: quickstart-create-pnp-device.md
-    - name: Créer un appareil – Linux
-      href: quickstart-create-pnp-device-linux.md
-    - name: Connecter un appareil à IoT Hub – Windows
-      href: quickstart-connect-pnp-device.md
-    - name: Connecter un appareil à IoT Hub – Linux
-      href: quickstart-connect-pnp-device-linux.md
+    - name: Créer un appareil
+      items:
+        - name: C Linux
+          href: quickstart-create-pnp-device-linux.md
+        - name: C Windows
+          href: quickstart-create-pnp-device-windows.md
+    - name: Connecter un appareil à IoT Hub
+      items:
+        - name: C Linux
+          href: quickstart-connect-pnp-device-c-linux.md
+        - name: C Windows
+          href: quickstart-connect-pnp-device-c-windows.md
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-node.md
     - name: Connecter un appareil à IoT Central
-      href: ../iot-central/preview/quick-create-pnp-device.md
+      href: ../iot-central/preview/tutorial-connect-pnp-device.md
     - name: Connecter à un appareil dans votre solution
-      href: quickstart-connect-pnp-device-solution.md
+      items:
+        - name: 'C#'
+          href: quickstart-connect-pnp-device-solution-csharp.md
+        - name: Java
+          href: quickstart-connect-pnp-device-solution-java.md
+        - name: Node.js
+          href: quickstart-connect-pnp-device-solution-node.md
 - name: Tutoriels
   items:
     - name: Créer un appareil à l’aide de Visual Studio Code
@@ -35,7 +51,7 @@
       href: concepts-developer-guide.md
     - name: Interfaces communes
       href: concepts-common-interfaces.md
-    - name: Découverte de modèle
+    - name: Découverte de modèles
       href: concepts-model-discovery.md
     - name: Limites et quotas
       href: concepts-limits-quotas.md
@@ -61,7 +77,7 @@
       href: howto-generate-sas-token.md
 - name: Rubriques connexes
   items:
-    - name: solutions
+    - name: Solutions
       items:
         - name: IoT Central
           href: /azure/iot-central

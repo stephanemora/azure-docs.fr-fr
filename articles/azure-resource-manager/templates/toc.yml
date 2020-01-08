@@ -1,0 +1,261 @@
+- name: Documentation sur les modèles Azure Resource Manager
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Que sont les modèles Azure Resource Manager\_?"
+      href: overview.md
+- name: Démarrages rapides
+  items:
+    - name: Créer des modèles - portail
+      href: quickstart-create-templates-use-the-portal.md
+    - name: Créer des modèles - VS Code
+      href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Créer des modèles - Visual Studio
+      href: create-visual-studio-deployment-project.md
+    - name: Créer des modèles - IntelliJ IDEA
+      href: create-templates-use-intellij.md
+- name: Tutoriels
+  items:
+    - name: Débutant
+      items:
+        - name: 1 - Créer un premier modèle
+          href: template-tutorial-create-first-template.md
+        - name: 2 - Ajouter une ressource
+          href: template-tutorial-add-resource.md
+        - name: 3 - Ajouter des paramètres
+          href: template-tutorial-add-parameters.md
+        - name: 4 - Ajouter des fonctions modèles
+          href: template-tutorial-add-functions.md
+        - name: 5 - Ajouter des variables
+          href: template-tutorial-add-variables.md
+        - name: 6 - Ajouter des sorties
+          href: template-tutorial-add-outputs.md
+        - name: 7 - Utiliser un modèle exporté
+          href: template-tutorial-export-template.md
+        - name: 8 - Utiliser un modèle de démarrage rapide
+          href: template-tutorial-quickstart-template.md
+        - name: 9 - Ajouter des étiquettes
+          href: template-tutorial-add-tags.md
+        - name: 10 - Utiliser un fichier de paramètres
+          href: template-tutorial-use-parameter-file.md
+    - name: Avancé
+      items:
+        - name: Utiliser la référence de modèle
+          href: template-tutorial-create-encrypted-storage-accounts.md
+        - name: Créer plusieurs instances
+          displayName: 'iteration,copy'
+          href: template-tutorial-create-multiple-instances.md
+        - name: Définir l’ordre de déploiement des ressources
+          displayName: 'dependent resources, dependency'
+          href: template-tutorial-create-templates-with-dependent-resources.md
+        - name: Utiliser des conditions
+          href: template-tutorial-use-conditions.md
+        - name: Intégrer Key Vault
+          displayName: secrets
+          href: template-tutorial-use-key-vault.md
+        - name: Créer des modèles liés
+          href: template-tutorial-create-linked-templates.md
+        - name: Déployer des extensions de machine virtuelle
+          displayName: virtual machine extensions
+          href: template-tutorial-deploy-vm-extensions.md
+        - name: Déployer des extensions SQL
+          href: template-tutorial-deploy-sql-extensions-bacpac.md
+        - name: Sécuriser des artefacts
+          href: template-tutorial-secure-artifacts.md
+        - name: Intégration continue avec Azure Pipelines
+          displayName: DevOps
+          href: template-tutorial-use-azure-pipelines.md
+        - name: Mettre à jour le script de déploiement VS avec Az Powershell
+          href: update-visual-studio-deployment-script.md
+        - name: Utiliser des pratiques de déploiement sécurisé
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: Utiliser le contrôle d’intégrité dans le Gestionnaire de déploiement
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: Résoudre les problèmes de déploiement de modèles
+          href: template-tutorial-troubleshoot.md
+- name: Exemples
+  items:
+    - name: "Modèles de démarrage rapide Microsoft\_Azure"
+      href: 'https://azure.microsoft.com/resources/templates/'
+    - name: Exemples de modèles
+      href: template-samples.md
+- name: Concepts
+  items:
+    - name: Bonnes pratiques pour les modèles
+      href: template-best-practices.md
+    - name: Modèles pour la cohérence du cloud
+      href: templates-cloud-consistency.md
+    - name: Modes de déploiement
+      href: deployment-modes.md
+    - name: Gestionnaire de déploiement
+      items:
+        - name: Vue d’ensemble
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Contrôle d’intégrité
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
+- name: Procédures
+  items:
+    - name: Créer des modèles
+      items:
+        - name: Utiliser VS Code
+          href: use-vs-code-to-create-template.md
+        - name: Écrire des modèles d’expression
+          href: template-expressions.md
+        - name: Paramètres
+          href: template-parameters.md
+        - name: Variables
+          href: template-variables.md
+        - name: Fonctions définies par l’utilisateur
+          href: template-user-defined-functions.md
+        - name: Ressources
+          items:
+            - name: Nom et type de ressource enfant
+              href: child-resource-name-type.md
+            - name: Déploiement conditionnel
+              href: conditional-resource-deployment.md
+            - name: Définir les dépendances des ressources
+              href: define-resource-dependency.md
+            - name: Définir l’emplacement des ressources
+              href: resource-location.md
+            - name: Utiliser des extensions de modèle
+              href: add-resource-extensions.md
+        - name: Outputs
+          href: template-outputs.md
+        - name: Modulariser les modèles
+          displayName: 'linked templates, nested templates'
+          href: linked-templates.md
+        - name: Créer plusieurs instances
+          href: create-multiple-instances.md
+        - name: Ressources de niveau abonnement
+          href: deploy-to-subscription.md
+        - name: Ressources de niveau groupe d’administration
+          href: deploy-to-management-group.md
+    - name: Déployer des modèles
+      items:
+        - name: Déployer - portail
+          displayName: deployment
+          href: deploy-portal.md
+        - name: Déployer - CLI
+          displayName: deployment
+          href: deploy-cli.md
+        - name: Déployer - PowerShell
+          displayName: deployment
+          href: deploy-powershell.md
+        - name: Déployer - API REST
+          displayName: deployment
+          href: deploy-rest.md
+        - name: Déploiement What-if
+          href: template-deploy-what-if.md
+        - name: Redéployer sur une erreur
+          displayName: rollback
+          href: rollback-on-error.md
+        - name: Sécuriser un modèle avec un jeton SAS
+          href: secure-template-with-sas-token.md
+        - name: Déployer sur plusieurs groupes de ressources ou abonnements
+          href: cross-resource-group-deployment.md
+    - name: Fournir des paramètres
+      items:
+        - name: Créer un fichier de paramètres
+          href: parameter-files.md
+        - name: Transmettre de valeurs sensibles
+          displayname: key vault
+          href: key-vault-parameter.md
+    - name: Intégration/déploiement continues
+      items:
+        - name: Projet Visual Studio avec des pipelines
+          href: add-template-to-azure-pipelines.md
+    - name: Exportation du modèle
+      href: export-template-portal.md
+    - name: Voir l’historique des déploiements
+      href: deployment-history.md
+    - name: Dépanner les déploiements
+      items:
+        - name: Résoudre les erreurs de déploiement
+          href: common-deployment-errors.md
+        - name: AccountNameInvalid
+          href: error-storage-account-name.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
+        - name: InvalidTemplate
+          href: error-invalid-template.md
+        - name: Problèmes de déploiement Linux
+          href: ../../virtual-machines/linux/troubleshoot-deploy-vm.md
+        - name: NoRegisteredProviderFound
+          href: error-register-resource-provider.md
+        - name: NotFound
+          href: error-not-found.md
+        - name: ParentResourceNotFound
+          href: error-parent-resource.md
+        - name: Problèmes d’approvisionnement et de répartition pour Linux
+          href: ../../virtual-machines/linux/troubleshoot-deployment-new-vm.md
+        - name: Problèmes d’approvisionnement et de répartition pour Windows
+          href: ../../virtual-machines/windows/troubleshoot-deployment-new-vm.md
+        - name: RequestDisallowedByPolicy
+          href: error-policy-requestdisallowedbypolicy.md
+        - name: ReservedResourceName
+          href: error-reserved-resource-name.md
+        - name: ResourceQuotaExceeded
+          href: error-resource-quota.md
+        - name: SkuNotAvailable
+          href: error-sku-not-available.md
+        - name: Problèmes de déploiement Windows
+          href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
+- name: Informations de référence
+  items:
+    - name: Structure de fichiers de modèle
+      displayName: 'parameters,variables,resources,outputs,condition'
+      href: template-syntax.md
+    - name: Référence de modèle
+      href: /azure/templates/
+    - name: Fonctions des modèles de gestionnaire des ressources Azure
+      items:
+        - name: Toutes les fonctions
+          href: template-functions.md
+        - name: Fonctions de tableau et d’objet
+          href: template-functions-array.md
+        - name: Fonctions de comparaison
+          href: template-functions-comparison.md
+        - name: Fonctions de déploiement
+          href: template-functions-deployment.md
+        - name: Fonctions logiques
+          href: template-functions-logical.md
+        - name: Fonctions Numériques
+          href: template-functions-numeric.md
+        - name: Fonctions de ressource
+          href: template-functions-resource.md
+        - name: Fonctions de chaînes
+          href: template-functions-string.md
+    - name: Fonctionnalités de ressource
+      items:
+        - name: Effectuer la suppression du mode
+          href: complete-mode-deletion.md
+        - name: Types de ressources d’extension
+          href: extension-resource-types.md
+    - name: REST
+      href: /rest/api/resources/
+    - name: Azure PowerShell
+      href: /powershell/module/az.resources
+    - name: Azure CLI
+      href: /cli/azure/resource
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.resourcemanager
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.resources
+    - name: Python
+      href: /python/api/overview/azure/resources?view=azure-python
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=azure-resource-manager'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-resource-manager'
+    - name: Videos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager'

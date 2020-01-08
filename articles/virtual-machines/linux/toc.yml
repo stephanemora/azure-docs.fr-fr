@@ -33,7 +33,7 @@
       href: tutorial-virtual-network.md
     - name: 9 – Sauvegarder les machines virtuelles
       href: tutorial-backup-vms.md
-    - name: 10 - Gouverner les machines virtuelles
+    - name: 10 - Gérer les machines virtuelles
       href: tutorial-govern-resources.md
     - name: 11 - Suivre et mettre à jour les machines virtuelles
       href: tutorial-config-management.md

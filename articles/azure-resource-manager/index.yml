@@ -1,133 +1,109 @@
-### YamlMime:Landing
+### YamlMime:Hub
 title: Documentation Azure Resource Manager
-summary: Un modèle Resource Manager est un fichier JSON (JavaScript Object Notation) qui définit l’infrastructure et la configuration pour votre projet.
+summary: Azure Resource Manager est le service de déploiement et de gestion d’Azure. Utilisez l’infrastructure comme code pour déployer et gérer de manière fiable vos solutions Azure.
+brand: azure
 metadata:
   title: Documentation Azure Resource Manager
-  description: Découvrir comment développer des modèles Azure Resource Manager et les utiliser pour déployer des ressources Azure
-  services: azure-resource-manager
+  description: Azure Resource Manager est le service de déploiement et de gestion d’Azure.
   ms.service: azure-resource-manager
-  ms.subservice: na
-  ms.topic: landing-page
-  ms.collection: na
-  author: mumian
-  ms.author: jgao
-  ms.date: 09/25/2019
-  ms.openlocfilehash: 1d50556eb09a35857ed9db4ccbbba99397606f8b
-  ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+  ms.topic: hub-page
+  ms.collection: collection
+  author: tfitzmac
+  ms.author: tomfitz
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/25/2019
-  ms.locfileid: "74483434"
-landingContent:
-- title: À propos de Resource Manager
-  linkLists:
-  - linkListType: overview
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75642470"
+highlightedContent:
+  items:
+  - title: Que sont les modèles ?
+    itemType: overview
+    url: templates/overview.md
+  - title: Créer votre premier modèle
+    itemType: tutorial
+    url: templates/template-tutorial-create-first-template.md
+  - title: Présentation de Resource Manager
+    itemType: overview
+    url: management/overview.md
+conceptualContent:
+  items:
+  - title: Déployer des modèles Resource Manager
     links:
-    - text: Présentation de Resource Manager
-      url: resource-group-overview.md
-    - text: Qu’est-ce qu’un modèle Resource Manager ?
-      url: template-deployment-overview.md
-  - linkListType: concept
+    - url: templates/overview.md
+      itemType: overview
+      text: Vue d’ensemble
+    - url: templates/template-tutorial-create-first-template.md
+      itemType: tutorial
+      text: Séries de tutoriels pour débutant
+    - url: templates/template-syntax.md
+      itemType: reference
+      text: Structure de fichiers de modèle
+    - url: templates/template-functions.md
+      itemType: reference
+      text: Fonctions des modèles de gestionnaire des ressources Azure
+    - url: templates/deploy-powershell.md
+      itemType: how-to-guide
+      text: Déployer
+    - url: templates/template-best-practices.md
+      itemType: concept
+      text: Meilleures pratiques
+    footerLink:
+      url: templates/index.yml
+      text: En savoir plus
+  - title: Gestion des ressources
     links:
-    - text: Bonnes pratiques
-      url: template-best-practices.md
-    - text: Modes de déploiement
-      url: deployment-modes.md
-    - text: Modèles liés
-      url: resource-group-linked-templates.md
-    - text: Déploiement de niveau abonnement
-      url: deploy-to-subscription.md
-    - text: Gestionnaire de déploiement
-      url: deployment-manager-overview.md
-  - linkListType: video
+    - url: management/overview.md
+      itemType: overview
+      text: Vue d’ensemble
+    - url: management/tag-resources.md
+      itemType: how-to-guide
+      text: Baliser des ressources
+    - url: management/move-resource-group-and-subscription.md
+      itemType: concept
+      text: Déplacer des ressources
+    - url: management/lock-resources.md
+      itemType: how-to-guide
+      text: Verrouiller des ressources
+    - url: management/resource-providers-and-types.md
+      itemType: concept
+      text: Fournisseurs et types de ressources
+    footerLink:
+      url: management/index.yml
+      text: En savoir plus
+  - title: Applications gérées
     links:
-    - text: Nouveautés
-      url: https://youtu.be/3D-JIKShrws
-- title: Prise en main
-  linkLists:
-  - linkListType: quickstart
+    - url: managed-applications/overview.md
+      itemType: overview
+      text: Vue d’ensemble
+    - url: managed-applications/publish-service-catalog-app.md
+      itemType: tutorial
+      text: Publier l’application de catalogue de services
+    - url: managed-applications/create-uidefinition-overview.md
+      itemType: how-to-guide
+      text: Créer une définition d’interface utilisateur
+    - url: managed-applications/publish-marketplace-app.md
+      itemType: tutorial
+      text: Ajouter à la Place de marché
+    footerLink:
+      url: managed-applications/index.yml
+      text: En savoir plus
+  - title: Fournisseurs personnalisés Azure
     links:
-    - text: Créer des modèles - portail
-      url: resource-manager-quickstart-create-templates-use-the-portal.md
-    - text: Créer des modèles - VS Code
-      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - text: Créer des modèles - Visual Studio
-      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-  - linkListType: tutorial
-    links:
-    - text: Tutoriels pour les débutants
-      url: template-tutorial-create-first-template.md
-    - text: Déployer plusieurs instances
-      url: resource-manager-tutorial-create-multiple-instances.md
-    - text: Définir l’ordre de déploiement
-      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - text: Intégrer un coffre de clés
-      url: resource-manager-tutorial-use-key-vault.md
-- title: Développer des modèles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Utiliser VS Code
-      url: resource-manager-tools-vs-code.md
-    - text: Utiliser les fonctions
-      url: resource-group-template-functions.md
-    - text: Définir les paramètres
-      url: template-parameters.md
-    - text: Définir des variables
-      url: template-variables.md
-    - text: Définir les ressources
-      url: child-resource-name-type.md
-    - text: Définir les sorties
-      url: template-outputs.md
-  - linkListType: reference
-    links:
-    - text: Modèles de démarrage rapide Azure
-      url: template-deployment-overview.md
-- title: Déployer des modèles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: En utilisant PowerShell
-      url: resource-group-template-deploy.md
-    - text: En utilisant CLI
-      url: resource-group-template-deploy-cli.md
-    - text: En utilisant le portail
-      url: resource-group-template-deploy-portal.md
-    - text: À l’aide de l’API REST
-      url: resource-group-template-deploy-rest.md
-- title: Gérer les modèles
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Exporter des modèles
-      url: export-template-portal.md
-    - text: Intégration/déploiement continues
-      url: vs-resource-groups-project-devops-pipelines.md
-- title: Gestion des ressources
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Déplacer des ressources
-      url: resource-group-move-resources.md
-    - text: Baliser des ressources
-      url: resource-group-using-tags.md
-    - text: Verrouiller des ressources
-      url: resource-group-lock-resources.md
-- title: Surveiller et résoudre des problèmes
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Afficher les journaux d’activité
-      url: resource-group-audit.md
-    - text: Voir l’opération de déploiement
-      url: resource-manager-deployment-operations.md
-    - text: Résoudre les erreurs de déploiement
-      url: resource-manager-common-deployment-errors.md
-- title: Explorer le contenu de référence
-  linkLists:
-  - linkListType: reference
-    links:
-    - text: Fournisseurs et types de ressources
-      url: resource-manager-supported-services.md
-    - text: Référence de modèle
-      url: /azure/templates/
+    - url: custom-providers/overview.md
+      itemType: overview
+      text: Vue d’ensemble
+    - url: custom-providers/create-custom-provider.md
+      itemType: quickstart
+      text: Créer un fournisseur personnalisé
+    - url: custom-providers/tutorial-get-started-with-custom-providers.md
+      itemType: tutorial
+      text: Créer des actions et des ressources personnalisées
+    - url: custom-providers/custom-providers-action-endpoint-how-to.md
+      itemType: how-to-guide
+      text: Ajouter des actions personnalisées à l’API REST Azure
+    footerLink:
+      url: custom-providers/index.yml
+      text: En savoir plus

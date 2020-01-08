@@ -2,7 +2,7 @@
   href: index.yml
 - name: Passer à la documentation sur DevTest Labs
   href: ../devtest-lab-overview.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des laboratoires de salle de classe
       href: classroom-labs-overview.md
@@ -28,6 +28,8 @@
           href: classroom-labs-scenarios.md
 - name: Guides pratiques
   items:
+    - name: Guide de l’administrateur
+      href: administrator-guide.md
     - name: Laboratoires de classe - Types de classe
       items:
         - name: Vue d’ensemble des types de classe
@@ -52,6 +54,8 @@
           href: how-to-connect-peer-virtual-network.md
         - name: Attacher ou détacher une galerie d’images partagées
           href: how-to-attach-detach-shared-image-gallery.md
+        - name: Ajouter un utilisateur comme propriétaire à un laboratoire de classe
+          href: how-to-add-user-lab-owner.md
     - name: Créer et configurer des laboratoires de classe (formateur)
       items:
         - name: Créer et gérer des laboratoires de classe
@@ -70,6 +74,8 @@
           href: how-to-use-shared-image-gallery.md
         - name: Activer la connexion Bureau à distance pour Linux
           href: how-to-enable-remote-desktop-linux.md
+        - name: Activer l’arrêt automatique lors de la déconnexion
+          href: how-to-enable-shutdown-disconnect.md
         - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
           href: how-to-enable-nested-virtualization-template-vm.md
         - name: Préparer une machine virtuelle de modèle Windows
@@ -96,5 +102,5 @@
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: classroom-labs-faq.md

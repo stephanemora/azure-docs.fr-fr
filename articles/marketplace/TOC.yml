@@ -51,6 +51,9 @@
           items:
             - name: Bonnes pratiques pour le référencement des offres
               href: ./gtm-offer-listing-best-practices.md
+              items:
+                - name: Catégories
+                  href: ./gtm-offer-listing-best-practices-categories.md
             - name: Guide pratique pour être référencé
               href: ./gtm-how-to-get-featured.md
             - name: Validation du contenu de la Place de marché
