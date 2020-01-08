@@ -1,18 +1,14 @@
 ---
 title: Présentation de Service Health | Microsoft Docs
 description: Obtenez des informations personnalisées concernant l’incidence des problèmes et de la maintenance actuels et futurs d’Azure sur vos applications Azure.
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6a06ae22493292e33c94cc83cba1f17361bce45f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451571"
 ---
 # <a name="service-health-overview"></a>Présentation de Service Health
 

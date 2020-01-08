@@ -4,20 +4,20 @@ description: Azure Monitor collecte les compteurs de performances pour analyser 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d007d3dab1625d58a561d35bb111923fbdeb3482
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932436"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363827"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
 
-![Compteurs de performances](media/data-sources-performance-counters/overview.png)
+![Compteurs de performance](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configuration des compteurs de performances
 Configurez les compteurs de performances dans le [menu Données des Paramètres avancés](agent-data-sources.md#configuring-data-sources).
@@ -74,7 +74,7 @@ Chaque objet, ou catégorie, de mesures de performances à collecter doit être 
 
 Les paramètres de cet élément sont décrits dans le tableau suivant.
 
-| parameters | Description |
+| Paramètres | Description |
 |:--|:--|
 | object\_name | Nom de l’objet pour la collecte. |
 | instance\_regex |  *Expression régulière* qui définit les instances à collecter. La valeur `.*` spécifie toutes les instances. Pour ne collecter les mesures de processeur que de l’instance \_Total, vous pouvez spécifier `_Total`. Pour ne collecter les mesures de processeur que des instances crond ou sshd, vous pouvez spécifier `(crond\|sshd)`. |
@@ -132,13 +132,13 @@ Le tableau suivant répertorie les objets et compteurs que vous pouvez indiquer 
 | Processeur | % Privileged Time |
 | Processeur | % temps processeur |
 | Processeur | % User Time |
-| System | Free Physical Memory |
-| System | Free Space in Paging Files |
-| System | Free Virtual Memory |
-| System | Processus |
-| System | Size Stored In Paging Files |
-| System | Uptime |
-| System | Utilisateurs |
+| Système | Free Physical Memory |
+| Système | Free Space in Paging Files |
+| Système | Free Virtual Memory |
+| Système | Processus |
+| Système | Size Stored In Paging Files |
+| Système | Uptime |
+| Système | Utilisateurs |
 
 
 La configuration par défaut des mesures de performances est la suivante.
@@ -175,7 +175,7 @@ La configuration par défaut des mesures de performances est la suivante.
       interval 30s
     </source>
 
-## <a name="data-collection"></a>Collecte des données
+## <a name="data-collection"></a>Collecte de données
 Azure Monitor collecte tous les compteurs de performances spécifiés selon l’intervalle d’échantillonnage spécifié sur tous les agents où le compteur est installé.  Les données ne sont pas agrégées, et les données brutes sont disponibles dans toutes les vues de requête de journal pendant la durée spécifiée par votre abonnement.
 
 ## <a name="performance-record-properties"></a>Propriétés des enregistrements de performances

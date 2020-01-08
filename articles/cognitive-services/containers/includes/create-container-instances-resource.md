@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 1679862b1660d3c8b2505c6e0c54f203f5d4665d
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 18f4edf5cc63a448779423cc1b302130b4b80724
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383542"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692530"
 ---
 ## <a name="create-an-azure-container-instance-resource"></a>Créer une ressource d’instance de conteneur Azure
 
@@ -47,6 +47,6 @@ ms.locfileid: "74383542"
     |`billing`|Copiée de la page **Vue d’ensemble** de la ressource.|
     |`eula`|`accept`|
 
-1. Cliquez sur **Examiner et créer**
-1. Une fois la validation réussie, cliquez sur **Créer** pour terminer le processus de création
-1. Lorsque la ressource est déployée avec succès, elle est prête
+5. Cliquez sur **Examiner et créer**
+6. Une fois la validation réussie, cliquez sur **Créer** pour terminer le processus de création
+7. Lorsque la ressource est déployée avec succès, elle est prête

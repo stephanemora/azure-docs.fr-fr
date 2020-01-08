@@ -2,27 +2,24 @@
 title: Démarrage rapide - Gérer les points de terminaison privés dans Azure
 description: Découvrez dans ce guide de démarrage rapide comment créer un point de terminaison privé avec le portail Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 22614b28023a0628fb12c170e934aaab4d1ddfe4
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459938"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Démarrage rapide : Créer un point de terminaison privé au moyen du portail Azure
 
-Un point de terminaison privé est le composant fondamental d’une liaison privée dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez découvrir comment créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec un point de terminaison privé Azure à l’aide du portail Azure. Ensuite, vous pouvez accéder de façon sécurisée au serveur SQL Database à partir de la machine virtuelle.
+Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez découvrir comment créer une machine virtuelle sur un réseau virtuel Azure, un serveur SQL Database avec un point de terminaison privé Azure à l’aide du portail Azure. Ensuite, vous pouvez accéder de façon sécurisée au serveur SQL Database à partir de la machine virtuelle.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-
-> [!NOTE]
-> Les points de terminaison privés ne peuvent pas être utilisés conjointement à des points de terminaison de service au sein d’un même sous-réseau.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -41,7 +38,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyVirtualNetwork*. |
+    | Name | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Subscription | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
@@ -83,7 +80,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
-1. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
+1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -130,7 +127,7 @@ Dans cette section, vous allez créer un serveur de base de données SQL dans Az
 9. Quand le message Validation réussie s’affiche, sélectionnez **Créer**. 
 10. Quand le message Validation réussie s’affiche, sélectionnez Créer. 
 
-## <a name="create-a-private-endpoint"></a>Créer un point de terminaison privé
+## <a name="create-a-private-endpoint"></a>Créer un Private Endpoint
 
 Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un point de terminaison privé. 
 
@@ -144,7 +141,7 @@ Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un po
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     | **DÉTAILS DE L’INSTANCE** |  |
-    | Nom | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
+    | Name | Entrez *myPrivateEndpoint*. Si ce nom est utilisé, créez un nom unique. |
     |Région|Sélectionnez **WestCentralUS**.|
     |||
 5. Sélectionnez **Suivant : Ressource**.
@@ -204,7 +201,7 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
 
 1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
 
-2. Entrez  `nslookup myserver.database.windows.net`. 
+2. Entrez `nslookup myserver.database.windows.net`. 
 
     Vous recevez un message similaire à celui ci :
     ```azurepowershell
@@ -232,9 +229,9 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
 3. (Facultatif) Créez ou interrogez des données dans mydatabase.
 4. Fermez la connexion Bureau à distance avec  *myVm*. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le serveur SQL et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient : 
-1. Entrez  *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez  *myResourceGroup* dans les résultats de la recherche. 
+1. Entrez *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche. 
 2. Sélectionnez **Supprimer le groupe de ressources**. 
 3. Entrez myResourceGroup dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
 

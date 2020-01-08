@@ -2,19 +2,15 @@
 title: Cibler des mises à jour en utilisant des collections SCCM dans Azure Automation - Update Management
 description: Cet article vise à vous aider à configurer System Center Configuration Manager avec cette solution pour gérer les mises à jour des ordinateurs gérés SCCM.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b52db95b6a6ce21a5e5b68342ac123526d11ca62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417618"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Intégrer System Center Configuration Manager à Update Management
 
@@ -22,7 +18,7 @@ Les clients qui ont investi dans System Center Configuration Manager pour gérer
 
 Vous pouvez signaler et mettre à jour des serveurs Windows gérés en créant et prédéfinissant des déploiements de mises à jour logicielles dans Configuration Manager et obtenir un état détaillé des déploiements de mises à jour terminés à l’aide de la [solution Update Management](automation-update-management.md). Si vous utilisez Configuration Manager pour générer des rapports de conformité de mises à jour, mais pas pour gérer les déploiements de mises à jour avec vos serveurs Windows, vous pouvez continuer d’adresser des rapports à Configuration Manager tout en gérant les mises à jour de sécurité avec la solution Update Management.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Vous devez avoir ajouté la [solution Update Management](automation-update-management.md) à votre compte Automation.
 * Les serveurs Windows actuellement gérés par votre environnement System Center Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.

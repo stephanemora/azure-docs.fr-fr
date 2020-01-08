@@ -1,18 +1,14 @@
 ---
 title: Qu’est-ce qu’Azure Service Health ?
 description: Obtenez des informations personnalisées concernant l’incidence des problèmes et de la maintenance actuels et futurs d’Azure sur vos applications Azure.
-author: stephbaron
-ms.author: stbaron
-services: service-health
-ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 058a171766680f09eaf4de14ddd25235020b1ba4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463956"
 ---
 # <a name="what-is-azure-service-health"></a>Qu’est-ce qu’Azure Service Health ?
 

@@ -5,17 +5,17 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422134"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](https://azure.microsoft.com/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
 
-Lors de la mise en service et du déploiement d'applications à grande échelle qui sont composées de microservices hautement découplés, la répétition et la prévisibilité sont essentielles à la réussite. [Azure App Service](https://azure.microsoft.com/services/app-service/) vous permet de créer des microservices qui incluent des applications web, des backends mobiles et des applications API. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) vous permet de gérer tous les microservices en tant qu'unité, avec les dépendances de ressources, comme les paramètres de contrôle de la source et de base de données. À présent, vous pouvez également déployer une application de ce type à l’aide de modèles JSON et de scripts PowerShell simples. 
+Lors de la mise en service et du déploiement d'applications à grande échelle qui sont composées de microservices hautement découplés, la répétition et la prévisibilité sont essentielles à la réussite. [Azure App Service](https://azure.microsoft.com/services/app-service/) vous permet de créer des microservices qui incluent des applications web, des backends mobiles et des applications API. [Azure Resource Manager](../azure-resource-manager/management/overview.md) vous permet de gérer tous les microservices en tant qu'unité, avec les dépendances de ressources, comme les paramètres de contrôle de la source et de base de données. À présent, vous pouvez également déployer une application de ce type à l’aide de modèles JSON et de scripts PowerShell simples. 
 
 ## <a name="what-you-will-do"></a>Procédure à suivre
 Dans ce didacticiel, vous allez déployer une application incluant les éléments suivants :
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous allez déployer une application incluant les élément
 Dans ce didacticiel, vous allez utiliser les outils suivants. Dans la mesure où il ne s’agit pas d’une discussion complète sur les outils, je vais opter pour le scénario de bout en bout : je vais vous présenter chacun d’eux et vous indiquer à quel emplacement vous pouvez trouver davantage d’informations le concernant. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modèles Microsoft Azure Resource Manager (JSON)
-Chaque fois que vous créez une application dans Microsoft Azure App Service, par exemple, Microsoft Azure Resource Manager utilise un modèle JSON pour créer le groupe de ressources dans son ensemble, avec les ressources des composants. Un modèle complexe sur la [Place de marché Azure](/azure/marketplace) peut inclure la base de données, les comptes de stockage, le plan App Service, l’application elle-même, les règles relatives aux alertes, les paramètres d’application et de mise à l’échelle automatique, etc. Tous ces modèles sont à votre disposition, par le biais de PowerShell. Pour en savoir plus sur les modèles Microsoft Azure Resource Manager, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+Chaque fois que vous créez une application dans Microsoft Azure App Service, par exemple, Microsoft Azure Resource Manager utilise un modèle JSON pour créer le groupe de ressources dans son ensemble, avec les ressources des composants. Un modèle complexe sur la [Place de marché Azure](/azure/marketplace) peut inclure la base de données, les comptes de stockage, le plan App Service, l’application elle-même, les règles relatives aux alertes, les paramètres d’application et de mise à l’échelle automatique, etc. Tous ces modèles sont à votre disposition, par le biais de PowerShell. Pour en savoir plus sur les modèles Microsoft Azure Resource Manager, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Kit de développement logiciel (SDK) Microsoft Azure version 2.6 pour Visual Studio
 Le Kit de développement logiciel (SDK) le plus récent contient des améliorations portant sur la prise en charge des modèles Resource Manager dans l’éditeur JSON. Vous pouvez utiliser ce Kit pour créer rapidement un modèle de groupe de ressources à partir de zéro, ou ouvrir un modèle JSON existant (comme un modèle de galerie téléchargé) à des fins de modification, pour remplir le fichier de paramètres, voire pour déployer le groupe de ressources directement à partir d’une solution de groupe de ressources Microsoft Azure.
@@ -87,7 +87,7 @@ Examinons à présent la configuration du référentiel GitHub. Vous allez à pr
 
 Je ne vais pas décrire tous les détails du format JSON ; cependant, la section [Autres ressources](#resources) présente des liens permettant d’apprendre le langage de modèle du groupe de ressources. Ici, je vais juste vous montrer des fonctionnalités intéressantes, qui peuvent vous aider à vous lancer dans la création de votre propre modèle personnalisé pour le déploiement de l’application.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Accédez à la section des paramètres : vous pouvez voir que la plupart de ces paramètres correspondent aux informations que le bouton **Déployer dans Azure** vous invite à saisir. Le site derrière le bouton **Déployer dans Azure** remplit l’interface utilisateur en entrée, au moyen des paramètres définis dans le fichier azuredeploy.json. Ces paramètres sont utilisés dans les différentes définitions de ressources (noms de ressources, valeurs de propriétés, etc.).
 
 ### <a name="resources"></a>Ressources
@@ -117,7 +117,7 @@ Notez les éléments suivants concernant le code JSON en surbrillance :
 * Les ressources imbriquées dans l’élément `“resources”: […]`, dans lequel la base de données et les règles de pare-feu sont définies, incluent un élément `dependsOn` qui spécifie l’ID de la ressource SQL Server de niveau racine. Ce code indique au logiciel Microsoft Azure Resource Manager que l’autre ressource doit déjà exister avant qu’il ne crée cette ressource ; si cette autre ressource est définie dans le modèle, il doit la créer en premier.
   
   > [!NOTE]
-  > Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../azure-resource-manager/resource-group-template-functions-resource.md#resourceid).
+  > Pour en savoir plus sur l’utilisation de la fonction `resourceId()`, voir [Azure Resource Manager Template Functions](../azure-resource-manager/templates/template-functions-resource.md#resourceid).
   > 
   > 
 * Grâce à l’élément `dependsOn` , Azure Resource Manager peut savoir quelles ressources peuvent être créées en parallèle et quelles autres doivent être créées de façon séquentielle. 
@@ -138,7 +138,7 @@ Les paramètres d’application sont également définis en tant que ressource i
 Dans l’élément `properties` de `config/appsettings`, vous disposez de deux paramètres d’application au format `"<name>" : "<value>"`.
 
 * `PROJECT` est un [paramètre KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) qui indique au processus de déploiement de Microsoft Azure quel projet utiliser dans une solution Visual Studio à plusieurs projets. Plus tard, je vous montrerai comment le contrôle de code source est configuré. Toutefois, comme le code ToDoApp figure dans une solution Visual Studio à plusieurs projets, nous avons besoin de ce paramètre.
-* L’élément `clientUrl` est simplement un paramètre d’application utilisé par le code d’application.
+* `clientUrl` est simplement un paramètre d’application utilisé par le code d’application.
 
 ##### <a name="connection-strings"></a>Chaînes de connexion
 Les chaînes de connexion sont également définies en tant que ressource imbriquée.
@@ -249,12 +249,12 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 
 <a name="resources"></a>
 
-## <a name="more-resources"></a>Autres ressources
-* [Langue du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+## <a name="more-resources"></a>Plus de ressources
+* [Langue du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Fonctions des modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 * [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
-* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Utilisation d'Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Résolution des problèmes liés aux déploiements de groupes de ressources dans Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

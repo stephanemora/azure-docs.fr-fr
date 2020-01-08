@@ -6,51 +6,51 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: rohogue
-ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415297"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
 
-Après avoir créé le cluster, vous devrez peut-être y ajouter des nœuds, ou l’arrêter ou le redémarrer. À la fin de votre projet, vous aurez également besoin d’arrêter le cluster et de le supprimer de façon définitive. 
+Après avoir créé le cluster, vous devrez peut-être y ajouter des nœuds, ou l’arrêter ou le redémarrer. À la fin de votre projet, vous aurez également besoin d’arrêter le cluster et de le supprimer de façon définitive.
 
-Selon la tâche de gestion du cluster à effectuer, vous utiliserez le Panneau de configuration Avere, le script de création de cluster de lignes de commande vfxt.py ou le portail Azure. 
+Selon la tâche de gestion du cluster à effectuer, vous utiliserez le Panneau de configuration Avere, le script de création de cluster de lignes de commande vfxt.py ou le portail Azure.
 
-Ce tableau récapitule les outils disponibles pour les différentes tâches. 
+Ce tableau récapitule les outils disponibles pour les différentes tâches.
 
 | Action | Panneau de configuration Avere | vfxt.py  | Portail Azure |
 | --- | --- | --- | --- |
-| Ajouter des nœuds au cluster | no | Oui | no |
-| Supprimer des nœuds du cluster | Oui | no | no |
-| Arrêter un nœud du cluster | Oui (également pour redémarrer des services ou le cluster entier) | no | La mise hors tension d’une machine virtuelle d’un nœud à partir du portail est interprétée comme une défaillance de nœud |
-| Démarrer un nœud arrêté | no | no | Oui |
-| Détruire un seul nœud du cluster | no | no | Oui |
+| Ajouter des nœuds au cluster | non | Oui | non |
+| Supprimer des nœuds du cluster | Oui | non | non |
+| Arrêter un nœud du cluster | Oui (également pour redémarrer des services ou le cluster entier) | non | La mise hors tension d’une machine virtuelle d’un nœud à partir du portail est interprétée comme une défaillance de nœud |
+| Démarrer un nœud arrêté | non | non | Oui |
+| Détruire un seul nœud du cluster | non | non | Oui |
 | Redémarrer le cluster entier |  |  |  |
-| Fermer ou arrêter le cluster en toute sécurité | Oui | Oui | no |
-| Détruire le cluster  | no | Oui | Oui, mais sans garantie de l’intégrité des données |
+| Fermer ou arrêter le cluster en toute sécurité | Oui | Oui | non |
+| Détruire le cluster  | non | Oui | Oui, mais sans garantie de l’intégrité des données |
 
 Vous trouverez ci-dessous des instructions détaillées pour chaque outil.
 
 ## <a name="about-stopped-instances-in-azure"></a>Informations sur les instances arrêtées dans Azure
 
-Quand vous fermez ou arrêtez une machine virtuelle Azure, les frais de calcul ne vous sont plus facturés, mais vous continuez à payer le stockage pour cette machine virtuelle. Si vous fermez définitivement un nœud vFXT ou le cluster vFXT entier, vous devez supprimer les machines virtuelles associées à l’aide du portail Azure. 
+Quand vous fermez ou arrêtez une machine virtuelle Azure, les frais de calcul ne vous sont plus facturés, mais vous continuez à payer le stockage pour cette machine virtuelle. Si vous fermez définitivement un nœud vFXT ou le cluster vFXT entier, vous devez supprimer les machines virtuelles associées à l’aide du portail Azure.
 
 Dans le portail Azure, un nœud *arrêté* (pouvant être redémarré) affiche l’état **arrêté** ; un nœud *supprimé* affiche l’état **arrêté (libéré)** et il n’occasionne plus de frais de calcul ou de stockage.
 
 Avant de supprimer une machine virtuelle, assurez-vous que toutes les données modifiées du cache ont été écrites dans un stockage back-end. Utilisez le Panneau de configuration Avere ou le script vfxt.py pour arrêter ou fermer le cluster.
 
-## <a name="manage-the-cluster-with-avere-control-panel"></a>Gérer le cluster à l’aide du Panneau de configuration Avere 
+## <a name="manage-the-cluster-with-avere-control-panel"></a>Gérer le cluster à l’aide du Panneau de configuration Avere
 
-Vous pouvez utiliser le Panneau de configuration Avere pour effectuer les tâches suivantes : 
+Vous pouvez utiliser le Panneau de configuration Avere pour effectuer les tâches suivantes :
 
 * Arrêter ou redémarrer des nœuds individuels
 * Supprimer un nœud du cluster
 * Arrêter ou redémarrer le cluster entier
 
-Le Panneau de configuration Avere donne la priorité à l’intégrité des données. Il tente donc d’écrire les données modifiées dans le stockage back-end avant toute opération de destruction potentielle. Cette méthode est plus sûre que d’utiliser le portail Avere. 
+Le Panneau de configuration Avere donne la priorité à l’intégrité des données. Il tente donc d’écrire les données modifiées dans le stockage back-end avant toute opération de destruction potentielle. Cette méthode est plus sûre que d’utiliser le portail Avere.
 
 Accédez au Panneau de configuration Avere à partir d’un navigateur web. Au besoin, aidez-vous des instructions fournies dans [Accéder au cluster vFXT](avere-vfxt-cluster-gui.md).
 
@@ -60,7 +60,7 @@ La page de paramètres **FXT Nodes** (Nœuds FXT) contient plusieurs commandes p
 
 Pour fermer, redémarrer ou supprimer un nœud, recherchez le nœud dans la liste de la page **FXT Nodes**, puis cliquez sur le bouton approprié dans la colonne **Actions** du nœud.
 
-> [!NOTE] 
+> [!NOTE]
 > Il est possible que les adresses IP soient déplacées entre les nœuds de cluster lorsque le nombre de nœuds actifs change.
 
 Pour plus d’informations, consultez [Cluster > FXT Nodes](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) dans le guide des paramètres du cluster Avere.
@@ -73,7 +73,7 @@ Quand un cluster est en cours de fermeture, il publie d’abord des messages d�
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Gérer le cluster à l’aide du script vfxt.py
 
-vfxt.py est un outil en ligne de commande conçu pour la création et la gestion de clusters. 
+vfxt.py est un outil en ligne de commande conçu pour la création et la gestion de clusters.
 
 vfxt.py est préinstallé sur la machine virtuelle du contrôleur de cluster. Si vous souhaitez l'installer sur un autre système, reportez-vous à la documentation disponible à l'adresse <https://github.com/Azure/AvereSDK>.
 
@@ -89,25 +89,25 @@ Un guide d’utilisation de vfxt.py complet est disponible sur GitHub : [Gestio
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Ajouter des nœuds au cluster avec vfxt.py
 
-Le contrôleur de cluster fournit un exemple de script de commande pour ajouter des nœuds à un cluster. Recherchez ``./add-nodes`` sur le contrôleur et ouvrez-le dans un éditeur afin de le personnaliser avec les informations propres à votre cluster. 
+Le contrôleur de cluster fournit un exemple de script de commande pour ajouter des nœuds à un cluster. Recherchez ``./add-nodes`` sur le contrôleur et ouvrez-le dans un éditeur afin de le personnaliser avec les informations propres à votre cluster.
 
-Le cluster doit avoir été démarré pour utiliser cette commande. 
+Le cluster doit avoir été démarré pour utiliser cette commande.
 
-Indiquez les valeurs suivantes : 
+Indiquez les valeurs suivantes :
 
 * Nom du groupe de ressources pour le cluster, mais aussi pour les ressources réseau et de stockage si elles ne sont pas les mêmes que le cluster
 * Emplacement du cluster
-* Réseau et sous-réseau du cluster 
+* Réseau et sous-réseau du cluster
 * Rôle d'accès aux nœuds du cluster (utiliser le rôle intégré [Opérateur Avere](../role-based-access-control/built-in-roles.md#avere-operator))
-* Adresse IP de gestion et mot de passe d’administration du cluster 
+* Adresse IP de gestion et mot de passe d’administration du cluster
 * Nombre de nœuds à ajouter (1, 2 ou 3)
-* Type d’instance et taille du cache pour chaque nœud 
+* Type d’instance et taille du cache pour chaque nœud
 
-Si vous n’utilisez pas le modèle fourni, créez une commande similaire à l’exemple ci-dessous, en incluant toutes les informations nécessaires décrites ci-dessus. 
+Si vous n’utilisez pas le modèle fourni, créez une commande similaire à l’exemple ci-dessous, en incluant toutes les informations nécessaires décrites ci-dessus.
 
 ```bash
    vfxt.py --cloud-type azure --from-environment \
-   --resource-group GROUP_NAME \ 
+   --resource-group GROUP_NAME \
    [--network-resource-group GROUP_NAME --storage-resource-group GROUP_NAME]  \
    --location LOCATION --azure-network NETWORK_NAME --azure-subnet SUBNET_NAME \
    --add-nodes --nodes NODE_COUNT \
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
-```    
+```
 
 Étant donné que le cluster est arrêté, vous devez passer les identificateurs d’instance pour spécifier les nœuds de cluster. Pour en savoir plus, consultez [Spécifier le cluster à modifier](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) dans le guide d’utilisation de vfxt.py.
 
@@ -141,13 +141,13 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 Vous pouvez utiliser l’option ``--quick-destroy`` si vous ne souhaitez pas écrire les données modifiées du cache du cluster.
 
-Pour plus d’informations, consultez le [guide d’utilisation de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>).  
+Pour plus d’informations, consultez le [guide d’utilisation de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>).
 
-## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gérer des machines virtuelles du cluster à partir du portail Azure 
+## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gérer des machines virtuelles du cluster à partir du portail Azure
 
-Il est possible de détruire individuellement des machines virtuelles du cluster par le biais du portail Azure, mais l’intégrité des données n’est pas garantie si le cluster n’est pas préalablement fermé en toute sécurité. 
+Il est possible de détruire individuellement des machines virtuelles du cluster par le biais du portail Azure, mais l’intégrité des données n’est pas garantie si le cluster n’est pas préalablement fermé en toute sécurité.
 
-Vous pouvez utiliser le portail Azure pour effectuer les tâches de gestion du cluster suivantes : 
+Vous pouvez utiliser le portail Azure pour effectuer les tâches de gestion du cluster suivantes :
 
 * Démarrer un nœud vFXT arrêté
 * Arrêter un nœud vFXT individuel (le cluster interprète cette action comme une défaillance de nœud)
@@ -174,11 +174,11 @@ Sélectionnez **Machines virtuelles** dans le menu de gauche, puis cliquez sur l
 
 Cliquez sur le bouton **Supprimer** en haut de la page de présentation pour détruire définitivement la machine virtuelle.
 
-Vous pouvez utiliser cette méthode pour supprimer définitivement des nœuds du cluster qui ont été préalablement fermés en toute sécurité. 
+Vous pouvez utiliser cette méthode pour supprimer définitivement des nœuds du cluster qui ont été préalablement fermés en toute sécurité.
 
 ### <a name="destroy-the-cluster-from-the-azure-portal"></a>Détruire le cluster à partir du portail Azure
 
-> [!NOTE] 
+> [!NOTE]
 > Si vous souhaitez que les modifications clientes restantes dans le cache soient écrites dans le stockage back-end, utilisez soit l’option `--destroy` de vfxt.py, soit le Panneau de configuration Avere pour fermer le cluster en toute sécurité avant de supprimer les instances de nœud dans le portail Azure.
 
 Pour détruire définitivement des instances de nœud, supprimez-les dans le portail Azure. Vous pouvez supprimer les instances de façon individuelle, comme décrit ci-dessus, ou les supprimer toutes en même temps. Pour effectuer une suppression en bloc, accédez à la page **Machines virtuelles**, recherchez toutes les machines virtuelles du cluster, sélectionnez-les en les cochant et cliquez sur le bouton **Supprimer**.
@@ -189,24 +189,24 @@ Pour détruire définitivement des instances de nœud, supprimez-les dans le por
 
 Si vous avez créé des ressources supplémentaires spécifiquement pour le cluster vFXT, vous souhaiterez peut-être les supprimer en même temps que la destruction du cluster. Ne détruisez pas les éléments contenant des données dont vous avez encore besoin, ni les éléments partagés avec d'autres projets.
 
-Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants : 
+Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants :
 
 * La machine virtuelle du contrôleur de cluster
 * Les disques de données associés aux nœuds du cluster
 * Les interfaces réseau et adresses IP publiques associées aux composants du cluster
 * Réseaux virtuels
 * Les comptes de stockage (**uniquement** s’ils ne contiennent pas de données importantes)
-* Groupe à haute disponibilité 
+* Groupe à haute disponibilité
 
 ![Liste de toutes les ressources dans le portail Azure, répertoriant les ressources créées pour un cluster de test](media/avere-vfxt-all-resources-list.png)
 
 ### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Supprimer un groupe de ressources du cluster à partir du portail Azure
 
-Si vous avez créé un groupe de ressources spécifiquement pour héberger le cluster, vous pouvez détruire toutes les ressources associées au cluster en détruisant le groupe de ressources. 
+Si vous avez créé un groupe de ressources spécifiquement pour héberger le cluster, vous pouvez détruire toutes les ressources associées au cluster en détruisant le groupe de ressources.
 
-> [!Caution] 
+> [!Caution]
 > Détruisez le groupe de ressources uniquement si vous êtes certain qu’il ne contient pas de données importantes. Par exemple, assurez-vous que vous avez déplacé les données nécessaires se trouvant dans les conteneurs de stockage dans le groupe de ressources.  
 
-Pour supprimer un groupe de ressources, cliquez sur **Groupes de ressources** dans le menu de gauche du portail, puis filtrez la liste des groupes de ressources afin de rechercher celui que vous avez créé pour le cluster vFXT. Sélectionnez le groupe de ressources et cliquez sur les points de suspension à droite du panneau. Choisissez **Supprimer un groupe de ressources**. Le portail vous invite à confirmer la suppression, qui est irréversible.  
+Pour supprimer un groupe de ressources, cliquez sur **Groupes de ressources** dans le menu de gauche du portail, puis filtrez la liste des groupes de ressources afin de rechercher celui que vous avez créé pour le cluster vFXT. Sélectionnez le groupe de ressources et cliquez sur les points de suspension à droite du panneau. Choisissez **Supprimer un groupe de ressources**. Le portail vous invite à confirmer la suppression, qui est irréversible.
 
 ![Groupe de ressources affichant l’action « Supprimer un groupe de ressources »](media/avere-vfxt-delete-resource-group.png)

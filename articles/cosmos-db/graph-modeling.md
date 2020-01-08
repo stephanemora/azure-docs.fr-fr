@@ -7,23 +7,23 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 12/02/2019
 ms.author: lbosq
-ms.openlocfilehash: 7bc5544249b7e476afde08281aa005569ef6f8ce
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d1e21827dda26f1c577f6cc70a5e34bb09a34d9c
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873724"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500060"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modélisation des données de graphe pour l’API Gremlin d’Azure Cosmos DB
 
 Le document suivant est conçu pour fournir des recommandations de modélisation des données de graphe. Cette étape est essentielle afin de garantir la scalabilité et les performances d’un système de base de données de graphe à mesure que les données évoluent. Un modèle de données efficace est particulièrement important avec des graphes à grande échelle.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Le processus décrit dans ce guide est basé sur les hypothèses suivantes :
  * Les **entités** dans l’espace du problème sont identifiées. Ces entités sont destinées à être consommés _atomiquement_ pour chaque demande. En d’autres termes, le système de base de données n’est pas conçu pour récupérer les données d’une entité unique dans plusieurs demandes de requête.
  * Vous comprenez les **exigences en lecture et en écriture** pour le système de base de données. Ces exigences vont guider les optimisations nécessaires pour le modèle de données de graphe.
- * Les principes du [standard des graphes de propriétés Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) sont bien compris.
+ * Les principes du [standard des graphes de propriétés Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sont bien compris.
 
 ## <a name="when-do-i-need-a-graph-database"></a>Quand ai-je besoin d’une base de données de graphe ?
 
@@ -41,18 +41,18 @@ L’étape suivante consiste à déterminer si le graphe va être utilisé à de
 
 ## <a name="how-to-use-graph-objects"></a>Comment utiliser des objets de graphe
 
-Le [standard des graphes de propriétés Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-computing) définit deux types d’objets : les **sommets** et les **arêtes**. 
+Le [standard des graphes de propriétés Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) définit deux types d’objets : les **sommets** et les **arêtes**. 
 
 Voici les bonnes pratiques pour les propriétés dans les objets de graphe :
 
 | Object | Propriété | Type | Notes |
 | --- | --- | --- |  --- |
-| Sommet | id | Chaîne | Appliqué de façon unique par partition. Si une valeur n’est pas fournie lors de l’insertion, un GUID généré automatiquement sera stocké. |
-| Sommet | label | Chaîne | Cette propriété est utilisée pour définir le type d’entité que représente le sommet. Si une valeur n’est pas fournie, la valeur par défaut « vertex » (sommet) sera utilisée. |
+| Sommet | id | String | Appliqué de façon unique par partition. Si une valeur n’est pas fournie lors de l’insertion, un GUID généré automatiquement sera stocké. |
+| Sommet | label | String | Cette propriété est utilisée pour définir le type d’entité que représente le sommet. Si une valeur n’est pas fournie, la valeur par défaut « vertex » (sommet) sera utilisée. |
 | Sommet | properties | Chaîne, booléen, numérique | Une liste de propriétés distinctes stockées sous forme de paires clé-valeur dans chaque sommet. |
 | Sommet | clé de partition | Chaîne, booléen, numérique | Cette propriété définit où le sommet et ses arêtes sortantes seront stockés. Pour plus d’informations, consultez [partitionnement de graphe](graph-partitioning.md). |
-| Edge | id | Chaîne | Appliqué de façon unique par partition. Généré automatiquement par défaut. Les arêtes n’ont généralement pas besoin d’être récupérées de façon univoque via un ID. |
-| Edge | label | Chaîne | Cette propriété est utilisée pour définir le type de relation entre deux sommets. |
+| Edge | id | String | Appliqué de façon unique par partition. Généré automatiquement par défaut. Les arêtes n’ont généralement pas besoin d’être récupérées de façon univoque via un ID. |
+| Edge | label | String | Cette propriété est utilisée pour définir le type de relation entre deux sommets. |
 | Edge | properties | Chaîne, booléen, numérique | Une liste de propriétés distinctes stockées sous forme de paires clé-valeur dans chaque arête. |
 
 > [!NOTE]

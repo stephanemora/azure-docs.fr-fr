@@ -2,17 +2,17 @@
 title: Gérer une connexion de point de terminaison privé dans Azure
 description: Découvrez comment gérer une connexion de point de terminaison privé dans Azure
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 929dfedbbbbe58a30eaa186398c595eaaabeb0a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 62b24b3e2f5c1b89fa7db581ac34cf58381db2a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452960"
 ---
 # <a name="manage-a-private-endpoint-connection"></a>Gérer une connexion de point de terminaison privé
 Azure Private Link fonctionne sur un modèle de flux d’appel d’approbation, dans lequel l’utilisateur du service Private Link peut demander une connexion au fournisseur de services pour utiliser le service. Le fournisseur de services peut alors décider s’il faut autoriser l’utilisateur à se connecter. Azure Private Link permet aux fournisseurs de services de gérer la connexion des points de terminaison privés dans leurs ressources. Cet article fournit des instructions sur la gestion des connexions de points de terminaison privés.
@@ -28,7 +28,7 @@ Le tableau ci-dessous présente les différentes actions que peut effectuer le f
 
 |Action du fournisseur de services   |État du point de terminaison privé de l’utilisateur du service   |Description   |
 |---------|---------|---------|
-|Aucun    |    Pending     |    La connexion est créée manuellement et est en attente de l’approbation du propriétaire de la ressource Private Link.       |
+|None    |    Pending     |    La connexion est créée manuellement et est en attente de l’approbation du propriétaire de la ressource Private Link.       |
 |Approbation    |  Approved       |  La connexion a été approuvée automatiquement ou manuellement et est prête à être utilisée.     |
 |Rejeter     | Rejeté        | La connexion a été rejetée par le propriétaire de la ressource Private Link.        |
 |Supprimer    |  Déconnecté       | La connexion a été supprimée par le propriétaire de la ressource Private Link, le point de terminaison privé devient donc informatif et doit être supprimé dans le cadre d’un nettoyage.        |
@@ -77,7 +77,7 @@ Utilisez l’applet de commande `Remove-AzPrivateEndpointConnection` pour suppri
 Remove-AzPrivateEndpointConnection -Name myPrivateEndpointConnection1 -ResourceGroupName myResourceGroup -ServiceName myPrivateLinkServiceName 
 ```
  
-### <a name="azure-cli"></a>D’Azure CLI 
+### <a name="azure-cli"></a>Azure CLI 
  
 Utilisez `az network private-link-service update` pour gérer vos connexions de point de terminaison privé. L’état de la connexion est spécifié dans le paramètre ```azurecli connection-status```. 
 ```azurecli

@@ -2,19 +2,15 @@
 title: Déploiement continu d’Azure Automation State Configuration avec Chocolatey
 description: Déploiement continu du DevOps à l’aide d’Azure Automation State Configuration, DSC, et du gestionnaire de packages Chocolatey.  Exemple avec modèle Resource Manager JSON complet et source PowerShell.
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366428"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -60,7 +56,7 @@ Vraisemblablement, vous le faites déjà au départ, ou du moins la majeure part
 
 Si vous ne commencez pas par un modèle Resource Manager, il n’y a aucun problème. Il existe des applets de commande PowerShell conçues pour vous aider à enregistrer vos machines virtuelles auprès du serveur d’extraction et de tous les autres serveurs. Pour plus d’informations, consultez cet article : [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md).
 
-## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Étape 1 : Configuration du serveur Pull et du compte Automation
+## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>Étape 1 : Configuration du serveur Pull et du compte Automation
 
 Ouvrez une ligne de commande PowerShell (`Connect-AzureRmAccount`) authentifiée : (le processus peut prendre quelques minutes en attendant que le serveur d’extraction soit configuré)
 
@@ -71,7 +67,7 @@ New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location M
 
 Vous pouvez installer votre compte Automation dans l’une des régions suivantes (ou « emplacements ») : USA Est 2, USA Centre Sud, US Gov Virginie, Europe Ouest, Asie Sud-Est, Japon Est, Inde Centre et Australie Sud-Est, Canada Centre, Europe Nord.
 
-## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Étape 2 : Ajustement de l’extension de machine virtuelle au modèle Resource Manager
+## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>Étape 2 : Ajustement de l’extension de machine virtuelle au modèle Resource Manager
 
 Voir les détails de l’enregistrement d’une machine virtuelle (à l’aide de l’extension PowerShell DSC VM) fournis dans ce [modèle de démarrage rapide d’Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
 Cette étape consiste à inscrire votre nouvelle machine virtuelle auprès du serveur d’extraction dans la liste des nœuds State Configuration. Une partie de cette inscription consiste à spécifier la configuration du nœud à appliquer au nœud. Comme cette configuration de nœud n’a pas encore besoin d’exister déjà sur le serveur d’extraction, cette opération peut être effectuée pour la première fois à l’étape 4. Mais ici, à l'étape 2, vous devez avoir choisi le nom du nœud et celui de la configuration. Dans cet exemple d'utilisation, le nœud est ’isvbox’ et la configuration est ’ISVBoxConfig’. Le nom de la configuration de nœud (à préciser dans DeploymentTemplate.json) est donc ’ISVBoxConfig.isvbox’.
@@ -185,7 +181,7 @@ Ce nuspec doit être compilé et stocké sur votre serveur NuGet. Cette opérati
 Chaque fois qu'une version passe l'assurance qualité et est approuvée pour le déploiement, le package est créé, nuspec et nupkg sont mis à jour et déployés sur le serveur NuGet. En outre, la configuration (étape 4 ci-dessus) doit être mise à jour pour correspondre au nouveau numéro de version. Elle doit être envoyée au serveur d’extraction puis compilée.
 À ce stade, les machines virtuelles qui dépendent de cette configuration doivent extraire la mise à jour et l'installer. Chacune de ces mises à jour est simple et ne nécessite qu’une ou deux lignes PowerShell. Dans le cas d’Azure DevOps, certaines d’entre elles sont encapsulées dans les tâches de génération et peuvent être chaînées dans une build. Cet [article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fournit plus de détails. Ce [référentiel GitHub](https://github.com/Microsoft/vso-agent-tasks) détaille les différentes tâches de génération disponibles.
 
-## <a name="notes"></a>notes
+## <a name="notes"></a>Notes
 
 Dans cet exemple d’utilisation, nous partons d’une machine virtuelle provenant d’une image Windows Server 2012 R2 générique de la galerie Azure. Vous pouvez démarrer à partir de n’importe quelle image stockée, puis la modifier avec la configuration DSC.
 Toutefois, la modification d’une configuration intégrée à une image est beaucoup plus difficile que la mise à jour dynamique de la configuration à l’aide de DSC.
@@ -197,7 +193,7 @@ Bien évidemment, lorsque vous mettez à jour un package sur une machine virtuel
 La source complète de cet exemple se trouve dans ce [projet Visual Studio](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) sur GitHub.
 
 ## <a name="related-articles"></a>Articles connexes
-* [Vue d'ensemble d'Azure Automation DSC](automation-dsc-overview.md)
+* [Vue d’ensemble d’Azure Automation DSC](automation-dsc-overview.md)
 * [Applets de commande Azure Automation DSC](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
 * [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md)
 

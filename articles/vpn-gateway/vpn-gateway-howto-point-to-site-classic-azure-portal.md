@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: d28893133c27fe4945918071c60b889e997b775b
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 01327d24aebee02c3b14594c2b0b2f2f175211fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450794"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configurer une connexion point à site à l'aide d'une authentification par certificat (classique)
 
@@ -29,7 +29,7 @@ ms.locfileid: "74424162"
 Cet article explique comment créer un réseau virtuel avec une connexion point à site. Pour créer ce réseau virtuel, vous devez utiliser le modèle de déploiement classique et le portail Azure. Cette configuration utilise des certificats pour authentifier le client qui se connecte, qu’ils soient auto-signés ou délivrés par une autorité de certification. Vous pouvez également créer cette configuration avec un outil ou un modèle de déploiement différent en utilisant les options décrites dans les articles suivants :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -43,7 +43,7 @@ Vous utilisez une passerelle VPN point à site (P2S) pour créer une connexion s
 
 ![Diagramme point à site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les connexions d'authentification par certificat point à site requièrent les éléments suivants :
 
@@ -61,39 +61,39 @@ Pour plus d'informations sur les connexions point à site, consultez le [Forum A
 Utilisez les valeurs suivantes pour créer un environnement de test, ou reportez-vous à celles-ci pour mieux comprendre les exemples fournis dans cet article :
 
 - **Créer des paramètres de réseau virtuel (classique)**
-   - **Nom** : entrez *VNet1*.
-   - **Espace d'adressage** : entrez *192.168.0.0/16*. Pour cet exemple, nous n’utilisons qu’un seul espace d’adressage. Vous pouvez avoir plusieurs espaces d’adressage pour votre réseau virtuel, comme indiqué sur le diagramme.
-   - **Nom du sous-réseau** : entrez *FrontEnd*.
-   - **Plage d'adresses de sous-réseau** : entrez *192.168.1.0/24*.
+   - **Name** : entrez *VNet1*.
+   - **Espace d’adressage** : entrez *192.168.0.0/16*. Pour cet exemple, nous n’utilisons qu’un seul espace d’adressage. Vous pouvez avoir plusieurs espaces d’adressage pour votre réseau virtuel, comme indiqué sur le diagramme.
+   - **Nom du sous-réseau** : Entrez *FrontEnd*.
+   - **Plage d’adresses de sous-réseau** : entrez *192.168.1.0/24*.
    - **Abonnement**: Sélectionnez un abonnement dans la liste des abonnements disponibles.
    - **Groupe de ressources** : entrez *TestRG*. Sélectionnez **Créer** si le groupe de ressources n'existe pas.
-   - **Emplacement** : sélectionnez **USA Est** dans la liste.
+   - **Emplacement** : sélectionnez **USA Est** dans la liste.
 
   - **Paramètres de connexion VPN**
     - **Type de connexion** : sélectionnez **Point à site**.
     - **Espace d'adressage du client** : entrez *172.16.201.0/24*. Les clients VPN qui se connectent au réseau virtuel à l'aide de cette connexion point à site reçoivent une adresse IP de ce pool.
 
 - **Paramètres de sous-réseau de configuration de passerelle**
-   - **Nom** : automatiquement renseigné avec le nom *GatewaySubnet*.
-   - **Plage d'adresses** : entrez *192.168.200.0/24*. 
+   - **Name** : automatiquement renseigné avec le nom *GatewaySubnet*.
+   - **Plage d’adresses** : entrez *192.168.200.0/24*. 
 
 - **Paramètres de configuration de la passerelle** :
-   - **Taille**: sélectionnez la référence SKU de la passerelle que vous souhaitez utiliser.
+   - **Size** : sélectionnez la référence SKU de la passerelle que vous souhaitez utiliser.
    - **Type de routage** : sélectionnez **Dynamique**.
 
 ## <a name="create-a-virtual-network-and-a-vpn-gateway"></a>créer un réseau virtuel et une passerelle VPN ;
 
 Avant de commencer, vérifiez que vous disposez d'un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
 
-### <a name="part-1-create-a-virtual-network"></a>Partie 1 : Créez un réseau virtuel
+### <a name="part-1-create-a-virtual-network"></a>Première partie : Créez un réseau virtuel
 
 Si vous n'avez pas de réseau virtuel, créez-en un. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour créer un réseau virtuel à l’aide du portail Azure, procédez comme suit :
 
 1. Dans le menu du [Portail Azure](https://portal.azure.com) ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La page **Nouveau** s’ouvre.
 
-2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s'ouvre.
+2. Dans le champ **Rechercher dans la Place de marché**, entrez *réseau virtuel* et sélectionnez **Réseau virtuel** dans la liste retournée. La page **Réseau virtuel** s’ouvre.
 
-3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Classique**, puis **Créer**. La page **Créer un réseau virtuel** s'ouvre.
+3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Classique**, puis **Créer**. La page **Créer un réseau virtuel** s’ouvre.
 
 4. Sur la page **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Sur cette page, vous ajoutez votre premier espace d’adressage et une plage d’adresses de sous-réseau unique. Après avoir créé le réseau virtuel, vous pouvez revenir en arrière et ajouter des espaces d’adressage et des sous-réseaux supplémentaires.
 
@@ -101,7 +101,7 @@ Si vous n'avez pas de réseau virtuel, créez-en un. Les captures d’écran son
 
 5. Sélectionnez l'**abonnement**  que vous souhaitez utiliser dans la liste déroulante.
 
-6. Sélectionnez un **groupe de ressources** existant. Ou créez un groupe de ressources en sélectionnant **Créer** et en entrant un nom. Si vous créez un groupe de ressources, nommez-le en fonction de vos valeurs de configuration planifiées. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Sélectionnez un **groupe de ressources** existant. Ou créez un groupe de ressources en sélectionnant **Créer** et en entrant un nom. Si vous créez un groupe de ressources, nommez-le en fonction de vos valeurs de configuration planifiées. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
 
 7. Sélectionnez l'**emplacement** de votre réseau virtuel. Ce paramètre détermine l'emplacement géographique des ressources que vous déployez sur ce réseau virtuel.
 
@@ -113,7 +113,7 @@ Si vous n'avez pas de réseau virtuel, créez-en un. Les captures d’écran son
 
     Pour ajouter un serveur DNS, sélectionnez **Serveurs DNS** sur la page de votre réseau virtuel. Puis entrez l'adresse IP du serveur DNS que vous souhaitez utiliser et sélectionnez **Enregistrer**.
 
-### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Partie 2 : création d'un sous-réseau de passerelle et d'une passerelle de routage dynamique
+### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Deuxième partie : création d'un sous-réseau de passerelle et d'une passerelle de routage dynamique
 
 Vous allez maintenant créer un sous-réseau de passerelle et une passerelle de routage dynamique. Sur le portail Azure, pour le modèle de déploiement classique, la création du sous-réseau de passerelle et de la passerelle s'effectue sur les mêmes pages de configuration. Utilisez le sous-réseau de passerelle pour les services de passerelle uniquement. Ne déployez jamais rien directement sur le sous-réseau de passerelle (comme des machines virtuelles ou d’autres services).
 
@@ -275,7 +275,7 @@ La pratique courante consiste à utiliser le certificat racine pour gérer l'acc
 
 Vous pouvez révoquer un certificat client en ajoutant son empreinte à la liste de révocation.
 
-1. Récupérez l’empreinte du certificat client. Pour plus d'informations, consultez [ Récupérer l'empreinte d'un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
+1. Récupérez l’empreinte du certificat client. Pour plus d’informations, consultez [Procédure : Récupérer l'empreinte d'un certificat](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copiez les informations dans un éditeur de texte et supprimez les espaces afin d'obtenir une chaîne continue.
 3. Accédez au réseau virtuel classique. Sélectionnez **Connexion VPN de point à site**, puis **Gérer le certificat** pour ouvrir la page **Certificats**.
 4. Sélectionnez **Liste de révocation** pour ouvrir la page **Liste de révocation**. 

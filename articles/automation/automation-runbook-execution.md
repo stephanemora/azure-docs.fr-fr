@@ -2,19 +2,15 @@
 title: Exécution d'un Runbook dans Azure Automation
 description: Décrit les détails du traitement d'un Runbook dans Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850752"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658115"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -37,12 +33,12 @@ Les runbooks d'Azure Automation peuvent s'exécuter dans un bac à sable Azure o
 |Intégration à des ressources Azure|Bac à sable Azure|Hébergé dans Azure, l'authentification est plus simple. Si vous utilisez un Runbook Worker hybride sur une machine virtuelle Azure, vous pouvez utiliser des [identités managées pour les ressources Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
 |Performances optimales pour gérer les ressources Azure|Bac à sable Azure|Le script est exécuté dans le même environnement, ce qui réduit la latence|
 |Réduction des coûts d'exploitation|Bac à sable Azure|En l'absence de surcharge de calcul, aucune machine virtuelle n'est nécessaire|
-|Script durable|Runbook Worker hybride|Les bacs à sable Azure sont [limités en termes de ressources](../azure-subscription-service-limits.md#automation-limits)|
+|Script durable|Runbook Worker hybride|Les bacs à sable Azure sont [limités en termes de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
 |Interaction avec les services locaux|Runbook Worker hybride|Peut bénéficier d'un accès direct à la machine hôte|
 |Logiciels et fichiers exécutables tiers requis|Runbook Worker hybride|Vous gérez le système d'exploitation et pouvez installer des logiciels|
 |Surveillance d'un fichier ou d'un dossier avec un runbook|Runbook Worker hybride|Utilisez une [tâche Watcher](automation-watchers-tutorial.md) sur un Runbook Worker hybride|
-|Script gourmand en ressources|Runbook Worker hybride| Les bacs à sable Azure sont [limités en termes de ressources](../azure-subscription-service-limits.md#automation-limits)|
-|Utilisation de modules aux exigences spécifiques| Runbook Worker hybride|Voici quelques exemples :</br> **WinSCP** - dépendance à winscp.exe </br> **IISAdministration** - requiert l'activation d'IIS|
+|Script gourmand en ressources|Runbook Worker hybride| Les bacs à sable Azure sont [limités en termes de ressources](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)|
+|Utilisation de modules aux exigences spécifiques| Runbook Worker hybride|Quelques exemples :</br> **WinSCP** - dépendance à winscp.exe </br> **IISAdministration** - requiert l'activation d'IIS|
 |Installation d'un module nécessitant un programme d'installation|Runbook Worker hybride|Les modules pour bac à sable doivent être copiables|
 |Utilisation de runbooks ou de modules nécessitant une version de .NET Framework autre que la version 4.7.2|Runbook Worker hybride|Les bacs à sable Automation disposent de .NET Framework 4.7.2, et aucune mise à niveau n'est possible|
 |Scripts qui nécessitent une élévation|Runbook Worker hybride|Les bacs à sable ne permettent pas l’élévation. Pour résoudre ce problème, utilisez un Runbook Worker hybride. Vous pouvez désactiver l’UAC et utiliser `Invoke-Command` lors de l’exécution de la commande qui nécessite une élévation.|
@@ -209,7 +205,7 @@ Le tableau suivant décrit les différents statuts possibles pour une tâche. Po
 | Mis en file d'attente. |La tâche attend que les ressources d'un travail Automation deviennent disponibles afin de pouvoir être démarrée. |
 | Démarrage en cours |La tâche a été attribuée à un travail et le système la démarre. |
 | Reprise |Le système reprend la tâche suspendue. |
-| Exécution |La tâche est en cours d'exécution. |
+| Exécution en cours |La tâche est en cours d'exécution. |
 | En cours d'exécution, en attente de ressources |La tâche a été déchargée, car elle a atteint la limite de [répartition de charge équilibrée](#fair-share) . Elle reprend bientôt depuis son dernier point de contrôle. |
 | Arrêté |La tâche a été arrêtée par l'utilisateur avant qu'elle n'ait été terminée. |
 | En cours d’arrêt |Le système arrête la tâche. |
@@ -320,7 +316,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 Pour répartir les ressources entre tous les runbooks du cloud, Azure Automation décharge ou arrête temporairement les travaux dont l’exécution dure depuis plus de trois heures. Les tâches de [runbooks PowerShell](automation-runbook-types.md#powershell-runbooks) et de [runbooks Python](automation-runbook-types.md#python-runbooks) sont arrêtées, mais ne sont pas reprises, et leur état affiche Stopped (Arrêté).
 
-Pour les travaux de longue durée, il est recommandé d'utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks exécutés sur ceux-ci doivent être développés pour prendre en charge les comportements de redémarrage après un problème inattendu au niveau de l’infrastructure locale.
+Pour les travaux de longue durée, il est recommandé d'utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n'imposent aucune limitation en termes de durée d'exécution des runbooks. Les autres [limites](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides. Les Runbook Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks exécutés sur ceux-ci doivent être développés pour prendre en charge les comportements de redémarrage après un problème inattendu au niveau de l’infrastructure locale.
 
 Une autre option consiste à optimiser le runbook en utilisant des runbooks enfants. Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un [runbook enfant](automation-child-runbooks.md) et l'appeler à l'aide de la cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts. Ce comportement réduit la quantité totale de temps pour l’exécution du runbook parent. Vous pouvez utiliser l’applet de commande [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) dans votre runbook pour vérifier l’état du travail de chaque enfant et déterminer si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant.
 

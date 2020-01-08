@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499987"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611115"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
@@ -47,7 +47,7 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 > [!NOTE]
 > Pour connaître précisément les langues prises en charge pour la préversion publique v3 de la reconnaissance d’entité nommée, consultez [Types d’entités nommées](named-entity-types.md).
 
-| Langage              | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée | Liaison d’entités |       Notes        |
+| Langage              | Code langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée | Liaison d’entités |       Notes        |
 |:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
 | Arabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
 | Tchèque                 |     `cs`      |           |             |           ✔ \*           |                |                    |
@@ -75,7 +75,7 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 
 \* Prise en charge linguistique disponible en préversion
 
-\** Également disponible dans les préversions publiques [Analyse des sentiments v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) et/ou [Reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
+\** Également disponible dans les préversions publiques [Analyse des sentiments v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) et/ou [Reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
 
 ## <a name="see-also"></a>Voir aussi
 

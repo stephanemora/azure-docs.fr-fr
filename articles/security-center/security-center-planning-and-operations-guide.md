@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996620"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462459"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -39,7 +39,7 @@ Dans la section suivante, vous allez apprendre à planifier chacun de ces aspect
 ## <a name="security-roles-and-access-controls"></a>Rôles de sécurité et contrôles d’accès
 Selon la taille et la structure de votre entreprise, plusieurs personnes et équipes peuvent utiliser le Centre de sécurité pour différentes tâches liées à la sécurité. Le diagramme suivant vous présente un exemple de personnes fictives avec leurs responsabilités et rôles respectifs en termes de sécurité :
 
-![contrôleur](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
+![Rôles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
 Le Centre de sécurité permet à ces personnes d’assumer ces différentes responsabilités. Par exemple :
 
@@ -82,6 +82,10 @@ En considérant les personnes décrites dans le diagramme précédent, voici le 
 **Jeff (propriétaire de la charge de travail)**
 
 * Propriétaire/contributeur du groupe de ressources
+
+**Ellen (directrice informatique/responsable de la sécurité des systèmes d’information)**
+
+* Propriétaire/contributeur de l’abonnement ou Administrateur de la sécurité
 
 **David (sécurité informatique)**
 

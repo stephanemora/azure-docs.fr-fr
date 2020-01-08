@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bf8a2cf6c50e05a0fecff387f2e125c50931b95f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832703"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608718"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Régir l’accès des utilisateurs externes dans la gestion des droits d’utilisation Azure AD
 
@@ -105,7 +105,7 @@ Pour vous assurer que les personnes extérieures à votre organisation peuvent d
 
 ### <a name="review-your-office-365-group-sharing-settings"></a>Passer en revue vos paramètres de partage de groupe Office 365
 
-- Si vous souhaitez inclure des groupes Office 365 dans vos packages d’accès pour des utilisateurs externes, assurez-vous que le paramètre **Permettre aux utilisateurs d’ajouter de nouveaux invités à l’organisation** est défini sur **Activé** pour autoriser l’accès invité. Pour plus d’informations, consultez [Gérer l’accès invité à des groupes Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-guest-access-to-office-365-groups).
+- Si vous souhaitez inclure des groupes Office 365 dans vos packages d’accès pour des utilisateurs externes, assurez-vous que le paramètre **Permettre aux utilisateurs d’ajouter de nouveaux invités à l’organisation** est défini sur **Activé** pour autoriser l’accès invité. Pour plus d’informations, consultez [Gérer l’accès invité à des groupes Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
 
 - Si vous souhaitez que les utilisateurs externes puissent accéder au site SharePoint Online et aux ressources associées à un groupe Office 365, veillez à activer le partage externe SharePoint Online. Pour plus d’informations, consultez [Activer ou désactiver le partage externe](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: kumud
-ms.openlocfilehash: 3b00bbb5903156da625b7caaca9b1a2cff212421
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b99e5e6809a909184d775c70b56c249c11734cb9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699357"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646606"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Attribuer plusieurs adresses IP à des machines virtuelles à l’aide d’Azure CLI
 
@@ -158,7 +158,7 @@ Outre la création d’une machine virtuelle avec une carte réseau dotée de 3�
 - Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Pour plus d’informations, consultez l’article [Créer une machine virtuelle Linux à l’aide de l’interface Azure CLI](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Un réseau virtuel avec un sous-réseau et deux adresses IP publiques. Vous pouvez également utiliser des ressources *existantes* en matière de réseau virtuel, sous-réseau, carte réseau ou adresse IP publique. Pour savoir comment utiliser des ressources réseau existantes au lieu de créer des ressources supplémentaires, utilisez `az vm create -h`.
 
-Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits).
+Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
 Une fois la machine virtuelle créée, saisissez la commande `az network nic show --name MyNic1 --resource-group myResourceGroup` afin d’afficher la configuration de carte réseau. Saisissez l’élément `az network nic ip-config list --nic-name MyNic1 --resource-group myResourceGroup --output table` afin d’afficher une liste des configurations IP associées à la carte réseau.
 
@@ -190,7 +190,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une interface rése
     
     Pour ajouter une adresse IP publique, associez-la à une configuration IP nouvelle ou existante. Suivez les étapes de l’une des sections ci-après, selon votre besoin.
 
-    Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits).
+    Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
     - **Associer la ressource à une nouvelle configuration IP**
     
@@ -232,7 +232,7 @@ Vous pouvez ajouter des adresses IP privées et publiques à une interface rése
             IPConfig-2  /subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP2
             IPConfig-3
 
-        Étant donné que la colonne **PublicIpAddress** pour *IpConfig-3* est vide dans la sortie, aucune ressource d’adresse IP publique n’y est actuellement associée. Vous pouvez ajouter une ressource d’adresse IP publique existante sur IpConfig-3, ou entrer la commande suivante pour en créer une :
+        Étant donné que la colonne **PublicIpAddress** pour *IpConfig-3* est vide dans la sortie, aucune ressource d’adresse IP publique n’y est actuellement associée. Vous pouvez ajouter une ressource d’adresse IP publique existante à IpConfig-3, ou entrer la commande suivante pour en créer une :
 
         ```bash
         az network public-ip create \

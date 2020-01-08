@@ -4,15 +4,15 @@ description: Schéma version 1.3 et versions ultérieures pour les diagnostics A
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: reference
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2018
-ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2a3ee9731ebeb3b002f4dd9f5b856e720bf719d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395094"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Schéma de configuration de Diagnostics Azure version 1.3 et ultérieure
 > [!NOTE]
@@ -416,9 +416,9 @@ Ajouté à la version 1.3.
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**PublicConfig**|Requis. Consultez la description sur cette page.|  
+|**PublicConfig**|Obligatoire. Consultez la description sur cette page.|  
 |**PrivateConfig**|facultatif. Consultez la description sur cette page.|  
-|**IsEnabled**|Booléen. Consultez la description sur cette page.|  
+|**IsEnabled**|Propriété booléenne. Consultez la description sur cette page.|  
 
 ## <a name="publicconfig-element"></a>Élément PublicConfig  
  *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig*
@@ -427,7 +427,7 @@ Ajouté à la version 1.3.
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**WadCfg**|Requis. Consultez la description sur cette page.|  
+|**WadCfg**|Obligatoire. Consultez la description sur cette page.|  
 |**StorageAccount**|Nom du compte de stockage Azure où stocker les données. Peut également être spécifié en tant que paramètre lors de l’exécution de l’applet de commande Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Peut être *Table*, *Blob* ou *TableAndBlob*. Table est la valeur par défaut. Si TableAndBlob est choisi, les données de diagnostic sont écrites deux fois : une fois pour chaque type.|  
 |**LocalResourceDirectory**|Répertoire se trouvant sur la machine virtuelle sur laquelle Monitoring Agent stocke les données d’événement. S’il n’est pas défini, le répertoire par défaut est utilisé :<br /><br /> Pour un rôle Worker/web : `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Pour une machine virtuelle : `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Les attributs requis sont :<br /><br /> - **path** - Répertoire sur le système à utiliser par Diagnostics Azure.<br /><br /> - **expandEnvironment** - Contrôle si les variables d’environnement sont développées dans le nom du chemin d’accès.|  
@@ -478,7 +478,7 @@ Ajouté à la version 1.3.
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Requis. Définit les valeurs de configuration pour chaque processus.<br /><br /> L’attribut suivant est également requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez que Diagnostics Azure collecte un vidage sur incident.|  
+|**CrashDumpConfiguration**|Obligatoire. Définit les valeurs de configuration pour chaque processus.<br /><br /> L’attribut suivant est également requis :<br /><br /> **processName** - Nom du processus pour lequel vous voulez que Diagnostics Azure collecte un vidage sur incident.|  
 
 ## <a name="directories-element"></a>Élément Directories
  *Arborescence : Racine - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
@@ -503,7 +503,7 @@ Ajouté à la version 1.3.
 
 |Éléments enfants|Description|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Requis. Attribut requis :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les fichiers journaux.|  
+|**DirectoryConfiguration**|Obligatoire. Attribut requis :<br /><br /> **containerName** - Nom du conteneur d’objets blob de votre compte de stockage Azure à utiliser pour stocker les fichiers journaux.|  
 
 
 
@@ -688,5 +688,5 @@ Ajouté à la version 1.3.
 ## <a name="isenabled-element"></a>Élément IsEnabled  
  *Arborescence : Racine - DiagnosticsConfiguration - IsEnabled*
 
- Booléen. Utilisez `true` pour activer les diagnostics ou `false` pour les désactiver.
+ Propriété booléenne. Utilisez `true` pour activer les diagnostics ou `false` pour les désactiver.
 

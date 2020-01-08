@@ -1,19 +1,18 @@
 ---
 title: Démarrage rapide – Créer un travail Stream Analytics avec le portail Azure
 description: Ce guide de démarrage rapide vous explique comment créer un travail Stream Analytics, configurer des entrées et des sorties, et définir une requête.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4abf5078a005f9d928397d9666e7f2bc55d65f19
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707368"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431547"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure
 
@@ -23,13 +22,13 @@ Ce guide de démarrage rapide vous explique comment créer un travail Stream Ana
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/).
 
-* Connectez-vous au [Portail Azure](https://portal.azure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="prepare-the-input-data"></a>Préparer les données d’entrée
 
 Avant de définir le travail Stream Analytics, vous devez préparer les données d’entrée. Les données de capteur en temps réel sont ingérées par IoT Hub, configuré plus tard comme entrée du travail. Pour préparer les données d’entrée requises pour le travail, exécutez les opérations suivantes :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Sélectionnez **Créer une ressource** > **Internet des objets** > **IoT Hub**.
 
@@ -177,7 +176,7 @@ Dans cette section, vous allez configurer une entrée d’appareil IoT Hub pour 
 
    ![Sortie transformée](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail Stream Analytics et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 

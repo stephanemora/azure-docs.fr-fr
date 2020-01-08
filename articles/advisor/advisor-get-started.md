@@ -1,20 +1,14 @@
 ---
-title: Prise en main du conseiller Azure | Microsoft Docs
+title: Prise en main d’Azure Advisor
 description: Prise en main du conseiller Azure.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 8c2699030b1a6d428ddc2a4db40a66003824cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67332055"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443136"
 ---
 # <a name="get-started-with-azure-advisor"></a>Prise en main d’Azure Advisor
 
@@ -25,7 +19,7 @@ Découvrez comment accéder à Advisor à l’aide du portail Azure, obtenir des
 
 ## <a name="get-recommendations"></a>Obtention de recommandations
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet gauche, cliquez sur **Advisor**.  Si vous ne voyez pas Advisor dans le volet gauche, cliquez sur **Tous les services**.  Dans le volet du menu de services, sous **Surveillance et gestion**, cliquez sur **Advisor**. Le tableau de bord Advisor s’affiche.
 
@@ -94,7 +88,7 @@ Il se peut que vous possédiez des groupes de ressources ou des abonnements pour
 
 Cette procédure configure la règle d’utilisation moyenne du processeur pour la recommandation en cas de faible utilisation de machines virtuelles.
 
-Advisor surveille l’utilisation de votre machine virtuelle pendant 7 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles sont considérées de faible utilisation si l’utilisation de leur processeur est inférieure ou égale à 5 % et l’utilisation de leur réseau est inférieure ou égale à 2 %, ou si la charge de travail actuelle peut être prise en charge par une taille de machine virtuelle plus petite.
+Advisor surveille l’utilisation de votre machine virtuelle pendant 7 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles sont considérées de faible utilisation si l’utilisation de leur processeur est inférieure ou égale à 5 % et l’utilisation de leur réseau est inférieure ou égale à 2 %, ou si la charge de travail actuelle peut être prise en charge par une taille de machine virtuelle plus petite.
 
 Si vous souhaitez être plus « agressif » dans l’identification des machines virtuelles faiblement utilisées, vous pouvez ajuster la règle d’utilisation moyenne du processeur par abonnement.  La règle d’utilisation du processeur peut être définie sur 5 %, 10 %, 15 % ou 20 %.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: anavin
-ms.openlocfilehash: fcb9cc817128bce9498312d3fb016761b6382634
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 66cbb843369dee103f102c9c743da544a833ccf1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612755"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646385"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Affecter plusieurs adresses IP à une machine virtuelle à l’aide du portail Azure
 
@@ -66,10 +66,10 @@ Procédez comme suit pour ajouter une nouvelle adresse IP privée :
 
 ### <a name="add-a-public-ip-address"></a>Ajouter une adresse IP publique
 
-Vous ajoutez une adresse IP publique en associant une ressource d’adresse IP publique à une configuration IP nouvelle ou existante.
+Une adresse IP publique est ajoutée en associant une ressource d’adresse IP publique à une nouvelle configuration IP ou une configuration IP existante.
 
 > [!NOTE]
-> Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-subscription-service-limits.md#networking-limits).
+> Les adresses IP publiques ont un coût nominal. Pour en savoir plus, lisez la page [Tarification des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses) . Il existe une limite au nombre d’adresses IP publiques qui peuvent être utilisées dans un abonnement. Pour plus d’informations sur les limites, voir [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 > 
 
 ### <a name="create-public-ip"></a>Créer une ressource d’adresse IP publique
@@ -93,7 +93,7 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 
 3. Passez en revue la nouvelle configuration IP. Même si aucune adresse IP privée n’a été explicitement affectée, une adresse de ce type a été automatiquement affectée à la configuration IP, car toutes les configurations IP doivent avoir une adresse IP privée.
 4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP.
-5. Ajoutez l’adresse IP privée dans le système d’exploitation de la machine virtuelle en suivant les étapes relatives à ce système décrites dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) du présent article. N’ajoutez pas l’adresse IP publique au système d’exploitation.
+5. Ajoutez l’adresse IP privée au système d’exploitation de la machine virtuelle en suivant les étapes pour votre système d’exploitation dans la section [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](#os-config) de cet article. N’ajoutez pas l’adresse IP publique au système d’exploitation.
 
 #### <a name="associate-the-public-ip-address-resource-to-an-existing-ip-configuration"></a>Associer la ressource d’adresse IP publique à une configuration IP existante
 
@@ -103,7 +103,7 @@ Une adresse IP publique correspond à un paramètre de configuration d’une re
 4. Dans le panneau **Choisir une adresse IP publique** qui apparaît, sélectionnez une adresse IP publique.
 5. Cliquez sur **Enregistrer**. Les panneaux se ferment. Le cas échéant, vous pouvez créer une adresse IP publique en suivant la procédure de la section [Créer une ressource d’adresse IP publique](#create-public-ip) du présent article.
 3. Passez en revue la nouvelle configuration IP.
-4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP. N’ajoutez pas l’adresse IP publique dans le système d’exploitation.
+4. Vous pouvez cliquer sur **Ajouter** pour ajouter des configurations IP supplémentaires, ou fermer tous les panneaux ouverts pour terminer l’ajout d’adresses IP. N’ajoutez pas l’adresse IP publique au système d’exploitation.
 
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

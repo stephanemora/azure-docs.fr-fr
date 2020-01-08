@@ -8,18 +8,18 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553844"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401597"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans Azure qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
 
-Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
+Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../../azure-resource-manager/templates/template-syntax.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
 
 
 ## <a name="tools"></a>Outils
@@ -33,7 +33,7 @@ Vous pouvez utiliser n’importe quel éditeur de texte pour travailler avec les
 
 
 ## <a name="structure"></a>Structure
-La structure de base d’un fichier solution de gestion est identique à un [modèle Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#template-format) qui se présente comme suit.  Chacune des sections ci-dessous décrit les éléments de niveau supérieur et leur contenu dans une solution.  
+La structure de base d’un fichier solution de gestion est identique à un [modèle Resource Manager](../../azure-resource-manager/templates/template-syntax.md#template-format) qui se présente comme suit.  Chacune des sections ci-dessous décrit les éléments de niveau supérieur et leur contenu dans une solution.  
 
     {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -44,8 +44,8 @@ La structure de base d’un fichier solution de gestion est identique à un [mod
        "outputs": {  }
     }
 
-## <a name="parameters"></a>parameters
-Les [Paramètres](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
+## <a name="parameters"></a>Paramètres
+Les [Paramètres](../../azure-resource-manager/templates/template-syntax.md#parameters) sont des valeurs que l’utilisateur doit indiquer lorsqu’il installe la solution de gestion.  Il existe des paramètres standard compris dans toutes les solutions, et vous pouvez ajouter des paramètres supplémentaires en fonction des besoins spécifiques de votre solution.  La manière dont les utilisateurs fournissent des valeurs de paramètre lors de l’installation de la solution dépend du paramètre lui-même et de la façon dont la solution est installée.
 
 Quand un utilisateur [installe votre solution d’administration](solutions.md#install-a-monitoring-solution) par le biais de la Place de Marché Azure ou des modèles de démarrage rapide Azure, il est invité à sélectionner un [espace de travail Log Analytics et un compte Automation](solutions.md#log-analytics-workspace-and-automation-account).  Ils sont utilisés pour remplir les valeurs de chacun des paramètres standard.  L’utilisateur n’est pas invité à fournir directement des valeurs pour les paramètres standard, mais il est invité à fournir une valeur pour tout paramètre supplémentaire.
 
@@ -65,8 +65,8 @@ Le tableau suivant décrit les attributs d’un paramètre.
 | Attribut | Description |
 |:--- |:--- |
 | type |Type de données pour le paramètre. Le contrôle de saisie affiché pour l’utilisateur dépend du type de données.<br><br>Valeur booléenne : zone de liste déroulante<br>Chaîne : zone de texte<br>Entier : zone de texte<br>securestring : champ de mot de passe<br> |
-| category |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
-| control |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
+| catégorie |Catégorie du paramètre facultative.  Les paramètres de la même catégorie sont regroupés. |
+| contrôle |Fonctionnalité supplémentaire pour les paramètres de type chaîne.<br><br>datetime : le contrôle Datetime est affiché.<br>guid : la valeur Guid est générée automatiquement et le paramètre n’est pas affiché. |
 | description |Description du paramètre facultative.  Affichée dans une bulle d’informations en regard du paramètre. |
 
 ### <a name="standard-parameters"></a>Paramètres standard
@@ -77,7 +77,7 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 >
 >
 
-| Paramètre | type | Description |
+| Paramètre | Type | Description |
 |:--- |:--- |:--- |
 | accountName |string |Nom de compte Azure Automation. |
 | pricingTier |string |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
@@ -125,8 +125,8 @@ Voici la structure des paramètres standards que vous pouvez copier et coller da
 
 Faites référence aux valeurs de paramètre dans d’autres éléments de la solution avec la syntaxe **parameters('nom du paramètre')** .  Par exemple, pour accéder au nom de l’espace de travail, utilisez **parameters('workspaceName')** .
 
-## <a name="variables"></a>variables
-Les [Variables](../../azure-resource-manager/resource-group-authoring-templates.md#variables) sont des valeurs que vous allez utiliser dans le reste de la solution de gestion.  Celles-ci ne sont pas exposées à l’utilisateur qui installe la solution.  Elles sont conçues pour fournir à l’auteur un emplacement unique où il peut gérer les valeurs qui peuvent être utilisées plusieurs fois dans la solution. Vous devez placer toutes les valeurs spécifiques à votre solution dans des variables, contrairement au codage en dur dans l’élément **resources**.  Cela rend le code plus lisible et vous permet de modifier facilement ces valeurs dans des versions ultérieures.
+## <a name="variables"></a>Variables
+Les [Variables](../../azure-resource-manager/templates/template-syntax.md#variables) sont des valeurs que vous allez utiliser dans le reste de la solution de gestion.  Celles-ci ne sont pas exposées à l’utilisateur qui installe la solution.  Elles sont conçues pour fournir à l’auteur un emplacement unique où il peut gérer les valeurs qui peuvent être utilisées plusieurs fois dans la solution. Vous devez placer toutes les valeurs spécifiques à votre solution dans des variables, contrairement au codage en dur dans l’élément **resources**.  Cela rend le code plus lisible et vous permet de modifier facilement ces valeurs dans des versions ultérieures.
 
 Voici un exemple d’élément **variables** avec des paramètres standard utilisés dans les solutions.
 
@@ -155,7 +155,7 @@ Vous pouvez également définir des variables complexes pour plusieurs ensembles
 Dans ce cas, faites référence aux valeurs de variable dans la solution avec la syntaxe **variables('nom de la variable').property**.  Par exemple, pour accéder à la variable SolutionName, utilisez **variables('Solution').Name**.
 
 ## <a name="resources"></a>Ressources
-Les [ressources](../../azure-resource-manager/resource-group-authoring-templates.md#resources) définissent les différentes ressources installées et gérées par votre solution de gestion.  Il s’agit de la partie la plus vaste et la plus complexe du modèle.  Vous pouvez obtenir la structure et une description complète des éléments de ressource dans [Création de modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Différentes ressources que vous définirez généralement sont détaillées dans d’autres articles de cette documentation. 
+Les [ressources](../../azure-resource-manager/templates/template-syntax.md#resources) définissent les différentes ressources installées et gérées par votre solution de gestion.  Il s’agit de la partie la plus vaste et la plus complexe du modèle.  Vous pouvez obtenir la structure et une description complète des éléments de ressource dans [Création de modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md#resources).  Différentes ressources que vous définirez généralement sont détaillées dans d’autres articles de cette documentation. 
 
 
 ### <a name="dependencies"></a>Les dépendances
@@ -202,7 +202,7 @@ Chaque solution nécessite une entrée de ressource dans l’élément **resourc
 ### <a name="dependencies"></a>Les dépendances
 La ressource de la solution doit avoir une [dépendance](../../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 La ressource de solution possède les propriétés indiquées dans le tableau suivant.  Cela inclut les ressources référencées et contenues dans la solution qui définit la manière dont la ressource est gérée après l’installation de la solution.  Chaque ressource de la solution doit être répertoriée dans la propriété **referencedResources** ou **containedResources**.
 
 | Propriété | Description |
@@ -213,7 +213,7 @@ La ressource de solution possède les propriétés indiquées dans le tableau su
 
 L’exemple ci-dessus est valable pour une solution avec un runbook, une planification et une vue.  La planification et le runbook sont *référencés* dans l’élément **properties** afin de ne pas être supprimés le cas échéant en même temps que la solution.  La vue est *contenue* afin qu’elle soit supprimée en même temps que la solution.
 
-### <a name="plan"></a>Planification
+### <a name="plan"></a>Plan
 L’entité **plan** de la ressource de solution possède les propriétés indiquées dans le tableau suivant.
 
 | Propriété | Description |
@@ -229,5 +229,5 @@ L’entité **plan** de la ressource de solution possède les propriétés indiq
 * [Ajoutez des alertes et des recherches enregistrées](solutions-resources-searches-alerts.md) à votre solution de gestion.
 * [Ajoutez des vues](solutions-resources-views.md) à votre solution de gestion.
 * [Ajoutez des runbooks et d’autres ressources Automation](solutions-resources-automation.md) à votre solution de gestion.
-* Découvrez comment [créer des modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Découvrez comment [créer des modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 * Dans [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates), recherchez des exemples de modèles Resource Manager.

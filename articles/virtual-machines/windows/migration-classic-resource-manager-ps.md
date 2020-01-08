@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: f87e7795416431305141de24497e9760eb03641e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 4ee5f06a7256a2092cfed923cf40c6b74254c4a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484366"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647558"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>Migration de ressources IaaS d’un environnement classique vers Azure Resource Manager à l’aide de PowerShell
 Ces étapes vous montrent comment utiliser les commandes Azure PowerShell pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager.
@@ -37,7 +37,7 @@ Voici un organigramme permettant d’identifier l’ordre dans lequel les étape
 
  
 
-## <a name="step-1-plan-for-migration"></a>Étape 1 : Planifier la migration
+## <a name="step-1-plan-for-migration"></a>Étape 1 : Planifier la migration
 Voici quelques-unes des meilleures pratiques recommandées pour déterminer si vous devez migrer des ressources IaaS d’un environnement classique vers Resource Manager :
 
 * Lisez les [Fonctionnalités et configurations prises en charge et non prises en charge](migration-classic-resource-manager-overview.md). Si vous avez des machines virtuelles qui utilisent des configurations ou fonctionnalités non prises en charge, attendez que leur prise en charge soit annoncée. Vous pouvez également supprimer cette fonctionnalité ou modifier cette configuration pour permettre la migration si cela répond à vos besoins.
@@ -48,7 +48,7 @@ Voici quelques-unes des meilleures pratiques recommandées pour déterminer si v
 >
 > Les passerelles Azure ExpressRoute se connectant à des circuits ExpressRoute dans un autre abonnement ne peuvent pas être migrées automatiquement. Dans ce cas, supprimez la passerelle ExpressRoute, migrez le réseau virtuel et recréez la passerelle. Pour plus d’informations, consultez [Migrer des circuits ExpressRoute et les réseaux virtuels associés du modèle de déploiement classique au modèle de déploiement Resource Manager](../../expressroute/expressroute-migration-classic-resource-manager.md).
 
-## <a name="step-2-install-the-latest-version-of-powershell"></a>Étape 2 : Installer la version la plus récente de PowerShell
+## <a name="step-2-install-the-latest-version-of-powershell"></a>Étape 2 : Installer la version la plus récente de PowerShell
 Il existe deux options principales pour l’installation d’Azure PowerShell : [PowerShell Gallery](https://www.powershellgallery.com/profiles/azure-sdk/) ou [Web Platform Installer (WebPI)](https://aka.ms/webpi-azps). WebPI reçoit des mises à jour mensuelles. PowerShell Gallery reçoit des mises à jour en continu. Cet article est basé sur Azure PowerShell version 2.1.0.
 
 Pour connaître la procédure d’installation, consultez l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
@@ -58,7 +58,7 @@ Pour connaître la procédure d’installation, consultez l’article [Installat
 ## <a name="step-3-ensure-that-youre-an-administrator-for-the-subscription"></a>Étape 3 : Vérifier que vous êtes administrateur de l’abonnement
 Pour effectuer cette migration, vous devez être ajouté en tant que coadministrateur de l’abonnement dans le [Portail Azure](https://portal.azure.com).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu **Hub**, sélectionnez **Abonnement**. Si vous ne le voyez pas, sélectionnez **Tous les services**.
 3. Recherchez l’entrée d’abonnement appropriée, puis examinez le champ **MON RÔLE**. Pour un coadministrateur, la valeur doit être _Administrateur de compte_.
 
@@ -125,7 +125,7 @@ Définissez votre abonnement Azure pour la session active. Cet exemple définit 
 <br>
 
 ## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>Étape 5 : Avoir suffisamment de processeurs virtuels pour machine virtuelle Resource Manager
-Vérifiez que vous avez un nombre suffisant de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel. Vous pouvez utiliser la commande PowerShell suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
+Vérifiez que vous avez un nombre suffisant de processeurs virtuels de machines virtuelles Azure Resource Manager dans la région Azure de votre déploiement ou réseau virtuel actuel. Vous pouvez utiliser la commande PowerShell suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 Cet exemple vérifie la disponibilité dans la région **USA Ouest**. Remplacez l’exemple de nom de région par le vôtre.
 
@@ -159,7 +159,7 @@ Obtenez le nom du déploiement du service cloud. Dans cet exemple, le nom du ser
 
 Préparez les machines virtuelles dans le service cloud pour la migration. Vous disposez de deux options.
 
-* **Option 1 : Migrer les machines virtuelles vers un réseau virtuel créé à partir d’une plateforme.**
+* **Option n°1 : Migrer les machines virtuelles vers un réseau virtuel créé à partir d’une plateforme.**
 
     La première étape consiste à vérifier si vous pouvez migrer le service cloud à l’aide des commandes suivantes :
 
@@ -175,7 +175,7 @@ Préparez les machines virtuelles dans le service cloud pour la migration. Vous 
     Move-AzureService -Prepare -ServiceName $serviceName `
         -DeploymentName $deploymentName -CreateNewVirtualNetwork
     ```
-* **Option 2 : Migrer vers un réseau virtuel existant dans le modèle de déploiement Resource Manager.**
+* **Option n°2 : Migrer vers un réseau virtuel existant dans le modèle de déploiement Resource Manager.**
 
     Cet exemple définit le nom de groupe de ressources sur **myResourceGroup**, le nom de réseau virtuel sur **myVirtualNetwork** et le nom du sous-réseau sur **mySubNet**. Remplacez les noms dans l’exemple par les noms de vos propres ressources.
 

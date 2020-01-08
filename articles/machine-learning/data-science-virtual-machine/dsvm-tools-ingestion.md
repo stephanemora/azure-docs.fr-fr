@@ -6,16 +6,16 @@ keywords: outils de science des données, machine virtuelle science des données
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: gvashishtha
-ms.author: gopalv
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 72a881a2ab508caa2274f3b9299157921cb8ceff
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 12/12/2019
+ms.openlocfilehash: d86858f8d7f09628457b718ca3c481934d720081
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330691"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612627"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
@@ -34,7 +34,7 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 | Liens vers des exemples      | [Utilisation d’AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Outils connexes sur la machine virtuelle DSVM      | AzCopy, Azure CLI     |
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 |    |           |
 | ------------- | ------------- |
@@ -100,4 +100,4 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 | Utilisations classiques      | Lecture et écriture dans des objets blob dans un conteneur.      |
 |  Comment l’utiliser et l’exécuter ?    |   Exécutez _blobfuse_ sur un terminal.    |
 | Liens vers des exemples      | [blobfuse sur GitHub](https://github.com/Azure/azure-storage-fuse)      |
-| Outils connexes sur la machine virtuelle DSVM      | D’Azure CLI      |
+| Outils connexes sur la machine virtuelle DSVM      | Azure CLI      |

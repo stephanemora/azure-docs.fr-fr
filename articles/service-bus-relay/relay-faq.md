@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 066ac1080f7ea378efe1665e7ebc70e57118191c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422962"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459107"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -106,7 +106,7 @@ Pour déplacer un espace de noms d’un abonnement Azure vers un autre, vous pou
 
 #### <a name="azure-portal"></a>Portail Azure
 
-Pour utiliser le portail Azure afin de migrer des espaces de noms Azure Relay d’un abonnement vers un autre, voir [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
+Pour utiliser le portail Azure afin de migrer des espaces de noms Azure Relay d’un abonnement vers un autre, voir [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -123,7 +123,7 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quelles sont les exceptions générées par les API Azure Relay et les actions suggérées ?
 Pour obtenir une description des exceptions courantes et des actions suggérées, consultez [Exceptions Relay][Relay exceptions].
 

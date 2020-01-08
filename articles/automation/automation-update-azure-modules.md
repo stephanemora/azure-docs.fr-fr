@@ -2,19 +2,15 @@
 title: Mettre à jour des modules Azure dans Azure Automation
 description: Cet article décrit comment vous pouvez désormais mettre à jour les modules Azure PowerShell courants fournis par défaut dans Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 76514e620f044b78b992db2b88733e69dbabf135
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3d7eaae452f307b350c111452b819576cf7f17e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420484"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Guide de mise à jour des modules Azure PowerShell dans Azure Automation
 

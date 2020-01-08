@@ -1,21 +1,17 @@
 ---
 title: Recevoir des alertes de journal d’activité sur les notifications de service Azure
 description: Soyez informé par SMS, e-mail ou webhook en cas de service Azure.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 40ffe0b377a5cbb21f07c479097958d7c15a2879
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: bc8e935b9d44cb5236c7a1ef38da24e12b877e14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383160"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464026"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Créer des alertes de journal d’activité sur les notifications de service
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article vous indique comment configurer des alertes de journal d’activité pour les notifications sur l’intégrité du service à l’aide du Portail Azure.  
 
@@ -76,11 +72,11 @@ Pour plus d’informations sur le mode de configuration des alertes de notificat
 
 1. Définissez ensuite une liste de destinataires en indiquant les éléments suivants :
 
-    a. **Nom** : entrez le nom, l’alias ou l’identificateur du destinataire.
+    a. **Name** : entrez le nom, l’alias ou l’identificateur du destinataire.
 
-    b. **Type d’action** : sélectionnez SMS, message électronique, Webhook, application Azure et plus encore.
+    b. **Type d’action** : sélectionnez SMS, message électronique, Webhook, application Azure et plus encore.
 
-    c. **Détails** : selon le type d’action choisi, indiquez un numéro de téléphone, une adresse e-mail ou une URI Webhook etc.
+    c. **Détails** : selon le type d’action choisi, indiquez un numéro de téléphone, une adresse e-mail ou une URI Webhook etc.
 
 1. Sélectionnez **OK** pour créer le groupe d’actions, puis **Créer une règle d’alerte** pour terminer votre alerte.
 
@@ -207,5 +203,5 @@ Une fois l’alerte créée, elle apparaît dans la section **Alertes** du panne
 - En savoir plus sur les [notifications sur l’intégrité du service](service-notifications.md).
 - En savoir plus sur la [limitation du débit des notifications](../azure-monitor/platform/alerts-rate-limiting.md).
 - Consultez le [schéma webhook des alertes de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Obtenez une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/platform/alerts-overview.md) et découvrez comment recevoir des alertes.
+- Obtenir une [vue d’ensemble des alertes du journal d’activité](../azure-monitor/platform/alerts-overview.md) et découvrir comment recevoir des alertes.
 - En savoir plus sur les [groupes d’actions](../azure-monitor/platform/action-groups.md).

@@ -4,15 +4,15 @@ description: Configuration de bout en bout de Diagnostics Azure avec Event Hubs,
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2b84f752467d630142f1920aac08bf5321b13acb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363725"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
 Diagnostics Azure propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Stockage Azure. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -20,7 +20,7 @@ Diagnostics Azure propose des moyens flexibles de collecter des mesures et des j
 Les types de données pris en charge sont les suivants :
 
 * Suivi d’événements pour les événements Windows (ETW)
-* Compteurs de performances
+* Compteurs de performance
 * Journaux des événements Windows
 * Journaux d’activité d’application
 * Journaux d’activité d’infrastructure de diagnostics Azure
@@ -32,7 +32,7 @@ Cet article vous montre la procédure complète de configuration de Diagnostics 
 * Comment afficher les données de flux Event Hubs
 * Comment résoudre les problèmes de connexion  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 La réception par Event Hubs de données provenant de Diagnostics Azure est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
 * Extension Diagnostics Azure 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )

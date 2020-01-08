@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 55bcefc19723dc275cc8b421d5620c5dfe2c96e7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390021"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614954"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Check-list des performances et de la scalabilité pour le stockage File d’attente
 
@@ -27,12 +27,12 @@ Cet article fournit la liste des pratiques validées concernant les performances
 
 | Terminé | Category | Considérations relatives à la conception |
 | --- | --- | --- |
-| &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application de sorte qu’elle n’ait pas besoin d’utiliser plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application pour ne pas qu’elle utilise plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Objectifs de scalabilité |[Cherchez-vous à ne pas vous approcher des limites de capacité et de transactions ?](#capacity-and-transaction-targets) |
 | &nbsp; |Mise en réseau |[Les appareils côté client disposent-ils d’une bande passante suffisamment large et d’une latence suffisamment faible pour parvenir aux performances nécessaires ?](#throughput) |
 | &nbsp; |Mise en réseau |[La qualité du lien réseau côté client est-elle suffisamment élevée ?](#link-quality) |
 | &nbsp; |Mise en réseau |[L’application cliente se trouve-t-elle dans la même région que le compte de stockage ?](#location) |
-| &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAS) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
+| &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAP) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
 | &nbsp; |Configuration .NET |[Utilisez-vous .NET Core 2.1 ou ultérieur pour obtenir des performances optimales ?](#use-net-core) |
 | &nbsp; |Configuration .NET |[Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#increase-default-connection-limit) |
 | &nbsp; |Configuration .NET |[Pour les applications .NET, avez-vous configuré .NET pour qu’il utilise un nombre suffisant de threads ?](#increase-minimum-number-of-threads) |
@@ -51,7 +51,7 @@ Cet article fournit la liste des pratiques validées concernant les performances
 
 Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
 
-Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#azure-queue-storage-scale-targets).
+Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Nombre maximal de comptes de stockage
 
@@ -90,7 +90,7 @@ Dans un environnement distribué, le fait de placer le client à proximité du s
 
 Si des applications clientes accèdent au stockage Azure sans être hébergées dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche de ces appareils peut réduire la latence. Si vos clients sont distribués à grande échelle (par exemple, certains en Amérique du Nord et d’autres en Europe), il est conseillé d’utiliser un compte de stockage pour chaque région. Cette méthode est plus facile à implémenter si les données stockées par l’application sont propres à certains utilisateurs, et elle ne nécessite pas de réplication des données entre différents comptes de stockage.
 
-## <a name="sas-and-cors"></a>SAS et CORS
+## <a name="sas-and-cors"></a>SAP et CORS
 
 Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui serve de proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
 
@@ -112,8 +112,8 @@ Développez vos applications du stockage Azure avec .NET Core 2.1 ou ultérieur
 
 Pour plus d’informations sur les améliorations des performances dans .NET Core, consultez les billets de blog suivants :
 
-- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
 ### <a name="increase-default-connection-limit"></a>Augmenter la limite de connexions par défaut
 

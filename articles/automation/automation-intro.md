@@ -2,20 +2,17 @@
 title: Vue d’ensemble d’Azure Automation
 description: Découvrez comment utiliser Azure Automation permet pour automatiser le cycle de vie de l’infrastructure et des applications.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: eamonoreilly
-ms.author: eamono
 keywords: azure automation, DSC, powershell, configuration de l’état souhaité, gestion des mises à jour, suivi des modifications, inventaire, runbooks, python, graphique
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434051"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421946"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 

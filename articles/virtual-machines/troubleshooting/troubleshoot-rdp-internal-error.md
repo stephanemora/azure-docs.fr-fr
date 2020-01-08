@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: dac941b621c8df6b5c242bb5d0e0d5cdd1f864a9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9eb7a80599966345d90cc4a079b586e743ca37d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451219"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Erreur interne en cas de connexion à une machine virtuelle Azure avec le Bureau à distance
 
 Cet article décrit une erreur qui peut se produire lors d’une tentative de connexion à une machine virtuelle dans Microsoft Azure.
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 
@@ -86,7 +86,7 @@ Connectez-vous à la [console série et ouvrez une instance de PowerShell](./ser
 
     3. [Mettez à jour le groupe de sécurité réseau du nouveau port](../../virtual-network/security-overview.md) dans le port RDP du Portail Azure.
 
-#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Étape 2 : Définir les autorisations nécessaires sur le certificat auto-signé RDP
+#### <a name="step-2-set-correct-permissions-on-the-rdp-self-signed-certificate"></a>Étape 2 : Définir les autorisations nécessaires sur le certificat auto-signé RDP
 
 1.  Dans une instance de PowerShell, exécutez les commandes suivantes une par une pour renouveler le certificat auto-signé RDP :
 
@@ -135,7 +135,7 @@ Connectez-vous à la [console série et ouvrez une instance de PowerShell](./ser
 
 4. Redémarrez la machine virtuelle, puis essayez de lancer une connexion Bureau à distance à la machine virtuelle. Si l’erreur persiste, passez à l’étape suivante.
 
-Étape 3 : Activer toutes les versions prises en charge de TLS
+#### <a name="step-3-enable-all-supported-tls-versions"></a>Étape 3 : Activer toutes les versions prises en charge de TLS
 
 Le client RDP utilise par défaut le protocole TLS 1.0. Toutefois, il peut être remplacé par TLS 1.1, qui est devenu le nouveau standard. Si TLS 1.1 est désactivé sur la machine virtuelle, la connexion échoue.
 1.  Dans une instance CMD, activez le protocole TLS :
@@ -160,7 +160,7 @@ Le client RDP utilise par défaut le protocole TLS 1.0. Toutefois, il peut être
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
 
 1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
-2. Une fois le disque de système d’exploitation attaché à une machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Disk Management. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
+2. Une fois le disque de système d’exploitation attaché à une machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Disk Management. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
 3. Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
 #### <a name="enable-dump-log-and-serial-console"></a>Activer le journal de vidage et la console série
@@ -168,7 +168,7 @@ Le client RDP utilise par défaut le protocole TLS 1.0. Toutefois, il peut être
 Pour activer le journal de vidage et la console série, exécutez le script suivant.
 
 1. Ouvrez une session Invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**).
-2. Exécutez le script qui suit :
+2. Exécutez le script suivant :
 
     Dans ce script, nous partons du principe que la lettre de lecteur affectée au disque de système d’exploitation attaché est F. Remplacez-la par la valeur correspondant à votre machine virtuelle.
 

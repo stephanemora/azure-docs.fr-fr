@@ -1,24 +1,18 @@
 ---
-title: S’intégrer avec des identités managées Azure | Microsoft Docs
+title: S’intégrer avec des identités managées Azure
 description: Découvrez comment utiliser des identités managées Azure pour vous authentifier auprès d’Azure App Configuration et y accéder
 services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: balans
-editor: ''
-ms.assetid: ''
+ms.author: yegu
 ms.service: azure-app-configuration
-ms.workload: tbd
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3af13a3009886c88f1a30eab2e6cc9f498ad6e45
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185139"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665251"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Intégrer avec des identités managées Azure
 
@@ -32,14 +26,14 @@ De plus, ce tutoriel vous montre comment utiliser l’identité managée conjoin
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce tutoriel. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accorder à une identité managée l’accès à App Configuration.
 > * Configurer votre application pour utiliser une identité managée lors de la connexion à App Configuration.
 > * Configurez éventuellement votre application pour utiliser une identité gérée quand vous vous connectez à Key Vault par le biais d’une référence Key Vault d’App Configuration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin de :
 
@@ -223,7 +217,7 @@ Les fournisseurs App Configuration pour .NET Framework et Java Spring disposent
     </appSettings>
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

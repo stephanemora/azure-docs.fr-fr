@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415052"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autoriser les utilisateurs non propriétaires à déployer Avere vFXT
 
@@ -19,11 +19,11 @@ Ces instructions sont une solution de contournement qui permet à un utilisateur
 
 (La méthode recommandée pour déployer le système Avere vFXT est d’octroyer les privilèges de propriétaire à l’utilisateur chargé de la création du système, comme expliqué dans [Étapes de préparation à la création d’un système Avere vFXT](avere-vfxt-prereqs.md).)  
 
-La solution de contournement consiste à créer un rôle d’accès supplémentaire qui donne aux utilisateurs les autorisations nécessaires pour installer le cluster. Le rôle doit être créé par un propriétaire d’abonnement, et un propriétaire doit assigner le rôle aux utilisateurs appropriés. 
+La solution de contournement consiste à créer un rôle d’accès supplémentaire qui donne aux utilisateurs les autorisations nécessaires pour installer le cluster. Le rôle doit être créé par un propriétaire d’abonnement, et un propriétaire doit assigner le rôle aux utilisateurs appropriés.
 
-Le propriétaire d’abonnement doit également [accepter les conditions d’utilisation](avere-vfxt-prereqs.md) de l’image de la Place de marché Avere vFXT. 
+Le propriétaire d’abonnement doit également [accepter les conditions d’utilisation](avere-vfxt-prereqs.md) de l’image de la Place de marché Avere vFXT.
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Toutes ces étapes doivent être effectuées par un utilisateur qui a les privilèges de propriétaire sur l’abonnement utilisé pour le cluster.
 
 1. Copiez ces lignes et enregistrez-les dans un fichier (par exemple, `averecreatecluster.json`). Spécifiez votre ID d’abonnement dans l’instruction `AssignableScopes`.
@@ -49,7 +49,7 @@ Le propriétaire d’abonnement doit également [accepter les conditions d’uti
            "Microsoft.Network/routeTables/routes/delete",
            "Microsoft.Network/virtualNetworks/subnets/join/action",
            "Microsoft.Network/virtualNetworks/subnets/read",
-   
+
            "Microsoft.Resources/subscriptions/resourceGroups/read",
            "Microsoft.Resources/subscriptions/resourceGroups/resources/read",
            "Microsoft.Storage/*/read",
@@ -62,7 +62,8 @@ Le propriétaire d’abonnement doit également [accepter les conditions d’uti
 
    `az role definition create --role-definition <PATH_TO_FILE>`
 
-    Exemple :
+    Exemple :
+
     ```azurecli
     az role definition create --role-definition ./averecreatecluster.json
     ```
@@ -71,7 +72,7 @@ Le propriétaire d’abonnement doit également [accepter les conditions d’uti
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Une fois cette procédure terminée, tout utilisateur qui reçoit ce rôle a les autorisations suivantes sur l’abonnement : 
+Une fois cette procédure terminée, tout utilisateur qui reçoit ce rôle a les autorisations suivantes sur l’abonnement :
 
 * Créer et configurer l’infrastructure réseau
 * Créer le contrôleur de cluster

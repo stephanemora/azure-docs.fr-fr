@@ -1,24 +1,14 @@
 ---
 title: Voir Live Data (préversion) avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit la vue en temps réel des journaux, métriques de pod et événements Kubernetes, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 9c497c73d42e1fb8851c5293010098d843297250
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18ae091a32d0256288d27ad1439ffc7be26db5f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404755"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Comment voir les journaux, métriques de pod et événements Kubernetes en temps réel
 
@@ -52,13 +42,13 @@ Pour suspendre le défilement automatique, et contrôler le comportement du vole
 >Nous recommandons uniquement de suspendre ou d’interrompre le défilement automatique pendant une brève période de temps, lors de la résolution d’un problème. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster. 
 
 >[!IMPORTANT]
->Aucune donnée n’est stockée de façon permanente pendant le fonctionnement de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data (préversion) interroge dans des limites raisonnables de l’utilisation de la mémoire. 
+>Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de la session sont supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de cinq minutes de la fonctionnalité Métriques ; toutes les mesures datant de plus de cinq minutes sont également supprimées. La mémoire tampon de Live Data (préversion) interroge dans des limites raisonnables de l’utilisation de la mémoire. 
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 
 Vous pouvez voir les données de journal en temps réel, à mesure qu’elles sont générées par le moteur de conteneur depuis la vue **Nœuds**, **Contrôleurs** et **Conteneurs**. Pour voir les données de journal, effectuez les étapes suivantes.
 
-1. Dans le portail Azure, accédez au groupe de ressources de cluster AKS et sélectionnez votre ressource AKS.
+1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
 2. Dans le tableau de bord du cluster AKS, sous **Supervision** à gauche, choisissez **Insights**. 
 
@@ -69,17 +59,17 @@ Vous pouvez voir les données de journal en temps réel, à mesure qu’elles so
     >[!NOTE]
     >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).  
 
-Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances, dans laquelle vous pouvez voir des données de journal en flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données peuvent être récupérées et que leur envoi en streaming dans votre console commence.  
+Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances, dans laquelle vous pouvez voir des données de journal en flux continu. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence.  
 
 ![Option Voir les données du volet des propriétés du nœud](./media/container-insights-livedata-overview/node-properties-pane.png)  
 
 Le titre du volet indique le nom du pod avec lequel le conteneur est groupé.
 
-## <a name="view-events"></a>Visualiser les événements
+## <a name="view-events"></a>Afficher les événements
 
 Vous pouvez voir les données d’événement en temps réel, à mesure qu’elles sont générées par le moteur de conteneur depuis la vue **Nœuds**, **Contrôleurs**, **Conteneurs** et **Déploiements (préversion)** , lorsqu’un conteneur, pod, nœud, jeu de réplicas, ensemble de démons, travail, tâche Cron ou déploiement est sélectionné. Pour voir les événements, effectuez les étapes suivantes.
 
-1. Dans le portail Azure, accédez au groupe de ressources de cluster AKS et sélectionnez votre ressource AKS.
+1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
 2. Dans le tableau de bord du cluster AKS, sous **Supervision** à gauche, choisissez **Insights**. 
 
@@ -90,7 +80,7 @@ Vous pouvez voir les données d’événement en temps réel, à mesure qu’ell
     >[!NOTE]
     >Lorsque vous consultez les données depuis votre espace de travail Log Analytics en sélectionnant l’option **Afficher dans Analytics** du volet des propriétés, les résultats de la recherche dans les journaux peuvent éventuellement afficher des **Nœuds**, **Ensembles de démons**, **Jeux de réplicas**, **Travaux**, **Tâches Cron**, **Pods** et **Conteneurs** qui n’existent peut-être plus. Une tentative de recherche dans les journaux d’un conteneur qui n’est pas disponible dans `kubectl` échouera également ici. Pour en savoir plus sur la consultation des journaux, événements et métriques historiques, consultez la fonctionnalité [Voir dans Analytics](container-insights-log-search.md#search-logs-to-analyze-data).  
 
-Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données peuvent être récupérées et que leur envoi en streaming dans votre console commence. 
+Une fois l’authentification réussie, le volet de la console Live Data (préversion) apparaît sous la grille des données de performances. Si l’indicateur d’état de récupération affiche une coche verte tout à droite du volet, cela signifie que des données sont récupérables et que leur envoi en streaming vers votre console commence. 
     
 Si l’objet que vous avez sélectionné était un conteneur, sélectionnez l’option **Événements** dans le volet. Si vous avez sélectionné un nœud, un pod ou un contrôleur, l’affichage des événements est automatiquement sélectionné. 
 
@@ -106,7 +96,7 @@ Lors de l’affichage d’événements, vous pouvez également limiter les résu
 
 Vous pouvez voir les données de métrique en temps réel, à mesure qu’elles sont générées par le moteur de conteneur depuis la vue **Nœuds** ou **Contrôleurs**, uniquement quand un **Pod** est sélectionné. Pour voir les métriques, effectuez les étapes suivantes.
 
-1. Dans le portail Azure, accédez au groupe de ressources de cluster AKS et sélectionnez votre ressource AKS.
+1. Dans le portail Azure, accédez au groupe de ressources du cluster AKS et sélectionnez votre ressource AKS.
 
 2. Dans le tableau de bord du cluster AKS, sous **Supervision** à gauche, choisissez **Insights**. 
 

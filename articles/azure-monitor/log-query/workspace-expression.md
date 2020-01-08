@@ -1,18 +1,17 @@
 ---
 title: Expression workspace() dans la requête de journal Azure Monitor | Microsoft Docs
 description: L’expression workspace est utilisée dans une requête de journal Azure Monitor dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 255888acf5da6149b6a964b23ed038b99715481c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932852"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364949"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expression workspace() dans la requête de journal Azure Monitor
 
@@ -27,7 +26,7 @@ L’expression `workspace` est utilisée dans une requête Azure Monitor dans le
 
 - *Identificateur* : permet d’identifier l’espace de travail à l’aide de l’un des formats du tableau ci-dessous.
 
-| Identificateur | Description | Exemples
+| Identificateur | Description | Exemple
 |:---|:---|:---|
 | Nom de la ressource | Nom lisible de l’espace de travail (également appelé « nom du composant ») | workspace("contosoretail") |
 | Nom qualifié | Nom complet de l’espace de travail au format : « nom_abonnement/groupe_ressources/nom_composant » | workspace('Contoso/ContosoResource/ContosoWorkspace') |

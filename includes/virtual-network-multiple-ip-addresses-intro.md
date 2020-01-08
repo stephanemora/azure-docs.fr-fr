@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c63160d7514dccb0d2a9c2879db6d3fd614e1a96
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176987"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646384"
 ---
 > [!div class="op_single_selector"]
-> * [Portail Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Azure portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [Interface de ligne de commande Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
+> * [Azure CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 >
 
 Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. Une ou plusieurs adresses IP publiques ou privées, statiques ou dynamiques, peuvent être affectées à chaque carte réseau. L’affectation de plusieurs adresses IP à une machine virtuelle permet :
@@ -29,4 +29,4 @@ Une ou plusieurs cartes réseau sont attachées à une machine virtuelle Azure. 
 
 Une ou plusieurs configurations IP sont associées à chaque carte réseau attachée à une machine virtuelle. Une adresse IP privée statique ou dynamique est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Une adresse IP publique statique ou dynamique est affectée à une ressource d’adresse IP publique. Pour plus d’informations sur les adresses IP dans Azure, consultez l’article [Adresses IP dans Azure](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md). 
 
-Le nombre d’adresses IP privées pouvant être affectées à une carte réseau est limité. Le nombre d’adresses IP publiques pouvant être utilisées dans un abonnement Azure est également limité. Consultez l’article sur les [limites Azure](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Le nombre d’adresses IP privées pouvant être affectées à une carte réseau est limité. Le nombre d’adresses IP publiques pouvant être utilisées dans un abonnement Azure est également limité. Consultez l’article sur les [limites Azure](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).

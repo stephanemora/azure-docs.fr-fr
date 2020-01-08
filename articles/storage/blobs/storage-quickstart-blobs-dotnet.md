@@ -7,19 +7,19 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 8a4ebf6c2ddf3e361e306ae37ad8dabb052e0efc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f788f7827f778029a0f34ec1f7e73b174738e1f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351302"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour .NET
 
 Bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 pour .NET. Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
 
 > [!NOTE]
-> Pour commencer à utiliser la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET](storage-quickstart-blobs-dotnet-legacy.md).
+> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour .NET](storage-quickstart-blobs-dotnet-legacy.md).
 
 Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin de :
 
@@ -29,11 +29,11 @@ Utilisez la bibliothèque cliente Stockage Blob Azure v12 pour .NET afin de :
 * Télécharger l’objet blob sur votre ordinateur local
 * Supprimer un conteneur
 
-[Documentation de référence sur l’API](/dotnet/api/azure.storage.blobs) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[Documentation de référence sur l’API](/dotnet/api/azure.storage.blobs) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -59,7 +59,7 @@ Créez une application .NET Core nommée *BlobQuickstartV12*.
    cd BlobQuickstartV12
    ```
 
-1. Dans le répertoire *BlobQuickstartV12*, créez un autre répertoire appelé *data*. C’est là que les fichiers de données d’objets Blob sont créés et stockés.
+1. Dans le répertoire *BlobQuickstartV12*, créez un autre répertoire appelé *data*. C’est là que les fichiers de données blob seront créés et stockés.
 
     ```console
     mkdir data
@@ -103,7 +103,7 @@ namespace BlobQuickstartV12
 }
 ```
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -119,9 +119,9 @@ Le diagramme suivant montre la relation entre ces ressources.
 
 Utilisez les classes .NET suivantes pour interagir avec ces ressources :
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) : La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs d’objets Blob.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs Stockage Azure et leurs objets blob.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) : La classe `BlobClient` vous permet de manipuler des objets Blob de stockage Azure.
+* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): La classe `BlobServiceClient` vous permet de manipuler les ressources de stockage Azure et les conteneurs blob.
+* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) : La classe `BlobContainerClient` vous permet de manipuler des conteneurs de stockage Azure et leurs blobs.
+* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) : La classe `BlobClient` vous permet de manipuler des blobs de stockage Azure.
 * [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo) : La classe `BlobDownloadInfo` représente les propriétés et le contenu renvoyés par le téléchargement d’un objet Blob.
 
 ## <a name="code-examples"></a>Exemples de code
@@ -146,11 +146,11 @@ Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
 // environment variable is created after the application is launched in a
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string connectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 ```
 
 ### <a name="create-a-container"></a>Créez un conteneur.
@@ -179,7 +179,7 @@ BlobContainerClient containerClient = await blobServiceClient.CreateBlobContaine
 
 L’extrait de code suivant :
 
-1. Crée un fichier texte dans le répertoire local *data*.
+1. Crée un fichier texte dans le répertoire *data* local.
 1. Obtient une référence à un objet [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) en appelant la méthode [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) sur le conteneur à partir de la section [Créer un conteneur](#create-a-container).
 1. Charge le fichier texte local dans l’objet Blob en appelant la méthode [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
@@ -279,7 +279,7 @@ dotnet build
 dotnet run
 ```
 
-Le résultat de l’application ressemble à l’exemple suivant :
+La sortie de l’application ressemble à l’exemple suivant :
 
 ```output
 Azure Blob storage v12 - .NET quickstart sample
@@ -307,7 +307,7 @@ Une fois les fichiers vérifiés, appuyez sur **Entrée** pour supprimer les fic
 
 Dans ce démarrage rapide, vous avez appris à charger, télécharger et répertorier des objets blob avec .NET.
 
-Pour voir des exemples d’applications de stockage d’objets Blob, passez à :
+Pour afficher des exemples d’applications de stockage blob, passez à :
 
 > [!div class="nextstepaction"]
 > [Exemples .NET du kit de développement logiciel (SDK) du stockage d’objets Blob Azure v12](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)

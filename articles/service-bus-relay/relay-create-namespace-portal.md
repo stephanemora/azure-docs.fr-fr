@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: a7bb26cdfec4042a1963f929f92e5505045124a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2f15008149de00ba232824280c69bcf4da978f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459267"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Créer un espace de noms Relay à l’aide du Portail Azure
 
 Un espace de noms est un conteneur d’étendue pour tous les composants Azure Relay. Plusieurs Relays peuvent résider dans un seul espace de noms, et les espaces de noms servent souvent de conteneurs d’applications. Actuellement, deux méthodes permettent de créer un espace de noms Relay :
 
 1. via le portail Azure (cet article) ;
-2. via les modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+2. via les modèles [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Créer un espace de noms dans le Portail Azure
 

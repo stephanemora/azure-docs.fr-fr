@@ -1,19 +1,14 @@
 ---
-title: Améliorer la disponibilité de votre application avec Azure Advisor | Microsoft Docs
+title: Améliorer la disponibilité de votre application avec Azure Advisor
 description: Utilisez le conseiller Azure pour améliorer la haute disponibilité de vos déploiements Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.author: sagupt
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: dd1b898adf4c4cdff45e05427757d90d5f80bf25
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443111"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Améliorer la disponibilité de votre application avec Azure Advisor
 
@@ -107,7 +102,7 @@ Les machines virtuelles pour lesquelles la réplication n’est pas activée ver
 
 Pour plus d’informations sur les recommandations d’Advisor, consultez :
 * [Présentation du conseiller Azure](advisor-overview.md)
-* [Prise en main du conseiller](advisor-get-started.md)
+* [Prise en main d’Advisor](advisor-get-started.md)
 * [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)

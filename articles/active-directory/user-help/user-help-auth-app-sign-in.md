@@ -12,16 +12,16 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4b98fd1a3b135a586d2c2d16d7cdeda8faf545d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028982"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681206"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Vous connecter à vos comptes à l’aide de l’application Microsoft Authenticator
 
-L’application Microsoft Authenticator vous aide à vous connecter à vos comptes si vous utilisez la vérification en deux étapes. La vérification en deux étapes vous permet d’accéder à vos comptes de façon plus sûre, en particulier quand vous consultez des informations sensibles. Les mots de passe pouvant être oubliés, volés ou compromis, la vérification à deux facteurs est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion.
+L’application Microsoft Authenticator vous aide à vous connecter à vos comptes si vous utilisez la vérification à deux facteurs. La vérification en deux étapes vous permet d’accéder à vos comptes de façon plus sûre, en particulier quand vous consultez des informations sensibles. Les mots de passe pouvant être oubliés, volés ou compromis, la vérification à deux facteurs est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion.
 
 Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs manières, notamment :
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
   >[!Important]
   >Cette méthode de connexion par téléphone fonctionne uniquement avec vos comptes Microsoft professionnels, scolaires et personnels. Vos comptes non-Microsoft vous obligent à utiliser le processus de vérification en deux étapes standard.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de pouvoir utiliser l’application Microsoft Authenticator, vous devez :
 
@@ -108,21 +108,21 @@ La méthode de vérification en deux étapes standard vous oblige à entrer votr
 
 Pour obtenir les étapes nécessaires pour vous connecter à votre compte personnel, professionnel ou scolaire à l’aide des différentes méthodes de vérification en deux étapes, consultez [Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité](user-help-sign-in.md).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 | Question | Solution |
 | -------- | -------- |
 | En quoi la connexion par téléphone est-elle plus sécurisée que la saisie d’un mot de passe ? | Aujourd’hui, la plupart des gens se connectent aux sites web ou aux applications à l’aide d’un nom d’utilisateur et d’un mot de passe. Malheureusement, les mots de passe peuvent être souvent perdus, volés ou devinés par des pirates.<br><br>Une fois l’application Microsoft Authenticator configurée, elle génère une clé sur votre téléphone pour déverrouiller votre compte, lequel est protégé par le code PIN de votre téléphone ou par un verrou biométrique. Cette clé est ensuite utilisée pour prouver votre identité au moment de la connexion.<br><br>**Important**<br>Vos données sont uniquement utilisées pour protéger votre clé en local. Elles ne sont jamais envoyées ou stockées dans le cloud. |
 | La connexion par téléphone remplace-t-elle la vérification en deux étapes ? Dois-je désactiver cette dernière ? | La connexion par téléphone est un type de vérification en deux étapes où les deux étapes se produisent sur l’appareil mobile. Vous devez laisser la vérification en deux étapes activée afin d’aider à accroître la sécurité de votre compte. |
 | Si je laisse la vérification en deux étapes activée pour mon compte, dois-je approuver deux notifications ? | Non. Le fait d’utiliser votre téléphone pour vous connecter à votre compte Microsoft compte également comme une vérification en deux étapes, autrement dit vous n’avez pas besoin d’une seconde approbation. |
-| Et que se passe-t-il si je perds mon téléphone ou je ne l’ai pas sur moi ? Comment faire pour accéder à mon compte ? | Vous pouvez toujours cliquer sur le lien Utiliser votre mot de passe à la place sur la page de connexion pour revenir à la saisie du mot de passe. En revanche, si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre identité.<br><br>**Important**<br>Nous vous encourageons vivement à vérifier que vous avez plus d’une méthode de vérification à jour associée à votre compte.<br><br>Vous pouvez gérer vos méthodes de vérification pour vos comptes personnels à partir de la page [Paramètres de sécurité](https://account.live.com/proofs/manage). Pour les comptes professionnels ou scolaires, vous pouvez vous rendre sur la page [Vérification de sécurité supplémentaire](https://aka.ms/MFASetup) ou **Sécuriser votre compte** si votre administrateur a activé les informations de sécurité. Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md).<br><br>Si vous ne parvenez pas à gérer vos méthodes de vérification, vous devez contacter votre administrateur. |
+| Et que se passe-t-il si je perds mon téléphone ou je ne l’ai pas sur moi ? Comment faire pour accéder à mon compte ? | Vous pouvez toujours cliquer sur le lien Utiliser votre mot de passe à la place sur la page de connexion pour revenir à la saisie du mot de passe. En revanche, si vous utilisez la vérification en deux étapes, vous avez toujours besoin d’une deuxième méthode pour vérifier votre identité.<br><br>**Important**<br>Nous vous encourageons vivement à vérifier que vous avez plus d’une méthode de vérification à jour associée à votre compte.<br><br>Vous pouvez gérer vos méthodes de vérification pour vos comptes personnels à partir de la page [Paramètres de sécurité](https://account.live.com/proofs/manage). Pour les comptes professionnels ou scolaires, vous pouvez vous rendre sur la page [Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) ou **Sécuriser votre compte** si votre administrateur a activé les informations de sécurité. Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md).<br><br>Si vous ne parvenez pas à gérer vos méthodes de vérification, vous devez contacter votre administrateur. |
 | Comment faire pour arrêter d’utiliser cette fonctionnalité et revenir à la saisie du mot de passe ? | Pour les comptes personnels, cliquez sur le lien **Utilisez un mot de passe à la place** pendant la connexion. Votre choix le plus récent est mémorisé et vous est proposé par défaut lors de votre prochaine connexion. Si vous voulez revenir à la connexion par téléphone, cliquez sur le lien **Utiliser une application à la place** pendant la connexion.<br><br>Pour les comptes professionnels ou scolaires, vous devez désinscrire l’appareil à partir de la page **Paramètres** de l’application Microsoft Authenticator ou désactiver l’appareil à partir de la zone **Appareils et activité** de votre profil. Pour plus d’informations sur la désactivation de votre appareil à partir de votre profil, consultez [Mettre à jour les informations relatives à votre profil et à votre compte sur le portail Mes applications](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information). |
 | Pourquoi ne puis-je pas utiliser plusieurs comptes professionnels ou scolaires pour la connexion par téléphone ? | Un téléphone doit être associé à un seul compte professionnel ou scolaire. Si vous souhaitez activer la connexion par téléphone pour un autre compte professionnel ou scolaire, vous devez tout d’abord résilier l’ancien appareil depuis la page **Paramètres**. |
 | Puis-je me connecter à mon ordinateur à l'aide de mon téléphone ? | Pour votre ordinateur, nous vous recommandons de vous connecter à l'aide de Windows Hello sous Windows 10. Windows Hello vous permet de vous connecter par reconnaissance faciale, par empreinte digitale ou par un code PIN. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l'article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](user-help-auth-app-faq.md)
 

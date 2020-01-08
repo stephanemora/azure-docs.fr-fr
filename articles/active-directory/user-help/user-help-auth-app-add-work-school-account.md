@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd69fab269e39a8c78a56c08854262ca839d60f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d1d781ee16cd1c78f03b58288bf75e036e38cf00
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267139"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681223"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Ajouter votre compte professionnel ou scolaire dans l’application Microsoft Authenticator
 
@@ -28,7 +28,7 @@ Si votre organisation utilise la vérification en deux étapes, vous pouvez conf
 
 ## <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 
-1. Sur votre ordinateur, accédez à la page [Vérification de sécurité supplémentaire](https://aka.ms/mfasetup).
+1. Sur votre ordinateur, accédez à la page [Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
     >[!Note]
     >Si la page **Vérification de sécurité supplémentaire** n’est pas affichée, il se peut que votre administrateur ait activé l’expérience des informations de sécurité (préversion). Si tel est le cas, vous devez suivre les instructions de la section [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md). Si ce n’est pas le cas, vous devez contacter le support technique de votre organisation pour obtenir de l’aide. Pour en savoir plus sur les informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md).
@@ -49,7 +49,7 @@ Si votre organisation utilise la vérification en deux étapes, vous pouvez conf
     >[!Note]
     >Si la caméra ne peut pas capturer le code QR, vous pouvez ajouter manuellement les informations de votre compte à l’application Microsoft Authenticator pour la vérification en deux étapes. Pour en savoir plus, consultez l’article [Ajouter manuellement un compte](user-help-auth-app-add-account-manual.md).
 
-5. Passez en revue l’écran **Comptes** de l’application sur votre appareil pour vous assurer que votre compte est correct et qu’un code de vérification à six chiffres lui est associé. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
+5. Passez en revue l’écran **Comptes** de l’application sur votre appareil pour vous assurer que votre compte est correct et qu’un code de vérification à six chiffres lui est associé. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
 
     ![Écran de comptes](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 

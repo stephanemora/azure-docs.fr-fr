@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/17/2019
 ms.author: jgao
-ms.openlocfilehash: 1e993ec50694d8672fbe05f982d5dbc45a815abb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: d3c1070577ee57f18018e9b74be5e29998cc3e64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161474"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453662"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Démarrage rapide : Définir et récupérer un secret à partir d’Azure Key Vault à l’aide d’un modèle Resource Manager
 
@@ -25,7 +25,7 @@ Un [modèle Resource Manager](../azure-resource-manager/template-deployment-over
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
@@ -124,7 +124,7 @@ Le résultat est similaire à ceci :
 ![Modèle Resource Manager, intégration de Key Vault, résultat de la validation du portail de déploiement](./media/quick-create-template/resource-manager-template-portal-deployment-powershell-output.png)
 
 ---
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 D’autres démarrages rapides et didacticiels sur les coffres de clés reposent sur ce démarrage rapide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, vous supprimez le coffre de clés et les ressources associées. Pour supprimer le groupe de ressources à l’aide d’Azure CLI ou d’Azure PowerShell :
@@ -153,6 +153,6 @@ Write-Host "Press [ENTER] to continue..."
 Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et un secret en utilisant un modèle Azure Resource Manager, puis vous avez validé le déploiement. Pour en savoir plus sur Key Vault et Azure Resource Manager, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
-- En savoir plus sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+- En savoir plus sur [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 - Obtenir des informations supplémentaires sur les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

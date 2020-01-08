@@ -3,18 +3,18 @@ title: "Démarrage rapide : Créer un blueprint avec l'API REST"
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec l’API REST.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 0338afb3dbcb7b2c6d7d204d4387873ac7607182
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 13a6cce25b17fdfbfa5f62dbf16cd2cfbbdc4fe2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436591"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -407,7 +407,9 @@ Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par 
      > [!IMPORTANT]
      > Les blueprints ne gèrent pas l’identité managée affectée par l’utilisateur. Les utilisateurs doivent attribuer des rôles et autorisations suffisants. À défaut, l’affectation du blueprint échouera.
 
-## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+### <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 
 Vous pouvez supprimer un blueprint d’un abonnement. La suppression est souvent effectuée lorsque les ressources d’artefact ne sont plus nécessaires. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, utilisez l’opération d’API REST suivante :
 
@@ -417,7 +419,7 @@ Vous pouvez supprimer un blueprint d’un abonnement. La suppression est souvent
   DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-## <a name="delete-a-blueprint"></a>Supprimer un blueprint
+### <a name="delete-a-blueprint"></a>Supprimer un blueprint
 
 Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 
@@ -429,7 +431,7 @@ Pour supprimer le blueprint, utilisez l’opération d’API REST suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de l’API REST. Pour plus d’informations sur Azure Blueprints, consultez l’article sur le cycle de vie des blueprints.
+Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de l’API REST. Pour plus d’informations sur Azure Blueprints, consultez l’article concernant le cycle de vie des blueprints.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md)

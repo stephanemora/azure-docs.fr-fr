@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8379b7f48e7e494370f3fdba81676d34821d7b6f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792686"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563375"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.
@@ -194,7 +194,7 @@ Les articles suivants fournissent des conseils et des informations sur l’utili
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation du service de stockage de files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md)
 * [Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie répartie Service Bus](service-bus-performance-improvements.md)
-* [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](https://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Présentation des files d’attente et des rubriques dans Azure Service Bus (blog)](https://www.serverless360.com/blog/azure-service-bus-queues-vs-topics)
 * [Guide du développeur pour Service Bus](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [Utilisation du service de mise en file d’attente dans Azure](https://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
 

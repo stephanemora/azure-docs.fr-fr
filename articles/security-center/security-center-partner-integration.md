@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 0479918ad2afa99dcd9f18d3ba81f94a3e262e9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479375"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530950"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -47,7 +47,7 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
 ## <a name="manage-integrated-azure-security-solutions-and-other-data-sources"></a>Gérer des solutions de sécurité Azure intégrées et d’autres sources de données
 
-1. Connectez-vous au [Portail Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
 2. Dans le **menu Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
@@ -135,7 +135,7 @@ Consultez l’article [Acheminer le journal des activités Azure vers Event Hubs
 
 Le routage de vos données de monitoring vers un hub d’événement avec Azure Monitor vous permet d’intégrer facilement des systèmes SIEM et des outils de monitoring partenaires.
 
-Pour connaître la liste des systèmes SIEM pris en charge, consultez [cet article](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub).
+Pour connaître la liste des systèmes SIEM pris en charge, consultez [cet article](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub).
 
 ### <a name="example-for-querying-data"></a>Exemple d’interrogation de données 
 

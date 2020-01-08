@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748426"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552931"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Évaluation de la protection de point de terminaison et recommandations dans Azure Security Center
 
-Azure Security Center fournit des évaluations d’intégrité des versions [prises en charge](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) des solutions de protection de point de terminaison. Cet article explique les scénarios qui conduisent Security Center à générer les deux recommandations suivantes :
+Azure Security Center fournit des évaluations d’intégrité des versions [prises en charge](security-center-services.md#supported-endpoint-protection-solutions-) des solutions de protection de point de terminaison. Cet article explique les scénarios qui conduisent Security Center à générer les deux recommandations suivantes :
 
 * **Installer les solutions de protection de point de terminaison sur votre machine virtuelle**
 * **Résoudre les problèmes d'intégrité de la protection du point de terminaison sur vos machines**
@@ -94,7 +94,7 @@ Security Center vous recommande d’ **« Installer les solutions de protection
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-Ou
+ou
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
@@ -175,7 +175,7 @@ Security Center vous recommande de **« Résoudre les problèmes d’intégrit�
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Les journaux d’activité de l’extension Microsoft Antimalware sont disponibles à l’emplacement suivant : **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Ou PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
 

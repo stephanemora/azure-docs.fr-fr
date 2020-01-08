@@ -17,12 +17,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ccc04ccdaf92764da8f45af1e5dda98af822587
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034195"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690836"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatiser les tâches de gestion sur des machines virtuelles Azure à l’aide de l’extension de l’agent IaaS SQL Server
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Une fois l’extension de l’agent IaaS SQL Server installée et active, les fo
 * Dans le panneau SQL Server de la machine virtuelle dans le Portail Azure et par le biais d’images Azure PowerShell pour SQL Server sur la Place de marché Azure.
 * Via Azure PowerShell pour les installations manuelles de l’extension. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Voici la configuration requise pour utiliser l’extension Agent IaaS SQL Server sur votre machine virtuelle :
 
 **Système d’exploitation** :
@@ -63,12 +63,13 @@ Voici la configuration requise pour utiliser l’extension Agent IaaS SQL Server
 
 **Version de SQL Server**:
 
-* SQL Server 2008 
-* SQL Server 2008 R2
-* SQL Server 2012
+* SQL Server 2008 
+* SQL Server 2008 R2
+* SQL Server 2012
 * SQL Server 2014
-* SQL Server 2016
-* SQL Server 2017
+* SQL Server 2016
+* SQL Server 2017
+* SQL Server 2019
 
 **Azure PowerShell**:
 

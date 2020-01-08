@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: a39d9f9c5a138ece5d40cc5afe1d1dcdd8e7a41a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 809c0501c95b07f7c39a0885ea30c83507b90d53
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65849800"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646963"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -32,13 +32,13 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 * Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).<br>
 * Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.<br>
 * Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.<br>
-* Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+* Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, répertoriées dans [Autorisations](#permissions).
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
-Le nombre de tables de routage que vous pouvez créer par abonnement et par emplacement Azure est limité. Pour plus d’informations, consultez [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Le nombre de tables de routage que vous pouvez créer par abonnement et par emplacement Azure est limité. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. Dans l’angle supérieur gauche du portail, sélectionnez **+ Créer une ressource**.
 1. Sélectionnez **Mise en réseau**, puis **Table de routage**.
@@ -47,7 +47,7 @@ Le nombre de tables de routage que vous pouvez créer par abonnement et par empl
 ### <a name="create-route-table---commands"></a>Créer une table de routage (commandes)
 
 * Azure CLI : [az network route-table create](/cli/azure/network/route-table/route)<br>
-* PowerShell : [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
+* PowerShell : [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)
 
 ## <a name="view-route-tables"></a>Afficher les tables de routage
 
@@ -56,7 +56,7 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 ### <a name="view-route-table---commands"></a>Afficher une table de routage (commandes)
 
 * Azure CLI : [az network route-table list](/cli/azure/network/route-table/route)<br>
-* PowerShell : [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+* PowerShell : [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="view-details-of-a-route-table"></a>Afficher les détails d’une table de routage
 
@@ -68,12 +68,12 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
     * [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)<br>
     * [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Script Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    * [Script Automation](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Afficher les détails d’une table de routage (commandes)
 
 * Azure CLI : [az network route-table show](/cli/azure/network/route-table/route)<br>
-* PowerShell : [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
+* PowerShell : [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable)
 
 ## <a name="change-a-route-table"></a>Modifier une table de routage
 
@@ -83,7 +83,7 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 ### <a name="change-a-route-table---commands"></a>Modifier une table de routage (commandes)
 
 * Azure CLI : [az network route-table update](/cli/azure/network/route-table/route)<br>
-* PowerShell : [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
+* PowerShell : [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
 
@@ -100,7 +100,7 @@ Si votre réseau virtuel est connecté à une passerelle VPN Azure, n’associez
 ### <a name="associate-a-route-table---commands"></a>Associer une table de routage (commandes)
 
 * Azure CLI : [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
-* PowerShell : [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+* PowerShell : [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Dissocier une table de routage d’un sous-réseau
 
@@ -115,7 +115,7 @@ Quand vous dissociez une table de routage d’un sous-réseau, Azure achemine le
 ### <a name="dissociate-a-route-table---commands"></a>Dissocier une table de routage (commandes)
 
 * Azure CLI : [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)<br>
-* PowerShell : [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
+* PowerShell : [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-route-table"></a>Supprimer une table de routage
 
@@ -128,11 +128,11 @@ Une table de routage associée à un sous-réseau ne peut pas être supprimée. 
 ### <a name="delete-a-route-table---commands"></a>Supprimer une table de routage (commandes)
 
 * Azure CLI : [az network route-table delete](/cli/azure/network/route-table/route)<br>
-* PowerShell : [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
+* PowerShell : [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
 
 ## <a name="create-a-route"></a>Créer un itinéraire
 
-Le nombre d’itinéraires par table de routage que vous pouvez créer par abonnement et par emplacement Azure est limité. Pour plus d’informations, consultez [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Le nombre d’itinéraires par table de routage que vous pouvez créer par abonnement et par emplacement Azure est limité. Pour plus d’informations, consultez [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. Dans la zone de recherche située en haut du portail, entrez *tables de routage*. Quand la mention **Tables de routage** apparaît dans les résultats de la recherche, sélectionnez-la.
 1. Dans la liste, sélectionnez la table de routage à laquelle vous souhaitez ajouter un itinéraire.
@@ -147,7 +147,7 @@ Le nombre d’itinéraires par table de routage que vous pouvez créer par abonn
 ### <a name="create-a-route---commands"></a>Créer un itinéraire (commandes)
 
 * Azure CLI : [az network route-table route create](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell : [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
+* PowerShell : [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)
 
 ## <a name="view-routes"></a>Afficher des itinéraires
 
@@ -160,7 +160,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 ### <a name="view-routes---commands"></a>Afficher les itinéraires (commandes)
 
 * Azure CLI : [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell : [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+* PowerShell : [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Afficher les détails d’un itinéraire
 
@@ -172,7 +172,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 ### <a name="view-details-of-a-route---commands"></a>Afficher les détails d’un itinéraire (commandes)
 
 * Azure CLI : [az network route-table route show](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell : [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
+* PowerShell : [Get-AzRouteConfig](/powershell/module/az.network/get-azrouteconfig)
 
 ## <a name="change-a-route"></a>Modifier un itinéraire
 
@@ -185,7 +185,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 ### <a name="change-a-route---commands"></a>Modifier un itinéraire (commandes)
 
 * Azure CLI : [az network route-table route update](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell : [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
+* PowerShell : [Set-AzRouteConfig](/powershell/module/az.network/set-azrouteconfig)
 
 ## <a name="delete-a-route"></a>Supprimer un itinéraire
 
@@ -198,7 +198,7 @@ Une table de routage peut contenir plusieurs ou aucun itinéraire. Pour en savoi
 ### <a name="delete-a-route---commands"></a>Supprimer un itinéraire (commandes)
 
 * Azure CLI : [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest)<br>
-* PowerShell : [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
+* PowerShell : [Remove-AzRouteConfig](/powershell/module/az.network/remove-azrouteconfig)
 
 ## <a name="view-effective-routes"></a>Afficher les itinéraires effectifs
 
@@ -213,7 +213,7 @@ Les itinéraires effectifs de chaque interface réseau attachée à une machine 
 ### <a name="view-effective-routes---commands"></a>Afficher les itinéraires effectifs (commandes)
 
 * Azure CLI : [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest)<br>
-* PowerShell : [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
+* PowerShell : [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## <a name="validate-routing-between-two-endpoints"></a>Valider le routage entre deux points de terminaison
 
@@ -230,13 +230,13 @@ Vous pouvez déterminer le type de tronçon suivant entre une machine virtuelle 
 ### <a name="validate-routing-between-two-endpoints---commands"></a>Valider le routage entre deux points de terminaison (commandes)
 
 * Azure CLI : [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest)<br>
-* PowerShell : [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
+* PowerShell : [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
 ## <a name="permissions"></a>Autorisations
 
 Pour que vous puissiez exécuter des tâches sur des tables de routage et des itinéraires, il est nécessaire que votre compte ait le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans le tableau suivant :
 
-| Action                                                          |   Nom                                                  |
+| Action                                                          |   Name                                                  |
 |--------------------------------------------------------------   |   -------------------------------------------           |
 | Microsoft.Network/routeTables/read                              |   Lire une table de routage                                    |
 | Microsoft.Network/routeTables/write                             |   Créer ou mettre à jour une table de routage                        |

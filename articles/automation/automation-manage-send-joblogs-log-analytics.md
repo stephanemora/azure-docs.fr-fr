@@ -2,19 +2,15 @@
 title: Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
 description: Cet article montre comment envoyer des données d’état de travaux et des flux de travaux de runbook à des journaux Azure Monitor afin de renforcer la visibilité et la simplicité de gestion.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: beb69edc57b5a13db0f6d2e5e1536804f3472aff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849732"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421913"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers des journaux Azure Monitor
 
@@ -98,7 +94,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Créé<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Terminé |
 | Category | Classification du type de données. Pour Automation, la valeur est JobLogs. |
-| OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
+| NomOpération | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
 | SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Décrit l’état résultant du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
@@ -121,7 +117,7 @@ Les diagnostics d’Azure Automation créent deux types d’enregistrements dans
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- In Progress |
 | Category | Classification du type de données. Pour Automation, la valeur est JobStreams. |
-| OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
+| NomOpération | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
 | Ressource | Nom du compte Automation |
 | SourceSystem | Mode de collecte de données employé pour les journaux Azure Monitor. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Inclut le flux de sortie du runbook. |

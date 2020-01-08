@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433214"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutoriel : Intégrer Azure Functions à un réseau virtuel Azure
 
@@ -32,7 +32,7 @@ Le diagramme suivant représente l’architecture de la solution que vous créez
 
 Les fonctions qui s’exécutent dans le plan Premium ont les mêmes fonctionnalités d’hébergement que les applications web dans Azure App Service, ce qui inclut la fonctionnalité d’intégration de réseau virtuel. Pour en savoir plus sur l’intégration d’un réseau virtuel, y compris la résolution des problèmes et la configuration avancée, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ce tutoriel, il est important de comprendre l’adressage IP et la gestion des sous-réseaux. Vous pouvez commencer par [cet article qui couvre les principes fondamentaux de l’adressage et de la gestion de sous-réseaux](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). De nombreux autres articles et vidéos sont disponibles en ligne.
 
@@ -61,7 +61,7 @@ Ensuite, créez une machine virtuelle préconfigurée qui exécute WordPress à 
     | Paramètre      | Valeur suggérée  | Description      |
     | ------------ | ---------------- | ---------------- |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel vos ressources sont créées. | 
-    | **[Groupe de ressources](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choisissez `myResourceGroup` ou le groupe de ressources que vous avez créé avec votre application de fonction. L’utilisation du même groupe de ressources pour l’application de fonction, la machine virtuelle WordPress et le plan d’hébergement facilitera le nettoyage des ressources lorsque vous aurez terminé ce tutoriel. |
+    | **[Groupe de ressources](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Choisissez `myResourceGroup` ou le groupe de ressources que vous avez créé avec votre application de fonction. L’utilisation du même groupe de ressources pour l’application de fonction, la machine virtuelle WordPress et le plan d’hébergement facilitera le nettoyage des ressources lorsque vous aurez terminé ce tutoriel. |
     | **Nom de la machine virtuelle** | VNET-Wordpress | Le nom de la machine virtuelle doit être unique dans le groupe de ressources |
     | **[Région](https://azure.microsoft.com/regions/)** | (Europe) Europe Ouest | Choisissez une région proche de chez vous ou près des fonctions qui accèdent à la machine virtuelle. |
     | **Taille** | B1s | Choisissez **Changer la taille**, puis sélectionnez l’image standard B1s, qui comporte 1 processeur virtuel et 1 Go de mémoire. |

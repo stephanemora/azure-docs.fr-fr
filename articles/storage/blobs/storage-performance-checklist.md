@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 24d601dc2116b7daf315bb3c6f20c4dc0b6f6ce5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d75f12953c0ec767dba8a49b3ed76c176223b30c
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382037"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613888"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Liste de contrôle des performances et de la scalabilité pour le stockage Blob
 
-Microsoft a mis au point un certain nombre de pratiques qui ont fait leurs preuves pour le développement d’applications hautes performances avec le stockage Blob. Cette liste de contrôle fournit des pratiques clés que les développeurs peuvent utiliser pour optimiser les performances. Gardez ces pratiques à l’esprit lorsque vous concevez votre application et tout au long du processus de développement.
+Microsoft a mis au point un certain nombre de pratiques qui ont fait leurs preuves pour le développement d’applications hautes performances avec le stockage Blob. Cette check-list fournit des pratiques clés que les développeurs peuvent utiliser pour optimiser les performances. Gardez ces pratiques à l’esprit lorsque vous concevez votre application et tout au long du processus de développement.
 
 Le stockage Azure a des objectifs de scalabilité et de performances pour la capacité, le taux de transactions et la bande passante. Pour plus d’informations sur les objectifs de scalabilité du stockage Azure, consultez [Objectifs de scalabilité et de performances du stockage Azure pour les comptes de stockage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -27,7 +27,7 @@ Cet article fournit la liste des pratiques validées concernant les performances
 
 | Terminé | Category | Considérations relatives à la conception |
 | --- | --- | --- |
-| &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application de sorte qu’elle n’ait pas besoin d’utiliser plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
+| &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application pour ne pas qu’elle utilise plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Objectifs de scalabilité |[Cherchez-vous à ne pas vous approcher des limites de capacité et de transactions ?](#capacity-and-transaction-targets) |
 | &nbsp; |Objectifs de scalabilité |[Existe-t-il un grand nombre de clients accédant simultanément à un objet blob unique ?](#multiple-clients-accessing-a-single-blob-concurrently) |
 | &nbsp; |Objectifs de scalabilité |[Votre application respecte-t-elle les objectifs d’évolutivité pour un objet blob unique ?](#bandwidth-and-operations-per-blob) |
@@ -38,14 +38,14 @@ Cet article fournit la liste des pratiques validées concernant les performances
 | &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAP) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
 | &nbsp; |Mise en cache |[La mise en cache des données de votre application est-elle souvent sollicitée et rarement modifiée ?](#reading-data) |
 | &nbsp; |Mise en cache |[Votre application traite-t-elle les mises à jour par lots en effectuant la mise en cache sur le client, suivie du chargement dans des ensembles plus grands ?](#uploading-data-in-batches) |
-| &nbsp; |Configuration .NET |[Utilisez-vous .NET Core 2.1 ou une version ultérieure pour obtenir des performances optimales ?](#use-net-core) |
+| &nbsp; |Configuration .NET |[Utilisez-vous .NET Core 2.1 ou ultérieur pour obtenir des performances optimales ?](#use-net-core) |
 | &nbsp; |Configuration .NET |[Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#increase-default-connection-limit) |
 | &nbsp; |Configuration .NET |[Pour les applications .NET, avez-vous configuré .NET pour qu’il utilise un nombre suffisant de threads ?](#increase-minimum-number-of-threads) |
 | &nbsp; |Parallélisme |[Avez-vous vérifié que le parallélisme est limité de façon appropriée, de manière à ne pas surcharger les fonctionnalités de votre client ni s’approcher des objectifs de scalabilité ?](#unbounded-parallelism) |
 | &nbsp; |Outils |[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#client-libraries-and-tools) |
 | &nbsp; |Nouvelle tentatives |[Utilisez-vous une stratégie de nouvelles tentatives avec backoff exponentiel pour les erreurs de limitation et les délais d’expiration ?](#timeout-and-server-busy-errors) |
 | &nbsp; |Nouvelle tentatives |[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#non-retryable-errors) |
-| &nbsp; |Copie d'objets blob |[La copie des objets blob s'effectue-t-elle de manière optimale ?](#blob-copy-apis) |
+| &nbsp; |Copie d’objets blob |[La copie des objets blob s'effectue-t-elle de manière optimale ?](#blob-copy-apis) |
 | &nbsp; |Copie d’objets blob |[Utilisez-vous la dernière version de AzCopy pour les opérations de copie en bloc ?](#use-azcopy) |
 | &nbsp; |Copie d’objets blob |[Utilisez-vous la famille Azure Data Box pour importer des volumes importants de données ?](#use-azure-data-box) |
 | &nbsp; |Distribution de contenu |[Utilisez-vous un CDN pour la distribution de contenu ?](#content-distribution) |
@@ -58,7 +58,7 @@ Cet article fournit la liste des pratiques validées concernant les performances
 
 Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
 
-Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Pour plus d’informations sur les objectifs de scalabilité concernant le service de File d’attente, consultez [Objectifs de scalabilité et de performances du Stockage Azure](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Nombre maximal de comptes de stockage
 
@@ -76,7 +76,7 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 - Réexaminez la charge de travail à cause de laquelle votre application s’approche de l’objectif d’extensibilité ou le dépasse. Est-il possible de la concevoir différemment pour qu’elle utilise moins de bande passante ou de capacité, ou moins de transactions ?
 - Si votre application doit dépasser l’un des objectifs de scalabilité, vous devez créer plusieurs comptes de stockage et partitionner vos données d’application sur ces comptes de stockage. Si vous optez pour ce modèle, veillez à concevoir votre application de telle sorte que vous puissiez ajouter davantage de comptes de stockage à l’avenir en vue de l’équilibrage de la charge. Aucun coût autre que l’utilisation (données stockées, transactions effectuées, données transférées, etc.) n’est associé à ces comptes de stockage.
 - Si votre application s’approche des objectifs de bande passante, pensez à compresser les données côté client afin de réduire la bande passante nécessaire à l’envoi des données au stockage Azure.
-    Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile d’afficher les données à l’aide d’outils standard.
+    Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile de voir les données à l’aide d’outils standard.
 - Si votre application s’approche des objectifs de scalabilité, vérifiez que vous utilisez bien un backoff exponentiel pour les nouvelles tentatives. Il est préférable d’éviter de s’approcher des objectifs de scalabilité en implémentant les recommandations fournies dans cet article. Toutefois, l’utilisation d’un backoff exponentiel pour les nouvelles tentatives va empêcher votre application d’effectuer une nouvelle tentative rapidement, ce qui pourrait compliquer la limitation. Pour plus d’informations, consultez la section intitulée [Erreurs d’expiration de délai et de serveur occupé](#timeout-and-server-busy-errors).
 
 ### <a name="multiple-clients-accessing-a-single-blob-concurrently"></a>Plusieurs clients accédant simultanément à un seul objet blob
@@ -141,7 +141,7 @@ Pour une distribution étendue de contenu d’objets blob, utilisez un réseau d
 
 ## <a name="sas-and-cors"></a>SAP et CORS
 
-Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui agisse en tant que proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
+Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui serve de proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
 
 Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).  
 
@@ -177,7 +177,7 @@ Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs par
 
 ### <a name="use-net-core"></a>Utiliser .NET Core
 
-Développez vos applications du stockage Azure avec .NET Core 2.1 ou une version ultérieure pour tirer parti des performances améliorées. L’utilisation de .NET Core 3.x est recommandée dans la mesure du possible.
+Développez vos applications du stockage Azure avec .NET Core 2.1 ou ultérieur pour tirer parti des performances améliorées. L’utilisation de .NET Core 3.x est recommandée dans la mesure du possible.
 
 Pour plus d’informations sur les améliorations des performances dans .NET Core, consultez les billets de blog suivants :
 

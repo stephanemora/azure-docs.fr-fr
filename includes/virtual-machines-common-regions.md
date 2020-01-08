@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/28/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4b2dcf8f156f231041d7636d103eea59816ec65f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 09179ff0cf8275e96cb87e0c183eb4a384dcb37b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008446"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564795"
 ---
 Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
 
@@ -29,7 +29,7 @@ Lors de la création de vos applications, vous pouvez utiliser certaines région
 * **US Gov Virginie** et **US Gov Iowa**
   * Instance physique et logique d’Azure isolée du réseau pour les administrations et les partenaires des États-Unis, gérée par un personnel autorisé aux États-Unis. Inclut des certifications de conformité supplémentaires comme [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) et [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). En savoir plus sur [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Est de la Chine** et **Nord de la Chine**
-  * Ces régions sont disponibles grâce à un partenariat unique conclu entre Microsoft et 21Vianet, qui stipule que Microsoft ne gère pas directement les centres de données. Découvrez plus d’informations sur [Azure Chine géré par 21Vianet](http://www.windowsazure.cn/).
+  * Ces régions sont disponibles grâce à un partenariat unique conclu entre Microsoft et 21Vianet, qui stipule que Microsoft ne gère pas directement les centres de données. Découvrez plus d’informations sur [Azure Chine géré par 21Vianet](https://www.windowsazure.cn/).
 * **Centre de l’Allemagne** et **Nord-Est de l’Allemagne**
   * Ces régions sont disponibles par le biais d’un modèle d’administration des données, dans lequel les données client sont conservées en Allemagne sous le contrôle de T-Systems, société Deutsche Telekom responsable de l’administration des données allemandes.
 
@@ -42,7 +42,7 @@ Chaque région Azure est associée à une autre région au sein de la même rég
 
 Voici quelques exemples de paires de régions :
 
-| Primaire | Secondaire |
+| Principal | Secondary |
 |:--- |:--- |
 | USA Ouest |USA Est |
 | Europe Nord |Europe Ouest |
@@ -74,8 +74,8 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non |OUI |OUI |OUI |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |OUI |
+| Les données sont répliquées entre plusieurs installations. |Non |Oui |Oui |Oui |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non |Non |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6 |6 |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).

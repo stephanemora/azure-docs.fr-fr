@@ -2,27 +2,23 @@
 title: 'Démarrage rapide d’Azure : Configurer une machine virtuelle avec DSC | Microsoft Docs'
 description: Configurer une pile LAMP sur une machine virtuelle Linux avec le service de configuration d’état souhaité
 services: automation
-ms.service: automation
 ms.subservice: dsc
 keywords: dsc, configuration, automatisation
-author: KrisBash
-ms.author: krbash
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c3ff10f37233294b75eceddd62c0a33f8864484
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243456"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421645"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle avec le service Desired State Configuration
 
 En activant le service de configuration d’état souhaité (DSC), vous gérez et surveillez les configurations de vos serveurs Windows et Linux. Les configurations dérivant de la configuration souhaitée peuvent être identifiées ou corrigées automatiquement. Cette procédure de démarrage rapide vous permettra d’intégrer une machine virtuelle Linux et de déployer une pile LAMP avec DSC.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 

@@ -3,19 +3,15 @@ title: Mon premier runbook PowerShell Workflow dans Azure Automation
 description: Ce didacticiel présente les procédures de création, de test et de publication d’un runbook textuel simple à l’aide de PowerShell Workflow.
 keywords: powershell workflow, exemples de workflows powershell, workflows powershell
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: cdaadcfa3108ca847443e100bc624c2458c34115
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365952"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Mon premier runbook PowerShell Workflow
 
@@ -27,7 +23,7 @@ ms.locfileid: "74850837"
 
 Ce didacticiel décrit la création d’un [Runbook PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) dans Azure Automation. Vous commencez avec un simple runbook que vous testez et publiez tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous le rendrez plus robuste en lui ajoutant des paramètres.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -117,7 +113,7 @@ Le runbook que vous avez créé est toujours en mode brouillon. Vous devez le pu
 1. Fermez la page Flux et la page Tâche pour revenir à la page MyFirstRunbook.
 1. Cliquez sur **Tâches** pour ouvrir la page Tâches de ce runbook. Cette page liste toutes les tâches créées par ce runbook. Vous devez voir un seul travail, car vous n’avez exécuté le travail qu’une seule fois.
 
-   ![Tâches](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+   ![travaux](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
 1. Vous pouvez cliquer sur cette tâche pour ouvrir la même page Tâche que vous avez consultée au démarrage du runbook. Cette action permet de revenir en arrière et d’afficher les détails d’une tâche créée pour un runbook donné.
 
@@ -150,7 +146,7 @@ Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait 
 1. Cliquez sur le volet de **Test** afin de tester le runbook.
 1. Cliquez sur **Démarrer** pour démarrer le test. Une fois terminé, la sortie générée semblable à celle illustrée ci-dessous devrait afficher les informations de base sur votre compte. Cette action confirme la validité des informations d’identification.
 
-   ![Authentifier](media/automation-first-runbook-textual/runbook-auth-output.png)
+   ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Étape 6 - Ajouter du code pour démarrer une machine virtuelle
 
@@ -214,4 +210,4 @@ Pour l’instant, votre runbook démarre la machine virtuelle que vous avez cod�
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](automation-first-runbook-graphical.md)
 * Pour une prise en main des Runbooks PowerShell, consultez [Mon premier Runbook PowerShell](automation-first-runbook-textual-powershell.md)
 * Pour en savoir plus sur les types de Runbook, leurs avantages et leurs limites, consultez [Types de Runbooks Azure Automation](automation-runbook-types.md)
-* Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez le billet [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Pour plus d’informations sur la fonctionnalité de prise en charge de script PowerShell, consultez [Prise en charge de script PowerShell natif dans Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

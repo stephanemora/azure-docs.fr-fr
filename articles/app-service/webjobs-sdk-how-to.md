@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74683998"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421960"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -45,7 +45,7 @@ Il s’agit d’une différence clé entre l’utilisation directe du kit SDK We
 
 Le kit SDK WebJobs recherche les chaînes de connexion du Stockage Azure et d’Azure Service Bus dans le fichier local.settings.json quand vous l’exécutez localement, ou dans l’environnement WebJob quand vous l’exécutez dans Azure. Par défaut, un paramètre de chaîne de connexion de stockage nommé `AzureWebJobsStorage` est obligatoire.  
 
-La version 2.*x* du kit SDK vous permet d’utiliser vos propres noms pour ces chaînes de connexion, ou de les stocker ailleurs. Vous pouvez définir des noms dans le code à l’aide de [`JobHostConfiguration` ], comme indiqué ici :
+La version 2.*x* du kit SDK vous permet d’utiliser vos propres noms pour ces chaînes de connexion, ou de les stocker ailleurs. Vous pouvez définir des noms dans le code à l’aide de [`JobHostConfiguration`], comme indiqué ici :
 
 ```cs
 static void Main(string[] args)
@@ -84,7 +84,7 @@ Le processus d’activation du mode de développement dépend de la version du k
 La version 3.*x* utilise les API ASP.NET Core standard. Appelez la méthode [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) sur l’instance [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder). Passez une chaîne nommée `development`, comme dans cet exemple :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.UseEnvironment("development");
@@ -95,7 +95,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -236,7 +236,7 @@ Le processus d’installation et de gestion des types de liaison varie selon que
 Dans la version 3.*x*, les liaisons de stockage sont incluses dans le package `Microsoft.Azure.WebJobs.Extensions.Storage`. Appelez la méthode d’extension `AddAzureStorage` dans la méthode `ConfigureWebJobs`, comme indiqué ici :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -247,7 +247,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -255,7 +255,7 @@ static void Main()
 Pour utiliser d’autres types de liaisons et de déclencheurs, installez le package NuGet qui les contient et appelez la méthode d’extension `Add<binding>` implémentée dans l’extension. Par exemple, si vous souhaitez utiliser une liaison Azure Cosmos DB, installez `Microsoft.Azure.WebJobs.Extensions.CosmosDB` et appelez `AddCosmosDB`, comme suit :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -266,7 +266,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -318,7 +318,7 @@ Le processus de liaison à [`ExecutionContext`] dépend de la version de votre k
 Appelez la méthode d’extension `AddExecutionContextBinding` dans la méthode `ConfigureWebJobs`, comme indiqué ici :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -329,7 +329,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -373,7 +373,7 @@ Vous pouvez configurer les liaisons suivantes :
 Cet exemple montre comment configurer le déclencheur Azure Cosmos DB :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -390,8 +390,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -403,7 +402,7 @@ Pour plus d’informations, consultez l’article sur la [liaison Azure Cosmos D
 Cet exemple montre comment configurer le déclencheur Event Hubs :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -419,8 +418,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -434,7 +432,7 @@ Ces exemples montrent comment configurer le déclencheur Stockage File d’atten
 #### <a name="version-3x"></a>Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -450,8 +448,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -480,7 +477,7 @@ Pour plus d’informations, consultez les [informations de référence sur host.
 Cet exemple montre comment configurer la liaison de sortie SendGrid :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -495,8 +492,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -508,7 +504,7 @@ Pour plus d’informations, consultez l’article sur la [liaison SendGrid](../a
 Cet exemple montre comment configurer le déclencheur Service Bus :
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -523,8 +519,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -538,7 +533,7 @@ Certains types de déclencheur et de liaison définissent leurs propres types de
 #### <a name="version-3x"></a>Version 3.*x*
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -549,8 +544,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -749,9 +743,9 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 
 Certains déclencheurs intègrent la prise en charge de la gestion de l’accès concurrentiel :
 
-* **QueueTrigger**. Réglez `JobHostConfiguration.Queues.BatchSize` sur `1`.
-* **ServiceBusTrigger**. Réglez `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` sur `1`.
-* **FileTrigger**. Réglez `FileProcessor.MaxDegreeOfParallelism` sur `1`.
+* **QueueTrigger**. Définissez `JobHostConfiguration.Queues.BatchSize` sur `1`.
+* **ServiceBusTrigger**. Définissez `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls` sur `1`.
+* **FileTrigger**. Définissez `FileProcessor.MaxDegreeOfParallelism` sur `1`.
 
 Vous pouvez utiliser ces paramètres pour vous assurer que votre fonction s’exécute en tant que singleton sur une instance unique. Pour vérifier qu’une seule instance de la fonction s’exécute quand l’application web est étendue à plusieurs instances, appliquez un verrou singleton au niveau de l’écouteur sur la fonction (`[Singleton(Mode = SingletonMode.Listener)]`). Les verrous d’écouteurs sont acquis au démarrage du JobHost. Si trois instances scale-out démarrent en même temps, une seule de ces instances acquiert le verrou et un seul écouteur démarre.
 
@@ -830,12 +824,12 @@ Chaque journal créé par une instance `ILogger` présente des attributs `Catego
 |LogLevel    |Code|
 |------------|---|
 |Trace       | 0 |
-|Déboguer       | 1 |
+|Débogage       | 1 |
 |Information | 2 |
 |Avertissement     | 3 |
 |Error       | 4 |
-|Critique    | 5\. |
-|Aucun        | 6 |
+|Critique    | 5 |
+|None        | 6 |
 
 Vous pouvez filtrer indépendamment chaque catégorie en fonction d’un [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel) spécifique. Par exemple, il se peut que vous souhaitiez afficher tous les journaux d’activité pour le traitement de déclencheurs blob, mais uniquement les niveaux `Error` et plus élevés pour tous les autres éléments.
 
@@ -924,7 +918,7 @@ internal class CustomTelemetryInitializer : ITelemetryInitializer
 Appelez [`ConfigureServices`] dans le générateur pour ajouter votre [`ITelemetryInitializer`] personnalisé au pipeline.
 
 ```cs
-static void Main()
+static async Task Main()
 {
     var builder = new HostBuilder();
     builder.ConfigureWebJobs(b =>
@@ -951,8 +945,7 @@ static void Main()
     var host = builder.Build();
     using (host)
     {
-
-        host.Run();
+        await host.RunAsync();
     }
 }
 ```
@@ -1000,7 +993,7 @@ config.LoggerFactory = new LoggerFactory()
     .AddApplicationInsights(clientFactory);
 ```
 
-## <a id="nextsteps"></a> Étapes suivantes
+## <a id="nextsteps"></a>Étapes suivantes
 
 Cet article vous a permis de découvrir des extraits qui montrent comment prendre en charge les scénarios courants d’utilisation du kit SDK WebJobs. Pour obtenir des exemples complets, consultez [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk/tree/dev/sample/SampleHost).
 

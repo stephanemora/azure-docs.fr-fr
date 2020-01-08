@@ -1,19 +1,15 @@
 ---
 title: Schéma des événements du journal de mise à l’échelle automatique Azure
 description: Format des journaux pour la surveillance et le dépannage des actions de mise à l’échelle automatique
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 8b99cec69b05fc0f78dcf813e67e6b65ba50d819
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 3c32f15208a8e692054ee6c1f7effc6b7c89de3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395944"
 ---
 # <a name="azure-monitor-autoscale-actions-resource-log-schema"></a>Schéma du journal des ressources des actions de mise à l’échelle automatique Azure Monitor
 

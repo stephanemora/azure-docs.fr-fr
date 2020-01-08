@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a0917f2649f1b780429f78406900c599c5ac853e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: acfa10ea506e063bf6b230386ca0722f1c959d18
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442559"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Créer une instance du service Gestion des API Azure
 
@@ -31,13 +31,13 @@ Ce guide de démarrage rapide décrit les étapes permettant de créer une insta
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-new-service"></a>Créer un service
 
-1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**. Vous pouvez également sélectionner **Créer une ressource** sur la page d’**accueil** Azure. 
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**. Vous pouvez également sélectionner **Créer une ressource** sur la page d’**accueil** Azure. 
    
-   ![Sélectionner Créer une ressource](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   ![Sélectionnez Créer une ressource](./media/get-started-create-service-instance/00-CreateResource-01.png)
    
 1. Dans l’écran **Nouveau**, sélectionnez **Intégration**, puis sélectionnez **Gestion des API**.
    
@@ -51,7 +51,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Nom**                | Nom unique pour votre service Gestion des API. | Vous ne pourrez plus changer ce nom. Le nom du service sert à générer un nom de domaine par défaut sous la forme *{nom}.azure-api.net.* Si vous souhaitez utiliser un nom de domaine personnalisé, consultez [Configurer un domaine personnalisé](configure-custom-domain.md). <br/> Le nom du service est utilisé pour faire référence au service et la ressource Azure correspondante. |
 | **Abonnement**        | Votre abonnement                             | Abonnement sous lequel cette nouvelle instance de service sera créée. Vous pouvez sélectionner l’abonnement parmi les différents abonnements Azure auxquels vous avez accès.                                                                                                                                                            |
-| **Groupe de ressources**      | *apimResourceGroup*                           | Vous pouvez sélectionner une ressource nouvelle ou existante. Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](../azure-resource-manager/resource-group-overview.md#resource-groups).                                                                                                  |
+| **Groupe de ressources**      | *apimResourceGroup*                           | Vous pouvez sélectionner une ressource nouvelle ou existante. Un groupe de ressources désigne une collection de ressources qui partagent un cycle de vie, des autorisations et des stratégies. En savoir plus [ici](../azure-resource-manager/management/overview.md#resource-groups).                                                                                                  |
 | **Lieu**            | *USA Ouest*                                    | Sélectionnez la région géographique proche de chez vous. Seules les régions du service Gestion des API disponibles s’affichent dans la liste déroulante.                                                                                                                                                                                                          |
 | **Nom de l’organisation**   | Nom de votre organisation.                 | Ce nom est utilisé à plusieurs endroits, notamment dans le titre du portail des développeurs et comme expéditeur des e-mails de notification.                                                                                                                                                                                                             |
 | **E-mail de l’administrateur** | *admin\@org.com*                               | Indiquez l’adresse e-mail à laquelle toutes les notifications de la **Gestion des API** seront envoyées.                                                                                                                                                                                                                                              |
@@ -64,7 +64,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources et toutes les ressources associées en suivant ces étapes :
 

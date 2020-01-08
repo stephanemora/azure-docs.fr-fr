@@ -1,18 +1,14 @@
 ---
 title: Autorisations dans Azure Advisor
 description: Présentation des autorisations Advisor et de la façon dont elles peuvent bloquer votre capacité à configurer vos abonnements ou à reporter ou rejeter des recommandations.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
-ms.openlocfilehash: cbd2e456c96dbf8ca01387f0c7c17a1541dbfe55
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c850d757044066d5c4a793e076436906d715833c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60467609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422315"
 ---
 # <a name="permissions-in-azure-advisor"></a>Autorisations dans Azure Advisor
 
@@ -25,7 +21,7 @@ Le tableau suivant définit les rôles et leurs accès au sein d’Advisor :
 | **Rôle** | **Afficher les recommandations** | **Modifier une règle** | **Modifier la configuration de l’abonnement** | **Modifier la configuration du groupe de ressources**| **Ignorer et différer des recommandations**|
 |---|:---:|:---:|:---:|:---:|:---:|
 |Propriétaire de l’abonnement|**X**|**X**|**X**|**X**|**X**|
-|Contributeur de l’abonnement|**X**|**X**|**X**|**X**|**X**|
+|Collaborateur de l’abonnement|**X**|**X**|**X**|**X**|**X**|
 |Lecteur de l’abonnement|**X**|--|--|--|--|
 |Propriétaire du groupe de ressources|**X**|--|--|**X**|**X**|
 |Contributeur du groupe de ressources|**X**|--|--|**X**|**X**|

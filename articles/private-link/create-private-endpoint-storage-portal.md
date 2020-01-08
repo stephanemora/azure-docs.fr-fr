@@ -2,23 +2,25 @@
 title: Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 description: Découvrez comment vous connecter en privé à un compte de stockage dans Azure à l’aide de Private Endpoint.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899808"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357564"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer une machine virtuelle sur un réseau virtuel Azure, un compte de stockage avec Private Endpoint à l’aide du portail Azure. Ensuite, vous pouvez accéder en toute sécurité au compte de stockage à partir de la machine virtuelle.
 
+> [!NOTE]
+> Les points de terminaison privés ne peuvent pas être utilisés conjointement à des points de terminaison de service au sein d’un même sous-réseau.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -36,7 +38,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyVirtualNetwork*. |
+    | Name | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Subscription | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
@@ -78,7 +80,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
-1. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
+1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -125,7 +127,7 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     |Location|Sélectionnez **WestCentralUS**.|
-    |Nom|Entrez *myPrivateEndpoint*.  |
+    |Name|Entrez *myPrivateEndpoint*.  |
     |Sous-ressource de stockage|Conservez l’objet **Blob** par défaut. |
     | **MISE EN RÉSEAU** |  |
     | Réseau virtuel  | Sélectionnez  *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
@@ -198,7 +200,7 @@ Options supplémentaires pour accéder au compte de stockage :
 - L’utilitaire AzCopy est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Utilisez AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier. 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le compte de stockage et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient : 
 1. Entrez *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche. 
 2. Sélectionnez **Supprimer le groupe de ressources**. 

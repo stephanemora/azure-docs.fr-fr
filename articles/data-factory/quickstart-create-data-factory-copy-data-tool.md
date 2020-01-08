@@ -1,5 +1,5 @@
 ---
-title: Copier des données avec l’outil Copier des données d’Azure
+title: Copier des données avec l’outil d’Azure Copier des données
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données pour copier des données depuis un emplacement dans un stockage d’objets Blob Azure vers un autre emplacement.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.openlocfilehash: 4ead3472e1706742781cb64a12103f3dec1fd27a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: edf03b663383f10168ee5b78a3ad5f1a9fdac288
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440129"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Démarrage rapide : Utiliser l’outil Copier des données pour copier des données
 
@@ -35,7 +35,7 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
-1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
     ![Créer une ressource à partir du menu du Portail Azure](./media/quickstart-create-data-factory-copy-data-tool/create-data-factory-resource.png)
 
@@ -54,7 +54,7 @@ Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer u
    - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste. 
    - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-   Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+   Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 1. Pour **Version**, sélectionnez **V2**.
 1. Pour **Emplacement**, sélectionnez l’emplacement de la fabrique de données.
 

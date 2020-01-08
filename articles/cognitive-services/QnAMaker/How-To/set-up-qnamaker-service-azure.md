@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447709"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -28,10 +28,10 @@ Votre service QnA Maker porte sur deux types de clés, les **clés d’abonnemen
 
 ![Gestion des clés](../media/qnamaker-how-to-key-management/key-management.png)
 
-|Nom|Location|Objectif|
+|Name|Location|Objectif|
 |--|--|--|
-|Clé d’abonnement|[Portail Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
-|Clé de point de terminaison|[Portail QnA Maker](http://www.qnamaker.ai)|ces clés sont utilisées pour accéder au point de terminaison de la base de connaissances publié afin d’obtenir une réponse à une question de l’utilisateur. En général, vous utilisez ce point de terminaison dans le code de votre bot conversationnel ou application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
+|Clé d’abonnement|[Azure portal](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|ces clés sont utilisées pour accéder aux [API du service d’administration QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Ces API vous permettent de modifier les questions et réponses dans votre base de connaissances, et de publier votre base de connaissances. Ces clés sont créées lorsque vous créez un service QnA Maker.<br><br>Recherchez ces clés dans la ressource **Cognitive Services** de la page **Clés**.|
+|Clé de point de terminaison|[Portail QnA Maker](https://www.qnamaker.ai)|ces clés sont utilisées pour accéder au point de terminaison de la base de connaissances publié afin d’obtenir une réponse à une question de l’utilisateur. En général, vous utilisez ce point de terminaison dans le code de votre bot conversationnel ou application cliente qui se connecte au service QnA Maker. Ces clés sont créées lorsque vous publiez votre base de connaissances QnA Maker.<br><br>Recherchez ces clés dans la page **Paramètres du service**. Recherchez cette page à partir du menu de l’utilisateur en haut à droite de la page dans le menu déroulant.|
 
 ## <a name="create-a-new-qna-maker-service"></a>Créer un nouveau service QnA Maker
 
@@ -63,7 +63,7 @@ Cette procédure permet de créer les ressources Azure nécessaires pour gérer 
 
     * Choisissez si vous souhaitez activer **Application Insights** ou non. Si **Application Insights** est activé, QnA Maker collecte les données de télémétrie sur le trafic, les journaux d’activité de conversation et les erreurs.
     * Choisissez **l’emplacement d’Application Insights** où la ressource Application Insights sera déployée.
-    * Pour réduire vos coûts, vous pouvez [partager](#share-existing-services-with-qna-maker) certaines des ressources Azure créées pour QnA Maker, mais pas toutes. 
+    * Pour réduire vos coûts, vous pouvez [partager](#share-existing-services-with-qna-maker) certaines des ressources Azure créées pour QnA Maker, mais pas toutes.
 
 1. Une fois tous les champs validés, sélectionnez **Créer**. L’exécution de ce processus peut prendre plusieurs minutes.
 
@@ -124,7 +124,7 @@ Si vous créez un service QnA par le biais de modèles Azure Resource Manager, v
 
 ## <a name="upgrade-qna-maker"></a>Mettre à niveau QnA Maker
 
-|Mise à niveau|Motif|
+|Mettre à niveau|Motif|
 |--|--|
 |[Mise à niveau](#upgrade-qna-maker-sku) de la référence SKU de gestion de QnA Maker|Vous souhaitez avoir plus de questions et de réponses dans votre base de connaissances.|
 |[Mettre à niveau](#upgrade-app-service) la référence SKU d’App Service|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 2451fbb69636624db354006df2a7925ef9e75459
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372735"
 ---
 # <a name="vlans-and-subnets-overview"></a>Vue d’ensemble des réseaux locaux virtuels et des sous-réseaux
 
@@ -38,8 +38,8 @@ Un cloud privé est créé sous la forme d’un environnement isolé de la pile 
 * Préfixe de plage CIDR de sous-réseaux vSphere/vSAN minimum : **/24**
 * Préfixe de plage CIDR de sous-réseaux vSphere/vSAN maximum : **/21**
 
-> [!IMPORTANT]
-> L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé.  N’utilisez pas d’adresses IP de cette plage pour vos machines virtuelles.
+> [!CAUTION]
+> L’utilisation des adresses IP de la plage CIDR vSphere/vSAN est réservée à l’infrastructure du cloud privé.  N’utilisez pas d’adresses IP de cette plage pour les machines virtuelles.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>Limites de la plage CIDR des sous-réseaux vSphere/vSAN
 
@@ -68,7 +68,7 @@ Les sous-réseaux de gestion suivants sont créés quand vous créez un cloud pr
 
 La plage CIDR de sous-réseaux vSphere/vSAN spécifiée est divisée en plusieurs sous-réseaux.  Le tableau suivant montre un exemple de la décomposition pour les préfixes autorisés.  L’exemple utilise 192.168.0.0 comme plage CIDR.
 
-Exemple :
+Exemple :
 
 | Plage CIDR de sous-réseaux vSphere/vSAN et préfixe spécifiés | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|

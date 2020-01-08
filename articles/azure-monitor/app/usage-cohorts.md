@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d6762ac9253c838f715588451441aa9aa467f673
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 27b57477712c61fc97ae31ac353647896cca18af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406318"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes Application Insights
 
@@ -30,7 +30,7 @@ Vous pouvez définir une cohorte pour les utilisateurs qui ont testé une nouvel
 > [!NOTE]
 > Une fois créées, les cohortes sont disponibles dans les outils Utilisateurs, Sessions, Événements et Flux d’utilisateurs.
 
-## <a name="example-engaged-users"></a>Exemple : Utilisateurs engagés
+## <a name="example-engaged-users"></a>Exemple : Utilisateurs engagés
 
 Votre équipe définit un utilisateur engagé comme une personne qui utilise votre application au moins cinq fois pendant un mois donné. Dans cette section, vous allez définir une cohorte pour ces utilisateurs engagés.
 
@@ -73,7 +73,7 @@ Voici quelques points importants à prendre en considération :
 
 Ces filtres prennent en charge des questions plus sophistiquées qui sont impossibles à exprimer via le Générateur de requêtes. Par exemple _personnes engagées au cours des 28 derniers jours. Quel a été le comportement de ces personnes au cours des 60 derniers jours ?_
 
-## <a name="example-events-cohort"></a>Exemple : Cohorte d’événements
+## <a name="example-events-cohort"></a>Exemple : Cohorte d’événements
 
 Vous pouvez également créer des cohortes d’événements. Dans cette section, vous allez définir une cohorte pour ces événements et pour ces pages consultées. Ensuite, vous allez voir comment les utiliser dans d’autres outils. Cette cohorte peut définir un ensemble d’événements que votre équipe considère comme une _utilisation active_, ou un ensemble d’événements liés à une nouvelle fonctionnalité.
 
@@ -89,7 +89,7 @@ Vous pouvez également créer des cohortes d’événements. Dans cette section,
 
 5. Enregistrez la cohorte et attribuez-lui un nom.
 
-## <a name="example-active-users-where-you-modify-a-query"></a>Exemple : utilisateurs actifs dont vous modifiez la requête
+## <a name="example-active-users-where-you-modify-a-query"></a>Exemple : utilisateurs actifs dont vous modifiez la requête
 
 Les deux cohortes précédentes ont été définies à l’aide de zones de liste déroulante. Toutefois, pour une flexibilité totale, vous pouvez également définir des cohortes avec des requêtes analytiques. Voyons comment faire en créant une cohorte d’utilisateurs du Royaume-Uni.
 
@@ -122,7 +122,7 @@ Les deux cohortes précédentes ont été définies à l’aide de zones de list
 
 4. Enregistrez la cohorte et attribuez-lui un nom.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 _J’ai défini une cohorte d’utilisateurs d’un pays/d’une région. Lorsque je la compare dans l’outil Utilisateurs à la définition d’un filtre sur ce pays/cette région, j’obtiens des résultats différents. Pourquoi ?_
 

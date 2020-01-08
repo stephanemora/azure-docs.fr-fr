@@ -2,19 +2,15 @@
 title: Découvrez comment intégrer les solutions Update Management, Change Tracking et Inventory dans Azure Automation.
 description: Découvrez comment intégrer une machine virtuelle Azure avec Update Management, Change Tracking et Inventory qui font partie d’Azure Automation.
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 4/11/2019
 ms.topic: conceptual
-manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ab934db026b598e80541f98d74df70c893692120
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849698"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421874"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -65,7 +61,7 @@ Quand un ordinateur est ajouté aux solutions Update Management ou Change Tracki
 
 Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Ggénéral**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
-|Nom     |Catégorie  |Alias  |
+|Name     |Category  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Mises à jour        | Updates__MicrosoftDefaultComputerGroup         |
@@ -76,7 +72,7 @@ Sélectionnez l’une des deux recherches enregistrées pour afficher la requêt
 
 ## <a name="onboard-azure-vms"></a>Intégrer des machines virtuelles Azure
 
-À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
 Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou plusieurs machines virtuelles dans la liste. Les machines virtuelles qui ne peuvent pas être activées sont grisées et ne peuvent pas être sélectionnées. Les machines virtuelles Azure peuvent exister dans n’importe quelle région, quel que soit l’emplacement de votre compte Automation. Dans la page **Activer Update Management**, cliquez sur **Activer**. Cette action ajoute les machines virtuelles sélectionnées à la recherche enregistrée de groupe d’ordinateurs pour la solution.
 
@@ -84,13 +80,13 @@ Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou pl
 
 ## <a name="onboard-a-non-azure-machine"></a>Intégrer une machine non-Azure
 
-Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
 Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../azure-monitor/platform/log-analytics-agent.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Intégrer des machines dans l’espace de travail
 
-Les machines installées manuellement ou les machines déjà connectées à votre espace de travail doivent être ajoutées à Azure Automation pour que la solution soit activée. À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
+Les machines installées manuellement ou les machines déjà connectées à votre espace de travail doivent être ajoutées à Azure Automation pour que la solution soit activée. À partir de votre compte Automation, sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
 Sélectionnez **Gérer des machines**. La page **Gérer des machines** s’ouvre. Cette page vous permet soit d’activer la solution sur un ensemble sélectionné de machines ou sur toutes les machines disponibles, soit d’activer la solution pour toutes les machines actuelles et de l’activer sur toutes les futures machines. Le bouton **Gérer des machines** peut être grisé si vous avez précédemment choisi l’option **Activer sur tous les ordinateurs disponibles et à venir**.
 
@@ -118,7 +114,7 @@ Les solutions ci-après sont tributaires d’un espace de travail Log Analytics 
 * [Suivi des modifications](automation-change-tracking.md)
 * [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
 
-Si vous ne souhaitez plus intégrer votre compte Automation à un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant de poursuivre, vous devez d’abord supprimer les solutions mentionnées précédemment, sinon la procédure ne peut pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+Si vous ne souhaitez plus intégrer votre compte Automation dans un espace de travail Log Analytics, vous pouvez supprimer son lien directement dans le portail Microsoft Azure.  Avant de poursuivre, vous devez d’abord supprimer les solutions mentionnées précédemment, sinon la procédure ne peut pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
 
 Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
 
@@ -145,11 +141,11 @@ Si vous avez utilisé la solution Démarrer et Arrêter des machines virtuelles 
 
 * Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
-* variables
+* Variables
 
 Vous pouvez également dissocier votre espace de travail de votre compte Automation à partir de votre espace de travail Log Analytics. Dans votre espace de travail, sélectionnez **Compte Automation** sous **Ressources connexes**. Sur la page du compte Automation, sélectionnez **Dissocier le compte**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer une machine virtuelle de Update Management :
 

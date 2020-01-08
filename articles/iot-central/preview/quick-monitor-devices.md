@@ -3,18 +3,18 @@ title: Démarrage rapide – Superviser vos appareils dans Azure IoT Central
 description: En tant qu’opérateur, utilisez votre application Azure IoT Central pour superviser vos appareils dans ce guide de démarrage rapide.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a6bc4b76dc00330e39526aec8bc5651b9abb590b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: e0f0e765ba6bb8b0969fbf639c8427e8b65214fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434771"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices-preview-features"></a>Démarrage rapide : Utiliser Azure IoT Central pour superviser vos appareils (fonctionnalités de préversion)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706741"
 
 Ce démarrage rapide vous explique comment, en tant qu'opérateur, vous pouvez utiliser votre application Microsoft Azure IoT Central pour surveiller vos appareils et modifier les paramètres.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez suivre les trois guides de démarrage rapide précédents : [Créer une application Azure IoT Central](./quick-deploy-iot-central.md), [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md) et [Configurer des règles et des actions pour votre appareil](quick-configure-rules.md).
 

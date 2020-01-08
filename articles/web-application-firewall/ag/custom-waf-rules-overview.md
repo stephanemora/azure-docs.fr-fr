@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585389"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645087"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Règles personnalisées du pare-feu d’applications web v2 sur Azure Application Gateway
 
@@ -29,7 +29,7 @@ Différentes conditions de correspondance au sein de la même règle sont toujou
 Si vous souhaitez **ou** deux conditions différentes, les deux conditions doivent se trouver dans des règles différentes. Par exemple, bloquer le trafic à partir d’une adresse IP spécifique, et seulement si un certain navigateur est utilisé.
 
 > [!NOTE]
-> Le nombre maximal de règles personnalisées WAF est de 100. Pour en savoir plus sur les limites de la passerelle Application Gateway, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../../azure-subscription-service-limits.md#application-gateway-limits).
+> Le nombre maximal de règles personnalisées WAF est de 100. Pour en savoir plus sur les limites de la passerelle Application Gateway, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 Les expressions régulières sont également prises en charge dans les règles personnalisées, comme dans les ensembles de règles CRS. Pour voir d’autres exemples de règle personnalisée, consultez les exemples 3 et 5 de [Créer et utiliser des règles de pare-feu d’applications web personnalisées](create-custom-waf-rules.md)
 
@@ -126,7 +126,7 @@ Il doit s’agir de l’un des opérateurs suivants :
 
 - IPMatch - Utilisé uniquement lorsque matchVariable est *RemoteAddr*
 - Equals - la saisie est identique à MatchValue
-- Contains
+- Contient
 - LessThan
 - GreaterThan
 - LessThanOrEqual
@@ -145,7 +145,7 @@ Annule la condition actuelle.
 Liste de chaînes avec les noms des transformations à effectuer avant la tentative de la mise en correspondance. Il peut s’agir des transformations suivantes :
 
 - Minuscules
-- Trim
+- SupprEspace
 - UrlDecode
 - UrlEncode 
 - RemoveNulls
@@ -175,7 +175,7 @@ Si vous utilisez l’opérateur Geomatch, les sélecteurs peuvent correspondre �
 | AD | Andorre |
 | AE | Émirats Arabes Unis|
 | AF | Afghanistan|
-| AG | Antigua-et-Barbuda|
+| Groupe de disponibilité | Antigua-et-Barbuda|
 | AL | Albanie|
 | AM | Arménie|
 | AO | Angola|
@@ -229,7 +229,7 @@ Si vous utilisez l’opérateur Geomatch, les sélecteurs peuvent correspondre �
 | FJ | Fidji|
 | FM | Micronésie, États fédérés de|
 | FR | France|
-| GB | Royaume-Uni|
+| Go | United Kingdom|
 | GE | Géorgie|
 | GF | Guyane française|
 | GH | Ghana|
@@ -295,7 +295,7 @@ Si vous utilisez l’opérateur Geomatch, les sélecteurs peuvent correspondre �
 | NG | Nigeria|
 | NI | Nicaragua|
 | NL | Pays-bas|
-| NON | Norvège|
+| Non | Norvège|
 | NP | Népal|
 | NR | Nauru|
 | NZ | Nouvelle-Zélande|
@@ -314,7 +314,7 @@ Si vous utilisez l’opérateur Geomatch, les sélecteurs peuvent correspondre �
 | RO | Roumanie|
 | RS | Serbie|
 | RU | Fédération de Russie|
-| RW | Rwanda|
+| L/E | Rwanda|
 | SA | Arabie Saoudite|
 | SD | Soudan|
 | SE | Suède|

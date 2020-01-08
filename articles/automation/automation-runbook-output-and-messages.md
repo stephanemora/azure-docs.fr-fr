@@ -2,19 +2,15 @@
 title: Sortie et messages de runbook dans Azure Automation
 description: Décrit comment créer et récupérer la sortie et les messages d’erreur à partir des Runbooks dans Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: af199439fedddaef5b1bd3b219a60db697fb25ab
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 34246d66a48baec160a83411511ed78948c5dd8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421039"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 
@@ -22,14 +18,14 @@ La plupart des Runbooks Azure Automation ont une certaine forme de sortie. Cette
 
 Le tableau suivant fournit une brève description de chacun des flux et de leur comportement dans le portail Azure pour les Runbooks publiés et lors du [test d’un Runbook](automation-testing-runbook.md). Pour plus de détails sur chaque flux, reportez-vous aux sections suivantes.
 
-| Stream | Description | Publié | Test |
+| STREAM | Description | Publié | Test |
 |:--- |:--- |:--- |:--- |
 | Output |Objets destinés à être consommés par d’autres Runbooks. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Avertissement |Message d’avertissement destiné à l’utilisateur. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
 | Error |Message d’erreur destiné à l’utilisateur. Contrairement à une exception, le Runbook se poursuit après un message d’erreur par défaut. |Consignation dans l’historique des tâches. |Affichage dans le volet de sortie du test. |
-| Détaillé |Messages fournissant des informations générales ou de débogage. |Consignation dans l’historique des tâches uniquement si la journalisation documentée est activée pour le Runbook. |Affichage dans le volet de sortie du test uniquement si la préférence $VerbosePreference a la valeur Continue dans le Runbook. |
-| Progression |Informations générées automatiquement avant et après chaque activité dans le Runbook. Le Runbook ne doit pas tenter de créer ses propres informations de progression dans la mesure où elles sont destinées à un utilisateur interactif. |Consignation dans l’historique des tâches uniquement si l’enregistrement de la progression est activé pour le Runbook. |Pas d’affichage dans le volet de sortie du test. |
-| Déboguer |Messages destinés à un utilisateur interactif. Utilisation proscrite dans les Runbooks. |Pas de consignation dans l’historique des tâches. |Pas d’affichage dans le volet de sortie du test. |
+| Commentaires |Messages fournissant des informations générales ou de débogage. |Consignation dans l’historique des tâches uniquement si la journalisation documentée est activée pour le Runbook. |Affichage dans le volet de sortie du test uniquement si la préférence $VerbosePreference a la valeur Continue dans le Runbook. |
+| Progress |Informations générées automatiquement avant et après chaque activité dans le Runbook. Le Runbook ne doit pas tenter de créer ses propres informations de progression dans la mesure où elles sont destinées à un utilisateur interactif. |Consignation dans l’historique des tâches uniquement si l’enregistrement de la progression est activé pour le Runbook. |Pas d’affichage dans le volet de sortie du test. |
+| Débogage |Messages destinés à un utilisateur interactif. Utilisation proscrite dans les Runbooks. |Pas de consignation dans l’historique des tâches. |Pas d’affichage dans le volet de sortie du test. |
 
 ## <a name="output-stream"></a>Flux de sortie
 Le flux de sortie est destiné à la sortie des objets créés par un script ou un flux de travail lorsqu’il s’exécute correctement. Dans Azure Automation, ce flux est principalement utilisé pour les objets destinés à être consommés par les [Runbooks parents qui appellent le Runbook actuel](automation-child-runbooks.md). Lorsque vous [appelez un Runbook en ligne](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) à partir d’un Runbook parent, il retourne les données au parent à partir du flux de sortie. Utilisez le flux de sortie uniquement pour retourner des informations générales à l’utilisateur si vous savez que le Runbook n’est jamais appelé par un autre Runbook. Cependant, nous vous recommandons d’utiliser le [flux des commentaires](#verbose-stream) pour communiquer des informations générales à l’utilisateur.

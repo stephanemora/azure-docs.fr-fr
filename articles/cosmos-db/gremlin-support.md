@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 0c1ca054f9d28bb81c6f8acf6c0f43b134a596ed
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 564e69e3cd852c6a0f8c20278d4742b77f064298
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293760"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75499999"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
 Azure Cosmos DB prend en charge le langage de traversées de graphes [Apache Tinkerpop](https://tinkerpop.apache.org), connu sous le nom de [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
@@ -48,7 +48,7 @@ Le tableau suivant répertorie les fonctionnalités TinkerPop implémentées par
 
 ## <a name="gremlin-wire-format-graphson"></a>Format de câble Gremlin : GraphSON
 
-Azure Cosmos DB utilise le [format GraphSON](http://tinkerpop.apache.org/docs/current/reference/#graphson) lors du renvoi des résultats des opérations Gremlin. Azure Cosmos DB prend actuellement en charge la version « GraphSONv2 ». GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON.
+Azure Cosmos DB utilise le [format GraphSON](https://tinkerpop.apache.org/docs/current/reference/#graphson) lors du renvoi des résultats des opérations Gremlin. Azure Cosmos DB prend actuellement en charge la version « GraphSONv2 ». GraphSON est le format standard Gremlin pour représenter des vertex, des bords et des propriétés (propriétés à valeurs uniques et multiples) à l’aide de JSON.
 
 Par exemple, l’extrait de code suivant montre une représentation sous forme de GraphSON d’un sommet *retourné au client* dans Azure Cosmos DB. 
 

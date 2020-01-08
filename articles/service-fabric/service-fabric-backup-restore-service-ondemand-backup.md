@@ -1,25 +1,16 @@
 ---
-title: Sauvegarde à la demande dans Azure Service Fabric | Microsoft Docs
+title: Sauvegarde à la demande dans Azure Service Fabric
 description: Utilisez la fonctionnalité de sauvegarde et de restauration de Service Fabric pour sauvegarder vos données d’application selon vos besoins.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 02DA262A-EEF6-4F90-842E-FFC4A09003E5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 88698a7a0f78987dc96bf7f39831ec1a7560a359
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d5eada62bec49fe771373671e9438d2786d6b165
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815853"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458420"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Sauvegarde à la demande dans Azure Service Fabric
 
@@ -28,7 +19,7 @@ Vous pouvez sauvegarder les données des services fiables avec état et Reliable
 Azure Service Fabric comprend des fonctionnalités pour la [sauvegarde périodique des données](service-fabric-backuprestoreservice-quickstart-azurecluster.md) et la sauvegarde des données selon les besoins. La sauvegarde à la demande est utile car elle protège de la _perte des données_/_l’altération des données_ causées par des changements prévus dans le service sous-jacent ou son environnement.
 
 Les fonctionnalités de sauvegarde à la demande sont utiles pour capturer l’état des services avant que vous ne déclenchiez manuellement un service ou une opération de l’environnement du service. Par exemple, si vous apportez une modification dans les fichiers binaires du service lors du passage à une version antérieure ou ultérieure du service. Dans ce cas, la sauvegarde à la demande peut protéger les données d’une éventuelle altération due aux bogues du code de l’application.
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 
@@ -179,7 +170,7 @@ Les demandes de sauvegarde à la demande peuvent avoir les états suivants :
     LsnOfLastBackupRecord   : 0
     FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-  - **Timeout** : l’état de sauvegarde_Timeout_ indique que la sauvegarde d’état de partition n’a pas pu être créée dans un laps de temps donné. Le délai d’expiration par défaut est de 10 minutes. Dans ce scénario, effectuez une nouvelle demande de sauvegarde à la demande avec une valeur de [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) supérieure.
+  - **Timeout** (Expiration du délai) : l’état de sauvegarde_Timeout_ indique que la sauvegarde d’état de partition n’a pas pu être créée dans un laps de temps donné. Le délai d’expiration par défaut est de 10 minutes. Dans ce scénario, effectuez une nouvelle demande de sauvegarde à la demande avec une valeur de [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) supérieure.
     ```
     BackupState             : Timeout
     TimeStampUtc            : 0001-01-01T00:00:00Z

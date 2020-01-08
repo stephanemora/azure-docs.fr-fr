@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 47db03460ad3c5194a5445f0b25cb8e742e60c21
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931337"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373228"
 ---
 # <a name="virtual-network-tap"></a>TAP de réseau virtuel
 
@@ -56,15 +56,15 @@ L’image suivante illustre le fonctionnement d’un TAP de réseau virtuel. Vou
 
 ![Fonctionnement d’un TAP de réseau virtuel](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de créer un TAP de réseau virtuel, vous devez avoir reçu un e-mail de confirmation indiquant que vous êtes inscrit à la préversion, et disposer d'une ou plusieurs machines virtuelles créées à l’aide d’un modèle de déploiement [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et d'une solution partenaire pour agréger le trafic TAP dans la même région Azure. Si vous n’avez pas de solution de partenaire dans votre réseau virtuel, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions) pour en déployer une. Vous pouvez utiliser la même ressource TAP de réseau virtuel pour agréger le trafic de plusieurs interfaces réseau dans le même abonnement ou des abonnements différents. Si les interfaces réseau supervisées sont dans des abonnements différents, les abonnements doivent être associés au même locataire Azure Active Directory. Par ailleurs, les interfaces réseau supervisées et le point de terminaison de destination pour l’agrégation du trafic TAP peuvent être dans des réseaux virtuels appairés dans la même région. Si vous utilisez ce modèle de déploiement, vérifiez que [le peering de réseaux virtuels](virtual-network-peering-overview.md) est activé avant de configurer le TAP de réseau virtuel.
+Avant de créer un TAP de réseau virtuel, vous devez avoir reçu un e-mail de confirmation indiquant que vous êtes inscrit à la préversion, et disposer d'une ou plusieurs machines virtuelles créées à l’aide d’un modèle de déploiement [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et d'une solution partenaire pour agréger le trafic TAP dans la même région Azure. Si vous n’avez pas de solution de partenaire dans votre réseau virtuel, consultez les [solutions de partenaires](#virtual-network-tap-partner-solutions) pour en déployer une. Vous pouvez utiliser la même ressource TAP de réseau virtuel pour agréger le trafic de plusieurs interfaces réseau dans le même abonnement ou des abonnements différents. Si les interfaces réseau supervisées sont dans des abonnements différents, les abonnements doivent être associés au même locataire Azure Active Directory. Par ailleurs, les interfaces réseau supervisées et le point de terminaison de destination pour l’agrégation du trafic TAP peuvent être dans des réseaux virtuels appairés dans la même région. Si vous utilisez ce modèle de déploiement, vérifiez que [le peering de réseaux virtuels](virtual-network-peering-overview.md) est activé avant de configurer le TAP de réseau virtuel.
 
 ## <a name="permissions"></a>Autorisations
 
 Les comptes que vous utilisez pour appliquer une configuration TAP sur des interfaces réseau doivent être attribués au rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou à un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) avec les autorisations appropriées listées dans le tableau suivant :
 
-| Action | Nom |
+| Action | Name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | Nécessaire pour créer, mettre à jour, lire et supprimer une ressource TAP de réseau virtuel |
 | Microsoft.Network/networkInterfaces/read | Nécessaire pour lire la ressource d’interface réseau sur laquelle configurer le TAP |

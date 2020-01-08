@@ -3,19 +3,15 @@ title: Mon premier runbook graphique dans Azure Automation
 description: Ce didacticiel vous familiarise avec la création, le test et la publication d'un Runbook graphique simple.
 keywords: runbook, modèle de runbook, automatisation des runbooks, runbook azure
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/13/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 1cdd015d9f29c3fb672d626f32a485271e2757c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a93263cf968fc4804d7bbc59e15121d6061dd40a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850310"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366530"
 ---
 # <a name="my-first-graphical-runbook"></a>Mon premier Runbook graphique
 
@@ -28,7 +24,7 @@ ms.locfileid: "74850310"
 
 Ce didacticiel vous familiarise avec la création d’un [Runbook graphique](automation-runbook-types.md#graphical-runbooks) dans Azure Automation. Vous commencez avec un simple runbook qui teste et publie tout en expliquant comment suivre l’état du travail du runbook. Vous modifiez ensuite le runbook pour gérer les ressources Azure, en démarrant dans ce cas une machine virtuelle Azure. Enfin, vous terminez ce didacticiel en renforçant le runbook grâce à l’ajout des paramètres de runbook et des liens conditionnels.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 

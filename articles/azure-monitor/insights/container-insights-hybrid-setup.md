@@ -1,24 +1,20 @@
 ---
 title: Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Stack ou dans un autre environnement.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
-ms.openlocfilehash: 0d6615d832059a8b58c0d5d52533b8c8c962640d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c791477aeb27609cccda11b901eccaa2805be581
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404820"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Kubernetes hybrides avec Azure Monitor pour les conteneurs
 
 Azure Monitor pour les conteneurs offre une expérience d’analyse riche pour les clusters Azure Kubernetes Service (AKS) et Moteur AKS hébergés dans Azure. Cet article explique comment activer la surveillance des clusters Kubernetes hébergés en dehors d’Azure et obtenir une expérience de surveillance similaire.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
@@ -87,7 +83,7 @@ Cette méthode inclut deux modèles JSON. Le premier modèle spécifie la config
 
 Pour identifier l’ID de ressource complet de votre espace de travail Log Analytics requis pour la valeur du paramètre `workspaceResourceId` dans le fichier de **containerSolutionParams.json**, procédez comme suit, puis exécutez l’applet de commande PowerShell ou la commande Azure CLI pour ajouter la solution.
 
-1. Listez tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
+1. Affichez la liste de tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
 
     ```azurecli
     az account list --all -o table
@@ -283,7 +279,7 @@ Une fois que vous avez correctement déployé le graphique, vous pouvez examiner
 >[!NOTE]
 >La latence d’ingestion est de cinq à dix minutes entre l’agent et la validation dans l’espace de travail Azure Log Analytics. L’état du cluster affiche la valeur **Pas de données** ou **Inconnu** jusqu’à ce que toutes les données d’analyse requises soient disponibles dans Azure Monitor. 
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez une erreur lors de la tentative d’activation de la surveillance de votre cluster Kubernetes hybride, copiez le script PowerShell [TroubleshootError_nonAzureK8s.ps1](https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature/Troubleshoot/TroubleshootError_nonAzureK8s.ps1) et enregistrez-le dans un dossier sur votre ordinateur. Ce script est fourni pour aider à détecter et à résoudre les problèmes rencontrés. Les problèmes qu’il est conçu de détecter et tenter de corriger sont les suivants :
 

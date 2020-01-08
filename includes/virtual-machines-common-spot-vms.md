@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b671fe9a4ecd35cbe9d70f398f8d39664203fc58
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8d28566cb10ddd1637eb81dffd102df6bd7b6e7a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781885"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663168"
 ---
 L’utilisation de machines virtuelles Spot vous permet de disposer de notre capacité inutilisée en réalisant des économies significatives. Dès qu’Azure a besoin de récupérer toute la capacité, l’infrastructure Azure supprime les machines virtuelles Spot. Les machines virtuelles Spot sont donc appropriées pour les charges de travail capables de gérer les interruptions, comme les travaux de traitement par lots, les environnements de développement et de test, les charges de travail de calcul importantes, entre autres.
 
@@ -23,7 +23,7 @@ La capacité disponible dépend de divers facteurs, tels que la taille, la régi
 > Les instances Spot sont actuellement en préversion publique.
 > Cette préversion n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> Pour la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
+> Dans la première partie de la préversion publique, les instances Spot auront un prix fixe, de sorte qu’il n’y aura aucune éviction basée sur les prix.
 
 ## <a name="eviction-policy"></a>Stratégie d’éviction
 
@@ -32,7 +32,7 @@ Les machines virtuelles peuvent être supprimées en fonction de la capacité ou
 Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la machine virtuelle via [Azure Scheduled Events](../articles/virtual-machines/linux/scheduled-events.md). Vous serez ainsi informé si vos machines virtuelles sont en cours d’éviction, et vous aurez 30 secondes pour terminer vos tâches et arrêter la machine virtuelle avant que ne commence l’éviction. 
 
 > [!IMPORTANT]
-> Dans la première partie de la préversion, vous pouvez définir un prix maximal. Toutefois, celui-ci sera ignoré. Les machines virtuelles Spot ont un prix fixe. Il n’y aura donc pas d’évictions basées sur le prix.
+> Dans la première partie de la préversion publique, vous pouvez définir un prix maximal. Toutefois, celui-ci sera ignoré. Les machines virtuelles Spot ont un prix fixe. Il n’y aura donc pas d’évictions basées sur le prix.
 
 
 | Option | Résultat |
@@ -61,29 +61,29 @@ Les machines virtuelles peuvent être déployées dans n’importe quelle régio
 Les tarifs des machines virtuelles Spot sont variables, en fonction de la région et de la référence SKU. Pour plus d’informations, consultez les prix des machines virtuelles pour [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) et [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
 
-En raison de la variabilité des tarifs, vous avez la possibilité de définir un prix maximal (en dollars américains (USD)) ayant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles.
+En raison de la variabilité des tarifs, vous avez la possibilité de définir un prix maximal en dollars américains (USD) ayant jusqu’à 5 décimales. Par exemple, la valeur `0.98765` correspond à un prix maximal de 0,98765 $ USD par heure. Si vous définissez `-1` comme prix maximal, la machine virtuelle n’est pas supprimée en fonction du prix. Le prix de la machine virtuelle sera le prix actuel de Spot ou le prix d’une machine virtuelle standard, la valeur la plus faible étant retenue, à condition que la capacité et le quota soient disponibles.
 
 
-##  <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+##  <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q :** Une fois créée, la machine virtuelle Spot est-elle identique à la machine virtuelle standard habituelle ?
 
-**R :** Oui, sauf qu’il n’existe aucun contrat SLA pour les machines virtuelles Spot et qu’elles peuvent être évincées à tout moment.
+**R :** Oui, sauf qu’il n’existe aucun contrat SLA pour les machines virtuelles Spot et qu’elles peuvent être supprimées à tout moment.
 
 
-**Q :** Que faire quand votre machine virtuelle est évincée, alors que vous avez encore besoin de capacité ?
+**Q :** Que faire quand votre machine virtuelle est supprimée alors que vous avez encore besoin de capacité ?
 
 **R :** Nous vous recommandons d’utiliser des machines virtuelles standard au lieu de machines virtuelles Spot si vous avez besoin de capacité immédiatement.
 
 
 **Q :** Comment le quota de Machines virtuelles Spot est-il géré ?
 
-**R :** Les machines virtuelles Spot auront un pool de quotas distinct. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R :** Les machines virtuelles Spot auront un pool de quotas distinct. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **Q :** Puis-je demander une augmentation de mon quota pour Spot ?
 
-**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot à l’aide du [processus de demande de quota standard](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+**R :** Oui, vous pouvez demander une augmentation de votre quota pour les machines virtuelles Spot via la [procédure de demande de quota standard](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
 
 
 **Q :** Quels sont les canaux qui prennent en charge les machines virtuelles Spot ?
@@ -94,8 +94,8 @@ En raison de la variabilité des tarifs, vous avez la possibilité de définir u
 
 | Canaux Azure               | Disponibilité des machines virtuelles Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrat Entreprise         | OUI                               |
-| Paiement à l’utilisation                | OUI                               |
+| Contrat Entreprise         | Oui                               |
+| Paiement à l’utilisation                | Oui                               |
 | Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Avantages                     | Non disponible                     |
 | Sponsorisé                    | Non disponible                     |

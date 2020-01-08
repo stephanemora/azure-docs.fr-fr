@@ -4,15 +4,15 @@ description: CollectD est un démon Linux open source qui collecte périodiqueme
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 4bf58a7e446cb13366a230a35c83e6bf0acaa09a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395868"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Collecter des données à partir de CollectD sur les agents Linux dans Azure Monitor
 [CollectD](https://collectd.org/) est un démon Linux open source qui collecte périodiquement des mesures de performances à partir d’applications et d’informations de niveau système. Les applications peuvent être, par exemple, la machine virtuelle Java (JVM), le serveur MySQL et Nginx. Cet article fournit des informations sur la collecte des données de performances à partir de CollectD dans Azure Monitor.
@@ -109,12 +109,12 @@ Pour conserver un modèle cohérent entre les mesures d’infrastructure déjà 
 | Champ Mesure CollectD | Champ Azure Monitor |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | Aucun |
+| `plugin` | None |
 | `plugin_instance` | Nom de l’instance<br>If **plugin_instance** is *null* then InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>If **type_instance** is *null* then CounterName=**blank** |
 | `dsnames[]` | CounterName |
-| `dstypes` | Aucun |
+| `dstypes` | None |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Étapes suivantes

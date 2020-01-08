@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8a371f902703287ed3105ed53a57d6341b9528d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415105"
 ---
 # <a name="get-help-with-your-system"></a>Obtenir de l’aide avec votre système
 
@@ -19,13 +19,13 @@ Si vous avez besoin d’aide concernant l’utilisation d’Avere vFXT pour Azur
 
 * **Problème avec Avere vFXT** : utilisez le portail Azure afin d’ouvrir un ticket de support pour Avere vFXT, comme expliqué [ci-dessous](#open-a-support-ticket-for-your-avere-vfxt).
 * **Quota** : si vous avez un problème lié aux quotas, [faite une demande d’augmentation de quota](#request-a-quota-increase).
-* **Documentation et exemples** : si vous avez constaté des erreurs dans la documentation ou les exemples, accédez au bas de la page jusqu’à la section **Commentaires** pour voir les problèmes déjà signalés ou en signaler un nouveau.  
+* **Documentation et exemples** : si vous avez constaté des erreurs dans la documentation ou les exemples, accédez au bas de la page jusqu’à la section **Commentaires** pour voir les problèmes déjà signalés ou en signaler un nouveau.
 
 ## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Ouvrir un ticket de support pour Avere vFXT
 
-Si vous rencontrez des problèmes lors du déploiement ou de l’utilisation d’Avere vFXT, demandez de l’aide via le portail Azure.  
+Si vous rencontrez des problèmes lors du déploiement ou de l’utilisation d’Avere vFXT, demandez de l’aide via le portail Azure.
 
-Suivez ces étapes pour que votre ticket de support soit étiqueté avec une ressource du cluster. L’étiquetage du ticket nous permet de l’acheminer vers la ressource de support adaptée. 
+Suivez ces étapes pour que votre ticket de support soit étiqueté avec une ressource du cluster. L’étiquetage du ticket nous permet de l’acheminer vers la ressource de support adaptée.
 
 1. Dans [https://portal.azure.com](https://portal.azure.com), sélectionnez **Groupes de ressources**.
 
@@ -43,7 +43,7 @@ Suivez ces étapes pour que votre ticket de support soit étiqueté avec une res
 
     ![Capture d’écran de la nouvelle demande de support dans le portail Azure, sous l’en-tête « Bases », et avec l’élément « Service » entouré. Le bouton « Tous les services » est sélectionné, et la valeur « Avere vFXT » est sélectionnée dans la liste déroulante.](media/avere-vfxt-ticket-service.png)
 
-1. Dans la deuxième page, choisissez le type et la catégorie qui correspondent le mieux à votre problème. Ajoutez un titre court et une description comprenant le moment où s’est produit le problème. 
+1. Dans la deuxième page, choisissez le type et la catégorie qui correspondent le mieux à votre problème. Ajoutez un titre court et une description comprenant le moment où s’est produit le problème.
 
    ![Capture d’écran de la nouvelle demande de support sous l’en-tête « Problème », où de nombreux champs doivent être renseignés.](media/avere-vfxt-ticket-problem.png)
 

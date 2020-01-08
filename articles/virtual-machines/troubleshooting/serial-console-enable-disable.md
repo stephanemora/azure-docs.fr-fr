@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: fa400d875a8f39d54d10820c603e12e97f0cd854
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451305"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Activer et désactiver la console série Azure
 
@@ -33,7 +33,10 @@ La console série peut être désactivée pour une machine virtuelle ou un group
 
 ## <a name="subscription-level-enabledisable"></a>Activer/désactiver au niveau de l’abonnement
 
-### <a name="azure-cli"></a>D’Azure CLI
+> [!NOTE]
+> Vérifiez que vous êtes dans le cloud approprié (cloud public Azure, cloud Azure US Government) avant d’exécuter cette commande. Vous pouvez vérifier en consultant `az cloud list` et définir votre cloud avec `az cloud set -n <Name of cloud>`.
+
+### <a name="azure-cli"></a>Azure CLI
 
 La console série peut être désactivée et réactivée pour l’intégralité d’un abonnement à l’aide des commandes suivantes dans l’interface de ligne de commande Azure (vous pouvez utiliser le bouton « Essayer » pour lancer une instance d’Azure Cloud Shell dans laquelle vous pouvez exécuter les commandes) :
 
@@ -57,9 +60,6 @@ subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
-
-> [!NOTE]
-> Vérifiez que vous êtes dans le cloud approprié (cloud public Azure, cloud Azure US Government) avant d’exécuter cette commande. Vous pouvez vérifier en consultant `az cloud list` et définir votre cloud avec `az cloud set -n <Name of cloud>`.
 
 ### <a name="powershell"></a>PowerShell
 

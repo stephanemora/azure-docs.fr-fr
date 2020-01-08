@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: a4c435b4874301fe6fb804085c5b265954cd4f5a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539339"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637590"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
 
@@ -35,7 +35,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 
 | **Taille de calcul** | **De base** |
 | :--- | --: |
-| DTU max | 5\. |
+| DTU max | 5 |
 | Espace de stockage inclus (Go) | 2 |
 | Choix de stockage maximum (Go) | 2 |
 | Stockage In-Memory OLTP maximal (Go) |N/A |
@@ -58,7 +58,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | Choix de stockage maximum (Go) | 250 | 250 | 250 | 250, 500, 750, 1 024 |
 | Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |
 | Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
-| Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
+| Nombre maximal de sessions simultanées |600 | 900 | 1200 | 2 400 |
 ||||||
 
 > [!IMPORTANT]
@@ -83,7 +83,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 
 | **Taille de calcul** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
-| DTU max | 125 | 250 | 500 | 1 000 | 1 750 | 4000 |
+| DTU max | 125 | 250 | 500 | 1 000 | 1750 | 4000 |
 | Espace de stockage inclus (Go) | 500 | 500 | 500 | 500 | 4 096* | 4 096* |
 | Choix de stockage maximum (Go) | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 500, 750, 1 024 | 4 096* | 4 096* |
 | Stockage In-Memory OLTP maximal (Go) | 1 | 2 | 4 | 8 | 14 | 32 |
@@ -101,8 +101,8 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour connaître les limites de ressources vCore d’une base de données unique, consultez l’article consacré aux [limites de ressources pour les bases de données uniques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-single-databases.md)
-- Pour connaître les limites de ressources vCore des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
-- Pour connaître les limites de ressources DTU des pools élastiques, consultez l’article sur les [limites de ressources pour les pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
+- Pour connaître les limites de ressources vCore des pools élastiques, consultez l’article consacré aux [limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
+- Pour connaître les limites de ressources DTU des pools élastiques, consultez l’article consacré aux [limites de ressources pour les pools élastiques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-elastic-pools.md)
 - Pour connaître les limites de ressources des instances gérées, consultez l'article consacré aux [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
-- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Pour plus d'informations sur les limites de ressources au niveau du serveur de base de données et de l'abonnement, consultez l'article [Vue d'ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).

@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 68315b1b0d290b107fe2d28a9e3b49be009b78b8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: d2c8e599e44e48517920862e1fcf83e1a5e24910
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781925"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647626"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Aperçu : Machines virtuelles Azure Spot pour les groupes identiques de machines virtuelles 
 
@@ -50,8 +50,8 @@ Les utilisateurs peuvent s’abonner pour recevoir des notifications dans la mac
 ## <a name="deploying-spot-vms-in-scale-sets"></a>Déploiement de machines virtuelles Spot dans des groupes identiques
 
 Pour déployer des machines virtuelles Spot dans des groupes identiques, définissez le nouvel indicateur *Priority* sur *Spot*. Toutes les machines virtuelles dans votre groupe identique sont alors configurées sur Spot. Pour créer un groupe identique avec des machines virtuelles Spot, utilisez l’une des méthodes suivantes :
-- [Portail Azure](#portal)
-- [Interface de ligne de commande Azure](#azure-cli)
+- [Azure portal](#portal)
+- [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
 - [Modèles Microsoft Azure Resource Manager](#resource-manager-templates)
 
@@ -60,7 +60,7 @@ Pour déployer des machines virtuelles Spot dans des groupes identiques, défini
 Le processus de création d’un groupe identique qui utilise des machines virtuelles Spot est le même que celui décrit dans l’[article de démarrage rapide](quick-create-portal.md). Lorsque vous déployez un groupe identique, vous pouvez choisir de définir l’indicateur Spot et la stratégie d’éviction : ![Créer un groupe identique avec des machines virtuelles Spot](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Le processus de création d’un groupe identique avec des machines virtuelles Spot est le même que celui décrit dans l’[article de démarrage rapide](quick-create-cli.md). Ajoutez simplement « --Priority Spot » et `--max-price`. Dans cet exemple, nous utilisons `-1` pour `--max-price` afin que l’instance ne soit pas supprimée en fonction du prix.
 
@@ -137,7 +137,7 @@ L’exemple suivant crée un groupe identique Spot Linux nommé *myScaleSet* dan
   }
 }
 ```
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Q :** Une fois créée, une instance Spot est-elle identique à une instance standard ?
 
@@ -151,7 +151,7 @@ L’exemple suivant crée un groupe identique Spot Linux nommé *myScaleSet* dan
 
 **Q :** Comment les quotas sont-ils gérés pour Spot ?
 
-**R :** Les instances Spot et les instances standard auront des pools de quotas distincts. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+**R :** Les instances Spot et les instances standard auront des pools de quotas distincts. Le quota Spot est partagé entre les machines virtuelles et les instances de groupe identique. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
 **Q :** Puis-je demander une augmentation de mon quota pour Spot ?
@@ -192,8 +192,8 @@ L’exemple suivant crée un groupe identique Spot Linux nommé *myScaleSet* dan
 
 | Canaux Azure               | Disponibilité des machines virtuelles Azure Spot       |
 |------------------------------|-----------------------------------|
-| Contrat Entreprise         | OUI                               |
-| Paiement à l’utilisation                | OUI                               |
+| Contrat Entreprise         | Oui                               |
+| Paiement à l’utilisation                | Oui                               |
 | Fournisseur de services cloud (CSP) | [Contactez votre partenaire](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Avantages                     | Non disponible                     |
 | Sponsorisé                    | Non disponible                     |

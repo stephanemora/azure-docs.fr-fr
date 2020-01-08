@@ -2,20 +2,16 @@
 title: Gérer une machine virtuelle Azure avec la collection d’inventaire | Microsoft Docs
 description: Gérer une machine virtuelle avec la collection d’inventaire
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
 keywords: inventaire, automatisation, suivi des modifications
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 02/06/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61304102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75419825"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -29,7 +25,7 @@ Cet article suppose que vous avez une machine virtuelle pour configurer la solut
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Activer la collecte d’inventaire à partir de la page de ressources de la machine virtuelle
 
@@ -84,8 +80,8 @@ Les tables suivantes fournissent des informations sur chaque propriété qui peu
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
 |Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « /etc/*.conf ».       |
-|Type de chemin d’accès     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
-|Recursion     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
+|Type de chemin     | Type d’élément à suivre. Valeurs possibles : fichier et répertoire.        |
+|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
 

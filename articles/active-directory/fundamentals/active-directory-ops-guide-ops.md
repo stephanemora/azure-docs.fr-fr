@@ -11,25 +11,25 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 46e5af9d54cf818366bd2730de0da85dcbe6cade
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d039373d3e70076149da2b970a234b59d7aa661a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534765"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422945"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Guide de référence des opérations générales Azure Active Directory
 
 Cette section du [guide de référence des opérations Azure AD](active-directory-ops-guide-intro.md) décrit les vérifications et les actions à entreprendre pour optimiser les opérations générales d’Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Ces recommandations sont valables à compter de la date de publication mais peuvent évoluer. Les organisations doivent évaluer leurs pratiques opérationnelles en continu à mesure que les produits et services Microsoft évoluent.
+> Ces suggestions sont valables à la date de publication mais peuvent évoluer. Les organisations doivent évaluer leurs pratiques opérationnelles en continu à mesure que les produits et services Microsoft évoluent.
 
 ## <a name="key-operational-processes"></a>Processus opérationnels clés
 
 ### <a name="assign-owners-to-key-tasks"></a>Affecter les propriétaires à des tâches clés
 
-La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peut ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les principales tâches clés et leurs propriétaires recommandés sont répertoriés ci-dessous :
+La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peuvent ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les tâches clés et leurs propriétaires recommandés sont listés ci-après :
 
 | Tâche | Propriétaire |
 | :- | :- |
@@ -45,7 +45,7 @@ La gestion d’Azure Active Directory nécessite l’exécution continue de tâc
 | Surveiller les journaux hybrides : Passerelle de protection des mots de passe locale | Équipe des opérations IAM |
 | Surveiller les journaux hybrides : Extension NPS Azure MFA (le cas échéant) | Équipe des opérations IAM |
 
-En passant votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui n’en ont pas ou encore ajuster la propriété des tâches avec propriétaire qui ne sont pas en accord avec les recommandations ci-dessus.
+Quand vous passerez votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui en sont dépourvues, ou modifier la propriété des tâches avec propriétaires qui ne sont pas conformes aux suggestions ci-dessus.
 
 #### <a name="owners-recommended-reading"></a>Lectures recommandées pour les propriétaires
 
@@ -107,7 +107,7 @@ L’adoption de meilleures pratiques peut contribuer à optimiser le fonctionnem
 #### <a name="on-premises-agents-management-recommended-reading"></a>Lectures recommandées pour la gestion des agents locaux
 
 - [Présentation des connecteurs de proxy d’application Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors)
-- [Authentification directe Azure AD - Démarrage rapide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start#step-5-ensure-high-availability)
+- [Authentification directe Azure AD - Démarrage rapide](../hybrid/how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)
 
 ## <a name="management-at-scale"></a>Gestion à grande échelle
 
@@ -131,7 +131,7 @@ Azure AD utilise deux adresses « De » : <o365mc@email2.microsoft.com>, qui 
 
 - [Révisions d’accès Azure AD](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
 - [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations#enable-email-notifications)
-- [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/notifications)
+- [Azure AD Identity Protection](/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications)
 - [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-email-notifications)
 - [Notifications de l’expiration prochaine des certificats des applications d’entreprise](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on#add-email-notification-addresses-for-certificate-expiration)
 - Notifications du service de provisionnement des applications d’entreprise
@@ -176,7 +176,7 @@ Verrouillez l’accès aux composants d’identité locaux tels qu’Azure AD Co
 
 Une infrastructure d’identité sécurisée repose sur sept aspects. Cette liste vous permet de définir les actions à entreprendre pour optimiser les opérations pour Azure Active Directory (Azure AD).
 
-- Affecter les propriétaires à des tâches clés.
+- Affectez des propriétaires aux tâches clés.
 - Automatiser le processus de mise à niveau pour les composants hybrides locaux.
 - Déployer Azure AD Connect Health pour surveiller et générer des rapports d’Azure AD Connect et AD FS.
 - Surveiller l’intégrité des composants hybrides locaux en archivant et en analysant les journaux de l’agent du composant à l’aide de System Center Operations Manager ou d’une solution SIEM.

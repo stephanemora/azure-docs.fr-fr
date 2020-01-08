@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 0f55f3ce4856e7b6eccf665faaa1b1fa45b84b58
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 49dc69eb73bd19509b5e14c5a4976cfa7208545a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392325"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -33,7 +33,7 @@ ms.locfileid: "72302303"
 | Niveau Gratuit  | 10 | Cette limite ne peut pas être augmentée. |
 | Tous les autres niveaux | Aucune limite | Vous êtes limité par le nombre de ressources au sein d’un groupe de ressources et le nombre de groupes de ressources par abonnement. |
 
-**Portail Azure**
+**Azure portal**
 
 | Category | limites | Commentaires |
 |:---|:---|:---|
@@ -62,7 +62,6 @@ ms.locfileid: "72302303"
 |:---|:---|:---|
 | Nombre maximum de colonnes dans une table         | 500 | |
 | Nombre maximum de caractères pour le nom de colonne | 500 | |
-| Régions ayant atteint la capacité maximale | Centre-USA Ouest | Vous ne pouvez actuellement pas créer un nouvel espace de travail dans cette région dans la mesure où elle a atteint sa limite de capacité temporaire. Cette limite devrait être traitée d’ici à la fin du mois de novembre 2019. |
 | Exportation de données | Actuellement non disponible | Utilisez Azure Function ou Logic App pour agréger et exporter des données. | 
 
 **Débit d’ingestion de données**

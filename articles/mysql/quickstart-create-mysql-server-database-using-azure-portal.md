@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 1dfe4840d49983c4ae273c16ae16f6df253d509e
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770354"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454309"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 
@@ -24,7 +24,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 Ouvrez votre navigateur Web, puis accédez au [portail Azure](https://portal.azure.com/). Entrez vos informations d’identification pour vous connecter au portail. Il s’ouvre par défaut sur le tableau de bord des services.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
-Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+Vous créez un serveur Azure Database pour MySQL avec un ensemble défini de [ressources de calcul et de stockage](./concepts-compute-unit-and-storage.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
 Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes ci-après :
 
@@ -57,7 +57,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
 
    ![Créer un serveur - Fenêtre de niveau tarifaire](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
+4. Sélectionnez **Créer** pour approvisionner le serveur. L’approvisionnement peut durer jusqu’à 20 minutes.
    
 5. Dans la barre d’outils, sélectionnez **Notifications** (icône de cloche) pour surveiller le processus de déploiement.
    
@@ -84,7 +84,7 @@ Le service Base de données Azure pour MySQL crée un pare-feu au niveau du serv
    > 
 
 ## <a name="get-the-connection-information"></a>Obtenir les informations de connexion
-Pour vous connecter à votre serveur de base de données, il vous faut le nom de serveur complet et les informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment dans l’article relatif au guide de démarrage rapide. Si vous ne l’avez pas fait, vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page **Vue d’ensemble** ou sur la page **Propriétés** du serveur sur le portail Azure.
+Pour vous connecter à votre serveur de base de données, il vous faut le nom de serveur complet et les informations d’identification de connexion d’administrateur. Il est possible que vous ayez noté ces valeurs précédemment, dans l’article se rapportant au guide de démarrage rapide. Si vous ne l’avez pas fait, vous pouvez facilement localiser le nom du serveur et les informations de connexion sur la page **Vue d’ensemble** ou sur la page **Propriétés** du serveur sur le portail Azure.
 
 Pour trouver ces valeurs, effectuez les étapes suivantes : 
 
@@ -181,9 +181,9 @@ Pour vous connecter au serveur à l’aide de l’outil MySQL Workbench GUI, pro
 
     |Paramètre |Valeur suggérée|Description du champ|
     |---|---|---|
-     Nom de connexion | Connexion démo | Une étiquette pour cette connexion. |
+     Nom de la connexion | Connexion démo | Une étiquette pour cette connexion. |
     Méthode de connexion | Standard (TCP/IP) | Standard (TCP/IP) est suffisant. |
-    Nom d’hôte | *Nom du serveur* | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour MySQL. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mysql.database.azure.com**. Utilisez le nom de domaine complet ( **\*.mysql.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion.|
+    HostName | *Nom du serveur* | La valeur de nom de serveur utilisée lorsque vous avez créé le serveur Azure Database pour MySQL. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mysql.database.azure.com**. Utilisez le nom de domaine complet ( **\*.mysql.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez pas du nom de votre serveur, suivez les instructions de la section précédente pour obtenir les informations de connexion.|
      Port | 3306 | Le port à utiliser lors de la connexion au serveur Azure Database for MySQL. |
     Nom d’utilisateur |  *Nom de connexion d’administrateur du serveur* | Les informations de connexion d’administrateur du serveur fourni lorsque vous avez créé le serveur Azure Database pour MySQL. Le nom d’utilisateur dans notre exemple est **myadmin\@mydemoserver**. Si vous ne vous souvenez pas du nom d’utilisateur, suivez les instructions de la section précédente pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
     Mot de passe | *Votre mot de passe* | Sélectionnez **Stocker dans le coffre-fort** pour enregistrer le mot de passe. |
@@ -193,11 +193,11 @@ Pour vous connecter au serveur à l’aide de l’outil MySQL Workbench GUI, pro
     > [!NOTE]
     > Le protocole SSL est appliqué par défaut sur votre serveur et requiert une configuration supplémentaire afin de vous connecter avec succès. Pour plus d’informations, consultez l’article [Configuration de la connectivité SSL dans votre application pour se connecter en toute sécurité à la base de données Azure pour MySQL](./howto-configure-ssl.md). Pour désactiver le protocole SSL dans ce guide de démarrage rapide, rendez-vous sur le portail Azure. Sélectionnez ensuite la page Sécurité de la connexion pour désactiver le bouton **Appliquer le protocole SSL**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans le guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md), qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la ressource d’un serveur.
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans le guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la ressource d’un serveur.
 
 > [!TIP]
-> Les autres guides de démarrage rapide de cette collection reposent sur ce guide. Si vous souhaitez continuer à utiliser d’autres guides de démarrages rapides, ne nettoyez pas les ressources créées au cours de ce guide. Sinon, procédez comme suit pour supprimer toutes les ressources que vous avez créées avec ce guide de démarrage rapide.
+> Les autres guides de démarrage rapide de cette collection reposent sur ce guide. Si vous souhaitez continuer à utiliser d’autres guides de démarrage rapide, ne supprimez pas les ressources créées au cours de ce guide. Sinon, procédez comme suit pour supprimer toutes les ressources que vous avez créées avec ce guide de démarrage rapide.
 >
 
 Pour supprimer l’intégralité du groupe de ressources, y compris le serveur que vous venez de créer, procédez comme suit :
@@ -210,7 +210,7 @@ Pour supprimer uniquement le serveur que vous venez de créer, procédez comme s
 
 1. Localisez votre serveur dans le portail Azure, s’il n’est pas déjà ouvert. Cliquez sur **Toutes les ressources** dans le menu de gauche du portail Azure. Recherchez ensuite le serveur que vous avez créé.
 
-2. Sur la page **Vue d’ensemble**, sélectionnez **Supprimer**. 
+2. Dans la page **Vue d’ensemble**, sélectionnez **Supprimer**. 
 
    ![Azure Database pour MySQL : Supprimer le serveur](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 

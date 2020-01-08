@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446694"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
@@ -69,7 +69,7 @@ Les en-têtes de demande sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -87,7 +87,7 @@ Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 100 éléments.
 * La valeur texte d’un élément de tableau ne peut pas dépasser 10 000 caractères, espaces compris.
-* L’intégralité du texte inclus dans la demande ne peut pas dépasser 50 000 caractères, espaces compris.
+* L’intégralité du texte inclus dans la demande ne peut pas dépasser 50 000 caractères, espaces compris.
 * Si le paramètre de requête `language` est spécifié, tous les éléments du tableau doivent être dans la même langue. Sinon, la détection automatique de la langue est appliquée indépendamment à chaque élément du tableau.
 
 ## <a name="response-body"></a>Response body
@@ -109,7 +109,7 @@ Exemple de réponse JSON :
 ```json
 [
   {
-    "sentenceLengths": [ 13, 11, 22 ]
+    "sentLen": [ 13, 11, 22 ]
     "detectedLanguage": {
       "language": "en",
       "score": 401
@@ -138,7 +138,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>400</td>

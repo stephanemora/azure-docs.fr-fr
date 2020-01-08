@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643786"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443878"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -42,13 +42,13 @@ Vous pouvez consolide rles données provenant de différentes sources, et combin
 
 [Azure Automation](/azure/automation/automation-intro) vous permet d’automatiser les tâches répétitives, manuelles, longues et susceptibles de générer des erreurs, qui sont fréquemment exécutées dans un environnement cloud et d’entreprise. Il fait gagner du temps et augmente la fiabilité des tâches d’administration. Il planifie même l’exécution automatique de ces tâches à intervalles réguliers. Vous pouvez automatiser les processus à l’aide de runbooks ou automatiser la gestion de la configuration avec la Configuration de l’état souhaité (DSC, Desired State Configuration).
 
-### <a name="backup"></a>Sauvegarde
+### <a name="backup"></a>Backup
 
 [Sauvegarde Azure](/azure/backup/backup-introduction-to-azure-backup) est le service Azure qui vous permet de sauvegarder (ou protéger) et de restaurer vos données dans Microsoft Cloud. Il remplace votre solution de sauvegarde locale ou hors site par une solution cloud à la fois fiable, sécurisée et économique.
 
 Sauvegarde Azure propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou le serveur approprié, ou encore dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Azure Recovery Services.
 
-Pour plus d’informations, consultez le [tableau des composants de Sauvegarde Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+Pour plus d’informations, consultez le [tableau des composants de Sauvegarde Azure](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### <a name="site-recovery"></a>Site Recovery
 

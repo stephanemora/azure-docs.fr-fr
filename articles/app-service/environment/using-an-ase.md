@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 806d6ddb09cbaf14c9c488e3d3b39909c22ef284
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374928"
 ---
 # <a name="use-an-app-service-environment"></a>Utilisation d’un environnement App Service #
 
@@ -21,7 +21,7 @@ Azure App Service Environment est un déploiement d’Azure App Service dans un 
 - **Serveurs frontaux :** c’est sur les serveurs frontaux que HTTP/HTTPS se termine dans un environnement App Service (ASE).
 - **Workers** : il s’agit des ressources qui hébergent vos applications.
 - **Base de données** : celle-ci contient des informations qui définissent l’environnement.
-- **Stockage** : le stockage est utilisé pour héberger les applications publiées client.
+- **Stockage** : le stockage est utilisé pour héberger les applications publiées client.
 
 > [!NOTE]
 > Il existe deux versions d’App Service Environment : ASEv1 et ASEv2. Dans un environnement ASEv1, vous devez gérer les ressources avant de pouvoir les utiliser. Pour configurer et gérer un environnement ASEv1, consultez [Configuration d'un environnement App Service v1][ConfigureASEv1]. Le reste de cet article se concentre sur ASEv2.
@@ -115,7 +115,7 @@ Dans un environnement ASE d’équilibrage de charge interne, vous déterminez l
 
 Tout comme vous le feriez avec l’App Service multilocataire, dans un environnement ASE, vous pouvez publier avec :
 
-- Déploiement web.
+- Déploiement Web.
 - FTP.
 - Intégration continue.
 - Opération de glisser-déplacer dans la console Kudu.
@@ -172,7 +172,7 @@ Pour supprimer un environnement ASE :
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d78ddaaae886a33b4d22e8724ade04ab63508f1
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9f975595e935a5c0254450168aa295e6e7366a94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429998"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant des appels d’API REST
 
@@ -33,9 +33,9 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
 - Activer et désactiver l’identité managée affectée par le système sur une machine virtuelle Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Si vous utilisez Windows, installez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou utilisez [Azure Cloud Shell](../../cloud-shell/overview.md) dans le portail Azure.
 - [Installez la console locale Azure CLI](/cli/azure/install-azure-cli), si vous utilisez le [sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about) ou un [système d’exploitation de distribution Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
@@ -51,7 +51,7 @@ Dans cette section, découvrez comment activer et désactiver une identité mana
 
 Pour créer une machine virtuelle Azure avec l’identité managée affectée par le système sur une machine virtuelle, votre compte a besoin de l’affectation de rôle [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Aucune attribution de rôle d’annuaire Azure AD supplémentaire n’est requise.
 
-1. Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#terminology) pour l’imbrication et le déploiement de votre machine virtuelle et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre machine virtuelle et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -83,8 +83,8 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
    
    **Corps de la demande**
 
@@ -172,8 +172,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
    
    **Corps de la demande**
     
@@ -204,8 +204,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -239,8 +239,8 @@ Pour activer l’identité managée affectée par le système sur une machine vi
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -282,8 +282,8 @@ Pour désactiver l’identité managée affectée par le système sur une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -341,8 +341,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -422,8 +422,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -513,7 +513,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.
 
     Si vous avez des identités managées affectées par l’utilisateur ou le système qui sont attribuées à la machine virtuelle, telle qu’identifiées par la valeur `identity` dans la réponse, passez à l’étape 5 qui montre comment conserver l’identité managée affectée par le système, tout en ajoutant une identité managée affectée par l’utilisateur sur votre machine virtuelle.
 
@@ -534,8 +534,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        |
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        |
  
    **Corps de la demande**
 
@@ -566,8 +566,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -602,8 +602,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -641,8 +641,8 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -682,8 +682,8 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.
  
    Si vous avez affecté des identités managées à la machine virtuelle, celles-ci sont répertoriées dans la réponse sous la valeur `identity`.
 
@@ -705,8 +705,8 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -737,8 +737,8 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.        | 
 
    **Corps de la demande**
 
@@ -767,8 +767,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
 **Corps de la demande**
 
@@ -794,8 +794,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.| 
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide.| 
 
 **Corps de la demande**
 

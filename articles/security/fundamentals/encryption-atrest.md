@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8dfe61e92c4839deb1f7fbc289be0136087720
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795799"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497302"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -59,7 +59,7 @@ Microsoft s’engage à fournir des options de chiffrement au repos sur les serv
 
 Comme décrit précédemment, l’objectif du chiffrement au repos est que les données stockées sur disque soient chiffrées avec une clé de chiffrement secrète. Pour atteindre cet objectif de clés sécurisées, il est nécessaire de disposer d’un système permettant la création, le stockage, le contrôle d’accès et la gestion des clés de chiffrement. Bien que des détails puissent varier, les implémentations du chiffrement au repos des services Azure peuvent être décrites selon les termes illustrés dans le diagramme suivant.
 
-![Composants](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
+![Components](./media/encryption-atrest/azure-security-encryption-atrest-fig1.png)
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
 
@@ -262,64 +262,64 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une clé gérée par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
-| Recherche cognitive Azure                     | OUI                | PRÉVERSION            | -                  |
-| Azure Machine Learning   | OUI                | -                  | -                  |
-| Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
-| Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |
+| Recherche cognitive Azure                     | Oui                | PRÉVERSION            | -                  |
+| Azure Machine Learning   | Oui                | -                  | -                  |
+| Azure Machine Learning Studio    | Oui                | Préversion, RSA 2048 bits | -               |
+| Power BI                         | Oui                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |
-| Azure Stream Analytics           | OUI                | -                  | -                  |
-| Event Hubs                       | OUI                | Préversion, toutes les longueurs RSA. | -                  |
-| Azure Analysis Services          | OUI                | -                  | -                  |
-| Azure Data Catalog               | OUI                | -                  | -                  |
-| Apache Kafka sur Azure HDInsight  | OUI                | Toutes les longueurs RSA.   | -                  |
-| Explorateur de données Azure              | OUI                | -                  | -                  |
-| Azure Data Factory               | OUI                | OUI                | -                  |
-| Azure Data Lake Store            | OUI                | Oui, RSA 2048 bits  | -                  |
+| Azure Stream Analytics           | Oui                | -                  | -                  |
+| Event Hubs                       | Oui                | Préversion, toutes les longueurs RSA. | -                  |
+| Azure Analysis Services          | Oui                | -                  | -                  |
+| Azure Data Catalog               | Oui                | -                  | -                  |
+| Apache Kafka sur Azure HDInsight  | Oui                | Toutes les longueurs RSA.   | -                  |
+| Explorateur de données Azure              | Oui                | -                  | -                  |
+| Azure Data Factory               | Oui                | Oui                | -                  |
+| Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  |
 | **Containers**                   |                    |                    |                    |
-| Azure Kubernetes Service         | OUI                | -                  | -                  |
-| Container Registry               | OUI                | -                  | -                  |
+| Azure Kubernetes Service         | Oui                | -                  | -                  |
+| Container Registry               | Oui                | -                  | -                  |
 | **Calcul**                      |                    |                    |                    |
-| Virtual Machines                 | OUI                | Oui, RSA 2048 bits  | -                  |
-| Groupe de machines virtuelles identiques        | OUI                | Oui, RSA 2048 bits  | -                  |
-| SAP HANA                         | OUI                | Oui, RSA 2048 bits  | -                  |
+| Virtual Machines                 | Oui                | Oui, RSA 2048 bits  | -                  |
+| Groupe de machines virtuelles identiques        | Oui                | Oui, RSA 2048 bits  | -                  |
+| SAP HANA                         | Oui                | Oui, RSA 2048 bits  | -                  |
 | **Bases de données**                    |                    |                    |                    |
-| SQL Server sur machines virtuelles   | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Azure SQL Database               | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Azure SQL Database pour MariaDB   | OUI                | -                  | -                  |
-| Azure SQL Database pour MySQL     | OUI                | -                  | -                  |
-| Azure SQL Database pour PostgreSQL | OUI                | -                  | -                  |
-| Azure SQL Data Warehouse         | OUI                | Oui, RSA 2048 bits  | OUI                |
-| SQL Server Stretch Database      | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Stockage Table                    | OUI                | -                  | OUI                |
-| Azure Cosmos DB                  | OUI                | -                  | -                  |
+| SQL Server sur machines virtuelles   | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL Database               | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Azure SQL Database pour MariaDB   | Oui                | -                  | -                  |
+| Azure SQL Database pour MySQL     | Oui                | -                  | -                  |
+| Azure SQL Database pour PostgreSQL | Oui                | -                  | -                  |
+| Azure SQL Data Warehouse.         | Oui                | Oui, RSA 2048 bits  | Oui                |
+| SQL Server Stretch Database      | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage Table                    | Oui                | -                  | Oui                |
+| Azure Cosmos DB                  | Oui                | -                  | -                  |
 | **DevOps**                       |                    |                    |                    |
-| Azure DevOps                     | OUI                | -                  | OUI                |
-| Azure Repos                      | OUI                | -                  | OUI                |
+| Azure DevOps                     | Oui                | -                  | Oui                |
+| Azure Repos                      | Oui                | -                  | Oui                |
 | **Identité**                     |                    |                    |                    |
-| Azure Active Directory           | OUI                | -                  | -                  |
-| Azure Active Directory Domain Services | OUI          | Oui, RSA 2048 bits  | -                  |
+| Azure Active Directory           | Oui                | -                  | -                  |
+| Azure Active Directory Domain Services | Oui          | Oui, RSA 2048 bits  | -                  |
 | **Intégration**                  |                    |                    |                    |
-| Service Bus                      | OUI                | -                  | OUI                |
-| Event Grid                       | OUI                | -                  | -                  |
-| Gestion des API                   | OUI                | -                  | -                  |
+| Service Bus                      | Oui                | -                  | Oui                |
+| Event Grid                       | Oui                | -                  | -                  |
+| Gestion des API                   | Oui                | -                  | -                  |
 | **Services IoT**                 |                    |                    |                    |
-| IoT Hub                          | OUI                | -                  | OUI                |
+| IoT Hub                          | Oui                | -                  | Oui                |
 | **Gestion et gouvernance**    |                    |                    |                    |
-| Azure Site Recovery              | OUI                | Oui, RSA 2048 bits  | OUI                |
+| Azure Site Recovery              | Oui                | -                  | -                  |
 | **Média**                        |                    |                    |                    |
-| Media Services                   | OUI                | -                  | OUI                |
+| Media Services                   | Oui                | -                  | Oui                |
 | **Stockage**                      |                    |                    |                    |
-| Stockage Blob                     | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Stockage sur disque                     | OUI                | -                  | -                  |
-| Stockage sur disque managé             | OUI                | -                  | -                  |
-| Stockage Fichier                     | OUI                | Oui, RSA 2048 bits  | -                  |
-| Stockage File d’attente                    | OUI                | -                  | OUI                |
-| Avere vFXT                       | OUI                | -                  | -                  |
-| Azure NetApp Files               | OUI                | -                  | -                  |
-| Stockage archive                  | OUI                | Oui, RSA 2048 bits  | -                  |
-| StorSimple                       | OUI                | Oui, RSA 2048 bits  | OUI                |
-| Sauvegarde Azure                     | OUI                | -                  | OUI                |
-| Data Box                         | OUI                | -                  | OUI                |
+| Stockage Blob                     | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Stockage sur disque                     | Oui                | -                  | -                  |
+| Stockage sur disque managé             | Oui                | -                  | -                  |
+| Stockage Fichier                     | Oui                | Oui, RSA 2048 bits  | -                  |
+| Stockage File d’attente                    | Oui                | -                  | Oui                |
+| Avere vFXT                       | Oui                | -                  | -                  |
+| Azure NetApp Files               | Oui                | -                  | -                  |
+| Stockage archive                  | Oui                | Oui, RSA 2048 bits  | -                  |
+| StorSimple                       | Oui                | Oui, RSA 2048 bits  | Oui                |
+| Sauvegarde Azure                     | Oui                | -                  | Oui                |
+| Data Box                         | Oui                | -                  | Oui                |
 
 ## <a name="conclusion"></a>Conclusion
 

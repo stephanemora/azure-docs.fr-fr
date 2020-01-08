@@ -1,20 +1,20 @@
 ---
 title: Visite guidée de l’interface utilisateur de Azure IoT Central | Microsoft Docs
-description: Familiarisez-vous avec les zones clés de l’interface utilisateur de Azure IoT Central que vous utilisez pour créer, gérer et utiliser votre solution IoT.
+description: Familiarisez-vous avec les zones clés de l’interface utilisateur d’Azure IoT Central que vous utilisez pour créer, gérer et utiliser votre solution IoT.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: f8aa467f95bb97c42e726d1392deca53e15df624
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 23deb77b6fda0b3801057d2ae97a740301449e28
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434894"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>Visite guidée de l’interface utilisateur Azure IoT Central (fonctionnalités en préversion)
 
@@ -35,18 +35,18 @@ En tant qu’_opérateur_, vous utilisez l’interface utilisateur Azure IoT Cen
 * Dépanner et corrige les problèmes avec vos appareils.
 * Approvisionner de nouveaux appareils.
 
-## <a name="iot-central-homepage"></a>Page d’accueil IoT Central
+## <a name="iot-central-homepage"></a>Page d’accueil d’IoT Central
 
 La page [Page d’accueil IoT Central](https://aka.ms/iotcentral-get-started) vous permet d’en savoir plus sur les dernières nouvelles et fonctionnalités disponibles de IoT Central, de créer des applications et d’afficher et lancer votre application existante.
 
 > [!div class="mx-imgBorder"]
-> ![Page d’accueil IoT Central](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
+> ![Page d’accueil d’IoT Central](media/overview-iot-central-tour/iot-central-homepage-pnp.png)
 
-### <a name="create-an-application"></a>Création d'une application
+### <a name="create-an-application"></a>Créer une application
 
-Dans la section de création, vous pouvez parcourir la liste des modèles IoT Central sectoriels pour démarrer rapidement, ou en créer une à l'aide d’un modèle d’application personnalisée.  
+Dans la section de création, vous pouvez parcourir la liste des modèles IoT Central sectoriels pour démarrer rapidement, ou en créer une à l’aide d’un modèle d’application personnalisée.  
 > [!div class="mx-imgBorder"]
-> ![Page de création d'applications IoT Central](media/overview-iot-central-tour/iot-central-build-pnp.png)
+> ![Page de génération d’IoT Central](media/overview-iot-central-tour/iot-central-build-pnp.png)
 
 Pour plus d’informations, consultez le guide de démarrage rapide [Créer une application Azure IoT Central](quick-deploy-iot-central.md).
 
@@ -98,7 +98,7 @@ Une fois que vous êtes dans votre application IoT, utilisez le volet gauche pou
 Le menu supérieur s’affiche sur chaque page :
 
 > [!div class="mx-imgBorder"]
-> ![Barre d'outils](media/overview-iot-central-tour/toolbar-pnp.png)
+> ![Barre d’outils](media/overview-iot-central-tour/toolbar-pnp.png)
 
 * Pour rechercher des modèles d’appareils et des appareils, entrez une valeur de **recherche**.
 * Pour modifier la langue de l’interface utilisateur ou le thème, choisissez l’icône des **paramètres**. En savoir plus sur la [gestion de vos préférences d’application](../core/howto-manage-preferences.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
@@ -119,7 +119,7 @@ Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface
 
 * Le tableau de bord est la première page que vous voyez lorsque vous vous connectez à votre application Azure IoT Central. En tant que *créateur de solution*, vous pouvez créer et personnaliser plusieurs tableaux de bord d’application globaux pour d’autres utilisateurs. En savoir plus sur l’[ajout de vignettes à votre tableau de bord](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
 
-* En tant qu’*opérateur*, si votre rôle d’utilisateur le permet, vous pouvez créer des tableaux de bord personnels pour surveiller ce qui vous intéresse. Pour en savoir plus, consultez l'article [Créer des tableaux de bord personnels Azure IoT Central](../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+* En tant qu’*opérateur*, si votre rôle d’utilisateur le permet, vous pouvez créer des tableaux de bord personnels pour surveiller ce qui vous intéresse. Pour en savoir plus, consultez l’article [Créer des tableaux de bord personnels Azure IoT Central](../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
 
 ### <a name="devices"></a>Appareils
 
@@ -144,16 +144,16 @@ Un groupe d’appareils est une collection d’appareils associés. Un *créateu
 > [!div class="mx-imgBorder"]
 > ![Page Règles](media/overview-iot-central-tour/rules-pnp.png)
 
-La page Règles vous permet de définir des règles en fonction des données de télémétrie, de l’état ou des événements de l’appareil. Lorsqu’une règle est déclenchée, elle peut déclencher une ou plusieurs actions, telles que l’envoi d’un e-mail, l’envoi d’une notification à un système externe via des alertes Webhook, etc. Pour en savoir plus, consultez le didacticiel [Configuration des règles](tutorial-create-telemetry-rules.md). 
+La page Règles vous permet de définir des règles en fonction des données de télémétrie, de l’état ou des événements de l’appareil. Quand une règle est déclenchée, elle peut déclencher une ou plusieurs actions, telles que l’envoi d’un e-mail, l’envoi d’une notification à un système externe via des alertes Webhook, etc. Pour en savoir plus, consultez le didacticiel [Configuration des règles](tutorial-create-telemetry-rules.md). 
 
 ### <a name="analytics"></a>Analytics
 
 > [!div class="mx-imgBorder"]
 > ![Page Analytics](media/overview-iot-central-tour/analytics-pnp.png)
 
-Analytics vous permet de créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application. Pour en savoir plus, consultez l’article [Créer des analytiques pour votre application Azure IoT Central](howto-create-analytics.md).
+L’analytique vous permet de créer des vues personnalisées sur des données d’appareils pour dériver des insights de votre application. Pour en savoir plus, consultez l’article [Créer des analytiques pour votre application Azure IoT Central](howto-create-analytics.md).
 
-### <a name="jobs"></a>Tâches
+### <a name="jobs"></a>travaux
 
 > [!div class="mx-imgBorder"]
 > ![Page Tâches](media/overview-iot-central-tour/jobs-pnp.png)
@@ -168,7 +168,7 @@ La page Tâches vous permet d’effectuer des opérations de gestion d’apparei
 La page des modèles d’appareil est l’endroit où un générateur crée et gère les modèles d’appareil dans l’application. Un modèle d’appareil spécifie les caractéristiques de ce dernier, notamment :
 
 * les mesures de télémétrie, d’état et d’événement
-* properties
+* Propriétés
 * Commandes
 * Les vues
 

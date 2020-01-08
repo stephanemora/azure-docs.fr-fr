@@ -4,15 +4,15 @@ description: Découvrez comment déployer et configurer Azure Monitor pour des m
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ce95223e9501ad7bec2bd260a8fe6f1537db5593
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400615"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Activer Azure Monitor pour machines virtuelles (préversion)
 
@@ -25,7 +25,7 @@ Pour configurer Azure Monitor pour des machines virtuelles :
 * Activez plusieurs machines virtuelles Azure ou groupes de machines virtuelles identiques sur un abonnement ou un groupe de ressources spécifié à l’aide de PowerShell.
 * Activez Azure Monitor pour machines virtuelles afin de surveiller les machines virtuelles ou ordinateurs physiques hébergés dans votre réseau d’entreprise ou un autre environnement cloud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, prenez connaissance de ce qui suit. 
 
@@ -92,7 +92,7 @@ Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux
 |Windows 10 1803 | X | X |
 |Windows 8.1 | X | X |
 |Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
+|Windows 7 SP1 | X | X |
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
 |Ubuntu 18.04, 16.04 | X | X |
 |CentOS Linux 7, 6 | X | X |
@@ -168,13 +168,13 @@ Le tableau suivant décrit les sources connectées prises en charge par la fonct
 
 | Source connectée | Prise en charge | Description |
 |:--|:--|:--|
-| Agents Windows | OUI | Outre l’agent [Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
-| Agents Linux | OUI | Outre l’agent [Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Windows | Oui | Outre l’agent [Log Analytics pour Windows](../../azure-monitor/platform/log-analytics-agent.md), les agents Windows ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
+| Agents Linux | Oui | Outre l’agent [Log Analytics pour Linux](../../azure-monitor/platform/log-analytics-agent.md), les agents Linux ont besoin du Dependency Agent. Pour plus d’informations, voir [Systèmes d’exploitation pris en charge](#supported-operating-systems). |
 | Groupe d’administration Microsoft System Center Operations Manager | Non | |
 
 Vous pouvez télécharger le Dependency Agent à partir des emplacements suivants :
 
-| Fichier | OS | Version | SHA-256 |
+| Fichier | Système d''exploitation | Version | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |

@@ -2,19 +2,15 @@
 title: Runbook Worker hybride Linux Azure Automation
 description: Cet article fournit des informations sur l’installation d’un Runbook Worker hybride Azure Automation qui vous permet d’exécuter des Runbooks sur les ordinateurs Linux de votre centre de données local ou de votre environnement cloud.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 06/28/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 01dcb30fca2819bc4cf85ea624de5735cc84801b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 838c7450de1364588fb287c9d9804666a325cdf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850820"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421933"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Linux
 
@@ -110,7 +106,7 @@ Les types de Runbook suivants fonctionnent sur un Worker hybride Linux :
 
 Les types de Runbooks suivants ne fonctionnent pas sur un Worker hybride Linux :
 
-* Workflow PowerShell
+* PowerShell Workflow
 * Graphique
 * Graphique workflow PowerShell
 

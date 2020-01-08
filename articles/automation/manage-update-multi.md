@@ -2,19 +2,15 @@
 title: Gérer les mises à jour pour plusieurs machines virtuelles Azure
 description: Cet article décrit la gestion des mises à jour pour les machines virtuelles Azure et non-Azure.
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417823"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -25,7 +21,7 @@ Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mi
 - Planifier l’installation des mises à jour requises
 - Passez en revue les résultats du déploiement pour vérifier que les mises à jour ont été appliquées correctement à toutes les machines virtuelles pour lesquelles la gestion des mises à jour est activée
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser la gestion des mises à jour, vous devez avoir :
 
@@ -101,9 +97,9 @@ Le tableau suivant décrit les sources connectées prises en charge par cette so
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
-| Groupe d’administration d’Operations Manager |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
+| Agents Windows |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
+| Groupe d’administration d’Operations Manager |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
 | Compte de Stockage Azure |Non |Le stockage Azure n’inclut aucune information sur les mises à jour système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
@@ -121,14 +117,14 @@ L’affichage sur le tableau de bord des données mises à jour provenant des or
 Pour installer les mises à jour, planifiez un déploiement qui s’aligne avec votre fenêtre de planification et de maintenance des versions. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
 >[!NOTE]
->Lorsque vous planifiez un déploiement de mises à jour, une ressource de [planification](shared-resources/schedules.md) liée au runbook **patch-MicrosoftOMSComputers** qui gère ce déploiement sur les ordinateurs cibles est créée. Si vous supprimez la ressource de planification à partir du portail Azure ou à l’aide de PowerShell après la création du déploiement, le déploiement planifié est interrompu et présente une erreur lorsque vous tentez de le reconfigurer à partir du portail. Vous pouvez uniquement supprimer la ressource planifiée en supprimant la planification de déploiement correspondante.
+>Quand vous planifiez un déploiement de mises à jour, cela entraîne la création d’une ressource de [planification](shared-resources/schedules.md) liée au runbook **Patch-MicrosoftOMSComputers**, qui gère le déploiement des mises à jour sur les machines cibles. Si vous supprimez la ressource de planification du portail Azure, ou si vous utilisez PowerShell après la création du déploiement, le déploiement de mises à jour planifié est interrompu. De plus, une erreur est générée quand vous essayez de le reconfigurer à partir du portail. Vous ne pouvez supprimer la ressource de planification qu’en supprimant la planification de déploiement correspondante.
 >
 
 Pour planifier un nouveau déploiement de mises à jour pour une ou plusieurs machines virtuelles, sous **Gestion des mises à jour**, sélectionnez **Planifier le déploiement de mises à jour**.
 
 Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
-- **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
+- **Name** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
 - **Groupes à mettre à jour** : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour les machines virtuelles non-Azure, les recherches enregistrées sont utilisées pour créer un groupe dynamique à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md).
 - **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour.
@@ -190,7 +186,7 @@ Pour voir le tableau de bord dédié au déploiement des mises à jour, sélecti
 Le volet **Résultats des mises à jour** affiche un récapitulatif du nombre total de mises à jour et les résultats du déploiement de la machine virtuelle. Dans le tableau de droite se trouvent une répartition détaillée de chaque mise à jour et les résultats de l’installation. Les résultats de l’installation peuvent être l’une des valeurs suivantes :
 
 - **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée de fenêtre de maintenance définie.
-- **Réussi** : la mise à jour a réussi.
+- **Opération réussie** : la mise à jour a réussi.
 - **Échec** : la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal créées par le déploiement, sélectionnez **Tous les journaux d’activité**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a06ea59af0776fe3decb0b56a3ef886f08b2dfda
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d7c88e500886453fbfb53655748ccf7025ab7d3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374251"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurer automatiquement des groupes de disponibilité AlwaysOn dans des machines virtuelles Azure : Gestionnaire de ressources
 
@@ -76,7 +76,7 @@ Cliquez sur les **concepts de base** et configurez les paramètres suivants :
 * **Nom d’utilisateur de l’administrateur** correspond à un compte d’utilisateur doté d’autorisations d’administrateur de domaine et est membre du rôle serveur fixe sysadmin SQL Server sur les deux instances de SQL Server. Pour ce didacticiel, utilisez **DomainAdmin**.
 * **Mot de passe** correspond au mot de passe du compte d’administrateur de domaine. Utilisez un mot de passe complexe. Confirmez le mot de passe.
 * **Abonnement** correspond à l’abonnement facturé par Azure pour exécuter toutes les ressources déployées pour le groupe de disponibilité. Vous pouvez spécifier un autre abonnement si votre compte en dispose de plusieurs.
-* **Groupe de ressources** correspond au nom du groupe auquel appartiennent toutes les ressources Azure créées par ce modèle. Pour ce didacticiel, utilisez **SQL-HA-RG**. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Groupe de ressources** correspond au nom du groupe auquel appartiennent toutes les ressources Azure créées par ce modèle. Pour ce didacticiel, utilisez **SQL-HA-RG**. Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](../../../azure-resource-manager/management/overview.md#resource-groups).
 * **Emplacement** correspond à la région Azure dans laquelle les ressources sont créées par ce didacticiel. Sélectionnez une région Azure.
 
 La capture d’écran suivante représente le panneau **Concepts de base** renseigné :

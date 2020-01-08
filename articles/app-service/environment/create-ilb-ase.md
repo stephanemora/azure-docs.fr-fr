@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3bbc2dcc86d50e0a88e2f3e96c426cb317f41dea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75375030"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -23,7 +23,7 @@ L’environnement Azure App Service est un déploiement d’Azure App Service da
 
 Cet article explique comment créer un ASE ILB. Pour une présentation de l’ASE, consultez [Présentation des environnements App Service][Intro]. Pour savoir comment créer un ASE externe, consultez [Créer un environnement App Service externe][MakeExternalASE].
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 
 Vous pouvez déployer un ASE avec un point de terminaison accessible via Internet ou avec une adresse IP de votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, l’ASE doit être déployé avec un ILB. Lorsque vous déployez votre ASE avec un ILB, vous devez indiquer le nom de votre ASE. Le nom de votre ASE est utilisé dans le suffixe du domaine pour les applications dans votre ASE.  Le suffixe du domaine pour votre ASE ILB est &lt;nom ASE&gt;.appserviceenvironment.net. Les applications qui sont créées dans un ASE ILB ne sont pas placées dans le DNS public. 
 
@@ -126,7 +126,7 @@ Pour en savoir plus sur la configuration de votre ASE ILB avec un appareil WAF,
 
 Pour les ASE ILB créés avant mai 2019, vous deviez définir le suffixe de domaine lors de la création de l’ASE. Il était également nécessaire de charger un certificat par défaut qui était basé sur ce suffixe de domaine. En outre, avec un ASE ILB plus ancien vous ne pouvez pas effectuer l’authentification unique sur la console Kudu avec des applications dans cet ASE ILB. Lors de la configuration de DNS pour un ASE ILB plus ancien, vous devez définir l’enregistrement A de caractère générique dans une zone correspondant à votre suffixe de domaine. 
 
-## <a name="get-started"></a>Prise en main ##
+## <a name="get-started"></a>Bien démarrer ##
 
 * Pour bien démarrer avec les ASE, consultez [Présentation des environnements App Service][Intro]. 
 
@@ -150,7 +150,7 @@ Pour les ASE ILB créés avant mai 2019, vous deviez définir le suffixe de doma
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
+[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

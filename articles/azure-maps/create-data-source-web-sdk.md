@@ -7,14 +7,14 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: ''
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 36c06182d0807ce3d255477a865023ae7b74e2cb
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b83a66296d54a179a56e37de199ec900ae23a1db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433017"
 ---
 # <a name="create-a-data-source"></a>Création d'une source de données
 
@@ -148,10 +148,10 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de lignes](map-add-line-layer.md)
+> [Ajouter une couche de lignes](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de polygones](map-add-shape.md)
+> [Ajouter une couche de polygones](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une carte thermique](map-add-heat-map-layer.md)

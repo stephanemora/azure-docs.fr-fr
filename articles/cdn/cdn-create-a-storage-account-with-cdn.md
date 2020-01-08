@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083076"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386984"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 Dans ce guide de démarrage rapide, vous allez activer [Azure Content Delivery Network (CDN)](cdn-overview.md) pour mettre en cache le contenu du stockage Azure. Azure CDN offre aux développeurs une solution globale pour fournir du contenu à bande passante élevée. Il peut mettre en cache les objets blob et le contenu statique des instances de calcul au niveau de nœuds physiques aux États-Unis, ainsi qu’en Europe, Asie, Australie et Amérique du Sud.
@@ -75,7 +75,7 @@ Vous pouvez utiliser plusieurs méthodes pour créer un compte de stockage, y co
     | **Performances** | Utilisez la valeur par défaut. |
     | **Transfert sécurisé requis** | Utilisez la valeur par défaut. |
     | **Abonnement** | Sélectionnez un abonnement Azure dans la liste déroulante. |
-    | **Groupe de ressources** | Sélectionnez **Créer** et entrez *my-resource-group-123* comme nom pour votre groupe de ressources. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez entrer un nom différent, ou vous pouvez sélectionner **Utiliser l’existant**, puis **my-resource-group-123** dans la liste déroulante. <br />Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).| 
+    | **Groupe de ressources** | Sélectionnez **Créer** et entrez *my-resource-group-123* comme nom pour votre groupe de ressources. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez entrer un nom différent, ou vous pouvez sélectionner **Utiliser l’existant**, puis **my-resource-group-123** dans la liste déroulante. <br />Pour plus d’informations sur les groupes de ressources, consultez la page [Présentation d’Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).| 
     | **Configurer des réseaux virtuels** | Utilisez la valeur par défaut. |  
     
 5. Sélectionnez **Épingler au tableau de bord** pour enregistrer le compte de stockage sur votre tableau de bord après l’avoir créé.
@@ -131,7 +131,7 @@ Si vous ne voulez plus mettre en cache un objet dans Azure CDN, vous pouvez proc
 
 Un objet déjà mis en cache dans Azure CDN y reste jusqu’à ce que sa durée de vie expire ou que le point de terminaison soit [purgé](cdn-purge-endpoint.md). Après expiration de la durée de vie, Azure CDN vérifie si le point de terminaison CDN est encore valide et si l’objet est encore accessible de manière anonyme. Si ce n’est pas le cas, l’objet n’est plus mis en cache.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Au cours des étapes précédentes, vous avez créé un profil et un point de terminaison CDN au sein d’un groupe de ressources. Enregistrez ces ressources si vous souhaitez passer à la section [Étapes suivantes](#next-steps) et apprendre à ajouter un domaine personnalisé à votre point de terminaison. Toutefois, si vous ne pensez pas utiliser ces ressources à l’avenir, vous pouvez les supprimer en supprimant le groupe de ressources. Vous éviterez ainsi de payer des frais supplémentaires :
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **my-resource-group-123**.
@@ -146,5 +146,5 @@ Au cours des étapes précédentes, vous avez créé un profil et un point de te
 Pour en savoir plus sur l’ajout d’un domaine personnalisé et l’activation du protocole HTTPS sur votre point de terminaison CDN, consultez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS](cdn-storage-custom-domain-https.md)
+> [Tutoriel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN via HTTPS](cdn-storage-custom-domain-https.md)
 

@@ -1,19 +1,15 @@
 ---
 title: Bien démarrer avec la mise à l’échelle automatique dans Azure
 description: Découvrez comment mettre à l’échelle votre ressource Application web, Service cloud, Machine virtuelle ou Jeu de mise à l’échelle de machines virtuelles dans Azure.
-author: rajram
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: rajram
 ms.subservice: autoscale
-ms.openlocfilehash: 0535c84a8ee0776c2c35a46d3c7510a2cd615cf6
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 0a40496e4d496d0062c6ee7a6ab935c1ad9b35a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60788494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396349"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
@@ -34,8 +30,8 @@ Vous pouvez utiliser le volet de filtre en haut pour réduire l’étendue de la
 Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que son état de mise à l’échelle automatique. L’état de mise à l’échelle automatique peut être :
 
 - **Non configuré** : vous n’avez pas encore activé la mise à l’échelle automatique pour cette ressource.
-- **Activé** : vous avez activé la mise à l’échelle automatique pour cette ressource.
-- **Désactivé** : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
+- **Enabled** : vous avez activé la mise à l’échelle automatique pour cette ressource.
+- **Disabled** : vous avez désactivé la mise à l’échelle automatique pour cette ressource.
 
 ## <a name="create-your-first-autoscale-setting"></a>Créez votre premier paramètre de mise à l’échelle automatique
 
@@ -65,7 +61,7 @@ Félicitations ! Vous avez maintenant correctement créé votre premier paramèt
 > [!NOTE]
 > Les mêmes étapes sont applicables pour bien démarrer avec un jeu de mise à l’échelle de machines virtuelles ou un rôle de service cloud.
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 ### <a name="scale-based-on-a-schedule"></a>Mise à l'échelle en fonction d’une planification
 En plus de la mise à l’échelle en fonction du processeur, vous pouvez aussi définir votre mise à l’échelle différemment pour certains jours de la semaine.
 

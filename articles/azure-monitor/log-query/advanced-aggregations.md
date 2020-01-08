@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398308"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
@@ -67,7 +67,7 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| Computer | solutions | 
+| Computer | Solutions | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
@@ -83,7 +83,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| Computer | solutions | 
+| Computer | Solutions | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -105,7 +105,7 @@ Heartbeat
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
 
-|solutions | list_Computer |
+|Solutions | list_Computer |
 |--------------|----------------------|
 | "security" | ["computer1", "computer2"] |
 | "updates" | ["computer1", "computer2"] |
@@ -187,5 +187,5 @@ Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête 
 - [Fonctions d’agrégation](aggregations.md)
 - [Agrégations avancées](advanced-aggregations.md)
 - [JSON et structures de données](json-data-structures.md)
-- [Jointures](joins.md)
+- [Joins](joins.md)
 - [Graphiques](charts.md)

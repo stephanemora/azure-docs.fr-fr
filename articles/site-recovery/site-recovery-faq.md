@@ -1,18 +1,14 @@
 ---
 title: Questions générales sur le service Azure Site Recovery
 description: Cet article traite des questions générales fréquemment posées sur Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f64b885e82d2f790d7d146e16bb6ccb44e207465
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078535"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497535"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questions générales sur Azure Site Recovery
 
@@ -22,7 +18,7 @@ Cet article résume les questions fréquentes sur Azure Site Recovery. Pour des 
 - [Questions sur la récupération d’urgence de machine virtuelle VMware vers Azure](vmware-azure-common-questions.md)
 - [Questions sur la récupération d’urgence de machine virtuelle Hyper-V vers Azure](hyper-v-azure-common-questions.md)
  
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-does-site-recovery-do"></a>À quoi sert Site Recovery ?
 Site Recovery contribue à mettre en œuvre la stratégie de continuité d’activité et de récupération d’urgence (BCDR) de votre entreprise en coordonnant et en automatisant la réplication de machines virtuelles Azure entre des régions, de machines virtuelles et serveurs physiques locaux sur Azure et de machines locales sur un centre de données secondaire. [Plus d’informations](site-recovery-overview.md)
@@ -158,7 +154,7 @@ Notre partenaire, Riverbed, fournit des instructions détaillées sur l’utilis
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Puis-je utiliser ExpressRoute pour répliquer des machines virtuelles vers Azure ?
 Oui, [vous pouvez utiliser ExpressRoute](concepts-expressroute-with-site-recovery.md) pour répliquer des machines virtuelles locales vers Azure.
 
-- Azure Site Recovery réplique des données vers un stockage Azure via un point de terminaison public. Vous devez configurer le [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou utiliser un [peering public existant](../expressroute/expressroute-circuit-peerings.md#publicpeering) (déconseillé pour de nouveaux circuits) afin d’utiliser ExpressRoute pour la réplication Site Recovery.
+- Azure Site Recovery réplique des données vers un stockage Azure via un point de terminaison public. Vous devez configurer le [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou utiliser un [peering public existant](../expressroute/about-public-peering.md) (déconseillé pour de nouveaux circuits) afin d’utiliser ExpressRoute pour la réplication Site Recovery.
 - Le peering Microsoft est le domaine de routage recommandé pour la réplication.
 - La réplication n’est pas pris en charge via un peering privé.
 - Si vous protégez des machines VMware ou des machines physiques, vérifiez que les [exigences de mise en réseau](vmware-azure-configuration-server-requirements.md#network-requirements) pour le serveur de configuration sont également remplies. La connectivité à des URL spécifiques est requise par le serveur de configuration pour l’orchestration de la réplication Site Recovery. ExpressRoute ne peut pas être utilisé pour cette connectivité.
@@ -219,7 +215,7 @@ Pour automatiser les processus, vous pouvez utiliser Orchestrator ou Operations 
 Oui, vous pouvez utiliser la récupération à un autre emplacement pour la restauration automatique vers un hôte différent depuis Azure.
 
 * [Pour les machines virtuelles VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Pour les machines virtuelles Hyper-V](hyper-v-azure-failback.md#perform-failback)
+* [Pour les machines virtuelles Hyper-V](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)
 
 ## <a name="automation"></a>Automatisation
 

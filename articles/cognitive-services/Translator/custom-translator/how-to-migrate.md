@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446778"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -27,7 +27,7 @@ Les actions suivantes sont effectuées pendant la migration :
 * Vous pouvez à tout moment accéder au score BLEU migré à partir de l’entraînement Hub dans la page TrainingDetails du modèle sous le titre « Bleu score in MT Hub ».
 
 > [!Note] 
-> Pour une formation réussie, Custom Translator nécessite au moins 10 000 phrases extraites uniques. Custom Translator ne peut pas effectuer l’apprentissage avec moins du [minimum suggéré](sentence-alignment.md#suggested-minimum-number-of-sentences).
+> Pour une formation réussie, Custom Translator nécessite au moins 10 000 phrases extraites uniques. Custom Translator ne peut pas effectuer l’apprentissage avec moins du [minimum suggéré](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Rechercher l’ID de l’espace de travail Custom Translator
 
@@ -134,10 +134,10 @@ Ce tableau compare les fonctionnalités de Microsoft Translator Hub et celles de
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2    | V3  |
-| Personnalisation TA statistique | OUI   | Non |
-| Personnalisation TA neuronale | Non    | OUI |
-| Nouvelle personnalisation unifiée des services vocaux | Non    | OUI |
-| Sans trace | OUI | OUI |
+| Personnalisation TA statistique | Oui   | Non |
+| Personnalisation TA neuronale | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
+| Sans trace | Oui | Oui |
 
 ## <a name="new-languages"></a>Nouvelles langues
 

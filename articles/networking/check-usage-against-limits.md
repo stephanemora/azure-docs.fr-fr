@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: b8bcbabe4b355e4e9cd617e9003902885b8edd88
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 5c807397af3ee06b490017b7e14f7b64123b5075
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67872455"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645223"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
-Dans cet article, vous apprendrez comment afficher le nombre de chaque type de ressource réseau que vous avez déployé dans votre abonnement et à connaître les [limites de votre abonnement](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). La possibilité d’afficher l’utilisation des ressources par rapport aux limites est utile pour suivre l’utilisation actuelle et planifier l’utilisation ultérieure. Vous pouvez utiliser le [portail Azure](#azure-portal), [PowerShell](#powershell) ou [Azure CLI](#azure-cli) pour suivre l’utilisation.
+Dans cet article, vous apprendrez comment afficher le nombre de chaque type de ressource réseau que vous avez déployé dans votre abonnement et à connaître les [limites de votre abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). La possibilité d’afficher l’utilisation des ressources par rapport aux limites est utile pour suivre l’utilisation actuelle et planifier l’utilisation ultérieure. Vous pouvez utiliser le [portail Azure](#azure-portal), [PowerShell](#powershell) ou [Azure CLI](#azure-cli) pour suivre l’utilisation.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -43,7 +43,7 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 
        ![Afficher les données d’utilisation](./media/check-usage-against-limits/view-usage.png)
 
-     Vous pouvez trier les colonnes en sélectionnant l’en-tête de colonne. Les limites affichées sont celles de votre abonnement. Si vous avez besoin d’augmenter la limite par défaut, sélectionnez **Demander une augmentation**, terminez la tâche, puis envoyez la demande de support. Toutes les ressources ont une limite maximale répertoriée dans les [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) Azure. Si votre limite actuelle a déjà atteint le chiffre maximal, la limite ne peut pas être augmentée.
+     Vous pouvez trier les colonnes en sélectionnant l’en-tête de colonne. Les limites affichées sont celles de votre abonnement. Si vous avez besoin d’augmenter la limite par défaut, sélectionnez **Demander une augmentation**, terminez la tâche, puis envoyez la demande de support. Toutes les ressources ont une limite maximale répertoriée dans les [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) Azure. Si votre limite actuelle a déjà atteint le chiffre maximal, la limite ne peut pas être augmentée.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ Network Interfaces                 1 24000
 Network Watchers                   1     1
 ```
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI en local, vous devez également exécuter `az login` pour vous connecter à Azure.
 

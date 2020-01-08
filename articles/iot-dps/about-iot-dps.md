@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: c29e687a787e59a03bb6825493d808ba036a1d68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975361"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645053"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et scalable.
@@ -111,7 +111,7 @@ Chaque abonnement Azure a des limites de quota par défaut qui peuvent impacter 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 Pour plus d’informations sur les limites de quota :
-* [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md)
+* [Limites du service d’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Composants Azure connexes
 Le service Device Provisioning automatise l’approvisionnement des appareils avec Azure IoT Hub. Découvrez plus d’informations sur [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).

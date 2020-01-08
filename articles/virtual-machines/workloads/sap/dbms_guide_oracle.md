@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b912743c758f33173b568944341fab4e815300ed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099985"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645842"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement de SGBD sur des machines virtuelles Azure pour une charge de travail SAP
 
@@ -77,8 +77,8 @@ ms.locfileid: "70099985"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70099985"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70099985"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -326,7 +326,7 @@ Les notes SAP suivantes concernent SAP sur Azure.
 | [2178632] |Métriques de surveillance clés pour SAP sur Microsoft Azure |
 | [2191498] |SAP sur Linux avec Azure : Surveillance améliorée |
 | [2039619] |Applications SAP sur Microsoft Azure avec la base de données Oracle : Produits et versions pris en charge |
-| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : Problèmes de licence SAP |
+| [2243692] |Linux sur machine virtuelle Microsoft Azure (IaaS) : problèmes de licence SAP |
 | [2069760] |Installation et mise à niveau de SAP pour Oracle Linux 7.x |
 | [1597355] |Recommandations relatives à l’espace d’échange pour Linux |
 | [2171857] |Oracle Database 12C - Prise en charge du système de fichiers dans Linux |
@@ -374,10 +374,10 @@ La configuration minimale est la suivante :
 
 | Composant | Disque | Mise en cache | Pool de stockage |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA & mirrlogB | Premium | Aucun | Inutile |
-| \oracle\<SID>\origlogaB & mirrlogA | Premium | Aucun | Inutile |
+| \oracle\<SID>\origlogaA & mirrlogB | Premium | None | Inutile |
+| \oracle\<SID>\origlogaB & mirrlogA | Premium | None | Inutile |
 | \oracle\<SID>\sapdata1...n | Premium | Lecture seule | Peut être utilisé |
-| \oracle\<SID>\oraarch | standard | Aucun | Inutile |
+| \oracle\<SID>\oraarch | standard | None | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | | Inutile |
 
 
@@ -387,13 +387,13 @@ La configuration des performances est la suivante :
 
 | Composant | Disque | Mise en cache | Pool de stockage |
 | --- | ---| --- | --- |
-| \oracle\<SID>\origlogaA | Premium | Aucun | Peut être utilisé  |
-| \oracle\<SID>\origlogaB | Premium | Aucun | Peut être utilisé |
-| \oracle\<SID>\mirrlogAB | Premium | Aucun | Peut être utilisé |
-| \oracle\<SID>\mirrlogBA | Premium | Aucun | Peut être utilisé |
+| \oracle\<SID>\origlogaA | Premium | None | Peut être utilisé  |
+| \oracle\<SID>\origlogaB | Premium | None | Peut être utilisé |
+| \oracle\<SID>\mirrlogAB | Premium | None | Peut être utilisé |
+| \oracle\<SID>\mirrlogBA | Premium | None | Peut être utilisé |
 | \oracle\<SID>\sapdata1...n | Premium | Lecture seule | Recommandé  |
-| \oracle\SID\sapdata(n+1)* | Premium | Aucun | Peut être utilisé |
-| \oracle\<SID>\oraarch* | Premium | Aucun | Inutile |
+| \oracle\SID\sapdata(n+1)* | Premium | None | Peut être utilisé |
+| \oracle\<SID>\oraarch* | Premium | None | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | Inutile |
 
 *(n+1) : hébergement des espaces disque logiques SYSTEM, TEMP et UNDO. Le modèle d’E/S des espaces disques logiques System et Undo est différent des autres espaces disques logiques qui hébergent des données d’application. « Aucune mise en cache » est la meilleure option pour les performances des espaces disques logiques System et Undo.
@@ -464,10 +464,10 @@ Configuration minimale :
 
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA & mirrlogB | Premium | Aucun | Inutile |
-| /oracle/\<SID>/origlogaB & mirrlogA | Premium | Aucun | Inutile |
+| /oracle/\<SID>/origlogaA & mirrlogB | Premium | None | Inutile |
+| /oracle/\<SID>/origlogaB & mirrlogA | Premium | None | Inutile |
 | /oracle/\<SID>/sapdata1...n | Premium | Lecture seule | Peut être utilisé |
-| /oracle/\<SID>/oraarch | standard | Aucun | Inutile |
+| /oracle/\<SID>/oraarch | standard | None | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0
@@ -478,13 +478,13 @@ Configuration des performances :
 
 | Composant | Disque | Mise en cache | Agrégation par bandes* |
 | --- | ---| --- | --- |
-| /oracle/\<SID>/origlogaA | Premium | Aucun | Peut être utilisé  |
-| /oracle/\<SID>/origlogaB | Premium | Aucun | Peut être utilisé |
-| /oracle/\<SID>/mirrlogAB | Premium | Aucun | Peut être utilisé |
-| /oracle/\<SID>/mirrlogBA | Premium | Aucun | Peut être utilisé |
+| /oracle/\<SID>/origlogaA | Premium | None | Peut être utilisé  |
+| /oracle/\<SID>/origlogaB | Premium | None | Peut être utilisé |
+| /oracle/\<SID>/mirrlogAB | Premium | None | Peut être utilisé |
+| /oracle/\<SID>/mirrlogBA | Premium | None | Peut être utilisé |
 | /oracle/\<SID>/sapdata1...n | Premium | Lecture seule | Recommandé  |
-| /oracle/\<SID>/sapdata(n+1)* | Premium | Aucun | Peut être utilisé |
-| /oracle/\<SID>/oraarch* | Premium | Aucun | Inutile |
+| /oracle/\<SID>/sapdata(n+1)* | Premium | None | Peut être utilisé |
+| /oracle/\<SID>/oraarch* | Premium | None | Inutile |
 | Oracle Home, saptrace, ... | Disque de système d’exploitation | Inutile |
 
 *Agrégation par bandes : Volume LVM agrégé par bandes ou MDADM à l’aide de RAID0

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddba2b70bc9d9e01518cdc0f373fc31224e9c932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425947"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
 
@@ -77,7 +77,7 @@ Au cours de cette phase, vous planifiez la migration de votre charge de travail 
     - Convention d’affectation de noms pour les machines virtuelles, et autres composants d’infrastructure et/ou noms logiques.
 5.  Contrat de support Premier Microsoft. Identifiez votre responsable technique de compte Microsoft (TAM). Pour connaître les exigences de support SAP, lisez la [note de support SAP n° 2015553](https://launchpad.support.sap.com/#/notes/2015553).
 6.  Nombre d’abonnements Azure et quota principal pour les abonnements. Au besoin, [ouvrez des demandes de support pour augmenter les quotas d’abonnements Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
-7.  Plan de réduction et de migration des données pour la migration des données SAP vers Azure. Pour les systèmes SAP NetWeaver, SAP propose des directives afin de limiter les gros volumes de données. Consultez [ce guide SAP](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) consacré à la gestion des données dans les systèmes SAP ERP. Certains de ces contenus s’appliquent également aux systèmes NetWeaver et S/4HANA en général.
+7.  Plan de réduction et de migration des données pour la migration des données SAP vers Azure. Pour les systèmes SAP NetWeaver, SAP propose des directives afin de limiter les gros volumes de données. Consultez [ce guide SAP](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) consacré à la gestion des données dans les systèmes SAP ERP. Certains de ces contenus s’appliquent également aux systèmes NetWeaver et S/4HANA en général.
 8.  Une approche de type déploiement automatisé. L’objectif de l’automatisation des déploiements d’infrastructures sur Azure est de déployer de manière déterministe et d’obtenir des résultats déterministes. Beaucoup de clients utilisent des scripts basés sur PowerShell ou sur l’interface CLI. Cependant, différentes technologies open source vous permettent de déployer une infrastructure Azure pour SAP, et même pour installer les logiciels SAP. Vous trouverez des exemples sur GitHub :
     - [Déploiements SAP automatisés dans le cloud Azure](https://github.com/Azure/sap-hana)
     - [Installation de SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
@@ -281,5 +281,5 @@ Reportez-vous aux articles suivants :
 
 - [Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
 - [Déploiement de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour les charges de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

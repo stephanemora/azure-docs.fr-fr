@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 59854d7d46f533510bea97a6845554fc0ce83dbb
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328346"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646742"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -76,7 +76,7 @@ Le transit par passerelle entre des réseaux virtuels créés via des modèles d
 
 Lorsque vous appairez des réseaux virtuels qui partagent une connexion Azure ExpressRoute unique, le trafic entre eux transite par la relation de Peering. Ce trafic utilise le réseau principal Azure. Vous pouvez toujours utiliser des passerelles locales dans chaque réseau virtuel pour vous connecter au circuit local. Dans le cas contraire, vous pouvez utiliser une passerelle partagée et configurer le transit pour la connectivité locale.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 Pour confirmer que les réseaux virtuels sont appairés, vous pouvez vérifier les itinéraires effectifs. Vérifiez les itinéraires pour une interface réseau dans tout sous-réseau d’un réseau virtuel. Si une homologation de réseaux virtuels existe, tous les sous-réseaux au sein du réseau virtuel ont des itinéraires avec le type de tronçon suivant *VNet Peering* pour chaque espace d’adressage de chaque réseau virtuel homologué. Pour plus d’informations, consultez [Diagnostiquer un problème de routage sur une machine virtuelle](diagnose-network-routing-problem.md).
 
@@ -91,7 +91,7 @@ Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels 
 * Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne (ILB) De base dans un réseau virtuel appairé à l’échelle mondiale.
 * Certains services qui utilisent un équilibreur de charge De base ne fonctionnent pas sur l’appairage de réseaux virtuels mondiaux. Pour plus d’informations, consultez [Quelles sont les contraintes liées aux équilibreurs de charge et à l’appairage de réseaux virtuels mondiaux ?](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
-Pour plus d’informations, consultez [Configuration requise et contraintes](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur le nombre de Peerings pris en charge, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Pour plus d’informations, consultez [Configuration requise et contraintes](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur le nombre de Peerings pris en charge, consultez [Limites de mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="permissions"></a>Autorisations
 

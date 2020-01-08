@@ -3,17 +3,17 @@ title: Démarrage rapide – Ajouter un appareil simulé à Azure IoT Central
 description: Ce guide de démarrage rapide montre comment créer un modèle d’appareil et ajouter un appareil simulé à votre application IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/10/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 46d325fd609363a5425fc16845552e75b575c231
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 669bdcddc7e4bb0c63250d9b571ff7ef4343ef5c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434827"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application-preview-features"></a>Démarrage rapide : Ajouter un appareil simulé à votre application IoT Central (fonctionnalités d’évaluation)
 
@@ -30,9 +30,9 @@ Dans ce démarrage rapide, vous créez un modèle d’appareil de **capteur d’
 * Répond aux commandes telles que Activer et Désactiver.
 * Signale des propriétés d’appareil génériques, telles que la version du microprogramme et le numéro de série.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Suivez le démarrage rapide [Créer une application Azure IoT central (fonctionnalités en préversion)](./quick-deploy-iot-central.md) pour créer une application IoT Central à l’aide du modèle **Application personnalisée > Application en préversion**.
+Suivez le guide de démarrage rapide [Créer une application Azure IoT Central (fonctionnalités en préversion)](./quick-deploy-iot-central.md) pour créer une application IoT Central à l’aide du modèle **Custom app > Preview application** (Application personnalisée > Application en préversion).
 
 Vous avez également besoin d’une copie locale du fichier **EnvironmentalSensorInline.capabilitymodel.json** qui contient le modèle de capacité d’appareil [IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md). Vous pouvez le télécharger [ici](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Cliquez avec le bouton droit sur la page et sélectionnez **Enregistrer sous**.
 
@@ -70,10 +70,10 @@ Un modèle d’appareil peut inclure des propriétés du cloud. Les propriétés
 
 1. Sélectionnez **Propriétés du cloud**, puis **+ Ajouter une propriété cloud**. Utilisez les informations du tableau suivant pour ajouter une propriété du cloud à votre modèle d’appareil.
 
-    | Nom d’affichage      | Type de sémantique | Schéma |
+    | Nom d’affichage      | Type sémantique | schéma |
     | ----------------- | ------------- | ------ |
-    | Dernière date de service | Aucun          | Date   |
-    | Nom du client     | Aucun          | Chaîne |
+    | Dernière date de service | None          | Date   |
+    | Nom du client     | None          | String |
 
 1. Cliquez sur **Enregistrer** pour enregistrer vos modifications :
 

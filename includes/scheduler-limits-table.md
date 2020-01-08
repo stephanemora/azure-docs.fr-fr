@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
-ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177439"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392389"
 ---
 Le tableau suivant décrit chaque quota, limite, valeur par défaut et limitation principaux dans Azure Scheduler.
 
@@ -21,7 +21,7 @@ Le tableau suivant décrit chaque quota, limite, valeur par défaut et limitatio
 | -------- | ----------------- |
 | **Taille du travail** | La taille maximale du travail est de 16 000. Si une opération PUT ou PATCH génère un travail qui dépasse ces limites de taille, le code d’état 400 Requête incorrecte est retourné. | 
 | **Collections de travaux** | Le nombre maximal de collections de travaux par abonnement Azure est de 200 000. | 
-| **Travaux par collection** | Par défaut, le nombre maximal de travaux est de cinq pour les collections gratuites, et de cinquante pour les collections standard. <p>Vous pouvez modifier le nombre maximal de travaux que peut contenir une collection. Le nombre de travaux d’une collection est limité à la valeur définie dans cette collection. Si vous tentez de créer plus de travaux que le quota maximal, la requête échoue avec le code d’état 409 Conflit. | 
+| **Travaux par collection** | Par défaut, le nombre maximal de travaux est de cinq pour les collections gratuites, et de cinquante pour les collections standard. Vous pouvez modifier le nombre maximal de travaux que peut contenir une collection. Le nombre de travaux d’une collection est limité à la valeur définie dans cette collection. Si vous tentez de créer plus de travaux que le quota maximal, la requête échoue avec le code d’état 409 Conflit. | 
 | **Délai jusqu'à l'heure de début** | Le « délai jusqu’à l’heure de début » maximal est de 18 mois. |
 | **Période de récurrence** | La période de récurrence maximale est 18 mois. | 
 | **Fréquence** | Par défaut, le quota de fréquence maximale est d’une heure dans une collection de travaux gratuite, et d’une minute dans une collection de travaux standard. <p>Vous pouvez abaisser la valeur de fréquence maximale d’une collection de travaux. Le nombre de travaux d’une collection est limité à la valeur définie dans cette collection. Si vous tentez de créer un travail avec une fréquence supérieure à la fréquence maximale définie dans la collection de travaux, la requête échoue avec le code d’état 409 Conflit. | 

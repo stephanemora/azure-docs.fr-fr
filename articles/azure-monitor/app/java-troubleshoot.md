@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: aea0adc9217a7729c9bf14211cf5da422ac9e198
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432532"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Guide de dépannage et questions-réponses concernant Application Insights pour Java
 Vous avez des questions concernant [Azure Application Insights dans Java][java] ou vous rencontrez des problèmes ? Voici quelques conseils.
@@ -22,7 +22,7 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 
 * Si l’élément de dépendance `<version>` utilise un modèle avec des caractères génériques (par exemple, (Maven) `<version>[2.0,)</version>` ou (Gradle) `version:'2.0.+'`), essayez de spécifier une version spécifique, comme par exemple `2.0.1`. Consultez les [notes de publication](https://github.com/Microsoft/ApplicationInsights-Java/releases) relatives à la version la plus récente.
 
-## <a name="no-data"></a>Absence de données
+## <a name="no-data"></a>Pas de données
 **J’ai ajouté Application Insights sans problème et exécuté mon application, mais je ne vois aucune donnée dans le portail.**
 
 * Attendez une minute, puis cliquez sur Actualiser. Les graphiques s’actualisent à intervalles réguliers, mais vous pouvez également les actualiser manuellement. L’intervalle d’actualisation dépend de l’intervalle de temps sur lequel porte le graphique.
@@ -52,7 +52,6 @@ Vous avez des questions concernant [Azure Application Insights dans Java][java]
 * Avez-vous configuré l’agent Java en suivant les instructions de la section [Configure Java Agent](java-agent.md) (Configurer l’agent Java) ?
 * Assurez-vous que le fichier JAR de l’agent Java et le fichier AI-Agent.xml sont placés dans le même dossier.
 * Vérifiez que la dépendance que vous essayez de collecter automatiquement est prise en charge pour la collection automatique. Nous ne prenons en charge que la collection de dépendances MySQL, MsSQL, de base de données Oracle et de Cache Azure pour Redis.
-* Utilisez-vous JDK 1.7 ou 1.8 ? Actuellement, nous ne prenons pas en charge la collection de dépendances dans JDK 9.
 
 ## <a name="no-usage-data"></a>Absence de données d'utilisation
 **Je vois des données concernant les requêtes et les temps de réponse, mais rien concernant les affichages de pages, le navigateur ou les données utilisateur.**

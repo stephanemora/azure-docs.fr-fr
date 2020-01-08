@@ -2,17 +2,17 @@
 title: Démarrage rapide - Créer un point de terminaison privé Azure avec Azure CLI
 description: Découvrir des informations sur le point de terminaison privé Azure dans ce guide de démarrage rapide
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 67513c2155e956e005b143c3049abe70a2f126f2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: dbcb833e6f8b90cebd3d013e58168558bcd96827
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459976"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Démarrage rapide : Créer une instance Private Endpoint à l’aide d’Azure CLI
 Private Endpoint est le bloc de construction fondamental pour Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. Dans ce guide de démarrage rapide, vous allez apprendre à créer une machine virtuelle sur un réseau virtuel, un serveur SQL Database avec Private Endpoint à l’aide d’Azure CLI. Ensuite, vous pouvez accéder à la machine virtuelle pour accéder en toute sécurité à la ressource Private Link (un serveur Azure SQL Database privé dans cet exemple). 
@@ -170,7 +170,7 @@ Dans cette section, vous allez vous connecter au serveur SQL Database à partir 
  7. (Facultatif) Créer ou interroger des informations à partir de *mydatabase*
  8. Fermez la connexion Bureau à distance sur *myVm*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Lorsque vous n'en avez plus besoin, vous pouvez utiliser az group delete pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient : 
 
 ```azurecli-interactive

@@ -3,7 +3,7 @@ title: Collecter des données à partir d'un ordinateur Windows hybride avec Azu
 description: Dans ce guide de démarrage rapide, vous allez apprendre à déployer l’agent Log Analytics pour des ordinateurs Windows fonctionnant en dehors d’Azure et à activer la collecte de données avec Azure Monitor Logs.
 services: azure-monitor
 documentationcenter: azure-monitor
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
-ms.author: magoedte
+ms.author: bwren
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 11c51ab702399c73dc93f850d4abde49b45b3775
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398938"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Collecter des données à partir d’un ordinateur Windows dans un environnement hybride avec Azure Monitor
 
@@ -143,7 +143,7 @@ Azure Monitor peut collecter les événements que vous spécifiez à partir du j
 
     ![Résultat de la recherche dans les journaux Log Analytics](media/quick-collect-azurevm/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez supprimer l’agent de votre ordinateur ainsi que l’espace de travail Log Analytics si vous n’en avez plus besoin.  
 

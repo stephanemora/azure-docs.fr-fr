@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
-ms.openlocfilehash: 753c239f4bf4d6a8f31d4dc5ca771f312cd34578
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828998"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646708"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Déplacer un réseau virtuel Azure vers une autre région en utilisant Azure PowerShell
 
@@ -20,7 +20,7 @@ Il existe différents scénarios pour déplacer un réseau virtuel Azure existan
 Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migration du réseau virtuel vers une autre région. Pour ce faire, exportez le réseau virtuel vers un modèle, modifiez les paramètres pour qu’ils correspondent à la région de destination, puis déployez le modèle dans la nouvelle région. Pour plus d’informations sur les modèles Resource Manager, consultez [Exporter des groupes de ressources vers des modèles](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que votre réseau virtuel Azure se trouve dans la région Azure à partir de laquelle vous voulez effectuer le déplacement.
 
@@ -32,7 +32,7 @@ Vous pouvez utiliser un modèle Azure Resource Manager pour terminer la migratio
 
 - Vérifiez que votre abonnement Azure vous permet de créer des réseaux virtuels dans la région cible. Pour activer le quota nécessaire, contactez le support technique.
 
-- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout de réseaux virtuels pour ce processus. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout de réseaux virtuels pour ce processus. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-for-the-move"></a>Préparer le déplacement

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802724"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646487"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -39,7 +39,7 @@ Toutes les ressources Azure sont créées dans une région Azure et un abonnemen
 
 ## <a name="subscriptions"></a>Abonnements
 
-Vous pouvez déployer autant de réseaux virtuels que nécessaire dans chaque abonnement, jusqu’à la [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Par exemple, certaines organisations disposent d’abonnements distincts pour différents services. Pour plus d’informations et des remarques relatives aux abonnements, consultez [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy) (Gouvernance de l’abonnement).
+Vous pouvez déployer autant de réseaux virtuels que nécessaire dans chaque abonnement, jusqu’à la [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Par exemple, certaines organisations disposent d’abonnements distincts pour différents services. Pour plus d’informations et des remarques relatives aux abonnements, consultez [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy) (Gouvernance de l’abonnement).
 
 ## <a name="segmentation"></a>Segmentation
 
@@ -51,14 +51,14 @@ Un réseau virtuel est une partie virtuelle isolée du réseau public Azure. Cha
 
 - Avez-vous des exigences de sécurité d’organisation pour isoler le trafic dans des réseaux virtuels distincts ? Vous pouvez choisir de connecter des réseaux virtuels ou non. Si vous connectez des réseaux virtuels, vous pouvez implémenter une appliance virtuelle réseau, comme un pare-feu, pour contrôler le flux de trafic entre les réseaux virtuels. Pour plus d’informations, consultez [Sécurité](#security) et [Connectivité](#connectivity).
 - Avez-vous des exigences d’organisation pour isoler les réseaux virtuels dans des [abonnements](#subscriptions) ou [régions](#regions) distincts ?
-- Une [interface réseau](virtual-network-network-interface.md) permet à un machine virtuelle de communiquer avec d’autres ressources. Une ou plusieurs adresses IP privées sont affectées à chaque interface réseau. De combien d’interfaces réseau et d’[adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) avez-vous besoin dans un réseau virtuel ? Des [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) s’appliquent quant au nombre d’interfaces réseau et d’adresses IP privées que vous pouvez avoir dans un réseau virtuel.
+- Une [interface réseau](virtual-network-network-interface.md) permet à un machine virtuelle de communiquer avec d’autres ressources. Une ou plusieurs adresses IP privées sont affectées à chaque interface réseau. De combien d’interfaces réseau et d’[adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) avez-vous besoin dans un réseau virtuel ? Des [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) s’appliquent quant au nombre d’interfaces réseau et d’adresses IP privées que vous pouvez avoir dans un réseau virtuel.
 - Voulez-vous connecter le réseau virtuel à un autre réseau virtuel ou au réseau local ? Vous pouvez choisir de connecter certains réseaux virtuels entre eux ou des réseaux locaux, mais pas d’autres. Pour plus d’informations, consultez [Connectivité](#connectivity). Chaque réseau virtuel que vous connectez à un autre réseau virtuel, ou au réseau local, doit avoir un espace d’adresses unique. Chaque réseau virtuel comprend une ou plusieurs plages d’adresses publiques ou privées affectées à son espace d’adresses. Une plage d’adresses est spécifiée dans un format de routage de domaine Interne sans classe (CIDR), par exemple, 10.0.0.0/16. En savoir plus sur [plages d’adresses](manage-virtual-network.md#add-or-remove-an-address-range) pour les réseaux virtuels.
 - Avez-vous des exigences d’administration d’organisation pour les ressources dans différents réseaux virtuels ? Si c’est le cas, vous pouvez séparer des ressources dans un réseau virtuel distinct afin de simplifier l’[affectation d’autorisations](#permissions) à des personnes de votre organisation ou pour assigner différentes stratégies à différents réseaux virtuels.
 - Lorsque vous déployez des ressources de service Azure dans un réseau virtuel, elles créent leur propre réseau virtuel. Pour déterminer si un service Azure crée son propre réseau virtuel, consultez les informations de chaque [service Azure pouvant être déployé dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 ### <a name="subnets"></a>Sous-réseaux
 
-Un réseau virtuel peut être segmenté en un ou plusieurs sous-réseaux, jusqu’aux [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Éléments à prendre en compte lorsque vous choisissez de créer un sous-réseau ou plusieurs réseaux virtuels dans un abonnement :
+Un réseau virtuel peut être segmenté en un ou plusieurs sous-réseaux, jusqu’aux [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Éléments à prendre en compte lorsque vous choisissez de créer un sous-réseau ou plusieurs réseaux virtuels dans un abonnement :
 
 - Chaque sous-réseau doit avoir une plage d’adresses unique, spécifiée au format CIDR, dans l’espace d’adresses du réseau virtuel. La plage d’adresses ne peut pas chevaucher d’autres sous-réseaux au sein du réseau virtuel.
 - Si vous envisagez de déployer des ressources de service Azure dans un réseau virtuel, elles peuvent avoir besoin de créer leur propre sous-réseau. De l’espace non alloué doit être suffisant pour le faire. Pour déterminer si un service Azure crée son propre sous-réseau, consultez les informations de chaque [service Azure pouvant être déployé dans un réseau virtuel](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network). Par exemple, si vous connectez un réseau virtuel à un réseau local à l’aide d’une passerelle VPN Azure, le réseau virtuel doit avoir un sous-réseau dédié pour la passerelle. En savoir plus sur les [sous-réseaux de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub).

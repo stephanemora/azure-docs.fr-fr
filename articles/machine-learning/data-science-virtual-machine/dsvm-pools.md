@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c5b7f4eaac91e79dde625ea00bfb6b1ea8782b31
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052999"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530610"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Création d’un pool partagé de Data Science Virtual Machines
 
 Dans cet article, vous allez apprendre à créer un pool partagé de DSVM (Data Science Virtual Machine) pour une équipe. L’utilisation d’un pool partagé comporte certains avantages : meilleure utilisation des ressources, partage et collaboration facilités, et gestion plus efficace des ressources des machines virtuelles DSVM.
 
-Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de DSVM. Cet article se concentre sur les pools de machines virtuelles interactives. La capacité de calcul Azure Machine Learning est un autre exemple d'infrastructure de calcul managée. Pour plus d’informations, consultez [Configurer des cibles de calcul](../service/how-to-set-up-training-targets.md#amlcompute).
+Vous pouvez utiliser plusieurs méthodes et technologies pour créer un pool de DSVM. Cet article se concentre sur les pools de machines virtuelles interactives. La capacité de calcul Azure Machine Learning est un autre exemple d'infrastructure de calcul managée. Pour plus d’informations, consultez [Configurer des cibles de calcul](../how-to-set-up-training-targets.md#amlcompute).
 
 ## <a name="interactive-vm-pool"></a>Pool de machines virtuelles interactives
 

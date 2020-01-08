@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932507"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450661"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
 
@@ -50,7 +50,7 @@ Utilisez la procédure suivante pour définir un fichier journal personnalisé. 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Étape 1. Ouvrir l’Assistant Journal personnalisé
 L’Assistant Journal personnalisé s’exécute dans le portail Azure et vous permet de définir un nouveau journal personnalisé de collecte.
 
-1. Dans le portail Azure, sélectionnez l’**espace de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
+1. Dans le portail Azure, sélectionnez **Espaces de travail Log Analytics** > votre espace de travail > **Paramètres avancés**.
 2. Cliquez sur **Données** > **Journaux d’activité personnalisés**.
 3. Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents. Pour les agents Linux, un fichier de configuration est envoyé au collecteur de données Fluentd.
 4. Cliquez sur **Ajouter+** pour ouvrir l’Assistant Journal personnalisé.
@@ -86,7 +86,7 @@ Le tableau suivant fournit des exemples de modèles valides pour différents fic
 2. Tapez le chemin d’accès et cliquez sur le bouton **+** .
 3. Répétez la procédure pour les chemins d’accès supplémentaires.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Étape 4. Indiquer le nom et la description du journal
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Étape 4. Indiquer le nom et la description du journal
 Le nom que vous spécifiez sera utilisé pour le type de journal, comme indiqué ci-dessus.  Il se termine toujours par _CL pour le distinguer d’un journal personnalisé.
 
 1. Indiquez le nom du journal.  Le suffixe **\_CL** est ajouté automatiquement.
@@ -110,7 +110,7 @@ Pour supprimer un journal personnalisé que vous avez défini précédemment, pr
 1. Dans le menu **Données** des **Paramètres avancés** de votre espace de travail, sélectionnez **Journaux d’activité personnalisés** pour répertorier tous vos journaux d’activité personnalisés.
 2. Cliquez sur **Supprimer** en regard du journal personnalisé à supprimer.
 
-## <a name="data-collection"></a>Collecte des données
+## <a name="data-collection"></a>Collecte de données
 Azure Monitor collecte les nouvelles entrées de chaque journal personnalisé toutes les 5 minutes environ.  L’agent enregistre sa place dans chaque fichier journal dont il la collecte.  Si l’agent est hors connexion pendant un moment, Azure Monitor collecte les entrées à partir du point d’interruption, même si ces entrées ont été créées lorsque l’agent était hors connexion.
 
 L’entrée de journal est intégralement inscrite dans une propriété unique appelée **RawData**.  Consultez [Parse text data in Azure Monitor](../log-query/parse-text.md) (Analyser les données de texte dans Azure Monitor) pour prendre connaissance des méthodes permettant d’analyser chaque entrée de journal importée dans plusieurs propriétés.

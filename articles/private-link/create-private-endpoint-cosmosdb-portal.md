@@ -1,17 +1,17 @@
 ---
 title: Se connecter à un compte Azure Cosmos avec Azure Private Link
 description: Découvrez comment accéder en toute sécurité au compte Azure Cosmos à partir d’une machine virtuelle en créant un point de terminaison privé.
-author: asudbring
+author: malopMSFT
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: e54aa00df9efa60cce0fd6fa1da32720f2947b12
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430315"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Se connecter en privé à un compte Azure Cosmos à l’aide d’Azure Private Link
 
@@ -35,7 +35,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyVirtualNetwork*. |
+    | Name | Entrez *MyVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Subscription | Sélectionnez votre abonnement.|
     | Resource group | Sélectionnez **Créer nouveau**, entrez *myResourceGroup* et sélectionnez **OK**. |
@@ -77,7 +77,7 @@ Dans cette section, vous allez créer un réseau virtuel et le sous-réseau pour
 
 1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
-1. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
+1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -109,7 +109,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Sélectionnez le bouton **Connexion**. Après avoir sélectionné le bouton **Connecter**, **Se connecter à la machine virtuelle** s’ouvre.
 
-1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier *.rdp* (Remote Desktop Protocol) et le télécharge sur votre ordinateur.
+1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
 1. Ouvrez le fichier *.rdp* téléchargé.
 
@@ -161,7 +161,7 @@ Dans cette section, vous allez vous connecter en privé au compte Azure Cosmos �
 
 1. Fermez la connexion Bureau à distance avec  *myVM*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le compte Azure Cosmos et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient : 
 

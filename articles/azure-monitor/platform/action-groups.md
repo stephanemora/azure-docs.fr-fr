@@ -2,18 +2,16 @@
 title: Créer et gérer des groupes d’actions sur le Portail Azure
 description: Découvrez comment créer et gérer des groupes d’action sur le Portail Azure.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6b3d1ff76d4f7611da8e08dd4ce42293c805978e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423855"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659829"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -24,7 +22,7 @@ Cet article vous montre comment créer et gérer des groupes d’actions dans le
 
 Chaque action se compose des propriétés suivantes :
 
-* **Nom** : identificateur unique au sein du groupe d’actions.  
+* **Name** : identificateur unique au sein du groupe d’actions.  
 * **Type d’action** : action effectuée. Exemples : envoi d'un appel vocal, d'un SMS ou d'un e-mail ; ou déclenchement de différents types d'actions automatisées. Reportez-vous aux types présentés plus loin dans cet article.
 * **Détails** : détails correspondants qui varient selon le *type d’action*.
 
@@ -42,17 +40,17 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
     ![La commande « Ajouter un groupe d’actions »](./media/action-groups/add-action-group.png)
     
-1. Entrez un nom dans la zone **Nom du groupe d’actions** et un autre dans la zone **Nom court**. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+1. Entrez un nom dans la boîte **Nom du groupe d’actions** et entrez un nom dans la boîte **Nom court**. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
 
       ![La boîte de dialogue « Ajouter un groupe d’actions »](./media/action-groups/action-group-define.png)
 
-1. La zone **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel est enregistré le groupe d’actions.
+1. La boîte **Abonnement** est automatiquement renseignée avec votre abonnement actuel. Cet abonnement est celui dans lequel est enregistré le groupe d’actions.
 
 1. Sélectionnez le **Groupe de ressources** dans lequel le groupe d’actions est enregistré.
 
 1. Définissez une liste d’actions. Fournissez les informations suivantes pour chaque action :
 
-    1. **Nom** : entrez un identificateur unique pour cette action.
+    1. **Name** : entrez un identificateur unique pour cette action.
 
     1. **Type d’action** : sélectionnez E-mail, SMS, Push, Voix, application logique, Webhook, ITSM ou Runbook Automation.
 
@@ -72,10 +70,10 @@ Après sa création, un groupe d’actions apparaît dans la section **Groupes d
 ## <a name="action-specific-information"></a>Informations spécifiques sur l’action
 
 > [!NOTE]
-> Consultez [Subscription Service Limits for Monitoring (Limites du service d’abonnement pour la surveillance)](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-monitor-limits) pour connaître les limites numériques sur chacun des éléments ci-dessous.  
+> Consultez [Subscription Service Limits for Monitoring (Limites du service d’abonnement pour la surveillance)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) pour connaître les limites numériques sur chacun des éléments ci-dessous.  
 
 ### <a name="automation-runbook"></a>Runbook Automation
-Consultez l’article [Limites du service d’abonnement Azure](../../azure-subscription-service-limits.md) pour connaître les limites de charges utiles Runbook.
+Consultez l’article [Limites du service d’abonnement Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) pour connaître les limites de charges utiles Runbook.
 
 Vous pouvez avoir un nombre limité d’actions de runbook par groupe d’actions. 
 

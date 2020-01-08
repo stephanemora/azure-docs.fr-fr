@@ -3,18 +3,18 @@ title: Démarrage rapide – Configurer des règles et des actions dans Azure Io
 description: Dans le cadre de ce démarrage rapide, vous découvrez, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/24/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: f81171d0f545bbf7f903d54bee761817e9451d9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 489a512ea5658aaeaccdba4b91eae7def14a589c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706724"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434820"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central-preview-features"></a>Démarrage rapide : Configurer des règles et des actions pour votre appareil dans Azure IoT Central (fonctionnalités d’évaluation)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74706724"
 
 Dans le cadre de ce démarrage rapide, vous allez créer une règle qui envoie un e-mail quand la température d’un capteur environnemental dépasse 90&deg; F.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez suivre les deux guides de démarrage rapide précédents : [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) et [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md) pour créer le modèle d'appareil **Capteur environnemental** avec lequel travailler.
 
@@ -43,7 +43,7 @@ Avant de commencer, vous devez suivre les deux guides de démarrage rapide préc
     | Champ                                        | Valeur                             |
     | -------------------------------------------- | ------------------------------    |
     | Mesure                                  | Température                       |
-    | Operator                                     | est supérieur à                   |
+    | Opérateur                                     | est supérieur à                   |
     | Valeur                                        | 90                                |
 
     Pour ajouter d’autres conditions, sélectionnez **+ Condition**.
@@ -81,7 +81,7 @@ Dans ce démarrage rapide, vous avez appris comment :
 * Créer une règle basée sur la télémétrie
 * Ajouter une action
 
-Pour en savoir plus sur la surveillance des appareils connectés à votre application, passez au guide de démarrage rapide :
+Pour en savoir plus sur la surveillance des appareils connectés à votre application, passez au démarrage rapide :
 
 > [!div class="nextstepaction"]
 > [Utiliser Azure IoT Central pour surveiller vos appareils](quick-monitor-devices.md).

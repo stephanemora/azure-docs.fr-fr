@@ -1,5 +1,6 @@
 ---
-title: Démarrage rapide de la solution Azure VMware de CloudSimple – utiliser des machines virtuelles VMware sur Azure
+title: 'Démarrage rapide : Utiliser des machines virtuelles VMware sur Azure'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Découvrez comment configurer et utiliser des machines virtuelles VMware à partir du portail Azure en utilisant la solution Azure VMware de CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 504550358bb56602093e58c90506c9140afccadb
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452353"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Démarrage rapide – Utiliser des machines virtuelles VMware sur Azure
 
@@ -41,10 +42,10 @@ Créez une machine virtuelle sur votre cloud privé à partir de l’interface u
     | ------------ | ------------- |
     | Subscription | Abonnement Azure associé à votre cloud privé.  |
     | Groupe de ressources | Groupe de ressources auquel la machine virtuelle sera attribuée. Vous pouvez sélectionner un groupe existant ou en créer un. |
-    | Nom | Nom destiné à identifier la machine virtuelle.  |
+    | Name | Nom destiné à identifier la machine virtuelle.  |
     | Location | Région Azure dans laquelle la machine virtuelle est hébergée.  |
     | Cloud privé | Cloud privé CloudSimple où vous voulez créer la machine virtuelle. |
-    | Liste de ressources partagées | Liste de ressources partagées mappé pour la machine virtuelle. Choisissez parmi les pools de ressources disponibles. |
+    | Liste de ressources partagées | Liste de ressources partagées mappée pour la machine virtuelle. Choisissez parmi les pools de ressources disponibles. |
     | Modèle vSphere | Modèle vSphere pour la machine virtuelle.  |
     | Nom d'utilisateur | Nom d’utilisateur de l’administrateur de la machine virtuelle (pour les modèles Windows).|
     | Mot de passe |  Mot de passe de l’administrateur de la machine virtuelle (pour les modèles Windows). |
@@ -60,18 +61,18 @@ Créez une machine virtuelle sur votre cloud privé à partir de l’interface u
 
     Pour les interfaces réseau, cliquez sur **Ajouter une interface réseau**, puis configurez les paramètres suivants.
 
-    | Contrôle | Description |
+    | Control | Description |
     | ------------ | ------------- |
-    | Nom | Entrez un nom pour identifier l’interface.  |
+    | Name | Entrez un nom pour identifier l’interface.  |
     | Réseau | Sélectionnez dans la liste des groupes de ports distribués configurés dans votre cloud privé vSphere.  |
     | Adaptateur | Sélectionnez un adaptateur vSphere dans la liste des types disponibles configurés pour la machine virtuelle. Pour plus d’informations, consultez l’article de la base de connaissances VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
     | Mettre sous tension au démarrage | Choisissez s’il faut activer la carte réseau quand la machine virtuelle est démarrée. La valeur par défaut est **Activer**. |
 
     Pour les disques, cliquez sur **Ajouter un disque**, puis configurez les paramètres suivants.
 
-    | Item | Description |
+    | Élément | Description |
     | ------------ | ------------- |
-    | Nom | Entrez un nom pour identifier le disque.  |
+    | Name | Entrez un nom pour identifier le disque.  |
     | Size | Sélectionnez une des tailles disponibles.  |
     | Contrôleur SCSI | Sélectionnez un contrôleur SCSI pour le disque.  |
     | Mode | Détermine comment le disque participe aux captures instantanées. Choisissez une de ces options : <br> - Indépendant persistant : Toutes les données écrites sur le disque sont écrites de façon permanente.<br> - Indépendant non persistant : Les modifications écrites sur le disque sont abandonnées lors de la mise hors tension ou de la réinitialisation de la machine virtuelle.  Le mode indépendant non persistant vous permet de toujours redémarrer la machine virtuelle dans le même état. Pour plus d’informations, consultez la <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentation de VMware</a>.

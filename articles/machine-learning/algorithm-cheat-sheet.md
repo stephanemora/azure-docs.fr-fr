@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: 10714e155bebdd7acc5d7febb345c17fa81bab13
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511346"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530780"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
@@ -22,7 +22,7 @@ ms.locfileid: "73511346"
 
 Azure Machine Learning possède une grande bibliothèque d’algorithmes à partir des familles ***classification***, ***systèmes de recommandation***, ***clustering***,  ***détection des anomalies***, ***régression*** et ***analyse de texte***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Télécharger : Aide-mémoire de l’algorithme Machine Learning
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Télécharger : Aide-mémoire de l’algorithme Machine Learning
 
 **Téléchargez l’aide-mémoire ici : [Aide-mémoire de l’algorithme Machine Learning (11 x 17 pouces)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf?WT.mc_id=docs-article-lazzeri)**
 
@@ -56,10 +56,10 @@ Dans l’apprentissage par renforcement, l’algorithme choisit une action en r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](service/overview-what-is-azure-ml.md).
+* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](overview-what-is-azure-ml.md).
 
 * Consultez la liste des algorithmes et des modules dans la [référence des algorithmes et des modules](algorithm-module-reference/module-reference.md).
 
-* [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](service/ui-tutorial-automobile-price-train-score.md).
+* [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](service/ui-tutorial-automobile-price-train-score.md).
 
-* [En savoir plus sur la comparaison entre le Deep Learning et le Machine Learning](service/concept-deep-learning-vs-machine-learning.md).
+* [En savoir plus sur la comparaison entre le Deep Learning et le Machine Learning](concept-deep-learning-vs-machine-learning.md).

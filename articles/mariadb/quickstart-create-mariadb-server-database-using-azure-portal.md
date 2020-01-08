@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 12/02/2019
-ms.openlocfilehash: 240329ba3dc50cef249716f951595fea0cdc67eb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9ba02f53ba5765d90e8bba80e4d99922d7eb7c46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769980"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432050"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Créer un serveur Azure Database for MariaDB à l’aide du portail Azure
 
@@ -26,7 +26,7 @@ Dans votre navigateur web, accédez au [Portail Azure](https://portal.azure.com/
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>Créer un serveur Azure Database for MariaDB
 
-Vous créez un serveur Azure Database for MariaDB avec un ensemble défini de [ressources de calcul et de stockage](concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+Vous créez un serveur Azure Database for MariaDB avec un ensemble défini de [ressources de calcul et de stockage](concepts-pricing-tiers.md). Vous créez ce serveur dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md).
 
 Pour créer un serveur Azure Database for MariaDB :
 
@@ -198,9 +198,9 @@ Pour se connecter au serveur à l’aide de MySQL Workbench :
 
     |Paramètre |Valeur suggérée|Description du champ|
     |---|---|---|
-     Nom de connexion | **Connexion démo** | Une étiquette pour cette connexion. |
+     Nom de la connexion | **Connexion démo** | Une étiquette pour cette connexion. |
     Méthode de connexion | **Standard (TCP/IP)** | Standard (TCP/IP) est suffisant. |
-    Nom d’hôte | *nom du serveur* | La valeur du nom du serveur que vous avez utilisée pour créer le serveur Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet ( **\*.mariadb.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez plus du nom de votre serveur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion.|
+    HostName | *nom du serveur* | La valeur du nom du serveur que vous avez utilisée pour créer le serveur Azure Database for MariaDB. Le serveur que nous utilisons dans notre exemple est **mydemoserver.mariadb.database.azure.com**. Utilisez le nom de domaine complet ( **\*.mariadb.database.azure.com**), comme indiqué dans l’exemple. Si vous ne vous souvenez plus du nom de votre serveur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion.|
      Port | 3306 | Le port à utiliser lorsque vous vous connectez au serveur Azure Database for MariaDB. |
     Nom d’utilisateur |  *nom de connexion d’administrateur du serveur* | Les informations de connexion de l’administrateur du serveur que vous avez utilisées pour créer le serveur Azure Database for MariaDB. Le nom d’utilisateur dans notre exemple est **myadmin\@mydemoserver**. Si vous ne vous souvenez pas du nom d’utilisateur, effectuez la procédure décrite précédemment dans cet article pour obtenir les informations de connexion. Le format est *nom_utilisateur\@nom_serveur*.
     Mot de passe | *votre mot de passe* | Pour enregistrer le mot de passe, sélectionnez **Stocker dans le coffre-fort**. |
@@ -211,9 +211,9 @@ Pour se connecter au serveur à l’aide de MySQL Workbench :
     > Le protocole SSL est appliqué par défaut sur votre serveur. Une configuration supplémentaire est nécessaire pour que la connexion soit réussie. Pour plus d’informations, voir [Configuration de la connectivité SSL dans votre application pour se connecter de manière sécurisée à Azure Database for MariaDB](./howto-configure-ssl.md). Pour désactiver le protocole SSL de ce guide de démarrage rapide, sélectionnez **Sécurité de la connexion** dans le menu sur la page de vue d’ensemble du serveur dans le Portail Azure. Pour **Appliquer une connexion SSL**, sélectionnez **Désactivé**.
     >
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans ce guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md). Cette option supprime toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la ressource d’un serveur.
+Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans ce guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/management/overview.md). Cette option supprime toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la ressource d’un serveur.
 
 > [!TIP]
 > Les autres guides de démarrage rapide de cette collection reposent sur ce guide. Si vous souhaitez continuer à utiliser les guides de démarrage rapide d’Azure Database for MariaDB, ne supprimez pas les ressources créées au cours de ce guide. Sinon, procédez comme suit pour supprimer toutes les ressources que vous avez créées dans le cadre de ce guide de démarrage rapide.

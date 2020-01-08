@@ -3,18 +3,18 @@ title: Présentation de la préversion d’IoT Plug-and-Play | Microsoft Docs
 description: En savoir plus sur la préversion d’IoT Plug-and-Play. IoT Plug-and-Play est basé sur un langage de modélisation ouvert qui permet aux appareils IoT de déclarer leurs fonctionnalités. Les appareils IoT présentent cette déclaration, appelée modèle de fonctionnalité d’appareil, lorsqu’ils se connectent à des solutions cloud telles qu’Azure IoT Central ou des applications partenaires. La solution cloud peut ensuite comprendre automatiquement l’appareil et commencer à interagir avec lui, tout cela sans écrire de code.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 06/21/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 54a18bb20ab9af3ad794ed678ea3234a712bf5cb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935395"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531160"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>Qu’est ce que la préversion d’IoT Plug-and-Play ?
 
@@ -86,6 +86,6 @@ Pendant la préversion publique, les appareils IoT Plug-and-Play envoient des me
 
 Maintenant que vous disposez d’une vue d’ensemble d’IoT Plug-and-Play, l’étape suivante suggérée consiste à essayer l’un des démarrages rapides suivants :
 
-- [Utiliser un modèle de fonctionnalité d’appareil pour créer un appareil IoT Plug-and-Play](./quickstart-create-pnp-device.md)
-- [Connecter un appareil à IoT Hub](./quickstart-connect-pnp-device.md)
-- [Se connecter à un appareil dans une solution](./quickstart-connect-pnp-device-solution.md)
+- [Utiliser un modèle de fonctionnalité d’appareil pour créer un appareil IoT Plug-and-Play](./quickstart-create-pnp-device-windows.md)
+- [Connecter un appareil à IoT Hub](./quickstart-connect-pnp-device-c-windows.md)
+- [Se connecter à un appareil dans une solution](./quickstart-connect-pnp-device-solution-node.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: cc35133df073eea056586dede62c451713e98c10
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177000"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663174"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -52,7 +52,7 @@ Causes possibles :
 
 *Le nom de version d’image n’est pas valide.*
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion.MinorVersion.Patch*. Changez le nom de version d’image, puis réessayez.
 
 *L’image managée source à partir de laquelle la version d’image est créée est introuvable.* 
 
@@ -84,7 +84,7 @@ Vérifiez que la région dans laquelle vous essayez de créer une machine virtue
 
 *La création de la machine virtuelle ou du groupe de machines virtuelles identiques prend beaucoup de temps.*
 
-Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image. 
+Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle vous tentez de créer la machine virtuelle ou le groupe de machines virtuelles identiques est identique à celle de l’image managée source que vous avez utilisée pour créer la version d’image **.** 
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 
@@ -96,7 +96,7 @@ Utilisez l’indicateur **--expand ReplicationStatus** pour vérifier si la rép
 
 ## <a name="azure-limits-and-quotas"></a>Limites et quotas Azure 
 
-[Les limites et quotas Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits) s’appliquent à toutes les ressources de galerie d’images partagées, définition d’image et version d’image. Vérifiez que vous êtes dans les limites de vos abonnements. 
+[Les limites et quotas Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-resource-manager/management/azure-subscription-service-limits) s’appliquent à toutes les ressources de galerie d’images partagées, définition d’image et version d’image. Vérifiez que vous êtes dans les limites de vos abonnements. 
 
 
 

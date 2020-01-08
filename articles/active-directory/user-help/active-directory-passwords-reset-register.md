@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9748c0d04f958648f7919b7ac29dc58d5a137ac
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279049"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681359"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Inscrire vos informations de méthode de vérification pour réinitialiser votre mot de passe
 
@@ -29,7 +29,7 @@ En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou
 
 ## <a name="register-or-confirm-authentication-data-with-sspr"></a>Inscrire ou confirmer les données d’authentification avec SSPR
 
-1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](https://aka.ms/ssprsetup).
+1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 2. Entrez le nom d’utilisateur et le mot de passe que vous a fournis votre administrateur.
 3. Selon la façon dont votre service informatique a effectué la configuration, une ou plusieurs des options suivantes peuvent être configurées et vérifiées par vous. Si vous avez autorisé votre administrateur à utiliser vos informations, il peut remplir certaines informations pour vous.
     * **Téléphone de bureau** : seul votre administrateur peut définir cette option.

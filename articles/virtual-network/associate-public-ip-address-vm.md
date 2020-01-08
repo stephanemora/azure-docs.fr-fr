@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: kumud
-ms.openlocfilehash: 1b201957a33acd609eed8a2373c8201bdefe9d7d
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 5acda69ce08bc493d5349b084d1cfafc8432145b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64691980"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647456"
 ---
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>Associer une adresse IP publique à une machine virtuelle
 
-Dans cet article, vous allez apprendre à associer une adresse IP publique à une machine virtuelle (VM). Si vous souhaitez vous connecter à une machine virtuelle à partir d’internet, la machine virtuelle doit être associée à une adresse IP publique. Si vous souhaitez créer une machine virtuelle avec une adresse IP publique, vous pouvez le faire en utilisant le [Portail Microsoft Azure](virtual-network-deploy-static-pip-arm-portal.md), l’[interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md), ou [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Les adresses IP publiques ont un coût nominal. Pour en savoir plus, consultez les [tarifs](https://azure.microsoft.com/pricing/details/ip-addresses/). Le nombre d’adresses IP publiques que vous pouvez utiliser dans un abonnement est limité. Pour plus d’informations, consultez la section [Limites](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
+Dans cet article, vous allez apprendre à associer une adresse IP publique à une machine virtuelle (VM). Si vous souhaitez vous connecter à une machine virtuelle à partir d’internet, la machine virtuelle doit être associée à une adresse IP publique. Si vous souhaitez créer une machine virtuelle avec une adresse IP publique, vous pouvez le faire en utilisant le [Portail Microsoft Azure](virtual-network-deploy-static-pip-arm-portal.md), l’[interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md), ou [PowerShell](virtual-network-deploy-static-pip-arm-ps.md). Les adresses IP publiques ont un coût nominal. Pour en savoir plus, consultez les [tarifs](https://azure.microsoft.com/pricing/details/ip-addresses/). Le nombre d’adresses IP publiques que vous pouvez utiliser dans un abonnement est limité. Pour plus d’informations, consultez la section [Limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
 
 Vous pouvez utiliser le [Portail Microsoft Azure](#azure-portal), l’[interface de ligne de commande Azure](#azure-cli), ou [PowerShell](#powershell) pour associer une adresse IP publique à une machine virtuelle.
 
 ## <a name="azure-portal"></a>Portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à la machine virtuelle à laquelle vous voulez ajouter une adresse IP publique ou recherchez-la, puis sélectionnez-la.
 3. Sous **Paramètres**, sélectionnez **Mise en réseau**, puis sélectionnez l’interface réseau à laquelle vous souhaitez ajouter l’adresse IP publique, comme illustré dans l’image suivante :
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser le [Portail Microsoft Azure](#azure-portal), l’[interface
 
 7. [Autorisez le trafic réseau vers la machine virtuelle](#allow-network-traffic-to-the-vm) avec les règles de sécurité dans un groupe de sécurité réseau.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Installez l’[interface de ligne de commande Azure](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) ou utilisez Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Essayer** dans les commandes de l’interface de ligne de commande qui suit. En sélectionnant **Essayer**, vous appelez un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure.
 

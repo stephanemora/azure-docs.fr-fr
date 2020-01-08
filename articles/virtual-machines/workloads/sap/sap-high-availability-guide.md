@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bebdd8beacb3b5fc91802fb41055df7e24b93218
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0fbff3679004b8278b7634c2dc21253973cf34d0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078947"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647660"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
@@ -33,8 +33,8 @@ ms.locfileid: "70078947"
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -148,7 +148,7 @@ ms.locfileid: "70078947"
 [sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-apps-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps-md%2Fazuredeploy.json
 
-[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
+[virtual-machines-azure-resource-manager-architecture-benefits-arm]:../../../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
@@ -197,7 +197,7 @@ Les notes SAP suivantes sont associées à la question de SAP dans Azure :
 | [1999351] |Virtualisation sur Windows : supervision améliorée |
 | [2243692] |Utilisation du stockage SSD Azure Premium pour l’instance de SGBD SAP |
 
-Prenez connaissance des [limites des abonnements Azure][azure-subscription-service-limits-subscription], y compris des limites par défaut générales et des limites maximales.
+Prenez connaissance des [limites des abonnements Azure][azure-resource-manager/management/azure-subscription-service-limits-subscription], y compris des limites par défaut générales et des limites maximales.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>Système SAP à haute disponibilité avec modèle de déploiement Azure Resource Manager ou Classic
 Les modèles de déploiement Azure Resource Manager et Azure Classic présentent les différences suivantes :
@@ -207,7 +207,7 @@ Les modèles de déploiement Azure Resource Manager et Azure Classic présentent
 - Prise en charge des scénarios SAP multi-SID
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Groupes de ressources
-Dans Azure Resource Manager, vous pouvez utiliser des groupes de ressources pour gérer l’ensemble des ressources d’application de votre abonnement Azure. Dans une approche intégrée, toutes les ressources d’un groupe de ressources présentent le même cycle de vie. Par exemple, toutes les ressources sont créées en même temps et supprimées au même moment. En savoir plus sur les [groupes de ressources](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+Dans Azure Resource Manager, vous pouvez utiliser des groupes de ressources pour gérer l’ensemble des ressources d’application de votre abonnement Azure. Dans une approche intégrée, toutes les ressources d’un groupe de ressources présentent le même cycle de vie. Par exemple, toutes les ressources sont créées en même temps et supprimées au même moment. En savoir plus sur les [groupes de ressources](../../../azure-resource-manager/management/overview.md#resource-groups).
 
 ### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Équilibrage de charge interne Azure dépendant du groupe de ressources Azure
 
@@ -740,7 +740,7 @@ Si vous souhaitez utiliser d’autres numéros pour les instances SAP ASCS ou SC
 1. Dans le portail Azure, sélectionnez **<*SID*-lb-ascs load balancer** > **Règles d’équilibrage de charge**.
 2. Pour toutes les règles d’équilibrage de charge qui appartiennent à l’instance SAP ASCS ou SCS, modifiez les valeurs suivantes :
 
-   * Nom
+   * Name
    * Port
    * Port principal
 

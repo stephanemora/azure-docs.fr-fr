@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e9647c1833416b9b225be988acaffb4022f655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670110"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422095"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Aide au déploiement d’applications web avec des modèles Azure Resource Manager
 
@@ -94,7 +94,7 @@ Si votre modèle Resource Manager utilise MSDeploy, les messages d’erreur de d
 
 ## <a name="choose-a-unique-web-app-name"></a>Choisir un nom unique pour l’application web
 
-Le nom de votre application web doit être globalement unique. Vous pouvez utiliser une convention d’affectation de noms qui favorise les noms uniques ou la [fonction uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) pour générer un nom unique.
+Le nom de votre application web doit être globalement unique. Vous pouvez utiliser une convention d’affectation de noms qui favorise les noms uniques ou la [fonction uniqueString](../azure-resource-manager/templates/template-functions-string.md#uniquestring) pour générer un nom unique.
 
 ```json
 {

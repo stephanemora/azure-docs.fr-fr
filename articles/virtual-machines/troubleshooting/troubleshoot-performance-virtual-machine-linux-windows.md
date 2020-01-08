@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a836c6b47e0e1346b5e8de9ba5fbe94f88961cbd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965483"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615050"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Résoudre les problèmes de performances des machines virtuelles Azure sur Linux ou Windows
 
@@ -30,7 +30,7 @@ Cet article vous guide dans l’utilisation de la supervision pour diagnostiquer
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Supervision d’une machine virtuelle IaaS Azure
 
-Pour superviser la machine virtuelle invitée, utilisez la fonctionnalité de supervision de machine virtuelle Azure, qui vous informe de certaines conditions de ressources générales. Pour vérifier si les diagnostics de machine virtuelle sont activés, consultez [Vue d’ensemble des journaux de ressource Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Si vous voyez le message suivant, cela signifie probablement que les diagnostics ne sont pas activés :
+Pour superviser la machine virtuelle invitée, utilisez la fonctionnalité de supervision de machine virtuelle Azure, qui vous informe de certaines conditions de ressources générales. Pour vérifier si les diagnostics de machine virtuelle sont activés, consultez [Vue d’ensemble des journaux de ressource Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs). Si vous voyez le message suivant, cela signifie probablement que les diagnostics ne sont pas activés :
 
 ![La supervision n’est pas activée.](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -210,7 +210,7 @@ Avec les nouvelles offres de disque sous le stockage standard, les limites de d�
 
 * [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
-#### <a name="references"></a>Références
+#### <a name="references"></a>References
 
 * [Objectifs de scalabilité pour les disques de machines virtuelles](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
 

@@ -6,17 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: 274a20f84b978b38a284d1feb315d6621b7d3ccd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256156"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414331"
 ---
 # <a name="cluster-tuning"></a>Paramétrage du cluster
 
-
-La plupart des clusters vFXT peuvent bénéficier de paramètres de performances personnalisés. Ces paramètres permettent au cluster de mieux fonctionner avec votre flux de travail particulier, le jeu de données et les outils. 
+La plupart des clusters vFXT peuvent bénéficier de paramètres de performances personnalisés. Ces paramètres permettent au cluster de mieux fonctionner avec votre flux de travail particulier, le jeu de données et les outils.
 
 Cette personnalisation doit être effectuée avec un technicien du support technique, car elle implique généralement la configuration de fonctionnalités qui ne sont pas disponibles à partir du Panneau de configuration Avere.
 
@@ -34,9 +33,9 @@ Cette section décrit certaines opérations de paramétrage personnalisé qui pe
 
 Ces modifications peuvent être recommandées selon les qualités du jeu de données ou le style de flux de travail.
 
-* Si la charge de travail est lourde en écriture, augmentez la taille par défaut du cache en écriture de 20 %. 
-* Si le jeu de données implique beaucoup de petits fichiers, augmentez la limite du nombre de fichiers du cache du cluster. 
-* Si le travail implique la copie ou le déplacement de données entre deux dépôts, ajustez le nombre de threads utilisés pour le déplacement des données : 
+* Si la charge de travail est lourde en écriture, augmentez la taille par défaut du cache en écriture de 20 %.
+* Si le jeu de données implique beaucoup de petits fichiers, augmentez la limite du nombre de fichiers du cache du cluster.
+* Si le travail implique la copie ou le déplacement de données entre deux dépôts, ajustez le nombre de threads utilisés pour le déplacement des données :
   * Pour améliorer la vitesse, vous pouvez augmenter le nombre de threads parallèles utilisés.
   * Si le volume de stockage back-end est surchargé, vous devrez peut-être réduire le nombre de threads parallèles utilisés.
 * Si le cluster met en cache des données pour un système de stockage principal (core filer) qui utilise des listes de contrôle d’accès (ACL) NFSv4, activez la mise en cache du mode d’accès afin de simplifier l’autorisation de fichier pour les clients particuliers.
@@ -58,4 +57,4 @@ Dans un scénario de cloud bursting ou d’optimisation de réseau étendu de st
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Optimisation de votre système Avere vFXT pour Azure
 
-Utilisez la procédure décrite dans [Aide avec votre système](avere-vfxt-open-ticket.md) pour contacter le personnel du support technique au sujet de ces optimisations. 
+Utilisez la procédure décrite dans [Aide avec votre système](avere-vfxt-open-ticket.md) pour contacter le personnel du support technique au sujet de ces optimisations.

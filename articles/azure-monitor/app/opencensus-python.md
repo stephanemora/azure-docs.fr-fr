@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432482"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurer Azure Monitor pour votre application Python (préversion)
 
 Azure Monitor prend en charge le traçage distribué, la collecte de métriques et la journalisation des applications Python via l’intégration à [OpenCensus](https://opencensus.io). Cet article vous guidera dans le processus de configuration d’OpenCensus pour Python et d’envoi de vos données de supervision vers Azure Monitor.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - Installation de Python. Cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/), mais quelques changements mineurs permettent d’utiliser des versions antérieures.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Créer une ressource Application Insights dans Azure Monitor
 
@@ -353,7 +353,7 @@ Voici les exportateurs fournis par OpenCensus, mappés aux types de données de 
     logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
     ```
 
-7. Pour plus d’informations sur l’enrichissement de vos journaux avec les données de contexte de trace, consultez [Intégration des journaux](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation) OpenCensus Python.
+7. Pour plus d’informations sur l’enrichissement de vos journaux avec les données de contexte de trace, consultez [Intégration des journaux](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation) OpenCensus Python.
 
 ## <a name="view-your-data-with-queries"></a>Voir vos données avec des requêtes
 

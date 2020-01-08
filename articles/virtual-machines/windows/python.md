@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a85a9c28acd2d50d95159883a01b27c8ed1d2f1a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74065598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461095"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
-Une [Machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a besoin de plusieurs ressources de prise en charge Azure. Cet article décrit la création, la gestion et la suppression de ressources de machine virtuelle à l’aide de Python. Vous allez apprendre à effectuer les actions suivantes :
+Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a besoin de plusieurs ressources de prise en charge Azure. Cet article décrit la création, la gestion et la suppression de ressources de machine virtuelle à l’aide de Python. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un projet Visual Studio
 > * Installer des packages
 > * Créer des informations d’identification
 > * Créer des ressources
-> * Effectuer les tâches de gestion
+> * Effectuer d’autres tâches de gestion
 > * Supprimer des ressources
 > * Exécution de l'application
 
@@ -125,7 +125,7 @@ compute_client = ComputeManagementClient(
 
 ### <a name="create-the-vm-and-supporting-resources"></a>Créer la machine virtuelle et les ressources de prise en charge
 
-Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md).
+Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/management/overview.md).
 
 1. Pour créer un groupe de ressources, ajoutez la fonction suivante après les variables dans le fichier .py :
 
@@ -361,7 +361,7 @@ Maintenant que vous avez créé l’ensemble des ressources de prise en charge, 
     input('Press enter to continue...')
     ```
 
-## <a name="perform-management-tasks"></a>Effectuer les tâches de gestion
+## <a name="perform-management-tasks"></a>Effectuer d’autres tâches de gestion
 
 Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter des tâches de gestion telles que le démarrage, l’arrêt ou la suppression d’une machine virtuelle. En outre, vous souhaiterez peut-être créer du code pour automatiser les tâches répétitives ou complexes.
 
@@ -561,7 +561,7 @@ Des machines virtuelles peuvent disposer d’un ou plusieurs [disques de donnée
 
 3. Enregistrez *monProjetPython.py*.
 
-## <a name="run-the-application"></a>Exécuter l'application
+## <a name="run-the-application"></a>Exécution de l'application
 
 1. Pour exécuter l’application console, cliquez sur **Démarrer** dans Visual Studio.
 

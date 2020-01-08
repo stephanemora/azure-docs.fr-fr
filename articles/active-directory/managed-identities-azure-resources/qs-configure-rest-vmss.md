@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f757819e16db9908e80c5e7350c082dbf1573677
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: dce9894b26d03c351a2209792cc076de91feba54
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547226"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429994"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configurer des identités managées sur un groupe de machines virtuelles identiques en utilisant des appels d’API REST
 
@@ -33,9 +33,9 @@ Dans cet article, en utilisant CURL pour effectuer des appels au point de termin
 - Activer et désactiver l’identité managée affectée par le système sur un groupe de machines virtuelles identiques Azure
 - Ajouter et supprimer une identité managée affectée par l’utilisateur sur un groupe de machines virtuelles identiques Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, voir la [section Vue d’ensemble](overview.md). **Veillez à lire [la différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Si vous n’êtes pas familiarisé avec les identités managées pour ressources Azure, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter la [différence entre les identités managées affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer de ces affectations de contrôle d'accès basé sur les rôles Azure :
 
@@ -60,7 +60,7 @@ Dans cette section, découvrez comment activer et désactiver une identité mana
 
 Pour créer un groupe de machines virtuelles identiques dans lequel une identité managée affectée par le système est activée, vous devez créer un groupe de machines virtuelles identiques et récupérer un jeton d’accès pour utiliser CURL afin d’appeler le point de terminaison Resource Manager avec la valeur de type d’identité managée affectée par le système.
 
-1. Créez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
+1. Créez un [groupe de ressources](../../azure-resource-manager/management/overview.md#terminology) pour l’imbrication et le déploiement de votre groupe de machines virtuelles identiques et de ses ressources connexes, à l’aide de la commande [az group create](/cli/azure/group/#az-group-create). Vous pouvez ignorer cette étape si vous possédez déjà le groupe de ressources que vous souhaitez utiliser à la place :
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
@@ -92,8 +92,8 @@ Pour créer un groupe de machines virtuelles identiques dans lequel une identit�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -187,8 +187,8 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -220,8 +220,8 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. |
  
    **Corps de la demande**
 
@@ -254,8 +254,8 @@ Pour activer l’identité managée affectée par le système sur un groupe de m
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -298,8 +298,8 @@ Pour désactiver une identité affectée par le système sur un groupe de machin
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -355,8 +355,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -442,8 +442,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. |
  
    **Corps de la demande**
 
@@ -537,7 +537,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |   
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. |   
  
 
 4. Si vous n’avez attribué aucune identité managée affectée par le système ou l’utilisateur à votre groupe de machines virtuelles identiques, utilisez la commande CURL suivante pour appeler le point de terminaison REST Azure Resource Manager afin d’affecter la première identité managée affectée par l’utilisateur au groupe de machines virtuelles identiques.  Si vous avez attribué des identités managées affectées par l’utilisateur ou le système au groupe de machines virtuelles identiques, passez à l’étape 5, qui montre comment ajouter plusieurs identités managées affectées par l’utilisateur à un groupe de machines virtuelles identiques, tout en mettant également à jour l’identité managée affectée par le système.
@@ -558,8 +558,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -590,8 +590,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -626,8 +626,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -665,8 +665,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -704,7 +704,7 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. |
    
    Si vous avez affecté des identités managées à la machine virtuelle, celles-ci sont répertoriées dans la réponse sous la valeur `identity`. 
     
@@ -726,8 +726,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -758,8 +758,8 @@ Dans cette section, découvrez comment ajouter et supprimer une identité manag�
 
    |En-tête de requête  |Description  |
    |---------|---------|
-   |*Content-Type*     | Requis. Défini sur `application/json`.        |
-   |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+   |*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+   |*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
    **Corps de la demande**
 
@@ -788,8 +788,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
 **Corps de la demande**
 
@@ -815,8 +815,8 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 |En-tête de requête  |Description  |
 |---------|---------|
-|*Content-Type*     | Requis. Défini sur `application/json`.        |
-|*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
+|*Content-Type*     | Obligatoire. Défini sur `application/json`.        |
+|*Autorisation*     | Obligatoire. Défini sur un jeton d’accès `Bearer` valide. | 
 
 **Corps de la demande**
 

@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d824606b1b602d006e53be619d6d955ac2cfb71f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 745ddcc95bb91e61478307265aec1ac8a7ebba54
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213028"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609194"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Résolution des erreurs lors de la synchronisation
 Des erreurs peuvent se produire lorsque les données d’identité sont synchronisées à partir de Windows Server Active Directory (AD DS) vers Azure Active Directory (Azure AD). Cet article fournit une vue d’ensemble des différents types d’erreurs de synchronisation, certains des scénarios qui provoquent ces erreurs et les méthodes possibles pour les résoudre. Cet article inclut les types d’erreur courants et peut ne pas couvrir toutes les erreurs possibles.
@@ -53,7 +53,7 @@ Le schéma Azure Active Directory n’autorise de donner à deux objets ou plus 
 * ProxyAddresses
 * UserPrincipalName
 * onPremisesSecurityIdentifier
-* ID d’objet
+* ObjectId
 
 > [!NOTE]
 > La fonctionnalité [Résilience d’attribut en double Azure AD](how-to-connect-syncservice-duplicate-attribute-resiliency.md) est également déployée en tant que comportement par défaut d’Azure Active Directory.  Cela réduira le nombre d’erreurs de synchronisation vue par Azure AD Connect (ainsi que d’autres clients de synchronisation) en rendant Azure AD Azure résilient dans sa façon de traiter les attributs ProxyAddresses et UserPrincipalName en double présents dans les environnements AD. Cette fonctionnalité ne corrige pas les erreurs de duplication. Les données doivent donc être corrigées. Mais elle permet la configuration de nouveaux objets dont le provisionnement serait autrement bloqué en raison de valeurs en double dans Azure AD. Cela permet également de réduire le nombre d’erreurs de synchronisation renvoyées au client de synchronisation.
@@ -188,7 +188,7 @@ Cette situation entraîne l’apparition d’une erreur de synchronisation **« 
 #### <a name="scenarios"></a>Scénarios
 Pour un utilisateur synchronisé, le suffixe UserPrincipalName a été modifié d’un domaine fédéré à un autre domaine fédéré en local. Par exemple, *UserPrincipalName = bob\@contoso.com* a été remplacé par *UserPrincipalName = bob\@fabrikam.com*.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 1. Bob Smith, un compte pour Contoso.com, est ajouté en tant qu’un nouvel utilisateur dans Active Directory avec UserPrincipalName bob@contoso.com
 2. Bob passe à une autre division Contoso.com appelée Fabrikam.com et son UserPrincipalName est modifié en bob@fabrikam.com
 3. Les domaines contoso.com et fabrikam.com sont des domaines fédérés avec Azure Active Directory.
@@ -235,12 +235,12 @@ Azure AD Connect n’est pas autorisé à établir une correspondance souple à 
 
 
 ### <a name="how-to-fix"></a>Procédure de résolution
-Pour corriger ce problème, effectuez l’une des opérations suivantes :
+Pour corriger ce problème, effectuez les étapes suivantes :
 
- - Supprimez le compte Azure AD (propriétaire) de tous les rôles d’administrateur. 
- - **Supprimez définitivement** l’objet mis en quarantaine dans le cloud. 
- - Le prochain cycle de synchronisation s’occupe de la mise en correspondance logicielle de l’utilisateur local avec le compte cloud (dans la mesure où l’utilisateur cloud n’est plus administrateur général). 
- - Restaurez les appartenances aux rôles pour le propriétaire. 
+1. Supprimez le compte Azure AD (propriétaire) de tous les rôles d’administrateur. 
+2. **Supprimez définitivement** l’objet mis en quarantaine dans le cloud. 
+3. Le prochain cycle de synchronisation s’occupe de la mise en correspondance logicielle de l’utilisateur local avec le compte cloud (dans la mesure où l’utilisateur cloud n’est plus administrateur général). 
+4. Restaurez les appartenances aux rôles pour le propriétaire. 
 
 >[!NOTE]
 >Vous pouvez réaffecter le rôle administratif à l’objet utilisateur existant une fois la correspondance souple entre l’objet utilisateur local et l’objet utilisateur Azure AD effectuée.

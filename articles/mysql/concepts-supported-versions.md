@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: b4029d49eeba53e7a502a7ac68081bb5a2d549f8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/12/2019
+ms.openlocfilehash: 05d4ecd58f6febff75212f1ad88b60be4f23c2a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454330"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
 
@@ -37,9 +37,6 @@ Version du correctif de bogue : 5.7.27
 Pour plus d’informations sur les améliorations et les correctifs de cette version, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-27.html) MySQL.
 
 ## <a name="mysql-version-80"></a>MySQL Version 8.0
-
-> [!IMPORTANT]
-> MySQL 8.0 est actuellement en préversion.
 
 Version du correctif de bogue : 8.0.15
 

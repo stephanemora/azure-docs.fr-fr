@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 38655a9da103d1d669f87c6195be7f17702f9348
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056670"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647762"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Qu’est-ce qu’une liste de contrôle d’accès de point de terminaison ?
 
 > [!IMPORTANT]
-> Azure a deux [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) différents pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager. 
+> Azure a deux [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) différents pour créer et utiliser des ressources : Resource Manager et le déploiement classique. Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager. 
 
 Une liste de contrôle d’accès de point de terminaison (ACL) est une amélioration de sécurité disponible pour votre déploiement Azure. Une liste ACL permet d’autoriser ou refuser le trafic de manière sélective pour un point de terminaison de machine virtuelle. Cette capacité de filtrage des paquets offre une couche de sécurité supplémentaire. Vous ne pouvez spécifier des listes de contrôle d’accès réseau que pour les points de terminaison. Vous ne pouvez pas spécifier de liste ACL pour un réseau virtuel ou un sous-réseau spécifique contenu dans un réseau virtuel. Il est recommandé d’utiliser autant que possible les groupes de sécurité réseau (NSG) au lieu des listes de contrôle d’accès. Lorsque vous utilisez des groupes de sécurité réseau, la liste de contrôle d’accès de point de terminaison sera remplacée et ne sera plus appliquée. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Network security group overview](security-overview.md) (Aperçu des groupes de sécurité réseau)
 
@@ -39,7 +39,7 @@ Les listes de contrôle d’accès réseau vous permettent d’effectuer les op�
 * Utiliser les règles dans un ordre précis pour garantir que l’ensemble approprié de règles est appliqué à un point de terminaison donné de machine virtuelle (de la plus basse à la plus élevée).
 * Spécifier une liste ACL pour une adresse IPv4 spécifique du sous-réseau distant.
 
-Consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) pour en savoir plus sur les limites des listes ACL.
+Consultez l’article sur les [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) pour en savoir plus sur les limites des listes ACL.
 
 ## <a name="how-acls-work"></a>Fonctionnement des listes ACL
 Une liste ACL est un objet qui contient une liste de règles. Quand vous créez une liste ACL et que vous l’appliquez à un point de terminaison de machine virtuelle, le filtrage de paquets a lieu sur le nœud hôte de votre machine virtuelle. Cela signifie que le trafic provenant d’adresses IP distantes est filtré par le nœud hôte en fonction des règles de liste ACL correspondantes au lieu de votre machine virtuelle. Cela évite à votre machine virtuelle de dépenser de précieux cycles de processeur en filtrage des paquets.

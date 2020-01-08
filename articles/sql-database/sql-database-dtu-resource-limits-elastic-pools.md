@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 1dd0f90a9844bb3afbd15e1f8c804d3a7c6b7fff
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 1c9d3256f3898d57eb9f7fe5d758bcaffb37aca6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687678"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637573"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 
@@ -37,14 +37,14 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 
 | Nombre d’eDTU par pool | **50** | **100** | **200** | **300** | **400** | **800** | **1 200** | **1 600** |
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
-| Espace de stockage inclus par pool (Go) | 5\. | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Choix de l’espace de stockage maximal par pool (Go) | 5\. | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Espace de stockage inclus par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
+| Choix de l’espace de stockage maximal par pool (Go) | 5 | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 | 0, 5 |
-| Choix du nombre maximal d’eDTU par base de données | 5\. | 5\. | 5\. | 5\. | 5\. | 5\. | 5\. | 5\. |
+| Choix du nombre maximal d’eDTU par base de données | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 |
 | Espace de stockage maximal par base de données (Go) | 2 | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
 ||||||||
 
@@ -65,9 +65,9 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 
 ### <a name="standard-elastic-pool-limits-continued"></a>Limites du pool élastique standard (suite)
 
-| Nombre d’eDTU par pool | **1 200** | **1 600** | **2 000** | **2 500** | **3 000** |
+| Nombre d’eDTU par pool | **1 200** | **1 600** | **2 000** | **2 500** | **3000** |
 |:---|---:|---:|---:| ---: | ---: |
-| Espace de stockage inclus par pool (Go) | 1 200 | 1 600 | 2000 | 2 500 | 3000 |
+| Espace de stockage inclus par pool (Go) | 1200 | 1 600 | 2000 | 2 500 | 3000 |
 | Choix de l’espace de stockage maximal par pool (Go) | 1 200, 1 280, 1 536, 1792, 2 048, 2 304, 2 560 | 1 600, 1 792, 2 048, 2 304, 2 560, 2 816, 3 072 | 2 000, 2 048, 2 304, 2 560, 2 816, 3 072, 3 328, 3 584 | 2 500, 2 560, 2 816, 3 072, 3 328, 3 584, 3 840, 4 096 | 3 000, 3 072, 3 328, 3 584, 3 840, 4 096 |
 | Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A |
 | Nombre maximal de bases de données par pool | 500 | 500 | 500 | 500 | 500 |
@@ -95,13 +95,13 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 
 ### <a name="premium-elastic-pool-limits-continued"></a>Limites du pool élastique Premium (suite)
 
-| Nombre d’eDTU par pool | **2 000** | **2 500** | **3 000** | **3 500** | **4000**|
+| Nombre d’eDTU par pool | **2 000** | **2 500** | **3000** | **3 500** | **4000**|
 |:---|---:|---:|---:| ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 2 048 | 2560 | 3 072 | 3 548 | 4096 |
 | Choix de l’espace de stockage maximal par pool (Go) | 2 048 | 2560 | 3 072 | 3 548 | 4096|
 | Stockage OLTP en mémoire maximal par pool (Go) | 16 | 20 | 24 | 28 | 32 |
 | Nombre maximal de bases de données par pool | 100 | 100 | 100 | 100 | 100 |
-| Nombre maximal d’ouvriers simultanés (demandes) par pool | 3200 | 4000 | 4 800 | 5 600 | 6 400 |
+| Nombre maximal d’ouvriers simultanés (demandes) par pool | 3200 | 4000 | 4 800 | 5600 | 6 400 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |
 | Choix du nombre minimal d’eDTU par base de données | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750 | 0, 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
 | Choix du nombre maximal d’eDTU par base de données | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750 | 25, 50, 75, 125, 250, 500, 1000, 1750, 4000 |
@@ -133,5 +133,5 @@ Le tableau suivant décrit les propriétés des bases de données mises en pool.
 - Pour connaître les limites de ressources DTU d’une base de données unique, consultez l’article consacré aux [limites de ressources pour les bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Pour connaître les limites de ressources vCore des pools élastiques, consultez l’article consacré aux [limites de ressources pour les pools élastiques suivant le modèle d’achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)
 - Pour connaître les limites de ressources des instances gérées, consultez l'article consacré aux [limites de ressources des instances gérées](sql-database-managed-instance-resource-limits.md).
-- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Pour plus d'informations sur les limites de ressources au niveau du serveur de base de données et de l'abonnement, consultez l'article [Vue d'ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).

@@ -3,18 +3,18 @@ title: Créer une application Azure IoT Central | Microsoft Docs
 description: Créez une application Azure IoT Central. Créez une application d’évaluation ou avec paiement à l’utilisation à l’aide d’un modèle d’application.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bbb287805ac0351153778191d484bae2ef319705
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434794"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Créer une application Azure IoT Central (fonctionnalités en préversion)
 
@@ -25,7 +25,7 @@ Ce guide de démarrage rapide vous explique comment créer une application Azure
 > [!WARNING]
 > Les fonctionnalités IoT Plug-and-Play dans Azure IoT Central sont actuellement en préversion publique. N’utilisez pas une application IoT Central sur laquelle IoT Plug-and-Play est activé pour les charges de travail de production. Pour les environnements de production, utilisez une application IoT Central créée à partir d’un modèle d’application actuel, généralement disponible.
 
-## <a name="create-an-application"></a>Création d'une application
+## <a name="create-an-application"></a>Créer une application
 
 Accédez au site de [création d’applications Azure IoT Central](https://aka.ms/iotcentral). Ensuite, connectez-vous avec un compte Microsoft personnel, scolaire ou professionnel.
 
@@ -45,7 +45,7 @@ Pour créer une nouvelle application Azure IoT Central :
     > Si vous utilisez le modèle Application personnalisée, le champ **Modèle d’application** apparaît dans la liste déroulante. À partir de là, vous pouvez basculer entre les modèles disponibles en préversion et les modèles généralement disponibles. Vous pouvez également voir d’autres modèles mis à la disposition de votre organisation.
 
 1. Choisissez de créer cette application avec une évaluation gratuite de sept jours ou avec un abonnement Paiement à l’utilisation.
-    - Les applications **d’évaluation** sont gratuites pendant sept jours et prennent en charge jusqu’à cinq appareils. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration. Si vous créez une application d’évaluation, entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft.
+    - Les applications **d’évaluation** sont gratuites pendant sept jours et prennent en charge jusqu’à cinq appareils. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration. Si vous créez une application en essai gratuit (Trial), entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft.
     - Les applications avec **paiement à l’utilisation** sont facturées par appareil, les deux premiers étant gratuits. Apprenez-en davantage sur les [tarifs d’IoT Central](https://aka.ms/iotcentral-pricing). Si vous créez une application avec paiement à l’utilisation, vous devez sélectionner votre *Annuaire*, votre *Abonnement Azure* et votre *Emplacement* :
         - *Annuaire* correspond à l’annuaire Azure Active Directory (AAD) dans lequel vous allez créer votre application. Un annuaire Azure AD contient les identités et les informations d’identification des utilisateurs, ainsi que d’autres informations propres à l’organisation. Si vous n’avez pas d’annuaire Azure AD, il s’en crée un automatiquement quand vous créez un abonnement Azure.
         - Un *Abonnement Azure* vous permet de créer des instances de services Azure. IoT Central provisionne des ressources dans votre abonnement. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un dans la [page d’inscription à Azure](https://aka.ms/createazuresubscription). Après avoir créé l’abonnement Azure, revenez à la page **Créer une application**. Votre nouvel abonnement apparaîtra dans la liste déroulante **Abonnement Azure**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792191"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464997"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -30,16 +30,16 @@ Les partages de fichiers Premium sont des partages de fichiers à faible latence
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Il y a quelques petites choses que vous devez connaître et avoir à disposition avant de commencer.
+Il y a quelques éléments que vous devez connaître et avoir à disposition avant de commencer.
 
-Vous devez avoir une compréhension opérationnelle des technologies suivantes :
+Vous devez avoir une compréhension opérationnelle des technologies suivantes :
 
 - [Technologies de cluster Windows](/windows-server/failover-clustering/failover-clustering-overview)
 - [Instances de cluster de basculement SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 Un point important à connaître est que sur un cluster de basculement de machine virtuelle IaaS Azure, nous vous recommandons d’utiliser une seule carte réseau par serveur (nœud de cluster) et un seul sous-réseau. Les réseaux Azure intègrent une redondance physique qui rend inutiles les cartes réseau et les sous-réseaux supplémentaires sur un cluster invité de machine virtuelle IaaS Azure. Le rapport de validation du cluster vous avertit que les nœuds sont accessibles uniquement sur un seul réseau. Vous pouvez ignorer cet avertissement sur les clusters de basculement de machines virtuelles Azure IaaS.
 
-Vous devez également avoir une compréhension générale de ces technologies :
+Vous devez également avoir une compréhension générale de ces technologies :
 
 - [Partage de fichiers Premium Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
 - [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
@@ -55,7 +55,7 @@ De nombreuses charges de travail ont des E/S en rafales. Il est donc judicieux d
 
 Pour plus d’informations sur les performances des partages de fichiers Premium, consultez [Niveaux de performances de partage de fichiers](https://docs.microsoft.com/azure/storage/files/storage-files-planning#file-share-performance-tiers).
 
-### <a name="licensing-and-pricing"></a>Licences et tarification
+### <a name="licensing-and-pricing"></a>Licences et tarifs
 
 Sur les machines virtuelles Azure, vous pouvez acquérir une licence SQL Server à l’aide des images de machines virtuelles avec paiement à l’utilisation (PAYG) ou BYOL (apportez votre propre licence). Le type d’image que vous choisissez affecte la façon dont vous êtes facturé.
 
@@ -71,24 +71,23 @@ Pour plus d’informations sur les licences SQL Server, consultez [Tarification]
 
 Filestream n’est pas pris en charge pour un cluster de basculement avec un partage de fichiers Premium. Pour utiliser Filestream, déployez votre cluster en utilisant des [espaces de stockage direct](virtual-machines-windows-portal-sql-create-failover-cluster.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
+Avant d’effectuer les étapes décrites dans cet article, vous devez déjà disposer des éléments suivants :
 
 - Un abonnement Microsoft Azure.
 - Un domaine Windows sur des machines virtuelles Azure.
 - Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
-- Un réseau virtuel Azure et un sous-réseau avec suffisamment d’espace d’adressage IP pour ces composants :
+- Un réseau virtuel Azure et un sous-réseau avec suffisamment d’espace d’adressage IP pour ces composants :
    - Deux machines virtuelles.
    - L’adresse IP du cluster de basculement.
    - Une adresse IP pour chaque instance de cluster de basculement.
 - Un DNS configuré sur le réseau Azure, pointant vers les contrôleurs de domaine.
 - Un [partage de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) basé sur le quota de stockage de votre base de données pour vos fichiers de données.
-- Un partage de fichiers pour les sauvegardes qui est différent du partage de fichiers Premium utilisé pour vos fichiers de données. Ce partage de fichiers peut être Standard ou Premium.
 
 Une fois ces conditions préalables en place, vous pouvez commencer la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles.
 
-## <a name="step-1-create-the-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
+## <a name="step-1-create-the-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnement.
 
@@ -96,13 +95,13 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
 
    Le groupe à haute disponibilité regroupe les machines virtuelles entre les domaines d’erreur et les domaines de mise à jour. Cela garantit que votre application n’est pas affectée par les points de défaillance uniques, comme le commutateur réseau ou l’unité d’alimentation d’un rack de serveurs.
 
-   Si vous n’avez pas créé le groupe de ressources pour vos machines virtuelles, faites-le lorsque vous créez un groupe à haute disponibilité Azure. Si vous utilisez le portail Azure pour créer le groupe à haute disponibilité, procédez comme suit :
+   Si vous n’avez pas créé le groupe de ressources pour vos machines virtuelles, faites-le lorsque vous créez un groupe à haute disponibilité Azure. Si vous utilisez le Portail Azure pour créer le groupe à haute disponibilité, procédez comme suit :
 
    1. Dans le portail Azure, sélectionnez **Créer une ressource** pour ouvrir la Place de marché Azure. Recherchez **Groupe à haute disponibilité**.
    1. Sélectionnez **Groupe à haute disponibilité**.
    1. Sélectionnez **Create** (Créer).
    1. Sous **Créer un groupe à haute disponibilité**, indiquez les valeurs suivantes :
-      - **Nom** : Nom du groupe à haute disponibilité.
+      - **Name** : Nom du groupe à haute disponibilité.
       - **Abonnement**: Votre abonnement Azure.
       - **Groupe de ressources** : Si vous souhaitez utiliser un groupe existant, cliquez sur **Sélectionner un groupe existant** et sélectionnez le groupe dans la liste. Sinon, sélectionnez **Créer** et entrez un nom pour le groupe.
       - **Emplacement** : Définissez l’emplacement où vous souhaitez créer vos machines virtuelles.
@@ -131,7 +130,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
    >[!IMPORTANT]
    > Après avoir créé la machine virtuelle, supprimez l’instance SQL Server autonome préinstallée. Vous utiliserez le support SQL Server préinstallé pour créer l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement et le partage de fichiers Premium en tant que stockage.
 
-   Vous pouvez également utiliser des images Azure Marketplace qui contiennent le système d’exploitation seulement. Choisissez une image **Windows Server 2016 Datacenter** et installez l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement et le partage de fichiers Premium en tant que stockage. Cette image ne contient aucun support d’installation SQL Server. Placez le support d’installation de SQL Server dans un emplacement où vous pouvez exécuter l’installation pour chaque serveur.
+   Vous pouvez également utiliser des images de la Place de marché Azure qui contiennent le système d’exploitation uniquement. Choisissez une image **Windows Server 2016 Datacenter** et installez l’instance de cluster de basculement SQL Server après avoir configuré le cluster de basculement et le partage de fichiers Premium en tant que stockage. Cette image ne contient aucun support d’installation SQL Server. Placez le support d’installation de SQL Server dans un emplacement où vous pouvez exécuter l’installation pour chaque serveur.
 
 1. Une fois que vos machines virtuelles ont été créées par Azure, connectez-vous à chacune en utilisant le protocole RDP.
 
@@ -162,7 +161,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
 
 Une fois que vous avez créé et configuré les machines virtuelles, vous pouvez configurer le partage de fichiers Premium.
 
-## <a name="step-2-mount-the-premium-file-share"></a>Étape 2 : Monter le partage de fichiers Premium
+## <a name="step-2-mount-the-premium-file-share"></a>Étape 2 : Monter le partage de fichiers Premium
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre compte de stockage.
 1. Accédez à **Partages de fichiers** sous **Service de fichiers** et sélectionnez le partage de fichiers Premium que vous souhaitez utiliser pour votre stockage SQL.
@@ -175,7 +174,7 @@ Une fois que vous avez créé et configuré les machines virtuelles, vous pouvez
 1. Utilisez RDP pour établir une connexion à la machine virtuelle SQL Server à l’aide du compte que votre instance de cluster de basculement SQL Server utilisera pour le compte de service.
 1. Ouvrez une console de commande PowerShell d’administration.
 1. Exécutez les commandes que vous avez enregistrées précédemment lorsque vous travailliez dans le portail.
-1. Accédez au partage avec l’Explorateur de fichiers ou la boîte de dialogue **Exécuter** (touche logo Windows + r). Utilisez le chemin d’accès réseau `\\storageaccountname.file.core.windows.net\filesharename`. Par exemple, `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. Accédez au partage avec l’Explorateur de fichiers ou la boîte de dialogue **Exécuter** (touche logo Windows + r). Utilisez le chemin d’accès réseau `\\storageaccountname.file.core.windows.net\filesharename`. Par exemple : `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. Créez au moins un dossier sur le partage de fichiers auquel vous venez de vous connecter afin d’y placer vos fichiers de données SQL.
 1. Répétez ces étapes sur chaque machine virtuelle SQL Server qui fera partie du cluster.
@@ -332,7 +331,7 @@ Pour créer l’équilibrage de charge :
 
    - **Abonnement**: Votre abonnement Azure.
    - **Groupe de ressources** : Le groupe de ressources qui contient vos machines virtuelles.
-   - **Nom** : Nom qui identifie l’équilibreur de charge.
+   - **Name** : Nom qui identifie l’équilibreur de charge.
    - **Région** : L’emplacement Azure qui contient vos machines virtuelles.
    - **Type** : Public ou privé. Un équilibrage de charge privé est accessible à partir du réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
    - **SKU** : Standard.
@@ -365,7 +364,7 @@ Pour créer l’équilibrage de charge :
 
 1. Dans le panneau **Ajouter une sonde d’intégrité**, <a name="probe"></a>définissez les paramètres de sonde d’intégrité suivants.
 
-   - **Nom** : Nom de la sonde d’intégrité.
+   - **Name** : Nom de la sonde d’intégrité.
    - **Protocole** : TCP.
    - **Port** : Le port que vous avez créé dans le pare-feu pour la sonde d’intégrité dans [cette étape](#ports). Dans cet article, l’exemple utilise le port TCP `59999`.
    - **Intervalle** : 5 secondes.
@@ -381,13 +380,13 @@ Pour créer l’équilibrage de charge :
 
 1. Configurez les paramètres de règles d’équilibrage de charge :
 
-   - **Nom** : Nom des règles d’équilibrage de charge.
+   - **Name** : Nom des règles d’équilibrage de charge.
    - **Adresse IP du serveur frontal** : L’adresse IP de la ressource réseau de cluster FCI SQL Server.
    - **Port** : Le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : Utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
    - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
    - **Sonde d’intégrité** : La sonde d’intégrité que vous avez configurée précédemment.
-   - **Persistance de session** : Aucune.
+   - **Persistance de session** : Aucun.
    - **Délai d’inactivité (minutes)**  : 4.
    - **Adresse IP flottante (retour direct du serveur)**  : activé.
 

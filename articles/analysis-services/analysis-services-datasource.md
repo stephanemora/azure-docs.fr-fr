@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7616bcdaf2a2ae6f80b0c1e964f311ef5409a64f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442762"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -22,15 +22,15 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 
 |Source de données  |En mémoire  |DirectQuery  |Notes |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   OUI      |    OUI      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   OUI      |   OUI       |<sup>[2](#azprovider)</sup>|
-|un stockage Azure Blob      |   OUI       |    Non      | <sup>[1](#tab1400a)</sup> |
-|Stockage de table Azure     |   OUI       |    Non      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  OUI        |  Non        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   OUI       |    Non      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   OUI       |    Non      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     OUI     |   Non       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   OUI       |   Non       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
+|Azure SQL Database      |   Oui      |    Oui      |<sup>[2](#azprovider)</sup>, <sup>[3](#azsqlmanaged)</sup>|
+|Azure SQL Data Warehouse.      |   Oui      |   Oui       |<sup>[2](#azprovider)</sup>|
+|Stockage Blob Azure      |   Oui       |    Non      | <sup>[1](#tab1400a)</sup> |
+|Stockage de table Azure     |   Oui       |    Non      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Oui        |  Non        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Oui       |    Non      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Oui       |    Non      |<sup>[1](#tab1400a)</sup>, <sup>[5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Oui     |   Non       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Oui       |   Non       |<sup>[1](#tab1400a)</sup>, <sup>[4](#databricks)</sup>|
 ||||
 
 **Remarques :**    
@@ -44,35 +44,35 @@ Les sources de données et connecteurs figurant dans Obtenir des données ou l�
 
 |Source de données | En mémoire | DirectQuery |Notes   |
 |  --- | --- | --- | --- |
-|Base de données Access     |  OUI | Non |  |
-|Active Directory     |  OUI | Non | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  OUI | Non |  |
-|Système de plateforme d’analyse     |  OUI | Non |  |
-|Fichier CSV  |OUI | Non |  |
-|Dynamics 365     |  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Classeur Excel     |  OUI | Non |  |
-|Microsoft Exchange      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Dossier      |OUI | Non | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |OUI | Non |  |
-|Document JSON      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Lignes issues d’un fichier binaire      | OUI | Non | <sup>[6](#tab1400b)</sup> |
-|MySQL Database     | OUI | Non |  |
-|Flux OData      |  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Requête ODBC     | OUI | Non |  |
-|OLE DB     |   OUI | Non |  |
-|Oracle  | OUI  |OUI  | <sup>[9](#oracle)</sup> |
-|Base de données PostgreSQL   | OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Objets Salesforce|  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Rapports Salesforce |OUI | Non | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  OUI | Non |  |
-|SAP Business Warehouse    |  OUI | Non | <sup>[6](#tab1400b)</sup> |
-|Liste SharePoint      |   OUI | Non | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
-|SQL Server |OUI   | OUI  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
-|SQL Server Data Warehouse |OUI   | OUI  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
-|Base de données Sybase     |  OUI | Non |  |
-|Teradata | OUI  | OUI  | <sup>[10](#teradata)</sup> |
-|Fichier TXT  |OUI | Non |  |
-|Table XML    |  OUI | Non | <sup>[6](#tab1400b)</sup> |
+|Base de données Access     |  Oui | Non |  |
+|Active Directory     |  Oui | Non | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Oui | Non |  |
+|Système de la plateforme d'analyse     |  Oui | Non |  |
+|Fichier CSV  |Oui | Non |  |
+|Dynamics 365     |  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Classeur Excel     |  Oui | Non |  |
+|Exchange      |  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Dossier      |Oui | Non | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Oui | Non |  |
+|Document JSON      |  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Lignes issues d’un fichier binaire      | Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Base de données MySQL     | Oui | Non |  |
+|Flux OData      |  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Requête ODBC     | Oui | Non |  |
+|OLE DB     |   Oui | Non |  |
+|Oracle  | Oui  |Oui  | <sup>[9](#oracle)</sup> |
+|Base de données PostgreSQL   | Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Objets Salesforce|  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Rapports Salesforce |Oui | Non | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Oui | Non |  |
+|SAP Business Warehouse    |  Oui | Non | <sup>[6](#tab1400b)</sup> |
+|Liste SharePoint      |   Oui | Non | <sup>[6](#tab1400b)</sup>, <sup>[11](#filesSP)</sup> |
+|SQL Server |Oui   | Oui  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> | 
+|SQL Server Data Warehouse |Oui   | Oui  | <sup>[7](#sqlim)</sup>, <sup>[8](#instgw)</sup> |
+|Base de données Sybase     |  Oui | Non |  |
+|Teradata | Oui  | Oui  | <sup>[10](#teradata)</sup> |
+|Fichier TXT  |Oui | Non |  |
+|Table XML    |  Oui | Non | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Remarques :**    
@@ -87,7 +87,7 @@ La connexion aux sources de données locales à partir d’un serveur Azure Anal
 
 ## <a name="understanding-providers"></a>Présentation des fournisseurs
 
-Quand vous créez des projets de modèle tabulaire 1400 et supérieurs dans Visual Studio, par défaut, vous ne spécifiez pas de fournisseur de données au moment d’établir une connexion à une source de données à l’aide de **Obtenir des données**. Les modèles tabulaires 1400 et supérieurs utilisent des connecteurs [Power Query](/power-query/power-query-what-is-power-query.md) pour gérer les connexions, les requêtes de données et les mashups entre la source de données et Analysis Services. Ils sont parfois appelés connexions de source de données *structurée* dans le sens où les paramètres des propriétés de connexion sont définis automatiquement. Vous pouvez néanmoins activer les sources de données héritées. Dans ce cas, vous pouvez utiliser l’**Assistant Importation de table** pour vous connecter à certaines sources de données traditionnellement prises en charge dans les modèles tabulaires 1200 et inférieurs en tant que sources de données *héritées* ou *fournisseur*. Quand il est spécifié en tant que source de données fournisseur, vous pouvez spécifier un fournisseur de données particulier et d’autres propriétés de connexion avancées. Par exemple, vous pouvez vous connecter à une instance SQL Server Data Warehouse locale ou même à une base de données Azure SQL Database en guise de source de données héritée. Vous pouvez alors sélectionner fournisseur de données MSOLEDBSQL OLE DB Driver pour SQL Server. Dans ce cas, la sélection d’un fournisseur de données OLE DB peut offrir de meilleures performances que le connecteur Power Query. 
+Quand vous créez des projets de modèle tabulaire 1400 et supérieurs dans Visual Studio, par défaut, vous ne spécifiez pas de fournisseur de données au moment d’établir une connexion à une source de données à l’aide de **Obtenir des données**. Les modèles tabulaires 1400 et supérieurs utilisent des connecteurs [Power Query](/power-query/power-query-what-is-power-query) pour gérer les connexions, les requêtes de données et les mashups entre la source de données et Analysis Services. Ils sont parfois appelés connexions de source de données *structurée* dans le sens où les paramètres des propriétés de connexion sont définis automatiquement. Vous pouvez néanmoins activer les sources de données héritées. Dans ce cas, vous pouvez utiliser l’**Assistant Importation de table** pour vous connecter à certaines sources de données traditionnellement prises en charge dans les modèles tabulaires 1200 et inférieurs en tant que sources de données *héritées* ou *fournisseur*. Quand il est spécifié en tant que source de données fournisseur, vous pouvez spécifier un fournisseur de données particulier et d’autres propriétés de connexion avancées. Par exemple, vous pouvez vous connecter à une instance SQL Server Data Warehouse locale ou même à une base de données Azure SQL Database en guise de source de données héritée. Vous pouvez alors sélectionner fournisseur de données MSOLEDBSQL OLE DB Driver pour SQL Server. Dans ce cas, la sélection d’un fournisseur de données OLE DB peut offrir de meilleures performances que le connecteur Power Query. 
 
 Quand l’Assistant Importation de table de Visual Studio est utilisé, un fournisseur de données est nécessaire pour se connecter à une source de données. Un fournisseur de données par défaut est alors sélectionné automatiquement. Vous pouvez changer de fournisseur de données si nécessaire. Le type de fournisseur choisi peut dépendre des performances, que le modèle utilise le stockage en mémoire ou DirectQuery, et de la plateforme Analysis Services sur laquelle vous déployez votre modèle.
 
@@ -106,7 +106,7 @@ Une fois les sources de données héritées activées, dans **Explorateur de mod
 ![Sources de données héritées, propriétés avancées](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
 
-## <a name="impersonation"></a>Emprunt d’identité
+## <a name="impersonation"></a>Emprunt d'identité
 Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio ou SSMS.
 
 Pour les sources de données locales :

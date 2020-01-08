@@ -2,19 +2,15 @@
 title: Migrer vos déploiements de mises à jour OMS vers Azure
 description: Cet article décrit comment migrer vos déploiements de mise à jour OMS existants vers Azure
 services: automation
-ms.service: automation
 ms.subservice: update-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2660e4a348d2ffd71f912ff80c36a5a9a3c9fe88
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417779"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrer vos déploiements de mises à jour OMS vers Azure
 
@@ -59,7 +55,7 @@ Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée 
 
 | Propriété | Description |
 | --- | --- |
-|Nom |Nom unique identifiant le déploiement de mises à jour. |
+|Name |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
 |Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|

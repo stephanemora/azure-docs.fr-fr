@@ -1,19 +1,14 @@
 ---
 title: Afficher les notifications Service Health dans le portail Azure
 description: Les notifications Service Health vous permettent de voir les messages relatifs à l’intégrité du service publiés par Microsoft Azure.
-author: stephbaron
-ms.author: stbaron
-services: monitoring
-ms.service: service-health
 ms.topic: conceptual
 ms.date: 6/27/2019
-ms.subservice: ''
-ms.openlocfilehash: d2e18ae28e79590cb04ee0045341ea817be4a3bc
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: c8017d23e0f7e3ab7bf48c9d7ba6b930fa80d0da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451420"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 

@@ -4,15 +4,15 @@ description: Vous pouvez utiliser la solution Application Insights Connector pou
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: b956c3bc7d04908db1cc45092cf5926ecfcc305c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0cfca44878130e870c633040afcfbdd55ba8b7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396542"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solution de gestion Application Insights Connector (déconseillée)
 
@@ -43,14 +43,14 @@ Lorsque vous utilisez la solution, vous pouvez :
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Application Insights Connector par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Pris en charge | Description |
+| Source connectée | Prise en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Non | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information à partir d’agents Linux. |
 | [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Non | La solution ne collecte aucune information à partir d’agents dans un groupe d’administration SCOM connecté. |
 | [Compte Azure Storage](collect-azure-metrics-logs.md) | Non | La solution ne collecte aucune information à partir de stockage Azure. |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour accéder aux informations d’Application Insights Connector, vous devez posséder un abonnement Azure.
 - Vous devez disposer d’au moins une ressource Application Insights configurée.
@@ -93,7 +93,7 @@ Le tableau de bord comprend les panneaux figurant dans le tableau. Chaque pannea
 
 | **Colonne** | **Description** |
 | --- | --- |
-| Applications - Nombre d’applications | Affiche le nombre d’applications dans les ressources Application. Répertorie également le nom des applications et pour chacune, le nombre d’enregistrements de l’application. Cliquez sur le nombre pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Cliquez sur le nom d’une application pour exécuter une recherche dans les journaux de l’application, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
+| Applications - Nombre d’applications | Affiche le nombre d’applications dans les ressources Application. Répertorie également le nom des applications et pour chacune, le nombre d’enregistrements de l’application. Cliquez sur le nombre pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code>. <br><br>  Cliquez sur le nom d’une application pour exécuter une recherche dans les journaux de l’application, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
 | Volume de données – Hôtes envoyant des données | Affiche le nombre d’ordinateurs hôtes qui envoient des données. Répertorie également les ordinateurs hôtes et le nombre d’enregistrements pour chaque hôte. Cliquez sur le nombre pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code>. <br><br> Cliquez sur le nom d’un ordinateur pour exécuter une recherche dans les journaux de l’hôte, afin d’afficher les enregistrements d’application par hôte, les enregistrements par type de donnée de télémétrie et toutes les données par type (en fonction du dernier jour). |
 | Disponibilité – Résultats du test web | Affiche un graphique en anneau pour les résultats du test web, spécifiant si le test a réussi ou échoué. Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code>. <br><br> Les résultats indiquent le nombre de réussites et d’échecs pour tous les tests. Toutes les applications web sont présentées avec le trafic pour la dernière minute. Cliquez sur le nom d’une application pour afficher une recherche dans les journaux présentant les détails des tests web ayant échoué. |
 | Requêtes de serveur – Requêtes par heure | Affiche un graphique en courbes des requêtes de serveur par heure pour différentes applications. Placez le curseur sur une ligne du graphique pour afficher les 3 applications ayant reçu le plus de requêtes à un moment donné. Affiche également une liste des applications recevant des requêtes et le nombre de requêtes pour la période sélectionnée. <br><br>Cliquez sur le graphique pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> et afficher un graphique en courbes plus détaillé des requêtes de serveur par heure pour diverses applications. <br><br> Cliquez sur une application dans la liste pour exécuter une recherche dans les journaux de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> et afficher une liste des requêtes, des graphiques pour les requêtes en fonction du temps, la durée des requêtes et une liste des codes de réponse aux requêtes.   |
@@ -195,7 +195,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | IsAuthenticated | True ou false |
 | OperationID | Les éléments qui affichent le même ID d’opération sont représentés en tant qu’éléments associés dans le portail. Généralement l’ID de requête |
 | ParentOperationID | ID de l’opération parente |
-| OperationName |   |
+| NomOpération |   |
 | SessionId | GUID permettant d’identifier de façon unique la session dans laquelle la requête a été créée |
 | SourceSystem | ApplicationInsights |
 

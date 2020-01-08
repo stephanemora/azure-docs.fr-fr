@@ -11,12 +11,12 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cd1d57643f9a1eb7c50d0de06d42fbbcec085f34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458782"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolation des groupes de charges de travail SQL Data Warehouse (préversion)
 
@@ -32,18 +32,18 @@ Les sections suivantes décrivent comment les groupes de charges de travail offr
 
 L’isolation de la charge de travail signifie que les ressources sont réservées, exclusivement, pour un groupe de charge de travail.  L’isolation des charges de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur supérieure à zéro dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Pour les charges de travail d’exécution continues qui doivent adhérer à des contrats de niveau de service étroits, l’isolation garantit que les ressources sont toujours disponibles pour le groupe de charge de travail. 
 
-La configuration de l’isolation de la charge de travail définit implicitement un niveau garanti de concurrence.  Avec un MIN_PERCENTAGE_RESOURCE défini sur 30 % et REQUEST_MIN_RESOURCE_GRANT_PERCENT défini sur 2 %, un niveau de concurrence de 15 est garanti pour le groupe de charge de travail.  Considérez la méthode ci-dessous pour déterminer la concurrence garantie :
+La configuration de l’isolation de la charge de travail définit implicitement un niveau garanti de concurrence. Avec un MIN_PERCENTAGE_RESOURCE défini sur 30 % et REQUEST_MIN_RESOURCE_GRANT_PERCENT défini sur 2 %, un niveau de concurrence de 15 est garanti pour le groupe de charge de travail.  Considérez la méthode ci-dessous pour déterminer la concurrence garantie :
 
 [Accès concurrentiel garanti] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Il existe des valeurs de niveau de service spécifiques au minimum pour min_percentage_resource.  Pour plus d’informations, consultez [Valeurs effectives](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) pour plus d’informations.
+> Il existe des valeurs de niveau de service spécifiques au minimum pour min_percentage_resource.  Pour plus d’informations, consultez [Valeurs effectives](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values) pour plus d’informations.
 
 En l’absence d’isolation de la charge de travail, les requêtes opèrent dans le [pool partagé](#shared-pool-resources) de ressources.  L’accès aux ressources du pool partagé n’est pas garanti et est attribué selon l’[importance](sql-data-warehouse-workload-importance.md).
 
-La configuration de l’isolation de la charge de travail doit être effectuée avec précaution, car les ressources sont allouées au groupe de charges de travail, même s’il n’y a pas de requêtes actives dans le groupe de charge de travail.  L’isolation trop configurable peut entraîner une diminution de l’utilisation globale du système.
+La configuration de l’isolation de la charge de travail doit être effectuée avec précaution, car les ressources sont allouées au groupe de charges de travail, même s’il n’y a pas de requêtes actives dans le groupe de charge de travail. L’isolation trop configurable peut entraîner une diminution de l’utilisation globale du système.
 
-Les utilisateurs doivent éviter une solution de gestion de la charge de travail qui configure l’isolation de la charge de travail de 100 % : l’isolation de 100 % est obtenue lorsque la somme des min_percentage_resource configurés pour tous les groupes de charges de travail est égale à 100 %.  Ce type de configuration est trop restrictif et rigide, laissant peu de place pour les requêtes de ressources qui sont mal classées par erreur.  Il existe une provision pour permettre l’exécution d’une requête à partir de groupes de charge de travail non configurés pour l’isolation.  Les ressources allouées à cette requête s’affichent sous la forme d’un zéro dans les vues DMV des systèmes et empruntent un niveau smallrc d’allocation de ressources à partir des ressources réservées du système.
+Les utilisateurs doivent éviter une solution de gestion de la charge de travail qui configure l’isolation de la charge de travail de 100 % : l’isolation de 100 % est obtenue lorsque la somme des min_percentage_resource configurés pour tous les groupes de charges de travail est égale à 100 %.  Ce type de configuration est trop restrictif et rigide, laissant peu de place pour les requêtes de ressources qui sont mal classées par erreur. Il existe une provision pour permettre l’exécution d’une requête à partir de groupes de charge de travail non configurés pour l’isolation. Les ressources allouées à cette requête s’affichent sous la forme d’un zéro dans les vues DMV des systèmes et empruntent un niveau smallrc d’allocation de ressources à partir des ressources réservées du système.
 
 > [!NOTE] 
 > Pour garantir une utilisation optimale des ressources, envisagez une solution de gestion de la charge de travail qui exploite une certaine isolation pour garantir la satisfaction des contrats de niveau de service et les combiner avec les ressources partagées accessibles en fonction de l’[importance de la charge de travail](sql-data-warehouse-workload-importance.md).
@@ -57,7 +57,7 @@ La configuration de l’autonomie de la charge de travail définit implicitement
 [Concurrence Max] = [`CAP_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> Le CAP_PERCENTAGE_RESOURCE effectif d’un groupe de charge de travail n’atteint pas 100 % lorsque les groupes de charges de travail avec MIN_PERCENTAGE_RESOURCE à un niveau supérieur à zéro sont créés.  Consultez [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) pour des valeurs de runtime effectives.
+> Le CAP_PERCENTAGE_RESOURCE effectif d’un groupe de charge de travail n’atteint pas 100 % lorsque les groupes de charges de travail avec MIN_PERCENTAGE_RESOURCE à un niveau supérieur à zéro sont créés.  Consultez [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) pour des valeurs de runtime effectives.
 
 ## <a name="resources-per-request-definition"></a>Ressources par définition de requête
 
@@ -71,7 +71,7 @@ Comme le choix d’une classe de ressource, la configuration de REQUEST_MIN_RESO
 La configuration de REQUEST_MAX_RESOURCE_GRANT_PERCENT sur une valeur supérieure à REQUEST_MIN_RESOURCE_GRANT_PERCENT permet au système d’allouer plus de ressources par requête.  Lors de la planification d’une requête, le système détermine l’allocation réelle des ressources à la requête, qui est comprise entre REQUEST_MIN_RESOURCE_GRANT_PERCENT et REQUEST_MAX_RESOURCE_GRANT_PERCENT, en fonction de la disponibilité des ressources dans le pool partagé et de la charge actuelle sur le requise.  Les ressources doivent exister dans le [pool partagé](#shared-pool-resources) des ressources lorsque la requête est planifiée.  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT et REQUEST_MAX_RESOURCE_GRANT_PERCENT ont des valeurs effectives qui dépendent des valeurs MIN_PERCENTAGE_RESOURCE et CAP_PERCENTAGE_RESOURCE effectives.  Consultez [sys.dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) pour des valeurs de runtime effectives.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT et REQUEST_MAX_RESOURCE_GRANT_PERCENT ont des valeurs effectives qui dépendent des valeurs MIN_PERCENTAGE_RESOURCE et CAP_PERCENTAGE_RESOURCE effectives.  Consultez [sys.dm_workload_management_workload_groups_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) pour des valeurs de runtime effectives.
 
 ## <a name="execution-rules"></a>Délai d’exécution
 

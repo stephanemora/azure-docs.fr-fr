@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6063d143e2f217426bdf1db217fde46f8542d314
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5829ca41aaa4bd61f8878657e5eedbf6351b5df4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423574"
 ---
 # <a name="web-api-that-calls-web-apis---call-an-api"></a>API web qui appelle des API web- Appeler une API
 
@@ -32,7 +32,7 @@ Voici la continuation de l’exemple de code présenté dans [API web protégée
 
 Une fois que vous avez acquis le jeton, utilisez-le comme un jeton du porteur pour appeler l’API en aval.
 
-```CSharp
+```csharp
 private async Task GetTodoList(bool isAppStarting)
 {
  ...

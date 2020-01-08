@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 5fae340ae933b8165a2ea9bb9f6337189fd576d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ef7e29351717daf91981f844f1d911a404cf9402
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457040"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646878"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -51,7 +51,7 @@ Vous pouvez utiliser les outils suivants pour créer ou configurer un réseau vi
 
 * Portail Azure
 * PowerShell
-* D’Azure CLI
+* Azure CLI
 * Fichier de configuration réseau (netcfg - pour les réseaux virtuels classiques uniquement). Consultez l’article [Configurer un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md).
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Quelles plages d’adresses puis-je utiliser dans mes réseaux virtuels ?
@@ -66,7 +66,7 @@ Toute plage d’adresses IP définie dans [RFC 1918](https://tools.ietf.org/html
 Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consultez [Create a virtual network](manage-virtual-network.md#create-a-virtual-network) (Créer un réseau virtuel). Les adresses IP publiques ne sont pas directement accessibles à partir d’Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Y a-t-il une limite au nombre de sous-réseaux dans mon réseau virtuel ?
-Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
+Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
 Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit des adresses x.x.x.0-x.x.x.3 et de la dernière adresse du sous-réseau. Dans chaque sous-réseau, la plage x.x.x.1-x.x.x.3 est réservée aux services Azure.   
@@ -106,7 +106,7 @@ Oui. Vous pouvez ajouter, supprimer, développer ou réduire un sous-réseau si 
 Oui. Vous pouvez ajouter, supprimer et modifier les blocs CIDR utilisés par un réseau virtuel.
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>Si j’exécute mes services dans un réseau virtuel, puis-je me connecter à Internet ?
-Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Créer, modifier ou supprimer une adresse IP publique](virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
+Oui. Tous les services déployés au sein d’un réseau virtuel peuvent être connectés en sortie à Internet. Pour en savoir plus sur les connexions Internet sortantes dans Azure, consultez [Connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Si vous souhaitez vous connecter en entrée à une ressource déployée par le biais de Resource Manager, la ressource doit avoir une adresse IP publique qui lui est affectée. Pour en savoir plus sur les adresses IP publiques, consultez [Adresses IP publiques](virtual-network-public-ip-address.md). Chaque service cloud Azure déployé dans Azure dispose d’une adresse IP virtuelle publiquement adressable qui lui est assignée. Vous définissez des points de terminaison d’entrée pour les points de terminaison et les rôles PaaS des machines virtuelles afin de permettre à ces services d’accepter les connexions à partir d’Internet.
 
 ### <a name="do-vnets-support-ipv6"></a>Les réseaux virtuels prennent-ils en charge IPv6 ?
 Oui, les réseaux virtuels peuvent être IPv4 seulement ou à double pile (IPv4 + IPv6).  Pour plus d’informations, consultez [Aperçu du protocole IPv6 pour des réseaux virtuels Azure](./ipv6-overview.md).
@@ -128,7 +128,7 @@ Utilisez la table des décisions sur la page [Résolution de noms pour les machi
 Oui. Vous pouvez spécifier des adresses IP de serveur DNS dans les paramètres de réseau virtuel. Le paramètre est appliqué en tant que serveur DNS par défaut pour toutes les machines virtuelles du réseau virtuel.
 
 ### <a name="how-many-dns-servers-can-i-specify"></a>Combien de serveurs DNS puis-je spécifier ?
-Reportez-vous aux [limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+Reportez-vous aux [limites de mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Puis-je modifier mes serveurs DNS une fois que le réseau créé ?
 Oui. Vous pouvez modifier la liste des serveurs DNS de votre réseau virtuel à tout moment. Si vous modifiez votre liste de serveurs DNS, vous devez effectuer un renouvellement de bail DHCP sur toutes les machines virtuelles affectées dans le réseau virtuel, pour que les nouveaux paramètres DNS prennent effet. Pour les machines virtuelles exécutant le système d’exploitation Windows, vous pouvez taper `ipconfig /renew` directement sur la machine virtuelle. Pour les autres types de système d’exploitation, reportez-vous à la documentation de renouvellement du bail DHCP pour le type de système d’exploitation spécifique. 
@@ -167,7 +167,7 @@ Cela dépend. Si la machine virtuelle a été déployée via Resource Manager, n
 Oui, mais cela n’est pas recommandé, sauf si nécessaire, par exemple lors de l’affectation de plusieurs adresses IP à une machine virtuelle. Pour plus d’informations, consultez [Ajouter des adresses IP à une machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config). Si l’adresse IP attribuée à une carte réseau Azure jointe à une machine virtuelle fait l’objet de modifications et si l’adresse IP au sein du système d’exploitation de la machine virtuelle est différente, vous perdez la connectivité à la machine virtuelle.
 
 ### <a name="if-i-stop-a-cloud-service-deployment-slot-or-shutdown-a-vm-from-within-the-operating-system-what-happens-to-my-ip-addresses"></a>Si j’arrête un emplacement de déploiement de service cloud ou si j’arrête une machine virtuelle à partir du système d’exploitation, que se passe-t-il pour mes adresses IP ?
-Rien. Les adresses IP (adresse IP virtuelle publique, publique et privée) restent affectées à la machine virtuelle ou à l’emplacement de déploiement de services cloud.
+Nothing. Les adresses IP (adresse IP virtuelle publique, publique et privée) restent affectées à la machine virtuelle ou à l’emplacement de déploiement de services cloud.
 
 ### <a name="can-i-move-vms-from-one-subnet-to-another-subnet-in-a-vnet-without-redeploying"></a>Puis-je déplacer des machines virtuelles d’un sous-réseau à un autre dans un réseau virtuel sans redéploiement ?
 Oui. Vous trouverez plus d’informations dans l’article [Déplacement d’une machine virtuelle ou d’une instance de rôle vers un autre sous-réseau](virtual-networks-move-vm-role-to-subnet.md).
@@ -251,7 +251,7 @@ Les ressources suivantes peuvent utiliser des Load Balancers de base, ce qui sig
 - SQL MI
 - Gestion des API
 - Active Directory Domain Services (ADDS)
-- Logic Apps
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Environnement App Service
@@ -404,7 +404,7 @@ Il n’existe aucune limite sur le nombre total de points de terminaison de serv
 |Service Azure| Limites sur les règles de réseau virtuel|
 |Stockage Azure| 100|
 |Azure SQL| 128|
-|Azure SQL Data Warehouse|  128|
+|Azure SQL Data Warehouse.|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Azure Event Hub|   128|

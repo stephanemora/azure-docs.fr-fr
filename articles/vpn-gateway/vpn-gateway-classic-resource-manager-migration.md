@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: amsriva
-ms.openlocfilehash: b65b47389611bcc0e5acb3c7ebff672f72a87581
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 966df2a01d0178c19c2ae6e698a6610bf0e321c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761566"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425820"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>Migration de la passerelle VPN du modèle Classic vers le modèle Resource Manager
-Les passerelles VPN peuvent désormais être migrées du modèle de déploiement Classic vers le modèle de déploiement Resource Manager. Vous pouvez découvrir plus en détail les [fonctionnalités et les avantages](../azure-resource-manager/resource-group-overview.md) d’Azure Resource Manager. Dans cet article, nous expliquons en détail comment migrer des déploiements Classic vers le modèle plus récent basé sur Resource Manager. 
+Les passerelles VPN peuvent désormais être migrées du modèle de déploiement Classic vers le modèle de déploiement Resource Manager. Vous pouvez découvrir plus en détail les [fonctionnalités et les avantages](../azure-resource-manager/management/overview.md) d’Azure Resource Manager. Dans cet article, nous expliquons en détail comment migrer des déploiements Classic vers le modèle plus récent basé sur Resource Manager. 
 
 Les passerelles VPN sont migrées dans le cadre d’une migration de réseau virtuel classique vers Resource Manager. Cette migration porte sur un réseau virtuel à la fois. Il n’existe aucune exigence supplémentaire en termes d’outils ou de conditions préalables à la migration. Les étapes de migration sont identiques à celles de la procédure de migration de réseau virtuel existante et sont documentés à la [page de migration des ressources IaaS](../virtual-machines/windows/migration-classic-resource-manager-ps.md). À aucun moment l’accès aux données n’est interrompu pendant la migration, et les charges de travail existantes continuent donc de fonctionner sans perte de connectivité locale. L’adresse IP publique associée à la passerelle VPN ne change pas pendant le processus de migration. Cela veut dire que vous n’avez pas besoin de reconfigurer votre routeur local à l’issue de la migration.  
 

@@ -4,15 +4,15 @@ description: Service Map est une solution comprise dans Azure qui détecte autom
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402592"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -273,7 +273,7 @@ Le volet **Performances d’une machine** affiche des métriques de performance 
 
 Pour afficher les données de performances, vous pouvez avoir besoin d’[activer les compteurs de performances Log Analytics appropriés](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Les compteurs que vous souhaitez activer :
 
-Windows :
+Windows :
 - Processeur(*)\\ % de temps processeur
 - Mémoire\\ % d’octets validés en cours d’utilisation
 - Carte réseau(*)\\Octets envoyés/s
@@ -305,7 +305,7 @@ Le volet **Mises à jour de la machine** affiche les données de la solution Upd
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
 
-Les données d’inventaire des ordinateurs et processus de la solution Carte de service sont disponibles pour effectuer une [recherche](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
@@ -319,7 +319,7 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 
 Étant donné que plusieurs enregistrements peuvent exister pour un processus et un ordinateur donnés au cours d’une période spécifique, les requêtes peuvent renvoyer plusieurs enregistrements pour un même ordinateur ou processus. Pour inclure uniquement l’enregistrement le plus récent, ajoutez "| dedup ResourceId" à la requête.
 
-### <a name="connections"></a>connexions
+### <a name="connections"></a>Connexions
 
 Les métriques de connexion sont écrites dans une nouvelle table dans Log Analytics (VMConnection). Cette table fournit des informations sur les connexions relatives à une machine (entrantes et sortantes). Les métriques de connexion sont également exposées avec des API offrant le moyen d’obtenir une métrique spécifique dans une fenêtre de temps.  Les connexions TCP résultant de l’acceptation (*accept*) sur un socket d’écoute sont des connexions entrantes, tandis que celles créées par le biais d’une connexion (*connect*) à une adresse IP et un port spécifiques sont des connexions sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
 
@@ -551,9 +551,9 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Carte de service.
+En savoir plus sur les [recherches dans les journaux](../../azure-monitor/log-query/log-query-overview.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez des problèmes d’installation ou d’exécution de Service Map, cette section vous aidera peut-être. Si vous n’arrivez toujours pas à les résoudre, contactez le Support Microsoft.
 
@@ -572,7 +572,7 @@ Il peut être utile d’installer d’abord les [dernières bibliothèques runti
 
 Le tableau ci-dessous liste des numéros de code et des suggestions de résolutions.
 
-| Code | Description | Résolution : |
+| Code | Description | Résolution |
 |:--|:--|:--|
 | 0x17 | Le programme d’installation de la bibliothèque nécessite une mise à jour Windows qui n’a pas été installée. | Consultez le dernier journal du programme d’installation de la bibliothèque.<br><br>Si une référence à `Windows8.1-KB2999226-x64.msu` est suivie d’une ligne `Error 0x80240017: Failed to execute MSU package,`, vous n’avez pas les prérequis nécessaires à l’installation de KB2999226. Suivez les instructions de la section des prérequis dans l’article [Universal C Runtime sur Windows](https://support.microsoft.com/kb/2999226). Vous devrez peut-être exécuter Windows Update et redémarrer plusieurs fois afin d’installer les composants nécessaires.<br><br>Exécutez à nouveau le programme d’installation de l’agent de dépendances Microsoft. |
 

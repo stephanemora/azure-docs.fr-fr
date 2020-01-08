@@ -3,19 +3,15 @@ title: Configurer l’authentification avec Amazon Web Services
 description: Cet article décrit comment créer et valider des informations d’identification AWS pour les runbooks dans Azure Automation gérant des ressources AWS.
 keywords: authentification AWS, configurer aws
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/17/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 9bca59efc374fedf04600ae165f04215016dd4af
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 596dc334a412b3e0839d7661a23af771e5cd7394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366938"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Authentification des Runbooks avec Amazon Web Services
 

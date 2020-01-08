@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 06/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 6e46965442e3f95c98a7d55a645b237c22740ff4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bfe786405ad32f68af33fcea1131fe856c9f38d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440048"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Démarrage rapide : Créer une fabrique de données Azure et un pipeline à l’aide de l’API REST
 
@@ -32,7 +32,7 @@ Ce guide de démarrage rapide explique comment utiliser l’API REST pour créer
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -108,7 +108,7 @@ $response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Bod
 $response | ConvertTo-Json
 ```
 
-Notez les points suivants :
+Notez les points suivants :
 
 * Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez l’erreur suivante, changez le nom, puis réessayez.
 
@@ -169,7 +169,7 @@ $response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Bod
 $response | ConvertTo-Json
 ```
 
-Voici l’exemple de sortie :
+Voici l'exemple de sortie :
 
 ```json
 {  
@@ -360,7 +360,7 @@ $response = Invoke-RestMethod -Method PUT -Uri $request -Header $authHeader -Bod
 $response | ConvertTo-Json
 ```
 
-Voici l’exemple de sortie :
+Voici l'exemple de sortie :
 
 ```json
 {  
@@ -393,7 +393,7 @@ $response | ConvertTo-Json
 $runId = $response.runId
 ```
 
-Voici l’exemple de sortie :
+Voici l'exemple de sortie :
 
 ```json
 {  
@@ -421,7 +421,7 @@ Voici l’exemple de sortie :
     }
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     {  
@@ -460,7 +460,7 @@ Voici l’exemple de sortie :
     $response = Invoke-RestMethod -Method POST -Uri $request -Header $authHeader
     $response | ConvertTo-Json
     ```
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     {  
@@ -493,8 +493,8 @@ Voici l’exemple de sortie :
 
 Utilisez l’Explorateur Stockage Azure pour vérifier que le fichier est copié dans "outputPath" à partir de "inputPath" comme vous l’avez spécifié quand vous avez créé une exécution de pipeline.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans le guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la fabrique de données créée dans ce tutoriel.
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Vous disposez de deux moyens de supprimer les ressources que vous avez créées dans le guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources, supprimez uniquement la fabrique de données créée dans ce tutoriel.
 
 Exécutez la commande suivante pour supprimer l’intégralité du groupe de ressources :
 ```powershell

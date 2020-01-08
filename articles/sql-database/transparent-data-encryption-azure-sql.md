@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 19414a6f09f4bc61cd9b1b09ae98ea070e577d7f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354886"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption pour SQL Database et Data Warehouse
 
@@ -54,10 +54,10 @@ Pour commencer à utiliser le chiffrement transparent des données avec l’int�
 
 Vous n’avez pas besoin de déchiffrer les bases de données pour leur appliquer des opérations dans Azure. Les paramètres de chiffrement transparent des données définis sur la base de données source ou la base de données primaire sont hérités de manière transparente sur la cible. Les opérations incluses sont les suivantes :
 
-- Géo-restauration
+- La géorestauration
 - Restauration à un moment donné en libre-service
 - Restauration d’une base de données supprimée
-- Géoréplication active
+- La géoréplication active
 - Création d’une copie de base de données
 - Restauration du fichier de sauvegarde vers Azure SQL Managed Instance
 
@@ -72,14 +72,14 @@ La seule exception survient lorsque vous procédez à une exportation à destina
 
 
 ## <a name="manage-transparent-data-encryption"></a>Gérer Transparent Data Encryption
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Gérez Transparent Data Encryption sur le Portail Azure.
 
 Pour configurer le chiffrement transparent des données par le biais du Portail Azure, vous devez être connecté en tant que Propriétaire, Contributeur ou Gestionnaire de sécurité SQL Azure.
 
 Vous activez/désactivez le chiffrement transparent des données au niveau de la base de données. Pour activer le chiffrement transparent des données sur une base de données, accédez au [Portail Azure](https://portal.azure.com) et connectez-vous à l’aide de votre compte Administrateur ou Contributeur Azure. Recherchez les paramètres de chiffrement transparent des données pour votre base de données utilisateur. Le chiffrement transparent des données géré par le service est utilisé par défaut. Un certificat de chiffrement transparent des données est automatiquement généré pour le serveur qui contient la base de données. Pour Azure SQL Managed Instance, utilisez T-SQL pour activer et désactiver le chiffrement transparent des données sur une base de données.
 
-![Chiffrement transparent des données géré par le service](./media/transparent-data-encryption-azure-sql/service-managed-tde.png)  
+![Chiffrement transparent des données géré par le service](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
 
 Vous définissez la clé principale du chiffrement transparent des données, également désignée sous le nom de protecteur du chiffrement transparent des données, au niveau du serveur. Pour utiliser le chiffrement transparent des données avec prise en charge de Bring Your Own Key et protéger vos bases de données avec une clé Key Vault, ouvrez les paramètres de chiffrement transparent des données pour votre serveur.
 
@@ -127,7 +127,7 @@ Connectez-vous à la base de données à l’aide d’un ID de connexion d’adm
 
 Vous ne pouvez pas basculer le protecteur du chiffrement transparent des données vers une clé provenant de Key Vault à l’aide de Transact-SQL. Utilisez PowerShell ou le Portail Azure.
 
-# <a name="rest-apitabazure-restapi"></a>[API REST](#tab/azure-RESTAPI)
+# <a name="rest-apitabazure-restapi"></a>[REST API](#tab/azure-RESTAPI)
 Gérez Transparent Data Encryption avec l’API REST.
 
 Pour configurer le chiffrement transparent des données par le biais de l’API REST, vous devez être connecté en tant que Propriétaire, Contributeur ou Gestionnaire de sécurité SQL Azure.

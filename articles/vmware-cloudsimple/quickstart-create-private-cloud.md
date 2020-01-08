@@ -1,5 +1,6 @@
 ---
-title: Démarrage rapide de la solution Azure VMware par CloudSimple - Créer un cloud privé
+title: 'Démarrage rapide : Créer un cloud privé'
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Découvrez comment créer et configurer un cloud privé avec la solution Azure VMware par CloudSimple
 author: sharaths-cs
 ms.author: dikamath
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c32045c6d68a813eaeb6e4e5de433160c2a30634
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e4890186022842179ef4b66c03db03dd9b58a3d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452388"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
@@ -21,7 +22,7 @@ Dans cet article, découvrez comment créer un cloud privé CloudSimple et comme
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Passez en revue les [Prérequis réseau](cloudsimple-network-checklist.md).
+Passez en revue les [Conditions préalables à la mise en réseau](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -176,7 +177,7 @@ Le mot de passe doit répondre aux exigences suivantes :
 * Nombres : Au moins un caractère numérique, 0-9
 * Nombre maximal de caractères identiques adjacents : Trois
 
-    Exemple : CC ou CCC est acceptable dans le cadre du mot de passe, mais CCCC ne l’est pas.
+    Exemple : CC ou CCC est acceptable dans le cadre du mot de passe, mais CCCC ne l’est pas.
 
 Si vous définissez un mot de passe ne répondant pas aux exigences :
 

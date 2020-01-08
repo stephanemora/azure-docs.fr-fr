@@ -6,18 +6,18 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75415354"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 
 Cet article fournit des réponses qui peuvent vous aider à déterminer si le système Avere vFXT pour Azure est adapté à vos besoins. Il contient des informations de base sur Avere vFXT et explique comment le système fonctionne avec d'autres composants Azure et avec des produits de fournisseurs externes.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-avere-vfxt-for-azure"></a>En quoi consiste Avere vFXT pour Azure ?
 
@@ -77,7 +77,7 @@ Oui, le système Avere vFXT s'exécute exclusivement en tant que solution à hau
 
 Oui, les clients peuvent utiliser plusieurs fournisseurs de cloud avec le cluster Avere vFXT. Il prend en charge les compartiments standard AWS S3, les compartiments standard des services Google Cloud et les conteneurs d'objets blob Azure.
 
-> [!NOTE] 
+> [!NOTE]
 > Des frais de logiciel s’appliquent si vous utilisez Avere vFXT dans AWS ou Google Cloud, mais pas avec Azure.
 
 ## <a name="technical-compute"></a>Technique : Calcul
@@ -97,7 +97,6 @@ No, you must choose one virtual machine type or the other.
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
-
 -->
 
 ### <a name="does-the-avere-vfxt-environment-scale"></a>L’environnement Avere vFXT se met-il à l’échelle ?
@@ -130,7 +129,7 @@ Non. Le modèle haute disponibilité d'Avere vFXT ne prend actuellement pas en c
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Puis-je cloner des machines virtuelles Avere vFXT ?
 
-Non, vous devez utiliser le script Python pris en charge pour ajouter ou supprimer des nœuds dans le cluster Avere vFXT. Pour plus d’informations, lisez [Gérer le cluster Avere vFXT](avere-vfxt-manage-cluster.md).  
+Non, vous devez utiliser le script Python pris en charge pour ajouter ou supprimer des nœuds dans le cluster Avere vFXT. Pour plus d’informations, lisez [Gérer le cluster Avere vFXT](avere-vfxt-manage-cluster.md).
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>Existe-t-il une version « machine virtuelle » du logiciel que je peux exécuter dans mon propre environnement local ?
 

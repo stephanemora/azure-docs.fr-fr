@@ -4,21 +4,21 @@ description: Vous pouvez utiliser des modèles Azure Resource Manager pour crée
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 5410d6ef11c3f95bb4f02dbd914a1aacbd068a1b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176383"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363368"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Vous pouvez utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics dans Azure Monitor. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
+Vous pouvez utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des espaces de travail Log Analytics dans Azure Monitor. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
 
 * Créer un espace de travail, y compris la définition d’un niveau tarifaire 
 * Ajouter une solution

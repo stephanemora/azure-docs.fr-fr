@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 219724186e3fa69fec35e89435af495b662c871d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2082265b96388b4fbf860118efc3eefd4c5c67af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919747"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423588"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>API Web appelant des API web - Configuration du code
 
@@ -33,7 +33,7 @@ Le code pour configurer votre API web afin qu’il appelle des API web en aval s
 
 Au début de la configuration du code pour toutes les API web protégées, vous devez vous abonner à la validation du jeton du porteur reçu lorsque votre API est appelée :
 
-```CSharp
+```csharp
 /// <summary>
 /// Protects the web API with Microsoft Identity Platform (a.k.k AAD v2.0)
 /// This supposes that the configuration files have a section named "AzureAD"
@@ -79,7 +79,7 @@ Ce flux est uniquement disponible dans le flux client confidentiel. Par conséqu
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
-```CSharp
+```csharp
 IConfidentialClientApplication app;
 
 #if !VariationWithCertificateCredentials
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```
 
 Enfin, au lieu d’une clé secrète client ou d’un certificat, les applications clientes confidentielles peuvent également prouver leur identité à l’aide d’assertions client.
-Ce scénario avancé est détaillé dans [Assertions client](msal-net-client-assertions.md)
+Ce scénario avancé est détaillé dans [Assertions clientes](msal-net-client-assertions.md).
 
 ### <a name="how-to-call-on-behalf-of"></a>Comment appeler on-behalf-of
 
@@ -108,7 +108,7 @@ L’`UserAssertion` est générée à partir du jeton du porteur fourni à l’A
 
 Dans la pratique, le flux OBO est souvent utilisé pour acquérir un jeton pour une API en aval et le stocker dans le cache de jeton utilisateur MSAL.NET, afin que d’autres parties de l’API web puissent appeler par la suite sur les [substituts](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` pour appeler les API en aval. Cet appel a pour effet d’actualiser les jetons si nécessaire.
 
-```CSharp
+```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
 {
     try

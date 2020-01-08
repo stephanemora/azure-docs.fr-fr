@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1b40f8e070606a4c21def592fb6104e42e25f9f6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2ef528438591006be6e4cdec508dd15a7fb0a143
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357679"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) pour les ressources Azure ?
 
 Il est vital pour toute organisation qui utilise le cloud de pouvoir gérer les accès aux ressources situées dans cloud. Le contrôle d’accès basé sur un rôle (RBAC) permet de gérer les utilisateurs ayant accès aux ressources Azure, les modes d’utilisation des ressources par ces derniers et les zones auxquelles ils ont accès.
 
-Le RBAC est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui propose une gestion affinée des accès des ressources Azure.
+Le RBAC est un système d’autorisation basé sur [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui propose une gestion affinée des accès des ressources Azure.
 
 ## <a name="what-can-i-do-with-rbac"></a>Que puis-je faire avec le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -136,7 +136,7 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure avec le portail Azure](check-access.md)
-- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
+- [Démarrage rapide : Afficher l’accès dont dispose un utilisateur aux ressources Azure avec le portail Azure](check-access.md)
+- [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](role-assignments-portal.md)
 - [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
 - [Adoption du cloud d’entreprise : Gestion de l’accès aux ressources dans Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

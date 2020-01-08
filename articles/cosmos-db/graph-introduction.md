@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/18/2019
 ms.author: lbosq
-ms.openlocfilehash: 1f46eb1995e2e7cb098098ebd22eedbd194dc6a6
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 9151b54d7fa0b64a465aa8384cb4bfdb8e72c482
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310237"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500006"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Présentation d’Azure Cosmos DB : API Gremlin
 
@@ -20,7 +20,7 @@ ms.locfileid: "68310237"
 
 ![Architecture graphique Azure Cosmos DB](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
-Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et d’arêtes. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure. L’API Gremlin d’Azure Cosmos DB est basée sur le standard de base de données graphique [Apache TinkerPop](https://tinkerpop.apache.org)  et utilise le langage de requête Gremlin. 
+Cet article fournit une vue d’ensemble de l’API Gremlin Azure Cosmos DB, et explique comment l’utiliser pour stocker des graphiques volumineux comportant des milliards de sommets et de bords. Vous pouvez interroger les graphiques avec une latence de quelques millisecondes, et faire évoluer facilement leur structure. L’API Gremlin d’Azure Cosmos DB est basée sur le standard de base de données graphique [Apache TinkerPop](https://tinkerpop.apache.org)  et utilise le langage de requête Gremlin. 
 
 L’API Gremlin d’Azure Cosmos DB combine la puissance des algorithmes de base de données de graphes avec une infrastructure hautement évolutive et gérée pour fournir une solution unique et flexible aux problèmes de données les plus courants associés à l’absence de flexibilité et aux approches relationnelles. 
 
@@ -56,7 +56,7 @@ Voici les fonctionnalités différenciées offertes par l’API Gremlin d’Azur
 
 * **Compatibilité avec Apache TinkerPop**
 
-  Azure Cosmos DB prend en charge la [norme open source Apache TinkerPop](http://tinkerpop.apache.org/). La norme Tinkerpop dispose d’un vaste écosystème d’applications et de bibliothèques qui peuvent être facilement intégrées avec l’API Gremlin d’Azure Cosmos DB. 
+  Azure Cosmos DB prend en charge la [norme open source Apache TinkerPop](https://tinkerpop.apache.org/). La norme Tinkerpop dispose d’un vaste écosystème d’applications et de bibliothèques qui peuvent être facilement intégrées avec l’API Gremlin d’Azure Cosmos DB. 
 
 * **Niveaux de cohérence ajustables**
 
@@ -88,13 +88,13 @@ En fait, une approche de base de données de graphes repose sur des relations pe
 
 ### <a name="property-graph-objects"></a>Objets graphiques de propriété
 
-Un [graphique](http://mathworld.wolfram.com/Graph.html) de propriété est une structure composée de [sommets](http://mathworld.wolfram.com/GraphVertex.html) et d’[arêtes](http://mathworld.wolfram.com/GraphEdge.html). Les deux objets peuvent avoir un nombre arbitraire de paires clé-valeur définies en tant que propriétés. 
+Un [graphique](http://mathworld.wolfram.com/Graph.html) de propriété est une structure composée de [sommets](http://mathworld.wolfram.com/GraphVertex.html) et de [bords](http://mathworld.wolfram.com/GraphEdge.html). Les deux objets peuvent avoir un nombre arbitraire de paires clé-valeur définies en tant que propriétés. 
 
 * **Sommets** – Les sommets désignent des entités discrètes, comme une personne, un lieu ou un événement.
 
 * **Arêtes** – Les arêtes désignent les relations entre les sommets. Par exemple, une personne peut en connaître une autre, être impliquée dans un événement et avoir récemment été dans un lieu. 
 
-* **Properties** – Les propriétés expriment des informations sur les arêtes et les sommets, Les sommets et les arêtes peuvent comporter un nombre illimité de propriétés qui permettent de décrire et de filtrer les objets dans une requête. Les exemples de propriétés incluent un sommet qui a un nom et un âge, ou une arête, qui peut avoir un horodatage et/ou un poids. 
+* **Properties** – Les propriétés expriment des informations sur les arêtes et les sommets, Les sommets et les bords peuvent comporter un nombre illimité de propriétés qui permettent de décrire et de filtrer les objets dans une requête. Les exemples de propriétés incluent un sommet qui a un nom et un âge, ou une arête, qui peut avoir un horodatage et/ou un poids. 
 
 Les bases de données de graphes sont souvent incluses dans la catégorie de base de données NoSQL, ou non relationnelle, puisqu’il n’y a aucune dépendance envers un schéma ou un modèle de données contraint. Cette absence de schéma permet de modéliser et de stocker naturellement et efficacement les structures connectées. 
 
@@ -125,7 +125,7 @@ En premier lieu, examinons CRUD. L’instruction Gremlin suivante insère le ver
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
 ```
 
-Ensuite, l’instruction Gremlin suivante insère une arête « connaît » entre Thomas et Robin.
+Ensuite, l’instruction Gremlin suivante insère un bord « connaît » entre Thomas et Robin.
 
 ```java
 :> g.V('thomas.1').addE('knows').to(g.V('robin.1'))

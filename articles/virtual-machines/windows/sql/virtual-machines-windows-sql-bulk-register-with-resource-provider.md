@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 015aa4c209a99921a930a51b15c3d0230722519a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353884"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire en bloc des machines virtuelles SQL dans Azure avec le fournisseur de ressources de machines virtuelles SQL
 
@@ -30,7 +30,7 @@ Le processus d’inscription ne présente aucun risque, n’a pas de temps d’a
 
 Pour plus d’informations sur le fournisseur de ressources, consultez [Fournisseur de ressources de machine virtuelle SQL](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources, voici ce dont vous avez besoin : 
 
@@ -218,7 +218,7 @@ Le rapport est généré sous la forme d’un fichier `.txt` nommé `RegisterSql
 
 Les erreurs sont consignées dans le fichier journal nommé `VMsNotRegisteredDueToError<Timestamp>.log` où le timestamp est l’heure à laquelle le script a démarré. Si l’erreur se trouve au niveau de l’abonnement, le journal contient l’ID d’abonnement séparé par des virgules et le message d’erreur. Si l’erreur est liée à l’inscription de la machine virtuelle, le journal contient l’ID d’abonnement, le nom du groupe de ressources, le nom de la machine virtuelle, le code d’erreur et le message séparés par des virgules. 
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 Lorsque vous inscrivez des machines virtuelles SQL Server auprès du fournisseur de ressources à l’aide du script fourni, prenez en compte les éléments suivants :
 
@@ -232,8 +232,6 @@ Pour obtenir le script complet sur GitHub, consultez [Bulk register SQL VMs with
 Copiez le script entier et enregistrez-le sous le nom `RegisterSqLVMs.psm1`.
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

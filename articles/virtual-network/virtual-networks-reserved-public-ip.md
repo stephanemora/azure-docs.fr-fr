@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: 675e7a7b557a3f19ea4d8d4960316c3859cbb9c1
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c1de86c1d12109853bb5d6d1aac4143caab9199f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058474"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638219"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Adresses IP réservées (déploiement classique)
 
@@ -41,7 +41,7 @@ Pour en savoir plus sur les adresses IP dans Azure, voir l’article [Adresses I
 - Puis-je utiliser une adresse IP réservée pour tous les services Azure ?
     Non. Les adresses IP réservées peuvent être utilisées uniquement pour les machines virtuelles et les rôles d'instance de service cloud exposés par une adresse IP virtuelle.
 - Combien d’adresses IP réservées puis-je avoir ?
-    Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-subscription-service-limits.md#networking-limits).
+    Pour plus d’informations, consultez l’article sur les [limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 - L’obtention d’adresses IP réservées est-elle payante ?
     Parfois. Pour plus d’informations sur la tarification, consultez la [Tarification – Adresses IP réservées](https://go.microsoft.com/fwlink/?LinkID=398482).
 - Comment réserver une adresse IP ?
@@ -103,7 +103,7 @@ Créez une adresse IP réservée à partir du pool d’adresses IP publiques dis
 ```azurecli
 azure network reserved-ip create <name> <location>
 ```
-Exemple :
+Exemple :
  ```azurecli
  azure network reserved-ip create MyReservedIP centralus
  ```
@@ -121,7 +121,7 @@ Commande :
  ```azurecli
  azure network reserved-ip delete <name>
  ```
-  Exemple :  
+  Exemple :  
  ```azurecli
  azure network reserved-ip delete MyReservedIP
  ```
@@ -141,7 +141,7 @@ Vous pouvez réserver l’adresse IP d’un service cloud existant en ajoutant l
     ```azurecli
      azure network reserved-ip create <name> <location> -r <service-name> -d <deployment-name>
     ```
-    Exemple :
+    Exemple :
 
     ```azurecli
       azure network reserved-ip create MyReservedIP centralus -r TestService -d asmtest8942
@@ -180,7 +180,7 @@ Commande :
 azure network reserved-ip disassociate <name> <service-name> <deployment-name>
 ```
 
-Exemple :
+Exemple :
 
 ```azurecli
 azure network reserved-ip disassociate MyReservedIP TestService asmtest8942
@@ -197,7 +197,7 @@ Commande :
 ```azurecli
 azure network reserved-ip delete <name>
 ```
-Exemple :
+Exemple :
 
 ```azurecli
 azure network reserved-ip delete MyReservedIP
@@ -226,7 +226,7 @@ Commande :
 ```azurecli
 azure network reserved-ip associate <name> <service-name> <deployment-name>
 ```
-Exemple :
+Exemple :
 ```azurecli
 azure network reserved-ip associate MyReservedIP TestService asmtest8942
 ```

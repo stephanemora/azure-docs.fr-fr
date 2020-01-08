@@ -2,19 +2,15 @@
 title: Runbooks enfants dans Azure Automation
 description: Décrit les différentes méthodes permettant le démarrage d’un Runbook à partir d’un autre Runbook dans Azure Automation et le partage d’informations entre eux.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 01/17/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: e7341a8c270d16497430a70c2a1b21354a775787
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a35ee69e6a167f4907294c88710d0484353d4cb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367007"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 
@@ -44,7 +40,7 @@ Pertinence de l’ordre de publication :
 
 Quand vous appelez un runbook graphique ou PowerShell Workflow enfant à l’aide d’une exécution incluse, vous utilisez le nom du runbook.  Quand vous appelez un runbook enfant PowerShell, vous devez commencer son nom par *.\\* pour spécifier que le script se trouve dans le répertoire local.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 L’exemple suivant démarre un runbook enfant de test qui accepte trois paramètres : un objet complexe, un entier et une valeur booléenne. La sortie du Runbook enfant est affectée à une variable.  Dans ce cas, le runbook enfant est un runbook de workflow PowerShell.
 
@@ -79,7 +75,7 @@ Le contexte d’abonnement peut être perdu quand vous démarrez les runbooks en
 
 Si des travaux au sein du même compte Automation utilisent plusieurs abonnements, la sélection de plus d’un abonnement dans un travail peut changer le contexte d’abonnement actuellement sélectionné pour d’autres travaux. Pour éviter ce problème, utilisez `Disable-AzureRmContextAutosave –Scope Processsave` au début de chaque runbook. Cette action enregistre le contexte uniquement pour l’exécution de ce runbook.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans l’exemple suivant, un Runbook enfant avec paramètres est démarré et exécuté avec le paramètre Start-AzureRmAutomationRunbook -wait. À l’issue de l’exécution du Runbook, sa sortie est collectée à partir du runbook enfant. Pour utiliser `Start-AzureRmAutomationRunbook`, vous devez vous authentifier auprès de votre abonnement Azure.
 
@@ -117,12 +113,12 @@ Le tableau suivant résume les différences entre les deux méthodes applicables
 | Travail |Les Runbooks enfants s’exécutent dans la même tâche que le parent. |Une tâche distincte est créée pour le Runbook enfant. |
 | Exécution |Le Runbook parent attend la fin de l’exécution du Runbook enfant avant de se poursuivre. |Le runbook parent continue immédiatement après le démarrage du runbook enfant *ou* le runbook parent attend que la tâche enfant se termine. |
 | Output |Le Runbook parent peut obtenir directement la sortie du Runbook enfant. |Le runbook parent doit récupérer la sortie à partir de la tâche du runbook enfant *ou* le runbook parent peut obtenir directement la sortie du runbook enfant. |
-| parameters |Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données. |Les valeurs des paramètres du runbook enfant doivent être combinées dans une table de hachage unique. Cette table de hachage peut uniquement inclure des types de données simples, tableau et objet qui utilisent la sérialisation JSON. |
+| Paramètres |Les valeurs des paramètres du Runbook enfant sont spécifiées séparément et peuvent utiliser n’importe quel type de données. |Les valeurs des paramètres du runbook enfant doivent être combinées dans une table de hachage unique. Cette table de hachage peut uniquement inclure des types de données simples, tableau et objet qui utilisent la sérialisation JSON. |
 | Compte Automation |Le Runbook parent peut utiliser uniquement un Runbook enfant du même compte Automation. |Les runbooks parents peuvent utiliser un runbook enfant de n’importe quel compte Automation du même abonnement Azure, ou d’un autre abonnement auquel vous avez accès. |
 | Publication |Le Runbook enfant doit être publié avant la publication du Runbook parent. |Le runbook enfant doit être publié avant le démarrage du runbook parent. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage d'un Runbook dans Azure Automation](start-runbooks.md)
+* [Démarrage d’un Runbook dans Azure Automation](start-runbooks.md)
 * [Sortie et messages de Runbook dans Azure Automation](automation-runbook-output-and-messages.md)
 

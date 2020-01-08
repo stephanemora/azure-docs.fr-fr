@@ -780,7 +780,7 @@
                 - name: Vue d’ensemble de la caractérisation
                   href: /azure/databricks/applications/deep-learning/featurization/index
                   maintainContext: true
-                - name: Transférer l’apprentissage
+                - name: Transfer learning
                   href: /azure/databricks/applications/deep-learning/featurization/transfer-learning-keras
                   maintainContext: true
         - name: Entraînement d’un seul nœud
@@ -1477,6 +1477,9 @@
         - name: Databricks Connect
           href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
+        - name: CI/CD avec Jenkins
+          href: /azure/databricks/dev-tools/ci-cd
+          maintainContext: true
         - name: Gérer les dépendances dans les pipelines de données
           href: /azure/databricks/dev-tools/data-pipelines
           maintainContext: true
@@ -1578,6 +1581,9 @@
           items:
             - name: Notes de publication de la plateforme
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: "Janvier\_2020"
+              href: /azure/databricks/release-notes/product/2020/january
               maintainContext: true
             - name: "Décembre\_2019"
               href: /azure/databricks/release-notes/product/2019/december

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: df7d0fde05c974ef4cec739236a3ac0aebd63ecc
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0ed2bd7f1e03d8d5fa11f7e76010d087605f0fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460698"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistant Importation de données pour la Recherche cognitive Azure
 
@@ -91,7 +91,7 @@ L’Assistant Importation des données se démarre à partir de la barre de comm
 
 2. En haut de la page de présentation du service, cliquez sur **Importer des données**.
 
-   ![Commande Importer des données dans le Portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
+   ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
 
 Vous pouvez aussi lancer l’**Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database et Stockage Blob Azure. Recherchez **Ajouter Recherche cognitive Azure** dans le volet de navigation de gauche de la page de présentation du service.
 
@@ -109,7 +109,7 @@ L’Assistant génère un index incomplet qui sera rempli avec les documents obt
 
 1. Définissez des attributs pour déterminer comment ce champ est utilisé dans un index. 
 
-   Prenez votre temps dans cette étape, car les attributs déterminent l’expression physique des champs dans l’index. Si, par la suite, vous souhaitez modifier des attributs, même par programmation, vous devrez presque toujours supprimer et regénérer l’index. Les attributs de base comme **Searchable** et **Retrievable** ont un [impact négligeable sur le stockage](search-what-is-an-index.md#storage-implications). L’activation de filtres et l’utilisation de suggesteurs augmentent les besoins de stockage. 
+   Prenez votre temps dans cette étape, car les attributs déterminent l’expression physique des champs dans l’index. Si, par la suite, vous souhaitez modifier des attributs, même par programmation, vous devrez presque toujours supprimer et regénérer l’index. Les attributs de base comme **Searchable** et **Retrievable** ont un [impact négligeable sur le stockage](search-what-is-an-index.md#index-size). L’activation de filtres et l’utilisation de suggesteurs augmentent les besoins de stockage. 
    
    + **Possibilité de recherche** permet une recherche en texte intégral. Chaque champ utilisé dans les requêtes de forme libre ou dans les expressions de requête doit avoir cet attribut. Les index inversés sont créés pour chaque champ que vous marquez comme **Possibilité de recherche**.
 

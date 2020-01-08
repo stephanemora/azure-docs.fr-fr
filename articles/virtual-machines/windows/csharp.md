@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fe838ade7a65161efaeb60b9e4d8de17a7080da1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bb0962991701dc780e50fec60982083b20d4ab0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358375"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 
@@ -30,7 +30,7 @@ Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwind
 > * Installer le package
 > * Créer des informations d’identification
 > * Créer des ressources
-> * Effectuer les tâches de gestion
+> * Effectuer d’autres tâches de gestion
 > * Supprimer des ressources
 > * Exécution de l'application
 
@@ -111,7 +111,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
 ### <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
-Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md).
+Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/management/overview.md).
 
 Pour spécifier des valeurs pour l’application et créer le groupe de ressources, ajoutez ce code à la méthode Main :
 
@@ -237,7 +237,7 @@ azure.VirtualMachines.Define("myVM")
     .Create();
 ```
 
-## <a name="perform-management-tasks"></a>Effectuer les tâches de gestion
+## <a name="perform-management-tasks"></a>Effectuer d’autres tâches de gestion
 
 Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter des tâches de gestion telles que le démarrage, l’arrêt ou la suppression d’une machine virtuelle. En outre, vous souhaiterez peut-être créer du code pour automatiser les tâches répétitives ou complexes.
 

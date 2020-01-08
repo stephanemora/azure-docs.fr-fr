@@ -1,5 +1,5 @@
 ---
-title: Fonctionnalités et commandes Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB
+title: Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB
 description: Découvrir la prise en charge des fonctionnalités Apache Cassandra dans l’API Cassandra Azure Cosmos DB
 author: kanshiG
 ms.author: govindk
@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8598be504f62089cf20123918779c310b2fb8ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445641"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -43,11 +43,11 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 
 * ascii  
 * bigint  
-* objet blob  
+* objet BLOB  
 * boolean  
 * counter  
-* date  
-* décimal  
+* Date  
+* Décimal  
 * double  
 * float  
 * frozen  
@@ -55,12 +55,12 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 * int  
 * list  
 * set  
-* smallint  
+* SMALLINT  
 * text  
 * time  
 * timestamp  
 * timeuuid  
-* tinyint  
+* TINYINT  
 * tuple  
 * uuid  
 * varchar  
@@ -74,7 +74,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 
 * par jeton  
-* Fonctions d’agrégation
+* Fonctions d'agrégation
   * min, max, avg, count
 * Fonctions de conversion blob 
   * typeAsBlob(value)  
@@ -151,7 +151,7 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 * SELECT 
 * UPDATE 
 * BATCH - Seules les commandes non journalisées sont prises en charge 
-* SUPPRIMER
+* Suppression
 
 Toutes les opérations CRUD exécutées par le biais d’un Kit de développement logiciel (SDK) compatible CQL v4 retournent des informations supplémentaires sur l’erreur et les unités de demande consommées. Les commandes DELETE et UPDATE doivent être gérées en tenant compte de la gouvernance des ressources, afin de garantir l’utilisation la plus efficace du débit approvisionné.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 02456d6e690c2ef96b578a00f8e71ae2515ec089
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872806"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363113"
 ---
 # <a name="workbook-resource-parameters"></a>Paramètres de ressources des classeurs
 
@@ -101,7 +101,7 @@ La valeur des sélecteurs de ressources peut provenir du contexte du classeur, d
 > Cette approche peut permettre de lier des ressources à d’autres contrôles, comme des métriques.
 
 ## <a name="resource-parameter-options"></a>Options des paramètres de ressources
-| Paramètre | Explication | Exemples |
+| Paramètre | Explication | Exemple |
 | ------------- |:-------------|:-------------|
 | `{Applications}` | ID de la ressource sélectionnée | _/subscriptions/<ID-abonnement>/resourceGroups/<groupe-ressources>/providers/<type-ressource>/acmeauthentication_ |
 | `{Applications:label}` | Étiquette de la ressource sélectionnée | `acmefrontend` |

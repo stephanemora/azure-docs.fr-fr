@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: dcc5105fcf2ad7b6a9f0695b3086dc2956a76a50
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954073"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465223"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
 
@@ -31,7 +31,7 @@ Un circuit ExpressRoute dispose de plusieurs domaines de routage qui lui sont as
 
 Azure Site Recovery permet une récupération d’urgence et une migration sur Azure de [machines virtuelles Hyper-V](hyper-v-azure-architecture.md), de [machines virtuelles VMware](vmware-azure-architecture.md) et de [serveurs physiques](physical-azure-architecture.md) locaux. Pour tous les scénarios de réplication de service local sur Azure, les données sont envoyées à un compte de stockage Azure et stockées sur celui-ci. Lors d’une réplication, vous ne payez aucuns frais de machine virtuelle. Quand vous exécutez un basculement vers Azure, Site Recovery crée automatiquement des machines virtuelles Azure IaaS.
 
-Site Recovery réplique des données vers un compte de stockage Azure ou des disques managés de réplica dans la région Azure cible via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication de trafic Site Recovery, vous pouvez utiliser un [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou un [peering public](../expressroute/expressroute-circuit-peerings.md#publicpeering) existant (déconseillé pour les créations). Le peering Microsoft est le domaine de routage recommandé pour la réplication. Notez que la réplication n’est pas prise en charge pour les peerings privés.
+Site Recovery réplique des données vers un compte de stockage Azure ou des disques managés de réplica dans la région Azure cible via un point de terminaison public. Pour utiliser ExpressRoute afin d’effectuer une réplication de trafic Site Recovery, vous pouvez utiliser un [peering Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou un [peering public](../expressroute/about-public-peering.md) existant (déconseillé pour les créations). Le peering Microsoft est le domaine de routage recommandé pour la réplication. Notez que la réplication n’est pas prise en charge pour les peerings privés.
 
 Vérifiez que les [exigences réseau](vmware-azure-configuration-server-requirements.md#network-requirements) pour le serveur de configuration sont également remplies. La connectivité à des URL spécifiques est requise par le serveur de configuration pour l’orchestration de la réplication Site Recovery. ExpressRoute ne peut pas être utilisé pour cette connectivité. 
 
@@ -50,7 +50,7 @@ Le scénario combiné est représenté dans le diagramme suivant : ![De local �
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Réplication d’Azure sur Azure avec ExpressRoute
 
-Azure Site Recovery permet une récupération d’urgence de [machines virtuelles Azure](azure-to-azure-architecture.md). Selon que vos machines virtuelles Azure utilisent ou non [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), les données de réplication sont envoyées à un compte de stockage Azure ou à un disque managé de réplica dans la région Azure cible. Bien que les points de terminaison de réplication soient publics, le trafic de réplication pour la réplication de machines virtuelles Azure, par défaut, ne passe pas par Internet, quelle que soit la région Azure dans laquelle se trouve le réseau virtuel source. Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 par un [itinéraire personnalisé](../virtual-network/virtual-networks-udr-overview.md#custom-routes) et rediriger le trafic des machines virtuelles vers une appliance virtuelle réseau locale, mais cette configuration n’est pas recommandée pour la réplication Site Recovery. Si vous utilisez des itinéraires personnalisés, vous devez [créer un point de terminaison de service de réseau virtuel](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour le « Stockage », afin que le trafic de réplication ne quitte pas la limite Azure.
+Azure Site Recovery permet une récupération d’urgence de [machines virtuelles Azure](azure-to-azure-architecture.md). Selon que vos machines virtuelles Azure utilisent ou non [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), les données de réplication sont envoyées à un compte de stockage Azure ou à un disque managé de réplica dans la région Azure cible. Bien que les points de terminaison de réplication soient publics, le trafic de réplication pour la réplication de machines virtuelles Azure, par défaut, ne passe pas par Internet, quelle que soit la région Azure dans laquelle se trouve le réseau virtuel source. Vous pouvez remplacer l’itinéraire système par défaut d’Azure pour le préfixe d’adresse 0.0.0.0/0 par un [itinéraire personnalisé](../virtual-network/virtual-networks-udr-overview.md#custom-routes) et rediriger le trafic des machines virtuelles vers une appliance virtuelle réseau locale, mais cette configuration n’est pas recommandée pour la réplication Site Recovery. Si vous utilisez des itinéraires personnalisés, vous devez [créer un point de terminaison de service de réseau virtuel](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
 
 Pour la récupération d’urgence de machine virtuelle Azure, par défaut, ExpressRoute n’est pas requis pour la réplication. Après le basculement des machines virtuelles vers la région Azure cible, vous pouvez y accéder via un [peering privé](../expressroute/expressroute-circuit-peerings.md#privatepeering). Notez que les tarifs de transfert de données s’appliquent quel que soit le mode de réplication des données entre les régions Azure.
 

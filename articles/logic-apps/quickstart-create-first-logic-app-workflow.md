@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 45b9cdc74fc57e53ca2cd76f8b1f98671f5bbc7e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428758"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow à l’aide d’Azure Logic Apps - Portail Azure
 
@@ -46,8 +46,8 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
    |----------|-------|-------------|
    | **Nom** | <*logic-app-name*> | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « My-First-Logic-App ». |
    | **Abonnement** | <*Azure-subscription-name*> | Le nom de votre abonnement Azure |
-   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». |
-   | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « West US ». |
+   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». |
+   | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « USA Ouest ». |
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. |
    ||||
 
@@ -170,7 +170,7 @@ Techniquement, lorsque le déclencheur vérifie le flux RSS et trouve de nouveau
 
 Félicitations, vous avez correctement généré et exécuté votre première application logique avec le portail Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées.
 

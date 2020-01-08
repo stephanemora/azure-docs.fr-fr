@@ -6,17 +6,17 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 06d1895a807b4e618be3dc1f816da2c1b3faaf3b
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122141"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530916"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gérer le Cache Azure pour Redis avec Azure PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
-> * [Interface de ligne de commande Azure](cache-manage-cli.md)
+> * [Azure CLI](cache-manage-cli.md)
 > 
 > 
 
@@ -28,7 +28,7 @@ Cette rubrique décrit comment effectuer des tâches courantes telles que la cr�
 
 Pour plus d’informations sur le modèle de déploiement classique, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Si vous avez déjà installé Azure PowerShell, vous devez disposer d’Azure PowerShell version 1.0.0 ou ultérieure. Vous pouvez vérifier la version d’Azure PowerShell que vous avez installée à l’aide de cette commande à l’invite de commandes Azure PowerShell.
 
     Get-Module Az | format-table version
@@ -95,7 +95,7 @@ Pour créer un cache dans le cloud Azure de Chine, utilisez un des emplacements 
 * Chine orientale
 * Chine du Nord
 
-Pour plus d’informations sur le cloud Azure de Chine, consultez [AzureChinaCloud pour Azure géré par 21Vianet en Chine](http://www.windowsazure.cn/).
+Pour plus d’informations sur le cloud Azure de Chine, consultez [AzureChinaCloud pour Azure géré par 21Vianet en Chine](https://www.windowsazure.cn/).
 
 ### <a name="to-connect-to-microsoft-azure-germany"></a>Pour se connecter à Microsoft Azure Allemagne
 Pour vous connecter à Microsoft Azure Allemagne, utilisez une des commandes suivantes.
@@ -103,7 +103,7 @@ Pour vous connecter à Microsoft Azure Allemagne, utilisez une des commandes sui
     Connect-AzAccount -EnvironmentName AzureGermanCloud
 
 
-ou
+or
 
     Connect-AzAccount -Environment (Get-AzEnvironment -Name AzureGermanCloud)
 

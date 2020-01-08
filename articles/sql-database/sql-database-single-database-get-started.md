@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5cfccd6e79b7289b6fd59abcabba05abab6ab09b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443840"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du portail Azure, de PowerShell et d’Azure CLI
 
@@ -33,7 +33,7 @@ Une base de données unique peut être créée au niveau du calcul approvisionn�
 - Une base de données unique dans le niveau de calcul provisionné a une quantité définie de ressources de calcul allouées au préalable, notamment en termes de mémoire et de processeur, selon l’un des deux [modèles d’achat](sql-database-purchase-models.md).
 - Une base de données unique dans le niveau de calcul serverless a une gamme de ressources de calcul automatiquement mises à l’échelle, notamment en termes de mémoire et de processeur, et est uniquement disponible avec les [modèles d’achat vCore](sql-database-service-tiers-vcore.md).
 
-Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) d’une région spécifiée.
+Quand vous créez une base de données unique, vous définissez également un [serveur SQL Database](sql-database-servers.md) pour la gérer et la placer dans le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) d’une région spécifiée.
 
 > [!NOTE]
 > Ce guide de démarrage rapide utilise le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), mais le [modèle d’achat DTU](sql-database-service-tiers-DTU.md) est également disponible.
@@ -66,7 +66,7 @@ Maintenant que vous avez créé la base de données, utilisez l’outil de requ�
 
 5. Fermez la page **Éditeur de requêtes**, puis sélectionnez **OK** à l’invite pour ignorer les modifications que vous n’avez pas enregistrées.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Conservez ce groupe de ressources, ce serveur SQL et cette base de données unique pour accéder aux [étapes suivantes](#next-steps). Les étapes suivantes vous montrent comment vous connecter à votre base de données et comment l’interroger via différentes méthodes.
 

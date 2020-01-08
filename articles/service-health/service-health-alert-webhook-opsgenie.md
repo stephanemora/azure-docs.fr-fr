@@ -1,17 +1,15 @@
 ---
 title: Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks
 description: Obtenir des notifications personnalisées sur les événements d’intégrité du service sur votre instance OpsGenie.
-author: stephbaron
-ms.author: stbaron
-ms.topic: article
 ms.service: service-health
+ms.topic: article
 ms.date: 06/10/2019
-ms.openlocfilehash: fab99b7093ac3f18f6313273d21905e0a3ed7e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1f0ddb506b915697335ec71eab341a7cdb73dd7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465236"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envoyer des alertes sur l’intégrité du service Azure avec OpsGenie à l’aide de webhooks
 
@@ -46,7 +44,7 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
+    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
 
     c. **Nom :** nom, alias ou identificateur du webhook.
 
@@ -63,7 +61,7 @@ Cet article vous explique comment configurer les alertes sur l’intégrité du 
 
     a. **Type d’action :** *Webhook*
 
-    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
+    b. **Détails :** **URL d’intégration** OpsGenie précédemment enregistrée.
 
     c. **Nom :** nom, alias ou identificateur du webhook.
 

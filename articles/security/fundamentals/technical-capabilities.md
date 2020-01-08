@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45ef5c2feb7365384980fd002d89c243ed7772e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468074"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353174"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 Cet article fournit une introduction aux services de sécurité d’Azure qui vous aident à protéger vos données, ressources et applications dans le cloud et à répondre aux besoins de sécurité de votre entreprise.
@@ -155,7 +155,7 @@ Le contrôle des accès dans Azure s’envisage d’abord dans une perspective d
 
 ![Accès des ressources sécurisées dans Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-Les abonnements sont également associés à un annuaire. L’annuaire définit un ensemble d'utilisateurs. Ceux-ci peuvent être des utilisateurs professionnels ou scolaires qui ont créé l’annuaire, ou bien des utilisateurs externes (autrement dit, des comptes Microsoft). Les abonnements sont accessibles par une partie des utilisateurs de l’annuaire qui ont été affectés comme administrateur de service ou comme coadministrateur ; la seule exception est que, pour des raisons d'héritage, les comptes Microsoft (anciennement Windows Live ID) peuvent être affectés comme administrateur de service ou comme co-admistrateur sans être présents dans l’annuaire.
+Les abonnements sont également associés à un répertoire. Le répertoire définit un ensemble d'utilisateurs. Ceux-ci peuvent être des utilisateurs professionnels ou scolaires qui ont créé l’annuaire, ou bien des utilisateurs externes (autrement dit, des comptes Microsoft). Les abonnements sont accessibles par un sous-ensemble des utilisateurs du répertoire qui ont été affectés comme administrateur de service ou comme coadministrateur ; la seule exception est que, pour des raisons d'héritage, les comptes Microsoft (anciennement Windows Live ID) peuvent être affectés comme administrateur de service ou comme co-admistrateur sans être présents dans le répertoire.
 
 Les entreprises orientées sécurité doivent s’efforcer de donner aux employés les autorisations exactes dont ils ont besoin. Un trop grand nombre d’autorisations peut exposer un compte aux attaquants. Si le nombre d’autorisations est trop faible, les employés ne peuvent pas effectuer leur travail efficacement. Le [contrôle d’accès en fonction du rôle (RBAC) dans Azure](../../role-based-access-control/overview.md) permet de résoudre ce problème en offrant une gestion précise de l’accès pour Azure.
 
@@ -344,7 +344,7 @@ Si vous avez besoin d’un contrôle d’accès au niveau du réseau de base (re
 
 La mise en réseau Azure permet de personnaliser le comportement de routage du trafic réseau sur vos réseaux virtuels Azure. Pour cela, vous pouvez configurer les [itinéraires définis par l’utilisateur](../../virtual-network/virtual-networks-udr-overview.md) dans Azure.
 
-Le [tunneling forcé](https://www.petri.com/azure-forced-tunneling) est un mécanisme que vous pouvez utiliser pour empêcher vos services de se connecter aux appareils sur Internet.
+[tunneling forcé](https://www.petri.com/azure-forced-tunneling) est un mécanisme que vous pouvez utiliser pour empêcher vos services de se connecter aux appareils sur Internet.
 
 Azure prend en charge la connectivité d’une liaison de réseau étendu dédiée entre votre réseau local et un réseau virtuel Microsoft Azure via [ExpressRoute](../../expressroute/expressroute-introduction.md). La liaison entre Azure et votre site se fait via une connexion dédiée qui ne passe pas par l’Internet public. Si votre application Azure s’exécute dans plusieurs centres de données, vous pouvez utiliser [Microsoft Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) pour acheminer intelligemment les requêtes des utilisateurs vers différentes instances de l’application. Vous pouvez aussi acheminer le trafic vers des services qui ne s’exécutent pas dans Azure s’ils sont accessibles par Internet.
 
@@ -476,7 +476,7 @@ Il analyse les éléments suivants :
 
 - **Mesures et événements personnalisés**, vous les écrivez vous-même dans le code client ou serveur, pour effectuer le suivi des événements commerciaux, tels que les articles vendus ou les matchs gagnés.
 
-L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe.
+L’infrastructure de votre application est généralement constituée de plusieurs composants (peut-être une machine virtuelle, un compte de stockage et un réseau virtuel ou une application web, une base de données, un serveur de base de données et 3 services de tiers). Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. [Azure Resource Manager](../../azure-resource-manager/management/overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe.
 
 Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996959"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645206"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
 
@@ -79,7 +79,7 @@ Les règles de sécurité effectives d’une interface réseau rassemblent toute
 
 ## <a name="metrics"></a>Mesures
 
-Des [limites](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) s’appliquent au nombre de ressources réseau créées au sein d’un abonnement Azure et d’une région. Une fois ces limites atteintes, il n’est plus possible de créer d’autres ressources dans l’abonnement ou la région. La fonctionnalité de *limite d’abonnement réseau* offre une synthèse du nombre de ressources réseau déployées dans un abonnement et une région, et indique la limite associée à chaque ressource. L’illustration suivante montre la sortie partielle associée aux ressources réseau déployées dans la région USA Est pour un exemple d’abonnement :
+Des [limites](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) s’appliquent au nombre de ressources réseau créées au sein d’un abonnement Azure et d’une région. Une fois ces limites atteintes, il n’est plus possible de créer d’autres ressources dans l’abonnement ou la région. La fonctionnalité de *limite d’abonnement réseau* offre une synthèse du nombre de ressources réseau déployées dans un abonnement et une région, et indique la limite associée à chaque ressource. L’illustration suivante montre la sortie partielle associée aux ressources réseau déployées dans la région USA Est pour un exemple d’abonnement :
 
 ![Limites d’abonnement](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

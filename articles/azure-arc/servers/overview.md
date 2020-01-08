@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: d091b89342570b73ccde5fe496a3432102617918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951426"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659619"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>Qu’est-ce qu’Azure Arc pour les serveurs ?
 
@@ -30,7 +30,7 @@ L’état des ordinateurs sera **Connecté** ou **Déconnecté** en fonction de 
 
 ## <a name="clients"></a>Clients
 
-### <a name="supported-operating-systems"></a>Systèmes d'exploitation pris en charge
+### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
 Dans la préversion publique, nous prenons en charge les systèmes suivants :
 
@@ -41,7 +41,7 @@ La préversion publique est conçue à des fins d’évaluation et ne doit pas �
 
 ## <a name="azure-subscription-and-service-limits"></a>Limites du service et de l’abonnement Azure
 
-Veillez à lire les limites d’Azure Resource Manager et à prévoir le nombre de machines à connecter conformément aux recommandations indiquées pour [l’abonnement](../../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) et les [groupes de ressources](../../azure-subscription-service-limits.md#resource-group-limits). En particulier, il existe par défaut une limite de 800 serveurs par groupe de ressources.
+Veillez à lire les limites d’Azure Resource Manager et à prévoir le nombre de machines à connecter conformément aux recommandations indiquées pour [l’abonnement](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) et les [groupes de ressources](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). En particulier, il existe par défaut une limite de 800 serveurs par groupe de ressources.
 
 ## <a name="networking-configuration"></a>Configuration de la mise en réseau
 
@@ -69,7 +69,7 @@ Ces noms DNS sont fournis en plus des informations relatives à la plage d’adr
 
 Téléchargez le [package de l’agent de l’ordinateur connecté à Azure](https://aka.ms/AzureConnectedMachineAgent) sur nos serveurs de distribution officiels. Les sites ci-dessous doivent être accessibles à partir de votre environnement. Vous pouvez choisir de télécharger le package sur un partage de fichiers et d’installer l’agent à partir de cet emplacement. Dans ce cas, le script d’intégration généré à partir du Portail Azure devra peut-être être modifié.
 
-Windows :
+Windows :
 
 * `aka.ms`
 * `download.microsoft.com`
@@ -99,7 +99,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
 Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
-Interface de ligne de commande Azure :
+Azure CLI :
 
 ```azurecli-interactive
 az account set --subscription "{Your Subscription Name}"
@@ -107,7 +107,7 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Vous pouvez également inscrire les fournisseurs de ressources à l’aide du portail en suivant les étapes décrites sous [Portail Azure](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+Vous pouvez également inscrire les fournisseurs de ressources à l’aide du portail en suivant les étapes décrites sous [Portail Azure](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="machine-changes-after-installing-the-agent"></a>Modifications de la machine après l’installation de l’agent
 

@@ -1,5 +1,5 @@
 ---
-title: Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows - Microsoft Azure
+title: Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows
 description: Découvrez les cibles de scalabilité et de performance des disques attachés aux machines virtuelles exécutant Windows.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 11/15/2017
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: c525ec4becbfda305343a3c7244d5975d60604a3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: dee3da6b6aa38a60ed1109009ba5a292a131ce97
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039762"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645155"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows
 
@@ -33,4 +33,4 @@ Les tailles signalées par un astérisque sont actuellement en préversion. Cons
 
 ## <a name="see-also"></a>Voir aussi
 
-[Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)

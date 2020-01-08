@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75bb919b73791b78084e82351d7d6b7d93edc322
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920155"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423862"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Application de bureau qui appelle des API web - Appeler une API web
 
@@ -100,7 +100,7 @@ task.resume()
 
 Si vous avez besoin d’appeler plusieurs API pour le même utilisateur, une fois que vous avez obtenu un jeton pour la première API, vous pouvez simplement appeler `AcquireTokenSilent` ; vous obtiendrez un jeton pour les autres API en mode silencieux la plupart du temps.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 
@@ -113,7 +113,7 @@ L’interaction est requise dans les cas suivants :
 - L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour davantage d’étendues (consentement incrémentiel).
 - La première API ne nécessitait aucune authentification multifacteur, contrairement à celle qui suit.
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
                       .ExecuteAsync();
 

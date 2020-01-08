@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer un blueprint avec PowerShell'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts avec PowerShell.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8b418fa2b5244c42b8597bbbe7ed4773133d03a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436637"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec PowerShell
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -362,7 +362,7 @@ Une fois qu’un blueprint a été publié à l’aide de PowerShell, il peut ê
    - Identité managée affectée par l’utilisateur
 
      Une affectation de blueprint peut également utiliser une [identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/overview.md).
-     Dans ce cas, la partie **identity** du fichier d’affectation JSON change de la façon suivante. Remplacez `{tenantId}`, `{subscriptionId}` `{yourRG}` et `{userIdentity}` par vos ID de locataire, ID d’abonnement et nom de groupe de ressources et par le nom de votre identité managée affectée par l’utilisateur, respectivement.
+     Dans ce cas, la partie **identity** du fichier d’affectation JSON change de la façon suivante. Remplacez `{tenantId}`, `{subscriptionId}``{yourRG}` et `{userIdentity}` par vos ID de locataire, ID d’abonnement et nom de groupe de ressources et par le nom de votre identité managée affectée par l’utilisateur, respectivement.
 
      ```json
      "identity": {
@@ -379,7 +379,9 @@ Une fois qu’un blueprint a été publié à l’aide de PowerShell, il peut ê
      > [!IMPORTANT]
      > Les blueprints ne gèrent pas l’identité managée affectée par l’utilisateur. Les utilisateurs doivent attribuer des rôles et autorisations suffisants. À défaut, l’affectation du blueprint échouera.
 
-## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+### <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 
 Vous pouvez supprimer un blueprint d’un abonnement. La suppression est souvent effectuée lorsque les ressources d’artefact ne sont plus nécessaires. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, utilisez l’applet de commande `Remove-AzBlueprintAssignment` :
 
@@ -391,7 +393,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de PowerShell. Pour plus d’informations sur Azure Blueprints, consultez l’article sur le cycle de vie des blueprints.
+Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide de PowerShell. Pour plus d’informations sur Azure Blueprints, consultez l’article concernant le cycle de vie des blueprints.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md)

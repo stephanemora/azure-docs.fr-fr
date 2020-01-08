@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dec950f5475a8a64cfecfac1fb25246d6a7aa29
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561924"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608735"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -112,5 +112,5 @@ Si vous n’avez plus de relation avec un annuaire ou un domaine Azure AD extern
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Régir l’accès des utilisateurs externes](entitlement-management-organization.md)
+- [Régir l’accès des utilisateurs externes](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
 - [Pour les utilisateurs qui ne sont pas dans votre annuaire](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

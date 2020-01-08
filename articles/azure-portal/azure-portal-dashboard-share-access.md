@@ -3,8 +3,8 @@ title: Partage de tableaux de bord de portail Azure à l’aide de RBAC | Micros
 description: Cet article vous explique comment partager un tableau de bord dans le portail Azure en utilisant le contrôle d'accès en fonction du rôle.
 services: azure-portal
 documentationcenter: ''
-author: tfitzmac
-manager: timlt
+author: mblythe
+manager: mtillman
 editor: tysonn
 ms.assetid: 8908a6ce-ae0c-4f60-a0c9-b3acfe823365
 ms.service: azure-portal
@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
-ms.author: tomfitz
-ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mblythe
+ms.openlocfilehash: da983a6a3c86be87f1a24b67252a40adac2fa59d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551930"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641382"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
+
 Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
 
 Tous les tableaux de bord publiés sont implémentés en tant que ressources Azure, ce qui signifie qu’ils constituent des éléments gérables dans votre abonnement et qu’ils sont contenus dans un groupe de ressources.  En termes de contrôle d’accès, les tableaux de bord sont traités de la même manière que les autres ressources, telles qu’une machine virtuelle ou un compte de stockage.
@@ -59,7 +60,7 @@ Votre tableau de bord est à présent publié. Si les autorisations héritées d
 ## <a name="assign-access-to-a-dashboard"></a>Affecter l’accès à un tableau de bord
 1. Après avoir publié le tableau de bord, sélectionnez **Gérer les utilisateurs**.
    
-     ![Gérer les utilisateurs](./media/azure-portal-dashboard-share-access/manage-users.png)
+     ![gérer des utilisateurs](./media/azure-portal-dashboard-share-access/manage-users.png)
 2. Vous obtenez une liste d’utilisateurs existants déjà dotés d’un rôle pour ce tableau de bord. Votre liste d’utilisateurs existants sera différente de celle illustrée ci-dessous. Les affectations sont très probablement héritées de l’abonnement. Pour ajouter un nouvel utilisateur ou un nouveau groupe, sélectionnez **Ajouter**.
    
      ![ajouter un utilisateur](./media/azure-portal-dashboard-share-access/existing-users.png)

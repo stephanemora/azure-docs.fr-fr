@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 85ef34f8644d95f6cfd2c7262bfe4bbc0683547f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170896"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561736"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installer et utiliser Istio dans AKS (Azure Kubernetes Service)
 
@@ -95,7 +95,7 @@ Maintenant que nous avons correctement créé les secrets Grafana et Kiali dans 
 L’approche d’installation de [Helm][helm] pour Istio sera déconseillée prochainement. La nouvelle approche d’installation d’Istio s’appuie sur le binaire du client `istioctl`, les [profils de configuration Istio][istio-configuration-profiles] et les nouvelles [spécifications et API du plan de contrôle Istio][istio-control-plane]. Cette nouvelle approche est celle que nous allons utiliser pour installer Istio.
 
 > [!NOTE]
-> Istio doit être actuellement planifié pour s’exécuter sur des nœuds Linux. Si vous avez des nœuds Windows Server dans votre cluster, vous devez veiller à ce que l’exécution des pods Istio soit planifiée uniquement sur des nœuds Linux. Nous allons utiliser des [sélecteurs de nœuds][kubernetes-node-selectors] pour vérifier que les pods sont planifiés sur les nœuds appropriés.
+> Istio doit être actuellement planifié pour s’exécuter sur des nœuds Linux. Si vous avez des nœuds Windows Server dans votre cluster, vous devez veiller à ce que l’exécution des pods Istio soit planifiée uniquement sur des nœuds Linux. Nous allons utiliser des [sélecteurs de nœud][kubernetes-node-selectors] pour vérifier que les pods sont planifiés sur les nœuds appropriés.
 
 > [!CAUTION]
 > Les fonctionnalités [SDS (secret Discovery Service)][istio-feature-sds] et [Istio CNI][istio-feature-cni] d’Istio étant actuellement en [version alpha][istio-feature-stages], réfléchissez avant de les activer. Par ailleurs, la fonctionnalité Kubernetes [Service Account Token Volume Projection][kubernetes-feature-sa-projected-volume] (exigée pour SDS) n’est pas activée dans les versions AKS actuelles.
@@ -136,7 +136,7 @@ spec:
 Installez istio à l’aide de la commande `istioctl apply` et du fichier de spécifications du plan de contrôle Istio (`istio.aks.yaml`) ci-dessus, comme suit :
 
 ```console
-istioctl manifest apply -f istio.aks.yaml
+istioctl manifest apply -f istio.aks.yaml --logtostderr --set installPackagePath=./install/kubernetes/operator/charts
 ```
 
 Le programme d’installation déploiera un certain nombre de [CRD][kubernetes-crd] puis gérera les dépendances pour installer tous les objets pertinents définis pour cette configuration d’Istio. Un extrait de code similaire à celui-ci doit s’afficher.
@@ -361,7 +361,9 @@ istioctl dashboard envoy <pod-name>.<namespace>
 Pour supprimer Istio de votre cluster AKS, utilisez la commande `istioctl manifest generate` avec le fichier de spécifications du plan de contrôle d’Istio `istio.aks.yaml`. Cela génère le manifeste déployé, que nous allons diriger vers `kubectl delete` afin de supprimer tous les composants installés et l’espace de noms `istio-system`.
 
 ```console
-istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
+istioctl manifest generate -f istio.aks.yaml -o istio-components-aks --logtostderr --set installPackagePath=./install/kubernetes/operator/charts 
+
+kubectl delete -f istio-components-aks -R
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>Supprimer les définitions CRD et les secrets Istio

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: 29962fa217c34088ed17fdea68c2c1189a3bfcd2
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996576"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658268"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -77,7 +77,7 @@ Pour plus d’informations, consultez [Routage basé sur l’URL avec Applicatio
 
 L’hébergement de plusieurs sites vous permet de configurer plusieurs sites web sur la même instance de passerelle d’application. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une instance d’Application Gateway, ou 40 à WAF (pour des performances optimales). Chaque site web peut être dirigé vers son propre pool. Par exemple, la passerelle d’application peut traiter le trafic pour `contoso.com` et `fabrikam.com` à partir de deux pools de serveurs appelés ContosoServerPool et FabrikamServerPool.
 
-Les requêtes adressées à `http://contoso.com` sont acheminées vers ContosoServerPool et les requêtes adressées à `http://fabrikam.com` sont acheminées vers FabrikamServerPool.
+Les requêtes adressées à `http://contoso.com` sont acheminées vers ContosoServerPool, tandis que les requêtes adressées à `http://fabrikam.com` sont acheminées vers FabrikamServerPool.
 
 De même, deux sous-domaines du même domaine parent peuvent également être hébergés sur le même déploiement de passerelle d’application. Par exemple, les sous-domaines `http://blog.contoso.com` et `http://app.contoso.com` peuvent être hébergés sur un déploiement de passerelle d’application unique.
 
@@ -139,14 +139,14 @@ Les références SKU Standard_v2 et WAF_v2 d’Application Gateway peuvent être
 
 La référence SKU WAF et Standard d’Application Gateway est proposée en trois tailles : **Petit**, **Moyen** et **Grand**. Les instances de petite taille sont conçues pour les scénarios de développement et de test.
 
-Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
+Pour obtenir la liste complète des limites de la passerelle Application Gateway, consultez la page [Application Gateway limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits) (Limites de la passerelle Application Gateway).
 
 Le tableau suivant présente un débit moyen de performances pour chaque instance d’Application Gateway v1 avec le déchargement SSL activé :
 
 | Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
 | --- | --- | --- | --- |
 | 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
-| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
+| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
 
 > [!NOTE]
 > Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.
@@ -155,6 +155,6 @@ Le tableau suivant présente un débit moyen de performances pour chaque instanc
 
 Selon vos besoins et l’environnement, vous pouvez créer une passerelle Application Gateway test à l’aide du portail Azure, de Azure PowerShell ou de Azure CLI :
 
-- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
-- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
-- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure CLI](quick-create-cli.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure PowerShell](quick-create-powershell.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Azure CLI](quick-create-cli.md)

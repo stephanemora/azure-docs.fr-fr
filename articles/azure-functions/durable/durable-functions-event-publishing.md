@@ -3,12 +3,12 @@ title: Publication de Fonctions durables sur Azure Event Grid (version prélimin
 description: Découvrez comment configurer la publication automatique de l’extension Fonctions durables sur Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: f0fbb46320b896008b6a1343357f016a9f57b0fe
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231444"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613123"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
 
@@ -24,7 +24,7 @@ Voici certains scénarios pour lesquels cette fonctionnalité est utile :
 
 [!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Installez [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) dans votre projet Durable Functions.
 * Installez l’[émulateur de stockage Azure](../../storage/common/storage-use-emulator.md).
@@ -86,7 +86,7 @@ Ajoutez `eventGridTopicEndpoint` et `eventGridKeySettingName` dans une propriét
 
 Les propriétés de configuration d’Azure Event Grid disponibles se trouvent dans la [documentation host.json](../functions-host-json.md#durabletask). Après avoir configuré le fichier `host.json`, votre application de fonction envoie des événements de cycle de vie à la rubrique Event Grid. L’exécution de votre application de fonction fonctionne aussi bien localement que dans Azure.
 
-Définissez le paramètre d’application pour la clé de rubrique dans l’application Function App et `local.setting.json`. Le fichier JSON suivant est un exemple de l’instance `local.settings.json` pour le débogage local. Remplacez `<topic_key>` par la clé de rubrique.  
+Définissez le paramètre d’application pour la clé de rubrique dans l’application Function App et `local.settings.json`. Le fichier JSON suivant est un exemple de l’instance `local.settings.json` pour le débogage local. Remplacez `<topic_key>` par la clé de rubrique.  
 
 ```json
 {
@@ -261,19 +261,19 @@ Consultez les journaux d’activité associés à la fonction créée dans le po
 
 La liste suivante explique le schéma des événements du cycle de vie :
 
-* **`id`** : identificateur unique de l’événement Event Grid.
-* **`subject`** : chemin d’accès de l’objet de l’événement. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` sera `Running`, `Completed`, `Failed` et `Terminated`.  
-* **`data`** : paramètres propres à Durable Functions.
-  * **`hubName`** : nom [TaskHub](durable-functions-task-hubs.md).
-  * **`functionName`** : nom de la fonction d’orchestrateur.
-  * **`instanceId`** : identificateur de l’instance Durable Functions.
-  * **`reason`** : données supplémentaires associées à l’événement de suivi. Pour en savoir plus, consultez la section [Diagnostics dans Fonctions durables (Azure Functions)](durable-functions-diagnostics.md).
-  * **`runtimeStatus`** : état du runtime d’orchestration. Running, Completed, Failed, Canceled. (En cours d’exécution, Terminé, En échec ou Annulé)
+* **`id`**  : identificateur unique de l’événement Event Grid.
+* **`subject`**  : chemin d’accès de l’objet de l’événement. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` sera `Running`, `Completed`, `Failed` et `Terminated`.  
+* **`data`**  : paramètres propres à Durable Functions.
+  * **`hubName`**  : nom [TaskHub](durable-functions-task-hubs.md).
+  * **`functionName`**  : nom de la fonction d’orchestrateur.
+  * **`instanceId`**  : identificateur de l’instance Durable Functions.
+  * **`reason`**  : données supplémentaires associées à l’événement de suivi. Pour en savoir plus, consultez la section [Diagnostics dans Fonctions durables (Azure Functions)](durable-functions-diagnostics.md).
+  * **`runtimeStatus`**  : état du runtime d’orchestration. Running, Completed, Failed, Canceled. (En cours d’exécution, Terminé, En échec ou Annulé)
 * **`eventType`**  : "orchestratorEvent"
-* **`eventTime`** : heure de l’événement (UTC).
-* **`dataVersion`** : version du schéma d’événement du cycle de vie.
-* **`metadataVersion`** :  version des métadonnées.
-* **`topic`** : ressource de rubrique Event Grid.
+* **`eventTime`**  : heure de l’événement (UTC).
+* **`dataVersion`**  : version du schéma d’événement du cycle de vie.
+* **`metadataVersion`**  :  version des métadonnées.
+* **`topic`**  : ressource de rubrique Event Grid.
 
 ## <a name="how-to-test-locally"></a>Procédure de test local
 

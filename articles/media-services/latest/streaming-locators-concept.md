@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/26/2019
 ms.author: juliako
-ms.openlocfilehash: a227c5d0edfb9b49e70452cfcfd08b29ba381857
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1cc0132cc17217c858060e107dfcfc090a3ef8a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969104"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610996"
 ---
 # <a name="streaming-locators"></a>Localisateurs de diffusion en continu
 
@@ -24,7 +24,7 @@ Pour rendre les vidéos dans la ressource de sortie disponibles en lecture pour 
 
 Le processus de création d’un **localisateur de streaming** est appelée « publication ». Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un **Localisateur de streaming**, vous devez spécifier un nom **Ressource** et un nom **Stratégie de streaming**. Pour plus d’informations, consultez les rubriques suivantes :
+Lors de la création d’un **Localisateur de streaming**, vous devez spécifier un nom **Ressource** et un nom **Stratégie de streaming**. Pour plus d'informations, voir les rubriques suivantes :
 
 * [Éléments multimédias](assets-concept.md)
 * [Stratégies de diffusion en continu](streaming-policy-concept.md)
@@ -76,7 +76,7 @@ StreamingLocator locator = await client.StreamingLocators.CreateAsync(
 Si vous souhaitez également chiffrer votre flux HLS avec CBCS (FairPlay), utilisez la stratégie « Predefined_MultiDrmStreaming ».
 
 > [!NOTE]
-> Widevine est un service fourni par Google Inc. soumis aux conditions d’utilisation du service et à la politique de confidentialité de Google Inc.
+> Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associer des filtres à des localisateurs de streaming
 
@@ -95,7 +95,7 @@ Pour obtenir des localisateurs de streaming en fonction du nom de ressource asso
 |REST|[liststreaminglocators](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators)|
 |Interface de ligne de commande|[az ams asset list-streaming-locators](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest#az-ams-asset-list-streaming-locators)|
 |.NET|[ListStreamingLocators](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators?view=azure-dotnet#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
-|Java|[AssetStreamingLocator](https://docs.microsoft.com/java/api/com.microsoft.azure.management.mediaservices.v2018_07_01.assetstreaminglocator?view=azure-java-stable)|
+|Java|[AssetStreamingLocator](https://docs.microsoft.com/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](https://docs.microsoft.com/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
 ## <a name="also-see"></a>Voir aussi
@@ -106,4 +106,4 @@ Pour obtenir des localisateurs de streaming en fonction du nom de ressource asso
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)
+[Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET](stream-files-tutorial-with-api.md)

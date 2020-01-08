@@ -2,25 +2,21 @@
 title: Voir les changements de contenu de fichier avec Azure Automation
 description: Utilisez la fonctionnalité de changement de contenu de fichier de Change Tracking pour voir le contenu d’un fichier qui a changé.
 services: automation
-ms.service: automation
 ms.subservice: change-inventory-management
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 23c4f24e430d58895eb551c3e2cb62b5f0003ac0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418812"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Voir le contenu d’un fichier suivi avec Change Tracking
 
 Le suivi de contenu de fichier vous permet de voir le contenu d’un fichier avant et après un changement suivi avec Change Tracking. Pour ce faire, il enregistre le contenu du fichier dans un compte de stockage chaque fois qu’un changement a lieu.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 * Un compte de stockage standard utilisant le modèle de déploiement Resource Manager est nécessaire pour stocker le contenu du fichier. Les comptes de stockage des modèles de déploiement Premium et Classic ne doivent pas être utilisés. Pour plus d’informations sur les comptes de stockage, consultez [À propos des comptes de stockage Azure](../storage/common/storage-create-storage-account.md)
 
