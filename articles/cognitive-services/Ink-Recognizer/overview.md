@@ -3,19 +3,19 @@ title: Qu’est-ce qu’Ink Recognizer ? - API Ink Recognizer
 titleSuffix: Azure Cognitive Services
 description: Intégrez Ink Recognizer à vos applications, sites web, outils et autres solutions pour identifier les données de trait d’encre et les utiliser comme entrée.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: overview
-ms.date: 07/24/2019
-ms.author: erhopf
-ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.date: 12/17/2019
+ms.author: aahi
+ms.openlocfilehash: 2d00a489af35f5960aaeb1dda7add5337d48d57d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448154"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>Qu’est-ce que l’API Ink Recognizer ?
 
@@ -24,7 +24,7 @@ Le service cognitif Ink Recognizer propose une API REST cloud pour analyser et r
 
 ![Organigramme décrivant l’envoi d’une entrée de trait d’encre à l’API](media/ink-recognizer-pen-graph.svg)
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Avec l’API Ink Recognizer, vous pouvez facilement reconnaître du contenu manuscrit dans vos applications. 
 
@@ -52,7 +52,7 @@ Après l’inscription :
 Suivez un guide de démarrage rapide sur les langages suivants pour commencer à effectuer des appels à l’API Ink Recognizer.
 * [C#](quickstarts/csharp.md)
 * [Java](quickstarts/java.md)
-* [JavaScript](quickstarts/csharp.md)
+* [JavaScript](quickstarts/javascript.md)
 
 Pour observer le fonctionnement de l’API Ink Recognizer dans une application d’écriture manuscrite numérique, examinez les exemples d’applications suivants sur GitHub :
 * [C# et UWP (plateforme Windows universelle)](https://go.microsoft.com/fwlink/?linkid=2089803)  

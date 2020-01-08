@@ -7,14 +7,14 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 8d1ff1ddd9db0ec1d324831d2892fb983d38ca67
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 17bc5c6a76a270cac611ed2342ffe9e38d84bd7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818932"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468050"
 ---
 Si vous préférez vous y mettre tout de suite, affichez ou téléchargez tous les <a href="https://aka.ms/speech/github-python">Échantillons Python du Kit de développement logiciel (SDK) Speech</a> sur GitHub. Sinon, commençons.

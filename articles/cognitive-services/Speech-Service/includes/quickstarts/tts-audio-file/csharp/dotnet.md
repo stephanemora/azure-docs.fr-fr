@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74817906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466809"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de :
 
@@ -33,9 +33,9 @@ La première étape consiste à vérifier que votre projet est ouvert dans Visua
 1. Lancez Visual Studio 2019.
 2. Chargez votre projet et ouvrez `Program.cs`.
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
-Nous allons ajouter du code qui servira de squelette à notre projet. Notez que vous avez créé une méthode asynchrone appelée `SynthesisToAudioFileAsync()`.
+Nous allons ajouter du code qui servira de squelette à notre projet Notez que vous avez créé une méthode asynchrone appelée `SynthesisToAudioFileAsync()`.
 
 ````C#
 
@@ -185,8 +185,8 @@ namespace helloworld
 
 Vous êtes maintenant prêt à créer votre application et à tester la synthèse à l’aide du service Speech.
 
-1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
-2. **Démarrer votre application** - Dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
+1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
+2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
 3. **Démarrer la synthèse**  - Votre texte est converti en paroles et enregistré dans les données audio spécifiées.
 
    ```text

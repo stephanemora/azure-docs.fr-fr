@@ -1,19 +1,18 @@
 ---
 title: Mettre à l’échelle les fonctions Machine Learning dans Azure Stream Analytics
 description: Cet article décrit comment mettre à l’échelle des travaux Stream Analytics qui utilisent des fonctions Machine Learning en configurant des unités de partitionnement et de diffusion.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dedffab0b17515cedc54569d5debf6d29b273644
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458752"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning Studio (classique)
 
@@ -93,7 +92,7 @@ Observons la mise à l’échelle à l’aide des mesures de latence suivantes p
 | Latence | Taille du lot |
 | --- | --- |
 | 200 ms | lots de 1 000 événements maximum |
-| 250 ms | lots de 5 000 événements |
+| 250 ms | lots de 5 000 événements |
 | 300 ms | lots de 10 000 événements |
 | 500 ms | lots de 25 000 événements |
 
@@ -104,11 +103,11 @@ Le tableau ci-après présente le débit du travail Stream Analytics pour diffé
 
 | Taille de lot (latence Machine Learning) | 500 (200 ms) | 1 000 (200 ms) | 5 000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unité de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
-| **3 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
-| **6 unités de diffusion en continu** |2 500 |5 000 |20 000 |30 000 |50 000 |
+| **1 unité de diffusion en continu** |2 500 |5 000 |20 000 |30,000 |50 000 |
+| **3 unités de diffusion en continu** |2 500 |5 000 |20 000 |30,000 |50 000 |
+| **6 unités de diffusion en continu** |2 500 |5 000 |20 000 |30,000 |50 000 |
 | **12 unités de diffusion en continu** |5 000 |10 000 |40 000 |60 000 |100 000 |
-| **18 unités de diffusion en continu** |7 500 |15 000 |60 000 |90 000 |150 000 |
+| **18 unités de diffusion en continu** |7 500 |15,000 |60 000 |90 000 |150 000 |
 | **24 unités de diffusion en continu** |10 000 |20 000 |80 000 |120 000 |200 000 |
 | **…** |… |… |… |… |… |
 | **60 unités de diffusion en continu** |25 000 |50 000 |200 000 |300 000 |500 000 |

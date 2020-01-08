@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 9a93786759941def4cf8677509b1b2565cac5090
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325423"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659557"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -75,7 +75,7 @@ Voir [Parcourir et sélectionner des images de machines virtuelles Windows dans 
 
 ## <a name="limits"></a>limites
 Le nombre de ressources qui peuvent être créées ou le point de référence des performances pouvant être atteint. Les limites sont généralement associées aux abonnements ainsi qu’aux services et aux offres.  
-Voir [Abonnement Azure et limites, quotas et contraintes de service](azure-subscription-service-limits.md)
+Voir [Abonnement Azure et limites, quotas et contraintes de service](azure-resource-manager/management/azure-subscription-service-limits.md)
 
 ## <a name="load-balancer"></a>équilibreur de charge
 Une ressource qui répartit le trafic entrant sur les ordinateurs d’un réseau. Dans Azure, un équilibreur de charge répartit le trafic sur les machines virtuelles définies dans un jeu d’équilibrage de charge. Un [équilibreur de charge](load-balancer/load-balancer-overview.md) peut être interne ou accessible sur Internet.  
@@ -110,7 +110,7 @@ Voir [Création de modèles Azure Resource Manager](resource-group-authoring-tem
 Un service qui fournit les ressources que vous pouvez déployer et gérer via Azure Resource Manager. Chaque fournisseur de ressources propose des opérations pour travailler avec les ressources déployées. Les fournisseurs de ressources sont accessibles via le portail Azure, Azure PowerShell et plusieurs Kits de développement logiciel (SDK) de programmation.  
 Voir [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
 
-## <a name="role"></a>role
+## <a name="role"></a>rôle
 Un moyen de contrôler l’accès qui peut être affecté aux utilisateurs ainsi qu’aux groupes et services. Les rôles rendent possibles des actions telles que la création, la gestion et la lecture sur les ressources Azure.  
 Consultez [RBAC : Rôles intégrés](role-based-access-control/built-in-roles.md)
 

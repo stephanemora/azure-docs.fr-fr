@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Entité Expression régulière – LUIS'
+title: 'Tutoriel : Entité Expression régulière – LUIS'
 titleSuffix: Azure Cognitive Services
 description: Extrayez des données mises en forme de façon cohérente depuis un énoncé à l’aide de l’entité Expression régulière.
 services: cognitive-services
@@ -9,19 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8da47899e2d3d2c1d04e9cf4768a968e7893ce96
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ca6f2a67e01e4c604c2dcc8f8eaa9ffe8bad045
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852444"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381510"
 ---
-# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Didacticiel : Obtenir des données au format approprié à partir de l’énoncé
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Tutoriel : Obtenir des données au format approprié à partir de l’énoncé
 Dans ce tutoriel, créez une entité d’expression régulière pour extraire des données mises en forme de façon cohérente à partir d’un énoncé.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -46,7 +44,7 @@ Quand vous ajoutez une entité d’expression régulière à une application LUI
 
 ## <a name="import-example-json-to-begin-app"></a>Exemple d’importation .json pour commencer une application
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -94,7 +92,7 @@ Créez une entité d’expression régulière correspondant au nombre du texte. 
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publier l’application vers la requête à partir du point de terminaison
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publier l’application pour faire des requêtes à partir du point de terminaison
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 

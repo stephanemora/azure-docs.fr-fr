@@ -1,25 +1,16 @@
 ---
-title: Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric | Microsoft Docs
+title: Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric
 description: Découvrez comment résoudre les erreurs de package de code les plus courantes avec Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: grzuber
-manager: gkhanna
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 320a55e8b14648b1d7e256855582ab31846a63cf
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 344fef70522240da2236a020c96308c472c9c545
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463100"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnostiquer les erreurs de package de code courantes à l’aide de Service Fabric
 
@@ -58,7 +49,7 @@ Code de sortie | Description
 
 ## <a name="other-common-error-codes-and-their-potential-fixes"></a>Autres codes d’erreur courants et corrections éventuelles
 
-Code de sortie | Valeur hexadécimale | Brève description | Cause racine | Correctif potentiel
+Code de sortie | Valeur hexadécimale | Description courte | Cause racine | Correctif potentiel
 --------- | --------- | ----------------- | ---------- | -------------
 3221225794 | 0xc0000142 | STATUS_DLL_INIT_FAILED | Cette erreur peut potentiellement signifier que la machine était à court d’espace dans le segment de mémoire. Cette cause est probable si vous avez un grand nombre de processus appartenant à votre application exécutée sur le nœud. | Si votre programme n’a pas été conçu pour répondre aux signaux Ctrl + C, vous pouvez activer le paramètre **« EnableActivateNoWindow »** dans le manifeste de cluster. L’activation de ce paramètre signifie que votre package de code s’exécutera sans fenêtre GUI et ne recevra pas de signaux Ctrl + C. Cette action réduit également la quantité d’espace dans le segment de mémoire du bureau consommée par chaque processus. Si votre package de code a besoin de recevoir les signaux Ctrl + C, vous pouvez augmenter la taille de tas de votre nœud.
 3762504530 | 0xe0434352 | N/A | Cette valeur représente le code d’erreur pour une exception non gérée dans le code managé (autrement dit, .NET). | Ce code de sortie indique que votre application a levé une exception qui reste non gérée et qui a mis fin au processus. En guise de première étape pour déterminer ce qui a déclenché cette erreur, déboguez les journaux et les fichiers de vidage de votre application.

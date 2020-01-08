@@ -1,25 +1,22 @@
 ---
 title: Règles configurables basées sur un seuil dans Azure Stream Analytics
 description: Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte comportant des règles configurables basées sur un seuil dans Azure Stream Analytics.
-services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
-ms.reviewer: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 94fdddf11acb6763ed98a4b7e17304fbde0e25dd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369709"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte utilisant des règles configurables basées sur un seuil dans Azure Stream Analytics.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scénario : génération d’alertes basées sur des seuils réglables
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scénario : génération d’alertes basées sur des seuils réglables
 Vous devrez peut-être générer une alerte lorsque des événements entrants en flux continu atteignent une certaine valeur, ou lorsqu’une valeur agrégée basée sur les événements entrants en flux continu dépasse un certain seuil. Vous pouvez facilement définir une requête Stream Analytics qui compare une valeur à un seuil statique fixe et prédéterminé. Un seuil fixe peut être codé en dur dans la syntaxe de requête de diffusion en continu en utilisant de simples comparaisons numériques (supérieur à, inférieur à et égal à).
 
 Dans certains cas, les valeurs de seuil doivent être plus facilement configurables, sans avoir à modifier la syntaxe de la requête chaque fois qu’une valeur de seuil est modifiée. Dans d’autres cas, vous devrez peut-être traiter un grand nombre d’appareils ou d’utilisateurs avec la même requête, en utilisant à chaque fois des valeurs de seuil différentes sur chaque type d’appareil. 
@@ -138,7 +135,7 @@ HAVING
 Cet exemple de données JSON représente les données d’entrée **metrics** utilisées dans la requête de diffusion en continu ci-dessus. 
 
 - Trois exemples d’événements sont répertoriés dans l’intervalle de 1 minute, avec la valeur `T14:50`. 
-- Ces trois exemples ont la même valeur `deviceId` `978648`.
+- Ces trois exemples ont la même valeur `deviceId``978648`.
 - Les valeurs de mesure du processeur varient dans chaque événement, `98`, `95` et `80`, respectivement. Seuls les deux premiers exemples d’événements dépassent la règle d’alerte de processeur établie dans la règle.
 - Le champ includeDim de la règle d’alerte affiche la clé numéro 2. Le champ de la clé 2 correspondant dans les exemples d’événements se nomme `NodeName`. Les trois exemples d’événements affichent les valeurs `N024`, `N024` et `N014`, respectivement. Dans la sortie, vous voyez uniquement le nœud `N024` car ce sont les seules données correspondant aux critères d’alerte en cas d’utilisation excessive du processeur. `N014` n’atteint pas le seuil d’utilisation excessive du processeur.
 - La règle d’alerte est configurée avec une valeur `filter` uniquement sur la clé numéro 2, qui correspond au champ `cluster` dans les exemples d’événements. Les trois exemples d’événements ont tous la valeur `C1` et correspondent aux critères de filtre.

@@ -1,18 +1,17 @@
 ---
 title: Erreurs de données des journaux de diagnostic Azure Stream Analytics
 description: Cet article explique les différentes erreurs de données d’entrée et de sortie qui peuvent se produire lors de l’utilisation d’Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: ecc7077bf208adf1ac89adcce2f2e480ce34888e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0546464b4d1bcc9eaa4fbffe265486985d9c58f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465032"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erreurs de données Azure Stream Analytics
 
@@ -43,7 +42,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
 * Cause : Le type de compression d’entrée sélectionné ne correspond pas aux données.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les messages avec des erreurs de désérialisation, y compris le type de compression non valide, sont supprimés de l’entrée.
 * Détails des journaux
@@ -58,7 +57,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
 * Cause : L’en-tête de données d’entrée n’est pas valide. Par exemple, un fichier CSV comporte des colonnes avec des noms en double.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les messages avec des erreurs de désérialisation, y compris l’en-tête non valide, sont supprimés de l’entrée.
 * Détails des journaux
@@ -74,7 +73,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
 * Cause : Les colonnes d’entrée définies avec CREATE TABLE ou par le biais TIMESTAMP BY n’existent pas.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les événements avec des colonnes manquantes sont supprimés de l’entrée.
 * Détails des journaux
@@ -95,7 +94,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
 * Cause : Impossible de convertir l’entrée selon le type spécifié dans l’instruction CREATE TABLE.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les événements avec des erreurs de conversion de type sont supprimés de l’entrée.
 * Détails des journaux
@@ -115,7 +114,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
 * Cause : Les données d’entrée ne sont pas au bon format. Par exemple, l’entrée n’est pas un JSON valide.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : tous les événements dans le message, après la survenue d’une erreur de données non valide, sont supprimés de l’entrée.
 * Détails des journaux
@@ -135,7 +134,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
 
 * Cause : La valeur de l’expression TIMESTAMP BY ne peut pas être convertie en DateHeure.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les événements avec un horodatage d’entrée non valide sont supprimés de l’entrée.
 * Détails des journaux
@@ -152,7 +151,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
 
 * Cause : La valeur de TIMESTAMP BY OVER timestampColumn est NULL.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact : les événements, avec une clé d’horodatage d’entrée non valide, sont supprimés de l’entrée.
 * Détails des journaux
@@ -216,7 +215,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
 * Cause : La colonne obligatoire pour la sortie n’existe pas. Par exemple, une colonne définie comme clé de partition de table Azure n’existe pas.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris la colonne nécessaire manquante, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
@@ -231,7 +230,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
 * Cause : La valeur de colonne n’est pas conforme à la sortie. Par exemple, le nom de colonne n’est pas une colonne de table Azure valide.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris le nom de colonne non valide, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
@@ -246,7 +245,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
 * Cause : Une colonne ne peut pas être convertie en un type valide dans la sortie. Par exemple, la valeur de colonne est incompatible avec les contraintes ou le type définis dans la table SQL.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris l’erreur de conversion du type, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
@@ -262,7 +261,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
 
 * Cause : La valeur du message est supérieure à la taille de sortie prise en charge. Par exemple, un enregistrement fait plus de 1 Mo pour une sortie Event Hub.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris l’enregistrement qui a dépassé la taille limite, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux
@@ -277,7 +276,7 @@ Pour connaître le schéma des journaux de diagnostic, consultez la section [Ré
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
 * Cause : Un enregistrement contient déjà une colonne portant le même nom qu’une colonne système. Par exemple, la sortie CosmosDB avec une colonne nommée ID lorsque la colonne d’ID est une autre colonne.
-* Notification de portail fournie : OUI
+* Notification de portail fournie : Oui
 * Niveau du journal de diagnostic : Avertissement
 * Impact :  toutes les erreurs de conversion des données de sortie, y compris la clé en double, sont gérées conformément au paramètre [Stratégie des données de sortie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy).
 * Détails des journaux

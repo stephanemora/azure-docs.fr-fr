@@ -1,20 +1,18 @@
 ---
 title: Montée en puissance et en charge lors des travaux Azure Stream Analytics
 description: Cet article décrit comment mettre à l’échelle un travail Stream Analytics en configurant des partitions d’entrée, en réglant la requête et en configurant les unités de streaming d’un travail.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: fe4d37563af159f566bc3fb03a3cfe136e7cb734
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4f89fb07fbbff3beee66f80675bb5c3a32136807
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621729"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458764"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
@@ -46,7 +44,7 @@ Si votre requête n’est pas massivement parallèle, vous pouvez suivre les ét
 4.  Lors de l’exécution d’un tel travail, Stream Analytics place chaque étape sur son propre nœud avec des ressources de 6 unités de streaming dédiées. 
 5.  Si vous n’avez pas encore atteint votre cible de charge, vous pouvez essayer d’utiliser **PARTITION BY** en commençant par les étapes les plus proches de l’entrée. Pour l’opérateur **GROUP BY** qui n’est peut-être pas naturellement configurable en partition, vous pouvez utiliser le modèle d’agrégation global/local pour effectuer une opération **GROUP BY** partitionnée suivie d’une opération **GROUP BY** non partitionnée. Par exemple, vous souhaitez compter le nombre de voitures qui passent par chaque gare de péage toutes les 3 minutes et le volume des données dépasse ce qui peut être géré par 6 unités de streaming.
 
-Requête :
+Requête :
 
  ```SQL
  WITH Step1 AS (

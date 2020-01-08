@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 12/23/2019
 ms.author: chlandsi
-ms.openlocfilehash: 652754c31711df7b14c055b31d6d96a6b0217d29
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c1246b19670a18f8dadc0c5e1c64dd5af4c1b210
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815608"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380777"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur iOS avec le SDK Speech
 
@@ -23,7 +23,7 @@ Des guides de démarrage rapide sont également disponibles pour la [synthèse v
 
 Dans cet article, vous allez découvrir comment créer une application iOS en Objective-C avec le SDK Speech d’Azure Cognitive Services pour transcrire de la voix en texte à partir du microphone ou d’un fichier avec de l’audio enregistré.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous avez besoin des éléments suivants :
 

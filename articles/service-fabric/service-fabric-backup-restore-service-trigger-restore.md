@@ -1,25 +1,16 @@
 ---
-title: Restauration de sauvegarde dans Azure Service Fabric | Microsoft Docs
+title: Restauration de la sauvegarde dans Azure Service Fabric
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour restaurer des données issues d’une sauvegarde des données de votre application.
-services: service-fabric
-documentationcenter: .net
 author: aagup
-manager: chackdan
-editor: aagup
-ms.assetid: 802F55B6-6575-4AE1-8A8E-C9B03512FF88
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1737102ee652cc2263bd0a908c1336bc93a6757b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377903"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
 
@@ -32,18 +23,18 @@ Par exemple, vous pouvez configurer un service pour qu’il sauvegarde ses donn�
 - **Cas de perte de données** : Suppression accidentelle ou altération du service. Par exemple, un administrateur supprime le service par erreur.
 - **Cas d’altération des données** : Bogues dans le service qui provoquent l’altération des données. Par exemple, l’altération des données peut se produire lorsqu’une mise à niveau de code de service écrit des données erronées dans une collection fiable. Dans ce cas, le code et les données devront peut-être être restaurés à un état antérieur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour déclencher une restauration, le _service FAS (Fault Analysis Service)_ doit être activé pour le cluster.
 - Le _service BRS (Backup Restore Service)_ a créé la sauvegarde.
 - La restauration peut être déclenchée sur une partition uniquement.
-- Installer le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
+- Installez le module Microsoft.ServiceFabric.Powershell.Http [en préversion] pour effectuer des appels de configuration.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Assurez-vous que le cluster soit connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute demande de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
+- Assurez-vous que le cluster est connecté à l’aide de la commande `Connect-SFCluster` avant d’effectuer toute requête de configuration à l’aide du module Microsoft.ServiceFabric.Powershell.Http.
 
 ```powershell
 

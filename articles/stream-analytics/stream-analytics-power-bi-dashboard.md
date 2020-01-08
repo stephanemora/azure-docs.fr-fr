@@ -1,19 +1,18 @@
 ---
 title: Intégration de tableau de bord Power BI à Azure Stream Analytics
 description: Cet article décrit comment utiliser un tableau de bord Power BI en temps réel pour visualiser les données d’une tâche Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: c415bdecdaf55f3068dcd804ab34de402fe7a31f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 76f5c1f0cd3186244e9a262358c9c9a652a73fdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431630"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics et Power BI : Tableau de bord d’analytique en temps réel des données de streaming
 
@@ -24,7 +23,7 @@ Cet article est la suite du didacticiel [Détection des fraudes en temps réel](
 Vous pouvez visionner [une vidéo](https://www.youtube.com/watch?v=SGUpT-a99MA) illustrant ce scénario.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
@@ -121,7 +120,7 @@ Cette étape est facultative, mais recommandée.
 
 4. Cliquez sur **Test** et passez en revue les résultats.
 
-## <a name="run-the-job"></a>Exécution de la tâche
+## <a name="run-the-job"></a>Exécuter le travail
 
 1. Vérifiez que l’application TelcoStreaming est en cours d’exécution.
 
@@ -240,7 +239,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Mise à l'échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

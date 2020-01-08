@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 0f6dceac3e46f8e36d2da52c15c0b0696e026a0e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 64ef052478bed627c896cd0e0b5301961a8b6f21
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977214"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562865"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>Démarrage rapide : Utiliser le SDK Recherche Web Bing pour Python
 
@@ -23,7 +23,7 @@ Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’in
 
 Vous voulez voir le code tout de suite ? Des [exemples de kit de développement logiciel de l’API Recherche Web Bing pour Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) sont disponibles sur GitHub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Le Kit de développement logiciel de l’API Recherche Web Bing est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6. Nous vous recommandons d’utiliser un environnement virtuel pour ce démarrage rapide.
 
 * Python 2.7, 3.3, 3.4, 3.5 ou 3.6
@@ -63,6 +63,12 @@ Créer un environnement virtuel avec `venv` pour Python 3.x :
 
 ```console
 python -m venv mytestenv
+```
+
+Activez votre environnement :
+
+```console
+mytestenv\Scripts\activate.bat
 ```
 
 Installez les dépendances du SDK Recherche Web Bing :
@@ -306,7 +312,7 @@ Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` p
 
 1. Exécutez le programme.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez terminé ce projet, veillez à supprimer votre clé d’abonnement dans le code du programme et à désactiver votre environnement virtuel.
 

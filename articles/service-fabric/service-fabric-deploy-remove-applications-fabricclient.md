@@ -1,25 +1,14 @@
 ---
 title: Déploiement Azure Service Fabric avec FabricClient
 description: Utilisez les API FabricClient pour déployer et supprimer des applications dans Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: cdb5ae4efbd4119422101eb8a05ce71e7b58d51f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376968"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Déployer et supprimer des applications avec FabricClient
 > [!div class="op_single_selector"]
@@ -46,7 +35,7 @@ Après avoir déployé une application et exécuté une instance dans le cluster
 
 Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes précédentes sont gérées automatiquement à l’aide d’un script PowerShell.  Ce script se trouve dans le dossier *Scripts* du projet d’application. Cet article fournit des précisions sur les actions de ce script afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio. 
  
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 Connectez-vous au cluster en créant une instance [FabricClient](/dotnet/api/system.fabric.fabricclient) avant d’exécuter un des exemples de code dans cet article. Pour obtenir des exemples de connexion à un cluster de développement local, à un cluster distant ou à un cluster sécurisé à l’aide d’Azure Active Directory, de certificats X509 ou de Windows Active Directory, consultez [Se connecter à un cluster sécurisé](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-the-fabricclient-apis). Pour vous connecter au cluster de développement local, exécutez l’exemple suivant :
 
 ```csharp
@@ -100,7 +89,7 @@ Lorsque vous n’avez plus besoin d’une instance d’application, vous pouvez 
 ## <a name="unregister-an-application-type"></a>Désinscrire un type d’application
 Lorsque vous n’avez plus besoin d’une version spécifique d’un type d’application, il est recommandé de la désinscrire à l’aide de l’API [Unregister-ServiceFabricApplicationType](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.unprovisionapplicationasync). La désinscription des versions inutilisées des types d’application libère l’espace de stockage utilisé par le magasin d’images. Une version d’un type d’application peut être désinscrite tant qu’aucune application n’est instanciée par rapport à cette version du type d’application. En outre, le type d’application ne peut avoir aucune mise à niveau d’application en attente faisant référence à cette version du type d’application.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 L'environnement du SDK Service Fabric doit déjà être configuré avec les valeurs par défaut correctes. Toutefois, si besoin, l’ImageStoreConnectionString de toutes les commandes doit correspondre à celui utilisé par le cluster Service Fabric. ImageStoreConnectionString se trouve dans le manifeste de cluster récupéré à l’aide des commandes [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest?view=azureservicefabricps) et Get-ImageStoreConnectionStringFromClusterManifest :
 

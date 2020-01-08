@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 6/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 79f00e4138d0fecdc7320235dd9c496033693d2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383085"
 ---
-# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de PHP et l’API REST Recherche d’actualités Bing
+# <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Démarrage rapide : Effectuer une recherche d’actualités à l’aide de PHP et l’API REST Recherche d’actualités Bing
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et recevoir une réponse JSON. Cette application JavaScript simple envoie une requête de recherche à l’API et affiche les résultats bruts.
 
 Cette application est écrite en PHP, mais l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * PHP 5.6 ou version ultérieure
 
@@ -36,10 +36,11 @@ Consultez également [Tarification Cognitive Services - API Recherche Bing](http
 
 L’[API Recherche d'actualités Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) renvoie des résultats de l’actualité à partir du moteur de recherche Bing.
 
-1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
+1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
 2. Créez un projet PHP dans votre éditeur ou IDE favori.
 3. Ajoutez le code ci-dessous.
 4. Remplacez la valeur `accessKey` par une clé d’accès valide pour votre abonnement.
+5. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 5. Exécutez le programme.
 
 ```php

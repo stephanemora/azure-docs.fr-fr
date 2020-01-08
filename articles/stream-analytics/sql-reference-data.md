@@ -1,23 +1,22 @@
 ---
 title: Utiliser les données de référence SQL Database dans une tâche Azure Stream Analytics
 description: Cet article décrit comment utiliser une base de données SQL comme entrée de données de référence pour une tâche Azure Stream Analytics dans le portail Azure et dans Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 733ac7d1ff1d50e5fdcfa0dec2ad3fd3f30f6d86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426499"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics
 
-Azure Stream Analytics prend en charge l'utilisation d'Azure SQL Database comme source d'entrée de données de référence. Vous pouvez utiliser les données d’une base de données SQL comme données de référence pour votre tâche Stream Analytics dans le portail Azure et dans Visual Studio avec les outils Stream Analytics. Cet article décrit les deux méthodes.
+Azure Stream Analytics prend en charge l'utilisation d'Azure SQL Database comme source d'entrée de données de référence. Vous pouvez utiliser les données SQL Database comme données de référence pour votre travail Stream Analytics sur le portail Azure et dans Visual Studio avec les outils Stream Analytics. Cet article décrit les deux méthodes.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -61,7 +60,7 @@ Suivez ces étapes pour ajouter Azure SQL Database comme source d’entrée de r
 
 1. [Installez les outils Stream Analytics pour Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Les versions suivantes de Visual Studio sont prises en charge :
 
-   * Visual Studio 2015
+   * Visual Studio 2015
    * Visual Studio 2019
 
 2. Prenez connaissance du guide de démarrage rapide traitant des [outils Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md).
@@ -202,5 +201,5 @@ Stream Analytics garantit un traitement des événements « Exactement une fois 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de données de référence pour effectuer des recherches dans Stream Analytics](stream-analytics-use-reference-data.md)
-* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
 * [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)

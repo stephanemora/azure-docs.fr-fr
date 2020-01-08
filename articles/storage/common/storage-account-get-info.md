@@ -1,5 +1,6 @@
 ---
-title: Obtenez le type de compte de stockage et le nom de référence SKU avec .NET – Stockage Azure
+title: Obtenez le type de compte de stockage et le nom de référence SKU avec .NET
+titleSuffix: Azure Storage
 description: Découvrez comment obtenir le type de compte de stockage Azure et le nom de référence SKU à l’aide de la bibliothèque cliente .NET.
 services: storage
 author: mhopkins-msft
@@ -8,12 +9,12 @@ ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0008d8fa9a33db95b0695ce998d4fc267d6222da
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cff950f2c420651ffa09ffe76a0d1389da84c10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457475"
 ---
 # <a name="get-storage-account-type-and-sku-name-with-net"></a>Obtenez le type de compte de stockage et le nom de référence SKU avec .NET
 
@@ -63,6 +64,4 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 Découvrez les autres opérations que vous pouvez effectuer sur un compte de stockage via le [portail Azure](https://portal.azure.com) et l’API REST Azure.
 
-- [Gérer un compte de stockage](storage-account-manage.md)
-- [Mettre à niveau un compte de stockage](storage-account-upgrade.md)
 - [Opération d’extraction des informations de compte (REST)](/rest/api/storageservices/get-account-information)

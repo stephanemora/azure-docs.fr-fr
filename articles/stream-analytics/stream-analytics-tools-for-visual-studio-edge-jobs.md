@@ -1,26 +1,25 @@
 ---
 title: Travaux de périphérie Azure Stream Analytics dans Visual Studio
 description: Cet article décrit comment écrire, créer et déboguer des travaux Stream Analytics sur IoT Edge avec les outils Stream Analytics pour Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec4a4041378ce94ae70ba7a88b3fef80f7dcd193
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 07f109b3d5539f7cd87a12fb42a36803573c2bdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354567"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Développer des tâches Edge Stream Analytics avec les outils Visual Studio
 
 Dans ce tutoriel, découvrez comment utiliser les outils Stream Analytics pour Visual Studio. Vous apprenez à écrire, créer et déboguer vos travaux Stream Analytics Edge. Après avoir créé et testé le travail, vous pourrez accéder au portail Azure pour le déployer sur vos appareils. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin des prérequis suivants :
 

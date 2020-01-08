@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK C# | Microsoft Docs'
+title: 'Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK C#'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce guide de démarrage rapide pour commencer à demander des résultats de recherche depuis votre instance Recherche personnalisée Bing, avec le kit SDK C#.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: scottwhi
-ms.openlocfilehash: 21b192d29f30d66e3d5f0ce6e04317d3ca7c860e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5e932b1ff597fc0170a6bb83841bc6ca7306693a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977146"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448711"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing avec le kit SDK C# 
 
 Utilisez ce guide de démarrage rapide pour commencer à demander des résultats de recherche depuis votre instance Recherche personnalisée Bing, avec le kit SDK C#. Si d’un côté la Recherche personnalisée Bing dispose d’une API REST compatible avec la plupart des langages de programmation, de l’autre, le kit SDK Recherche personnalisée Bing offre un moyen facile d’intégrer le service à vos applications. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Une instance Recherche personnalisée Bing. Consultez [Démarrage rapide : Créer votre première instance Recherche personnalisée Bing](quick-start.md) pour plus amples informations.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)

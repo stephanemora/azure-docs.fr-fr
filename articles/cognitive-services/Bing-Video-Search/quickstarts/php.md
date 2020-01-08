@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 481bc700f86dfd8a28c074134fd5dcc85bb748c4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74378613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448359"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Démarrage rapide : Rechercher des vidéos à l’aide de l’API REST Recherche de vidéos Bing et PHP
 
@@ -24,7 +24,7 @@ L’exemple de code a été écrit pour fonctionner sous PHP 5.6.
 
 Reportez-vous aux [informations de référence sur l’API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) pour obtenir des détails techniques sur les API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * PHP 5.6 ou version ultérieure
 
@@ -37,7 +37,7 @@ L’[API Recherche de vidéos Bing](https://docs.microsoft.com/rest/api/cognitiv
 1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
 2. Créez un projet PHP dans votre éditeur ou IDE favori.
 3. Ajoutez le code ci-dessous.
-4. Remplacez la valeur `accessKey` par une clé d’accès valide pour votre abonnement.
+4. Remplacez la valeur `$accessKey` par une clé d’accès valide pour votre abonnement. `$endpoint` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 5. Exécutez le programme.
 
 ```php

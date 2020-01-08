@@ -8,18 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: cbfb0ddb0ee901545443fc127f80a1837c7bde9b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 55ba025b9174f727a54ce0cd63da11c8661af91c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381985"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Démarrage rapide : Créer une application dans le portail LUIS
-
-[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 Dans ce guide de démarrage rapide, vous allez créer une application dans le portail LUIS. Vous commencez par créer les composants de base d’une application, les **intentions**, et les **entités**. Ensuite, vous testez l'application en fournissant un exemple d’énoncé utilisateur dans le panneau de test interactif afin d’obtenir l’intention prévue.
 
@@ -37,8 +35,8 @@ La création d’une application est gratuite et ne nécessite pas d’abonnemen
 
    |Nom du paramètre| Valeur | Objectif|
    |--|--|--|
-   |Nom|`myEnglishApp`|Nom d’application LUIS unique<br>required|
-   |Culture|**Anglais**|Langue des énoncés des utilisateurs, à savoir **en-us**<br>required|
+   |Name|`myEnglishApp`|Nom d’application LUIS unique<br>Obligatoire|
+   |Culture|**Anglais**|Langue des énoncés des utilisateurs, à savoir **en-us**<br>Obligatoire|
    |Description (Facultatif)|`App made with LUIS Portal`|Description de l’application<br>facultatif|
    |Ressource de prédiction (Facultatif) |-  |Ne sélectionnez pas. LUIS vous donne une clé de démarrage à utiliser gratuitement, pour la création et 1 000 requêtes de point de terminaison de prédiction. |
 
@@ -53,7 +51,7 @@ Une fois l’application LUIS créée, vous devez créer les intentions. Les int
 
 Les deux différentes _intentions_ de l’application sont alignées sur les intentions suivantes :
 
-|Intention|Exemple de texte d’utilisateur<br>connu en tant qu’_énoncé_|
+|Intentionnel|Exemple de texte d’utilisateur<br>connu en tant qu’_énoncé_|
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
@@ -82,7 +80,7 @@ Ajoutez les 15 exemples d'énoncés suivants à l’intention `FindForm`.
 |2|Où se trouve le formulaire de ressources humaines hrf-234591 ?|
 |3|hrf-345623, où est-il|
 |4|Est-il possible de m’envoyer hrf-345794|
-|5\.|Ai-je besoin de hrf-234695 pour postuler à un emploi en interne ?|
+|5|Ai-je besoin de hrf-234695 pour postuler à un emploi en interne ?|
 |6|Mon directeur doit-il savoir que je postule à un emploi avec hrf-234091|
 |7|Où envoyer hrf-234918 ? Est-ce que je reçois une réponse par messagerie ?|
 |8|hrf-234555|
@@ -165,7 +163,7 @@ Utilisez le volet interactif **Test** du portail LUIS pour valider que l’entit
 
    L'intention prédite supérieure est bien **FindForm** avec plus de 90 % (0,977) de confiance. L'entité **Human Resources Form Number** (numéro de formulaire de ressources humaines) est extraite avec la valeur hrf-234098.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez terminé ce démarrage rapide et si vous ne passez pas au démarrage rapide suivant, sélectionnez **Mes applications** dans le menu de navigation supérieur. Cochez ensuite la case à gauche de l’application dans la liste, puis sélectionnez **Supprimer** dans la barre d’outils contextuelle au-dessus de la liste.
 

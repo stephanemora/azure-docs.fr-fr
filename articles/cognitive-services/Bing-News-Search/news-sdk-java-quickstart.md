@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: def964dd932f8a41a877a3d9568a8ec4825874b8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b8c2ca3bf919d70123b7b5b6d13c0301e0c1fd13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383927"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383576"
 ---
 # <a name="quickstart-search-for-news-with-the-bing-news-search-sdk-for-java"></a>Démarrage rapide : Rechercher des actualités avec le SDK Recherche d’actualités Bing pour Java
 
 Utilisez ce guide de démarrage rapide pour démarrer une recherche d’actualités avec le SDK Recherche d’actualités Bing pour Java. Si l’outil Recherche d’actualités Bing a une API REST compatible avec la plupart des langages de programmation, le SDK offre quant à lui un moyen facile d’intégrer le service à vos applications. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Installez les dépendances du SDK Recherche d’actualités Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
 
@@ -57,7 +57,7 @@ import java.io.IOException;
 
 ## <a name="create-a-search-client-and-store-credentials"></a>Créer un client de recherche et stocker les informations d’identification
 
-1. Créez une méthode appelée `getClient()` qui retourne un nouveau client de recherche `NewsSearchAPIImpl`. Ajoutez votre point de terminaison comme premier paramètre du nouvel objet `NewsSearchAPIImpl`, et un nouvel objet `ServiceClientCredentials` pour le stockage de vos informations d’identification.
+1. Créez une méthode appelée `getClient()` qui retourne un nouveau client de recherche `NewsSearchAPIImpl`. Ajoutez votre point de terminaison comme premier paramètre du nouvel objet `NewsSearchAPIImpl`, et un nouvel objet `ServiceClientCredentials` pour le stockage de vos informations d’identification. 
 
     ```java
     public static NewsSearchAPIImpl getClient(final String subscriptionKey) {

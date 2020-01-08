@@ -1,25 +1,16 @@
 ---
-title: Superviser les conteneurs dans Azure Service Fabric avec les journaux Azure Monitor | Microsoft Docs
+title: Superviser les conteneurs avec les journaux d’activité Azure Monitor
 description: Utilisez les journaux Azure Monitor pour superviser les conteneurs qui sont exécutés dans les clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: d03d68560502821b9c343be983d9f7b5a83ed977
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d4231de13da3f8b2960bd4852136f803a97a546
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60321894"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614432"
 ---
 # <a name="monitor-containers-with-azure-monitor-logs"></a>Superviser les conteneurs avec les journaux d’activité Azure Monitor
  
@@ -57,5 +48,5 @@ L’agent permet de collecter plusieurs journaux d’activité propres aux conte
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur [la solution de conteneurs Journaux Azure Monitor](../azure-monitor/insights/containers.md).
 * En savoir plus sur l’orchestration des conteneurs dans Service Fabric : [Service Fabric et conteneurs](service-fabric-containers-overview.md)
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Journaux Azure Monitor
 * Configurez les journaux Azure Monitor pour paramétrer des règles d’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics

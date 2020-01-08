@@ -1,7 +1,6 @@
 ---
 title: Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 description: Cet article décrit les fonctionnalités de modèles de chemin DateTime personnalisés et de champs ou attributs personnalisés pour la sortie de stockage d’objets blob à partir de travaux Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426381"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Partitionnement personnalisé de sortie BLOB dans Azure Stream Analytics
 
@@ -28,7 +27,7 @@ Des champs ou attributs d’entrée personnalisés améliorent en aval le traite
 
 La clé de partition ou le nom de colonne utilisés pour partitionner des données d’entrée peuvent contenir des caractères alphanumériques avec des traits d’union, des traits de soulignement et des espaces. Il n’est pas possible d’utiliser des champs imbriqués en tant que clé de partition, sauf conjointement avec des alias. La clé de partition doit être NVARCHAR(MAX).
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Supposons qu’un travail prenne des données d’entrée de sessions utilisateur actives connectées à un service externe de jeu vidéo où les données ingérées contient une colonne **client_id** pour identifier les sessions. Pour partitionner les données par **client_id**, définissez le champ Modèle de chemin d’accès d’objet blob de façon à inclure un jeton de partition **{client_id}** dans les propriétés de sortie BLOB lors de la création d’un travail. Les données avec différentes valeurs **client_id** transitant par le travail Stream Analytics, les données de sortie sont enregistrées dans des dossiers distincts sur la base d’une seule valeur **client_id** par dossier.
 
@@ -81,7 +80,7 @@ Les jetons de spécificateur de format suivants peuvent être utilisés individu
 |{datetime:d}|Jour de 1 à 31|2|
 |{datetime:HH}|Heure au format 24 heures, de 00 à 23|10|
 |{datetime:mm}|Minutes de 00 à 24|06|
-|{datetime:m}|Minutes de 0 à 24|6\.|
+|{datetime:m}|Minutes de 0 à 24|6|
 |{datetime:ss}|Secondes de 00 à 60|08|
 
 Si vous ne souhaitez pas utiliser des modèles DateTime personnalisés, vous pouvez ajouter le jeton {date} et/ou {time} au préfixe de chemin. Vous obtenez ainsi une liste déroulante contenant les formats DateTime prédéfinis.
@@ -112,7 +111,7 @@ Une sortie personnalisée vous évite d’avoir à modifier les tables et à ajo
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Créez un compte de stockage, un groupe de ressources, un travail Stream Analytics et une source d’entrée en vous aidant du guide de démarrage rapide [Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md). Utilisez les mêmes exemples de données que dans le guide de démarrage rapide (également disponibles sur [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)).
 

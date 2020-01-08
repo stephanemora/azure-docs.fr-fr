@@ -7,17 +7,17 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 314a5302c76157810557036370a18ad6fb605033
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d82b2904f16cc9816a22caadba598a7a44bfa007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818034"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467644"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 ou ultérieur](https://www.python.org/downloads/).
@@ -27,7 +27,7 @@ ms.locfileid: "74818034"
     * Linux : Ubuntu 16.04, Ubuntu 18.04, Debian 9 sur x64.
 * Sur Linux, exécutez les commandes suivantes pour installer les packages requis :
 
-  * Sur Ubuntu :
+  * Sur Ubuntu :
 
     ```sh
     sudo apt-get update
@@ -134,7 +134,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
    Pour installer le package du kit SDK Speech, ouvrez un terminal. Faite réapparaître la palette de commandes (Ctrl+Maj+P) et entrez **Terminal : Créer un terminal intégré**.
    Dans le terminal qui s’ouvre, entrez la commande `python -m pip install azure-cognitiveservices-speech` ou la commande appropriée pour votre système.
 1. Pour exécuter l’exemple de code, cliquez avec le bouton droit dans l’éditeur. Sélectionnez **Run Python File in Terminal** (Exécuter le fichier Python dans le terminal).
-   Votre texte est converti en paroles et enregistré dans les données audio spécifiées.
+   Votre texte est converti en synthèse vocale et enregistré dans les données audio spécifiées.
 
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]

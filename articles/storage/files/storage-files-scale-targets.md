@@ -1,5 +1,5 @@
 ---
-title: Objectifs de performance et d’extensibilité d'Azure Files | Microsoft Docs
+title: Objectifs de performance et d’extensibilité d'Azure Files
 description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Files, y compris la capacité, le taux de demandes et les limites de bande passante entrante et sortante.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 060b4a8992ab1c48cceb9506b4f556d9098b9be0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452950"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -24,7 +24,7 @@ Les objectifs de performance et d’extensibilité répertoriés ici sont des ob
 
 La ressource parente d’un partage de fichiers Azure est un compte de stockage Azure. Un compte de stockage représente un pool de stockage dans Azure, qui peut être utilisé par plusieurs services de stockage, notamment Azure Files, pour stocker les données. Les autres services qui stockent les données dans des comptes de stockage Azure Blob, Azure Queue et Azure Table. Les objectifs suivants s’appliquent à tous les services de stockage qui stockent les données dans un compte de stockage :
 
-[!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+[!INCLUDE [azure-storage-account-limits-standard](../../../includes/azure-storage-account-limits-standard.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -46,7 +46,7 @@ Consultez la section [Objectifs de mise à l’échelle d’un compte de stockag
 [!INCLUDE [azure-storage-limits-filestorage](../../../includes/azure-storage-limits-filestorage.md)]
 
 > [!IMPORTANT]
-> Limites d’un compte de stockage s’appliquent à tous les partages. Vous pouvez scale up des comptes FileStorage au maximum uniquement si vous ne disposez que d’un seul partage par compte FileStorage.
+> Les limites d’un compte de stockage s’appliquent à tous les partages. Vous pouvez scale up des comptes FileStorage au maximum uniquement si vous ne disposez que d’un seul partage par compte FileStorage.
 
 ### <a name="file-share-and-file-scale-targets"></a>Partage de fichiers et objectifs de mise à l’échelle des fichiers
 

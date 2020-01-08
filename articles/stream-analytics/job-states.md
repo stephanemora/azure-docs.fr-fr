@@ -1,25 +1,24 @@
 ---
 title: États des tâches Azure Stream Analytics
 description: 'Cet article décrit les quatre états différents d’une tâche Stream Analytics : Exécution, Arrêté, Détérioré et Échec.'
-services: stream-analytics
 author: sidram
 ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c533463ff544dc315142f7fb95c34c67933f9614
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 454474333cac94dc25deae8196e9ba45bcb3a574
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444245"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359764"
 ---
 # <a name="azure-stream-analytics-job-states"></a>États des tâches Azure Stream Analytics
 
 Une tâche Stream Analytics peut être dans un de ces quatre états à un moment donné : Exécution, Arrêté, Détérioré et Échec. Vous pouvez trouver l’état de votre tâche sur la page Vue d’ensemble de la tâche Stream Analytics dans le portail Azure. 
 
-| État | Description | Actions recommandées |
+| State | Description | Actions recommandées |
 | --- | --- | --- |
 | **Exécution** | Votre tâche est en cours d’exécution sur des événements de lecture Azure provenant des sources d’entrée définies, elle les traite et écrit les résultats dans les récepteurs de sortie configurés. | Il est recommandé de suivre les performances de votre tâche en surveillant les [mesures clés](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). |
 | **Arrêté** | Votre tâche est arrêtée et ne traite pas les événements. | N/D | 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 48d2b36e35a2e0b41b1202beda9944339dc7530c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327115"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448628"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Démarrage rapide : Envoyer une requête de recherche à l’API REST Recherche d’entités Bing en utilisant Node.js
 
@@ -23,7 +23,7 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 Alors que cette application est écrite en JavaScript, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * La dernière version de [Node.js](https://nodejs.org/en/download/).
 
@@ -40,7 +40,7 @@ Alors que cette application est écrite en JavaScript, l’API est un service we
     let https = require ('https');
     ```
 
-2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et la requête de recherche.
+2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et la requête de recherche. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -87,7 +87,7 @@ Alors que cette application est écrite en JavaScript, l’API est un service we
 
 1. Créez une fonction appelée `Search` pour envoyer une requête de recherche. Dans cette requête, effectuez les étapes ci-après.
 
-   1. Créez un objet JSON qui contient vos paramètres de requête : utilisez `Get` pour la méthode et ajoutez vos informations d’hôte et de chemin. Ajoutez votre clé d’abonnement à l’en-tête `Ocp-Apim-Subscription-Key`. 
+   1. Créez un objet JSON qui contient vos paramètres de requête : utilisez `Get` pour la méthode et ajoutez vos informations d’hôte et de chemin. Ajoutez votre clé d’abonnement dans l’en-tête `Ocp-Apim-Subscription-Key`. 
    2. Utilisez `https.request()` pour envoyer la requête avec le gestionnaire de réponse créé précédemment, ainsi que vos paramètres de recherche.
     
       ```javascript

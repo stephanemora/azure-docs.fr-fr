@@ -1,20 +1,18 @@
 ---
 title: Tester des requêtes Azure Stream Analytics en local dans Visual Studio
 description: Cet article décrit comment tester des requêtes localement avec Azure Stream Analytics Tools pour Visual Studio.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 01383531293635af8c15f891928eec004e05b54d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c4854d050cce18082def436243a669ba09c474ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369658"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Tester des requêtes Stream Analytics localement avec Visual Studio
 
@@ -62,7 +60,7 @@ Vérifiez les résultats dans le dossier local.
 ### <a name="sample-input"></a>Exemple d’entrée
 Vous pouvez également collecter des exemples de données d’entrée à partir de vos sources d’entrée dans un fichier local. Cliquez avec le bouton droit sur le fichier de configuration d’entrée et sélectionnez **Exemple de données**. 
 
-![Exemple de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
+![Exemples de données](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
 Vous pouvez échantillonner uniquement une diffusion en continu de données à partir d’Event Hubs ou d’IoT Hubs. Les autres sources d’entrée ne sont pas prises en charge. Dans la boîte de dialogue contextuelle, entrez le chemin local utilisé pour enregistrer les exemples de données et sélectionnez **Échantillon**.
 
@@ -75,8 +73,8 @@ Vous pouvez voir la progression de l’opération dans la fenêtre **Sortie**.
 ## <a name="next-steps"></a>Étapes suivantes
 
 
-* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio](stream-analytics-quick-create-vs.md)
 * [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)
 * [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)
-* [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l'aide d'Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l'aide d'Azure DevOps](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Intégrer et développer en continu avec les outils Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

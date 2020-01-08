@@ -1,25 +1,14 @@
 ---
 title: Mettre à niveau un cluster Azure Service Fabric
 description: Découvrez comment mettre à niveau la version ou la configuration d’un cluster Azure Service Fabric.  Cet article explique comment définir le mode de mise à jour du cluster, mettre à niveau les certificats, ajouter des ports d’application et appliquer des correctifs de système d’exploitation, et décrit ce à quoi vous pouvez vous attendre une fois les mises à niveau effectuées
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/12/2018
-ms.author: atsenthi
-ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 156693a9c9a3950c16a620a2a43b1f36718c4133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434020"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 

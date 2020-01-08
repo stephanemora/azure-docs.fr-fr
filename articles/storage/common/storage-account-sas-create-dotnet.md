@@ -1,5 +1,6 @@
 ---
-title: Créer une SAP de compte avec .NET – Stockage Azure
+title: Créer une SAP de compte avec .NET
+titleSuffix: Azure Storage
 description: Découvrez comment créer une signature d’accès partagé (SAP) de compte à l’aide de la bibliothèque cliente .NET.
 services: storage
 author: tamram
@@ -9,12 +10,12 @@ ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aa93ee292ab95c68034ad595d6cda608d1886c0a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 46374c35e6810bf056272ab2be355676f7b028b8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460592"
 ---
 # <a name="create-an-account-sas-with-net"></a>Créer une SAP de compte avec .NET
 

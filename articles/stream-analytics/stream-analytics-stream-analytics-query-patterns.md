@@ -1,19 +1,18 @@
 ---
 title: Modèles de requête courants dans Azure Stream Analytics
 description: Cet article décrit un certain nombre de modèles de requête courants et de conceptions utiles dans les travaux Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.openlocfilehash: 729385a2ce9feb6e69f9be29c2175b403093be3f
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 61f9e128fa9299a743012e18882fe32591fdd3f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369947"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -507,7 +506,7 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 | "2014-01-01T06:01:05" |2 |
 | "2014-01-01T06:01:10" |3 |
 | "2014-01-01T06:01:15" |4 |
-| "2014-01-01T06:01:30" |5\. |
+| "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
 **Sortie (10 premières lignes)** :
@@ -520,7 +519,7 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 | 2014-01-01T14:01:15.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:20.000Z |2014-01-01T14:01:15.000Z |4 |
 | 2014-01-01T14:01:25.000Z |2014-01-01T14:01:15.000Z |4 |
-| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5\. |
+| 2014-01-01T14:01:30.000Z |2014-01-01T14:01:30.000Z |5 |
 | 2014-01-01T14:01:35.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:40.000Z |2014-01-01T14:01:35.000Z |6 |
 | 2014-01-01T14:01:45.000Z |2014-01-01T14:01:35.000Z |6 |
@@ -715,7 +714,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

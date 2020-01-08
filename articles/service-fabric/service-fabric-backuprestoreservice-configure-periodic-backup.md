@@ -1,25 +1,16 @@
 ---
-title: Présentation de la configuration de la sauvegarde périodique dans Azure Service Fabric | Microsoft Docs
+title: Présentation de la configuration de la sauvegarde périodique
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA45B4A-0258-4CB3-A825-7E8F70F28401
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 34c6495e094a1160f6ac75b9f098934d5cbce967
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232493"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610146"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -54,7 +45,7 @@ Une stratégie de sauvegarde se compose des configurations suivantes :
         ```
 
     2. **Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques dans la journée ou la semaine. La fréquence de planification peut être quotidienne ou hebdomadaire.
-        1. **_Quotidienne_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques de la journée. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Quotidienne_, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Par exemple, `0001-01-01T18:00:00` indique _06:00_ chaque jour, en ignorant la partie date _01-01-0001_. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_.
+        1. **_Quotidienne_ Planification de sauvegarde basée sur l’heure** : ce type de planification doit être utilisé si les sauvegardes doivent être effectuées à des heures spécifiques dans la semaine. Pour spécifier cela, définissez `ScheduleFrequencyType` sur _Quotidienne_, et `RunTimes` sur la liste des heures souhaitées pendant la journée au format ISO8601. La date spécifiée avec les heures sera ignorée. Par exemple, `0001-01-01T18:00:00` indique _06:00_ chaque jour, en ignorant la partie date _01-01-0001_. L’exemple ci-dessous illustre la configuration pour déclencher une sauvegarde quotidienne à _09:00_ et à _18:00_.
 
             ```json
             {
@@ -147,7 +138,7 @@ Dans Service Fabric, la relation entre l’application, le service et les partit
 ### <a name="overriding-backup-policy"></a>Remplacement de stratégie de sauvegarde
 Il peut y avoir un scénario où une sauvegarde de données avec la même planification de sauvegarde est requise pour tous les services de l’application, à l’exception de services spécifiques où il est nécessaire de disposer d’une sauvegarde de données utilisant une planification de fréquence supérieure, ou d’effectuer la sauvegarde vers un compte de stockage ou un partage de fichiers différents. Pour ces scénarios, le service de sauvegarde/restauration offre la possibilité de remplacer la stratégie propagée au niveau d’un service et d’une partition. Quand la stratégie de sauvegarde est associée à un _service_ ou à une _partition_, elle remplace une éventuelle stratégie de sauvegarde propagée.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Cet exemple utilise une configuration avec deux applications, _MyApp_A_ et _MyApp_B_. L’application _MyApp_A_ contient deux services fiables avec état, _SvcA1_ & _SvcA3_, et un service Reliable Actor, _ActorA2_. Le service _SvcA1_ contient trois partitions, tandis que les services _ActorA2_ et _SvcA3_ contiennent chacun deux partitions.  L’application _MyApp_B_ contient trois services fiables avec état, _SvcB1_, _SvcB2_, et _SvcB3_. Les services _SvcB1_ et _SvcB2_ contiennent chacun deux partitions, tandis que le service _SvcB3_ en contient trois.
 

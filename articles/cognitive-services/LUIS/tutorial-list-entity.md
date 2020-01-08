@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Entité de liste - LUIS'
+title: 'Tutoriel : Entité de liste - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Obtenez des données qui correspondent à une liste d’éléments prédéfinie. Chaque élément de la liste peut avoir des synonymes qui correspondent également exactement
 services: cognitive-services
@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/04/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 83644ac7144adaa664b13b6e7d7993c50da0e779
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 056c64657f42d56879928f518598206d45493f60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447780"
 ---
-# <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Didacticiel : Obtenir des données exactes correspondant au texte d’un énoncé avec une entité de liste
+# <a name="tutorial-get-exact-text-matched-data-from-an-utterance-with-list-entity"></a>Tutoriel : Obtenir des données exactes correspondant au texte d’un énoncé avec une entité de liste
 
 Ce tutoriel explique comment obtenir des données correspondant exactement à une liste d’éléments prédéfinie.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -51,7 +49,7 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
 
 ## <a name="import-example-json-and-add-utterances"></a>Importer l’exemple .json et ajouter des énoncés
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/tutorials/machine-learned-entity/pizza-tutorial-with-entities.json).
 
     [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -98,7 +96,7 @@ Voici des exemples de noms principaux et de synonymes :
 
 [!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
-## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publier l’application vers la requête à partir du point de terminaison
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Publier l’application pour faire des requêtes à partir du point de terminaison
 
 [!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 

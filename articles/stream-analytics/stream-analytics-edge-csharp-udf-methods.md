@@ -1,37 +1,34 @@
 ---
 title: Développer des fonctions .NET Standard pour des travaux Azure Stream Analytics (préversion)
 description: Découvrez comment écrire des fonctions C# définies par l’utilisateur pour des travaux Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
-ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426313"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Développer des fonctions .NET Standard définies par l’utilisateur pour des travaux Azure Stream Analytics (préversion)
 
 Azure Stream Analytics offre un langage de requête de type SQL pour effectuer des transformations et des calculs sur des flux de données d’événement. De nombreuses fonctions sont intégrées, mais certains scénarios complexes nécessitent davantage de flexibilité. Avec les fonctions .NET Standard définies par l’utilisateur, vous pouvez appeler vos propres fonctions écrites dans n’importe quel langage .NET Standard (C#, F#, etc.) pour étendre le langage de requête Stream Analytics. Les fonctions définies par l’utilisateur vous permettent d’effectuer des calculs mathématiques complexes, d’importer des modèles Machine Learning personnalisés à l’aide de ML.NET et d’utiliser une logique personnalisée d’imputation pour les données manquantes. La fonctionnalité de fonction définie par l’utilisateur pour les travaux Stream Analytics est actuellement disponible en préversion et ne doit pas être utilisée dans des charges de travail de production.
 
 La fonction .NET définie par l’utilisateur pour les travaux cloud est disponible dans les régions suivantes :
-* USA Centre-Ouest (disponible)
-* Europe Nord (disponible)
-* USA Est (disponible)
-* USA Ouest (déploiement à venir)
-* USA Est 2 (déploiement à venir)
-* Europe Ouest (déploiement à venir)
+* Centre-USA Ouest
+* Europe Nord
+* USA Est
+* USA Ouest
+* USA Est 2
+* Europe Ouest
 
 Si vous êtes intéressé par l’utilisation de cette fonctionnalité dans une autre région, vous pouvez [demander l’accès](https://aka.ms/ccodereqregion).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Grâce aux outils Visual Studio pour Azure Stream Analytics, vous pouvez facilement écrire des fonctions définies par l’utilisateur, tester vos travaux localement (même en mode hors connexion) et publier votre travail Stream Analytics dans Azure. Une fois publié sur Azure, vous pouvez déployer votre travail sur des appareils IoT à l’aide d’IoT Hub.
 
 Il existe trois façons d’implémenter des fonctions définies par l’utilisateur :
@@ -73,7 +70,7 @@ Pour référencer un projet local :
 6. Configurez le chemin d’assembly dans le fichier de configuration du travail, `JobConfig.json`. Définissez le chemin d’assembly sur **Référence de projet locale ou code-behind**.
 7. Regénérez le projet de fonction et le projet Azure Stream Analytics.  
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans cet exemple, **UDFTest** est un projet de bibliothèque de classes C# et **ASAUDFDemo** est le projet Azure Stream Analytics qui référence **UDFTest**.
 
@@ -143,6 +140,6 @@ La préversion des fonctions définies par l’utilisateur a les limitations sui
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
-* [Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
+* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
+* [Tutoriel : Fonctions JavaScript définies par l’utilisateur Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
 * [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)

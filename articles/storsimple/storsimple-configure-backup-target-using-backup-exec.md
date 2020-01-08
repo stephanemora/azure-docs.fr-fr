@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: matd
-ms.openlocfilehash: 85c04b6ea3e40f1f1dcd12eb5d6f4a8f53836867
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4dcda65384190050e11f1bf9b15c706b0e38c6b3
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "67876786"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561641"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure StorSimple est une solution de stockage cloud hybride de Microsoft. StorSimple s’attaque à la complexité de la croissance exponentielle des données en utilisant un compte de stockage Azure en tant qu’extension de la solution locale et en hiérarchisant automatiquement les données sur le stockage local et sur le stockage cloud.
 
@@ -37,7 +37,7 @@ Les informations dans cet article s’adressent principalement aux administrateu
 
 ## <a name="supported-versions"></a>Versions prises en charge
 
--   [Backup Exec 16 et versions ultérieures](http://backupexec.com/compatibility)
+-   [Backup Exec 16 et versions ultérieures](https://www.veritas.com/content/support/en_US/article.100040087)
 -   [StorSimple Update 3 et versions ultérieures](storsimple-overview.md#storsimple-workload-summary)
 
 
@@ -73,7 +73,7 @@ StorSimple offre les avantages suivants :
 -   Algorithmes de déduplication et de compression uniques qui tirent parti du cloud pour atteindre des niveaux de déduplication inégalés
 -   Haute disponibilité
 -   Géoréplication reposant sur la fonctionnalité de géoréplication Azure
--   Intégration à Azure
+-   Intégration d’Azure
 -   Chiffrement de données dans le cloud
 -   Récupération d’urgence et conformité améliorées
 
@@ -84,7 +84,7 @@ Pour plus d'informations sur StorSimple, consultez l'article [StorSimple série�
 > [!IMPORTANT]
 > L’utilisation d’un appareil StorSimple comme cible de sauvegarde n’est prise en charge que pour StorSimple 8000 Update 3 et les versions ultérieures.
 
-## <a name="architecture-overview"></a>Présentation de l'architecture
+## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 
 Les tableaux ci-après contiennent les informations d’aide initiales concernant l’architecture liée aux différents modèles d’appareil.
 
@@ -310,7 +310,7 @@ La figure ci-après illustre le mappage d’un volume classique sur un travail d
 
 Voici un exemple de planification de rotation GFS pour quatre semaines, mensuellement et annuellement :
 
-| Fréquence/type de sauvegarde | Complet | Incrémentielle (jours 1-5)  |   
+| Fréquence/type de sauvegarde | Complète | Incrémentielle (jours 1-5)  |   
 |---|---|---|
 | Hebdomadaire (semaines 1-4) | Samedi | Lundi-vendredi |
 | Mensuelle  | Samedi  |   |
@@ -381,7 +381,7 @@ Le tableau suivant montre comment configurer des sauvegardes à exécuter sur le
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>Exemple de planification GFS : planification de rotation GFS hebdomadaire, mensuelle et annuelle
 
-| Semaine | Complet | Incrémentielle jour 1 | Incrémentielle jour 2 | Incrémentielle jour 3 | Incrémentielle jour 4 | Incrémentielle jour 5 |
+| Week | Complète | Incrémentielle jour 1 | Incrémentielle jour 2 | Incrémentielle jour 3 | Incrémentielle jour 4 | Incrémentielle jour 5 |
 |---|---|---|---|---|---|---|
 | Semaine 1 | Volume RAID local  | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local | Volume RAID local |
 | Semaine 2 | StorSimple semaines 2 à 4 |   |   |   |   |   |
@@ -439,7 +439,7 @@ La section ci-après décrit comment créer un bref script pour déclencher et s
 
 ![Diagramme du cycle de vie de sauvegarde](./media/storsimple-configure-backup-target-using-backup-exec/backuplifecycle.png)
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 -   Le serveur qui exécute le script doit avoir accès aux ressources du cloud Azure.
 -   Le compte d’utilisateur doit disposer des autorisations nécessaires.
@@ -478,7 +478,7 @@ Un sinistre peut être dû à plusieurs facteurs. Le tableau ci-après répertor
 | Défaillance du serveur Backup Exec | Les opérations de sauvegarde et de restauration sont interrompues. | Régénérez le serveur de sauvegarde et effectuez la restauration de base de données en suivant les instructions de l’article [How to do a manual Backup and Restore of Backup Exec (BEDB) database (Procédure de sauvegarde et de restauration manuelle d’une base de données Backup Exec (BEDB))](http://www.veritas.com/docs/000041083). | Vous devez reconstruire ou restaurer le serveur Backup Exec sur le site de récupération d’urgence. Restaurez la base de données à partir du point de défaillance le plus récent. Si la base de données Backup Exec restaurée n’est pas synchronisée avec vos derniers travaux de sauvegarde, vous devez procéder à une indexation et à un catalogage. Cette nouvelle analyse des index et catalogues peut entraîner l’analyse et l’extraction de tous les jeux de données de sauvegarde du niveau cloud vers un niveau d’appareil local. Ce processus peut donc prendre un certain temps. |
 | Défaillance du site entraînant la perte du serveur de sauvegarde et de l’appareil StorSimple | Les opérations de sauvegarde et de restauration sont interrompues. | Commencez par restaurer StorSimple, puis restaurez Backup Exec. | Commencez par restaurer StorSimple, puis restaurez Backup Exec. Si vous devez procéder à une restauration après la récupération de l’appareil, les jeux de données de travail complets sont récupérés sur le nouvel appareil à partir du cloud. Toutes les opérations sont exécutées à la vitesse du cloud. |
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 
 Les documents référencés dans cet article sont les suivants :
 

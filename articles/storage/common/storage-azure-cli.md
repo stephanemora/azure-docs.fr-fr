@@ -1,5 +1,5 @@
 ---
-title: Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Docs
+title: Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 description: Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 46ae70bf4f1c2fe0276a3327ff37650dd57341d0
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460461"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -29,7 +29,7 @@ Les exemples dans le guide partent du principe que vous utilisez le shell Bash s
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il suppose également que vous êtes en mesure de satisfaire les exigences de création de compte spécifiées ci-dessous pour Azure et le service Stockage.
 
 ### <a name="accounts"></a>Comptes
@@ -253,7 +253,7 @@ Vous pouvez définir l’un des trois niveaux d’accès en lecture pour un nouv
 
 Pour plus d’informations, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md).
 
-### <a name="upload-a-blob-to-a-container"></a>Chargement d’un objet blob dans un conteneur
+### <a name="upload-a-blob-to-a-container"></a>Charger un objet blob dans un conteneur
 Le Stockage Blob Azure prend en charge les objets blob de blocs, d’ajout et de page. Chargez des objets blob dans un conteneur à l’aide de la commande `blob upload` :
 
 ```azurecli

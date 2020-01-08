@@ -1,20 +1,18 @@
 ---
 title: Afficher les tâches Azure Stream Analytics dans Visual Studio
 description: Découvrez comment afficher, lancer, arrêter et exporter vos travaux Azure Stream Analytics avec Visual Studio, ainsi que tester les connexions et vérifier les résultats.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: d73955436e651dfdb9db9d602481213fcc2cf502
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ad35ed342dfd40b98d61919749479ec5612cdd4f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369624"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics
 
@@ -83,6 +81,6 @@ Les résultats de l’opération **Tester la connexion** s’affichent dans la f
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Surveiller et gérer les tâches Azure Stream Analytics à l’aide de Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
-* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio](stream-analytics-quick-create-vs.md)
-* [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Démarrage rapide : Créer un travail Stream Analytics à l'aide de Visual Studio](stream-analytics-quick-create-vs.md)
+* [Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Intégrer et développer en continu avec les outils Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)

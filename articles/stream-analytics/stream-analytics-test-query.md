@@ -1,24 +1,23 @@
 ---
 title: Tester une tâche Azure Stream Analytics avec des exemples de données
 description: Cet article explique comment utiliser le portail Azure pour tester une tâche Azure Stream Analytics, des exemples d’entrées et charger des exemples de données.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 85d32e96335a9fffa874f1f370f72883ff420df0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891751"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369862"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>Tester une tâche Azure Stream Analytics avec des exemples de données
 
-Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local sur le portail Azure. Vous pouvez également tester les requêtes localement à partir de vos exemples de données locaux ou de vos données actives dans [Visual Studio](stream-analytics-live-data-local-testing.md) et [Visual Studio Code](vscode-local-run.md). 
+Dans Azure Stream Analytics, vous pouvez tester votre requête sans démarrer ou arrêter votre travail. Vous pouvez tester des requêtes sur des données entrantes à partir de votre récepteur d’entrée ou des exemples de données chargés à partir d’un fichier local sur le portail Azure. Vous pouvez également tester les requêtes localement à partir de vos exemples de données locaux ou de vos données actives dans [Visual Studio](stream-analytics-live-data-local-testing.md) et [Visual Studio Code](visual-studio-code-local-run-live-input.md).
 
 ## <a name="sample-incoming-data-from-input"></a>Exemple de données entrantes à partir d’une entrée
 
@@ -30,7 +29,7 @@ Azure Stream Analytics récupère automatiquement les événements à partir de 
 
 3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête. 
 
-4. Pour afficher un exemple de liste d’événements entrants, sélectionnez l’icône d’entrée avec un fichier et les exemples d’événements s’affichent automatiquement dans **l’aperçu d’entrée**. 
+4. Pour afficher un exemple de liste d’événements entrants, sélectionnez l’icône d’entrée avec un fichier et les exemples d’événements s’affichent automatiquement dans **l’aperçu d’entrée**.
 
    a. Le type de sérialisation de vos données est automatiquement détecté (JSON ou CSV). Vous pouvez le modifier manuellement en JSON, CSV, AVRO, en modifiant l’option dans le menu déroulant.
     

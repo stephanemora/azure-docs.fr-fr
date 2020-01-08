@@ -1,25 +1,24 @@
 ---
 title: Traiter des flux de données IoT en temps réel à l’aide d’Azure Stream Analytics
 description: Flux de données et balises de capteur IoT avec analyses de flux et traitement des données en temps réel
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/26/2019
-ms.openlocfilehash: 1cc9c6dbb700664e732a67245563e9a211456767
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0755131f7d8071e37eadc1339ebc5e122725fa71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426242"
 ---
 # <a name="process-real-time-iot-data-streams-with-azure-stream-analytics"></a>Traiter des flux de données IoT en temps réel à l’aide d’Azure Stream Analytics
 
 Dans cet article, vous allez découvrir comment créer une logique de traitement de flux pour collecter des données à partir d’appareils IoT (Internet des objets). Vous allez recourir à un cas d’utilisation réel de l’IoT pour découvrir comment générer votre solution rapidement et à moindre coût.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Créez un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/) gratuit.
 * Téléchargez des exemples de fichiers de requête et de données à partir de [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot).
@@ -69,7 +68,7 @@ Notez qu’un aperçu des données est automatiquement renseigné dans la table 
 
 ![Aperçu des exemples de données d’entrée](./media/stream-analytics-get-started-with-iot-devices/input-preview.png)
 
-### <a name="query-archive-your-raw-data"></a>Requête : Archiver vos données brutes
+### <a name="query-archive-your-raw-data"></a>Requête : Archiver vos données brutes
 
 La forme de requête la plus simple est une requête directe qui archive toutes les données d’entrée dans sa sortie désignée. Cette requête est la requête par défaut renseignée dans une nouvelle tâche Azure Stream Analytics.
 
@@ -86,7 +85,7 @@ Sélectionnez **Tester la requête** et affichez les résultats dans la table **
 
 ![Résultat de test pour une requête Stream Analytics](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
-### <a name="query-filter-the-data-based-on-a-condition"></a>Requête : Filtrer les données en fonction d’une condition
+### <a name="query-filter-the-data-based-on-a-condition"></a>Requête : Filtrer les données en fonction d’une condition
 
 Essayons de filtrer les résultats en fonction d’une condition. Nous souhaitons limiter les résultats aux événements qui proviennent de « SensorA ».
 
@@ -107,7 +106,7 @@ Collez la requête dans l’éditeur et sélectionnez **Tester la requête** pou
 
 ![Filtrage d’un flux de données](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 
-### <a name="query-alert-to-trigger-a-business-workflow"></a>Requête : Alerte déclenchant un flux de travail métier
+### <a name="query-alert-to-trigger-a-business-workflow"></a>Requête : Alerte déclenchant un flux de travail métier
 
 Nous allons maintenant affiner notre requête. Pour chaque type de capteur, nous souhaitons surveiller la température moyenne par fenêtre de 30 secondes et afficher les résultats uniquement si la température moyenne se situe au-dessus de 100 degrés.
 
@@ -128,7 +127,7 @@ HAVING Avg(temp)>100
 
 Les résultats doivent contenir uniquement 245 lignes et répertorier les noms des capteurs pour lesquels la température moyenne est supérieure à 100 degrés. Dans cette requête, nous avons regroupé le flux d’événements en fonction du champ **dspl**, qui correspond au nom du capteur, et par valeur **Intervalle de temps** de 30 secondes. Les requêtes temporelles doivent indiquer le mode de calcul du temps. À l’aide de la clause **TIMESTAMP BY**, vous avez spécifié la colonne **OUTPUTTIME** pour associer les valeurs de temps avec l’ensemble des calculs temporels. Pour obtenir des informations détaillées, consultez [Gestion du temps](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) et [Fonctions de fenêtrage](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics).
 
-### <a name="query-detect-absence-of-events"></a>Requête : Détection de l’absence d’événements
+### <a name="query-detect-absence-of-events"></a>Requête : Détection de l’absence d’événements
 
 Comment écrire une requête pour rechercher une absence d’événements d’entrée ? Recherchons la dernière fois qu’un capteur a envoyé des données, puis qu’il n’a pas envoyé d’événements au cours des 5 secondes suivantes.
 

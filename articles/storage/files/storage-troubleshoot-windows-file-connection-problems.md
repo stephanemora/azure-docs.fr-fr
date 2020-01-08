@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 86b4b19ca80b7dfb2bd9a1a56069fe3d347377ec
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a5ab0b0ae76f3c646df42953c1602c63a274824
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457396"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -151,7 +151,7 @@ Vous n’avez pas accès
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
-Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+Accédez au compte de stockage où se trouve le partage de fichiers Azure, cliquez sur **Contrôle d’accès (IAM)** et vérifiez que votre compte d’utilisateur a accès au compte de stockage. Pour en savoir plus, consultez [Guide pratique pour sécuriser votre compte de stockage avec le contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 ### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Cause 2 : Des règles de pare-feu ou de réseau virtuel sont activées sur le compte de stockage
 
@@ -225,7 +225,7 @@ La commande Net use interprète une barre oblique (/) comme une option de ligne 
 
 Vous pouvez utiliser l’une des étapes suivantes pour contourner le problème :
 
-- Exécutez la commande PowerShell suivante :
+- Exécutez la commande PowerShell suivante :
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
@@ -244,7 +244,7 @@ Les lecteurs sont montés par l’utilisateur. Si vous n’exécutez pas l’app
 
 ### <a name="solution"></a>Solution
 
-Utilisez l'une des solutions suivantes :
+Utilisez l’une des solutions suivantes :
 
 -   Montez le lecteur depuis le compte utilisateur qui dispose de l’application. Vous pouvez utiliser un outil tel que PsExec.
 - Transmettez le nom et la clé du compte de stockage dans les paramètres de nom d’utilisateur et de mot de passe de la commande Net use.
@@ -266,7 +266,7 @@ Lorsqu’un fichier est copié sur le réseau, le fichier est déchiffré sur l�
 Ce problème peut se survenir si vous utilisez le système de fichiers EFS (Encrypting File System). Les fichiers chiffrés BitLocker peuvent être copiés vers Azure Files. Toutefois, Azure Files ne prend pas en charge le système de fichiers EFS NTFS.
 
 ### <a name="workaround"></a>Solution de contournement
-Pour copier un fichier sur le réseau, vous devez d’abord le déchiffrer. Utilisez l’une des méthodes suivantes :
+Pour copier un fichier sur le réseau, vous devez d’abord le déchiffrer. Appliquez l'une des méthodes suivantes :
 
 - Utilisez la commande **copy /d**. Les fichiers chiffrés peuvent ainsi être enregistrés comme fichiers déchiffrés une fois à destination.
 - Définissez la clé de Registre suivante :

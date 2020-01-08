@@ -1,5 +1,5 @@
 ---
-title: Convertir les disques non managés d’une machine virtuelle Linux dans Azure en disques managés – Disques managés Azure
+title: Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 description: Guide pratique pour convertir les disques non managés d’une machine virtuelle Linux en disques managés à l’aide d’Azure CLI dans le modèle de déploiement Resource Manager
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 5464dd2ab2ab7c783945cc068a1347d7ef9ad3ab
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 24024bc66e10937f1ae2fdc5130ffcd8c76c1763
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430989"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 
@@ -94,7 +94,7 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
 
 Vous pouvez également convertir des disques non managés en disques managés à l’aide du portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
 3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
 4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques managés**.

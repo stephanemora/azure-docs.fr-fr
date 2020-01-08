@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: d93c6333b811885eec37e8401bee27afeedf1475
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 82f2acb811bcb239f6329ab8d8b4008e13ac6490
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446748"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Démarrage rapide : Générer, déployer et utiliser un modèle personnalisé pour la traduction
 
 Cet article fournit des instructions détaillées permettant de créer un système de traduction avec Custom Translator.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Pour utiliser le portail [Custom Translator](https://portal.customtranslator.azure.ai), vous devez avoir un [compte Microsoft](https://signup.live.com) ou un [compte Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (compte d’organisation hébergé sur Azure) pour vous connecter.
 
@@ -37,7 +37,7 @@ Dans la page d’accueil du portail Custom Translator, cliquez sur New project (
 
 ## <a name="upload-documents"></a>Chargement de documents
 
-Ensuite, chargez les jeux de documents d’[entraînement](training-and-model.md#training-dataset-for-custom-translator), de [paramétrage](training-and-model.md#tuning-dataset-for-custom-translator) et de [test](training-and-model.md#testing-dataset-for-custom-translator). Vous pouvez charger à la fois des documents [parallèles](what-are-parallel-documents.md) et variés. Vous pouvez également charger un [dictionnaire](what-is-dictionary.md).
+Ensuite, chargez les jeux de documents d’[entraînement](training-and-model.md#training-document-type-for-custom-translator), de [paramétrage](training-and-model.md#tuning-document-type-for-custom-translator) et de [test](training-and-model.md#testing-dataset-for-custom-translator). Vous pouvez charger à la fois des documents [parallèles](what-are-parallel-documents.md) et variés. Vous pouvez également charger un [dictionnaire](what-is-dictionary.md).
 
 Vous pouvez charger des documents à partir de l’onglet des documents ou de la page propre à un projet.
 
@@ -45,13 +45,13 @@ Vous pouvez charger des documents à partir de l’onglet des documents ou de la
 
 Lors du chargement des documents, choisissez le type de document (entraînement, paramétrage ou test) et la paire de langues. Lors du chargement des documents parallèles, vous devez également spécifier un nom de document. Pour plus d’informations, visitez [Charger un document](how-to-upload-document.md).
 
-## <a name="create-a-model"></a>Création d’un modèle
+## <a name="create-a-model"></a>Créer un modèle
 
 Lorsque vous avez chargé tous les documents qu’il vous faut, l’étape suivante consiste à créer votre modèle.
 
-Sélectionnez le projet que vous avez créé. Vous voyez tous les documents que vous avez chargés qui partagent une paire de langues avec ce projet. Sélectionnez les documents que vous souhaitez inclure dans votre modèle. Vous pouvez sélectionner des données d’[entraînement](training-and-model.md#training-dataset-for-custom-translator), de [paramétrage](training-and-model.md#tuning-dataset-for-custom-translator) et de [test](training-and-model.md#testing-dataset-for-custom-translator), ou sélectionner juste les données d’entraînement et laisser Custom Translator générer automatiquement les jeux de paramétrage et de test pour votre modèle.
+Sélectionnez le projet que vous avez créé. Vous voyez tous les documents que vous avez chargés qui partagent une paire de langues avec ce projet. Sélectionnez les documents que vous souhaitez inclure dans votre modèle. Vous pouvez sélectionner des données d’[entraînement](training-and-model.md#training-document-type-for-custom-translator), de [paramétrage](training-and-model.md#tuning-document-type-for-custom-translator) et de [test](training-and-model.md#testing-dataset-for-custom-translator), ou sélectionner juste les données d’entraînement et laisser Custom Translator générer automatiquement les jeux de paramétrage et de test pour votre modèle.
 
-![Création d’un modèle](media/quickstart/ct-how-to-train.png)
+![Créer un modèle](media/quickstart/ct-how-to-train.png)
 
 Quand vous avez fini de sélectionner les documents de votre choix, cliquez sur le bouton Créer un modèle pour créer votre modèle et commencer à l’entraîner. Vous pouvez voir l’état de votre entraînement et les détails de tous les modèles que vous avez entraînés sous l’onglet Modèles.
 

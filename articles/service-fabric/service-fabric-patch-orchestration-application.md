@@ -1,9 +1,9 @@
 ---
-title: Corriger le système d’exploitation Windows dans votre cluster Service Fabric | Microsoft Docs
+title: Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 description: Cet article explique comment automatiser les mises à jour correctives du système d’exploitation sur un cluster Service Fabric à l’aide de Patch Orchestration Application (application d’orchestration des correctifs).
 services: service-fabric
 documentationcenter: .net
-author: khandelwalbrijeshiitr
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
-ms.author: brkhande
-ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: atsenthi
+ms.openlocfilehash: 3115c65c7027f5624b7b60b9be702ee4192d8cb6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592531"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464450"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -63,7 +63,7 @@ POA est composé des sous-éléments suivants :
 > [!NOTE]
 > POA utilise le service Gestionnaire des réparations Service Fabric pour désactiver ou activer le nœud et effectuer des vérifications d’intégrité. La tâche de réparation créée par POA suit la progression de l’exécution de Windows Update pour chaque nœud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 > [!NOTE]
 > La version minimale de .NET Framework requise est la version 4.6.
@@ -157,9 +157,9 @@ Vous pouvez configurer le comportement de POA pour répondre à vos besoins. Rem
 
 | Paramètre        | Type                          | Détails |
 |:-|-|-|
-|MaxResultsToCache    |long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br><br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> &nbsp;&nbsp;- Le nombre de nœuds est 20. <br> &nbsp;&nbsp;- Les mises à jour effectuées sur un nœud sont au nombre de 5 par mois. <br> &nbsp;&nbsp;- Le nombre maximal de résultats par opération est 10. <br> &nbsp;&nbsp;- Les résultats des trois derniers mois doivent être stockés. |
+|MaxResultsToCache    |Long                              | Nombre maximal de résultats d’exécution de Windows Update à mettre en cache. <br><br>La valeur par défaut est 3 000, en supposant ce qui suit : <br> &nbsp;&nbsp;- Le nombre de nœuds est 20. <br> &nbsp;&nbsp;- Les mises à jour effectuées sur un nœud sont au nombre de 5 par mois. <br> &nbsp;&nbsp;- Le nombre maximal de résultats par opération est 10. <br> &nbsp;&nbsp;- Les résultats des trois derniers mois doivent être stockés. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indique la stratégie que le service Coordinateur doit utiliser pour installer les mises à jour Windows Update sur les nœuds du cluster Service Fabric.<br><br>Les valeurs autorisées sont les suivantes : <br>*NodeWise* : Les mises à jour Windows s’installent de façon séquentielle, nœud après nœud. <br> *UpgradeDomainWise* : Les mises à jour Windows s’installent sur un domaine de mise à jour à la fois. (Au maximum, tous les nœuds appartenant à un domaine de mise à jour peuvent bénéficier d’une mise à jour Windows.)<br><br> Pour déterminer la stratégie la mieux adaptée à votre cluster, consultez la section [FAQ](#frequently-asked-questions).
-|LogsDiskQuotaInMB   |long  <br> (Par défaut : *1024*)               | Taille maximale en Mo des journaux d’activité de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
+|LogsDiskQuotaInMB   |Long  <br> (Par défaut : *1024*)               | Taille maximale en Mo des journaux d’activité de l’application d’orchestration des correctifs qui peuvent être conservés localement sur des nœuds.
 | WUQuery               | string<br>(Par défaut : *IsInstalled=0*)                | Requête pour obtenir les mises à jour Windows Update. Pour plus d’informations, voir [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx).
 | InstallWindowsOSOnlyUpdates | *Booléen* <br> (par défaut : false)                 | Utilisez cet indicateur pour contrôler les mises à jour qui doivent être téléchargées et installées. Les valeurs suivantes sont autorisées <br>True : installe uniquement les mises à jour du système d’exploitation Windows.<br>False : installe toutes les mises à jour disponibles sur l’ordinateur.          |
 | WUOperationTimeOutInMinutes | Int <br>(Par défaut : *90*)                   | Spécifie le délai d’expiration de toute opération de Windows Update (rechercher, télécharger ou installer). Si l’opération n’est pas terminée dans le délai imparti, elle est abandonnée.       |
@@ -353,11 +353,11 @@ POA publie également des rapports d’intégrité concernant Node Agent Service
 
    Si le service Gestionnaire des réparations est introuvable sur le cluster, un rapport d’intégrité de niveau avertissement est généré concernant le Service Coordinateur.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q : Pourquoi mon cluster présente-t-il un état d’erreur lorsque POA est en cours d’exécution ?**
 
-R : Durant le processus d’installation, POA désactive ou redémarre des nœuds, ce qui peut entraîner temporairement un cluster défectueux.
+A : Durant le processus d’installation, POA désactive ou redémarre des nœuds, ce qui peut entraîner temporairement un cluster défectueux.
 
 Selon la stratégie de l’application, une opération de mise à jour corrective peut entraîner la dégradation d’un nœud isolé *ou* d’un domaine de mise à jour entier.
 
@@ -371,15 +371,15 @@ Si le problème persiste, voir la section Résolution des problèmes.
 
 **Q : Que puis-je faire si POA est dans un état d’avertissement ?**
 
-R : Vérifiez si un rapport d’intégrité publié concernant l’application indique la cause première. En règle générale, l’avertissement contient des détails concernant le problème. Si le problème est temporaire, l’application est supposée récupérer automatiquement.
+A : Vérifiez si un rapport d’intégrité publié concernant l’application indique la cause première. En règle générale, l’avertissement contient des détails concernant le problème. Si le problème est temporaire, l’application est supposée récupérer automatiquement.
 
 **Q : Que faire si mon cluster est défectueux et que je dois effectuer une mise à jour urgente du système d’exploitation ?**
 
-R : POA n’installe pas de mises à jour lorsque le cluster est défectueux. Essayez de ramener votre cluster à un état sain pour débloquer le flux de travail de POA.
+A : POA n’installe pas de mises à jour lorsque le cluster est défectueux. Essayez de ramener votre cluster à un état sain pour débloquer le flux de travail de POA.
 
 **Q : Dois-je définir TaskApprovalPolicy en tant que « NodeWise » ou « UpgradeDomainWise » pour mon cluster ?**
 
-R : Le paramètre « UpgradeDomainWise » accélère la réparation globale du cluster en corrigeant en parallèle tous les nœuds qui appartiennent à un domaine de mise à jour. Pendant le processus, les nœuds qui appartiennent à un domaine de mise à jour entier ne sont pas disponibles (état [*Désactivé*](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
+A : Le paramètre « UpgradeDomainWise » accélère la réparation globale du cluster en corrigeant en parallèle tous les nœuds qui appartiennent à un domaine de mise à jour. Pendant le processus, les nœuds qui appartiennent à un domaine de mise à jour entier ne sont pas disponibles (état [*Désactivé*](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)).
 
 En revanche, le paramètre « NodeWise » ne corrige qu’un seul nœud à la fois, ce qui implique que la mise à jour corrective globale du cluster peut prendre plus de temps. Toutefois, au maximum un nœud est indisponible (en état *Désactivé*) pendant le processus de mise à jour corrective.
 
@@ -387,7 +387,7 @@ Si votre cluster peut tolérer l’exécution sur le nombre N-1 de domaines de m
 
 **Q : Combien de temps prend la correction d’un nœud ?**
 
-R : La mise à jour corrective d’un nœud peut prendre de quelques minutes (par exemple, pour les [mises à jour de définitions de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) à plusieurs heures (par exemple, pour les [mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
+A : La mise à jour corrective d’un nœud peut prendre de quelques minutes (par exemple, pour les [mises à jour de définitions de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) à plusieurs heures (par exemple, pour les [mises à jour cumulatives de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Le temps nécessaire pour appliquer un correctif à un nœud dépend principalement des éléments suivants : 
  - Taille des mises à jour.
  - Nombre de mises à jour qui doivent être appliquées dans une fenêtre de mise à jour corrective.
  - Temps nécessaire pour installer les mises à jour, redémarrer le nœud (si nécessaire), puis achever les étapes d’installation après redémarrage.
@@ -395,7 +395,7 @@ R : La mise à jour corrective d’un nœud peut prendre de quelques minutes (pa
 
 **Q : Combien de temps faut-il pour appliquer un correctif à un cluster entier ?**
 
-R : Le temps nécessaire pour appliquer un correctif à un cluster entier dépend des éléments suivants :
+A : Le temps nécessaire pour appliquer un correctif à un cluster entier dépend des éléments suivants :
 
 - Temps nécessaire pour appliquer un correctif à un nœud.
 
@@ -411,19 +411,19 @@ R : Le temps nécessaire pour appliquer un correctif à un cluster entier dépen
 
 **Q : Pourquoi certaines mises à jour sont-elles affichées dans les résultats Windows Update obtenus via les API REST, et non dans l’historique Windows Update de l’ordinateur ?**
 
-R : Certaines mises à jour de produits s’affichent uniquement dans leur propre historique des mises à jour ou des correctifs. Par exemple, les mises à jour de Windows Defender peuvent apparaître ou non dans l’historique de Windows Update sur Windows Server 2016.
+A : Certaines mises à jour de produits s’affichent uniquement dans leur propre historique des mises à jour ou des correctifs. Par exemple, les mises à jour de Windows Defender peuvent apparaître ou non dans l’historique de Windows Update sur Windows Server 2016.
 
 **Q : Puis-je utiliser POA appliquer un correctif à mon cluster de développement (cluster à un nœud) ?**
 
-R : Non, POA ne peut pas être utilisé pour appliquer un correctif à un cluster à un nœud. Cette limitation est due à la conception, car les [services système Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou d’autres applications clientes occasionnent des temps d’arrêt. Par conséquent, la mise à jour corrective des travaux de réparation n’est jamais approuvée par le service Gestionnaire des réparations.
+A : Non, POA ne peut pas être utilisé pour appliquer un correctif à un cluster à un nœud. Cette limitation est due à la conception, car les [services système Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou d’autres applications clientes occasionnent des temps d’arrêt. Par conséquent, la mise à jour corrective des travaux de réparation n’est jamais approuvée par le service Gestionnaire des réparations.
 
 **Q : Comment corriger des nœuds de cluster sur Linux ?**
 
-R : Consultez [Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) pour orchestrer les mises à jour sur Linux.
+A : Consultez [Mises à niveau automatiques d’images de système d’exploitation de groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) pour orchestrer les mises à jour sur Linux.
 
 **Q : Pourquoi le cycle de mise à jour prend-il autant de temps ?**
 
-R : Interrogez le JSON de résultat, entrez dans le cycle de mise à jour pour tous les nœuds et vous pouvez essayer de connaître le temps mis par l’installation de la mise à jour sur chaque nœud en utilisant OperationStartTime et OperationTime (OperationCompletionTime). 
+A : Interrogez le JSON de résultat, entrez dans le cycle de mise à jour pour tous les nœuds et vous pouvez essayer de connaître le temps mis par l’installation de la mise à jour sur chaque nœud en utilisant OperationStartTime et OperationTime (OperationCompletionTime). 
 
 S’il existe une fenêtre de temps importante dans laquelle aucune mise à jour n’a lieu, le cluster peut être dans un état d’erreur et, par conséquent, le service Gestionnaire des réparations ne peut pas approuver les tâches de réparation POA. Si l’installation de la mise à jour prend beaucoup de temps sur un nœud quelconque, ce nœud n’a peut-être pas été mis à jour depuis longtemps. Plusieurs mises à jour peuvent être en attente d’installation, ce qui peut entraîner des retards. 
 
@@ -431,7 +431,7 @@ Il est également possible que la mise à jour corrective des nœuds soit bloqu�
 
 **Q : Pourquoi le nœud doit-il être désactivé lorsque POA lui applique une mise à jour corrective ?**
 
-R : POA désactive le nœud avec l’intention *Redémarrer*, ce qui arrête ou réalloue tous les services Azure Service Fabric qui s’exécutent sur le nœud. POA fait cela pour éviter que les applications utilisent un mélange de nouvelles DLL et d’anciennes DLL. Il est donc recommandé de désactiver un nœud avant d’y installer un correctif.
+A : POA désactive le nœud avec l’intention *Redémarrer*, ce qui arrête ou réalloue tous les services Azure Service Fabric qui s’exécutent sur le nœud. POA fait cela pour éviter que les applications utilisent un mélange de nouvelles DLL et d’anciennes DLL. Il est donc recommandé de désactiver un nœud avant d’y installer un correctif.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
@@ -439,7 +439,7 @@ R : POA désactive le nœud avec l’intention *Redémarrer*, ce qui arrête ou 
 
 - POA collecte des données de télémétrie pour effectuer le suivi de l’utilisation et des performances. La télémétrie de l’application suit la valeur du paramètre de télémétrie du runtime Service Fabric (activé par défaut).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Cette section fournit des solutions possibles pour résoudre les problèmes liés à la mise à jour corrective des nœuds.
 

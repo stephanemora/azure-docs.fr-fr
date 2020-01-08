@@ -11,24 +11,27 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86cce0ee2a4966e2c2c8d74ad63a50976c199eb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a622245a7431058582131d9ba224ddfb676d8aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425138"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
 Ce forum aux questions répond aux questions courantes sur Azure Multi-Factor Authentication et sur l’utilisation du service Multi-Factor Authentication. Il est divisé en questions relatives au service en général, aux modèles de facturation, aux expériences utilisateur et au dépannage.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 > [!IMPORTANT]
 > À compter du 1er juillet 2019, Microsoft ne propose plus MFA Server pour les nouveaux déploiements. Les nouveaux clients qui veulent demander à leurs utilisateurs de procéder à une authentification multifacteur doivent utiliser la fonction Azure Multi-Factor Authentication basée sur le cloud. Les clients existants qui ont activé MFA Server avant le 1er juillet peuvent télécharger la dernière version et les futures mises à jour, et générer des informations d’identification d’activation comme d’habitude.
+> 
+> La gestion des licences basée sur la consommation n’est plus disponible pour les nouveaux clients depuis le 1er septembre 2018.
+> Depuis le 1er septembre 2018, il n’est plus possible de créer des fournisseurs d’authentification. Il restera possible d’utiliser et de mettre à jour des fournisseurs d’authentification existants. L’authentification multifacteur restera une fonctionnalité disponible dans les licences Azure AD Premium.
+
 > [!NOTE]
 > Les informations partagées ci-dessous concernant le serveur Azure Multi-Factor Authentication s’appliquent uniquement aux utilisateurs qui ont déjà le serveur MFA en cours d’exécution.
-
 
 **Q : Comment le serveur Azure Multi-Factor Authentication gère les données utilisateur ?**
 
@@ -202,7 +205,7 @@ Il existe plusieurs raisons à cela :
 - L’organisation a créé et activé une stratégie d’inscription MFA qui a été appliquée à l’utilisateur.
 - L’utilisateur a été précédemment enregistré pour MFA, mais a choisi une méthode de vérification, qui a depuis été désactivée par un administrateur. L’utilisateur doit donc de nouveau passer par l’inscription MFA pour sélectionner une nouvelle méthode de vérification par défaut.
 
-## <a name="errors"></a>Errors
+## <a name="errors"></a>Erreurs
 
 **Q : Que doit faire un utilisateur s’il voit un message d’erreur « La demande d’authentification ne concerne pas un compte activé » quand il utilise les notifications d’application mobile ?**
 

@@ -1,19 +1,18 @@
 ---
 title: Procédure de démarrage d’un travail Azure Stream Analytics
 description: Cet article explique comment démarrer un travail Stream Analytics à partir du portail Azure, de PowerShell et de Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 1e4cb63accf7e89ac02451e9c25b9902a8a10812
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: c393eb782c2ff16eb5b3e5967b39938dfe2f1534
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173272"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426466"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Procédure de démarrage d’un travail Azure Stream Analytics
 
@@ -24,7 +23,7 @@ Les trois options suivantes sont disponibles pour démarrer un travail. Notez qu
 * **Maintenant** : rend le point de départ du flux d’événements de sortie identique à celui du démarrage du travail. Si un opérateur temporel est utilisé (par exemple, fenêtre de temps, LAG ou JOIN), Azure Stream Analytics consulte automatiquement les données de la source d’entrée. Par exemple, si vous démarrez un travail « Maintenant » et si votre requête utilise une fenêtre bascule de 5 minutes, Azure Stream Analytics recherche des données datant de 5 minutes auparavant dans l’entrée.
 Le premier événement de sortie possible aura alors un horodatage identique ou postérieur à l’heure actuelle, et ASA garantit que tous les événements d’entrée qui peuvent logiquement contribuer à la sortie ont été pris en compte. Par exemple, aucune agrégation fenêtrée partielle n’est générée. Il s’agit toujours de la valeur agrégée complète.
 
-* **Personnalisé** : vous pouvez choisir le point de départ de la sortie. Comme avec l’option **Maintenant**, Azure Stream Analytics lit automatiquement les données avant cette heure si un opérateur temporel est utilisé. 
+* **Personnalisé** : vous pouvez choisir le point de départ de la sortie. Comme avec l’option **Maintenant**, Azure Stream Analytics lit automatiquement les données avant cette heure si un opérateur temporel est utilisé. 
 
 * **Lors du dernier arrêt** : cette option est disponible lorsque le travail a été démarré précédemment, mais a été arrêté manuellement ou a échoué. Lorsque vous choisissez cette option, Azure Stream Analytics utilise la dernière heure de sortie pour redémarrer le travail. Par conséquent, aucune donnée n’est perdue. Comme avec les options précédentes, Azure Stream Analytics lit automatiquement les données avant cette heure si un opérateur temporel est utilisé. Étant donné que plusieurs partitions d’entrée peuvent avoir des heures différentes, la première heure d’arrêt de toutes les partitions est utilisée. Ainsi, des doublons peuvent se produire dans la sortie. Pou plus d’informations sur le traitement en une seule fois, consultez la page [Garanties de remise d’événement](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics).
 
@@ -60,5 +59,5 @@ Pour plus d’informations sur la cmdlet `Start-AzStreamAnalyitcsJob`, consultez
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Démarrage rapide : Créer un travail Stream Analytics à l’aide du portail Azure](stream-analytics-quick-create-portal.md)
-* [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
-* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : Créer un travail Stream Analytics à l’aide d’Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)

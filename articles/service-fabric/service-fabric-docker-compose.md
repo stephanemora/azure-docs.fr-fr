@@ -1,25 +1,14 @@
 ---
 title: Préversion du déploiement Docker Compose dans Azure Service Fabric
 description: Azure Service Fabric accepte le format Docker Compose pour vous permettre d’orchestrer plus facilement des conteneurs existants à l’aide de Service Fabric. Cette prise en charge est actuellement en mode préliminaire.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6dd45e81a0db06cbaa75da3f94b9e7624b0acd69
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458051"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Prise en charge du déploiement Docker Compose dans Azure Service Fabric (préversion)
 
@@ -164,4 +153,4 @@ Bien que ce modèle offre une certaine flexibilité, nous prévoyons également 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Lisez les informations sur le [Modèle d’application Service Fabric](service-fabric-application-model.md)
-* [Bien démarrer avec l’interface CLI Service Fabric](service-fabric-cli.md)
+* [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)

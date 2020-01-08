@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures - Form Recognizer'
+title: 'Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures - Form Recognizer'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez utiliser Form Recognizer avec Azure Logic Apps pour créer un workflow qui automatise les processus d’entraînement et de test des modèles à l’aide d’exemples de données.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: bf6efbdbe19be28c005e2081c99827734ef10174
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446473"
 ---
-# <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Didacticiel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
+# <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
 
 Dans ce tutoriel, à l’aide d’Azure Logic Apps, vous allez créer un workflow qui utilise Form Recognizer (un service de la suite Azure Cognitive Services) afin d’extraire les données des factures. Vous allez utiliser Form Recognizer pour d’abord entraîner un modèle avec un exemple de jeu de données, puis pour tester le modèle avec un autre jeu de données. Les exemples de données utilisés dans ce tutoriel sont stockés dans les conteneurs d’objets blob du stockage Azure.
 
@@ -31,7 +31,7 @@ Voici ce qui est couvert par ce tutoriel :
 > * Configurer l’application logique pour qu’elle utilise une ressource Form Recognizer
 > * Tester le workflow en exécutant l’application logique
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 
@@ -85,8 +85,8 @@ Commençons ! Effectuez les étapes suivantes pour configurer votre workflow.
    |----------|-------|-------------|
    | **Nom** | <*logic-app-name*> | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « My-First-Logic-App ». |
    | **Abonnement** | <*Azure-subscription-name*> | Le nom de votre abonnement Azure |
-   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](./../../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». |
-   | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « West US ». |
+   | **Groupe de ressources** | <*nom-groupe-de-ressources-Azure*> | Nom du [groupe de ressources Azure](./../../azure-resource-manager/management/overview.md) utilisé pour organiser les ressources connexes. Cet exemple utilise « My-First-LA-RG ». |
+   | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « USA Ouest ». |
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. |
    ||||
 

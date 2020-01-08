@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Créer une application web monopage - API Recherche d'actualités Bing"
+title: "Tutoriel : Créer une application web monopage - API Recherche d'actualités Bing"
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce tutoriel pour créer une application web monopage qui peut envoyer des requêtes à l’API Recherche d'actualités Bing et afficher les résultats dans la page web.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e128daa82eca8142a636df0958ddca574e398713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383113"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutoriel : Créer une application web monopage
 
@@ -61,7 +61,7 @@ Le code HTML contient également les divisions (balises `<div>` HTML) où les r�
 
 Pour éviter d’avoir à inclure la clé d’abonnement de l’API Recherche Bing dans le code, nous utilisons le stockage persistant du navigateur pour stocker la clé. Avant de stocker la clé, nous demandons la clé de l’utilisateur. Si la clé est ensuite rejetée par l’API, nous invalidons la clé stockée et en demandons une autre à l’utilisateur.
 
-Nous définissons les fonctions `storeValue` et `retrieveValue` qui utilisent l’objet `localStorage` (tous les navigateurs ne le prennent pas en charge) ou un cookie. La fonction `getSubscriptionKey()` utilise ces fonctions pour stocker et récupérer la clé de l’utilisateur.
+Nous définissons les fonctions `storeValue` et `retrieveValue` qui utilisent l’objet `localStorage` (tous les navigateurs ne le prennent pas en charge) ou un cookie. La fonction `getSubscriptionKey()` utilise ces fonctions pour stocker et récupérer la clé de l’utilisateur. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
 ``` javascript
 // Cookie names for data we store
