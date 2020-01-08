@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Linux
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -43,8 +43,10 @@
       href: tutorial-azure-security.md
     - name: 14 - Déployer Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15 - CI/CD avec Azure Pipelines
+    - name: 15a - Déployer avec Azure Pipelines
       href: tutorial-build-deploy-jenkins.md
+    - name: 15b - CI/CD avec Azure Pipelines
+      href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Créer une pile LAMP
       href: tutorial-lamp-stack.md
     - name: 16b - Créer une pile LEMP
@@ -55,14 +57,14 @@
       href: tutorial-secure-web-server.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
 - name: Concepts
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Régions
       href: regions.md
     - name: Disponibilité et performances
@@ -233,7 +235,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente (AAD)
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md
@@ -315,7 +317,7 @@
               href: update-infrastructure-redhat.md
         - name: Agent de machine virtuelle Azure
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../extensions/agent-linux.md
             - name: Mise à jour de l’agent
               href: update-agent.md
@@ -329,7 +331,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -357,7 +359,7 @@
       items:
         - name: Galeries d’images partagées
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images.md
@@ -369,7 +371,7 @@
               href: troubleshooting-shared-images.md
         - name: Générateur d’images (préversion)
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: image-builder-overview.md
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
@@ -379,7 +381,7 @@
               href: image-builder-gallery.md
             - name: Mettre à jour une image existante
               href: image-builder-gallery-update-image-version.md
-            - name: Résolution des problèmes
+            - name: Dépanner
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trouver et utiliser des images
           href: cli-ps-findimage.md
@@ -429,7 +431,7 @@
       items:
         - name: Ansible
           items:
-            - name: Installer et configurer
+            - name: Installation et configuration
               href: ansible-install-configure.md
             - name: Créer une machine virtuelle Linux
               href: ansible-create-vm.md
@@ -437,7 +439,7 @@
               href: ansible-manage-linux-vm.md
         - name: Terraform
           items:
-            - name: Installer et configurer
+            - name: Installation et configuration
               href: terraform-install-configure.md
             - name: Créer une machine virtuelle complète
               href: terraform-create-complete-vm.md
@@ -480,7 +482,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: cloudfoundry-get-started.md
             - name: Déployer votre première application
               href: cloudfoundry-deploy-your-first-app.md
@@ -534,7 +536,7 @@
       items:
         - name: Ajouter un disque
           items:
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: add-disk.md
             - name: Portail Azure
               href: attach-disk-portal.md
@@ -653,7 +655,7 @@
               href: migration-classic-resource-manager-errors.md
             - name: Outils de la communauté pour la migration
               href: ../windows/migration-classic-resource-manager-community-tools.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: migration-classic-resource-manager-faq.md
 - name: Informations de référence
   items:
@@ -693,7 +695,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md
-- name: Résolution des problèmes
+- name: Dépanner
   href: ../troubleshooting/index.md

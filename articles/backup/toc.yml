@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Backup\_?"
       href: backup-overview.md
@@ -36,6 +36,14 @@
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurer des fichiers sur Windows Server
       href: tutorial-backup-restore-files-windows-server.md
+    - name: Bases de données SAP HANA sur machines virtuelles Azure – avec CLI
+      items:
+        - name: Sauvegarder les bases de données SAP HANA - CLI
+          href: tutorial-sap-hana-backup-cli.md
+        - name: Restaurer les bases de données SAP HANA - CLI
+          href: tutorial-sap-hana-restore-cli.md
+        - name: Gérer les bases de données SAP HANA sauvegardées - CLI
+          href: tutorial-sap-hana-manage-cli.md
 - name: Exemples
   items:
     - name: Azure PowerShell
@@ -100,7 +108,7 @@
       items:
         - name: Matrice de protection du serveur de sauvegarde Azure
           href: backup-mabs-protection-matrix.md
-        - name: Installation ou mise à niveau
+        - name: Installer ou mettre à niveau
           items:
             - name: Installer un serveur de sauvegarde Azure
               href: backup-azure-microsoft-azure-backup.md
@@ -118,7 +126,7 @@
               href: back-up-hyper-v-virtual-machines-mabs.md
             - name: Serveur VMware
               href: backup-azure-backup-server-vmware.md
-            - name: "Microsoft\_Exchange"
+            - name: Exchange
               href: backup-azure-exchange-mabs.md
             - name: Batterie de serveurs SharePoint
               href: backup-azure-backup-sharepoint-mabs.md
@@ -244,6 +252,8 @@
           href: manage-monitor-sql-database-backup.md
     - name: Bases de données SAP HANA sur des machines virtuelles Azure
       items:
+        - name: À propos de la sauvegarde SAP HANA sur des machines virtuelles Azure
+          href: sap-hana-db-about.md
         - name: Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
           href: backup-azure-sap-hana-database.md
         - name: Restaurer les bases de données SAP HANA dans des machines virtuelles Azure
@@ -276,7 +286,7 @@
           href: backup-azure-move-recovery-services-vault.md
         - name: Surveiller et gérer les coffres Recovery Services
           href: backup-azure-manage-windows-server.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Azure VM
           href: backup-azure-vms-troubleshoot.md
@@ -308,7 +318,7 @@
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/backup?view=azure-cli-latest
     - name: PowerShell
       href: /powershell/module/az.recoveryservices

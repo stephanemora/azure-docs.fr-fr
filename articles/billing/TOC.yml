@@ -3,6 +3,12 @@
 - name: Comprendre la facturation Azure
   expanded: true
   items:
+    - name: Comptes de facturation et étendues
+      href: billing-view-all-accounts.md
+    - name: Comptes de facturation d’un contrat client Microsoft
+      href: billing-mca-overview.md
+    - name: Comptes de facturation d’un contrat partenaire Microsoft
+      href: mpa-overview.md
     - name: Comprendre votre facture
       href: billing-understand-your-bill.md
     - name: Comprendre votre facture - contrat client Microsoft
@@ -29,10 +35,6 @@
       href: billing-mpa-invoice-terms-explained.md
     - name: Comment payer votre facture - contrat client Microsoft
       href: billing-how-to-pay-bill.md
-    - name: Comptes de facturation d’un contrat client Microsoft
-      href: billing-mca-overview.md
-    - name: Comptes de facturation d’un contrat partenaire Microsoft
-      href: mpa-overview.md
 - name: Gérer les coûts
   items:
     - name: Éliminer les coûts imprévus
@@ -69,7 +71,7 @@
               href: ../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
             - name: Cosmos DB
               href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
-            - name: Base de données SQL
+            - name: SQL Database
               href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
             - name: Explorateur de données Azure
               href: ../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
@@ -147,8 +149,6 @@
       href: billing-understand-mca-roles.md
     - name: Lier un ID partenaire
       href: billing-partner-admin-link-started.md
-    - name: Afficher les comptes de facturation
-      href: billing-view-all-accounts.md
     - name: Organiser les coûts avec des sections de facture
       href: billing-mca-section-invoice.md
     - name: Tâches EA dans un contrat client Microsoft
@@ -161,17 +161,17 @@
           href: billing-understand-your-bill-ea.md
         - name: Rôles EA dans Azure
           href: billing-understand-ea-roles.md
-        - name: Administration du portail Azure EA
+        - name: "Administration du portail Azure\_EA"
           href: billing-ea-portal-administration.md
         - name: Contrats et avenants Azure EA
           href: billing-ea-portal-agreements.md
         - name: Factures d’inscription Entreprise
           href: billing-ea-portal-enrollment-invoices.md
-        - name: API REST Azure Enterprise
+        - name: API REST Entreprise Azure
           href: billing-ea-portal-rest-apis.md
         - name: Instances réservées de machine virtuelle Azure EA
           href: billing-ea-portal-vm-reservations.md
-        - name: Résoudre les problèmes d’accès au portail Azure EA
+        - name: "Résoudre les problèmes d’accès au portail Azure\_EA"
           href: billing-ea-portal-troubleshoot.md
         - name: Tâches EA dans un contrat client Microsoft
           href: billing-mca-enterprise-operations.md
@@ -216,8 +216,8 @@
     - name: Associer le locataire Azure AD
       href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Limites et quotas
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
-- name: Résolution des problèmes
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+- name: Dépanner
   items:
     - name: Aucun abonnement trouvé
       href: billing-no-subscriptions-found.md
