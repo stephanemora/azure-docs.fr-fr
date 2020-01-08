@@ -1,7 +1,7 @@
 - name: Documentation B2B Azure Active Directory
   href: index.yml
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: Quel est l’accès utilisateur invité B2B ?
           href: what-is-b2b.md
@@ -28,6 +28,8 @@
     - name: Concepts
       expanded: false
       items:
+        - name: Bonnes pratiques B2B
+          href: b2b-fundamentals.md
         - name: Licences B2B
           href: licensing-guidance.md
         - name: Partage externe d’Office 365 et de B2B
@@ -46,7 +48,7 @@
           href: conditional-access.md
         - name: B2B pour les organisations hybrides
           href: hybrid-organizations.md
-        - name: Limitations actuelles
+        - name: Limites actuelles
           href: current-limitations.md
     - name: Guides pratiques
       expanded: true
@@ -101,7 +103,7 @@
           href: customize-invitation-api.md
     - name: Ressources
       items:
-        - name: Forum Aux Questions
+        - name: Questions fréquentes (FAQ)
           href: faq.md
         - name: Obtenir une assistance pour B2B
           href: get-support.md

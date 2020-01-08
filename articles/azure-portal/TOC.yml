@@ -1,6 +1,6 @@
 - name: Documentation du portail Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos du portail Azure
       href: azure-portal-overview.md
@@ -16,6 +16,10 @@
       href: azure-portal-dashboards-create-programmatically.md
 - name: Guides pratiques
   items:
+    - name: Définir vos préférences relatives au portail Azure
+      href: set-preferences.md
+    - name: Définir des paramètres de délai d’expiration inactif pour tous les utilisateurs
+      href: admin-timeout.md
     - name: Activer le contraste élevé ou modifier le thème
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Ajouter, supprimer et trier des favoris'

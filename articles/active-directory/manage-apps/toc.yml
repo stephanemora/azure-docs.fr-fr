@@ -1,6 +1,6 @@
 - name: Documentation Gestion des applications
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la gestion d’applications cloud et l’authentification unique\_?"
@@ -21,6 +21,10 @@
       href: /azure/active-directory/saas-apps/
     - name: Ajouter une application locale via le proxy d’application
       href: application-proxy-add-on-premises-application.md
+- name: Exemples
+  items:
+    - name: Exemples Azure PowerShell pour un proxy d’application
+      href: application-proxy-powershell-samples.md
 - name: Concepts
   expanded: true
   items:
@@ -70,19 +74,17 @@
               href: end-user-experiences.md
     - name: Provisionnement d’application (SCIM)
       items:
+        - name: Comment fonctionne le provisionnement
+          href: how-provisioning-works.md
         - name: Planifier un déploiement d’attribution automatique d’utilisateurs
           href: plan-auto-user-provisioning.md
-        - name: Provisionnement automatique pour les applications prenant en charge SCIM
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Provisionnement manuel ou automatique
-          href: application-provisioning-config-how-to.md
     - name: Provisionnement HR cloud
       items:
         - name: Planifier un déploiement de provisionnement d’utilisateurs HR cloud
           href: plan-cloud-hr-provision.md
     - name: Proxy d’application pour applications locales
       items:
-        - name: Proxy d’application
+        - name: Application Proxy (Proxy d’application)
           href: application-proxy.md
         - name: Planification d’un déploiement de proxy d’application
           href: application-proxy-deployment-plan.md
@@ -139,6 +141,8 @@
           items:
             - name: Configurer le consentement de l’utilisateur
               href: configure-user-consent.md
+            - name: Accorder le consentement de l’administrateur au niveau locataire
+              href: grant-admin-consent.md
             - name: Configurer le workflow du consentement administrateur (préversion)
               href: configure-admin-consent-workflow.md
             - name: Méthodes d’attribution d’utilisateurs et de groupes à une application
@@ -169,7 +173,7 @@
               href: migrate-adfs-apps-to-azure.md
             - name: Utiliser le rapport d’activité d’application AD FS (préversion)
               href: migrate-adfs-application-activity.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           items:
             - name: Résoudre les problèmes d’ajout d’applications
               items:
@@ -233,28 +237,32 @@
                   href: access-panel-troubleshoot-self-service-access.md
     - name: Provisionnement d’application (SCIM)
       items:
-        - name: Configurer le provisionnement d’applications
+        - name: Configurer le provisionnement pour une application de galerie
+          href: configure-automatic-user-provisioning-portal.md
+        - name: Créer un point de terminaison SCIM et configurer le provisionnement
+          href: use-scim-to-provision-users-and-groups.md
+        - name: Modifier les mappages d’attributs
           items:
-            - name: Configurer le provisionnement d’utilisateurs automatique
-              href: configure-automatic-user-provisioning-portal.md
-            - name: Utiliser SCIM pour le provisionnement automatique
-              href: use-scim-to-provision-users-and-groups.md
             - name: Personnaliser des mappages d’attributs
               href: Customize-application-attributes.md
             - name: Écrire des expressions pour les mappages d’attributs
               href: functions-for-customizing-application-data.md
+        - name: Inclure ou exclure des utilisateurs et des groupes de l’étendue
+          items:
             - name: Étendue des utilisateurs ou des groupes à provisionner
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorer la suppression pour les utilisateurs hors limites
               href: skip-out-of-scope-deletions.md
+        - name: Superviser et créer des rapports sur le provisionnement
+          items:
             - name: Superviser les performances et l’état de provisionnement
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Créer un rapport sur le provisionnement d’applications
               href: check-status-user-account-provisioning.md
             - name: Exporter et importer votre configuration
               href: export-import-provisioning-configuration.md
-            - name: Automatiser la configuration avec MS Graph
-              href: application-provisioning-configure-api.md
+        - name: Automatiser la configuration avec MS Graph
+          href: application-provisioning-configure-api.md
         - name: Résoudre les problèmes de provisionnement d’utilisateurs
           items:
             - name: Résoudre les problèmes de provisionnement d’applications

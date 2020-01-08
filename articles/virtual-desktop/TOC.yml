@@ -1,6 +1,6 @@
 - name: Windows Virtual Desktop
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que Windows Virtual Desktop\_?"
       href: overview.md
@@ -20,7 +20,7 @@
       href: manage-resources-using-ui.md
     - name: 7. Configurer des alertes de service
       href: set-up-service-alerts.md
-- name: Procédure
+- name: Procédures
   items:
     - name: Se connecter à des ressources Windows Virtual Desktop
       items:
@@ -56,6 +56,8 @@
           href: customize-rdp-properties.md
         - name: Équilibrage de charge pour les pools d’hôtes mis en pool
           href: configure-host-pool-load-balancing.md
+        - name: Type d’affectation de bureau personnel
+          href: configure-host-pool-personal-desktop-assignment-type.md
     - name: Utiliser une licence Windows Virtual Desktop
       href: apply-windows-license.md
     - name: Personnaliser une image d’hôte de session
@@ -68,8 +70,12 @@
       href: set-up-scaling-script.md
     - name: Personnaliser un flux
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Déployer l’outil de diagnostic
-      href: deploy-diagnostics.md
+    - name: Utiliser les diagnostics des services
+      items:
+        - name: Déployer l’outil de diagnostic
+          href: deploy-diagnostics.md
+        - name: Utiliser les diagnostics avec Log Analytics
+          href: diagnostics-log-analytics.md
     - name: Publier des applications intégrées
       href: publish-apps.md
     - name: Configurer l’attachement d’application MSIX
@@ -78,8 +84,6 @@
   items:
     - name: Environnement Windows Virtual Desktop
       href: environment-setup.md
-    - name: Recommandations en bande passante pour les sessions à distance
-      href: bandwidth-recommendations.md
     - name: Déterminer la latence des connexions utilisateur
       href: connection-latency.md
     - name: Accès délégué dans Windows Virtual Desktop
@@ -96,7 +100,7 @@
       href: windows-10-multisession-faq.md
     - name: Emplacements des données
       href: data-locations.md
-- name: Résolution des problèmes
+- name: Dépanner
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'
       href: troubleshoot-set-up-overview.md
@@ -110,8 +114,10 @@
       href: troubleshoot-windows-7-vm.md
     - name: Résoudre les problèmes de l’outil de gestion Windows Virtual Desktop
       href: troubleshoot-management-tool.md
-    - name: Connexions au client Bureau à distance
-      href: troubleshoot-client-connection.md
+    - name: Connexions du service Bureau à distance
+      href: troubleshoot-service-connection.md
+    - name: Problèmes du client Bureau à distance
+      href: troubleshoot-client.md
     - name: Windows Virtual Desktop PowerShell
       href: troubleshoot-powershell.md
     - name: Diagnostic des problèmes de performances graphiques

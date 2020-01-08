@@ -1,7 +1,7 @@
 - name: Azure Dev Spaces
   href: ./index.yml
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       items:
         - name: À propos d’Azure Dev Spaces
           href: about.md
@@ -91,9 +91,11 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: Utiliser traefik pour une entrée personnalisée et HTTPS
           href: how-to/ingress-https-traefik.md
+        - name: Utiliser NGINX pour une entrée personnalisée et HTTPS
+          href: how-to/ingress-https-nginx.md
         - name: Connecter l’ordinateur de développement à un cluster AKS (préversion)
           href: how-to/connect.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: troubleshooting.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md

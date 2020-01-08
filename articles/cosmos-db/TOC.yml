@@ -1,6 +1,6 @@
 - name: Documentation Azure Cosmos DB
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Bienvenue dans Azure Cosmos DB
       href: introduction.md
@@ -76,7 +76,7 @@
       href: sql-api-python-samples.md
     - name: PowerShell
       href: powershell-samples-sql.md
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
@@ -84,7 +84,7 @@
   items:
     - name: Diffusion mondiale
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: Niveaux de cohérence
@@ -113,7 +113,7 @@
           href: globally-distributed-transactional-analytical-storage.md
     - name: Partitionnement
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: partitioning-overview.md
         - name: Partitionnement et mise à l’échelle horizontale
           href: partition-data.md
@@ -129,6 +129,8 @@
           href: set-throughput.md
         - name: Provisionner le débit - Mode AutoPilot
           href: provision-throughput-autopilot.md
+        - name: Questions fréquentes (FAQ) sur Autopilot
+          href: autopilot-faq.md
     - name: Informations de référence sur les requêtes SQL
       items:
         - name: Prise en main
@@ -169,7 +171,7 @@
         - name: Mots clés
           displayName: 'keywords, distinct, between, in, top'
           href: sql-query-keywords.md
-        - name: Operators
+        - name: Opérateurs
           displayName: 'operators, operator, logical operators, equality, comparison'
           href: sql-query-operators.md
         - name: Expressions scalaires
@@ -188,9 +190,9 @@
                 - name: Fonctions système
                   displayName: 'functions, system functions, built-in functions'
                   href: sql-query-system-functions.md
-                - name: Fonctions de tableau
+                - name: Fonctions Tableau
                   items:
-                    - name: Fonctions de tableau
+                    - name: Fonctions Tableau
                       displayName: 'array functions, array, system functions, built-in functions'
                       href: sql-query-array-functions.md
                     - name: ARRAY_CONCAT
@@ -254,7 +256,7 @@
                     - name: FLOOR
                       displayName: 'FLOOR, built-in functions'
                       href: sql-query-floor.md
-                    - name: JOURNAL
+                    - name: LOG
                       displayName: 'LOG, logarithm, built-in functions'
                       href: sql-query-log.md
                     - name: LOG10
@@ -313,9 +315,9 @@
                     - name: ST_ISVALIDDETAILED
                       displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
                       href: sql-query-st-isvaliddetailed.md
-                - name: Fonctions de chaîne
+                - name: Fonctions de chaînes
                   items:
-                    - name: Fonctions de chaîne
+                    - name: Fonctions de chaînes
                       displayName: 'string functions, string, system functions, built-in functions'
                       href: sql-query-string-functions.md
                     - name: CONCAT
@@ -437,7 +439,7 @@
           href: modeling-data.md
         - name: Indexation
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayName: 'range, spatial'
               href: index-overview.md
             - name: Stratégies d’indexation
@@ -458,7 +460,7 @@
           href: database-transactions-optimistic-concurrency.md
     - name: Modifier le flux
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: change-feed.md
         - name: Lecture du flux de modification
           href: read-change-feed.md
@@ -510,7 +512,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Sécurité
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: database-security.md
         - name: Chiffrement des données
           href: database-encryption-at-rest.md
@@ -834,7 +836,7 @@
       href: how-to-manage-database-account.md
     - name: Utiliser les ressources Azure Cosmos DB
       items:
-        - name: Utiliser PowerShell
+        - name: Utilisation de PowerShell
           href: manage-with-powershell.md
         - name: Utilisation de l’interface de ligne de commande Azure
           href: manage-with-cli.md
@@ -891,7 +893,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Définir des clés uniques
           href: how-to-define-unique-keys.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       items:
         - name: Conseils sur les performances
           items:
@@ -910,7 +912,7 @@
               href: performance-testing.md
         - name: Écritures et lectures rentables
           href: key-value-store-cost.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Dépannage de la performance des requêtes
           href: troubleshoot-query-performance.md
@@ -978,10 +980,12 @@
       items:
         - name: Restauration des données à partir d’une sauvegarde
           href: how-to-backup-and-restore.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Superviser Cosmos DB
           href: monitor-cosmos-db.md
+        - name: Superviser avec les journaux de diagnostic
+          href: cosmosdb-monitor-resource-logs.md
         - name: Azure Monitor pour Cosmos (préversion)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
         - name: Voir les métriques de compte Cosmos DB
@@ -1025,7 +1029,7 @@
             - name: Liaisons de fonction Azure
               href: /azure/azure-functions/functions-bindings-cosmosdb
               maintainContext: true
-        - name: "Azure\_Data\_Factory"
+        - name: Azure Data Factory
           href: /azure/data-factory/connector-azure-cosmos-db
           maintainContext: true
         - name: Azure Stream Analytics
@@ -1100,7 +1104,7 @@
       href: query-cheat-sheet.md
     - name: Query Playground
       href: 'https://aka.ms/cosmos-db-playground'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: Livres blancs
       href: whitepapers.md

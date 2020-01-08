@@ -1,6 +1,6 @@
 - name: Documentation Équilibreur de charge
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’équilibrage de charge\_?"
       href: load-balancer-overview.md
@@ -14,14 +14,14 @@
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Créer un équilibrage de charge standard - Azure PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Créer un équilibreur de charge standard - modèle
+    - name: Créer un équilibreur de charge standard - Modèle
+      href: quickstart-load-balancer-standard-public-template.md
     - name: Créer un équilibrage de charge de base - Portail
       href: quickstart-create-basic-load-balancer-portal.md
     - name: Créer un équilibrage de charge de base - Azure CLI
       href: quickstart-create-basic-load-balancer-cli.md
     - name: Créer un équilibrage de charge de base - Azure PowerShell
-      href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+      href: quickstart-create-basic-load-balancer-powershell.md
 - name: Tutoriels
   items:
     - name: Équilibrer la charge de trafic internet vers des machines virtuelles
@@ -36,7 +36,7 @@
       href: tutorial-load-balancer-port-forwarding-portal.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -136,7 +136,7 @@
           href: move-across-regions-internal-load-balancer-portal.md
         - name: Équilibreur de charge interne - PowerShell
           href: move-across-regions-internal-load-balancer-powershell.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les problèmes liés à Azure Load Balancer
           href: load-balancer-troubleshoot.md

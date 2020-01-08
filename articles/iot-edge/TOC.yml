@@ -101,7 +101,7 @@
           href: iot-edge-security-manager.md
         - name: Certificats IoT Edge
           href: iot-edge-certs.md
-    - name: Prise en charge de plateformes
+    - name: Plateforme prise en charge
       href: support.md
     - name: Liste de contrôle pour le déploiement de production
       href: production-checklist.md
@@ -123,8 +123,12 @@
           href: how-to-install-iot-edge-windows-server-vm.md
         - name: Machine virtuelle Ubuntu
           href: how-to-install-iot-edge-ubuntuvm.md
-        - name: kubernetes
+        - name: Kubernetes
           href: how-to-install-iot-edge-kubernetes.md
+        - name: Installer les certificats de production
+          href: how-to-install-production-certificates.md
+        - name: Créer des certificats de test
+          href: how-to-create-test-certificates.md
         - name: Mettre à jour la version du runtime
           href: how-to-update-iot-edge.md
     - name: Provisionnement automatique avec DPS
@@ -155,7 +159,7 @@
       items:
         - name: Portail Azure
           href: how-to-deploy-monitor.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: how-to-deploy-monitor-cli.md
     - name: Utiliser des appareils IoT Edge comme passerelles
       items:
@@ -185,11 +189,11 @@
           href: how-to-ci-cd.md
         - name: Plug-in IoT Edge pour Jenkins
           href: how-to-devops-plugins.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshoot.md
 - name: Rubriques connexes
   items:
-    - name: solutions
+    - name: Solutions
       items:
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

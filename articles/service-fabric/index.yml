@@ -1,93 +1,166 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Azure Service Fabric
+summary: Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables.
 metadata:
-  title: "Documentation Azure Service Fabric\_- Didacticiels, informations de référence sur les API\_| Microsoft\_Docs"
-  meta.description: 'Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.'
-  services: service-fabric
-  author: georgewallace
-  manager: gwallace
-  layout: LandingPage
   ms.service: service-fabric
   ms.topic: landing-page
-  ms.date: 11/03/2017
-  ms.author: gwallace
-abstract:
-  description: 'Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. Découvrez comment utiliser Azure Service Fabric avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Découvrez comment déployer votre première application Service Fabric dans le cloud\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_net.svg'
-            text: .NET
-            href: service-fabric-quickstart-dotnet
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
-            text: Java (Reliable Services)
-            href: service-fabric-quickstart-java-reliable-services
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Java.svg'
-            text: Java (Spring Boot)
-            href: service-fabric-quickstart-java-spring-boot
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_linux.svg'
-            text: Conteneurs Linux
-            href: service-fabric-quickstart-containers-linux
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_Windows.svg'
-            text: Conteneurs Windows
-            href: service-fabric-quickstart-containers
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment déployer, gérer et surveiller des applications web sécurisées sur Azure'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-tutorial-create-dotnet-app">Déployer une application .NET</a>
-          - html: <a href="service-fabric-tutorial-create-java-app">Déployer une application Java</a>
-          - html: <a href="service-fabric-host-app-in-a-container">Mettre en conteneur une application .NET</a>
-          - html: <a href="service-fabric-tutorial-create-container-images">Créer une application de conteneur Linux</a>
-          - html: Créer et gérer un cluster <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> ou <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a>
-  - title: Concepts
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="service-fabric-overview-microservices">Comprendre les microservices</a>
-          - html: <a href="service-fabric-content-roadmap">Grandes lignes</a>
-          - html: <a href="service-fabric-application-scenarios">Scénarios d’application</a>
-          - html: <a href="service-fabric-technical-overview">Terminologie</a>
-          - html: <a href="service-fabric-choose-framework">Présentation de la création d’applications</a>
-          - html: <a href="service-fabric-deploy-anywhere">Présentation des clusters</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: "Trouver des scripts pour les tâches de gestion courantes\_:"
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Exemples
-            html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Interface de ligne de commande de Service Fabric</a></p>
-          - title: .NET
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">Prise en main</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">Voting</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Référence web</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">Agent de surveillance</a></p>'
-          - title: Java
-            html: '<p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">Prise en main</a></p>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Ligne de commande
-            html: '<p><a href="/cli/azure/sf">Interface de ligne de commande Azure</a></p><p><a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl">Interface de ligne de commande de Service Fabric</a></p><p><a href="/powershell/module/az.servicefabric">Azure PowerShell</a></p><p><a href="/powershell/module/servicefabric/?view=azureservicefabricps">PowerShell</a></p>'
-          - title: Languages
-            html: <p><a href="/java/api/overview/azure/servicefabric">API Java</a></p><p><a href="/dotnet/api/overview/azure/service-fabric?view=azure-dotnet">.NET</a></p><p><a href="/azure/service-fabric/service-fabric-service-model-schema">Schéma XML du modèle de service</a></p>
-          - title: REST
-            html: "<p><a href=\"/rest/api/servicefabric\">Référence d’API\_REST</a></p>"
+  author: erikadoyle
+  ms.author: edoyle
+  ms.date: 12/04/2019
+  ms.openlocfilehash: a2651387a425439d09ad68b0e763ff0c6c3f7f27
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75452221"
+landingContent:
+- title: À propos de Service Fabric
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d'ensemble de Service Fabric
+      url: service-fabric-overview.md
+    - text: En savoir plus sur Service Fabric
+      url: service-fabric-content-roadmap.md
+    - text: Vue d’ensemble des modèles de programmation Service Fabric
+      url: service-fabric-choose-framework.md
+  - linkListType: get-started
+    links:
+    - text: Développer sur Windows
+      url: service-fabric-get-started.md
+    - text: Développer sur Linux
+      url: service-fabric-get-started-linux.md
+    - text: Développer sur Mac OS
+      url: service-fabric-get-started-mac.md
+    - text: Installer l’interface CLI Azure Service Fabric
+      url: service-fabric-cli.md
+  - linkListType: concept
+    links:
+    - text: Compréhension des microservices
+      url: service-fabric-overview-microservices.md
+    - text: Scénarios d’application
+      url: service-fabric-application-scenarios.md
+    - text: Exécutables invités
+      url: service-fabric-guest-executables-introduction.md
+    - text: Services fiables (Reliable Services)
+      url: service-fabric-reliable-services-introduction.md
+  - linkListType: whats-new
+    links:
+    - text: Notes de publication
+      url: release-notes.md
+- title: Bien démarrer avec les applications .NET et Windows
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer une application .NET Service Fabric
+      url: service-fabric-quickstart-dotnet.md
+    - text: Déployer une application de conteneur Windows sur Service Fabric
+      url: service-fabric-quickstart-containers.md
+    - text: Créer une application d’exécutable invité sur Windows
+      url: quickstart-guest-app.md
+  - linkListType: tutorial
+    links:
+    - text: Créer, déployer et gérer une application .NET Service Fabric
+      url: service-fabric-tutorial-create-dotnet-app.md
+    - text: Conteneuriser une application .NET existante pour Service Fabric
+      url: service-fabric-host-app-in-a-container.md
+  - linkListType: how-to-guide
+    links:
+    - text: Développer des applications avec Visual Studio
+      url: service-fabric-manage-application-in-visual-studio.md
+    - text: Bien démarrer avec Reliable Services (C# sur Windows)
+      url: service-fabric-reliable-services-quick-start.md
+    - text: Créer des clusters Windows dans un réseau virtuel Azure
+      url: service-fabric-tutorial-create-vnet-and-windows-cluster.md
+    - text: Diagnostics de clusters Windows
+      url: service-fabric-diagnostics-event-aggregation-wad.md
+- title: Bien démarrer avec les applications Java et Linux
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Différences entre Service Fabric sur Linux et sur Windows
+      url: service-fabric-linux-windows-differences.md
+  - linkListType: quickstart
+    links:
+    - text: Déployer une application de conteneur Linux sur Service Fabric
+      url: service-fabric-quickstart-containers-linux.md
+  - linkListType: tutorial
+    links:
+    - text: Créer, déployer et gérer une application Java Service Fabric
+      url: service-fabric-tutorial-create-java-app.md
+  - linkListType: how-to-guide
+    links:
+    - text: Développer des applications avec Eclipse
+      url: service-fabric-get-started-eclipse.md
+    - text: Bien démarrer avec Reliable Services (Java sur Linux)
+      url: service-fabric-reliable-services-quick-start-java.md
+    - text: Créer des clusters Linux dans un réseau virtuel Azure
+      url: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+    - text: Diagnostics de clusters Linux
+      url: service-fabric-diagnostics-oms-syslog.md
+- title: Sécuriser votre cluster
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Bonnes pratiques de sécurité
+      url: service-fabric-best-practices-security.md
+    - text: Sécurité des applications
+      url: service-fabric-application-and-service-security.md
+    - text: Sécurité des clusters
+      url: service-fabric-cluster-security.md
+    - text: Contrôles de sécurité pour Service Fabric
+      url: service-fabric-security-controls.md
+    - text: Service Fabric Secrets Store
+      url: service-fabric-application-secret-store.md
+  - linkListType: how-to-guide
+    links:
+    - text: Se connecter à un cluster sécurisé
+      url: service-fabric-connect-to-secure-cluster.md
+    - text: Utiliser Managed Identity pour les applications Service Fabric
+      url: configure-existing-cluster-enable-managed-identity-token-service.md
+- title: Gérer votre cluster
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
+      url: service-fabric-visualizing-your-cluster.md
+    - text: Résolution des problèmes des mises à niveau d’application
+      url: service-fabric-application-upgrade-troubleshooting.md
+    - text: Résolution des problèmes des clusters locaux
+      url: service-fabric-troubleshoot-local-cluster-setup.md
+    - text: Résolution des problèmes des rapports d’intégrité du système
+      url: service-fabric-understand-and-troubleshoot-with-system-health-reports.md
+    - text: Guide de résolution des problèmes de la communauté Service Fabric
+      url: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
+    - text: Exemples de scripts PowerShell pour la gestion Service Fabric
+      url: service-fabric-powershell-samples.md
+    - text: Scripts Azure CLI pour la gestion Service Fabric
+      url: samples-cli.md
+  - linkListType: whats-new
+    links:
+    - text: Questions fréquentes sur Service Fabric
+      url: service-fabric-common-questions.md
+- title: Utiliser Service Fabric en local
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble des clusters autonomes
+      url: service-fabric-standalone-clusters-overview.md
+    - text: Contenu du package autonome
+      url: service-fabric-cluster-standalone-package-contents.md
+  - linkListType: concept
+    links:
+    - text: Mise à niveau des clusters autonomes
+      url: service-fabric-cluster-upgrade-standalone.md
+    - text: Mise à l’échelle des clusters autonomes
+      url: service-fabric-cluster-scaling-standalone.md
+  - linkListType: how-to-guide
+    links:
+    - text: Planifier le déploiement d’un cluster autonome
+      url: service-fabric-cluster-standalone-deployment-preparation.md
+    - text: Créer un cluster autonome s’exécutant sur Windows Server
+      url: service-fabric-cluster-creation-for-windows-server.md
+    - text: Configurer des sauvegardes régulières
+      url: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
+    - text: Mettre à niveau l’exécution de Service Fabric
+      url: service-fabric-cluster-upgrade-windows-server.md

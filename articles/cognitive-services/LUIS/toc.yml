@@ -1,6 +1,6 @@
 - name: Documentation LUIS
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que le service Language Understanding\_?"
@@ -66,13 +66,8 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: Tester des jeux de données par lot
           href: luis-tutorial-batch-testing.md
-        - name: Ajouter des formats d’énoncé courants
+        - name: Ajouter des patterns pour améliorer les prédictions
           href: luis-tutorial-pattern.md
-        - name: Extraire des modèles relatifs au contexte
-          href: luis-tutorial-pattern-roles.md
-          displayName: roles
-        - name: Extraire des données de forme libre
-          href: luis-tutorial-pattern-any.md
     - name: Utiliser avec un bot
       items:
         - name: 'Avec C#'
@@ -114,12 +109,12 @@
         - name: Modèles
           href: luis-concept-patterns.md
           displayName: roles
-        - name: Caractéristiques
+        - name: Fonctionnalités
           href: luis-concept-feature.md
           displayName: 'descriptor, phrase list'
     - name: Scores de prédictions
       href: luis-concept-prediction-score.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: luis-concept-best-practices.md
       displayName: 'phrase list, pattern, intent, utterance, version, do, don''t, example utterances, iteration, cycle, correct, right'
     - name: Améliorer les performances de l’application
@@ -173,6 +168,8 @@
         - name: Ajouter un descripteur
           displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
+        - name: Migrer vers la création V3
+          href: luis-migration-authoring-entities.md
         - name: Avec des API REST
           items:
             - name: Générer une application par programmation à l’aide de Node.js
@@ -210,12 +207,12 @@
       href: luis-how-to-publish-app.md
     - name: Gérer l’application
       items:
-        - name: Clés de création et d’exécution
+        - name: Clés de création et d'exécution
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
         - name: Migrer vers une clé de création
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: luis-migration-authoring.md
             - name: Guide pratique pour migrer
               href: luis-migration-authoring-steps.md
@@ -265,16 +262,16 @@
       items:
         - name: Entités par culture
           href: luis-reference-prebuilt-entities.md
-        - name: Entité Age
+        - name: Entité age
           href: luis-reference-prebuilt-age.md
-        - name: Entité Currency
+        - name: Entité currency
           href: luis-reference-prebuilt-currency.md
-        - name: Entité DatetimeV2
+        - name: Entité Datetimev2
           href: luis-reference-prebuilt-datetimev2.md
           displayName: timex
-        - name: Entité Dimension
+        - name: Entité dimension
           href: luis-reference-prebuilt-dimension.md
-        - name: Entité Deprecated
+        - name: Entités désapprouvées
           href: luis-reference-prebuilt-deprecated.md
         - name: Entité email
           href: luis-reference-prebuilt-email.md
@@ -294,7 +291,7 @@
           href: luis-reference-prebuilt-person.md
         - name: Entité phonenumber
           href: luis-reference-prebuilt-phonenumber.md
-        - name: Entité Temperature
+        - name: Entité temperature
           href: luis-reference-prebuilt-temperature.md
         - name: Entité URL
           href: luis-reference-prebuilt-url.md
@@ -322,7 +319,7 @@
     - name: Ressources pour les développeurs
       href: developer-reference-resource.md
       displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: Azure RM PowerShell
       href: 'https://go.microsoft.com/fwlink/?linkid=2092157'
@@ -416,7 +413,7 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092089'
     - name: Glossaire
       href: luis-glossary.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: troubleshooting.md
       displayName: 'FAQ, import'
     - name: Tarification et limites

@@ -1,6 +1,6 @@
 - name: Documentation relative à QnA Maker
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que QnA Maker\_?"
       href: Overview/overview.md
@@ -14,6 +14,8 @@
       href: quickstarts/add-question-metadata-portal.md
     - name: Obtenir une réponse avec Postman ou cURL
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: Tester avec un fichier de commandes
+      href: Quickstarts/batch-testing.md
     - name: Utilisation d’API REST
       items:
         - name: Créer une base de connaissances
@@ -25,7 +27,7 @@
             - name: Java
               href: Quickstarts/create-new-kb-java.md
             - name: Node.js
-              href: Quickstarts/create-knowledge-rest-api-nodejs.md
+              href: Quickstarts/publish-kb-nodejs.md
             - name: Python
               href: Quickstarts/create-new-kb-python.md
         - name: Publier une base de connaissances
@@ -37,7 +39,7 @@
             - name: Java
               href: Quickstarts/publish-kb-java.md
             - name: Node.js
-              href: 'Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base'
+              href: 'Quickstarts/publish-kb-nodejs.md#publish-a-knowledge-base'
             - name: Python
               href: Quickstarts/publish-kb-python.md
         - name: Obtenir une réponse
@@ -79,7 +81,7 @@
     - name: Cycle de vie du développement d’une base de connaissances
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: 'version control, test, index, publish, monitor usage, create'
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
     - name: Score de confiance
@@ -141,7 +143,7 @@
       href: Overview/language-support.md
     - name: limites
       href: limits.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: troubleshooting.md
     - name: Formats de fichiers
       items:

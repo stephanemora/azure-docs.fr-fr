@@ -1,42 +1,42 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que FarmBeats\_?"
-      href: overview.md
+    - name: "Qu’est-ce qu’Azure FarmBeats\_?"
+      href: overview-azure-farmbeats.md
 - name: Tutoriels
   expanded: true
   items:
     - name: Générer une carte d’humidité des sols
-      href: generate-soil-moisture-map.md
+      href: generate-soil-moisture-map-in-azure-farmbeats.md
     - name: Ingérer des données de télémétrie historiques
-      href: ingest-historical-telemetry-data.md
+      href: ingest-historical-telemetry-data-in-azure-farmbeats.md
 - name: Concepts
   items:
     - name: Modèles d’intégration
-      href: integration-patterns.md
+      href: integration-patterns-in-azure-farmbeats.md
     - name: Intégration de partenaire de capteur
-      href: sensor-partner-integration.md
+      href: sensor-partner-integration-in-azure-farmbeats.md
     - name: Intégration de partenaire d’imagerie
-      href: imagery-partner-integration.md
+      href: imagery-partner-integration-in-azure-farmbeats.md
 - name: Guides pratiques
   items:
-    - name: Déployer FarmBeats
-      href: prepare-for-deployment.md
+    - name: Installer Azure FarmBeats
+      href: install-azure-farmbeats.md
     - name: Gestion des utilisateurs
-      href: manage-users.md
+      href: manage-users-in-azure-farmbeats.md
     - name: Gérer des fermes
-      href: manage-farms.md
+      href: manage-farms-in-azure-farmbeats.md
     - name: Obtenir des données de capteur
       href: get-sensor-data-from-sensor-partner.md
     - name: Générer des cartes
-      href: generate-maps.md
+      href: generate-maps-in-azure-farmbeats.md
     - name: Configurer des règles et gérer des alertes
-      href: configure-rules-alerts.md
+      href: configure-rules-alerts-in-azure-farmbeats.md
     - name: Obtenir une imagerie par drone
-      href: get-drone-imagery.md
-- name: Résolution des problèmes
+      href: get-drone-imagery-in-azure-farmbeats.md
+- name: Dépanner
   items:
-    - name: Résoudre les problèmes de FarmBeats
-      href: troubleshoot-project-farmbeats.md
+    - name: Résoudre les problèmes liés à Azure FarmBeats
+      href: troubleshoot-azure-farmbeats.md
 - name: Informations de référence
   items: null
-  href: references-for-farmbeats.md
+  href: references-for-azure-farmbeats.md

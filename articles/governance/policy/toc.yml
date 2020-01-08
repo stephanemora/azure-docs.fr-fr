@@ -1,6 +1,6 @@
 - name: Documentation Azure Policy
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Policy
       displayName: 'rbac, assign, initiative, parameters, count'
@@ -28,7 +28,7 @@
     - name: Créer une définition de stratégie personnalisée
       displayName: 'disabled, parameters, rule, mode'
       href: ./tutorials/create-custom-policy-definition.md
-    - name: Gérer la gouvernance des étiquettes
+    - name: Gérer la gouvernance des balises
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
     - name: Ateliers pratiques - Exploration d’Azure Policy
@@ -39,7 +39,7 @@
     - name: Index
       displayName: 'list, examples'
       href: ./samples/index.md
-    - name: Généralités
+    - name: Général
       items:
         - name: Dénomination
           items:
@@ -263,7 +263,7 @@
     - name: Évaluer l’impact d’une nouvelle stratégie
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
-    - name: Concevoir une stratégie en tant que workflows de code
+    - name: Concevoir des workflows de type Policy as Code
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Azure Policy pour Kubernetes
@@ -300,6 +300,11 @@
     - name: Remédier aux ressources non conformes
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Intégration du coffre de clés Azure
+      items:
+        - name: Intégrer Key Vault à Azure Policy
+          displayName: 'key vault, certificate, key'
+          href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Intégration d’Azure Lighthouse
       items:
         - name: Déployer une stratégie à grande échelle
@@ -315,7 +320,7 @@
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
@@ -327,7 +332,7 @@
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Kit SDK Azure pour .NET
       items:
-        - name: Affectations
+        - name: Attributions
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Définitions de stratégies
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
@@ -345,7 +350,7 @@
           href: /rest/api/policy-insights/policyevents
         - name: États
           href: /rest/api/policy-insights/policystates
-        - name: Affectations
+        - name: Attributions
           href: /rest/api/resources/policyassignments
         - name: Définitions de stratégies
           href: /rest/api/resources/policydefinitions
@@ -359,7 +364,7 @@
           href: /rest/api/guestconfiguration/
     - name: Modèles Resource Manager
       items:
-        - name: Affectations
+        - name: Attributions
           href: /azure/templates/microsoft.authorization/policyassignments
         - name: Définitions de stratégies
           href: /azure/templates/microsoft.authorization/policydefinitions

@@ -28,9 +28,9 @@
           href: expressroute-locations.md
     - name: À propos des passerelles de réseau virtuel
       href: expressroute-about-virtual-network-gateways.md
-    - name: Prérequis
+    - name: Conditions préalables requises
       href: expressroute-prerequisites.md
-    - name: Flux de travail
+    - name: Workflows
       href: expressroute-workflows.md
     - name: Configuration requise du routage
       href: expressroute-routing.md
@@ -78,7 +78,7 @@
           href: expressroute-howto-circuit-portal-resource-manager.md
         - name: Azure PowerShell
           href: expressroute-howto-circuit-arm.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-circuit-cli.md
         - name: "Modèle Azure\_Resource\_Manager"
           displayName: 'ARM,resource manager template'
@@ -123,7 +123,7 @@
       items:
         - name: Azure PowerShell
           href: expressroute-howto-erdirect.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: expressroute-howto-expressroute-direct-cli.md
     - name: Configurer MACsec pour les ports ExpressRoute Direct
       href: expressroute-howto-macsec.md
@@ -157,7 +157,7 @@
           href: expressroute-monitoring-metrics-alerts.md
         - name: Configurer Network Performance Monitor pour ExpressRoute
           href: how-to-npm.md
-    - name: Articles sur le modèle de déploiement classique
+    - name: Articles classiques et hérités
       items:
         - name: Modifier un circuit
           href: expressroute-howto-circuit-classic.md
@@ -169,6 +169,8 @@
           href: expressroute-howto-coexist-classic.md
         - name: Ajouter une passerelle à un réseau virtuel
           href: expressroute-howto-add-gateway-classic.md
+        - name: Créer et modifier le peering public
+          href: about-public-peering.md
     - name: Bonnes pratiques
       items:
         - name: Meilleures pratiques pour la sécurité réseau et les services cloud
@@ -179,7 +181,7 @@
           href: expressroute-asymmetric-routing.md
         - name: NAT pour ExpressRoute
           href: expressroute-nat.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Vérification de la connectivité ExpressRoute
           href: expressroute-troubleshooting-expressroute-overview.md
@@ -223,7 +225,7 @@
     - name: Contrat SLA
       href: 'https://azure.microsoft.com/support/legal/sla/'
     - name: Limites du service et de l’abonnement
-      href: ../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute pour les fournisseurs de solutions Cloud (CSP)
       href: expressroute-for-cloud-solution-providers.md
     - name: Videos

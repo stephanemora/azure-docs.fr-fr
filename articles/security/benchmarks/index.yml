@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Documentation sur les benchmarks de sécurité Azure
+summary: Découvrez comment sécuriser vos solutions cloud sur Azure avec nos bonnes pratiques et nos conseils.
+metadata:
+  title: Benchmarks de sécurité Azure
+  description: Le benchmark des contrôles de sécurité Azure contient des recommandations qui vous aident à améliorer la sécurité de vos applications et de vos données sur Azure.
+  services: security
+  ms.service: security
+  ms.subservice: fundamentals
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 12/23/2019
+  ms.openlocfilehash: 97f5463ee4348f8e17b8cf571262c361908d7265
+  ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 12/31/2019
+  ms.locfileid: "75563860"
+landingContent:
+- title: À propos du benchmark de sécurité Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vue d’ensemble
+      url: overview.md
+    - text: Introduction aux contrôles de sécurité
+      url: introduction.md
+    - text: Responsabilité partagée dans le cloud
+      url: ../fundamentals/shared-responsibility.md
+- title: Contrôles de sécurité
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Sécurité réseau
+      url: security-control-network-security.md
+    - text: Journalisation et supervision
+      url: security-control-logging-monitoring.md
+    - text: Contrôle des accès et des identités
+      url: security-control-identity-access-control.md
+    - text: Protection des données
+      url: security-control-data-protection.md
+    - text: Gestion des vulnérabilités
+      url: security-control-vulnerability-management.md
+    - text: En savoir plus
+      url: security-control-inventory-asset-management.md
+- title: Autres informations sur la sécurité Azure
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Notions de base de la sécurité Azure
+      url: ../fundamentals/index.yml
+    - text: Azure Security Center
+      url: ../../security-center/index.yml
+    - text: Azure Key Vault
+      url: ../../key-vault/index.yml

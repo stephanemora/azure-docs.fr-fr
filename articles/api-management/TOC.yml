@@ -1,11 +1,13 @@
 - name: Documentation Gestion des API Azure
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: En savoir plus sur la Gestion des API
       href: api-management-key-concepts.md
     - name: Disponibilité des fonctionnalités de gestion des API
       href: api-management-features.md
+    - name: Gérer les microservices déployés dans AKS
+      href: api-management-kubernetes.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -45,7 +47,7 @@
       href: api-management-terminology.md
     - name: Stratégies
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: api-management-howto-policies.md
         - name: Index de référence de stratégie
           href: api-management-policies.md
@@ -97,7 +99,7 @@
           href: configure-custom-domain.md
         - name: Déployer sur plusieurs régions Azure
           href: api-management-howto-deploy-multi-region.md
-        - name: Provisionner une passerelle auto-hébergée
+        - name: Approvisionner une passerelle auto-hébergée
           href: api-management-howto-provision-self-hosted-gateway.md
         - name: Déployer une passerelle auto-hébergée sur Kubernetes
           href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
@@ -163,9 +165,9 @@
           href: api-management-developer-portal-templates-reference.md
         - name: API
           href: api-management-api-templates.md
-        - name: Produits
+        - name: Products
           href: api-management-product-templates.md
-        - name: APPLICATIONS
+        - name: Applications
           href: api-management-application-templates.md
         - name: Problèmes
           href: api-management-issue-templates.md
@@ -227,7 +229,7 @@
           href: api-management-howto-use-managed-service-identity.md
         - name: Intégrer avec Service Fabric
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../service-fabric/service-fabric-api-management-overview.md
             - name: Didacticiel
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
@@ -243,7 +245,7 @@
       href: /azure/templates/microsoft.apimanagement/allversions
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: api-management-faq.md
     - name: Tarifs
       href: 'https://aka.ms/apimpricing'

@@ -3,21 +3,21 @@ title: Documentation du portail Azure
 summary: Le portail Azure est une console web unifiée qui offre une alternative aux outils en ligne de commande. Vous pouvez gérer votre abonnement Azure avec le portail Azure. Créez, gérez et supervisez tout ce que vous voulez, de simples applications web à des déploiements cloud complexes. Créez des tableaux de bord personnalisés pour une vue organisée des ressources et configurez les options d’accessibilité pour une expérience optimale.
 metadata:
   title: Documentation du portail Azure
-  description: Découvrez comment gérer votre abonnement et vos ressources Azure à l’aide de la console web du portail Azure.
+  description: Découvrez comment gérer vos abonnements et vos ressources Azure en utilisant la console web du portail Azure. Le portail Azure est une alternative à l’utilisation d’outils en ligne de commande.
   services: Azure portal
   ms.service: azure-portal
   ms.subservice: 
   ms.topic: landing-page
   ms.collection: collection
-  author: kfollis
-  ms.author: kfollis
-  ms.date: 09/17/2019
-  ms.openlocfilehash: 7fdd6f95ee2f84abc151f5c6e6e7929df2bc57a1
-  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  author: mblythe
+  ms.author: mblythe
+  ms.date: 12/19/2019
+  ms.openlocfilehash: 4c04ae88f69ab4e17ea70e94683ce0add4823040
+  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/17/2019
-  ms.locfileid: "71076650"
+  ms.lasthandoff: 01/03/2020
+  ms.locfileid: "75640038"
 landingContent:
 - title: À propos du portail Azure
   linkLists:
@@ -31,6 +31,8 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Définir vos préférences relatives au portail
+      url: set-preferences.md
     - text: Créer et partager des tableaux de bord personnalisés
       url: azure-portal-dashboards.md
     - text: Gérer vos favoris
@@ -49,7 +51,7 @@ landingContent:
       url: /learn/paths/manage-resources-in-azure/
     - text: Sécuriser vos ressources Azure avec le contrôle d’accès en fonction du rôle (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:

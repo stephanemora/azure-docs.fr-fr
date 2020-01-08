@@ -2,7 +2,7 @@
   href: index.md
 - name: Étapes de la création d’applications mobiles
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: stages-overview.md
     - name: Choisir un framework de développement mobile
       href: front-end-development-platform.md
@@ -32,7 +32,7 @@
           href: continuous-delivery.md
     - name: Analyser l’utilisation et le comportement de l’utilisateur
       href: analytics.md
-    - name: Rapports sur les incidents en temps réel
+    - name: Signalement des échecs en temps réel
       href: diagnostics.md
     - name: Notifications Push
       href: push-notifications.md
@@ -42,7 +42,7 @@
       href: cognitive-services.md
     - name: Azure Maps
       href: azure-maps.md
-    - name: Azure CDN
+    - name: Azure Content Delivery Network
       href: azure-cdn.md
     - name: Recherche cognitive Azure
       href: azure-search.md

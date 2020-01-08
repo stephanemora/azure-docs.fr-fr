@@ -1,6 +1,6 @@
 - name: Documentation Azure SignalR Service
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "À propos du service Azure\_SignalR"
       href: signalr-overview.md
@@ -25,11 +25,15 @@
   items:
     - name: Générer une application serverless en temps réel avec l’authentification
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Moniteur
+      items:
+        - name: Utiliser les journaux de diagnostic pour superviser SignalR Service
+          href: signalr-tutorial-diagnostic-logs.md
 - name: Exemples
   items:
     - name: Exemples de code
       href: 'https://github.com/aspnet/AzureSignalR-samples'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: signalr-reference-cli.md
 - name: Concepts
   items:
@@ -75,9 +79,9 @@
           href: signalr-concept-azure-functions.md
         - name: Intégration à Event Grid
           href: signalr-howto-event-grid-integration.md
-- name: Références
+- name: References
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: signalr-reference-cli.md
     - name: API REST
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
@@ -87,7 +91,7 @@
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
 - name: Ressources
   items:
-    - name: solutions
+    - name: Solutions
       href: 'https://docs.microsoft.com/azure/architecture/'
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
@@ -100,7 +104,7 @@
     - name: FAQ
       href: signalr-resource-faq.md
     - name: Limites du niveau d’abonnement à SignalR Service
-      href: 'https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits'
+      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Videos

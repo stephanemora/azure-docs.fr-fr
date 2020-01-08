@@ -4,12 +4,12 @@ ms.date: 11-21-2019
 ms.topic: hub-page
 title: Documentation du service Speech
 description: Bien démarrer avec le service Speech. Reconnaissez la voix, synthétisez la voix, obtenez des traductions en temps réel, transcrivez des conversations ou intégrez la voix dans vos expériences de bot.
-ms.openlocfilehash: df90416b9ef046d68b5785b1fcb203159831e8fd
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 7ae8f33e949519cc32d81b591503a159e045178b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885897"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381271"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -451,7 +451,7 @@ ms.locfileid: "74885897"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Vue d'ensemble</h3>
+                                                    <h3>Vue d’ensemble</h3>
                                                     <p>Découvrez plus en détail la transcription de conversation et comment l’intégrer dans vos produits.</p>
                                                 </div>
                                             </div>
@@ -551,7 +551,7 @@ ms.locfileid: "74885897"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Vue d'ensemble</h3>
+                                                    <h3>Vue d’ensemble</h3>
                                                     <p>Découvrez plus en détail ce qui est nécessaire pour créer un Assistant vocal.</p>
                                                 </div>
                                             </div>
@@ -590,7 +590,7 @@ ms.locfileid: "74885897"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Utiliser des commandes personnalisées</h3>
-                                                    <p>Apprenez à générer des interactions de commande et de contrôle simples et fiables avec reconnaissance vocale et correction des erreurs.</p>
+                                                    <p>Apprenez à créer facilement des applications de commande et de contrôle vocales solides pour permettre aux utilisateurs d’effectuer des tâches avec leur voix.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -603,7 +603,7 @@ ms.locfileid: "74885897"
                         <a href="#support">Support</a>
                         <ul id="support" class="cardsC">
                             <li>
-                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -622,7 +622,7 @@ ms.locfileid: "74885897"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

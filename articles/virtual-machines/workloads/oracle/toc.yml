@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Vue d’ensemble des solutions Oracle
       href: oracle-overview.md
@@ -22,6 +22,8 @@
   items:
     - name: Architectures d’applications Oracle
       href: oracle-oci-applications.md
+    - name: Architectures de bases de données Oracle
+      href: oracle-reference-architecture.md
     - name: Créer l’architecture d’une base de données Oracle
       href: oracle-design.md
     - name: Stratégie de sauvegarde d’une base de données Oracle

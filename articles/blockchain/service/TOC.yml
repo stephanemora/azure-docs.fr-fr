@@ -1,6 +1,6 @@
 - name: Azure Blockchain Service (Préversion)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Blockchain Service
       href: overview.md
@@ -31,7 +31,7 @@
       href: consortium.md
     - name: Accès aux données et sécurité
       href: data-security.md
-    - name: Développement
+    - name: Développer
       href: develop.md
     - name: limites
       href: limits.md
@@ -61,23 +61,23 @@
       href: data-manager-cosmosdb.md
 - name: Ressources
   items:
+    - name: Kit de développement Azure Blockchain
+      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: API REST Blockchain
       href: 'https://docs.microsoft.com/rest/api/blockchain/'
-    - name: Blog
-      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Extension Visual Studio Code Azure Blockchain Service
-      href: 'https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki'
     - name: Exemples de code
       href: 'https://github.com/Azure-Samples/blockchain'
-    - name: Communauté
-      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
-    - name: Forum
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: Forum du support MSDN
       href: 'https://aka.ms/workbenchforum'
+    - name: Support de la communauté pour les objets blob
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: Support de Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'
     - name: Commentaires sur le produit
       href: 'https://feedback.azure.com/forums/921130-azure-blockchain-service'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/blockchain-service'
     - name: Disponibilité des régions
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=blockchainservice'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/AzureBlockchainService'

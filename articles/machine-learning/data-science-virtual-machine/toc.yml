@@ -1,7 +1,7 @@
 - name: Documentation sur la machine virtuelle de science des données
   href: index.yml
   items: null
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que Data Science Virtual Machine (DSVM)\_?"
@@ -24,19 +24,19 @@
 - name: Concepts
   items:
     - name: Frameworks d’apprentissage profond et d’intelligence artificielle
-      href: dsvm-deep-learning-ai-frameworks.md
+      href: dsvm-tools-deep-learning-frameworks.md
     - name: Langages de programmation
-      href: dsvm-languages.md
+      href: dsvm-tools-languages.md
     - name: Outils de développement
       href: dsvm-tools-development.md
     - name: Outils de science des données et de ML
-      href: dsvm-ml-data-science-tools.md
+      href: dsvm-tools-data-science.md
     - name: Plateformes de données
-      href: dsvm-data-platforms.md
+      href: dsvm-tools-data-platforms.md
     - name: Code d’ingestion de données
       href: dsvm-tools-ingestion.md
-    - name: Outils d’exploration et de visualisation de données
-      href: dsvm-tools-explore-and-visualize.md
+    - name: Outils de productivité
+      href: dsvm-tools-productivity.md
     - name: Sécurité en entreprise et conseils
       href: dsvm-enterprise-overview.md
 - name: Exemples

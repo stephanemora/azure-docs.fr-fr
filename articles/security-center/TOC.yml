@@ -1,6 +1,6 @@
 - name: Documentation Security Center
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Security Center
       href: security-center-intro.md
@@ -49,6 +49,8 @@
       items:
         - name: Vue d'ensemble des alertes de sécurité
           href: security-center-alerts-overview.md
+        - name: Liste de référence des alertes
+          href: alerts-reference.md
         - name: Gérer les alertes de sécurité
           href: security-center-managing-and-responding-alerts.md
         - name: Gérer les incidents de sécurité
@@ -61,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Détection des menaces pour les couches des services Azure
           href: security-center-alerts-service-layer.md
-        - name: Intégration avec les produits de sécurité Azure
+        - name: Détection des menaces pour Azure WAF et Azure DDoS Protection
           href: security-center-alerts-integration.md
         - name: Corrélation des alertes intelligentes cloud (incidents)
           href: security-center-alerts-cloud-smart.md
@@ -75,6 +77,14 @@
       href: security-center-secure-score.md
     - name: Mettre à niveau vers la sécurité avancée
       href: security-center-onboarding.md
+    - name: Analyser vos machines virtuelles à la recherche de vulnérabilités
+      items:
+        - name: Vue d’ensemble de l’analyse des vulnérabilités
+          href: security-center-vulnerability-assessment-recommendations.md
+        - name: Analyseur de vulnérabilités intégré pour les machines virtuelles
+          href: built-in-vulnerability-assessment.md
+        - name: Utilisation d’analyseurs externes
+          href: partner-vulnerability-assessment.md
     - name: Protéger vos serveurs avec Microsoft Defender ATP
       href: security-center-wdatp.md
     - name: Utiliser Advanced Data Security pour SQL sur des machines virtuelles Azure
@@ -125,14 +135,12 @@
           href: security-center-remediate-recommendations.md
         - name: Renforcer la posture de sécurité
           href: security-center-monitoring.md
+        - name: Liste de référence des recommandations
+          href: recommendations-reference.md
         - name: Protéger les ordinateurs et les applications
           href: security-center-virtual-machine-protection.md
-        - name: Informations de référence sur les recommandations pour ordinateurs et applications
-          href: recommendations-compute-and-apps.md
         - name: Protéger les ressources réseau
           href: security-center-network-recommendations.md
-        - name: Informations de référence sur les recommandations pour réseaux
-          href: recommendations-network.md
         - name: Protéger les données et les services de stockage
           href: security-center-sql-service-recommendations.md
         - name: Protéger les identités et les accès
@@ -155,8 +163,6 @@
           href: security-center-apply-system-updates.md
         - name: Installer Endpoint Protection
           href: security-center-install-endpoint-protection.md
-        - name: Évaluation des vulnérabilités non installée
-          href: security-center-vulnerability-assessment-recommendations.md
         - name: Rapports de menace
           href: security-center-threat-report.md
         - name: Score de confiance de l’alerte
@@ -187,7 +193,7 @@
       href: security-center-privacy.md
     - name: Documentation Azure Security Center pour IoT
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: security-center-faq.md
     - name: Documentation sur la sécurité Azure
       href: /azure/security/

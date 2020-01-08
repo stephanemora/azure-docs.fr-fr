@@ -1,6 +1,6 @@
 - name: Documentation sur Azure Sentinel
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
 - name: Démarrages rapides
   expanded: true
@@ -32,70 +32,78 @@
     - name: Connecter des sources de données
       href: connect-data-sources.md
       items:
-        - name: Connecter des services Microsoft
+        - name: Se connecter de service à service
           items:
-            - name: Connecter Azure AD
+            - name: AWS
+              href: connect-aws.md
+            - name: "Azure\_AD"
               href: connect-azure-active-directory.md
-            - name: "Connecter Office\_365"
+            - name: "Office\_365"
               href: connect-office-365.md
-            - name: Connecter Cloud App Security
+            - name: Cloud App Security
               href: connect-cloud-app-security.md
-            - name: Connecter Azure Activity Log
+            - name: Journaux d’activité
               href: connect-azure-activity.md
-            - name: Connecter Azure AD Identity Protection
+            - name: Azure AD Identity Protection
               href: connect-azure-ad-identity-protection.md
-            - name: Connecter Azure Information Protection
+            - name: Azure Information Protection
               href: connect-azure-information-protection.md
-            - name: Connecter Microsoft Defender ATP
+            - name: Microsoft Defender ATP
               href: connect-microsoft-defender-advanced-threat-protection.md
-            - name: Connecter Azure ATP
+            - name: Azure ATP
               href: connect-azure-atp.md
-            - name: Connecter Azure Security Center
+            - name: Azure Security Center
               href: connect-azure-security-center.md
-            - name: Connecter le serveur de noms de domaine
+            - name: Serveur de noms de domaine
               href: connect-dns.md
-            - name: Connecter un pare-feu d’application web Microsoft
+            - name: Pare-feu d'application web Microsoft
               href: connect-microsoft-waf.md
-            - name: Connecter le Pare-feu Windows
+            - name: Pare-feu Windows
               href: connect-windows-firewall.md
-            - name: Connecter les événements de sécurité Windows
+            - name: Événements de sécurité Windows
               href: connect-windows-security-events.md
         - name: Connecter des solutions externes
           items:
-            - name: Connecter CEF générique
-              href: connect-common-event-format.md
-            - name: Connecter AWS
-              href: connect-aws.md
-            - name: Connecter Barracuda
+            - name: Barracuda
               href: connect-barracuda.md
-            - name: Connecter Check Point
-              href: connect-checkpoint.md
-            - name: Connecter Palo Alto Networks
-              href: connect-paloalto.md
-            - name: Connecter Fortinet
-              href: connect-fortinet.md
-            - name: Connecter F5
-              href: connect-f5.md
-            - name: Connecter F5 BIG-IP
+            - name: F5 BIG-IP
               href: connect-f5-big-ip.md
-            - name: Connecter Syslog
+            - name: syslog
               href: connect-syslog.md
-            - name: Connecter Symantec ICDX
+            - name: Symantec ICDX
               href: connect-symantec.md
-            - name: Connecter Cisco
-              href: connect-cisco.md
-            - name: Connecter Barracuda CloudGen Firewall
+            - name: Barracuda CloudGen Firewall
               href: connect-barracuda-cloudgen-firewall.md
-            - name: Connecter Citrix Analytics (Security)
+            - name: Citrix Analytics (Sécurité)
               href: connect-citrix-analytics.md
-            - name: Connecter ExtraHop Reveal(x)
-              href: connect-extrahop.md
-            - name: One Identity Safeguard
-              href: connect-one-identity.md
-            - name: Trend Micro Deep Security
-              href: connect-trend-micro.md
-            - name: Connecter Zscaler
-              href: connect-zscaler.md
+            - name: Solutions basées sur CEF
+              href: connect-common-event-format.md
+              items:
+                - name: "ÉTAPE\_1 Déployer l’agent"
+                  href: connect-cef-agent.md
+                - name: "ÉTAPE\_2 Configurer votre solution de sécurité"
+                  href: connect-cef-solution-config.md
+                  items:
+                    - name: Check Point
+                      href: connect-checkpoint.md
+                    - name: Cisco
+                      href: connect-cisco.md
+                    - name: ExtraHop Reveal(x)
+                      href: connect-extrahop.md
+                    - name: F5
+                      href: connect-f5.md
+                    - name: Fortinet
+                      href: connect-fortinet.md
+                    - name: One Identity Safeguard
+                      href: connect-one-identity.md
+                    - name: Palo Alto Networks
+                      href: connect-paloalto.md
+                    - name: Trend Micro Deep Security
+                      href: connect-trend-micro.md
+                    - name: Zscaler
+                      href: connect-zscaler.md
+                - name: "ÉTAPE\_3 Valider la connectivité"
+                  href: connect-cef-verify.md
         - name: Connecter la Threat Intelligence
           href: connect-threat-intelligence.md
         - name: Connecter des machines virtuelles Azure Stack
