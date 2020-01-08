@@ -1,10 +1,10 @@
 - name: Documentation Azure App Configuration (préversion)
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure App Configuration
       href: overview.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md
 - name: Démarrages rapides
   expanded: true
@@ -51,7 +51,7 @@
       href: integrate-ci-cd-pipeline.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
@@ -75,27 +75,27 @@
       href: howto-import-export-data.md
     - name: Acheminer des événements vers un point de terminaison personnalisé
       href: howto-app-configuration-event.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: howto-best-practices.md
 - name: Informations de référence
   items:
     - name: Configuration
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: 'https://docs.microsoft.com/cli/azure/ext/appconfig/appconfig?view=azure-cli-latest'
         - name: Fournisseur .NET Core
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Générateur .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Kit SDK .NET Azure
+        - name: Kit SDK Azure pour .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
         - name: Fournisseur Java Spring
           href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
-        - name: Kit SDK Java Azure
+        - name: Kit SDK Azure pour Java
           href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
-        - name: Kit SDK Python Azure
+        - name: Kit SDK Azure pour Python
           href: 'https://go.microsoft.com/fwlink/?linkid=2103727'
-        - name: Kit SDK JavaScript Azure
+        - name: Kit SDK Azure pour JavaScript
           href: 'https://go.microsoft.com/fwlink/?linkid=2103664'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'

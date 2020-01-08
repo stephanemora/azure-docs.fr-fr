@@ -1,6 +1,6 @@
 - name: Documentation Site Recovery
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Site Recovery
       href: site-recovery-overview.md
@@ -43,7 +43,7 @@
           href: vmware-azure-tutorial.md
         - name: Exécuter une simulation de récupération d'urgence
           href: tutorial-dr-drill-azure.md
-        - name: Exécuter un basculement et une restauration automatique
+        - name: Basculer vers Azure
           href: vmware-azure-tutorial-failover-failback.md
     - name: Récupération d’urgence de machine virtuelle Hyper-V vers Azure
       items:
@@ -57,7 +57,7 @@
           href: hyper-v-vmm-azure-tutorial.md
         - name: Exécuter une simulation de récupération d'urgence
           href: tutorial-dr-drill-azure.md
-        - name: Exécuter un basculement et une restauration automatique
+        - name: Basculer vers Azure
           href: hyper-v-azure-failover-failback-tutorial.md
     - name: Migrer vers Azure
       items:
@@ -73,7 +73,7 @@
   items:
     - name: Questions courantes sur Site Recovery
       href: site-recovery-faq.md
-    - name: À propos de la reprise d’activité après sinistre pour les machines virtuelles Azure
+    - name: À propos de la reprise d’activité de machine virtuelle Azure
       items:
         - name: Architecture Azure vers Azure
           href: azure-to-azure-architecture.md
@@ -87,9 +87,9 @@
           href: azure-vm-disaster-recovery-with-accelerated-networking.md
         - name: ExpressRoute avec la récupération d’urgence de machines virtuelles Azure
           href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: À propos du déplacement de machines virtuelles Azure
+    - name: À propos du déplacement de machines virtuelles Azure vers une autre région
       href: azure-to-azure-move-overview.md
-    - name: À propos de la récupération d’urgence de machine virtuelle VMware vers Azure
+    - name: À propos de la reprise d’activité de machine virtuelle VMware
       items:
         - name: Présentation de la récupération d’urgence VMware
           href: vmware-azure-about-disaster-recovery.md
@@ -103,11 +103,13 @@
           href: vmware-azure-configuration-server-requirements.md
         - name: Architecture VMware vers Azure
           href: vmware-azure-architecture.md
+        - name: À propos de l’exclusion de disques de la réplication
+          href: exclude-disks-replication.md
         - name: Options d’emplacement de la restauration automatique depuis Azure vers VMware
           href: concepts-types-of-failback.md
         - name: Prise en charge mutualisée pour la récupération d’urgence VMware
           href: vmware-azure-multi-tenant-overview.md
-    - name: À propos de la récupération d’urgence de machine virtuelle Hyper-V vers Azure
+    - name: À propos de la reprise d’activité de machine virtuelle Hyper-V
       items:
         - name: Questions courantes
           href: hyper-v-azure-common-questions.md
@@ -115,13 +117,17 @@
           href: hyper-v-azure-support-matrix.md
         - name: Architecture Hyper-V vers Azure
           href: hyper-v-azure-architecture.md
-    - name: À propos de la récupération d’urgence de serveur physique vers Azure
+        - name: À propos de l’exclusion de disques de la réplication
+          href: exclude-disks-replication.md
+    - name: À propos de la reprise d’activité de serveurs physiques après sinistre
       items:
         - name: Matrice de prise en charge VMware/physique vers Azure
           href: vmware-physical-azure-support-matrix.md
         - name: Serveur physique vers architecture Azure
           href: physical-azure-architecture.md
-    - name: À propos de la mise en réseau pour la récupération d’urgence vers Azure
+        - name: À propos de l’exclusion de disques de la réplication
+          href: exclude-disks-replication.md
+    - name: À propos des réseaux pour la reprise d’activité après sinistre
       items:
         - name: Azure Traffic Manager avec Site Recovery
           href: concepts-traffic-manager-with-site-recovery.md
@@ -131,7 +137,9 @@
           href: concepts-network-security-group-with-site-recovery.md
         - name: Utilisation d’adresses IP publiques avec Site Recovery
           href: concepts-public-ip-address-with-site-recovery.md
-    - name: À propos des plans de basculement et de récupération
+    - name: À propos du basculement et de la restauration automatique
+      href: failover-failback-overview.md
+    - name: À propos des plans de récupération
       href: recovery-plan-overview.md
     - name: À propos de la migration vers Azure
       href: migrate-overview.md
@@ -179,7 +187,7 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure
               href: azure-to-azure-replicate-after-migration.md
-        - name: gérer
+        - name: Gérer
           items:
             - name: Mettre à jour le service Mobilité pour les machines virtuelles Azure
               href: azure-to-azure-autoupdate.md
@@ -231,13 +239,13 @@
               items:
                 - name: Vue d’ensemble et installation du service Mobilité
                   href: vmware-physical-mobility-service-overview.md
-                - name: Préparer l’installation Push du service Mobilité
+                - name: Préparer en vue d’une installation par push
                   href: vmware-azure-install-mobility-service.md
-                - name: Déployer le service Mobilité avec System Center Configuration Manager
+                - name: Automatiser le déploiement du service Mobilité
                   href: vmware-azure-mobility-install-configuration-mgr.md
             - name: Activer la réplication pour les machines virtuelles VMware
               href: vmware-azure-enable-replication.md
-            - name: Exclure des disques
+            - name: Exclure les disques de la réplication
               href: vmware-azure-exclude-disk.md
             - name: Guide pour configurer la réplication avec une architecture mutualisée et CSP pour les machines virtuelles VMWare
               href: vmware-azure-multi-tenant-csp-disaster-recovery.md
@@ -249,17 +257,19 @@
               href: site-recovery-test-failover-to-azure.md
             - name: Effectuer un basculement vers Azure
               href: site-recovery-failover.md
-            - name: Reprotéger Azure vers VMware en local
+            - name: Préparer en vue d’une reprotection/restauration automatique
+              href: vmware-azure-prepare-failback.md
+            - name: Reprotection d’Azure vers votre site local
               href: vmware-azure-reprotect.md
-            - name: Restauration automatique de Microsoft Azure vers VMware
+            - name: Restaurer automatiquement depuis Azure vers un site local
               href: vmware-azure-failback.md
-            - name: Configurer et gérer un serveur de processus de restauration automatique dans Azure
+            - name: Configurer un serveur de processus de restauration automatique dans Azure
               href: vmware-azure-set-up-process-server-azure.md
             - name: Configurer un serveur cible maître Linux pour la restauration automatique
               href: vmware-azure-install-linux-master-target.md
-        - name: gérer
+        - name: Gérer
           items:
-            - name: Gérer l’agent de mobilité pour VMware
+            - name: Gérer l’agent du service Mobilité
               href: vmware-physical-manage-mobility-service.md
             - name: Gérer le serveur de configuration pour VMware
               href: vmware-azure-manage-configuration-server.md
@@ -301,11 +311,11 @@
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Exécuter un basculement et une restauration automatique
           href: physical-to-azure-failover-failback.md
-        - name: gérer
+        - name: Gérer
           items:
-            - name: Gérer l’agent de mobilité pour le serveur physique
+            - name: Gérer le service Mobility
               href: vmware-physical-manage-mobility-service.md
-            - name: Gérer le serveur de configuration pour la réplication de serveurs physiques
+            - name: Gérer le serveur de configuration
               href: physical-manage-configuration-server.md
             - name: Gérer des serveurs de processus
               href: vmware-azure-manage-process-server.md
@@ -345,7 +355,7 @@
           items:
             - name: Préparer le mappage réseau pour la récupération d’urgence de machines virtuelles Hyper-V
               href: hyper-v-vmm-network-mapping.md
-            - name: Exclure les disques de la réplication de Hyper-V vers Azure
+            - name: Exclure les disques de la réplication
               href: hyper-v-exclude-disk.md
         - name: Exécuter un basculement et une restauration automatique
           items:
@@ -359,7 +369,7 @@
               href: site-recovery-failover.md
             - name: Restauration automatique de Microsoft Azure vers Hyper-V
               href: hyper-v-azure-failback.md
-        - name: gérer
+        - name: Gérer
           items:
             - name: Dépréciation du chiffrement des données Site Recovery
               href: encryption-feature-deprecation.md
@@ -385,7 +395,7 @@
           href: site-recovery-dynamicsax.md
         - name: RDS
           href: 'site-recovery-workload.md#protect-rds'
-        - name: "Microsoft\_Exchange"
+        - name: Exchange
           href: 'site-recovery-workload.md#protect-exchange'
         - name: SAP
           href: site-recovery-sap.md
@@ -439,7 +449,7 @@
       href: monitor-log-analytics.md
     - name: Surveiller les serveurs de processus
       href: vmware-physical-azure-monitor-process-server.md
-- name: Résolution de problèmes
+- name: Dépannage
   items:
     - name: Résoudre les problèmes de machines virtuelles Azure
       items:

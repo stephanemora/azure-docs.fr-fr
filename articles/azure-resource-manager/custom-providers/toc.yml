@@ -1,0 +1,57 @@
+- name: Documentation sur les fournisseurs personnalisés Azure
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+    - name: "Que sont les fournisseurs personnalisés Azure\_?"
+      href: overview.md
+- name: Démarrages rapides
+  expanded: true
+  items:
+    - name: Créer un fournisseur de ressources personnalisé
+      href: create-custom-provider.md
+- name: Tutoriels
+  items:
+    - name: Bien démarrer avec les fournisseurs personnalisés
+      href: tutorial-get-started-with-custom-providers.md
+    - name: Configurer Azure Functions
+      href: tutorial-custom-providers-function-setup.md
+    - name: Créer un point de terminaison RESTful
+      href: tutorial-custom-providers-function-authoring.md
+    - name: Créer et utiliser des fournisseurs personnalisés
+      href: tutorial-custom-providers-create.md
+    - name: Étendre les ressources
+      href: tutorial-resource-onboarding.md
+- name: Concepts
+  items:
+    - name: Azure Policy pour les associations
+      href: concepts-built-in-policy.md
+    - name: Intégration des ressources
+      href: concepts-resource-onboarding.md
+- name: Guides pratiques
+  items:
+    - name: Ajouter des actions personnalisées dans Azure
+      href: custom-providers-action-endpoint-how-to.md
+    - name: Ajouter des ressources personnalisées dans Azure
+      href: custom-providers-resources-endpoint-how-to.md
+- name: Informations de référence
+  items:
+    - name: Informations de référence sur les proxys de ressources personnalisées
+      href: proxy-resource-endpoint-reference.md
+    - name: Informations de référence sur les caches de ressources personnalisées
+      href: proxy-cache-resource-endpoint-reference.md
+    - name: Informations de référence sur le point de terminaison RESTful de fournisseur personnalisé
+      href: reference-custom-providers-csharp-endpoint.md
+    - name: REST
+      href: /rest/api/customproviders/
+- name: Ressources
+  items:
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Bonnes pratiques pour les modèles Resource Manager
+      href: 'https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-custom-providers'

@@ -1,7 +1,6 @@
 ---
 title: Tutoriel - Écrire des fonctions C# définies par l’utilisateur pour des travaux Azure Stream Analytics dans Visual Studio (préversion)
 description: Ce tutoriel montre comment écrire des fonctions C# définies par l’utilisateur pour des travaux Stream Analytics dans Visual Studio.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -9,25 +8,25 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1d71f4c5616efb05efe2733c49507b085ca2dcf6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426292"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Didacticiel : Écrire une fonction C# définie par l’utilisateur pour un travail Azure Stream Analytics (préversion)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail Azure Stream Analytics (préversion)
 
-Les fonctions C# définies par l’utilisateur créées dans Visual Studio vous permettent d’étendre le langage de requête Azure Stream Analytics avec vos propres fonctions. Vous pouvez réutiliser le code existant (y compris les DLL) et utiliser une logique mathématique ou complexe avec C#. Il existe trois façons d’implémenter des fonctions définies par l’utilisateur : fichiers code-behind dans un projet Stream Analytics, fonctions définies par l’utilisateur issues d’un projet C# local ou fonctions définies par l’utilisateur issues d’un package existant à partir d’un compte de stockage. Ce tutoriel utilise la méthode code-behind pour implémenter une fonction C# de base. La fonctionnalité de fonction définie par l’utilisateur pour les travaux Stream Analytics est actuellement disponible en préversion et ne doit pas être utilisée dans les charges de travail de production.
+Les fonctions C# définies par l’utilisateur créées dans Visual Studio vous permettent d’étendre le langage de requête Azure Stream Analytics avec vos propres fonctions. Vous pouvez réutiliser le code existant (y compris les DLL) et utiliser une logique mathématique ou complexe avec C#. Il existe trois façons d’implémenter des fonctions définies par l’utilisateur : fichiers code-behind dans un projet Stream Analytics, fonctions définies par l’utilisateur issues d’un projet C# local ou fonctions définies par l’utilisateur issues d’un package existant à partir d’un compte de stockage. Ce tutoriel utilise la méthode code-behind pour implémenter une fonction C# de base. La fonctionnalité de fonction définie par l’utilisateur pour les travaux Stream Analytics est actuellement disponible en préversion et ne doit pas être utilisée dans des charges de travail de production.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une fonction définie par l’utilisateur C# à l’aide de code-behind.
 > * Tester votre travail Stream Analytics localement.
 > * Publier votre travail sur Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, veillez à effectuer les prérequis suivants :
 

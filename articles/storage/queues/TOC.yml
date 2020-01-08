@@ -1,6 +1,6 @@
 - name: Documentation de Stockage File d’attente Azure
   href: /azure/storage/queues/
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Que sont les files d’attente Azure\_?"
@@ -13,8 +13,16 @@
           href: storage-quickstart-queues-portal.md
     - name: Développer avec des files d’attente
       items:
-        - name: .NET
+        - name: .NET (v12)
           href: storage-quickstart-queues-dotnet.md
+        - name: .NET (v11)
+          href: storage-quickstart-queues-dotnet-legacy.md
+        - name: Java (v12)
+          href: storage-quickstart-queues-java.md
+        - name: Python (v12)
+          href: storage-quickstart-queues-python.md
+        - name: JavaScript (v12)
+          href: storage-quickstart-queues-nodejs.md
 - name: Tutoriels
   items:
     - name: Utiliser des files d’attente de stockage Azure
@@ -31,11 +39,11 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sécurité
       items:
-        - name: Présentation de la sécurité
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Recommandations de sécurité
+          href: security-recommendations.md
         - name: Chiffrement du stockage Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Authorization
+        - name: Autorisation des opérations de données
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
             - name: Authentifier et autoriser avec Azure AD
@@ -44,6 +52,8 @@
               href: /rest/api/storageservices/authorize-with-shared-key
             - name: Autoriser avec la signature d’accès partagé
               href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Autorisation des opérations de gestion
+          href: ../common/authorization-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Détection avancée des menaces
           href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Contrôles de sécurité intégrés
@@ -65,15 +75,11 @@
           href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Conception d’applications à haute disponibilité à l’aide de RA-GRS
           href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Performances et mise à l’échelle
-      items:
-        - name: Cibles de performance et d’évolutivité
-          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Liste de contrôle des performances et de l’évolutivité
-          href: storage-performance-checklist.md
+    - name: Liste de contrôle des performances et de l’évolutivité
+      href: storage-performance-checklist.md
     - name: Accès concurrentiel
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Surveiller et résoudre des problèmes
+    - name: Superviser et dépanner
       items:
         - name: Didacticiel sur la résolution des problèmes
           href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -99,9 +105,7 @@
       items:
         - name: Créez un compte de stockage.
           displayName: 'resource manager, resource manager template, template, ARM'
-          href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Gérer un compte de stockage
-          href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Mettre à niveau un compte de stockage
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sécuriser les données de file d’attente
@@ -112,15 +116,17 @@
               items:
                 - name: Portail
                   href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: PowerShell ou Azure CLI
-                  href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: PowerShell
+                  href: ../common/authorize-active-directory-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/authorize-active-directory-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Gérer les droits d’accès à l’aide de RBAC
               items:
                 - name: Portail
                   href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: PowerShell
                   href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: D’Azure CLI
+                - name: Azure CLI
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Authentifier et autoriser avec Azure AD
               items:
@@ -130,6 +136,8 @@
                   href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
             - name: Autoriser avec une clé partagée
               items:
+                - name: Afficher et gérer les clés de compte
+                  href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Configuration des chaînes de connexion
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Utiliser l’API REST Stockage Azure
@@ -144,7 +152,7 @@
                       href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                     - name: PowerShell
                       href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: D’Azure CLI
+                    - name: Azure CLI
                       href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Configurer le chiffrement côté client
           items:
@@ -196,12 +204,20 @@
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: 'PowerShell pour les Clouds chinois, allemands et des administrations'
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Problèmes de latence
           href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Informations de référence
   items:
+    - name: Cibles de performance et d’évolutivité
+      items:
+        - name: Stockage de files d'attente
+          href: scalability-targets.md
+        - name: Comptes de stockage standard
+          href: ../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Fournisseur de ressources de stockage
+          href: ../common/scalability-targets-resource-provider.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Azure PowerShell
       href: /powershell/module/az.storage
     - name: Azure CLI

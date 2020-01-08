@@ -1,4 +1,4 @@
-- name: Service Azure Kubernetes (AKS)
+- name: Azure Kubernetes Service (AKS)
   href: ./index.yml
 - name: Vue d’ensemble
   items:
@@ -64,9 +64,9 @@
       href: concepts-storage.md
     - name: Scale
       href: concepts-scale.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: best-practices.md
         - name: Pour les opérateurs du cluster
           items:
@@ -108,7 +108,7 @@
   items:
     - name: Opérations de cluster
       items:
-        - name: "Créer un cluster\_AKS"
+        - name: Créer un cluster AKS
           href: '/cli/azure/aks#az-aks-create'
           maintainContext: true
         - name: Mettre à l’échelle un cluster AKS
@@ -218,6 +218,8 @@
           maintainContext: true
         - name: Effectuer une rotation des certificats
           href: certificate-rotation.md
+        - name: Créer un cluster privé
+          href: private-clusters.md
     - name: Surveillance et journalisation
       items:
         - name: Azure Monitor pour des conteneurs
@@ -232,11 +234,11 @@
           maintainContext: true
     - name: Utiliser des conteneurs Windows Server (préversion)
       items:
-        - name: "Créer un cluster\_AKS"
+        - name: Créer un cluster AKS
           href: windows-container-cli.md
         - name: Se connecter à distance
           href: rdp.md
-        - name: Limites connues
+        - name: Limitations connues
           href: windows-node-limitations.md
         - name: Utiliser le tableau de bord Kubernetes
           href: kubernetes-dashboard.md
@@ -309,6 +311,9 @@
         - name: Utiliser Azure Database pour PostgreSQL
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+        - name: Utiliser Gestion des API Azure
+          href: ../api-management/api-management-kubernetes.md
+          maintainContext: true
     - name: Sélectionner et déployer un maillage de service
       items:
         - name: À propos des maillages de service
@@ -317,7 +322,7 @@
           items:
             - name: À propos d’Istio
               href: servicemesh-istio-about.md
-            - name: Installer et configurer
+            - name: Installation et configuration
               href: servicemesh-istio-install.md
             - name: Scénario - Routage intelligent et versions de contrôle de validité
               href: servicemesh-istio-scenario-routing.md
@@ -325,13 +330,13 @@
           items:
             - name: À propos de Linkerd
               href: servicemesh-linkerd-about.md
-            - name: Installer et configurer
+            - name: Installation et configuration
               href: servicemesh-linkerd-install.md
         - name: Utiliser Consul
           items:
             - name: À propos de Consul
               href: servicemesh-consul-about.md
-            - name: Installer et configurer
+            - name: Installation et configuration
               href: servicemesh-consul-install.md
     - name: DevOps
       items:
@@ -347,7 +352,7 @@
           href: deployment-center-launcher.md
         - name: Actions GitHub pour Kubernetes
           href: ../aks/kubernetes-action.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Problèmes courants
           href: troubleshooting.md
@@ -391,5 +396,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-service'
     - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md

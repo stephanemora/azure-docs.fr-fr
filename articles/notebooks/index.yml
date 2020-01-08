@@ -1,61 +1,68 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation Azure Notebooks
+### YamlMime:Landing
+title: Documentation Azure Notebooks (préversion)
+summary: Azure Notebooks (préversion) est un service hébergé gratuit permettant de développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. Jupyter (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable (Python, R et F#), des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé « notebook ».
 metadata:
-  title: Documentation Azure Notebooks
-  description: 'Découvrez comment créer, exécuter et partager des notebooks Jupyter par le biais du service hébergé Azure Notebooks.'
+  title: Documentation Azure Notebooks (préversion)
+  description: Découvrez comment créer, exécuter et partager des notebooks Jupyter avec le service hébergé Azure Notebooks (préversion).
+  ms.service: azure-notebooks
   ms.topic: landing-page
-  ms.date: 12/04/2018
-abstract:
-  description: "Azure Notebooks est un service hébergé gratuit à l’aide duquel vous pouvez développer et exécuter des notebooks Jupyter dans le cloud sans aucune installation. Jupyter (anciennement IPython) est un projet open source qui vous permet de combiner facilement du texte Markdown, du code exécutable (Python, R et F#), des données persistantes, des graphiques et des visualisations dans un canevas partageable appelé «\_notebook\_»."
-sections:
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: Apprenez à utiliser Azure Notebooks en explorant ces guides de démarrage rapide.
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
-            html: '<p>Découvrez comment créer et exécuter un notebook Jupyter sur Azure Notebooks, puis comment le partager avec d’autres utilisateurs.</p>'
-            image:
-              src: media/index/Azure_AddNotebook.svg
-            title: Créer et partager un notebook
-          - href: /azure/notebooks/quickstart-clone-jupyter-notebook
-            html: <p>Découvrez comment cloner un notebook Jupyter à partir d’un dépôt GitHub et comment l’exécuter dans votre compte Azure Notebooks.</p>
-            image:
-              src: media/index/Azure_ClonePage.svg
-            title: Cloner un notebook
-          - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
-            html: '<p>Découvrez comment transférer un notebook Jupyter vers Azure Notebooks à partir de votre ordinateur local ou d’une URL web, puis comment le partager à des fins de collaboration.</p>'
-            image:
-              src: media/index/Azure_MigrateNotebook.svg
-            title: Migrer un notebook Jupyter local
-          - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
-            html: <p>Découvrez comment configurer un projet Azure Notebooks avec un ensemble spécifique de packages installés et de scripts de démarrage.</p>
-            image:
-              src: media/index/Azure_CustomEnvironment.svg
-            title: Créer un projet avec un environnement personnalisé
-          - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
-            html: <p>Découvrez comment se connecter à Azure Notebooks et comment définir un identifiant utilisateur pour accéder à des projets enregistrés et partager des notebooks avec d’autres utilisateurs.</p>
-            image:
-              src: media/index/Azure_UserAccount.svg
-            title: Se connecter et définir un identifiant utilisateur
-  - title: Didacticiels pas à pas
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">Découvrez comment créer un notebook du début à la fin.</a>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: "Utilisez les exemples suivants pour travailler avec Notebooks\_:"
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/notebooks/azure-notebooks-samples">Exemples de notebooks Jupyter</a>
+  author: jasonwhowell
+  ms.author: jasonh
+  ms.date: 12/26/2019
+  ms.openlocfilehash: 5044e3d679827982af7259511777f7119188b00b
+  ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 01/04/2020
+  ms.locfileid: "75659115"
+landingContent:
+- title: À propos d’Azure Notebooks
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le service Azure Notebooks ?
+      url: azure-notebooks-overview.md
+  - linkListType: deploy
+    links:
+    - text: Exemples d’Azure Notebooks
+      url: azure-notebooks-samples.md
+  - linkListType: get-started
+    links:
+    - text: Accéder à vos notebooks Azure
+      url: https://notebooks.azure.com/
+- title: Bien démarrer avec Azure Notebooks
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: Analyser les données climatiques avec Azure Notebooks
+      url: /learn/modules/analyze-climate-data-with-azure-notebooks/
+  - linkListType: tutorial
+    links:
+    - text: Créer et exécuter un notebook Jupyter avec Python
+      url: tutorial-create-run-jupyter-notebook.md
+  - linkListType: quickstart
+    links:
+    - text: Se connecter et définir un identifiant utilisateur
+      url: quickstart-sign-in-azure-notebooks.md
+    - text: Créer et partager un notebook
+      url: quickstart-create-share-jupyter-notebook.md
+    - text: Cloner un notebook
+      url: quickstart-clone-jupyter-notebook.md
+    - text: Migrer un notebook Jupyter local
+      url: quickstart-migrate-local-jupyter-notebook.md
+    - text: Créer un projet avec un environnement personnalisé
+      url: quickstart-create-jupyter-notebook-project-environment.md
+- title: Principales tâches pour Azure Notebooks
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gérer et configurer des projets
+      url: configure-manage-azure-notebooks-projects.md
+    - text: Utiliser des fichiers de données
+      url: work-with-project-data-files.md
+    - text: Créer et cloner des projets
+      url: create-clone-jupyter-notebooks.md
+    - text: Accéder aux données de cloud dans un notebook
+      url: access-data-resources-jupyter-notebooks.md
+    - text: Installer des packages dans un notebook
+      url: install-packages-jupyter-notebook.md

@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Exemples d'intégration d'Azure Service Bus à Event Grid"
-description: 'Didacticiel : Cet article fournit des exemples d’intégration de la messagerie Service Bus et d’Event Grid.'
+title: "Tutoriel : Exemples d'intégration d'Azure Service Bus à Event Grid"
+description: 'Tutoriel : Cet article fournit des exemples d’intégration de la messagerie Service Bus et d’Event Grid.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3fb2f4a4969e8df94a60ac20c761f073b6a9d030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719027"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462090"
 ---
-# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Didacticiel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutoriel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. Vous allez effectuer les étapes suivantes :
  
 - Créer une fonction Azure de test pour déboguer et voir le flux initial d’événements à partir d’Event Grid.
@@ -35,7 +35,7 @@ Après avoir créé la rubrique Service Bus, Event Grid, Azure Functions et les 
 3. Vérifier que la fonction ou l’application logique abonnée à l’événement l’a reçu. 
 
 ## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
-Suivez les instructions de ce tutoriel : [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+Suivez les instructions de ce tutoriel : [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
 
 - Créer un espace de noms Service Bus **premium**. 
 - Obtenir la chaîne de connexion. 
@@ -50,7 +50,7 @@ Vous pouvez utiliser la méthode de votre choix pour envoyer un message à votre
 3. Accédez au projet **MessageSender**, puis sélectionnez **Program.cs**.
 4. Renseignez le nom de votre rubrique Service Bus et la chaîne de connexion que vous avez obtenue à l’étape précédente :
 
-    ```CSharp
+    ```csharp
     const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
     const string TopicName = "YOUR TOPIC NAME";
     ```
@@ -69,7 +69,7 @@ Effectuez ensuite les étapes suivantes :
 
 1. Développez **Fonctions** dans l’arborescence, puis sélectionnez votre fonction. Remplacez le code de la fonction par le code suivant : 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     
     using System.Net;
@@ -131,7 +131,7 @@ Effectuez ensuite les étapes suivantes :
     2. Sélectionnez **~1** pour **Version du runtime**. 
 2. Développez **Fonctions** dans l’arborescence, puis sélectionnez votre fonction. Remplacez le code de la fonction par le code suivant : 
 
-    ```CSharp
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using Newtonsoft.Json;

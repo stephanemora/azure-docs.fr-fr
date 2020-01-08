@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Windows
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -90,7 +90,7 @@
           items:
             - name: Chiffrer une machine virtuelle et ses disques de données
               href: ./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?
-        - name: Surveiller
+        - name: Moniteur
           items:
             - name: Azure Monitor
               href: ./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
@@ -134,14 +134,14 @@
           items:
             - name: Chiffrer une machine virtuelle et ses disques de données
               href: ./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md
-            - name: Surveiller
+            - name: Moniteur
               items:
                 - name: Azure Monitor
                   href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Concepts
   items:
     - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Régions
       href: regions.md
     - name: Disponibilité et performances
@@ -186,6 +186,8 @@
               href: sizes-gpu.md
             - name: Configuration des pilotes GPU
               href: n-series-driver-setup.md
+            - name: Configuration des pilotes GPU AMD
+              href: n-series-amd-driver-setup.md
         - name: Calcul haute performance
           displayName: H-series
           href: sizes-hpc.md
@@ -333,7 +335,7 @@
               href: disk-encryption-faq.md
             - name: Chiffrement de disque - version précédente (AAD)
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: disk-encryption-overview-aad.md
                 - name: Coffre de clés pour Azure Disk Encryption
                   href: disk-encryption-key-vault-aad.md
@@ -408,7 +410,7 @@
       items:
         - name: Notifications de maintenance
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../maintenance-notifications.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Interface de ligne de commande
               href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -438,7 +440,7 @@
       items:
         - name: Images partagées
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: shared-image-galleries.md
             - name: PowerShell
               href: shared-images.md
@@ -452,7 +454,7 @@
               href: troubleshooting-shared-images.md
         - name: Générateur d’images (préversion)
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: image-builder.md
@@ -464,7 +466,7 @@
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Référence de modèle
               href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Résolution des problèmes
+            - name: Dépanner
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trouver et utiliser des images
           href: cli-ps-findimage.md
@@ -586,7 +588,7 @@
           items:
             - name: Portail Azure
               href: nsg-quickstart-portal.md
-            - name: "Azure\_PowerShell"
+            - name: Azure PowerShell
               href: nsg-quickstart-powershell.md
         - name: Assigner une adresse IP publique
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -644,13 +646,13 @@
               href: migration-classic-resource-manager-errors.md
             - name: Outils de la communauté pour la migration
               href: migration-classic-resource-manager-community-tools.md
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: migration-classic-resource-manager-faq.md
-- name: Résolution des problèmes
+- name: Dépanner
   href: ../troubleshooting/index.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azureps-cmdlets-docs
@@ -672,7 +674,7 @@
 - name: Ressources
   items:
     - name: Créer des modèles
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-virtual-machines
     - name: Feuille de route Azure
@@ -687,5 +689,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-virtual-machine'
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: faq.md

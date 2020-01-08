@@ -3,7 +3,7 @@ title: Documentation sur Azure Container Instances
 summary: Exécutez des conteneurs Docker à la demande dans un environnement Azure serverless géré. Azure Container Instances est une solution adaptée à tous les scénarios qui peut fonctionner dans des conteneurs isolés, sans orchestration. Exécutez des applications pilotées par des événements, déployez-les rapidement à partir de vos pipelines de développement conteneur, puis exécutez des tâches de traitement de données et de build.
 metadata:
   title: Documentation sur Azure Container Instances - conteneurs serverless, à la demande
-  description: Exécutez des conteneurs Docker dans un environnement Azure serverless géré.
+  description: Azure Container Instances (ACI) vous permet d’exécuter des conteneurs Docker dans un environnement cloud serverless managé, sans avoir à configurer des machines virtuelles, des clusters ou des orchestrateurs.
   services: 
   ms.service: container-instances
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   author: dlepow
   ms.author: danlep
   ms.date: 09/25/2019
-  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
-  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.openlocfilehash: 4e7be5b6da633d370a2ccdce7331788f2fbe0440
+  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/27/2019
-  ms.locfileid: "71326948"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75445752"
 landingContent:
 - title: À propos d’Azure Container Instances
   linkLists:
@@ -26,9 +26,9 @@ landingContent:
       url: container-instances-overview.md
     - text: Groupes de conteneur
       url: container-instances-container-groups.md
-    - text: Forum Aux Questions
+    - text: Questions fréquentes (FAQ)
       url: container-instances-faq.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
@@ -56,7 +56,7 @@ landingContent:
       url: container-instances-vnet.md
     - text: Configurer la stratégie de redémarrage
       url: container-instances-restart-policy.md
-    - text: Définition des variables d'environnement
+    - text: Définir des variables d’environnement
       url: container-instances-environment-variables.md
 - title: Gérer les applications de conteneur
   linkLists:

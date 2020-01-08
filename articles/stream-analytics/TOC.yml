@@ -49,7 +49,7 @@
           href: stream-analytics-define-inputs.md
         - name: Entrées de données de référence
           href: stream-analytics-use-reference-data.md
-        - name: Écrire des désérialiseurs personnalisés .NET
+        - name: Lire les entrées dans n’importe quel format avec des désérialiseurs personnalisés
           href: custom-deserializer-examples.md
     - name: Types de sortie pour un travail
       items:
@@ -81,7 +81,7 @@
       href: stream-analytics-output-error-policy.md
 - name: Guides de procédures
   items:
-    - name: gérer
+    - name: Gérer
       items:
         - name: Mettre à jour les informations d’identification
           href: stream-analytics-login-credentials-inputs-outputs.md
@@ -138,7 +138,7 @@
           maintainContext: true
         - name: Scénarios géospatiaux
           href: geospatial-scenarios.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Surveiller les travaux - Portail Azure
           href: stream-analytics-monitoring.md
@@ -154,7 +154,7 @@
           href: stream-analytics-streaming-unit-consumption.md
         - name: Mettre à l’échelle avec la parallélisation
           items:
-            - name: Parallélisation des requêtes
+            - name: Parallélisation de la requête
               href: stream-analytics-parallelization.md
             - name: Augmenter le débit
               href: stream-analytics-scale-jobs.md
@@ -174,9 +174,9 @@
       items:
         - name: Installer des outils
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Tester avec des exemples de données
+        - name: Tester localement avec des exemples de données
           href: stream-analytics-vs-tools-local-run.md
-        - name: Tester avec des données en temps réel
+        - name: Tester localement avec des données actives
           href: stream-analytics-live-data-local-testing.md
         - name: "Afficher les travaux dans Visual\_Studio"
           href: stream-analytics-vs-tools.md
@@ -188,17 +188,19 @@
           href: stream-analytics-edge-csharp-udf-methods.md
     - name: Visual Studio Code
       items:
-        - name: Tester avec des exemples de données
-          href: vscode-local-run.md
+        - name: Tester localement avec des exemples de données
+          href: visual-studio-code-local-run.md
+        - name: Tester localement avec des données actives
+          href: visual-studio-code-local-run-live-input.md
         - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
           href: setup-cicd-vs-code.md
         - name: Explorer les travaux
-          href: vscode-explore-jobs.md
-    - name: Résolution des problèmes
+          href: visual-studio-code-explore-jobs.md
+    - name: Dépanner
       items:
         - name: Entrée
           href: stream-analytics-troubleshoot-input.md
-        - name: Sortie
+        - name: Output
           href: stream-analytics-troubleshoot-output.md
         - name: Logique de requête
           href: stream-analytics-troubleshoot-query.md
@@ -228,7 +230,7 @@
             - name: Vue d’ensemble de Fonctions d’agrégation
               href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
               maintainContext: true
-            - name: MOY
+            - name: AVG
               href: /stream-analytics-query/avg-azure-stream-analytics
               maintainContext: true
             - name: COUNT

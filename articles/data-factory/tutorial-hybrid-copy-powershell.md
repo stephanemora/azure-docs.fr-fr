@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: b0e4fcf771f2441d9e1061ee57e83e26b6b1a241
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439346"
 ---
-# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Didacticiel : Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
+# <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Tutoriel : Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 
 Dans ce tutoriel, vous allez utiliser Azure PowerShell pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale dans un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud. 
 
@@ -36,7 +36,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 > * Démarrer une exécution de pipeline.
 > * Surveiller l’exécution du pipeline.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 ### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -135,7 +135,7 @@ Installez la dernière version d’Azure PowerShell, si elle n’est pas install
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez la commande suivante dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) (entre guillemets doubles, par exemple `"adfrg"`), puis exécutez la commande. 
+1. Définissez une variable pour le nom du groupe de ressources que vous utiliserez ultérieurement dans les commandes PowerShell. Copiez la commande suivante dans PowerShell, spécifiez un nom pour le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) (entre guillemets doubles, par exemple `"adfrg"`), puis exécutez la commande. 
    
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -197,7 +197,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     Name              : ADFTutorialIR
@@ -214,7 +214,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
    Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
     
     ```json
     State                     : NeedRegistration
@@ -243,7 +243,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
     
     ```json
     {
@@ -382,7 +382,7 @@ Dans cette étape, vous liez votre instance SQL Server locale à la fabrique de 
     }
    ```    
 
-    **Utilisation de l’authentification Windows :**
+    **Avec l’authentification Windows :**
 
     ```json
     {  
@@ -465,7 +465,7 @@ Dans cette étape, vous définissez un jeu de données qui représente les donn�
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     DatasetName       : SqlServerDataset
@@ -518,7 +518,7 @@ Le service lié comporte les informations de connexion utilisées par le service
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     DatasetName       : AzureBlobDataset
@@ -598,7 +598,7 @@ Dans ce tutoriel, vous allez créer un pipeline avec une activité de copie. L�
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```json
     PipelineName      : SQLServerToBlobPipeline
@@ -615,7 +615,7 @@ Démarrez l’exécution du pipeline SQLServerToBlobPipeline et capturez l’ID 
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
-## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
+## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
 1. Pour vérifier en permanence l’état d’exécution du pipeline SQLServerToBlobPipeline, exécutez le script suivant dans PowerShell et imprimez le résultat final :
 
@@ -715,7 +715,7 @@ Le pipeline crée automatiquement le dossier de sortie nommé *fromonprem* dans 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à effectuer les actions suivantes :
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

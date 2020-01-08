@@ -5,7 +5,7 @@
 - name: v2.0
   expanded: true
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: v2-overview.md
     - name: Démarrages rapides
       items:
@@ -35,6 +35,7 @@
               href: quickstart-v2-aspnet-core-webapp.md
             - name: NodeJS
               href: quickstart-v2-nodejs-webapp.md
+              displayName: OIDC
             - name: Java
               href: quickstart-v2-java-webapp.md
             - name: Python
@@ -101,7 +102,7 @@
               href: v2-supported-account-types.md
             - name: Application monopage
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-spa-overview.md
                 - name: Inscription d'application
                   href: scenario-spa-app-registration.md
@@ -117,7 +118,7 @@
                   href: scenario-spa-production.md
             - name: Application web qui connecte les utilisateurs
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-web-app-sign-user-overview.md
                 - name: Inscription d'application
                   href: scenario-web-app-sign-user-app-registration.md
@@ -129,13 +130,13 @@
                   href: scenario-web-app-sign-user-production.md
             - name: Application web qui appelle des API web
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-web-app-call-api-overview.md
                 - name: Inscription d'application
                   href: scenario-web-app-call-api-app-registration.md
                 - name: Configuration de code
                   href: scenario-web-app-call-api-app-configuration.md
-                - name: Connexion
+                - name: Déconnexion globale
                   href: scenario-web-app-call-api-sign-in.md
                 - name: Acquérir un jeton pour l’application
                   href: scenario-web-app-call-api-acquire-token.md
@@ -145,7 +146,7 @@
                   href: scenario-web-app-call-api-production.md
             - name: API web protégée
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-protected-web-api-overview.md
                 - name: Inscription d'application
                   href: scenario-protected-web-api-app-registration.md
@@ -157,7 +158,7 @@
                   href: scenario-protected-web-api-production.md
             - name: API web qui appelle des API web
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-web-api-call-api-overview.md
                 - name: Inscription d'application
                   href: scenario-web-api-call-api-app-registration.md
@@ -171,7 +172,7 @@
                   href: scenario-web-api-call-api-production.md
             - name: Application de bureau qui appelle des API web
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-desktop-overview.md
                 - name: Inscription d'application
                   href: scenario-desktop-app-registration.md
@@ -185,7 +186,7 @@
                   href: scenario-desktop-production.md
             - name: Application démon
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-daemon-overview.md
                 - name: Inscription d'application
                   href: scenario-daemon-app-registration.md
@@ -199,7 +200,7 @@
                   href: scenario-daemon-production.md
             - name: Application mobile qui appelle des API web
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: scenario-mobile-overview.md
                 - name: Inscription d'application
                   href: scenario-mobile-app-registration.md
@@ -213,11 +214,12 @@
                       href: msal-net-system-browser-android-considerations.md
                     - name: Xamarin iOS
                       href: msal-net-xamarin-ios-considerations.md
-                    - name: Utiliser des répartiteurs avec des applications Xamarin iOS et Android
+                    - name: Utiliser des répartiteurs avec Xamarin iOS et Android
+                      displayName: Microsoft Authenticator Microsoft Intune
                       href: msal-net-use-brokers-with-xamarin-apps.md
                     - name: Plateforme Windows universelle
                       href: msal-net-uwp-considerations.md
-                - name: Acquisition d’un jeton pour l’application
+                - name: Acquérir un jeton pour l’application
                   href: scenario-mobile-acquire-token.md
                 - name: Appel d’une API web
                   href: scenario-mobile-call-api.md
@@ -225,7 +227,7 @@
                   href: scenario-mobile-production.md
         - name: Bibliothèque d’authentification Microsoft (MSAL)
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: msal-overview.md
             - name: Comptes et profils de locataire (Android)
               href: accounts-overview.md
@@ -241,13 +243,13 @@
                   href: msal-compare-msal-js-and-adal-js.md
                 - name: Migrer vers MSAL.Android
                   href: migrate-android-adal-msal.md
-                - name: Migrer vers MSAL.iOS et MacOS
+                - name: Migrer vers MSAL.iOS / MacOS
                   href: migrate-objc-adal-msal.md
                 - name: Migrer vers MSAL Python
                   href: migrate-python-adal-msal.md
                 - name: Migrer vers MSAL pour Java
                   href: migrate-adal-msal-java.md
-                - name: Migrer des applications Xamarin avec des répartiteurs d’ADAL.NET vers MSAL.NET
+                - name: Migrer des applications Xamarin avec des répartiteurs vers MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Flux d’authentification pris en charge
               href: msal-authentication-flows.md
@@ -263,7 +265,7 @@
               items:
                 - name: Applications clientes
                   href: msal-client-applications.md
-                - name: Configuration des applications (.NET)
+                - name: Configuration de l’application
                   href: msal-client-application-configuration.md
                 - name: Initialiser des applications (.NET)
                   href: msal-net-initializing-client-applications.md
@@ -317,7 +319,7 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Problèmes connus - Safari
                       href: msal-js-known-issues-safari-browser.md
-                - name: Problèmes SSL liés à MSAL pour iOS et macOS
+                - name: "Résoudre les problèmes SSL (MSAL\_iOS/macOS)"
                   href: ssl-issues.md
         - name: Protocole d’authentification
           items:
@@ -374,7 +376,7 @@
               href: application-consent-experience.md
         - name: Clouds nationaux
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: authentication-national-cloud.md
             - name: Authentication
               href: msal-national-cloud.md
@@ -388,7 +390,7 @@
       items:
         - name: Authentication
           items:
-            - name: Configurer des revendications de rôle
+            - name: Configurer une revendication de rôle
               href: active-directory-enterprise-app-role-management.md
             - name: Personnaliser des revendications - Portail
               href: active-directory-saml-claims-customization.md
@@ -400,9 +402,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Configuration de l’application
           items:
-            - name: Transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
+            - name: Nouveau guide de formation sur les inscriptions d’applications dans le portail Azure
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Transition du portail des inscriptions d’applications à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
+            - name: Nouvelle expérience d’inscription d’applications dans le portail Azure
               href: app-registration-portal-training-guide.md
             - name: Convertir une application monolocataire en application multilocataire
               href: howto-convert-app-to-be-multi-tenant.md
@@ -418,7 +420,7 @@
               href: howto-add-app-roles-in-azure-ad-apps.md
             - name: Instructions de personnalisation
               href: howto-add-branding-in-azure-ad-apps.md
-            - name: Domaine de l’éditeur
+            - name: Configurer le domaine d'éditeur
               href: howto-configure-publisher-domain.md
             - name: Conditions de service et déclaration de confidentialité
               href: howto-add-terms-of-service-privacy-statement.md
@@ -432,7 +434,7 @@
                   href: msal-net-token-cache-serialization.md
                 - name: Effacer le cache de jeton
                   href: msal-net-clear-token-cache.md
-                - name: Instancier un client public avec des options
+                - name: Instancier une application cliente publique
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Instancier un client confidentiel avec des options
                   href: msal-net-instantiate-confidential-client-config-options.md
@@ -462,13 +464,13 @@
                   href: redirect-uris-ios.md
             - name: MSAL pour Python
               items:
-                - name: Sérialisation de cache de jeton
+                - name: Sérialisation de cache de jeton personnalisée
                   href: msal-python-token-cache-serialization.md
             - name: MSAL pour Java
               items:
-                - name: Sérialisation de cache de jeton
+                - name: Sérialisation de cache de jeton personnalisée
                   href: msal-java-token-cache-serialization.md
-                - name: Ajouter et supprimer des comptes dans le cache de jeton
+                - name: Obtenir et supprimer des comptes dans le cache de jeton
                   href: msal-java-get-remove-accounts-token-cache.md
         - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
           items:
@@ -482,9 +484,9 @@
               href: vs-active-directory-webapi-getting-started.md
             - name: Qu’est-il arrivé à mon projet WebAPI ?
               href: vs-active-directory-webapi-what-happened.md
-            - name: Erreur lors de la détection de l’authentification
+            - name: Diagnostiquer les erreurs pendant l’authentification
               href: vs-active-directory-error.md
-    - name: Références
+    - name: References
       items:
         - name: Bibliothèques d’authentification
           displayName: MSAL
@@ -497,12 +499,12 @@
           href: msal-configuration.md
         - name: Codes d’erreur d’authentification et d’autorisation
           href: reference-aadsts-error-codes.md
-        - name: Dernières modifications
+        - name: Changements cassants
           href: reference-breaking-changes.md
 - name: v1.0
   expanded: false
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: v1-overview.md
     - name: Démarrages rapides
       items:
@@ -715,7 +717,7 @@
           href: active-directory-graph-api-quickstart.md
         - name: AD FS pour les développeurs
           href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
-    - name: Références
+    - name: References
       items:
         - name: Bibliothèques d’authentification
           displayName: ADAL
@@ -726,7 +728,7 @@
           href: reference-app-manifest.md
         - name: Codes d’erreur d’authentification et d’autorisation
           href: reference-aadsts-error-codes.md
-        - name: Dernières modifications
+        - name: Changements cassants
           href: reference-breaking-changes.md
 - name: Ressources
   items:

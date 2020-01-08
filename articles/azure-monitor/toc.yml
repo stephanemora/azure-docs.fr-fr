@@ -8,7 +8,17 @@
       href: terminology.md
 - name: Démarrages rapides
   items:
-    - name: APPLICATIONS
+    - name: Superviser une ressource azure
+      href: learn/quick-monitor-azure-resource.md
+    - name: Surveillance des machines virtuelles
+      items:
+        - name: Collecter - Machines virtuelles Azure
+          href: learn/quick-collect-azurevm.md
+        - name: Collecter - Ordinateur Linux
+          href: learn/quick-collect-linux-computer.md
+        - name: Collecter - Ordinateur Windows
+          href: learn/quick-collect-windows-computer.md
+    - name: Surveillance des applications
       items:
         - name: Application .NET
           href: learn/quick-monitor-portal.md
@@ -20,26 +30,20 @@
           href: learn/mobile-center-quickstart.md
         - name: Application web
           href: app/website-monitoring.md
-    - name: Machines virtuelles
-      items:
-        - name: Collecter - Machines virtuelles Azure
-          href: learn/quick-collect-azurevm.md
-        - name: Collecter - Ordinateur Linux
-          href: learn/quick-collect-linux-computer.md
-        - name: Collecter - Ordinateur Windows
-          href: learn/quick-collect-windows-computer.md
 - name: Tutoriels
   items:
-    - name: Journaux d’activité
-      items:
-        - name: Log Analytics
-          href: log-query/get-started-portal.md
-        - name: Requêtes dans les journaux
-          href: log-query/get-started-queries.md
-        - name: Tableau de bord avec des données de journal
-          href: learn/tutorial-logs-dashboards.md
-        - name: Alerter sur les données de journal
-          href: learn/tutorial-response.md
+    - name: Créer un graphique de métriques
+      href: learn/tutorial-metrics-explorer.md
+    - name: Collecter les journaux d’une ressource Azure
+      href: learn/tutorial-resource-logs.md
+    - name: Écrire des requêtes de journal
+      href: log-query/get-started-queries.md
+    - name: Créer un tableau de bord à partir d’une requête de journal
+      href: learn/tutorial-logs-dashboards.md
+    - name: Créer une alerte à partir d’une requête de journal
+      href: learn/tutorial-response.md
+    - name: Mise à l’échelle automatique sur les performances et le calendrier
+      href: learn/tutorial-autoscale-performance-schedule.md
     - name: Application Insights
       items:
         - name: Rechercher des exceptions runtime sur les applications
@@ -52,10 +56,6 @@
           href: learn/tutorial-users.md
         - name: Tableau de bord avec des données d’application
           href: learn/tutorial-app-dashboards.md
-    - name: Archiver les métriques et données de journal de la plateforme
-      href: learn/tutorial-archive-data.md
-    - name: Mise à l’échelle automatique sur les performances et le calendrier
-      href: learn/tutorial-autoscale-performance-schedule.md
 - name: Exemples
   items:
     - name: Azure PowerShell
@@ -70,7 +70,7 @@
       href: platform/data-sources.md
     - name: Plateforme de données
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/data-platform.md
         - name: Emplacements des données
           href: platform/data-locations.md
@@ -95,7 +95,7 @@
           href: app/data-retention-privacy.md
     - name: Alertes
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: platform/alerts-overview.md
         - name: Alertes de métrique
           href: platform/alerts-metric-overview.md
@@ -109,7 +109,7 @@
       href: visualizations.md
     - name: Intégrations des partenaires
       href: platform/partners.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       items:
         - name: Log Analytics
           displayName: FAQ
@@ -196,13 +196,13 @@
                 - name: Application Spring Boot
                   displayname: java
                   href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
-                - name: Résolution des problèmes
+                - name: Dépanner
                   href: app/java-troubleshoot.md
             - name: Node.js
               href: app/nodejs.md
             - name: Python
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   displayname: 'python, Python, OpenCenus, OpenTelemetry, py'
                   href: app/opencensus-python.md
                 - name: Les dépendances
@@ -239,7 +239,7 @@
               href: app/monitor-performance-live-website-now.md
             - name: Serveurs locaux
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   displayname: 'IIS monitoring, on premises monitoring, on prem,'
                   href: app/status-monitor-v2-overview.md
                 - name: Prise en main
@@ -291,12 +291,12 @@
               href: app/availability-alerts.md
             - name: Tests de performances
               href: app/performance-testing.md
-            - name: Résolution de problèmes
+            - name: Dépannage
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
         - name: Traçage distribué
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app/distributed-tracing.md
             - name: Corrélation des données de télémétrie
               href: app/correlation.md
@@ -341,7 +341,7 @@
               href: app/profiler-troubleshooting.md
         - name: Débogueur de capture instantanée
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: 'snapshot, debug, debugger, snapshot debugger, snapshotdebugger'
               href: app/snapshot-debugger.md
             - name: Activer le débogueur de capture instantanée pour App Service
@@ -376,7 +376,7 @@
               href: app/proactive-email-notification.md
         - name: Utilisation (analytique du comportement utilisateur)
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
               href: app/usage-overview.md
             - name: Envoyer du contexte utilisateur
@@ -429,7 +429,7 @@
               href: app/asp-net-exceptions.md
             - name: Suivis de journaux
               href: app/asp-net-trace-logs.md
-            - name: Compteurs de performances
+            - name: Compteurs de performance
               href: app/performance-counters.md
             - name: EventCounters
               href: app/eventcounters.md
@@ -449,7 +449,7 @@
                   href: app/separate-resources.md
                 - name: "Comment\_... dans Application Insights\_?"
                   href: app/how-do-i.md
-        - name: Exportation
+        - name: Exporter
           items:
             - name: Exportation continue
               href: app/export-telemetry.md
@@ -479,50 +479,46 @@
           href: insights/monitor-azure-resource.md
         - name: Surveiller les groupes de ressources
           href: insights/resource-group-insights.md
-        - name: Vue d’ensemble des journaux de plateforme
-          href: platform/platform-logs-overview.md
-        - name: Journaux d’activité de ressources
+        - name: Journaux de plateforme
           items:
-            - name: Vue d'ensemble
-              displayname: Resource logs
-              href: platform/resource-logs-overview.md
-            - name: Collecter dans les journaux Azure Monitor
-              displayname: Resource logs
-              href: platform/resource-logs-collect-workspace.md
-            - name: Archiver dans le stockage
-              displayname: Resource logs
-              href: platform/resource-logs-collect-storage.md
-            - name: Flux de concentrateurs d’événements
-              displayname: Resource logs
-              href: platform/resource-logs-stream-event-hubs.md
-        - name: Journal d’activité
-          items:
-            - name: Vue d'ensemble
-              displayname: Activity log
-              href: platform/activity-logs-overview.md
-            - name: Collecter avec un paramètre de diagnostic
-              displayname: Activity log
-              href: platform/diagnostic-settings-subscription.md
-            - name: Voir et récupérer
-              displayname: Activity log
+            - name: Vue d’ensemble
+              displayName: 'Platform logs, Resource logs, Activity log'
+              href: platform/platform-logs-overview.md
+            - name: Afficher le journal d’activité
+              displayName: Platform logs
               href: platform/activity-log-view.md
-            - name: Collecter et analyser
-              displayname: Activity log
-              href: platform/activity-log-collect.md
-            - name: Collecter auprès des locataires
-              displayname: Activity log
-              href: platform/activity-log-collect-tenants.md
-            - name: Exportation
-              displayname: Activity log
-              href: platform/activity-log-export.md
-            - name: Schéma
-              displayname: Activity log
-              href: platform/activity-log-schema.md
+            - name: Envoyer aux destinations
+              items:
+                - name: Espace de travail Log Analytics
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-workspace.md
+                - name: Stockage Azure
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-collect-storage.md
+                - name: Event Hubs
+                  displayname: 'Resource logs, Activity log, Platform logs'
+                  href: platform/resource-logs-stream-event-hubs.md
+            - name: Collecte des journaux d’activité existants
+              items:
+                - name: Vue d’ensemble
+                  displayName: Resource logs
+                  href: platform/diagnostic-settings-legacy.md
+                - name: Collecter et analyser
+                  displayname: Activity log
+                  href: platform/activity-log-collect.md
+                - name: Collecter auprès des locataires
+                  displayname: Activity log
+                  href: platform/activity-log-collect-tenants.md
+                - name: Exporter
+                  displayname: Activity log
+                  href: platform/activity-log-export.md
         - name: Paramètres de diagnostic
           items:
             - name: Créer un paramètre de diagnostic
+              displayName: 'Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings.md
-            - name: Créer un paramètre de diagnostic avec Resource Manager
+            - name: Créer avec Resource Manager
+              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
               href: platform/diagnostic-settings-template.md
             - name: Remplacer par le format de stockage d’objets blob
               displayname: Diagnostic settings
@@ -537,7 +533,7 @@
               href: platform/agents-overview.md
             - name: Extension Diagnostics Azure
               items:
-                - name: Vue d'ensemble
+                - name: Vue d’ensemble
                   href: platform/diagnostics-extension-overview.md
                 - name: Collecter les journaux d’activité
                   href: platform/azure-storage-iis-table.md
@@ -545,7 +541,7 @@
                   items:
                     - name: Historique des versions
                       href: platform/diagnostics-extension-schema.md
-                    - name: Schéma
+                    - name: schéma
                       href: platform/diagnostics-extension-schema-1dot3.md
                     - name: Envoyer à Stockage Azure
                       href: platform/diagnostics-extension-to-storage.md
@@ -565,7 +561,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
                     - name: Format des journaux de ressources JSON Lines
                       href: platform/diagnostic-logs-append-blobs.md
-                    - name: Résolution de problèmes
+                    - name: Dépannage
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
                   items:
@@ -579,6 +575,8 @@
                   href: platform/log-analytics-agent.md
                 - name: Agents Windows
                   href: platform/agent-windows.md
+                - name: Agents Linux
+                  href: platform/agent-linux.md
                 - name: Extension de machine virtuelle pour Windows
                   href: ../virtual-machines/windows/extensions-oms.md
                 - name: Extension de machine virtuelle pour Linux
@@ -589,7 +587,7 @@
                   href: platform/agent-manage.md
                 - name: Agent Health
                   href: insights/solution-agenthealth.md
-            - name: Résolution des problèmes
+            - name: Dépanner
               items:
                 - name: "Extension de machine virtuelle Log\_Analytics"
                   displayname: 'troubleshoot, troubleshooting'
@@ -612,7 +610,7 @@
               href: platform/data-sources-collectd.md
             - name: syslog
               href: platform/data-sources-syslog.md
-            - name: Compteurs de performances
+            - name: Compteurs de performance
               href: platform/data-sources-performance-counters.md
             - name: Performances des applications Linux
               href: platform/data-sources-linux-applications.md
@@ -630,7 +628,7 @@
               href: insights/vminsights-known-issues.md
             - name: Questions fréquentes (FAQ) sur la disponibilité générale
               href: insights/vminsights-ga-release-faq.md
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: insights/vminsights-faq.md
             - name: Activer la supervision
               items:
@@ -650,7 +648,7 @@
               href: insights/vminsights-health.md
             - name: Mapper des dépendances
               href: insights/vminsights-maps.md
-            - name: Analyser les performances
+            - name: Superviser les performances
               href: insights/vminsights-performance.md
             - name: Utilisation de classeurs
               href: insights/vminsights-workbooks.md
@@ -674,9 +672,9 @@
       items:
         - name: Azure Monitor pour des conteneurs
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: insights/container-insights-overview.md
-            - name: Forum Aux Questions
+            - name: Questions fréquentes (FAQ)
               href: insights/container-insights-faq.md
             - name: Activer la supervision
               items:
@@ -692,7 +690,7 @@
                   href: insights/container-insights-azure-redhat-setup.md
                 - name: Correspondances de régions
                   href: insights/container-insights-region-mapping.md
-            - name: Analyser les performances
+            - name: Superviser les performances
               href: insights/container-insights-analyze.md
             - name: Surveiller l’intégrité
               href: insights/container-insights-health.md
@@ -700,7 +698,7 @@
               items:
                 - name: Vue d’ensemble de Données en direct (préversion)
                   href: insights/container-insights-livedata-overview.md
-                - name: Paramétrage
+                - name: Programme d’installation
                   href: insights/container-insights-livedata-setup.md
                 - name: Consulter les métriques du cluster
                   href: insights/container-insights-livedata-metrics.md
@@ -724,7 +722,7 @@
               href: insights/container-insights-optout.md
             - name: Désactiver la supervision de Red Hat OpenShift
               href: insights/container-insights-optout-openshift.md
-            - name: Résolution de problèmes
+            - name: Dépannage
               href: insights/container-insights-troubleshoot.md
         - name: Surveillance de Docker et du conteneur Windows
           href: insights/containers.md
@@ -763,11 +761,11 @@
                   href: insights/network-performance-monitor-expressroute.md
                 - name: Tarifs
                   href: insights/network-performance-monitor-pricing-faq.md
-                - name: Forum Aux Questions
+                - name: Questions fréquentes (FAQ)
                   href: insights/network-performance-monitor-faq.md
         - name: Solutions de supervision
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: insights/solutions.md
             - name: Solutions cibles
               href: insights/solution-targeting.md
@@ -899,7 +897,7 @@
       items:
         - name: Les vues
           items:
-            - name: Concepteur de vues
+            - name: Concepteur de vue
               href: platform/view-designer.md
             - name: Référence de vignette
               href: platform/view-designer-tiles.md
@@ -915,7 +913,7 @@
               href: app/export-power-bi.md
         - name: Workbooks
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/workbooks-overview.md
             - name: Visualisations
               href: platform/workbooks-visualizations.md
@@ -927,7 +925,7 @@
               items:
                 - name: Contrôle d’accès
                   href: platform/workbooks-access-control.md
-                - name: parameters
+                - name: Paramètres
                   items:
                     - name: Récapitulatif des paramètres
                       href: platform/workbooks-parameters.md
@@ -973,7 +971,7 @@
               href: platform/alerts-log-query.md
             - name: Actions de webhook
               href: platform/alerts-log-webhook.md
-            - name: Résolution de problèmes
+            - name: Dépannage
               href: platform/alert-log-troubleshoot.md
         - name: Règles d’alerte de journal d’activité
           items:
@@ -1055,13 +1053,13 @@
       items:
         - name: Mise à l’échelle automatique
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: platform/autoscale-overview.md
             - name: Procédure pas à pas
               href: platform/autoscale-get-started.md
             - name: Paramètres de configuration
               href: platform/autoscale-understanding-settings.md
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: platform/autoscale-best-practices.md
             - name: Métriques courantes
               href: platform/autoscale-common-metrics.md
@@ -1075,7 +1073,7 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: Utiliser des webhooks et des notifications par e-mail
               href: platform/autoscale-webhook-email.md
-            - name: Résolution de problèmes
+            - name: Dépannage
               href: platform/autoscale-troubleshoot.md
             - name: Schémas des journaux de ressources
               href: platform/autoscale-resource-log-schema.md
@@ -1109,9 +1107,9 @@
               href: insights/solutions-resources-automation.md
             - name: Recherches dans les journaux et alertes
               href: insights/solutions-resources-searches-alerts.md
-            - name: Views
+            - name: Les vues
               href: insights/solutions-resources-views.md
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: insights/solutions-best-practices.md
     - name: Intégration de System Center
       items:
@@ -1133,13 +1131,13 @@
           href: app/correlation.md
         - name: Packages NuGet
           href: app/nuget.md
-        - name: Prise en charge de plateformes
+        - name: Plateforme prise en charge
           href: app/platforms.md
         - name: Remplacements de points de terminaison
           href: app/custom-endpoints.md
         - name: Modèle de données
           items:
-            - name: Vue d'ensemble
+            - name: Vue d’ensemble
               href: app/data-model.md
             - name: Requête
               href: app/data-model-request-telemetry.md
@@ -1161,11 +1159,17 @@
       items:
         - name: Mesures prises en charge
           href: platform/metrics-supported.md
+        - name: Métriques exportables avec les paramètres de diagnostic
+          href: platform/metrics-supported-export-diagnostic-settings.md
         - name: Mesures prises en charge pour les alertes plus récentes
           href: platform/alerts-metric-near-real-time.md
-    - name: 'Services de journaux de plateforme, catégories et schémas'
-      href: platform/diagnostic-logs-schema.md
-    - name: D’Azure CLI
+    - name: Journaux de plateforme
+      items:
+        - name: 'Services de journaux de ressource, catégories et schémas'
+          href: platform/diagnostic-logs-schema.md
+        - name: Schéma du journal d'activité
+          href: platform/activity-log-schema.md
+    - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (préversion)
       href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
@@ -1181,13 +1185,13 @@
           href: /powershell/module/az.operationalinsights
     - name: API REST
       items:
-        - name: Surveiller
+        - name: Moniteur
           href: /rest/api/monitor/
         - name: Journaux d’activité
           href: /rest/api/loganalytics
     - name: Modèle Resource Manager
       items:
-        - name: Surveiller
+        - name: Moniteur
           href: /azure/templates/microsoft.insights/allversions
         - name: Journaux d’activité
           href: /azure/templates/microsoft.operationalinsights/allversions

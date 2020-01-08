@@ -1,33 +1,27 @@
 - name: Documentation relative au service Azure IoT Hub Device Provisioning
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: À propos du service d’approvisionnement d’appareils IoT
+    - name: "Qu’est-ce qu’IoT Hub Device Provisioning Service\_?"
       href: about-iot-dps.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Configurer l’approvisionnement automatique - Azure CLI
-      href: quick-setup-auto-provision-cli.md
-    - name: Configurer l’approvisionnement automatique - Portail
-      href: quick-setup-auto-provision.md
-    - name: Configurer l’approvisionnement automatique - Modèle
-      href: quick-setup-auto-provision-rm.md
-    - name: Provisionner automatiquement un appareil simulé
+    - name: Configurer un DPS
       items:
-        - name: Attestation TPM
+        - name: Portail Azure
+          href: quick-setup-auto-provision.md
+        - name: Azure CLI
+          href: quick-setup-auto-provision-cli.md
+        - name: Modèle Azure RM
+          href: quick-setup-auto-provision-rm.md
+    - name: Provisionner un seul appareil simulé
+      items:
+        - name: Attestation de clé symétrique
           items:
             - name: C
-              href: quick-create-simulated-device.md
-            - name: Java
-              href: quick-create-simulated-device-tpm-java.md
-            - name: 'C#'
-              href: quick-create-simulated-device-tpm-csharp.md
-            - name: Node.js
-              href: quick-create-simulated-device-tpm-node.md
-            - name: Python
-              href: quick-create-simulated-device-tpm-python.md
-        - name: Attestation X.509
+              href: quick-create-simulated-device-symm-key.md
+        - name: Attestation de certificat X.509
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,23 +33,21 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-        - name: Attestation de clé symétrique
+        - name: Attestation d’un appareil TPM simulé
           items:
             - name: C
-              href: quick-create-simulated-device-symm-key.md
-    - name: Inscription d’appareils à l’aide des API de service d’approvisionnement
-      items:
-        - name: Attestation TPM
-          items:
+              href: quick-create-simulated-device.md
             - name: Java
-              href: quick-enroll-device-tpm-java.md
+              href: quick-create-simulated-device-tpm-java.md
             - name: 'C#'
-              href: quick-enroll-device-tpm-csharp.md
+              href: quick-create-simulated-device-tpm-csharp.md
             - name: Node.js
-              href: quick-enroll-device-tpm-node.md
+              href: quick-create-simulated-device-tpm-node.md
             - name: Python
-              href: quick-enroll-device-tpm-python.md
-        - name: Attestation X.509
+              href: quick-create-simulated-device-tpm-python.md
+    - name: Créer des inscriptions d’appareil avec les API DPS
+      items:
+        - name: Inscription de groupes avec une attestation de certificat X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -65,11 +57,21 @@
               href: quick-enroll-device-x509-node.md
             - name: Python
               href: quick-enroll-device-x509-python.md
+        - name: Inscription d’appareil individuel avec une attestation TPM
+          items:
+            - name: Java
+              href: quick-enroll-device-tpm-java.md
+            - name: 'C#'
+              href: quick-enroll-device-tpm-csharp.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
+            - name: Python
+              href: quick-enroll-device-tpm-python.md
 - name: Tutoriels
   items:
     - name: "1\_- Configurer des ressources cloud"
       href: tutorial-set-up-cloud.md
-    - name: "2\_- Configurer l’appareil"
+    - name: 2 - Configurer un appareil
       href: tutorial-set-up-device.md
     - name: "3\_- Approvisionner un appareil sur un hub IoT"
       items:
@@ -79,7 +81,7 @@
           href: tutorial-net-provision-device-to-hub.md
     - name: "4\_- Approvisionner des appareils sur plusieurs hubs"
       href: tutorial-provision-multiple-hubs.md
-    - name: 5 - Attribuer les inscriptions de groupe
+    - name: 5 - Configurer des inscriptions de groupes
       href: tutorial-group-enrollments.md
 - name: Concepts
   items:
@@ -143,7 +145,7 @@
       href: how-to-use-sdk-tools.md
     - name: Guide pratique pour envoyer des données supplémentaires depuis les appareils
       href: how-to-send-additional-data.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: how-to-troubleshoot-dps.md
     - name: Communiquer avec votre DPS à l’aide du protocole MQTT
       href: iot-dps-mqtt-support.md
@@ -165,7 +167,7 @@
       href: 'https://github.com/Azure/azure-iot-sdk-csharp'
 - name: Rubriques connexes
   items:
-    - name: solutions
+    - name: Solutions
       items:
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

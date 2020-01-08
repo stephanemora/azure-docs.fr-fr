@@ -1,6 +1,6 @@
 - name: Documentation Azure Databricks
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure Databricks
       href: what-is-azure-databricks.md
@@ -123,6 +123,9 @@
         - name: Configurer des clusters
           href: /azure/databricks/clusters/configure
           maintainContext: true
+        - name: Conteneurs personnalisés
+          href: /azure/databricks/clusters/custom-containers
+          maintainContext: true
         - name: Initialiser des nœuds de cluster
           href: /azure/databricks/clusters/init-scripts
           maintainContext: true
@@ -215,7 +218,7 @@
         - name: Cellules de package
           href: /azure/databricks/notebooks/package-cells
           maintainContext: true
-    - name: Tâches
+    - name: travaux
       href: /azure/databricks/jobs
       maintainContext: true
     - name: Bibliothèques
@@ -239,7 +242,7 @@
             - name: Bases de données SQL avec le connecteur Apache Spark
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
-            - name: Stockage d'objets blob Azure
+            - name: Stockage Blob Azure
               href: /azure/databricks/data/data-sources/azure/azure-storage
               maintainContext: true
             - name: Azure Data Lake Storage Gen2
@@ -254,7 +257,7 @@
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
               maintainContext: true
-            - name: Azure SQL Data Warehouse
+            - name: Azure SQL Data Warehouse.
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
             - name: Fichier binaire
@@ -408,7 +411,7 @@
                 - name: Transformer des types de données complexes
                   href: /azure/databricks/delta/data-transformation/complex-types
                   maintainContext: true
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: /azure/databricks/delta/best-practices
               maintainContext: true
             - name: Gestion des versions des tables
@@ -417,7 +420,7 @@
             - name: Exemples d’optimisation
               href: /azure/databricks/delta/optimizations/optimization-examples
               maintainContext: true
-        - name: Questions fréquentes (FAQ)
+        - name: Forum aux questions
           href: /azure/databricks/delta/delta-faq
           maintainContext: true
         - name: Autres ressources Delta
@@ -585,7 +588,7 @@
             - name: Sélectionnez
               href: /azure/databricks/spark/latest/spark-sql/language-manual/select
               maintainContext: true
-            - name: Définir
+            - name: Définissez
               href: /azure/databricks/spark/latest/spark-sql/language-manual/set
               maintainContext: true
             - name: Afficher les colonnes
@@ -772,6 +775,14 @@
             - name: Enregistrer des données dans des fichiers TFRecord avec TensorFlow
               href: /azure/databricks/applications/deep-learning/data-prep/tensorflow-to-tfrecords
               maintainContext: true
+            - name: Caractérisation
+              items:
+                - name: Vue d’ensemble de la caractérisation
+                  href: /azure/databricks/applications/deep-learning/featurization/index
+                  maintainContext: true
+                - name: Transférer l’apprentissage
+                  href: /azure/databricks/applications/deep-learning/featurization/transfer-learning-keras
+                  maintainContext: true
         - name: Entraînement d’un seul nœud
           items:
             - name: Vue d’ensemble de l’entraînement d’un seul nœud
@@ -826,9 +837,12 @@
             - name: Inférence de modèle à l’aide de TensorFlow
               href: /azure/databricks/applications/deep-learning/inference/resnet-model-inference-tensorflow
               maintainContext: true
-            - name: Solution de référence pour l’inférence de modèle d’image distribuée
-              href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+            - name: Réglage des performances de l’inférence de modèle
+              href: /azure/databricks/applications/deep-learning/inference/model-inference-performance
               maintainContext: true
+        - name: Solution de référence pour l’inférence de modèle d’image distribuée
+          href: /azure/databricks/applications/deep-learning/reference-solutions/images-etl-inference
+          maintainContext: true
     - name: MLflow
       items:
         - name: Vue d’ensemble de MLflow
@@ -1063,6 +1077,9 @@
             - name: Vue d’ensemble des configurations de cluster
               href: /azure/databricks/administration-guide/clusters/index
               maintainContext: true
+            - name: Activer les services de conteneurs
+              href: /azure/databricks/administration-guide/clusters/container-services
+              maintainContext: true
             - name: Activer Databricks Runtime pour Genomics
               href: /azure/databricks/administration-guide/clusters/genomics-runtime
               maintainContext: true
@@ -1086,7 +1103,7 @@
             - name: Paramètres de routes définies par l’utilisateur
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
-    - name: Résolution de problèmes
+    - name: Dépannage
       items:
         - name: Questions courantes
           href: /azure/azure-databricks/frequently-asked-questions-databricks
@@ -1261,7 +1278,7 @@
             - name: Tâche sérialisée trop grande
               href: /azure/databricks/kb/execution/spark-serialized-task-is-too-large
               maintainContext: true
-        - name: Tâches
+        - name: travaux
           items:
             - name: Travaux actifs et inactifs
               href: /azure/databricks/kb/jobs/active-vs-dead-jobs
@@ -1487,7 +1504,7 @@
             - name: API Pools d’instances
               href: /azure/databricks/dev-tools/api/latest/instance-pools
               maintainContext: true
-            - name: Tâches
+            - name: travaux
               href: /azure/databricks/dev-tools/api/latest/jobs
               maintainContext: true
             - name: Bibliothèques
@@ -1518,11 +1535,37 @@
       href: /azure/databricks/dev-tools/databricks-utils
       maintainContext: true
     - name: Interface CLI Databricks
-      href: /azure/databricks/dev-tools/databricks-cli
-      maintainContext: true
-    - name: Interface CLI Stack
-      href: /azure/databricks/dev-tools/stack
-      maintainContext: true
+      items:
+        - name: Vue d’ensemble de l’interface CLI Databricks
+          href: /azure/databricks/dev-tools/cli/index
+          maintainContext: true
+        - name: Clusters
+          href: /azure/databricks/dev-tools/cli/clusters-cli
+          maintainContext: true
+        - name: DBFS
+          href: /azure/databricks/dev-tools/cli/dbfs-cli
+          maintainContext: true
+        - name: Groupes
+          href: /azure/databricks/dev-tools/cli/groups-cli
+          maintainContext: true
+        - name: Pools d’instances
+          href: /azure/databricks/dev-tools/cli/instance-pools-cli
+          maintainContext: true
+        - name: travaux
+          href: /azure/databricks/dev-tools/cli/jobs-cli
+          maintainContext: true
+        - name: Bibliothèques
+          href: /azure/databricks/dev-tools/cli/libraries-cli
+          maintainContext: true
+        - name: Secrets
+          href: /azure/databricks/dev-tools/cli/secrets-cli
+          maintainContext: true
+        - name: Pile
+          href: /azure/databricks/dev-tools/cli/stack-cli
+          maintainContext: true
+        - name: Espace de travail
+          href: /azure/databricks/dev-tools/cli/workspace-cli
+          maintainContext: true
     - name: API REST Azure Databricks
       href: /rest/api/databricks
     - name: Modèle Resource Manager
@@ -1542,7 +1585,7 @@
             - name: "Novembre\_2019"
               href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
-            - name: "Octobre\_2019"
+            - name: "2\_octobre\_2019"
               href: /azure/databricks/release-notes/product/2019/october
               maintainContext: true
             - name: "Septembre\_2019"
@@ -1578,13 +1621,13 @@
             - name: Novembre 2018
               href: /azure/databricks/release-notes/product/2018/november
               maintainContext: true
-            - name: "Octobre\_2018"
+            - name: Octobre 2018
               href: /azure/databricks/release-notes/product/2018/october
               maintainContext: true
             - name: Septembre 2018
               href: /azure/databricks/release-notes/product/2018/september
               maintainContext: true
-            - name: Août 2018
+            - name: "Août\_2018"
               href: /azure/databricks/release-notes/product/2018/august
               maintainContext: true
             - name: Juillet 2018
@@ -1593,13 +1636,13 @@
             - name: Juin 2018
               href: /azure/databricks/release-notes/product/2018/june
               maintainContext: true
-            - name: Mai 2018
+            - name: "Mai\_2018"
               href: /azure/databricks/release-notes/product/2018/may
               maintainContext: true
-            - name: "Avril\_2018"
+            - name: Avril 2018
               href: /azure/databricks/release-notes/product/2018/april
               maintainContext: true
-            - name: Mars 2018
+            - name: "Mars\_2018"
               href: /azure/databricks/release-notes/product/2018/march
               maintainContext: true
             - name: "Février\_2018"
@@ -1610,7 +1653,7 @@
               maintainContext: true
         - name: Runtime Databricks
           items:
-            - name: Pris en charge
+            - name: Prise en charge
               items:
                 - name: Versions du runtime prises en charge
                   href: /azure/databricks/release-notes/runtime/supported
@@ -1620,6 +1663,9 @@
                   maintainContext: true
                 - name: "Databricks Runtime\_6.2 ML"
                   href: /azure/databricks/release-notes/runtime/6.2ml
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.2 Genomics"
+                  href: /azure/databricks/release-notes/runtime/6.2genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.1"
                   href: /azure/databricks/release-notes/runtime/6.1
