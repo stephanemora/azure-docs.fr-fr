@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7c7b0a0bb79f3f00d7a8dff64ec1b7143241a1f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e7228556659a7a4a9f01ea31f61e75b5e870d50c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457420"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -24,9 +24,9 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 > [!IMPORTANT]
 > La mise à niveau d’un compte de stockage v1 universel ou d’objets blob vers un compte v2 universel est définitive et ne peut pas être annulée.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
 3. Dans la section **Paramètres**, cliquez sur **Configuration**.
 4. Sous **Type de compte**, cliquez sur **Mettre à niveau**.
@@ -46,7 +46,7 @@ Ensuite, appelez la commande suivante pour mettre à niveau le compte, en rempla
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -168,4 +168,3 @@ Le coût de transfert de données de géoréplication des comptes de stockage d�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créez un compte de stockage](storage-quickstart-create-account.md)
-* [Gérer des comptes de stockage Azure](storage-account-manage.md)

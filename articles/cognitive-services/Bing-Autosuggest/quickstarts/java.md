@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0a0fb1e8f79587223ae1f25ca8a7e0d6dc7cc5bb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1593d4079cf7f50d5473f24ecf57351c9d7786e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565838"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384915"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Démarrage rapide : Suggérer des requêtes de recherche avec l’API REST Suggestion automatique Bing et Java
 
 
-Utilisez ce guide de démarrage rapide pour appeler l’API Suggestion automatique Bing et obtenir la réponse JSON. Cette application Java simple envoie une requête de recherche partielle à l’API et retourne des suggestions pour les recherches. Alors que cette application est écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
+Utilisez ce démarrage rapide pour commencer à effectuer des appels à l’API Suggestion automatique Bing et à obtenir la réponse JSON. Cette application Java simple envoie une requête de recherche partielle à l’API et retourne des suggestions pour les recherches. Alors que cette application est écrite en Java, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Le [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * La [bibliothèque Gson](https://github.com/google/gson)
@@ -44,7 +44,7 @@ Utilisez ce guide de démarrage rapide pour appeler l’API Suggestion automatiq
     import com.google.gson.JsonParser;
     ```
 
-2. Créez des variables pour votre clé d’abonnement, l’hôte et le chemin de l’API, le [code de votre marché](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) et une requête de recherche.
+2. Créez des variables pour votre clé d’abonnement, l’hôte et le chemin de l’API, le [code de votre marché](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes) et une requête de recherche. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
     
     ```java
     static String subscriptionKey = "enter key here";

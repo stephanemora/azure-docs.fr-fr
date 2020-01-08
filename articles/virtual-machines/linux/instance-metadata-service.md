@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f693da11b5b850d8ebca637b426ac0748a4127ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6ca8dd08f3b6c1a7bc9a0b8c7ba853adb46fd30c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232407"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355974"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -103,7 +103,7 @@ Le tableau suivant répertorie les autres formats de données que les API peuven
 
 API | Format de données par défaut | Autres formats
 --------|---------------------|--------------
-/instance | json | texte
+/instance | json | text
 /scheduledevents | json | Aucun
 /attested | json | Aucun
 
@@ -359,7 +359,7 @@ Données | Description | Version introduite
 azEnvironment | Environnement Azure dans lequel s’exécute la machine virtuelle | 2018-10-01
 customData | Consulter [Données personnalisées](#custom-data) | 2019-02-01
 location | Région Azure dans laquelle la machine virtuelle est en cours d’exécution | 2017-04-02
-Nom | Nom de la machine virtuelle | 2017-04-02
+name | Nom de la machine virtuelle | 2017-04-02
 offer | Fournit des informations pour l’image de machine virtuelle et ne sont présentes que pour les images déployées à partir de la galerie d’images Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
@@ -369,7 +369,7 @@ platformFaultDomain | [Domaine par défaut](manage-availability.md) dans lequel 
 provider | Fournisseur de la machine virtuelle | 2018-10-01
 publicKeys | [Collection de clés publiques](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) affectée à la machine virtuelle et aux chemins | 2018-04-02
 publisher | Éditeur de l’image de machine virtuelle | 2017-04-02
-resourceGroupName | [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) de votre machine virtuelle | 2017-08-01
+resourceGroupName | [Groupe de ressources](../../azure-resource-manager/management/overview.md) de votre machine virtuelle | 2017-08-01
 resourceId | L’ID [complet](https://docs.microsoft.com/rest/api/resources/resources/getbyid) de la ressource | 2019-03-11
 sku | Référence (SKU) spécifique pour l’image de machine virtuelle | 2017-04-02
 subscriptionId | Abonnement Azure pour la machine virtuelle | 2017-08-01
@@ -772,7 +772,7 @@ Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 Puppet | https://github.com/keirans/azuremetadata
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 1. J’obtiens l’erreur `400 Bad Request, Required metadata header not specified`. Qu’est-ce que cela signifie ?
    * Le service de métadonnées d’instance requiert que l’en-tête `Metadata: true` soit transmis dans cette demande. La transmission de cet en-tête dans l’appel REST permet d’accéder au service de métadonnées d’instance.
