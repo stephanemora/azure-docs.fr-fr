@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6824eae4d5fed2eceaf85b9a674f980815afb260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101387"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645869"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Déploiement Content Server, liveCache et SAP MaxDB sur les machines virtuelles Azure
 
@@ -77,8 +77,8 @@ ms.locfileid: "70101387"
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
-[azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
-[azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md#subscription-limits
+[azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
+[azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits
 
 [dbms-guide]:dbms-guide.md 
 [dbms-guide-2.1]:dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
@@ -235,7 +235,7 @@ ms.locfileid: "70101387"
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
-[resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
+[resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam 
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
@@ -249,7 +249,7 @@ ms.locfileid: "70101387"
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
 [storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
-[storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
+[storage-scalability-targets]:../../../storage/common/scalability-targets-standard-accounts.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
@@ -309,7 +309,7 @@ ms.locfileid: "70101387"
 
 
 
-Ce document décrit les différents domaines à prendre en compte lors du déploiement MaxDB, liveCache et Content Server dans Azure IaaS. Comme condition préalable à ce document, vous devez avoir lu le document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Ce document décrit les différents domaines à prendre en compte lors du déploiement MaxDB, liveCache et Content Server dans Azure IaaS. Condition préalable à ce document, vous devez avoir lu le document [Éléments à prendre en compte pour le déploiement SGBD de machines virtuelles Azure pour charge de travail SAP](dbms_guide_general.md) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Caractéristiques des déploiements SAP MaxDB sur Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Prise en charge des versions SAP MaxDB sur Azure
@@ -412,7 +412,7 @@ Comme SAP liveCache utilise intensivement la puissance de calcul, pour une utili
 #### <a name="backup-and-restore-for-livecache-in-azure"></a>Sauvegarde et restauration de liveCache dans Azure
 La sauvegarde et la restauration, ainsi que les considérations sur les performances, sont déjà décrites dans les chapitres SAP MaxDB correspondants dans ce document. 
 
-#### <a name="other-considerations"></a>Autres points à considérer
+#### <a name="other-considerations"></a>Autres considérations
 Tous les autres sujets généraux sont déjà décrits dans le chapitre SAP MaxDB correspondant. 
 
 ## <a name="specifics-for-the-sap-content-server-deployment-on-windows-in-azure"></a>Caractéristiques du déploiement SAP Content Server sur Windows dans Azure
@@ -462,7 +462,7 @@ Ici, deux options s’offrent à vous :
 ![Possibilité d’installer SAP Cache Server en local](./media/dbms_maxdb_deployment_guide/900-sap-cache-server-on-premises.png)
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
-#### <a name="backup--restore"></a>Sauvegarde / restauration
+#### <a name="backup--restore"></a>Sauvegarder/restaurer
 Si vous configurez SAP Content Server pour stocker des fichiers dans la base de données SAP MaxDB, la procédure de sauvegarde/restauration et les considérations sur les performances sont déjà décrites dans les chapitres SAP MaxDB de ce document. 
 
 Si vous configurez SAP Content Server pour stocker les fichiers dans le système de fichiers, l’une des options consiste à exécuter manuellement la sauvegarde/restauration de l’ensemble de la structure de fichiers dans laquelle se trouvent les documents. Comme pour la sauvegarde/restauration SAP MaxDB, il est recommandé de disposer d’un volume de disque dédié aux fins de sauvegarde. 

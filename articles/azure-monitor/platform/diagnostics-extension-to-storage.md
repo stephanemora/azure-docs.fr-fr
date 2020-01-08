@@ -2,18 +2,18 @@
 title: Stocker et afficher des données de diagnostic le stockage Azure
 description: Découvrez comment collecter les données de diagnostics Azure dans un compte Stockage Azure afin de pouvoir les afficher avec l’un des outils disponibles.
 services: azure-monitor
-author: jpconnock
+author: bwren
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
-ms.author: jeconnoc
+ms.author: bwren
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: c9d751a7e3d01860b3b5860f1e75fa3767cd4f3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395009"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Stocker et afficher des données de diagnostic dans Azure Storage
 Les données de diagnostic ne sont pas définitivement stockées, sauf si vous les transférez vers l’émulateur de stockage Microsoft Azure ou dans le stockage Azure. Une fois dans le stockage, elles peuvent être affichées avec un des outils disponibles.
@@ -33,14 +33,14 @@ Selon le type de données de diagnostic recueillies, Diagnostics Azure utilise l
 
 | Source de données | Format de stockage |
 | --- | --- |
-| Journaux d’activité Azure |Table |
-| Journaux d’activité IIS 7.0 |Blob |
-| Journaux d’activité d’infrastructure de diagnostics Azure |Table |
-| Journaux d’activité de suivi de requête ayant échoué |Blob |
-| Journaux d’événements Windows |Table |
-| Compteurs de performances |Table |
-| Vidages sur incident |Blob |
-| Journaux d’activité d’erreurs personnalisés |Blob |
+| Journaux d’activité Azure |Table de charge de travail |
+| Journaux d’activité IIS 7.0 |Objet blob |
+| Journaux d’activité d’infrastructure de diagnostics Azure |Table de charge de travail |
+| Journaux d’activité de suivi de requête ayant échoué |Objet blob |
+| Journaux d’événements Windows |Table de charge de travail |
+| Compteurs de performance |Table de charge de travail |
+| Vidages sur incident |Objet blob |
+| Journaux d’activité d’erreurs personnalisés |Objet blob |
 
 ## <a name="transfer-diagnostic-data"></a>Transférer les données de diagnostic
 Pour le kit de développement logiciel 2.5 et versions ultérieures, la demande de transfert de données de diagnostic peut se produire dans le fichier de configuration. Vous pouvez transférer les données de diagnostic à des intervalles programmés, comme indiqué dans la configuration.

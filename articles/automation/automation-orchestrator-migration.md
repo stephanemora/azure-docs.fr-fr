@@ -2,19 +2,15 @@
 title: Migration d’Orchestrator vers Azure Automation
 description: Décrit comment migrer des Runbooks et des packs d'intégration de System Center Orchestrator vers Azure Automation.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 528b961ca07ec86ad502ee1b589772e354564a3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421693"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migration d'Orchestrator vers Azure Automation (bêta)
 Dans [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) , les Runbooks sont basés sur les activités de packs d'intégration spécifiquement écrits pour Orchestrator, tandis que dans Azure Automation, ils sont basés sur Windows PowerShell.  [Runbooks graphiques](automation-runbook-types.md#graphical-runbooks) dans Azure Automation ont une apparence semblable aux Runbooks Orchestrator, avec leurs activités représentant les applets de commande PowerShell, les Runbooks enfants et les ressources.
@@ -42,7 +38,7 @@ Le convertisseur de packs d'intégration convertit les packs d'intégration cré
 
 Lorsque vous exécutez le convertisseur de packs d'intégration, un Assistant vous permettant de sélectionner un fichier de pack d'intégration (.oip) s'affiche.  Cet Assistant répertorie ensuite les activités incluses dans ce pack d'intégration et vous permet de sélectionner celles qui seront migrées.  Une fois l'Assistant terminé, il crée un module qui inclut une applet de commande correspondant pour chacune des activités du pack d'intégration d'origine.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Toutes les propriétés d'une activité du pack d'intégration sont converties en paramètres de l'applet de commande correspondante dans le module d'intégration.  Les applets de commande Windows PowerShell possèdent un ensemble de [paramètres communs](https://technet.microsoft.com/library/hh847884.aspx) qui peuvent être utilisés avec toutes les applets de commande.  Par exemple, le paramètre -Verbose entraîne l'affichage, par une applet de commande, des informations détaillées relatives à son fonctionnement.  Aucune applet de commande ne peut avoir un paramètre portant le même nom qu'un paramètre commun.  Si une activité a une propriété portant le même nom qu'un paramètre commun, l'Assistant vous invite à fournir un autre nom pour le paramètre.
 
 ### <a name="monitor-activities"></a>Activités d'analyse
@@ -96,7 +92,7 @@ ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module 
 ### <a name="log-files"></a>Fichiers journaux
 Le convertisseur de Runbooks créera les fichiers journaux suivants au même emplacement que le Runbook converti.  Si les fichiers existent déjà, ils sont remplacés par les informations de la dernière conversion.
 
-| Fichier | Sommaire |
+| Fichier | Contents |
 |:--- |:--- |
 | Convertisseur de Runbooks - Progress.log |Étapes détaillées de la conversion incluant des informations sur chaque activité convertie avec succès et un avertissement pour chaque activité non convertie. |
 | Convertisseur de Runbooks - Summary.log |Résumé de la dernière conversion, y compris tous les avertissements et le suivi des tâches que vous devez effectuer, par exemple la création d'une variable requise pour le Runbook converti. |

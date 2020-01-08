@@ -2,19 +2,15 @@
 title: Gérer les comptes d’identification Azure Automation
 description: Cet article décrit comment gérer vos comptes d’identification avec PowerShell ou à partir du portail.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 2ce6c27487e834325b59fb21ba0d54d1e788ea57
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418051"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -75,7 +71,7 @@ Dans cette section, exécutez la procédure ci-après pour mettre à jour votre 
 
 ## <a name="create-run-as-account-using-powershell"></a>Créer un compte d’identification avec PowerShell
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 La liste suivante indique les configurations requises pour créer un compte d’identification dans PowerShell :
 

@@ -3,18 +3,18 @@ title: 'Démarrage rapide : Créer un blueprint dans le portail'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure Blueprints pour créer, définir et déployer des artefacts via le portail Azure.
 ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: efef8db6086f050829b60b5051ad683bbae9ab75
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: fa9eb8285086e35f8b23798c41a09529d0f49582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436613"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
-Lorsque vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager, des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Voici certaines de ces tâches :
+Lorsque vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager, des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Il s’agit notamment des tâches suivantes :
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
@@ -152,7 +152,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 ## <a name="edit-a-blueprint"></a>Modifier un blueprint
 
-Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour le faire, effectuez les étapes suivantes :
+Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour y remédier, effectuez les étapes suivantes :
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
@@ -268,7 +268,9 @@ Maintenant que le blueprint est affecté à un abonnement, vérifiez la progress
 
 1. Dans la page **Affectation de blueprint**, vérifiez que tous les artefacts ont été déployés et qu’aucune erreur ne s’est produite durant le déploiement. Si des erreurs se sont produites, consultez [Dépannage d’un blueprint](./troubleshoot/general.md) pour déterminer la cause du problème.
 
-## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+### <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 
 Si vous n’avez plus besoin d’une affectation de blueprint, vous pouvez la supprimer de l’abonnement. Cela peut s’avérer nécessaire si, par exemple, le blueprint a été remplacé par un autre plus récent contenant des modèles, des stratégies et des conceptions mis à jour. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, effectuez les étapes suivantes :
 
@@ -278,7 +280,7 @@ Si vous n’avez plus besoin d’une affectation de blueprint, vous pouvez la su
 
 1. Lisez le message de confirmation, puis sélectionnez **OK**.
 
-## <a name="delete-a-blueprint"></a>Supprimer un blueprint
+### <a name="delete-a-blueprint"></a>Supprimer un blueprint
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
@@ -290,7 +292,7 @@ Si vous n’avez plus besoin d’une affectation de blueprint, vous pouvez la su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide du portail Azure. Pour plus d’informations sur Azure Blueprints, consultez l’article sur le cycle de vie des blueprints.
+Dans ce guide de démarrage rapide, vous avez créé, affecté et supprimé un blueprint à l’aide du portail Azure. Pour plus d’informations sur Azure Blueprints, consultez l’article concernant le cycle de vie des blueprints.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur le cycle de vie des blueprints](./concepts/lifecycle.md)

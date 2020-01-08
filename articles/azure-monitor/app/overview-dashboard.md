@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
-ms.openlocfilehash: 218ae158512326bcad8efd6c598f68d296fe9370
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 45c04cc32733873061bd6ff44b2e5484b106a893
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819158"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406652"
 ---
 # <a name="application-insights-overview-dashboard"></a>Tableau de bord de vue d’ensemble d’Application Insights
 
@@ -28,7 +28,7 @@ Le nouveau tableau de bord de vue d’ensemble se lance maintenant par défaut :
 
 La sélection de plage horaire a été simplifiée en une interface en un clic simple.
 
-![Période](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
+![Plage temporelle](./media/overview-dashboard/app-insights-overview-dashboard-03.png)
 
 Les performances globales ont considérablement augmenté. Des fonctionnalités courantes comme la **Recherche** et **l’Analyse** sont accessibles d’un seul clic. Chaque vignette de KPI, qui se met à jour dynamiquement par défaut, donne des insights sur les fonctionnalités d’Application Insights correspondantes. Pour en savoir plus sur les demandes ayant échoué, sélectionnez **Échecs** sous l’en-tête **Examiner** :
 
@@ -55,7 +55,7 @@ Pour revenir à l’expérience de vue d’ensemble, sélectionnez simplement :
 
 ![Bouton de la vue d’ensemble](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous sélectionnez **Configurer les paramètres de vignette** et définissez un intervalle de temps personnalisé dépassant 31 jours, votre tableau de bord n’affichera pas au-delà de 31 jours de données, même avec la conservation de données par défaut de 90 jours. Il n’existe actuellement aucun moyen de contourner ce comportement.
 

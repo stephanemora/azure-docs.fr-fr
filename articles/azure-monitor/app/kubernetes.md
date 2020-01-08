@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 3056b6c56be32cf5c054c4526a88157650a3e30b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820764"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432519"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>La surveillance d’applications sans instrumentation pour les applications hébergées Kubernetes
 
@@ -24,9 +24,9 @@ ms.locfileid: "72820764"
 Azure Monitor tire maintenant parti de la technologie de maillage de service sur votre cluster Kubernetes pour fournir une surveillance immédiate des applications pour n’importe quelle application Kubernetes hébergée. Avec les fonctionnalités d’Application Insight par défaut comme [Application Map](../../azure-monitor/app/app-map.md) pour modéliser vos dépendances, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) pour la surveillance en temps réel, les visualisations percutantes avec le [tableau de bord par défaut](../../azure-monitor/app/overview-dashboard.md), [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md), et [Workbooks](../../azure-monitor/app/usage-workbooks.md). Cette fonctionnalité aide les utilisateurs à repérer les goulots d’étranglement et les zones réactives de défaillance dans l’ensemble de leurs charges de travail Kubernetes au sein d’un espace de noms Kubernetes sélectionné. En tirant parti de vos investissements de maillage de service existants avec des technologies telles que Istio, Azure Monitor permet la surveillance d’application instrumentée automatiquement sans modification du code de votre application.
 
 > [!NOTE]
-> Il s’agit d’une des nombreuses façons de surveiller les applications sur Kubernetes. Vous pouvez également instrumenter toutes les applications hébergées dans Kubernetes à l’aide du [kit SDK Application Insights](../../azure-monitor/azure-monitor-app-hub.md) sans avoir besoin d’une maille de services. Vous pouvez utiliser la méthode suivante pour surveiller Kubernetes sans instrumentation de l’application avec un kit SDK.
+> Il s’agit d’une des nombreuses façons de surveiller les applications sur Kubernetes. Vous pouvez également instrumenter toutes les applications hébergées dans Kubernetes à l’aide du [kit SDK Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) sans avoir besoin d’une maille de services. Vous pouvez utiliser la méthode suivante pour surveiller Kubernetes sans instrumentation de l’application avec un kit SDK.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un [cluster Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
 - Accès au cluster par une console pour exécuter *kubectl*.
@@ -98,7 +98,7 @@ Les applications exécutées en dehors de la maille de services ne sont pas affe
 - Générez un exemple de demande pour votre application afin de vérifier que la surveillance fonctionne correctement.
 - Dans les 3 à 5 minutes, vous devriez commencer voir les données de télémétrie apparaître dans le portail Azure. Veillez à consulter la section *cartographie d’Application* de votre ressource Application Insights dans le portail.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Vous trouverez ci-dessous le flux de dépannage à utiliser lorsque les données de télémétrie n’apparaissent pas dans le portail Azure comme attendu.
 
@@ -129,7 +129,7 @@ Vous trouverez ci-dessous le flux de dépannage à utiliser lorsque les données
    ```
    Recherchez les erreurs, notamment celles concernant les communications avec l’adaptateur *applicationinsightsadapter*.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 Pour obtenir les dernières informations sur la progression de ce projet, visitez la page [GitHub de l’adaptateur Application Insights pour le projet Istio Mixer](https://github.com/Microsoft/Application-Insights-Istio-Adapter/blob/master/SETUP.md#faq).
 

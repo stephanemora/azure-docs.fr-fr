@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 1932221e18241d8a2d921f61375019f969e61912
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 15cd729063545914f791de39a075af9084f72bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782679"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426563"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
@@ -30,7 +30,7 @@ Site Recovery contribue à votre stratégie de continuité d’activité et repr
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * **Étape 1 : Préparer des machines virtuelles Azure Stack pour la réplication**. Vérifier que les machines virtuelles sont conformes aux exigences de Site Recovery, et préparer l’installation du service Mobilité Azure Site Recovery. Ce service est installé sur chaque machine à répliquer.
+> * **Étape 1 : Préparer des machines virtuelles Azure Stack pour la réplication**. Vérifier que les machines virtuelles sont conformes aux exigences de Site Recovery, et préparer l’installation du service Mobilité Azure Site Recovery. Ce service est installé sur chaque machine à répliquer.
 > * **Étape 2 : Configurer un coffre Recovery Services**. Configurer un coffre pour Site Recovery, et spécifier ce que vous souhaitez répliquer. Les actions et composants de Site Recovery sont configurés et gérés dans le coffre.
 > * **Étape 3 : Configurer l’environnement de réplication source**. Configurer un serveur de configuration Site Recovery. Le serveur de configuration est une machine virtuelle Azure Stack qui s’exécute tous les composants dont Site Recovery a besoin. Après avoir configuré le serveur de configuration, vous l’inscrivez dans le coffre.
 > * **Étape 4 : Configurer l’environnement de réplication cible**. Sélectionnez votre compte Azure, ainsi que le compte de stockage Azure et le réseau que vous souhaitez utiliser. Lors de la réplication, les données des machines virtuelles sont copiées dans Stockage Azure. Après le basculement, les machines virtuelles Azure sont jointes au réseau spécifié.
@@ -61,11 +61,11 @@ La réplication fonctionne comme suit :
 7. Les machines répliquées communiquent avec le serveur de configuration (port d’entrée HTTPS 443) pour gérer la réplication. Les machines envoient les données de réplication au serveur de processus (port d’entrée HTTPS 9443 ; modifiable).
 8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser un peering public Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les éléments requis pour configurer ce scénario.
 
-**Exigence** | **Détails**
+**Prérequis** | **Détails**
 --- | ---
 **Compte d’abonnement Azure** | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 **Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> \- Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
@@ -140,7 +140,7 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
     ![Adresse IP privée](./media/azure-stack-site-recovery/private-ip.png)
 
 
-## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Étape 2 : Créer un coffre et sélectionner un objectif de réplication
+## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>Étape 2 : Créer un coffre et sélectionner un objectif de réplication
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Outils de gestion** > **Backup and Site Recovery (Sauvegarde et Site Recovery)** .
 2. Dans **Name**, entrez un nom convivial pour identifier le coffre. 
@@ -162,7 +162,7 @@ Pour chaque machine à répliquer, recherchez son adresse IP :
 
     ![Objectif de protection](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>Étape 3 : Configurer l’environnement source
+## <a name="step-3-set-up-the-source-environment"></a>Étape 3 : Configurer l’environnement source
 
 Configurez la machine serveur de configuration, inscrivez-la dans le coffre, puis découvrez les machines que vous souhaitez répliquer.
 
@@ -193,7 +193,7 @@ Installez à présent le serveur de configuration :
 > 
 > L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > ***nom du serveur*** > **Actualiser le serveur**.
 
-## <a name="step-4-set-up-the-target-environment"></a>Étape 4 : Configurer l’environnement cible
+## <a name="step-4-set-up-the-target-environment"></a>Étape 4 : Configurer l’environnement cible
 
 Sélectionnez et vérifiez les ressources cibles.
 
@@ -202,7 +202,7 @@ Sélectionnez et vérifiez les ressources cibles.
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. S’il n’en trouve pas, vous devez créer au moins un compte de stockage et un réseau virtuel pour suivre la procédure de l’Assistant.
 
 
-## <a name="step-5-enable-replication"></a>Étape 5 : Activer la réplication
+## <a name="step-5-enable-replication"></a>Étape 5 : Activer la réplication
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
@@ -255,7 +255,7 @@ Vérifiez que vous avez accompli toutes les tâches décrites dans [Étape 1 :
 > Pour surveiller les machines virtuelles que vous ajoutez, consultez l’heure de la dernière découverte des machines virtuelles dans **Serveurs de configuration** > **Dernier contact à**. Pour ajouter des machines virtuelles sans attendre la découverte planifiée, mettez en surbrillance le serveur de configuration (sans le sélectionner) et sélectionnez **Actualiser**.
 
 
-## <a name="step-6-run-a-disaster-recovery-drill"></a>Étape 6 : Exécuter une simulation de récupération d'urgence
+## <a name="step-6-run-a-disaster-recovery-drill"></a>Étape 6 : Exécuter une simulation de récupération d'urgence
 
 Vous exécutez un test de basculement vers Azure pour vérifier que tout fonctionne comme prévu. Ce basculement n’affecte pas votre environnement de production.
 
@@ -280,7 +280,7 @@ Quand vous effectuez un test de basculement, voici ce qui se produit :
 2. Le basculement traite les données en utilisant le point de récupération spécifié :
     - **Dernier point traité** : la machine bascule vers le dernier point de récupération traité par Site Recovery. L’horodatage est affiché. Cette option, avec laquelle aucun temps n’est passé à traiter les données, offre un objectif de délai de récupération faible.
     - **Dernier point de cohérence des applications** : La machine virtuelle bascule vers le dernier point de récupération de cohérence des applications.
-    - **Personnalisé** : Sélectionnez le point de récupération utilisé pour le basculement.
+    - **Personnalisé** : Sélectionnez le point de récupération utilisé pour le basculement.
 
 3. Une machine virtuelle Azure est créée à l’aide des données traitées.
 4. Un test de basculement peut nettoyer automatiquement les machines virtuelles Azure créées durant la simulation.
@@ -332,7 +332,7 @@ Lorsque votre site principal est à nouveau opérationnel, vous pouvez opérer u
         - Nom du disque dur virtuel : copied-3676553984.vhd
 
 5. À présent, utilisez l’Explorateur Stockage Azure pour télécharger le disque dur virtuel.
-6. Chargez le disque dur virtuel sur Azure Stack en procédant de la manière décrite [ici](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm).
+6. Chargez le disque dur virtuel sur Azure Stack en procédant de la manière décrite [ici](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
 7. Dans la machine virtuelle existante ou une nouvelle machine virtuelle, attachez les disques durs virtuels chargés.
 8. Vérifiez que le disque du système d’exploitation est correct, puis démarrez la machine virtuelle.
 

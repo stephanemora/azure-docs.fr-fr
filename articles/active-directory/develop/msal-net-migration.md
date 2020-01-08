@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f28f153eff11e2b4d705b874609a95a9def8d4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9aa2bf2bb2e77f5e543b53b583ddeeacd46de243
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915668"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424191"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migration d’applications vers MSAL.NET
 
@@ -119,7 +119,7 @@ Tous les octrois ne sont pas encore pris en charge dans MSAL.NET et le point de 
 
 Voici les octrois pris en charge ADAL.NET et MSAL.NET pour les applications de bureau et mobiles.
 
-Grant (Autoriser) | ADAL.NET | MSAL.NET
+Accorder | ADAL.NET | MSAL.NET
 ----- |----- | -----
 Interactive | [Authentification interactive](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquisition des jetons de manière interactive dans MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Authentification Windows intégrée | [Authentification intégrée sur Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Authentification Windows intégrée](msal-authentication-flows.md#integrated-windows-authentication)
@@ -130,7 +130,7 @@ Flux de code d’appareil | [Profil d’appareil pour les appareils sans navigat
 
 Voici les octrois pris en charge dans ADAL.NET et MSAL.NET pour les applications web, les API web et les applications de démon :
 
-Type d’application | Grant (Autoriser) | ADAL.NET | MSAL.NET
+Type d’application | Accorder | ADAL.NET | MSAL.NET
 ----- | ----- | ----- | -----
 Application web, API web, démon | Informations d’identification du client | [Flux d’informations d’identification du client dans ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Client-credential-flows) | [Flux d’informations d’identification du client dans MSAL.NET](msal-authentication-flows.md#client-credentials)
 API Web | OBO (On-Behalf-Of) | [Appels de service à service pour le compte de l’utilisateur avec ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Service-to-service-calls-on-behalf-of-the-user) | [OBO dans MSAL.NET](msal-authentication-flows.md#on-behalf-of)
@@ -223,7 +223,7 @@ Pour des raisons de sécurité, MSAL.NET n'expose pas les jetons d'actualisation
 
 Heureusement, MSAL.NET dispose maintenant d'une API qui vous permet de migrer vos jetons d'actualisation précédents (acquis avec ADAL) dans `IConfidentialClientApplication` :
 
-```CSharp
+```csharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
 /// the application user token cache, where it will be available for further AcquireTokenSilent calls.

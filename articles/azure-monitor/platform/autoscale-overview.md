@@ -1,18 +1,15 @@
 ---
 title: Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles, les services cloud et les applications web
 description: Mise à l’échelle automatique dans Microsoft Azure. S’applique aux machines virtuelles, aux jeux de mise à l’échelle de machine virtuelle, aux services cloud et aux applications web.
-ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/24/2018
-ms.openlocfilehash: 2aeb0bc174eb5a94d485f4eafe000ecb3f693e5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a60c03f1928b38c78a59edca4b5493307d7d19d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364371"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -94,13 +91,13 @@ La mise à l’échelle verticale est différente. Elle conserve le même nombre
 ## <a name="methods-of-access"></a>Méthodes d’accès
 Vous pouvez configurer la mise à l’échelle automatique via
 
-* [Portail Azure](../../azure-monitor/platform/autoscale-get-started.md)
+* [Azure portal](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Interface de ligne de commande interplateforme (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique
-| de diffusion en continu | Schéma et documentation |
+| Service | Schéma et documentation |
 | --- | --- |
 | Web Apps |[Mise à l’échelle des applications web](../../azure-monitor/platform/autoscale-get-started.md) |
 | Cloud Services |[Mise à l’échelle automatique d’un service cloud](../../cloud-services/cloud-services-how-to-scale-portal.md) |

@@ -15,14 +15,14 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424494"
 ---
-# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
+# <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
 Le contrôle d’accès en fonction du rôle (RBAC) est un mécanisme populaire pour appliquer l’autorisation dans des applications. En utilisant RBAC, un administrateur accorde des autorisations aux rôles, pas à des utilisateurs individuels ou à des groupes. L’administrateur peut alors attribuer des rôles aux différents utilisateurs et groupes pour contrôler l’accès au contenu et aux fonctionnalités.
 
@@ -36,7 +36,7 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Déclarer des rôles d’application à l’aide du portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans la barre supérieure, sélectionnez votre compte, puis **Changer de répertoire**.
 1. Une fois que le volet **Répertoire + abonnement** est ouvert, choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application, à partir de la liste **Favoris** ou **Tous les répertoires**.
 1. Sélectionnez sur **Tous les services** dans le volet de navigation de gauche, puis choisissez **Azure Active Directory**.
@@ -110,10 +110,10 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
 
 1. Sélectionnez l’application dans laquelle vous souhaitez assigner des utilisateurs ou un groupe de sécurité aux rôles.
 1. Sélectionnez le volet **Utilisateurs et groupes** dans le menu de navigation de gauche de l’application.
-1. Sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste **Utilisateurs et groupes** pour ouvrir le volet **Ajouter une attribution**.
+1. En haut de la liste **Utilisateurs et groupes**, sélectionnez le bouton **Ajouter un utilisateur** en haut de la liste pour ouvrir le volet **Ajouter une attribution**.
 1. Sélectionnez le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
 
-     Une liste des utilisateurs et des groupes de sécurité s’affiche ainsi qu’une zone de texte pour rechercher et localiser un utilisateur ou un groupe. Cet écran vous permet de sélectionner plusieurs utilisateurs et groupes d’un coup.
+     Une liste des utilisateurs et des groupes de sécurité s’affiche, ainsi qu’une zone de texte pour rechercher et localiser un utilisateur ou un groupe spécifique. Cet écran vous permet de sélectionner plusieurs utilisateurs et groupes d’un coup.
 
 1. Une fois que vous avez sélectionné les utilisateurs et groupes, appuyez sur le bouton **Sélectionner** en bas pour passer à l’étape suivante.
 1. Choisissez le sélecteur **Sélectionner un rôle** à partir du volet **Ajouter une attribution**. Tous les rôles déclarés plus tôt dans le manifeste d’application s’affichent.
@@ -121,11 +121,11 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
 1. Appuyez sur le bouton **Attribuer** en bas pour terminer l’attribution des utilisateurs et des groupes à l’application.
 1. Vérifiez que les utilisateurs et les groupes ajoutés figurent dans la liste **Utilisateurs et groupes** mise à jour.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 - [Autorisation dans une application web à l’aide de rôles d’application &amp; revendications de rôle d’Azure AD (exemple)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [Utilisation de groupes de sécurité et de rôles d’Application dans vos applications (vidéo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
-- [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
+- [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)
 - [Jetons d’accès AAD](access-tokens.md)
 - [AAD `id_tokens`](id-tokens.md)

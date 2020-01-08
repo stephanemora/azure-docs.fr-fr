@@ -4,15 +4,15 @@ description: Cet article fournit des détails sur la configuration de l’agent 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 60f09035f4aabcbd6348fb5608b812ca4b001b45
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 75fd0453534e3a656bb1d8e2940b716dadfdf869
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932448"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395849"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Collecte des compteurs de performances pour les applications Linux dans Azure Monitor 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -71,7 +71,7 @@ Le programme du fichier d’authentification OMI MySQL est inclus dans l’insta
 
 Le tableau suivant fournit des détails sur la syntaxe pour utiliser mycimprovauth.
 
-| Opération | Exemples | Description
+| Opération | Exemple | Description
 |:--|:--|:--|
 | autoupdate *false ou true* | mycimprovauth autoupdate false | Définit si le fichier d’authentification sera automatiquement mis à jour au redémarrage ou lors de la mise à jour. |
 | default *adresse_de_liaison nom_utilisateur mot_de_passe* | mycimprovauth default 127.0.0.1 root pwd | Définit l’instance par défaut dans le fichier d’authentification OMI MySQL.<br>Le champ du mot de passe doit être renseigné en texte brut ; le mot de passe dans le fichier d’authentification MySQL OMI sera encodé en Base64. |
@@ -112,8 +112,8 @@ Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|
-| MySQL Database | Disk Space in Bytes |
-| MySQL Database | Tables |
+| Base de données MySQL | Disk Space in Bytes |
+| Base de données MySQL | Tables |
 | MySQL Server | Aborted Connection Pct |
 | MySQL Server | Connection Use Pct |
 | MySQL Server | Disk Space Use in Bytes |

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 5f6428231a3639738e8fb52e7dc3f2f2a3d2a26e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285491"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392807"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messages et connexions dans Azure SignalR Service
 
@@ -38,8 +38,6 @@ Les messages de plus de 2 Ko sont comptabilisés comme plusieurs messages de 2�
 
 Par exemple, imaginez que vous avez trois clients et un serveur d’applications. Un client envoie un message de 4 Ko pour permettre au serveur de diffuser vers tous les clients. Il y a huit messages comptabilisés : un message entre le service et le serveur d’applications, et trois messages entre le service et les clients. Chaque message est comptabilisé comme deux messages de 2 Ko chacun.
 
-Le nombre de messages affiché dans le portail Azure reste à 0 jusqu’à ce que le total de messages dépasse 100.
-
 ## <a name="how-connections-are-counted"></a>Mode de calcul des connexions
 
 Il existe des connexions serveur et des connexions client avec Azure SignalR Service. Par défaut, chaque serveur d’applications démarre avec cinq connexions initiales par hub et chaque client dispose d’une connexion client.
@@ -54,7 +52,7 @@ Pendant la durée de vie du serveur d’applications, le service et le serveur d
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Mode de calcul du trafic entrant/sortant
 
-La distinction entre le trafic entrant et le trafic sortant est basée sur la perspective d’Azure SignalR Service. Le trafic est calculé en octets. Comme le nombre de messages, le trafic a également son taux d’échantillonnage. Le graphique du trafic entrant/sortant dans le portail Azure est mis à jour tous les 100 Ko par hub.
+La distinction entre le trafic entrant et le trafic sortant est basée sur la perspective d’Azure SignalR Service. Le trafic est calculé en octets.
 
 ## <a name="related-resources"></a>Ressources associées
 

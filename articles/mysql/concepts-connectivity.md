@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 92e213a87796247128e7e3810db99fde8525e12a
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765204"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659217"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>Gérer les erreurs temporaires et se connecter efficacement à Azure Database pour MySQL
 
@@ -52,7 +52,7 @@ Les connexions de base de données constituent une ressource limitée. En utilis
 
 La gestion des connexions de base de données peut avoir un impact significatif sur les performances de l’application dans son ensemble. Pour optimiser les performances de votre application, vous devez avoir pour objectif de réduire le nombre de fois où les connexions sont établies et le temps nécessaire à l’établissement des connexions dans les chemins de code clés. Nous vous recommandons vivement d’utiliser un regroupement de connexions de base de données ou des connexions persistantes pour vous connecter à Azure Database pour MySQL. Le regroupement de connexions de base de données gère la création, la gestion et l’allocation des connexions de base de données. Quand un programme demande une connexion de base de données, il ne crée pas une nouvelle connexion, mais hiérarchise l’allocation des connexions de base de données inactives existantes. Une fois que le programme a fini d’utiliser la connexion de base de données, cette connexion est récupérée en vue d’une utilisation ultérieure au lieu d’être simplement fermée.
 
-À des fins d’illustration, cet article inclut [un échantillon de code](./sample-scripts-java-connection-pooling.md) en JAVA. Pour plus d’informations, consultez la page sur [Apache Commons DBCP](http://commons.apache.org/proper/commons-dbcp/).
+À des fins d’illustration, cet article inclut [un échantillon de code](./sample-scripts-java-connection-pooling.md) en JAVA. Pour plus d’informations, consultez la page sur [Apache Commons DBCP](https://commons.apache.org/proper/commons-dbcp/).
 
 > [!NOTE]
 > Le serveur configure un mécanisme de délai d’expiration pour fermer une connexion à l’état inactif depuis un certain temps afin de libérer des ressources. Veillez à configurer le système de vérification pour vérifier l’efficacité des connexions persistantes quand vous les utilisez. Pour plus d’informations, consultez la section [Configurer les mécanismes de vérification côté clients pour vérifier l’efficacité des connexions persistantes](concepts-connectivity.md#configure-verification-mechanisms-in-clients-to-confirm-the-effectiveness-of-persistent-connections).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 618d9a8d941202db05981566203bf96c02f415a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75358307"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Java
 
@@ -30,7 +30,7 @@ Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwind
 > * Ajout de dépendances
 > * Créer des informations d’identification
 > * Créer des ressources
-> * Effectuer les tâches de gestion
+> * Effectuer d’autres tâches de gestion
 > * Supprimer des ressources
 > * Exécution de l'application
 
@@ -188,7 +188,7 @@ Avant de commencer cette étape, assurez-vous que vous avez accès à un [princi
 
 ### <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
-Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md).
+Toutes les ressources doivent être contenues dans un [groupe de ressources](../../azure-resource-manager/management/overview.md).
 
 Pour spécifier les valeurs de l’application et créer le groupe de ressources, ajoutez ce code au bloc try de la méthode main :
 
@@ -318,7 +318,7 @@ azure.virtualMachines.define("myVM")
     .create();
 ```
 
-## <a name="perform-management-tasks"></a>Effectuer les tâches de gestion
+## <a name="perform-management-tasks"></a>Effectuer d’autres tâches de gestion
 
 Pendant le cycle de vie d’une machine virtuelle, vous souhaiterez exécuter des tâches de gestion telles que le démarrage, l’arrêt ou la suppression d’une machine virtuelle. En outre, vous souhaiterez peut-être créer du code pour automatiser les tâches répétitives ou complexes.
 

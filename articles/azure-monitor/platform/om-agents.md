@@ -4,15 +4,15 @@ description: Pour préserver vos investissements existants dans System Center Op
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 79fcbb6f972eb022ce4d0e47a608e6f0d053a9ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162238"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363657"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -34,7 +34,7 @@ Le diagramme suivant représente la connexion entre les serveurs et agents d'adm
 
 Si vos stratégies de sécurité informatiques n’autorisent pas les ordinateurs sur votre réseau à se connecter à Internet, les serveurs d’administration peuvent être configurés pour se connecter à la passerelle Log Analytics afin de recevoir des informations de configuration et d’envoyer les données collectées en fonction des solutions activées. Pour plus d'informations et pour savoir comment configurer votre groupe d'administration Operations Manager afin de communiquer via une passerelle Log Analytics avec Azure Monitor, consultez [Connecter des ordinateurs à Azure Monitor en utilisant la passerelle Log Analytics](../../azure-monitor/platform/gateway.md).  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, passez en revue les exigences suivantes.
 
@@ -73,15 +73,15 @@ Les informations ci-dessous répertorient les données de configuration de proxy
 |Ressource | Numéro de port| Ignorer l’inspection HTTP|  
 |---------|------|-----------------------|  
 |**Agent**|||  
-|\*.ods.opinsights.azure.com| 443 |OUI|  
-|\*.oms.opinsights.azure.com| 443|OUI|  
-|\*.blob.core.windows.net| 443|OUI|  
-|\*.azure-automation.net| 443|OUI|  
+|\*.ods.opinsights.azure.com| 443 |Oui|  
+|\*.oms.opinsights.azure.com| 443|Oui|  
+|\*.blob.core.windows.net| 443|Oui|  
+|\*.azure-automation.net| 443|Oui|  
 |**Serveur d’administration**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| OUI|  
-|\*.ods.opinsights.azure.com| 443| OUI|  
-|*.azure-automation.net | 443| OUI|  
+|\*.blob.core.windows.net| 443| Oui|  
+|\*.ods.opinsights.azure.com| 443| Oui|  
+|\* .azure-automation.net | 443| Oui|  
 |**Connexion de la console Operations Manager à Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -248,7 +248,7 @@ Les packs d'administration des solutions activées qui s'intègrent à Operation
     > Le lien **Supprimer** ne sera pas disponible avant 14 jours si aucune activité n’est détectée à partir du groupe d’administration connecté.  
     >
 
-1. Une fenêtre s’affiche pour vous demander de confirmer la suppression.  Cliquez sur **Oui** pour continuer.
+1. Une fenêtre s’affiche pour vous demander de confirmer la suppression.  Pour continuer, cliquez sur **Oui** .
 
 Pour supprimer les deux connecteurs (Microsoft.SystemCenter.Advisor.DataConnector et Advisor Connector), enregistrez le script PowerShell ci-dessous sur votre ordinateur et exécutez-le en suivant les exemples ci-dessous :
 

@@ -4,15 +4,15 @@ description: Cet article décrit l’activation d’Azure Monitor pour machines 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 4a89eb36c9aa7369d6145304b572b4245cef3483
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9458230d07c1c40a3eec2d51879f58fac6543b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365816"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’Azure Policy
 
@@ -77,7 +77,7 @@ Pour plus d’informations sur l’affectation d’Azure Policy, consultez [Vue 
 
 Les définitions de stratégie pour une machine virtuelle Azure sont listées dans le tableau ci-dessous.
 
-|Nom |Description |Type |
+|Name |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Activer Azure Monitor pour machines virtuelles |Activez Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |
 |\[Préversion\] : Vérifier le déploiement de l’agent de dépendances - Image de machine virtuelle (système d’exploitation) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
@@ -91,7 +91,7 @@ Les définitions de stratégie pour une machine virtuelle Azure sont listées da
 
 Les définitions de stratégie pour un groupe de machines virtuelles identiques Azure sont listées dans le tableau ci-dessous.
 
-|Nom |Description |Type |
+|Name |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Activer Azure Monitor pour les groupes de machines virtuelles identiques |Activez Azure Monitor pour les groupes de machines virtuelles identiques dans l’étendue spécifiée (groupe d’administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. Remarque : Si la stratégie de mise à niveau du groupe identique est définie sur Manuelle, appliquez l’extension à toutes les machines virtuelles du groupe en appelant une mise à niveau. Dans l’interface de ligne de commande, il s’agit de `az vmss update-instances`. |Initiative |
 |\[Préversion\] : Auditer le déploiement de l’agent de dépendances dans des groupes de machines virtuelles identiques - Image de machine virtuelle (système d’exploitation) non listée |Présente le groupe de machines virtuelles identiques comme non conforme si l’image de machine virtuelle (système d’exploitation) n’est pas définie dans la liste et si l’agent n’est pas installé. |Stratégie |
@@ -103,7 +103,7 @@ Les définitions de stratégie pour un groupe de machines virtuelles identiques 
 
 La stratégie autonome (non incluse avec l’initiative) est décrite ici :
 
-|Nom |Description |Type |
+|Name |Description |Type |
 |-----|------------|-----|
 |\[Préversion\] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Signalez les machines virtuelles comme non conformes si elles ne se connectent pas à l’espace de travail Log Analytics spécifié dans l’attribution de stratégie ou d’initiative. |Stratégie |
 
@@ -113,7 +113,7 @@ Pour créer l’attribution de stratégie à partir de la page **Azure Monitor f
 
 Lorsque vous attribuez la stratégie ou l’initiative, l’étendue sélectionnée dans l’attribution peut être l’étendue répertoriée ici ou un sous-ensemble de celle-ci. Par exemple, vous avez peut-être créé une attribution pour l’abonnement (étendue de la stratégie) et non pas le groupe d’administration (étendue de la couverture). Dans ce cas, le pourcentage de couverture indique les machines virtuelles dans l’étendue de stratégie ou d’initiative divisée par les machines virtuelles dans l’étendue de couverture. Dans un autre cas, vous pouvez avoir exclu des machines virtuelles, des groupes de ressources ou un abonnement de l’étendue de stratégie. Si la valeur est vide, elle indique que la stratégie ou l’initiative n’existe pas ou que vous n’avez pas d’autorisation. Des informations sont fournies sous **État de l’attribution**.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans le Portail Azure, sélectionnez **Surveiller**. 
 

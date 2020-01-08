@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 2ebc678bffbbbe5d512d620b8f77ac0a245c0aff
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: bdd364c097552d3a1b52073af97d33db70d78556
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579119"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647439"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Permettre aux conteneurs d’utiliser les fonctionnalités du réseau virtuel Azure
 
@@ -53,7 +53,7 @@ Pour permettre aux pods d’accéder à internet, le plug-in configure des règl
 
 ## <a name="limits"></a>limites
 
-Le plug-in prend en charge jusqu’à 250 pods par machine virtuelle, et jusqu’à 16 000 pods au sein d’un réseau virtuel. Ces limites sont différentes pour l’environnement [Azure Kubernetes Service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
+Le plug-in prend en charge jusqu’à 250 pods par machine virtuelle, et jusqu’à 16 000 pods au sein d’un réseau virtuel. Ces limites sont différentes pour l’environnement [Azure Kubernetes Service](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 
 ## <a name="using-the-plug-in"></a>Utilisation du plug-in
 

@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17f02d38c77fce6a256e3c42d887f2b7d560add9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424238"
 ---
 # <a name="confidential-client-assertions"></a>Assertions client confidentielles
 
@@ -42,7 +42,7 @@ MSAL.NET possède quatre méthodes pour fournir des informations d’identificat
 
 Une assertion cliente signée prend la forme d’un JWT signé avec la charge utile contenant les revendications d’authentification requises mandatées par Azure AD, encodé en base64. Pour l’utiliser :
 
-```CSharp
+```csharp
 string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(signedClientAssertion)
@@ -62,7 +62,7 @@ sub | {ClientID} | La revendication « SUB » (objet) identifie l’objet du j
 
 L’exemple suivant montre comment créer ces revendications :
 
-```CSharp
+```csharp
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
@@ -88,7 +88,7 @@ private static IDictionary<string, string> GetClaims()
 
 Voici comment créer une assertion de client signée :
 
-```CSharp
+```csharp
 string Encode(byte[] arg)
 {
     char Base64PadCharacter = '=';
@@ -138,7 +138,7 @@ string GetSignedClientAssertion()
 
 Vous avez également la possibilité d’utiliser [Microsoft.IdentityModel.JsonWebTokens](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) pour créer l’assertion pour vous. Le code sera plus clair, comme illustré dans l’exemple ci-dessous :
 
-```CSharp
+```csharp
         string GetSignedClientAssertion()
         {
             var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
@@ -171,7 +171,7 @@ Vous avez également la possibilité d’utiliser [Microsoft.IdentityModel.JsonW
 
 Une fois que vous avez votre assertion cliente signée, vous pouvez l’utiliser avec les API MSAL, comme montré ci-dessous.
 
-```CSharp
+```csharp
             string signedClientAssertion = GetSignedClientAssertion();
 
             var confidentialApp = ConfidentialClientApplicationBuilder
@@ -184,7 +184,7 @@ Une fois que vous avez votre assertion cliente signée, vous pouvez l’utiliser
 
 `WithClientClaims(X509Certificate2 certificate, IDictionary<string, string> claimsToSign, bool mergeWithDefaultClaims = true)` par défaut génère une assertion signée contenant les revendications attendues par Azure AD plus les revendications client supplémentaires que vous souhaitez envoyer. Voici un extrait de code sur la procédure à suivre.
 
-```CSharp
+```csharp
 string ipAddress = "192.168.1.2";
 X509Certificate2 certificate = ReadCertificate(config.CertificateName);
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)

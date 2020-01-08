@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: bb284ad336e7110b0354450f3438fadb592370be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428650"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps - Visual Studio
 
@@ -26,7 +26,7 @@ Dans ce guide de démarrage rapide, vous créez la même application logique ave
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,7 @@ Dans ce guide de démarrage rapide, vous créez la même application logique ave
 
 ## <a name="create-azure-resource-group-project"></a>Créer un projet de groupe de ressources Azure
 
-Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). En savoir plus sur [les ressources et groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). En savoir plus sur [les ressources et groupes de ressources Azure](../azure-resource-manager/management/overview.md).
 
 1. Démarrez Visual Studio. Connectez-vous à votre compte Azure.
 
@@ -101,7 +101,7 @@ Une fois votre projet de groupe de ressources Azure prêt, créez votre applicat
    ![Ouvrir le fichier .json d’application logique avec le Concepteur d’application logique](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > Si vous n’avez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
+   > Si vous ne voyez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
 
    Visual Studio vous invite à indiquer votre abonnement Azure et un groupe de ressources Azure afin de créer et de déployer des ressources pour votre application logique et vos connexions.
 
@@ -109,12 +109,12 @@ Une fois votre projet de groupe de ressources Azure prêt, créez votre applicat
 
    ![Sélectionner un abonnement Azure, un groupe de ressources et un emplacement de ressource](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Paramètre | Exemple de valeur | Description |
+   | Paramètre | Valeur d'exemple | Description |
    | ------- | ------------- | ----------- |
    | Compte d’utilisateur | Fabrikam <br> sophia-owen@fabrikam.com | Le compte que vous avez utilisé quand vous vous êtes connecté à Visual Studio |
    | **Abonnement** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | Le nom de votre abonnement Azure et le compte associé |
    | **Groupe de ressources** | MyLogicApp-RG <br> (USA Ouest) | Le groupe de ressources Azure et l’emplacement de stockage et de déploiement des ressources de votre application logique |
-   | **Lieu** | **Identique au groupe de ressources** | Le type d’emplacement et l’emplacement spécifique pour le déploiement de votre application logique. Ce type d’emplacement est soit une région Azure, soit un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment.md) existant. <p>Pour ce démarrage rapide, conservez le type d’emplacement **Région** et l’emplacement **Identique au groupe de ressources**. <p>**Remarque**: Après avoir créé votre projet de groupe de ressources, vous pouvez [modifier le type d’emplacement et l’emplacement](manage-logic-apps-with-visual-studio.md#change-location), mais le choix d’un type d’emplacement différent affecte votre application logique de diverses manières. |
+   | **Lieu** | **Identique au groupe de ressources** | Le type d’emplacement et l’emplacement spécifique pour le déploiement de votre application logique. Ce type d’emplacement est soit une région Azure, soit un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment.md) existant. <p>Pour ce démarrage rapide, conservez le type d’emplacement **Région** et l’emplacement **Identique au groupe de ressources**. <p>**Remarque** : Après avoir créé votre projet de groupe de ressources, vous pouvez [modifier le type d’emplacement et l’emplacement](manage-logic-apps-with-visual-studio.md#change-location), mais le choix d’un type d’emplacement différent affecte votre application logique de diverses manières. |
    ||||
 
 1. Le Concepteur d’application logique ouvre une page qui affiche une vidéo de présentation et les déclencheurs couramment utilisés. Faites défiler la page vers le bas au-delà de la vidéo et des déclencheurs jusqu’à **Modèles**, puis sélectionnez **Application logique vide**.
@@ -185,7 +185,7 @@ Quand vous avez déjà un projet de groupe de ressources Azure, vous pouvez y aj
 
    ![Ajouter une ressource](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin de votre application logique, supprimez le groupe de ressources qui contient celle-ci et les ressources associées.
 

@@ -1,19 +1,15 @@
 ---
 title: Comprendre les paramètres de mise à l’échelle automatique dans Azure Monitor
 description: Il s’agit d’une description détaillée des paramètres de mise à l’échelle automatique et de leur fonctionnement. S’applique aux machines virtuelles, aux services cloud et aux applications web
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a2b94208de7ce490a0e7acfbb71175b4a7c846e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364303"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.
@@ -101,14 +97,14 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 | profile | capacity.minimum | Capacité minimale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessous de ce nombre. |
 | profile | capacity.default | S’il existe un problème de lecture des mesures de ressource (dans ce cas l’UC de « vmss1 ») et que la capacité actuelle est inférieure à la capacité par défaut, la mise à l’échelle automatique sera modifiée sur la valeur par défaut. Cela permet de garantir la disponibilité de la ressource. Si la capacité actuelle est déjà supérieure à la capacité par défaut, la mise à l’échelle automatique n’est pas réduite. |
 | profile | rules | La mise à l’échelle s’ajuste automatiquement entre les capacités maximales et minimales en utilisant les règles du profil. Un profil peut contenir plusieurs règles. Généralement, deux règles sont utilisées : une pour déterminer quand procéder à la montée en puissance, et une autre pour déterminer quand procéder à la descente en puissance. |
-| rules | metricTrigger | Définit la condition de mesure de la règle. |
+| rule | metricTrigger | Définit la condition de mesure de la règle. |
 | metricTrigger | metricName | Nom de la mesure. |
 | metricTrigger |  metricResourceUri | ID de la ressource qui a généré la mesure. Dans la plupart des cas, il est identique à la ressource mise à l’échelle. Dans certains cas, il peut être différent. Par exemple, vous pouvez faire évoluer un groupe de machines virtuelles identiques en fonction du nombre de messages figurant dans la file d’attente de stockage. |
 | metricTrigger | timeGrain | Durée d’échantillonnage de la mesure. Par exemple, **TimeGrain = "PT1M"** signifie que les mesures seront agrégées chaque minute à l'aide de la méthode d'agrégation spécifiée dans l’élément « statistic ». |
 | metricTrigger | statistic | Méthode d’agrégation au cours de la période timeGrain. Par exemple, **statistic = “Average”** et **timeGrain = “PT1M”** signifient que les mesures sont agrégées chaque minute en prenant la valeur moyenne. Cette propriété détermine la façon dont la mesure est échantillonnée. |
 | metricTrigger | timeWindow | Durée nécessaire à l’examen des mesures. Par exemple, **timeWindow = “PT10M”** signifie qu’à chaque exécution d’une mise à l’échelle automatique, les mesures sont interrogées sur les 10 dernières minutes. La fenêtre de temps permet la normalisation de vos mesures et évite de réagir aux pics temporaires. |
 | metricTrigger | timeAggregation | Méthode d’agrégation utilisée pour agréger les mesures échantillonnées. Par exemple, **TimeAggregation = “Average”** doit agréger les mesures échantillonnées en prenant la moyenne. Dans le cas précédent, choisissez les dix échantillons de 1 minute et calculez leur moyenne. |
-| rules | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
+| rule | scaleAction | Action à entreprendre lors du déclenchement du paramètre metricTrigger de la règle. |
 | scaleAction | direction | « Increase » pour la montée en puissance, ou Decrease » pour la descente en puissance.|
 | scaleAction | value | Indique dans quelle mesure augmenter ou diminuer la capacité de la ressource. |
 | scaleAction | cooldown | Temps d’attente entre deux opérations de mise à l’échelle. Par exemple, si **cooldown = “PT10M”** , aucune tentative de mise à l’échelle automatique ne peut survenir dans les 10 minutes. Le cooldown permet la stabilisation des mesures après l’ajout ou la suppression d’instances. |

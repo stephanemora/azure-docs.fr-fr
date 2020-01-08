@@ -6,24 +6,24 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: rohogue
-ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 11ff310dae3c4733283d965a518df42a0711ce01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416037"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuration d’un DNS pour le cluster Avere
 
-Cette section explique les principes de base de la configuration d’un système DNS pour l’équilibrage de charge de votre cluster Avere vFXT. 
+Cette section explique les principes de base de la configuration d’un système DNS pour l’équilibrage de charge de votre cluster Avere vFXT.
 
-Ce document *n’inclut pas* d’instructions pour la configuration et la gestion d’un serveur DNS dans l’environnement Azure. 
+Ce document *n’inclut pas* d’instructions pour la configuration et la gestion d’un serveur DNS dans l’environnement Azure.
 
-Au lieu d’utiliser le DNS en tourniquet pour équilibrer la charge d’un cluster vFXT dans Azure, assignez manuellement les adresses IP en les répartissant entre les différents clients montés. Plusieurs méthodes d’assignation sont décrites dans [Monter le cluster Avere](avere-vfxt-mount-clients.md). 
+Au lieu d’utiliser le DNS en tourniquet pour équilibrer la charge d’un cluster vFXT dans Azure, assignez manuellement les adresses IP en les répartissant entre les différents clients montés. Plusieurs méthodes d’assignation sont décrites dans [Monter le cluster Avere](avere-vfxt-mount-clients.md).
 
-Pour déterminer si vous devez ou non utiliser un serveur DNS, prenez en compte les considérations suivantes : 
+Pour déterminer si vous devez ou non utiliser un serveur DNS, prenez en compte les considérations suivantes :
 
-* Si votre système est accessible par des clients NFS uniquement, l’utilisation d’un DNS n’est pas nécessaire, car il est possible de spécifier toutes les adresses réseau à l’aide d’adresses IP numériques. 
+* Si votre système est accessible par des clients NFS uniquement, l’utilisation d’un DNS n’est pas nécessaire, car il est possible de spécifier toutes les adresses réseau à l’aide d’adresses IP numériques.
 
 * Si votre système prend en charge l’accès SMB (CIFS), un DNS est nécessaire, car vous devez alors spécifier un domaine DNS pour le serveur Active Directory.
 
@@ -41,12 +41,12 @@ Pour obtenir des performances optimales, configurez votre serveur DNS afin qu’
 
 Le diagramme présente un vserver de cluster à gauche, et des adresses IP au centre et à droite. Configurez chaque point d’accès client avec des enregistrements A et des pointeurs comme illustré ci-dessous.
 
-![Diagramme d’un DNS en tourniquet (round-robin) pour le cluster Avere](media/avere-vfxt-rrdns-diagram.png) 
+![Diagramme d’un DNS en tourniquet (round-robin) pour le cluster Avere](media/avere-vfxt-rrdns-diagram.png)
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Chaque adresse IP accessible par un client doit avoir un nom unique, qui est utilisé en interne par le cluster. (Dans ce diagramme, les adresses IP clientes sont nommées vs1-client-IP-* pour plus de clarté, mais dans un environnement de production, vous devrez sans doute utiliser des noms plus courts, comme client*.)
 
-Les clients montent le cluster en utilisant le nom vserver comme argument serveur. 
+Les clients montent le cluster en utilisant le nom vserver comme argument serveur.
 
 Modifiez le fichier ``named.conf`` de votre serveur DNS pour définir l’ordre cyclique des requêtes envoyées à vserver. Cette option garantit que toutes les valeurs disponibles sont utilisées de manière cyclique. Ajoutez une instruction similaire à celle-ci :
 
@@ -58,7 +58,7 @@ options {
 };
 ```
 
-Les commandes nsupdate suivantes sont un exemple de configuration correcte d’un DNS :
+Les commandes ``nsupdate`` suivantes sont un exemple de configuration correcte d’un système DNS :
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -81,5 +81,3 @@ Spécifiez le serveur DNS utilisé par le cluster vFXT dans la page de paramètr
 * Domaines de recherche DNS
 
 Pour plus d’informations sur l’utilisation de cette page, consultez [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) dans le guide de configuration du cluster Avere.
-
-

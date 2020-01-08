@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 11/07/2019
-ms.openlocfilehash: 470e9a9c36b6b4ec2e40db5dfc47ae03fb6b5aa8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 48eb9cfe16062ac587a12b845b2fb226ac5faf23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421374"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348869"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -31,9 +31,10 @@ En outre, les groupes de basculement automatique fournissent des points de termi
 
 Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte les bases de données sur le serveur SQL Database ou l’instance gérée donne lieu à un basculement automatique. Vous pouvez gérer le groupe de basculement automatique à l’aide des méthodes suivantes :
 
-- [Portail Azure](sql-database-implement-geo-distributed-database.md)
+- [Azure portal](sql-database-implement-geo-distributed-database.md)
+- [Azure CLI : Groupe de basculement](scripts/sql-database-add-single-db-to-failover-group-cli.md)
 - [PowerShell : Groupe de basculement](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
-- [API REST : Groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups).
+- [API REST : Groupe de basculement](/rest/api/sql/failovergroups).
 
 Après le basculement, assurez-vous que les exigences d’authentification de votre serveur et de votre base de données sont configurées sur la nouvelle base de données primaire. Pour plus d’informations, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).
 
@@ -350,7 +351,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|
 | [Remove-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Supprime un groupe de basculement|
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ### <a name="manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>Gérer le basculement des bases de données SQL avec des bases de données uniques et des pools élastiques
 

@@ -2,17 +2,17 @@
 title: Qu’est-ce que le service Azure Private Link ?
 description: Découvrez le service Azure Private Link.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f8d49a62ae9006e65ef86db1ae90cd5a5e9f1c6d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912976"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647371"
 ---
 # <a name="what-is-azure-private-link-service"></a>Qu’est-ce que le service Azure Private Link ?
 
@@ -42,7 +42,7 @@ Lorsque l’utilisateur démarre une connexion, le fournisseur de services peut 
 
 Si le service Private Link n’est plus utilisé, vous pouvez le supprimer. Toutefois, avant de le supprimer, vérifiez qu’il n’est associé à aucune connexion de point de terminaison privé. Vous pouvez rejeter toutes les connexions et supprimer le service.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 Le service Private Link spécifie les propriétés suivantes : 
 
@@ -68,7 +68,7 @@ Le service Private Link spécifie les propriétés suivantes :
  
 - Plusieurs points de terminaison privés appartenant à différents réseaux virtuels, abonnements et/ou locataires Active Directory peuvent accéder à un service Private Link. La connexion est établie via un workflow de connexion. 
  
-- Vous pouvez créer plusieurs services Private Link sur une même instance de Standard Load Balancer à l’aide de différentes configurations d’adresses IP front-end. Le nombre de services Private Link qu’il est possible de créer dans chaque instance Standard Load Balancer et dans chaque abonnement est limité. Pour plus d’informations, consultez  [Limites Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Vous pouvez créer plusieurs services Private Link sur une même instance de Standard Load Balancer à l’aide de différentes configurations d’adresses IP front-end. Le nombre de services Private Link qu’il est possible de créer dans chaque instance Standard Load Balancer et dans chaque abonnement est limité. Pour plus d’informations, consultez  [Limites Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
  
 - Le service Private Link peut être associé à plusieurs configurations d’adresses IP NAT. Le fait de choisir plusieurs configurations d’adresses IP NAT peut permettre aux fournisseurs de services d’effectuer une mise à l’échelle. Aujourd’hui, les fournisseurs de services peuvent attribuer jusqu’à 8 adresses IP NAT à chaque service Private Link. Avec chaque adresse IP NAT, vous pouvez affecter davantage de ports pour vos connexions TCP et, donc, effectuer un scale-out. Une fois que vous avez ajouté des adresses IP NAT à un service Private Link, vous ne pouvez pas supprimer ces adresses. Ceci a été fait dans le but d’empêcher que les connexions actives ne soient pas impactées par la suppression d’adresses IP NAT.
 
