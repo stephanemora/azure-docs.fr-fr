@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d73dcb89739395e4dd52b1ef4d39c41ad6125666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457161"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -30,7 +30,7 @@ Le backend de la solution peut utiliser des [configurations automatiques des app
 ## <a name="azure-classic-cli"></a>Azure Classic CLI
 [Azure CLI Classic](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, et servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI doit être uniquement utilisée pour les déploiements classiques.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure.
 
 
@@ -50,7 +50,7 @@ Le [portail Microsoft Azure](https://portal.azure.com) permet de configurer et d
 [Azure PowerShell](/powershell/azure/overview) est une collection d’applets de commande permettant de gérer Azure avec Windows PowerShell. Ces applets de commande permettent de créer, de tester, de déployer et de gérer des solutions et des services fournis via la plateforme Azure.
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer les ressources de votre solution dans le cadre d’une seule opération coordonnée.
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer les ressources de votre solution dans le cadre d’une seule opération coordonnée.
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 [Service Bus](../service-bus/index.md) offre une communication cloud avec une messagerie d’entreprise et une communication relayée qui vous aide à connecter des solutions locales au cloud. Certains didacticiels concernant IoT Hub utilisent des [files d’attente](../service-bus-messaging/service-bus-messaging-overview.md) Service Bus.
@@ -227,7 +227,7 @@ Vous pouvez configurer des [règles de routage](iot-hub-devguide-messages-read-c
 SASL PLAIN est un protocole utilisé par le protocole AMQP pour transférer des jetons de sécurité.
 
 ## <a name="service-rest-api"></a>API REST du service
-Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels sur IoT Hub.
+Vous pouvez utiliser [l’API REST du service](https://docs.microsoft.com/rest/api/iothub/service) à partir du backend de la solution pour gérer vos appareils. L’API vous permet de récupérer et de mettre à jour les propriétés de [jumeau d’appareil](#device-twin), d’appeler des [méthodes directes](#direct-method) et de planifier des [travaux](#job). En règle générale, vous devez utiliser l’un des kits [service SDK](#azure-iot-service-sdks) comme indiqué dans les didacticiels concernant IoT Hub.
 
 ## <a name="shared-access-signature"></a>Signature d’accès partagé
 Les signatures d’accès partagé (SAP) sont des mécanismes d’authentification basés sur des hachages sécurisés SHA-256 ou des URI. Une authentification par SAP comporte deux composants : une _stratégie d’accès partagé_ et une _signature d’accès partagé_ (souvent appelée jeton). Un appareil utilise une SAP pour s’authentifier auprès d’un hub IoT. Les [applications principales](#back-end-app) utilisent également une SAP pour s’authentifier auprès des points de terminaison visibles par le service sur un hub IoT. En règle générale, vous incluez le jeton SAP dans la [chaîne de connexion](#connection-string) qu’une application utilise pour établir une connexion à un hub IoT.
