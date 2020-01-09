@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: c391aa157e35bdc389bd30efe48fa380d06c193e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429011"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans Azure DevTest Labs.
 Azure DevTest Labs vous permet de spécifier l’ajout d’un artefact à une machine virtuelle pendant ou après la création de cette dernière. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Les artefacts sont définis dans un fichier JSON chargé à partir d’un référentiel Git Azure DevOps ou GitHub. 
@@ -29,7 +29,7 @@ Cet article fournit des informations sur l’ajout de votre référentiel d’ar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations essentielles de votre dépôt. Les sections suivantes expliquent comment obtenir les informations requises pour les référentiels hébergés sur **GitHub** ou **Azure DevOps**.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtenir l’URL de clonage du dépôt GitHub et le jeton d’accès personnel
@@ -65,10 +65,10 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Cette section inclut les étapes permettant d’ajouter un référentiel d’artefacts à un laboratoire dans le Portail Microsoft Azure. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Autres services**, puis **DevTest Labs** dans la liste de services.
 3. Dans la liste de laboratoires, sélectionnez votre laboratoire. 
-4. Sélectionnez **Configuration et stratégies** sur le panneau de gauche.
+4. Sélectionnez **Configuration et stratégies** dans le menu de gauche.
 5. Sélectionnez **Référentiels** sous la section **Ressources externes**, dans le menu de gauche.
 6. Sélectionnez **+Ajouter** dans la barre d’outils.
 
@@ -84,7 +84,7 @@ Cette section inclut les étapes permettant d’ajouter un référentiel d’art
 6. Sélectionnez **Enregistrer**.
 
 ## <a name="use-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
-Modèles Azure Resource Management (Azure Resource Manager) sont des fichiers JSON qui décrivent les ressources d’Azure que vous souhaitez créer. Pour en savoir plus sur ces modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Modèles Azure Resource Management (Azure Resource Manager) sont des fichiers JSON qui décrivent les ressources d’Azure que vous souhaitez créer. Pour en savoir plus sur ces modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Cette section inclut les étapes permettant d’ajouter un référentiel d’artefacts à un laboratoire via un modèle Azure Resource Manager.  Ce modèle crée le laboratoire, s’il n’existe pas déjà. 
 
@@ -165,7 +165,7 @@ L’exemple de modèle utilisé dans cet article rassemble les informations suiv
 
 
 ### <a name="deploy-the-template"></a>Déployer le modèle
-Il existe quelques façons de déployer le modèle dans Azure et de créer la ressource, si elle n’existe pas, ou de la mettre à jour, le cas échéant. Pour obtenir des instructions détaillées, consultez les articles suivants :
+Il existe quelques façons de déployer le modèle dans Azure et de créer la ressource, si elle n’existe pas, ou de la mettre à jour, le cas échéant. Pour plus de détails, consultez les articles suivants :
 
 - [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
@@ -345,7 +345,7 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ```
 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 L’exemple de script PowerShell de cet article prend les paramètres suivants :
 
 | Paramètre | Description | 

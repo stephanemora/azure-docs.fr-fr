@@ -2,17 +2,17 @@
 title: Présentation d’Azure Cloud Services | Microsoft Docs
 description: Découvrez des informations sur Azure Cloud Services.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: multiple
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c531e02656c9f6342670024b2220386e789a2d98
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386848"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Vue d’ensemble d’Azure Cloud Services
 Azure Cloud Service est un exemple d’implémentation de [platform as a service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Tout comme [Azure App Service](../app-service/overview.md), cette technologie est conçue pour prendre en charge des applications évolutives, fiables et dont l’exploitation est peu coûteuse. Comme App Service, Azure Cloud Services est hébergé sur des machines virtuelles. Toutefois, vous avez davantage de contrôle sur les machines virtuelles. Vous pouvez installer votre propre logiciel sur des machines virtuelles utilisant Azure Cloud Services, et y accéder à distance.
@@ -48,6 +48,9 @@ La nature PaaS d’Azure Cloud Services a également d’autres implications. L'
 * [Créer une application de service cloud dans Node.js](cloud-services-nodejs-develop-deploy-app.md) 
 * [Créer une application de service cloud dans PHP](../cloud-services-php-create-web-role.md) 
 * [Création d’une application de service cloud dans Python](cloud-services-python-ptvs.md)
+
+
+
 
 
 

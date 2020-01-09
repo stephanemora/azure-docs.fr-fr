@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6df7eebae0f0e7cfab790a4fca12dbb6ee5a5acf
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035737"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638984"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 
@@ -173,7 +173,7 @@ Cette section explique les différentes façons d’utiliser des actions de scri
     | Name |Indiquez un nom pour l’action de script. |
     | URI de script bash |Spécifiez l’URI du script. |
     | Head/Worker/ZooKeeper |Indiquez les nœuds sur lesquels le script est exécuté : **Head**, **Worker** ou **ZooKeeper**. |
-    | Parameters |Spécifiez les paramètres, si le script le demande. |
+    | Paramètres |Spécifiez les paramètres, si le script le demande. |
 
     Utilisez l’option __Conserver cette action de script__ pour vous assurer que le script sera appliqué aux nœuds lors des opérations de mise à l’échelle.
 
@@ -253,7 +253,7 @@ Accédez au [portail Azure](https://portal.azure.com) :
     | Name |Indiquez un nom pour l’action de script. |
     | URI de script bash |Spécifiez l’URI du script. |
     | Head/Worker/Zookeeper |Indiquez les nœuds sur lesquels le script est exécuté : **Head**, **Worker** ou **ZooKeeper**. |
-    | Parameters |Spécifiez les paramètres, si le script le demande. |
+    | Paramètres |Spécifiez les paramètres, si le script le demande. |
 
     Utilisez l’entrée __Continuer cette action de script__ pour vous assurer que le script est appliqué aux nœuds lors de la mise à l’échelle.
 
@@ -328,7 +328,7 @@ Pour obtenir un exemple d’utilisation du SDK .NET afin d’appliquer des scrip
 
 ### <a name="the-azure-portal"></a>Le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 
@@ -416,13 +416,13 @@ Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composan
 
 3. **Exemples**. Pour les composants personnalisés fréquemment utilisés, Microsoft et d’autres éditeurs fournissent parfois des exemples illustrant leur utilisation sur des clusters HDInsight. Ces exemples sont fournis sans support.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Vous pouvez utiliser l’interface utilisateur web d’Ambari pour afficher les informations journalisées par des actions de script. Si le script échoue pendant la création du cluster, les journaux d’activité sont également disponibles dans le compte de stockage par défaut associé au cluster. Cette section fournit des informations sur la façon de récupérer les journaux d’activité à l’aide de ces deux options.
 
 ### <a name="the-apache-ambari-web-ui"></a>Interface utilisateur web d’Apache Ambari
 
-1. Dans votre navigateur, accédez à https://CLUSTERNAME.azurehdinsight.net. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
+1. Dans votre navigateur, accédez à `https://CLUSTERNAME.azurehdinsight.net`. Remplacez **CLUSTERNAME** par le nom de votre cluster HDInsight.
 
     Lorsque vous y êtes invité, entrez le nom du compte d’administrateur, **admin**, et le mot de passe associé au cluster. Vous devrez parfois retaper les informations d’identification d’administrateur dans un formulaire web.
 
@@ -458,7 +458,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
 * Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster**, créé à différentes dates ressemble aux entrées de journaux suivantes :
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Si vous créez un cluster d’action de script avec le même nom le même jour, vous pouvez utiliser le préfixe unique pour identifier les fichiers journaux correspondants.
 

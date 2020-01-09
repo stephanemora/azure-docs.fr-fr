@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 08cae51da20b6093b284618de92c61aab4bf5b55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22fd78ccd58be1790fcd167da396600e8b876564
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508381"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428913"
 ---
 # <a name="devtest-labs-concepts"></a>Concepts de DevTest Labs
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La liste suivante présente les définitions et concepts principaux de DevTest Labs :
 
 ## <a name="labs"></a>Laboratoires
@@ -51,7 +51,7 @@ Les artefacts sont utilisés pour déployer et configurer votre application apr�
 * des actions que vous souhaitez exécuter sur la machine virtuelle, telles que le clonage d’un dépôt ;
 * des applications que vous voulez tester.
 
-Les artefacts sont des fichiers JSON [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui contiennent des instructions pour effectuer le déploiement et appliquer la configuration.
+Les artefacts sont des fichiers JSON [Azure Resource Manager](../azure-resource-manager/management/overview.md) qui contiennent des instructions pour effectuer le déploiement et appliquer la configuration.
 
 ## <a name="artifact-repositories"></a>Référentiels d’artefact
 Les référentiels d’artefact sont des dépôts Git dans lesquels les artefacts sont archivés. Vous pouvez ajouter des référentiels d’artefacts à plusieurs laboratoires de votre organisation pour les réutiliser et les partager.

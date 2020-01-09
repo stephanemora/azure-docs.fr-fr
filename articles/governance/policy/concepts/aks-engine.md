@@ -3,12 +3,12 @@ title: Découvrir Azure Policy pour AKS Engine
 description: Découvrez comment Azure Policy utilise CustomResourceDefinitions et Open Policy Agent à partir de Gatekeeper v3 pour gérer les clusters avec AKS Engine.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2d1ae33755dcb52c5fe65ec46f0d02e090f6f417
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c41a9d84dfe43e356e9a4a17af523a37209c2933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436421"
 ---
 # <a name="understand-azure-policy-for-aks-engine"></a>Comprendre Azure Policy pour AKS Engine
 
@@ -20,7 +20,7 @@ Azure Policy s’intègre à [AKS Engine](https://github.com/Azure/aks-engine/bl
 > [!IMPORTANT]
 > Pour obtenir un support sur Azure Policy pour AKS Engine, AKS Engine ou Gatekeeper v3, créez un [nouveau problème](https://github.com/Azure/aks-engine/issues/new/choose) dans le référentiel GitHub AKS Engine.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour activer et utiliser Azure Policy pour AKS Engine avec votre cluster Kubernetes autogéré sur Azure, effectuez les actions suivantes :
 
@@ -29,13 +29,13 @@ Pour activer et utiliser Azure Policy pour AKS Engine avec votre cluster Kuberne
 - [Affecter une définition de stratégie pour AKS Engine](#built-in-policies)
 - [Attendre la validation](#validation-and-reporting-frequency)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’installer le module complémentaire Azure Policy ou d’activer des fonctionnalités du service, vous devez activer le fournisseur de ressources **Microsoft.PolicyInsights** et créer une attribution de rôle pour le principal de service du cluster dans votre abonnement. 
 
-1. Pour activer le fournisseur de ressources, suivez les étapes décrites dans [Fournisseurs de ressources et types](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal) ou exécutez la commande Azure CLI ou Azure PowerShell :
+1. Pour activer le fournisseur de ressources, suivez les étapes décrites dans [Fournisseurs de ressources et types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou exécutez la commande Azure CLI ou Azure PowerShell :
 
-   - D’Azure CLI
+   - Azure CLI
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
@@ -278,7 +278,7 @@ Les informations collectées par le module complémentaire ne sont pas des donn�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les exemples de la page [Exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la page [Structure de définition Azure Policy](definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).

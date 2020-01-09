@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440437"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Activité d’exécution du pipeline dans Azure Data Factory
 L’activité d’exécution du pipeline permet à un pipeline Data Factory d’appeler un autre pipeline.
@@ -61,9 +61,9 @@ L’activité d’exécution du pipeline permet à un pipeline Data Factory d’
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité d’exécution du pipeline. | Chaîne | OUI
-Type | Doit être défini sur : **ExecutePipeline**. | Chaîne | OUI
-pipeline | Référence de pipeline au pipeline dépendant que pipeline appelle. Un objet de référence de pipeline comporte deux propriétés : **referenceName** et **type**. La propriété referenceName spécifie le nom du pipeline de référence. La propriété de type doit être définie sur PipelineReference. | PipelineReference | OUI
+name | Nom de l’activité d’exécution du pipeline. | String | Oui
+type | Doit être défini sur : **ExecutePipeline**. | String | Oui
+pipeline | Référence de pipeline au pipeline dépendant que pipeline appelle. Un objet de référence de pipeline comporte deux propriétés : **referenceName** et **type**. La propriété referenceName spécifie le nom du pipeline de référence. La propriété de type doit être définie sur PipelineReference. | PipelineReference | Oui
 parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | Non
 waitOnCompletion | Définit si l’exécution de l’activité attend l’exécution du pipeline dépendant. La valeur par défaut est false. | Boolean | Non
 
@@ -168,10 +168,7 @@ Ce scénario comporte deux pipelines :
     "properties": {
     "type": "AzureStorage",
     "typeProperties": {
-      "connectionString": {
-        "value": "DefaultEndpointsProtocol=https;AccountName=*****",
-        "type": "SecureString"
-      }
+      "connectionString": "DefaultEndpointsProtocol=https;AccountName=*****;AccountKey=*****"
     }
   }
 }

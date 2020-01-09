@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 6af95b7f8bde6e77ba356fec9dde123e26a9a4a8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f49396331a31f7ca9eaf453dc8bf6880da2e0da8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448618"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613854"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gérer un appareil Azure Data Box Edge via Windows PowerShell
 
-La solution Azure Data Box Edge vous permet de traiter les données et de les envoyer vers Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Data Box Edge. Vous pouvez utiliser le portail Azure, l’interface utilisateur web locale ou l’interface Windows PowerShell pour gérer votre appareil.
+La solution Azure Data Box Edge vous permet de traiter les données et de les envoyer vers Azure via le réseau. Cet article décrit certaines des tâches de gestion et de configuration pour votre appareil Data Box Edge. Vous pouvez utiliser le portail Azure, l'interface utilisateur locale ou l'interface Windows PowerShell pour gérer votre appareil.
 
 Cet article traite des tâches que vous effectuez à l’aide de l’interface PowerShell.
 
@@ -27,7 +27,7 @@ Cet article inclut les procédures suivantes :
 - Création d’un package de prise en charge
 - Téléchargement d’un certificat
 - Réinitialisation de l’appareil
-- Consultation des informations sur l’appareil
+- Affichage des informations sur l’appareil
 - Récupération des journaux de calcul
 - Supervision et dépannage des modules de calcul
 
@@ -56,9 +56,9 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 ```
 Lorsque vous exécutez cette cmdlet, vous devez fournir le mot de passe pour le partage réseau.
 
-Pour plus d’informations sur les certificats, consultez [Certificats Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [Installation de certificats sur une passerelle](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
+Pour plus d’informations sur les certificats, consultez [Certificats Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [Installation de certificats sur une passerelle](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
 
-## <a name="view-device-information"></a>Consultation des informations sur l’appareil
+## <a name="view-device-information"></a>Affichage des informations sur l’appareil
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 

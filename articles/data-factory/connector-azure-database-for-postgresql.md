@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/16/2019
-ms.openlocfilehash: 3729d43716a0f4e133fb175da2546aac560b0525
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 67d59e3f733efe5a248e6763f46402302496d437
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931612"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444386"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure Database pour PostgreSQL avec Azure Data Factory
 
@@ -47,8 +47,8 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzurePostgreSql**. | OUI |
-| connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **AzurePostgreSql**. | Oui |
+| connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL.<br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez les exemples suivants et [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Cette propriété correspond au [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Selon votre cas de figure, vous pouvez définir d’autres propriétés :
@@ -58,7 +58,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.dat
 | EncryptionMethod (EM)| La méthode utilisée par le pilote pour chiffrer les données envoyées entre le pilote et le serveur de base de données. Par exemple, `EncryptionMethod=<0/1/6>;`| 0 (aucun chiffrement) **(par défaut)** / 1 (SSL) / 6 (RequestSSL) | Non |
 | ValidateServerCertificate (VSC) | Détermine si le pilote valide le certificat envoyé par le serveur de base de données lorsque le chiffrement SSL est activé (EncryptionMethod = 1). Par exemple, `ValidateServerCertificate=<0/1>;`| 0 (désactivé) **(par défaut)** / 1 (activé) | Non |
 
-**Exemple**:
+**Exemple** :
 
 ```json
 {
@@ -66,16 +66,13 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.dat
     "properties": {
         "type": "AzurePostgreSql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
-            }
+            "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
         }
     }
 }
 ```
 
-**Exemple**:
+**Exemple** :
 
 ***Stockage du mot de passe dans Azure Key Vault***
 
@@ -85,10 +82,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>.postgres.dat
     "properties": {
         "type": "AzurePostgreSql",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;"
-            },
+            "connectionString": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -110,10 +104,10 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **AzurePostgreSqlTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur **AzurePostgreSqlTable** | Oui |
 | tableName | Nom de la table | Non (si « query » dans la source de l’activité est spécifié) |
 
-**Exemple**:
+**Exemple** :
 
 ```json
 {
@@ -139,10 +133,10 @@ Pour copier des données d’Azure Database pour PostgreSQL, affectez la valeur 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **AzurePostgreSqlSource** | OUI |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"` | Non (si la propriété tableName du jeu de données est spécifiée) |
+| type | La propriété type de la source de l’activité de copie doit être définie sur **AzurePostgreSqlSource** | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"` | Non (si la propriété tableName du jeu de données est spécifiée) |
 
-**Exemple**:
+**Exemple** :
 
 ```json
 "activities":[
@@ -180,12 +174,12 @@ Pour copier des données vers Azure Database pour PostgreSQL, les propriétés s
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur **AzurePostgreSQLSink**. | OUI |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur **AzurePostgreSQLSink**. | Oui |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant d'écrire des données dans Azure Database pour PostgreSQL à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
 | writeBatchSize | Insère des données dans la table Azure Database pour PostgreSQL quand la taille de la mémoire tampon atteint writeBatchSize.<br>La valeur autorisée est un entier qui représente le nombre de lignes. | Non (valeur par défaut : 10 000) |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Les valeurs autorisées sont des intervalles de temps. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:00:30) |
 
-**Exemple**:
+**Exemple** :
 
 ```json
 "activities":[

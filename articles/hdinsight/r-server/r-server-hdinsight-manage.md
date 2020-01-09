@@ -8,20 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: e0ce8b97df6f2d6e95255d3f4dfc9f76fa08a594
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b2c16c27c0dfc0c30a99c52544cc4d2278eadfc7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123556"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647728"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
 Dans cet article, vous découvrez comment gérer un cluster ML Services existant sur Azure HDInsight pour effectuer certaines tâches comme ajouter plusieurs utilisateurs simultanés, se connecter à distance à un cluster ML Services, changer le contexte de calcul, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
+* Un cluster ML Services sur HDInsight. Consultez [Création clusters Apache Hadoop à l’aide du Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) et sélectionnez **ML Services** pour le **Type de cluster**.
 
 * Un client Secure Shell (SSH) : un client SSH est utilisé pour se connecter à distance au cluster HDInsight et exécuter des commandes directement sur celui-ci. Pour en savoir plus, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -48,11 +48,11 @@ Comme RStudio s’exécute sur le nœud de périphérie du cluster, il y a plusi
 2. Ajouter d’autres utilisateurs Linux dans le nœud de périmètre
 3. Utiliser la version RStudio Community avec l’utilisateur créé
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Étape 1 : Utiliser l’utilisateur SSH créé pour se connecter au nœud de périphérie
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>Étape 1 : Utiliser l’utilisateur SSH créé pour se connecter au nœud de périphérie
 
 Suivez les instructions de l’article [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) pour accéder au nœud de périphérie. L’adresse du nœud de périphérie pour le cluster ML Services sur HDInsight est `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
-### <a name="step-2-add-more-linux-users-in-edge-node"></a>Étape 2 : Ajouter d’autres utilisateurs Linux dans le nœud de périmètre
+### <a name="step-2-add-more-linux-users-in-edge-node"></a>Étape 2 : Ajouter d’autres utilisateurs Linux dans le nœud de périmètre
 
 Pour ajouter un utilisateur au nœud de périmètre, exécutez les commandes suivantes :
 
@@ -70,7 +70,7 @@ Ignorez le message vous invitant à entrer le « mot de passe Kerberos actuel »
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>Étape 3 : Utiliser la version RStudio Community avec l’utilisateur créé
 
-Accédez à RStudio à partir de https://CLUSTERNAME.azurehdinsight.net/rstudio/. Si vous vous connectez pour la première fois après avoir créé le cluster, entrez les informations d’identification de l’administrateur du cluster, suivies des informations d’identification de l’utilisateur SSH que vous avez créées. S’il ne s’agit pas de votre première connexion, entrez uniquement les informations d’identification de l’utilisateur SSH que vous avez créé.
+Accédez à RStudio à partir de `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. Si vous vous connectez pour la première fois après avoir créé le cluster, entrez les informations d’identification de l’administrateur du cluster, suivies des informations d’identification de l’utilisateur SSH que vous avez créées. S’il ne s’agit pas de votre première connexion, entrez uniquement les informations d’identification de l’utilisateur SSH que vous avez créé.
 
 Vous pouvez aussi vous connecter simultanément en utilisant les informations d’identification d’origine (par défaut, *sshuser*) à partir d’une autre fenêtre de navigateur.
 
@@ -196,7 +196,7 @@ Pour installer des packages R sur les nœuds Worker du cluster, vous devez utili
 
    * Sélectionnez uniquement la case à cocher en regard de **Worker**.
 
-   * **Paramètres** : les packages R à installer. Par exemple, `bitops stringr arules`
+   * **Paramètres** : les packages R à installer. Par exemple : `bitops stringr arules`
 
    * Sélectionnez la case à cocher en regard de **Conservez cette action de script**.  
 

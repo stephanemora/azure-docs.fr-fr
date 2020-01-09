@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 424dfc1dac21f227869f23e7401a083b06cef1d9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cfcea8c775b2d6a9bee3c078cf67f0a942af5984
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035555"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354044"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Ouvrir des ports et des points de terminaison sur une machine virtuelle Linux dans Azure avec Azure CLI
 
@@ -92,5 +92,5 @@ Pour les applications Web hautement disponibles, vous devez placer vos machines 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HTTP. Vous trouverez plus d’informations sur la création d’environnements plus détaillés dans les articles suivants :
 
-* [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
+* [Présentation d’Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Présentation du groupe de sécurité réseau](../../virtual-network/security-overview.md)

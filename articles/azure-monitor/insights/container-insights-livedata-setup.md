@@ -1,24 +1,14 @@
 ---
 title: Configurer Live Data avec Azure Monitor pour conteneurs (préversion) | Microsoft Docs
 description: Cet article décrit la configuration de la vue en temps réel des événements et des journaux de conteneur (stdout/stderr), sans l’utilisation de kubectl, avec Azure Monitor pour conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/16/2019
-ms.author: magoedte
-ms.openlocfilehash: 596c5ad378d471c6c98616a48f44e96c365ee0bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404699"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>Comment configurer la fonctionnalité Live Data (préversion)
 

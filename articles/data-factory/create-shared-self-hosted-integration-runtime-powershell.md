@@ -11,12 +11,12 @@ author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: 2b83c61d05cbc9d84c74d03004839a21505519fa
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2f24d8203ac5fb9724370cbdf4309bdc43c166a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444097"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory
 
@@ -51,7 +51,7 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’
 1. Créer un runtime d’intégration lié.
 1. Révoquer le partage.
 
-### <a name="prerequisites"></a>Prérequis 
+### <a name="prerequisites"></a>Conditions préalables requises 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -99,7 +99,7 @@ Pour créer un runtime d’intégration auto-hébergé partagé à l’aide d’
     > [!NOTE]  
     > Cette étape est facultative. Si vous disposez déjà d’une fabrique de données, ignorez cette étape. 
 
-    Créez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) avec la commande [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement Europe Ouest : 
+    Créez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) avec la commande [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées en tant que groupe. L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement Europe Ouest : 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

@@ -1,20 +1,18 @@
 ---
 title: Configurer Azure Stream Analytics Tools pour Visual Studio
 description: Cet article décrit les conditions requises à l’installation des outils Azure Stream Analytics pour Visual Studio et comment configurer ces outils.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.openlocfilehash: 447fa07953c15fe67b8a2e313fe9534164f47bbd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: fa3990d2239da71fb27f4c9a06699f758fcfe7a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130511"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354364"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Installer Azure Stream Analytics Tools pour Visual Studio
 
@@ -66,7 +64,7 @@ Pour Visual Studio 2019 et Visual Studio 2017, un nouveau rappel de version es
 
 Pour Visual Studio 2015 et Visual Studio 2013, les outils vérifient automatiquement l’existence de nouvelles versions. Suivez les instructions pour installer la dernière version.
 
-## <a name="uninstall"></a>Désinstaller
+## <a name="uninstall"></a>Désinstaller l’interface
 
 Vous pouvez désinstaller les Outils Azure Data Lake et Stream Analytics. Pour Visual Studio 2019 ou Visual Studio 2017, sélectionnez **Outils** > **Obtenir les outils et fonctionnalités**. Dans **Modification**, désélectionnez **Outils Azure Data Lake et Stream Analytics**. Les outils apparaissent sous la charge de travail **Stockage et traitement des données** ou **Développement Azure**.
 

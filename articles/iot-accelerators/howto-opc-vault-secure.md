@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: af5e511cbf273bc4e4fa0a08d089a955426fe75c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71203694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454188"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Utiliser le service de gestion de certificats OPC Vault
 
 Cet article explique comment inscrire des applications et émettre des certificats d’application signés pour vos appareils OPC UA.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="deploy-the-certificate-management-service"></a>Déployer le service de gestion de certificats
 
@@ -31,7 +31,7 @@ Si vous ne l’avez pas encore fait, créez le certificat de l’autorité de ce
 
 ## <a name="secure-opc-ua-applications"></a>Sécuriser des applications OPC UA
 
-### <a name="step-1-register-your-opc-ua-application"></a>Étape 1 : Inscrire votre application OPC UA 
+### <a name="step-1-register-your-opc-ua-application"></a>Étape 1 : Inscrire votre application OPC UA 
 
 > [!IMPORTANT]
 > Le rôle Rédacteur est nécessaire pour inscrire une application.
@@ -44,7 +44,7 @@ Si vous ne l’avez pas encore fait, créez le certificat de l’autorité de ce
 
 5. Sélectionnez **Register** pour inscrire l’application dans la base de données d’application de service de certificats. Le workflow guide l’utilisateur directement vers l’étape suivante destinée à demander un certificat signé pour l’application.
 
-### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Étape 2 : Sécuriser votre application avec un certificat d’application signé par une autorité de certification
+### <a name="step-2-secure-your-application-with-a-ca-signed-application-certificate"></a>Étape 2 : Sécuriser votre application avec un certificat d’application signé par une autorité de certification
 
 Sécurisez votre application OPC UA en émettant un certificat signé basé sur une demande de signature de certificat. Vous pouvez aussi demander une nouvelle paire de clés, qui comprend une nouvelle clé privée au format PFX ou PEM. Pour savoir quelle méthode est prise en charge pour votre application, consultez la documentation de votre appareil OPC UA. En général, la méthode CSR est recommandée car elle ne nécessite pas le transfert d’une clé privée sur un réseau.
 
@@ -98,7 +98,7 @@ Sécurisez votre application OPC UA en émettant un certificat signé basé sur 
 
 À présent, la façon dont le nouveau certificat est appliqué dépend de l’appareil OPC UA. En général, le certificat et la liste de révocation de certificats de l’autorité de certification sont copiés dans un dossier `trusted`, tandis que le certificat d’application est appliqué à un dossier `own` dans le magasin de certificats. Certains appareils peuvent déjà prendre en charge la transmission (de type push) par le serveur pour les mises à jour des certificats. Reportez-vous à la documentation de votre appareil OPC UA.
 
-### <a name="step-4-device-secured"></a>Étape 4 : Appareil sécurisé
+### <a name="step-3-device-secured"></a>Étape 3 : Appareil sécurisé
 
 L’appareil OPC UA est maintenant prêt à communiquer avec d’autres appareils OPC UA sécurisés par des certificats signés par l’autorité de certification sans configuration supplémentaire.
 

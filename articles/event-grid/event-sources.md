@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603834"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531443"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -26,7 +26,7 @@ S’abonner aux événements Abonnements Azure pour répondre aux modifications 
 
 |Intitulé |Description  |
 |---------|---------|
-| [Tutoriel : Intégrer Azure Automation à Event Grid et Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Créez une machine virtuelle, qui envoie un événement. L’événement déclenche un runbook Automation qui balise la machine virtuelle et déclenche un message qui est envoyé à un canal Microsoft Teams. |
+| [Tutoriel : Intégrer Azure Automation à Event Grid et Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Créez une machine virtuelle, qui envoie un événement. L’événement déclenche un runbook Automation qui balise la machine virtuelle et déclenche un message qui est envoyé à un canal Microsoft Teams. |
 | [Guide pratique pour s’abonner aux événements via le portail](subscribe-through-portal.md) | Utilisez le portail pour vous abonner aux événements d’un abonnement Azure. |
 | [Azure CLI : S’abonner aux événements d’un abonnement Azure](./scripts/event-grid-cli-azure-subscription.md) |Exemple de script qui crée un abonnement Event Grid à un abonnement Azure, et envoie les événements à un webhook. |
 | [PowerShell : S’abonner aux événements d’un abonnement Azure](./scripts/event-grid-powershell-azure-subscription.md)| Exemple de script qui crée un abonnement Event Grid à un abonnement Azure, et envoie les événements à un webhook. |
@@ -92,7 +92,7 @@ Abonnez-vous aux événements Key Vault pour recevoir une notification lorsqu’
 |Intitulé  |Description  |
 |---------|---------|
 | [Monitorage d’événements Key Vault avec Azure Event Grid](../key-vault/event-grid-overview.md) | Vue d’ensemble de l’intégration de Key Vault avec Event Grid. |
-| [Tutoriel : Créer des événements Key Vault avec Event Grid et en effectuer le monitorage](../key-vault/event-grid-tutorial.md) | Découvrez comment configurer des notifications Event Grid pour Key Vault. |
+| [Tutoriel : Créer des événements Key Vault avec Event Grid et en effectuer le monitorage](../key-vault/event-grid-tutorial.md) | Découvrez comment configurer des notifications Event Grid pour Key Vault. |
 | [Schéma d’événement](event-schema-key-vault.md) | Affiche les champs des événements Key Vault. |
 
 ## <a name="media-services"></a>Media Services
@@ -125,8 +125,8 @@ S’abonner aux événements Service Bus pour répondre aux messages sans un éc
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
-| [Présentation : Intégration d’Azure Service Bus à Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Vue d’ensemble de l’intégration de Service Bus à Event Grid. |
+| [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
+| [Vue d’ensemble : Intégration d’Azure Service Bus à Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Vue d’ensemble de l’intégration de Service Bus à Event Grid. |
 | [Schéma d’événement](event-schema-service-bus.md) | Affiche les champs dans les événements Service Bus. |
 
 ## <a name="storage"></a>Stockage
@@ -150,7 +150,7 @@ Abonnez-vous aux événements Azure Maps pour répondre aux événements de limi
 |Intitulé  |Description  |
 |---------|---------|
 | [Réagir aux événements Azure Maps à l’aide d’Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Vue d’ensemble de l’intégration d’Azure Maps à Event Grid. |
-| [Tutoriel : Définir une limite géographique](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Vous utilisez Azure Event Grid pour diffuser en continu les résultats de la limite géographique et pour configurer une notification en fonction de ces résultats. |
+| [Tutoriel : Définir une limite géographique](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Vous utilisez Azure Event Grid pour diffuser en continu les résultats de la limite géographique et pour configurer une notification en fonction de ces résultats. |
 | [Schéma d’événement](event-schema-azure-maps.md) | Affiche les champs dans les événements Azure Maps. |
 
 ## <a name="app-configuration"></a>Configuration d’application
@@ -177,7 +177,7 @@ Abonnez-vous aux événements de l’espace de travail Azure Machine Learning po
 
 | Intitulé | Description |
 | ----- | ----- |
-| [Consommer des événements Azure Machine Learning](../machine-learning/service/concept-event-grid-integration.md) | Vue d’ensemble de l’intégration d’Azure Machine Learning avec Event Grid. |
+| [Consommer des événements Azure Machine Learning](../machine-learning/concept-event-grid-integration.md) | Vue d’ensemble de l’intégration d’Azure Machine Learning avec Event Grid. |
 | [Schéma des événements Azure Event Grid pour Azure Machine Learning](event-schema-machine-learning.md) | Affiche les champs des événements Azure Machine Learning. |
 
 ## <a name="next-steps"></a>Étapes suivantes

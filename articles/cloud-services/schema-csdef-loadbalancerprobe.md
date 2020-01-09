@@ -7,13 +7,13 @@ ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449052"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.
@@ -56,8 +56,8 @@ Le tableau suivant décrit les attributs de l’élément `LoadBalancerProbe` :
 
 |Attribut|Type|Description|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Requis. Le nom de la sonde d’équilibreur de charge. Ce nom doit être unique.|
-| `protocol`          | `string` | Requis. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|
+| `name`              | `string` | Obligatoire. Le nom de la sonde d’équilibreur de charge. Le nom doit être unique.|
+| `protocol`          | `string` | Obligatoire. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|
 | `path`              | `string` | L’URI utilisée pour demander l’état d’intégrité de la machine virtuelle. `path` est nécessaire si `protocol` est défini sur `http`. Dans le cas contraire, il n’est pas autorisé.<br /><br /> Aucune valeur par défaut.|
 | `port`              | `integer` | facultatif. Le port de communication de la sonde. Il est facultatif pour tous les points de terminaison, car le même port sera ensuite utilisé pour la sonde. Vous pouvez également configurer un port différent pour leur détection. Les valeurs possibles sont comprises entre 1 et 65535, ces deux valeurs étant incluses.<br /><br /> La valeur par défaut est définie par le point de terminaison.|
 | `intervalInSeconds` | `integer` | facultatif. L’intervalle, en secondes, de fréquence de détection de l’état d’intégrité du point de terminaison. En règle générale, l’intervalle est légèrement inférieur à la moitié du délai d’expiration alloué (en secondes), ce qui permet d’utiliser deux sondes complètes avant de mettre l’instance hors rotation.<br /><br /> La valeur par défaut est 15, la valeur minimum 5.|

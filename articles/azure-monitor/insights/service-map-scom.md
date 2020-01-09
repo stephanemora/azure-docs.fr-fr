@@ -4,15 +4,15 @@ description: Azure Monitor pour machines virtuelles découvre automatiquement le
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a8d0e0980b0d3634626bc1332e8219bdca7fbe01
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849817"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402638"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Intégrer System Center Operations Manager avec la fonctionnalité de mappage Azure Monitor pour machines virtuelles
 
@@ -21,7 +21,7 @@ Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d�
 >[!NOTE]
 >Si vous avez déjà déployé Service Map, vous pouvez visualiser vos cartes dans Azure Monitor pour machines virtuelles, qui inclut des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances des machines virtuelles. La fonctionnalité Map d’Azure Monitor pour machines virtuelles est destinée à remplacer la solution autonome Service Map. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un groupe d’administration System Center Operations Manager (2012 R2 ou version ultérieure).
 * Un espace de travail Log Analytics configuré pour prendre en charge Azure Monitor pour machines virtuelles.

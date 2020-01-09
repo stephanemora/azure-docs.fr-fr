@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 00fdeb71cec5995a229c5408429a0369d4317b66
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 20e84b584fa4d654500efc47786fa8db0cd9c238
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440798"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copier des données à partir d’Azure Database for MariaDB avec Azure Data Factory 
 
@@ -45,8 +45,8 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureMariaDB** | OUI |
-| connectionString | Chaîne de connexion permettant de se connecter à Azure Database for MariaDB. Vous la trouverez dans le portail Azure -> votre base de données Azure Database for MariaDB -> Chaînes de connexion -> ADO.NET. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **AzureMariaDB** | Oui |
+| connectionString | Chaîne de connexion permettant de se connecter à Azure Database for MariaDB. Vous la trouverez dans le portail Azure -> votre base de données Azure Database for MariaDB -> Chaînes de connexion -> ADO.NET. <br/> Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
@@ -57,10 +57,7 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
     "properties": {
         "type": "AzureMariaDB",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
-            }
+            "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -78,10 +75,7 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
     "properties": {
         "type": "AzureMariaDB",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
-            },
+            "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;",
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -107,7 +101,7 @@ Pour copier des données à partir d’Azure Database for MariaDB, les propriét
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureMariaDBTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AzureMariaDBTable** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -137,7 +131,7 @@ Pour copier des données à partir d’Azure Database for MariaDB, les propriét
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMariaDBSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMariaDBSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

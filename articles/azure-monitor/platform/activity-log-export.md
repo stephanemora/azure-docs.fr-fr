@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ff8956d942aa54500a08cac4ebd94127b14b0bd4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9cd6c2a39f72c47b06bebfa2a8c457a725484141
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931774"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529981"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
@@ -30,7 +30,7 @@ Archiver le journal d'activité vers un compte de stockage est utile si vous sou
 * **Diffuser en continu sur des systèmes de journalisation et de télémétrie tiers** : Au fil du temps, la diffusion en continu sur Azure Event Hubs deviendra le mécanisme de diffusion de votre journal d’activité vers les solutions tierces SIEM et Log Analytics.
 * **Créer une plateforme de journalisation et de télémétrie personnalisée** : Si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="storage-account"></a>Compte de stockage
 Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
@@ -113,11 +113,11 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
     | Propriété | Obligatoire | Description |
     | --- | --- | --- |
-    | Name |OUI |Nom de votre profil de journal. |
+    | Name |Oui |Nom de votre profil de journal. |
     | StorageAccountId |Non |ID de ressource du compte de stockage dans lequel le journal d’activité doit être enregistré. |
     | serviceBusRuleId |Non |ID de règle Service Bus pour l’espace de noms Service Bus dans lequel vous souhaitez que des concentrateurs d’événements soient créés. Il s'agit d'une chaîne au format `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Location |OUI |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
-    | RetentionInDays |OUI |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
+    | Location |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. |
+    | RetentionInDays |Oui |Nombre de jours pendant lesquels les événements doivent être conservés dans le compte de stockage, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie. |
     | Category |Non |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont _Write_, _Delete_ et _Action_. |
 
 ### <a name="example-script"></a>Exemple de script
@@ -156,97 +156,12 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
     | Propriété | Obligatoire | Description |
     | --- | --- | --- |
-    | name |OUI |Nom de votre profil de journal. |
-    | storage-account-id |OUI |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
-    | locations |OUI |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
-    | days |OUI |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre enabled doit être défini sur false. |
-    |enabled | OUI |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
-    | categories |OUI |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
-
-
-
-## <a name="activity-log-schema"></a>Schéma du journal d'activité
-Qu'il soit envoyé à Stockage Azure ou Event Hub, le journal d’activité est écrit dans un JSON au format suivant.
-
-
-> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
-
-``` JSON
-{
-    "records": [
-        {
-            "time": "2015-01-21T22:14:26.9792776Z",
-            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-            "operationName": "microsoft.support/supporttickets/write",
-            "category": "Write",
-            "resultType": "Success",
-            "resultSignature": "Succeeded.Created",
-            "durationMs": 2826,
-            "callerIpAddress": "111.111.111.11",
-            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
-            "identity": {
-                "authorization": {
-                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
-                    "action": "microsoft.support/supporttickets/write",
-                    "evidence": {
-                        "role": "Subscription Admin"
-                    }
-                },
-                "claims": {
-                    "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
-                    "iat": "1421876371",
-                    "nbf": "1421876371",
-                    "exp": "1421880271",
-                    "ver": "1.0",
-                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
-                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
-                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
-                    "puid": "20030000801A118C",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
-                    "name": "John Smith",
-                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
-                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
-                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
-                    "appidacr": "2",
-                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
-                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
-                }
-            },
-            "level": "Information",
-            "location": "global",
-            "properties": {
-                "statusCode": "Created",
-                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
-            }
-        }
-    ]
-}
-```
-Les éléments de ce JSON sont décrits dans le tableau suivant.
-
-| Nom de l'élément | Description |
-| --- | --- |
-| time |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
-| resourceId |ID de ressource de la ressource affectée. |
-| operationName |Nom de l’opération. |
-| category |Catégorie de l’action, par ex. Écriture, Lecture, Action. |
-| resultType |Le type du résultat, par ex. Réussite, échec, démarrage |
-| resultSignature |Dépend du type de ressource. |
-| durationMS |Durée de l’opération en millisecondes |
-| callerIpAddress |Adresse IP de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
-| correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
-| identité |Objet blob JSON décrivant l’autorisation et les revendications. |
-| autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
-| level |Niveau de l’événement. L’une des valeurs suivantes : _Critical_, _Error_, _Warning_, _Informational_ et _Verbose_ |
-| location |Région dans laquelle se trouve l’emplacement (ou global). |
-| properties |Jeu de paires `<Key, Value>` (p. ex. Dictionary) décrivant les détails de l’événement. |
-
-> [!NOTE]
-> Les propriétés et l’utilisation de ces propriétés peuvent varier en fonction de la ressource.
+    | name |Oui |Nom de votre profil de journal. |
+    | storage-account-id |Oui |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
+    | locations |Oui |Liste, séparée par des espaces, des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `az account list-locations --query [].name`. |
+    | jours |Oui |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 365. Une valeur de zéro signifie que les journaux d’activité seront stockés pour une durée indéfinie (pour toujours).  Si zéro est spécifié, le paramètre enabled doit être défini sur false. |
+    |enabled | Oui |True ou False.  Utilisée pour activer ou désactiver la stratégie de rétention.  Si la valeur est True, le paramètre days doit être une valeur supérieure à 0.
+    | categories |Oui |Liste, séparée par des espaces, des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action. |
 
 
 

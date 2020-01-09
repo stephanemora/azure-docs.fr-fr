@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f2880044e48e59d0d5f005f9772cdd0f807f7f29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397841"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Utilisation de jointures dans les requêtes de journal Azure Monitor
 
@@ -89,7 +89,7 @@ Spécifiez le type de jointure avec l’argument _kind_. Chaque type effectue un
 | leftsemi | Les enregistrements du côté gauche ayant des correspondance du côté droit sont inclus dans les résultats. La table de résultats comporte uniquement les colonnes de la table de gauche. |
 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Tenez compte des points suivants pour optimiser les performances :
 

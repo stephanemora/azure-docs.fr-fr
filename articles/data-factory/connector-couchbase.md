@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 19496d88c1e77a6f6b18ae6f73c289f8617a3c29
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ac2426bbfa074e58aa5c4a213f3ecbee20052358
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444360"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copier des données de Couchbase avec Azure Data Factory (préversion)
 
@@ -36,7 +36,7 @@ Vous pouvez copier des données de Couchbase vers n’importe quel magasin de do
 
 Azure Data Factory fournit un pilote intégré qui permet la connexion. Vous n’avez donc pas besoin d’installer manuellement un pilote à l’aide de ce connecteur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -52,8 +52,8 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Couchbase** | OUI |
-| connectionString | Chaîne de connexion ODBC permettant de se connecter à Couchbase. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir une chaîne d’identification dans Azure Key Vault et extraire la configuration `credString` de la chaîne de connexion. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. | OUI |
+| type | La propriété type doit être définie sur : **Couchbase** | Oui |
+| connectionString | Chaîne de connexion ODBC permettant de se connecter à Couchbase. <br/>Vous pouvez également définir une chaîne d’identification dans Azure Key Vault et extraire la configuration `credString` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
@@ -64,10 +64,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
     "properties": {
         "type": "Couchbase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>; Port=<port>;AuthMech=1;CredString=[{\"user\": \"JSmith\", \"pass\":\"access123\"}, {\"user\": \"Admin\", \"pass\":\"simba123\"}];"
-            }
+            "connectionString": "Server=<server>; Port=<port>;AuthMech=1;CredString=[{\"user\": \"JSmith\", \"pass\":\"access123\"}, {\"user\": \"Admin\", \"pass\":\"simba123\"}];"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -85,10 +82,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Couchbase�
     "properties": {
         "type": "Couchbase",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>; Port=<port>;AuthMech=1;"
-            },
+            "connectionString": "Server=<server>; Port=<port>;AuthMech=1;",
             "credString": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -114,7 +108,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseTable** à 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **CouchbaseTable** | Oui |
 | tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 
@@ -145,7 +139,7 @@ Pour copier des données de Couchbase, affectez la valeur **CouchbaseSource** au
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **CouchbaseSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

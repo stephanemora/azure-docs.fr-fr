@@ -7,12 +7,12 @@ ms.date: 06/19/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 5cadd0479a6ddc97cc7ee7d9b5aee1bbffba02bb
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c4351afe7781f4340dfd943828d65e94efbdc0a7
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120966"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659302"
 ---
 # <a name="networking-limit-increase"></a>Augmentation de la limite réseau
 
@@ -70,7 +70,7 @@ Suivez les instructions ci-dessous pour créer une demande de support via le pan
 
 2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
 
-    ![Sélectionnez un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
+    ![Sélectionner un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Sélectionnez **Utilisation + quotas**.
 
@@ -84,4 +84,4 @@ Suivez les instructions ci-dessous pour créer une demande de support via le pan
 
 ## <a name="about-networking-limits"></a>À propos des limites de mise en réseau
 
-Pour en savoir plus sur les limites de mise en réseau, voir la section [Mise en réseau](../azure-subscription-service-limits.md#networking-limits) de la page Limites ou notre FAQ sur limites de réseau
+Pour en savoir plus sur les limites de mise en réseau, voir la section [Mise en réseau](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) de la page Limites ou notre FAQ sur limites de réseau

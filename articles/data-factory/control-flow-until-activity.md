@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab24b4f3a819e2b44c68d052c355f10219eb1dc4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b4786b612dedb065239f57e0286bafb688180dff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679353"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440373"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Activité Until dans Azure Data Factory
 L’activité Until fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur true. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory. 
@@ -53,11 +53,11 @@ L’activité Until fournit les mêmes fonctionnalités qu’une structure de bo
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Until`. | Chaîne | OUI
-Type | Doit être défini sur **Until**. | Chaîne | OUI
-expression | Expression qui doit retourner true ou false | Expression.  | OUI
-timeout | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. La valeur maximale est : 90 jours. | Non
-Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  OUI
+name | Nom de l’activité `Until`. | String | Oui
+type | Doit être défini sur **Until**. | String | Oui
+expression | Expression qui doit retourner true ou false | Expression.  | Oui
+délai d'expiration | La boucle do-until expire à la fin du délai d’attente spécifié ici. | Chaîne. `d.hh:mm:ss` (ou) `hh:mm:ss`. La valeur par défaut est de 7 jours. La valeur maximale est : 90 jours. | Non
+Activités | Ensemble d’activités qui sont exécutées jusqu’à ce que l’expression retourne `true`. | Tableau des activités. |  Oui
 
 ## <a name="example-1"></a>Exemple 1
 
@@ -199,10 +199,7 @@ Le pipeline dans cet exemple copie les données depuis un dossier d’entrée ve
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

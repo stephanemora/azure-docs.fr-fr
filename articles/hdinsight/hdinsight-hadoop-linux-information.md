@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150055"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644951"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
 Les clusters Azure HDInsight fournissent Apache Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
@@ -52,7 +52,7 @@ Cette commande retourne un document JSON qui décrit le service. Ensuite, [jq](h
 
 ## <a name="remote-access-to-services"></a>Accès à distance aux services
 
-* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.net
+* **Ambari (web)**  - `https://CLUSTERNAME.azurehdinsight.net`
 
     Authentifiez-vous à l’aide du nom d’utilisateur et du mot de passe de l’administrateur du cluster, puis connectez-vous à Ambari.
 
@@ -63,14 +63,14 @@ Cette commande retourne un document JSON qui décrit le service. Ensuite, [jq](h
     >
     > Pour bénéficier de toutes les fonctionnalités de l’interface utilisateur Web Ambari, vous devez utiliser un tunnel SSH pour assurer l’acheminement proxy vers le nœud principal cluster. Consultez [Utiliser le tunneling SSH pour accéder à l’interface web d’Apache Ambari, à ResourceManager, à JobHistory, à NameNode, à Oozie et à d’autres interfaces utilisateur web](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.net/ambari
+* **Ambari (REST)**  - `https://CLUSTERNAME.azurehdinsight.net/ambari`
 
     > [!NOTE]  
     > Authentifiez-vous avec le nom d’utilisateur et le mot de passe de l’administrateur du cluster.
     >
     > L’authentification est en clair. Utilisez toujours HTTPS pour vous assurer que la connexion est sécurisée.
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **WebHCat (Templeton)**  - `https://CLUSTERNAME.azurehdinsight.net/templeton`
 
     > [!NOTE]  
     > Authentifiez-vous avec le nom d’utilisateur et le mot de passe de l’administrateur du cluster.
@@ -117,17 +117,17 @@ Certaines commandes peuvent vous imposer de spécifier le schéma dans l’URI l
 
 Lorsque vous utilisez [**Stockage Azure**](./hdinsight-hadoop-use-blob-storage.md), utilisez l’un des schémas d’URI suivants :
 
-* `wasb:///`: accès au stockage par défaut avec une communication non chiffrée.
+* `wasb:///`: Accédez au stockage par défaut à l’aide d’une communication non chiffrée.
 
-* `wasbs:///`: accès au stockage par défaut avec une communication chiffrée.  Le schéma wasbs est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
+* `wasbs:///`: Accédez au stockage par défaut à l’aide d’une communication chiffrée.  Le schéma wasbs est pris en charge uniquement à partir de HDInsight version 3.6 et versions ultérieures.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
 Lorsque vous utilisez [**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md), utilisez le schéma d’URI suivant :
 
 * `abfs://`: Accédez au stockage par défaut à l’aide d’une communication chiffrée.
 
-* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
+* `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: Utilisé pour communiquer avec un compte de stockage autre que celui par défaut. Par exemple, si vous avez un compte de stockage supplémentaire ou si vous accédez à des données stockées dans un compte de stockage accessible au public.
 
 Lorsque vous utilisez [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md), utilisez l’un des schémas d’URI suivants :
 
@@ -185,7 +185,7 @@ Il existe plusieurs façons d’accéder à des données à l’extérieur du cl
 
 Si vous utilisez le __stockage Azure__, consultez les liens suivants pour découvrir les méthodes permettant d’accéder à vos données :
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `az storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `az storage blob` pour obtenir les commandes spécifiques aux objets blob.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) : commandes de l’interface de ligne de commande fonctionnant avec Azure. Après l’installation, utilisez la commande `az storage` pour obtenir de l’aide sur l’utilisation du stockage ou la commande `az storage blob` pour obtenir les commandes spécifiques aux objets blob.
 * [blobxfer.py](https://github.com/Azure/blobxfer) : script python pour travailler avec des objets blob dans Stockage Azure.
 * Divers Kits de développement logiciel (SDK) :
 
@@ -201,7 +201,7 @@ Si vous utilisez __Azure Data Lake Storage__, consultez les liens suivants pour 
 
 * [Navigateur Web](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Interface de ligne de commande Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Azure CLI](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Data Lake Tools pour Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)
@@ -278,7 +278,7 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 > [!IMPORTANT]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Il existe par exemple de nombreux sites communautaires, comme : [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [https://apache.org](https://apache.org), par exemple : [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Il existe par exemple de nombreux sites communautaires, comme : [Forum MSDN pour HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Par ailleurs, les projets Apache ont des sites de projet sur [https://apache.org](https://apache.org), par exemple : [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

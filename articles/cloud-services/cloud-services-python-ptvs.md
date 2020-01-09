@@ -3,24 +3,24 @@ title: Prise en main des services cloud Azure et Python | Microsoft Docs
 description: Présentation des outils Python pour Visual Studio pour la création de services cloud Azure comprenant des rôles web et de travail.
 services: cloud-services
 documentationcenter: python
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 981b1cc4a7adb98ba68ebf3a7673b7116479e704
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: b832831a2483b11a7a3c1942dd79065e8be65bf9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360716"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Rôles Web et rôles de travail Python avec Python Tools pour Visual Studio
 
 Cet article fournit une vue d’ensemble de l’utilisation des rôles Web et de travail Python avec [Python Tools pour Visual Studio][Python Tools for Visual Studio]. Apprenez à utiliser Visual Studio pour créer et déployer un service cloud de base utilisant Python.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * [Visual Studio 2013, 2015 ou 2017](https://www.visualstudio.com/)
 * [Python Tools pour Visual Studio][Python Tools for Visual Studio] (PTVS)
 * [Azure SDK Tools pour VS 2013][Azure SDK Tools for VS 2013] ou  
@@ -334,9 +334,9 @@ Pour plus d’informations sur l’utilisation des services Azure à partir de v
 
 * [Service BLOB][Blob Service]
 * [Service de Table][Table Service]
-* [Service de File d’attente][Queue Service]
-* [Files d’attente Service Bus][Service Bus Queues]
-* [Rubriques de Service Bus][Service Bus Topics]
+* [Service de File d’attente][Queue Service]
+* [Files d’attente Service Bus][Service Bus Queues]
+* [Rubriques Service Bus][Service Bus Topics]
 
 <!--Link references-->
 
@@ -363,3 +363,6 @@ Pour plus d’informations sur l’utilisation des services Azure à partir de v
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
+
+
+

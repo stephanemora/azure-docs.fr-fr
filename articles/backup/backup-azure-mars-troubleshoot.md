@@ -2,14 +2,14 @@
 title: Résoudre les problèmes de l’agent Sauvegarde Azure
 description: Dans cet article, découvrez comment résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure.
 ms.reviewer: saurse
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 4f1d93a6ba36821832c945db2e5cc19bf7e9d232
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 06c741547e0206059195f481ed29dc8e69aa4dd3
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172933"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665312"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -41,7 +41,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 
 | Cause : | Actions recommandées |
 | ---     | ---    |
-| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque**: Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
+| **Les informations d’identification du coffre ne sont pas valides** <br/> <br/> Les fichiers d’informations d’identification du coffre peuvent avoir été endommagés ou être arrivés à expiration. (Par exemple, ils peuvent avoir été téléchargés plus de 48 heures avant l’heure de l’inscription.)| Téléchargez les nouvelles informations d’identification du coffre Recovery Services sur le portail Microsoft Azure. (Voir l’étape 6 de la section [Download the MARS agent](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) (Télécharger l’agent MARS).) Suivez ensuite ces étapes : <ul><li> Si vous avez déjà installé et inscrit MARS, ouvrez la console MMC de l’agent Sauvegarde Microsoft Azure, puis sélectionnez **Inscrire le serveur** dans le volet **Actions** pour terminer l’inscription avec les nouvelles informations d’identification. <br/> <li> Si la nouvelle installation échoue, réessayez avec les nouvelles informations d’identification.</ul> **Remarque** : Si plusieurs fichiers d’informations d’identification de coffre ont été téléchargés, seul le plus récent est valide pendant 48 heures. Nous vous recommandons de télécharger un nouveau fichier d’informations d’identification de coffre.
 | **Le serveur proxy/pare-feu bloque l’inscription** <br/>or <br/>**Aucune connectivité Internet** <br/><br/> Si votre machine ou serveur proxy a une connectivité à Internet limitée et que vous ne garantissez pas l’accès pour les URL nécessaires, l’inscription échoue.| Suivez ces étapes :<br/> <ul><li> Travaillez avec votre équipe informatique pour vous assurer que le système dispose d’une connectivité Internet.<li> Si vous n’avez pas de serveur proxy, vérifiez que l’option de proxy n’est pas sélectionnée lorsque vous inscrivez l’agent. [Vérifiez vos paramètres de proxy](#verifying-proxy-settings-for-windows).<li> Si vous avez un pare-feu/serveur proxy, travaillez avec votre équipe de mise en réseau pour vous assurer que ces URL et adresses IP sont accessibles :<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Adresses IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Essayez de procéder une nouvelle fois à l’inscription après avoir effectué les étapes précédentes de résolution des problèmes.
 | **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -165,7 +165,7 @@ Si celle-ci échoue encore, redémarrez votre serveur ou client. Si vous ne souh
 
 L’opération de sauvegarde risque d’échouer si le dossier du cache (également nommé « dossier de travail ») n’est pas configuré correctement, ne respecte pas les prérequis ou présente un accès restreint.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier du cache doit respecter la configuration suivante :
 

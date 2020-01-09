@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: spelluru
-ms.openlocfilehash: 574cc0c41ce645c71302178afcf6e7deaec69d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f51dee948d9e4d9e3f8594f9f7e60fb11b7057
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476086"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647337"
 ---
 # <a name="specify-a-resource-group-for-lab-virtual-machines-in-azure-devtest-labs"></a>Spécifier un groupe de ressources pour les machines virtuelles de labo dans Azure DevTest Labs
 
@@ -31,15 +31,15 @@ En tant que propriétaire de labo, vous pouvez configurer les machines virtuelle
 Avec cette fonctionnalité, vous pouvez utiliser un script afin de spécifier un nouveau groupe de ressources ou un groupe de ressources existant dans votre abonnement Azure pour toutes les machines virtuelles de votre labo. Pour le moment, Azure DevTest Labs prend en charge cette fonctionnalité par le biais d’une API.
 
 > [!NOTE]
-> Toutes les limites d’abonnement s’appliquent lorsque vous créez des labos dans DevTest Labs. Considérez un labo comme n’importe quelle autre ressource dans votre abonnement. Dans le cas des groupes de ressources, la limite est de [980 groupes de ressources par abonnement](../azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
+> Toutes les limites d’abonnement s’appliquent lorsque vous créez des labos dans DevTest Labs. Considérez un labo comme n’importe quelle autre ressource dans votre abonnement. Dans le cas des groupes de ressources, la limite est de [980 groupes de ressources par abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager). 
 
 ## <a name="use-azure-portal"></a>Utiliser le portail Azure
 Suivez ces étapes pour spécifier un groupe de ressources pour toutes les machines virtuelles créées dans le labo. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de navigation de gauche, sélectionnez **Tous les services**. 
-3. Sélectionnez **DevTest Labs** dans la liste.
-4. Dans la liste de laboratoires, sélectionnez votre **laboratoire**.  
+3. Sélectionnez **DevTest Labs** dans la liste.
+4. Dans la liste de labos, sélectionnez votre **labo**.  
 5. Sélectionnez **Configuration et stratégies** dans la section **Paramètres** du menu à gauche. 
 6. Sélectionnez **Paramètres du laboratoire** dans le menu de gauche. 
 7. Sélectionnez **Toutes les machines virtuelles dans un groupe de ressources**. 
@@ -118,7 +118,7 @@ Comment utiliser cette API :
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants : 
+Voir les articles suivants : 
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-get-started-with-lab-policies.md)
-- [Forum Aux Questions](devtest-lab-faq.md)
+- [Forum Aux Questions (FAQ)](devtest-lab-faq.md)

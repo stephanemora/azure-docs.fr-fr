@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: a206b63b03bcb3bb17e201487f0e00bcb3926151
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a5625341e3dd279d93a59c57cd3325245351723e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582242"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646725"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Déplacer les données dans le stockage d’objets blob Azure
 
@@ -21,7 +21,7 @@ Cet article fournit les meilleures méthodes pour déplacer des données vers le
 
 Gardez à l’esprit les points suivants :
 
-* Azure HPC Cache utilise un format de stockage spécialisé permettant d’organiser les données dans le stockage Blob. C’est pour cela qu’une cible de stockage Blob doit être soit un nouveau conteneur vide, soit un conteneur d’objets blob précédemment utilisé pour les données Azure HPC Cache ([Avere vFXT pour Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) utilise également ce système de fichiers cloud)
+* Azure HPC Cache utilise un format de stockage spécialisé permettant d’organiser les données dans le stockage Blob. C’est pour cela qu’une cible de stockage Blob doit être soit un nouveau conteneur vide, soit un conteneur d’objets blob précédemment utilisé pour les données Azure HPC Cache <!--([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)-->
 
 * La copie de données via Azure HPC Cache à une cible de stockage principal est plus efficace lorsque vous utilisez plusieurs clients et des opérations parallèles. Si vous utilisez une simple commande de copie sur un client, la copie des données se fera lentement.
 

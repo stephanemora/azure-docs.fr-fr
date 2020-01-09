@@ -4,15 +4,15 @@ description: Configurez et utilisez la solution DNS Analytics dans Azure Monitor
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: a4123ed4633cbb8195639766e7b23e3ea9f14e71
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6500020d9d1c7c735206efe8ebb08fd908eee10d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899086"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403245"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Rassembler des informations sur votre infrastructure DNS avec la solution DNS Analytics (préversion)
 
@@ -36,9 +36,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | **Source connectée** | **Support** | **Description** |
 | --- | --- | --- |
-| [Agents Windows](../platform/agent-windows.md) | OUI | La solution collecte des informations DNS auprès d’agents Windows. |
+| [Agents Windows](../platform/agent-windows.md) | Oui | La solution collecte des informations DNS auprès d’agents Windows. |
 | [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | La solution ne collecte aucune information DNS auprès d’agents Linux directs. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | OUI | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](../platform/om-agents.md) | Oui | La solution collecte des informations DNS auprès d’agents dans un groupe d’administration d’Operations Manager connecté. Une connexion directe entre l’agent Operations Manager et Azure Monitor n’est pas obligatoire. Les données sont transférées du groupe d’administration à l’espace de travail Log Analytics. |
 | [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non | Le stockage Azure n’est pas utilisé par la solution. |
 
 ### <a name="data-collection-details"></a>Détails sur la collecte de données
@@ -174,7 +174,7 @@ Sur la page Recherche dans les journaux, vous pouvez créer une requête. Vous p
 
     ![Recherche dans les journaux des inventaires DNS](./media/dns-analytics/log-search-dnsinventory.png)
     
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Étapes de résolution des problèmes courantes :
 

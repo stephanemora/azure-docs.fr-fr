@@ -4,15 +4,15 @@ description: Cet article décrit comment activer des Azure Monitor pour machines
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: e9e5504125920cedaf383f8fa4299a4b1b1d60ed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400703"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
@@ -69,7 +69,7 @@ Dependency Agent est installé sur les ordinateurs Linux avec *InstallDependency
 | Paramètre | Description |
 |:--|:--|
 | -help | Récupérez la liste des options de ligne de commande. |
-| -s | Effectuez une installation silencieuse sans invite utilisateur. |
+| -S | Effectuez une installation silencieuse sans invite utilisateur. |
 | --check | Vérifiez les autorisations et le système d’exploitation, sans installer l’agent. |
 
 Par exemple, pour exécuter le programme d’installation avec le paramètre `-help`, saisissez **InstallDependencyAgent-Linux64.bin -help**.
@@ -107,7 +107,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>Configuration de l’état souhaité (DSC)
+## <a name="desired-state-configuration"></a>DSC (Desired State Configuration)
 
 Pour déployer l’agent de dépendances avec la configuration de l'état souhaité, vous pouvez utiliser le module xPSDesiredStateConfiguration avec l’exemple de code suivant :
 
@@ -217,14 +217,14 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
     New-AzResourceGroupDeployment -Name DeploySolutions -TemplateFile InstallSolutionsForVMInsights.json -ResourceGroupName ResourceGroupName> -WorkspaceName <WorkspaceName> -WorkspaceLocation <WorkspaceLocation - example: eastus>
     ```
 
-    Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
+    Le changement de configuration peut prendre quelques minutes. Lorsqu’il est terminé, un message similaire à celui-ci et contenant les résultats s’affiche :
 
     ```powershell
     provisioningState       : Succeeded
     ```
    Une fois que vous avez activé la supervision, 10 minutes peuvent s’écouler avant que vous ne puissiez voir les métriques et l’état d’intégrité pour l’ordinateur hybride.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="vm-doesnt-appear-on-the-map"></a>La machine virtuelle n’apparaît pas sur la carte
 

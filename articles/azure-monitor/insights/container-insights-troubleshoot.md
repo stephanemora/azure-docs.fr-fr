@@ -1,18 +1,14 @@
 ---
 title: Dépannage d’Azure Monitor for containers | Microsoft Docs
 description: Cet article vous permet de dépanner Azure Monitor for containers et de résoudre certains problèmes.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 17a2817b320599b2aa2c331c354d316b9d864a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403378"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
 
@@ -25,7 +21,7 @@ Lors du processus de mise à jour ou d’intégration, une tentative d’attribu
 
 Vous pouvez également accorder manuellement ce rôle à partir du portail Azure en effectuant les étapes suivantes :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Dans le portail Azure, cliquez sur **Tous les services** en haut à gauche. Dans la liste des ressources, tapez **Kubernetes**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Azure Kubernetes**.
 3. Dans la liste des clusters Kubernetes, sélectionnez-en un.
 2. Cliquez sur **Contrôle d’accès (IAM)** dans le menu de gauche.
@@ -99,11 +95,11 @@ Si Azure Monitor for containers est correctement configuré et activé, mais que
     docker-cimprov 1.0.0.31
     ```
 
-## <a name="error-messages"></a>messages d'erreur
+## <a name="error-messages"></a>Messages d’erreur
 
 Le tableau ci-dessous récapitule les erreurs connues que vous pouvez rencontrer lors de l’utilisation d’Azure Monitor pour conteneurs.
 
-| messages d'erreur  | Action |  
+| Messages d’erreur  | Action |  
 | ---- | --- |  
 | Message d’erreur `No data for selected filters`  | L’établissement de la supervision du flux de données pour les nouveaux clusters peut prendre un certain temps. Patientez au moins 10 à 15 minutes avant l’affichage des données de votre cluster. |   
 | Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé. Vérifiez si l’espace de travail a été supprimé et, si c’est le cas, vous devrez réactiver l’analyse de votre cluster avec Azure Monitor pour les conteneurs et spécifier un espace de travail existant ou créer un nouvel espace de travail. Pour réactiver, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-enable-new-cluster.md) Azure Monitor pour conteneurs. |  

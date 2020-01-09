@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: ganesr
-ms.openlocfilehash: f232e1e8a1f7121b047a846fc2c614b48e757f76
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4fed30f7f4b723f04cd59b2a987b498e3d614a5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076641"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645903"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Migration de circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager
 Cet article décrit les enjeux de la migration d’un circuit ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager.
@@ -39,7 +39,7 @@ Vous pouvez rendre les circuits ExpressRoute créés dans le modèle de déploie
 * L’accès au modèle de déploiement classique est régi par le paramètre **allowClassicOperations** du circuit ExpressRoute.
 
 > [!IMPORTANT]
-> Tous les quotas décrits sur la page dédiée aux [limites de service](../azure-subscription-service-limits.md) s’appliquent. Par exemple, un circuit standard peut avoir jusqu’à 10 liaisons/connexions de réseau virtuel dans les modèles de déploiement classique et Resource manager.
+> Tous les quotas décrits sur la page dédiée aux [limites de service](../azure-resource-manager/management/azure-subscription-service-limits.md) s’appliquent. Par exemple, un circuit standard peut avoir jusqu’à 10 liaisons/connexions de réseau virtuel dans les modèles de déploiement classique et Resource manager.
 > 
 > 
 

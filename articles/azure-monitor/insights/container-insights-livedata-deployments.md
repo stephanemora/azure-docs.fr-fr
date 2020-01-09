@@ -1,19 +1,14 @@
 ---
 title: Voir Déploiements (préversion) avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit la vue en temps réel de Kubernetes Deployments, sans l’utilisation de kubectl, dans Azure Monitor pour conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: c7135aec98936b5247b39ae659e21735168bd289
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7d0344851e1db8c014a1bb16b228a0c2f76444d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510758"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404769"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Guide pratique pour voir Déploiements (préversion) en temps réel
 
@@ -29,7 +24,7 @@ Pour plus d’informations, consultez la documentation de Kubernetes sur les [D�
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Du fait que la fonctionnalité Live Data (préversion) accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont mises à disposition [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+Comme la fonctionnalité Live Data (préversion) accède directement à l’API Kubernetes, des informations supplémentaires sur le modèle d’authentification sont mises à disposition [ici](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
 La fonctionnalité Déploiements (préversion) exécute une seule fois (actualisable) une charge sur le point de terminaison des déploiements `/apis/apps/v1/deployments`. Elle vous permet de sélectionner un déploiement donné et de charger les détails de la description de ce déploiement particulier sur le point de terminaison de déploiement `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`. 
 
@@ -71,4 +66,4 @@ Vous pouvez également filtrer par événements au niveau du cluster ou de l’e
 
 - Pour continuer à découvrir comment utiliser Azure Monitor et surveiller les autres aspects de votre cluster AKS, consultez [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).
 
-- Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour afficher des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.
+- Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.

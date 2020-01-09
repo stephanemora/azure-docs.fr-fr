@@ -2,17 +2,17 @@
 title: Exécuter des tâches de démarrage dans Azure Cloud Services | Microsoft Docs
 description: Les tâches de démarrage facilitent la préparation de votre environnement de service cloud pour votre application. Cette documentation vous apprend comment fonctionnent les tâches de démarrage et comment les créer.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: cea28aba4c57f69a030d05ac192f9578967cbc3f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: fa48953e5e86ffa758fe556b7fb1072be9d74647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360308"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Comment configurer et exécuter des tâches de démarrage pour un service cloud
 Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations avant le démarrage d’un rôle. Parmi les opérations que vous pouvez effectuer figurent l’installation d’un composant, l’enregistrement de composants COM, la définition des clés du Registre ou le démarrage d’un processus de longue durée.
@@ -23,7 +23,7 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
 > 
 
 ## <a name="how-startup-tasks-work"></a>Fonctionnement des tâches de démarrage
-Les tâches de démarrage sont des actions qui sont effectuées avant le début de vos rôles, et sont définies dans le fichier [ServiceDefinition.csdef] à l’aide de l’élément [Task] dans l’élément [Startup]. Souvent les tâches de démarrage sont des fichiers de commandes, mais elles peuvent également être des applications console ou des fichiers de commandes qui démarrent des scripts PowerShell.
+Les tâches de démarrage sont des actions qui sont effectuées avant le début de vos rôles, et sont définies dans le fichier [ServiceDefinition.csdef] à l’aide de l’élément [Tâche] dans l’élément [Startup]. Souvent les tâches de démarrage sont des fichiers de commandes, mais elles peuvent également être des applications console ou des fichiers de commandes qui démarrent des scripts PowerShell.
 
 Les variables d’environnement passent des informations dans une tâche de démarrage et le stockage local peut être utilisé pour transmettre des informations hors d’une tâche de démarrage. Par exemple, une variable d’environnement peut spécifier le chemin d’accès à un programme que vous voulez installer, et des fichiers peuvent être écrits dans le stockage local qui peuvent être lus ultérieurement par vos rôles.
 
@@ -118,7 +118,7 @@ Vous trouverez ci-dessous une description des attributs de l’élément **Task*
 * **foreground**  
   sont exécutées de façon asynchrone, en parallèle du démarrage du rôle. La principale différence entre une tâche **foreground** et une tâche **background** est que la tâche **foreground** empêche le recyclage ou l’arrêt du rôle tant qu’elle n’est pas terminée. Les tâches **background** n’ont pas cette restriction.
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 Les variables d’environnement permettent de passer les informations à une tâche de démarrage. Par exemple, vous pouvez indiquer le chemin vers un objet blob qui contient un programme à installer ou les numéros de port que votre rôle va utiliser ou des paramètres pour contrôler les fonctionnalités de votre tâche de démarrage.
 
 Il existe deux types de variables d’environnement pour des tâches de démarrage ; des variables d’environnement statiques et des variables d’environnement basées sur les membres de la classe [RoleEnvironment] . Elles se trouvent dans la section [Environment] du fichier [ServiceDefinition.csdef] et utilisent l’élément [Variable] et l’attribut **name**.
@@ -154,10 +154,13 @@ Découvrez comment effectuer certaines [tâches de démarrage courantes](cloud-s
 [Créez un package](cloud-services-model-and-package.md) de votre service cloud.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Tâche]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
+
+
+

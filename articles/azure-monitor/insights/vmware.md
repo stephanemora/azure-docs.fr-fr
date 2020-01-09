@@ -4,15 +4,15 @@ description: Découvrez comment la solution de supervision VMware peut vous aide
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dc453ad42312bb096aed1356d376b0906870a7b0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900610"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399189"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solution VMware Monitoring (dépréciée) dans Azure Monitor
 
@@ -67,7 +67,7 @@ Créez une machine virtuelle de système d’exploitation Linux pour recevoir to
 
 1. Dans le portail Azure, effectuez une requête de journal pour `VMware_CL`. Quand Azure Monitor collecte les données Syslog, il conserve le format Syslog. Dans le portail, certains des champs sont capturés, tel que *Hostname* et *ProcessName*.  
 
-    ![Type](./media/vmware/type.png)  
+    ![type](./media/vmware/type.png)  
 
     Si vos résultats de recherche de vue de journal d’activité sont similaires à l’image ci-dessus, vous êtes prêt à utiliser le tableau de bord de la solution de supervision VMware.  
 
@@ -82,7 +82,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 Le tableau suivant affiche des exemples de champs de données collectés par la solution de supervision VMware :
 
-| Nom du champ | Description |
+| Nom du champ | description |
 | --- | --- |
 | Device_s |appareils de stockage VMware |
 | ESXIFailure_s |types d’échec |
@@ -159,7 +159,7 @@ L’enregistrement de requêtes de journal est une fonctionnalité standard dans
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
 Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../platform/alerts-overview.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Que dois-je faire avec les paramètres d’hôte ESXi ? Quel sera l’impact sur mon environnement actuel ?
 La solution utilise le mécanisme de transfert syslog natif de l’hôte ESXi. Vous n’avez pas besoin d’autres logiciels Microsoft sur l’hôte ESXi pour capturer les journaux d’activité. L’impact sur votre environnement existant devrait être faible. Toutefois, vous devez absolument définir le transfert syslog, une fonctionnalité d’ESXI.
 

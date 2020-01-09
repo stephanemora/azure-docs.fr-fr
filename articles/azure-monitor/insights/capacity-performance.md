@@ -4,15 +4,15 @@ description: Utilisez la solution Capacity and Performance dans Azure Monitor po
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c444991166d9c7d3f1d8ed39e19e333d3c27f982
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405740"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 
@@ -42,12 +42,12 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |---|---|---|
-| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | OUI | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
+| [Agents Windows](../../azure-monitor/platform/agent-windows.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
 | [Agents Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Non    | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
-| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | OUI |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
+| [Groupe d’administration SCOM](../../azure-monitor/platform/om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Non | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Des agents Windows ou Operations Manager doivent être installés sur Windows Server 2012 ou des hôtes Hyper-V supérieurs, mais pas sur des machines virtuelles.
 

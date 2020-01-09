@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359360"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -49,7 +49,7 @@ Ces instructions d’installation et un [exemple de configuration téléchargeab
 
 La configuration téléchargeable est seulement un exemple. Modifiez-la selon vos besoins.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * **Agent Azure Linux version 2.2.0 ou ultérieure**. La plupart des images de la galerie Linux de machines virtuelles Azure incluent la version 2.2.7 ou ultérieure. Exécutez `/usr/sbin/waagent -version` pour vérifier la version installée sur la machine virtuelle. Si la machine virtuelle exécute une version antérieure de l’agent invité, suivez [ces instructions](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) pour le mettre à jour.
 * **Azure CLI**. [Configurez l’environnement Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) sur votre machine.
@@ -127,7 +127,7 @@ Cet ensemble d’informations de configuration contient des informations sensibl
 }
 ```
 
-Nom | Valeur
+Name | Valeur
 ---- | -----
 storageAccountName | Nom du compte de stockage dans lequel les données sont écrites par l’extension.
 storageAccountEndPoint | (facultatif) Le point de terminaison identifiant le cloud dans lequel se trouve le compte de stockage. Si ce paramètre est absent, l’extension de diagnostic Linux utilise par défaut le cloud public Azure, `https://core.windows.net`. Pour utiliser un compte de stockage Azure Allemagne, Azure Government ou Azure Chine, définissez cette valeur en conséquence.
@@ -135,7 +135,7 @@ storageAccountSasToken | [Jeton SAS de compte](https://azure.microsoft.com/blog/
 mdsdHttpProxy | (facultatif) Informations du proxy HTTP nécessaires pour permettre à l’extension de se connecter au compte de stockage et au point de terminaison spécifiés.
 sinksConfig | (facultatif) Détails des destinations alternatives auxquelles les métriques et les événements peuvent délivrés. Les détails spécifiques de chaque récepteur de données pris en charge par l’extension sont traités dans les sections qui suivent.
 
-Pour obtenir un jeton SAS dans un modèle Resource Manager, utilisez la fonction **listAccountSas**. Pour obtenir un exemple de modèle, consultez [Exemple de fonction de liste](../../azure-resource-manager/resource-group-template-functions-resource.md#list-example).
+Pour obtenir un jeton SAS dans un modèle Resource Manager, utilisez la fonction **listAccountSas**. Pour obtenir un exemple de modèle, consultez [Exemple de fonction de liste](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 Vous pouvez facilement construire le jeton SAS nécessaire via le portail Azure.
 
@@ -167,8 +167,8 @@ Cette section facultative définit les autres destinations auxquelles l’extens
 
 Élément | Valeur
 ------- | -----
-Nom | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
-Type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
+name | Chaîne utilisée pour référencer ce récepteur ailleurs dans la configuration de l’extension.
+type | Type du récepteur défini. Détermine les autres valeurs (le cas échéant) dans les instances de ce type.
 
 La version 3.0 de l’extension de diagnostic Linux prend en charge deux types de récepteur : EventHub et JsonBlob.
 
@@ -310,7 +310,7 @@ Cette section facultative contrôle la collecte des métriques. Les échantillon
 Élément | Valeur
 ------- | -----
 sinks | (facultatif) Liste séparée par des virgules des noms des récepteurs auquel l’extension de diagnostic Linux envoie les résultats des métriques agrégées. Toutes les métriques agrégées sont publiées sur chaque récepteur répertorié. Consultez [sinksConfig](#sinksconfig). Exemple : `"EHsink1, myjsonsink"`.
-Type | Identifie le fournisseur réel de la mesure.
+type | Identifie le fournisseur réel de la mesure.
 class | Avec « counter », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counter | Avec « class », identifie la métrique spécifique au sein de l’espace de noms du fournisseur.
 counterSpecifier | Identifie la métrique spécifique au sein de l’espace de noms des métriques Azure.
@@ -319,7 +319,7 @@ sampleRate | Intervalle IS 8601 qui définit la fréquence à laquelle des écha
 unité | Doit être l’une des chaînes suivantes : « Count », « Bytes », « Seconds », « Percent », « CountPerSecond », « BytesPerSecond », « Millisecond ». Définit l’unité pour la métrique. Les consommateurs des données collectées attendent des valeurs de données collectées correspondant à cette unité. L’extension de diagnostic Linux ignore ce champ.
 displayName | Étiquette (dans la langue spécifiée par les paramètres régionaux associés) à attacher à ces données dans les métriques Azure. L’extension de diagnostic Linux ignore ce champ.
 
-counterSpecifier est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphe et d’alerte du portail Azure, utilisent counterSpecifier comme « clé » qui identifie une métrique ou une instance de métrique. Pour les métriques `builtin`, nous vous recommandons d’utiliser des valeurs pour counterSpecifier qui commencent par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, nous vous recommandons d’attacher l’identificateur de l’instance à la valeur de counterSpecifier. Voici quelques exemples :
+counterSpecifier est un identificateur arbitraire. Les consommateurs de métriques, comme les fonctionnalités de graphe et d’alerte du portail Azure, utilisent counterSpecifier comme « clé » qui identifie une métrique ou une instance de métrique. Pour les métriques `builtin`, nous vous recommandons d’utiliser des valeurs pour counterSpecifier qui commencent par `/builtin/`. Si vous collectez une instance spécifique d’une métrique, nous vous recommandons d’attacher l’identificateur de l’instance à la valeur de counterSpecifier. Exemples :
 
 * `/builtin/Processor/PercentIdleTime` : temps d’inactivité moyen pour tous les processeurs virtuels
 * `/builtin/Disk/FreeSpace(/mnt)` : Espace libre pour le système de fichiers /mnt
@@ -355,7 +355,7 @@ La collection syslogEventConfiguration a une entrée pour chaque fonction Syslog
 
 Élément | Valeur
 ------- | -----
-sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels des événements de journaux sont publiés. Tous les événements de journaux correspondant aux restrictions de syslogEventConfiguration sont publiés sur chaque récepteur répertorié. Exemple : « EHforsyslog »
+sinks | Une liste séparée par des virgules de noms de récepteurs sur lesquels des événements de journaux sont publiés. Tous les événements de journaux correspondant aux restrictions de syslogEventConfiguration sont publiés sur chaque récepteur répertorié. Exemple : « EHforsyslog »
 facilityName | Nom de fonction Syslog (comme « LOG\_USER » ou « LOG\_LOCAL0 »). Consultez la section « facility » de la [page du manuel Syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) pour obtenir la liste complète.
 minSeverity | Niveau de gravité Syslog (comme « LOG\_ERR » ou « LOG\_INFO »). Consultez la section « level » de la [page du manuel Syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) pour obtenir la liste complète. L’extension capture les événements envoyés à la fonction à un niveau supérieur ou égal au niveau spécifié.
 
@@ -384,7 +384,7 @@ Cette section facultative contrôle l’exécution des requêtes [OMI](https://g
 
 Élément | Valeur
 ------- | -----
-namespace | (facultatif) L’espace de noms OMI dans lequel la requête doit être exécutée. Si elle n’est pas spécifiée, la valeur par défaut est « root/scx », implémentée par les [fournisseurs multiplateformes System Center](https://github.com/Microsoft/SCXcore).
+espace de noms | (facultatif) L’espace de noms OMI dans lequel la requête doit être exécutée. Si elle n’est pas spécifiée, la valeur par défaut est « root/scx », implémentée par les [fournisseurs multiplateformes System Center](https://github.com/Microsoft/SCXcore).
 query | Requête OMI à exécuter.
 table | (facultatif) La table de stockage Azure, dans le compte de stockage désigné (consultez [Paramètres protégés](#protected-settings)).
 frequency | (facultatif) Le nombre de secondes entre chaque exécution de la requête. La valeur par défaut est 300 (5 minutes). La valeur minimale est de 15 secondes.
@@ -408,7 +408,7 @@ Contrôle la capture des fichiers journaux. L’extension de diagnostic Linux ca
 
 Élément | Valeur
 ------- | -----
-file | Nom du chemin complet du fichier journal à surveiller et à capturer. Le nom du chemin doit désigner un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques.
+fichier | Nom du chemin complet du fichier journal à surveiller et à capturer. Le nom du chemin doit désigner un seul fichier. Il ne peut pas nommer un répertoire ni contenir des caractères génériques.
 table | (facultatif) La table Stockage Azure, dans le compte de stockage désigné (tel que spécifié dans la configuration protégée), dans laquelle les nouvelles lignes de la « fin » du fichier sont écrites.
 sinks | (facultatif) Une liste séparée par des virgules des noms des récepteurs supplémentaires auxquels les lignes des journaux sont envoyées.
 
@@ -421,7 +421,7 @@ Le fournisseur de métriques intégré est une source de métriques parmi les pl
 * Processeur
 * Mémoire
 * Réseau
-* Filesystem
+* FileSystem
 * Disque
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métriques intégrées pour la classe Processeur
@@ -483,7 +483,7 @@ TotalCollisions | Nombre de collisions signalées par les ports réseau depuis l
 
 La classe de métriques Filesystem fournit des informations sur l’utilisation du système de fichiers. Les valeurs absolues et en pourcentage sont indiquées comme elles sont affichées pour un utilisateur ordinaire (non root).
 
-compteur | Signification
+counter | Signification
 ------- | -------
 FreeSpace | Espace disque disponible en octets
 UsedSpace | Espace disque utilisé en octets
@@ -500,7 +500,7 @@ TransfersPerSecond | Opérations de lecture ou d’écriture par seconde
 
 Les valeurs agrégées pour tous les systèmes de fichiers peuvent être obtenues en définissant `"condition": "IsAggregate=True"`. Les valeurs pour un système de fichiers monté spécifique, comme « / mnt », peuvent être obtenues en définissant `"condition": 'Name="/mnt"'`. 
 
-**REMARQUE** : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
+**REMARQUE** : Si vous utilisez le portail Azure au lieu de JSON, la forme de champ de condition correcte est Nom='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métriques intégrées pour la classe Disque
 

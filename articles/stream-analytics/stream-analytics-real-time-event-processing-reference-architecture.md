@@ -1,19 +1,18 @@
 ---
 title: Traitement d’événement en temps réel à l’aide d’Azure Stream Analytics
 description: Cet article décrit l’architecture de référence permettant un traitement et une analyse des événements en temps réel à l’aide d’Azure Stream Analytics.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d219b3fcb27b23527c0a651bc8e842a9e036bfc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925113"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431478"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Architecture de référence : Traitement d’événements en temps réel avec Microsoft Azure Stream Analytics
 L’architecture de référence associée au traitement des événements en temps réel avec Azure Stream Analytics fournit un modèle générique de déploiement d’une solution de traitement des flux PaaS (Platform as a Service) en temps réel avec Microsoft Azure.
@@ -23,7 +22,7 @@ Généralement, les solutions d’analyse reposent sur différentes fonctionnali
 
 Microsoft Azure fournit un catalogue étendu de technologies d’analyse compatibles avec de nombreuses solutions et spécifications. La diversité des offres peut grandement compliquer le choix des services Azure à déployer pour une solution de bout en bout. Cet article décrit les fonctionnalités et l’interopérabilité des services Azure qui prennent en charge une solution de diffusion en continu des événements. Il décrit également les situations dans lesquelles les clients peuvent profiter de ce type d’approche.
 
-## <a name="contents"></a>Sommaire
+## <a name="contents"></a>Contents
 * Résumé
 * Présentation de l’analyse en temps réel
 * Proposition de valeur des données en temps réel dans Azure
@@ -49,7 +48,7 @@ Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https:/
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation d’Azure Stream Analytics](stream-analytics-introduction.md)
-* [Prise en main d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Prise en main d'Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Mise à l’échelle des travaux Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Références sur le langage des requêtes d'Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Références sur l’API REST de gestion d’Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -3,18 +3,18 @@ title: Glossaire terminologique - Préversion d’IoT Plug-and-Play | Microsoft 
 description: 'Concepts : glossaire des termes courants relatifs à la préversion d’IoT Plug-and-Play.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 10/10/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 22b2cb8caa815b2ce8343a060a5f12133b763b83
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890340"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531199"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossaire terminologique pour la préversion d’IoT Plug-and-Play
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser le site web [portail Azure Certified pour IoT](https://aka.
 - Rechercher des [modèles de capacité d’appareil](#device-capability-model).
 - Publier un modèle de capacité d’appareil dans le [référentiel de modèles public](#public-model-repository).
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI est un outil en ligne de commande multiplateforme permettant de gérer des ressources Azure. L’extension Azure IoT pour Azure CLI est un outil en ligne de commande permettant d’interagir avec des appareils [IoT Plug-and-Play](#iot-plug-and-play-device) et de les tester. Vous pouvez utiliser l’extension pour :
 
@@ -171,7 +171,7 @@ Un référentiel de modèles stocke des [modèles de capacité d’appareil](#de
 
 API pour la gestion et l’interaction avec les référentiels de modèles. Par exemple, vous pouvez utiliser l’API pour ajouter des [modèles de capacité d’appareil](#device-capability-model) et pour rechercher des modèles de capacité.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 Les propriétés sont des champs de données définis dans une [interface](#interface). Ils représentent un état d’un jumeau numérique. Vous pouvez déclarer des propriétés comme étant accessibles en lecture seule ou en écriture. Les propriétés en lecture seule, comme le numéro de série, sont définies par du code s’exécutant sur l’[appareil IoT Plug-and-Play](#iot-plug-and-play-device) lui-même.  Les propriétés accessibles en écriture, comme un seuil d’alarme, sont généralement définies à partir de la solution IoT cloud.
 

@@ -3,12 +3,12 @@ title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la m
 description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391430"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -31,7 +31,7 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 
 ## <a name="back-up-from-azure-vm-settings"></a>Sauvegarder à partir des paramètres de la machine virtuelle Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Cliquez sur **Tous les services**, puis tapez **Machines virtuelles** dans le filtre. Cliquez ensuite sur **Machines virtuelles**.
 3. Dans la liste des machines virtuelles, sélectionnez celle à sauvegarder.
 4. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarder**.
@@ -61,10 +61,6 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 10. Une fois la sauvegarde activée, une sauvegarde initiale s’exécute. Vous pouvez démarrer la sauvegarde initiale immédiatement ou attendre qu’elle démarre selon la planification de la sauvegarde.
     - Tant que la sauvegarde initiale n’est pas terminée, la zone **État de la dernière sauvegarde** indique **Avertissement (Sauvegarde initiale en attente)** .
     - Pour savoir quand la prochaine sauvegarde planifiée va s’exécuter, cliquez sur le nom de la stratégie de sauvegarde.
-
-> [!NOTE]
-> Pour stocker l’instantané, le service Sauvegarde Azure crée un groupe de ressources distinct (autre que le groupe de ressources de la machine virtuelle). Son nom est au format **AzureBackupRG_géographie_numéro** (par exemple, AzureBackupRG_northeurope_1). Les données dans ce groupe de ressources sont conservées pendant la durée en jours spécifiée dans la section « Conserver l’instantané de récupération instantanée » de la stratégie Sauvegarde de machines virtuelles Azure. L’application d’un verrou à ce groupe de ressources peut entraîner des échecs de sauvegarde.<br>
-Ce groupe de ressources doit également être exclu des restrictions de nom/étiquette, car une stratégie de restriction peut y empêcher la création de collections de points de ressources, entraînant de nouveau des échecs de sauvegarde.
 
 ## <a name="run-a-backup-immediately"></a>Exécuter une sauvegarde immédiatement
 

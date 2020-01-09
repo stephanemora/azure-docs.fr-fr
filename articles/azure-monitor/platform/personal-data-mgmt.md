@@ -4,15 +4,15 @@ description: Cet article explique comment gérer les données personnelles stock
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7733b27bb5af01e55cd732c16f6c9cb1e9301819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932128"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394753"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
@@ -84,7 +84,7 @@ Pour les requêtes d’affichage et d’exportation des données, vous devez uti
 > [!IMPORTANT]
 >  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours** en raison de leur impact important sur la plateforme de données utilisée. Il s’agit d’un processus automatisé, ce qui exclut la possibilité de demander qu’une opération soit gérée plus rapidement.
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 
 > [!WARNING]
 > Les suppressions dans Log Analytics sont destructrices et non réversibles ! Soyez très prudents quand vous les réalisez.

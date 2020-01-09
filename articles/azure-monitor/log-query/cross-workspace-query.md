@@ -4,15 +4,15 @@ description: Cet article explique comment interroger les ressources à partir de
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: e74c81956ab0590b8b7237d3ecf60ae242a43b73
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894489"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365493"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Effectuer des requêtes de journal inter-ressources dans Azure Monitor  
 

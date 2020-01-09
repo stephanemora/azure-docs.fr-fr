@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 235efd746562ea4bd52b9cb57da0d8165d60de02
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035524"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561318"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
@@ -28,7 +28,7 @@ Avant d’utiliser l’offre de la Place de marché pour déployer un cluster Op
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Déployer à l’aide de l’offre Place de marché
 
-La façon la plus simple de déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure consiste à utiliser l’[offre de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+La façon la plus simple de déployer un cluster OpenShift Container Platform 3.11 autogéré dans Azure consiste à utiliser l’[offre de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/osatesting.open-shift-azure-proxy).
 
 Cette option est la plus simple, mais les possibilités de personnalisation sont limitées. L’offre de la place de marché déploie OpenShift Container Platform 3.11.82 et comprend les options de configuration suivantes :
 
@@ -88,7 +88,7 @@ Entrez les valeurs des paramètres d’entrée et cliquez sur **OK**.
 | Taille d’hôte Bastion | Acceptez la taille de machine virtuelle par défaut ou cliquez sur **Modifier la taille** pour sélectionner une autre taille de machine virtuelle.  Sélectionnez la taille de machine virtuelle appropriée pour votre charge de travail |
 | Réseau virtuel nouveau ou existant | Créez un réseau virtuel (par défaut) ou utilisez un réseau virtuel existant |
 | Choisissez les paramètres CIDR par défaut ou personnalisez la plage d’adresses IP (CIDR) | Acceptez les plages CIDR par défaut ou sélectionnez **Plage d’adresses IP personnalisée** et entrez les informations CIDR personnalisées.  Les paramètres par défaut créent un réseau virtuel avec un CIDR de 10.0.0.0/14, un sous-réseau principal avec 10.1.0.0/16, un sous-réseau d’infrastructure avec 10.2.0.0/16 et un sous-réseau pour le calcul et le CNS avec 10.3.0.0/16 |
-| Nom du groupe de ressources de coffre de clés | Le nom du groupe de ressources qui contient le coffre de clés |
+| Nom du groupe de ressources de coffre de clés | Nom du groupe de ressources qui contient le Key Vault |
 | Nom du coffre de clés | Le nom du coffre de clés qui contient le secret avec la clé privée SSH.  Seuls les caractères alphanumériques et les traits d’union sont autorisés et la clé doit contenir entre 3 et 24 caractères |
 | Nom du secret | Le nom du secret qui contient le secret avec la clé privée SSH.  Seuls les caractères alphanumériques et les traits d’union sont autorisés |
 
@@ -195,7 +195,7 @@ Une fois le déploiement terminé, récupérez la connexion à partir de la sect
 $ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 

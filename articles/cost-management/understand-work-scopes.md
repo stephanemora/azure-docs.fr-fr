@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 91a71f914cff25dcdf4a85f3baafcfd9bc96b104
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63b778379dda39a795cccdcfa0c1443870d50365
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440978"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -45,7 +45,7 @@ Azure prend en charge trois étendues pour la gestion des ressources. Chaque ét
 
     Type de ressource : [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
 
-- [**Groupes de ressources**](../azure-resource-manager/resource-group-overview.md#resource-groups) : regroupements logiques de ressources liées à une solution Azure qui partagent le même cycle de vie. Par exemple, des ressources qui sont déployées et supprimées ensemble.
+- [**Groupes de ressources**](../azure-resource-manager/management/overview.md#resource-groups) : regroupements logiques de ressources liées à une solution Azure qui partagent le même cycle de vie. Par exemple, des ressources qui sont déployées et supprimées ensemble.
 
     Type de ressource : [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
@@ -136,7 +136,7 @@ Les étendues de facturation de Contrat client ne s’appliquent pas aux partena
 
 Les étendues de facturation de contrat client prennent en charge les rôles suivants :
 
-- **Propriétaire** : peut gérer les paramètres de facturation et l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, l’étendue de facturation de contrat client est identique au [rôle RBAC Azure Contributeur Cost Management](../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Propriétaire** : peut gérer les paramètres de facturation et l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Contributeur Cost Management](../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Collaborateur** : peut gérer les paramètres de facturation, mais pas l’accès à cette dernière, afficher tous les coûts et gérer la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Contributeur Cost Management](../role-based-access-control/built-in-roles.md#cost-management-contributor).
 - **Lecteur** : peut afficher les paramètres de facturation, les données de coûts et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Lecteur Cost Management](../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Gestionnaire de factures** : peut afficher et payer les factures, et peut afficher les données et la configuration des coûts. Par exemple, les budgets et les exportations. En pratique, cette étendue de facturation de contrat client est identique au [rôle RBAC Azure Lecteur Cost Management](../role-based-access-control/built-in-roles.md#cost-management-reader).

@@ -3,12 +3,12 @@ title: Gestion des ressources déléguées Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
 ms.date: 07/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccbd09cd51216f9076e3b5bd462ee2180ac8f3ab
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464011"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453643"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
@@ -33,7 +33,7 @@ Vous pouvez [publier le nouveau type d’offre de services managés sur la Place
 
 De façon générale, voici comment fonctionne la gestion des ressources déléguées Azure :
 
-1. En tant que fournisseur de services, vous identifiez l’accès (les rôles) dont vos groupes, principaux de service ou utilisateurs auront besoin pour gérer les ressources Azure du client. La définition de l’accès contient l’ID de locataire du fournisseur de services, ainsi que l’accès requis pour l’offre, définis à l’aide des identités **principalId** de votre locataire mappées aux [valeurs **roleDefinition** intégrées](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (Contributeur, Contributeur de machines virtuelles, Lecteur, etc.).
+1. En tant que fournisseur de services, vous identifiez l’accès (les rôles) dont vos groupes, principaux de service ou utilisateurs auront besoin pour gérer les ressources Azure du client. La définition de l’accès contient l’ID de locataire du fournisseur de services, ainsi que l’accès requis pour l’offre, définis à l’aide des identités **principalId** de votre locataire mappées aux [valeurs **roleDefinition** intégrées](../../role-based-access-control/built-in-roles.md) (Contributeur, Contributeur de machines virtuelles, Lecteur, etc.).
 2. Vous pouvez spécifier cet accès et intégrer le client à la gestion des ressources déléguées Azure de deux manières :
    - [Publier une offre de services managés (privé ou publics) sur la Place de marché Azure](../how-to/publish-managed-services-offers.md), que le client acceptera.
    - [Déployer un modèle Azure Resource Manager sur le locataire du client](../how-to/onboard-customer.md) pour un ou plusieurs abonnements ou groupes de ressources spécifiques.

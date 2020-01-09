@@ -1,23 +1,14 @@
 ---
 title: Surveiller l’intégrité du cluster Kubernetes avec Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit comment afficher et analyser l’intégrité de vos clusters AKS et non AKS avec Azure Monitor pour les conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/18/2019
-ms.author: magoedte
-ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.date: 12/01/2019
+ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279656"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405091"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Comprendre l’intégrité des clusters Kubernetes avec Azure Monitor pour les conteneurs
 
@@ -35,7 +26,7 @@ Pour plus d’informations sur la procédure d’activation d’Azure Monitor po
 >- La version de l’agent en conteneur est *microsoft/oms:ciprod11012019*. Pour mettre à niveau l’agent, consultez [Mise à niveau de l’agent sur le cluster Kubernetes](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
 >
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Dans Azure Monitor pour les conteneurs, la fonctionnalité (d’évaluation) Intégrité surveille de manière proactive l’intégrité de votre cluster Kubernetes pour vous aider à identifier et à diagnostiquer les problèmes. Il vous permet de voir les problèmes importants détectés. Les moniteurs qui évaluent l’intégrité de votre cluster s’exécutent sur l’agent conteneurisé dans votre cluster, tandis que les données d’intégrité sont écrites dans la table **KubeHealth** de votre espace de travail Log Analytics. 
 
@@ -72,7 +63,7 @@ Pour comprendre le comportement et la configuration de chaque moniteur prenant e
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). 
+Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Afficher l’intégrité d’un cluster AKS ou non AKS
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 19b1b345c72361ae1fcdad5221dcd0e877b32fe7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5809307ff8e047ebc6120cb5ebf36590f2a2a51a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444020"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -31,7 +31,7 @@ Azure Data Factory offre une solution de déplacement des données managées qui
 
 Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour copier des données depuis Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2. Vous pouvez procéder de même pour copier des données à partir d’autres types de banques de données.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Compte Azure Data Lake Storage Gen1 contenant des données.
@@ -47,11 +47,11 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
       
    ![Page Nouvelle fabrique de données](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nom** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Recréez la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
+    * **Name** : Entrez un nom global unique pour votre fabrique de données Azure. Si l’erreur « Le nom de fabrique de données \"LoadADLSDemo\" n’est pas disponible » apparaît, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Recréez la fabrique de données. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
     * **Abonnement**: Sélectionnez l’abonnement Azure dans lequel créer la fabrique de données. 
-    * **Groupe de ressources** : Sélectionnez un groupe de ressources existant dans la liste déroulante. Vous pouvez également sélectionner l’option **Nouveau** et entrez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md). 
+    * **Groupe de ressources** : Sélectionnez un groupe de ressources existant dans la liste déroulante. Vous pouvez également sélectionner l’option **Nouveau** et entrez le nom d’un groupe de ressources. Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md). 
     * **Version** : Sélectionnez **V2**.
-    * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les banques de données utilisées par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
+    * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les banques de données utilisées par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. 
 
 3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
@@ -80,7 +80,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
    a. Sélectionnez votre Data Lake Storage Gen1 pour le nom du compte, puis spécifiez ou confirmez le **locataire**.
   
-   b. Sélectionnez **Tester la connexion** pour vérifier les paramètres. Sélectionnez ensuite **Terminer**.
+   b. Sélectionnez **Tester la connexion** pour vérifier les paramètres. Sélectionnez **Terminer**.
   
    c. Vous voyez qu’une nouvelle connexion a été créée. Sélectionnez **Suivant**.
    
@@ -135,7 +135,7 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 17. Vérifiez que les données ont bien été copiées dans votre compte Azure Data Lake Storage Gen2.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Pour évaluer la mise à niveau d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2 en général, consultez [Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). Les sections suivantes présentent les bonnes pratiques d’utilisation du service Data Factory pour effectuer une mise à niveau des données de Data Lake Storage Gen1 vers Data Lake Storage Gen2.
 

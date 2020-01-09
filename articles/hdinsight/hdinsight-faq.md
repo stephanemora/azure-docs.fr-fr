@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f688f0ddfb62e988ddebada1f612aa842afa5181
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706264"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644594"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight : Questions fréquentes (FAQ)
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight : Forum aux questions
 
 Cet article fournit des réponses à certaines questions fréquemment posées sur l’exécution d’[Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -44,7 +44,7 @@ Pour plus d’informations, consultez [Planification de la capacité pour les cl
 
 Cette section aborde les erreurs courantes liées à la capacité, ainsi que les techniques d’atténuation adaptées.
 
-#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Error: Le déploiement va entraîner le dépassement du quota de « 800 »
+#### <a name="error-the-deployment-would-exceed-the-quota-of-800"></a>Erreur : Le déploiement va entraîner le dépassement du quota de « 800 »
 
 Azure a une limite de quota de 800 déploiements par groupe de ressources. Des quotas sont appliqués pour chaque groupe de ressources, abonnement, compte ou autre étendue. Par exemple, votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une machine virtuelle qui comprend plus de cœurs que la quantité autorisée, vous recevez un message d’erreur indiquant que le quota a été dépassé.
 
@@ -52,7 +52,7 @@ Pour résoudre ce problème, supprimez les déploiements qui ne sont plus néces
 
 Pour plus d’informations, consultez [Résoudre les erreurs liées aux quotas de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
-#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Error: Le nombre maximal de nœuds dépasse le nombre de cœurs disponibles dans cette région
+#### <a name="error-the-maximum-node-exceeded-the-available-cores-in-this-region"></a>Erreur : Le nombre maximal de nœuds dépasse le nombre de cœurs disponibles dans cette région
 
 Votre abonnement peut être configuré pour limiter le nombre de cœurs dans une région. Si vous tentez de déployer une ressource qui comprend plus de cœurs que la quantité autorisée, vous recevez un message d’erreur indiquant que le quota a été dépassé.
 
@@ -114,7 +114,7 @@ Non, il n’est pas possible d’exécuter Apache Kafka et Apache Spark sur un m
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Comment modifier le fuseau horaire dans Ambari ?
 
-1. Ouvrez l’interface utilisateur web d’Ambari à l’adresse https://CLUSTERNAME.azurehdinsight.net, où CLUSTERNAME correspond au nom de votre cluster.
+1. Ouvrez l’interface utilisateur web d’Ambari à l’adresse `https://CLUSTERNAME.azurehdinsight.net`, où CLUSTERNAME correspond au nom de votre cluster.
 2. En haut à droite, sélectionnez Administrateur | Paramètres. 
 
    ![Paramètres Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -220,7 +220,7 @@ Il est recommandé d’utiliser un certificat émis par une autorité de certifi
 
 - [Activer Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
-- [Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md)
+- [Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-configure-ldaps.md)
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>Comment tirer (pull) les activités de connexion affichées dans Ranger ?
 

@@ -1,19 +1,15 @@
 ---
 title: Métriques courantes pour la mise à l’échelle automatique
 description: Découvrez les métriques utilisées pour la mise à l’échelle automatique de vos instances Cloud Services, Virtual Machines et Web Apps.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66129746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364592"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
 
@@ -71,10 +67,10 @@ Vous pouvez créer une alerte pour les métriques suivantes :
 | \PhysicalDisk(_Total)\\% temps écriture du disque |Pourcentage |
 | \PhysicalDisk(_Total)\Disk Transfers/sec |CountPerSecond |
 | \PhysicalDisk(_Total)\Lectures disque/s |CountPerSecond |
-| \PhysicalDisk(_Total)\Écritures disque/s |Nombre par seconde |
+| \PhysicalDisk(_Total)\Écritures disque/s |CountPerSecond |
 | \PhysicalDisk(_Total)\Octets disque/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Lectures disque, octets/s |BytesPerSecond |
-| \PhysicalDisk(_Total)\Écritures disque, octets/s |Octets par seconde |
+| \PhysicalDisk(_Total)\Écritures disque, octets/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Longueur moyenne Longueur de file d'attente de disque |Count |
 | \PhysicalDisk(_Total)\Longueur moyenne de file d’attente lecture disque |Count |
 | \PhysicalDisk(_Total)\Longueur moyenne de file d’attente écriture disque |Count |
@@ -147,11 +143,11 @@ Ces métriques permettent d’émettre une alerte ou de procéder à un mise à 
 
 | Nom de métrique | Unité |
 | --- | --- |
-| Pourcentage UC |Pourcentage |
-| Pourcentage mémoire |Pourcentage |
-| Longueur de file d’attente du disque |Count |
-| Longueur de file d’attente HTTP |Count |
-| Octets reçus |Octets |
+| CpuPercentage |Pourcentage |
+| MemoryPercentage |Pourcentage |
+| DiskQueueLength |Count |
+| HttpQueueLength |Count |
+| BytesReceived |Octets |
 | BytesSent |Octets |
 
 ## <a name="commonly-used-storage-metrics"></a>Métriques couramment utilisées dans Azure Storage

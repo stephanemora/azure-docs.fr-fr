@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory : Questions fréquentes (FAQ) '
+title: 'Azure Data Factory : Forum aux questions '
 description: Réponses aux questions les plus fréquentes concernant Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8238f2ea8395fc53044703db619d768918cb1834
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674725"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644696"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -46,7 +46,7 @@ Data Factory vous donne la liberté de modéliser n’importe quel style de flux
 - Flux delta :
     - Vous pouvez utiliser des paramètres afin de définir la marque de borne haute pour la copie delta lors du déplacement des tables de dimension ou de référence à partir d’un magasin relationnel, localement ou dans le cloud, pour charger les données dans le lac. 
 
-Pour plus d’informations, consultez [Tutoriel : Flux de contrôle](tutorial-control-flow.md).
+Pour plus d’informations, consultez [Didacticiel : Flux de contrôle](tutorial-control-flow.md).
 
 ### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Données transformées à grande échelle avec des pipelines sans code
 La nouvelle expérience des outils basés sur un navigateur permet la création et le déploiement de pipelines sans code avec une expérience web interactive et moderne.
@@ -101,7 +101,7 @@ Vous pouvez déployer une ou plusieurs instances du runtime d’intégration en 
 Pour plus d’informations, consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Quelle est la limite au nombre de runtimes d’intégration ?
-Il n’existe aucune limite quant au nombre d’instances de runtime d’intégration autorisées dans une fabrique de données. Il existe toutefois une limite relative au nombre de cœurs de machines virtuelles que le runtime d’intégration peut utiliser par abonnement pour l’exécution de package SSIS. Pour plus d’informations, consultez la section [Limites de Data Factory](../azure-subscription-service-limits.md#data-factory-limits).
+Il n’existe aucune limite quant au nombre d’instances de runtime d’intégration autorisées dans une fabrique de données. Il existe toutefois une limite relative au nombre de cœurs de machines virtuelles que le runtime d’intégration peut utiliser par abonnement pour l’exécution de package SSIS. Pour plus d’informations, consultez la section [Limites de Data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Quels sont les concepts principaux d’Azure Data Factory ?
 Un abonnement Azure peut contenir une ou plusieurs instances Azure Data Factory (ou fabriques de données). Azure Data Factory s’articule autour de quatre composants clés. Ils fonctionnent ensemble en tant que plateforme sur laquelle composer des flux de travail pilotés par les données et constitués d’étapes de déplacement et de transformation de données.
@@ -132,7 +132,7 @@ Les déclencheurs représentent des unités de traitement qui déterminent le mo
 ### <a name="pipeline-runs"></a>Exécutions de pipeline
 Une exécution du pipeline est une instance d’exécution d’un pipeline. Généralement, vous instanciez une exécution de pipeline en transmettant des arguments aux paramètres définis dans le pipeline. Vous pouvez transmettre les arguments manuellement ou dans la définition du déclencheur.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Les paramètres sont des paires clé-valeur dans une configuration en lecture seule. Vous définissez des paramètres dans un pipeline, et vous transmettez les arguments pour les paramètres définis lors de l’exécution à partir d’un contexte d’exécution. Le contexte d’exécution est créé par un déclencheur ou à partir d’un pipeline que vous exécutez manuellement. Les activités contenues dans le pipeline utilisent les valeurs des paramètres.
 
 Un jeu de données est un paramètre fortement typé et une entité que vous pouvez réutiliser ou référencer. Une activité peut référencer des jeux de données et utiliser les propriétés définies dans la définition du jeu de données.
@@ -249,24 +249,24 @@ Le flux de wrangling data prend en charge les types de données suivantes dans S
 * real
 * float
 * char
-* nchar
+* NCHAR
 * varchar
-* nvarchar
-* integer
+* NVARCHAR
+* entier
 * int
 * bit
 * boolean
-* smallint
-* tinyint
+* SMALLINT
+* TINYINT
 * bigint
 * long
 * text
-* date
-* datetime
+* Date
+* DATETIME
 * datetime2
 * smalldatetime
 * timestamp
-* uniqueidentifier
+* UNIQUEIDENTIFIER
 * Xml
 
 D’autres types de données seront pris en charge à l’avenir.
@@ -274,5 +274,5 @@ D’autres types de données seront pris en charge à l’avenir.
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour créer une fabrique de données, consultez les tutoriels suivants :
 
-- [Démarrage rapide : Créer une fabrique de données](quickstart-create-data-factory-dot-net.md)
-- [Tutoriel : Copier des données dans le cloud](tutorial-copy-data-dot-net.md)
+- [Démarrage rapide : Créer une fabrique de données](quickstart-create-data-factory-dot-net.md)
+- [Tutoriel : Copier des données dans le cloud](tutorial-copy-data-dot-net.md)

@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 ms.date: 07/02/2019
-ms.openlocfilehash: efe47cc5453a7259da37dcb3c33edcdfbea6d8c8
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1cabe57a0e7f2869a30973c8bbc8b4b38f664d81
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672638"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500025"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualiser des données de graphe stockées dans l’API Gremlin d’Azure Cosmos DB avec des solutions de visualisations de données
 
-Vous pouvez visualiser des données stockées dans l’API Gremlin d’Azure Cosmos DB avec différentes solutions de visualisation de données. Les solutions suivantes sont recommandées par la [Communauté Apache Tinkerpop](http://tinkerpop.apache.org/#poweredby) pour la visualisation de données de graphe.
+Vous pouvez visualiser des données stockées dans l’API Gremlin d’Azure Cosmos DB avec différentes solutions de visualisation de données. Les solutions suivantes sont recommandées par la [Communauté Apache Tinkerpop](https://tinkerpop.apache.org/#poweredby) pour la visualisation de données de graphe.
 
 ## <a name="linkurious-enterprise"></a>Linkurious Enterprise
 

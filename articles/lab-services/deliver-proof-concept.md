@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: takamath
-ms.openlocfilehash: 13e3f6be851e81b1186d55bb313dd23f1920f007
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ca843213760cee60799568a6f33059c2bd91c835
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616351"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643285"
 ---
 # <a name="deliver-a-proof-of-concept"></a>Fournir une preuve de concept 
 
@@ -43,7 +43,7 @@ Pour commencer à fournir une preuve de concept. Il est important de prendre le 
 * [Documentation DevTest Labs pour les entreprises](devtest-lab-guidance-prescriptive-adoption.md)
 * [Introduction à la mise en réseau Azure](../virtual-network/virtual-networks-overview.md)
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Pour mener à bien un pilote ou une preuve de concept avec DevTest Labs, il existe plusieurs prérequis : 
 
@@ -81,7 +81,7 @@ Cette section présente un exemple à suivre afin de définir une preuve de conc
 > [!TIP]
 > Pour limiter le risque d’une défaillance de votre projet, nous vous recommandons vivement de ne pas ignorer l’exemple décrit dans cette section. 
 
-### <a name="overview"></a>Vue d'ensemble 
+### <a name="overview"></a>Vue d’ensemble 
 
 Nous envisageons de développer un nouvel environnement dans Azure basé sur DevTest Labs dont les fournisseurs se serviront en tant qu’environnement isolé du réseau d’entreprise. Pour savoir si la solution répondra aux exigences, nous allons développer une preuve de concept afin de valider la solution de bout en bout. Nous avons inclus plusieurs fournisseurs pour expérimenter et vérifier l’expérience. 
 
@@ -124,7 +124,7 @@ Nous attendons de la solution les composants suivants :
 
 Avant de publier une solution DevTest Labs complète, vous devez prendre plusieurs décisions importantes relatives à la planification et à la conception. Votre expérience en matière de preuve de concept peut vous y aider. Autres points à prendre en compte : 
 
-* **Topologie de l’abonnement** : Les exigences au niveau de l’entreprise concernant les ressources dans Azure peuvent s’étendre au-delà des [quotas disponibles dans un seul abonnement](https://docs.microsoft.com/azure/azure-subscription-service-limits). Cela nécessite plusieurs abonnements Azure et/ou demandes de service pour augmenter les limites de l’abonnement initial. Il est important de décider à l’avance comment distribuer les ressources entre les abonnements. Le [guide de décision concernant les abonnements](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) est très utile car il est difficile de déplacer ultérieurement des ressources vers un autre abonnement. À titre d’exemple, un labo ne peut pas être déplacé vers un autre abonnement après avoir été créé.  
+* **Topologie de l’abonnement** : Les exigences au niveau de l’entreprise concernant les ressources dans Azure peuvent s’étendre au-delà des [quotas disponibles dans un seul abonnement](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Cela nécessite plusieurs abonnements Azure et/ou demandes de service pour augmenter les limites de l’abonnement initial. Il est important de décider à l’avance comment distribuer les ressources entre les abonnements. Le [guide de décision concernant les abonnements](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/) est très utile car il est difficile de déplacer ultérieurement des ressources vers un autre abonnement. À titre d’exemple, un labo ne peut pas être déplacé vers un autre abonnement après avoir été créé.  
 * **Topologie du réseau** : L’[infrastructure réseau par défaut](../app-service/networking-features.md) que DevTest Labs crée automatiquement peut ne pas répondre pleinement aux exigences et contraintes des utilisateurs de l’entreprise. Il est courant de rencontrer des [réseaux virtuels connectés à Azure ExpressRoute](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/), des [réseaux en étoile](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) pour une connectivité entre les abonnements, et même un [routage forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) pour garantir une connectivité locale uniquement. DevTest Labs permet de connecter des réseaux virtuels existants au labo pour que vous puissiez les utiliser quand vous créez des machines virtuelles dans ce labo. 
 * **Accès à distance à des machines virtuelles** : De nombreuses options permettent d'accéder à distance aux machines virtuelles situées dans DevTest Labs. La plus simple consiste à utiliser des adresses IP publiques ou des adresses IP publiques partagées. Il s’agit de [paramètres disponibles dans le labo](devtest-lab-shared-ip.md). Si ces options ne suffisent pas, l’utilisation d’une passerelle d’accès à distance est également possible. Cette option est illustrée dans l’[architecture de référence d’entreprise DevTest Labs](devtest-lab-reference-architecture.md) et décrite en détail dans la [documentation relative à la passerelle Bureau à distance DevTest Labs](configure-lab-remote-desktop-gateway.md). Les entreprises peuvent également utiliser ExpressRoute ou un VPN de site à site pour connecter leur labo à leur réseau local. Cela permet les connexions Bureau à distance ou SSH directes aux machines virtuelles en fonction de leur adresse IP privée, sans aucune exposition à Internet. 
 * **Gestion des autorisations** : Les deux autorisations clés couramment utilisées dans DevTest Labs sont [Propriétaire et Utilisateur de laboratoire](devtest-lab-add-devtest-user.md). Avant de déployer DevTest Labs à grande échelle, il est important de décider qui sera en charge de chaque niveau d’accès du lab. Souvent, le détenteur du budget (responsable d’équipe, par exemple) est le propriétaire du labo et les membres de l’équipe sont les utilisateurs du labo. Ce modèle permet à la personne (responsable d’équipe) en charge du budget d’ajuster les paramètres de stratégie et de gérer le budget de l’équipe.  

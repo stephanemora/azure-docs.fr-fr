@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 689a702863dda53870f775bd8520d5dd406d242f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da6d17e42407048b7ecbcacade67ef48046d7fe1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457128"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -31,7 +31,7 @@ Azure IoT Hub est un service multilocataire qui propose ses fonctionnalités �
 
 La liste ci-dessous décrit les points de terminaison :
 
-* **Fournisseur de ressources**. Le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Cette interface permet aux propriétaires d’abonnement Azure de créer et de supprimer des IoT Hubs et de mettre à jour les propriétés IoT Hub. Les propriétés des hubs IoT régissent les [stratégies de sécurité au niveau du hub](iot-hub-devguide-security.md#access-control-and-permissions), par opposition au contrôle d’accès au niveau de l’appareil, et les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources IoT Hub vous permet également [d’exporter les identités des appareils](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Fournisseur de ressources**. Le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cette interface permet aux propriétaires d’abonnement Azure de créer et de supprimer des IoT Hubs et de mettre à jour les propriétés IoT Hub. Les propriétés des hubs IoT régissent les [stratégies de sécurité au niveau du hub](iot-hub-devguide-security.md#access-control-and-permissions), par opposition au contrôle d’accès au niveau de l’appareil, et les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources IoT Hub vous permet également [d’exporter les identités des appareils](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
 * **Gestion d’identité de l’appareil**. Chaque IoT Hub expose un ensemble de points de terminaison HTTPS REST afin de gérer les identités des appareils (par exemple pour les opérations de création, de récupération, de mise à jour et de suppression). Les [identités des appareils](iot-hub-devguide-identity-registry.md) sont utilisées pour l’authentification et le contrôle d’accès des appareils.
 

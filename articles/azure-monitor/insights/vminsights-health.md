@@ -4,15 +4,15 @@ description: Cet article décrit comment comprendre l’intégrité des machines
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e01223783130ea6b276db26bab709e2b51a8f76d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109767"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399787"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -34,46 +34,46 @@ Pour plus d’informations sur la configuration d’Azure Monitor pour les machi
 
 Cette section décrit les critères d’intégrité par défaut pour surveiller les machines virtuelles Azure Windows et Linux. Tous les critères d’intégrité sont préconfigurés pour envoyer une alerte lorsqu’une condition non saine est détectée.
 
-| Nom du moniteur | Fréquence (min) | Durée de recherche en arrière (min) | Operator | Seuil | Alerte pour l’état | severity | Catégorie de charge de travail | 
+| Nom du moniteur | Fréquence (min) | Durée de recherche en arrière (min) | Opérateur | Seuil | Alerte pour l’état | severity | Catégorie de charge de travail | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
-| Disque logique en ligne | 5\. | 15 | <> | 1 (true) | Critique | Gra1 | Linux | 
-| Espace libre du disque logique | 5\. | 15 | < | 200 Mo (avertissement)<br> 100 Mo (critique) | Avertissement | Gra1<br> Gra2 | Linux | 
-| Inodes libres du disque logique (%) | 5\. | 15 | < | 5 % | Critique | Gra1 | Linux | 
-| Espace libre du disque logique (%) | 5\. | 15 | < | 5 % | Critique | Gra1 | Linux | 
-| État de la carte réseau | 5\. | 15 | <> | 1 (true) | Avertissement | Gra2 | Linux | 
-| Mémoire disponible en mégaoctets du système d’exploitation | 5\. | 10 | < | 2,5 Mo | Critique | Gra1 | Linux | 
-| Disque moy. Disk sec/Read | 5\. | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
-| Disque moy. Disk sec/Transfer | 5\. | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
-| Disque moy. Disk sec/Write | 5\. | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
-| État du disque | 5\. | 25 | <> | 1 (true) | Critique | Gra1 | Linux | 
-| Pourcentage du temps processeur total du système d’exploitation | 5\. | 10 | >= | 95 % | Critique | Gra1 | Linux | 
-| Pourcentage d’utilisation du processeur total | 5\. | 10 | >= | 95 % | Critique | Gra1 | Windows | 
+| Disque logique en ligne | 5 | 15 | <> | 1 (true) | Critique | Gra1 | Linux | 
+| Espace libre du disque logique | 5 | 15 | < | 200 Mo (avertissement)<br> 100 Mo (critique) | Avertissement | Gra1<br> Gra2 | Linux | 
+| Inodes libres du disque logique (%) | 5 | 15 | < | 5 % | Critique | Gra1 | Linux | 
+| Espace libre du disque logique (%) | 5 | 15 | < | 5 % | Critique | Gra1 | Linux | 
+| État de la carte réseau | 5 | 15 | <> | 1 (true) | Avertissement | Gra2 | Linux | 
+| Mémoire disponible en mégaoctets du système d’exploitation | 5 | 10 | < | 2,5 Mo | Critique | Gra1 | Linux | 
+| Disque moy. Disk sec/Read | 5 | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
+| Disque moy. Disk sec/Transfer | 5 | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
+| Disque moy. Disk sec/Write | 5 | 25 | > | 0,05 s | Critique | Gra1 | Linux | 
+| État du disque | 5 | 25 | <> | 1 (true) | Critique | Gra1 | Linux | 
+| Pourcentage du temps processeur total du système d’exploitation | 5 | 10 | >= | 95 % | Critique | Gra1 | Linux | 
+| Pourcentage d’utilisation du processeur total | 5 | 10 | >= | 95 % | Critique | Gra1 | Windows | 
 | Erreur ou corruption du système de fichiers | 60 | 60 | <> | 4 | Critique | Gra1 | Windows | 
 | Moyenne disque logique en secondes par lecture | 1 | 15 | > | 0,04 s | Avertissement | Gra2 | Windows | 
 | Moyenne disque logique en secondes par transfert | 1 | 15 | > | 0,04 s | Avertissement | Gra2 | Windows | 
 | Moyenne disque logique en secondes par écriture (disque logique) | 1 | 15 | > | 0,04 s | Avertissement | Gra2 | Windows | 
-| Longueur de la file d’attente du disque actuel (disque logique) | 5\. | 60 | >= | 32 | Avertissement | Gra2 | Windows | 
+| Longueur de la file d’attente du disque actuel (disque logique) | 5 | 60 | >= | 32 | Avertissement | Gra2 | Windows | 
 | Espace libre du disque logique (Mo) | 15 | 60 | > | 500 Mo avertissement<br> 300 Mo critique | Critique | Gra1<br> Gra2 | Windows | 
 | Espace libre du disque logique (%) | 15 | 60 | > | 10 % avertissement<br> 5 % critique | Critique | Gra1<br> Gra2 | Windows |
 | Temps d’inactivité du disque logique en pourcentage | 15 | 360 | <= | 20% | Avertissement | Gra2 | Windows | 
-| Pourcentage de bande passante utilisée en lecture | 5\. | 60 | >= | 60 % | Avertissement | Gra2 | Windows | 
-| Pourcentage de bande passante utilisée au total | 5\. | 60 | >= | 75 % | Avertissement | Gra2 | Windows | 
-| Pourcentage de bande passante utilisée en écriture | 5\. | 60 | >= | 60 % | Avertissement | Gra2 | Windows | 
-| Service Health du client DHCP | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health du client DNS | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health du journal des événements Windows | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health du pare-feu Windows | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health du RPC | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health du serveur | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Service Health Windows Remote Management | 5\. | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
-| Mégaoctets de mémoire disponibles | 5\. | 10 | < | 100 Mo | Critique | Gra1 | Windows | 
-| Entrées libres de la table de pagination système | 5\. | 10 | <= | 5 000 | Critique | Gra1 | Windows | 
-| Pages mémoire par seconde | 5\. | 10 | >= | 5000/s | Avertissement | Gra1 | Windows | 
-| Pourcentage de mémoire allouée en cours d’utilisation | 5\. | 10 | > | 80 % | Critique | Gra1 | Windows | 
+| Pourcentage de bande passante utilisée en lecture | 5 | 60 | >= | 60% | Avertissement | Gra2 | Windows | 
+| Pourcentage de bande passante utilisée au total | 5 | 60 | >= | 75 % | Avertissement | Gra2 | Windows | 
+| Pourcentage de bande passante utilisée en écriture | 5 | 60 | >= | 60% | Avertissement | Gra2 | Windows | 
+| Service Health du client DHCP | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health du client DNS | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health du journal des événements Windows | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health du pare-feu Windows | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health du RPC | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health du serveur | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Service Health Windows Remote Management | 5 | 12 | <> | 4 (exécution en cours) | Critique | Gra1 | Windows | 
+| Mégaoctets de mémoire disponibles | 5 | 10 | < | 100 Mo | Critique | Gra1 | Windows | 
+| Entrées libres de la table de pagination système | 5 | 10 | <= | 5 000 | Critique | Gra1 | Windows | 
+| Pages mémoire par seconde | 5 | 10 | >= | 5000/s | Avertissement | Gra1 | Windows | 
+| Pourcentage de mémoire allouée en cours d’utilisation | 5 | 10 | > | 80 % | Critique | Gra1 | Windows | 
 | Moyenne disque en secondes par transfert | 1 | 15 | > | 0,04 s | Avertissement | Gra2 | Windows | 
 | Moyenne disque en secondes par écriture | 1 | 15 | > | 0,04 s | Avertissement | Gra2 | Windows | 
-| Longueur de file d’attente actuelle du disque | 5\. | 60 | >= | 32 | Avertissement | Gra2 | Windows | 
-| Temps d’inactivité du disque en pourcentage | 5\. | 60 | >= | 20% | Avertissement | Gra2 | Windows | 
+| Longueur actuelle de la file d'attente du disque | 5 | 60 | >= | 32 | Avertissement | Gra2 | Windows | 
+| Temps d’inactivité du disque en pourcentage | 5 | 60 | >= | 20% | Avertissement | Gra2 | Windows | 
 
 >[!NOTE]
 >La durée de recherche en arrière représente la fréquence à laquelle la fenêtre de recherche en arrière vérifie les valeurs des métriques, par exemple au cours des cinq dernières minutes.  
@@ -310,7 +310,7 @@ Vous pouvez filtrer cette vue en sélectionnant des valeurs dans les menus déro
 |Condition d’analyse |Sélectionnez une condition de surveillance pour filtrer les alertes selon qu’elles soient déclenchées ou résolues par le système (si la condition n’est plus active). Vous pouvez également sélectionner **Tous** pour inclure les alertes de toutes les conditions. |
 |État d’alerte |Sélectionnez un état d’alerte **Nouveau**, **Reconnu**, **Fermé** ou **Tous** pour inclure les alertes de tous les états. |
 |Service de surveillance |Sélectionnez un service ou sélectionnez **Tous** pour inclure tous les services. Seules les alertes d’informations de machine virtuelle sont prises en charge pour cette fonctionnalité.|
-|Période| Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
+|Plage temporelle| Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
 
 Lorsque vous sélectionnez une alerte, la page **Détails de l’alerte** s’affiche. Cette page fournit des détails de l’alerte et vous permet de changer son état.
 

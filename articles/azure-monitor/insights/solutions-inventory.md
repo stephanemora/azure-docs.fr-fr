@@ -4,15 +4,15 @@ description: Les solutions de monitoring d’Azure Monitor représentent une col
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
+author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402023"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventaire et détails sur la collecte de données pour les solutions de supervision dans Azure
 Les [solutions de supervision](solutions.md) tirent parti des services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. En règle générale, les solutions de monitoring collectent des données de journal et fournissent des requêtes et des vues permettant d’analyser ces données. Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation.

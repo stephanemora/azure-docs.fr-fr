@@ -1,14 +1,14 @@
 ---
 title: Résoudre les problèmes liés à System Center Data Protection Manager
 description: Dans cet article, découvrez des solutions pour les problèmes que vous pouvez rencontrer lors de l’utilisation de System Center Data Protection Manager.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 01/30/2019
-ms.openlocfilehash: 8ecd2f469c8fcaea9761a1a3033fa0c44a255ae7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bcb30fa7eb3e05099761fc751b09a9fb16134e34
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172695"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664745"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>Résoudre les problèmes liés à System Center Data Protection Manager
 
@@ -16,7 +16,7 @@ Cet article décrit les solutions aux problèmes que vous pouvez rencontrer lors
 
 Pour lire les dernières notes de publication de System Center Data Protection Manager, consultez la [documentation de System Center](https://docs.microsoft.com/system-center/dpm/dpm-release-notes?view=sc-dpm-2016). Plus d’informations sur la prise en charge pour Data Protection Manager dans [cette matrice](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2016).
 
-## <a name="error-replica-is-inconsistent"></a>Error: Le réplica est incohérent.
+## <a name="error-replica-is-inconsistent"></a>Erreur : Le réplica est incohérent.
 
 Un réplica peut être incohérent pour les raisons suivantes :
 
@@ -38,7 +38,7 @@ Pour résoudre ce problème, procédez comme suit :
 - Vérifiez l’intégrité du disque et assurez-vous que l’espace disponible est suffisant pour le réplica.
 - Vérifiez qu’aucun travail de sauvegarde n’est en cours d’exécution en même temps qu’un autre.
 
-## <a name="error-online-recovery-point-creation-failed"></a>Error: Échec de la création de points de récupération en ligne.
+## <a name="error-online-recovery-point-creation-failed"></a>Erreur : Échec de la création de points de récupération en ligne.
 
 Pour résoudre ce problème, procédez comme suit :
 
@@ -50,7 +50,7 @@ Pour résoudre ce problème, procédez comme suit :
 - Vérifiez que le réplica est bien présent et qu’il ne manque pas.
 - Assurez-vous que le réplica dispose d’un espace suffisant pour créer le journal de nombre de séquences de mise à jour (USN).
 
-## <a name="error-unable-to-configure-protection"></a>Error: Configuration de la protection impossible.
+## <a name="error-unable-to-configure-protection"></a>Erreur : Configuration de la protection impossible.
 
 Cette erreur se produit lorsque le serveur Data Protection Manager ne parvient pas à contacter le serveur protégé.
 
@@ -60,7 +60,7 @@ Pour résoudre ce problème, procédez comme suit :
 - Vérifiez que votre serveur Data Protection Manager et le serveur protégé sont connectés (réseau/pare-feu/proxy).
 - Si vous protégez un serveur SQL, vérifiez que la propriété **Propriétés de la connexion** > **NT AUTHORITY\SYSTEM** indique que le paramètre **sysadmin** est activé.
 
-## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Error: serveur non inscrit comme spécifié dans le fichier d'informations d'identification du coffre
+## <a name="error-server-not-registered-as-specified-in-vault-credential-file"></a>Erreur : serveur non inscrit comme spécifié dans le fichier d'informations d'identification du coffre
 
 Cette erreur se produit pendant le processus de récupération des données du serveur de sauvegarde Azure/Data Protection Manager. Le fichier d'informations d'identification du coffre qui est utilisé lors du processus de récupération n’appartient pas au coffre Recovery Services pour le serveur de sauvegarde Azure/Data Protection Manager.
 
@@ -69,7 +69,7 @@ Pour résoudre ce problème, effectuez les étapes suivantes :
 1. Téléchargez le fichier des informations d’identification du coffre Recovery Services auquel le serveur de sauvegarde Azure/Data Protection Manager est inscrit.
 2. Essayez d’inscrire le serveur auprès du coffre en utilisant le dernier fichier d’informations d’identification du coffre téléchargé.
 
-## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Error: aucune donnée récupérable ou le serveur sélectionné n’est pas un serveur Data Protection Manager
+## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>Erreur : aucune donnée récupérable ou le serveur sélectionné n’est pas un serveur Data Protection Manager
 
 Cette erreur peut se produire pour les raisons suivantes :
 
@@ -82,7 +82,7 @@ Lorsque d’autres serveurs de sauvegarde Azure/Data Protection Manager sont ins
 1. Vérifiez que le dernier agent de sauvegarde Azure est installé.
 2. Après avoir vérifié que le dernier agent est installé, patientez un jour avant de démarrer le processus de récupération. Le travail de sauvegarde nocturne charge les métadonnées de toutes les sauvegardes protégées sur le cloud. Vous pouvez ensuite récupérer les données de sauvegarde.
 
-## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Error: la phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète du serveur
+## <a name="error-provided-encryption-passphrase-doesnt-match-passphrase-for-server"></a>Erreur : la phrase secrète de chiffrement fournie ne correspond pas à la phrase secrète du serveur
 
 Cette erreur se produit pendant le processus de chiffrement lors de la récupération des données du serveur de sauvegarde Azure/Data Protection Manager. La phrase secrète de chiffrement qui est utilisée lors du processus de récupération ne correspond pas à la phrase secrète de chiffrement du serveur. Par conséquent, l’agent ne peut pas déchiffrer les données et la récupération échoue.
 

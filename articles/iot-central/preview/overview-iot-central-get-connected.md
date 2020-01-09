@@ -3,17 +3,17 @@ title: Connectivité des appareils dans Azure IoT Central | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à la connectivité des appareils dans Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/09/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: ef0e4c9070733266349a37e863c48901eae90c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 412a678465589da87c713a55a7b67193b254bf96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434927"
 ---
 # <a name="get-connected-to-azure-iot-central-preview-features"></a>Se connecter à Azure IoT Central (fonctionnalités en préversion)
 
@@ -147,7 +147,7 @@ Les étapes suivantes décrivent ce processus plus en détail. Les étapes diff�
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Connectivité de l’appareil par inscription individuelle
 
-Pour les clients qui connectent des appareils possédant des informations d’authentification qui lui sont propres, l’inscription individuelle est la solution. Il s’agit d’une entrée permettant de connecter un seul appareil. Les inscriptions individuelles peuvent utiliser des certificats feuille X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée (TPM) réel ou virtuel) comme mécanismes d’attestation. L’ID d’appareil (autrement dit, l’ID d’inscription) d’une inscription individuelle est alphanumérique, en minuscules et peut contenir des traits d’union. Pour plus d’informations sur les inscriptions individuelles, cliquez [ici](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+Pour les clients qui connectent des appareils possédant leurs propres informations d’authentification, l’inscription individuelle est la solution. Il s’agit d’une entrée permettant de connecter un seul appareil. Les inscriptions individuelles peuvent utiliser des certificats feuille X.509 ou des jetons SAP (à partir d’un module de plateforme sécurisée (TPM) réel ou virtuel) comme mécanismes d’attestation. L’ID d’appareil (autrement dit, l’ID d’inscription) d’une inscription individuelle est alphanumérique, en minuscules et peut contenir des traits d’union. Pour plus d’informations sur les inscriptions individuelles, cliquez [ici](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
 
 > [!NOTE]
 > Lorsque vous créez une inscription individuelle pour un appareil, elle prend la priorité sur les attestations d’inscription de groupe par défaut (SAP, X.509) de votre application.
@@ -163,7 +163,7 @@ IoT Central prend en charge les mécanismes d’attestation suivants :
 
 L'une des principales fonctionnalités d’IoT Plug-and-Play avec IoT Central est la possibilité d'associer automatiquement des modèles d'appareil lors de la connexion de l'appareil. Avec les informations d'identification de l’appareil, les appareils peuvent maintenant envoyer **CapabilityModelId** dans le cadre de l'appel d'inscription de l’appareil, et IoT Central pourra ainsi découvrir et associer le modèle d’appareil. Le processus de découverte s’effectue dans l'ordre suivant :
 
-1. S’associe au modèle d’appareil s'il est déjà publié dans l'application IoT Central.
+1. Association au modèle d’appareil s’il est déjà publié dans l’application IoT Central.
 1. Récupère les modèles requis à partir du référentiel public des modèles de capacité publiés et certifiés.
 
 Voici le format de la charge utile supplémentaire que l'appareil peut envoyer pendant l'appel d'inscription DPS

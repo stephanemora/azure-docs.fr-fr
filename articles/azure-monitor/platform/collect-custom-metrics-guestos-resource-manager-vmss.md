@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ec9f7ecf218b635588065c14bd4d11283d027c11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286138"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364082"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Azure Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -23,9 +23,9 @@ En utilisant l’[extension Diagnostics Azure pour Windows (WAD)](diagnostics-ex
 
 Cet article décrit le processus pour envoyer les métriques de performance du SE invité d’un groupe de machines virtuelles identiques Windows vers le magasin de données d’Azure Monitor. À partir de la version 1.11 de Diagnostics Azure pour Windows, vous pouvez écrire des métriques directement dans le magasin de métriques d’Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. En les stockant dans cet emplacement, vous avez accès aux mêmes actions que pour les métriques de la plateforme. Ces actions sont les suivantes : génération d’alertes en temps quasi réel, création de graphiques, routage, accès à partir de l’API REST et bien plus encore. Auparavant, l’extension Diagnostics Azure pour Windows écrivait les données dans le Stockage Azure, et non dans le magasin de données d’Azure Monitor.  
 
-Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/resource-group-overview.md), leur structure et leur syntaxe.  
+Si vous découvrez les modèles Resource Manager, obtenez plus d’informations sur les [déploiements de modèle](../../azure-resource-manager/management/overview.md), leur structure et leur syntaxe.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 

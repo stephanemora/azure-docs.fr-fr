@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 8bfff7790fa4984241e1c3dda19a20c8b13591fb
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 819929fb157444ae53df113c0318dd18146156c9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442030"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveaux de cohérence et API Azure Cosmos DB
 
@@ -21,7 +21,6 @@ Azure Cosmos DB fournit la prise en charge native des API compatibles avec les p
 Pour les API SQL, Gremlin et Table, le niveau de cohérence configuré par défaut sur le compte Azure Cosmos est utilisé. 
 
 Lorsque vous utilisez l’API Cassandra ou l’API Azure Cosmos DB pour MongoDB, les applications obtiennent un ensemble complet de niveaux de cohérence proposés par Apache Cassandra et MongoDB, respectivement, avec des garanties encore plus fortes de cohérence et de durabilité. Ce document présente les niveaux de cohérence Azure Cosmos DB correspondants pour les niveaux de cohérence Apache Cassandra et MongoDB.
-
 
 ## <a id="cassandra-mapping"></a>Mappage entre les niveaux de cohérence Apache Cassandra et Azure Cosmos DB
 
@@ -55,7 +54,7 @@ Le tableau suivant illustre le mappage des problèmes d’écriture/lecture Cass
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur les niveaux de cohérence et la compatibilité entre les API Cosmos DB et les API open source. Consultez les articles suivants :
+Apprenez-en davantage sur les niveaux de cohérence et la compatibilité entre les API Cosmos DB et les API open source. Voir les articles suivants :
 
 * [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
 * [Fonctionnalités MongoDB prises en charge par l’API d’Azure Cosmos DB pour MongoDB](mongodb-feature-support.md)

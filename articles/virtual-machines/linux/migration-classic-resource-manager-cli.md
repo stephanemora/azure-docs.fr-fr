@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 69107052d84f28dfd08f59dec40ea66eca79ecaa
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1ebb1ee5056d3b1e6e85bea43473de5918ddba5c
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035772"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645172"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migration de ressources IaaS d’un environnement Classic vers Azure Resource Manager à l’aide de l’interface de ligne de commande Azure
 Ces étapes vous montrent comment utiliser les commandes de l’interface de ligne de commande Azure (CLI) pour migrer des ressources d’infrastructure en tant que service (IaaS) à partir du modèle de déploiement Classic vers le modèle de déploiement Azure Resource Manager. Cet article nécessite [Azure Classic CLI](../../cli-install-nodejs.md). Étant donné que l’interface Azure CLI est applicable uniquement pour les ressources Azure Resource Manager, elle ne peut pas être utilisée pour cette migration.
@@ -34,7 +34,7 @@ Voici un diagramme de flux permettant d’identifier l’ordre dans lequel les �
 
 ![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="step-1-prepare-for-migration"></a>Étape 1 : Préparation de la migration
+## <a name="step-1-prepare-for-migration"></a>Étape 1 : Préparation de la migration
 Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration de ressources IaaS d’un environnement Classic vers Resource Manager.
 
 * Parcourez la liste des [configurations ou fonctionnalités non prises en charge](../windows/migration-classic-resource-manager-overview.md). Si vous avez des machines virtuelles qui utilisent des configurations ou fonctionnalités non prises en charge, nous vous conseillons d’attendre que leur prise en charge soit annoncée. Vous pouvez également supprimer cette fonctionnalité ou modifier cette configuration pour permettre la migration si cela répond à vos besoins.
@@ -47,7 +47,7 @@ Voici quelques bonnes pratiques recommandées lorsque vous évaluez la migration
 > 
 > 
 
-## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : Étape 2 : Définition de votre abonnement et inscription du fournisseur
+## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Étape 2 : Étape 2 : Définition de votre abonnement et inscription du fournisseur
 Pour les scénarios de migration, vous devez configurer votre environnement à la fois pour l’environnement Classic et pour Resource Manager. [Installez l’interface de ligne de commande Azure](../../cli-install-nodejs.md) et [sélectionnez votre abonnement](/cli/azure/authenticate-azure-cli).
 
 Connectez-vous à votre compte.
@@ -84,7 +84,7 @@ Pour cette étape, vous devrez passer au mode `arm` . Pour ce faire, utilisez la
 azure config mode arm
 ```
 
-Vous pouvez utiliser la commande CLI suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager).
+Vous pouvez utiliser la commande CLI suivante pour vérifier la quantité de processeurs virtuels dont vous disposez actuellement dans Azure Resource Manager. Pour en savoir plus sur les quotas de processeurs virtuels, consultez [Limites et Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager).
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"

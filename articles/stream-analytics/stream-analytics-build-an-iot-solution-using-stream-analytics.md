@@ -1,20 +1,19 @@
 ---
 title: Créer une solution IoT à l’aide d’Azure Stream Analytics
 description: Prise en main du didacticiel pour la solution IoT Stream Analytics d’un scénario de station de péage
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: f506cc526a824d45ae2d6b7a75e1c1a99dae4d64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426457"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -29,7 +28,7 @@ Dans cette solution, vous allez apprendre à utiliser Azure Stream Analytics pou
 * développer des solutions de streaming pour vos clients à l’aide de Stream Analytics en toute confiance ;
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour effectuer cette solution, vous avez besoin des prérequis suivants :
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -44,13 +43,13 @@ Cette solution fonctionne avec deux flux de données. Des capteurs installés à
 ### <a name="entry-data-stream"></a>Flux des données d’entrée
 Le flux des données d’entrée contient les informations relatives aux véhicules qui arrivent aux stations de péage. Les événements de données de sortie sont diffusés en temps réel dans une file d’attente Event Hub à partir d’une application web incluse dans l’exemple d’application.
 
-| TollID | EntryTime | LicensePlate | État | Marque | Modèle | VehicleType | VehicleWeight | Toll | Tag |
+| TollID | EntryTime | LicensePlate | State | Marque | Modèle | VehicleType | VehicleWeight | Toll | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
-| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5\. |456789123 |
+| 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
-| 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5\. |789123456 |
+| 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
 | 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
 
 Voici une brève description des colonnes :
@@ -60,7 +59,7 @@ Voici une brève description des colonnes :
 | TollID |ID de guichet identifiant de façon unique un poste de péage |
 | EntryTime |Date et heure UTC d’entrée du véhicule en poste de péage |
 | LicensePlate |Numéro de plaque d’immatriculation du véhicule |
-| État |État aux États-Unis |
+| State |État aux États-Unis |
 | Marque |Fabricant du véhicule |
 | Modèle |Numéro de modèle du véhicule |
 | VehicleType |1 pour les véhicules de transport de personnes, 2 pour les véhicules commerciaux |

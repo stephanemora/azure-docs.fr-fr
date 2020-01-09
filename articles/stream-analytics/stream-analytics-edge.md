@@ -4,16 +4,16 @@ description: Créez des tâches de périphérie dans Azure Stream Analytics et d
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07fa43563ca9b6c9ae247df6eb28894331b004c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ff2a7e571c771a73c46959f35e341d861533bb55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426328"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics sur IoT Edge
  
@@ -120,7 +120,7 @@ Pour plus d’informations sur les déploiements IoT Edge, consultez [cette page
 IoT Edge offre un moyen de router les messages entre les modules et entre les modules et IoT Hub de façon déclarative. La syntaxe complète est décrite [ici](https://docs.microsoft.com/azure/iot-edge/module-composition).
 Les noms des entrées et sorties créés dans la tâche ASA peuvent être utilisés en tant que points de terminaison pour le routage.  
 
-###### <a name="example"></a>Exemples
+###### <a name="example"></a>Exemple
 
 ```json
 {

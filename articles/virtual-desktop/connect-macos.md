@@ -5,21 +5,18 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: dc980d60c1db684a47c38b3b8efceb08dd618838
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605800"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460214"
 ---
 # <a name="connect-with-the-macos-client"></a>Se connecter avec le client macOS
 
 > S’applique à : macOS 10.12 ou version ultérieure
-
->[!NOTE]
-> L’accès aux ressources Windows Virtual Desktop à partir du client macOS est disponible en préversion.
 
 Vous pouvez accéder aux ressources Windows Virtual Desktop à partir de vos appareils macOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client.
 

@@ -1,20 +1,18 @@
 ---
 title: Utiliser la parallélisation et la mise à l’échelle de requête dans Azure Stream Analytics
 description: Cet article décrit comment mettre à l’échelle des tâches Stream Analytics en configurant des partitions d’entrée, en réglant la définition de requête et en configurant les unités de streaming d’un travail.
-services: stream-analytics
 author: JSeb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 985746989af39aa55d5d8af735edf62f4c4b77b7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d1afb6037b5fc290de93faba405982ebd1fb68ea
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932286"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431574"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -79,7 +77,7 @@ Les sections ci-après présentent quelques exemples de parallélisme massif.
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : le hub d’événements à huit partitions (« Colonne de clé de partition » doit être défini de façon à utiliser « PartitionId »)
 
-Requête :
+Requête :
 
 ```SQL
     SELECT TollBoothId
@@ -94,7 +92,7 @@ Cette requête est un filtre simple. Par conséquent, nous n’avons pas à nous
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : Stockage d'objets blob
 
-Requête :
+Requête :
 
 ```SQL
     SELECT COUNT(*) AS Count, TollBoothId
@@ -124,7 +122,7 @@ Pour le moment, la sortie Power BI ne prend pas en charge le partitionnement. P
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : concentrateur Event Hub avec 8 partitions
 
-Requête :
+Requête :
 
 ```SQL
     WITH Step1 AS (
@@ -146,7 +144,7 @@ Les exemples précédents décrivent des travaux Stream Analytics qui respecten
 * Entrée : concentrateur Event Hub avec 8 partitions
 * Sortie : le hub d’événements à huit partitions (« Colonne de clé de partition » doit être défini de façon à utiliser « TollBoothId »)
 
-Requête :
+Requête :
 
 ```SQL
     WITH Step1 AS (
@@ -168,7 +166,7 @@ Le nombre total d'unités de diffusion en continu qui peut être utilisé par un
 ### <a name="steps-in-a-query"></a>Étapes dans une requête
 Une requête peut avoir une ou plusieurs étapes. Chaque étape est une sous-requête définie par le mot-clé **WITH**. La requête qui se trouve en dehors du mot-clé **WITH** (une seule requête) est également comptabilisée comme une étape, par exemple, l’instruction **SELECT** dans la requête suivante :
 
-Requête :
+Requête :
 
 ```SQL
     WITH Step1 AS (
@@ -303,7 +301,7 @@ Tous les [exemples Azure de diffusion en continu à grande échelle](https://git
 
 ### <a name="identifying-bottlenecks"></a>Identification des goulots d’étranglement
 
-Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier des goulots d’étranglement dans votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
+Utilisez le volet Métriques de votre travail Azure Stream Analytics pour identifier les goulots d’étranglement de votre pipeline. Examinez les **événements d’entrée/sortie** pour le débit, ainsi que le [ « Délai en filigrane »](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou les **Événements en backlog**, pour voir si le travail suit la vitesse d’entrée. Pour les métriques Event Hub, recherchez les **Demandes limitées** et ajustez les Unités de seuil en conséquence. Pour les métriques de Cosmos DB, examinez la valeur **Nombre maximal de RU/s consommées par groupe de clés de partition** sous Débit pour vous assurer que les groupes de clés de partition sont consommés de manière uniforme. Pour Azure SQL DB, surveillez **E/S journal** et **UC**.
 
 ## <a name="get-help"></a>Obtenir de l’aide
 

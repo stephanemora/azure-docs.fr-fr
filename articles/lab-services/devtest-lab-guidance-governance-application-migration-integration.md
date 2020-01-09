@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25342cfbb8ac7ad5538b1f009c75f1d101bfc047
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 14641e9096fa9366334e9f7460ae55cda0e6c2e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560644"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644884"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gouvernance de l’infrastructure d’Azure DevTest Labs - Migration et intégration d’applications
 Une vois votre environnement de développement/test en place, posez-vous les questions suivantes :
@@ -66,7 +66,7 @@ Utilisation d’Azure DevTest Labs pour créer un pipeline d’images personnali
 - [Introduction : Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs (Introduction : Rendre les machines virtuelles opérationnelles en quelques minutes en configuration une fabrique d’images dans Azure DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
 - [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs (Fabrique d’images – Partie 2 : Configurer VSTS et Factory Lab pour créer des machines virtuelles)](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs (Fabrique d’images – Partie 3 : Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires)](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
-- [Vidéo : Custom Image Factory with Azure DevTest Labs (Vidéo : Fabrique d’images personnalisées avec Azure DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
+- [Vidéo : Custom Image Factory with Azure DevTest Labs (Vidéo : Fabrique d’images personnalisées avec Azure DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
 ## <a name="patterns-to-set-up-network-configuration"></a>Modèles de configuration du réseau
 
@@ -93,7 +93,7 @@ Quand dois-je créer un réseau virtuel pour mon environnement DevTest Labs et q
 ### <a name="answer"></a>Réponse
 Si vos machines virtuelles doivent interagir avec l’infrastructure existante, envisagez d’utiliser un réseau virtuel existant dans votre environnement DevTest Labs. De plus, si vous utilisez ExpressRoute, vous voudrez probablement minimiser le nombre de réseaux virtuels/sous-réseaux pour ne pas fragmenter l’espace d’adressage IP qui vous est attribué dans les abonnements. Vous devez également envisager d’utiliser le VNet peering (modèle Hub-Spoke). Cette approche autorise la communication des réseaux virtuels/sous-réseaux entre les abonnements dans une région donnée, même si le peering entre plusieurs régions n’est pas encore disponible dans la mise en réseau Azure.
 
-Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtuel. Cependant, notez que le nombre de réseaux virtuels par abonnement est [limité](../azure-subscription-service-limits.md). Le nombre par défaut est de 50, mais cette limite peut être portée à 100.
+Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtuel. Cependant, notez que le nombre de réseaux virtuels par abonnement est [limité](../azure-resource-manager/management/azure-subscription-service-limits.md). Le nombre par défaut est de 50, mais cette limite peut être portée à 100.
 
 ## <a name="shared-public-or-private-ip"></a>IP partagée, publique ou privée
 
@@ -117,7 +117,7 @@ Existe-t-il une règle spécifiant le nombre de machines virtuelles à définir 
 Pour évaluer le nombre de machines virtuelles par utilisateur ou par labo, trois facteurs principaux sont à prendre en compte :
 
 - Le **coût total** que l’équipe peut consacrer aux ressources du labo. Avec de nombreuses machines, il est facile de mettre en place une rotation. Pour maîtriser les coûts, il est possible de limiter le nombre de machines virtuelles par utilisateur et/ou par labo
-- Le nombre totale de machines virtuelles dans un labo est fonction des [quotas d’abonnement](../azure-subscription-service-limits.md) disponibles. L’une des limites supérieures est de 800 groupes de ressources par abonnement. Actuellement, DevTest Labs crée un groupe de ressources pour chaque machine virtuelle (sauf si des adresses IP publiques partagées sont utilisées). Si un abonnement compte 10 labos, ceux-ci peuvent accueillir chacun environ 79 machines virtuelles (limite supérieure de 800 – 10 groupes de ressources pour les 10 labos) = 79 machines virtuelles par labo.
+- Le nombre totale de machines virtuelles dans un labo est fonction des [quotas d’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md) disponibles. L’une des limites supérieures est de 800 groupes de ressources par abonnement. Actuellement, DevTest Labs crée un groupe de ressources pour chaque machine virtuelle (sauf si des adresses IP publiques partagées sont utilisées). Si un abonnement compte 10 labos, ceux-ci peuvent accueillir chacun environ 79 machines virtuelles (limite supérieure de 800 – 10 groupes de ressources pour les 10 labos) = 79 machines virtuelles par labo.
 - Si le labo est connecté localement par Express Route (par exemple), des **espaces d’adressage IP sont définis** pour le réseau virtuel/sous-réseau. Pour vérifier que les machines virtuelles du labo sont effectivement créés (erreur : impossible d’obtenir l’adresse IP), les propriétaires de labo peuvent spécifier un nombre maximum de machines virtuelles par labo correspondant à l’espace d’adressage IP disponible.
 
 ## <a name="use-resource-manager-templates"></a>Utiliser des modèles Resource Manager

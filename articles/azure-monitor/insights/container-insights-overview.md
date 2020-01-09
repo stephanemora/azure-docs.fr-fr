@@ -1,18 +1,14 @@
 ---
 title: Vue d’ensemble d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit Azure Monitor pour les conteneurs qui surveille la solution AKS Container Service et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et Container Instances dans Azure.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 8267f8148269f8b1a0717435e57614f09c229de1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8372d0882c381a8c98cb74ab764097d4f595eeae
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841402"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690016"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 
@@ -40,11 +36,6 @@ Azure Monitor pour conteneurs offre une expérience de surveillance complète vi
 * Comprendre le comportement du cluster lorsqu’il subit des charges moyennes et très importantes. Cette information peut vous aider à identifier les besoins en capacité et à déterminer la charge maximale que le cluster peut supporter. 
 * Configurer des alertes pour vous avertir de manière proactive ou les enregistrer lorsque l’utilisation de l’UC et de la mémoire sur des nœuds ou des conteneurs dépasse vos seuils, ou encore lorsqu’un changement d’état d’intégrité se produit dans le cluster au niveau de l’infrastructure ou du cumul d’intégrité des nœuds.
 * Bénéficier d’une intégration à [Prometheus](https://prometheus.io/docs/introduction/overview/) pour afficher les métriques d’application et de charge de travail qu’il collecte à partir des nœuds et Kubernetes à l’aide de [requêtes](container-insights-log-search.md) pour créer des alertes personnalisées, des tableaux de bord et une analyse détaillée des performances.
-
-    >[!NOTE]
-    >La prise en charge de Prometheus est une fonctionnalité de la préversion publique actuellement.
-    >
-
 * Surveiller les charges de travail de conteneur [déployées sur le moteur AKS](https://github.com/microsoft/OMS-docker/tree/aks-engine) local et le [moteur AKS sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Surveiller les charges de travail de conteneur [déployées sur Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 

@@ -3,16 +3,16 @@ title: Limites et quotas de la préversion d’IoT Plug-and-Play | Microsoft Doc
 description: Comprenez les limites, les quotas et les limitations qui s’appliquent lorsque vous utilisez la préversion d’IoT Plug-and-Play.
 author: miagdp
 ms.author: miag
-ms.date: 08/01/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2df8a8820422a22b0512e24c4b052377cb0e61e0
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 48ecaaba6d956efd9da75d0582fa06d231cb3f80
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878925"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531375"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Limites, quotas et limitations de la préversion d’IoT Plug-and-Play
 
@@ -24,7 +24,7 @@ Pour la préversion publique, les limites et quotas suivants s’appliquent à u
 
 | Limites, restrictions et limitations | Valeur | Notes |
 |-----|-----|-----|
-| Nombre de modèles de capacité de l’appareil ou d’interfaces pouvant être inscrits par hub | 1 500 ||
+| Nombre de modèles de capacité de l’appareil ou d’interfaces pouvant être inscrits par hub | 1500 ||
 | Nombre maximal d’interfaces pouvant être inscrites par appareil | 40 ||
 | Nombre maximal de modèles de capacité de l’appareil pouvant être inscrits par appareil | 1 ||
 | Taille maximale du fichier interface/modèle de capacité de l’appareil | 512 caractères ||
@@ -43,8 +43,8 @@ Pour la préversion publique, les limites et quotas suivants s’appliquent à u
 |-----|-----|
 | Nombre de référentiels de modèles d’entreprise par locataire Azure Active Directory | 1 |
 | Nombre de clés d’autorisation par référentiel de modèle | 10  |
-| Nombre de modèles (modèles de capacités de l’appareil ou interfaces) par référentiel de modèle d’entreprise| 1 500  |
-| Nombre de modèles (modèles de capacités de l’appareil ou interfaces) dans le référentiel de modèles public par locataire Azure Active Directory| 1 500  |
+| Nombre de modèles (modèles de capacités de l’appareil ou interfaces) par référentiel de modèle d’entreprise| 1500  |
+| Nombre de modèles (modèles de capacités de l’appareil ou interfaces) dans le référentiel de modèles public par locataire Azure Active Directory| 1500  |
 | Nombre de modèles de capacités de l’appareil ou d’interfaces en cours de suppression dans un référentiel de modèles d’entreprise | 10 requêtes par seconde|
 | Nombre de référentiels de modèles créés/mis à jour par un locataire| 1 requête par seconde |
 | Nombre de clés d’autorisation créées/mises à jour/supprimées dans un référentiel de modèles | 1 requête par seconde|

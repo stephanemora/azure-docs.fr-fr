@@ -2,17 +2,17 @@
 title: Mise à l’échelle automatique d’un service cloud dans le portail | Microsoft Docs
 description: Découvrez comment utiliser le portail pour configurer des règles de mise à l’échelle automatique pour le rôle web ou de travail d’un service cloud dans Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 7e106dbd237be79be924afadbe893669c4f3daf8
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 5880544137855a2ea5bcd6d6e4bada46563564ad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360835"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Configuration de la mise à l’échelle automatique d’un service cloud dans le portail
 
@@ -105,3 +105,6 @@ Ce paramètre supprime la mise à l’échelle automatique du rôle, et vous pou
 3. Nombre d’instances pour la mise à l’échelle du rôle.
 
 Après avoir configuré les paramètres de mise à l’échelle, sélectionnez l’icône **Enregistrer** en haut.
+
+
+

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: c03a7cb28820ef8aca4e10314a424ea068cb3cee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 03f8bffafe9ebfd95d439f920a5e00be27810c96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444243"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -39,7 +39,7 @@ Vous pouvez copier des données d’une base de données MySQL vers toute banque
 
 Plus précisément, ce connecteur MySQL prend en charge MySQL **versions 5.6 et 5.7**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -59,11 +59,11 @@ Les propriétés prises en charge pour le service lié MySQL sont les suivantes�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **MySql** | OUI |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **MySql** | Oui |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL.<br/> Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
-Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
+Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Selon votre cas de figure, vous pouvez définir d’autres propriétés :
 
 | Propriété | Description | Options | Obligatoire |
 |:--- |:--- |:--- |:--- |
@@ -78,10 +78,7 @@ Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Da
     "properties": {
         "type": "MySql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
-            }
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -91,7 +88,7 @@ Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Da
 }
 ```
 
-**Exemple : stockage du mot de passe dans Azure Key Vault**
+**Exemple : stockage du mot de passe dans Azure Key Vault**
 
 ```json
 {
@@ -99,10 +96,7 @@ Une chaîne de connexion par défaut typique est `Server=<server>;Port=<port>;Da
     "properties": {
         "type": "MySql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;"
-            },
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -154,7 +148,7 @@ Pour copier des données à partir de MySQL, les propriétés suivantes sont pri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **MySqlTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MySqlTable** | Oui |
 | tableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -187,7 +181,7 @@ Pour copier des données à partir de MySQL, les propriétés prises en charge d
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **MySqlSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MySqlSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

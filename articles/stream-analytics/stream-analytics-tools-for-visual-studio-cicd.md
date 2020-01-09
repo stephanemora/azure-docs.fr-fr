@@ -1,19 +1,18 @@
 ---
 title: Utiliser le package NuGet CI/CD Azure Stream Analytics
 description: Cet article explique comment utiliser le package NuGet CI/CD Azure Stream Analytics pour configurer un processus de déploiement et d’intégration continus.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 6f5ba06841af580cd80b3b46bec972f717ded044
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 11e68aaa7c70d4f888c0009bc28d9bb90f431f3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354456"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utiliser le package NuGet CI/CD Azure Stream Analytics pour l’intégration et le développement 
 Cet article explique comment utiliser le package NuGet CI/CD Azure Stream Analytics pour configurer un processus de déploiement et d’intégration continus.
@@ -84,7 +83,7 @@ La commande *arm* prend le modèle de travail et les fichiers de paramètres de 
 ```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
-Exemple :
+Exemple :
 ```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
@@ -93,6 +92,6 @@ Exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Créer un travail cloud Azure Stream Analytics dans Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : Créer un travail cloud Azure Stream Analytics dans Visual Studio](stream-analytics-quick-create-vs.md)
 * [Tester des requêtes Stream Analytics localement avec Visual Studio](stream-analytics-vs-tools-local-run.md)
 * [Explorer des travaux Azure Stream Analytics avec Visual Studio](stream-analytics-vs-tools.md)

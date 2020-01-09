@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679845"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444148"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -65,13 +65,13 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-name | Nom de l’activité de condition « if ». | String | OUI
-Type | Doit avoir la valeur **IfCondition** | String | OUI
-expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | OUI
-ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Array | OUI
-ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Array | OUI
+name | Nom de l’activité de condition « if ». | String | Oui
+type | Doit avoir la valeur **IfCondition** | String | Oui
+expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | Oui
+ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Array | Oui
+ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Array | Oui
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection. Si la valeur de routeSelection est true, les données sont copiées vers outputPath1. Par contre, si la valeur de routeSelection est false, les données sont copiées vers outputPath2. 
 
 > [!NOTE]
@@ -196,10 +196,7 @@ Voici un autre exemple d’expression :
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

@@ -4,15 +4,15 @@ description: Cartographie est une fonctionnalité d’Azure Monitor pour machine
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 7ca79b0df55dbfea6a0e2c016773f9f32bf29667
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d91c4f7c3abdb06bfe0116e0fadf67c5b7a7a394
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450718"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles (préversion) afin de mieux comprendre le fonctionnement des composants d’application
 Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
@@ -20,7 +20,7 @@ Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d�
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="introduction-to-the-map-experience"></a>Présentation de l’expérience avec la fonctionnalité Cartographie
 Avant d’entrer dans les détails de l’expérience avec la fonctionnalité Cartographie, vous devez comprendre comment cette fonctionnalité présente et affiche les informations. Que vous sélectionniez la fonctionnalité Cartographie directement à partir d’une machine virtuelle ou à partir d’Azure Monitor, cette fonctionnalité offre une expérience similaire. La seule différence est qu’à partir d’Azure Monitor, vous voyez sur une carte unique tous les membres d’un cluster ou d’une application multiniveau.

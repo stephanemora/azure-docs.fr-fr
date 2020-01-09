@@ -1,6 +1,6 @@
 - name: Documentation relative aux notions de base
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce qu’Azure Active Directory\_?"
@@ -8,12 +8,14 @@
     - name: Nouveautés d’Azure Active Directory
       href: whats-new.md
 - name: Démarrages rapides
+  expanded: true
   items:
     - name: Accéder au portail et créer un abonné
       href: active-directory-access-create-new-tenant.md
     - name: Afficher vos groupes avec leurs membres assignés
       href: active-directory-groups-view-azure-portal.md
 - name: Concepts
+  expanded: true
   items:
     - name: Identity Secure Score
       href: identity-secure-score.md
@@ -37,6 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: Stockages de données d’identité pour l’UE
       href: active-directory-data-storage-eu.md
+    - name: Stockages de données d’identité pour l’Australie
+      href: active-directory-data-storage-australia.md
     - name: "Nouveautés de Microsoft\_365 Government"
       href: whats-new-microsoft-365-government.md
     - name: Informations de référence sur les opérations Azure AD
@@ -54,7 +58,7 @@
 - name: Guides pratiques
   expanded: true
   items:
-    - name: Organisation
+    - name: Organization
       items:
         - name: S’inscrire à Azure AD en tant qu’organisation
           href: sign-up-organization.md
@@ -97,6 +101,7 @@
         - name: Restaurer un utilisateur supprimé.
           href: active-directory-users-restore.md
 - name: Ressources
+  expanded: true
   items:
     - name: "Obtenir une assistance pour Azure\_Active\_Directory"
       href: active-directory-troubleshooting-support-howto.md

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8f6959eb6f9d17a368e7df7b95ecc511d0396f87
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6771cdb206920c8e3b746e28573de1742543b4c8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621450"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646691"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu
 
@@ -61,19 +61,19 @@ Créez un regroupement de règles d’application permettant au cluster d’envo
 
     | Propriété|  Valeur|
     |---|---|
-    |Nom| FwAppRule|
+    |Name| FwAppRule|
     |Priority|200|
-    |Action|AUTORISER|
+    |Action|Allow|
 
     **Section des étiquettes FQDN**
 
-    | Nom | Adresse source | Balise FQDN | Notes |
+    | Name | Adresse source | Balise FQDN | Notes |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate et HDInsight | Requis pour les services HDI |
 
     **Section des noms de domaine complets cibles**
 
-    | Nom | Adresses sources | Protocole:Port | Noms de domaine complets cibles | Notes |
+    | Name | Adresses sources | Protocole:Port | Noms de domaine complets cibles | Notes |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Autorise les activités de connexion Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Autorise les activités de connexion Windows |
@@ -95,13 +95,13 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
     | Propriété|  Valeur|
     |---|---|
-    |Nom| FwNetRule|
+    |Name| FwNetRule|
     |Priority|200|
-    |Action|AUTORISER|
+    |Action|Allow|
 
     **Section des adresses IP**
 
-    | Nom | Protocol | Adresses sources | Adresses de destination | Ports de destination | Notes |
+    | Name | Protocol | Adresses sources | Adresses de destination | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Service de temps |
     | Rule_2 | Quelconque | * | DC_IP_Address_1, DC_IP_Address_2 | * | Si vous utilisez le Pack Sécurité Entreprise (ESP), ajoutez une règle de réseau dans la section Adresses IP permettant la communication avec AAD-DS pour les clusters ESP. Vous pouvez trouver les adresses IP des contrôleurs de domaine dans la section AAD-DS du portail. |
@@ -110,7 +110,7 @@ Créez les règles de réseau pour configurer correctement votre cluster HDInsig
 
     **Section des étiquettes de service**
 
-    | Nom | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
+    | Name | Protocol | Adresses sources | Étiquettes de service | Ports de destination | Notes |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Configurez une règle de réseau dans la section Étiquettes de service pour SQL qui vous permettra d’enregistrer et d’auditer le trafic SQL, sauf si vous avez configuré des points de terminaison de service pour SQL Server sur le sous-réseau HDInsight, qui contournent le pare-feu. |
 
@@ -178,7 +178,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 L’intégration de votre pare-feu Azure à des journaux Azure Monitor est utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-Pour en savoir plus sur les limites de mise à l’échelle du Pare-feu Azure et demander une augmentation, consultez [ce document](../azure-subscription-service-limits.md#azure-firewall-limits) ou reportez-vous au [FAQ](../firewall/firewall-faq.md).
+Pour en savoir plus sur les limites de mise à l’échelle du Pare-feu Azure et demander une augmentation, consultez [ce document](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) ou reportez-vous au [FAQ](../firewall/firewall-faq.md).
 
 ## <a name="access-to-the-cluster"></a>Accès au cluster
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services Def. Schéma NetworkTrafficRules | Microsoft Docs
+title: Déf. Azure Cloud Services Schéma NetworkTrafficRules | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -10,15 +10,14 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: georgewallace
-ms.author: gwallace
-manager: gwallace
-ms.openlocfilehash: e99b9f0f601841fe6ff32eba0a43bfafd652e941
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: e6d156810b9fdee69ddac122eec06db7267ddf36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449037"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Schéma NetworkTrafficRules de définition des services cloud Azure
 Le nœud `NetworkTrafficRules` est un élément facultatif dans le fichier de définition de service, qui spécifie comment les rôles communiquent entre eux. Il limite les rôles qui peuvent accéder aux points de terminaison internes du rôle spécifique. Le `NetworkTrafficRules` n’est pas un élément autonome ; il est associé à deux ou plusieurs rôles dans un fichier de définition de service.
@@ -78,8 +77,8 @@ L’élément `RoleEndpoint` décrit un point de terminaison sur un rôle qui pe
 
 | Attribut      | Type     | Description |
 | -------------- | -------- | ----------- |
-| `endpointName` | `string` | Requis. Le nom du point de terminaison vers lequel autoriser le trafic.|
-| `roleName`     | `string` | Requis. Le nom du rôle web vers lequel autoriser la communication.|
+| `endpointName` | `string` | Obligatoire. Le nom du point de terminaison vers lequel autoriser le trafic.|
+| `roleName`     | `string` | Obligatoire. Le nom du rôle web vers lequel autoriser la communication.|
 
 ## <a name="allowalltraffic-element"></a>Élément AllowAllTraffic
 L’élément `AllowAllTraffic` est une règle qui autorise tous les rôles à communiquer avec les points de terminaison définis dans le nœud `Destinations`.
@@ -89,14 +88,18 @@ L’élément `WhenSource` décrit une collection de rôles qui peuvent communiq
 
 | Attribut | Type     | Description |
 | --------- | -------- | ----------- |
-| `matches` | `string` | Requis. Spécifie la règle à appliquer lorsque vous autorisez les communications. Actuellement, la seule valeur possible est `AnyRule`.|
+| `matches` | `string` | Obligatoire. Spécifie la règle à appliquer lorsque vous autorisez les communications. Actuellement, la seule valeur possible est `AnyRule`.|
   
 ##  <a name="FromRole"></a> Élément FromRole
 L’élément `FromRole` spécifie les rôles qui peuvent communiquer avec les points de terminaison définis dans le nœud `Destinations`. Vous pouvez spécifier plusieurs éléments `FromRole` s’il existe plus d’un rôle capable de communiquer avec les points de terminaison.
 
 | Attribut  | Type     | Description |
 | ---------- | -------- | ----------- |
-| `roleName` | `string` | Requis. Nom du rôle à partir duquel autoriser la communication.|
+| `roleName` | `string` | Obligatoire. Nom du rôle à partir duquel autoriser la communication.|
 
 ## <a name="see-also"></a>Voir aussi
 [Schéma de définition de services cloud (classique)](schema-csdef-file.md)
+
+
+
+

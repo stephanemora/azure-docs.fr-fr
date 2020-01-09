@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b6826fa53e9810bdd30af4faf9fbf6bc3c3492e8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928031"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439251"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copier de nouveaux fichiers de façon incrémentielle sur la base du nom de fichier partitionné dans le temps à l’aide de l’outil Copier des données
 
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Utilisez le stockage d’objets blob comme magasins de données _source_ et _récepteur_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
@@ -64,7 +64,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
    
    ![Message d’erreur de nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
    
-   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
+   Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 3. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données. 
 4. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
      
@@ -72,7 +72,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 
     b. Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
          
-    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).
 
 5. Sous **Version**, sélectionnez **V2** pour la version.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
@@ -80,7 +80,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 8. Sélectionnez **Create** (Créer).
 9. Sur le tableau de bord, la vignette **Déploiement de Data Factory** affiche l’état du processus.
 
-    ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)
+    ![Vignette Déploiement d’une fabrique de données](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. Une fois la création terminée, la page d’accueil **Data Factory** s’affiche.
    
     ![Page d’accueil Data Factory](./media/doc-common-process/data-factory-home-page.png)

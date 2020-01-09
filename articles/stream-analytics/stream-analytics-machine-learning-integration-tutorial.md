@@ -1,20 +1,19 @@
 ---
 title: Intégration d’Azure Stream Analytics avec Microsoft Azure Machine Learning
 description: Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning à l’aide d’une fonction définie par l’utilisateur.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c683cfeadcc13e5112a4687e18db9338d3574cd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467882"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459590"
 ---
 # <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Exécuter des analyses de sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (classique) (préversion)
 Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple qui intègre Azure Machine Learning Studio (classique). Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
@@ -36,7 +35,7 @@ La figure suivante illustre cette configuration. Comme nous l’avons indiqué, 
 
 ![Vue d’ensemble de l’intégration de Machine Learning dans Stream Analytics](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Un abonnement Azure actif.

@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 9005b2e01cdb17d6aa6c630ec8be3d702d5b138c
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688105"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435870"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurer des stratégies Apache Hive dans HDInsight avec le Pack Sécurité Entreprise
 
 Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Dans cet article, vous créez deux stratégies Ranger pour restreindre l’accès à hivesampletable. hivesampletable dispose de clusters HDInsight. Après avoir configuré les stratégies, vous utilisez Excel et le pilote ODBC pour vous connecter à des tables Hive dans HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster HDInsight avec le Pack Sécurité Entreprise. Voir [Configurer des clusters HDInsight avec ESP](apache-domain-joined-configure.md).
 * Une station de travail avec Office 2016, Office 2013 ProPlus, Office 365 Pro Plus, l’édition autonome d’Excel 2013 ou Office Professionnel Plus 2010.
@@ -40,11 +40,11 @@ Découvrez comment configurer des stratégies Apache Ranger pour Apache Hive. Da
 
 ## <a name="create-domain-users"></a>Création d’utilisateurs du domaine
 
-Pour plus d’informations sur la façon de créer hiveruser1 et hiveuser2, consultez [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Dans cet article, vous utilisez les deux comptes utilisateur.
+Pour plus d’informations sur la façon de créer hiveruser1 et hiveuser2, consultez [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). Dans cet article, vous utilisez les deux comptes utilisateur.
 
 ## <a name="create-ranger-policies"></a>Création de stratégies Ranger
 
-Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés en suivant les instructions de l’article [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Dans la section suivante, vous allez tester les deux stratégies dans Excel.
+Dans cette section, vous créez deux stratégies Ranger pour accéder à hivesampletable. Vous accordez une autorisation select sur différents ensembles de colonnes. Les deux utilisateurs ont été créés en suivant les instructions de l’article [Créer un cluster HDInsight avec ESP](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp). Dans la section suivante, vous allez tester les deux stratégies dans Excel.
 
 **Pour créer des stratégies Ranger**
 
@@ -85,7 +85,7 @@ Vous trouverez les instructions dans [Création d’une source de données ODBC 
 
  | Propriété  |Description |
  | --- | --- |
- | Data Source Name | Donnez un nom à votre source de données |
+ | Nom de la source de données | Donnez un nom à votre source de données |
  | Host | Entrez CLUSTERNAME.azurehdinsight.net. Par exemple, myHDICluster.azurehdinsight.net |
  | Port | Utilisez **443**. (ce port est passé de 563 à 443). |
  | Base de données | Utilisez **Default**. |

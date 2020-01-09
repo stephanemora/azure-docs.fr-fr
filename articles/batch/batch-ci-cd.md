@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 47665171ee5ae137e0503b3e5fa1d369aeabb356
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840062"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449800"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
@@ -27,7 +27,7 @@ Dans cet exemple, nous allons créer un pipeline de build/mise en production pou
 
 ![Diagramme montrant le flux de déploiement dans notre pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Paramétrage
+### <a name="setup"></a>Programme d’installation
 
 Pour suivre les étapes décrites dans cet article, vous avez besoin d’une organisation Azure DevOps et d’un projet d’équipe.
 
@@ -52,7 +52,7 @@ La structure du codebase utilisée dans cet exemple ressemble à celle-ci :
 Cette section part du principe que vous êtes familiarisé avec la gestion de version et la conception de modèles Resource Manager. Si vous n’êtes pas familiarisé avec ces concepts, consultez les pages suivantes pour plus d’informations.
 
 * [Qu’est-ce que le contrôle de code source ?](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 

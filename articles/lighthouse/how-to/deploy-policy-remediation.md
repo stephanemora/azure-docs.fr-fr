@@ -3,20 +3,20 @@ title: Déployer une stratégie pouvant être corrigée
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
 ms.date: 10/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: c06ed4ea597808aee18d4a848bcfea7152b9cf8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456859"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>Déployer une stratégie pouvant être corrigée dans un abonnement délégué
 
-[Azure Lighthouse](../overview.md) permet aux fournisseurs de services de créer et de modifier des définitions de stratégies au sein d’un abonnement délégué. Toutefois, pour déployer des stratégies qui utilisent une [tâche de correction](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources) (autrement dit, des stratégies avec l’effet [deployIfNotExists](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deployifnotexists) ou [modify](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)), vous devez créer une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) dans le locataire du client. Cette identité managée peut être utilisée par Azure Policy pour déployer le modèle dans la stratégie. Il existe des étapes à suivre pour activer ce scénario, à la fois quand vous intégrez le client pour la gestion des ressources déléguées Azure et quand vous déployez la stratégie elle-même.
+[Azure Lighthouse](../overview.md) permet aux fournisseurs de services de créer et de modifier des définitions de stratégies au sein d’un abonnement délégué. Toutefois, pour déployer des stratégies qui utilisent une [tâche de correction](../../governance/policy/how-to/remediate-resources.md) (autrement dit, des stratégies avec l’effet [deployIfNotExists](../../governance/policy/concepts/effects.md#deployifnotexists) ou [modify](../../governance/policy/concepts/effects.md#modify)), vous devez créer une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md) dans le locataire du client. Cette identité managée peut être utilisée par Azure Policy pour déployer le modèle dans la stratégie. Il existe des étapes à suivre pour activer ce scénario, à la fois quand vous intégrez le client pour la gestion des ressources déléguées Azure et quand vous déployez la stratégie elle-même.
 
 ## <a name="create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant"></a>Créer un utilisateur qui peut attribuer des rôles à une identité managée dans le locataire du client
 
-Quand vous intégrez un client pour la gestion des ressources déléguées Azure, vous utilisez un [modèle Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer#create-an-azure-resource-manager-template) avec un fichier de paramètres qui définit les utilisateurs, les groupes d’utilisateurs et les principaux de service de votre locataire gestionnaire qui pourront accéder aux ressources déléguées dans le locataire du client. Dans votre fichier de paramètres, chacun de ces utilisateurs (**principalId**) se voit attribuer un [rôle intégré](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (**roleDefinitionId**) qui définit le niveau d’accès.
+Quand vous intégrez un client pour la gestion des ressources déléguées Azure, vous utilisez un [modèle Azure Resource Manager](onboard-customer.md#create-an-azure-resource-manager-template) avec un fichier de paramètres qui définit les utilisateurs, les groupes d’utilisateurs et les principaux de service de votre locataire gestionnaire qui pourront accéder aux ressources déléguées dans le locataire du client. Dans votre fichier de paramètres, chacun de ces utilisateurs (**principalId**) se voit attribuer un [rôle intégré](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) qui définit le niveau d’accès.
 
 Pour permettre à un **principalId** de créer une identité managée dans le locataire du client, vous devez définir son **roleDefinitionId** sur **Administrateur de l’accès utilisateur**. Bien que ce rôle ne soit généralement pas pris en charge, il peut être utilisé dans ce scénario spécifique, permettant aux utilisateurs disposant de cette autorisation d’affecter un ou plusieurs rôles intégrés spécifiques à des identités managées. Ces rôles sont définis dans la propriété **delegatedRoleDefinitionIds**. Vous pouvez inclure ici n’importe quel rôle intégré, sauf Administrateur de l’accès utilisateur ou Propriétaire.
 
@@ -66,5 +66,5 @@ L’exemple suivant montre une attribution de rôle avec un **delegatedManagedId
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
-- En savoir plus sur les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- En savoir plus sur [Azure Policy](../../governance/policy/index.yml).
+- En savoir plus sur les [identités managées pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).

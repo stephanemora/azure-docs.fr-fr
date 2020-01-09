@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08cc7ce8f306095a66bc0f8cf74dff8c8b551ecf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440473"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -53,11 +53,11 @@ Les sources de données suivantes sont prises en charge pour l’activité Look
 
 ## <a name="type-properties"></a>Propriétés type
 
-Nom | Description | type | Requis ?
+Name | Description | Type | Requis ?
 ---- | ----------- | ---- | --------
-dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
-source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
-firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. Par défaut, il s’agit de `true`.
+dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
+source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | Oui
+firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Boolean | Non. Par défaut, il s’agit de `true`.
 
 > [!NOTE]
 > 
@@ -81,7 +81,7 @@ Le résultat de la recherche est retourné dans la section `output` du résultat
     }
     ```
 
-* **Quand `firstRowOnly` a la valeur `false`** , le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. Par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
+* **Quand `firstRowOnly` a la valeur `false`** , le format de la sortie se présente comme dans le code suivant. Un champ `count` indique le nombre d’enregistrements qui sont retournés. Les valeurs détaillées sont affichées sous un tableau `value` fixe. Dans ce cas, l’activité Lookup est suivie d’une [activité Foreach](control-flow-for-each-activity.md). Vous passez le tableau `value` au champ `items` de l’activité ForEach en utilisant le modèle `@activity('MyLookupActivity').output.value`. Pour accéder aux éléments du tableau `value`, utilisez la syntaxe suivante : `@{activity('lookupActivity').output.value[zero based index].propertyname}`. par exemple `@{activity('lookupActivity').output.value[0].tablename}`.
 
     ```json
     {
@@ -238,10 +238,7 @@ Ce compte de stockage contient le fichier JSON avec les noms des tables SQL.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -258,10 +255,7 @@ Cette instance Azure SQL Database contient les données à copier dans le stocka
         "type": "AzureSqlDatabase",
         "description": "",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
         }
     }
 }

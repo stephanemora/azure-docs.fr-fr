@@ -13,21 +13,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 8d7d4c8d7e01c6a4bfa644b84f03f8a2ea5bfd06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5263af2708ee30566e90cdf59ef69f52f76a9d32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440317"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Guide pratique pour démarrer et arrêter Azure-SSIS Integration Runtime selon une planification
-Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est un ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
+Cet article explique comment planifier le démarrage et l’arrêt d’Azure-SSIS Integration Runtime avec Azure Data Factory. Azure-SSIS Integration Runtime est une ressource de calcul d’Azure Data Factory dédiée à l’exécution de packages SSIS (SQL Server Integration Services). Un coût est associé à l’exécution d’Azure-SSIS Integration Runtime. Il est donc généralement souhaitable d’exécuter votre runtime d’intégration seulement quand vous devez exécuter des packages SSIS dans Azure et de l’arrêter quand vous n’en avez plus besoin. Vous pouvez utiliser l’interface utilisateur/application Azure Data Factory ou Azure PowerShell pour [démarrer ou arrêter manuellement votre runtime d’intégration](manage-azure-ssis-integration-runtime.md)).
 
 Vous pouvez aussi créer des activités web dans des pipelines Azure Data Factory pour démarrer/arrêter votre runtime d’intégration sur la planification, par exemple en le démarrant le matin avant l’exécution de vos charges de travail ETL quotidiennes, et en l’arrêtant dans l’après-midi une fois qu’elles sont terminées.  Vous pouvez également chaîner une activité Exécuter un package SSIS entre deux activités web qui démarrent et arrêtent votre runtime d’intégration : votre runtime d’intégration démarre/s’arrête donc à la demande, juste à temps avant/après l’exécution du package. Pour plus d’informations sur l’activité Exécuter un package SSIS, consultez l’article [Exécuter un package SSIS avec l’activité Exécuter un package SSIS dans Azure Data Factory](how-to-invoke-ssis-package-ssis-activity.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Si vous n’avez pas déjà provisionné votre runtime d’intégration Azure SSIS, provisionnez-le en suivant les instructions données dans ce [tutoriel](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Créer et planifier des pipelines Azure Data Factory qui démarrent et/ou arrêtent Azure-SSIS Integration Runtime
@@ -64,7 +64,7 @@ Si vous créez un troisième déclencheur qui est planifié pour s’exécuter t
    - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
    - Sélectionnez **Créer**, puis entrez le nom de votre groupe de ressources.   
          
-   Pour plus d’informations sur les groupes de ressources, consultez l’article [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+   Pour plus d’informations sur les groupes de ressources, consultez l’article [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).
    
 6. Pour **Version**, sélectionnez **V2**.
 7. Pour **Emplacement**, sélectionnez un des emplacements pris en charge pour la création de fabriques Azure Data Factory dans la liste déroulante.

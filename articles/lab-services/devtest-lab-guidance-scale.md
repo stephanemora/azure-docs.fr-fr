@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a48cef2210721bf7116b1c4ad1169779288f47d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60561487"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644832"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Scale up de votre infrastructure Azure DevTest Labs
 Avant d’implémenter DevTest Labs à l’échelle de l’entreprise, plusieurs points de décision clés sont à examiner. La compréhension de ces points de décision à un niveau hiérarchique élevé éclaire les décisions de conception à venir de l’organisation. Toutefois, ces points ne doivent pas retenir une organisation de démarrer une preuve de concept. Les trois domaines les plus importants en matière de planification initiale de scale-up sont :
@@ -53,7 +53,7 @@ Souvent, cette approche n’est pas facile à gérer pour une grande entreprise.
 ### <a name="subscription-per-user"></a>Un abonnement par utilisateur
 Un abonnement distinct par utilisateur fournit des opportunités similaires à l’autre extrême. Les avantages d’avoir plusieurs abonnements incluent :
 
-- **Les quotas de mise à l’échelle Azure** ne vont pas entraver l’adoption. Par exemple, à ce jour, Azure autorise 200 comptes de stockage par abonnement. Il existe des quotas opérationnels pour la plupart des services Azure (nombre d’entre eux peuvent être personnalisés, mais certains non). Dans ce modèle d’un abonnement par utilisateur, il est très peu probable que la plupart des quotas soient atteints. Pour plus d’informations sur les quotas Azure actuels, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+- **Les quotas de mise à l’échelle Azure** ne vont pas entraver l’adoption. Par exemple, à ce jour, Azure autorise 200 comptes de stockage par abonnement. Il existe des quotas opérationnels pour la plupart des services Azure (nombre d’entre eux peuvent être personnalisés, mais certains non). Dans ce modèle d’un abonnement par utilisateur, il est très peu probable que la plupart des quotas soient atteints. Pour plus d’informations sur les quotas Azure actuels, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - **Les rétrofacturations** à des développeurs individuels ou des groupes de développeurs sont facilitées, permettant aux organisations d’intégrer les coûts à l’aide de leur modèle actuel.
 - **La propriété et les autorisations** relatives aux environnements DevTest Labs sont simples. Vous donnez aux développeurs un accès de niveau abonnement et ils sont entièrement responsables de tout, y compris la configuration du réseau, les stratégies de laboratoire et la gestion des machines virtuelles.
 

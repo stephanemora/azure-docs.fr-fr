@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 0225405c5d3a511bbb2bbb08c1c13e5adedd5096
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad408df140be49da2e50ef810285dd850e9da6a1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903768"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638865"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copier des données d’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ Vous pouvez également utiliser l’outil AdlCopy dans deux modes différents :
 * **Autonome** : l’outil utilise des ressources Data Lake Storage Gen1 pour effectuer la tâche.
 * **À l’aide d’un compte Data Lake Analytics**: les unités affectées à votre compte Data Lake Analytics permettent d’effectuer l’opération de copie. Vous pouvez utiliser cette option lorsque vous souhaitez que les tâches de copie s’effectuent de manière prévisible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -90,7 +90,7 @@ Les paramètres de la syntaxe sont décrits ci-après :
 
 ### <a name="performance-considerations"></a>Considérations relatives aux performances
 
-Si vous copiez à partir d’un compte de stockage Blob Azure, vous pouvez être limité au cours de la copie du côté du stockage d’objets blob. Cela dégradera les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-subscription-service-limits.md).
+Si vous copiez à partir d’un compte de stockage Blob Azure, vous pouvez être limité au cours de la copie du côté du stockage d’objets blob. Cela dégradera les performances de votre tâche de copie. Pour en savoir plus sur les limites du stockage Blob Azure, consultez les limites du stockage Azure sur [Abonnement Azure et limites du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="use-adlcopy-as-standalone-to-copy-data-from-another-data-lake-storage-gen1-account"></a>Utilisation d’AdlCopy (en mode autonome) pour copier des données à partir d’un autre compte Azure Data Lake Storage Gen1
 

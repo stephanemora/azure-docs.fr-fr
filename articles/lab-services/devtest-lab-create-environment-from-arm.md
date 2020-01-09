@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 51c699f9b392be5f2e2bc16b5729d6567ace7f17
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 9e80bc3e176f831f8609dd7f2a2ee22a2495e89b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016257"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428936"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
-Les environnements Azure DevTest Labs permettent aux utilisateurs de déployer facilement des infrastructures complexes de manière cohérente au sein du laboratoire. Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer des environnements avec des ensembles de ressources dans DevTest Labs. Ces environnements peuvent contenir toutes les ressources Azure que des modèles Resource Manager peuvent créer. 
+Les environnements Azure DevTest Labs permettent aux utilisateurs de déployer facilement des infrastructures complexes de manière cohérente au sein du laboratoire. Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) pour créer des environnements avec des ensembles de ressources dans DevTest Labs. Ces environnements peuvent contenir toutes les ressources Azure que des modèles Resource Manager peuvent créer. 
 
 Vous pouvez facilement [ajouter une machine virtuelle à la fois](devtest-lab-add-vm.md) à un laboratoire à l’aide du [portail Azure](https://portal.azure.com). Toutefois, les scénarios tels que les applications web à plusieurs niveaux ou une batterie SharePoint ont besoin d’un mécanisme de création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager vous permettent de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. 
 
@@ -34,7 +34,7 @@ Les modèles Azure Resource Manager offrent également les avantages suivants :
 - Vous pouvez approvisionner des ressources PaaS Azure, ainsi que des machines virtuelles IaaS, dans un environnement à partir d’un modèle Azure Resource Manager.
 - Vous pouvez suivre le coût des environnements dans le laboratoire en plus des machines virtuelles créées par d’autres types de bases. Les ressources PaaS sont créées et s’affichent dans le suivi des coûts. Toutefois, l’arrêt automatique de machine virtuelle ne s’applique pas aux ressources PaaS.
 
-Pour en savoir plus sur les avantages de l’utilisation de modèles Resource Manager pour déployer, mettre à jour et supprimer de nombreuses ressources de laboratoire en une seule opération, consultez [Avantages de l’utilisation de modèles Resource Manager](../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager).
+Pour en savoir plus sur les avantages de l’utilisation de modèles Resource Manager pour déployer, mettre à jour et supprimer de nombreuses ressources de laboratoire en une seule opération, consultez [Avantages de l’utilisation de modèles Resource Manager](../azure-resource-manager/management/overview.md#the-benefits-of-using-resource-manager).
 
 > [!NOTE]
 > Lorsque vous utilisez un modèle Resource Manager comme base pour créer des machines virtuelles de laboratoire, il existe des différences entre la création de plusieurs machines virtuelles et celle d’une machine virtuelle individuelle. Pour plus d’informations, consultez [Utiliser un modèle Azure Resource Manager de machine virtuelle](devtest-lab-use-resource-manager-template.md).
@@ -73,7 +73,7 @@ Plusieurs règles sont à prendre en compte pour organiser vos modèles Azure Re
 
 Après avoir créé et configuré votre référentiel, vous pouvez l’ajouter à votre laboratoire à l’aide du portail Azure : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Dans la liste des laboratoires, sélectionnez le laboratoire souhaité. 
 1. Dans le volet **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.
@@ -88,7 +88,7 @@ Après avoir créé et configuré votre référentiel, vous pouvez l’ajouter �
    
 1. Dans le volet **Référentiel**, entrez les informations suivantes :
    
-   - **Nom** : Entrez un nom de référentiel à utiliser dans le laboratoire.
+   - **Name** : Entrez un nom de référentiel à utiliser dans le laboratoire.
    - **URL de clonage Git** : Entrez l’URL de clonage Git HTTPS provenant de GitHub ou d’Azure Repos. 
    - **Branche** (facultatif) : Entrez le nom de la branche pour accéder à vos définitions de modèle Azure Resource Manager.
    - **Jeton d’accès personnel** : Entrez le jeton d’accès personnel utilisé pour accéder en toute sécurité à votre référentiel.
@@ -120,7 +120,7 @@ La section suivante vous guide dans la création d’environnements à partir d�
 
 Une fois que vous avez ajouté un modèle Azure Resource Manager au laboratoire, vos utilisateurs de laboratoire peuvent créer des environnements dans le portail Azure en procédant comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
    
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
    

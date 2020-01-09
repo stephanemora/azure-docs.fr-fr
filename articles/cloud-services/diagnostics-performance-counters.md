@@ -3,17 +3,17 @@ title: Collecter les compteurs de performances dans Azure Cloud Services | Micro
 description: Découvrez comment découvrir, utiliser et créer des compteurs de performances dans Azure Cloud Services avec Diagnostics Azure et Application Insights.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
-ms.author: gwallace
-ms.openlocfilehash: d6b16b859b29ef835bca75c5fca0ea1a9d35a306
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.author: tagore
+ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68358936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385584"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Collecter les compteurs de performances pour votre Azure Cloud Service
 
@@ -119,7 +119,7 @@ Pour plus d’informations, voir [Compteurs de performances système dans Applic
 
 L’extension Diagnostics Azure pour Cloud Services vous permet de que spécifier les compteurs de performances que vous souhaitez collecter. Pour configurer Diagnostics Azure, voir [Vue d’ensemble de la surveillance de service cloud](cloud-services-how-to-monitor.md#setup-diagnostics-extension).
 
-Les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Cet élément a deux attributs : `counterSpecifier` et `sampleRate`. L’attribut `counterSpecifier` définit l’ensemble de compteurs de performances système (indiqué dans la section précédente) à collecter. La valeur `sampleRate` indique la fréquence à laquelle cette valeur est interrogée. Dans l’ensemble, tous les compteurs de performances sont transférés vers Azure en fonction de la valeur d’attribut `PerformanceCounters` de l’élément `scheduledTransferPeriod` parent.
+Les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Cet élément a deux attributs : `counterSpecifier` et `sampleRate`. L’attribut `counterSpecifier` définit l’ensemble de compteurs de performances système (indiqué dans la section précédente) à collecter. La valeur `sampleRate` indique la fréquence à laquelle cette valeur est interrogée. Dans l’ensemble, tous les compteurs de performances sont transférés vers Azure en fonction de la valeur d’attribut `PerformanceCounters` de l’élément `scheduledTransferPeriod` parent.
 
 Pour plus d’informations sur l’élément de schéma `PerformanceCounters`, voir le [schéma Diagnostics Azure](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element).
 
@@ -236,7 +236,7 @@ counterServiceUsed.Increment();
 
 ### <a name="application-insights"></a>Application Insights
 
-Comme indiqué précédemment, les compteurs de performances pour Application Insights sont définis dans le fichier **ApplicationInsights.config**. Ouvrez **ApplicationInsights.config** et recherchez l’élément **ApplicationInsights** > **TelemetryModules** > **Add**  >  **Counters**. Créez un élément enfant `<Add>` et définissez l’attribut `PerformanceCounter` sur la catégorie et le nom du compteur de performances que vous avez créé dans votre code. Définissez l’attribut `ReportAs` sur un nom convivial que vous souhaitez afficher dans le portail.
+Comme indiqué précédemment, les compteurs de performances pour Application Insights sont définis dans le fichier **ApplicationInsights.config**. Ouvrez **ApplicationInsights.config** et recherchez l’élément **ApplicationInsights** > **TelemetryModules** > **Add** > **Counters**. Créez un élément enfant `<Add>` et définissez l’attribut `PerformanceCounter` sur la catégorie et le nom du compteur de performances que vous avez créé dans votre code. Définissez l’attribut `ReportAs` sur un nom convivial que vous souhaitez afficher dans le portail.
 
 ```xml
 <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
@@ -259,7 +259,7 @@ Comme indiqué précédemment, les compteurs de performances pour Application In
 
 ### <a name="azure-diagnostics"></a>Diagnostics Azure
 
-Comme indiqué précédemment, les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg**  >  **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Définissez l’attribut `counterSpecifier` sur la catégorie et le nom du compteur de performances que vous avez créé dans votre code. 
+Comme indiqué précédemment, les compteurs de performances à collecter sont définis dans le fichier **diagnostics.wadcfgx**. Ouvrez ce fichier (il est défini par le rôle) dans Visual Studio, puis recherchez l’élément **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**. Ajoutez un nouvel élément **PerformanceCounterConfiguration** en tant qu’enfant. Définissez l’attribut `counterSpecifier` sur la catégorie et le nom du compteur de performances que vous avez créé dans votre code. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -286,9 +286,12 @@ Comme indiqué précédemment, les compteurs de performances à collecter sont d
 </DiagnosticsConfiguration>
 ```
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 - [Application Insights pour Azure Cloud Services](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Compteurs de performances système dans Application Insights](../azure-monitor/app/performance-counters.md)
 - [Spécification d’un chemin d’accès au compteur](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Schéma Diagnostics Azure - Compteurs de performances](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+
+
+

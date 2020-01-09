@@ -3,12 +3,12 @@ title: Découvrir Azure Policy pour Azure Kubernetes Service
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer les clusters sur Azure Kubernetes Service.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a4dd6bbc71c66c3ff37200ed57859b309909ae9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279391"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436391"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -18,7 +18,7 @@ En étendant l’utilisation de [Gatekeeper](https://github.com/open-policy-agen
 > [!NOTE]
 > Azure Policy pour AKS est en préversion limitée et prend uniquement en charge les définitions de stratégie intégrées.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour activer et utiliser Azure Policy pour AKS avec votre cluster AKS, effectuez les étapes suivantes :
 
@@ -33,7 +33,7 @@ Avant d’installer le module Azure Policy ou d’activer toute fonctionnalité 
 
 - Portail Azure :
 
-  1. Inscrivez les fournisseurs de ressources **Microsoft.ContainerService** et **Microsoft.PolicyInsights**. Pour connaître les étapes, consultez [Types et fournisseurs de ressources](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Inscrivez les fournisseurs de ressources **Microsoft.ContainerService** et **Microsoft.PolicyInsights**. Pour connaître les étapes, consultez [Types et fournisseurs de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
   1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
@@ -47,7 +47,7 @@ Avant d’installer le module Azure Policy ou d’activer toute fonctionnalité 
 
   1. Sélectionnez le bouton **Abonnement** en haut de la liste des abonnements.
 
-- Interface de ligne de commande Azure :
+- Azure CLI :
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -89,7 +89,7 @@ Le _module complémentaire Azure Policy_ pour Kubernetes connecte le service Azu
 
 ### <a name="installing-the-add-on"></a>Installation du module complémentaire
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’installer le module complémentaire dans votre cluster AKS, vous devez installer l’extension de préversion. Vous pouvez effectuer cette étape avec Azure CLI :
 
@@ -140,7 +140,7 @@ Une fois les prérequis satisfaits, installez le module complémentaire Azure Po
      > [!NOTE]
      > Si le bouton **Activer un module complémentaire** est grisé, l’abonnement n’a pas encore été ajouté à la préversion. Pour connaître les étapes requises, consultez [S’inscrire à la préversion](#opt-in-for-preview).
 
-- D’Azure CLI
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -220,7 +220,7 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, uti
 
      ![Désactiver le module complémentaire Azure Policy pour AKS](../media/rego-for-aks/disable-policy-add-on.png)
 
-- D’Azure CLI
+- Azure CLI
 
   ```azurecli-interactive
   # Log in first with az login if you're not using Cloud Shell
@@ -230,7 +230,7 @@ Pour supprimer le module complémentaire Azure Policy de votre cluster AKS, uti
 
 ## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Données de diagnostic collectées par le module complémentaire Azure Policy
 
-Le module complémentaire Azure Policy pour Kubernetes collecte une quantité limitée de données de diagnostics de cluster. Ces données de diagnostic sont des données techniques vitales concernant les logiciels et le niveau de performance. Elles sont utilisées comme suit :
+Le module complémentaire Azure Policy pour Kubernetes collecte une quantité limitée de données de diagnostics de cluster. Ces données de diagnostic sont des données techniques vitales concernant les logiciels et le niveau de performance. Elles sont utilisées de différentes manières :
 
 - Tenir à jour le module complémentaire Azure Policy
 - Maintenir la sécurité, la fiabilité et le niveau de performance du module complémentaire Azure Policy
@@ -253,7 +253,7 @@ Les informations collectées par le module complémentaire ne sont pas des donn�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez les exemples de la page [Exemples Azure Policy](../samples/index.md).
+- Consultez des exemples à la page [Exemples Azure Policy](../samples/index.md).
 - Consultez la page [Structure de définition Azure Policy](definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](effects.md).
 - Découvrez comment [créer des stratégies par programmation](../how-to/programmatically-create.md).

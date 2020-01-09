@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: jehollan, klam, logicappspm
 ms.topic: article
 ms.date: 11/08/2019
-ms.openlocfilehash: 66f0e0cd2bd09e22260574992f92f7210bd6aa51
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: afd2735bae2a79ad942c347219019ef200b61070
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792949"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428703"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 
 Vous pouvez utiliser [Azure Functions](../azure-functions/functions-overview.md) afin de déclencher une application logique quand vous devez déployer un écouteur ou une tâche de longue durée. Par exemple, vous pouvez créer une fonction Azure qui écoute sur une file d’attente [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) et qui déclenche immédiatement une application logique en tant que déclencheur d’émission.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -125,7 +125,7 @@ Maintenant, créez la fonction qui agit comme déclencheur et écoute la file d�
 
    Cet exemple utilise la [méthode `Task.Run`](https://docs.microsoft.com/dotnet/api/system.threading.tasks.task.run) en mode [asynchrone](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/async). Pour plus d’informations, consultez l’article [Programmation asynchrone avec async et await](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
-   ```CSharp
+   ```csharp
    using System;
    using System.Threading.Tasks;
    using System.Net.Http;

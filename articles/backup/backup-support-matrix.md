@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 603bbc715176515afd21f286ea64e79e974266ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449868"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -54,7 +54,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales�
 
 **Limite** | **Détails**
 --- | ---
-**Disques de données de machine virtuelle Azure** | Nombre limité à 16
+**Disques de données de machine virtuelle Azure** | Nombre limité à 16 <br> Pour vous inscrire à la préversion privée des machines virtuelles avec plus de 16 disques (jusqu’à 32 disques), écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com
 **Taille de disque de données de machine virtuelle Azure** | La taille d’un disque individuel peut atteindre jusqu’à 32 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 
 ### <a name="azure-vm-backup-options"></a>Options de sauvegarde d’une machine virtuelle Azure
@@ -112,10 +112,10 @@ Sauvegarde Azure prend en charge le chiffrement des données en transit et au re
 
 **Machine** | **En transit** | **Au repos**
 --- | --- | ---
-**Machines Windows locales sans DPM/MABS** | ![OUI][green] | ![OUI][green]
-**Machines virtuelles Azure** | ![OUI][green] | ![OUI][green]
-**Machines Windows locales/machines virtuelles Azure avec DPM** | ![OUI][green] | ![OUI][green]
-**Machines Windows locales ou machines virtuelles Azure avec MABS** | ![OUI][green] | ![OUI][green]
+**Machines Windows locales sans DPM/MABS** | ![Oui][green] | ![Oui][green]
+**Machines virtuelles Azure** | ![Oui][green] | ![Oui][green]
+**Machines Windows locales/machines virtuelles Azure avec DPM** | ![Oui][green] | ![Oui][green]
+**Machines Windows locales ou machines virtuelles Azure avec MABS** | ![Oui][green] | ![Oui][green]
 
 ## <a name="compression-support"></a>Prise en charge de la compression
 
@@ -126,9 +126,9 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 
 **Machine** | **Compresser dans MABS/DPM (TCP)** | **Compresser dans le coffre (HTTPS)**
 --- | --- | ---
-**Sauvegarde directe des ordinateurs Windows locaux** | N/D | ![OUI][green]
+**Sauvegarde directe des ordinateurs Windows locaux** | N/D | ![Oui][green]
 **Sauvegarde de machines virtuelles Azure à l’aide de l’extension de machine virtuelle** | N/D | N/D
-**Sauvegarde sur des machines locales/Azure à l’aide de MABS/DPM** | ![OUI][green] | ![OUI][green]
+**Sauvegarde sur des machines locales/Azure à l’aide de MABS/DPM** | ![Oui][green] | ![Oui][green]
 
 ## <a name="retention-limits"></a>Limites de rétention
 

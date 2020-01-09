@@ -8,12 +8,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 7d5e38e2ecfa2406ff0f58f73d828aa45d84c512
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c4cb230c9f0b56e3ff9d81e0d85134a7f192e6e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429171"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>Création d’un IoT Hub à l’aide de l’API REST du fournisseur de ressources (.NET)
 
@@ -176,7 +176,7 @@ Maintenant que vous avez déployé un IoT Hub à l’aide de l’API REST du fou
 
 * Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub](https://docs.microsoft.com/rest/api/iothub/iothubresource).
 
-* Pour plus d’informations sur les capacités d’Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+* Pour plus d’informations sur les capacités d’Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 

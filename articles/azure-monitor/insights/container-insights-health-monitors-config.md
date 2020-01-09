@@ -1,23 +1,14 @@
 ---
 title: Configuration de moniteurs d’intégrité Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article fournit des informations sur la configuration détaillée des moniteurs d’intégrité dans Azure Monitor pour conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 11/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.date: 12/01/2019
+ms.openlocfilehash: d2d602d767fa6a39b7f72650c426c90be210a6ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664945"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405036"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>Guide de configuration des moniteurs d’intégrité Azure Monitor pour conteneurs
 
@@ -35,7 +26,7 @@ L’intégrité globale d’un objet particulier est déterminée à partir de l
 
 ## <a name="types-of-monitors"></a>Types de moniteurs
 
-|Surveiller | Description | 
+|Moniteur | Description | 
 |--------|-------------|
 | Moniteur d’unités |Un moniteur d’unités mesure certains aspects d’une ressource ou d’une application. Il peut s’agir de la vérification d’un compteur de performances pour déterminer le niveau de performance de la ressource ou sa disponibilité. |
 |Moniteur agrégé | Les moniteurs agrégés regroupent plusieurs moniteurs pour fournir un état d’intégrité agrégé d’intégrité unique. Les moniteurs d’unités sont généralement configurées sous un moniteur agrégé particulier. Par exemple, un moniteur agrégé de nœuds regroupe l’état de l’utilisation de l’UC du nœud, l’utilisation de la mémoire et l’état du nœud.

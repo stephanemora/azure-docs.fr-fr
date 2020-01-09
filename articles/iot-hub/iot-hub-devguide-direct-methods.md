@@ -6,13 +6,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: nberdy
-ms.openlocfilehash: d7c63ffe5a318507053f59bf3a18242ee8c327a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rezas
+ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327752"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429265"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Comprendre et appeler des méthodes directes à partir d’IoT Hub
 
@@ -75,7 +75,7 @@ Les appels de méthode directe sur un appareil sont des appels HTTPS qui compren
 
 Le délai d’attente est exprimé en secondes. Si le délai d’attente n’est pas défini, sa valeur par défaut est de 30 secondes.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Voir ci-dessous un exemple de base utilisant `curl`. 
 

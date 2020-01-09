@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7a2b167f90b4ec79f5fa515ded1c676ca7085e72
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826255"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647711"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
 
@@ -23,7 +23,7 @@ Consultez également les [questions fréquentes sur la solution préconfigurée 
 
 Le code source est stocké dans les référentiels GitHub suivants :
 
-* [Accélérateur de solution de surveillance à distance (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Accélérateur de solution de supervision à distance (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 * [Accélérateur de solution de supervision à distance (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 * [Accélérateur de solution de maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance)
 * [Accélérateur de solution Usine connectée](https://github.com/Azure/azure-iot-connected-factory)
@@ -82,7 +82,7 @@ Oui. Toute solution qui existe aujourd’hui continue à fonctionner dans votre 
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’IoT Hub puis-je configurer dans un abonnement ?
 
-Par défaut, vous pouvez approvisionner [10 instances IoT Hub par abonnement](../azure-subscription-service-limits.md#iot-hub-limits). Vous pouvez créer un [ticket de support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter cette limite. Par conséquent, étant donné que chaque accélérateur de solution provisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 accélérateurs de solution au maximum dans un abonnement.
+Par défaut, vous pouvez approvisionner [10 instances IoT Hub par abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-limits). Vous pouvez créer un [ticket de support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour augmenter cette limite. Par conséquent, étant donné que chaque accélérateur de solution provisionne un nouvel IoT Hub, vous ne pouvez configurer que 10 accélérateurs de solution au maximum dans un abonnement.
 
 ### <a name="how-many-azure-cosmos-db-instances-can-i-provision-in-a-subscription"></a>Combien d’instances d’Azure Cosmos DB puis-je configurer dans un abonnement ?
 

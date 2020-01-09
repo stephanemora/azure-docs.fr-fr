@@ -4,15 +4,15 @@ description: Cet article décrit la fonctionnalité Azure Monitor pour le stocka
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401135"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage (préversion)
 
@@ -47,7 +47,7 @@ Cette fonctionnalité ne vous oblige pas à activer ou à configurer quoi que ce
 
 Pour afficher l’utilisation et la disponibilité de vos comptes de stockage pour l’ensemble de vos abonnements, procédez comme suit.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Sélectionnez **Surveillance** dans le volet gauche du portail Azure, puis dans la section **Insights**, sélectionnez **Comptes de stockage (préversion)** .
 
@@ -227,7 +227,7 @@ Dans cet exemple, nous travaillons avec le classeur Capacité du compte de stock
 
 7. Sélectionnez **Enregistrer sous** dans la barre de commandes pour enregistrer une copie du classeur avec vos personnalisations, puis cliquez sur **Modifications terminées** pour revenir au mode lecture.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Cette section est destinée à vous aider à diagnostiquer et résoudre certains des problèmes communs que votre application est susceptible de rencontrer lors de l’utilisation d’Azure Monitor pour le stockage (préversion). La liste ci-dessous permet d’identifier les informations pertinentes pour un problème spécifique.
 

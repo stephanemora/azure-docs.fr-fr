@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 22a7ab7aa5d85e716d9b594ee3fb11aad3fa6a36
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581798"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496556"
 ---
 # <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Ingestion d’objets blob de bout en bout dans Azure Data Explorer par le biais de Python
 
@@ -25,7 +25,7 @@ Azure Data Explorer est un service d’exploration de données rapide et évolut
 
 Vous allez apprendre à créer par programmation un groupe de ressources, un compte de stockage et un conteneur, un Event Hub et un cluster et une base de données Azure Data Explorer. Vous apprendrez également à configurer Azure Data Explorer de manière programmatique pour ingérer des données à partir du nouveau compte de stockage.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -38,6 +38,7 @@ pip install azure-common
 pip install azure-mgmt-resource
 pip install azure-mgmt-kusto
 pip install azure-mgmt-eventgrid
+pip install azure-kusto-data
 pip install azure-storage-blob
 ```
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
@@ -205,7 +206,7 @@ poller.wait()
     print(response.primary_results[0].rows_count)
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer le groupe de ressources et les ressources de nettoyage, exécutez la commande suivante :
 

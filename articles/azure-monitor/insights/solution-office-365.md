@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
-ms.openlocfilehash: aff6be1a6abf2550013b752ba4f796ffe255499f
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 12/27/2019
+ms.openlocfilehash: 1c482166ffe27bde900a102c39def400728c102f
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539048"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529709"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -37,7 +37,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
 
@@ -51,7 +51,7 @@ Les conditions suivantes sont requises avant l’installation et la configuratio
 Cette solution n’installe aucun pack d’administration dans les [groupes d’administration connectés](../platform/om-agents.md).
   
 
-## <a name="install-and-configure"></a>Installer et configurer
+## <a name="install-and-configure"></a>Installation et configuration
 
 Commencez par ajouter la [solution Office 365 à votre abonnement](solutions.md#install-a-monitoring-solution). Ensuite, suivez les étapes de configuration de cette section pour lui donner accès à votre abonnement Office 365.
 
@@ -120,12 +120,12 @@ La première étape consiste à créer une application dans Azure Active Directo
 
 1. Sélectionnez **Certificats et secrets**, puis **Nouveau secret client**.
 
-    ![Clés](media/solution-office-365/secret.png)
+    ![Keys](media/solution-office-365/secret.png)
  
 1. Tapez une **Description** et une **Durée** pour la nouvelle clé.
 1. Cliquez sur **Ajouter**, puis enregistrez la **Valeur** qui a été générée comme clé secrète client, ainsi que le reste des informations qui ont été collectées avant.
 
-    ![Clés](media/solution-office-365/keys.png)
+    ![Keys](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Ajouter le consentement d’administration
 
@@ -184,7 +184,7 @@ Pour activer le compte d’administration pour la première fois, vous devez fou
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
 
-    Exemple :
+    Exemple :
 
     ```
     .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
@@ -367,19 +367,19 @@ La dernière étape consiste à abonner l’application à votre espace de trava
     Office-Subscribe-Call -ErrorAction Stop
     ```
 
-2. Exécutez le script avec la commande suivante :
+2. Exécutez le script avec la commande suivante :
 
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
 
-    Exemple :
+    Exemple :
 
     ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Le message d’erreur suivant peut s’afficher si votre application est déjà abonnée à cet espace de travail ou si ce locataire est abonné à un autre espace de travail.
 
@@ -495,13 +495,13 @@ Vous pouvez supprimer la solution de gestion Office 365 suivant le processus dé
     Office-UnSubscribe-Call -ErrorAction Stop
     ```
 
-2. Exécutez le script avec la commande suivante :
+2. Exécutez le script avec la commande suivante :
 
     ```
     .\office365_unsubscribe.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeTennantID <Tenant ID> 
     ```
 
-    Exemple :
+    Exemple :
 
     ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
@@ -509,7 +509,7 @@ Vous pouvez supprimer la solution de gestion Office 365 suivant le processus dé
 
 Vous êtes invité à entrer des informations d’identification. Fournissez les informations d’identification de votre espace de travail Log Analytics.
 
-## <a name="data-collection"></a>Collecte des données
+## <a name="data-collection"></a>Collecte de données
 
 ### <a name="supported-agents"></a>Agents pris en charge
 
@@ -535,7 +535,7 @@ Le tableau de bord comprend les colonnes figurant dans le tableau suivant. Chaqu
 | Colonne | Description |
 |:--|:--|
 | Opérations | Fournit des informations sur les utilisateurs actifs depuis vos abonnements entièrement surveillés Office 365. Vous serez également en mesure de voir le nombre d’activités qui se produisent au fil du temps.
-| Microsoft Exchange | Affiche la répartition des activités d’Exchange Server telles que l’autorisation ajouter une boîte aux lettres ou Définir une boîte aux lettres. |
+| Exchange | Affiche la répartition des activités d’Exchange Server telles que l’autorisation ajouter une boîte aux lettres ou Définir une boîte aux lettres. |
 | SharePoint | Affiche les activités supérieures que les utilisateurs exécutent sur les documents SharePoint. Quand vous explorez depuis cette vignette, la page de recherche affiche les détails de ces activités, tels que le document cible et l’emplacement de cette activité. Par exemple, pour un événement Fichier ouvert, vous pouvez afficher le document ouvert, son nom de compte associé et son adresse IP. |
 | Azure Active Directory | Inclut les activités utilisateur supérieures, telles que la réinitialisation du mot de passe utilisateur et les tentatives de connexion. Quand vous explorez, vous pouvez afficher les détails de ces activités, telles que l’état du résultat. Ceci est particulièrement utile si vous souhaitez surveiller les activités suspectes sur votre Azure Active Directory. |
 
@@ -554,14 +554,14 @@ Les propriétés suivantes sont communes à tous les enregistrements d’Office 
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | L’adresse IP du terminal qui a été utilisée lorsque l’activité a été enregistrée. L’adresse IP s’affiche au format d’adresse IPv4 ou IPv6. |
-| OfficeWorkload | Service d’Office 365 auquel fait référence l’enregistrement.<br><br>AzureActiveDirectory<br>Microsoft Exchange<br>SharePoint|
+| OfficeWorkload | Service d’Office 365 auquel fait référence l’enregistrement.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Opération | Le nom de l’activité utilisateur ou administrateur.  |
 | OrganizationId | Le GUID pour le client Office 365 de votre organisation. Cette valeur est toujours la même pour votre organisation, quel que soit le service Office 365 dans lequel il se produit. |
 | RecordType | Type d’opération effectuée. |
 | ResultStatus | Indique si l’action (spécifiée dans la propriété Operation) a réussi ou non. Les valeurs possibles sont Réussie, Partiellement réussie ou Échec. Pour l’activité de l’administrateur Exchange, la valeur est True ou False. |
 | UserId | L’UPN (nom d’utilisateur principal) de l’utilisateur qui a exécuté l’action enregistrée dans l’enregistrement ; par exemple, my_name@my_domain_name. Notez que les enregistrements pour l’activité exécutée par les comptes système (tels que SHAREPOINT\system ou NTAUTHORITY\SYSTEM) sont également inclus. | 
 | UserKey | Un autre ID pour l’utilisateur identifié dans la propriété UserId.  Par exemple, cette propriété est remplie par l’ID unique du passeport (PUID) pour les événements exécutés par les utilisateurs dans SharePoint, OneDrive entreprise et Exchange. Cette propriété peut également spécifier la même valeur que la propriété UserID pour les événements qui se produisent dans d’autres services et les événements exécutés par des comptes système|
-| UserType | Le type d’utilisateur qui a effectué l’opération.<br><br>Admin<br>Application<br>DcAdmin<br>Normal<br>Réservé<br>ServicePrincipal<br>System |
+| UserType | Le type d’utilisateur qui a effectué l’opération.<br><br>Admin<br>Application<br>DcAdmin<br>Normal<br>Réservé<br>ServicePrincipal<br>Système |
 
 
 ### <a name="azure-active-directory-base"></a>Base Azure Active Directory
@@ -630,13 +630,13 @@ Ces enregistrements sont créés lorsque des modifications sont apportées à la
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | Microsoft Exchange |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Spécifie si l’applet de commande a été exécutée par un utilisateur dans votre organisation, par le personnel du centre de données Microsoft ou un compte de service du centre de données ou par un administrateur délégué. La valeur False indique que l’applet de commande a été exécuté par une personne dans votre organisation. La valeur True indique que l’applet de commande a été exécutée par le personnel du centre de données, un compte de service du centre de données ou un administrateur délégué. |
 | ModifiedObjectResolvedName |  Il s’agit du nom convivial de l’objet qui a été modifié par l’applet de commande. Cette opération est enregistrée uniquement si l’applet de commande modifie l’objet. |
 | OrganizationName | Le nom du client. |
 | OriginatingServer | Le nom du serveur à partir duquel l’applet de commande a été exécutée. |
-| parameters | Le nom et la valeur de tous les paramètres utilisés avec l’applet de commande qui est identifiée dans la propriété Operations. |
+| Paramètres | Le nom et la valeur de tous les paramètres utilisés avec l’applet de commande qui est identifiée dans la propriété Operations. |
 
 
 ### <a name="exchange-mailbox"></a>Boîte aux lettres Exchange
@@ -645,7 +645,7 @@ Ces enregistrements sont créés lorsque des modifications ou ajouts sont apport
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | Microsoft Exchange |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informations sur le client de messagerie utilisé pour effectuer l’opération, telles que les informations sur la version du navigateur, la version d’Outlook et l’appareil mobile. |
 | Client_IPAddress | L’adresse IP du terminal utilisée lorsque l’activité a été enregistrée. L’adresse IP s’affiche au format d’adresse IPv4 ou IPv6. |
@@ -668,9 +668,9 @@ Ces enregistrements sont créés lors de la création d’une entrée d’audit 
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | Microsoft Exchange |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
-| Item | Représente l’élément sur lequel l’opération a été effectuée | 
+| Élément | Représente l’élément sur lequel l’opération a été effectuée | 
 | SendAsUserMailboxGuid | Le GUID Exchange de la boîte aux lettres ouverte pour envoyer un e-mail. |
 | SendAsUserSmtp | Adresse SMTP de l’utilisateur dont le nom a été emprunté. |
 | SendonBehalfOfUserMailboxGuid | Le GUID Exchange de la boîte aux lettres ouverte pour envoyer un e-mail au nom de. |
@@ -683,7 +683,7 @@ Ces enregistrements sont créés lorsque des modifications ou des ajouts sont ap
 
 | Propriété | Description |
 |:--- |:--- |
-| OfficeWorkload | Microsoft Exchange |
+| OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informations sur chaque élément dans le groupe. |
 | CrossMailboxOperations | Indique si l’opération a impliqué plusieurs boîtes aux lettres. |

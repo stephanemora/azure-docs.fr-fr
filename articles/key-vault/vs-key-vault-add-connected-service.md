@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 1df0ff3b6fea335dde5a3200f824adf14f924d9c
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 1c12cf4a7bd097c6d33d032065734b477920644b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457001"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -22,7 +22,7 @@ Dans ce tutoriel, vous allez voir comment ajouter facilement tout ce dont vous a
 
 Pour plus d’informations sur les changements qu’apportent les Services connectés à votre projet pour l’activation de Key Vault, consultez [Key Vault Connected Service - What happened to my ASP.NET 4.7.1 project](#how-your-aspnet-framework-project-is-modified) ou [Key Vault Connected Service - What happened to my ASP.NET Core project](#how-your-aspnet-core-project-is-modified).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Un abonnement Azure**. Si vous n’avez pas d’abonnement, inscrivez-vous pour bénéficier d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 version 16.3** ou ultérieure, ou **Visual Studio 2017 version 15.7** avec installation de la charge de travail **Développement web**. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -112,7 +112,7 @@ Maintenant, vous pouvez accéder à vos secrets dans le code. Les étapes suivan
                 {
                     webBuilder.UseStartup<Startup>();
                 });
-        private static string GetKeyVaultEndpoint() => "https://WebApplication4-3-kv.vault.azure.net";
+        private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     ```
 
 1. Ensuite, ouvrez l’un des fichiers de page, par exemple *Index.cshtml.cs* et écrivez le code suivant :
@@ -174,7 +174,7 @@ Vous pouvez paramétrer la configuration de sorte que le fichier web.config ait 
    ```
 1. Exécutez l’application localement sous le débogueur, basculez dans l’onglet **À propos** et vérifiez que la valeur provenant de Key Vault est affichée.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le coffre de clés et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
@@ -182,7 +182,7 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 2. Sélectionnez **Supprimer le groupe de ressources**.
 3. Dans la zone **TAPEZ LE NOM DU GROUPE DE RESSOURCES :** , entrez le nom du groupe de ressources et sélectionnez **Supprimer**.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si votre Key Vault s’exécute sur un autre compte Microsoft que celui auquel vous êtes connecté à Visual Studio (par exemple, Key Vault s’exécute sur votre compte professionnel, alors que Visual Studio utilise votre compte privé), un message d’erreur indiquant que Visual Studio ne peut pas avoir accès à Key Vault est ajouté à votre fichier Program.cs. Pour résoudre ce problème :
 

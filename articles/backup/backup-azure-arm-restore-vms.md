@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 9426a66115513cf02af501eb6271cf1f1b9fdf76
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0caad9488e4ab84c85ef27b559c34453ad6cad32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450176"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -114,8 +114,8 @@ Une fois le disque restauré, utilisez le modèle généré dans le cadre de l�
     ![Détail du travail de restauration](./media/backup-azure-arm-restore-vms/restore-job-drill-down1.png)
 
 3. Pour personnaliser le paramètre de la machine virtuelle fourni dans le modèle, cliquez sur **Modifier le modèle**. Si vous souhaitez ajouter d’autres personnalisations, cliquez sur **Modifier les paramètres**.
-    - [Découvrez-en plus](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) sur le déploiement de ressources à partir d’un modèle personnalisé.
-    - [Découvrez-en plus](../azure-resource-manager/resource-group-authoring-templates.md) sur la création de modèles.
+    - [Découvrez-en plus](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) sur le déploiement de ressources à partir d’un modèle personnalisé.
+    - [Découvrez-en plus](../azure-resource-manager/templates/template-syntax.md) sur la création de modèles.
 
    ![Charger un déploiement de modèle](./media/backup-azure-arm-restore-vms/edit-template1.png)
 

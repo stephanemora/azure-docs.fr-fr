@@ -1,18 +1,14 @@
 ---
 title: Créer des alertes de performances pour Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et du processeur à partir d’Azure Monitor pour conteneurs.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: efeb86dc0b71217cf566f7e6671e72601ec69371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405609"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
 
@@ -287,7 +283,7 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
 >La procédure suivante visant à créer une règle d’alerte pour l’utilisation des ressources de conteneur requiert de basculer vers une nouvelle API d’alertes de journal, comme décrit dans [Changer de préférence d’API pour les alertes de journal](../platform/alerts-log-api-switch.md).
 >
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Monitor** dans le volet situé à gauche. Sous **Insights**, sélectionnez **Conteneurs**.
 3. Dans la liste de l’onglet **Clusters supervisés**, sélectionnez un cluster.
 4. Dans le volet situé à gauche sous **Surveillance**, sélectionnez **Journaux** pour ouvrir la page de journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes Azure Log Analytics.

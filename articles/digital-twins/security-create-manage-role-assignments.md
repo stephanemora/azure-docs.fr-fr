@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45ce22f208ee31b7202705eb4e42c38bedf09a8b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7eeaadc80a97a96e6effdfc9e5cc76c201998f3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438057"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
@@ -36,13 +36,13 @@ Chaque attribution de rôle est conforme à la définition suivante :
 
 Le tableau suivant décrit chaque attribut :
 
-| Attribut | Nom | Obligatoire | Type | Description |
+| Attribut | Name | Obligatoire | Type | Description |
 | --- | --- | --- | --- | --- |
-| roleId | Identificateur de la définition de rôle | OUI | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
-| objectId | Identificateur d’objet | OUI | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
-| objectIdType | Type d’identificateur d’objet | OUI | Chaîne | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
-| path | Chemin d’espace | OUI | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
-| tenantId | Identificateur de locataire | Varie | Chaîne | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
+| roleId | Identificateur de la définition de rôle | Oui | String | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
+| objectId | Identificateur d'objet | Oui | String | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
+| objectIdType | Type d’identificateur d’objet | Oui | String | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
+| path | Chemin d’espace | Oui | String | Chemin complet de l’objet `Space`. par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
+| tenantId | Identificateur de locataire | Variable | String | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificateurs de définition de rôle pris en charge
 
@@ -163,10 +163,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valeur du paramètre** | **Obligatoire** |  **Type** |  **Description** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Chaîne |   ID d’objet pour l’objectIdType UserId. |
-| YOUR_PATH | True | Chaîne |   Chemin dont l’accès est contrôlé. |
-| YOUR_ACCESS_TYPE |  True | Chaîne |   *Lire*, *Créer*, *Mettre à jour* ou *Supprimer* |
-| YOUR_RESOURCE_TYPE | True | Chaîne |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata* ou *UserExtendedProperty* |
+| YOUR_USER_ID |  True | String |   ID d’objet pour l’objectIdType UserId. |
+| YOUR_PATH | True | String |   Chemin dont l’accès est contrôlé. |
+| YOUR_ACCESS_TYPE |  True | String |   *Lire*, *Créer*, *Mettre à jour* ou *Supprimer* |
+| YOUR_RESOURCE_TYPE | True | String |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata* ou *UserExtendedProperty* |
 
 Une requête réussie renvoie un booléen `true` ou `false` pour indiquer si le type d’accès a été attribué à l’utilisateur pour le chemin et la ressource donnés.
 
@@ -240,7 +240,7 @@ Une requête réussie retourne l’état de réponse 201 avec l’**id** de l’
 
 Les exemples suivants montrent comment configurer le corps JSON dans plusieurs scénarios d’attribution de rôles couramment rencontrés.
 
-* **Exemple**: Un utilisateur a besoin d’un accès administratif à un étage d’un espace de locataire.
+* **Exemple** : Un utilisateur a besoin d’un accès administratif à un étage d’un espace de locataire.
 
    ```JSON
    {
@@ -252,7 +252,7 @@ Les exemples suivants montrent comment configurer le corps JSON dans plusieurs s
    }
    ```
 
-* **Exemple**: Une application exécute des scénarios de test simulant des capteurs et des appareils.
+* **Exemple** : Une application exécute des scénarios de test simulant des capteurs et des appareils.
 
    ```JSON
    {
@@ -264,7 +264,7 @@ Les exemples suivants montrent comment configurer le corps JSON dans plusieurs s
    }
     ```
 
-* **Exemple**: Tous les utilisateurs qui font partie d’un domaine obtiennent un accès en lecture aux espaces, aux capteurs et aux utilisateurs. Cet accès inclut les objets connexes correspondants.
+* **Exemple** : Tous les utilisateurs qui font partie d’un domaine obtiennent un accès en lecture aux espaces, aux capteurs et aux utilisateurs. Cet accès inclut les objets connexes correspondants.
 
    ```JSON
    {

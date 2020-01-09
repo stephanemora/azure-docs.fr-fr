@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 28897ca6f80632210032b7f800404fc921143adf
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 5780477be71988653e89379ae17e9009337bbc0f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457102"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Connecter Raspberry Pi à Azure IoT Hub (Node.js)
 
@@ -148,7 +148,7 @@ Pour les broches du capteur, utilisez le câblage suivant :
 | LED VDD (broche 18F)        | GPIO 24 (broche 18)       | Câble blanc   |
 | LED GND (broche 17F)        | GND (broche 20)           | Câble noir   |
 
-Cliquez pour afficher les [mappages de broches Raspberry Pi 2 et 3](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) à titre de référence.
+Cliquez pour afficher les [mappages de broches Raspberry Pi 2 et 3](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) à titre de référence.
 
 Une fois le BME280 connecté à votre Raspberry Pi, il doit se présenter comme sur l’image ci-dessous.
 

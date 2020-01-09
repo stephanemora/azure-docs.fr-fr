@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 4a1e621570f3bf5fdb78a2fd7b29ce0d1b51187f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 679b59ac786f863c8a5f34aec71f51c5dc75a167
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951783"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608701"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine Learning sur HDInsight
 
@@ -53,7 +53,7 @@ Dans le cadre de son travail sur l’apprentissage profond, Microsoft a dévelop
 
 ### <a name="scenarios"></a>Scénarios
 
-* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide des données des systèmes HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark avec Machine Learning : utiliser Spark dans HDInsight pour prédire les résultats de l’inspection d’aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Générer des recommandations de films avec Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
 * [Apache Hive et Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
@@ -64,4 +64,4 @@ Dans le cadre de son travail sur l’apprentissage profond, Microsoft a dévelop
 
 * [Utiliser le modèle de formation approfondie Microsoft Cognitive Toolkit avec un cluster Azure HDInsight Spark](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée](spark/apache-spark-deep-learning-caffe.md)
-* [Infrastructures de Deep Learning et AI sur la Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)
+* [Infrastructures de Deep Learning et AI sur la Data Science Virtual Machine (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-tools-deep-learning-frameworks.md)

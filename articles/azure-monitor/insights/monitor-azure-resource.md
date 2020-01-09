@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 5a46de9fa17790cb93ce7d5a2af8008d34d4dc35
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888782"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529692"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -30,7 +30,7 @@ Dès que vous créez une ressource Azure, Azure Monitor est activé et commence 
 
 
 ## <a name="costs-associated-with-monitoring"></a>Coûts associés à la supervision
-Aucun coût n’est associé à l’analyse des données de supervision collectées par défaut. Les éléments suivants sont inclus :
+Aucun coût n’est associé à l’analyse des données de supervision collectées par défaut. Notamment :
 
 - Collecte des métriques de plateforme et analyse avec Metrics Explorer.
 - Collecte du journal d’activité et analyse de ce dernier dans le Portail Azure.
@@ -52,7 +52,7 @@ Il peut y avoir des coûts Azure Monitor associés aux opérations ci-dessous. C
 ## <a name="monitoring-data"></a>Données de surveillance
 Les ressources dans Azure génèrent les [journaux](../platform/data-platform-logs.md) et les [métriques](../platform/data-platform-metrics.md) affichés dans le schéma suivant. Reportez-vous à la documentation de chaque service Azure pour obtenir les données spécifiques qu’il génère et les autres solutions ou insights qu’il fournit.
 
-![Vue d'ensemble](media/monitor-azure-resource/logs-metrics.png)
+![Vue d’ensemble](media/monitor-azure-resource/logs-metrics.png)
 
 
 
@@ -90,7 +90,7 @@ Suivez la procédure indiquée dans [Créer un paramètre de diagnostic pour col
 ## <a name="monitoring-in-the-azure-portal"></a>Surveillance dans le portail Azure
  Vous pouvez accéder aux données de supervision de la plupart des ressources Azure à partir du menu de la ressource dans le Portail Azure. Cela vous donne accès aux données d’une ressource unique à l’aide des outils Azure Monitor standard. Certains services Azure fournissent des options différentes et vous devez vous référer à la documentation de ces services pour obtenir des informations supplémentaires. Utilisez le menu d’**Azure Monitor** pour analyser les données provenant de toutes les ressources supervisées. 
 
-### <a name="overview"></a>Vue d'ensemble
+### <a name="overview"></a>Vue d’ensemble
 De nombreux services incluent des données de supervision dans leur page **Vue d’ensemble**, offrant un aperçu rapide de leur fonctionnement. En général, cela se base sur un sous-ensemble de métriques de plateforme stockées dans les métriques Azure Monitor. D’autres options de supervision sont généralement disponibles dans une section **Supervision** du menu des services.
 
 ![Page Vue d’ensemble](media/monitor-azure-resource/overview-page.png)
@@ -127,7 +127,7 @@ Les journaux Azure Monitor centralisent les journaux et les métriques à partir
 
 - Consultez [Bien démarrer avec les requêtes de journal dans Azure Monitor](../log-query/get-started-queries.md) pour bénéficier d’un tutoriel sur le langage de requêtes utilisé pour écrire des requêtes de journal.
 - Consultez [Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](../platform/resource-logs-collect-workspace.md) pour plus d’informations sur la façon dont les journaux de ressources sont collectés dans les journaux Azure Monitor et la façon d’accéder à ces derniers dans une requête.
-- Consultez [Mode de collecte](../platform/resource-logs-collect-workspace.md#collection-mode) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
+- Consultez [Mode de collecte](../platform/resource-logs-collect-workspace.md#resource-log-collection-mode) pour obtenir une explication sur la façon dont les données des journaux de ressources sont structurées dans les journaux Azure Monitor.
 - Consultez la documentation de chaque service Azure pour plus d’informations sur sa table dans les journaux Azure Monitor.
 
 ![Journaux d’activité](media/monitor-azure-resource/logs.png)

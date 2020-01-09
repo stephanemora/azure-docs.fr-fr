@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: victorh
-ms.openlocfilehash: cb8a2fdd14cfa7d361e3d78a64f3aaf60ea7676d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b92242ce9086579d0397f78853402cfc08453f68
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436770"
 ---
 # <a name="what-are-trusted-security-partners-preview"></a>Que sont les partenaires de sécurité de confiance (préversion) ?
 
@@ -50,7 +50,7 @@ Le scénario suivant n’est pas pris en charge :
 
 - La configuration « réseau virtuel vers Internet » via une offre partenaire ne peut pas être combinée avec Pare-feu Azure pour le trafic privé. Consultez les limites ci-après.
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 
 - Pour la configuration « réseau virtuel vers Internet », vous ne pouvez pas ajouter ensemble Pare-feu Azure pour le trafic privé et une offre partenaire pour le trafic Internet. Vous pouvez envoyer le trafic Internet vers Pare-feu Azure ou une offre de partenaire de sécurité tierce dans le hub virtuel sécurisé, mais pas vers les deux. 
 - Vous pouvez déployer au plus un partenaire de sécurité par hub virtuel. Si vous avez besoin de changer de fournisseur, vous devez supprimer le partenaire existant et en ajouter un nouveau.
@@ -75,7 +75,7 @@ Pour Office 365, la latence et les performances du réseau sont essentielles po
 
 Selon les [principes de connectivité réseau Office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles), les principales connexions réseau Office 365 doivent être routées localement à partir de l’appareil mobile ou de la filiale où se trouvent les utilisateurs et directement via Internet vers le point de présence réseau Microsoft le plus proche.
 
-De plus, les connexions Office 365 sont fortement chiffrées pour protéger la confidentialité et utilisent des protocoles propriétaires efficaces pour des raisons de performances. C’est pourquoi il est peu pratique et trop risqué de soumettre ces connexions à des solutions de sécurité de niveau réseau traditionnelles. Pour ces raisons, nous recommandons vivement aux clients d’envoyer le trafic Office 365 directement à partir des filiales, avant d’envoyer le reste du trafic via Azure. Microsoft s’est associé à plusieurs fournisseurs de solutions SD-WAN, qui s’intègrent à Azure et à Office 365 et permettent aux clients d’activer le déchargement direct et local du trafic Internet pour Office 365. Pour plus d’informations, consultez [Comment définir mes stratégies O365 via Virtual WAN ?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview#how-do-i-set-my-o365-policies-via-virtual-wan).
+De plus, les connexions Office 365 sont fortement chiffrées pour protéger la confidentialité et utilisent des protocoles propriétaires efficaces pour des raisons de performances. C’est pourquoi il est peu pratique et trop risqué de soumettre ces connexions à des solutions de sécurité de niveau réseau traditionnelles. Pour ces raisons, nous recommandons vivement aux clients d’envoyer le trafic Office 365 directement à partir des filiales, avant d’envoyer le reste du trafic via Azure. Microsoft s’est associé à plusieurs fournisseurs de solutions SD-WAN, qui s’intègrent à Azure et à Office 365 et permettent aux clients d’activer le déchargement direct et local du trafic Internet pour Office 365. Pour plus d’informations, consultez [Comment définir mes stratégies O365 via Virtual WAN ?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

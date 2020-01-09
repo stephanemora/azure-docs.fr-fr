@@ -3,17 +3,17 @@ title: Surveiller la connectivité des appareils à l’aide du IoT Central Expl
 description: Surveillez les messages de l’appareil et observez les modifications de jumeau d’appareil via l’interface CLI d’IoT Central Explorer.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/27/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 2b1c4c64fc02df67f38e36194072efd5db3b8e38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 90cf83f86acb647b8194619bc1b572e5147cc0cf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434947"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli-preview-features"></a>Surveiller la connectivité des appareils à l’aide d’Azure CLI (fonctionnalités de la préversion)
 
@@ -23,7 +23,7 @@ Utilisez l’extension IoT d’Azure CLI pour consulter les messages que vos app
 
 [Pour plus d’informations, consultez la référence sur les extensions d’Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Azure CLI installé et doté de la version 2.0.7 ou ultérieure. Vérifiez la version de votre Azure CLI en exécutant `az --version`. En savoir plus sur l’installation et la mise à jour à l’aide des [docs Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 + Un compte professionnel ou scolaire dans Azure, ajouté en tant qu’utilisateur dans une application IoT Central.
@@ -36,7 +36,7 @@ Exécutez la commande suivante dans la console de ligne de commande pour install
 az extension add --name azure-cli-iot-ext
 ```
 
-Vérifier la version de l’extension en exécutant 
+Vérifiez la version de l’extension en exécutant 
 ```cmd/sh
 az --version
 ```
@@ -45,7 +45,7 @@ Vous devez voir l’extension azure-cli-iot-ext doté de la version 0.8.1 ou d�
 az extension update --name azure-cli-iot-ext
 ```
 
-## <a name="using-the-extension"></a>Utilisation de l’extension
+## <a name="using-the-extension"></a>En utilisant l’extension
 
 Les sections suivantes décrivent les commandes et les options courantes que vous pouvez utiliser quand vous exécutez `az iot central`. Pour voir l’ensemble complet des commandes et des options, passez `--help` à `az iot central` ou à une de ses sous-commandes.
 

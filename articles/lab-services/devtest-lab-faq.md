@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: fb66fa2d4a6a03841fa057c4d1982b7bf4c6976d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565335"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644917"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -42,7 +42,7 @@ Désormais, nous publierons ces informations sur notre compte Twitter. Suivez-no
 ### <a name="twitter"></a>Twitter
 Notre compte Twitter : [@azlabservices](https://twitter.com/azlabservices)
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 ### <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 Si votre question n’est pas répertoriée ici, faites-le-nous savoir pour que nous puissions vous aider à trouver une réponse.
 
@@ -162,11 +162,11 @@ Scénario de groupe de ressources courant :
 Vous souhaitez peut-être appliquer les conventions d’affectation de noms actuelles aux opérations d’Azure, et les rendre cohérentes au sein de l’environnement DevTest Labs. Lors du déploiement de DevTest Labs, nous vous recommandons de disposer de stratégies de démarrage spécifiques. Pour déployer ces stratégies, vous utilisez un script central et des modèles JSON qui permettent d’assurer la cohérence. Les stratégies d’affectation de noms peuvent être implémentées par le biais des stratégies Azure appliquées au niveau de l’abonnement. Pour accéder à des exemples JSON pour Azure Policy, consultez la section [Exemples Azure Policy](../governance/policy/samples/index.md).
 
 ### <a name="how-many-labs-can-i-create-under-the-same-subscription"></a>Combien de laboratoires puis-je créer sous le même abonnement ?
-Il n’existe pas de limite spécifique concernant le nombre de laboratoires qui peuvent être créés par abonnement. Toutefois, la quantité de ressources utilisées par abonnement est limitée. Vous pouvez consulter des articles pour en savoir plus sur les [quotas et les limites associés aux abonnements Azure](../azure-subscription-service-limits.md) et sur [la façon d’augmenter ces limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Il n’existe pas de limite spécifique concernant le nombre de laboratoires qui peuvent être créés par abonnement. Toutefois, la quantité de ressources utilisées par abonnement est limitée. Vous pouvez consulter des articles pour en savoir plus sur les [quotas et les limites associés aux abonnements Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) et sur [la façon d’augmenter ces limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 
 ### <a name="how-many-vms-can-i-create-per-lab"></a>Combien de machines virtuelles puis-je créer par laboratoire ?
-Il n’existe aucune limite spécifique concernant le nombre de machines virtuelles qui peuvent être créées par laboratoire. Toutefois, les ressources (cœurs de machines virtuelles, adresses IP publiques, etc.) utilisées sont limitées par abonnement. Vous pouvez consulter des articles pour en savoir plus sur les [quotas et les limites associés aux abonnements Azure](../azure-subscription-service-limits.md) et sur [la façon d’augmenter ces limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
+Il n’existe aucune limite spécifique concernant le nombre de machines virtuelles qui peuvent être créées par laboratoire. Toutefois, les ressources (cœurs de machines virtuelles, adresses IP publiques, etc.) utilisées sont limitées par abonnement. Vous pouvez consulter des articles pour en savoir plus sur les [quotas et les limites associés aux abonnements Azure](../azure-resource-manager/management/azure-subscription-service-limits.md) et sur [la façon d’augmenter ces limites](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
 
 ### <a name="how-do-i-determine-the-ratio-of-users-per-lab-and-the-overall-number-of-labs-that-are-needed-across-an-organization"></a>Comment faire pour déterminer le taux d’utilisateurs par laboratoire et le nombre total de laboratoires nécessaires dans une organisation ?
 Nous recommandons que les unités commerciales et les groupes de développement associés au même projet de développement soient rattachés au même laboratoire. Cela permet d’appliquer les mêmes types de stratégies, d’images et de stratégies d’arrêt aux deux groupes.
@@ -285,7 +285,7 @@ Pour automatiser le chargement des fichiers de VHD afin de créer des images per
 
 Pour trouver le compte de stockage de destination associé à votre laboratoire :
 
-1.  Connectez-vous au [Portail Azure](https://portal.azure.com).
+1.  Connectez-vous au [portail Azure](https://portal.azure.com).
 2.  Dans le menu de gauche, sélectionnez **Groupes de ressources**.
 3.  Recherchez et sélectionnez le groupe de ressources associé à votre laboratoire.
 4.  Sous **Vue d’ensemble**, sélectionnez l’un des comptes de stockage.
@@ -352,7 +352,7 @@ Si vos machines virtuelles doivent interagir avec l’infrastructure existante, 
 
 Vous devez également envisager d’utiliser également le VNet peering ([modèle Hub-Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Cette approche permet une communication de réseau virtuel/sous-réseau via des abonnements. Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtuel. 
 
-Le nombre de réseaux virtuels par abonnement est [limité](../azure-subscription-service-limits.md). Le nombre par défaut est de 50, mais cette limite peut être portée à 100.
+Le nombre de réseaux virtuels par abonnement est [limité](../azure-resource-manager/management/azure-subscription-service-limits.md). Le nombre par défaut est de 50, mais cette limite peut être portée à 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>Quand dois-je utiliser une adresse IP partagée, une adresse IP publique ou une adresse IP privée ?
  
@@ -375,7 +375,7 @@ Oui. Deux aspects sont à prendre en compte : le trafic entrant et le trafic sor
 
 Vous pouvez également utiliser des groupes de sécurité réseau pour les machines virtuelles ou les sous-réseaux. Cette étape ajoute un niveau supplémentaire de protection pour autoriser ou bloquer le trafic.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="why-isnt-my-existing-virtual-network-saving-properly"></a>Pourquoi mon réseau virtuel existant n’est pas enregistré correctement ?
 Il se peut que votre nom de réseau virtuel contienne des points. Dans ce cas, essayez de supprimer les points ou de les remplacer par des traits d’union. Ensuite, réessayez d’enregistrer le réseau virtuel.

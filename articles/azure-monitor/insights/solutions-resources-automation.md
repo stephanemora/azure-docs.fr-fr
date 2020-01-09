@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401816"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]
@@ -26,12 +26,12 @@ Les [solutions de gestion]( solutions.md) comprennent généralement des runbook
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure]( solutions-creating.md) 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous êtes déjà familiarisé avec les informations suivantes.
 
 - Comment [créer une solution de gestion]( solutions-creating.md).
 - La structure d’un [fichier de solution]( solutions-solution-file.md).
-- Guide de [Création de modèles Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+- Guide de [Création de modèles Resource Manager](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Compte Automation
 Toutes les ressources dans Azure Automation sont contenues dans un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview).  Comme décrit dans [Espace de travail Log Analytics et compte Automation]( solutions.md#log-analytics-workspace-and-automation-account), le compte Automation n’est pas inclus dans la solution de gestion, mais doit exister avant l’installation de la solution.  Si ce n’est pas le cas, l’installation de la solution échoue.
@@ -207,7 +207,7 @@ Utilisez une des deux stratégies suivantes lors de l’utilisation des ressourc
 - Créez les planifications à l’aide d’un runbook qui démarre lorsque la solution est installée.  Cela supprime la nécessité pour l’utilisateur de spécifier une heure, mais vous ne pouvez pas inclure la planification dans votre solution, elle sera donc supprimée en même temps que la solution.
 
 
-### <a name="job-schedules"></a>Planifications de travaux
+### <a name="job-schedules"></a>Calendriers de travaux
 Les ressources de planification de tâche lient un runbook à une planification.  Elles ont un type de **Microsoft.Automation/automationAccounts/jobSchedules** et la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres. 
 
     {
@@ -241,7 +241,7 @@ Les propriétés des planifications de travail sont décrites dans le tableau su
 
 
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variables
 Les [variables Azure Automation](../../automation/automation-variables.md) sont de type **Microsoft.Automation/automationAccounts/variables** et ont la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres.
 
     {
@@ -273,12 +273,12 @@ Les propriétés des ressources de variable sont décrites dans le tableau suiva
 
 Si vous définissez la valeur initiale pour la variable, elle doit être configurée en tant que type de données correct.  Le tableau suivant fournit les différents types de données autorisés et leur syntaxe.  Notez que les valeurs dans JSON doivent toujours être placées entre guillemets avec les caractères spéciaux à l’intérieur des guillemets.  Par exemple, une valeur de chaîne serait spécifiée en plaçant la chaîne entre guillemets (en utilisant le caractère d’échappement (\\)), tandis qu’une valeur numérique serait spécifiée avec une seule paire de guillemets.
 
-| Type de données | Description | Exemples | Est résolu en |
+| Type de données | Description | Exemple | Est résolu en |
 |:--|:--|:--|:--|
 | string   | Placer la valeur entre des guillemets doubles.  | "\"Hello world\"" | "Hello world" |
 | numeric  | Valeur numérique avec des guillemets simples.| "64" | 64 |
 | boolean  | **true** ou **false** entre guillemets.  Notez que cette valeur doit être en minuscules. | "true" | true |
-| datetime | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
+| DATETIME | Valeur de date sérialisée.<br>Vous pouvez utiliser la cmdlet ConvertTo-Json dans PowerShell pour générer cette valeur pour une date particulière.<br>Exemple : get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modules
 Votre solution de gestion ne doit pas nécessairement définir de [modules globaux](../../automation/automation-integration-modules.md) utilisés par vos runbooks, car ils sont toujours disponibles dans votre compte Automation.  Vous devez inclure une ressource pour tout module utilisé par vos runbooks.

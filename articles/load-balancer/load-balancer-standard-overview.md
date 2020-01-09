@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: 3b6a16436b2719d1571f5d5a3c16711a9100b75d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ce60062a49f08bb3409c8445e0aaf79c0d361865
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894425"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552812"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Présentation d'Azure Standard Load Balancer
 
@@ -182,14 +182,6 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 3. Supprimez les ressources de la référence SKU De base (Load Balancer et adresses IP publiques, le cas échéant) de toutes les instances de machine virtuelle. Veillez également à supprimer toutes les instances de machine virtuelle d’un groupe à haute disponibilité.
 
 4. Associez toutes les instances de machine virtuelle aux nouvelles ressources de référence SKU Standard.
-
-### <a name="migrate-from-standard-to-basic-sku"></a>Migration de la référence SKU Standard à la référence SKU De base
-
-1. Créez une ressource De base (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.  Changez une sonde HTTPS au profit d’une sonde TCP sur le port 443/tcp. 
-
-2. Supprimez les ressources de la référence SKU Standard (Load Balancer et adresses IP publiques, le cas échéant) de toutes les instances de machine virtuelle. Veillez également à supprimer toutes les instances de machine virtuelle d’un groupe à haute disponibilité.
-
-3. Associez toutes les instances de machine virtuelle aux nouvelles ressources de référence SKU De base.
 
 >[!IMPORTANT]
 >

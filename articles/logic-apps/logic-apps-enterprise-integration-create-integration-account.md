@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 650355bc79e786839377a9b3e574dfbfa08868d6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453410"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Créer et gérer des comptes d’intégration pour l’intégration d’entreprise B2B dans Azure Logic Apps
 
@@ -33,7 +33,7 @@ Cette rubrique explique comment effectuer ces tâches :
 * Déplacez votre compte d’intégration vers un autre groupe de ressources ou abonnement Azure.
 * Supprimez votre compte d’intégration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -55,13 +55,13 @@ Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes 
 
    ![Fournir des détails sur le compte d’intégration](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom** | OUI | <*integration-account-name*> | Nom de votre compte d’intégration, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « Fabrikam-Integration ». |
-   | **Abonnement** | OUI | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |
-   | **Groupe de ressources** | OUI | <*nom-groupe-de-ressources-Azure*> | Le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) à utiliser pour organiser les ressources connexes. Pour cet exemple, créez un nouveau groupe de ressources nommé « FabrikamIntegration-RG ». |
-   | **Niveau tarifaire** | OUI | <*pricing-level*> | Niveau tarifaire pour le compte d’intégration, que vous pouvez modifier par la suite. Dans cet exemple, sélectionnez **Gratuit**. Pour plus d’informations, consultez les rubriques suivantes : <p>- [Modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **Lieu** | OUI | <*Azure-region*> | Région dans laquelle stocker les métadonnées de votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez vos applications logiques au même emplacement que votre compte d’intégration. Pour cet exemple, utilisez « USA Ouest ». <p>**Remarque**: Pour créer un compte d’intégration dans [un Environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), sélectionnez cet ISE comme emplacement. Pour plus d’informations, consultez [Créer des comptes d’intégration dans un environnement ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
+   | **Nom** | Oui | <*integration-account-name*> | Nom de votre compte d’intégration, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « Fabrikam-Integration ». |
+   | **Abonnement** | Oui | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |
+   | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Le nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md) à utiliser pour organiser les ressources connexes. Pour cet exemple, créez un nouveau groupe de ressources nommé « FabrikamIntegration-RG ». |
+   | **Niveau tarifaire** | Oui | <*pricing-level*> | Niveau tarifaire pour le compte d’intégration, que vous pouvez modifier par la suite. Dans cet exemple, sélectionnez **Gratuit**. Pour plus d’informations, consultez les rubriques suivantes : <p>- [Modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Limites et configuration de Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Lieu** | Oui | <*Azure-region*> | Région dans laquelle stocker les métadonnées de votre compte d’intégration. Sélectionnez l’emplacement de votre application logique ou créez vos applications logiques au même emplacement que votre compte d’intégration. Pour cet exemple, utilisez « USA Ouest ». <p>**Remarque** : Pour créer un compte d’intégration dans [un Environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), sélectionnez cet ISE comme emplacement. Pour plus d’informations, consultez [Créer des comptes d’intégration dans un environnement ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Log Analytics** | Non | Off, On | Conservez le paramètre **Off** pour cet exemple. |
    |||||
 
@@ -130,7 +130,7 @@ Pour effectuer cette modification, vous pouvez utiliser le Portail Azure en suiv
 
 <a name="upgrade-tier-azure-cli"></a>
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 1. Si ce n’est pas déjà fait, [installez les composants requis de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 

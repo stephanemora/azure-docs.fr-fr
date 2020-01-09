@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/25/2019
-ms.openlocfilehash: cd3a069eb24b6390629cfaf9a4f19f47e8978d8a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f5203de43a3d12c40e6cb5bbb33547769f5824c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440777"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copier des données depuis et vers Azure Database pour MySQL à l’aide d’Azure Data Factory
 
@@ -47,11 +47,11 @@ Les propriétés suivantes sont prises en charge par le service lié Azure Datab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureMySql** | OUI |
-| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **AzureMySql** | Oui |
+| connectionString | Spécifiez les informations nécessaires pour vous connecter à l’instance d’Azure Database pour MySQL. <br/> Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
-Une chaîne de connexion par défaut typique est `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Plus de propriétés que vous pouvez définir pour votre cas :
+Voici un exemple de chaîne de connexion typique : `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Selon votre cas de figure, vous pouvez définir d’autres propriétés :
 
 | Propriété | Description | Options | Obligatoire |
 |:--- |:--- |:--- |:--- |
@@ -66,10 +66,7 @@ Une chaîne de connexion par défaut typique est `Server=<server>.mysql.database
     "properties": {
         "type": "AzureMySql",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
-            }
+            "connectionString": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -87,10 +84,7 @@ Une chaîne de connexion par défaut typique est `Server=<server>.mysql.database
     "properties": {
         "type": "AzureMySql",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;"
-            },
+            "connectionString": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -116,7 +110,7 @@ Pour copier des données à partir d’Azure Database pour MySQL, définissez la
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureMySqlTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AzureMySqlTable** | Oui |
 | tableName | Nom de la table dans la base de données MySQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
@@ -147,7 +141,7 @@ Pour copier des données à partir d’Azure Database pour MySQL, les propriét�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMySqlSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureMySqlSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 | queryCommandTimeout | Temps d’attente avant l’expiration de la demande de requête. La valeur par défaut est de 120 minutes (02:00:00) | Non |
 
@@ -189,7 +183,7 @@ Pour copier des données vers Azure Database pour MySQL, les propriétés suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du récepteur d’activité de copie doit être définie sur : **AzureMySqlSink** | OUI |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur : **AzureMySqlSink** | Oui |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure Database pour MySQL à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
 | writeBatchSize | Insère des données dans la table Azure Database pour MySQL lorsque la taille de la mémoire tampon atteint writeBatchSize.<br>La valeur autorisée est un entier représentant le nombre de lignes. | Non (valeur par défaut : 10 000) |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non (valeur par défaut : 00:00:30) |

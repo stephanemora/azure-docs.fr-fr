@@ -3,23 +3,23 @@ title: Tailles des machines virtuelles pour Azure Cloud services | Microsoft Doc
 description: Répertorie les différentes tailles de machines virtuelles (et les identifiants) des rôles web et de travail des services cloud Azure.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.author: tagore
+ms.openlocfilehash: 34cb4282f64544e67b3724699380d1d54fd9b806
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443017"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660424"
 ---
 # <a name="sizes-for-cloud-services"></a>Tailles de services cloud
 Cette rubrique décrit les tailles et options disponibles pour les instances de rôle de Cloud Services (rôles web et rôles de travail). Il expose également les points à prendre en considération pour le déploiement quand vous planifiez l'utilisation de ces ressources. Chaque taille a un identifiant que vous placez dans votre [fichier de définition de service](cloud-services-model-and-package.md#csdef). Les prix pour chaque taille sont disponibles sur la page de [tarification des Services Cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
 
 > [!NOTE]
-> Pour connaître les limites d'Azure associées, consultez l'article [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md)
+> Pour connaître les limites d'Azure associées, consultez l'article [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md)
 >
 >
 
@@ -76,7 +76,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 * La bande passante réseau maximale est la bande passante maximale agrégée allouée et affectée par type de machine virtuelle. La bande passante maximale fournit des recommandations pour la sélection du bon type de machine virtuelle afin de garantir une capacité réseau adéquate. Lorsque vous évoluez entre Faible, Modéré, Élevé et Très élevé, le débit augmente en conséquence. Les performances réseau réelles dépendent de nombreux facteurs, notamment les charges du réseau et de l’application, ainsi que les paramètres réseau de l’application.
 
 ## <a name="a-series"></a>Série A
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Très petite      | 1         | 0,768        | 20                   | 1 / Faible |
 | Petite           | 1         | 1,75         | 225                  | 1 / Modérée |
@@ -90,7 +90,7 @@ Les tableaux ci-après indiquent les tailles et les capacités qu’elles offren
 ## <a name="a-series---compute-intensive-instances"></a>Série A - Instances de calcul intensif
 Pour plus d’informations et pour connaître les éléments à prendre en considération sur l’utilisation de ces tailles, consultez [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | A8*             |8          | 56           | 1817                 | 2 / Élevée |
 | A9*             |16         | 112          | 1817                 | 4 / Très élevée |
@@ -101,7 +101,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="av2-series"></a>Série Av2
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_A1_v2  | 1         | 2            | 10                   | 1 / Modérée                 |
 | Standard_A2_v2  | 2         | 4            | 20                   | 2 / Modérée                 |
@@ -113,7 +113,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 
 ## <a name="d-series"></a>Série D
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | D1 standard     | 1         | 3,5          | 50                   | 1 / Modérée |
 | D2 standard     | 2         | 7            | 100                  | 2 / Élevée |
@@ -125,7 +125,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 | D14 standard    | 16        | 112          | 800                  | 8 / Très élevée |
 
 ## <a name="dv2-series"></a>Série Dv2
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / Modérée |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / Élevée |
@@ -140,7 +140,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="dv3-series"></a>Série Dv3
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_D2_v3  | 2         | 8             | 50                   | 2 / Modérée |
 | Standard_D4_v3  | 4         | 16            | 100                  | 2 / Élevée |
@@ -151,7 +151,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 ## <a name="ev3-series"></a>Série Ev3
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio   | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------- | -------------------- | ---------------------------- |
 | Standard_E2_v3  | 2         | 16            | 50                   | 2 / Modérée |
 | Standard_E4_v3  | 4         | 32            | 100                  | 2 / Élevée |
@@ -162,7 +162,7 @@ Pour plus d’informations et pour connaître les éléments à prendre en consi
 
 
 ## <a name="g-series"></a>Série G
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_G1     | 2         | 28           | 384                  |1 / Élevée |
 | Standard_G2     | 4         | 56           | 768                  |2 / Élevée |
@@ -175,7 +175,7 @@ Les machines virtuelles de la série H sont des machines virtuelles de calcul h
 
 En plus de la puissance substantielle du processeur, la série H offre différentes options pour des réseaux RDMA à faible latence, en utilisant FDR InfiniBand et plusieurs configurations de mémoire pouvant satisfaire des exigences de calcul nécessitant une mémoire conséquente.
 
-| Taille            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
+| Size            | Cœurs d’unité centrale | Mémoire : Gio  | Stockage temporaire (SSD) : Gio       | Cartes réseau (max)/Bande passante réseau |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | Standard_H8     | 8         | 56           | 1 000                 | 8 / Élevée |
 | Standard_H16    | 16        | 112          | 2000                 | 8 / Très élevée |
@@ -214,5 +214,8 @@ Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceS
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur l’ [abonnement Azure et les limites, quotas et contraintes des services](../azure-subscription-service-limits.md).
+* En savoir plus sur l’ [abonnement Azure et les limites, quotas et contraintes des services](../azure-resource-manager/management/azure-subscription-service-limits.md).
 * En savoir plus sur les [Tailles de machines virtuelles de calcul haute performance](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pour les charges de travail HPC.
+
+
+

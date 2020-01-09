@@ -3,17 +3,17 @@ title: Connectivité des appareils dans Azure IoT Central | Microsoft Docs
 description: Cet article résume la façon dont Azure IoT Central vous aide à maintenir la connexion et l’intégrité de vos appareils.
 author: aaronbjork
 ms.author: abjork
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 20001247c608a52ffd18920c0b6b1f1aabd28313
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434908"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Rester connecté à Azure IoT Central (fonctionnalités en préversion)
 
@@ -29,7 +29,7 @@ Les [tableaux de bord](howto-manage-devices.md#import-devices) intégrés fourni
 ## <a name="rules-and-actions"></a>Règles et actions 
 Identifiez rapidement les appareils nécessitant une attention particulière en générant des [règles personnalisées](tutorial-create-telemetry-rules.md), basées sur la télémétrie et l’état des appareils. Configurez des actions pour informer les personnes appropriées, en veillant à ce que les mesures correctives interviennent en temps voulu.
 
-## <a name="jobs"></a>Tâches 
+## <a name="jobs"></a>travaux 
 Les [travaux](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) vous permettent d’effectuer des mises à jour simples ou en bloc sur les propriétés, les paramètres et les commandes des appareils. 
 
 ## <a name="user-roles-and-permissions"></a>Rôles et autorisations d’utilisateur

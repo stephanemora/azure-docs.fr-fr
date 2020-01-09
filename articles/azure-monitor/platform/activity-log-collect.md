@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 40025e2347fa80d2717ba292f6e3d74f5dda8e5c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ae71b71ad7c0425893391954f5ffe8b285370273
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931404"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531035"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor
 
@@ -47,7 +47,7 @@ Suivez la procédure ci-dessous pour connecter le journal d’activité à votre
     ![Connecter des espaces de travail](media/activity-log-export/connect-workspace.png)
 
 ## <a name="analyze-in-log-analytics-workspace"></a>Analyser dans l'espace de travail Log Analytics
-Lorsque vous connectez un journal d’activité à un espace de travail Log Analytics, les entrées sont écrites dans l’espace de travail dans une table appelée **AzureActivity** que vous pouvez récupérer à l'aide d'une [requête de journal](../log-query/log-query-overview.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-logs-overview.md#categories-in-the-activity-log). Consultez [Schéma d’événements du journal d’activité](activity-log-schema.md) pour obtenir une description de chaque catégorie.
+Lorsque vous connectez un journal d’activité à un espace de travail Log Analytics, les entrées sont écrites dans l’espace de travail dans une table appelée **AzureActivity** que vous pouvez récupérer à l'aide d'une [requête de journal](../log-query/log-query-overview.md). La structure de cette table varie selon la [catégorie de l’entrée de journal](activity-log-view.md#categories-in-the-activity-log). Consultez [Schéma d’événements du journal d’activité](activity-log-schema.md) pour obtenir une description de chaque catégorie.
 
 ## <a name="activity-logs-analytics-monitoring-solution"></a>Solution de supervision Activity Log Analytics
 La solution de supervision Activity Log Analytics inclut plusieurs requêtes de journal et vues pour analyser les enregistrements du journal d’activité dans votre espace de travail Log Analytics.
@@ -75,5 +75,5 @@ Cliquez sur la vignette **Journaux d’activité Azure** pour ouvrir l'affichage
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez plus en détail le [journal d’activité](activity-logs-overview.md).
-- Apprenez-en plus sur la [plateforme de données Azure Monitor](data-platform.md).
+- Apprenez-en davantage sur la [plateforme de données Azure Monitor](data-platform.md).
 - Utilisez les [requêtes de journal](../log-query/log-query-overview.md) pour afficher des informations détaillées provenant de votre journal d’activité.

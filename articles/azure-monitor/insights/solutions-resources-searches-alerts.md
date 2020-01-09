@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 488130fbd2939fa4d98e379126ba3353a417fd72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401761"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -28,8 +28,8 @@ Les [solutions de gestion](solutions.md) incluent généralement des [recherches
 > [!NOTE]
 > Les exemples cités dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Concevoir et générer une solution de gestion dans Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](solutions-creating.md) et la structure d’un [modèle Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) et d’un fichier solution.
+## <a name="prerequisites"></a>Conditions préalables requises
+Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](solutions-creating.md) et la structure d’un [modèle Resource Manager](../../azure-resource-manager/templates/template-syntax.md) et d’un fichier solution.
 
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
@@ -71,9 +71,9 @@ Les ressources de [recherche enregistrée Log Analytics](../../azure-monitor/log
 
 Chaque propriété d’une recherche enregistrée est décrite dans le tableau suivant.
 
-| Propriété | description |
+| Propriété | Description |
 |:--- |:--- |
-| category | La catégorie de la recherche enregistrée.  Toutes les recherches enregistrées d’une même solution partagent généralement une catégorie unique. Elles sont ainsi regroupées dans la console. |
+| catégorie | La catégorie de la recherche enregistrée.  Toutes les recherches enregistrées d’une même solution partagent généralement une catégorie unique. Elles sont ainsi regroupées dans la console. |
 | displayname | Le nom à afficher pour la recherche enregistrée dans le portail. |
 | query | Requête à exécuter. |
 
@@ -112,11 +112,11 @@ Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d
     }
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| enabled       | OUI | Spécifie si l’alerte est activée lors de sa création. |
-| interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
-| queryTimeSpan | OUI | Durée sur laquelle les résultats sont évalués (en minutes). |
+| enabled       | Oui | Spécifie si l’alerte est activée lors de sa création. |
+| interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
+| queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
 
 La ressource de planification doit dépendre de la recherche enregistrée, de sorte qu’elle soit créée avant la planification.
 > [!NOTE]
@@ -166,33 +166,33 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| `type` | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
-| `name` | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| `type` | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
+| `name` | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | `description` | Non | La description facultative de l’alerte. |
-| `severity` | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| `severity` | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 #### <a name="threshold"></a>Seuil
 Cette section est obligatoire. Elle définit les propriétés du seuil d’alerte.
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| `Operator` | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| `Value` | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| `Operator` | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| `Value` | Oui | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| `TriggerCondition` | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| `Operator` | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| `Value` | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| `TriggerCondition` | Oui | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| `Operator` | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| `Value` | Oui | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation
 Cette section est facultative. Insérez cette section si vous souhaitez supprimer des alertes à partir de la même règle sur une certaine période après la création d’une alerte.
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
 | DurationInMinutes | Oui, si l’élément Throttling est inclus | Le délai de suppression des alertes, en minutes, une fois créée une alerte à partir de la même règle. |
 
@@ -201,9 +201,9 @@ Toutes les alertes dans Azure, utilisez le groupe d’actions en tant que mécan
 
 Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planification doit maintenant avoir des informations sur le groupe d’actions transmises avec le seuil, afin de pouvoir créer une alerte. Les informations sur les e-mails, les URLS Webhook, les Runbooks Automation et sur d’autres actions doivent être définies dans un groupe d’actions avant de créer une alerte. Vous pouvez créer un [groupe d’actions à partir d’Azure Monitor](../../azure-monitor/platform/action-groups.md) dans le portail ou utiliser [Groupes d’action - Modèle Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nom de l'élément | Obligatoire | description |
+| Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| AzNsNotification | OUI | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
+| AzNsNotification | Oui | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
 | CustomEmailSubject | Non | Ligne d’objet personnalisée de l’e-mail envoyé à toutes les adresses spécifiées dans le groupe d’actions associé. |
 | CustomWebhookPayload | Non | Charge utile personnalisée à envoyer à tous les points de terminaison Webhook définis dans le groupe d’actions associé. Le format dépend de ce qu’attend le Webhook, et doit être un JSON sérialisé valide. |
 
@@ -212,7 +212,7 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 L’exemple de solution ci-après inclut les ressources suivantes :
 
 - Recherche enregistrée
-- Planification
+- Planifier
 - Groupe d’actions
 
 L’exemple utilise des variables de [paramètres de solution standard]( solutions-solution-file.md#parameters) qui seraient généralement utilisées dans une solution, par opposition aux valeurs de codage en dur dans les définitions de ressource.

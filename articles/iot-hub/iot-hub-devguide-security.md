@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: fa1aa8c560f4b9cc48c7a6a761abe4d69d5d0265
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773168"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429303"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -64,7 +64,7 @@ Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant un jeto
 Les informations d’identification de sécurité telles que les clés symétriques ne sont jamais envoyées sur le réseau.
 
 > [!NOTE]
-> Le fournisseur de ressources Azure IoT Hub est sécurisé par votre abonnement Azure, comme tous les fournisseurs dans [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+> Le fournisseur de ressources Azure IoT Hub est sécurisé par votre abonnement Azure, comme tous les fournisseurs dans [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 Pour plus d’informations sur la construction et l’utilisation des jetons de sécurité, consultez [Jetons de sécurité IoT Hub](iot-hub-devguide-security.md#security-tokens).
 
@@ -87,7 +87,7 @@ Dans les deux cas, le champ de mot de passe contient le jeton, comme indiqué da
 
 Le protocole HTTPS implémente l’authentification en incluant un jeton valide dans l’en-tête de requête **Authorization**.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Nom d’utilisateur (DeviceId respecte la casse) : `iothubname.azure-devices.net/DeviceId`
 
@@ -136,8 +136,8 @@ Voici les valeurs attendues :
 
 | Valeur | Description |
 | --- | --- |
-| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important** : la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256. |
-| {resourceURI} |Préfixe URI (par segment) des points de terminaison qui sont accessibles avec ce jeton, en commençant par le nom d’hôte IoT Hub (sans protocole). Par exemple, `myHub.azure-devices.net/devices/device1` |
+| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important !** la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256. |
+| {resourceURI} |Préfixe URI (par segment) des points de terminaison qui sont accessibles avec ce jeton, en commençant par le nom d’hôte IoT Hub (sans protocole). Par exemple : `myHub.azure-devices.net/devices/device1` |
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
 | {URL-encoded-resourceURI} |Encodage en URL minuscules de l’URI de ressource en minuscules |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. Il n’y en a pas si le jeton fait référence aux informations d’identification de registre des appareils. |
@@ -456,7 +456,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md) décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 
-* La rubrique [Kits Azure IoT device et service SDK](iot-hub-devguide-sdks.md) liste les kits SDK des différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
+* La rubrique [SDK des services et appareils Azure IoT](iot-hub-devguide-sdks.md), qui répertorie les SDK en différents langages que vous pouvez utiliser pour le développement d’applications d’appareil et de service qui interagissent avec IoT Hub.
 
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 

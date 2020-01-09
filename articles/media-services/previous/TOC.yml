@@ -1,13 +1,13 @@
 - name: Documentation Media Services
   href: index.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: media-services-overview.md
   items:
     - name: Scénarios et disponibilité
       href: scenarios-and-availability.md
     - name: Concepts
       href: media-services-concepts.md
-- name: Prise en main
+- name: Bien démarrer
   items:
     - name: Créer et gérer un compte
       href: media-services-portal-create-account.md
@@ -50,6 +50,7 @@
 - name: Procédure
   items:
     - name: Composants existants
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
       href: legacy-components.md
       items:
         - name: Migrer depuis Azure Media Encoder
@@ -60,7 +61,7 @@
           displayName: WAME
         - name: Migrer à partir de l’indexeur v1 et v2
           href: migrate-indexer-v1-v2.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Comptes
           displayName: subscription
@@ -228,7 +229,7 @@
               href: media-services-rest-get-media-processor.md
         - name: Codes d’erreur
           href: media-services-encoding-error-codes.md
-        - name: Déconseillé
+        - name: Déprécié
           items:
             - name: Empaquetage et chiffrement statiques
               href: media-services-static-packaging.md
@@ -418,7 +419,7 @@
           href: media-services-dotnet-how-to-use-azure-functions.md
         - name: Azure Functions avec des exemples Media Services
           href: 'https://github.com/Azure-Samples/media-services-dotnet-functions-integration'
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Vérifier la progression des travaux
           items:
@@ -432,9 +433,9 @@
           href: media-services-dotnet-check-job-progress-with-queues.md
         - name: Superviser les notifications de travaux avec WebHooks
           href: media-services-dotnet-check-job-progress-with-webhooks.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
-        - name: Questions fréquentes (FAQ)
+        - name: Forum aux questions
           href: media-services-frequently-asked-questions.md
         - name: Guide de dépannage de la vidéo en flux continu
           href: media-services-troubleshooting-live-streaming.md
@@ -462,6 +463,9 @@
           href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
           href: ../media-services-specifications-ms-sstr-amendment-hevc.md
+    - name: Composants existants
+      displayName: 'deprecated, deprecation, retired, retirement, legacy'
+      href: legacy-components.md
 - name: Ressources
   items:
     - name: Communauté Azure Media Services

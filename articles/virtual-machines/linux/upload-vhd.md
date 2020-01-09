@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 95486208f52b2faa2fbb3db5bf1ef968c330dab6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 70fff041cd693a19269b11398947fb0c8ce56bb1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350680"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -35,7 +35,7 @@ Pour créer un disque personnalisé, vous disposez de deux méthodes :
 * Copier une machine virtuelle Azure existante
 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 Pour exécuter la procédure ci-après, vous avez besoin des éléments suivants :
 
 - Une machine virtuelle Linux qui a été préparée pour une utilisation dans Azure. La section [Préparation de la machine virtuelle](#prepare-the-vm) de cet article explique où trouver les informations propres à la distribution concernant l’installation de l’agent Linux Azure (waagent), qui vous sont nécessaires pour vous connecter à une machine virtuelle avec SSH.
@@ -53,7 +53,7 @@ Pour exécuter la procédure ci-après, vous avez besoin des éléments suivants
 
 Dans les exemples suivants, remplacez les noms de paramètres par vos propres valeurs, telles que `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
-<a id="prepimage"></a>
+<a id="prepimage"> </a>
 
 ## <a name="prepare-the-vm"></a>Préparation de la machine virtuelle
 
@@ -74,11 +74,11 @@ Consultez également les [notes d’installation Linux](create-upload-generic.md
 > 
 > 
 
-## <a name="option-1-upload-a-vhd"></a>Option 1 : Télécharger un disque dur virtuel
+## <a name="option-1-upload-a-vhd"></a>Option 1 : Télécharger un disque dur virtuel
 
 Vous pouvez désormais charger un disque dur virtuel directement dans un disque managé. Pour plus d’instructions, consultez [Charger un disque dur virtuel dans Azure à l'aide d'Azure CLI](disks-upload-vhd-to-managed-disk-cli.md).
 
-## <a name="option-2-copy-an-existing-vm"></a>Option 2 : Copier une machine virtuelle existante
+## <a name="option-2-copy-an-existing-vm"></a>Option n°2 : Copier une machine virtuelle existante
 
 Vous pouvez également créer une machine virtuelle personnalisée dans Azure, puis copier le disque du système d’exploitation et l’attacher à une nouvelle machine virtuelle pour créer une autre copie. Cette approche est bien adaptée à un test, mais si vous souhaitez utiliser une machine virtuelle Azure existante comme modèle pour plusieurs nouvelles machines virtuelles, créez plutôt une *image*. Pour plus d’informations sur la création d’une image à partir d’une machine virtuelle Azure existante, consultez l’article [Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI](tutorial-custom-images.md).
 
@@ -134,4 +134,4 @@ az vm create \
 Vous devriez pouvoir utiliser SSH pour vous connecter à la machine virtuelle avec les informations d’identification de la machine virtuelle source. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/resource-group-overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/management/overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

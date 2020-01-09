@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428883"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exporter des flux de Power Automate et les déployer sur Azure Logic Apps
 
@@ -22,7 +22,7 @@ Pour étendre les fonctionnalités de votre flux, vous pouvez le migrer de [Powe
 >
 > Le déploiement sous forme de modèles d’applications logiques des flux basés sur OpenAPI et exportés à partir de Power Automate n’est pas pris en charge actuellement. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -81,7 +81,7 @@ Pour plus d’informations, consultez [Grow up to Azure Logic Apps](https://flow
 
       Chaque connexion nécessitant une autorisation affiche une icône d’avertissement :
 
-      ![Icône Avertissement](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
+      ![Icône d'avertissement](./media/export-from-microsoft-flow-logic-app-template/authorize-connections.png)
 
    1. Pour chaque étape qui nécessite une connexion autorisée, développez cette étape, puis sélectionnez **Ajouter nouveau**.
 
@@ -133,7 +133,7 @@ Si vous avez configuré Visual Studio avec les [prérequis](../logic-apps/quicks
 
 1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du projet et sélectionnez **Déployer** > **Nouveau**. Si vous y êtes invité, connectez-vous à votre compte Azure.
 
-1. À l’invite, confirmez l’abonnement Azure, le groupe de ressources Azure et tous les autres paramètres que vous souhaitez utiliser pour le déploiement, par exemple le [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) à utiliser pour transmettre les valeurs de paramètres du modèle, puis sélectionnez **Déployer**.
+1. À l’invite, confirmez l’abonnement Azure, le groupe de ressources Azure et tous les autres paramètres que vous souhaitez utiliser pour le déploiement, par exemple le [fichier de paramètres](../azure-resource-manager/templates/parameter-files.md) à utiliser pour transmettre les valeurs de paramètres du modèle, puis sélectionnez **Déployer**.
 
    ![Confirmez les paramètres de déploiement](./media/export-from-microsoft-flow-logic-app-template/confirm-azure-subscription-resource-group-deployment.png)
 

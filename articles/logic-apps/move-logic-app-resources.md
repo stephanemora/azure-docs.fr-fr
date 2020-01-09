@@ -6,24 +6,24 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: de646c790fc21ef17bf78789e0531503f2f32052
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790784"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456542"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Déplacer des ressources d’application logique vers d’autres abonnements Azure, des groupes de ressources ou des régions
 
 Pour déplacer votre application logique ou les ressources associées vers un autre abonnement, groupe de ressources ou région Azure, vous disposez de différentes méthodes pour effectuer ces tâches, telles que les Portail Azure, les Azure PowerShell, les Azure CLI et l’API REST. Avant de déplacer des ressources, passez en revue les considérations suivantes : 
 
-* Vous pouvez déplacer uniquement des [types de ressources d’application logique spécifiques](../azure-resource-manager/move-support-resources.md#microsoftlogic) entre des groupes de ressources Azure ou des abonnements.
+* Vous pouvez déplacer uniquement des [types de ressources d’application logique spécifiques](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) entre des groupes de ressources Azure ou des abonnements.
 
 * Vérifiez les [limites](../logic-apps/logic-apps-limits-and-config.md) du nombre de ressources d’application logique que vous pouvez avoir dans votre abonnement Azure et dans chaque région Azure. Ces limites déterminent si vous pouvez déplacer des types de ressources spécifiques lorsque la région reste la même sur plusieurs abonnements ou groupes de ressources. Par exemple, vous ne pouvez avoir qu’un seul compte d’intégration de niveau gratuit pour chaque région Azure dans chaque abonnement Azure.
 
 * Lorsque vous déplacez des ressources, Azure crée de nouveaux ID de ressource. Par conséquent, assurez-vous d’utiliser les nouveaux ID et de mettre à jour tous les scripts ou outils associés aux ressources déplacées. Après avoir déplacé des applications logiques entre les abonnements, les groupes de ressources ou les régions, vous devez recréer ou réautoriser des connexions OAuth.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Le même abonnement Azure que celui utilisé pour créer l’application logique ou le compte d’intégration que vous souhaitez déplacer
 
@@ -53,7 +53,7 @@ Pour déplacer une ressource, telle qu’une application logique ou un compte d�
 
 Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre groupe de ressources Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/resource-group-move-resources.md).
 
-Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/resource-group-move-resources.md#validate-move).
+Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource d’application logique que vous souhaitez déplacer.
 
@@ -79,7 +79,7 @@ Lorsque vous souhaitez déplacer une application logique vers une autre région,
 
 Pour plus d’informations sur les modèles de déploiement pour les applications logiques, consultez les rubriques suivantes :
 
-* [Présentation : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Vue d’ensemble : Automatiser le déploiement pour le service Azure Logic Apps à l’aide de modèles Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Rechercher, ouvrir et télécharger votre application logique à partir du Portail Azure dans Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Créer des modèles Azure Resource Manager pour Azure Logic Apps](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Déployer des modèles Azure Resource Manager pour Azure Logic Apps](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: 1211a7f2aa82f7084dc87e2c9a8bdaab9997be45
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e686648680261e2d13707f1704c56f306c510397
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439471"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformer des données avec des flux de données de mappage
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Effectuer une série de tests sur le pipeline.
 > * Superviser une activité de flux de données.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Azure Storage**. Vous utilisez le stockage ADLS comme magasins de données *source* et *récepteur*. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
 
@@ -41,7 +41,7 @@ Le fichier que nous transformons dans ce tutoriel est MoviesDB.csv, qui se trouv
 Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l’interface utilisateur de Data Factory afin de créer un pipeline dans la fabrique de données. 
 
 1. Ouvrez **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
-2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analyse** > **Data Factory** : 
+2. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** : 
   
    ![Sélection Data Factory dans le volet « Nouveau »](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -57,7 +57,7 @@ Au cours de cette étape, vous allez créer une fabrique de données et ouvrir l
 
     b. Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources. 
          
-    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md). 
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md). 
 6. Sous **Version**, sélectionnez **V2**.
 7. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (comme le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
 8. Sélectionnez **Create** (Créer). 
@@ -95,13 +95,13 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
     ![Canevas de flux de données](media/tutorial-data-flow/dataflow3.png)
 1. Choisissez **Azure Data Lake Storage Gen2**. Cliquez sur Continuer.
 
-    ![Jeu de données](media/tutorial-data-flow/dataset1.png)
+    ![Dataset](media/tutorial-data-flow/dataset1.png)
 1. Choisissez **DelimitedText**. Cliquez sur Continuer.
 
-    ![Jeu de données](media/tutorial-data-flow/dataset2.png)
+    ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nommez votre jeu de données **MoviesDB**. Dans la liste déroulante des services liés, choisissez **Nouveau**.
 
-    ![Jeu de données](media/tutorial-data-flow/dataset3.png)
+    ![Dataset](media/tutorial-data-flow/dataset3.png)
 1. Dans l’écran de création de service lié, nommez votre service lié ADLS Gen2 **ADLSGen2**, puis spécifiez votre méthode d’authentification. Entrez ensuite vos informations d’identification de connexion. Dans ce tutoriel, nous utilisons une clé de compte pour nous connecter à notre compte de stockage. Vous pouvez cliquer sur **Tester la connexion** pour vérifier que vos informations d’identification ont été entrées correctement. Quand vous avez terminé, cliquez sur Créer.
 
     ![Service lié](media/tutorial-data-flow/ls1.png)
@@ -163,10 +163,10 @@ Une fois que vous avez créé votre flux de données, vous êtes automatiquement
     ![Récepteur](media/tutorial-data-flow/sink2.png)
 1. Choisissez **Azure Data Lake Storage Gen2**. Cliquez sur Continuer.
 
-    ![Jeu de données](media/tutorial-data-flow/dataset1.png)
+    ![Dataset](media/tutorial-data-flow/dataset1.png)
 1. Choisissez **DelimitedText**. Cliquez sur Continuer.
 
-    ![Jeu de données](media/tutorial-data-flow/dataset2.png)
+    ![Dataset](media/tutorial-data-flow/dataset2.png)
 1. Nommez votre jeu de données récepteur **MoviesSink**. Pour le service lié, choisissez le service lié ADLS Gen2 que vous avez créé à l’étape 6. Entrez un dossier de sortie dans lequel écrire vos données. Dans ce tutoriel, nous écrivons dans le dossier « output » se trouvant dans le conteneur « sample-data ». Le dossier ne doit pas nécessairement exister au préalable et peut être créé de façon dynamique. Activez **Première ligne comme en-tête**, puis sélectionnez **Aucun** pour **Importer un schéma**. Cliquez sur Finish.
     
     ![Récepteur](media/tutorial-data-flow/sink3.png)
@@ -194,7 +194,7 @@ Si vous avez suivi ce tutoriel correctement, vous devez avoir écrit 83 lignes 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, le pipeline exécute un flux de données qui agrège l’évaluation moyenne des comédies de 1910 à 2000 et qui écrit les données dans ADLS. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, le pipeline exécute un flux de données qui agrège l’évaluation moyenne des comédies de 1910 à 2000 et qui écrit les données dans ADLS. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

@@ -1,20 +1,21 @@
 ---
 title: Création et déploiement d’une application Node.js Express dans Azure Cloud Services
+titleSuffix: Azure Cloud Services
 description: Création et déploiement d’une application Express.js dans Node.js sur Azure Cloud Services
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: 080ec61df2042a4cf2eac9d5175c4681f98fd9df
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 79a998930a384420b22add8825ee4b2269eb4539
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360750"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Création et déploiement d’une application web Node.js avec Express sur Azure Cloud Services
 
@@ -119,5 +120,8 @@ Pour plus d’informations, consultez le [Centre pour développeurs Node.js](htt
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
+
+
+
 
 

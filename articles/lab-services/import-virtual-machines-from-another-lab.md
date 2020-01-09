@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: ca6ed58cfabb5027830828812c4820c1b586875c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0778759958e70c564779f5493d7cf8b646f6ced0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61322849"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644645"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importer des machines virtuelles depuis un autre labo dans Azure DevTest Labs
 Cet article fournit des informations sur la façon d’importer des machines virtuelles depuis un autre labo dans votre labo.
@@ -26,7 +26,7 @@ Cet article fournit des informations sur la façon d’importer des machines vir
 Voici quelques scénarios où vous avez besoin d’importer des machines virtuelles depuis un labo dans un autre labo :
 
 - Une personne de l’équipe passe à un autre groupe au sein de l’entreprise et veut apporter le poste de travail de développement aux DevTest Labs de la nouvelle équipe.
-- Le groupe a atteint un [quota au niveau de l’abonnement](../azure-subscription-service-limits.md) et veut diviser les équipes en plusieurs abonnements.
+- Le groupe a atteint un [quota au niveau de l’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md) et veut diviser les équipes en plusieurs abonnements.
 - L’entreprise passe à Express Route (ou à une autre topologie réseau) et l’équipe veut déplacer les machines virtuelles afin d’utiliser cette nouvelle infrastructure.
 
 ## <a name="solution-and-constraints"></a>Solution et contraintes
@@ -83,7 +83,7 @@ POST https://management.azure.com/subscriptions/<DestinationSubscriptionID>/reso
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-get-started-with-lab-policies.md)
-- [Forum Aux Questions](devtest-lab-faq.md)
+- [Forum Aux Questions (FAQ)](devtest-lab-faq.md)

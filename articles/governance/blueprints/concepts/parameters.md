@@ -3,12 +3,12 @@ title: Utiliser des paramètres pour créer des blueprints dynamiques
 description: Découvrez les paramètres statiques et dynamiques et comment les utiliser pour créer des blueprints sécurisés et dynamiques.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 68987b3e0f418721986003dc796f00ac1dd6dda1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128936"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644968"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -40,7 +40,7 @@ Si l’affectation de blueprint utilise une **identité managée attribuée par 
 Si l’affectation de blueprint utilise une **identité managée attribuée par le système**, le Key Vault référencé _peut_ se trouver dans un abonnement centralisé. L’identité managée doit disposer des droits appropriés sur le Key Vault avant l’affectation de blueprint.
 
 > [!IMPORTANT]
-> Dans les deux cas, le Key Vault doit disposer de l’option **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** configurée sur la page **Stratégies d’accès**. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+> Dans les deux cas, le Key Vault doit disposer de l’option **Activer l’accès à Azure Resource Manager pour le déploiement de modèles** configurée sur la page **Stratégies d’accès**. Pour obtenir des instructions sur la façon d’activer cette fonctionnalité, consultez [Key Vault - Activer le déploiement de modèle](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 Pour plus d’informations sur Azure Key Vault, consultez [Présentation de Key Vault](../../../key-vault/key-vault-overview.md)
 
@@ -72,7 +72,7 @@ Une valeur de paramètre définie dans la définition d’un blueprint est appel
 
 Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
 
-- Remplacer `{YourMG}` par le nom de votre groupe d’administration
+- `{YourMG}` - À remplacer par le nom de votre groupe d’administration
 - Remplacer `{subscriptionId}` par votre ID d’abonnement
 
 ##### <a name="blueprint-level-parameter"></a>Paramètre de niveau blueprint

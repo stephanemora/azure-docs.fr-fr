@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: de63799400a10afc1930cd373df0c8dd86320f78
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9bc0b32d3c94cabc1a772f02bf21f31e73f1306f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212010"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75642146"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ sur Azure Private DNS
 
@@ -34,7 +34,7 @@ Non. Les zones privées fonctionnent avec les réseaux virtuels. Vous les utilis
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>La même zone privée peut-elle être utilisée pour plusieurs réseaux virtuels pour la résolution ?
 
-Oui. Vous pouvez lier une zone DNS privée à des milliers de réseaux virtuels. Pour plus d’informations, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits).
+Oui. Vous pouvez lier une zone DNS privée à des milliers de réseaux virtuels. Pour plus d’informations, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits).
 
 ## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Un réseau virtuel qui appartient à un autre abonnement peut-il être lié à une zone privée ?
 
@@ -71,7 +71,7 @@ Pour obtenir des conseils sur la façon de modifier ce suffixe, consultez [Utili
 
 ## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Quelles sont les limites d’utilisation d’Azure DNS Private Zones ?
 
-Pour plus d’informations sur les limites d’utilisation d’Azure DNS Private Zones, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits).
+Pour plus d’informations sur les limites d’utilisation d’Azure DNS Private Zones, consultez [Limites d’Azure DNS](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits).
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Pourquoi mes zones DNS privées existantes n’apparaissent-elles pas dans le nouveau portail ?
 

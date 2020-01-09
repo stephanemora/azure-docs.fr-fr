@@ -4,15 +4,15 @@ description: L’API Collecte de données HTTP d’Azure Monitor permet d’ajou
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3074d8d9dfcb3dbca31821d73cfd6daee056edb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363963"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Créer un pipeline de données avec l’API Collecte de données
 

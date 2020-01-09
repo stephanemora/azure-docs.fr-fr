@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 29c1aaf18ea45d869d32a8817aeb03faa3b67c32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815201"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456573"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -50,7 +50,7 @@ Dans Azure Logic Apps, la passerelle de données locale prend en charge les [con
 
 Azure Logic Apps prend en charge les opérations de lecture et d’écriture par le biais de la passerelle de données. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Bien que la passerelle proprement dite n’entraîne pas de frais supplémentaires, le [modèle tarifaire de Logic Apps](../logic-apps/logic-apps-pricing.md) s’applique à ces connecteurs et à d’autres opérations dans Azure Logic Apps.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * La passerelle de données locale doit être déjà [installée sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md).
 
@@ -82,7 +82,7 @@ Après avoir installé la passerelle sur un ordinateur local, créez une ressour
    |----------|-------------|
    | **Nom de la ressource** | Fournissez pour votre ressource de passerelle un nom qui contient uniquement des lettres, des chiffres, des traits d’union (`-`) des traits de soulignement (`_`), des parenthèses (`(`, `)`) ou des points (`.`). |
    | **Abonnement** | Sélectionnez l’abonnement Azure pour le compte Azure qui a été utilisé pour l’installation de la passerelle. L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter. |
-   | **Groupe de ressources** | Le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) que vous souhaitez utiliser |
+   | **Groupe de ressources** | Le [groupe de ressources Azure](../azure-resource-manager/management/overview.md) que vous souhaitez utiliser |
    | **Lieu** | La même région ou position sélectionnée pour le service cloud de la passerelle pendant l’[installation de la passerelle](../logic-apps/logic-apps-gateway-install.md). Autrement, votre installation de passerelle ne s’affichera pas dans la liste **Nom d’installation**. L’emplacement de votre application logique peut être différent de l’emplacement de votre ressource de passerelle. |
    | **Nom de l’installation** | Sélectionnez une installation de passerelle, qui apparaît dans la liste uniquement quand les conditions suivantes sont remplies : <p><p>- L’installation de la passerelle utilise la même région que la ressource de passerelle que vous souhaitez créer. <br>-L’installation de la passerelle n’est pas liée à une autre ressource de passerelle Azure. <br>- L’installation de la passerelle est liée au même compte Azure que celui que vous utilisez pour créer la ressource de passerelle. <br>-Votre compte Azure appartient à un seul [client ou répertoire Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology) et est le même compte que celui utilisé pour l’installation de la passerelle. <p><p>Pour plus d’informations, consultez la section [Questions fréquentes (FAQ)](#faq). |
    |||
@@ -156,7 +156,7 @@ Pour créer une autre ressource de passerelle, lier l’installation de votre pa
 
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q** : Pourquoi mon installation de passerelle n’apparaît-elle pas quand je crée ma ressource de passerelle dans Azure ? <br/>
 **R** : Ce problème peut se produire pour les raisons suivantes :

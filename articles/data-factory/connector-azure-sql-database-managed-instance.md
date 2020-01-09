@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/09/2019
-ms.openlocfilehash: e8029b957fedc07ba571b61f1211c020b706bea3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f1eb8644faf6693a2a33ded489830cf4106df222
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444397"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
@@ -44,13 +44,13 @@ Plus précisément, ce connecteur Azure SQL Database Managed Instance prend en c
 >[!NOTE]
 >Les authentifications d'identité principale et d'identité gérée du service ne sont actuellement pas prises en charge par ce connecteur. Pour contourner ce problème, choisissez un connecteur Azure SQL Database et spécifiez manuellement le serveur de votre instance gérée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour accéder au [point de terminaison public](../sql-database/sql-database-managed-instance-public-endpoint-securely.md) Azure SQL Database Managed Instance, vous pouvez utiliser un runtime d’intégration Azure géré Azure Data Factory. Assurez-vous que vous activez le terminal public et que vous autorisez également le trafic du terminal public sur le groupe de sécurité réseau afin que Azure Data Factory puisse se connecter à votre base de données. Pour plus d’informations, [consultez cet article](../sql-database/sql-database-managed-instance-public-endpoint-configure.md).
 
 Pour accéder au point de terminaison privé Azure SQL Database Managed Instance, configurez un [runtime d'intégration auto-hébergé](create-self-hosted-integration-runtime.md) capable d'accéder à la base de données. Si vous configurez le runtime d'intégration auto-hébergé dans le même réseau virtuel que votre instance gérée, assurez-vous que la machine qui exécute le runtime d'intégration ne se trouve pas dans le même sous-réseau que votre instance gérée. Si vous configurez votre runtime d'intégration auto-hébergé dans un réseau virtuel différent de celui de votre instance gérée, vous pouvez utiliser un peering de réseau virtuel ou une connexion de réseau virtuel à réseau virtuel. Pour plus d'informations, consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -62,12 +62,12 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **AzureSqlMI**. | OUI |
-| connectionString |Cette propriété spécifie les informations **connectionString** nécessaires pour se connecter à l'instance gérée à l'aide de l'authentification SQL. Pour plus d'informations, consultez les exemples suivants. <br/>Le port par défaut est 1433. Si vous utilisez Azure SQL Database Managed Instance avec un terminal public, spécifiez explicitement le port 3342.<br>Marquez ce champ comme **SecureString** pour le stocker de manière sécurisée dans Azure Data Factory. Vous pouvez également placer un mot de passe dans Azure Key Vault. En cas d’authentification SQL, extrayez la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| type | La propriété type doit être définie sur **AzureSqlMI**. | Oui |
+| connectionString |Cette propriété spécifie les informations **connectionString** nécessaires pour se connecter à l'instance gérée à l'aide de l'authentification SQL. Pour plus d'informations, consultez les exemples suivants. <br/>Le port par défaut est 1433. Si vous utilisez Azure SQL Database Managed Instance avec un terminal public, spécifiez explicitement le port 3342.<br> Vous pouvez également placer un mot de passe dans Azure Key Vault. En cas d’authentification SQL, extrayez la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Azure Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant | Spécifiez les informations de locataire, comme le nom de domaine ou l’ID de locataire, dans lequel votre application se trouve. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser un runtime d'intégration auto-hébergé ou un runtime d'intégration Azure si votre instance gérée possède un terminal public et autorise Azure Data Factory à y accéder. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |OUI |
+| connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser un runtime d'intégration auto-hébergé ou un runtime d'intégration Azure si votre instance gérée possède un terminal public et autorise Azure Data Factory à y accéder. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Oui |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
 
@@ -85,10 +85,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
-            }
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -106,10 +103,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
-            },
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -167,10 +161,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
-            },
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -188,7 +179,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 ### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité managée pour l’authentification Azure SQL Database Managed Instance. La fabrique désignée peut accéder et copier des données vers ou à partir de votre base de données à l’aide de cette identité.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité managée pour l’authentification Azure SQL Database Managed Instance. La fabrique en question peut accéder à votre base de données et copier des données depuis ou vers celle-ci à l’aide de cette identité.
 
 Pour utiliser l’authentification par identité managée, effectuez les étapes suivantes.
 
@@ -222,10 +213,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
     "properties": {
         "type": "AzureSqlMI",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
-            }
+            "connectionString": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -243,8 +231,8 @@ Les propriétés suivantes sont prises en charge pour copier des données vers e
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **AzureSqlMITable**. | OUI |
-| schema | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
+| type | La propriété type du jeu de données doit être définie sur **AzureSqlMITable**. | Oui |
+| schéma | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
 | table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
 | tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
 
@@ -279,8 +267,8 @@ Pour copier des données à partir de Azure SQL Database Managed Instance, les p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlMISource**. | OUI |
-| sqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. |Non |
+| type | La propriété type de la source d’activité de copie doit être définie sur **SqlMISource**. | Oui |
+| sqlReaderQuery |Cette propriété utilise la requête SQL personnalisée pour lire les données. par exemple `select * from MyTable`. |Non |
 | sqlReaderStoredProcedureName |Cette propriété est le nom de la procédure stockée qui lit les données dans la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non |
 | storedProcedureParameters |Ces paramètres concernent la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non |
 
@@ -385,7 +373,7 @@ Pour copier des données vers Azure SQL Database Managed Instance, les propriét
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlMISink**. | OUI |
+| type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlMISink**. | Oui |
 | writeBatchSize |Nombre de lignes à insérer dans la table SQL *par lot*.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne.  |Non |
 | writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment un intervalle de temps. Par exemple, « 00:30:00 » (30 minutes). |Non |
 | preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
@@ -590,9 +578,9 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| Date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -600,21 +588,21 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| nchar |String, Char[] |
+| NCHAR |String, Char[] |
 | ntext |String, Char[] |
 | numeric |Decimal |
-| nvarchar |String, Char[] |
+| NVARCHAR |String, Char[] |
 | real |Unique |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
-| smallint |Int16 |
-| smallmoney |Decimal |
+| smalldatetime |DateTime |
+| SMALLINT |Int16 |
+| SMALLMONEY |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |Int16 |
-| uniqueidentifier |Guid |
+| TINYINT |Int16 |
+| UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |

@@ -4,15 +4,15 @@ description: Cet article explique comment arrêter la surveillance de vos machin
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/05/2018
-ms.openlocfilehash: 70e71688fde5aff4002c7d49b1408bcefeab1eed
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2d58b501429a47c3011fc727f756edeeb7775e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75399304"
 ---
 # <a name="disable-monitoring-of-your-vms-in-azure-monitor-for-vms-preview"></a>Désactiver la surveillance de vos machines virtuelles dans Azure Monitor pour machines virtuelles (préversion)
 
@@ -43,7 +43,7 @@ Si vous avez encore besoin de l’espace de travail Log Analytics, procédez com
 >Si vous utilisiez la solution de surveillance Service Map avant d’activer Azure Monitor pour machines virtuelles et que vous l’utilisez toujours, ne supprimez pas cette solution comme cela est décrit dans la dernière étape de la procédure suivante.  
 >
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste filtre les suggestions. Sélectionnez **Log Analytics**.
 3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez celui que vous avez choisi lors de l’activation d’Azure Monitor pour machines virtuelles.
 4. Sur la gauche, sélectionnez **Solutions**.  
@@ -64,7 +64,7 @@ Si votre espace de travail Log Analytics a encore besoin de prendre en charge la
 >
 > Si vous supprimez l’agent Log Analytics, vous empêchez ces services et ces solutions de gérer de façon proactive votre machine virtuelle. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
 3. Sélectionnez une machine virtuelle dans la liste. 
 4. Sur la gauche, sélectionnez **Extensions**. Dans la page **Extensions**, sélectionnez **DependencyAgent**.

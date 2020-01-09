@@ -3,23 +3,23 @@ title: Prise en main des services cloud Azure et d’ASP.NET | Microsoft Docs
 description: Découvrez comment créer une application multiniveau avec ASP.NET MVC et Azure. L'application s'exécute dans un service cloud, avec un rôle web et un rôle de travail. Elle utilise Entity Framework, Base de données SQL et les files d'attente et objets blobs du stockage Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: gwallace
-ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: tagore
+ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386729"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel explique comment créer une application .NET multiniveau avec un composant frontal ASP.NET MVC et comment la déployer sur un [service cloud Azure](cloud-services-choose-me.md). L’application utilise [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), le [service Blob Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) et le [service File d’attente Azure](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Vous pouvez [télécharger le projet Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) dans la galerie de code MSDN.
 
 Le didacticiel vous apprend à générer et à exécuter l’application localement, à la déployer dans Azure, à l’exécuter dans le cloud et à la générer intégralement. Vous pouvez également démarrer à partir de zéro, puis effectuer les tests et le déploiement par la suite.
@@ -42,15 +42,15 @@ Ce didacticiel indique comment exécuter le composant frontal et le composant pr
 * télécharger des fichiers et les stocker dans le service Blob Azure ;
 * utiliser le service de File d'attente Azure pour la communication entre tiers.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour utiliser ce didacticiel, vous devez maîtriser les [concepts de base des services cloud Azure](cloud-services-choose-me.md) et la terminologie afférente, par exemple les *rôles web* et *rôles de travail*.  Vous devez également savoir utiliser les projets [ASP.NET MVC](https://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) ou [Web Forms](https://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) dans Visual Studio. L’exemple d’application utilise MVC, mais une grande part du didacticiel concerne également Web Forms.
 
 Vous pouvez exécuter l’application localement sans abonnement Azure, mais il vous en faut un pour déployer l’application dans le cloud. Si vous n’avez pas de compte, vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) ou [demander une évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668).
 
 Les instructions du didacticiel sont valables pour les produits suivants :
 
-* Visual Studio 2013
-* Visual Studio 2015
+* Visual Studio 2013
+* Visual Studio 2015
 * Visual Studio 2017
 * Visual Studio 2019
 
@@ -88,7 +88,7 @@ Lorsqu'un utilisateur télécharge une image, l'application frontale qui s'exéc
 
     ![Create page](./media/cloud-services-dotnet-get-started/create.png)
 
-    L’application ouvre la page Index, mais n’affiche pas de miniature pour la nouvelle publicité, car le processus n’a pas encore eu lieu.
+    L'application ouvre la page Index, mais n'affiche pas de vignette pour la nouvelle publicité, car le processus n'a pas encore eu lieu.
 10. Attendez un instant, puis actualisez la page Index pour afficher la vignette.
 
      ![Page d'index](./media/cloud-services-dotnet-get-started/list.png)
@@ -388,7 +388,7 @@ Dans cette section, vous allez configurer les chaînes de connexion Azure Storag
 8. Toujours dans la fenêtre des propriétés **ContosoAdsWorker [Rôle]** , ajoutez une chaîne de connexion :
 
    * Nom : ContosoAdsDbConnectionString
-   * Tapez : Chaîne
+   * Tapez : String
    * Valeur : collez la même chaîne de connexion que celle utilisée pour le projet de rôle web. (L’exemple suivant concerne Visual Studio 2013. N’oubliez pas de modifier la source de données si vous copiez cet exemple et utilisez Visual Studio 2015 ou version ultérieure.)
 
        ```
@@ -566,7 +566,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-Le code qui procède au téléchargement se trouve dans la méthode `UploadAndSaveBlobAsync` . Il crée un nom GUID pour l’objet blob, télécharge et enregistre le fichier, et renvoie une référence vers l’objet blob enregistré.
+Le code qui procède au téléchargement se trouve dans la méthode `UploadAndSaveBlobAsync` . Il crée un nom GUID pour l'objet blob, télécharge et enregistre le fichier, et renvoie une référence vers l'objet blob enregistré.
 
 ```csharp
 private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
@@ -738,7 +738,7 @@ Ce code lit la base de données pour obtenir l'URL de l'image, convertit l'image
 >
 >
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Voici quelques erreurs courantes et leur solution en cas de problème lorsque vous suivez les instructions de ce didacticiel.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -774,5 +774,8 @@ Pour plus d’informations, consultez les ressources suivantes :
 
 * [Azure Cloud Services Partie 1 : Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Gestion des services cloud](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Stockage Azure](https://docs.microsoft.com/azure/storage/)
 * [Choix d’un fournisseur de services cloud](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
+
+
+

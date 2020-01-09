@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: abb85d568e26e4b6f85b960a2560aae570daf201
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61320309"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638950"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Exécuter une fabrique d’images depuis Azure DevOps
 Cet article décrit toutes les tâches de préparation nécessaires pour exécuter la fabrique d’images à partir d’Azure DevOps (anciennement Visual Studio Team Services).
@@ -87,7 +87,7 @@ Pour simplifier les paramètres de ligne de commande, encapsulez les valeurs cl�
 | MachineUserName | ImageFactoryUser | Nom d’utilisateur du compte administrateur intégré pour les machines virtuelles. Il s’agit d’un compte temporaire. |
 | StandardTimeoutMinutes | 30 | Délai d’attente à observer pour les opérations Azure standard. |
 | SubscriptionId |  0000000000-0000-0000-0000-0000000000000 | ID de l’abonnement dont fait partie le labo et auquel le point de terminaison du service a accès. |
-| VMSize | Standard_A3 | Taille de la machine virtuelle à utiliser à l’étape **Créer**. Les machines virtuelles créées sont temporaires. La taille doit être la taille qui est [autorisée pour le lab](devtest-lab-set-lab-policy.md). Vérifiez que le [quota de cœurs d’abonnement](../azure-subscription-service-limits.md) est suffisant.
+| VMSize | Standard_A3 | Taille de la machine virtuelle à utiliser à l’étape **Créer**. Les machines virtuelles créées sont temporaires. La taille doit être la taille qui est [autorisée pour le lab](devtest-lab-set-lab-policy.md). Vérifiez que le [quota de cœurs d’abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md) est suffisant.
 
 ![Variables de build](./media/set-up-devops-lab/configure-build-variables.png)
 

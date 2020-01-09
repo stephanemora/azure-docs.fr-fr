@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: a0505b987deb67f93de6f6166154211359515ad7
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807703"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456975"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Résoudre les problèmes liés à l’application d’artefacts dans une machine virtuelle Azure DevTest Labs
 L’application d’artefacts sur une machine virtuelle peut échouer pour différentes raisons. Cet article décrit différentes méthodes pour vous aider à identifier les causes possibles.
@@ -69,7 +69,7 @@ Quand un artefact semble se bloquer, commencez par déterminer où il est bloqu�
 - **Lors de la tentative d’exécution de l’artefact**. Cela peut être dû à des problèmes de réseau ou de stockage. Pour plus d’informations, consultez la section correspondante plus loin dans cet article. Cela peut également être dû à la façon dont le script est créé. Par exemple :
     - Un script PowerShell a des **paramètres obligatoires**, mais l’un d’eux ne lui transmet pas de valeur, soit parce que vous autorisez l’utilisateur à le laisser vide, soit parce que vous n’avez pas de valeur par défaut pour la propriété dans le fichier de définition artifactfile.json. Le script se bloquera car il attend une entrée utilisateur.
     - Un script PowerShell **exige une entrée utilisateur** dans le cadre de l’exécution. Les scripts doivent être écrits pour fonctionner en mode silencieux sans intervention de l’utilisateur.
-- **Il faut beaucoup de temps à l’agent de machine virtuelle pour être prêt**. Quand la machine virtuelle est démarrée pour la première fois, ou quand l’extension de script personnalisé est installée initialement pour répondre à la requête d’application des artefacts, la machine virtuelle peut exiger une mise à niveau de l’agent de machine virtuelle ou attendre l’initialisation de l’agent de machine virtuelle. Il peut y avoir des services dont dépend l’agent de machine virtuelle qui prennent beaucoup de temps pour s’initialiser. Dans ce cas, consultez [Vue d’ensemble d’agent de machine virtuelle Azure](/virtual-machines/extensions/agent-windows.md) pour plus d’informations sur le dépannage.
+- **Il faut beaucoup de temps à l’agent de machine virtuelle pour être prêt**. Quand la machine virtuelle est démarrée pour la première fois, ou quand l’extension de script personnalisé est installée initialement pour répondre à la requête d’application des artefacts, la machine virtuelle peut exiger une mise à niveau de l’agent de machine virtuelle ou attendre l’initialisation de l’agent de machine virtuelle. Il peut y avoir des services dont dépend l’agent de machine virtuelle qui prennent beaucoup de temps pour s’initialiser. Dans ce cas, consultez [Vue d’ensemble d’agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) pour plus d’informations sur le dépannage.
 
 ### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Pour vérifier si l’artefact semble se bloquer à cause du script
 
@@ -101,7 +101,7 @@ Quand un artefact semble se bloquer, commencez par déterminer où il est bloqu�
     Dans cet exemple, vous pouvez voir que le démarrage de l’agent de machine virtuelle a duré 10 minutes et 20 secondes, car une pulsation a été envoyée. Ici, c’est le service OOBE qui a pris beaucoup de temps à démarrer.
 
 > [!TIP]
-> Pour obtenir des informations générales sur les extensions Azure, consultez [Extensions et fonctionnalités des machines virtuelles Azure](/virtual-machines/extensions/overview.md).
+> Pour obtenir des informations générales sur les extensions Azure, consultez [Extensions et fonctionnalités des machines virtuelles Azure](../virtual-machines/extensions/overview.md).
 
 ## <a name="storage-errors"></a>Erreurs de stockage
 DevTest Labs exige l’accès au compte de stockage du laboratoire créé pour mettre en cache les artefacts. Quand DevTest Labs applique un artefact, il lit la configuration de l’artefact et ses fichiers à partir des référentiels configurés. Par défaut, DevTest Labs configure l’accès aux **référentiels d’artefacts publics**.

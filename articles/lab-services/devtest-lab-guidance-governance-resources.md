@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 9ba9be7b4761e6633ffe3063b6bdba53c56b93bd
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561648"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644866"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Ressources
 Cet article traite de l’alignement et de la gestion des ressources pour DevTest Labs au sein de votre organisation. 
@@ -44,7 +44,7 @@ La **deuxième pratique recommandée** consiste à activer l’abonnement DevTes
 
 Ce modèle offre à une organisation la flexibilité nécessaire pour déployer Azure DevTest Labs à grande échelle. Une organisation peut prendre en charge des centaines de laboratoires pour différentes entités commerciales, avec 100 à 1 000 machines virtuelles s’exécutant en parallèle. Le modèle promeut la notion d’une solution de laboratoire d’entreprise centralisée, qui permet de partager les mêmes principes relatifs à la gestion de la configuration et aux contrôles de sécurité.
 
-Ce modèle garantit également que l’organisation n’épuise pas ses limites de ressources associées à son abonnement Azure. Pour plus d’informations sur l’abonnement et les limites du service, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md). Le processus d’approvisionnement de DevTest Labs peut utiliser un grand nombre de groupes de ressources. Vous pouvez demander l’augmentation des limites en effectuant une demande de support dans l’abonnement Azure DevTest. Les ressources au sein de l’abonnement de production ne sont pas modifiées à mesure que l’utilisation de l’abonnement de développement augmente. Pour plus d’informations sur le scaling de DevTest Labs, consultez la section [Scaling des quotas et des limites dans DevTest Labs](devtest-lab-scale-lab.md).
+Ce modèle garantit également que l’organisation n’épuise pas ses limites de ressources associées à son abonnement Azure. Pour plus d’informations sur l’abonnement et les limites du service, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md). Le processus d’approvisionnement de DevTest Labs peut utiliser un grand nombre de groupes de ressources. Vous pouvez demander l’augmentation des limites en effectuant une demande de support dans l’abonnement Azure DevTest. Les ressources au sein de l’abonnement de production ne sont pas modifiées à mesure que l’utilisation de l’abonnement de développement augmente. Pour plus d’informations sur le scaling de DevTest Labs, consultez la section [Scaling des quotas et des limites dans DevTest Labs](devtest-lab-scale-lab.md).
 
 Une limite de niveau abonnement courante qui doit être prise en compte est la façon dont les affectations de plage d’adresses IP réseau sont allouées pour prendre en charge les abonnements de développement et de production. Ces affectations doivent expliquer la croissance au fil du temps (en partant du principe qu’il existe une connectivité locale ou une autre topologie de mise en réseau qui oblige l’entreprise à gérer sa pile de mise en réseau au lieu de définir par défaut sur la mise en œuvre d’Azure). La pratique recommandée est d’avoir plusieurs réseaux virtuels qui disposent d’un grand préfixe d’adresse IP. Ce grand préfixe est affecté à plusieurs sous-réseaux volumineux et divisé entre eux. Cette méthode est mieux que d’avoir plusieurs réseaux virtuels avec de petits sous-réseaux. Par exemple, avec 10 abonnements, vous pouvez définir 10 réseaux virtuels (un pour chaque abonnement). Les laboratoires qui ne nécessitent pas d’isolation peuvent partager le même sous-réseau de réseau virtuel de l’abonnement.
 

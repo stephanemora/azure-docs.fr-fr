@@ -3,17 +3,17 @@ title: Surveillance d’Azure Cloud Service | Microsoft Docs
 description: Décrit ce que la surveillance d’Azure Cloud Service implique et certaines des options à votre disposition.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: gwallace
-ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386066"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
@@ -96,4 +96,7 @@ Notez que, si vous pouvez utiliser Application Insights pour afficher les compte
 
 - [En savoir plus sur Application Insights avec Cloud Services](../azure-monitor/app/cloudservices.md)
 - [Configurer les compteurs de performances](diagnostics-performance-counters.md)
+
+
+
 

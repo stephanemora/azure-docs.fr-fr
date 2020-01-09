@@ -3,17 +3,17 @@ title: Gérer les événements de cycle de vie du service cloud | Microsoft Docs
 description: Découvrez comment utiliser les méthodes de cycle de vie d'un rôle de service cloud dans .NET
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: gwallace
-ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0a9c32affc50a6d357d4160e00486c896d762e3f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385811"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personnalisation du cycle de vie d'un rôle Web ou de travail dans .NET
 Lorsque vous créez un rôle de travail, vous étendez la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) qui vous fournit des méthodes à substituer, vous permettant de répondre aux événements de cycle de vie. Cette classe est facultative pour les rôles Web. Vous devez donc l’utiliser pour répondre aux événements de cycle de vie.
@@ -76,4 +76,7 @@ Vous pouvez utiliser les méthodes de cycle de vie ASP.NET, en plus de celles fo
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [créer un package de service cloud](cloud-services-model-and-package.md).
+
+
+
 

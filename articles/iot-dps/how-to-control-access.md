@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: f36a48e0cedc309deda8416face5549a54eb8c73
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2a7e0932d226b1533c039b8529c2c11de06cf525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453803"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -24,7 +24,7 @@ Cet article aborde les points suivants :
 * Les différentes autorisations que vous pouvez accorder à une application principale pour lui permettre d’accéder à votre service de provisionnement.
 * Le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations.
 
-### <a name="when-to-use"></a>Quand utiliser
+### <a name="when-to-use"></a>Quand l’utiliser
 
 Vous devez disposer des autorisations appropriées pour accéder à l’un des points de terminaison de service de provisionnement. Par exemple, une application principale doit ajouter un jeton contenant des informations d’identification de sécurité à chaque message qu’elle envoie au service.
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur la façon de construire et d’utiliser les jeton
 
 HTTP est le seul protocole pris en charge. Il implémente l’authentification en incluant un jeton valide dans l’en-tête de demande d’**autorisation**.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 ```csharp
 SharedAccessSignature sr = 
    mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
@@ -77,7 +77,7 @@ Voici les valeurs attendues :
 
 | Valeur | Description |
 | --- | --- |
-| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important** : la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
+| {signature} |Une chaîne de signature HMAC-SHA256 sous la forme : `{URL-encoded-resourceURI} + "\n" + expiry`. **Important !** la clé est décodée à partir de base64 et utilisée comme clé pour effectuer le calcul HMAC-SHA256.|
 | {expiry} |Chaînes UTF8 pour le nombre de secondes depuis l’époque 00:00:00 UTC 1er janvier 1970. |
 | {URL-encoded-resourceURI} | Encodage de l’URL en minuscules à partir de l’URI de ressource en minuscules. Préfixe URI (par segment) des points de terminaison accessibles avec ce jeton, en commençant par le nom d’hôte du service de provisionnement d’appareils IoT (sans protocole). Par exemple : `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Le nom de la stratégie d’accès partagé à laquelle ce jeton fait référence. |
@@ -190,5 +190,5 @@ Le tableau suivant répertorie les autorisations qui vous permettent de contrôl
 [img-add-shared-access-policy]: ./media/how-to-control-access/how-to-add-shared-access-policy.PNG
 [lnk-sdks]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-management-portal]: https://portal.azure.com
-[lnk-azure-resource-manager]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-resource-manager]: ../azure-resource-manager/management/overview.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iot-dps/

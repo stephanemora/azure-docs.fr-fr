@@ -3,18 +3,18 @@ title: Application Node.js avec Socket.IO - Azure
 description: Découvrez comment utiliser socket.io dans une application node.js hébergée sur Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: gwallace
-ms.openlocfilehash: bbeaacd4c7028905e279dd5dc421414f4eafae54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.author: tagore
+ms.openlocfilehash: 0b515c630d8a3539cdab1df64b1925e9fcaf206e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306762"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360767"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Création d’une application de conversation instantanée Node.js avec Socket.IO sur un service cloud Azure
 
@@ -24,7 +24,7 @@ Voici une capture d’écran de l’application terminée :
 
 ![Fenêtre de navigateur affichant le service hébergé sur Azure][completed-app]  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Assurez-vous que les versions et les produits suivants sont installés pour mener à bien l'exemple dans cet article :
 
 * Installez [Visual Studio](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx)
@@ -166,5 +166,8 @@ Pour plus d'informations, consultez aussi le [Centre pour développeurs Node.js]
 [chat-contents]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
 [The-output-of-the-npm-install-command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
 [The output of the Publish-AzureService command]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-9.png
+
+
+
 
 

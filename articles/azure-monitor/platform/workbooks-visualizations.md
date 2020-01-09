@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f3f8f377ac8e65d375f8f78c803db5427fd31007
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394485"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Visualisations de classeurs Azure Monitor
 
@@ -33,7 +33,7 @@ Le texte est ajouté à l’aide d’un contrôle Markdown qui fournit un contr�
 
 ### <a name="add-a-text-control"></a>Ajouter un contrôle de texte
 
-1. Basculez le classeur en mode édition en cliquant sur l’élément **Modifier** de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément **Modifier** de la barre d’outils.
 2. Utilisez le lien **Ajouter du texte** pour ajouter un contrôle de texte au classeur.
 3. Ajoutez du Markdown au contrôle.
 4. Cliquez sur le bouton **Modification terminée** pour afficher le texte mis en forme.
@@ -49,7 +49,7 @@ Les classeurs prennent en charge les graphiques pour les journaux et les sources
 
 ### <a name="adding-a-log-chart"></a>Ajout d’un graphique de journal
 
-1. Basculez le classeur en mode édition en cliquant sur l’élément **Modifier** de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément **Modifier** de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur.
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le [KQL](https://docs.microsoft.com/azure/kusto/query/) pour votre analyse (par exemple, la tendance des requêtes).
@@ -60,7 +60,7 @@ Les classeurs prennent en charge les graphiques pour les journaux et les sources
 
 #### <a name="log-chart-parameters"></a>Paramètres du graphique de journal
 
-| Paramètre | Explication | Exemples |
+| Paramètre | Explication | Exemple |
 | ------------- |:-------------|:-------------|
 | `Query Type` | Type de requête à utiliser | Journal, Azure Resource Graph, etc. |
 | `Resource Type` | Le type de ressource à cibler | Application Insights, Log Analytics ou Azure d’abord |
@@ -74,7 +74,7 @@ Les classeurs prennent en charge les graphiques pour les journaux et les sources
 
 ### <a name="adding-a-metric-chart"></a>Ajout d’un graphique de métrique
 
-1. Basculez le classeur en mode édition en cliquant sur l’élément **Modifier** de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément **Modifier** de la barre d’outils.
 2. Utilisez le lien **Ajouter une métrique** pour ajouter un contrôle de métrique au classeur.
 3. Sélectionnez un type de ressource (par exemple, compte de stockage), les ressources à cibler, l’espace de noms et le nom de la métrique, et l’agrégation à utiliser.
 4. Définissez d’autres paramètres si nécessaire, comme la plage de temps, le fractionnement, la visualisation, la taille et la palette de couleurs.
@@ -83,7 +83,7 @@ Les classeurs prennent en charge les graphiques pour les journaux et les sources
 
 #### <a name="metric-chart-parameters"></a>Paramètres du graphique de métriques
 
-| Paramètre | Explication | Exemples |
+| Paramètre | Explication | Exemple |
 | ------------- |:-------------|:-------------|
 | `Resource Type` | Le type de ressource à cibler | Stockage ou machine virtuelle. |
 | `Resources` | Ensemble de ressources à partir duquel obtenir les valeurs des métriques | MyStorage1 |
@@ -106,7 +106,7 @@ L’exemple ci-dessous montre une grille qui combine des icônes, des cartes the
 
 ### <a name="adding-a-log-based-grid"></a>Ajout d’une grille basée sur un journal
 
-1. Basculez le classeur en mode édition en cliquant sur l’élément **Modifier** de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément **Modifier** de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur.
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utilisez l’éditeur de requête pour saisir le KQL pour votre analyse (par exemple, les machines virtuelles dont la mémoire est inférieure à un seuil)
@@ -125,7 +125,7 @@ Les vignettes de classeur prennent en charge un titre, un sous-titre, du texte l
 
 ### <a name="adding-a-tile"></a>Ajout d'une vignette
 
-1. Basculez le classeur en mode édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur. 
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le KQL pour votre analyse
@@ -158,7 +158,7 @@ L’exemple ci-dessous montre les mesures d’intégrité du conteneur (taille d
 ![Capture d’écran de l’affichage en mosaïque du résumé](./media/workbooks-visualizations/trees.png)
 
 ### <a name="adding-a-tree-grid"></a>Ajout d’une grille arborescente
-1. Basculez le classeur en mode édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur. 
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le KQL pour votre analyse
@@ -206,7 +206,7 @@ Le graphe ci-dessous montre les données entrantes/sortantes d’un ordinateur v
 ![Capture d’écran de l’affichage en mosaïque du résumé](./media/workbooks-visualizations/graph.png)
 
 ### <a name="adding-a-graph"></a>Ajout d'un graphe
-1. Basculez le classeur en mode édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
+1. Basculez le classeur en mode d’édition en cliquant sur l’élément _Modifier_ de la barre d’outils.
 2. Utilisez le lien **Ajouter une requête** pour ajouter un contrôle de requête de journal au classeur. 
 3. Sélectionnez le type de requête **Journal**, le type de ressource (par exemple, Application Insights) et les ressources à cibler.
 4. Utiliser l’éditeur de requête pour saisir le KQL pour votre analyse
@@ -234,15 +234,15 @@ Le graphe ci-dessous montre les données entrantes/sortantes d’un ordinateur v
 7. Définissez la visualisation sur **Graphe**
 8. Cliquez sur le bouton **Paramètres de graphe** pour ouvrir le volet Paramètres
 9. Dans _Champs de disposition_ en bas, définissez :
-    * `Node Id` : `Id`
-    * `Source Id` : `SourceId`
-    * `Target Id` : `TargetId`
-    * `Edge Label` : `None`
-    * `Edge Size` : `Calls`
-    * `Node Size` : `None`
-    * `Coloring Type` : `Categorical`
-    * `Node Color Field` : `Kind`
-    * `Color palette` : `Pastel`
+    * `Node Id`: `Id`
+    * `Source Id`: `SourceId`
+    * `Target Id`: `TargetId`
+    * `Edge Label`: `None`
+    * `Edge Size`: `Calls`
+    * `Node Size`: `None`
+    * `Coloring Type`: `Categorical`
+    * `Node Color Field`: `Kind`
+    * `Color palette`: `Pastel`
 10. Dans _Paramètres de format de nœud_ en haut, définissez :
     * _Contenu en haut_- Utiliser la colonne : `Name`, Renderer de colonne : `Text`
     * _Contenu au centre_- Utiliser la colonne : `Calls`, Renderer de colonne : `Big Number`, Palette de couleurs : `None`
@@ -254,4 +254,4 @@ Le graphe ci-dessous montre les données entrantes/sortantes d’un ordinateur v
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Déployez](workbooks-automate.md) des classeurs avec Azure Resource Manager.
-* [Contrôler](workbooks-access-control.md) et partager l’accès aux ressources de votre classeur.
+* [Contrôlez](workbooks-access-control.md) et partagez l’accès à vos ressources de classeur.

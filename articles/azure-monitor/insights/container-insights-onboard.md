@@ -1,18 +1,14 @@
 ---
 title: Procédure d’activation d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit la façon dont vous activez et configurez Azure Monitor pour les conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 43016cfb72b90a74ce1313ad2d2316228d743f5f
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fce2699c18f0fe426b85c165656100c097e69598
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404321"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Procédure d’activation d’Azure Monitor pour les conteneurs
 
@@ -32,7 +28,7 @@ Azure Monitor pour conteneurs peut être activé pour un ou plusieurs déploieme
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
@@ -91,7 +87,7 @@ Le tableau suivant répertorie les informations de configuration du proxy et du 
 | microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
 | dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 Votre capacité à superviser les performances dépend d’un agent Log Analytics conteneurisé pour Linux, spécialement développé pour Azure Monitor pour les conteneurs. Cet agent spécialisé collecte les données de performances et d’événements à partir de tous les nœuds du cluster, et l’agent est automatiquement déployé puis inscrit auprès de l’espace de travail Log Analytics spécifié pendant le déploiement. La version d’agent est microsoft/oms:ciprod04202018 ou ultérieure. Elle est représentée par une date au format suivant : *mmjjaaaa*.
 

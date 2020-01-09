@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: 3ac852b1d69c0e9fa224b449d6261eba6abaff32
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef57e0f63f8cfad5bc5fa5710661657176171194
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260948"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530797"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 
@@ -25,7 +25,7 @@ Pour une vue d’ensemble des composants et services Azure disponibles permettan
 
 ## <a name="subscription-level-monitoring"></a>Surveillance au niveau de l’abonnement
 
-Au niveau de l’abonnement, qui inclut les comptes Batch, le [journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md) collecte les données des événements opérationnels dans [plusieurs catégories](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
+Au niveau de l’abonnement, qui inclut les comptes Batch, le [journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md) collecte les données des événements opérationnels dans [plusieurs catégories](../azure-monitor/platform/activity-log-view.md#categories-in-the-activity-log).
 
 Plus précisément, pour les comptes Batch, le journal d’activité collecte les événements liés à la gestion des clés et à la création ou la suppression de comptes.
 

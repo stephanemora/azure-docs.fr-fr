@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: b43ec36f6f3a9111656892c65af2592fce6eaed2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5fd13531e438b8bcda8e3720758e338c964f77af
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931759"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444254"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -50,13 +50,13 @@ Plus précisément, ce connecteur Oracle prend en charge :
 > [!Note]
 > Le serveur proxy Oracle n’est pas pris en charge.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
 Le runtime d’intégration intègre un pilote Oracle. Par conséquent, vous n’avez pas besoin d’installer manuellement un pilote pour copier des données depuis et vers Oracle.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -68,8 +68,8 @@ Le service lié Oracle prend en charge les propriétés suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur **Oracle**. | OUI |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. <br/>Marquez ce champ comme `SecureString` pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). <br><br>**Type de connexion pris en charge** : Vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | OUI |
+| type | La propriété type doit être définie sur **Oracle**. | Oui |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. <br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). <br><br>**Type de connexion pris en charge** : Vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 >[!TIP]
@@ -130,10 +130,7 @@ Pour activer le chiffrement sur la connexion Oracle, deux options s’offrent à
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
-            }
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -151,10 +148,7 @@ Pour activer le chiffrement sur la connexion Oracle, deux options s’offrent à
     "properties": {
         "type": "Oracle",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;"
-            },
+            "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -179,8 +173,8 @@ Pour copier des données depuis et vers Oracle, affectez la valeur `OracleTable`
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur `OracleTable`. | OUI |
-| schema | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
+| type | La propriété type du jeu de données doit être définie sur `OracleTable`. | Oui |
+| schéma | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
 | table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
 | tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
 
@@ -218,8 +212,8 @@ Pour copier des données à partir d’Oracle, définissez le type de source dan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source de l’activité de copie doit être définie sur `OracleSource`. | OUI |
-| oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`.<br>Lorsque vous activez la charge partitionnée, vous devez utiliser les paramètres de partition intégrés correspondants dans votre requête. Pour consulter des exemples, voir la section [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle). | Non |
+| type | La propriété type de la source de l’activité de copie doit être définie sur `OracleSource`. | Oui |
+| oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. par exemple `"SELECT * FROM MyTable"`.<br>Lorsque vous activez la charge partitionnée, vous devez utiliser les paramètres de partition intégrés correspondants dans votre requête. Pour consulter des exemples, voir la section [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle). | Non |
 | partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir d’Oracle. <br>Les valeurs autorisées sont les suivantes : **None** (valeur par défaut), **PhysicalPartitionsOfTable** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir d’une base de données Oracle est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |
 | partitionNames | La liste des partitions physiques qui doivent être copiées. <br>S’applique lorsque l’option de partitionnement est `PhysicalPartitionsOfTable`. Si vous utilisez une requête pour récupérer des données sources, utilisez `?AdfTabularPartitionName` dans la clause WHERE. Pour consulter un exemple, voir la section [Copie en parallèle à partir d’Oracle](#parallel-copy-from-oracle). | Non |
@@ -265,7 +259,7 @@ Pour copier des données vers Oracle, définissez `OracleSink` comme type de ré
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du récepteur d’activité de copie doit être définie sur `OracleSink`. | OUI |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur `OracleSink`. | Oui |
 | writeBatchSize | Insère des données dans la table SQL quand la taille de la mémoire tampon atteint `writeBatchSize`.<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout | Temps d’attente avant expiration de l’opération d’insertion de lot.<br/>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Oracle à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non |
@@ -357,25 +351,25 @@ Lorsque vous copiez des données à partir d’Oracle, les mappages suivants s�
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(seulement pris en charge sur Oracle 10g et les versions ultérieures) |
-| CHAR |Chaîne |
-| CLOB |Chaîne |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
-| LONG |Chaîne |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Chaîne |
-| NCLOB |Chaîne |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Décimale, chaîne (si précision > 28) |
-| NVARCHAR2 |Chaîne |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Chaîne |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Chaîne |
-| TIMESTAMP WITH TIME ZONE |Chaîne |
-| UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |Chaîne |
-| XML |Chaîne |
+| ROWID |String |
+| timestamp |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Les types de données INTERVAL YEAR TO MONTH et INTERVAL DAY TO SECOND ne sont pas pris en charge.

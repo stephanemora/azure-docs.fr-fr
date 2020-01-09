@@ -2,17 +2,17 @@
 title: Package et modèle Cloud Service dans Azure | Microsoft Docs
 description: Décrit le modèle de service cloud (.csdef, .cscfg) et le package (.cspkg) dans Azure.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: gwallace
-ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 0d04236861287074087cc125d7b0d44dc65eccbf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360699"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qu’est-ce que le modèle Cloud Service, et comment en créer un package ?
 Un service cloud est créé à partir de trois composants : la définition de service *(.csdef)* , la configuration de service *(.cscfg)* et un package de service *(.cspkg)* . Les deux fichiers XML **ServiceDefinition.csdef** et **ServiceConfig.cscfg** décrivent la structure du service cloud et sa configuration, qui désignent collectivement le modèle. Le fichier ZIP **ServicePackage.cspkg** est généré à partir du fichier **ServiceDefinition.csdef** et il contient, entre autres, toutes les dépendances binaires requises. Azure crée un service cloud à partir des fichiers **ServicePackage.cspkg** et **ServiceConfig.cscfg**.
@@ -289,3 +289,6 @@ J’utilise Visual Studio et souhaite...
 [vs_deploy]: ../vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md
 [vs_reconfigure]: ../vs-azure-tools-configure-roles-for-cloud-service.md
 [vs_create]: ../vs-azure-tools-azure-project-create.md
+
+
+

@@ -1,18 +1,17 @@
 ---
 title: De Splunk à la requête de journal Azure Monitor | Microsoft Docs
 description: Aide à l’apprentissage des requêtes de journal Azure Monitor pour les utilisateurs familiarisés avec Splunk.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2018
-ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6346055f1169bfa533d5dbfe441ecf27fb0d78a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397742"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>De Splunk à la requête de journal Azure Monitor
 
@@ -59,7 +58,7 @@ Le tableau suivant spécifie les équivalences entre les fonctions Azure Monitor
 (1) Dans Splunk, la fonction est appelée avec l’opérateur `eval`. Dans Azure Monitor, elle est utilisée dans le cadre de `extend` ou de `project`.<br>(2) Dans Splunk, la fonction est appelée avec l’opérateur `eval`. Dans Azure Monitor, elle peut être utilisée avec l’opérateur `where`.
 
 
-## <a name="operators"></a>Operators
+## <a name="operators"></a>Opérateurs
 
 Les sections suivantes donnent des exemples d’utilisation de différents opérateurs entre Splunk et Azure Monitor.
 

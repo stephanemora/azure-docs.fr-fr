@@ -5,15 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/12/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: f9ed841d347d99a2208971d164bbd7b9044e3b09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031603"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436837"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Déplacer un peering public vers le peering Microsoft
 
@@ -63,9 +62,9 @@ Vous trouverez des instructions détaillées pour activer le peering Microsoft d
 
 Vérifiez que le peering Microsoft est activé et que les préfixes publics publiés sont dans l’état configuré.
 
-* [Portail Azure](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
+* [Azure portal](expressroute-howto-routing-portal-resource-manager.md#getmsft)<br>
 * [Azure PowerShell](expressroute-howto-routing-arm.md#getmsft)<br>
-* [Interface de ligne de commande Azure](howto-routing-cli.md#getmsft)
+* [Azure CLI](howto-routing-cli.md#getmsft)
 
 ## <a name="routefilter"></a>3. Configurer un filtre de routes et le joindre au circuit
 
@@ -83,9 +82,8 @@ Configurez les filtres de routes à l’aide des articles suivants :
 
 Après avoir vérifié que le peering Microsoft est configuré et que les préfixes que vous souhaitez utiliser sont correctement publiés sur le peering Microsoft, vous pouvez supprimer le peering public. Pour supprimer le peering public, utilisez l’un des articles suivants :
 
-* [Supprimer un peering public Azure à l’aide du portail Azure](expressroute-howto-routing-portal-resource-manager.md#deletepublic)<br>
-* [Supprimer un peering public Azure à l’aide d’Azure PowerShell](expressroute-howto-routing-arm.md#deletepublic)<br>
-* [Supprimer un peering public Azure à l’aide de l’interface de ligne de commande](howto-routing-cli.md#deletepublic)
+* [Supprimer un peering public Azure à l’aide d’Azure PowerShell](about-public-peering.md#powershell)
+* [Supprimer un peering public Azure à l’aide de l’interface de ligne de commande](about-public-peering.md#cli)
   
 ## <a name="view"></a>5. Afficher les peerings
   

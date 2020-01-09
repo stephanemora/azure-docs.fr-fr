@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: f0975d0a60081b66d3d5a513954deb0c4fa1b978
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: cfd69ebf6408acaa2938271ba87f36768416de80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442960"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
@@ -51,12 +51,13 @@ az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addo
 Une fois le cluster déployé ou mis à jour, utilisez la commande [az aks show][az-aks-show] pour récupérer le nom de la zone DNS. Ce nom est nécessaire pour déployer des applications sur le cluster AKS.
 
 ```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
-
-Result
------------------------------------------------------
-9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpapplicationrouting.config.HTTPApplicationRoutingZoneName -o table
 ```
+
+Résultats
+
+9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
+
 
 ## <a name="deploy-http-routing-portal"></a>Déployer le routage HTTP : Portail
 
@@ -207,7 +208,7 @@ kubectl delete configmaps addon-http-application-routing-nginx-configuration --n
 
 Répétez l’étape `kubectl delete` précédente pour toutes les ressources *addon-http-application-routing* qui sont restées dans votre cluster.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 Utilisez la commande [kubectl logs][kubectl-logs] pour afficher les journaux d’application de l’application DNS externe. Les journaux d’activité doivent confirmer que des enregistrements DNS A et TXT ont bien été créés.
 

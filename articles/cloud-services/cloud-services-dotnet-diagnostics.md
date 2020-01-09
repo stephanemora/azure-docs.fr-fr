@@ -3,19 +3,19 @@ title: Utilisation des diagnostics (.NET) Azure avec Cloud Services | Microsoft 
 description: Utilisation des diagnostics Azure pour rassembler des données à partir d’Azure Cloud Services pour le débogage, la mesure des performances, la surveillance, l’analyse du trafic, etc.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
-ms.author: gwallace
-ms.openlocfilehash: 5f2ec77452b90d4270de043955fc0b443f045d5b
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: tagore
+ms.openlocfilehash: d5a4e5ce40726ea36734a0dcf751b79225d5e153
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68359691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361111"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Activation des diagnostics Azure dans Azure Cloud Services
 Consultez la page [Présentation des diagnostics Azure](../azure-diagnostics.md) pour obtenir des informations sur les diagnostics Azure.
@@ -23,10 +23,10 @@ Consultez la page [Présentation des diagnostics Azure](../azure-diagnostics.md)
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Activation de Diagnostics dans un rôle de travail
 Cette procédure pas à pas décrit comment mettre en oeuvre un rôle de travail Azure qui émet des données télémétriques à l'aide de la classe EventSource .NET. Diagnostics Azure est utilisé pour collecter des données télémétriques et les stocker dans un compte de stockage Azure. Lors de la création d'un rôle de travail, Visual Studio active automatiquement Diagnostics 1.0 dans le cadre de la solution dans les Kits de développement logiciel (SDK) pour .NET 2.4 et versions antérieures. Les instructions suivantes décrivent le processus de création d'un rôle de travail, de désactivation de Diagnostics 1.0 de la solution, et de déploiement de Diagnostics 1.2 ou 1.3 sur votre rôle de travail.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Cet article part du principe que vous disposez d’un abonnement Azure et que vous utilisez Visual Studio avec le Kit de développement logiciel (SDK) Azure. Si vous n'avez pas d'abonnement Azure, vous pouvez vous inscrire pour bénéficier d'une [évaluation gratuite][Free Trial]. Assurez-vous d'avoir [installé et configuré Azure PowerShell version 0.8.7 ou ultérieure][Install and configure Azure PowerShell version 0.8.7 or later].
 
-### <a name="step-1-create-a-worker-role"></a>Étape 1 : création du rôle de travail
+### <a name="step-1-create-a-worker-role"></a>Étape 1 : création du rôle de travail
 1. Lancez **Visual Studio**.
 2. Créez un projet **Azure Cloud Services** à partir du modèle **Cloud** qui cible .NET Framework 4.5.  Nommez le projet « WadExample » et cliquez sur OK.
 3. Sélectionnez **Rôle de travail** et cliquez sur Ok. Le projet est créé.
@@ -34,7 +34,7 @@ Cet article part du principe que vous disposez d’un abonnement Azure et que vo
 5. Dans l’onglet **Configuration**, décochez **Activer Diagnostics** pour désactiver Diagnostics 1.0 (Kit de développement Azure 2.4 et versions antérieures).
 6. Générez votre solution pour vérifier que vous n'avez pas d'erreurs.
 
-### <a name="step-2-instrument-your-code"></a>Étape 2 : instrumentalisation de votre code
+### <a name="step-2-instrument-your-code"></a>Étape 2 : instrumentalisation de votre code
 Remplacez le contenu de WorkerRole.cs par le code suivant : La classe SampleEventSourceWriter, héritée de la [classe EventSource][EventSource Class], implémente quatre méthodes de journalisation : **SendEnums**, **MessageMethod**, **SetOther** et **HighFreq**. Le premier paramètre de la méthode **WriteEvent** définit l’ID de l’événement respectif. La méthode Run implémente une boucle infinie qui appelle chacune des méthodes de journalisation implémentées dans la classe **SampleEventSourceWriter** toutes les 10 secondes.
 
 ```csharp
@@ -118,7 +118,7 @@ namespace WorkerRole1
 ```
 
 
-### <a name="step-3-deploy-your-worker-role"></a>Étape 3 : déploiement de votre rôle de travail
+### <a name="step-3-deploy-your-worker-role"></a>Étape 3 : déploiement de votre rôle de travail
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -130,7 +130,7 @@ namespace WorkerRole1
 6. Modifiez d’autres **Paramètres** le cas échéant, puis cliquez sur **Publier**.
 7. Une fois le déploiement terminé, vérifiez dans le portail Azure Classic que votre service cloud est en cours d’ **Exécution** .
 
-### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension
+### <a name="step-4-create-your-diagnostics-configuration-file-and-install-the-extension"></a>Étape 4 : création de votre fichier de configuration Diagnostics et installation de l’extension
 1. Téléchargez la définition de schéma de fichier de configuration publique en exécutant la commande PowerShell suivante :
 
     ```powershell
@@ -181,7 +181,7 @@ $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -Sto
 Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
-### <a name="step-6-look-at-your-telemetry-data"></a>Étape 6 : examen de vos données télémétriques
+### <a name="step-6-look-at-your-telemetry-data"></a>Étape 6 : examen de vos données télémétriques
 Dans l' **Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte de stockage wadexample. Une fois que le service cloud a été exécuté pendant environ cinq (5) minutes, vous devriez voir les tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** et **WADSetOtherTable**. Double-cliquez sur l'une des tables pour afficher les données télémétriques qui ont été collectées.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
@@ -189,7 +189,7 @@ Dans l' **Explorateur de serveurs** de Visual Studio, naviguez jusqu'au compte d
 ## <a name="configuration-file-schema"></a>Schéma du fichier de configuration
 Le fichier de configuration des diagnostics définit les valeurs qui sont utilisées pour initialiser les paramètres de configuration de diagnostic lorsque l’agent de diagnostics démarre. Consultez la [dernière référence de schéma](/azure/azure-monitor/platform/diagnostics-extension-schema) pour obtenir les valeurs valides et des exemples.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Si vous rencontrez des problèmes, consultez la page [Résolution de problèmes des diagnostics Azure](../azure-diagnostics-troubleshooting.md) pour obtenir de l’aide.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -201,3 +201,6 @@ Si vous rencontrez des problèmes, consultez la page [Résolution de problèmes 
 [Collect Logging Data by Using Azure Diagnostics]: https://msdn.microsoft.com/library/windowsazure/gg433048.aspx
 [Free Trial]: https://azure.microsoft.com/pricing/free-trial/
 [Install and configure Azure PowerShell version 0.8.7 or later]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
+
+
+

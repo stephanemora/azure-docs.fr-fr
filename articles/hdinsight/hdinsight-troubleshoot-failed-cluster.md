@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22bf4dcd472cf2d7804b571e09093535f30b053f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498078"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647422"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Détecter un problème de travail lent ou défaillant sur un cluster HDInsight
 
@@ -21,15 +21,15 @@ En cas de ralentissement ou d’échec d’une application traitant des données
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 
-* Étape 1 : Recueillir des données sur le problème.
-* Étape 2 : Valider l’environnement du cluster HDInsight.
+* Étape 1 : Recueillir des données sur le problème.
+* Étape 2 : Valider l’environnement du cluster HDInsight.
 * Étape 3 : Contrôler l’état d’intégrité de votre cluster.
 * Étape 4 : Examiner la pile et les versions de l’environnement.
 * Étape 5 : Examiner les fichiers journaux du cluster.
 * Étape 6 : Vérifier les paramètres de configuration.
 * Étape 7 : Reproduire la défaillance sur un autre cluster.
 
-## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
+## <a name="step-1-gather-data-about-the-issue"></a>Étape 1 : Recueillir des données sur le problème
 
 HDInsight fournit de nombreux outils que vous pouvez utiliser pour identifier et résoudre les problèmes liés aux clusters. Les étapes suivantes vous guident tout au long de l’utilisation de ces outils et vous fournissent des suggestions pour localiser le problème.
 
@@ -65,7 +65,7 @@ az hdinsight show --resource-group <ResourceGroup> --name <ClusterName>
 
 Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez la page [Gestion des clusters Apache Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
-## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : Valider l’environnement du cluster HDInsight
+## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>Étape 2 : Valider l’environnement du cluster HDInsight
 
 Chaque cluster HDInsight s’appuie sur divers services Azure ainsi que sur des logiciels open source tels que Apache HBase et Apache Spark. Les clusters HDInsight peuvent également appeler d’autres services Azure, comme les réseaux virtuels Azure.  Une défaillance de cluster peut être liée soit à l’un des services en cours d’exécution sur votre cluster, soit à un service externe.  Un changement de configuration d’un service de cluster peut également provoquer une défaillance du cluster.
 
@@ -90,7 +90,7 @@ HDInsight s’appuie sur plusieurs services Azure. Il exécute des serveurs virt
 
 #### <a name="check-azure-service-usage-limits"></a>Rechercher les limites d’utilisation des services Azure
 
-Si vous démarrez un cluster volumineux ou si vous avez lancé simultanément un grand nombre de clusters, un cluster peut échouer si vous avez dépassé une limite de service Azure. Les limites de service varient selon votre abonnement Azure. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Si vous démarrez un cluster volumineux ou si vous avez lancé simultanément un grand nombre de clusters, un cluster peut échouer si vous avez dépassé une limite de service Azure. Les limites de service varient selon votre abonnement Azure. Pour plus d’informations, consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 Vous pouvez demander à Microsoft d’augmenter le nombre de ressources HDInsight disponibles (par exemple, les cœurs de machines virtuelles et les instances de machines virtuelles) en soumettant une [demande d’augmentation des quotas de processeurs virtuels pour Resource Manager](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 #### <a name="check-the-release-version"></a>Vérifier la version

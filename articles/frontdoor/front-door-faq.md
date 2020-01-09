@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790533"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639852"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Questions fréquentes (FAQ) sur Azure Front Door Service
 
@@ -26,7 +26,7 @@ Cet article répond aux questions courantes sur les fonctionnalités d’Azure F
 2. [Azure Front Door Service UserVoice](https://feedback.azure.com/forums/217313-networking?category_id=345025).
 3. **Support Microsoft :** Pour créer une demande de support, dans le portail Azure, sous l’onglet **Aide**, sélectionnez le bouton **Aide et support**, puis **Nouvelle demande de support**.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-azure-front-door-service"></a>Qu’est-ce que le service Azure Front Door Service ?
 
@@ -132,7 +132,7 @@ Azure Front Door (AFD) nécessite une adresse IP publique ou un nom DNS pouvant 
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door-service"></a>Quels sont les différents délais d’attente et limites applicables à Azure Front Door Service ?
 
-Pour en savoir plus sur tous les délais d’attente et limites documentés pour Azure Front Door Service, consultez [cet article](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits).
+Pour en savoir plus sur tous les délais d’attente et limites documentés pour Azure Front Door Service, consultez [cet article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
 ## <a name="performance"></a>Performances
 

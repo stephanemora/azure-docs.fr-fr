@@ -4,15 +4,15 @@ description: Simplifier la création de rapports complexes grâce à des classeu
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: b89e61f0c268df0ed6dd69ae1c6d97f00678fc32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200535"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365918"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Créer des rapports interactifs Azure Monitor pour machines virtuelles avec des classeurs
 
@@ -30,8 +30,8 @@ Azure Monitor pour machines virtuelles inclut plusieurs classeurs pour vous aide
 | Classeur | Description | Étendue |
 |----------|-------------|-------|
 | Performances | Fournit une version personnalisable de notre Liste des N premiers et la vue Graphiques dans un classeur unique qui exploite tous les compteurs de performances Log Analytics que vous avez activés.| À grande échelle |
-| Compteurs de performances | Vue de graphique N premiers sur un vaste ensemble de compteurs de performances. | À grande échelle |
-| connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles supervisées. | À grande échelle |
+| Compteurs de performance | Vue de graphique N premiers sur un vaste ensemble de compteurs de performances. | À grande échelle |
+| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles supervisées. | À grande échelle |
 | Ports actifs | Fournit une liste des processus qui sont liés aux ports sur les machines virtuelles supervisées et à leur activité dans la plage de temps choisie. | À grande échelle |
 | Ouvrir des ports | Fournit le nombre de ports ouverts sur vos machines virtuelles supervisées et les détails concernant ces ports. | À grande échelle |
 | Connexions ayant échoué | Permet d’afficher le nombre de connexions ayant échoué sur vos machines virtuelles supervisées, la tendance des échecs et si le pourcentage d’échecs augmente au fil du temps. | À grande échelle |
@@ -39,13 +39,13 @@ Azure Monitor pour machines virtuelles inclut plusieurs classeurs pour vous aide
 | Trafic TCP | Rapport classé concernant vos machines virtuelles supervisées et leur trafic réseau envoyé, reçu et total dans une grille et affiché sous forme de courbe de tendance. | À grande échelle |
 | Comparaison du trafic | Ce classeur vous permet de comparer les tendances du trafic réseau pour une seule machine ou un groupe de machines. | À grande échelle |
 | Performances | Fournit une version personnalisable de notre vue Performances qui exploite tous les compteurs de performances Log Analytics que vous avez activés. | Machine virtuelle unique | 
-| connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | Machine virtuelle unique |
+| Connexions | Le classeur Connexions fournit une vue détaillée des connexions entrantes et sortantes de vos machines virtuelles. | Machine virtuelle unique |
  
 ## <a name="starting-with-a-template-or-saved-workbook"></a>Commencer avec un classeur enregistré ou un modèle
 
 Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre les classeurs, commençons par ouvrir un modèle et décrivons la procédure à suivre pour créer un classeur personnalisé. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Sélectionnez **Machines virtuelles**.
 

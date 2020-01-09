@@ -3,17 +3,17 @@ title: Services cloud et certificats de gestion | Microsoft Docs
 description: Découvrez comment créer et utiliser des certificats avec Microsoft Azure.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: 3c84c6832856986a45be7d275fb94a6c5fc066f0
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 783343dd8877bdf18e783494960c3052c293cc7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75361345"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les déployer dans Azure.
@@ -92,4 +92,7 @@ De nombreuses pages sur Internet vous expliquent comment procéder avec IIS. [ic
 [Pour télécharger votre certificat de service sur le portail Azure](cloud-services-configure-ssl-certificate-portal.md).
 
 Chargez un [certificat d’API de gestion](../azure-api-management-certs.md) dans le portail Azure.
+
+
+
 

@@ -1,5 +1,5 @@
 ---
-title: Sauvegarde automatique en ligne et restauration de données à la demande dans Azure Cosmos DB
+title: Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 description: Cet article décrit le fonctionnement de la sauvegarde automatique en ligne et de la restauration de données à la demande dans Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 066549f1343eaceb9a47fccc3b5d4508f226a89b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ca4fa8699d9bd4b35f26983f2f7004c63da180f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967480"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441538"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Sauvegarde en ligne et restauration de données à la demande dans Azure Cosmos DB
 
@@ -89,7 +89,7 @@ Supprimez les comptes restaurés dès que vous avez terminé la migration, car i
 
 Vous pouvez maintenant découvrir comment restaurer des données à partir d’un compte Azure Cosmos, ou comment migrer des données vers un compte Azure Cosmos.
 
-* Pour effectuer une demande de restauration, [émettez un ticket à partir du Portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+* Pour effectuer une demande de restauration, [émettez un ticket à partir du portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * [Guide pratique pour restaurer des données à partir d’un compte Azure Cosmos](how-to-backup-and-restore.md)
 * [Utiliser le flux de modification Cosmos DB](change-feed.md) pour déplacer des données vers Azure Cosmos DB.
 * [Utiliser Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer des données vers Azure Cosmos DB.

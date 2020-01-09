@@ -3,19 +3,19 @@ title: Installer .NET sur des rôles d’Azure Cloud Services | Microsoft Docs
 description: Cet article explique comment installer manuellement .NET Framework sur vos rôles web et rôles de travail de Cloud Services.
 services: cloud-services
 documentationcenter: .net
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: gwallace
-ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: c950fbedde19e3b7708d3640487d413fcac7787f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360988"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
 Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
@@ -234,3 +234,6 @@ Quand vous déployez votre service cloud, les tâches de démarrage installent .
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
+
+
+

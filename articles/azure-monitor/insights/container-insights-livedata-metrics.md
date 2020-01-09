@@ -1,24 +1,14 @@
 ---
 title: Utiliser Azure Monitor pour les conteneurs afin de consulter les mesures en temps réel | Microsoft Docs
 description: Cet article décrit l’affichage en temps réel des mesures sans l’utilisation de kubectl avec Azure Monitor pour les conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: azure-monitor
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/15/2019
-ms.author: magoedte
-ms.openlocfilehash: 4608058d347888ab77bd4303600f00b270d6fed5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fbb08a8ed3deeff061065916241ee2d724603be3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75404933"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Comment afficher les mesures en temps réel
 
@@ -50,7 +40,7 @@ La fréquence d’interrogation est configurée dans la liste déroulante **Déf
 >Lorsque vous essayez de résoudre un problème, nous vous recommandons de définir la fréquence d’interrogation sur 1 seconde pendant la durée de vos tentatives de résolution. Ces requêtes peuvent avoir un impact sur la disponibilité et la limitation de l’API Kubernetes sur votre cluster. Ensuite, définissez un intervalle d’interrogation plus long. 
 
 >[!IMPORTANT]
->Aucune donnée n’est stockée de façon permanente pendant le fonctionnement de cette fonctionnalité. Toutes les informations capturées lors de cette session sont immédiatement supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de 5 minutes. Toutes les mesures datant de plus de 5 minutes sont également supprimées.
+>Aucune donnée n’est stockée de façon permanente pendant l’exécution de cette fonctionnalité. Toutes les informations capturées lors de cette session sont immédiatement supprimées lorsque vous la quittez, ou que vous fermez votre navigateur. Les données restent uniquement présentes pour la visualisation dans le laps de temps de 5 minutes. Toutes les mesures datant de plus de 5 minutes sont également supprimées.
 
 Ces graphiques ne peuvent pas être épinglés au dernier tableau de bord Azure que vous avez affiché en mode réel.
 
@@ -94,4 +84,4 @@ Ce graphique de performances mappe vers un équivalent de l’appel de `kubectl 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour afficher des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.
+Consultez [Exemples de requêtes de journal](container-insights-log-search.md#search-logs-to-analyze-data) pour voir des requêtes et des exemples prédéfinis permettant de créer des alertes, des visualisations, ou d’effectuer une analyse plus poussée de vos clusters.

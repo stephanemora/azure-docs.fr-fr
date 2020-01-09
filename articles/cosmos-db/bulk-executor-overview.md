@@ -1,5 +1,5 @@
 ---
-title: Importer et mettre à jour en bloc des données dans Azure Cosmos DB avec la bibliothèque d’exécuteur en bloc
+title: Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
 description: Effectuez des opérations en bloc dans Azure Cosmos DB par l’intermédiaire des API d’importation en bloc et de mise à jour en bloc proposées par la bibliothèque d’exécuteur en bloc.
 author: tknandu
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 8d2cb30e0f18485d500344e571b3ac5f2cde008f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9d335bcf6daf0b38e7a68ca2d40894dd64c93e40
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442156"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Vue d’ensemble de la bibliothèque d’exécuteur en bloc Azure Cosmos DB
  
@@ -48,7 +48,7 @@ La bibliothèque de l’exécuteur en bloc veille à utiliser au maximum le déb
 
 ## <a name="next-steps"></a>Étapes suivantes 
   
-* Pour en savoir plus, essayez les exemples d’applications utilisant la bibliothèque de l’exécuteur en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md).  
+* Pour en savoir plus, essayez les exemples d'applications utilisant la bibliothèque d'Exécuteurs en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md).  
 * Consultez les notes de publication et les informations sur le SDK de l’exécuteur en bloc en [.NET](sql-api-sdk-bulk-executor-dot-net.md) et en [Java](sql-api-sdk-bulk-executor-java.md).
-* La bibliothèque de l’exécuteur en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d’informations, voir [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
+* La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
 * La bibliothèque d’exécuteur en bloc est également intégrée à une nouvelle version du [connecteur Azure Cosmos DB](https://aka.ms/bulkexecutor-adf-v2) pour permettre à Azure Data Factory de copier des données.

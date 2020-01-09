@@ -3,28 +3,28 @@ title: Installer et utiliser l’explorateur Azure IoT | Microsoft Docs
 description: Installer l’outil d’explorateur Azure IoT et l’utiliser pour interagir avec les appareils IoT Plug-and-Play en préversion connectés à mon hub IoT.
 author: miagdp
 ms.author: miag
-ms.date: 07/02/2019
+ms.date: 12/27/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: fd180404ca18b5ea84c745a543ae7e87bf16c27d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679849"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529624"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
 L’explorateur Azure IoT est un outil graphique permettant d’interagir avec vos appareils IoT Plug-and-Play en préversion et de les tester. Après avoir installé l’outil sur votre ordinateur local, vous pouvez l’utiliser pour vous connecter à un appareil. Vous pouvez utiliser l’outil pour afficher les données de télémétrie que l’appareil envoie, utiliser les propriétés de l’appareil et appeler des commandes.
 
-Cet article vous montre comment procéder.
+Cet article vous montre comment :
 
 - Installer et configurer l’explorateur Azure IoT.
 - Utiliser l’outil pour interagir avec vos appareils et les tester.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser l’outil qu’est l’explorateur Azure IoT, vous avez besoin des éléments suivants :
 
@@ -97,7 +97,7 @@ Vous pouvez utiliser l’outil pour afficher une instance de jumeau numérique d
 
 Dans la page **Interface**, vous pouvez voir la définition JSON de l’interface.
 
-#### <a name="properties"></a>properties
+#### <a name="properties"></a>Propriétés
 
 Vous pouvez voir les propriétés en lecture seule définies dans une interface dans la page **Propriétés non inscriptibles**. Vous pouvez mettre à jour les propriétés inscriptibles définies dans une interface dans la page **Propriétés inscriptibles** :
 

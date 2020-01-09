@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 738c0cf8c9fea61bedb53aa5f6c9bde089bac5f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c51469997af23be7a5e1b88677ecadb37e10ac64
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440553"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copier des données de Netezza avec Azure Data Factory
 
@@ -39,11 +39,11 @@ Le connecteur Netezza prend en charge la copie en parallèle à partir de la sou
 
 Azure Data Factory fournit un pilote intégré pour permettre la connectivité. Vous n’avez pas besoin d’installer un pilote manuellement pour utiliser ce connecteur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Vous pouvez créer un pipeline qui utilise une activité de copie à l’aide du SDK .NET, du SDK Python, d’Azure PowerShell, de l’API REST ou du modèle Azure Resource Manager. Pour obtenir des instructions détaillées sur la création d’un pipeline ayant une activité de copie, consultez le [Tutoriel sur l’activité de copie](quickstart-create-data-factory-dot-net.md).
 
@@ -55,9 +55,9 @@ Les propriétés prises en charge pour le service lié Netezza sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **Netezza**. | OUI |
-| connectionString | Chaîne de connexion ODBC permettant de se connecter à Netezza. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
+| type | La propriété **type** doit être définie sur **Netezza**. | Oui |
+| connectionString | Chaîne de connexion ODBC permettant de se connecter à Netezza. <br/>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non |
 
 Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Le tableau suivant décrit les propriétés que vous pouvez définir :
 
@@ -74,10 +74,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;
     "properties": {
         "type": "Netezza",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
-            }
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -87,7 +84,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;
 }
 ```
 
-**Exemple : stockage du mot de passe dans Azure Key Vault**
+**Exemple : stockage du mot de passe dans Azure Key Vault**
 
 ```json
 {
@@ -95,10 +92,7 @@ Voici un exemple de chaîne de connexion typique : `Server=<server>;Port=<port>;
     "properties": {
         "type": "Netezza",
         "typeProperties": {
-            "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;"
-            },
+            "connectionString": "Server=<server>;Port=<port>;Database=<database>;UID=<user name>;",
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -126,8 +120,8 @@ Pour copier des données à partir de Netezza, définissez la propriété **type
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **NetezzaTable** | OUI |
-| schema | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
+| type | La propriété type du jeu de données doit être définie sur : **NetezzaTable** | Oui |
+| schéma | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
 | table | Nom de la table. |Non (si « query » dans la source de l’activité est spécifié)  |
 | tableName | Nom de la table avec le schéma. Cette propriété est prise en charge pour la compatibilité descendante. Utilisez `schema` et `table` pour une nouvelle charge de travail. | Non (si « query » dans la source de l’activité est spécifié) |
 
@@ -162,7 +156,7 @@ Pour copier des données à partir de Netezza, définissez le type **source** de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **NetezzaSource**. | OUI |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **NetezzaSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `"SELECT * FROM MyTable"` | Non (si « tableName » est spécifié dans dataset) |
 | partitionOptions | Spécifie les options de partitionnement des données utilisées pour charger des données à partir de Netezza. <br>Les valeurs autorisées sont : **Aucun** (par défaut), **DataSlice** et **DynamicRange**.<br>Lorsqu’une option de partition est activée (autrement dit, pas `None`), le degré de parallélisme pour charger simultanément des données à partir d’une base de données Netezza est contrôlé par le paramètre [`parallelCopies`](copy-activity-performance.md#parallel-copy) de l’activité de copie. | Non |
 | partitionSettings | Spécifiez le groupe de paramètres pour le partitionnement des données. <br>S’applique lorsque l’option de partitionnement n’est pas `None`. | Non |

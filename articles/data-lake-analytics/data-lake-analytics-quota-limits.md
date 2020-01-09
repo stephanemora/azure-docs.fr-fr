@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c1d7c8cc4b50682a74ac88b2113f0d44ebc55199
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595715"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644713"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajuster les quotas et limites dans Azure Data Lake Analytics
 
@@ -22,7 +22,7 @@ Découvrez comment ajuster et augmenter les quotas et limites dans les comptes A
 
 ## <a name="azure-subscriptions-limits"></a>Limites des abonnements Azure
 
-**Nombre maximal de comptes ADLA par abonnement et par région :**  5.
+**Nombre maximal de comptes ADLA par abonnement et par région :**  5
 
 Lorsque vous essayez de créer le sixième compte ADLA, le message d’erreur suivant s’affiche : « Vous avez atteint le nombre maximal de comptes Data Lake Analytics autorisés (5) dans (zone) sous l’abonnement (nom). »
 
@@ -58,7 +58,7 @@ Il s’agit du nombre maximal de tâches pouvant s’exécuter simultanément da
 
 ## <a name="increase-maximum-quota-limits"></a>Augmenter les limites de quota maximales
 
-Vous trouverez plus d’informations sur les limites d’Azure dans la [documentation sur les limites spécifiques au service Azure](../azure-subscription-service-limits.md#data-lake-analytics-limits).
+Vous trouverez plus d’informations sur les limites d’Azure dans la [documentation sur les limites spécifiques au service Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-analytics-limits).
 
 1. Ouvrez une demande de support dans le portail Azure.
 

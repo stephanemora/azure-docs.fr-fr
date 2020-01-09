@@ -1,18 +1,17 @@
 ---
 title: Utilisation de chaînes dans des requêtes de journal Azure Monitor | Microsoft Docs
 description: Décrit comment modifier et comparer des chaînes ainsi qu’effectuer des recherches et de nombreuses autres opérations sur celles-ci dans des requêtes de journal Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397467"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Utilisation de chaînes dans des requêtes de journal Azure Monitor
 
@@ -47,39 +46,39 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparaisons de chaînes
 
-opérateur       |Description                         |Respecte la casse|Exemple (génère `true`)
+Opérateur       |Description                         |Respecte la casse|Exemple (génère `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |Égal à                              |OUI           |`"aBc" == "aBc"`
-`!=`           |Non égal à                          |OUI           |`"abc" != "ABC"`
+`==`           |Égal à                              |Oui           |`"aBc" == "aBc"`
+`!=`           |Non égal à                          |Oui           |`"abc" != "ABC"`
 `=~`           |Égal à                              |Non            |`"abc" =~ "ABC"`
 `!~`           |Non égal à                          |Non            |`"aBc" !~ "xyz"`
 `has`          |Le terme de droite est un terme entier dans le terme de gauche |Non|`"North America" has "america"`
 `!has`         |Le terme de droite n’est pas un terme entier dans le terme de gauche       |Non            |`"North America" !has "amer"` 
-`has_cs`       |Le terme de droite est un terme entier dans le terme de gauche |OUI|`"North America" has_cs "America"`
-`!has_cs`      |Le terme de droite n’est pas un terme entier dans le terme de gauche       |OUI            |`"North America" !has_cs "amer"` 
+`has_cs`       |Le terme de droite est un terme entier dans le terme de gauche |Oui|`"North America" has_cs "America"`
+`!has_cs`      |Le terme de droite n’est pas un terme entier dans le terme de gauche       |Oui            |`"North America" !has_cs "amer"` 
 `hasprefix`    |Le terme de droite est un préfixe dans le terme de gauche         |Non            |`"North America" hasprefix "ame"`
 `!hasprefix`   |Le terme de droite n’est pas un préfixe dans le terme de gauche     |Non            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |Le terme de droite est un préfixe dans le terme de gauche         |OUI            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |Le terme de droite n’est pas un préfixe dans le terme de gauche     |OUI            |`"North America" !hasprefix_cs "CA"` 
+`hasprefix_cs`    |Le terme de droite est un préfixe dans le terme de gauche         |Oui            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |Le terme de droite n’est pas un préfixe dans le terme de gauche     |Oui            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Le terme de droite est un suffixe dans le terme de gauche         |Non            |`"North America" hassuffix "ica"`
 `!hassuffix`   |Le terme de droite n’est pas un suffixe dans le terme de gauche     |Non            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |Le terme de droite est un suffixe dans le terme de gauche         |OUI            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Le terme de droite n’est pas un suffixe dans le terme de gauche     |OUI            |`"North America" !hassuffix_cs "icA"`
+`hassuffix_cs`    |Le terme de droite est un suffixe dans le terme de gauche         |Oui            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |Le terme de droite n’est pas un suffixe dans le terme de gauche     |Oui            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Le terme de droite est une sous-séquence du terme de gauche  |Non            |`"FabriKam" contains "BRik"`
 `!contains`    |Le terme de droite ne se produit pas dans le terme de gauche           |Non            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |Le terme de droite est une sous-séquence du terme de gauche  |OUI           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |Le terme de droite ne se produit pas dans le terme de gauche           |OUI           |`"Fabrikam" !contains_cs "Kam"`
+`contains_cs`   |Le terme de droite est une sous-séquence du terme de gauche  |Oui           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |Le terme de droite ne se produit pas dans le terme de gauche           |Oui           |`"Fabrikam" !contains_cs "Kam"`
 `startswith`   |Le terme de droite est une sous-séquence initiale du terme de gauche|Non            |`"Fabrikam" startswith "fab"`
 `!startswith`  |Le terme de droite n’est pas une sous-séquence initiale du terme de gauche|Non        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |Le terme de droite est une sous-séquence initiale du terme de gauche|OUI            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |Le terme de droite n’est pas une sous-séquence initiale du terme de gauche|OUI        |`"Fabrikam" !startswith_cs "fab"`
+`startswith_cs`   |Le terme de droite est une sous-séquence initiale du terme de gauche|Oui            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |Le terme de droite n’est pas une sous-séquence initiale du terme de gauche|Oui        |`"Fabrikam" !startswith_cs "fab"`
 `endswith`     |Le terme de droite est une sous-séquence finale du terme de gauche|Non             |`"Fabrikam" endswith "Kam"`
 `!endswith`    |Le terme de droite n’est pas une sous-séquence finale du terme de gauche|Non         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Le terme de droite est une sous-séquence finale du terme de gauche|OUI             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Le terme de droite n’est pas une sous-séquence finale du terme de gauche|OUI         |`"Fabrikam" !endswith "brik"`
-`matches regex`|Le terme de gauche contient une correspondance du terme de droite        |OUI           |`"Fabrikam" matches regex "b.*k"`
-`in`           |Égal à l’un des éléments       |OUI           |`"abc" in ("123", "345", "abc")`
-`!in`          |N’est égal à aucun des éléments   |OUI           |`"bca" !in ("123", "345", "abc")`
+`endswith_cs`     |Le terme de droite est une sous-séquence finale du terme de gauche|Oui             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |Le terme de droite n’est pas une sous-séquence finale du terme de gauche|Oui         |`"Fabrikam" !endswith "brik"`
+`matches regex`|Le terme de gauche contient une correspondance du terme de droite        |Oui           |`"Fabrikam" matches regex "b.*k"`
+`in`           |Égal à l’un des éléments       |Oui           |`"abc" in ("123", "345", "abc")`
+`!in`          |N’est égal à aucun des éléments   |Oui           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof
@@ -307,7 +306,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 
 ## <a name="strlen"></a>strlen
 
-Retourne la longueur d’une chaîne.
+Retourne la longueur d'une chaîne.
 
 ### <a name="syntax"></a>Syntaxe
 ```

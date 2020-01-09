@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: dd2c29632d70da64251c5e1736a9cb7d82f5d0dc
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 495f53bc97835c4940f7b36d23349b768a7a637f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440962"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utiliser une base de données d’abonné pour joindre des bases de données dans Azure Data Explorer
 
@@ -26,7 +26,7 @@ L’attachement d’une base de données à un autre cluster à l’aide de la f
 * Un cluster unique peut suivre des bases de données à partir de plusieurs clusters de responsable. 
 * Un cluster peut contenir à la fois des bases de données d’abonné et des bases de données de responsable
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 1. [Créez un cluster et une base de données](/azure/data-explorer/create-cluster-database-portal) pour le responsable et l’abonné.
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Joindre une base de données à l’aide d’un modèle Azure Resource Manager
 
-Dans cette section, vous allez apprendre à joindre une base de données à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). 
+Dans cette section, vous allez apprendre à joindre une base de données à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ```json
 {

@@ -4,20 +4,20 @@ description: Cet article décrit comment connecter Configuration Manager à l’
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: fee6f09ba8e290ae6599f07d4ed831fb89427f76
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2262c951b52ef58006bacde4be76dc92468a20ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364048"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connexion de Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement System Center Configuration Manager à Azure Monitor pour synchroniser les données de regroupement d’appareils et faire référence à ces regroupements dans Azure Monitor et Azure Automation.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Azure Monitor prend en charge la branche actuelle de System Center Configuration Manager, version 1606 et supérieure.
 

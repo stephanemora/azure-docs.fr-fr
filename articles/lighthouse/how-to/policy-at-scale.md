@@ -3,22 +3,22 @@ title: Déployer à grande échelle Azure Policy vers des abonnements délégué
 description: Découvrez comment la gestion des ressources déléguées Azure vous permet de déployer une définition et une affectation de stratégie sur plusieurs locataires.
 ms.date: 11/8/2019
 ms.topic: conceptual
-ms.openlocfilehash: 3853e8fc163dfc662adc675dd3df1d15958d329a
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9e061995b728e2864d1bd33a32d530634ab794d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456845"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Déployer à grande échelle Azure Policy vers des abonnements délégués
 
 En tant que fournisseur de services, vous assurez peut-être la gestion des ressources déléguée Azure de plusieurs locataires clients. [Azure Lighthouse](../overview.md) permet aux fournisseurs de services d’effectuer des opérations à grande échelle sur plusieurs locataires à la fois, améliorant ainsi l'efficacité des tâches de gestion.
 
-Cette rubrique montre comment utiliser [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) pour déployer une définition et une affectation de stratégie sur plusieurs locataires à l’aide de commandes PowerShell. Dans cet exemple, la définition de stratégie veille à ce que les comptes de stockage soient sécurisés en n'autorisant que le trafic HTTPS.
+Cette rubrique montre comment utiliser [Azure Policy](../../governance/policy/index.yml) pour déployer une définition et une affectation de stratégie sur plusieurs locataires à l’aide de commandes PowerShell. Dans cet exemple, la définition de stratégie veille à ce que les comptes de stockage soient sécurisés en n'autorisant que le trafic HTTPS.
 
 ## <a name="use-azure-resource-graph-to-query-across-customer-tenants"></a>Utiliser Azure Resource Graph pour interroger plusieurs locataires clients
 
-Vous pouvez utiliser [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) pour interroger tous les abonnements des locataires clients que vous gérez. Dans cet exemple, nous allons identifier tous les comptes de stockage de ces abonnements qui n'exigent pas encore le trafic HTTPS.  
+Vous pouvez utiliser [Azure Resource Graph](../../governance/resource-graph/index.yml) pour interroger tous les abonnements des locataires clients que vous gérez. Dans cet exemple, nous allons identifier tous les comptes de stockage de ces abonnements qui n'exigent pas encore le trafic HTTPS.  
 
 ```powershell
 $MspTenant = "insert your managing tenantId here"
@@ -61,7 +61,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez terminé, supprimez la définition et l’affectation de stratégie créées par le déploiement.
 
@@ -90,5 +90,5 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [Azure Policy](https://docs.microsoft.com/azure/governance/policy/).
+- En savoir plus sur [Azure Policy](../../governance/policy/index.yml).
 - Découvrez les [Expériences de gestion inter-locataire](../concepts/cross-tenant-management-experience.md).

@@ -2,20 +2,20 @@
 title: Détecter un problème d’erreurs de sauvegarde avec les machines virtuelles Azure
 description: Dans cet article, découvrez comment résoudre les erreurs rencontrées lors de la sauvegarde et de la restauration de machines virtuelles Azure.
 ms.reviewer: srinathv
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: e5ee0e06d444db809ce3e168f8883048eaf45e27
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172462"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664641"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations ci-dessous :
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 Cette section traite de l’échec d’opération de sauvegarde d’une machine virtuelle Azure.
 
@@ -61,7 +61,6 @@ L’opération de sauvegarde a échoué parce que la machine virtuelle est en é
 Code d’erreur : UserErrorFsFreezeFailed <br/>
 Message d’erreur : Impossible de figer un ou plusieurs points de montage de la machine virtuelle pour prendre une capture instantanée cohérente au niveau du système de fichiers.
 
-* Vérifiez l’état du système de fichiers de tous les appareils montés à l’aide de la commande **tune2fs**. Par exemple **tune2fs -l /dev/sdb1 \\** .\| grep **Filesystem state**.
 * Démontez les appareils dont l’état du système de fichiers n’a pas été nettoyé à l’aide de la commande **unmount**.
 * Effectuez une vérification de cohérence de système de fichiers sur ces appareils à l’aide de la commande **fsck**.
 * Remontez les appareils, puis retentez l’opération de sauvegarde.</ol>
@@ -184,7 +183,6 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 | Détails de l’erreur | Solution de contournement |
 | ------ | --- |
 | **Code d’erreur** : 320001, ResourceNotFound <br/> **Message d’erreur** : Impossible d’effectuer l’opération, car la machine virtuelle n’existe plus. <br/> <br/> **Code d’erreur** : 400094, BCMV2VMNotFound <br/> **Message d’erreur** : La machine virtuelle n’existe pas <br/> <br/>  Machine virtuelle Azure introuvable.  |Cette erreur se produit lorsque la machine virtuelle principale est supprimée. Cependant, la stratégie de sauvegarde continue de rechercher une machine virtuelle à sauvegarder. Pour corriger cette erreur, suivez les étapes ci-dessous : <ol><li> Recréez la machine virtuelle avec le même nom et le même nom de groupe de ressources **nom du service cloud**,<br>**or**</li><li> Arrêtez la protection de la machine virtuelle en supprimant ou non les données de sauvegarde. Pour plus d’informations, consultez [Arrêt de la protection des machines virtuelles](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>|
-| **Code d’erreur** : UserErrorVmProvisioningStateFailed<br/> **Message d’erreur** : L’état d’approvisionnement de la machine virtuelle est défini sur Échec : <br>redémarrez la machine virtuelle et assurez-vous qu’elle fonctionne ou qu’elle est éteinte. | Cette erreur se produit lorsqu’un des échecs d’extension conduit à définir l’état d’approvisionnement de la machine virtuelle sur Échec. Accédez à la liste des extensions, vérifiez s’il existe une extension ayant échoué, supprimez-la et essayez de redémarrer la machine virtuelle. Si l’état de toutes les extensions est défini sur En cours d’exécution, vérifiez si le service de l’agent de machine virtuelle est en cours d’exécution. Si ce n’est pas le cas, redémarrez le service de l’agent de machine virtuelle. |
 |**Code d’erreur** : UserErrorBCMPremiumStorageQuotaError<br/> **Message d’erreur** : Impossible de copier l’instantané de la machine virtuelle, car l’espace libre est insuffisant dans le compte de stockage | Pour les machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, nous copions la capture instantanée sur le compte de stockage. Cette étape permet de s’assurer que le trafic de gestion de sauvegarde, qui fonctionne sur la capture instantanée, ne limite pas le nombre d’IOPS accessibles à l’application à l’aide de disques Premium. <br><br>Nous vous conseillons d’allouer seulement 50 pour cent (soit 17,5 To) de l’espace du compte de stockage total. Ainsi, le service Sauvegarde Azure peut copier la capture instantanée sur le compte de stockage et transférer des données depuis cet emplacement copié vers le compte de stockage dans le coffre. |
 | **Code d’erreur** : 380008, AzureVmOffline <br/> **Message d’erreur** : L’installation de l’extension Microsoft Recovery Services a échoué, car la machine virtuelle n’est pas en cours d’exécution. | L’agent de machine virtuelle est une condition requise pour l’extension Recovery Services. Installez l’agent de machine virtuelle Azure, puis recommencez l’opération d’inscription. <br> <ol> <li>Vérifiez si l’agent de machine virtuelle a été installé correctement. <li>Vérifiez que l’indicateur de la configuration de la machine virtuelle est défini correctement.</ol> Apprenez-en plus sur l'installation de l'agent de machine virtuelle et sur la validation de cette opération. |
 | **Code d’erreur** : ExtensionSnapshotBitlockerError <br/> **Message d’erreur** : L’opération de capture instantanée a échoué en renvoyant l’erreur d’opération du service Cliché instantané de volume (VSS) **Ce lecteur est verrouillé par le chiffrement de lecteur BitLocker. Vous devez déverrouiller ce lecteur à partir du panneau de configuration.** |Désactivez BitLocker pour tous les lecteurs sur la machine virtuelle et vérifiez si le problème VSS est résolu. |
@@ -193,29 +191,29 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 | **Code d’erreur** : ExtensionSnapshotFailedNoSecureNetwork <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé. | <ol><li> Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Code d’erreur** : ExtensionVCRedistInstallationFailure <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012. | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2013_x64.<br/>Assurez-vous que la valeur de clé de Registre qui permet l’installation du service est correctement définie. Autrement dit, définissez la valeur **Démarrer** dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** sur **3** et non sur **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges.  |
 
-## <a name="jobs"></a>Tâches
+## <a name="jobs"></a>travaux
 
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
-| L’annulation n’est pas prise en charge pour ce type de travail : <br>Attendez que le travail se termine. |Aucun |
+| L’annulation n’est pas prise en charge pour ce type de travail : <br>Attendez que le travail se termine. |None |
 | Le travail n’est pas dans un état annulable : <br>Attendez que le travail se termine. <br>**or**<br> Le travail sélectionné n’est pas dans un état annulable : <br>Attendez que le travail se termine. |Il est probable que le travail soit presque terminé. Attendez que le travail se termine.|
 | Sauvegarde Azure ne peut pas annuler le travail, car il n’est pas en cours d’exécution : <br>L’annulation est uniquement prise en charge pour les travaux en cours. Essayez d’annuler un travail en cours d’exécution. |Cette erreur se produit en raison d’un état temporaire. Attendez une minute et relancez l’opération d’annulation. |
-| Sauvegarde Azure n’a pas annulé le travail : <br>Attendez que le travail se termine. |Aucun |
+| Sauvegarde Azure n’a pas annulé le travail : <br>Attendez que le travail se termine. |None |
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurer
 
 | Détails de l’erreur | Solution de contournement |
 | --- | --- |
 | Échec de la restauration avec une erreur interne du cloud. |<ol><li>Le service cloud sur lequel vous essayez d’effectuer la restauration est configuré avec des paramètres DNS. Vous pouvez vérifier : <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>Si **Adresse** est configuré, les paramètres DNS sont configurés.<br> <li>Le service cloud sur lequel vous tentez d’effectuer la restauration est configuré avec une **adresse IP réservée**, et les machines virtuelles existantes dans le service cloud sont à l’état arrêté. Vous pouvez vérifier qu’un service cloud a réservé une adresse IP à l’aide des cmdlets PowerShell suivantes : **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>Vous essayez de restaurer une machine virtuelle avec les configurations réseau spéciales suivantes dans le même service cloud : <ul><li>Machines virtuelles avec configuration d’un équilibreur de charge, internes et externes.<li>Machines virtuelles avec plusieurs adresses IP réservées. <li>Machines virtuelles avec plusieurs NIC. </ul><li>Sélectionnez un nouveau service cloud dans l’interface utilisateur ou consultez les [considérations relatives à la restauration](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) des machines virtuelles avec des configurations réseau spéciales.</ol> |
 | Le nom DNS sélectionné est déjà attribué : <br>Spécifiez un autre nom DNS, puis réessayez. |Ce nom DNS fait référence au nom du service cloud, qui se termine généralement par **.cloudapp.net**. Ce nom doit être unique. Si vous rencontrez cette erreur, vous devez choisir un autre nom de machine virtuelle pendant la restauration. <br><br> Cette erreur ne s’affiche que pour les utilisateurs du portail Azure. L’opération de restauration via PowerShell se déroule correctement, car elle ne fait que restaurer les disques et ne crée pas de machine virtuelle. L’erreur se rencontre lorsque la machine virtuelle est explicitement créée par vos soins après l’opération de restauration du disque. |
-| La configuration de réseau virtuel spécifiée n’est pas correcte : <br>spécifiez une autre configuration de réseau virtuel et réessayez. |Aucun |
-| Le service cloud spécifié utilise une adresse IP réservée qui ne correspond pas à la configuration de la machine virtuelle en cours de restauration : <br>spécifiez un autre service cloud qui n’utilise pas d’adresse IP réservée. Ou choisissez un autre point de restauration à partir duquel effectuer la restauration. |Aucun |
-| Le service cloud a atteint sa limite sur le nombre de points de terminaison d’entrée : <br>relancez l’opération en spécifiant un autre service cloud ou en utilisant un point de terminaison existant. |Aucun |
-| Le compte de stockage cible et le coffre Recovery Services se trouvent dans deux régions distinctes : <br>vérifiez que le compte de stockage spécifié dans l’opération de restauration se trouve dans la même région Azure que votre coffre Recovery Services. |Aucun |
-| Le compte de stockage spécifié pour l’opération de restauration n’est pas pris en charge : <br>Seuls les comptes de stockage De base ou Standard avec des paramètres de réplication géoredondants ou redondants localement sont pris en charge. Sélectionnez un compte de stockage pris en charge. |Aucun |
+| La configuration de réseau virtuel spécifiée n’est pas correcte : <br>spécifiez une autre configuration de réseau virtuel et réessayez. |None |
+| Le service cloud spécifié utilise une adresse IP réservée qui ne correspond pas à la configuration de la machine virtuelle en cours de restauration : <br>spécifiez un autre service cloud qui n’utilise pas d’adresse IP réservée. Ou choisissez un autre point de restauration à partir duquel effectuer la restauration. |None |
+| Le service cloud a atteint sa limite sur le nombre de points de terminaison d’entrée : <br>relancez l’opération en spécifiant un autre service cloud ou en utilisant un point de terminaison existant. |None |
+| Le compte de stockage cible et le coffre Recovery Services se trouvent dans deux régions distinctes : <br>vérifiez que le compte de stockage spécifié dans l’opération de restauration se trouve dans la même région Azure que votre coffre Recovery Services. |None |
+| Le compte de stockage spécifié pour l’opération de restauration n’est pas pris en charge : <br>Seuls les comptes de stockage De base ou Standard avec des paramètres de réplication géoredondants ou redondants localement sont pris en charge. Sélectionnez un compte de stockage pris en charge. |None |
 | Le type de compte de stockage spécifié pour l’opération de restauration n’est pas en ligne : <br>Vérifiez que le compte de stockage spécifié dans l’opération de restauration est en ligne. |Cette erreur peut se produire dans le cas d’une erreur temporaire dans Stockage Azure ou d’une panne. Choisissez un autre compte de stockage. |
-| Le quota du groupe de ressources a été atteint : <br>Supprimez des groupes de ressources à partir du Portail Azure ou contactez le support Azure pour augmenter les limites. |Aucun |
-| Le sous-réseau sélectionné n’existe pas : <br>Sélectionnez un sous-réseau qui existe. |Aucun |
+| Le quota du groupe de ressources a été atteint : <br>Supprimez des groupes de ressources à partir du Portail Azure ou contactez le support Azure pour augmenter les limites. |None |
+| Le sous-réseau sélectionné n’existe pas : <br>Sélectionnez un sous-réseau qui existe. |None |
 | Le service Sauvegarde Azure n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre cette erreur, commencez par restaurer les disques à l’aide de la procédure décrite dans [Restaurer des disques sauvegardés](backup-azure-arm-restore-vms.md#restore-disks). Utilisez ensuite les étapes PowerShell indiquées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Sauvegarde ou restauration qui prend du temps

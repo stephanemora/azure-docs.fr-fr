@@ -11,12 +11,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 0b1d9fad2992397a3a6768d0f5e7ff26a400a2b3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4301afafb48fb9a1b0c9e36dde9800e2b8390f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889321"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443937"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
@@ -30,7 +30,7 @@ Pour afficher une présentation de dix minutes et la démonstration de cette fon
 
 
 > [!NOTE]
-> L’intégration décrite dans cet article dépend [d’Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Vérifiez que votre abonnement est inscrit auprès du fournisseur de ressources Event Grid. Pour plus d’informations, consultez [Types et fournisseurs de ressources](../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+> L’intégration décrite dans cet article dépend [d’Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Vérifiez que votre abonnement est inscrit auprès du fournisseur de ressources Event Grid. Pour plus d’informations, consultez [Types et fournisseurs de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ## <a name="data-factory-ui"></a>IU de la fabrique de données
 
@@ -80,11 +80,11 @@ Le tableau suivant fournit une vue d’ensemble des éléments de schéma associ
 
 | **Élément JSON** | **Description** | **Type** | **Valeurs autorisées** | **Obligatoire** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | OUI |
+| **scope** | ID de ressource Azure Resource Manager du compte de stockage. | String | ID d’Azure Resource Manager | Oui |
 | **events** | Type des événements qui entraîne l’activation de ce déclencheur. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Oui, n’importe quelle combinaison de ces valeurs. |
-| **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, `/records/blobs/december/` active uniquement le déclencheur pour les objets blob du dossier `december` sous le conteneur `records`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
-| **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, `december/boxes.csv` active uniquement le déclencheur pour les objets blob nommés `boxes` dans un dossier `december`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
-| **ignoreEmptyBlobs** | Indique si des objets blob de zéro octet déclenchent ou non une exécution de pipeline. Valeur par défaut : true. | Boolean | true ou false | Non |
+| **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, `/records/blobs/december/` active uniquement le déclencheur pour les objets blob du dossier `december` sous le conteneur `records`. | String   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, `december/boxes.csv` active uniquement le déclencheur pour les objets blob nommés `boxes` dans un dossier `december`. | String   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **ignoreEmptyBlobs** | Indique si des objets blob de zéro octet déclenchent ou non une exécution de pipeline. Valeur par défaut : true. | Boolean | True ou False | Non |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemples de déclencheurs basés sur un événement
 
@@ -93,7 +93,7 @@ Cette section fournit des exemples de paramètres de déclencheur basé sur un �
 > [!IMPORTANT]
 > Vous devez inclure le segment `/blobs/` du chemin, comme indiqué dans les exemples suivants, chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier. Pour **blobPathBeginsWith**, l’interface utilisateur de Data Factory ajoute automatiquement `/blobs/` entre le nom du dossier et du conteneur dans le JSON du déclencheur.
 
-| Propriété | Exemples | Description |
+| Propriété | Exemple | Description |
 |---|---|---|
 | **Blob path begins with** | `/containername/` | Reçoit les événements de tout objet blob du conteneur. |
 | **Blob path begins with** | `/containername/blobs/foldername/` | Reçoit les événements de tout objet blob du conteneur `containername` et du dossier `foldername`. |

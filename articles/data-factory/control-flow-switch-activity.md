@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.openlocfilehash: 582e0c6b9f6a51f97e8d4990634ceac61c6d9f23
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440384"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Activité Switch dans Azure Data Factory
 
@@ -67,13 +67,13 @@ L’activité Switch fournit les mêmes fonctionnalités qu’une instruction sw
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité Switch. | Chaîne | OUI
-Type | Doit être défini sur *Switch** | Chaîne | OUI
-expression | Expression qui doit retourner une valeur de chaîne | Expression avec un résultat de type chaîne | OUI
-cas | Ensemble de cas qui contiennent une valeur et ensemble d’activités à exécuter quand la valeur correspond à l’évaluation de l’expression. Doit fournir au moins un cas. La limite maximale est de 25 cas. | Tableau d’objets cas | OUI
-defaultActivities | Ensemble d’activités qui sont exécutées quand les critères de l’évaluation de l’expression ne sont pas satisfaits. | Tableau d’activités | OUI
+name | Nom de l’activité Switch. | String | Oui
+type | Doit être défini sur *Switch** | String | Oui
+expression | Expression qui doit retourner une valeur de chaîne | Expression avec un résultat de type chaîne | Oui
+cas | Ensemble de cas qui contiennent une valeur et ensemble d’activités à exécuter quand la valeur correspond à l’évaluation de l’expression. Doit fournir au moins un cas. La limite maximale est de 25 cas. | Tableau d’objets cas | Oui
+defaultActivities | Ensemble d’activités qui sont exécutées quand les critères de l’évaluation de l’expression ne sont pas satisfaits. | Tableau d’activités | Oui
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Le pipeline dans cet exemple copie les données depuis un dossier d’entrée vers un dossier de sortie. Le dossier de sortie est déterminé par la valeur du paramètre de pipeline routeSelection.
 
@@ -236,10 +236,7 @@ Le pipeline dans cet exemple copie les données depuis un dossier d’entrée ve
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<Azure Storage account name>;AccountKey=<Azure Storage account key>"
         }
     }
 }

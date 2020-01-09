@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d45cf8d951eb542e248a3ff4fe714b4d2af90cc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428726"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Créez des modèles Azure Resource Manager afin d’automatiser le déploiement pour le service Azure Logic Apps
 
-Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
+Pour vous aider à automatiser la création et le déploiement de votre application logique, cet article décrit les méthodes permettant de créer un [modèle de Azure Resource Manager](../azure-resource-manager/management/overview.md) pour votre application logique. Pour obtenir une vue d’ensemble de la structure et de la syntaxe d’un modèle qui comprend votre définition de flux de travail et d’autres ressources nécessaires pour le déploiement, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md).
 
 Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les applications logiques](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json). Ce modèle vous permet non seulement de créer des applications logiques, mais aussi de définir les ressources et les paramètres à utiliser pour les déployer. Vous pouvez utiliser ce modèle pour vos propres scénarios professionnels, ou le personnaliser selon vos besoins.
 
@@ -24,8 +24,8 @@ Azure Logic Apps fournit un [modèle Azure Resource Manager prédéfini pour les
 
 Pour plus d’informations sur les modèles Azure Resource Manager, consultez ces articles :
 
-* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Structure et syntaxe du modèle Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Développer des modèles Azure Resource Manager pour la cohérence du cloud](../azure-resource-manager/templates-cloud-consistency.md)
 
 <a name="visual-studio"></a>
@@ -104,9 +104,9 @@ Pour l’extraction avec des références Azure Key Vault (statique uniquement),
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| parameters | Obligatoire | Description |
+| Paramètres | Obligatoire | Description |
 |------------|----------|-------------|
-| TemplateFile | OUI | Le chemin d'accès à votre fichier de modèle |
+| TemplateFile | Oui | Le chemin d'accès à votre fichier de modèle |
 | KeyVault | Non | Une énumération qui décrit comment gérer les valeurs de coffre de clés possibles. Par défaut, il s’agit de `None`. |
 ||||
 

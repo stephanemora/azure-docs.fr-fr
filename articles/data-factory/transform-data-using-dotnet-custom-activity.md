@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0f0e2b6164eab7afc39532b0d572d367e3d4ae64
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4913152125b0fafd74db575f835d53fa992b075e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439542"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
@@ -36,7 +36,7 @@ Consultez les articles suivants si vous ne connaissez pas le service Azure Batch
 
 * [Présentation de base d’Azure Batch](../batch/batch-technical-overview.md) pour une vue d’ensemble du service Azure Batch.
 * Applet de commande [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) pour créer un compte Azure Batch (ou) [Portail Azure](../batch/batch-account-create-portal.md) pour créer le compte Azure Batch à l’aide du portail Azure. Pour obtenir des instructions détaillées sur l’utilisation de la cmdlet, voir [Utilisation de PowerShell pour gérer un compte Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
-* [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) pour créer un pool Azure Batch.
+* Applet de commande [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) pour créer un pool Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Service lié Azure Batch
 
@@ -101,11 +101,11 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété              | Description                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nom                  | Nom de l’activité dans le pipeline     | OUI      |
+| name                  | Nom de l’activité dans le pipeline     | Oui      |
 | description           | Texte décrivant l’activité.  | Non       |
-| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | OUI      |
-| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | OUI      |
-| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | OUI      |
+| type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
+| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
+| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non &#42;       |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | Non &#42;       |
 | referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non       |
@@ -174,7 +174,7 @@ Cet exemple montre comment vous pouvez utiliser les referenceObjects et les exte
             "type": "LinkedServiceReference"
           }]
         },
-        "extendedProperties": {
+        "extendedProperties": {          
           "connectionString": {
             "type": "SecureString",
             "value": "aSampleSecureString"

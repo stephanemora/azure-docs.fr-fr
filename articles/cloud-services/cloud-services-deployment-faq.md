@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 2ffa6d7b1cf0550c97a60614f3f00ddc4b955218
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154802"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660594"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour les services cloud Azure : Forum Aux Questions (FAQ)
 
@@ -52,7 +52,7 @@ Pour savoir comment limiter les effets de ces échecs d’allocation, consultez 
 Pour vérifier les tailles disponibles dans votre région, consultez [Microsoft Azure : Disponibilité des produits par région](https://azure.microsoft.com/regions/services).
 
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Pourquoi le déploiement d’un service cloud échoue-t-il parfois en raison des limites/quotas/contraintes de mon abonnement ou service ?
-Le déploiement d’un service cloud peut échouer si les ressources qui doivent être allouées dépassent la valeur par défaut ou le quota maximal autorisé pour votre service au niveau de la région et/ou du centre de données. Pour plus d’informations, consultez [Limites de services cloud](../azure-subscription-service-limits.md#azure-cloud-services-limits).
+Le déploiement d’un service cloud peut échouer si les ressources qui doivent être allouées dépassent la valeur par défaut ou le quota maximal autorisé pour votre service au niveau de la région et/ou du centre de données. Pour plus d’informations, consultez [Limites de services cloud](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cloud-services-limits).
 
 Vous pouvez aussi suivre l’utilisation et/ou le quota actuel de votre abonnement sur le portail : Portail Azure = > Abonnements = > \<abonnement approprié > = > « Utilisation + quota ».
 

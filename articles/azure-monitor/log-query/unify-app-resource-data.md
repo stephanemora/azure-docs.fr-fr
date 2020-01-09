@@ -1,23 +1,18 @@
 ---
 title: Unifier plusieurs ressources Application Insights Azure Monitor | Microsoft Docs
 description: Cet article explique en détail comment utiliser une fonction dans les journaux d’activité Azure Monitor pour interroger plusieurs ressources Application Insights et visualiser ces données.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: azure-monitor
+author: bwren
+ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: magoedte
-ms.openlocfilehash: d441b72b34da6146eba523563a09c2908cdcbbf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 07dd4c96ba51b1ac1e0cb2807c9e26df87a6daa7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650133"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364966"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
 Cet article décrit comment interroger et afficher toutes vos données du journal Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector. Le nombre de ressources Application Insights que vous pouvez inclure dans une seule requête est limité à 100.
@@ -37,7 +32,7 @@ Créez une fonction en utilisant l'opérateur union avec la liste des applicatio
 Vous pouvez à tout moment modifier les applications répertoriées sur le portail en accédant à l'Explorateur de requêtes de votre espace de travail, en sélectionnant la fonction à modifier et en enregistrant. Vous pouvez également utiliser la cmdlet PowerShell `SavedSearch`. 
 
 >[!NOTE]
->Cette méthode ne peut pas être utilisée avec les alertes de journal, car la validation d’accès des ressources de règle d’alerte, notamment les espaces de travail et les applications, s’effectue au moment de la création de l’alerte. L’ajout de nouvelles ressources à la fonction après la création de l’alerte n’est pas pris en charge. Si vous préférez utiliser la fonction pour l’étendue des ressources dans les alertes de journal, vous devez modifier la règle d’alerte dans le portail ou à l’aide d’un modèle Resource Manager pour mettre à jour les ressources délimitées. Vous pouvez également inclure la liste des ressources dans la requête d’alerte de journal.
+>Cette méthode ne peut pas être utilisée avec les alertes de journal, car la validation d’accès des ressources de règle d’alerte, notamment les espaces de travail et les applications, s’effectue au moment de la création de l’alerte. L’ajout de nouvelles ressources à la fonction après la création de l’alerte n’est pas pris en charge. Si vous préférez utiliser la fonction pour l’étendue des ressources dans les alertes de journal, vous devez modifier la règle d’alerte dans le portail ou à l’aide d’un modèle Resource Manager pour mettre à jour les ressources délimitées. Vous pouvez également inclure la liste des ressources dans la requête d’alerte de journal.
 
 La commande `withsource= SourceApp` ajoute une colonne aux résultats, qui désigne l’application ayant envoyé le journal. L’opérateur parse est facultatif dans cet exemple ; il extrait le nom de l’application à partir de la propriété SourceApp. 
 
@@ -70,7 +65,7 @@ La requête utilise le schéma Application Insights, bien qu’elle soit exécut
 Quand vous arrêtez le connecteur et que vous devez effectuer des requêtes sur une plage de temps qui a été découpée par la conservation des données Application Insights (90 jours), vous devez effectuer des [requêtes interressources](../../azure-monitor/log-query/cross-workspace-query.md) sur l’espace de travail et les ressources Application Insights pour une période intermédiaire. C’est nécessaire jusqu’à ce que vos données d’applications s’accumulent conformément aux nouvelles exigences de conservation des données Application Insights mentionnées ci-dessus. La requête nécessite certaines manipulations, dans la mesure où les schémas dans Application Insights et l’espace de travail sont différents. Consultez le tableau, plus loin dans cette section, qui souligne les différences entre les schémas. 
 
 >[!NOTE]
->Les [requêtes inter-ressources](../log-query/cross-workspace-query.md) des alertes de journal sont prises en charge par la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](../platform/api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer règles d'alertes de journal pour les [requêtes inter-ressources](../log-query/cross-workspace-query.md) sans basculer en utilisant le [modèle ARM de l'API schededuRuRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template). Mais cette règle d'alerte est gérable via l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et non à partir du portail Azure.
+>Les [requêtes inter-ressources](../log-query/cross-workspace-query.md) des alertes de journal sont prises en charge par la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Par défaut, Azure Monitor utilise l'[API Alerte Log Analytics héritée](../platform/api-alerts.md) pour créer de nouvelles règles d'alerte de journal à partir du portail Azure, sauf si vous basculez depuis l'[API Alertes de journal héritée](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api). Après le basculement, la nouvelle API devient la valeur par défaut des nouvelles règles d'alerte du portail Azure et vous permet de créer des règles d'alertes de journal pour les requêtes inter-ressources. Vous pouvez créer des règles d'alertes de journal pour les [requêtes inter-ressources](../log-query/cross-workspace-query.md) sans basculer en utilisant le [modèle ARM de l'API schededuRuRules](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template). Mais cette règle d'alerte est gérable via l'[API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et non à partir du portail Azure.
 
 Par exemple, si le connecteur a cessé de fonctionner le 01-11-2018, quand vous interrogez les journaux d’activité pour des ressources Application Insights et des données d’applications dans l’espace de travail, votre requête sera construite comme dans l’exemple suivant :
 
@@ -124,8 +119,8 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
-| OperationName | operation_Name | 
-| OS | client_OS | 
+| NomOpération | operation_Name | 
+| Système d''exploitation | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 

@@ -1,18 +1,14 @@
 ---
 title: Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article explique comment configurer Azure Monitor pour les conteneurs afin de surveiller les clusters Kubernetes hébergés sur Azure Red Hat OpenShift.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 11/21/2019
-ms.openlocfilehash: 07d84175325226af755712ec38ab93b901bbd361
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6922cb7b143989ba329df972a06825629c4c5020
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405575"
 ---
 # <a name="configure-azure-red-hat-openshift-clusters-with-azure-monitor-for-containers"></a>Configurer des clusters Azure Red Hat OpenShift avec Azure Monitor pour les conteneurs
 
@@ -36,7 +32,7 @@ Azure Monitor pour conteneurs prend en charge la surveillance d’Azure Red Hat 
 - [Collecter les métriques](container-insights-update-metrics.md) à partir des nœuds de cluster et des Pod, et les stocker dans la base de données de métriques Azure Monitor
 - Fonctionnalité d’intégrité
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour activer et accéder aux fonctionnalités d’Azure Monitor pour les conteneurs, vous devez au minimum être membre du rôle Azure *Contributeur* dans l’abonnement Azure et membre du rôle [*Contributeur Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) de l’espace de travail Log Analytics configuré avec Azure Monitor pour les conteneurs.
 
@@ -129,7 +125,7 @@ Effectuez les étapes suivantes pour activer la surveillance d’un cluster Azur
 
 ### <a name="from-the-azure-portal"></a>À partir du portail Azure
  
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans le menu du Portail Azure ou dans la page Accueil, sélectionnez **Azure Monitor**. Sous la section **Insights**, sélectionnez **Conteneurs**. 
 

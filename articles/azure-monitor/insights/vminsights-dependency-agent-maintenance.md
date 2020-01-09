@@ -4,15 +4,15 @@ description: Cet article décrit la façon de mettre à niveau l’agent Depende
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f062dead8d479fe4da5de46b76b82cee9207bd83
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933709"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75400800"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Comment mettre à niveau l’agent Dependency pour Azure Monitor pour machines virtuelles
 
@@ -54,7 +54,7 @@ Vous pouvez télécharger la dernière version de l’agent Windows [ici](https:
 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 
-2. Exécutez la commande ci-dessous.
+2. Exécutez la commande suivante :
 
     ```dos
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual

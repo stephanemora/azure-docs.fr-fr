@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552821"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364796"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d’activité à l’aide d’Azure Monitor  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les alertes de journal d’activité s’activent lorsqu’un nouvel événement du journal d’activité correspond aux conditions spécifiées dans l’alerte.
 
 Elles concernent les ressources Azure. Pour les créer, il est possible d’utiliser un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. En général, les alertes de journal d’activité permettent de recevoir une notification en cas de modification particulière des ressources de l’abonnement Azure, souvent à l’échelle d’un groupe de ressources ou d’une ressource en particulier. Par exemple, vous pouvez être averti lorsqu’une machine virtuelle dans l’exemple de groupe de ressources **myProductionResourceGroup** est supprimée. Vous pouvez également vouloir être averti si de nouveaux rôles sont attribués à un utilisateur dans votre abonnement.
@@ -55,7 +55,7 @@ Procédez comme suit.
 
      > [!NOTE]
      > 
-     > Vous pouvez sélectionner uniquement ressource suivi [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md), groupe de ressources ou abonnement complet pour un signal de journal d'activité. 
+     > Vous pouvez sélectionner uniquement ressource suivi [Azure Resource Manager](../../azure-resource-manager/management/overview.md), groupe de ressources ou abonnement complet pour un signal de journal d'activité. 
 
      **Vue Exemple de cible de l’alerte**
 
@@ -228,7 +228,7 @@ Les alertes de journal d'activité disposent de cmdlets PowerShell dédiées :
 - [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert) : Désactive une alerte de journal d’activité existante et définit ses balises.
 - [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert) : Supprime une alerte de journal d’activité.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 Les commandes Azure CLI dédiées situées sous l'ensemble [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) permettent de gérer les règles d'alerte de journal d'activité.
 

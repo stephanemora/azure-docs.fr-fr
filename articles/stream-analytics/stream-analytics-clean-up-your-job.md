@@ -1,20 +1,19 @@
 ---
 title: Supprimer une tâche Azure Stream Analytics
 description: Cet article montre différentes méthodes de suppression des tâches Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 093ada2b2751540b986154be3a2f333784c1259f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: d99920417f20034da1001a821c02376ac19274d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173289"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426483"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Arrêter ou supprimer votre travail Azure Stream Analytics
 
@@ -27,7 +26,7 @@ Vous pouvez facilement arrêter ou supprimer les travaux Azure Stream Analytics 
 
 Lorsque vous arrêtez un travail, les ressources sont déprovisionnées et le traitement des événements est stoppé. Les frais associés à ce travail sont également suspendus. Toutefois, l’ensemble de votre configuration est conservée et vous pouvez redémarrer le travail plus tard 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 2. Localisez votre tâche Stream Analytics en cours d’exécution et sélectionnez-la.
 

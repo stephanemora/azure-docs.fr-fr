@@ -7,17 +7,17 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 4a95804bcff3653df42186907f03d0bc27a603ea
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 9a91f81c9d28f1b3c8d553a2a8a26d53ff1b2b3e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444487"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Créer un cluster et une base de données Azure Data Explorer avec un modèle Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portail](create-cluster-database-portal.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -26,7 +26,7 @@ ms.locfileid: "74869712"
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. 
 
-Dans cet article, vous créez un cluster et une base de données Azure Data Explorer à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). L’article montre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins. Pour plus informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Pour connaître la syntaxe et les propriétés JSON à utiliser dans un modèle, consultez [Types de ressources Microsoft.Kusto](/azure/templates/microsoft.kusto/allversions).
+Dans cet article, vous créez un cluster et une base de données Azure Data Explorer à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md). L’article montre comment définir les ressources à déployer et configurer les paramètres qui sont spécifiés lors de l’exécution du déploiement. Vous pouvez utiliser ce modèle pour vos propres déploiements, ou le personnaliser afin qu’il réponde à vos besoins. Pour plus informations sur la création de modèles, consultez [Création de modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-authoring-templates). Pour connaître la syntaxe et les propriétés JSON à utiliser dans un modèle, consultez [Types de ressources Microsoft.Kusto](/azure/templates/microsoft.kusto/allversions).
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 

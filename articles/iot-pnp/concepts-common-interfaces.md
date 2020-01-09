@@ -3,16 +3,16 @@ title: Interfaces communes – Préversion d’IoT Plug-and-Play | Microsoft Doc
 description: Description des interfaces communes pour les développeurs IoT Plug-and-Play
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 09/08/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 2eae778230fa5fce1be095106a02b2b643ff436e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f697a0d6aba4f137b75faa2a200424c72aa78c3b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935323"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531409"
 ---
 # <a name="iot-plug-and-play-preview-common-interfaces"></a>Interfaces communes de la préversion d’IoT Plug-and-Play
 
@@ -20,12 +20,12 @@ Tous les appareils IoT Plug-and-Play sont censés implémenter des interfaces co
 
 ## <a name="summary-of-common-interfaces"></a>Résumé des interfaces communes
 
-| Nom | id | Description | Implémentée par le kit de développement logiciel (SDK) Azure IoT | Doit être déclarée dans le modèle de capacité |
+| Name | id | Description | Implémentée par le kit de développement logiciel (SDK) Azure IoT | Doit être déclarée dans le modèle de capacité |
 | -------- | -------- | -------- | -------- | -------- | -------- |
-| Informations sur le modèle | urn:azureiot:ModelDiscovery:ModelInformation:1 | Pour que les appareils déclarent l’ID et les interfaces du modèle de capacité. Requise pour tous les appareils IoT Plug-and-Play. | OUI | Non |
-| Informations sur le kit de développement logiciel (SDK) de client de jumeau numérique | urn:azureiot:Client:SDKInformation:1 | Kit de développement logiciel (SDK) pour connecter l’appareil à Azure. Requis pour la [certification](tutorial-build-device-certification.md) | OUI | Non |
-| Informations sur l'appareil | urn:azureiot:DeviceManagement:DeviceInformation:1 | Informations sur le matériel et le système d’exploitation de l’appareil. Requis pour la [certification](tutorial-build-device-certification.md) | Non | OUI |
-| Définition de modèle | urn:azureiot:ModelDiscovery:ModelDefinition:1 | Pour que les appareils déclarent la définition complète de leur modèle de capacité et des interfaces. Doit être implémentée lorsque les définitions de modèle ne sont pas hébergées dans un référentiel de modèles. | Non | OUI |
+| Informations sur le modèle | urn:azureiot:ModelDiscovery:ModelInformation:1 | Pour que les appareils déclarent l’ID et les interfaces du modèle de capacité. Requise pour tous les appareils IoT Plug-and-Play. | Oui | Non |
+| Informations sur le kit de développement logiciel (SDK) de client de jumeau numérique | urn:azureiot:Client:SDKInformation:1 | Kit de développement logiciel (SDK) pour connecter l’appareil à Azure. Requis pour la [certification](tutorial-build-device-certification.md) | Oui | Non |
+| Informations sur l'appareil | urn:azureiot:DeviceManagement:DeviceInformation:1 | Informations sur le matériel et le système d’exploitation de l’appareil. Requis pour la [certification](tutorial-build-device-certification.md) | Non | Oui |
+| Définition de modèle | urn:azureiot:ModelDiscovery:ModelDefinition:1 | Pour que les appareils déclarent la définition complète de leur modèle de capacité et des interfaces. Doit être implémentée lorsque les définitions de modèle ne sont pas hébergées dans un référentiel de modèles. | Non | Oui |
 | Jumeau numérique | urn:azureiot:ModelDiscovery:DigitalTwin:1 | Afin que les développeurs de solutions récupèrent l’ID de modèle de capacité et les ID d’interfaces pour un jumeau numérique. Cette interface n’est ni déclarée ni implémentée par un appareil IoT Plug-and-Play. | Non | Non |
 
 - Implémentée par le kit de développement logiciel (SDK) Azure IoT : indique si le kit de développement logiciel (SDK) Azure IoT implémente les fonctionnalités déclarées dans les interfaces. Les appareils IoT Plug-and-Play qui utilisent le kit de développement logiciel (SDK) Azure IoT n’ont pas besoin d’implémenter cette interface.

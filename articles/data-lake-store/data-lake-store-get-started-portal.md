@@ -6,19 +6,19 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: e5a3df82fae9d81a870d3dba929bc7e4cd4123d2
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1bfb9362aa0e893a8bf1a758e5a0069e85ab227b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438760"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Bien démarrer avec Azure Data Lake Storage Gen1 à l’aide du Portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portal](data-lake-store-get-started-portal.md)
+> * [Portail](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
@@ -26,7 +26,7 @@ ms.locfileid: "73904691"
 
 Découvrez comment utiliser le portail Azure pour créer un compte Data Lake Storage Gen1 et effectuer des opérations de base telles que la création de dossiers, le chargement et le téléchargement de fichiers de données, la suppression de votre compte, etc. Pour plus d’informations, consultez [Présentation d’Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -42,7 +42,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
    * **Nom**. Entrez un nom unique pour le compte Data Lake Storage Gen1.
    * **Abonnement**. Sélectionnez l’abonnement sous lequel vous souhaitez créer un compte Data Lake Storage Gen1.
-   * **Groupe de ressources**. Sélectionnez un groupe de ressources existant ou sélectionnez l’option **Créer** pour en créer un. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour plus d’informations, consultez [Groupes de ressources dans Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   * **Groupe de ressources**. Sélectionnez un groupe de ressources existant ou sélectionnez l’option **Créer** pour en créer un. Un groupe de ressources est un conteneur réunissant les ressources associées d’une application. Pour plus d’informations, consultez [Groupes de ressources dans Azure](../azure-resource-manager/management/overview.md#resource-groups).
    * **Emplacement** : sélectionnez l'emplacement où vous souhaitez créer le compte Data Lake Storage Gen1.
    * **Paramètres de chiffrement**. Vous disposez de trois options :
 

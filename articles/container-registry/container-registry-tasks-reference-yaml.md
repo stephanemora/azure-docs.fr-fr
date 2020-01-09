@@ -3,12 +3,12 @@ title: Informations de référence sur YAML - ACR Tasks
 description: Référence pour la définition de tâches dans YAML pour ACR Tasks, y compris les propriétés de tâche, les types d’étapes, les propriétés d’étape et les variables intégrées.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: a27f55d08a7ed5d7bf3360030eabefc4b7720b82
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445691"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -77,12 +77,12 @@ Les propriétés de tâche apparaissent généralement dans la partie supérieur
 
 | Propriété | Type | Facultatif | Description | Remplacement pris en charge | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | OUI | Version du fichier `acr-task.yaml` analysé par le service ACR Tasks. Si ACR Tasks s’efforce de maintenir la compatibilité descendante, cette valeur permet à ACR Tasks d’assurer la compatibilité au sein d’une version définie. En l’absence de version définie explicitement, la dernière version est utilisée par défaut. | Non | Aucun |
-| `stepTimeout` | int (secondes) | OUI | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Si la propriété est spécifiée sur une tâche, elle définit la propriété `timeout` par défaut de toutes les étapes. Si la propriété `timeout` est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | OUI | 600 (10 minutes) |
-| `workingDirectory` | string | OUI | Répertoire de travail du conteneur pendant l’exécution. Si la propriété est spécifiée sur une tâche, elle définit la propriété `workingDirectory` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | OUI | `$HOME` |
-| `env` | [chaîne, chaîne,...] | OUI |  Tableau de chaînes au format `key=value` qui définissent les variables d’environnement pour la tâche. Si la propriété est spécifiée sur une tâche, elle définit la propriété `env` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace toutes les variables d’environnement héritées de la tâche. | Aucun |
-| `secrets` | [clé secrète, clé secrète, ...] | OUI | Tableau d’objets [clé secrète](#secret). | Aucun |
-| `networks` | [réseau, réseau,...] | OUI | Tableau d’objets [réseau](#network). | Aucun |
+| `version` | string | Oui | Version du fichier `acr-task.yaml` analysé par le service ACR Tasks. Si ACR Tasks s’efforce de maintenir la compatibilité descendante, cette valeur permet à ACR Tasks d’assurer la compatibilité au sein d’une version définie. En l’absence de version définie explicitement, la dernière version est utilisée par défaut. | Non | None |
+| `stepTimeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut être exécutée. Si la propriété est spécifiée sur une tâche, elle définit la propriété `timeout` par défaut de toutes les étapes. Si la propriété `timeout` est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | Oui | 600 (10 minutes) |
+| `workingDirectory` | string | Oui | Répertoire de travail du conteneur pendant l’exécution. Si la propriété est spécifiée sur une tâche, elle définit la propriété `workingDirectory` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace la propriété fournie par la tâche. | Oui | `$HOME` |
+| `env` | [chaîne, chaîne,...] | Oui |  Tableau de chaînes au format `key=value` qui définissent les variables d’environnement pour la tâche. Si la propriété est spécifiée sur une tâche, elle définit la propriété `env` par défaut de toutes les étapes. Si elle est spécifiée à une étape, elle remplace toutes les variables d’environnement héritées de la tâche. | None |
+| `secrets` | [clé secrète, clé secrète, ...] | Oui | Tableau d’objets [clé secrète](#secret). | None |
+| `networks` | [réseau, réseau,...] | Oui | Tableau d’objets [réseau](#network). | None |
 
 ### <a name="secret"></a>secret
 
@@ -90,9 +90,9 @@ L’objet secret comporte les propriétés suivantes.
 
 | Propriété | Type | Facultatif | Description | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------- |
-| `id` | string | Non | L’identificateur du secret. | Aucun |
-| `keyvault` | string | OUI | URL de la clé secrète Azure Key Vault. | Aucun |
-| `clientID` | string | OUI | ID client de l’[identité managée affectée par l’utilisateur](container-registry-tasks-authentication-managed-identity.md) pour les ressources Azure. | Aucun |
+| `id` | string | Non | L’identificateur du secret. | None |
+| `keyvault` | string | Oui | URL de la clé secrète Azure Key Vault. | None |
+| `clientID` | string | Oui | ID client de l’[identité managée affectée par l’utilisateur](container-registry-tasks-authentication-managed-identity.md) pour les ressources Azure. | None |
 
 ### <a name="network"></a>réseau
 
@@ -100,11 +100,11 @@ L’objet réseau a les propriétés suivantes.
 
 | Propriété | Type | Facultatif | Description | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------- | 
-| `name` | string | Non | Nom du réseau. | Aucun |
-| `driver` | string | OUI | Pilote de gestion du réseau. | Aucun |
-| `ipv6` | bool | OUI | Indique si la mise en réseau IPv6 est activée. | `false` |
-| `skipCreation` | bool | OUI | Indique si vous souhaitez ignorer la création du réseau. | `false` |
-| `isDefault` | bool | OUI | Indique si le réseau est un réseau par défaut fourni avec Azure Container Registry | `false` |
+| `name` | string | Non | Nom du réseau. | None |
+| `driver` | string | Oui | Pilote de gestion du réseau. | None |
+| `ipv6` | bool | Oui | Indique si la mise en réseau IPv6 est activée. | `false` |
+| `skipCreation` | bool | Oui | Indique si vous souhaitez ignorer la création du réseau. | `false` |
+| `isDefault` | bool | Oui | Indique si le réseau est un réseau par défaut fourni avec Azure Container Registry | `false` |
 
 ## <a name="task-step-types"></a>Types d’étape de tâche
 
@@ -133,8 +133,8 @@ Le type d’étape `build` prend en charge les paramètres du tableau suivant. L
 
 | Paramètre | Description | Facultatif |
 | --------- | ----------- | :-------: |
-| `-t` &#124; `--image` | Définit l’élément `image:tag` complet de l’image générée.<br /><br />Comme les images peuvent être utilisées pour les validations de tâche internes, telles que les tests fonctionnels, certaines images n’ont pas besoin de `push` vers un registre. Toutefois, l’instanciation d’une image dans une exécution de tâche, l’image a besoin d’un nom comme référence.<br /><br />Contrairement à `az acr build`, l’exécution d’ACR Tasks ne fournit pas de comportement d’envoi (push) par défaut. Avec ACR Tasks, le scénario par défaut suppose la possibilité de générer, valider, puis envoyer une image. Consultez [push](#push) pour savoir comment envoyer (push) les images générées. | OUI |
-| `-f` &#124; `--file` | Spécifie le fichier Docker transmis à `docker build`. S’il n’est pas indiqué, le fichier Docker par défaut à la racine du contexte est supposé. Pour spécifier un fichier Docker, transmettez le nom de fichier relatif à la racine du contexte. | OUI |
+| `-t` &#124; `--image` | Définit l’élément `image:tag` complet de l’image générée.<br /><br />Comme les images peuvent être utilisées pour les validations de tâche internes, telles que les tests fonctionnels, certaines images n’ont pas besoin de `push` vers un registre. Toutefois, l’instanciation d’une image dans une exécution de tâche, l’image a besoin d’un nom comme référence.<br /><br />Contrairement à `az acr build`, l’exécution d’ACR Tasks ne fournit pas de comportement d’envoi (push) par défaut. Avec ACR Tasks, le scénario par défaut suppose la possibilité de générer, valider, puis envoyer une image. Consultez [push](#push) pour savoir comment envoyer (push) les images générées. | Oui |
+| `-f` &#124; `--file` | Spécifie le fichier Docker transmis à `docker build`. S’il n’est pas indiqué, le fichier Docker par défaut à la racine du contexte est supposé. Pour spécifier un fichier Docker, transmettez le nom de fichier relatif à la racine du contexte. | Oui |
 | `context` | Répertoire racine transmis à `docker build`. Le répertoire racine de chaque tâche est défini pour un [répertoire de travail](#task-step-properties) partagé et inclut la racine du répertoire cloné Git associé. | Non |
 
 ### <a name="properties-build"></a>Propriétés : build
@@ -358,30 +358,30 @@ Chaque type d’étape prend en charge plusieurs propriétés appropriées pour 
 
 | Propriété | Type | Facultatif | Description | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------- |
-| `detach` | bool | OUI | Indique si le conteneur doit être détaché lors de l’exécution. | `false` |
-| `disableWorkingDirectoryOverride` | bool | OUI | Indique s’il faut désactiver la fonctionnalité de remplacement de `workingDirectory`. Utilisez cette option conjointement avec `workingDirectory` pour avoir un contrôle total sur le répertoire de travail du conteneur. | `false` |
-| `entryPoint` | string | OUI | Remplace le `[ENTRYPOINT]` du conteneur d’une étape. | Aucun |
-| `env` | [chaîne, chaîne,...] | OUI | Tableau de chaînes au format `key=value` qui définissent les variables d’environnement pour l’étape. | Aucun |
-| `expose` | [chaîne, chaîne,...] | OUI | Tableau des ports qui sont exposés à partir du conteneur. |  Aucun |
-| [`id`](#example-id) | string | OUI | Identifie l’étape de la tâche de manière unique. Les autres étapes de la tâche peuvent faire référence à l’élément `id` d’une étape (par exemple, pour la vérification des dépendances avec `when`).<br /><br />L’élément `id` est également le nom du conteneur en cours d’exécution. Les processus qui s’exécutent dans d’autres conteneurs de la tâche peuvent faire référence à l’élément `id` avec son nom d’hôte DNS ou pour y accéder avec les journaux d’activité Docker [id], par exemple. | `acb_step_%d`, où `%d` est l’index basé sur 0 de l’étape descendante dans le fichier YAML |
-| `ignoreErrors` | bool | OUI | Si vous souhaitez marquer l’état comme réussie, même si une erreur s’est produite pendant l’exécution du conteneur. | `false` |
-| `isolation` | string | OUI | Niveau d’isolation du conteneur. | `default` |
-| `keep` | bool | OUI | Indique si le conteneur de l’étape doit être conservé après l’exécution. | `false` |
-| `network` | object | OUI | Identifie un réseau dans lequel le conteneur s’exécute. | Aucun |
-| `ports` | [chaîne, chaîne,...] | OUI | Tableau des ports qui sont publiés sur l’hôte à partir du conteneur. |  Aucun |
-| `pull` | bool | OUI | Indique s’il faut ou non forcer une opération d’extraction du conteneur avant son exécution pour éviter tout comportement de mise en cache. | `false` |
-| `privileged` | bool | OUI | Indique s’il faut ou non exécuter le conteneur en mode privilégié. | `false` |
-| `repeat` | int | OUI | Nombre de tentatives d’exécution d’un conteneur. | 0 |
-| `retries` | int | OUI | Nombre de tentatives à renouveler si un conteneur échoue dans son exécution. Une nouvelle tentative n’a lieu que si le code de sortie d’un conteneur est différent de zéro. | 0 |
-| `retryDelay` | int (secondes) | OUI | Délai en secondes entre les tentatives d’exécution du conteneur. | 0 |
-| `secret` | object | OUI | Identifie une clé secrète Azure Key Vault ou une [identité managée pour les ressources Azure](container-registry-tasks-authentication-managed-identity.md). | Aucun |
-| `startDelay` | int (secondes) | OUI | Nombre de secondes de décalage pour l’exécution d’un conteneur. | 0 |
-| `timeout` | int (secondes) | OUI | Nombre maximal de secondes pendant lesquelles une étape peut s’exécuter avant d’être terminée. | 600 |
-| [`when`](#example-when) | [chaîne, chaîne,...] | OUI | Configure les dépendances d’une étape sur une ou plusieurs autres étapes au sein de la tâche. | Aucun |
-| `user` | string | OUI | Nom d’utilisateur ou UID d’un conteneur | Aucun |
-| `workingDirectory` | string | OUI | Définit le répertoire de travail pour une étape. Par défaut, ACR Tasks crée un répertoire racine comme répertoire de travail. Toutefois, si votre build dispose de plusieurs étapes, les étapes précédentes peuvent partager des artefacts avec étapes suivantes en spécifiant le même répertoire de travail. | `$HOME` |
+| `detach` | bool | Oui | Indique si le conteneur doit être détaché lors de l’exécution. | `false` |
+| `disableWorkingDirectoryOverride` | bool | Oui | Indique s’il faut désactiver la fonctionnalité de remplacement de `workingDirectory`. Utilisez cette option conjointement avec `workingDirectory` pour avoir un contrôle total sur le répertoire de travail du conteneur. | `false` |
+| `entryPoint` | string | Oui | Remplace le `[ENTRYPOINT]` du conteneur d’une étape. | None |
+| `env` | [chaîne, chaîne,...] | Oui | Tableau de chaînes au format `key=value` qui définissent les variables d’environnement pour l’étape. | None |
+| `expose` | [chaîne, chaîne,...] | Oui | Tableau des ports qui sont exposés à partir du conteneur. |  None |
+| [`id`](#example-id) | string | Oui | Identifie l’étape de la tâche de manière unique. Les autres étapes de la tâche peuvent faire référence à l’élément `id` d’une étape (par exemple, pour la vérification des dépendances avec `when`).<br /><br />L’élément `id` est également le nom du conteneur en cours d’exécution. Les processus qui s’exécutent dans d’autres conteneurs de la tâche peuvent faire référence à l’élément `id` avec son nom d’hôte DNS ou pour y accéder avec les journaux d’activité Docker [id], par exemple. | `acb_step_%d`, où `%d` est l’index basé sur 0 de l’étape descendante dans le fichier YAML |
+| `ignoreErrors` | bool | Oui | Si vous souhaitez marquer l’état comme réussie, même si une erreur s’est produite pendant l’exécution du conteneur. | `false` |
+| `isolation` | string | Oui | Niveau d’isolation du conteneur. | `default` |
+| `keep` | bool | Oui | Indique si le conteneur de l’étape doit être conservé après l’exécution. | `false` |
+| `network` | object | Oui | Identifie un réseau dans lequel le conteneur s’exécute. | None |
+| `ports` | [chaîne, chaîne,...] | Oui | Tableau des ports qui sont publiés sur l’hôte à partir du conteneur. |  None |
+| `pull` | bool | Oui | Indique s’il faut ou non forcer une opération d’extraction du conteneur avant son exécution pour éviter tout comportement de mise en cache. | `false` |
+| `privileged` | bool | Oui | Indique s’il faut ou non exécuter le conteneur en mode privilégié. | `false` |
+| `repeat` | int | Oui | Nombre de tentatives d’exécution d’un conteneur. | 0 |
+| `retries` | int | Oui | Nombre de tentatives à renouveler si un conteneur échoue dans son exécution. Une nouvelle tentative n’a lieu que si le code de sortie d’un conteneur est différent de zéro. | 0 |
+| `retryDelay` | int (secondes) | Oui | Délai en secondes entre les tentatives d’exécution du conteneur. | 0 |
+| `secret` | object | Oui | Identifie une clé secrète Azure Key Vault ou une [identité managée pour les ressources Azure](container-registry-tasks-authentication-managed-identity.md). | None |
+| `startDelay` | int (secondes) | Oui | Nombre de secondes de décalage pour l’exécution d’un conteneur. | 0 |
+| `timeout` | int (secondes) | Oui | Nombre maximal de secondes pendant lesquelles une étape peut s’exécuter avant d’être terminée. | 600 |
+| [`when`](#example-when) | [chaîne, chaîne,...] | Oui | Configure les dépendances d’une étape sur une ou plusieurs autres étapes au sein de la tâche. | None |
+| `user` | string | Oui | Nom d’utilisateur ou UID d’un conteneur | None |
+| `workingDirectory` | string | Oui | Définit le répertoire de travail pour une étape. Par défaut, ACR Tasks crée un répertoire racine comme répertoire de travail. Toutefois, si votre build dispose de plusieurs étapes, les étapes précédentes peuvent partager des artefacts avec étapes suivantes en spécifiant le même répertoire de travail. | `$HOME` |
 
-### <a name="examples-task-step-properties"></a>Exemples : Propriétés d’étape de tâche
+### <a name="examples-task-step-properties"></a>Exemples : Propriétés d’étape de tâche
 
 #### <a name="example-id"></a>Exemple : id
 
@@ -541,9 +541,9 @@ Chacun des points d’alias suivants pointe vers une image stable dans le Regist
 | Alias | Image |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
-| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
-| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:a80af84` |
+| `bash` | `mcr.microsoft.com/acr/bash:a80af84` |
+| `curl` | `mcr.microsoft.com/acr/curl:a80af84` |
 
 L’exemple de tâche suivant utilise plusieurs alias pour [purger](container-registry-auto-purge.md) les balises d’image de plus de 7 jours dans le référentiel `samples/hello-world` dans le registre d’exécution :
 

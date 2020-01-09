@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 23a3a2629c6f2f89c4b8f6d5af57bcf3b6bb67dd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428847"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
@@ -38,7 +38,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 
 La journalisation d’activité est automatiquement activée pour chaque ressource Resource Manager. Activez la journalisation des événements et des sondes d’intégrité pour commencer à collecter les données disponibles dans ces journaux. Utilisez les étapes suivantes pour activer la journalisation.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) avant de continuer.
+Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez pas déjà d'un équilibreur de charge, [créez un équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) avant de continuer.
 
 1. Dans le portail, cliquez sur **Groupes de ressources**.
 2. Sélectionnez le groupe **\<nom_groupe_ressources>** dans lequel se trouve votre équilibreur de charge.
@@ -171,7 +171,7 @@ Connectez-vous à votre compte de stockage et récupérez les entrées de journa
 > Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Diffuser vers un hub d’événements
-Quand les informations de diagnostic sont envoyées en streaming vers un hub d’événements, elles peuvent être utilisées pour une analyse centralisée des journaux dans un outil SIEM tiers avec intégration à Azure Monitor. Pour plus d’informations, consultez [Envoyer en streaming des données de supervision Azure vers un hub d’événements](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
+Quand les informations de diagnostic sont envoyées en streaming vers un hub d’événements, elles peuvent être utilisées pour une analyse centralisée des journaux dans un outil SIEM tiers avec intégration à Azure Monitor. Pour plus d’informations, consultez [Envoyer en streaming des données de supervision Azure vers un hub d’événements](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Envoyer à Log Analytics
 Les informations de diagnostic des ressources dans Azure peuvent être envoyées directement à un espace de travail Log Analytics où des requêtes complexes peuvent être exécutées sur les informations en vue d’un dépannage et d’une analyse.  Pour plus d’informations, consultez [Collecter les journaux de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace).

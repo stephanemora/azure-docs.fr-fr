@@ -6,14 +6,14 @@ services: cloud-services
 ms.service: cloud-services
 ms.topic: reference
 caps.latest.revision: 28
-author: georgewallace
-ms.author: gwallace
-ms.openlocfilehash: c5a6501c71420ca5b43c4c08c2a29ae5f27b4af5
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+author: tgore03
+ms.author: tagore
+ms.openlocfilehash: cacc8b1f2909965594fdf0d841963e792acf648c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385422"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>Schéma NetworkConfiguration de configuration d’Azure Cloud Services
 
