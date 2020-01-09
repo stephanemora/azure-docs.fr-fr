@@ -2,25 +2,21 @@
 title: Envoyer un e-mail à partir d’un runbook Azure Automation
 description: Découvrez comment utiliser SendGrid pour envoyer un e-mail à partir d’un runbook.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 07/15/2019
 ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 8550635b581eb944719c39cc8c195859a2c9e868
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6acb68b7bbaa54db2e4143a42e43aede2caed35f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420706"
 ---
-# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Didacticiel : Envoyer un e-mail à partir d’un runbook Azure Automation
+# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Tutoriel : Envoyer un e-mail à partir d’un runbook Azure Automation
 
 Vous pouvez envoyer un e-mail à partir d’un runbook avec [SendGrid](https://sendgrid.com/solutions) à l’aide de PowerShell. Ce tutoriel montre comment créer un runbook réutilisable qui envoie un e-mail à l’aide d’une clé API stockée dans [Azure KeyVault](/azure/key-vault/).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
@@ -28,7 +24,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Stocker votre clé API SendGrid dans KeyVault
 > * Créer un runbook qui récupère votre clé API et envoie un e-mail
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 

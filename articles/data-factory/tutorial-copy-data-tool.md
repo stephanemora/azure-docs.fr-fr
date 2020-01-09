@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 4e71fc869a08192b756c37e5106568bdd36361bd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926573"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439424"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 
@@ -36,7 +36,7 @@ Dans ce tutoriel, vous effectuerez les étapes suivantes :
 > * Utiliser l’outil Copier les données pour créer un pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte de stockage Azure** : Utilisez le stockage blob comme magasin de données _source_. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
@@ -77,16 +77,16 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analyse** > **Data Factory** :
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Analytics** > **Data Factory** :
     
     ![Création d’une fabrique de données](./media/doc-common-process/new-azure-data-factory-menu.png)
-1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** sous **Nom**.
+1. Sur la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** dans le champ **Nom**.
 
     Le nom de votre fabrique de données doit être un _nom global unique_. Vous pouvez recevoir le message d’erreur suivant :
     
     ![Message d’erreur de nouvelle fabrique de données](./media/doc-common-process/name-not-available-error.png)
 
-    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, consultez la rubrique [Data Factory - Règles d'affectation des noms](naming-rules.md).
+    Si vous recevez un message d’erreur concernant la valeur du nom, saisissez un autre nom pour la fabrique de données. Par exemple, utilisez le nom _**votrenom**_ **ADFTutorialDataFactory**. Pour savoir comment nommer les artefacts Data Factory, voir [Data Factory - Règles d’affectation des noms](naming-rules.md).
 1. Sélectionnez l’**abonnement** Azure dans lequel vous créez la nouvelle fabrique de données.
 1. Pour **Groupe de ressources**, réalisez l’une des opérations suivantes :
     
@@ -94,7 +94,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 
     b. Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.
     
-    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).
+    Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).
 
 1. Sous **Version**, sélectionnez **V2** pour la version.
 1. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
@@ -168,7 +168,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
 1. Sélectionnez l’onglet **Auteur** sur la gauche pour basculer en mode éditeur. Vous pouvez mettre à jour les services, jeux de données et pipelines liés créés par l’outil à l’aide de l’éditeur. Pour plus de détails sur la modification de ces entités dans l’interface utilisateur de Data Factory, consultez [la version du portail Azure de ce didacticiel](tutorial-copy-data-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Le pipeline dans cet exemple copie des données d’un stockage d’objets blob vers une base de données SQL. Vous avez appris à effectuer les actions suivantes :
+Le pipeline dans cet exemple copie des données d’un stockage d’objets blob vers une base de données SQL. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Container Service avec DC/OS et documentation Swarm
 metadata:
-  document_id: null
   title: 'Azure Container Service avec DC/OS et documentation Swarm - Didacticiels, Référence sur l’API | Microsoft Docs'
   meta.description: 'Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.'
   services: container-service
@@ -47,7 +46,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: <a href="/azure/container-service/cli-samples">Interface de ligne de commande Azure</a>
+          - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
   - title: Informations de référence
     items:
       - type: list
@@ -55,6 +54,6 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="/cli/azure/acs">Interface de ligne de commande Azure</a></p>
+            html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
           - title: REST
-            html: <p><a href="/rest/api/container-service">API REST</a></p>
+            html: <p><a href="/rest/api/container-service">REST API</a></p>

@@ -2,7 +2,6 @@
 documentType: LandingData
 title: "Azure SQL Database\_: Base de données unique"
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Documentation - base de données unique
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
@@ -75,7 +74,7 @@ sections:
             title: Portail Azure
           - image:
               src: media/index/cli.svg
-            title: D’Azure CLI
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -83,7 +82,7 @@ sections:
               src: media/index/logo_arm.svg
             title: "Modèle Azure\_Resource\_Manager"
         rows:
-          - title: Créer une base de données
+          - title: Création d'une base de données
             values:
               - href: /azure/sql-database/sql-database-single-database-get-started
               - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
@@ -127,4 +126,4 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/azure/sql-database/sql-database-powershell-samples">Azure PowerShell</a>
-          - html: <a href="/azure/sql-database/sql-database-cli-samples">Interface de ligne de commande Azure</a>
+          - html: <a href="/azure/sql-database/sql-database-cli-samples">Azure CLI</a>

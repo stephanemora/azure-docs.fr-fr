@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 1b9d943f540a0132abc6a70eba888aa5f8f46093
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d167a157935c6d51c025d2fbb11586343a2ef3f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225219"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453521"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic interne avec un équilibreur de charge de base sur le portail Azure
 
@@ -42,9 +42,9 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    
 1. Dans le volet **Créer un réseau virtuel**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Tapez *MyVNet*.
-   - **Groupe de ressources** : sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
-   - **Subnet** > **Name** : Entrez *MyBackendSubnet*.
+   - **Name** : Tapez *MyVNet*.
+   - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyResourceGroupLB*, puis sélectionnez **OK**. 
+   - **Sous-réseau** > **Nom** : Entrez *MyBackendSubnet*.
    
 1. Sélectionnez **Create** (Créer).
 
@@ -68,7 +68,7 @@ Créez d’abord un réseau virtuel. Dans le réseau virtuel, créez deux machin
    - **Sous-réseau** : **MyBackendSubnet**
    
    Sous **Groupe de sécurité réseau** :
-   1. Sélectionnez **Advanced (Avancé)** . 
+   1. Sélectionnez **Avancé**. 
    1. Dans la liste déroulante, sélectionnez **Configurer le groupe de sécurité réseau**, puis sélectionnez **Aucun**. 
    
 1. Sélectionnez l’onglet **Gestion** ou sélectionnez **Suivant** > **Gestion**. Sous **Supervision**, définissez **Diagnostics de démarrage** sur **Désactivé**.
@@ -87,21 +87,21 @@ Créez un équilibreur de charge interne de base à l’aide du portail. Le nom 
 
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
    
-2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLB* dans la zone de texte.|
-    | Nom                   | *myLoadBalancer*                                   |
-    | Région         | Sélectionnez **Europe Ouest**.                                        |
+    | Name                   | *myLoadBalancer*                                   |
+    | Région         | Sélectionnez **USA Est**.                                        |
     | Type          | sélectionnez **Interne**.                                        |
     | SKU           | Sélectionnez **De base**.                          |
     | Réseau virtuel           | Sélectionnez *MyVNet*.                          |    
     | Affectation d’adresses IP              | Sélectionnez **Statique**.   |
     | Adresse IP privée|entrez une adresse qui se trouve dans l'espace d'adressage de votre réseau virtuel et de votre sous-réseau, par exemple *10.3.0.7*.  |
 
-3. Dans l’onglet **Vérifier + créer**, cliquez sur **Créer**. 
+3. Sous l’onglet **Vérifier + créer**, cliquez sur **Créer**. 
    
 
 ## <a name="create-basic-load-balancer-resources"></a>Créer des ressources d’équilibreur de charge de base
@@ -120,7 +120,7 @@ Pour répartir le trafic entre les machines virtuelles, l’équilibreur de char
    
 1. Dans la page **Ajouter un pool de backends**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : entrez *MyBackendPool*.
+   - **Name** : entrez *MyBackendPool*.
    - **Associé à** : Faites défiler la liste déroulante vers le bas, puis sélectionnez **Groupe à haute disponibilité**.
    - **Groupe à haute disponibilité** : Sélectionnez **MyAvailabilitySet**.
    
@@ -149,9 +149,9 @@ Pour permettre à l’équilibreur de charge de superviser l’état d’une mac
    
 1. Dans la page **Ajouter une sonde d’intégrité**, tapez ou sélectionnez les valeurs suivantes :
    
-   - **Nom** : Entrez *MyHealthProbe*.
-   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
-   - **Port** : Entrez *80*. 
+   - **Name** : Entrez *MyHealthProbe*.
+   - **Protocole** : Faites défiler et sélectionnez **HTTP**. 
+   - **Port** : Entrez *80*. 
    - **Chemin d’accès** : Acceptez */* comme URI par défaut. Vous pouvez remplacer cette valeur avec n’importe quel autre URI. 
    - **Intervalle** : Entrez *15*. L’intervalle est le nombre de secondes entre les tentatives de la sonde.
    - **Seuil de défaillance sur le plan de l’intégrité** : Entrez *2*. Cette valeur est le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
@@ -174,10 +174,10 @@ La règle d’équilibreur de charge nommée **MyLoadBalancerRule** écoute sur 
    
 1. Dans la page **Ajouter une règle d’équilibrage de charge**, tapez ou sélectionnez les valeurs suivantes (si elles ne sont pas déjà présentes) :
    
-   - **Nom** : Entrez *MyLoadBalancerRule*.
-   - **Adresse IP du serveur front-end :** entrez *LoadBalancerFrontEnd* si absent.
-   - **Protocole** : Sélectionnez **TCP**.
-   - **Port** : Entrez *80*.
+   - **Name** : Entrez *MyLoadBalancerRule*.
+   - **Adresse IP du serveur frontal :** entrez *LoadBalancerFrontEnd* si absent.
+   - **Protocole** : Sélectionnez **TCP**.
+   - **Port** : Entrez *80*.
    - **Port principal** : Entrez *80*.
    - **Pool principal** : Sélectionnez **MyBackendPool**.
    - **Sonde d’intégrité** : Sélectionnez **MyHealthProbe**. 
@@ -254,7 +254,7 @@ Sur chaque serveur back-end, utilisez PowerShell pour installer IIS et remplacer
 
    ![Nouvelle page IIS par défaut](./media/tutorial-load-balancer-basic-internal-portal/9-load-balancer-test.png) 
    
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer l’équilibreur de charge et toutes les ressources associées quand vous n’en avez plus besoin, ouvrez le groupe de ressources **MyResourceGroupLB**, puis sélectionnez **Supprimer un groupe de ressources**.
 

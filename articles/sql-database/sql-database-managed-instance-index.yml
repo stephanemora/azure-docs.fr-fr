@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Instance managée SQL
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: "Documentation Managed Instance\_– Tutoriels, informations de référence sur les API"
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
@@ -35,7 +34,7 @@ sections:
         className: cardsM
         columns: 3
         items:
-          - title: Vue d'ensemble
+          - title: Vue d’ensemble
             href: /azure/sql-database/sql-database-managed-instance
             html: <p>Apprenez-en davantage sur Managed Instance dans Azure SQL Database.</p>
           - title: Surface d’exposition riche
@@ -74,7 +73,7 @@ sections:
             title: Le portail Azure
           - image:
               src: media/index/cli.svg
-            title: D’Azure CLI
+            title: Azure CLI
           - image:
               src: media/index/logo_powershell.svg
             title: PowerShell
@@ -162,7 +161,7 @@ sections:
         items:
           - title: Blogs
             html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Moyenne</a></p>'
-          - title: Questions fréquentes (FAQ)
+          - title: Forum aux questions
             html: '<p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>'
           - title: Canal de la Communauté
             html: '<p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Communauté SQL (Managed Instance)</a></p>'

@@ -1,7 +1,6 @@
 ---
 title: Déployer des travaux Azure Stream Analytics avec CI/CD et Azure DevOps
 description: Cet article décrit le déploiement d’un travail Stream Analytics avec CI/CD à l’aide d’Azure DevOps Services.
-services: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.reviewer: mamccrea
@@ -9,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354431"
 ---
-# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
+# <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutoriel : Déployer un travail Azure Stream Analytics avec CI/CD à l’aide d’Azure Pipelines
 Ce tutoriel explique comment configurer l’intégration et le déploiement continus pour un travail Azure Stream Analytics à l’aide d’Azure Pipelines. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet
@@ -27,7 +26,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un pipeline de mise en production dans Azure Pipelines
 > * Déployer et mettre à niveau une application automatiquement
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, veillez à disposer des éléments qui suivent :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -150,7 +149,7 @@ Lorsque vous écrivez votre code, vos modifications sont suivies automatiquement
 
 L’envoi (push) des modifications à Azure DevOps Services déclenche automatiquement une build.  Une fois le pipeline de build terminé, une mise en production est créée automatiquement et commence la mise à jour du travail sur le cluster.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées au cours de ce didacticiel en procédant comme suit :
 

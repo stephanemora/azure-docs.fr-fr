@@ -10,14 +10,14 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 ms.date: 07/29/2019
-ms.openlocfilehash: 6c4a99367c7fc6a864f6a16bc614e4c10663d0ff
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f1140bbefc7508666e763fcd4f1a04ba48cdfdd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354943"
 ---
-# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database en C&#x23; avec ADO.NET
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutoriel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database en C&#x23; avec ADO.NET
 
 Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (Azure). Ce didacticiel vous montre comment utiliser le portail Azure et ADO.NET avec Visual Studio pour :
 
@@ -34,13 +34,13 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 > [!TIP]
 > Le module Microsoft Learn suivant vous aide à apprendre gratuitement comment [développer et configurer une application ASP.Net qui interroge une base de données Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), ce qui comprend la création d’une base de données simple.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Une installation de [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou ultérieur.
 
 ## <a name="create-a-blank-single-database"></a>Créer une base de données unique vide.
 
-Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
+Une base de données unique dans Azure SQL Database est créée avec un ensemble défini de ressources de calcul et de stockage. Cette base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) et elle est gérée à l’aide d’un [serveur de base de données](sql-database-servers.md).
 
 Suivez ces étapes pour créer une base de données unique vide.
 
@@ -51,7 +51,7 @@ Suivez ces étapes pour créer une base de données unique vide.
 
 3. Remplissez le formulaire **Base de données SQL** avec les informations suivantes, comme indiqué dans l’illustration précédente :
 
-    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | Paramètre       | Valeur suggérée | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nom de la base de données** | *yourDatabase* | Pour connaître les noms de bases de données valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
     | **Abonnement** | *yourSubscription*  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -60,7 +60,7 @@ Suivez ces étapes pour créer une base de données unique vide.
 
 4. Cliquez sur **Serveur** pour utiliser un serveur de base de données existant ou créez et configurez-en un. Sélectionnez un serveur existant ou cliquez sur **Créer un serveur** et remplissez le formulaire **Nouveau serveur** avec les informations suivantes :
 
-    | Paramètre       | Valeur suggérée | DESCRIPTION |
+    | Paramètre       | Valeur suggérée | Description |
     | ------------ | ------------------ | ------------------------------------------------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
     | **Connexion d’administrateur du serveur** | Nom valide | Pour connaître les noms de connexions valides, consultez [Identificateurs de base de données](/sql/relational-databases/databases/database-identifiers). |
@@ -114,10 +114,10 @@ Votre adresse IP peut désormais traverser le pare-feu IP. Vous pouvez maintenan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables, vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez appris à effectuer certaines tâches de base sur les bases de données, comme créer une base de données et des tables, vous connecter à la base de données, charger des données et exécuter des requêtes. Vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer une base de données
+> * Création d'une base de données
 > * Configurer une règle de pare-feu
 > * Se connecter à la base de données avec [Visual Studio et C#](sql-database-connect-query-dotnet-visual-studio.md)
 > * Créer des tables

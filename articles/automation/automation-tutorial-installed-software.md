@@ -3,20 +3,16 @@ title: Détecter les logiciels installés sur vos machines avec Azure Automation
 description: Utilisez l’inventaire pour connaître les logiciels installés sur les machines dans votre environnement.
 services: automation
 keywords: inventaire, automatisation, suivi des modifications
-author: jennyhunter-msft
-ms.author: jehunte
 ms.date: 04/11/2018
 ms.topic: tutorial
-ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
-manager: carmonm
-ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 136521799dbc928a03c339ecc1cef6fdd3d029b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476823"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420575"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Détecter les logiciels installés sur vos machines Azure et non-Azure
 
@@ -31,7 +27,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Afficher les logiciels installés
 > * Rechercher les journaux d’activité d’inventaire des logiciels installés
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -142,7 +138,7 @@ Ce didacticiel vous a appris à afficher l’inventaire des logiciels et notamme
 > * Afficher les logiciels installés
 > * Rechercher les journaux d’activité d’inventaire des logiciels installés
 
-Passez à la vue d’ensemble de la solution de suivi des modifications et d’inventaire pour en savoir plus.
+Accédez ensuite à la vue d’ensemble de la solution de suivi des modifications et d’inventaire pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [Solution de gestion des changements et d’inventaire](automation-change-tracking.md)

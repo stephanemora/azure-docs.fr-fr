@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 906ac3b28a512a866e712cefda4355ad901c258d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: aca1f8ce2c125cd90f2e61a7829be09bc81c3938
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74064715"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464966"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Didacticiel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell
 
 Les images personnalisées sont comme des images de la Place de marché, sauf que vous les créez vous-même. Vous pouvez les utiliser pour démarrer des déploiements et en garantir la cohérence sur plusieurs machines virtuelles. Ce tutoriel explique comment créer votre propre image personnalisée d’une machine virtuelle Azure avec PowerShell. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -157,7 +157,7 @@ Remove-AzImage `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Exécuter Sysprep et généraliser les machines virtuelles

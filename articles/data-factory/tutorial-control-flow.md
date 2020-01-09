@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 277616d9fcd15affc7ddc8ede5d9af3ff68c62f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 31ae3483ca7cefbb65726f976244d582f1587aaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439450"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -24,7 +24,7 @@ Dans ce tutoriel, vous allez créer un pipeline Data Factory qui présente certa
 
 Ce graphique fournit une vue d’ensemble du scénario :
 
-![Vue d'ensemble](media/tutorial-control-flow/overview.png)
+![Vue d’ensemble](media/tutorial-control-flow/overview.png)
 
 Ce tutoriel explique comment effectuer les tâches suivantes :
 
@@ -42,7 +42,7 @@ Ce didacticiel utilise le kit .NET SDK. Vous pouvez utiliser d’autres mécanis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Compte Stockage Azure. Vous utilisez le stockage d’objets blob comme magasin de données source. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer. Pour installer cet outil, consultez [Explorateur Stockage Azure](https://storageexplorer.com/).
@@ -364,7 +364,7 @@ Revenez à votre projet dans Visual Studio. Nous allons maintenant ajouter le co
 
 Dans ce pipeline, vous utilisez les fonctionnalités suivantes :
 
-* parameters
+* Paramètres
 * Activité web
 * Dépendance des activités
 * Utilisation de la sortie d’une activité en tant qu’entrée d’une autre activité
@@ -449,7 +449,7 @@ Dans ce pipeline, vous utilisez les fonctionnalités suivantes :
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
    ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 La première section de notre code de pipeline définit les paramètres.
 
@@ -608,10 +608,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": {
-      "type": "SecureString",
-      "value": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
-    }
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...

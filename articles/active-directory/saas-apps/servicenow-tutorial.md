@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à ServiceNow | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceNow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et ServiceNow.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 12/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52b3b7ea34d48c37a4e07ab073e611d5a60399a9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706918"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561974"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à ServiceNow
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceNow
 
 Dans ce tutoriel, vous allez apprendre à intégrer ServiceNow à Azure Active Directory (Azure AD). Quand vous intégrez ServiceNow à Azure AD, vous pouvez :
 
@@ -33,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer ServiceNow à Azure Active D
 
 Pour en savoir plus sur l’intégration d’applications SaaS (software as a service) à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -314,7 +313,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
         * Confirmez que **NameID Policy** (Stratégie NameID) a la valeur `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`.
 
-        * Sélectionnez **Advanced (Avancé)** . Dans la zone de texte **User Field** (Champ utilisateur), tapez **email** ou **user_name**, selon le champ utilisé pour identifier les utilisateurs dans votre déploiement ServiceNow.
+        * Sélectionnez **Avancé**. Dans la zone de texte **User Field** (Champ utilisateur), tapez **email** ou **user_name**, selon le champ utilisé pour identifier les utilisateurs dans votre déploiement ServiceNow.
 
             > [!NOTE]
             > Vous pouvez configurer Azure AD de manière à émettre l’ID d’utilisateur Azure AD (nom d’utilisateur principal) ou l’adresse e-mail comme identificateur unique dans le jeton SAML. Pour ce faire, accédez à la section **ServiceNow** > **Attributs** > **Authentification unique** du portail Azure et mappez le champ souhaité à l’attribut **nameidentifier**. La valeur stockée pour l’attribut sélectionné dans Azure AD (par exemple, nom d’utilisateur principal) doit correspondre à la valeur stockée dans ServiceNow pour le champ renseigné (par exemple, user_name).

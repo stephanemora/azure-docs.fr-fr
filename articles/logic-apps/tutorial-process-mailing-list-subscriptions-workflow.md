@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: bcd90859066911797d78737187cae6d361029ddd
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456608"
 ---
-# <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Didacticiel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
+# <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
 
 Ce tutoriel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui automatise un workflow basé sur l’approbation. Plus précisément, cette application logique traite les demandes d’abonnement à une liste de diffusion gérée par le service [MailChimp](https://mailchimp.com/). Cette application logique surveille un compte de messagerie pour détecter ces requêtes, les envoie pour approbation et ajoute les membres approuvés à la liste de diffusion.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez une application logique vide.
@@ -33,7 +33,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 ![Vue d’ensemble globale de l’application logique terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -59,7 +59,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
    |----------|-------|-------------|
    | **Nom** | LA-MailingList | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « LA-MailingList ». |
    | **Abonnement** | <*your-Azure-subscription-name*> | Le nom de votre abonnement Azure |
-   | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md), qui est utilisé pour organiser les ressources connexes. Cet exemple utilise « LA-MailingList-RG ». |
+   | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md), qui est utilisé pour organiser les ressources connexes. Cet exemple utilise « LA-MailingList-RG ». |
    | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « USA Ouest ». |
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. |
    ||||
@@ -203,11 +203,11 @@ Ajoutez maintenant une action qui ajoute le membre approuvé à votre liste de d
 
    ![Fournir des informations pour « Ajouter un membre à la liste »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-mailchimp-add-member-settings.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **ID de liste** | OUI | `test-members-ML` | Nom de votre liste de diffusion MailChimp. Cet exemple utilise « test-members-ML ». |
-   | **État** | OUI | `subscribed` | Sélectionnez l’état de l’abonnement du nouveau membre. Cet exemple utilise « subscribed ». <p>Pour plus d’informations, consultez [Manage Subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Gérer les abonnés avec l’API MailChimp). |
-   | **Adresse e-mail** | OUI | <*new-member-email-address*> | Dans la liste de contenu dynamique, sélectionnez le champ **De** sous **À la réception d’un e-mail** pour transmettre l’adresse e-mail du nouveau membre. |
+   | **ID de liste** | Oui | `test-members-ML` | Nom de votre liste de diffusion MailChimp. Cet exemple utilise « test-members-ML ». |
+   | **État** | Oui | `subscribed` | Sélectionnez l’état de l’abonnement du nouveau membre. Cet exemple utilise « subscribed ». <p>Pour plus d’informations, consultez [Manage Subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/) (Gérer les abonnés avec l’API MailChimp). |
+   | **Adresse e-mail** | Oui | <*new-member-email-address*> | Dans la liste de contenu dynamique, sélectionnez le champ **De** sous **À la réception d’un e-mail** pour transmettre l’adresse e-mail du nouveau membre. |
    ||||
 
    Pour plus d’informations sur les propriétés de cette action, consultez les [informations de référence sur le connecteur MailChimp](https://docs.microsoft.com/connectors/mailchimp/).
@@ -258,11 +258,11 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
    ![Fournir des informations pour l’e-mail de réussite](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success-settings.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **To** | OUI | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail de réussite. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
-   | **Subject** | OUI | <*subject-for-success-email*> | Objet de l’e-mail de réussite. Pour ce didacticiel, entrez le texte suivant : <p>`Success! Member added to "test-members-ML": ` <p>Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **Adresse e-mail**. |
-   | **Corps** | OUI | <*body-for-success-email*> | Contenu du corps de l’e-mail de réussite. Pour ce didacticiel, entrez le texte suivant : <p>`New member has joined "test-members-ML":` <p>Dans la liste de contenu dynamique, sélectionnez la propriété **Adresse e-mail**. <p>Sur la ligne qui suit, entrez le texte suivant : `Member opt-in status: ` <p> Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **État**. |
+   | **To** | Oui | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail de réussite. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
+   | **Subject** | Oui | <*subject-for-success-email*> | Objet de l’e-mail de réussite. Pour ce didacticiel, entrez le texte suivant : <p>`Success! Member added to "test-members-ML": ` <p>Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **Adresse e-mail**. |
+   | **Corps** | Oui | <*body-for-success-email*> | Contenu du corps de l’e-mail de réussite. Pour ce didacticiel, entrez le texte suivant : <p>`New member has joined "test-members-ML":` <p>Dans la liste de contenu dynamique, sélectionnez la propriété **Adresse e-mail**. <p>Sur la ligne qui suit, entrez le texte suivant : `Member opt-in status: ` <p> Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **État**. |
    |||||
 
 1. Enregistrez votre application logique.
@@ -283,11 +283,11 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
    ![Fournir des informations pour l’e-mail d’échec](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **To** | OUI | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail d’échec. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
-   | **Subject** | OUI | <*subject-for-failure-email*> | Objet de l’e-mail d’échec. Pour ce didacticiel, entrez le texte suivant : <p>`Failed, member not added to "test-members-ML": ` <p>Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **Adresse e-mail**. |
-   | **Corps** | OUI | <*body-for-failure-email*> | Contenu du corps de l’e-mail d’échec. Pour ce didacticiel, entrez le texte suivant : <p>`Member might already exist. Check your MailChimp account.` |
+   | **To** | Oui | <*your-email-address*> | Adresse e-mail à laquelle envoyer l’e-mail d’échec. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
+   | **Subject** | Oui | <*subject-for-failure-email*> | Objet de l’e-mail d’échec. Pour ce didacticiel, entrez le texte suivant : <p>`Failed, member not added to "test-members-ML": ` <p>Dans la liste de contenu dynamique, sous **Ajouter un membre à la liste**, sélectionnez la propriété **Adresse e-mail**. |
+   | **Corps** | Oui | <*body-for-failure-email*> | Contenu du corps de l’e-mail d’échec. Pour ce didacticiel, entrez le texte suivant : <p>`Member might already exist. Check your MailChimp account.` |
    |||||
 
 1. Enregistrez votre application logique. 
@@ -318,7 +318,7 @@ Ensuite, testez votre application logique, qui ressemble désormais à l’exemp
 
 Félicitations, vous venez de créer et d’exécuter une application logique qui intègre des informations des services Azure et Microsoft et d’autres applications SaaS.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin de l’exemple d’application logique, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. 
 

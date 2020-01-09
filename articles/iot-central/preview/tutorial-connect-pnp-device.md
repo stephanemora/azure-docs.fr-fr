@@ -8,27 +8,27 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 233d8f345eceb188fcc849457c5243a3c64aaec2
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977333"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548851"
 ---
-# <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Didacticiel : Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil IoT Plug-and-Play et le connecter à votre application IoT Central
+# <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Tutoriel : Utiliser un modèle de fonctionnalité d’appareil mobile pour créer un appareil IoT Plug-and-Play et le connecter à votre application IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Un _modèle de fonctionnalité d’appareil_ décrit les fonctionnalités d’un appareil [IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md). IoT Central peut utiliser un modèle de fonctionnalité d’appareil pour créer un modèle d’appareil et des visualisations pour un appareil quand l’appareil se connecte pour la première fois.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Utilisez Visual Studio Code pour créer un appareil IoT Plug-and-Play à l’aide d’un modèle de fonctionnalité d’appareil.
 > * Exécutez le code de l’appareil dans Windows et vérifiez qu’il se connecte à votre application IoT Central.
 > * Affichez la télémétrie simulée que l’appareil envoie.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Suivez le guide de démarrage rapide [Créer une application Azure IoT Central (fonctionnalités en préversion)](./quick-deploy-iot-central.md) pour créer une application IoT Central à l’aide du modèle **Custom app > Preview application** (Application personnalisée > Application en préversion).
 
@@ -36,7 +36,7 @@ Pour suivre ce tutoriel, vous devez installer les logiciels suivants sur votre o
 
 * [Build Tools pour Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) avec les **outils de génération C++** et les charges de travail du **composant Gestionnaire de package Nuget**. Ou, si vous l'avez déjà, [Visual Studio (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 ou 2015 avec les mêmes charges de travail.
 * [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/) : lorsque vous installez **CMake**, sélectionnez l’option **Add CMake to the system PATH (Ajouter CMake au chemin d’accès système)** .
+* [CMake](https://cmake.org/download/) : quand vous installez **CMake**, sélectionnez l’option **Add CMake to the system PATH**.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Node.JS](https://nodejs.org/)
 * L’utilitaire `dps-keygen` :
@@ -111,13 +111,13 @@ Dans ce tutoriel, vous allez utiliser le modèle de fonctionnalité d’appareil
 ![Référentiel de modèles et modèle de fonctionnalité d’appareil](./media/tutorial-connect-pnp-device/public-repository.png)
 
 > [!NOTE]
-> Pour utiliser IoT Central, le modèle de fonctionnalité d’appareil doit avoir toutes les interfaces définies inline dans le même fichier.
+> Pour que le modèle de capacité d’appareil fonctionne avec IoT Central, toutes les interfaces correspondantes doivent être définies inline dans le même fichier.
 
 ## <a name="generate-the-c-code-stub"></a>Générer le stub de code C
 
 Maintenant que vous avez le modèle de fonctionnalité d’appareil **MXChip IoT DevKit** et ses interfaces associées, vous pouvez générer le code de l’appareil qui implémente le modèle. Pour générer le stub de code C dans VS Code :
 
-1. Avec le dossier contenant les fichiers DCM ouverts, utilisez **Ctrl + Maj + P** pour ouvrir la palette de commandes, entrez **IoT Plug-and-Play**, puis sélectionnez **Generate Device Code Stub (Générer le stub de code de l’appareil)** .
+1. Ouvrez le dossier contenant les fichiers DCM, appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes, entrez **IoT Plug-and-Play**, puis sélectionnez **Générer le stub de code de l’appareil**.
 
     > [!NOTE]
     > La première fois que vous utilisez l’outil de génération de code IoT Plug-and-Play, le téléchargement prend quelques secondes.
@@ -166,10 +166,10 @@ Vous utilisez le SDK d’appareil pour générer le stub de code d’appareil g�
     cmake .. -G "Visual Studio 14 2015" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
     ```
 
-1. Une fois la génération terminée, dans la même invite de commandes, exécutez votre application. Remplacez `<scopeid>` et `<devicekey>` par les valeurs que vous avez notées :
+1. Une fois la génération terminée, dans la même invite de commandes, exécutez votre application. Remplacez `<scopeid>` et `<primarykey>` par les valeurs que vous avez notées :
 
     ```cmd
-    .\Release\devkit_device.exe mxchip-001 <scopeid> <devicekey>
+    .\Release\devkit_device.exe mxchip-001 <scopeid> <primarykey>
     ```
 
 1. L’application de l’appareil commence à envoyer des données à IoT Hub. Parfois, vous voyez l’erreur `Error registering device for DPS` la première fois que vous exécutez la commande précédente. Si vous voyez cette erreur, réexécutez la commande.

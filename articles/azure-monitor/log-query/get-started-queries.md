@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b3b176a6027b0f03c3802867df7be1e339286df2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365323"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Bien démarrer avec les requêtes de journal dans Azure Monitor
 
@@ -105,7 +105,7 @@ SecurityEvent
 
 Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressions suivantes :
 
-| Expression | Description | Exemples |
+| Expression | Description | Exemple |
 |:---|:---|:---|
 | == | Vérifier l’égalité<br>(avec respect de la casse) | `Level == 8` |
 | =~ | Vérifier l’égalité<br>(sans respect de la casse) | `EventSourceName =~ "microsoft-windows-security-auditing"` |

@@ -1,19 +1,19 @@
 ---
-title: 'Didacticiel : AuthN/AuthO de bout en bout'
+title: 'Tutoriel : AuthN/AuthO de bout en bout'
 description: Découvrez comment utiliser les fonctionnalités d’authentification et d’autorisation App Service pour sécuriser vos applications App Service, notamment l’accès aux API à distance.
 keywords: app service, azure app service, authentification, autorisation, sécurisé, sécurité, plusieurs niveaux, azure active directory, azure ad
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6c243839e59038d439e177847df4427d253dbe98
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 41e9ff79ad3f7abeda1b946295e8e0eb519c2554
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672068"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561753"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Didacticiel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
 [Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. En outre, App Service prend, de base, en charge [l’authentification et l’autorisation des utilisateurs](overview-authentication-authorization.md). Ce tutoriel montre comment sécuriser vos applications avec l’authentification et l’autorisation App Service. Il utilise une application ASP.NET Core avec un serveur frontal Angular.js, mais c’est uniquement pour notre exemple. L’authentification et l’autorisation App Service prennent en charge tous les runtimes de langage, et vous pouvez apprendre comment les appliquer à votre langage préféré en suivant le tutoriel.
 
@@ -42,7 +42,7 @@ Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -324,7 +324,7 @@ Connectez-vous à `https://<front-end-app-name>.azurewebsites.net` une nouvelle 
 
 Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale comme avant. Désormais, la seule différence est que les deux applications sont protégées par l’authentification et l’autorisation App Service, y compris les appels entre les services.
 
-Félicitations ! Votre code du serveur accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
+Félicitations ! Votre code du serveur accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
 
 ## <a name="call-api-securely-from-browser-code"></a>Appeler une API de façon sécurisée à partir du code du navigateur
 
@@ -406,13 +406,13 @@ git push frontend master
 
 Accédez à nouveau à `https://<front-end-app-name>.azurewebsites.net`. Vous devez maintenant être en mesure de créer, lire, mettre à jour et supprimer des données à partir de l’application principale, et ce, directement dans l’application Angular.js.
 
-Félicitations ! Votre code du client accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
+Félicitations ! Votre code du client accède maintenant aux données de serveur principal pour le compte de l’utilisateur authentifié.
 
 ## <a name="when-access-tokens-expire"></a>Date d’expiration des jetons d’accès
 
 Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier auprès de votre application, consultez [Actualiser les jetons de fournisseur d’identité](app-service-authentication-how-to.md#refresh-identity-provider-tokens).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell :
 

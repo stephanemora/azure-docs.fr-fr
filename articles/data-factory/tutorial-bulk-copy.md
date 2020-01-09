@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: a019928f710d4b94cc3e5c4c14b559ef7d491ae2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4ab467c0dc5014ec6c8a543fe7e8ecc136dfa02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439506"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
 
@@ -44,7 +44,7 @@ Dans ce scénario, nous disposons d’un certain nombre de tables dans Azure SQL
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -100,7 +100,7 @@ Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéde
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
-    Notez les points suivants :
+    Notez les points suivants :
 
     * Le nom de la fabrique de données Azure doit être un nom global unique. Si vous recevez l’erreur suivante, changez le nom, puis réessayez.
 
@@ -128,10 +128,7 @@ Dans ce tutoriel, vous allez créer trois services liés (un pour la source, un 
         "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -167,10 +164,7 @@ Dans ce tutoriel, vous allez créer trois services liés (un pour la source, un 
         "properties": {
             "type": "AzureSqlDW",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+                "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             }
         }
     }
@@ -193,7 +187,7 @@ Dans ce tutoriel, vous allez créer trois services liés (un pour la source, un 
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>Créer le service lié Stockage Azure intermédiaire
 
-Dans ce didacticiel, vous allez utiliser Stockage Blob Azure comme zone intermédiaire pour améliorer les performances de copie de PolyBase.
+Dans ce tutoriel, vous allez utiliser Stockage Blob Azure comme zone intermédiaire pour améliorer les performances de copie de PolyBase.
 
 1. Créez un fichier JSON nommé **AzureSqlDWLinkedService.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant :
 
@@ -206,10 +200,7 @@ Dans ce didacticiel, vous allez utiliser Stockage Blob Azure comme zone intermé
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": {
-                    "type": "SecureString",
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
-                }
+                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>"
             }
         }
     }
@@ -408,10 +399,10 @@ Ce pipeline prend une liste de tables comme paramètre. Pour chaque table dans l
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>Créer le pipeline « GetTableListAndTriggerCopyData »
 
-Ce pipeline exécute deux étapes :
+Ce pipeline exécute deux étapes :
 
 * Recherche la table système Azure SQL Database pour obtenir la liste des tables à copier.
-* Déclenche le pipeline « IterateAndCopySQLTables » pour copier les données.
+* Déclenche le pipeline « IterateAndCopySQLTables » pour copier les données.
 
 1. Créez un fichier JSON nommé **GetTableListAndTriggerCopyData.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant :
 
@@ -583,7 +574,7 @@ Ce pipeline exécute deux étapes :
 3. Connectez-vous à votre récepteur Azure SQL Data Warehouse et vérifiez que les données ont bien été copiées à partir d’Azure SQL Database.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
