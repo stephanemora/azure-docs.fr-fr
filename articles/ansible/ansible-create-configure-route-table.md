@@ -4,14 +4,14 @@ description: Découvrez comment créer, gérer et supprimer des tables de routag
 keywords: ansible, azure, devops, bash, playbook, réseaux, routes, table de routage
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d1e44a98405bc1009f6f3d56d90fc1fd655d77d5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1f08aebe7e9dcc1c5687f50ac91c7cb8cc8a62eb
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156496"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659795"
 ---
-# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Didacticiel : Configurer des tables de routage Azure avec Ansible
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutoriel : Configurer des tables de routage Azure avec Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
@@ -29,14 +29,14 @@ Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux v
 > Interroger une table de routage
 > Supprimer une table de routage
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
-Le code du playbook de cette section crée une table de routage. Pour plus d’informations sur les limites des tables de routage, voir [Limites Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+Le code du playbook de cette section crée une table de routage. Pour plus d’informations sur les limites des tables de routage, voir [Limites Azure](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Enregistrez le playbook suivant en tant que `route_table_create.yml` :
 
@@ -52,7 +52,7 @@ Enregistrez le playbook suivant en tant que `route_table_create.yml` :
         resource_group: "{{ resource_group }}"
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_create.yml
@@ -109,7 +109,7 @@ Enregistrez le playbook suivant en tant que `route_table_associate.yml` :
         route_table: "{ route_table_name }"
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_associate.yml
@@ -138,7 +138,7 @@ Enregistrez le playbook suivant en tant que `route_table_dissociate.yml` :
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_dissociate.yml
@@ -171,7 +171,7 @@ Avant d’exécuter le playbook, consultez les notes suivantes :
 * `virtual_network_gateway` est défini comme `next_hop_type`. Pour plus d’informations sur la façon dont Azure sélectionne les itinéraires, voir [Vue d’ensemble du routage](/azure/virtual-network/virtual-networks-udr-overview).
 * `address_prefix` est défini comme `10.1.0.0/16`. Le préfixe ne peut pas être dupliqué dans la table de routage.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_create.yml
@@ -198,7 +198,7 @@ Enregistrez le playbook suivant en tant que `route_delete.yml` :
         state: absent
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_delete.yml
@@ -226,7 +226,7 @@ Enregistrez le playbook suivant en tant que `route_table_facts.yml` :
          var: query.route_tables[0]
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_facts.yml

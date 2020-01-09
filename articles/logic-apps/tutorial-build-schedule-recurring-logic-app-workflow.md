@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/12/2019
-ms.openlocfilehash: f9203f77d5b398f53fcb7c9fceb70604b364a4e0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 17802228c8f08e3c8f1533296e2d39080f6f8b7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456632"
 ---
-# <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Didacticiel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps
+# <a name="tutorial-create-automated-schedule-based-recurring-workflows-by-using-azure-logic-apps"></a>Tutoriel : Créer des workflows automatisés périodiques basés sur la planification à l’aide d’Azure Logic Apps
 
 Ce tutoriel montre comment générer une [application logique](../logic-apps/logic-apps-overview.md) et automatiser un workflow périodique qui s’exécute selon une planification. Plus précisément, cet exemple d’application logique s’exécute tous les matins de la semaine et vérifie le temps de trajet, en tenant compte des conditions de circulation, entre deux points. Si la durée dépasse une limite définie, l’application logique envoie un e-mail contenant la durée du trajet et le temps supplémentaire nécessaire pour atteindre votre destination.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez une application logique vide.
@@ -32,7 +32,7 @@ Lorsque vous avez terminé, votre application logique ressemble au flux de trava
 
 ![Vue d’ensemble globale du workflow d’application logique](./media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement, [créez un compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -58,7 +58,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
    |----------|-------|-------------|
    | **Nom** | LA-TravelTime | Nom de votre application logique, qui peut contenir uniquement des lettres, des chiffres, des traits d’union (`-`), des traits de soulignement (`_`), des parenthèses (`(`, `)`) et des points (`.`). Cet exemple utilise « LA-TravelTime ». |
    | **Abonnement** | <*your-Azure-subscription-name*> | Le nom de votre abonnement Azure |
-   | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md), qui est utilisé pour organiser les ressources connexes. Cet exemple utilise « LA-TravelTime-RG ». |
+   | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md), qui est utilisé pour organiser les ressources connexes. Cet exemple utilise « LA-TravelTime-RG ». |
    | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre application logique. Cet exemple utilise la région « USA Ouest ». |
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. |
    ||||
@@ -89,10 +89,10 @@ Ajoutez ensuite le [déclencheur](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Modifier l’intervalle et la fréquence du déclencheur de périodicité](./media/tutorial-build-scheduled-recurring-logic-app-workflow/change-interval-frequency.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Intervalle** | OUI | 1 | Nombre d’intervalles d’attente entre les vérifications. |
-   | **Fréquence** | OUI | Semaine | Unité de temps à utiliser pour la périodicité. |
+   | **Intervalle** | Oui | 1 | Nombre d’intervalles d’attente entre les vérifications. |
+   | **Fréquence** | Oui | Week | Unité de temps à utiliser pour la périodicité. |
    |||||
 
 1. Sous **Intervalle** et **Fréquence**, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez ces propriétés pour ajouter le déclencheur.
@@ -122,7 +122,7 @@ Ajoutez ensuite le [déclencheur](../logic-apps/logic-apps-overview.md#logic-app
 
 1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
-Votre application logique est à présent active, mais elle s’exécute uniquement en fonction d’une périodicité. Par conséquent, ajoutez une action qui réagit à l’activation du déclencheur.
+Votre application logique est à présent active, mais elle s’exécute uniquement en fonction d’une périodicité. Par conséquent, ajoutez une action qui répond à l’activation du déclencheur.
 
 ## <a name="get-the-travel-time-for-a-route"></a>Obtenir la durée du trajet d’un itinéraire
 
@@ -138,10 +138,10 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    ![Créer une connexion à l’API Bing Maps](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom de connexion** | OUI | BingMapsConnection | Donnez un nom à votre connexion. Cet exemple utilise « BingMapsConnection ». |
-   | **Clé API** | OUI | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez [comment en obtenir une](https://msdn.microsoft.com/library/ff428642.aspx). |
+   | **Nom de connexion** | Oui | BingMapsConnection | Donnez un nom à votre connexion. Cet exemple utilise « BingMapsConnection ». |
+   | **Clé API** | Oui | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. Si vous ne possédez pas une clé Bing Cartes, découvrez [comment en obtenir une](https://msdn.microsoft.com/library/ff428642.aspx). |
    |||||
 
 1. Renommez l’action à l’aide de cette description : `Get route and travel time with traffic`.
@@ -158,10 +158,10 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
 
    ![Fournissez les détails de l’action « Get route » (Obtenir l’itinéraire)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Étape 1** | OUI | <*start-location*> | Début de l’itinéraire. |
-   | **Étape 2** | OUI | <*end-location*> | Destination de l’itinéraire. |
+   | **Étape 1** | Oui | <*start-location*> | Début de l’itinéraire. |
+   | **Étape 2** | Oui | <*end-location*> | Destination de l’itinéraire. |
    | **Optimize** | Non | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez le paramètre « timeWithTraffic ». |
    | **Unité de distance** | Non | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet exemple utilise « Mile » comme unité. |
    | **Mode de déplacement** | Non | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez le mode « Driving » (Conduite). |
@@ -189,10 +189,10 @@ Par défaut, l’action **Get route** (Obtenir l’itinéraire) précédente ret
 
 1. Fournissez les détails de la variable, comme décrit ici :
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom** | OUI | travelTime | Nom de la variable. Cet exemple utilise « travelTime ». |
-   | **Type** | OUI | Integer | Type de données de la variable. |
+   | **Nom** | Oui | travelTime | Nom de la variable. Cet exemple utilise « travelTime ». |
+   | **Type** | Oui | Integer | Type de données de la variable. |
    | **Valeur** | Non| Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. |
    ||||
 
@@ -348,7 +348,7 @@ Pour créer d’autres applications logiques qui utilisent le déclencheur **Pé
 * Supprimez d’anciens objets blob Azure.
 * Ajoutez un message à une file d’attente Stockage Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin de l’exemple d’application logique, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. 
 

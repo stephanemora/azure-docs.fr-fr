@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a24f2dd52c3ac3c51df54bf5c01c7b31ca16147
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f026957b5f9fceab8a0df1f339e7cb459ec1078d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985751"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562134"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Utilisation de la suppression réversible Key Vault avec l’interface PowerShell
 
@@ -22,7 +22,7 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 - Prise en charge de la suppression récupérable d’un coffre de clés
 - Prise en charge de la suppression récupérable d’objets de coffre de clés (clés, secrets et certificats)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ Les opérations Key Vault sont gérées séparément par l’intermédiaire d’
 
 | Opération | Description | Autorisation utilisateur |
 |:--|:--|:--|
-|Liste|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
+|List|Énumère les coffres de clé supprimés.|Microsoft.KeyVault/deletedVaults/read|
 |Recover|Restaure un coffre de clés supprimé.|Microsoft.KeyVault/vaults/write|
 |Purge|Supprime définitivement un coffre de clés supprimé et tout son contenu.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -143,7 +143,7 @@ Quand vous supprimez une clé dans un coffre de clés pour lequel la suppression
 
 Tout comme les coffres de clés, une clé, un secret ou un certificat supprimé(e) reste à l’état supprimé pendant 90 jours, sauf si vous le récupérez ou si vous le videz. 
 
-#### <a name="keys"></a>Clés
+#### <a name="keys"></a>Keys
 
 Pour récupérer une clé qui a été supprimée de façon réversible :
 
@@ -160,7 +160,7 @@ Pour supprimer définitivement (opération également appelée vidage) une clé 
 Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
-Les actions **recover** et **purge** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. Pour qu’un utilisateur ou un principal de service puisse exécuter une action **recover** ou **purge**, il doit disposer de l’autorisation correspondante pour cette clé ou ce secret. Par défaut, l’action **purge** n’est pas ajoutée à la stratégie d’accès d’un coffre de clés quand le raccourci « all » est utilisé pour accorder toutes les autorisations. Vous devez accorder spécifiquement l’autorisation **purge**. 
+Les actions de **récupération** et de **vidage** ont leurs propres autorisations associées dans une stratégie d’accès au coffre de clés. Pour qu’un utilisateur ou un principal de service puisse exécuter une action **recover** ou **purge**, il doit disposer de l’autorisation correspondante pour cette clé ou ce secret. Par défaut, l’action **purge** n’est pas ajoutée à la stratégie d’accès d’un coffre de clés quand le raccourci « all » est utilisé pour accorder toutes les autorisations. Vous devez accorder spécifiquement l’autorisation **purge**. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Définir une stratégie d’accès au coffre de clés
 
@@ -257,4 +257,4 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ## <a name="other-resources"></a>Autres ressources
 
 - Pour obtenir une présentation de la fonctionnalité de suppression réversible, consultez [Présentation de la suppression réversible d’Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Pour une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-overview.md).ate=Succeeded}
+- Pour une vue d’ensemble de l’utilisation d’Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-overview.md).

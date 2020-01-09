@@ -1,32 +1,23 @@
 ---
-title: Superviser un cluster Service Fabric dans Azure | Microsoft Docs
+title: Superviser un cluster Service Fabric dans Azure
 description: Dans ce tutoriel, vous allez découvrir comment superviser un cluster en consultant les événements Service Fabric, en interrogeant les APIs EventStore, en supervisant des compteurs de performances et en consultant des rapports d’intégrité.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ab58d622511e0d5793eb6df312bc3fd6dd15bfd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385281"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376628"
 ---
-# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Didacticiel : Superviser un cluster Service Fabric dans Azure
+# <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutoriel : Superviser un cluster Service Fabric dans Azure
 
 Le monitoring et les diagnostics sont essentiels au développement, au test et au déploiement de charges de travail dans tout environnement cloud. Ce tutoriel est le deuxième d’une série. Il vous montre comment superviser et diagnostiquer un cluster Service Fabric à l’aide d’événements, de compteurs de performances et de rapports d’intégrité.   Pour plus d’informations, consultez la vue d’ensemble sur la [supervision des clusters](service-fabric-diagnostics-overview.md#platform-cluster-monitoring) et la [supervision de l’infrastructure](service-fabric-diagnostics-overview.md#infrastructure-performance-monitoring).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Afficher les événements Service Fabric
@@ -45,7 +36,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -484,7 +475,7 @@ Get-ServiceFabricService -ApplicationName fabric:/System | Get-ServiceFabricServ
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Afficher les événements Service Fabric
