@@ -82,22 +82,14 @@
               abstract: null
               achievement: null
               iconUrl: null
-              levels:
-                - null
-              roles:
-                - null
-              products:
-                - null
-              units:
-                - null
-                - name: Utiliser le stockage de cluster
-                  items:
-                    - name: Utilisation de Stockage Azure
-                      href: hdinsight-hadoop-use-blob-storage.md
-                    - name: Utilisation d’Azure Data Lake Storage Gen2
-                      href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-                    - name: Utilisation d’Azure Data Lake Storage Gen1
-                      href: hdinsight-hadoop-use-data-lake-store.md
+        - name: Utiliser le stockage de cluster
+          items:
+            - name: Utilisation de Stockage Azure
+              href: hdinsight-hadoop-use-blob-storage.md
+            - name: Utilisation d’Azure Data Lake Storage Gen2
+              href: hdinsight-hadoop-use-data-lake-storage-gen2.md
+            - name: Utilisation d’Azure Data Lake Storage Gen1
+              href: hdinsight-hadoop-use-data-lake-store.md
         - name: Étendre des clusters
           items:
             - name: Installer des applications HDInsight

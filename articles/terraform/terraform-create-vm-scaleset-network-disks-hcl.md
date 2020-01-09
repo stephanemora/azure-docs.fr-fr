@@ -3,14 +3,14 @@ title: 'Tutoriel : Créer un groupe identique de machines virtuelles Azure à l
 description: Apprenez à utiliser Terraform pour configurer un groupe identique de machines virtuelles Azure et en gérer les versions.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: ef2ce0a3ea8c50123cd51ab60a6b98894739d859
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369471"
 ---
-# <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Didacticiel : Créer un groupe identique de machines virtuelles Azure à l’aide de Terraform
+# <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>Tutoriel : Créer un groupe identique de machines virtuelles Azure à l’aide de Terraform
 
 Les [groupes identiques de machines virtuelles Azure](/azure/virtual-machine-scale-sets) vous permettent de configurer des machines virtuelles identiques. Le nombre d’instances de machine virtuelle peut être ajusté en fonction de la demande ou d’une planification. Pour plus d’informations, consultez [Mettre à l’échelle automatiquement un groupe identique de machines virtuelles dans le portail Azure](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal).
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure/cl
 > [!NOTE]
 > La version la plus récente des fichiers config de Terraform utilisés dans cet article se trouve dans le [référentiel Awesome Terraform sur GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -42,7 +42,7 @@ Dans ce tutoriel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure/cl
 
     ![Invite Cloud Shell](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-1. Remplacez le répertoire par le répertoire `clouddrive`.
+1. Déplacez-vous dans le répertoire `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -424,7 +424,7 @@ Un serveur *jumpbox* SSH est un serveur unique par lequel vous passez pour accé
     resource_group_name          = azurerm_resource_group.vmss.name
     allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
-    tags                         = var.tags}
+    tags                         = var.tags
    }
 
    resource "azurerm_network_interface" "jumpbox" {

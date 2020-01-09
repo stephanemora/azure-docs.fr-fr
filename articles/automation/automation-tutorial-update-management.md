@@ -2,19 +2,16 @@
 title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 description: Cet article fournit une vue d’ensemble de l’utilisation d’Azure Automation Update Management afin de gérer les mises à jour et les correctifs pour vos machines virtuelles Azure et non-Azure.
 services: automation
-author: mgoedtel
-ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 12/03/2019
-ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0fd25863d26c38608b6f64f22782422b844fdec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806556"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420659"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -22,7 +19,7 @@ Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mi
 
 Pour plus d’informations sur les prix, consultez [Tarification d’Automation pour la gestion des mises à jour](https://azure.microsoft.com/pricing/details/automation/)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour la gestion des mises à jour
@@ -31,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Planifier un déploiement de mises à jour
 > * Afficher les résultats d’un déploiement
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -136,19 +133,19 @@ Pour planifier un nouveau déploiement de mises à jour pour la machine virtuell
 
 Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
 
-* **Nom** : entrez un nom unique pour le déploiement de mises à jour.
+* **Name** : entrez un nom unique pour le déploiement de mises à jour.
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
 * **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md)
 
-* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
+* **Machines à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 * **Classification des mises à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
   Les types de classification sont les suivants :
 
-   |OS  |Type  |
+   |Système d''exploitation  |Type  |
    |---------|---------|
    |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour        |
    |Linux     | Mises à jour critiques et de sécurité</br>Autres mises à jour       |
@@ -164,7 +161,7 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Laissez la valeur par défaut sur 1 jour et sélectionnez **OK**. Cela configure une planification récurrente.
 
-* **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
+* **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
 
 * **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Les fenêtres de maintenance contrôlent la période pendant laquelle les mises à jour doivent être installées. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance.
 
@@ -209,7 +206,7 @@ Sous **Résultats des mises à jour**, un récapitulatif indique le nombre total
 La liste suivante présente les valeurs disponibles :
 
 * **Aucune tentative effectuée** : la mise à jour n’a pas été installée, car le temps disponible était insuffisant d’après la durée définie pour la fenêtre de maintenance.
-* **Réussite** : la mise à jour a réussi.
+* **Opération réussie** : la mise à jour a réussi.
 * **Échec** : la mise à jour a échoué.
 
 Pour afficher toutes les entrées de journal d’activité créées par le déploiement, sélectionnez **Tous les journaux d’activité**.
@@ -224,7 +221,7 @@ Une fois que votre déploiement de mises à jour a réussi, un e-mail similaire 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour la gestion des mises à jour

@@ -9,14 +9,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 13afdf4d6c45927c60e8de9fd228f70b7c0a3c68
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: ff16458bb853323181ad8006e378a061572db463
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411127"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutoriel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
 Dans ce tutoriel, vous allez apprendre à exécuter des analyses d'opinions sur un flux de données en temps quasi-réel à l'aide d'Azure Databricks. Vous allez configurer le système d’ingestion des données avec Azure Event Hubs. Vous allez lire des messages à partir d’Event Hubs dans Azure Databricks à l’aide du connecteur Spark Event Hubs. Enfin, vous allez utiliser les API Cognitive Services pour exécuter des analyses d’opinions sur les données diffusées.
 
@@ -45,7 +45,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
 > Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 - Un espace de noms Azure Event Hubs.
@@ -57,7 +57,7 @@ Vous pouvez obtenir tous ces éléments en terminant les étapes de l’article 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+Connectez-vous au [portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
@@ -77,7 +77,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |---------|---------|
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
-    |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
+    |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/management/overview.md). |
     |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/?WT.mc_id=sparkeventhubs-docs-alehall).        |
     |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/?WT.mc_id=sparkeventhubs-docs-alehall).       |
 
@@ -160,7 +160,7 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
 Dans ce tutoriel, vous allez utiliser les [API Analyse de texte d’Azure Cognitive Services](../cognitive-services/text-analytics/overview.md) pour exécuter des analyses d’opinions sur un flux de tweets en temps quasi-réel. Avant d’utiliser les API, vous devez créer un compte Azure Cognitive Services sur Azure et récupérer une clé d’accès pour utiliser les API Analyse de texte.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/?WT.mc_id=sparkeventhubs-docs-alehall).
 
 2. Sélectionnez **+ Créer une ressource**.
 
@@ -616,7 +616,7 @@ Une valeur plus proche de **1** dans la colonne **Opinion** suggère une excelle
 
 Et voilà ! À l'aide d'Azure Databricks, vous avez réussi à diffuser des données en continu dans Azure Event Hubs, à consommer les données diffusées avec le connecteur Event Hubs et à exécuter des analyses d'opinions sur des données de diffusion en continu en temps quasi-réel.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 
@@ -625,7 +625,7 @@ Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans 
 Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement, à condition d’avoir coché la case **Arrêter après \_\_ minutes d’inactivité** durant la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à utiliser Azure Databricks pour diffuser des données dans Azure Event Hubs et à lire ces données depuis Event Hubs en temps réel. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez appris à utiliser Azure Databricks pour diffuser des données dans Azure Event Hubs et à lire ces données depuis Event Hubs en temps réel. Vous avez appris à :
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks
 > * Créer un cluster Spark dans Azure Databricks

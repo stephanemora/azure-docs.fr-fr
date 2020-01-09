@@ -1,8 +1,7 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Caractéristiques
+title: Fonctionnalités
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Fonctionnalités
   meta.description: Learn about the features in Azure SQL Database.
   services: sql-database
@@ -41,7 +40,7 @@ sections:
           - title: Tables temporelles
             href: /azure/sql-database/sql-database-temporal-tables
             html: <p>Suivez et analysez l’historique complet des modifications dans vos données.</p>
-  - title: Autres ressources
+  - title: Plus de ressources
     items:
       - type: list
         style: ordered

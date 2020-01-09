@@ -7,15 +7,15 @@ services: iot-pnp
 ms.topic: tutorial
 ms.author: koichih
 author: konichi3
-ms.date: 06/21/2019
-ms.openlocfilehash: 1516a132372a81d06d82de2409c48220f27b8d87
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.date: 12/27/2019
+ms.openlocfilehash: dc2c33659f3f3a3df0f11fcc6ab36a9fc993da43
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69878730"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550160"
 ---
-# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutoriel : Certifier votre appareil IoT Plug-and-Play (préversion)
+# <a name="tutorial-certify-your-iot-plug-and-play-preview-device"></a>Tutoriel : Certifier votre appareil IoT Plug-and-Play (préversion)
 
 Pour publier un appareil IoT Plug-and-Play (préversion) dans le [catalogue d’appareils Microsoft Azure Certified pour IoT](https://aka.ms/iotdevcat), il doit réussir un ensemble de tests de certification. Utilisez le portail [Microsoft Azure Certified pour IoT](https://aka.ms/ACFI) pour soumettre votre appareil pour certification. Le [service de certification Azure IoT](https://aka.ms/azure-iot-aics) exécute les tests de certification.
 
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous allez voir comment :
 > * Comment passer en revue les interfaces IoT Plug-and-Play et exécuter les tests de certification
 > * Comment publier l’appareil IoT Plug-and-Play certifié sur le catalogue
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 

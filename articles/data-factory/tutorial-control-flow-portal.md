@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 08f9310c2ffdb2e7b8d4249495c2ee90b522d694
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 609b1c4500e1602c38f3383df6cbe176a3333bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926777"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439549"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -36,9 +36,9 @@ Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 > * Démarrer une exécution de pipeline
 > * Surveiller les exécutions de pipeline et d’activité
 
-Ce didacticiel utilise le portail Azure. Vous pouvez utiliser d’autres mécanismes pour interagir avec Azure Data Factory. Consultez « Guides de démarrage rapide » dans la table des matières.
+Ce tutoriel utilise le portail Azure. Vous pouvez utiliser d’autres mécanismes pour interagir avec Azure Data Factory. Consultez « Guides de démarrage rapide » dans la table des matières.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * **Compte Stockage Azure**. Vous utilisez le stockage blob comme magasins de données **source**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
@@ -133,7 +133,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 2. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
       
-     ![Page de nouvelle fabrique de données](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
+     ![Page Nouvelle fabrique de données](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
    Le nom de la fabrique de données Azure doit être un nom **global unique**. Si l’erreur suivante s’affiche, changez le nom de la fabrique de données (par exemple, votrenomADFTutorialDataFactory), puis tentez de la recréer. Consultez l’article [Data Factory - Règles d’affectation des noms](naming-rules.md) pour savoir comment nommer les artefacts Data Factory.
   
@@ -144,7 +144,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-        Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+        Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/overview.md).  
 4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
@@ -154,8 +154,8 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
     ![mosaïque déploiement de fabrique de données](media/tutorial-control-flow-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
-10. Cliquez sur le titre **Créer et surveiller** pour lancer l’interface utilisateur de Azure Data Factory dans un onglet séparé.
+   ![Page d’accueil Data Factory](./media/tutorial-control-flow-portal/data-factory-home-page.png)
+10. Cliquez sur la vignette **Créer et surveiller** pour lancer l’interface utilisateur d’Azure Data Factory dans un onglet séparé.
 
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
@@ -178,13 +178,13 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
    ![Menu Nouveau pipeline](./media/tutorial-control-flow-portal/pipeline-parameters.png)
 4. Dans la boîte à outils **Activités**, développez **Flux de données**et glissez-déposez l’activité de **copie** vers la surface du concepteur de pipeline. 
 
-   ![Activité de copie par glisser-déposer](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
+   ![Glisser-déposer de l’activité de copie](./media/tutorial-control-flow-portal/drag-drop-copy-activity.png)
 5. Dans la fenêtre **Propriétés** pour l’activité de **copie** en bas, basculez vers l’onglet **Source**, puis cliquez sur **+ Nouveau**. Vous créez un jeu de données source pour l’activité de copie dans cette étape. 
 
    ![Jeu de données source](./media/tutorial-control-flow-portal/new-source-dataset-button.png)
 6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Stockage Blob Azure**, puis cliquez sur **Terminer**. 
 
-   ![Sélectionner Stockage Blob Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
+   ![Sélectionner le stockage Blob Azure](./media/tutorial-control-flow-portal/select-azure-blob-storage.png)
 7. Vous voyez un nouvel **onglet** intitulé **AzureBlob1**. Modifiez le nom du jeu de données à **SourceBlobDataset**.
 
    ![Paramètres généraux du jeu de données](./media/tutorial-control-flow-portal/dataset-general-page.png)
@@ -193,7 +193,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
    ![Connexion à un jeu de données - nouveau service lié](./media/tutorial-control-flow-portal/dataset-connection-new-button.png)
 9. Dans la fenêtre **Nouveau service lié**, procédez comme suit : 
 
-    1. Entrez **AzureStorageLinkedService** comme **Nom**.
+    1. Entrez **AzureStorageLinkedService** pour **Nom**.
     2. Sélectionnez votre compte de stockage Azure pour le **Nom du compte de stockage**.
     3. Cliquez sur **Enregistrer**.
 
@@ -213,7 +213,7 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
 
     1. Sélectionnez **AzureStorageLinkedService** comme **Service lié**.
     2. Saisissez `@pipeline().parameters.sinkBlobContainer` pour le dossier.
-    1. Saisissez `@CONCAT(pipeline().RunId, '.txt')` pour le nom de fichier. L’expression utilise l’ID de l’exécution de pipeline actuelle comme nom de fichier. Pour avoir une liste d’expressions et des variables système prises en charge, consultez [Variables système](control-flow-system-variables.md) et [Langage d’expression](control-flow-expression-language-functions.md).
+    1. Entrez `@CONCAT(pipeline().RunId, '.txt')` pour le nom de fichier. L’expression utilise l’ID de l’exécution de pipeline actuelle comme nom de fichier. Pour obtenir la liste des variables système et expressions prises en charge, consultez [Variables système](control-flow-system-variables.md) et [Langage d’expression](control-flow-expression-language-functions.md).
 
         ![Paramètres du jeu de données récepteur](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Basculez vers l’onglet **Pipeline** en haut. Développez **Général** dans la boîte à outils **Activités**, et glissez-déposez une activité **Web** vers la surface du concepteur de pipeline. Définissez le nom de l’activité sur **SendSuccessEmailActivity**. L’activité web permet d’appeler n’importe quel point de terminaison REST. Pour plus d’informations sur l’activité, consultez [Activité web](control-flow-web-activity.md). Ce pipeline utilise une activité web pour appeler le flux de travail d’un e-mail Logic Apps. 
@@ -326,8 +326,8 @@ Dans cette étape, vous allez créer un pipeline avec une activité de copie et 
 
     ![Erreur d’exécution d’activité](./media/tutorial-control-flow-portal/activity-run-error.png)
 
-## <a name="next-steps"></a>étapes suivantes
-Dans ce didacticiel, vous avez effectué les étapes suivantes : 
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce tutoriel, vous avez effectué les étapes suivantes : 
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.

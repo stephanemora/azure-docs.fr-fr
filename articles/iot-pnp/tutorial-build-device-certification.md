@@ -3,18 +3,18 @@ title: Créer un appareil IoT Plug-and-Play (préversion) prêt pour la certific
 description: Avec ce tutoriel destiné aux développeurs d’appareils, vous allez découvrir comment créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 06/28/2019
+ms.date: 12/28/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 43fc928b1274159839dc0df395e86d065f84b4c7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569636"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550264"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>Créer un appareil IoT Plug-and-Play (préversion) prêt pour la certification
 
@@ -28,14 +28,14 @@ Les tests de certification vérifient les points suivants :
 - Votre code d’appareil implémente l’interface Informations sur l’appareil.
 - Le modèle de capacité et le code d’appareil fonctionnent avec IoT Central.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - Pack d’extension [Azure IoT Tools pour VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
-Vous avez également besoin de l’appareil IoT Plug-and-Play créé dans le cadre du [guide démarrage rapide : Utiliser un modèle de capacité d’appareil pour créer un appareil](quickstart-create-pnp-device.md).
+Vous avez également besoin de l’appareil IoT Plug-and-Play créé dans le cadre du [guide démarrage rapide : Utiliser un modèle de capacité d’appareil pour créer un appareil](quickstart-create-pnp-device-windows.md).
 
 ## <a name="store-a-capability-model-and-interfaces"></a>Stocker un modèle de capacité et des interfaces
 
@@ -58,7 +58,7 @@ Pour passer le processus de certification, vous devez inclure et implémenter l�
 ```
 
 > [!NOTE]
-> Si vous avez suivi le [guide de démarrage rapide : Utiliser un modèle de capacité d’appareil pour créer un appareil](quickstart-create-pnp-device.md), vous avez déjà inclus l’interface **Informations sur l’appareil** dans votre modèle.
+> Si vous avez suivi le [guide de démarrage rapide : Utiliser un modèle de capacité d’appareil pour créer un appareil](quickstart-create-pnp-device-windows.md), vous avez déjà inclus l’interface **Informations sur l’appareil** dans votre modèle.
 
 Pour inclure l’interface **Informations sur l’appareil** dans votre modèle d’appareil, ajoutez l’ID d’interface à la propriété `implements` du modèle de capacité :
 

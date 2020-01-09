@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Platform as a service
 metadata:
-  document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
   title: Azure SQL Database - Platform as a Service
   meta.description: Learn about the PaaS capabilities of Azure SQL Database.
   services: sql-database
@@ -44,7 +43,7 @@ sections:
           - title: Mettre les ressources à l’échelle
             href: /azure/sql-database/sql-database-scale-resources
             html: '<p>Azure SQL Database vous permet de facilement et rapidement ajouter des ressources supplémentaires (processeur, mémoire, stockage).</p>'
-  - title: Autres ressources
+  - title: Plus de ressources
     items:
       - type: paragraph
         text: Azure SQL Database fournit un ensemble de fonctionnalités PaaS intégrées supplémentaires permettant de gérer plus facilement vos bases de données.

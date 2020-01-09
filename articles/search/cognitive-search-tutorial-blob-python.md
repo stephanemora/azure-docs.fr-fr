@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un ensemble de compétences en Python à l’aide des API REST'
+title: 'Tutoriel : Créer un ensemble de compétences en Python à l’aide des API REST'
 titleSuffix: Azure Cognitive Search
 description: Parcourez un exemple d’extraction de données, de langage naturel et de traitement d’image par IA dans Recherche cognitive Azure avec un notebook Jupyter Python. Les données extraites sont indexées et sont facilement accessibles au moyen d’une requête.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c7c4da97101ae1277474e62466d78ffbc66b1ce0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406430"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563273"
 ---
-# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Didacticiel : Créer un pipeline d’enrichissement par IA à l’aide de REST et de Python
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>Tutoriel : Créer un pipeline d’enrichissement par IA à l’aide de REST et de Python
 
 Dans ce tutoriel, vous découvrez les mécanismes de programmation de l’enrichissement des données dans la Recherche cognitive Azure avec des *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat est un contenu supplémentaire riche dans un index de recherche, créé avec des enrichissements par IA dans un pipeline d’indexation. 
 
@@ -40,7 +40,7 @@ Ce tutoriel s’exécute sur le service gratuit. Toutefois, le nombre de transac
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les services, outils et données utilisés dans ce tutoriel. 
 
@@ -54,13 +54,13 @@ Voici les services, outils et données utilisés dans ce tutoriel.
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer de l’URL du service et d’une clé d’accès. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté Recherche cognitive Azure à votre abonnement, effectuez ces étapes pour obtenir les informations nécessaires :
+Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer de l’URL du service et d’une clé d’accès. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -87,11 +87,11 @@ Il existe d’autres manières de spécifier la chaîne de connexion, par exempl
 ## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
 
 > [!Note]
-> Cet article vous montre comment créer une source de données, un index, un indexeur et un ensemble de compétences à l’aide d’une série de scripts Python. Pour télécharger l’exemple de notebook complet, accédez au [dépôt Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment-Jupyter-Notebook).
+> Cet article vous montre comment créer une source de données, un index, un indexeur et un ensemble de compétences à l’aide d’une série de scripts Python. Pour télécharger l’exemple de notebook complet, accédez au [dépôt Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Tutorial-AI-Enrichment).
 
 Utilisez Anaconda Navigator pour lancer Jupyter Notebook et créer un notebook Python 3.
 
-## <a name="connect-to-azure-cognitive-search"></a>Se connecter à Recherche cognitive Azure
+## <a name="connect-to-azure-cognitive-search"></a>Se connecter à la Recherche cognitive Azure
 
 Dans le notebook, exécutez ce script pour charger les bibliothèques permettant d’exploiter JSON et de formuler des requêtes HTTP.
 
@@ -276,7 +276,7 @@ Dans cette section, vous définissez le schéma d’index en spécifiant les cha
 
 Cet exercice utilise les champs et les types de champ suivants :
 
-| Noms de champs : | id         | Contenu   | languageCode | keyPhrases         | organizations     |
+| Noms de champs : | id         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | Types de champ : | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -336,7 +336,7 @@ print(r.status_code)
 
 La demande doit retourner un code d’état 201 confirmant la réussite.
 
-Pour plus d’informations sur la définition d’un index, consultez [Créer un index (API REST de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Pour en savoir plus sur la définition d’un index, consultez [Créer un index (API REST de la Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 ## <a name="create-an-indexer-map-fields-and-execute-transformations"></a>Créer un indexeur, mapper les champs et exécuter des transformations
 
@@ -439,7 +439,7 @@ Les avertissements sont courants avec certaines combinaisons de fichiers sources
 
 ## <a name="query-your-index"></a>Interroger votre index
 
-Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, Recherche cognitive Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans la Recherche cognitive Azure](search-pagination-page-layout.md).
+Une fois l’indexation terminée, exécutez des requêtes qui retournent le contenu de champs individuels. Par défaut, le service Recherche cognitive Azure retourne les 50 meilleurs résultats. Les données d’exemple sont petites si bien que la configuration par défaut fonctionne correctement. Toutefois, lorsque vous travaillez avec des jeux de données plus volumineux, vous pouvez être amené à inclure des paramètres dans la chaîne de requête pour retourner plus de résultats. Pour obtenir des instructions, consultez [Guide pratique pour présenter les résultats dans la Recherche cognitive Azure](search-pagination-page-layout.md).
 
 Comme étape de vérification, interrogez l’index au sujet de tous les champs.
 
@@ -498,19 +498,19 @@ r = requests.delete(endpoint + "/skillsets/" + skillset_name,
 pprint(json.dumps(r.json(), indent=1))
 ```
 
-Lorsque votre code arrive à maturité, vous pouvez affiner une stratégie de regénération. Pour plus d’informations, consultez [Guide pratique pour regénérer un index](search-howto-reindex.md).
+Lorsque votre code arrive à maturité, vous pouvez affiner une stratégie de regénération. Pour plus d’informations, consultez [How to rebuild an Azure Search index](search-howto-reindex.md) (Régénérer un index Recherche Azure).
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
 Ce tutoriel présente les étapes de base pour générer un pipeline d’indexation enrichie via la création de composants : une source de données, un ensemble de compétences, un index et un indexeur.
 
-Des [compétences intégrées](cognitive-search-predefined-skills.md) ont été introduites, ainsi que des définitions d’ensemble de compétences et un moyen de chaîner les compétences entre elles via des entrées et des sorties. Vous avez également découvert que `outputFieldMappings` est requis dans la définition de l’indexeur pour router les valeurs enrichies du pipeline dans un index de recherche sur un service Recherche cognitive Azure.
+Des [compétences intégrées](cognitive-search-predefined-skills.md) ont été introduites, ainsi que des définitions d’ensemble de compétences et un moyen de chaîner les compétences entre elles via des entrées et des sorties. Vous avez également appris que `outputFieldMappings` est requis dans la définition de l’indexeur pour acheminer les valeurs enrichies du pipeline dans un index de recherche, sur un service de Recherche cognitive Azure.
 
 Enfin, vous avez appris à tester les résultats et réinitialiser le système pour des itérations ultérieures. Vous avez appris qu’émettre des requêtes par rapport à l’index retourne la sortie créée par le pipeline d’indexation enrichie. Dans cette version, il existe un mécanisme permettant d’afficher les constructions internes (documents enrichis créés par le système). Vous avez également appris à vérifier l’état de l’indexeur et quels objets supprimer avant de réexécuter un pipeline.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

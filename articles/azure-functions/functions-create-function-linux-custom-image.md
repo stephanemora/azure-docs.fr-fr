@@ -4,12 +4,12 @@ description: Découvrez comment créer une exécution d’Azure Functions sur un
 ms.date: 09/27/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5a7fbecca2dc7585ff7110d53deccbbbbf23087c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484391"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551486"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Créer une fonction sur Linux avec une image personnalisée
 
@@ -19,7 +19,7 @@ Dans ce didacticiel, vous apprenez à déployer vos fonctions vers Azure en tant
 
 Ce didacticiel vous guide tout au long de l’utilisation d’Azure Functions Core Tools pour créer une fonction dans une image personnalisée Linux. Vous publiez cette image dans une application de fonction dans Azure, créée à l’aide d’Azure CLI. Plus tard, vous mettez à jour votre fonction pour vous connecter à Stockage File d’attente Azure. Vous activez également.  
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une application de fonction et un fichier Docker à l’aide de Core Tools.
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Les étapes suivantes sont prises en charge sur un ordinateur Mac, Windows ou Linux. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 
@@ -175,8 +175,7 @@ storageConnectionString=$(az storage account show-connection-string \
 
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings AzureWebJobsDashboard=$storageConnectionString \
-AzureWebJobsStorage=$storageConnectionString
+--settings AzureWebJobsStorage=$storageConnectionString
 ```
 
 > [!NOTE]
@@ -190,12 +189,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-La fonction déclenchée par HTTP que vous avez créée nécessite une [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lors de l’appel du point de terminaison. À ce stade, le moyen le plus simple d’obtenir votre URL de fonction, y compris la clé, est à partir du portail [Portail Azure]. 
+La fonction déclenchée par HTTP que vous avez créée nécessite une [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lors de l’appel du point de terminaison. À ce stade, le moyen le plus simple d’obtenir votre URL de fonction, y compris la clé, est à partir du portail [Azure portal]. 
 
 > [!TIP]
 > Vous pouvez également obtenir vos clés de fonction en utilisant les [API de gestion des clés](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), ce qui vous oblige à présenter [un jeton du porteur pour l’authentification](/cli/azure/account#az-account-get-access-token).
 
-Localisez votre nouvelle application de fonction dans le [portail Azure] en tapant son nom dans la zone **Rechercher** en haut de la page, puis en sélectionnant la ressource **App service**.
+Localisez votre nouvelle application de fonction dans le [Azure portal] en tapant son nom dans la zone **Rechercher** en haut de la page, puis en sélectionnant la ressource **App service**.
 
 Sélectionnez la fonction **MyHttpTrigger**, puis **</> Get function URL** > **default (Function key)**  > **Copy**.
 
@@ -374,4 +373,4 @@ Maintenant que vous avez déployé correctement votre conteneur personnalisé su
 + [Mise à l’échelle et options d’hébergement](functions-scale.md)
 + [Hébergement serverless basé sur Kubernetes](functions-kubernetes-keda.md)
 
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

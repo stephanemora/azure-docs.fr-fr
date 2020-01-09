@@ -1,5 +1,5 @@
 ---
-title: Envoyer des notifications Push vers des applications Android spécifiques à l’aide d’Azure Notification Hubs | Microsoft Docs
+title: Envoyer des notifications Push vers des applications Android spécifiques à l’aide d’Azure Notification Hubs
 description: Découvrez comment envoyer des notifications Push à des utilisateurs spécifiques à l’aide de Azure Notification Hubs.
 documentationcenter: android
 services: notification-hubs
@@ -17,18 +17,18 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 5bd709236667dd43e623047ad995b0a7b981e9cb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c2d3789082130cbbc42021a0706249dd3966b9ef
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387425"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531120"
 ---
-# <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Didacticiel : Envoyer des notifications Push vers des applications Android spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutoriel : Envoyer des notifications Push vers des applications Android spécifiques à l’aide d’Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme le présente l’article [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ce tutoriel s’appuie sur le hub de notification que vous avez créé dans le [Tutoriel : Notifications Push aux appareils Android à l’aide d’Azure Notification Hubs et de Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+Ce didacticiel explique comment utiliser Azure Notification Hubs pour envoyer des notifications Push à un utilisateur particulier d'une application sur un appareil spécifique. Un code WebAPI principal ASP.NET est utilisé pour authentifier les clients et pour générer les notifications, comme le présente l’article [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ce tutoriel s’appuie sur le hub de notification que vous avez créé dans le [Tutoriel : Notifications Push vers des appareils Android à l’aide d’Azure Notification Hubs et de Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 Dans ce tutoriel, vous effectuez les étapes suivantes :
 
@@ -37,7 +37,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Mettre à jour une application Android.
 > * Test de l'application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Suivre le [Tutoriel : Notifications Push vers des appareils Android avec Azure Notification Hubs et Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md) avant de passer à ce tutoriel.
 
@@ -45,7 +45,7 @@ Suivre le [Tutoriel : Notifications Push vers des appareils Android avec Azure 
 
 ## <a name="create-the-android-project"></a>Création du projet Android
 
-L’étape suivante consiste à mettre à jour l’application Android créée dans le [Tutoriel : Notifications Push aux appareils Android à l’aide d’Azure Notification Hubs et de Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
+L’étape suivante consiste à mettre à jour l’application Android créée dans le [Tutoriel : Notifications Push vers des appareils Android à l’aide d’Azure Notification Hubs et de Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
 1. Ouvrez votre fichier `res/layout/activity_main.xml`, remplacez les définitions de contenu suivantes :
 
@@ -260,7 +260,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     }
     ```
 
-    Ce composant met en œuvre les appels REST nécessaires pour contacter le backend de l’application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Il utilise un jeton d’autorisation qui se trouve dans le stockage local quand vous cliquez sur le bouton **Sign in**.
+    Ce composant met en œuvre les appels REST nécessaires pour contacter le backend de l’application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Elle utilise un jeton d’autorisation stocké dans le stockage local lorsque vous cliquez sur le bouton **Se connecter**.
 4. Dans votre classe `MainActivity`, ajoutez un champ pour la classe `RegisterClient` et une chaîne pour le point de terminaison de votre backend ASP.NET. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -485,7 +485,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
 
 1. Exécutez l'application sur un appareil ou un émulateur à l'aide d'Android Studio.
 2. Dans l'application Android, entrez un nom d'utilisateur et un mot de passe. Ils doivent représenter la même valeur de chaîne et ne pas contenir d'espaces ou de caractères spéciaux.
-3. Dans l’application Android, cliquez sur **Sign in**. Attendez que s’affiche un message indiquant **Signed in and registered** (Connecté et inscrit). Le bouton **Send Notification** est alors activé.
+3. Dans l’application Android, cliquez sur **Se connecter**. Attendez que s’affiche un message indiquant **Signed in and registered** (Connecté et inscrit). Le bouton **Send Notification** est alors activé.
 
     ![][A2]
 4. Cliquez sur les boutons bascule pour activer toutes les plateformes où vous avez exécuté l'application et inscrit un utilisateur.

@@ -1,8 +1,7 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation Azure SignalR Service
+title: Documentation des services Azure SignalR
 metadata:
-  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
   title: Documentation - Azure SignalR Service
   description: Créez et mettez à l’échelle en temps réel des applications web facilement en mode serveur ou serverless. Basé sur WebSocket prenant en charge un large éventail de langages et de frameworks.
   services: azure-signalr
@@ -67,7 +66,7 @@ sections:
         className: spaced noBullet
         items:
           - html: '<a href="https://github.com/aspnet/AzureSignalR-samples">Exemples de code Azure SignalR</a>'
-          - html: <a href="/azure/azure-signalr/signalr-cli-samples">Interface de ligne de commande Azure</a>
+          - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
   - title: Informations de référence
     items:
       - type: list
@@ -75,9 +74,9 @@ sections:
         className: cardsD
         items:
           - title: Ligne de commande
-            html: <p><a href="signalr-reference-cli.md">Interface de ligne de commande Azure</a></p>
+            html: <p><a href="signalr-reference-cli.md">Azure CLI</a></p>
           - title: Languages
             html: |
               <p><a href="https://docs.microsoft.com/aspnet/core">Kit SDK de serveur ASP.NET Core</a></p> <p><a href="/azure/azure-functions/functions-bindings-signalr-service">Liaisons Azure Functions</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/javascript-client">Client JavaScript</a></p> <p><a href="https://docs.microsoft.com/aspnet/core/signalr/dotnet-client">Client .NET Standard</a></p> <p><a href="https://github.com/aspnet/SignalR/tree/release/2.2/clients/java/signalr">Client Java</a></p>
           - title: REST
-            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a></p>'
+            html: '<p><a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">REST API</a></p>'

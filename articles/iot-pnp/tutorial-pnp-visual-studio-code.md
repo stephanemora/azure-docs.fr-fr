@@ -3,26 +3,26 @@ title: Créer et tester un appareil IoT Plug-and-Play (préversion) | Microsoft 
 description: Avec ce tutoriel destiné aux développeurs d’appareils, vous allez découvrir comment utiliser VS Code pour créer et tester un modèle de capacité d’appareil pour un appareil IoT Plug-and-Play (préversion).
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/30/2019
 ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569898"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550279"
 ---
-# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Didacticiel : Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
+# <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>Tutoriel : Créer et tester un modèle de capacité d’appareil avec Visual Studio Code
 
 Ce tutoriel destiné aux développeurs d’appareils montre comment utiliser Visual Studio Code pour créer un _modèle de capacité d’appareil_. Vous pouvez utiliser le modèle pour générer le code de squelette qui s’exécutera sur un appareil se connectant à une instance IoT Hub dans le cloud.
 
 La section de ce tutoriel qui explique comment compiler le code de squelette généré suppose que vous utilisez Windows.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un modèle de capacité d’appareil
@@ -30,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Implémenter les stubs dans le code généré
 > * Exécuter le code pour tester les interactions avec un hub IoT
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser le modèle de capacité d’appareil dans le cadre de ce tutoriel, vous avez besoin des éléments suivants :
 
