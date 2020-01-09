@@ -29,84 +29,98 @@
       href: data-flow-create.md
 - name: Tutoriels
   items:
-    - name: Copier les données dans le Cloud
+    - name: Copier et ingérer des données
       items:
-        - name: Outil Copier des données
-          href: tutorial-copy-data-tool.md
-        - name: Interface utilisateur (IU)
-          href: tutorial-copy-data-portal.md
-        - name: .NET
-          href: tutorial-copy-data-dot-net.md
-    - name: Copier les données sur place vers le Cloud
-      items:
-        - name: Outil Copier des données
-          href: tutorial-hybrid-copy-data-tool.md
-        - name: Interface utilisateur (IU)
-          href: tutorial-hybrid-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-hybrid-copy-powershell.md
-    - name: Copier les données en vrac
-      items:
-        - name: Interface utilisateur (IU)
-          href: tutorial-bulk-copy-portal.md
-        - name: Azure PowerShell
-          href: tutorial-bulk-copy.md
-    - name: Copier les données de façon incrémentielle
-      href: tutorial-incremental-copy-overview.md
-      items:
-        - name: 1 - Copier depuis un tableau
-          items:
-            - name: Interface utilisateur (IU)
-              href: tutorial-incremental-copy-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-powershell.md
-        - name: 2 - Copier depuis plusieurs tableaux
-          items:
-            - name: Interface utilisateur (IU)
-              href: tutorial-incremental-copy-multiple-tables-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-multiple-tables-powershell.md
-        - name: 3 - Utiliser des fonctions de suivi des modification
-          items:
-            - name: Interface utilisateur (IU)
-              href: tutorial-incremental-copy-change-tracking-feature-portal.md
-            - name: Azure PowerShell
-              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
-        - name: 4 - Copier les nouveaux fichiers par lastmodifieddate
+        - name: De Stockage Blob Azure à Azure SQL Database
           items:
             - name: Outil Copier des données
+              href: tutorial-copy-data-tool.md
+            - name: Interface utilisateur (IU)
+              href: tutorial-copy-data-portal.md
+            - name: .NET
+              href: tutorial-copy-data-dot-net.md
+        - name: D’une base de données SQL Server locale à Stockage Blob Azure
+          items:
+            - name: Outil Copier des données
+              href: tutorial-hybrid-copy-data-tool.md
+            - name: Interface utilisateur (IU)
+              href: tutorial-hybrid-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-hybrid-copy-powershell.md
+        - name: "D’Amazon Web Services\_S3 à Azure Data Lake Storage"
+          items:
+            - name: Azure Data Lake Storage Gen2
+              href: load-azure-data-lake-storage-gen2.md
+            - name: Azure Data Lake Storage Gen1
+              href: load-azure-data-lake-store.md
+        - name: D’Azure Data Lake Storage Gen1 à Azure Data Lake Storage Gen2
+          href: load-azure-data-lake-storage-gen2-from-gen1.md
+        - name: D’Azure SQL Database à Azure Synapse Analytics
+          href: load-azure-sql-data-warehouse.md
+        - name: De SAP BW à Azure Data Lake Storage Gen2
+          href: load-sap-bw-data.md
+        - name: "D’Office\_365 à Stockage Blob Azure"
+          href: load-office-365-data.md
+        - name: Plusieurs tables en bloc
+          items:
+            - name: Interface utilisateur (IU)
+              href: tutorial-bulk-copy-portal.md
+            - name: Azure PowerShell
+              href: tutorial-bulk-copy.md
+        - name: Chargement incrémentiel de données
+          href: tutorial-incremental-copy-overview.md
+          items:
+            - name: Depuis une table Azure SQL Database
+              items:
+                - name: Interface utilisateur (IU)
+                  href: tutorial-incremental-copy-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-powershell.md
+            - name: Depuis plusieurs tables SQL Server locales
+              items:
+                - name: Interface utilisateur (IU)
+                  href: tutorial-incremental-copy-multiple-tables-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-multiple-tables-powershell.md
+            - name: Utilisation des informations de suivi des modifications dans SQL Server
+              items:
+                - name: Interface utilisateur (IU)
+                  href: tutorial-incremental-copy-change-tracking-feature-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+            - name: Nouveaux fichiers selon la date de dernière modification
               href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
-        - name: 5 - Copier les nouveaux fichiers par nom de fichier partitionné chronologiquement
-          items:
-            - name: Outil Copier des données
+            - name: Nouveaux fichiers selon le nom de fichier partitionné chronologiquement
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformer et préparer des données avec des flux de données
+    - name: Transformer les données
       items:
-        - name: Transformer des données avec un flux de données de mappage
-          href: tutorial-data-flow.md
-        - name: Tutoriels vidéo sur le flux de données de mappage
-          href: data-flow-tutorials.md
-        - name: Préparer des données avec un flux de données brutes
+        - name: Transformer des données avec des flux de données de mappage
+          items:
+            - name: Transformer des données avec des flux de données de mappage
+              href: tutorial-data-flow.md
+            - name: Tutoriels vidéo sur le flux de données de mappage
+              href: data-flow-tutorials.md
+        - name: Préparer les données avec des flux de wrangling data
           href: wrangling-data-flow-tutorial.md
-    - name: Transformations externes
-      items:
-        - name: HDInsight Spark
+        - name: Utilisation de services externes
           items:
-            - name: Interface utilisateur (IU)
-              href: tutorial-transform-data-spark-portal.md
-            - name: Azure PowerShell
-              href: tutorial-transform-data-spark-powershell.md
-        - name: Databricks Notebook
-          items:
-            - name: Interface utilisateur (IU)
-              href: transform-data-using-databricks-notebook.md
-    - name: Transformation Hive dans un réseau virtuel
-      items:
-        - name: Interface utilisateur (IU)
-          href: tutorial-transform-data-hive-virtual-network-portal.md
-        - name: Azure PowerShell
-          href: tutorial-transform-data-hive-virtual-network.md
-    - name: Ajouter des branche et des chaînes
+            - name: HDInsight Spark
+              items:
+                - name: Interface utilisateur (IU)
+                  href: tutorial-transform-data-spark-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-spark-powershell.md
+            - name: Databricks Notebook
+              items:
+                - name: Interface utilisateur (IU)
+                  href: transform-data-using-databricks-notebook.md
+            - name: Transformation Hive dans un réseau virtuel
+              items:
+                - name: Interface utilisateur (IU)
+                  href: tutorial-transform-data-hive-virtual-network-portal.md
+                - name: Azure PowerShell
+                  href: tutorial-transform-data-hive-virtual-network.md
+    - name: Flux de contrôle
       items:
         - name: Interface utilisateur (IU)
           href: tutorial-control-flow-portal.md
@@ -118,19 +132,6 @@
           href: tutorial-deploy-ssis-packages-azure.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure-powershell.md
-    - name: Charger Data Lake Storage Gen2
-      href: load-azure-data-lake-storage-gen2.md
-      items:
-        - name: Copier depuis Data Lake Storage Gen1
-          href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Charger Synapse Analytics (anciennement SQL Data Warehouse)
-      href: load-azure-sql-data-warehouse.md
-    - name: Charger Data Lake Storage Gen1
-      href: load-azure-data-lake-store.md
-    - name: Charger des données SAP BW
-      href: load-sap-bw-data.md
-    - name: Charger des données Office 365
-      href: load-office-365-data.md
 - name: Exemples
   items:
     - name: Exemples de code
@@ -512,18 +513,20 @@
           href: data-flow-window.md
     - name: Paramétrable
       items:
-        - name: Services relatifs paramétrables
+        - name: Paramétrage des services liés
           href: parameterize-linked-services.md
         - name: Langage d’expression
           href: control-flow-expression-language-functions.md
         - name: Variables système
           href: control-flow-system-variables.md
-        - name: Paramètres de flux de données
+        - name: Paramétrage de flux de données de mappage
           href: parameters-data-flow.md
     - name: Sécurité
       items:
         - name: Considérations relatives à la sécurité des déplacements de données
           href: data-movement-security-considerations.md
+        - name: Adresses IP Azure Integration Runtime
+          href: azure-integration-runtime-ip-addresses.md
         - name: Informations d’identification dans Azure Key Vault
           href: store-credentials-in-key-vault.md
         - name: Utiliser des secrets Azure Key Vault dans les activités de pipeline
@@ -616,20 +619,20 @@
           href: solution-template-move-files.md
         - name: Transformer des données avec Databricks
           href: solution-template-databricks-notebook.md
-    - name: Guide de résolution des problèmes
+    - name: Guides de résolution des problèmes
       items:
-        - name: Résolution des problèmes d’activité
+        - name: Activités
           href: data-factory-troubleshoot-guide.md
-        - name: Résolution des problèmes du connecteur
+        - name: Connecteurs
           href: connector-troubleshoot-guide.md
-        - name: Résolution des problèmes de gestion Azure-SSIS Integration Runtime
-          href: ssis-integration-runtime-management-troubleshoot.md
-        - name: Résolution des problèmes d’IR auto-hébergé
-          href: self-hosted-integration-runtime-troubleshoot-guide.md
-        - name: Résolution des problèmes d’exécution de package dans Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
-        - name: Résolution des problèmes de flux de données
+        - name: Flux de données
           href: data-flow-troubleshoot-guide.md
+        - name: Runtimes d’intégration auto-hébergés
+          href: self-hosted-integration-runtime-troubleshoot-guide.md
+        - name: Runtime d’intégration Azure SSIS
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Exécution de packages dans Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Scénarios
   items:
     - name: Migration des données pour Data Lake et EDW

@@ -6,12 +6,12 @@ ms.service: virtual-network
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: allensu
-ms.openlocfilehash: 2610afe9df06d28f2b75bd0023f7ec5a3fe9e56c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 6d10265e8383b68ebe13c95d8b2a9632668e85da
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219227"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641396"
 ---
 # <a name="move-azure-public-ip-to-another-region-using-the-azure-portal"></a>Déplacer une adresse IP publique Azure vers une autre région à l’aide du Portail Azure
 
@@ -20,7 +20,7 @@ Il existe différents scénarios dans lesquels vous pouvez être amené à dépl
 Les adresses IP publiques Azure sont spécifiques à une région et ne peuvent pas être déplacées d’une région vers une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante d’une adresse IP publique.  Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’adresse IP publique vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région.  Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que l’adresse IP publique Azure se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 
@@ -32,7 +32,7 @@ Les adresses IP publiques Azure sont spécifiques à une région et ne peuvent p
 
 - Vérifiez que votre abonnement Azure vous permet de créer des adresses IP publiques dans la région cible utilisée. Contactez le support pour activer le quota requis.
 
-- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’adresses IP publiques pour ce processus.  Consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’adresses IP publiques pour ce processus.  Consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
 ## <a name="prepare-and-move"></a>Préparer et déplacer
@@ -89,7 +89,7 @@ Les étapes suivantes montrent comment préparer l’adresse IP publique pour le
              ]
     ```
 
-11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace : **Central US** = **centralus**.
+11. Pour obtenir les codes d’emplacement des régions, consultez [Emplacements Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Le code d’une région est le nom de la région sans espace, **USA Centre** = **centralus**.
 
 12. Vous pouvez également changer d’autres paramètres dans le modèle ; ces paramètres sont facultatifs en fonction de vos besoins :
 
@@ -110,7 +110,7 @@ Les étapes suivantes montrent comment préparer l’adresse IP publique pour le
 
         Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) :
 
-    * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez changer ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. **** **** Vous pouvez changer le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
+    * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez changer ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. Vous pouvez changer le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
 
         ```json
           "resources": [

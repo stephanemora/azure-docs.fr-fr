@@ -1,18 +1,14 @@
 ---
 title: Configurer l’intégration Azure Monitor pour conteneurs à Prometheus | Microsoft Docs
 description: Cet article explique comment configurer l’agent Azure Monitor pour conteneurs, afin qu’il récupère des métriques depuis Prometheus avec votre cluster Azure Kubernetes Service.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 51bdf0cfedb30fbd95f9a44e8f4a0efe4e857104
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1da2142f287bde83be7cede282bd854ce822d23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510746"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75403513"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurer la capture des métriques Prometheus avec Azure Monitor pour conteneurs
 
@@ -30,7 +26,7 @@ La capture active de métriques à partir de Prometheus est effectuée de l’un
 * Sur l’ensemble du cluster - URL HTTP et découverte des cibles à partir des points de terminaison listés d’un service. Par exemple, les services k8s tels que kube-dns et kube-state-metrics, et les annotations pod spécifiques à une application. Les mesures collectées dans ce contexte sont définies dans la section ConfigMap *[Prometheus data_collection_settings.cluster]* .
 * À l’ensemble du nœud - URL HTTP et découverte des cibles à partir des points de terminaison listés d’un service. Les mesures collectées dans ce contexte sont définies dans la section ConfigMap *[Prometheus data_collection_settings.node]* .
 
-| Point de terminaison | Étendue | Exemples |
+| Point de terminaison | Étendue | Exemple |
 |----------|-------|---------|
 | Annotation de pod | À l’ensemble du cluster | annotations : <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Service Kubernetes | À l’ensemble du cluster | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -41,17 +37,17 @@ Quand une URL est spécifiée, Azure Monitor pour conteneurs ne capture que le p
 |Étendue | Clé | Type de données | Valeur | Description |
 |------|-----|-----------|-------|-------------|
 | À l’ensemble du cluster | | | | Spécifiez l’une des trois méthodes suivantes pour capturer les points de terminaison pour les mesures. |
-| | `urls` | Chaîne | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Azure Monitor spécifique pour conteneurs et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
-| | `kubernetes_services` | Chaîne | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | true ou false | Lorsque la valeur `true` est définie sur dans les paramètres du cluster, Azure Monitor de l’agent des conteneurs capture les pod Kubernetes sur l’ensemble du cluster pour les annotations Prometheus suivantes :<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true ou false | Permet la capture du pod. `monitor_kubernetes_pods` doit être défini sur `true`. |
-| | `prometheus.io/scheme` | Chaîne | http ou https | La valeur par défaut est la capture de HTTP. Si nécessaire, affectez la valeur `https`. | 
-| | `prometheus.io/path` | Chaîne | Tableau séparé par des virgules | Chemin d’accès de la ressource HTTP à partir duquel récupérer les mesures. Si le chemin d’accès aux mesures n’est pas `/metrics`, définissez-le avec cette annotation. |
-| | `prometheus.io/port` | Chaîne | 9102 | Spécifiez le port à utiliser pour la mise en rebut. Si le port n’est pas défini, sa valeur par défaut est 9102. |
-| | `monitor_kubernetes_pods_namespaces` | Chaîne | Tableau séparé par des virgules | Liste verte d’espaces de noms pour la capture des métriques à partir des pods Kubernetes.<br> Par exemple, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| À l’ensemble du nœud | `urls` | Chaîne | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Azure Monitor spécifique pour conteneurs et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
-| À l’ensemble du nœud ou du cluster | `interval` | Chaîne | 60s | La valeur par défaut de l’intervalle de collection est d’une minute (60 secondes). Vous pouvez modifier la collection pour *[prometheus_data_collection_settings. node]* et/ou pour *[prometheus_data_collection_settings. cluster]* en unités de temps telles que s, m, h. |
-| À l’ensemble du nœud ou du cluster | `fieldpass`<br> `fielddrop`| Chaîne | Tableau séparé par des virgules | Vous pouvez spécifier certaines mesures à collecter ou non à partir du point de terminaison en définissant la liste Autoriser (`fieldpass`) et Interdire (`fielddrop`). Vous devez d’abord définir la liste Autoriser. |
+| | `urls` | String | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Azure Monitor spécifique pour conteneurs et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
+| | `kubernetes_services` | String | Tableau séparé par des virgules | Tableau de services Kubernetes pour la capture des mesures à partir des kube-state-metrics. Par exemple : `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolean | True ou False | Lorsque la valeur `true` est définie sur dans les paramètres du cluster, Azure Monitor de l’agent des conteneurs capture les pod Kubernetes sur l’ensemble du cluster pour les annotations Prometheus suivantes :<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolean | True ou False | Permet la capture du pod. `monitor_kubernetes_pods` doit être défini sur `true`. |
+| | `prometheus.io/scheme` | String | http ou https | La valeur par défaut est la capture de HTTP. Si nécessaire, affectez la valeur `https`. | 
+| | `prometheus.io/path` | String | Tableau séparé par des virgules | Chemin d’accès de la ressource HTTP à partir duquel récupérer les mesures. Si le chemin d’accès aux mesures n’est pas `/metrics`, définissez-le avec cette annotation. |
+| | `prometheus.io/port` | String | 9102 | Spécifiez le port à utiliser pour la mise en rebut. Si le port n’est pas défini, sa valeur par défaut est 9102. |
+| | `monitor_kubernetes_pods_namespaces` | String | Tableau séparé par des virgules | Liste verte d’espaces de noms pour la capture des métriques à partir des pods Kubernetes.<br> Par exemple : `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| À l’ensemble du nœud | `urls` | String | Tableau séparé par des virgules | Point de terminaison HTTP (adresse IP ou chemin d’URL valide spécifié). Par exemple : `urls=[$NODE_IP/metrics]`. ($NODE_IP est un paramètre Azure Monitor spécifique pour conteneurs et peut être utilisé à la place d’une adresse IP de nœud. Doit être tout en majuscules.) |
+| À l’ensemble du nœud ou du cluster | `interval` | String | 60s | La valeur par défaut de l’intervalle de collection est d’une minute (60 secondes). Vous pouvez modifier la collection pour *[prometheus_data_collection_settings. node]* et/ou pour *[prometheus_data_collection_settings. cluster]* en unités de temps telles que s, m, h. |
+| À l’ensemble du nœud ou du cluster | `fieldpass`<br> `fielddrop`| String | Tableau séparé par des virgules | Vous pouvez spécifier certaines mesures à collecter ou non à partir du point de terminaison en définissant la liste Autoriser (`fieldpass`) et Interdire (`fielddrop`). Vous devez d’abord définir la liste Autoriser. |
 
 ConfigMaps est une liste globale et il ne peut y avoir qu’un seul élément ConfigMap appliqué à l’agent. Vous ne pouvez pas avoir un autre élément ConfigMaps qui annule les collectes.
 
@@ -123,7 +119,7 @@ Procédez comme suit pour configurer et déployer votre fichier de configuration
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Si vous souhaitez limiter la supervision à des espaces de noms spécifiques de pods ayant des annotations, par exemple inclure uniquement les pods dédiés aux charges de travail de production, définissez `monitor_kubernetes_pod` sur `true` dans ConfigMap, et ajoutez le filtre d’espace de noms `monitor_kubernetes_pods_namespaces` en précisant l’espace de noms à partir duquel capturer. Par exemple, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Si vous souhaitez limiter la supervision à des espaces de noms spécifiques de pods ayant des annotations, par exemple inclure uniquement les pods dédiés aux charges de travail de production, définissez `monitor_kubernetes_pod` sur `true` dans ConfigMap, et ajoutez le filtre d’espace de noms `monitor_kubernetes_pods_namespaces` en précisant l’espace de noms à partir duquel capturer. Par exemple : `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. Créez un ConfigMap en exécutant la commande kubectl suivante : `kubectl apply -f <configmap_yaml_file.yaml>`.
     
@@ -148,9 +144,9 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 Les erreurs liées à l’application de modifications de configuration sont également disponibles pour consultation. Les options suivantes sont disponibles pour résoudre des problèmes supplémentaires liés aux modifications de configuration et à la capture des métriques Prometheus :
 
-- À partir des journaux de pod d’agent par le biais de la même commande `kubectl logs`. 
+- À partir de journaux d’activité d’un pod d’agent à l’aide de la même commande `kubectl logs`. 
 
-- À partir de journaux dynamiques. Les journaux dynamiques affichent des erreurs similaires à ce qui suit :
+- À partir de journaux d’activité dynamiques. Les journaux dynamiques affichent des erreurs similaires à ce qui suit :
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host

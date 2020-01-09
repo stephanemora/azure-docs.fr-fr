@@ -504,6 +504,8 @@
           href: sql-database-security-tutorial.md
         - name: Envoyer des données en streaming avec Stream Analytics
           href: sql-database-stream-analytics.md
+        - name: Migrer une base de données SQLite vers Azure SQL Database serverless
+          href: tutorial-sqlite-db-to-azure-sql-serverless-offline.md
     - name: Concepts
       items:
         - name: Ressources d’une base de données unique

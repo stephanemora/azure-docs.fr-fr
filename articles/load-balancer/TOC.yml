@@ -8,26 +8,34 @@
       href: load-balancer-standard-overview.md
 - name: Démarrage rapide
   items:
-    - name: Créer un équilibrage de charge standard - Portail
-      href: quickstart-load-balancer-standard-public-portal.md
-    - name: Créer un équilibrage de charge standard - Azure CLI
-      href: quickstart-load-balancer-standard-public-cli.md
-    - name: Créer un équilibrage de charge standard - Azure PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Créer un équilibreur de charge standard - Modèle
-      href: quickstart-load-balancer-standard-public-template.md
-    - name: Créer un équilibrage de charge de base - Portail
-      href: quickstart-create-basic-load-balancer-portal.md
-    - name: Créer un équilibrage de charge de base - Azure CLI
-      href: quickstart-create-basic-load-balancer-cli.md
-    - name: Créer un équilibrage de charge de base - Azure PowerShell
-      href: quickstart-create-basic-load-balancer-powershell.md
+    - name: Créer un Standard Load Balancer
+      items:
+        - name: Portail
+          href: quickstart-load-balancer-standard-public-portal.md
+        - name: Azure CLI
+          href: quickstart-load-balancer-standard-public-cli.md
+        - name: Azure PowerShell
+          href: quickstart-create-standard-load-balancer-powershell.md
+        - name: Modèle
+          href: quickstart-load-balancer-standard-public-template.md
+    - name: Créer un équilibreur de charge de base
+      items:
+        - name: Portail
+          href: quickstart-create-basic-load-balancer-portal.md
+        - name: Azure CLI
+          href: quickstart-create-basic-load-balancer-cli.md
+        - name: Azure PowerShell
+          href: quickstart-create-basic-load-balancer-powershell.md
+        - name: Modèle
+          href: load-balancer-get-started-internet-arm-template.md
+        - name: API REST
+          href: create-load-balancer-rest-api.md
 - name: Tutoriels
   items:
     - name: Équilibrer la charge de trafic internet vers des machines virtuelles
       href: tutorial-load-balancer-standard-manage-portal.md
     - name: Équilibrer la charge de trafic interne vers des machines virtuelles
-      href: tutorial-load-balancer-basic-internal-portal.md
+      href: tutorial-load-balancer-standard-internal-portal.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Équilibrer la charge de machines virtuelles dans une zone de disponibilité spécifique
@@ -42,8 +50,16 @@
       href: powershell-samples.md
 - name: Concepts
   items:
-    - name: Sondes d’intégrité
-      href: load-balancer-custom-probe-overview.md
+    - name: Surveillance de l’intégrité
+      items:
+        - name: Sondes d’intégrité
+          href: load-balancer-custom-probe-overview.md
+        - name: Mesures et diagnostics de l’équilibreur de charge standard
+          href: load-balancer-standard-diagnostics.md
+        - name: Journaux Azure Monitor pour Basic Load Balancer
+          href: load-balancer-monitor-log.md
+        - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
+          href: load-balancer-query-metrics-rest-api.md
     - name: Ports à haute disponibilité
       href: load-balancer-ha-ports-overview.md
     - name: Prise en charge d’IPv6
@@ -58,72 +74,63 @@
       href: load-balancer-tcp-reset.md
     - name: Référence Standard de Load Balancer et zones de disponibilité
       href: load-balancer-standard-availability-zones.md
-    - name: Mesures et diagnostics de l’équilibreur de charge standard
-      href: load-balancer-standard-diagnostics.md
     - name: Contrôles de sécurité intégrés
       href: load-balancer-security-controls.md
 - name: Procédures
   items:
     - name: Créer un équilibrage de charge standard public et redondant dans une zone
-      href: load-balancer-get-started-internet-az-portal.md
       items:
-        - name: Créer un équilibrage de charge standard public et redondant dans une zone (PowerShell)
-          href: load-balancer-get-started-internet-az-powershell.md
-        - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
+        - name: Portail
+          href: load-balancer-get-started-internet-az-portal.md
+        - name: Azure CLI
           href: load-balancer-get-started-internet-az-cli.md
+        - name: Azure PowerShell
+          href: load-balancer-get-started-internet-az-powershell.md
     - name: Créer un équilibrage de charge standard public et zonal
-      href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
       items:
-        - name: Créer un équilibrage de charge standard public et zonal (PowerShell)
-          href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
-        - name: Créer un équilibrage de charge standard public et redondant dans une zone (CLI)
+        - name: Portail
+          href: load-balancer-get-started-internet-availability-zones-zonal-portal.md
+        - name: Azure CLI
           href: load-balancer-get-started-internet-availability-zones-zonal-cli.md
+        - name: Azure PowerShell
+          href: load-balancer-get-started-internet-availability-zones-zonal-powershell.md
     - name: Équilibrer la charge de machines virtuelles entre des zones de disponibilité (CLI)
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: Équilibrer la charge de machines virtuelles au sein d’une zone (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: Configurer des règles de trafic sortant
       items:
-        - name: Configurer des règles de trafic sortant - CLI
+        - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
-        - name: Configurer des règles de trafic sortant - PowerShell
+        - name: Azure PowerShell
           href: configure-load-balancer-outbound-powershell.md
-    - name: Créer un équilibreur de charge Azure Load Balancer à l’aide de l’API REST
-      href: create-load-balancer-rest-api.md
-    - name: Créer un équilibrage de charge de base (modèle)
-      href: load-balancer-get-started-internet-arm-template.md
     - name: Créer un équilibreur de charge public avec IPv6
-      href: load-balancer-ipv6-internet-ps.md
       items:
-        - name: Créer un équilibreur de charge public avec IPv6 (interface de ligne de commande)
+        - name: Azure CLI
           href: load-balancer-ipv6-internet-cli.md
-        - name: Créer un équilibreur de charge public avec IPv6 (modèle)
+        - name: Azure PowerShell
+          href: load-balancer-ipv6-internet-ps.md
+        - name: Modèle
           href: load-balancer-ipv6-internet-template.md
     - name: Configuration de l’équilibreur de charge interne
       items:
-        - name: Configuration de l’équilibreur de charge interne (PowerShell)
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Configuration de l’équilibreur de charge interne (interface de ligne de commande)
+        - name: Azure CLI
           href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Configuration de l’équilibreur de charge interne (modèle)
+        - name: Azure PowerShell
+          href: load-balancer-get-started-ilb-arm-ps.md
+        - name: Modèle
           href: load-balancer-get-started-ilb-arm-template.md
     - name: Configurer un délai d’inactivité TCP pour l’équilibrage de charge
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurer le mode de distribution de l’équilibrage de charge
       href: load-balancer-distribution-mode.md
-    - name: Combinaison des services d’équilibrage de charge
-      href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json
     - name: Utilisation de plusieurs configurations IP
       href: load-balancer-multiple-ip.md
       items:
-        - name: Utilisation de plusieurs configurations IP (interface de ligne de commande)
+        - name: Azure CLI
           href: load-balancer-multiple-ip-cli.md
-        - name: Utilisation de plusieurs configurations IP (PowerShell)
+        - name: Azure PowerShell
           href: load-balancer-multiple-ip-powershell.md
-    - name: Journaux d’activité Azure Monitor pour Azure Load Balancer
-      href: load-balancer-monitor-log.md
-    - name: Obtenir les métriques d’équilibreur de charge Load Balancer avec REST
-      href: load-balancer-query-metrics-rest-api.md
     - name: Configurer des ports à haute disponibilité pour l’équilibrage de charge interne
       href: load-balancer-configure-ha-ports.md
     - name: Passer d’une région à l’autre
@@ -160,22 +167,6 @@
       href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations'
     - name: REST
       href: 'https://msdn.microsoft.com/library/azure/mt163651.aspx'
-- name: Rubriques connexes
-  items:
-    - name: Application Gateway
-      href: /azure/application-gateway/
-    - name: ExpressRoute
-      href: /azure/expressroute/
-    - name: Réseau virtuel
-      href: /azure/virtual-network/
-    - name: Passerelle VPN
-      href: /azure/vpn-gateway/
-    - name: Machine virtuelle
-      href: /azure/virtual-machines/
-    - name: Traffic Manager
-      href: /azure/traffic-manager/
-    - name: DNS
-      href: /azure/dns/
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn
@@ -188,5 +179,5 @@
       href: 'https://azure.microsoft.com/pricing/details/load-balancer/'
     - name: Calculatrice de prix
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Mises à jour de service
+    - name: Mises à jour produit
       href: 'https://azure.microsoft.com/updates/?product=load-balancer'

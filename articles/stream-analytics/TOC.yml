@@ -61,6 +61,16 @@
           href: stream-analytics-sql-output-perf.md
         - name: Modèles de chemin d’accès personnalisé BLOB
           href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: Optimiser votre travail Stream Analytics
+      items:
+        - name: Comprendre et ajuster les unités de streaming
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Améliorer les performances des requêtes
+          href: stream-analytics-parallelization.md
+        - name: Repartitionner votre entrée
+          href: repartition.md
+        - name: Augmenter le débit de votre travail
+          href: stream-analytics-scale-jobs.md
     - name: États d’un travail
       href: job-states.md
     - name: Fonctions Windows
@@ -148,20 +158,6 @@
           href: stream-analytics-monitor-jobs.md
         - name: "Surveiller des travaux - Visual\_Studio"
           href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Scale
-      items:
-        - name: Mettre à l’échelle avec unités de streaming
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Mettre à l’échelle avec la parallélisation
-          items:
-            - name: Parallélisation de la requête
-              href: stream-analytics-parallelization.md
-            - name: Augmenter le débit
-              href: stream-analytics-scale-jobs.md
-        - name: Mettre à l’échelle avec des fonctions ML
-          href: stream-analytics-scale-with-machine-learning-functions.md
-        - name: Mettre à l'échelle avec le repartitionnement
-          href: repartition.md
     - name: Automatisation
       items:
         - name: Utilisation du kit de développement logiciel (SDK) .NET
@@ -218,6 +214,8 @@
           href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
     - name: Déboguer à l’aide du diagramme de travail
       href: stream-analytics-job-diagram-with-metrics.md
+    - name: Mettre à l’échelle avec des fonctions ML
+      href: stream-analytics-scale-with-machine-learning-functions.md
 - name: Langage de requête Stream Analytics
   items:
     - name: Fonctions intégrées

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Charger les données de New York Taxicab'
+title: 'Tutoriel : Charger les données de New York Taxicab'
 description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure global vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -11,14 +11,14 @@ ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5b33d8fc804d339d3808e5231998fbba41cd4ee9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8a7da1bf80025cfe9b59c42f3338254b86f2ff05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376339"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutoriel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
 Ce didacticiel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure global vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
@@ -45,7 +45,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>Créer un entrepôt SQL Data Warehouse vide
 
-Un entrepôt Azure SQL Data Warehouse est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
+Un entrepôt Azure SQL Data Warehouse est créé avec un ensemble défini de [ressources de calcul](memory-concurrency-limits.md). La base de données est créée dans un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) et dans un [serveur logique Azure SQL](../sql-database/sql-database-features.md). 
 
 Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide. 
 
@@ -57,7 +57,7 @@ Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide.
 
 3. Remplissez le formulaire SQL Data Warehouse avec les informations suivantes :   
 
-   | Paramètre | Valeur suggérée | DESCRIPTION | 
+   | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
    | **Nom de la base de données** | mySampleDataWarehouse | Pour les noms de base de données valides, consultez [Database Identifiers](/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -68,7 +68,7 @@ Suivez ces étapes pour créer un entrepôt SQL Data Warehouse vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
+    | Paramètre | Valeur suggérée | Description | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -151,7 +151,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
     | ------------ | --------------- | ----------- | 
     | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
     | Nom du serveur | Nom complet du serveur | Le nom doit ressembler à : **mynewserver-20180430.database.windows.net**. |
-    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
+    | Authentication | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification que nous avons configuré dans ce didacticiel. |
     | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
     | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
 
@@ -565,7 +565,7 @@ Le script utilise l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 ## <a name="authenticate-using-managed-identities-to-load-optional"></a>S’authentifier à l’aide d’identités managées à charger (facultatif)
 Charger avec PolyBase et s'authentifier via des identités managées est le mécanisme le plus sécurisé et vous permet de tirer parti des points de terminaison de service de réseau virtuel avec Stockage Azure. 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 1.  Installez Azure PowerShell en vous aidant de ce [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Si vous disposez d’un compte de stockage d’objets blob ou v1 universel, vous devez commencer par le mettre à niveau avec un compte v2 universel en vous aidant de ce [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Vous devez avoir activé **Autoriser les services Microsoft approuvés à accéder à ce compte de stockage** sous le menu de paramètres **Pare-feux et réseaux virtuels** du compte Stockage Azure. Pour plus d’informations, consultez ce [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -606,7 +606,7 @@ Charger avec PolyBase et s'authentifier via des identités managées est le méc
 
 Consultez la [documentation ](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) suivante pour configurer des points de terminaison de service de réseau virtuel pour SQL Data Warehouse. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous êtes facturé en fonction des ressources de calcul et des données que vous avez chargées dans votre entrepôt de données. Les deux sont facturés séparément. 
 
@@ -617,7 +617,7 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur votre entrepôt de données.
 
-    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Nettoyer les ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** s’affiche.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 

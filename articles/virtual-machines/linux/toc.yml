@@ -41,11 +41,11 @@
       href: tutorial-monitor.md
     - name: 13 - Gérer la sécurité des machines virtuelles
       href: tutorial-azure-security.md
-    - name: 14 - Déployer Jenkins
+    - name: 14a - Générer avec Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 15a - Déployer avec Azure Pipelines
+    - name: 14b - Déployer avec Azure Pipelines (classique)
       href: tutorial-build-deploy-jenkins.md
-    - name: 15b - CI/CD avec Azure Pipelines
+    - name: 15 - CI/CD avec Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a - Créer une pile LAMP
       href: tutorial-lamp-stack.md

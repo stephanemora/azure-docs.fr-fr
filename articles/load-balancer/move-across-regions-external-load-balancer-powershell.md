@@ -6,21 +6,21 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: d8dfbf3f86a2233571a99c4ad832ef7bd3c3ed48
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a24eb4608e7630d5b613751fa2120361eccd7672
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077929"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644815"
 ---
 # <a name="move-azure-external-load-balancer-to-another-region-using-azure-powershell"></a>Déplacer un équilibreur de charge externe Azure vers une autre région à l’aide d’Azure PowerShell
 
 Il existe différents scénarios dans lesquels vous pourriez souhaiter déplacer votre équilibreur de charge externe existant d’une région à une autre. Par exemple, vous souhaiterez peut-être créer un équilibreur de charge externe avec la même configuration à des fins de test. Vous pouvez également déplacer un équilibreur de charge externe vers une autre région dans le cadre de la planification de la reprise d’activité après sinistre.
 
-Les équilibreurs de charge externes Azure ne peuvent pas être déplacés d’une région à une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante et l’adresse IP publique d’un équilibreur de charge externe.  Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’équilibreur de charge et l’adresse IP publique vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant les modèles dans la nouvelle région.  Pour plus d’informations sur Resource Manager et les modèles, consultez [Exporter des groupes de ressources vers des modèles](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Les équilibreurs de charge externes Azure ne peuvent pas être déplacés d’une région à une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante et l’adresse IP publique d’un équilibreur de charge externe.  Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’équilibreur de charge et l’adresse IP publique vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant les modèles dans la nouvelle région.  Pour plus d’informations sur Resource Manager et les modèles, consultez [Exporter des groupes de ressources vers des modèles](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que l’équilibreur de charge externe se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 
@@ -32,7 +32,7 @@ Les équilibreurs de charge externes Azure ne peuvent pas être déplacés d’u
 
 - Vérifiez que votre abonnement Azure vous permet de créer des équilibreurs de charge externes dans la région cible utilisée. Contactez le support pour activer le quota requis.
 
-- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’équilibreurs de charge pour ce processus.  Voir [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)
+- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’équilibreurs de charge pour ce processus.  Voir [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits)
 
 
 ## <a name="prepare-and-move"></a>Préparer et déplacer
@@ -48,7 +48,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-2. Obtenez l’ID de ressource de l'adresse IP publique que vous souhaitez déplacer vers la région cible, puis placez-la dans une variable à l’aide de [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0) :
+2. Obtenez l’ID de ressource de l’adresse IP publique que vous souhaitez déplacer vers la région cible, puis placez-la dans une variable à l’aide de [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azps-2.6.0) :
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
@@ -66,7 +66,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
    notepad.exe <source-resource-group-name>.json
    ```
 
-5. Pour modifier le paramètre du nom d’adresse IP publique, modifiez la propriété **defaultValue** en lui attribuant le nom de votre adresse IP publique cible, en vous assurant que le nom est entre guillemets :
+5. Pour modifier le paramètre du nom d’adresse IP publique, remplacez la propriété **defaultValue** par le nom de votre adresse IP publique cible, en veillant à placer le nom entre guillemets :
     
     ```json
         {
@@ -114,7 +114,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
     Get-AzLocation | format-table
     
     ```
-8. Vous pouvez également changer d’autres paramètres dans le modèle si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
+8. Vous pouvez également changer d’autres paramètres dans le modèle ; ces paramètres sont facultatifs en fonction de vos besoins :
 
     * **Référence SKU** : vous pouvez permuter la référence SKU de l’adresse IP publique dans la configuration entre les valeurs basic et standard en modifiant la propriété **sku** > **name** dans le fichier **\<resource-group-name>.json** :
 
@@ -133,7 +133,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
 
          Pour plus d’informations sur les différences entre les adresses IP publiques des références SKU basic et standard, consultez [Créer, modifier ou supprimer une adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
-    * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez modifier ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. Vous pouvez modifier le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
+    * **Méthode d’allocation d’adresse IP publique** et **Délai d’inactivité** : vous pouvez changer ces deux options dans le modèle en permutant la propriété **publicIPAllocationMethod** entre les valeurs **Dynamic** et **Static**. Vous pouvez changer le délai d’inactivité en affectant la valeur souhaitée à la propriété **idleTimeoutInMinutes**.  La valeur par défaut est **4** :
 
          ```json
          "resources": [
@@ -158,7 +158,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
                 }            
          ```
 
-        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+        Pour plus d’informations sur les méthodes d’allocation et les valeurs de délai d’inactivité, consultez [Créer, modifier ou supprimer une adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
 
 9. Enregistrez le fichier **\<resource-group-name>.json**.
@@ -168,7 +168,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Déployez le fichier **\<resource-group-name>.json** modifié dans le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
+11. Déployez le fichier **\<nom_groupe_de_ressources>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
 
     ```azurepowershell-interactive
 
@@ -304,7 +304,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
     Get-AzLocation | format-table
     
     ```
-12. Vous pouvez également changer d’autres paramètres dans le modèle si vous le souhaitez ; ces paramètres sont facultatifs en fonction de vos besoins :
+12. Vous pouvez également changer d’autres paramètres dans le modèle ; ces paramètres sont facultatifs en fonction de vos besoins :
     
     * **Référence SKU** : vous pouvez permuter la référence SKU de l’équilibreur de charge externe dans la configuration entre les valeurs basic et standard en modifiant la propriété **sku** > **name** dans le fichier **\<resource-group-name>.json** :
 
@@ -457,7 +457,7 @@ Les étapes suivantes expliquent comment préparer l’équilibreur de charge ex
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-11. Déployez le fichier **\<resource-group-name>.json** modifié dans le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
+11. Déployez le fichier **\<nom_groupe_de_ressources>.json** modifié sur le groupe de ressources créé à l’étape précédente à l’aide de [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0) :
 
     ```azurepowershell-interactive
 
