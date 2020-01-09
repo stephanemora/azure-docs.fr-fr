@@ -2,7 +2,7 @@
   href: index.yml
 - name: Passer à la documentation sur Lab Services
   href: classroom-labs/classroom-labs-overview.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de DevTest Labs
       href: devtest-lab-overview.md
@@ -22,7 +22,7 @@
       href: samples-powershell.md
     - name: Azure PowerShell - Module Az.DevTestLabs2
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: samples-cli.md
 - name: Concepts
   items:
@@ -72,6 +72,8 @@
           href: devtest-lab-auto-startup-vm.md
         - name: Mettre à l’échelle votre laboratoire
           href: devtest-lab-scale-lab.md
+        - name: Activer les identités managées pour les machines virtuelles lab
+          href: enable-managed-identities-lab-vms.md
         - name: Gérer les bases de machine virtuelle
           items:
             - name: Configurer des images Place de marché Azure
@@ -235,7 +237,7 @@
               href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Tester votre application dans Azure
       href: test-app-azure.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les échecs de création de machine virtuelle et d’environnement
           href: troubleshoot-vm-environment-creation-failures.md
@@ -265,5 +267,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-devtest-labs'
     - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=devtest-lab'
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: devtest-lab-faq.md

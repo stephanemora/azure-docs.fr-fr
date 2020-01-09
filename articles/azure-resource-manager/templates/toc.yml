@@ -10,10 +10,6 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: Créer des modèles - VS Code
       href: quickstart-create-templates-use-visual-studio-code.md
-    - name: Créer des modèles - Visual Studio
-      href: create-visual-studio-deployment-project.md
-    - name: Créer des modèles - IntelliJ IDEA
-      href: create-templates-use-intellij.md
 - name: Tutoriels
   items:
     - name: Débutant
@@ -101,8 +97,9 @@
   items:
     - name: Créer des modèles
       items:
-        - name: Utiliser VS Code
-          href: use-vs-code-to-create-template.md
+        - name: Structure de fichiers de modèle
+          displayName: 'parameters,variables,resources,outputs,condition'
+          href: template-syntax.md
         - name: Écrire des modèles d’expression
           href: template-expressions.md
         - name: Paramètres
@@ -134,6 +131,14 @@
           href: deploy-to-subscription.md
         - name: Ressources de niveau groupe d’administration
           href: deploy-to-management-group.md
+    - name: Utiliser des outils de création
+      items:
+        - name: Visual Studio Code
+          href: use-vs-code-to-create-template.md
+        - name: Visual Studio
+          href: create-visual-studio-deployment-project.md
+        - name: IntelliJ IDEA
+          href: create-templates-use-intellij.md
     - name: Déployer des modèles
       items:
         - name: Déployer - portail
@@ -206,9 +211,6 @@
           href: ../../virtual-machines/windows/troubleshoot-deploy-vm.md
 - name: Informations de référence
   items:
-    - name: Structure de fichiers de modèle
-      displayName: 'parameters,variables,resources,outputs,condition'
-      href: template-syntax.md
     - name: Référence de modèle
       href: /azure/templates/
     - name: Fonctions des modèles de gestionnaire des ressources Azure

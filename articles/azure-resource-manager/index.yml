@@ -11,23 +11,23 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 12/19/2019
-  ms.openlocfilehash: 2910576517be35652d8e1ed1e82687a56a10467e
-  ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+  ms.openlocfilehash: d094dce17f9f79b37bc5a226d756713f6e57be6a
+  ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/03/2020
-  ms.locfileid: "75642470"
+  ms.lasthandoff: 01/06/2020
+  ms.locfileid: "75680645"
 highlightedContent:
   items:
+  - title: Présentation de Resource Manager
+    itemType: overview
+    url: management/overview.md
   - title: Que sont les modèles ?
     itemType: overview
     url: templates/overview.md
   - title: Créer votre premier modèle
     itemType: tutorial
     url: templates/template-tutorial-create-first-template.md
-  - title: Présentation de Resource Manager
-    itemType: overview
-    url: management/overview.md
 conceptualContent:
   items:
   - title: Déployer des modèles Resource Manager
@@ -40,10 +40,13 @@ conceptualContent:
       text: Séries de tutoriels pour débutant
     - url: templates/template-syntax.md
       itemType: reference
-      text: Structure de fichiers de modèle
+      text: Syntaxe des modèles
     - url: templates/template-functions.md
       itemType: reference
       text: Fonctions des modèles de gestionnaire des ressources Azure
+    - url: /azure/templates/
+      itemType: reference
+      text: Référence de modèle
     - url: templates/deploy-powershell.md
       itemType: how-to-guide
       text: Déployer
@@ -70,6 +73,9 @@ conceptualContent:
     - url: management/resource-providers-and-types.md
       itemType: concept
       text: Fournisseurs et types de ressources
+    - url: management/azure-subscription-service-limits.md
+      itemType: concept
+      text: Limites du service et de l’abonnement
     footerLink:
       url: management/index.yml
       text: En savoir plus
@@ -80,13 +86,13 @@ conceptualContent:
       text: Vue d’ensemble
     - url: managed-applications/publish-service-catalog-app.md
       itemType: tutorial
-      text: Publier l’application de catalogue de services
+      text: Publier une application dans le catalogue de services
     - url: managed-applications/create-uidefinition-overview.md
       itemType: how-to-guide
-      text: Créer une définition d’interface utilisateur
+      text: Définir le volet de portail pour créer une application
     - url: managed-applications/publish-marketplace-app.md
       itemType: tutorial
-      text: Ajouter à la Place de marché
+      text: Ajouter une application à la Place de marché
     footerLink:
       url: managed-applications/index.yml
       text: En savoir plus

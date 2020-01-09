@@ -106,7 +106,7 @@
       items:
         - name: Recommandations
           href: security-recommendations.md
-    - name: Authentication
+    - name: Authenticate
       items:
         - name: "Utiliser une identité managée App\_Service"
           href: managed-identity.md
@@ -140,6 +140,8 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Informations de référence
   items:
+    - name: Codes d’erreur REST Key Vault
+      href: rest-error-codes.md
     - name: Azure PowerShell
       href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
     - name: Azure CLI
@@ -162,7 +164,7 @@
       href: authentication-requests-and-responses.md
     - name: Paramètres et en-têtes communs
       href: common-parameters-and-headers.md
-    - name: Développement
+    - name: Développer
       items:
         - name: Guide des développeurs
           href: key-vault-developers-guide.md

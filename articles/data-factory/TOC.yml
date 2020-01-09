@@ -2,7 +2,7 @@
   href: index.yml
 - name: Basculer vers la documentation de la version 1
   href: v1/data-factory-introduction.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation de Data Factory
       href: introduction.md
@@ -84,6 +84,8 @@
       items:
         - name: Transformer des données avec un flux de données de mappage
           href: tutorial-data-flow.md
+        - name: Tutoriels vidéo sur le flux de données de mappage
+          href: data-flow-tutorials.md
         - name: Préparer des données avec un flux de données brutes
           href: wrangling-data-flow-tutorial.md
     - name: Transformations externes
@@ -121,7 +123,7 @@
       items:
         - name: Copier depuis Data Lake Storage Gen1
           href: load-azure-data-lake-storage-gen2-from-gen1.md
-    - name: Charger Azure SQL Data Warehouse
+    - name: Charger Synapse Analytics (anciennement SQL Data Warehouse)
       href: load-azure-sql-data-warehouse.md
     - name: Charger Data Lake Storage Gen1
       href: load-azure-data-lake-store.md
@@ -207,7 +209,7 @@
           href: connector-amazon-simple-storage-service.md
         - name: "Format\_Avro"
           href: format-avro.md
-        - name: un stockage Azure Blob
+        - name: Stockage Blob Azure
           href: connector-azure-blob-storage.md
         - name: Recherche cognitive Azure
           href: connector-azure-search.md
@@ -233,7 +235,7 @@
           href: connector-azure-sql-database.md
         - name: Azure SQL Database Managed Instance
           href: connector-azure-sql-database-managed-instance.md
-        - name: Azure SQL Data Warehouse
+        - name: Azure Synapse Analytics (anciennement SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Stockage de table Azure
           href: connector-azure-table-storage.md
@@ -367,7 +369,7 @@
           href: connector-spark.md
         - name: SQL Server
           href: connector-sql-server.md
-        - name: Square
+        - name: Carré
           href: connector-square.md
         - name: Sybase
           href: connector-sybase.md
@@ -389,14 +391,18 @@
           href: delete-activity.md
         - name: Outil Copier des données
           href: copy-data-tool.md
-        - name: Performances et réglage
-          href: copy-activity-performance.md
         - name: Prise en charge du format et de la compression
           href: supported-file-formats-and-compression-codecs.md
+        - name: Performances et réglage
+          href: copy-activity-performance.md
+        - name: Conserver les métadonnées et les listes ACL
+          href: copy-activity-preserve-metadata.md
         - name: Mappage du schéma et du type
           href: copy-activity-schema-and-type-mapping.md
         - name: Tolérance de panne
           href: copy-activity-fault-tolerance.md
+        - name: Prise en charge du format et de la compression (héritée)
+          href: supported-file-formats-and-compression-codecs-legacy.md
     - name: Transformer les données
       href: transform-data.md
       items:
@@ -486,7 +492,7 @@
           href: data-flow-lookup.md
         - name: Nouvelle branche
           href: data-flow-new-branch.md
-        - name: Ajouter un tableau croisé dynamique
+        - name: Tableau croisé dynamique
           href: data-flow-pivot.md
         - name: Sélectionnez
           href: data-flow-select.md
@@ -670,7 +676,7 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Demander une fonctionnalité
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: frequently-asked-questions.md
     - name: Livres blancs
       href: whitepapers.md
