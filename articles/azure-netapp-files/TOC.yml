@@ -1,6 +1,6 @@
 - name: Documentation Azure NetApp Files
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure NetApp Files
       href: azure-netapp-files-introduction.md
@@ -61,7 +61,7 @@
       href: azure-netapp-files-manage-snapshots.md
     - name: Redimensionner un pool de capacités ou un volume
       href: azure-netapp-files-resize-capacity-pools-or-volumes.md
-    - name: Développement
+    - name: Développer
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
@@ -81,5 +81,7 @@
       href: 'https://azure.microsoft.com/pricing/details/netapp/'
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=netapp'
+    - name: Contrat SLA
+      href: 'https://azure.microsoft.com/support/legal/sla/netapp/'
     - name: Videos
       href: azure-netapp-files-videos.md
