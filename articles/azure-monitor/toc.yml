@@ -91,6 +91,8 @@
       items:
         - name: Données de journal
           href: platform/data-security.md
+        - name: Clés managées par le client
+          href: platform/customer-managed-keys.md
         - name: Gestion des données de journal personnelles
           href: platform/personal-data-mgmt.md
         - name: 'Collecte, rétention et stockage des données d’application'

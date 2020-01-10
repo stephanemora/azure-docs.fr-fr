@@ -113,6 +113,8 @@
       items:
         - name: Présentation de la sécurité
           href: search-security-overview.md
+        - name: Créer un Private Endpoint
+          href: service-create-private-endpoint.md
         - name: Key Management Service
           href: search-security-api-keys.md
         - name: Accès administrateur basé sur le rôle
