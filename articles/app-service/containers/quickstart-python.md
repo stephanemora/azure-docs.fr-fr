@@ -52,7 +52,7 @@ Dans une fenêtre de terminal, utilisez les commandes ci-dessous (qui diffèrent
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py
+export FLASK_APP=application.py
 flask run
 ```
 
@@ -78,7 +78,7 @@ flask run
 
 ---
 
-Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://localhost:5000/`. L’application affiche le message **Hello World !** .
+Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://http://<app-name>.azurewebsites.net`. L’application affiche le message **Hello World !** .
 
 ![Exécuter un exemple d’application Python localement](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
