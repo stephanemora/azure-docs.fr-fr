@@ -673,18 +673,18 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Ressources
   items:
+    - name: Livres blancs
+      href: whitepapers.md
+    - name: Questions fréquentes (FAQ)
+      href: frequently-asked-questions.md
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: Poser une question - Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
     - name: Poser une question - Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Demander une fonctionnalité
       href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
-    - name: Questions fréquentes (FAQ)
-      href: frequently-asked-questions.md
-    - name: Livres blancs
-      href: whitepapers.md
-    - name: Feuille de route
-      href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Disponibilité par région
