@@ -1,10 +1,10 @@
-- name: Benchmark de sécurité Azure
+- name: Benchmarks de sécurité Azure
   href: index.yml
 - name: Introduction
   href: introduction.md
 - name: Security Controls
   items:
-    - name: Vue d’ensemble
+    - name: Vue d’ensemble des contrôles de sécurité Azure
       href: overview.md
     - name: Sécurité réseau
       href: security-control-network-security.md

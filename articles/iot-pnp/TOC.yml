@@ -71,14 +71,18 @@
       href: howto-develop-solution.md
 - name: Informations de référence
   items:
-    - name: Jumeau numérique
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
-    - name: Service de jumeau numérique
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
-    - name: Dépôt de modèles de jumeau numérique
-      href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
-    - name: Générer un jeton de sécurité REST
-      href: howto-generate-sas-token.md
+    - name: Bibliothèques et kits SDK
+      href: libraries-sdks.md
+    - name: API REST
+      items:
+        - name: Jumeau numérique
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
+        - name: Service de jumeau numérique
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
+        - name: Dépôt de modèles de jumeau numérique
+          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
+        - name: Générer un jeton de sécurité REST
+          href: howto-generate-sas-token.md
 - name: Rubriques connexes
   items:
     - name: Solutions

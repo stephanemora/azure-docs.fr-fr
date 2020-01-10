@@ -66,6 +66,8 @@
     - name: Créer et configurer Personalizer
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Gérer votre stratégie d’apprentissage
+      href: how-to-learning-policy.md
     - name: Analyser
       items:
         - name: Évaluation hors connexion

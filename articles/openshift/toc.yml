@@ -1,6 +1,6 @@
 - name: Azure Red Hat OpenShift
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Red Hat OpenShift
       href: intro-openshift.md
@@ -37,6 +37,16 @@
       href: howto-deploy-prometheus.md
     - name: Gérer des projets dans un cluster Azure Red Hat OpenShift
       href: howto-manage-projects.md
+    - name: Surveillance et journalisation
+      items:
+        - name: Azure Monitor pour conteneurs (préversion)
+          items:
+            - name: Configurer Azure Monitor pour conteneurs
+              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+              maintainContext: true
+            - name: Désactiver Azure Monitor pour conteneurs
+              href: ../azure-monitor/insights/container-insights-optout-openshift.md
+              maintainContext: true
 - name: Informations de référence
   items:
     - name: Interface CLI Azure Red Hat OpenShift
@@ -47,7 +57,7 @@
   items:
     - name: Questions courantes
       href: openshift-faq.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       href: troubleshoot.md
     - name: Ressources prises en charge
       href: supported-resources.md

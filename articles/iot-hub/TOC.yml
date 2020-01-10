@@ -83,7 +83,9 @@
       href: tutorial-connectivity.md
 - name: Concepts
   items:
-    - name: Application de TLS 1.2
+    - name: Prise en charge de TLS
+      href: iot-hub-tls.md
+    - name: Dépréciation de TLS 1.0 et 1.1
       href: tls-1.2-everywhere.md
     - name: Vue d’ensemble des enrichissements de message
       href: iot-hub-message-enrichments-overview.md
