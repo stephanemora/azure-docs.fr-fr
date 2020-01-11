@@ -1,6 +1,6 @@
 - name: Documents de Azure Database pour MariaDB
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure DB for MariaDB\_?"
       href: overview.md
@@ -23,11 +23,11 @@
       items:
         - name: Portail Azure
           href: tutorial-design-database-using-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: tutorial-design-database-cli.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -59,6 +59,8 @@
           href: concepts-firewall-rules.md
         - name: Réseau virtuel
           href: concepts-data-access-security-vnet.md
+        - name: Private Link
+          href: concepts-data-access-security-private-link.md
         - name: Protection avancée contre les menaces
           href: concepts-data-access-and-security-threat-protection.md
     - name: Continuité de l’activité
@@ -70,13 +72,13 @@
           href: concepts-backup.md
     - name: Surveiller et régler
       items:
-        - name: Surveiller
+        - name: Moniteur
           href: concepts-monitoring.md
         - name: Journaux des requêtes lentes
           href: concepts-server-logs.md
         - name: Journaux d’audit
           href: concepts-audit-logs.md
-        - name: Magasin de requêtes
+        - name: Magasin des requêtes
           href: concepts-query-store.md
         - name: Query Performance Insight
           href: concepts-query-performance-insight.md
@@ -104,13 +106,13 @@
       items:
         - name: Portail Azure
           href: howto-manage-firewall-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Restaurer un serveur
       items:
         - name: Portail Azure
           href: howto-restore-server-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-restore-server-cli.md
     - name: Migrer une base de données
       items:
@@ -128,13 +130,13 @@
       items:
         - name: Portail Azure
           href: howto-server-parameters.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
     - name: Augmenter automatiquement le stockage
       items:
         - name: Portail Azure
           href: howto-auto-grow-storage-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
     - name: Accéder aux journaux d’activité du serveur
       items:
@@ -142,13 +144,13 @@
           items:
             - name: Portail Azure
               href: howto-configure-server-logs-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-configure-server-logs-cli.md
         - name: Journaux d’audit
           items:
             - name: Portail Azure
               href: howto-configure-audit-logs-portal.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Créer des alertes sur les mesures
           href: howto-alert-metric.md
@@ -160,7 +162,7 @@
           href: howto-read-replicas-portal.md
         - name: 'Créer des réplicas en lecture avec Azure CLI, l’API REST'
           href: howto-read-replicas-cli.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les erreurs de connexion
           href: howto-troubleshoot-common-connection-issues.md
@@ -174,17 +176,23 @@
       items:
         - name: Portail Azure
           href: howto-manage-vnet-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-manage-vnet-cli.md
+    - name: Private Link
+      items:
+        - name: Portail Azure
+          href: howto-configure-privatelink-portal.md
+        - name: Azure CLI
+          href: howto-configure-privatelink-cli.md
     - name: Redémarrer le serveur
       items:
         - name: Portail Azure
           href: howto-restart-server-portal.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: howto-restart-server-cli.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/mariadb
     - name: API REST
       href: /rest/api/mariadb

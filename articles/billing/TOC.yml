@@ -232,7 +232,7 @@
     - name: Désactivation de l’affichage des coûts d’entreprise
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Contacter le support technique
-      href: ../azure-supportability/how-to-create-azure-support-request.md
+      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: Exemples
   items:
     - name: API REST

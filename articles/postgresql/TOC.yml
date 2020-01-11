@@ -1,6 +1,6 @@
 - name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure DB pour PostgreSQL\_?"
       href: overview.md
@@ -43,7 +43,7 @@
           items:
             - name: Portail Azure
               href: tutorial-design-database-using-azure-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: tutorial-design-database-using-azure-cli.md
         - name: 2 - Concevoir une application web - Python
           href: ../app-service/containers/tutorial-python-postgresql-app.md
@@ -58,7 +58,7 @@
           href: tutorial-design-database-hyperscale-realtime.md
 - name: Exemples
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
@@ -98,6 +98,8 @@
               href: concepts-data-access-and-security-threat-protection.md
             - name: Authentification Azure AD
               href: concepts-aad-authentication.md
+            - name: Private Link
+              href: concepts-data-access-and-security-private-link.md
         - name: Continuité de l’activité
           items:
             - name: Introduction à la continuité de l’activité
@@ -113,9 +115,9 @@
               href: concepts-server-logs.md
             - name: Journaux d’audit
               href: concepts-audit.md
-            - name: Magasin de requêtes
+            - name: Magasin des requêtes
               items:
-                - name: Magasin de requêtes
+                - name: Magasin des requêtes
                   href: concepts-query-store.md
                 - name: Scénarios d’utilisation du magasin de requêtes
                   href: concepts-query-store-scenarios.md
@@ -185,7 +187,7 @@
               href: howto-create-users.md
             - name: Configurer l’intégration d’Azure AD
               href: howto-configure-sign-in-aad-authentication.md
-        - name: Optimisation
+        - name: Optimiser
           items:
             - name: Insertions en bloc
               href: howto-optimize-bulk-inserts.md
@@ -199,13 +201,13 @@
           items:
             - name: Portail Azure
               href: howto-manage-firewall-using-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-manage-firewall-using-cli.md
         - name: Restaurer un serveur
           items:
             - name: Portail Azure
               href: howto-restore-server-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-restore-server-cli.md
         - name: Migrer une base de données
           items:
@@ -219,25 +221,25 @@
           items:
             - name: Portail Azure
               href: howto-configure-server-parameters-using-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-configure-server-parameters-using-cli.md
         - name: Augmenter automatiquement le stockage
           items:
             - name: Portail Azure
               href: howto-auto-grow-storage-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
         - name: Accéder aux journaux
           items:
             - name: Portail Azure
               href: howto-configure-server-logs-in-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-configure-server-logs-using-cli.md
-        - name: Surveiller
+        - name: Moniteur
           items:
             - name: Créer des alertes sur les mesures
               href: howto-alert-on-metric.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           items:
             - name: Résoudre les erreurs de connexion
               href: howto-troubleshoot-common-connection-issues.md
@@ -249,13 +251,19 @@
           items:
             - name: Portail Azure
               href: howto-manage-vnet-using-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-manage-vnet-using-cli.md
+        - name: Private Link
+          items:
+            - name: Portail Azure
+              href: howto-configure-privatelink-portal.md
+            - name: Azure CLI
+              href: howto-configure-privatelink-cli.md
         - name: Redémarrer le serveur
           items:
             - name: Portail Azure
               href: howto-restart-server-portal.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: howto-restart-server-cli.md
         - name: Réplication
           items:
@@ -273,17 +281,17 @@
               href: howto-hyperscale-manage-firewall-using-portal.md
         - name: Haute disponibilité
           href: howto-hyperscale-high-availability.md
-        - name: Surveiller
+        - name: Moniteur
           items:
             - name: Créer des alertes sur les mesures
               href: howto-hyperscale-alert-on-metric.md
-        - name: Résolution des problèmes
+        - name: Dépanner
           items:
             - name: Résoudre les erreurs de connexion
               href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/postgres
     - name: API REST
       href: /rest/api/postgresql
