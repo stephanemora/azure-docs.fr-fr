@@ -100,6 +100,8 @@
               href: concepts-aad-authentication.md
             - name: Private Link
               href: concepts-data-access-and-security-private-link.md
+            - name: Chiffrement des données
+              href: concepts-data-encryption-postgresql.md
         - name: Continuité de l’activité
           items:
             - name: Introduction à la continuité de l’activité
@@ -259,6 +261,10 @@
               href: howto-configure-privatelink-portal.md
             - name: Azure CLI
               href: howto-configure-privatelink-cli.md
+        - name: Chiffrement des données
+          items:
+            - name: Portail Azure
+              href: howto-data-encryption-portal.md
         - name: Redémarrer le serveur
           items:
             - name: Portail Azure
