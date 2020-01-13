@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: damaerte
-ms.openlocfilehash: acdf52022d8498a186ed4cff90284cd6e299d6c0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2edb50910614b47aca5a4d8f7f02c2e3bc69b643
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449001"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Vue d’ensemble d’Azure Cloud Shell
 Azure Cloud Shell est un interpréteur de commandes interactif, authentifié et accessible par navigateur qui permet de gérer les ressources Azure.
@@ -27,13 +27,13 @@ Il vous donne la possibilité de choisir l'expérience d'interpréteur de comman
 
 Essayez à partir de shell.azure.com en cliquant ci-dessous.
 
-[![Lancement incorporé](https://shell.azure.com/images/launchcloudshell.png "Lancer Azure Cloud Shell")](https://shell.azure.com)
+[![Lancement de l’incorporation](https://shell.azure.com/images/launchcloudshell.png "Lancement d’Azure Cloud Shell")](https://shell.azure.com)
 
 Essayez à partir du Portail Azure en cliquant sur l’icône Cloud Shell.
 
 ![Lancement du portail](media/overview/portal-launch-icon.png)
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 ### <a name="browser-based-shell-experience"></a>Expérience shell basée sur navigateur
 Cloud Shell permet d’accéder à une expérience de ligne de commande basée sur navigateur avec les tâches de gestion Azure à l’esprit.
@@ -73,6 +73,9 @@ Cloud Shell est un outil flexible qui s’utilise à partir de :
 Les machines Cloud Shell sont temporaires, mais vos fichiers sont conservés de deux manières : via une image disque et via un partage de fichiers monté nommé `clouddrive`.  Lors du premier lancement, Cloud Shell vous invite à créer un groupe de ressources, un compte de stockage et un partage Azure Files en votre nom. Il s’agit d’une étape unique, et ces ressources sont automatiquement jointes pour toutes les sessions. Un partage de fichier unique peut être mappé et sera utilisé par Bash et PowerShell dans Cloud Shell.
 
 Apprenez à monter un [compte de stockage nouveau ou existant](persisting-shell-storage.md) ou découvrez-en plus sur les [mécanismes de persistance utilisés dans Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
+
+> [!NOTE]
+> Le pare-feu de stockage Azure n’est pas pris en charge pour les comptes de stockage Cloud Shell.
 
 ## <a name="concepts"></a>Concepts
 * Cloud Shell s’exécute sur un hôte temporaire fourni par session et par utilisateur

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847864"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560254"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -79,7 +79,7 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
 * Les domaines Active Directory qui exécutent le logiciel du service d’agent DC doivent utiliser la réplication du système de fichiers distribué (DFSR) pour la réplication sysvol.
 
-  Si votre domaine n’utilise pas encore DFSR, vous devez le migrer pour utiliser DFSR avant d’installer la protection de mot de passe Azure AD. Pour plus d’informations, consultez le lien suivant :
+  Si votre domaine n’utilise pas encore DFSR, vous DEVEZ le faire migrer pour l’utiliser avant d’installer la protection par mot de passe Azure Active Directory. Pour plus d’informations, consultez le lien suivant :
 
   [Guide de migration de la réplication SYSVOL : Réplication FRS à DFS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
 
@@ -129,11 +129,13 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
      Le résultat doit afficher un **état** « En cours d’exécution ».
 
 1. Enregistrez le proxy.
-   * Une fois l’étape 3 terminée, le service proxy est en cours d’exécution sur la machine. Mais le service ne dispose pas encore des informations d’identification nécessaires pour communiquer avec Azure AD. Une inscription auprès d’Azure AD est requise :
+   * Une fois l’étape 3 effectuée, le service proxy est en cours d’exécution sur l’ordinateur, mais n’a pas encore les informations d’identification nécessaires pour communiquer avec Azure AD. Une inscription auprès d’Azure AD est requise :
 
      `Register-AzureADPasswordProtectionProxy`
 
-     Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Vous avez également besoin des privilèges d’administrateur de domaine Active Directory local dans le domaine racine de la forêt. Une fois que cette commande a réussi pour un service proxy, des appels supplémentaires de cette commande réussiront mais ils ne sont pas nécessaires.
+     Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Vous avez également besoin des privilèges d’administrateur de domaine Active Directory local dans le domaine racine de la forêt. Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local.
+
+     Une fois que cette commande a réussi pour un service proxy, des appels supplémentaires de cette commande réussiront mais ils ne sont pas nécessaires.
 
       L’applet de commande `Register-AzureADPasswordProtectionProxy` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
 
@@ -177,7 +179,9 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
    > Il peut y avoir un retard notable avant la fin, la première fois que vous exécutez cette applet de commande pour un locataire Azure spécifique. À moins qu’une erreur soit signalée, ne vous inquiétez pas de ce retard.
 
 1. Inscrivez la forêt.
-   * Vous devez initialiser la forêt Active Directory locale avec les informations d’identification nécessaires pour communiquer avec Azure à l’aide de l’applet de commande PowerShell `Register-AzureADPasswordProtectionForest`. Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Cette étape est exécutée une seule fois par forêt.
+   * Vous devez initialiser la forêt Active Directory locale avec les informations d’identification nécessaires pour communiquer avec Azure à l’aide de l’applet de commande PowerShell `Register-AzureADPasswordProtectionForest`.
+
+      Cette applet de commande exige les informations d’identification d’administrateur général pour votre locataire Azure.  Vous devez également exécuter cette applet de commande à l’aide d’un compte avec des privilèges d’administrateur local. Elle requiert également des privilèges d’administrateur d’entreprise Active Directory en local. Cette étape est exécutée une seule fois par forêt.
 
       L’applet de commande `Register-AzureADPasswordProtectionForest` prend en charge les trois modes d’authentification suivants. Les deux premiers modes prennent en charge Azure Multi-Factor Authentication, contrairement au troisième mode. Pour plus d’informations, consultez les commentaires ci-dessous.
 

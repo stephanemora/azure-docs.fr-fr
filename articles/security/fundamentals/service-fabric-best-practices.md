@@ -1,26 +1,18 @@
 ---
-title: Bonnes pratiques pour la sécurité Azure Service Fabric | Microsoft Docs
+title: Meilleures pratiques pour la sécurité Azure Service Fabric
 description: Cet article fournit un ensemble de bonnes pratiques pour la sécurité Azure Service Fabric.
-services: security
-documentationcenter: na
 author: unifycloud
-manager: barbkess
-editor: tomsh
-ms.assetid: ''
+ms.author: tomsh
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
-ms.openlocfilehash: dc063621e6b3e1d0d3e1a51d744ca9d9a6ef8c8d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 458a1d474e9a722a98ca068e1827cf0e1abf4b47
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934629"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548817"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.
@@ -29,7 +21,7 @@ Azure Service Fabric est une plateforme de systèmes distribués qui permet d’
 
 Pour chaque bonne pratique, nous détaillons les éléments suivants :
 
--   La nature de la bonne pratique
+-   la nature de la meilleure pratique ;
 -   La raison pour laquelle vous devez l’implémenter
 -   Ce qui peut se produire si vous ne l’implémentez pas
 -   La façon d’apprendre à l’utiliser
@@ -76,7 +68,7 @@ Dans ce scénario, les clusters qui s’exécutent sur Azure, ou les clusters au
 Pour configurer un cluster Windows autonome, consultez [Paramètres de configuration pour un cluster Windows autonome](../../service-fabric/service-fabric-cluster-manifest.md).
 
 Utilisez des modèles Azure Resource Manager et le module PowerShell Service Fabric pour créer un cluster sécurisé.
-Pour obtenir des instructions pas à pas sur la création d’un cluster Service Fabric sécurisé à l’aide de modèles Azure Resource Manager, consultez [Créer un cluster Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md).
+Pour des instructions pas à pas sur la création d’un cluster Service Fabric sécurisé à l’aide de modèles Azure Resource Manager, consultez [Créer un cluster Service Fabric](../../service-fabric/service-fabric-cluster-creation-via-arm.md).
 
 Utiliser le modèle Azure Resource Manager :
 -   Personnaliser votre cluster en utilisant le modèle afin de configurer le stockage géré pour les disques durs virtuels (VHD) de machine virtuelle.
@@ -152,7 +144,7 @@ Le protocole HTTP n’est pas sécurisé et peut faire l’objet d’écoutes cl
 Pour en savoir plus sur l’utilisation des certificats SSL, consultez [Configurer SSL pour des applications Azure](../../cloud-services/cloud-services-configure-ssl-certificate-portal.md).
 
 ## <a name="use-network-isolation-and-security-with-azure-service-fabric"></a>Utiliser la sécurité et l’isolement réseau avec Azure Service Fabric
-Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
+Configurez un cluster sécurisé à 3 types de nœud en utilisant le [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) comme exemple. Contrôlez les trafics réseau entrant et sortant à l’aide du modèle et de groupes de sécurité réseau.
 
 Le modèle a un groupe de sécurité réseau pour chacun des groupes de machines virtuelles identiques et permet de contrôler le trafic vers et depuis chacun d’eux. Les règles sont configurées par défaut pour autoriser tout le trafic nécessaire aux services système et aux ports d’application spécifiés dans le modèle. Passez en revue ces règles et apportez toutes les modifications nécessaires, y compris en ajoutant de nouvelles règles pour vos applications.
 

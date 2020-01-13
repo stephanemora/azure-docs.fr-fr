@@ -1,7 +1,7 @@
 ---
-title: Connecter des utilisateurs sans navigateur | Azure
+title: Flux du code d’appareil OAuth 2.0 | Azure
 titleSuffix: Microsoft identity platform
-description: Générez des flux d’authentification intégrés et sans navigateur à l’aide de l’octroi d’autorisation d’appareil.
+description: Connectez des utilisateurs sans navigateur. Générez des flux d’authentification intégrés et sans navigateur à l’aide de l’octroi d’autorisation d’appareil.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e937955f0b122d3a878141655475f34b051622e7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1035d5cd7c992bea74180b482bb8e3c2c9e0f461
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423252"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-authorization-grant-flow"></a>Plateforme d’identités Microsoft et flux d’octroi d’autorisation d’appareil OAuth 2.0
 
@@ -73,12 +73,12 @@ Une réponse réussie est un objet JSON contenant les informations requises pour
 
 | Paramètre | Format | Description |
 | ---              | --- | --- |
-|`device_code`     | Chaîne | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation. Ce client est utilisé par le client pour demander le jeton d’accès au serveur d’autorisation. |
-|`user_code`       | Chaîne | Chaîne courte présentée à l’utilisateur, utilisée pour identifier la session sur un appareil secondaire.|
+|`device_code`     | String | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation. Ce client est utilisé par le client pour demander le jeton d’accès au serveur d’autorisation. |
+|`user_code`       | String | Chaîne courte présentée à l’utilisateur, utilisée pour identifier la session sur un appareil secondaire.|
 |`verification_uri`| URI | URI auquel l’utilisateur doit accéder avec le `user_code` pour pouvoir se connecter. |
 |`expires_in`      | int | Nombre de secondes avant l’expiration de `device_code` et `user_code`. |
 |`interval`        | int | Nombre de secondes d’attente du client entre chaque requête d’interrogation. |
-| `message`        | Chaîne | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur. Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
+| `message`        | String | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur. Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
 
 > [!NOTE]
 > Le champ de réponse `verification_uri_complete` n’est ni inclus ni pris en charge pour l’instant.  Nous le mentionnons car, si vous lisez la [norme](https://tools.ietf.org/html/rfc8628), vous voyez que `verification_uri_complete` est répertorié comme une partie facultative de la norme de flux de code d’appareil.
@@ -135,7 +135,7 @@ Une réponse de jeton réussie se présente ainsi :
 
 | Paramètre | Format | Description |
 | --------- | ------ | ----------- |
-| `token_type` | Chaîne| Toujours Porteur. |
+| `token_type` | String| Toujours Porteur. |
 | `scope` | Chaînes séparées par un espace | Si un jeton d’accès est retourné, répertorie les étendues pour lesquelles le jeton d’accès est valide. |
 | `expires_in`| int | Nombre de secondes avant lequel le jeton d’accès fourni est valide. |
 | `access_token`| Chaîne opaque | Émise pour les [étendues](v2-permissions-and-consent.md) qui ont été demandées.  |

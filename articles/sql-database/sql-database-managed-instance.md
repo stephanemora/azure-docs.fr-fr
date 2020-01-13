@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/27/2019
-ms.openlocfilehash: 1a9c24846606c53fefa1ffc1de59f358524020c4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707622"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614941"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -29,7 +29,7 @@ Le diagramme suivant présente les principales fonctionnalités des instances ma
 
 ![fonctionnalités clés](./media/sql-database-managed-instance/key-features.png)
 
-Le modèle de déploiement d’instance managée est conçu pour les clients qui veulent migrer un grand nombre d’applications locales ou provenant d’environnements IaaS, générés automatiquement ou fournis par un éditeur de logiciels indépendant, vers un environnement cloud PaaS complètement managé, avec le moins d’efforts de migration possible. Avec le service [Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur serveur SQL Server local vers une instance managée compatible avec le SQL Server local et qui offre une isolation totale des instances des clients avec une prise en charge native des réseaux virtuels.  Avec Software Assurance, vous pouvez échanger leurs licences existantes contre des tarifs réduits sur une instance managée à l’aide d’[Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Une instance managée est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une haute sécurité et une surface de programmabilité riche.
+Le modèle de déploiement d’instance managée est conçu pour les clients qui veulent migrer un grand nombre d’applications locales ou provenant d’environnements IaaS, générés automatiquement ou fournis par un éditeur de logiciels indépendant, vers un environnement cloud PaaS complètement managé, avec le moins d’efforts de migration possible. Avec le service [Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) entièrement automatisé dans Azure, les clients peuvent effectuer une migration « lift-and-shift » de leur serveur SQL Server local vers une instance managée compatible avec le SQL Server local et qui offre une isolation totale des instances des clients avec une prise en charge native des réseaux virtuels.  Avec Software Assurance, vous pouvez échanger vos licences existantes pour bénéficier de tarifs réduits sur une instance managée à l’aide d’[Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).  Une instance managée est la meilleure destination de migration dans le cloud pour les instances SQL Server qui nécessitent une haute sécurité et une surface de programmabilité riche.
 
 L’option de déploiement d’instance managée a pour but d’assurer une compatibilité de la surface d’exposition proche de 100 % avec la dernière version locale de SQL Server par le biais d’un plan de mise en production par étapes.
 
@@ -56,15 +56,15 @@ Les fonctionnalités clés des instances managées figurent dans le tableau suiv
 |Fonctionnalité | Description|
 |---|---|
 | Version/Build de SQL Server | Moteur de base de données SQL Server (dernière version stable) |
-| Sauvegardes automatisées gérées | OUI |
-| Analyse et métriques des instances et bases de données intégrées | OUI |
-| Mise à jour corrective automatique des logiciels | OUI |
-| Les dernières fonctionnalités du moteur de base de données | OUI |
+| Sauvegardes automatisées gérées | Oui |
+| Analyse et métriques des instances et bases de données intégrées | Oui |
+| Mise à jour corrective automatique des logiciels | Oui |
+| Les dernières fonctionnalités du moteur de base de données | Oui |
 | Nombre de fichiers de données (ROWS) par base de données | Multiple |
 | Nombre de fichiers journaux (LOG) par base de données | 1 |
-| Réseau virtuel - Déploiement Azure Resource Manager | OUI |
+| Réseau virtuel - Déploiement Azure Resource Manager | Oui |
 | Réseau virtuel - Modèle de déploiement classique | Non |
-| Prise en charge du portail | OUI|
+| Prise en charge du portail | Oui|
 | Integration Services (SSIS) intégré | Non : SSIS fait partie de la [plateforme PaaS Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Analysis Services (SSAS) intégré | Non : SSAS est une [plateforme PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) distincte |
 | Reporting Services (SSRS) intégré | Non : utilisez Power BI ou l’infrastructure IaaS SSRS |
@@ -154,13 +154,13 @@ Le tableau suivant récapitule les opérations et les durées totales habituelle
 |Déploiement |Création de première instance de quatre vCores, sur un sous-réseau vide ou non vide|Création de cluster virtuel**|90 % des opérations se terminent dans les quatre heures|
 |Déploiement |Création d’instance suivante sur le sous-réseau non vide (2e instance, 3e instance, et ainsi de suite.)|Redimensionnement de cluster virtuel|90 % des opérations se terminent dans les deux heures trente|
 |**Mettre à jour** |Modification de propriété d’instance (mot de passe administrateur, connexion AAD, indicateur Azure Hybrid Benefit)|N/A|Jusqu’à une minute|
-|Mettre à jour |Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente|
-|Mettre à jour |Scale-up et scale-down du stockage d’instance (niveau de service Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
-|Mettre à jour |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente|
-|Mettre à jour |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
-|Mettre à jour |Scale-down de l’instance à quatre vCores (Usage général)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les quatre heures cinq|
-|Mettre à jour |Scale-down de l’instance à quatre vCores (Usage général)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les quatre heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
-|Mettre à jour |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Update |Scale-up ou scale-down du stockage d’instance (niveau de service Usage général)|Attachement de fichiers de base de données|90 % des opérations ne prennent pas plus de cinq minutes|
+|Update |Scale-up et scale-down du stockage d’instance (niveau de service Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Update |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général)|- Redimensionnement de cluster virtuel<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les deux heures trente|
+|Update |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Update |Scale-down de l’instance à quatre vCores (Usage général)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Attachement de fichiers de base de données|90 % des opérations se terminent dans les quatre heures cinq|
+|Update |Scale-down de l’instance à 4 vCores (Critique pour l’entreprise)|- Redimensionnement de cluster virtuel (s’il s’agit du premier redimensionnement, il peut nécessiter la création d’un cluster virtuel**)<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les quatre heures + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
+|Update |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa)|- Redimensionnement de cluster virtuel<br>- Amorçage de groupe de disponibilité Always On|90 % des opérations se terminent dans les deux heures trente + durée nécessaire pour amorcer toutes les bases de données (220 Go/heure)|
 |**Suppression**|Suppression d’instance|Sauvegarde de la fin du journal pour toutes les bases de données|90 % des opérations se terminent en une minute.<br>Remarque : Si la dernière instance du sous-réseau est supprimée, cette opération planifiera la suppression du cluster virtuel après 12 heures***|
 |Suppression|Suppression de cluster virtuel (en tant qu’opération lancée par l’utilisateur)|Suppression de cluster virtuel|90 % des opérations ne nécessitent pas plus d’une heure trente|
 
@@ -174,14 +174,45 @@ Le tableau suivant récapitule les opérations et les durées totales habituelle
 
 Les instances managées ne sont pas accessibles aux applications clientes pendant les opérations de déploiement et de suppression.
 
-Les instances managées sont disponibles pendant les opérations de mise à jour, mais il y a un court temps d’arrêt dû au basculement qui se produit à la fin des mises à jour, qui ne dure généralement pas plus de 10 secondes.
+Les instances managées sont disponibles pendant les opérations de mise à jour, mais il y a un court temps d’arrêt dû au basculement qui se produit à la fin des mises à jour, qui ne dure généralement pas plus de 10 secondes. La seule exception est la mise à jour de l’espace de stockage réservé dans le niveau de service Usage général qui n’entraîne pas de basculement et n’affecte pas la disponibilité de l’instance.
 
 > [!IMPORTANT]
 > La durée d’un basculement peut varier considérablement en cas de transactions de longue durée qui se produisent sur les bases de données en raison d’une [durée de récupération prolongée](sql-database-accelerated-database-recovery.md#the-current-database-recovery-process). Par conséquent, nous vous déconseillons de mettre à l’échelle la capacité de calcul ou le stockage de l’instance managée Azure SQL Database ou de modifier le niveau de service en même temps que les transactions de longue durée (importation de données, travaux de traitement des données, régénération d’index, et ainsi de suite). Le basculement de base de données qui sera effectué à la fin de l’opération annulera les transactions en cours et allongera le temps de récupération.
 
+> [!TIP]
+> La mise à jour de l’espace de stockage réservé dans le niveau de service Usage général n’entraîne pas de basculement et n’affecte pas la disponibilité de l’instance.
+
 La [récupération accélérée de la base de données](sql-database-accelerated-database-recovery.md) n’est actuellement pas disponible pour les instances managées Azure SQL Database. Une fois activée, cette fonctionnalité réduira considérablement la variabilité de la durée de basculement, même en cas de transactions de longue durée.
 
+### <a name="canceling-management-operations"></a>Annulation des opérations de gestion
 
+Le tableau suivant récapitule la possibilité d’annuler des opérations de gestion spécifiques et les durées totales habituelles :
+
+Category  |Opération  |Annulable  |Durée d’annulation estimée  |
+|---------|---------|---------|---------|
+|Déploiement |Création d’instance |Non |  |
+|Update |Scale-up ou scale-down du stockage d’instance (Usage général) |Non |  |
+|Update |Scale-up et scale-down du stockage d’instance (Critique pour l’entreprise) |Oui |90 % des opérations ne prennent pas plus de cinq minutes |
+|Update |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Usage général) |Oui |90 % des opérations ne prennent pas plus de cinq minutes |
+|Update |Scale-up et scale-down de la capacité de calcul des instances (vCores) (Critique pour l’entreprise) |Oui |90 % des opérations ne prennent pas plus de cinq minutes |
+|Update |Modification du niveau de service de l’instance (Usage général vers Critique pour l’entreprise et vice versa) |Oui |90 % des opérations ne prennent pas plus de cinq minutes |
+|DELETE |Suppression d’instance |Non |  |
+|DELETE |Suppression de cluster virtuel (en tant qu’opération lancée par l’utilisateur) |Non |  |
+
+Pour annuler l’opération de gestion, accédez au panneau Présentation et cliquez sur la zone de notification de l’opération en cours. Sur le côté droit, un écran avec l’opération en cours s’affiche et un bouton permet d’annuler l’opération. Après un premier clic, vous êtes invité à cliquer à nouveau et à confirmer que vous voulez annuler l’opération.
+
+[![](./media/sql-database-managed-instance/canceling-operation.png)](./media/sql-database-managed-instance/canceling-operation.png#lightbox)
+
+Une fois que l’annulation de la demande a été envoyée et traitée, vous recevez une notification indiquant si l’annulation de l’envoi a réussi ou non. 
+
+En cas de réussite de l’annulation, l’opération de gestion est annulée en quelques minutes, entraînant un échec.
+
+![Résultat d’opération d’annulation](./media/sql-database-managed-instance/canceling-operation-result.png)
+
+Si la demande d’annulation échoue ou que le bouton n’est pas actif, cela signifie que l’opération de gestion n’est pas à l’état annulable et qu’elle se termine dans quelques minutes. L’opération de gestion poursuit son exécution jusqu’à ce qu’elle soit terminée.
+
+> [!IMPORTANT]
+> L’opération d’annulation n’est actuellement prise en charge que dans le portail.
 
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées
 
@@ -211,7 +242,7 @@ Azure SQL Database fournit un ensemble de fonctionnalités de sécurité avancé
 - [L’audit d’instance managée](sql-database-managed-instance-auditing.md) suit les événements de base de données et les écrit dans un fichier journal d’audit placé dans votre compte de stockage Azure. L’audit permet de respecter une conformité réglementaire, de comprendre l’activité de la base de données et de découvrir des discordances et des anomalies susceptibles d’indiquer des problèmes pour l’entreprise ou des violations de la sécurité.
 - Chiffrement des données en mouvement : une instance managée sécurise vos données par le biais d’un chiffrement des données en mouvement à l’aide du protocole TLS. En plus du protocole TLS, l’option de déploiement d’instance managée offre une protection des données sensibles en vol, au repos et pendant le traitement des requêtes avec [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted est une nouveauté qui offre une protection inégalée des données contre les failles de sécurité impliquant le vol de données critiques. Par exemple, avec Always Encrypted, les numéros de carte de crédit sont toujours chiffrés dans la base de données, même pendant le traitement des requêtes, ce qui permet le déchiffrement au point d’utilisation par les applications ou le personnel autorisés qui doivent traiter ces données.
 - [Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) complète l’[audit](sql-database-managed-instance-auditing.md) en fournissant une couche supplémentaire d’informations de sécurité intégrée au service qui détecte les tentatives d’accès ou d’exploitation de base de données inhabituelles et potentiellement dangereuses. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les Advanced Threat Protection peuvent être consultées dans [Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et atténuer la menace.  
-- Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilèges. Le masquage des données dynamique contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
+- Le [masquage dynamique des données](/sql/relational-databases/security/dynamic-data-masking) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilèges. Le masquage des données dynamique contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête sur des champs de base de données désignés (les données dans la base de données ne sont pas modifiées).
 - La [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) vous permet de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données aux seules données pertinentes.
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’instance managée. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans une instance managée avec Transparent Data Encryption. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL Server, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage.
 
@@ -238,7 +269,7 @@ L’authentification d’instance managée fait référence à la façon dont le
 
   Cette méthode d’authentification utilise des identités gérées par Azure Active Directory, et est prise en charge pour les domaines managés et intégrés. Utilisez l’authentification Active Directory (sécurité intégrée) [dans la mesure du possible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorisation
 
 Le terme autorisation fait référence aux actions qu’un utilisateur peut exécuter au sein d’Azure SQL Database. Celles-ci sont contrôlées par les appartenances aux rôles et les autorisations au niveau objet de la base de données de votre compte d’utilisateur. Une instance managée a les mêmes fonctionnalités d’autorisation que SQL Server 2017.
 
@@ -246,7 +277,7 @@ Le terme autorisation fait référence aux actions qu’un utilisateur peut exé
 
 L’option de déploiement d’instance managée cible des scénarios d’utilisateur avec une migration massive de bases de données locales ou des implémentations de base de données IaaS. L’instance managée prend en charge plusieurs options de migration de base de données :
 
-### <a name="back-up-and-restore"></a>Sauvegarder et restaurer des données  
+### <a name="back-up-and-restore"></a>Sauvegarde et restauration  
 
 L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans un objet blob de stockage Azure peuvent être directement restaurées dans une instance managée à l’aide de la [commande T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 

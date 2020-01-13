@@ -1,18 +1,15 @@
 ---
-title: Configurer des notifications Azure Service Health pour les systèmes de gestion des problèmes existants à l’aide d’un webhook
+title: Envoyer des notifications Azure Service Health avec un webhook
 description: Envoyez des notifications personnalisées sur les événements d’intégrité de service à votre système de gestion des problèmes existants.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
-ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 8f84b43519c197797b39397cfd15c4f90444177c
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 95926185057d9fc1177b974fe76b2da18ebfc124
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854383"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551673"
 ---
 # <a name="use-a-webhook-to-configure-health-notifications-for-problem-management-systems"></a>Utiliser un webhook afin de configurer les notifications d’intégrité pour les systèmes de gestion des problèmes
 
@@ -34,7 +31,7 @@ Si vous souhaitez utiliser une intégration préconfigurée, consultez :
 ## <a name="configure-a-custom-notification-by-using-the-service-health-webhook-payload"></a>Configurer une notification personnalisée à l’aide de la charge utile du webhook Service Health
 Pour configurer l’intégration de votre propre webhook personnalisé, vous devez analyser la charge utile JSON envoyée via la notification Service Health.
 
-Consultez [un exemple](../azure-monitor/platform/activity-log-alerts-webhook.md) de charge utile de Webhook `ServiceHealth`.
+Consultez [un exemple](../azure-monitor/platform/activity-log-alerts-webhook.md) de charge utile de webhook `ServiceHealth`.
 
 Vous pouvez vérifier qu’il s’agit d’une alerte Service Health en examinant `context.eventSource == "ServiceHealth"`. Les propriétés suivantes sont les plus pertinentes :
 - **data.context.activityLog.status**
