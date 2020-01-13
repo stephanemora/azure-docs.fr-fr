@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279510"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436359"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -46,7 +46,7 @@ Cet effet peut s’avérer utile pour tester certaines situations ou lorsque la 
 Une alternative à l’effet Désactivé est **enforcementMode** , qui est défini sur l’attribution de stratégie.
 Lorsque **enforcementMode** est _Désactivé_, les ressources sont toujours évaluées. La journalisation, notamment les journaux d’activité, et l’effet de stratégie ne se produisent pas. Pour plus d’informations, consultez [Attribution de stratégie - Mode de mise en conformité](./assignment-structure.md#enforcement-mode).
 
-## <a name="append"></a>Append
+## <a name="append"></a>Ajouter
 
 Append permet d’ajouter des champs supplémentaires à la ressource demandée lors de la création ou de la mise à jour. Un exemple courant consiste à spécifier des adresses IP autorisées pour une ressource de stockage.
 
@@ -65,7 +65,7 @@ Un effet Append prend en charge la propriété obligatoire **details** uniquemen
 
 ### <a name="append-examples"></a>Exemples Append
 
-Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non- **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non- **[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
+Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non- **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non- **[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
 
 ```json
 "then": {
@@ -80,7 +80,7 @@ Exemple 1 : paire **champ/valeur** unique utilisant un [alias](definition-stru
 }
 ```
 
-Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **[\*]** , l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas déjà, il sera créé.
+Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) **[\*]** avec un tableau **value** afin de définir des règles IP sur un compte de stockage. En utilisant l’alias **[\*]** , l’effet ajoute la **value** à un tableau potentiellement préexistant. Si le tableau n’existe pas déjà, il sera créé.
 
 ```json
 "then": {
@@ -166,7 +166,7 @@ La propriété **operation** comprend les options suivantes :
 
 ### <a name="modify-examples"></a>Exemples Modify
 
-Exemple 1 : Ajoutez l’étiquette `environment` et remplacez les étiquettes `environment` existantes par « Test » :
+Exemple 1 : Ajoutez l’étiquette `environment` et remplacez les étiquettes `environment` existantes par « Test » :
 
 ```json
 "then": {
@@ -186,7 +186,7 @@ Exemple 1 : Ajoutez l’étiquette `environment` et remplacez les étiquettes 
 }
 ```
 
-Exemple 2 : Supprimez l’étiquette `env` et ajoutez l’étiquette `environment`, ou remplacez les étiquettes `environment` existantes par une valeur paramétrable :
+Exemple 2 : Supprimez l’étiquette `env` et ajoutez l’étiquette `environment`, ou remplacez les étiquettes `environment` existantes par une valeur paramétrable :
 
 ```json
 "then": {
@@ -226,7 +226,7 @@ L’effet Deny n’a pas d’autres propriétés utilisables dans la condition *
 
 ### <a name="deny-example"></a>Exemple Deny
 
-Exemple : utilisation de l’effet Deny.
+Exemple : utilisation de l’effet Deny.
 
 ```json
 "then": {
@@ -248,7 +248,7 @@ L’effet Audit n’a pas d’autres propriétés utilisables dans la condition 
 
 ### <a name="audit-example"></a>Exemple Audit
 
-Exemple : utilisation de l’effet Audit.
+Exemple : utilisation de l’effet Audit.
 
 ```json
 "then": {
@@ -294,7 +294,7 @@ La propriété **details** des effets AuditIfNotExists possède toutes les sous-
 
 ### <a name="auditifnotexists-example"></a>Exemple AuditIfNotExists
 
-Exemple : évalue les Machines virtuelles Microsoft Azure pour déterminer si l’extension Antimalware existe, puis effectue un audit si l’extension est absente.
+Exemple : évalue les Machines virtuelles Microsoft Azure pour déterminer si l’extension Antimalware existe, puis effectue un audit si l’extension est absente.
 
 ```json
 {
@@ -327,7 +327,7 @@ Exemple : évalue les Machines virtuelles Microsoft Azure pour déterminer si l
 Comme pour AuditIfNotExists, une définition de stratégie DeployIfNotExists exécute un déploiement de modèle lorsque la condition est remplie.
 
 > [!NOTE]
-> Les [modèles imbriqués](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template) sont pris en charge avec **deployIfNotExists**, mais les [modèles liés](../../../azure-resource-manager/resource-group-linked-templates.md) ne sont actuellement pas pris en charge.
+> Les [modèles imbriqués](../../../azure-resource-manager/templates/linked-templates.md#nested-template) sont pris en charge avec **deployIfNotExists**, mais les [modèles liés](../../../azure-resource-manager/templates/linked-templates.md#linked-template) ne sont actuellement pas pris en charge.
 
 ### <a name="deployifnotexists-evaluation"></a>Évaluation DeployIfNotExists
 
@@ -378,7 +378,7 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
 
 ### <a name="deployifnotexists-example"></a>Exemple DeployIfNotExists
 
-Exemple : évalue les bases de données SQL Server pour déterminer si transparentDataEncryption est activée. Sinon, un déploiement destiné à l’activer est exécuté.
+Exemple : évalue les bases de données SQL Server pour déterminer si transparentDataEncryption est activée. Sinon, un déploiement destiné à l’activer est exécuté.
 
 ```json
 "if": {
@@ -454,7 +454,7 @@ La propriété **details** de l’effet EnforceOPAConstraint contient les sous-p
 
 ### <a name="enforceregopolicy-example"></a>Exemple EnforceRegoPolicy
 
-Exemple : Règle de contrôle d’admission de Gatekeeper v3 pour définir les limites de ressources de mémoire et d’UC du conteneur dans le moteur AKS.
+Exemple : Règle de contrôle d’admission de Gatekeeper v3 pour définir les limites de ressources de mémoire et d’UC du conteneur dans le moteur AKS.
 
 ```json
 "if": {
@@ -510,7 +510,7 @@ La propriété **details** de l’effet EnforceRegoPolicy contient les sous-prop
 
 ### <a name="enforceregopolicy-example"></a>Exemple EnforceRegoPolicy
 
-Exemple : Règle de contrôle d’admission Gatekeeper v2 pour autoriser uniquement les images de conteneur spécifiées dans AKS.
+Exemple : Règle de contrôle d’admission Gatekeeper v2 pour autoriser uniquement les images de conteneur spécifiées dans AKS.
 
 ```json
 "if": {

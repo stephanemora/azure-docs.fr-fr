@@ -1,6 +1,6 @@
 ---
 title: Envoyer et recevoir des messages AS2 pour l’intégration B2B
-description: Échangez des messages AS2 dans le cadre de scénarios d’intégration d’entreprise B2B à l’aide d’Azure Logic Apps
+description: Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 08/22/2019
-ms.openlocfilehash: b2d7c8840da3bb44f9e220f2963dc4fee63176e2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790718"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666701"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -49,7 +49,7 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 > [!IMPORTANT]
 > Il est déconseillé d’utiliser le connecteur AS2 d’origine.Asurez-vous donc d’utiliser le connecteur **AS2 (v2)** . Cette version offre les mêmes fonctionnalités que la version d’origine, est native au runtime Logic Apps et apporte d’importantes améliorations des performances en ce qui concerne le débit et de taille des messages. De plus, le connecteur v2 natif ne nécessite pas la création d’une connexion à votre compte d’intégration. Comme indiqué dans les prérequis; assurez-vous plutôt de lier votre compte d’intégration à l’application logique dans laquelle vous envisagez d’utiliser le connecteur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -71,7 +71,7 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
 ## <a name="encode-as2-messages"></a>Encoder des messages AS2
 
-1. Si ce n’est pas déjà fait, dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Si ce n’est déjà fait, dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’application logique.
 
 1. Dans le concepteur, ajoutez une nouvelle action à votre application logique.
 
@@ -96,7 +96,7 @@ Cet article explique comment ajouter des actions de codage et de décodage AS2 �
 
 ## <a name="decode-as2-messages"></a>Décoder des messages AS2
 
-1. Si ce n’est pas déjà fait, dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Si ce n’est déjà fait, dans le [Portail Microsoft Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’application logique.
 
 1. Dans le concepteur, ajoutez une nouvelle action à votre application logique.
 
@@ -116,7 +116,7 @@ Pour déployer une application logique totalement opérationnelle dans le cadre 
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/as2/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/as2/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

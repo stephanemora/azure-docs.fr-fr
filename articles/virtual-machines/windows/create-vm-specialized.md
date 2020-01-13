@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: ac18056f9bfdf22c55b5effac810b8c24ab4d81d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fc157c2253a718860e028fa493574cb9aa2ccdf2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033860"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460192"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Cet article montre comment utiliser des disques managés. Si vous avez un déplo
 
 Nous vous recommandons de limiter le nombre de déploiements simultanés à 20 machines virtuelles provenant d’un seul disque dur virtuel ou d’une seule capture instantanée. 
 
-## <a name="option-1-use-an-existing-disk"></a>Option 1 : Utiliser un disque existant
+## <a name="option-1-use-an-existing-disk"></a>Option 1 : Utiliser un disque existant
 
 Si vous avez supprimé une machine virtuelle et souhaitez réutiliser le disque du système d'exploitation pour créer une nouvelle machine virtuelle, utilisez [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
@@ -50,7 +50,7 @@ $osDisk = Get-AzDisk `
 ```
 Vous pouvez maintenant joindre ce disque en tant que disque de système d’exploitation à une [nouvelle machine virtuelle](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Option 2 : Charger un disque dur virtuel spécialisé
+## <a name="option-2-upload-a-specialized-vhd"></a>Option n°2 : Charger un disque dur virtuel spécialisé
 
 Vous pouvez charger le disque dur virtuel à partir d’une machine virtuelle spécialisée créée avec un outil de virtualisation local tel que Hyper-V, ou d’une machine virtuelle exportée à partir d’un autre cloud.
 
@@ -66,7 +66,7 @@ Utilisez le disque dur virtuel en l’état pour créer une machine virtuelle.
 
 Vous pouvez désormais charger un disque dur virtuel directement dans un disque managé. Pour plus d’instructions, consultez [Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Option 3 : Copier une machine virtuelle Azure existante
+## <a name="option-3-copy-an-existing-azure-vm"></a>Option 3 : Copier une machine virtuelle Azure existante
 
 Vous pouvez créer une copie d’une machine virtuelle qui utilise des disques managés en prenant une capture instantanée de la machine virtuelle, puis en utilisant cette capture instantanée pour créer un disque managé et une machine virtuelle.
 

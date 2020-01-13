@@ -1,7 +1,7 @@
 ---
 title: 'Sélection de caractéristiques par filtrage : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de sélection de caractéristiques par filtrage dans le service Azure Machine Learning pour identifier les caractéristiques d’un jeu de données avec la meilleure capacité de prédiction.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module de sélection de caractéristiques par filtrage dans Azure Machine Learning pour identifier les caractéristiques d’un jeu de données avec la meilleure capacité de prédiction.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: f8ae4982f7602cd7403a78517fec79fa95d33aa2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717205"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428523"
 ---
 # <a name="filter-based-feature-selection"></a>Sélection de caractéristiques par filtrage
 
@@ -68,7 +68,7 @@ Vous choisissez une métrique statistique standard. Le module calcule la corrél
     > Si vous savez que certaines colonnes risquent de fournir des caractéristiques inadaptées, vous pouvez les supprimer de la sélection. Vous pouvez également utiliser le module [Modifier les métadonnées](edit-metadata.md) pour les définir comme **Catégorie**. 
 3.  Pour la **méthode de notation des caractéristiques**, choisissez l’une des méthodes statistiques établies ci-dessous. Celle-ci sera utilisée pour le calcul des scores.  
 
-    | Méthode              | Configuration requise                             |
+    | Méthode              | Spécifications                             |
     | ------------------- | ---------------------------------------- |
     | Corrélation de Pearson | L’étiquette peut être de type texte ou numérique. Les caractéristiques doivent être numériques. |
     Test du khi-deux| Les étiquettes et les caractéristiques peuvent être de type texte ou numérique. Utilisez cette méthode pour calculer l’importance des caractéristiques pour deux colonnes Catégorie.|
@@ -114,7 +114,7 @@ Si vous utilisez la corrélation de Pearson sur une caractéristique numérique 
 
 2.  Mettez en corrélation la colonne des moyennes conditionnelles avec la colonne numérique.  
 
-### <a name="requirements"></a>Configuration requise  
+### <a name="requirements"></a>Spécifications  
 
 -   Il est impossible de générer un score de sélection de caractéristiques pour une colonne désignée comme colonne d’**étiquette** ou de **score**.  
 
@@ -135,5 +135,5 @@ Si vous utilisez la corrélation de Pearson sur une caractéristique numérique 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 

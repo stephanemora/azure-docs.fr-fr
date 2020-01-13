@@ -177,6 +177,8 @@
               href: azure-to-azure-how-to-enable-replication.md
             - name: Activer la réplication Azure vers Azure pour des machines virtuelles chiffrées
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
+            - name: Activer la réplication Azure vers Azure pour des machines virtuelles avec disques CMK
+              href: azure-to-azure-how-to-enable-replication-cmk-disks.md
             - name: Activer la réplication Azure vers Azure pour des machines virtuelles S2D
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Activer la réplication pour un disque ajouté

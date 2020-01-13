@@ -3,12 +3,12 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 09/08/2018
-ms.openlocfilehash: 08d772fc9b2871262b449a017f8be59a344576b2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 374d00a75423274d03320b9c1299a2c2dae080ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433187"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
@@ -19,7 +19,7 @@ ms.locfileid: "74975446"
 Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article liste les paramètres disponibles à compter de la version 2.x du runtime Azure Functions.  
 
 > [!NOTE]
-> Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
+> Cet article concerne Azure Functions versions 2.x et ultérieures.  Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md).
 
 Les autres options de configuration d’application de fonction sont managées dans vos [paramètres d’application](functions-app-settings.md).
 
@@ -95,11 +95,15 @@ Les sections suivantes de cet article expliquent chaque propriété de niveau su
 
 Ce paramètre est un enfant de la [journalisation](#logging).
 
-Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](./functions-monitoring.md#configure-sampling).
+Contrôle les options disponibles dans Application Insights, notamment les [options d’échantillonnage](./functions-monitoring.md#configure-sampling).
 
 ```json
 {
-    "applicationInsights": {
+    "applicationInsights": {        
+        "enableDependencyTracking": true,
+        "enablePerformanceCountersCollection": true,
+        "samplingExcludedTypes": "Trace;Exception",
+        "samplingIncludedTypes": "Request;Dependency",
         "samplingSettings": {
           "isEnabled": true,
           "maxTelemetryItemsPerSecond" : 20
@@ -113,11 +117,12 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
-|isEnabled|true|Active ou désactive l’échantillonnage.| 
-|maxTelemetryItemsPerSecond|20|Seuil à partir duquel l’échantillonnage débute.| 
-|EnableLiveMetrics |true|Active la collecte des métriques temps réel.|
-|EnableDependencyTracking|true|Active le suivi des dépendances.|
-|EnablePerformanceCountersCollection|true|Active la collecte des compteurs de performances Kudu.|
+|enableDependencyTracking|true|Active le suivi des dépendances.|
+|enablePerformanceCountersCollection|true|Active la collecte des compteurs de performances.|
+|samplingExcludedTypes|null|Une liste délimitée par des points-virgules des types que vous ne souhaitez pas voir échantillonnés. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Toutes les instances des types spécifiés sont transmises ; les types qui ne sont pas spécifiés sont échantillonnés.| 
+|samplingIncludedTypes|null|Une liste délimitée par des points-virgules des types que vous souhaitez échantillonner. Les types reconnus sont : Dependency, Event, Exception, PageView, Request et Trace. Les types spécifiés sont échantillonnés ; toutes les instances des autres types sont toujours transmises.|
+|samplingSettings.isEnabled|true|Active ou désactive l’échantillonnage.| 
+|samplingSettings.maxTelemetryItemsPerSecond|20|Seuil à partir duquel l’échantillonnage débute.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 

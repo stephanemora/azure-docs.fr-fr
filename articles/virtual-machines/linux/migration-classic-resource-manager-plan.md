@@ -1,5 +1,5 @@
 ---
-title: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
+title: Planification de migration de ressources Classic vers Azure Resource Manager
 description: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d4c7bdf33ed1a35e7b27eed8baa3b96066d25dd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035716"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75369023"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier son parcours de migration pour que tout se passe sans heurts. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration. 
@@ -31,7 +31,7 @@ Le parcours de migration comprend quatre étapes générales :
 
 ![Phases de migration](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Planification
+## <a name="plan"></a>Plan
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considérations et concessions techniques
 
@@ -123,7 +123,7 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure CLI.
 
-    **Calcul** *(cœurs, groupes à haute disponibilité)*
+    **Compute** *(cœurs, groupes à haute disponibilité)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
@@ -179,7 +179,7 @@ Des tests incomplets peuvent provoquer des problèmes et des retards de migratio
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considérations et concessions techniques
 
-Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur parti de la plateforme.  Lisez la [vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) pour découvrir les avantages supplémentaires.
+Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur parti de la plateforme.  Lisez la [vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md) pour découvrir les avantages supplémentaires.
 
 Points importants à prendre en compte :
 

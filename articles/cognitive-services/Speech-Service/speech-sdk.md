@@ -8,18 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 12/10/2019
 ms.author: wolfma
-ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 7bd4541d135020e297bef26f234ae35d953abfce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446815"
 ---
 # <a name="about-the-speech-sdk"></a>À propos du kit SDK Speech
 
-Le SDK Speech permet à vos applications d’accéder aux fonctions du service Speech, facilitant le développement de logiciels de reconnaissance vocale. Actuellement, les SDK permettent d’accéder aux options de **reconnaissance vocale**, **synthèse vocale**, **traduction vocale**, **reconnaissance de l’intention** et **canal Direct Line Speech de Bot Framework**. Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](https://aka.ms/csspeech) de la documentation.
+Le SDK Speech permet à vos applications d’accéder aux fonctions du service Speech, facilitant le développement de logiciels de reconnaissance vocale. Actuellement, les SDK permettent d’accéder aux options de **reconnaissance vocale**, **synthèse vocale**, **traduction vocale**, **reconnaissance de l’intention** et **canal Direct Line Speech de Bot Framework**.
+
+Vous pouvez facilement capturer du contenu audio à partir d’un microphone, lire un flux ou accéder à des fichiers audio dans un espace de stockage avec le Kit de développement logiciel (SDK) Speech. Le SDK Speech prend en charge le contenu audio monocanal WAV/PCM 16 bits, 16 kHz/8 kHz pour la reconnaissance vocale. D’autres formats audio sont pris en charge en utilisant le [point de terminaison REST de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou le [service de transcription Batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+
+Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](https://aka.ms/csspeech) de la documentation.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -31,21 +35,21 @@ Le SDK Speech permet à vos applications d’accéder aux fonctions du service S
 
 Pour Windows, nous prenons en charge les langages suivants :
 
-* C# (UWP et .NET), C++ : vous pouvez référencer et utiliser la dernière version de notre package NuGet du kit SDK Speech. Le package inclut des bibliothèques clientes 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET). Le SDK peut être installé dans Visual Studio à l’aide de NuGet. Recherchez **Microsoft.CognitiveServices.Speech**.
+* C# (UWP et .NET), C++ : vous pouvez référencer et utiliser la dernière version de notre package NuGet du kit SDK Speech. Le package inclut des bibliothèques clientes 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET). Vous pouvez installer le Kit de développement logiciel (SDK) dans Visual Studio à l’aide de NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
 
-* Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du SDK Speech, qui prend uniquement en charge Windows x64. Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` comme dépendance.
+* Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du SDK Speech, qui prend uniquement en charge Windows x64. Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` comme dépendance.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> À l’heure actuelle, nous prenons uniquement en charge Ubuntu 16.04, Ubuntu 18.04 et Debian 9 sur les architectures cibles suivantes :
+> À l’heure actuelle, nous prenons en charge uniquement Ubuntu 16.04, Ubuntu 18.04 et Debian 9 sur les architectures cibles suivantes :
 > - x86, x64 et ARM64 pour le développement en C++
 > - x64 et ARM64 pour Java
 > - x64 pour .NET Core et Python
 
 Vérifiez que les bibliothèques requises sont installées en exécutant les commandes shell suivantes :
 
-Sur Ubuntu :
+Sur Ubuntu :
 
 ```sh
 sudo apt-get update
@@ -62,7 +66,7 @@ sudo apt-get install libssl1.0.2 libasound2
 * C# : vous pouvez référencer et utiliser la dernière version de notre package NuGet du kit SDK Speech. Pour référencer le SDK, ajoutez la référence de package suivante à votre projet :
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
   ```
 
 * Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du kit SDK Speech. Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` comme dépendance.

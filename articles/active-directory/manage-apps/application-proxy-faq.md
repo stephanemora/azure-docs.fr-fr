@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832212"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443410"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur la fonctionnalité Proxy d’application Azure Active Directory
 
@@ -53,9 +53,9 @@ Pour obtenir des recommandations, consultez [Haute disponibilité et équilibrag
 
 Non, ce scénario n’est pas pris en charge. Seuls le connecteur et les services de mise à jour peuvent être configurés pour utiliser un proxy de transfert pour le trafic sortant vers Azure. Consultez [Travailler avec des serveurs proxy locaux existants](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
 
-### <a name="is-ssl-termination-sslhhtps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>L’arrêt SSL (inspection ou accélération SSL/HHTPS) sur le trafic entre les serveurs du connecteur et Azure est-il pris en charge ?
+### <a name="is-ssl-termination-sslhttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>L’arrêt SSL (inspection ou accélération SSL/HTTPS) sur le trafic entre les serveurs du connecteur et Azure est-il pris en charge ?
 
-Le connecteur de proxy d’application effectue une authentification par certificat auprès d’Azure. L’arrêt SSL (inspection ou accélération SSL/HHTPS) interrompt cette méthode d’authentification et n’est pas pris en charge. Le trafic entre le connecteur et Azure doit ignorer tous les appareils qui effectuent un arrêt SSL.  
+Le connecteur de proxy d’application effectue une authentification par certificat auprès d’Azure. L’arrêt SSL (inspection ou accélération SSL/HTTPS) interrompt cette méthode d’authentification et n’est pas pris en charge. Le trafic entre le connecteur et Azure doit ignorer tous les appareils qui effectuent un arrêt SSL.  
 
 ### <a name="should-i-create-a-dedicated-account-to-register-the-connector-with-azure-ad-application-proxy"></a>Dois-je créer un compte dédié pour inscrire le connecteur auprès du proxy d’application Azure AD ?
 

@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/04/2019
-ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.date: 12/11/2019
+ms.openlocfilehash: 62a66f180fd6e89329fe17a96115ecc4ca914107
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407231"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -77,9 +77,9 @@ Il existe deux façons d’activer la supervision des applications hébergées p
 
 # <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
-Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
+Les versions suivantes de .NET Core sont prises en charge : ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
-Le ciblage du framework complet à partir de .NET Core, le déploiement autonome et ASP.NET Core 3.0 **ne sont actuellement pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) avec le code peut être utilisée dans tous les scénarios précédents.)
+Le ciblage de l’infrastructure complète à partir de .NET Core, le déploiement autonome et les applications basées sur Linux ne sont actuellement **pas pris en charge** avec la supervision basée sur un agent/une extension. (L’[instrumentation manuelle](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) avec le code peut être utilisée dans tous les scénarios précédents.)
 
 1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre service d’application.
 
@@ -92,7 +92,7 @@ Le ciblage du framework complet à partir de .NET Core, le déploiement autonome
 
      ![Instrumenter votre application web](./media/azure-web-apps/create-resource-01.png)
 
-2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. .NET Core prend en charge le niveau de **collecte Recommandé** ou **Désactivé** pour .NET Core 2.0, 2.1 et 2.2.
+2. Après avoir spécifié la ressource à utiliser, vous pouvez choisir la façon dont Application Insights doit collecter les données par plateforme pour votre application. .NET Core prend en charge les niveaux de collecte **Recommandé** ou **Désactivé** pour .NET Core 2.0, 2.1, 2.2 et 3.0.
 
     ![Choisir les options par plateforme](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -117,7 +117,7 @@ Les applications web Python basées sur App Service ne prennent pas en charge la
 La supervision côté client est activée pour ASP.NET. Pour activer la supervision côté client :
 
 * Sélectionnez **Paramètres** >** **Paramètres de l’application** **
-   * Sous Paramètres de l’application, ajoutez un nouveau **nom de paramètre d’application** et une nouvelle **valeur** :
+   * Sous Paramètres de l’application, ajoutez un nouveau **nom de paramètre d’application** et la **valeur** associée :
 
      Nom : `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -349,7 +349,7 @@ Pour connaître la version de votre extension, consultez `http://yoursitename.sc
 
 Si vous réalisez la mise à niveau à partir d’une version antérieure à 2.5.1, vérifiez que les DLL ApplicationInsigths sont supprimées du dossier bin de l’application. Pour plus d’informations, [consultez les étapes de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les problèmes rencontrés avec la supervision basée sur un agent/une extension pour les applications .NET et .NET Core exécutées sur Azure App Services.
 
@@ -377,7 +377,7 @@ Vous trouverez ci-après les étapes à suivre pas à pas pour résoudre les pro
 
 Ce tableau explique plus en détail la signification de ces valeurs d’erreur, leurs causes sous-jacentes et les corrections conseillées :
 
-|Valeur d’erreur|Explication|Correctif
+|Valeur d’erreur|Explication|Fix
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Cette valeur indique que l’extension a détecté que certains éléments du SDK sont déjà présents dans l’application et qu’ils seront mis en back-off. Cela peut être dû à la présence d’une référence à `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` ou `Microsoft.ApplicationInsights`  | Supprimez la référence. Certaines de ces références sont ajoutées par défaut à partir de certains modèles Visual Studio, et les versions antérieures de Visual Studio ajoutent parfois des références à `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Si l’application cible .NET Core 2.1 ou 2.2 et fait référence au métapaquet [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All), elle utilise Application Insights, et l’extension sera mise en back-off. | Pour les clients sur .NET Core 2.1 ou 2.2, il est [conseillé](https://github.com/aspnet/Announcements/issues/287) d’utiliser le métapaquet Microsoft.AspNetCore.App à la place.|

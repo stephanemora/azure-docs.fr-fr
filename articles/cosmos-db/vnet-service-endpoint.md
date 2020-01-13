@@ -1,5 +1,5 @@
 ---
-title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service de réseau virtuel Azure
+title: Sécuriser l’accès aux comptes Azure Cosmos DB à l’aide du point de terminaison de service de réseau virtuel
 description: Ce document présente le contrôle d’accès à un réseau virtuel et à un sous-réseau pour un compte Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af1032de9aabac45ad7a86cfe1f36ed2c04c0f71
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444622"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -20,7 +20,7 @@ Vous pouvez configurer le compte Azure Cosmos pour n'autoriser l'accès qu'à pa
 
 Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle source tant que la demande est accompagnée d’un jeton d’autorisation valide. Lorsque vous ajoutez un ou plusieurs sous-réseaux au sein de réseaux virtuels, seules les requêtes provenant de ces sous-réseaux obtiendront une réponse valide. Les requêtes provenant de toute autre source recevront une réponse 403 (Interdit). 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Voici quelques questions fréquemment posées sur la configuration de l’accès à partir de réseaux virtuels :
 

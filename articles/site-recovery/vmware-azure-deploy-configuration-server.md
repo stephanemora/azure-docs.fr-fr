@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f2e9387af3c5922ec5eb0dded3d0d1d4bcee6a01
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5209dab5e0934cc98bb1334a1565cc13998a7d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376288"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -26,7 +26,7 @@ Vous devez déployer un serveur de configuration local quand vous utilisez [Azur
 
 Le serveur de configuration doit être configuré comme une machine virtuelle VMware hautement disponible avec certaines exigences matérielles et dimensionnelles minimales. Pour un déploiement simple et pratique, Site Recovery fournit un modèle OVA (Open Virtualization Application) téléchargeable pour configurer le serveur de configuration conformément à toutes les exigences listées ci-dessous.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les conditions matérielles minimales pour un serveur de configuration sont synthétisées dans les sections suivantes.
 
@@ -142,6 +142,10 @@ Pour mettre à niveau le serveur de configuration vers la dernière version, con
 
 Pour éviter toute interruption d’une réplication continue, assurez-vous que l’adresse IP du serveur de configuration ne change pas une fois celui-ci inscrit dans un coffre. Pour en savoir plus sur les tâches de gestion communes d’un serveur de configuration, consultez [Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware](vmware-azure-manage-configuration-server.md).
 
+## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
+
+Pour résoudre les problèmes de connectivité et de déploiement, consultez cet [article](vmware-azure-troubleshoot-configuration-server.md).
+
 ## <a name="faqs"></a>FAQ
 
 * Pendant combien de temps la licence fournie sur le serveur de configuration déployé via OVF est-elle valide ? Que se passe-t-il si je ne réactive pas la licence ?
@@ -183,13 +187,11 @@ Pour éviter toute interruption d’une réplication continue, assurez-vous que 
 
     Il est conseillé de configurer le serveur de configuration sur l’environnement local moyennant une ligne de vue directe avec v-Center, et de réduire les latences de transfert de données. Vous pouvez procéder à des sauvegardes planifiées du serveur de configuration [à des fins de restauration automatique](vmware-azure-manage-configuration-server.md#failback-requirements).
 
+* Puis-je modifier le pilote de cache sur un serveur de configuration ou sur un serveur de traitement avec scale-out ?
+
+    Non, le pilote de cache ne peut pas être modifié une fois la configuration terminée.
+
 Pour plus d’informations sur les serveurs de configuration, consultez [Questions courantes relatives aux serveurs de configuration](vmware-azure-common-questions.md#configuration-server).
-
-## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement : Azure | Microsoft Docs
+title: Migrer un Contrat Entreprise vers des API Contrat client Microsoft – Azure
 description: Cet article vous aide à comprendre les conséquences de la migration d’un Contrat Entreprise Microsoft vers un Contrat Client Microsoft.
 services: cost-management
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 20d83c48fb4ad60b091dc87b224a053690251a48
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7fef417a7b19d463a98d32b7cf3cce515d1137a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441002"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
@@ -178,39 +178,39 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | ChargesBilledSeparately | isAzureCreditEligible | Notez que ces propriétés sont opposées. Si isAzureCreditEnabled a la valeur true, ChargesBilledSeparately a la valeur false. |
 | ConsumedQuantity | quantité | &nbsp; |
 | ConsumedService | consumedService | Les valeurs précises des chaînes peuvent différer. |
-| ConsumedServiceId | Aucun | &nbsp; |
+| ConsumedServiceId | None | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Date et usageStartDate | date | &nbsp;  |
-| jour | Aucun | Analyse le jour à partir de la date. |
+| Date et usageStartDate | Date | &nbsp;  |
+| jour | None | Analyse le jour à partir de la date. |
 | DepartmentId | invoiceSectionId | Les valeurs précises diffèrent. |
 | DepartmentName | invoiceSectionName | Les valeurs précises des chaînes peuvent différer. Permet de configurer les sections de vos factures en fonction des services impliqués, si nécessaire. |
 | ExtendedCost et Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Is Recurring Charge | Aucun | &nbsp;  |
+| Is Recurring Charge | None | &nbsp;  |
 | Location | location | &nbsp;  |
 | MeterCategory | meterCategory | Les valeurs précises des chaînes peuvent différer. |
 | ID du compteur | meterId | Les valeurs précises des chaînes diffèrent. |
 | MeterName | meterName | Les valeurs précises des chaînes peuvent différer. |
 | MeterRegion | meterRegion | Les valeurs précises des chaînes peuvent différer. |
 | MeterSubCategory | meterSubCategory | Les valeurs précises des chaînes peuvent différer. |
-| Mois | Aucun | Analyse le mois à partir de la date. |
-| Nom de l’offre | Aucun | Utilisez publisherName et productOrderName. |
-| OfferId | Aucun | &nbsp;  |
-| Order Number | Aucun | &nbsp;  |
-| PartNumber | Aucun | Utilisez meterId et productOrderName pour identifier les prix de manière unique. |
-| Plan Name | productOrderName | &nbsp;  |
+| Month | None | Analyse le mois à partir de la date. |
+| Nom de l’offre | None | Utilisez publisherName et productOrderName. |
+| OfferID | None | &nbsp;  |
+| Order Number | None | &nbsp;  |
+| PartNumber | None | Utilisez meterId et productOrderName pour identifier les prix de manière unique. |
+| Nom du plan | productOrderName | &nbsp;  |
 | Produit | Produit |   |
 | ProductId | productId | Les valeurs précises des chaînes diffèrent. |
 | Nom de l’éditeur | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Les valeurs précises des chaînes diffèrent. |
 | ResourceLocation | resourceLocation | &nbsp;  |
-| ResourceLocationId | Aucun | &nbsp;  |
+| ResourceLocationId | None | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
 | ServiceAdministratorId | N/A | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
 | ServiceInfo2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | Les valeurs précises des chaînes peuvent différer. |
+| NomService | meterCategory | Les valeurs précises des chaînes peuvent différer. |
 | ServiceTier | meterSubCategory | Les valeurs précises des chaînes peuvent différer. |
 | StoreServiceIdentifier | N/A | &nbsp;  |
 | SubscriptionGuid | subscriptionId | &nbsp;  |
@@ -218,8 +218,8 @@ Le nom de propriété contenant le tableau d’enregistrements d’utilisation e
 | SubscriptionName | subscriptionName | &nbsp;  |
 | Balises | tags | La propriété des balises s’appliquent à l’objet racine, pas à la propriété de propriétés imbriquées. |
 | UnitOfMeasure | unitOfMeasure | Les valeurs précises des chaînes diffèrent. |
-| usageEndDate | date | &nbsp;  |
-| Year | Aucun | Analyse l’année à partir de la date. |
+| usageEndDate | Date | &nbsp;  |
+| Year | None | Analyse l’année à partir de la date. |
 | (nouveau) | billingCurrency | Devise utilisée pour les frais. |
 | (nouveau) | billingProfileId | ID unique pour le profil de facturation (identique à l’inscription). |
 | (nouveau) | billingProfileName | Nom du profil de facturation (identique à l’inscription). |
@@ -373,10 +373,10 @@ Le tableau suivant affiche les champs de l’ancienne grille tarifaire de l’AP
 | meterId  | meterId | &nbsp;  |
 | unitOfMeasure  | unitOfMeasure | Les valeurs précises des chaînes peuvent différer. |
 | includedQuantity  | includedQuantity | Non applicable pour les services dans les contrats client Microsoft. |
-| partNumber  | _Non applicable_ | Au lieu de cela, utilisez une combinaison de productOrderName (identique à offerId) et meterid. |
+| partNumber  | _Non applicable_ | Au lieu de cela, utilisez une combinaison de productOrderName (identique à offerID) et meterID. |
 | unitPrice  | unitPrice | L’élément unitPrice (prix unitaire) est applicable pour les services utilisés dans les contrats client Microsoft. |
 | currencyCode  | pricingCurrency | Les contrats client Microsoft représentent les prix dans les devises de tarification et de facturation. L’élément currencyCode (Code de la devise) correspond à l’élément pricingCurrency (Devise de tarification) dans les contrats client Microsoft. |
-| offerId | productOrderName | Au lieu de OfferId, vous pouvez utiliser productOrderName. Cependant, cet élément n’est pas identique à OfferId. Toutefois, les éléments productOrderName et meter déterminent la tarification dans les contrats client Microsoft liées aux éléments meterId et Offerid dans les accords de mise en œuvre hérités. |
+| offerID | productOrderName | Au lieu de OfferID, vous pouvez utiliser productOrderName. Cependant, cet élément n’est pas identique à OfferID. Toutefois, les éléments productOrderName et meter déterminent la tarification dans les contrats client Microsoft liées aux éléments meterId et OfferID dans les accords de mise en œuvre hérités. |
 
 ## <a name="consumption-price-sheet-api-operations"></a>Opérations de l’API Consumption Price Sheet
 
@@ -430,22 +430,22 @@ Le tableau suivant répertorie les anciennes propriétés des versions de l’AP
 
 | Ancienne propriété de l’API Azure Resource Manager Price Sheet  | Nouvelle propriété de l’API Microsoft Customer Agreement Price Sheet   | Description |
 | --- | --- | --- |
-| ID du compteur | _meterId_ | Identificateur unique du compteur. Identique à meterId. |
+| ID du compteur | _meterId_ | Identificateur unique du compteur. Identique à meterID. |
 | Nom du compteur | meterName | Nom du compteur. Le compteur représente la ressource déployable d’un service Azure. |
 | Catégorie du compteur  | service | Nom de la catégorie de classification du compteur. Identique au service de Microsoft Customer Agreement Price Sheet. Les valeurs précises des chaînes diffèrent. |
 | Sous-catégorie du compteur | meterSubCategory | Nom de la catégorie de sous-classification du compteur. Basé sur la classification de la différenciation des jeux de caractéristiques de haut niveau dans le service. Par exemple, base de données SQL de Base et base de données SQL standard. |
 | Région du compteur | meterRegion | &nbsp;  |
 | Unité | _Non applicable_ | Peut être analysé à partir de l’élément unitOfMeasure. |
 | Unité de mesure | unitOfMeasure | &nbsp;  |
-| Numéro de référence | _Non applicable_ | Au lieu de partNumber, utilisez productOrderName et MeterId pour identifier de façon unique le prix pour un profil de facturation. Les champs sont répertoriés sur la facture MCA plutôt que le partNumber dans les factures MCA. |
+| Numéro de référence | _Non applicable_ | Au lieu d’un numéro de référence, utilisez productOrderName et MeterID pour identifier de façon unique le prix pour un profil de facturation. Les champs sont répertoriés sur la facture MCA plutôt que le numéro de référence dans les factures MCA. |
 | Prix unitaire | unitPrice | Prix unitaire du contrat client Microsoft. |
 | Code devise | pricingCurrency | Les contrats client Microsoft représentent les prix dans les devises de tarification et de facturation. Le code de la devise correspond à l’élément pricingCurrency (Devise de tarification) dans les contrats client Microsoft. |
 | Quantité incluse | includedQuantity | Non applicable aux services dans les contrats client Microsoft. S’affiche avec des valeurs égales à zéro. |
-|  ID de l’offre  | productOrderName | Au lieu de OfferId, utilisez productOrderName. Diffère de l’élément OfferId. Cependant les éléments productOrderName et meter (compteur) déterminent la tarification dans les contrats client Microsoft. Lié aux éléments meterId et Offerid dans les accords de mise en œuvre hérités. |
+|  ID de l’offre  | productOrderName | Au lieu de OfferID, utilisez productOrderName. Diffère de l’élément OfferID. Cependant les éléments productOrderName et meter (compteur) déterminent la tarification dans les contrats client Microsoft. Lié aux éléments meterId et OfferID dans les accords de mise en œuvre hérités. |
 
-Le prix pour les contrats client Microsoft n’est pas défini comme celui des contrats Entreprise. Le prix des services lors de l’accord de mise en œuvre Entreprise est unique pour les éléments product (produit), PartNumber (Référence), meter (mesure) et offer (offre). L’élément PartNumber n’est pas utilisé dans les contrats client Microsoft.
+Le prix pour les contrats client Microsoft n’est pas défini comme celui des contrats Entreprise. Le prix des services lors de l’accord de mise en œuvre Entreprise est unique pour le produit, le numéro de référence, la mesure et l’offre. Le numéro de référence n’est pas utilisé dans les contrats client Microsoft.
 
-Le prix du service Azure Consumption qui fait partie d’un contrat client Microsoft est unique pour les éléments productOrderName et meterId. Ils représentent le compteur de service et l’offre du produit.
+Le prix du service Azure Consumption qui fait partie d’un Contrat client Microsoft est unique pour les éléments productOrderName et meterID. Ils représentent le compteur de service et l’offre du produit.
 
 Pour concilier la grille tarifaire et son utilisation dans l’API Usage Details, vous pouvez utiliser les éléments productOrderName et meterID.
 
@@ -460,7 +460,7 @@ Les champs suivants ne sont pas disponibles dans l’API Microsoft Customer Agre
 |Champ supprimé| Description|
 |---|---|
 | billingPeriodId | Non applicable. Correspond à l’élément InvoiceId pour un MCA. |
-| offerId | Non applicable. Correspond à l’élément productOrderName pour un MCA. |
+| offerID | Non applicable. Correspond à l’élément productOrderName pour un MCA. |
 | meterCategory  | Non applicable. Correspond au à l’élément Service pour un MCA. |
 | unité | Non applicable. Peut être analysé à partir de l’élément unitOfMeasure. |
 | currencyCode | Identique à l’élément pricingCurrency pour un MCA. |
@@ -481,7 +481,7 @@ Pour obtenir des transactions d’achats de réservations avec l’API Transacti
 
 ## <a name="recommendations-apis-replaced"></a>Remplacement des versions de l’API Recommendations
 
-Les versions de l’API Reserved Instance Purchase Recommendations fournissent des informations sur l’utilisation de la machine virtuelle sur les 7, 30 ou 60 derniers jours. Les versions de cette API fournissent également des recommandations d’achats de réservations. À savoir :
+Les versions de l’API Reserved Instance Purchase Recommendations fournissent des informations sur l’utilisation de la machine virtuelle sur les 7, 30 ou 60 derniers jours. Les versions de cette API fournissent également des recommandations d’achats de réservations. Ils comprennent :
 
 - [API Shared Reserved Instance Recommendation](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) (Recommandation relative à l’instance réservée partagée)
 - [API Single Reserved Instance Recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) (Recommandation relative à l’instance réservée unique)
@@ -498,7 +498,7 @@ Pour obtenir des suggestions de réservations avec l’API Reservation Recommend
 
 L’API Reserved Instance Usage permet d’obtenir des informations sur l’utilisation des réservations dans un accord de mise en œuvre. S’il existe plusieurs instances réservées dans un accord de mise en œuvre, vous pouvez également obtenir l’utilisation de tous les achats de l’instance réservée à l’aide de cette API.
 
-À savoir :
+Ils comprennent :
 
 - [Détails de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
 - [Résumé de l’utilisation de l’instance réservée](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)

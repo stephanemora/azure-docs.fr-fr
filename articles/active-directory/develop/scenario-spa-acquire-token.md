@@ -1,5 +1,5 @@
 ---
-title: Obtenir un jeton dans les applications monopages - Plateforme d’identités Microsoft | Azure
+title: Acquérir un jeton pour appeler une API web (applications à page unique) - Plateforme d’identités Microsoft | Azure
 description: Découvrir comment créer une application monopage (acquérir un jeton pour appeler une API)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 08/20/2019
 ms.author: negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9723e9a58704a583c7332db11bae7da6b045a5f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17c11b8cb4c1d7f4eef22903b81f38d93b54b41b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423674"
 ---
 # <a name="single-page-application-acquire-a-token-to-call-an-api"></a>Application monopage : Acquérir un jeton pour appeler une API
 
@@ -33,7 +33,7 @@ Les demandes de jeton en mode silencieux à Azure AD peuvent échouer pour certa
 
 ## <a name="choose-between-a-pop-up-or-redirect-experience"></a>Choisir entre une expérience avec fenêtre contextuelle ou redirection
 
- Vous ne pouvez pas utiliser conjointement les méthodes de fenêtre contextuelle et de redirection dans votre application. Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
+ Vous ne pouvez pas utiliser conjointement ces deux méthodes de fenêtre contextuelle et de redirection dans votre application. Le choix entre la fenêtre contextuelle et la redirection dépend du flux de votre application :
 
 * Si vous ne souhaitez pas que les utilisateurs quittent la page principale de votre application lors de l’authentification, nous vous recommandons d’utiliser la méthode avec fenêtre contextuelle. La redirection de l’authentification se produisant dans une fenêtre contextuelle, l’état de l’application principale est conservé.
 

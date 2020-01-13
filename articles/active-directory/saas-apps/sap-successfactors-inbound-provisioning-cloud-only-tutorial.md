@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer le provisionnement entrant SuccessFactors dans Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer le provisionnement entrant SuccessFactors dans Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer le provisionnement entrant de SuccessFactors vers Azure AD.
 services: active-directory
 author: cmmdesai
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: d032bf1241f355af110ee8f4da38ff4685bd2e3f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932126"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530049"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutoriel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Azure AD (préversion)
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutoriel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Azure AD (préversion)
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les données utilisateurs de SuccessFactors Employee Central dans Azure Active Directory, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. Cette intégration est en préversion publique et prend en charge la récupération de plus de [70 attributs utilisateur](../manage-apps/sap-successfactors-attribute-reference.md) à partir de SuccessFactors Employee Central. 
 
 >[!NOTE]
 >Utilisez ce tutoriel si les utilisateurs que vous souhaitez provisionner à partir de SuccessFactors sont des utilisateurs cloud uniquement qui n’ont pas besoin de compte AD local. Si les utilisateurs n’ont besoin que d’un compte AD local ou ont besoin d’un compte AD et d’un compte Azure AD, consultez le tutoriel sur la façon de [configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le [service de provisionnement d’utilisateurs Azure Active Directory](../manage-apps/user-provisioning.md) s’intègre à [SuccessFactors Central Employee](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) afin de gérer le cycle de vie des identités des utilisateurs. 
 
@@ -60,7 +60,7 @@ Cette section décrit l’architecture de la solution de provisionnement d’uti
 * **Flux de données RH faisant autorité – de SuccessFactors vers Azure Active Directory :** dans ce flux, les événements concernant les employés (comme les nouveaux recrutements, les transferts, les fins de contrat) se produisent d’abord dans SuccessFactors Employee Central dans le cloud, puis les données des événements transitent dans Azure Active Directory. Selon l’événement, cela peut provoquer des opérations de création/mise à jour/activation/désactivation dans Azure AD.
 * **Flux de réécriture des e-mails – d’Active Directory local vers SuccessFactors :** Une fois la création du compte terminée dans Azure Active Directory, la valeur de l’attribut email ou de l’UPN générée dans Azure AD peut être réécrite dans SuccessFactors.
 
-  ![Vue d'ensemble](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
+  ![Vue d’ensemble](./media/sap-successfactors-inbound-provisioning/sf2aad-overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Flux de données utilisateur de bout en bout
 
@@ -110,7 +110,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 * Faites défiler la liste dans la même zone et sélectionnez **Employee Central API**. Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Cliquez sur **Done** (Terminé). Cliquez sur **Save Changes** (Enregistrer les modifications).
+* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Créer un groupe d’autorisations pour l’utilisateur des API
 
@@ -149,7 +149,7 @@ Cette section décrit les étapes du provisionnement de comptes d’utilisateur 
 * [Configurer les mappages d'attributs](#part-2-configure-attribute-mappings)
 * [Activer et lancer l'approvisionnement des utilisateurs](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Partie 1 : Ajouter l’application du connecteur de provisionnement et configurer la connectivité à SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Première partie : Ajouter l’application du connecteur de provisionnement et configurer la connectivité à SuccessFactors
 
 **Pour configurer le provisionnement SuccessFactors vers Azure AD**
 
@@ -165,7 +165,7 @@ Cette section décrit les étapes du provisionnement de comptes d’utilisateur 
 
 6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
 
-7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
+7. Définissez **Provisioning** **Mode** (Mode de provisionnement) sur **Automatic** (Automatique)
 
 8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
@@ -176,16 +176,16 @@ Cette section décrit les étapes du provisionnement de comptes d’utilisateur 
    * **URL du locataire** : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : **nom_serveur_API.successfactors.com**.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification et l’URL SuccessFactors sont valides.
     >[!div class="mx-imgBorder"]
-    >![Portail Azure](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
+    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2aad-provisioning-creds.png)
 
    * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les utilisateurs de SuccessFactors vers Azure Active Directory**.
 
-### <a name="part-2-configure-attribute-mappings"></a>Partie 2 : Configuration des mappages d’attributs
+### <a name="part-2-configure-attribute-mappings"></a>Deuxième partie : Configuration des mappages d’attributs
 
 Dans cette section, vous allez configurer le flux des données utilisateur de SuccessFactors vers Active Directory.
 
@@ -193,15 +193,15 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
 
 1. Dans le champ **Portée de l’objet source**, vous pouvez sélectionner les ensembles d’utilisateurs de SuccessFactors concernés par le provisionnement dans Azure AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de SuccessFactors ». Exemples de filtres :
 
-   * Exemple : Étendue pour les utilisateurs avec un personIdExternal compris entre 1000000 et 2000000 (2000000 exclus)
+   * Exemple : Étendue pour les utilisateurs avec un personIdExternal compris entre 1000000 et 2000000 (2000000 exclus)
 
       * Attribut : personIdExternal
 
       * Opérateur : REGEX Match
 
-      * Valeur : (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Valeur : (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemple : Uniquement les employés et non les employés occasionnels
+   * Exemple : Uniquement les employés et non les employés occasionnels
 
       * Attribut : EmployeeID
 

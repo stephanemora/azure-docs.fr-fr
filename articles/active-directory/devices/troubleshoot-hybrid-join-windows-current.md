@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 932540c830940ec18c439352d54f671db7387b94
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379161"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689116"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -36,7 +36,7 @@ Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybri
 
 ## <a name="troubleshoot-join-failures"></a>Résoudre les problèmes d’échecs de jointure
 
-### <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
+### <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
 
 **Pour récupérer l’état de jonction :**
 
@@ -88,21 +88,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
+### <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
 
 Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs attendues :
 
-#### <a name="domainjoined--yes"></a>DomainJoined : OUI  
+#### <a name="domainjoined--yes"></a>DomainJoined : YES  
 
 Ce champ indique si l’appareil est joint à un répertoire Active Directory local ou non. Si la valeur est **NON**, l’appareil ne peut pas effectuer de jonction hybride Azure AD.  
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined : NON  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined : Non  
 
 Ce champ indique si l’appareil est inscrit auprès d’Azure AD mais en tant qu’appareil personnel (avec la mention *Joint à l’espace de travail*). Cette valeur doit être **NON** pour un ordinateur appartenant à un domaine qui est également une jonction hybride Azure AD. Si la valeur est **OUI**, un compte professionnel ou scolaire a été ajouté avant l’achèvement d’une jonction hybride Azure AD. Dans ce cas, le compte est ignoré lors de l’utilisation de la version mise à jour anniversaire de Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined : OUI  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined : YES  
 
-Ce champ indique si l’appareil est joint à Azure AD. Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée. 
+Ce champ indique si l’appareil est joint. La valeur sera **Oui** si l’appareil est un appareil joint à Azure AD ou un appareil hybride joint à Azure AD.
+Si la valeur est **Non**, la jonction à Azure AD n’est pas encore terminée. 
 
 Passez aux étapes suivantes pour poursuivre le dépannage.
 
@@ -158,21 +159,21 @@ Causes possibles de l’échec :
    - Si l’environnement local nécessite un proxy sortant, l’administrateur informatique doit vérifier que le compte d’ordinateur de l’appareil peut découvrir le proxy sortant et s’y authentifier en mode silencieux.
 - Échec de connexion au point de terminaison du domaine utilisateur et exécution de la découverte de domaine. (Windows 10 version 1809 et ultérieures uniquement)
    - L’appareil doit pouvoir accéder à `https://login.microsoftonline.com`, dans le contexte SYSTEM, pour effectuer une découverte de domaine pour le domaine vérifié et déterminer le type de domaine (managé/fédéré).
-   - Si l’environnement local nécessite un proxy sortant, l’administrateur informatique doit vérifier que le contexte SYSTEM de l’appareil peut découvrir le proxy sortant et s’y authentifier en mode silencieux.
+   - si l’environnement local nécessite un proxy sortant, l’administrateur informatique doit vérifier que le contexte SYSTEM de l’appareil peut découvrir le proxy sortant et s’y authentifier en mode silencieux.
 
 **Codes d’erreur courants :**
 
 - **DSREG_AUTOJOIN_ADCONFIG_READ_FAILED** (0x801c001d/-2145648611)
-   - Raison : impossible de lire l’objet SCP et d’obtenir les informations concernant le locataire Azure AD.
+   - Motif : impossible de lire l’objet SCP et d’obtenir les informations concernant le locataire Azure AD.
    - Résolution : consultez la section [Configurer un point de connexion de service](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
-   - Raison : échec de découverte générique. Échec de l’obtention des métadonnées de découverte auprès de DRS.
+   - Motif : échec de découverte générique. Échec de l’obtention des métadonnées de découverte auprès de DRS.
    - Résolution : recherchez la sous-erreur ci-dessous pour approfondir vos recherches.
 - **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
-   - Raison : l’opération est arrivée à expiration pendant la découverte.
+   - Motif : l’opération est arrivée à expiration pendant la découverte.
    - Résolution : vérifiez que `https://enterpriseregistration.windows.net` est accessible dans le contexte SYSTEM. Pour plus d’informations, consultez la section [Exigences de connectivité réseau](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Raison : échec de découverte de domaine générique. Impossible de déterminer le type de domaine (managé/fédéré) à partir de STS. 
+   - Motif : échec de découverte de domaine générique. Impossible de déterminer le type de domaine (managé/fédéré) à partir de STS. 
    - Résolution : recherchez la sous-erreur ci-dessous pour approfondir vos recherches.
 
 **Codes de sous-erreur courants :**
@@ -213,28 +214,28 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
 ###### <a name="network-errors"></a>Erreurs réseau
 
 - **WININET_E_CANNOT_CONNECT** (0x80072efd/-2147012867)
-   - Raison : la connexion avec le serveur n’a pas pu être établie.
+   - Motif : la connexion avec le serveur n’a pas pu être établie.
    - Résolution : vérifiez la connectivité réseau aux ressources Microsoft nécessaires. Pour plus d’informations, consultez [Exigences de connectivité réseau](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
-   - Raison : dépassement du délai d’attente général du réseau.
+   - Motif : dépassement du délai d’attente général du réseau.
    - Résolution : vérifiez la connectivité réseau aux ressources Microsoft nécessaires. Pour plus d’informations, consultez [Exigences de connectivité réseau](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **WININET_E_DECODING_FAILED** (0x80072f8f/-2147012721)
-   - Raison : la pile réseau n’a pas pu décoder la réponse du serveur.
+   - Motif : la pile réseau n’a pas pu décoder la réponse du serveur.
    - Résolution : vérifiez que le proxy réseau n’interfère pas et ne modifie pas la réponse du serveur.
 
 ###### <a name="http-errors"></a>Erreurs HTTP
 
 - **DSREG_DISCOVERY_TENANT_NOT_FOUND** (0x801c003a/-2145648582)
-   - Raison : objet SCP configuré avec un ID de locataire incorrect. Ou aucun abonnement actif n’a été trouvé dans le locataire.
+   - Motif : objet SCP configuré avec un ID de locataire incorrect. Ou aucun abonnement actif n’a été trouvé dans le locataire.
    - Résolution : vérifiez que l’objet SCP est configuré avec l’ID de locataire Azure AD approprié et des abonnements actifs ou qu’il est présent dans le locataire.
 - **DSREG_SERVER_BUSY** (0x801c0025/-2145648603)
-   - Raison : erreur HTTP 503 du serveur DRS.
+   - Motif : erreur HTTP 503 du serveur DRS.
    - Résolution : le serveur est actuellement indisponible. Les futures tentatives de jointure aboutiront probablement dès que le serveur sera de nouveau en ligne.
 
 ###### <a name="other-errors"></a>Autres erreurs
 
 - **E_INVALIDDATA** (0x8007000d/-2147024883)
-   - Raison : la réponse JSON du serveur n’a pas pu être analysée. La raison probable est une erreur HTTP 200 retournée par le proxy avec une page d’authentification HTML.
+   - Motif : la réponse JSON du serveur n’a pas pu être analysée. La raison probable est une erreur HTTP 200 retournée par le proxy avec une page d’authentification HTML.
    - Résolution : si l’environnement local nécessite un proxy sortant, l’administrateur informatique doit vérifier que le contexte SYSTEM de l’appareil peut découvrir le proxy sortant et s’y authentifier en mode silencieux.
 
 #### <a name="authentication-phase"></a>Phase d’authentification
@@ -258,43 +259,43 @@ Utilisez les journaux de l’observateur d’événements pour rechercher le cod
 ##### <a name="configuration-errors"></a>Erreurs de configuration
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
-   - Raison : le protocole d’authentification n’est pas WS-Trust.
+   - Motif : le protocole d’authentification n’est pas WS-Trust.
    - Résolution : le fournisseur d’identité local doit prendre en charge WS-Trust. 
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
-   - Raison : le service de fédération local n’a pas retourné de réponse XML.
+   - Motif : le service de fédération local n’a pas retourné de réponse XML.
    - Résolution : vérifiez que le point de terminaison MEX retourne un fichier XML valide. Vérifiez que le proxy n’interfère pas et ne renvoie pas de réponses non XML.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
-   - Raison : impossible de découvrir le point de terminaison pour l’authentification par nom d’utilisateur/mot de passe.
+   - Motif : impossible de découvrir le point de terminaison pour l’authentification par nom d’utilisateur/mot de passe.
    - Résolution : vérifiez les paramètres du fournisseur d’identité local. Vérifiez que les points de terminaison WS-Trust sont activés et que la réponse MEX contient ces points de terminaison appropriés.
 
 ##### <a name="network-errors"></a>Erreurs réseau
 
 - **ERROR_ADAL_INTERNET_TIMEOUT** (0xcaa82ee2/-894947614)
-   - Raison : dépassement du délai d’attente général du réseau.
+   - Motif : dépassement du délai d’attente général du réseau.
    - Résolution : vérifiez que `https://login.microsoftonline.com` est accessible dans le contexte SYSTEM. Vérifiez que le fournisseur d’identité local est accessible dans le contexte SYSTEM. Pour plus d’informations, consultez [Exigences de connectivité réseau](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **ERROR_ADAL_INTERNET_CONNECTION_ABORTED** (0xcaa82efe/-894947586)
-   - Raison : la connexion avec le point de terminaison d’authentification a été abandonnée.
+   - Motif : la connexion avec le point de terminaison d’authentification a été abandonnée.
    - Résolution : réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
-   - Raison : le certificat SSL (Secure Sockets Layer) envoyé par le serveur n’a pas pu être validé.
-   - Résolution : vérifiez l’asymétrie temporelle du client. Réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable. 
+   - Motif : le certificat SSL (Secure Sockets Layer) envoyé par le serveur n’a pas pu être validé.
+   - Résolution : vérifiez l’asymétrie temporelle du client. réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable. 
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
-   - Raison : la tentative de connexion à `https://login.microsoftonline.com` a échoué.
+   - Motif : la tentative de connexion à `https://login.microsoftonline.com` a échoué.
    - Résolution : vérifiez la connexion réseau à `https://login.microsoftonline.com`.
 
 ##### <a name="other-errors"></a>Autres erreurs
 
 - **ERROR_ADAL_SERVER_ERROR_INVALID_GRANT** (0xcaa20003/-895352829)
-   - Raison : le jeton SAML du fournisseur d’identité local n’a pas été accepté par Azure AD.
+   - Motif : le jeton SAML du fournisseur d’identité local n’a pas été accepté par Azure AD.
    - Résolution : vérifiez les paramètres du serveur de fédération. Recherchez le code d’erreur du serveur dans les journaux d’authentification.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Raison : la réponse WS-Trust du serveur a signalé une exception d’erreur et n’a pas pu obtenir d’assertion.
+   - Motif : la réponse WS-Trust du serveur a signalé une exception d’erreur et n’a pas pu obtenir d’assertion.
    - Résolution : vérifiez les paramètres du serveur de fédération. Recherchez le code d’erreur du serveur dans les journaux d’authentification.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
-   - Raison : une erreur s’est produite lors de la tentative d’obtention du jeton d’accès auprès du point de terminaison de jeton.
+   - Motif : une erreur s’est produite lors de la tentative d’obtention du jeton d’accès auprès du point de terminaison de jeton.
    - Résolution : recherchez l’erreur sous-jacente dans le journal ADAL. 
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
-   - Raison : échec général d’ADAL
+   - Motif : échec général d’ADAL
    - Résolution : recherchez le code de sous-erreur ou le code d’erreur du serveur dans les journaux d’authentification.
     
 #### <a name="join-phase"></a>Phase de jointure
@@ -333,51 +334,51 @@ Servez-vous des journaux de l’Observateur d’événements pour identifier la 
 ##### <a name="http-errors-returned-from-drs-server"></a>Erreurs HTTP retournées à partir du serveur DRS
 
 - **DSREG_E_DIRECTORY_FAILURE** (0x801c03f2/-2145647630)
-   - Raison : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
+   - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
    - Résolution : recherchez les causes et les résolutions possibles dans le code d’erreur du serveur.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Raison : réponse d’erreur reçue de DRS avec le code d’erreur : « AuthenticationError » et ErrorSubCode N’EST PAS « DeviceNotFound ». 
+   - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « AuthenticationError » et ErrorSubCode N’EST PAS « DeviceNotFound ». 
    - Résolution : recherchez les causes et les résolutions possibles dans le code d’erreur du serveur.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
-   - Raison : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
+   - Motif : réponse d’erreur reçue de DRS avec le code d’erreur : « DirectoryError »
    - Résolution : recherchez les causes et les résolutions possibles dans le code d’erreur du serveur.
 
 ##### <a name="tpm-errors"></a>Erreurs du module de plateforme sécurisée (TPM)
 
 - **NTE_BAD_KEYSET** (0x80090016/-2146893802)
-   - Raison : l’opération du module TPM a échoué ou n’était pas valide
+   - Motif : l’opération du module TPM a échoué ou n’était pas valide
    - Résolution : erreur probablement due à une image sysprep incorrecte. Vérifiez que la machine à partir de laquelle l’image sysprep a été créée n’est pas jointe à Azure AD, jointe à Azure AD en mode hybride ou inscrite à Azure AD.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Raison : erreur TPM générique. 
+   - Motif : erreur TPM générique. 
    - Résolution : désactivez le module de plateforme sécurisée (TPM) sur les appareils présentant cette erreur. Windows 10 version 1809 et ultérieures détecte automatiquement les échecs du module TPM et effectue la jointure Azure AD hybride sans utiliser le module TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
-   - Raison : le module TPM en mode FIPS n’est actuellement pas pris en charge.
+   - Motif : le module TPM en mode FIPS n’est actuellement pas pris en charge.
    - Résolution : désactivez le module de plateforme sécurisée (TPM) sur les appareils présentant cette erreur. Windows 1809 détecte automatiquement les échecs du module TPM et effectue la jointure Azure AD hybride sans utiliser le module TPM.
 - **NTE_AUTHENTICATION_IGNORED** (0x80090031/-2146893775)
-   - Raison : module TPM verrouillé.
+   - Motif : module TPM verrouillé.
    - Résolution : Erreur temporaire. Attendez la période de temps de recharge. La tentative de jointure devrait aboutir après un certain temps. Vous trouverez des informations supplémentaires dans l’article [Principes de base du module de plateforme sécurisée (TPM)](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#anti-hammering).
 
 ##### <a name="network-errors"></a>Erreurs réseau
 
 - **WININET_E_TIMEOUT** (0x80072ee2/-2147012894)
-   - Raison : dépassement du délai d’attente général du réseau pendant la tentative d’inscription de l’appareil sur DRS.
+   - Motif : dépassement du délai d’attente général du réseau pendant la tentative d’inscription de l’appareil sur DRS.
    - Résolution : vérifiez la connectivité réseau à `https://enterpriseregistration.windows.net`.
 - **WININET_E_NAME_NOT_RESOLVED** (0x80072ee7/-2147012889)
-   - Raison : le nom ou l’adresse du serveur n’a pas pu être résolue.
+   - Motif : le nom ou l’adresse du serveur n’a pas pu être résolue.
    - Résolution : vérifiez la connectivité réseau à `https://enterpriseregistration.windows.net`. Vérifiez que la résolution DNS du nom d’hôte est précise dans le réseau et sur l’appareil.
 - **WININET_E_CONNECTION_ABORTED** (0x80072efe/-2147012866)
-   - Raison : la connexion avec le serveur s’est terminée anormalement.
+   - Motif : la connexion avec le serveur s’est terminée anormalement.
    - Résolution : réessayez ultérieurement ou essayez de vous joindre à partir d’un autre emplacement réseau stable.
 
 ##### <a name="federated-join-server-errors"></a>Erreurs du serveur – Jointure fédérée
 
-| Code d’erreur du serveur | Message d’erreur du serveur | Causes possibles | Résolution : |
+| Code d’erreur du serveur | Message d’erreur du serveur | Causes possibles | Résolution |
 | --- | --- | --- | --- |
 | DirectoryError | Votre requête est limitée temporairement. Réessayez après 300 secondes. | Erreur attendue. Cette erreur peut être due à plusieurs demandes d’inscription successives dans un court laps de temps. | Tentez à nouveau la jointure après la période de temps de recharge. |
 
 ##### <a name="sync-join-server-errors"></a>Erreurs du serveur – Jointure de synchronisation
 
-| Code d’erreur du serveur | Message d’erreur du serveur | Causes possibles | Résolution : |
+| Code d’erreur du serveur | Message d’erreur du serveur | Causes possibles | Résolution |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002 : Locataire <UUID> introuvable. Cette erreur peut se produire s’il n’existe pas d’abonnement actif pour le locataire. Vérifiez avec l’administrateur de votre abonnement. | L’ID de locataire de l’objet SCP est incorrect. | Vérifiez que l’objet SCP est configuré avec l’ID de locataire Azure AD approprié et des abonnements actifs et qu’il est présent dans le locataire. |
 | DirectoryError | L’objet d’appareil correspondant à l’ID donné est introuvable. | Erreur attendue pour la jointure de synchronisation. L’objet d’appareil n’a pas été synchronisé d’AD vers Azure AD. | Attendez la fin de la synchronisation Azure AD Connect et la prochaine tentative de jointure postérieure à la synchronisation résoudra le problème. |
@@ -396,7 +397,7 @@ Procurez-vous des scripts publics ici : [https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6V
 
 ### <a name="retrieve-the-join-status"></a>Récupérer l’état de jonction 
 
-#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet : OUI et AzureADPrt : OUI
+#### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet : OUI et AzureADPrt : YES
   
 Ces champs indiquent que l’utilisateur s’est correctement authentifié auprès d’Azure AD lors de la connexion à l’appareil. Si les valeurs sont **NON**, il peut être dû :
 

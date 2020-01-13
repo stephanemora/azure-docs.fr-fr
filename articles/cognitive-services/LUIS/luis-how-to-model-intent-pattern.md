@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: eb3e473535c394818772ac949808023254087555
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448055"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez un [modèle](luis-concept-patterns.md) pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent une [syntaxe](luis-concept-patterns.md#pattern-syntax) spécifique pour indiquer l’emplacement des éléments suivants : [entités](luis-concept-entity-types.md), [rôles](luis-concept-roles.md) d’entités et texte facultatif.
@@ -26,7 +26,27 @@ Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, uti
 > [!CAUTION]
 > Les modèles incluent uniquement les parents d’entité issus de l’apprentissage automatique, pas les sous-composants.
 
-## <a name="add-template-utterance-to-create-pattern"></a>Ajouter un énoncé de gabarit pour créer un modèle
+## <a name="adding-example-utterances-as-pattern"></a>Ajout d’exemples d’énoncés en tant que modèles
+
+Si vous souhaitez ajouter un modèle pour une entité, la méthode _la plus facile_ consiste à créer le modèle à partir de la page Détails de l’intention. Cela garantit que votre syntaxe correspond à l’exemple d’énoncé.
+
+1. Dans le [portail LUIS en préversion](https://preview.luis.ai), sélectionnez l’application dans la page **Mes applications**.
+1. Dans la page de la liste **Intentions**, sélectionnez le nom d’intention de l’exemple de énoncé à partir duquel vous souhaitez créer un modèle d’énoncé.
+1. Dans la page Détails de l’intention, sélectionnez la ligne de l’exemple d’énoncé que vous souhaitez utiliser comme modèle d’énoncé, puis sélectionnez **+ Ajouter en tant que modèle** dans la barre d’outils contextuelle.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la sélection d’un exemple d’énoncé comme modèle dans la page Détails de l’intention.](./media/luis-how-to-model-intent-pattern/add-example-utterances-as-pattern-template-utterance-from-intent-detail-page.png)
+
+1. Dans la zone contextuelle, sélectionnez **Terminé** dans la page **Confirmer les modèles**. Vous n’avez pas besoin de définir les sous-composants, les contraintes ou les descripteurs des entités. Il vous suffit d’afficher l’entité apprise par l’ordinateur.
+
+    > [!div class="mx-imgBorder"]
+    > ![Capture d’écran de la confirmation de l’exemple d’énoncé en tant que modèle dans la page Détails de l’intention.](./media/luis-how-to-model-intent-pattern/confirm-patterns-from-example-utterance-intent-detail-page.png)
+
+1. Si vous avez besoin de modifier le modèle, par exemple en sélectionnant un texte facultatif avec les crochets `[]`, vous devez effectuer cette modification à partir de la page **Modèles**.
+
+1. Dans la barre de navigation, sélectionnez **Effectuer l’apprentissage** pour effectuer l’apprentissage de l’application avec le nouveau modèle.
+
+## <a name="add-template-utterance-using-correct-syntax"></a>Ajouter un modèle d’énoncé de modèle utilisant une syntaxe correcte
 
 1. Ouvrez votre application en sélectionnant son nom sur la page **Mes applications**, puis sélectionnez **Patterns** (Modèles) dans le panneau gauche, sous **Improve app performance** (Améliorer les performances de l’application).
 

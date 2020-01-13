@@ -1,7 +1,7 @@
 ---
 title: SMOTE
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module SMOTE dans le service Azure Machine Learning pour augmenter le nombre d’exemples à faible incidence dans un jeu de données grâce au suréchantillonnage.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module SMOTE dans Azure Machine Learning pour augmenter le nombre d’exemples à faible incidence dans un jeu de données à l’aide d’un suréchantillonnage.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: d78e3d0d30cc44f2f30b1a856297f2c31d8f8469
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428433"
 ---
 # <a name="smote"></a>SMOTE
 
@@ -99,5 +99,5 @@ Pour augmenter le nombre de cas, vous pouvez définir la valeur du **Pourcentage
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 

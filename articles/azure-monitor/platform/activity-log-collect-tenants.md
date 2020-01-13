@@ -4,26 +4,27 @@ description: Utilisez Event Hubs et Logic Apps pour collecter des données de jo
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e202885c695e4d8cdadaf8640d7ed01b05b70ad9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931835"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75529998"
 ---
-# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory
+# <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory (méthode héritée)
 
-> [!WARNING]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
+> [!NOTE]
+> Cet article décrit la méthode héritée pour la configuration du journal des activités Windows Azure entre les locataires Azure à collecter dans un espace de travail Log Analytics.  Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md).
+
 
 Cet article décrit une méthode permettant de collecter les journaux d’activité Azure dans un espace de travail Log Analytics dans Azure Monitor à l’aide du connecteur Azure Log Analytics Data Collector pour Logic Apps. Utilisez la procédure de cet article lorsque vous devez envoyer des journaux d’activité à un espace de travail situé dans un autre locataire Azure Active Directory. Par exemple, si vous êtes un fournisseur de service managé, vous pouvez collecter les journaux d’activité de l’abonnement d’un client et les stocker dans un espace de travail Log Analytics de votre propre abonnement.
 
 Si l’espace de travail Log Analytics est situé dans le même abonnement Azure, ou dans un autre abonnement mais au sein du même répertoire Azure Active Directory, utilisez la procédure décrite dans [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md) pour collecter les journaux d’activité Azure.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La stratégie utilisée dans ce scénario consiste à ce que le journal d’activité Azure envoie les événements à un [Event Hub](../../event-hubs/event-hubs-about.md), d’où une [application logique](../../logic-apps/logic-apps-overview.md) les envoie à son tour vers votre espace de travail Log Analytics. 
 
@@ -38,7 +39,7 @@ Cet article vous explique les procédures détaillées pour :
 2. Exporter les journaux d’activité vers un Event Hub à l’aide d’un profil d’exportation de journal d’activité Azure.
 3. Créer une application logique pour lire à partir du Event Hub et envoyer des événements à l’espace de travail Log Analytics.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 Voici la configuration requise pour les ressources Azure utilisées dans ce scénario.
 
 - L’espace de noms Event Hub ne doit pas nécessairement se trouver dans l’abonnement qui émet les journaux d’activité. L’utilisateur qui configure le paramètre doit disposer d’autorisations d’accès appropriées aux deux abonnements. Si vous avez plusieurs abonnements dans le même répertoire Azure Active Directory, vous pouvez envoyer les journaux d’activité de tous les abonnements à un seul Event Hub.
@@ -126,7 +127,7 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
 
    |Paramètre | Description  |
    |:---|:---|
-   | Nom           | Nom unique de l’application logique. |
+   | Name           | Nom unique de l’application logique. |
    | Subscription   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
    | Groupe de ressources | Sélectionnez un groupe de ressources Azure existant ou créez-en un pour l’application logique. |
    | Location       | Sélectionnez la région du centre de données où déployer votre application logique. |

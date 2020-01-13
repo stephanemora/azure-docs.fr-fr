@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB : API, SDK et ressources du processeur de flux de modification .NET'
+title: API du processeur de flux de modification .NET Azure Cosmos DB
 description: Découvrez l’API et le kit SDK du processeur de flux de modification, notamment les dates de lancement, les dates de suppression et les modifications apportées entre chaque version du kit SDK du processeur de flux de modification .NET.
 author: ealsur
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: bd727e9c68a34c8e182a6726b257a6bf37178837
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 9252e3e41d0c639231a2abe20202499c6b3ee32a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444854"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit de développement logiciel (SDK) du processeur de flux de modification .NET Téléchargement et notes de publication
 
@@ -37,7 +37,7 @@ ms.locfileid: "74306768"
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
 |**Prise en main**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
-|**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
+|**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
 > Si vous utilisez un processeur de flux de modification, consultez la version 3.x la plus récente du [Kit de développement logiciel (SDK) .NET](change-feed-processor.md), qui a intégré le flux de modification au Kit de développement logiciel (SDK). 
@@ -180,7 +180,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 <br/>
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [2.2.8](#2.2.8) |28 octobre 2019 |--- |
 | [2.2.7](#2.2.7) |14 mai 2019 |--- |
@@ -198,7 +198,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | [1.1.0](#1.1.0) |13 août 2017 |--- |
 | [1.0.0](#1.0.0) |7 juillet 2017 |--- |
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

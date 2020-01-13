@@ -184,7 +184,7 @@
           items:
             - name: Optimisé pour le GPU
               href: sizes-gpu.md
-            - name: Configuration des pilotes GPU
+            - name: Configurer les pilotes GPU NVIDIA
               href: n-series-driver-setup.md
             - name: Configuration des pilotes GPU AMD
               href: n-series-amd-driver-setup.md

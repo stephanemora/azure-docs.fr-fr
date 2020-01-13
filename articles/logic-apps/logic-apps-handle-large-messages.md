@@ -1,18 +1,18 @@
 ---
-title: Gérer les messages volumineux
-description: Découvrez comment gérer les messages volumineux avec la segmentation dans Azure Logic Apps
+title: Gérer des messages volumineux à l’aide d’une segmentation
+description: Apprenez à gérer les messages volumineux en les segmentant en tâches et flux de travail automatisés que vous créez avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: shae-hurst
 ms.author: shhurst
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 8c2e857808b0638fbba54cfe9a623ba3fd764119
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456557"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
@@ -115,7 +115,7 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
    | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segmenté | Chaîne | Indique que le contenu est chargé sous forme de segments |
+   | **x-ms-transfer-mode** | segmenté | String | Indique que le contenu est chargé sous forme de segments |
    | **x-ms-content-length** | <*content-length*> | Integer | La taille, en octets, de l’intégralité du contenu avant segmentation |
    ||||
 
@@ -124,7 +124,7 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Integer | Non | La taille de segment suggérée en octets |
-   | **Lieu** | Chaîne | OUI | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
+   | **Lieu** | String | Oui | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
    ||||
 
 3. Votre application logique crée et envoie des messages HTTP PATCH de suivi, chacun contenant les informations suivantes :
@@ -135,16 +135,16 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
      | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | Chaîne | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
-     | **Content-Type** | <*content-type*> | Chaîne | Le type de contenu segmenté |
-     | **Content-Length** | <*content-length*> | Chaîne | La longueur, en octets, du segment actuel |
+     | **Content-Range** | <*range*> | String | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
+     | **Content-Type** | <*content-type*> | String | Le type de contenu segmenté |
+     | **Content-Length** | <*content-length*> | String | La longueur, en octets, du segment actuel |
      |||||
 
 4. Après chaque requête PATCH, le point de terminaison confirme la réception de chaque segment en renvoyant le code d’état « 200 » et les en-têtes de réponse suivants :
 
    | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
-   | **Plage** | Chaîne | OUI | La plage d’octets pour le contenu qui a été reçu par le point de terminaison, par exemple: « octets = 0-1023 » |   
+   | **Plage** | String | Oui | La plage d’octets pour le contenu qui a été reçu par le point de terminaison, par exemple: « octets = 0-1023 » |   
    | **x-ms-chunk-size** | Integer | Non | La taille de segment suggérée en octets |
    ||||
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382116"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430967"
 ---
 # <a name="how-to-investigate-risk"></a>Procédure : Examiner les risques
 
@@ -30,7 +30,7 @@ Les trois rapports se trouvent dans le **Portail Azure** > **Azure Active Direct
 
 ## <a name="navigating-the-reports"></a>Parcourir les rapports
 
-Chaque rapport démarre avec une liste de toutes les détections pour la période indiquée en haut du rapport. Chaque rapport permet l’ajout ou la suppression de colonnes en fonction des préférences de l’administrateur. Les administrateurs peuvent choisir de télécharger les données au format .CSV. Les rapports peuvent être filtrés à l’aide des filtres situés dans la partie supérieure du rapport.
+Chaque rapport démarre avec une liste de toutes les détections pour la période indiquée en haut du rapport. Chaque rapport permet l’ajout ou la suppression de colonnes en fonction des préférences de l’administrateur. Les administrateurs peuvent choisir de télécharger les données au format .CSV ou JSON. Les rapports peuvent être filtrés à l’aide des filtres situés dans la partie supérieure du rapport.
 
 La sélection d’entrées individuelles peut activer des entrées supplémentaires en haut du rapport, telles que la possibilité de confirmer qu’une connexion est compromise ou sécurisée, de confirmer qu’un utilisateur est compromis ou d’ignorer le risque de l’utilisateur.
 
@@ -44,7 +44,7 @@ Les informations indiquées dans le rapport Utilisateurs à risque permettent au
 
 - Quels sont les utilisateurs à risques ? Pour qui les risques ont-ils été corrigés ou éliminés ?
 - Détails sur les détections
-- Historique des connexions à risque
+- Historique de toutes les connexions à risque
 - Historique des risques
  
 Les administrateurs peuvent ensuite choisir d’agir sur ces événements. Les administrateurs peuvent choisir d’effectuer les opérations suivantes :

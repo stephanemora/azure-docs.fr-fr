@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 28d0da369083d75bc175111d808828e186a366fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444131"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>Guide sur les performances et la scalabilité de l’activité de copie
 
@@ -289,15 +289,16 @@ Vous êtes facturé en fonction de deux étapes : la durée de la copie et le ty
 * Lorsque vous utilisez la copie intermédiaire lors d’une copie dans le cloud (qui copie des données à partir d’une banque de données cloud vers une autre banque de données cloud, les deux étapes utilisant le runtime d’intégration Azure), vous êtes facturé au prix de [somme de la durée de copie pour les étapes 1 et 2] x [prix unitaire de la copie dans le cloud].
 * Lorsque vous utilisez la copie intermédiaire lors d’une copie hybride (qui copie des données à partir d’une banque de données locale vers une banque de données cloud, une étape utilisant le runtime d’intégration auto-hébergé), vous êtes facturé au prix de [durée de la copie hybride] x [prix unitaire de la copie hybride] + [durée de la copie cloud] x [prix unitaire de la copie cloud].
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
-* Stockage Azure, qui inclut le stockage d’objets blob et le stockage Table : [Objectifs d’évolutivité du Stockage Azure](../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../storage/common/storage-performance-checklist.md).
+* Stockage Blob Azure : [Objectifs d’extensibilité et de performances pour le stockage Blob](../storage/blobs/scalability-targets.md) et [liste de contrôle des performances et de l’extensibilité pour le stockage Blob](../storage/blobs/storage-performance-checklist.md).
+* Stockage Table Azure : [Objectifs d’extensibilité et de performances pour le stockage Table](../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de l’extensibilité pour le stockage Table](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : Vous pouvez [surveiller les performances](../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU).
 * Azure SQL Data Warehouse : Sa capacité est mesurée en DWU (Data Warehouse Units). Consultez [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* Serveur SQL Server local : [Surveillance et réglage des performances](https://msdn.microsoft.com/library/ms189081.aspx).
+* Serveur SQL Server local : [Surveiller et régler les performances](https://msdn.microsoft.com/library/ms189081.aspx).
 * Serveur de fichiers local : [Réglage des performances des serveurs de fichiers](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes

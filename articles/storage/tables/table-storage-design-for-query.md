@@ -1,6 +1,6 @@
 ---
-title: Concevoir des tables de stockage Azure pour les requêtes | Microsoft Docs
-description: Concevez des tables pour les requêtes dans le Stockage Table Azure.
+title: Concevoir un Stockage Table Azure pour les requêtes | Microsoft Docs
+description: Concevez des tables pour les requêtes dans un Stockage Table Azure.
 services: storage
 author: MarkMcGeeAtAquent
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41a588ddc0c1be8014a84d8fe181013d8566f68d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457647"
 ---
 # <a name="design-for-querying"></a>Conception pour l'interrogation
 Les solutions de service de Table peuvent lire ou écrire de façon intensive, ou effectuer une combinaison des deux. Cet article décrit les éléments à prendre en compte quand vous concevez votre service de Table pour prendre en charge efficacement les opérations de lecture. En règle générale, une conception qui prend en charge les opérations de lecture de manière efficace le sera également pour des opérations d'écriture. Toutefois, vous devez prendre en compte d’autres éléments quand la conception a pour but de prendre en charge les opérations d’écriture. Ces éléments sont décrits dans l’article [Concevoir pour la modification de données](table-storage-design-for-modification.md).
@@ -37,12 +37,12 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 
 | *Nom de la colonne* | *Type de données* |
 | --- | --- |
-| **PartitionKey** (nom du service) |Chaîne |
-| **RowKey** (ID d’employé) |Chaîne |
-| **FirstName** |Chaîne |
-| **LastName** |Chaîne |
-| **Age** |Entier |
-| **EmailAddress** |Chaîne |
+| **PartitionKey** (nom du service) |String |
+| **RowKey** (ID d’employé) |String |
+| **FirstName** |String |
+| **LastName** |String |
+| **Age** |Integer |
+| **EmailAddress** |String |
 
 L’article [Vue d’ensemble du Stockage Table Azure](table-storage-overview.md) décrit certaines des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

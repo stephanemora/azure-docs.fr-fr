@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84a17cb4468f60abf2463e6aa3ca331466aad247
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 340a1927f62d6a398994b457e351ad41d5e76d19
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850140"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659761"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -56,7 +56,7 @@ Cette erreur a deux causes principales :
 * Différentes versions des modules AzureRM.
 * Vous essayez d’accéder à des ressources dans un abonnement distinct.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si vous recevez cette erreur après avoir mis à jour un module AzureRM, vous devez mettre à jour tous vos modules AzureRM avec la même version.
 
@@ -106,7 +106,7 @@ Cette erreur peut se produire si :
 
 * L’utilisateur Azure Active Directory qui essaie d’obtenir les détails de l’abonnement n’est pas configuré comme administrateur de l’abonnement.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Procédez comme suit pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous voulez sélectionner :
 
@@ -140,7 +140,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 Si l’authentification multifacteur est configurée sur votre compte Azure, vous ne pouvez pas vous authentifier auprès d’Azure avec un utilisateur Azure Active Directory. Au lieu de cela, vous devez utiliser un certificat ou un principal de service pour l’authentification dans Azure.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -166,7 +166,7 @@ At line:16 char:1
 
 Cette erreur est due à l'utilisation des cmdlets AzureRM et Az dans un runbook. Elle se produit lorsque vous importez `Az` avant d’importer `AzureRM`.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Les cmdlets AZ et AzureRM ne peut pas être importées et utilisées dans le même runbook. Pour plus d'informations sur la prise en charge de modules Az dans Azure Automation, consultez [Prise en charge de modules Az dans Azure Automation](../az-modules.md).
 
@@ -184,7 +184,7 @@ Exception: A task was canceled.
 
 Cette erreur peut être due à l’utilisation de modules Azure obsolètes.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Cette erreur peut être résolue en mettant à jour vos modules Azure vers la dernière version.
 
@@ -200,7 +200,7 @@ Lors de l’exécution de runbooks, le runbook ne parvient pas à gérer les res
 
 Le runbook n’utilise pas le contexte approprié lors de l’exécution.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks. Pour s’assurer que le contexte de l’abonnement est passé aux runbooks, ajoutez le paramètre `AzureRmContext` à l’applet de commande et passez-lui le contexte. Il est également recommandé d’utiliser l’applet de commande `Disable-AzureRmContextAutosave` avec l’étendue **Processus** pour avoir la garantie que les informations d’identification dont vous vous servez sont uniquement utilisées pour le runbook actuel.
 
@@ -248,7 +248,7 @@ Cette erreur peut se produire pour l'une des raisons suivantes :
 * Le module contenant l’applet de commande n’est pas importé dans le compte Automation
 * Le module contenant l’applet de commande est importé, mais il est obsolète
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Cette erreur peut être résolue en effectuant une des tâches suivantes :
 
@@ -270,9 +270,9 @@ The job was tried three times but it failed
 
 Cette erreur se produit en raison d’un des problèmes suivants :
 
-* Limite de mémoire. Les limites documentées sur la quantité de mémoire qui est allouée à un bac à sable se trouvent à la section [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits). Un travail peut échouer s’il utilise plus de 400 Mo de mémoire.
+* Limite de mémoire. Les limites documentées sur la quantité de mémoire qui est allouée à un bac à sable se trouvent à la section [Limites du service Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). Un travail peut échouer s’il utilise plus de 400 Mo de mémoire.
 
-* Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits).
+* Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
 * Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
@@ -280,7 +280,7 @@ Cette erreur se produit en raison d’un des problèmes suivants :
 
 * Votre runbook a tenté d’écrire trop de données d’exception dans le flux de sortie.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Une des solutions suivantes corrige ce problème :
 
@@ -312,7 +312,7 @@ No certificate was found in the certificate store with thumbprint
 
 Cette erreur se produit si le nom de la ressource d’informations d’identification n’est pas valide. Elle peut également se produire si le nom d’utilisateur et le mot de passe que vous avez utilisés pour configurer la ressource d’informations d’identification Automation ne sont pas valides.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour identifier le problème, effectuez les étapes suivantes :
 
@@ -367,7 +367,7 @@ Object reference not set to an instance of an object
 
 [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) peut ne pas gérer correctement le flux de sortie s’il contient des objets.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour y remédier, il vous est conseillé de mettre en œuvre une logique d'interrogation et d'utiliser la cmdlet [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) pour récupérer la sortie. À titre d'exemple, cette logique est définie ci-dessous.
 
@@ -409,7 +409,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Si votre runbook est un workflow PowerShell, il stocke les objets complexes dans un format désérialisé afin de conserver l’état du runbook si le workflow est suspendu.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Chacune des trois solutions suivantes résout ce problème :
 
@@ -431,7 +431,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Cette erreur se produit quand l’exécution du travail dépasse le quota gratuit de 500 minutes pour votre compte. Ce quota s’applique à tous les types de tâches d’exécution de travail, notamment le test d’un travail, le démarrage d’un travail à partir du portail, l’exécution d’un travail à l’aide de webhooks ou la planification d’un travail à exécuter en utilisant le portail Azure ou dans votre centre de données. Pour en savoir plus sur la tarification d’Automation, consultez [Tarification d’Automation](https://azure.microsoft.com/pricing/details/automation/).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si vous voulez utiliser plus de 500 minutes de traitement par mois, vous devez changer votre abonnement et le faire passer du niveau Gratuit au niveau De base. Une mise à niveau vers le niveau de base s’effectue de la façon suivante :
 
@@ -454,7 +454,7 @@ Le travail de votre runbook échoue avec l’erreur :
 
 Cette erreur survient quand le moteur PowerShell ne trouve pas la cmdlet que vous utilisez dans votre runbook. Cette erreur peut être dû au fait que le module contenant la cmdlet n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que la cmdlet existe déjà dans un autre module et Automation ne peut pas résoudre le nom.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Une des solutions suivantes corrige ce problème :
 
@@ -479,7 +479,7 @@ Il s’agit du comportement par défaut dans les bacs à sable Azure en raison d
 
 Le runbook s’est exécuté au-delà de la limite de trois heures autorisée par la répartition de charge équilibrée dans un bac à sable Azure.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Une solution recommandée consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md).
 
@@ -493,7 +493,7 @@ Applets de commande PowerShell prenant en charge le scénario avec des runbooks 
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) : si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant, cette applet de commande vous permet de vérifier l’état du travail de chaque enfant.
 
-## <a name="expired webhook"></a>Scénario : État de la version : 400 Requête incorrecte lors de l’appel d’un webhook
+## <a name="expired webhook"></a>Scénario : État : 400 Requête incorrecte lors de l’appel d’un webhook
 
 ### <a name="issue"></a>Problème
 
@@ -507,7 +507,7 @@ Lorsque vous essayez d’appeler un webhook pour un runbook Azure Automation, vo
 
 Le webhook que vous tentez d’appeler est désactivé ou a expiré.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si le webhook est désactivé, vous pouvez réactiver le webhook via le Portail Azure. Lorsque le webhook a expiré, il doit être supprimé et recréé. Vous pouvez uniquement [renouveler un webhook](../automation-webhooks.md#renew-webhook) s’il n’a pas déjà expiré.
 
@@ -525,7 +525,7 @@ Vous recevez le message d’erreur suivant lors de l’exécution de l’applet 
 
 Cette erreur peut se produire lors de la récupération d’une sortie de tâche à partir d’un runbook comportant de nombreux [flux détaillés](../automation-runbook-output-and-messages.md#verbose-stream).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Il existe deux façons de résoudre cette erreur :
 
@@ -546,7 +546,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 Cette erreur peut se produire lorsque vous démarrez un travail PowerShell dans un runbook exécuté dans Azure. Ce comportement peut s’expliquer par le fait que les runbooks exécutés dans un bac à sable Azure peuvent ne pas s’exécuter en [mode langage complet](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Il existe deux façons de résoudre cette erreur :
 

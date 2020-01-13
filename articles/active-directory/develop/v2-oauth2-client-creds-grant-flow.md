@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 12/17/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae50c7cfcb5087903edd8dadca08c38ab1775e20
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 17538d383d7f796803c88d9490aa68ed75351445
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423284"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identités Microsoft et flux d’informations d’identification du client OAuth 2.0
 
@@ -65,7 +65,7 @@ Ce type d’autorisation est courant pour les démons et les comptes de service 
 
 ### <a name="application-permissions"></a>Autorisations de l’application
 
-Au lieu d’utiliser des listes ACL, vous pouvez utiliser l’API pour exposer un ensemble d’autorisations de l’application. Une autorisation de l’application est accordée à une application par un administrateur d’une organisation et peut uniquement être utilisée pour accéder aux données appartenant à cette organisation et ses employés. Par exemple, Microsoft Graph expose plusieurs autorisations d’application pour effectuer les opérations suivantes :
+Au lieu d’utiliser des listes ACL, vous pouvez utiliser des API pour exposer un ensemble d’**autorisations d’application**. Une autorisation de l’application est accordée à une application par un administrateur d’une organisation et peut uniquement être utilisée pour accéder aux données appartenant à cette organisation et ses employés. Par exemple, Microsoft Graph expose plusieurs autorisations d’application pour effectuer les opérations suivantes :
 
 * Lire les messages dans toutes les boîtes aux lettres
 * Lire et écrire des messages dans toutes les boîtes aux lettres
@@ -75,6 +75,11 @@ Au lieu d’utiliser des listes ACL, vous pouvez utiliser l’API pour exposer u
 Pour plus d’informations sur les autorisations d’application, consultez la page [Microsoft Graph](https://developer.microsoft.com/graph).
 
 Pour utiliser les autorisations d’application dans votre application, suivez la procédure décrite dans les sections suivantes.
+
+
+> [!NOTE]
+> Lors de l’authentification en tant qu’application, par opposition à l’authentification avec un utilisateur, vous ne pouvez pas utiliser d’« autorisations déléguées » (étendues accordées par un utilisateur).  Vous devez utiliser des « autorisations d’application », également appelées « rôles », accordées par un administrateur pour l’application (ou par le biais d’une pré-autorisation par l’API web).    
+
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 

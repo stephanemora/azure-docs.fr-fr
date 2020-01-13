@@ -1,17 +1,17 @@
 ---
-title: Découvrir comment configurer et gérer la durée de vie dans Azure Cosmos DB
+title: Configurer et gérer la durée de vie dans Azure Cosmos DB
 description: Découvrir comment configurer et gérer la durée de vie sur un conteneur et un élément dans Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 51022956ad32059771b8d56f0ae177fb5165b450
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 55f94257b604a87460caa279fc0995f1434ac92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441781"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Dans Azure Cosmos DB, vous pouvez choisir de configurer la durée de vie (TTL) a
 
 Utilisez les étapes suivantes pour activer la durée de vie sur un conteneur sans date d’expiration. Activez cette option pour autoriser le remplacement de la TTL au niveau de l’élément. Vous pouvez également définir la TTL en entrant une valeur différente de zéro pour les secondes.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
@@ -133,7 +133,7 @@ Non seulement vous pouvez définir une durée de vie par défaut sur un conteneu
 
 Utilisez les étapes suivantes pour activer la durée de vie sur un élément :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 

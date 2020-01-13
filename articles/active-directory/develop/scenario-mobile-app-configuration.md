@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44392882a7d3e1816b952969dbadb518e2762142
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d7148b104c723d124a954cf858ca77ff6552f94
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919951"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423789"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Application mobile appelant des API web - Configuration du code
 
@@ -77,7 +77,7 @@ Le paragraphe suivant explique comment instancier l’application pour des appli
 
 Dans Xamarin ou UWP, le moyen le plus simple d’instancier l’application est le suivant, où `ClientId` est le GUID de votre application inscrite.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder.Create(clientId)
                                         .Build();
 ```
@@ -88,15 +88,15 @@ Des méthodes de *paramètres* supplémentaires permettent de définir le parent
 
 Sur Android, vous devez transmettre l’activité parente avant d’effectuer l’authentification interactive. Sur iOS, lors de l’utilisation d’un répartiteur, vous devez transmettre le ViewController. De la même façon sur UWP, vous pouvez transmettre la fenêtre parente. Cela est possible lorsque vous obtenez le jeton, mais il est également possible de spécifier un rappel au moment de la création de l’application, un délégué retournant l’interface utilisateur parente.
 
-```CSharp
+```csharp
 IPublicClientApplication application = PublicClientApplicationBuilder.Create(clientId)
   .ParentActivityOrWindowFunc(() => parentUi)
   .Build();
 ```
 
-Sur Android, nous vous recommandons le `CurrentActivityPlugin` [ici](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Votre code de générateur `PublicClientApplication` ressemble alors à ceci :
+Sur Android, nous vous recommandons d’utiliser le `CurrentActivityPlugin`[ici](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Votre code de générateur `PublicClientApplication` ressemble alors à ceci :
 
-```CSharp
+```csharp
 // Requires MSAL.NET 4.2 or above
 var pca = PublicClientApplicationBuilder
   .Create("<your-client-id-here>")
@@ -171,11 +171,11 @@ L’authentification répartie est activée par défaut pour les scénarios AAD 
 
 Suivez les étapes ci-dessous pour permettre à votre application Xamarin.iOS de communiquer avec l’application [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458).
 
-#### <a name="step-1-enable-broker-support"></a>Étape 1 : Activer la prise en charge du répartiteur
+#### <a name="step-1-enable-broker-support"></a>Étape 1 : Activer la prise en charge du répartiteur
 
 La prise en charge du répartiteur est activée par `PublicClientApplication`. Elle est désactivée par défaut. Vous devez utiliser le paramètre `WithBroker()` (défini sur true par défaut) lors de la création de `PublicClientApplication` via `PublicClientApplicationBuilder`.
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -183,11 +183,11 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Étape 2 : Mettre à jour AppDelegate pour gérer le rappel
+#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Étape 2 : Mettre à jour AppDelegate pour gérer le rappel
 
 Quand MSAL.NET appelle le répartiteur, ce dernier effectue à son tour un rappel à votre application via la méthode `AppDelegate.OpenUrl`. Étant donné que MSAL attend la réponse du répartiteur, votre application doit coopérer pour rappeler MSAL.NET. Pour ce faire, vous devez mettre à jour le fichier `AppDelegate.cs` pour remplacer la méthode ci-dessous.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
                              string sourceApplication,
                              NSObject annotation)
@@ -219,16 +219,16 @@ Procédez comme suit pour définir la fenêtre de l’objet :
 **Par exemple :**
 
 Dans `App.cs` :
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 Dans `AppDelegate.cs` :
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 Dans l’appel d’acquisition de jeton :
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
@@ -281,7 +281,7 @@ MSAL utilise `–canOpenURL:` pour vérifier si le répartiteur est installé su
 
 L’authentification répartie est activée par défaut pour les scénarios AAD.
 
-#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Étape 1 : Mettre à jour AppDelegate pour gérer le rappel
+#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>Étape 1 : Mettre à jour AppDelegate pour gérer le rappel
 
 Quand MSAL pour iOS et macOS appelle le répartiteur, celui-ci rappelle votre application via la méthode `openURL`. Étant donné que MSAL attend la réponse du répartiteur, votre application doit coopérer pour rappeler MSAL. Pour ce faire, vous devez mettre à jour le fichier `AppDelegate.m` pour remplacer la méthode ci-dessous.
 
@@ -312,7 +312,7 @@ Swift :
 
 Notez que, si vous avez adopté UISceneDelegate sur iOS 13 +, le rappel MSAL doit être placé dans les `scene:openURLContexts:` de UISceneDelegate à la place (voir la [documentation Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)). MSAL `handleMSALResponse:sourceApplication:` ne doit être appelé qu’une seule fois pour chaque URL.
 
-#### <a name="step-2-register-a-url-scheme"></a>Étape 2 : Inscrire un schéma d’URL
+#### <a name="step-2-register-a-url-scheme"></a>Étape 2 : Inscrire un schéma d’URL
 
 MSAL pour iOS et macOS utilise des URL pour appeler le répartiteur, avant de retourner la réponse du répartiteur à votre application. Pour terminer l’aller-retour, vous devez inscrire un schéma d’URL pour votre application dans le fichier `Info.plist`.
 

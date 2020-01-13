@@ -1,17 +1,17 @@
 ---
-title: Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
+title: Partenaires pour le développement d’applications et la migration pour Azure Cosmos DB
 description: Répertorie les partenaires Microsoft qui proposent des solutions de migration prenant en charge Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 2ba6b04efbce5b7911037fbc5f14373cc962035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257356"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530695"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 
@@ -21,7 +21,7 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 
 |**Partenaire**  |**Expérience et capacités**  |**Pays/régions pris en charge**  |**Contact**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | [Migration de données](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) de MongoDB vers Azure Cosmos DB. <br/> Imanis Data permet à des multinationales de migrer rapidement et facilement leurs bases de données MongoDB locales ou cloud vers Azure Cosmos DB. Imanis Data fournit une approche de migration cloud sans agent et incrémentielle à l’infini pour les magasins de données MongoDB, qui simplifie la migration et réduit considérablement le temps d’arrêt.|  États-Unis  |   [Site web](http://www.imanisdata.com/)      |
+|![ImanisData][1]   | Migration de données de MongoDB vers Azure Cosmos DB. <br/> Imanis Data permet à des multinationales de migrer rapidement et facilement leurs bases de données MongoDB locales ou cloud vers Azure Cosmos DB. Imanis Data fournit une approche de migration cloud sans agent et incrémentielle à l’infini pour les magasins de données MongoDB, qui simplifie la migration et réduit considérablement le temps d’arrêt.|  États-Unis  |   [Site web](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  [Assure le déplacement des données en temps réel vers Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) à partir de très nombreuses sources de données. <br/> Striim simplifie la collecte en temps réel et le déplacement des données à partir de très nombreuses sources locales, notamment des bases de données relationnelles et de documents d’entreprise, des capteurs et des fichiers journaux, dans Azure Cosmos DB. |   États-Unis   |  [Site web](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Partenaires intégrateurs système
@@ -35,15 +35,15 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 |![BlueMetal Architects][5]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    Amérique du Nord, Asie-Pacifique     |  [Site web](https://www.bluemetal.com/)       |
 |![Capax Global LLC][6]     |  Migration NoSQL, <br/> innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications       |    États-Unis     |  [Site web](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | Migration NoSQL ; innovation en matière d’applications (applications existantes) ; développement de nouvelles applications | États-Unis, France, Royaume-Uni, Pays-bas, Finlande  | [Site web](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Site web](https://www.coeo.com/)       |
+|![Coeo][7]     |   innovation en matière d’applications (applications existantes), <br/> développement de nouvelles applications |    Royaume-Uni     |  [Site web](https://www.coeo.com/)       |
 | ![Cognizant][15] | Migration NoSQL |États-Unis, Canada, Royaume-Uni, Danemark, Pays-bas, Suisse, Australie, Japon | [Site web](https://www.cognizant.com/)|
-|![Infosys][8]     |  Migration NoSQL       |    Globale     |  [Site web](https://www.infosys.com/)       |
+|![Infosys][8]     |  Migration NoSQL       |    Global     |  [Site web](https://www.infosys.com/)       |
 | ![Lagash][16] | Migration NoSQL, <br/> développement de nouvelles applications | Argentine, Chili, Colombie, Mexique| [Site web](https://www.lagash.com/)|
 | ![Lambda3 Informatics][17] | Migration NoSQL, <br/> développement de nouvelles applications | Brésil| [Site web](https://www.lambda3.com.br/)|
 |![Neal Analytics][9]     |     Développement d’applications (nouvelles applications)    |    États-Unis     |  [Site web](https://www.nealanalytics.com/)       |
 |![Pragmatic Works Software Inc.][10]    |   Migration NoSQL      |   États-Unis      |  [Site web](https://www.pragmaticworks.com/)       |
 | ![Ricoh Global][18] | Migration NoSQL, <br/> innovation en matière d’applications (applications existantes)| Royaume-Uni  | [Site web](https://www.ricoh.com/)|
-| ![SNP Technologies][19] | Migration NoSQL| FR | [Site web](https://www.snp.com/)|
+| ![SNP Technologies][19] | Migration NoSQL| US | [Site web](https://www.snp.com/)|
 | ![Solidsoft Reply][20] | Migration NoSQL | Croatie, Suède, Danemark, Irlande, Bulgarie, Slovénie, Chypre, Malte, Lituanie, la République tchèque, Islande, Suisse et Liechtenstein| [Site web](https://www.reply.com/solidsoft-reply/)|
 | ![Spanish Point Technologies][21] | Migration NoSQL| Irlande| [Site web](https://www.spanishpoint.ie/)|
 | ![Syone][22] | Migration NoSQL| Portugal| [Site web](https://www.syone.com/)|

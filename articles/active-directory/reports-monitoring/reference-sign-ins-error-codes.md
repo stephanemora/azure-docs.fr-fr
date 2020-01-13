@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429475"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -36,9 +36,13 @@ Lorsqu’une connexion échoue, vous verrez un code d’erreur correspondant à 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Comment afficher les connexions en échec ? 
 
-Accédez au [rapport sur les connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) dans le [portail Azure](https://portal.azure.com).
+Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
 
-![Activité de connexion](./media/reference-sign-ins-error-codes/61.png "Activité de connexion")
+![Sélectionner Azure Active Directory](./media/reference-sign-ins-error-codes/select-azure-active-directory.png "Azure Active Directory")
+
+Sous **Surveillance**, sélectionnez **Connexions** pour ouvrir le [Rapport de connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Activité de connexion](./media/reference-sign-ins-error-codes/monitoring-sign-ins-in-azure-active-directory.png "Activité de connexion")
 
 Filtrez le rapport pour afficher tous les échecs de connexion en sélectionnant **Échec** à partir de la zone de liste déroulante **État de la connexion**.
 

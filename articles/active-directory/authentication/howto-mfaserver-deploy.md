@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a0dbd28dc798342a24180af430187ac69f61b8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6001dc47d19665184bf44114ab36744f0287264
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848134"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608752"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -31,9 +31,6 @@ Cette page vous indique comment installer le serveur et le configurer avec votre
 
 ## <a name="plan-your-deployment"></a>Planifier votre déploiement
 
-> [!WARNING]
-> À partir de mars 2019, les téléchargements de MFA Server sont uniquement disponibles pour les locataires payants. Les locataires gratuits ou à l’essai ne sont plus en mesure de télécharger ou de générer, et d’utiliser des informations d’identification d’activation.
-
 Avant de télécharger le serveur Microsoft Azure Multi-Factor Authentication, pensez à vos exigences en termes de charge et de haute disponibilité. Prenez en compte ces informations pour décider de quelle manière et à quel endroit effectuer le déploiement.
 
 Le nombre d’utilisateurs que vous souhaitez authentifier, sur une base régulière, est une bonne ligne directrice pour avoir une idée de la quantité de mémoire nécessaire.
@@ -43,8 +40,8 @@ Le nombre d’utilisateurs que vous souhaitez authentifier, sur une base réguli
 | 1-10,000 | 4 Go |
 | 10,001-50,000 | 8 Go |
 | 50,001-100,000 | 12 Go |
-| 100,000-200,001 | 16 Go |
-| 200,001+ | 32 Go |
+| 100,000-200,001 | 16 Go |
+| 200,001+ | 32 Go |
 
 Vous devez configurer plusieurs serveurs pour l’équilibrage de charge ou la haute disponibilité ? Il existe plusieurs façons de définir cette configuration avec le serveur Azure MFA. Lorsque vous installez votre premier serveur Azure MFA, il devient le maître. Tous les serveurs supplémentaires deviennent ses subordonnés. Ils synchronisent automatiquement les utilisateurs ainsi que la configuration avec le serveur maître. Par la suite, vous pouvez configurer un serveur principal et conserver le reste des serveurs en tant que serveurs de sauvegarde. Vous pouvez aussi configurer l’équilibrage de charge parmi l’ensemble des serveurs.
 
@@ -57,7 +54,7 @@ Assurez-vous que le serveur que vous utilisez pour l’authentification multifac
 | Configuration requise du serveur Azure Multi-Factor Authentication | Description |
 |:--- |:--- |
 | Matériel |<li>200 Mo d’espace disque</li><li>Processeur compatible x32 ou x64</li><li>1 Go de RAM ou plus</li> |
-| Logiciel |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, toutes les éditions</li><li>Windows 8, toutes les éditions</li><li>Windows 7, toutes les éditions</li><li>Windows Vista, toutes les éditions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou version ultérieure si vous installez le kit de développement logiciel du portail de l’utilisateur ou du service web</li> |
+| Logiciel |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, toutes les éditions</li><li>Windows 8, toutes les éditions</li><li>Windows 7, toutes les éditions</li><li>Windows Vista, toutes les éditions, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 ou version ultérieure si vous installez le kit de développement logiciel du portail de l’utilisateur ou du service web</li> |
 | Autorisations | Compte d’administrateur de domaine ou d’administrateur d’entreprise pour l’inscription auprès d’Active Directory |
 
 ### <a name="azure-mfa-server-components"></a>Composants du serveur Azure MFA
@@ -96,9 +93,6 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 
 ## <a name="download-the-mfa-server"></a>Télécharger le serveur MFA
 
-> [!WARNING]
-> À partir de mars 2019, les téléchargements de MFA Server sont uniquement disponibles pour les locataires payants. Les locataires gratuits ou à l’essai ne sont plus en mesure de télécharger ou de générer, et d’utiliser des informations d’identification d’activation.
-
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
@@ -122,6 +116,9 @@ Maintenant que vous avez téléchargé le serveur, vous pouvez l’installer et 
    ![Ignorer l’Assistant Configuration de l’authentification](./media/howto-mfaserver-deploy/skip2.png)
 
 5. Revenez à la page à partir de laquelle vous avez téléchargé le serveur, puis cliquez sur le bouton **Générer des informations d’identification d’activation**. Copiez ces informations dans les zones appropriées du serveur Azure MFA, puis cliquez sur **Activer**.
+
+> [!NOTE]
+> Seuls des administrateurs généraux peuvent générer des informations d’identification d’activation dans le portail Azure.
 
 ## <a name="send-users-an-email"></a>Envoi d’un e-mail aux utilisateurs
 
@@ -171,7 +168,7 @@ Lorsque vous utilisez le serveur Multi-Factor Authentication (MFA) sur site, les
 * Adresse de messagerie (facultatif)
 * Numéro de téléphone : en cas d'authentification par appel vocal ou SMS
 * Jeton du périphérique : en cas d'authentification par application mobile
-* mode d'authentification
+* Mode d'authentification
 * Résultat de l'authentification
 * Nom du serveur MFA
 * Adresse IP du serveur MFA

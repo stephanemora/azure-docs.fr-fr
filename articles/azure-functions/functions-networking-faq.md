@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409524"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquentes concernant les réseaux dans Azure Functions
 
@@ -51,9 +51,7 @@ Avec l’intégration de réseau virtuel, vous pouvez accéder aux ressources s�
 
 Vous pouvez permettre aux déclencheurs HTTP d’être appelés à partir d’un réseau virtuel en utilisant des [points de terminaison de service](./functions-networking-options.md#private-site-access). 
 
-Vous pouvez également déclencher une fonction à partir d’une ressource d’un réseau virtuel en déployant votre application de fonction dans App Service Environment. Pour plus d’informations sur l’utilisation d’App Service Environment, consultez [Créer et utiliser un équilibreur de charge interne avec App Service Environment](../app-service/environment/create-ilb-ase.md).
-
-Les plans Premium et App Service prennent en charge les déclencheurs HTTP d’un réseau virtuel. Toutefois, seul App Service Environment est capable de prendre en charge tous les autres types de déclencheurs de fonction via un réseau virtuel.
+Vous pouvez également déclencher une fonction à partir d’autres ressources d’un réseau virtuel en déployant votre application de fonction dans un plan Premium, un plan App Service ou App Service Environment. Pour plus d’informations, consultez [Déclencheurs de réseau virtuel non-HTTP](./functions-networking-options.md#virtual-network-triggers-non-http).
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Comment déployer mon application de fonction dans un réseau virtuel ?
 

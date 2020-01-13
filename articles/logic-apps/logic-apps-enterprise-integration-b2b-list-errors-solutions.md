@@ -1,6 +1,6 @@
 ---
-title: Erreurs et solutions pour les scénarios B2B
-description: Rechercher des erreurs et des solutions pour les scénarios B2B dans Azure Logic Apps
+title: Solutions pour les erreurs et problèmes courants dans les scénarios B2B
+description: Trouvez des solutions aux erreurs et problèmes courants lors du dépannage des scénarios B2B dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 176bc3642f7c923b50cbf2f7a97096f88dc02817
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 38e281ce3d8117bff719b1bb572f09acbbb89669
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790699"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666684"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erreurs et solutions B2B pour Azure Logic Apps
 
@@ -25,7 +25,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   |  
 |---|---|
-| Description de l’erreur | Aucun accord trouvé avec les paramètres de résolution d’accord. | 
+| Description de l'erreur | Aucun accord trouvé avec les paramètres de résolution d’accord. | 
 | Action requise | L’accord doit être ajouté au compte d’intégration avec les identités commerciales convenues. </br>Les identités commerciales doivent correspondre aux ID de message entrant. |  
 |   |   |
 
@@ -33,7 +33,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Aucun contrat trouvé avec les identités : 'AS2Identity'::'Partner1' et 'AS2Identity'::'Partner3' | 
+| Description de l'erreur | Aucun contrat trouvé avec les identités : 'AS2Identity'::'Partner1' et 'AS2Identity'::'Partner3' | 
 | Action requise | En-tête AS2-From ou AS2-To non valide configuré pour l’accord. </br>Corriger les en-têtes « AS2-From » ou « AS2-To » du message AS2 ou l’accord pour faire correspondre les ID AS2 des en-têtes du message AS2 avec les configurations de l’accord. |
 |   |   |     
 
@@ -43,7 +43,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   |  
 |---|---|
-| Description de l’erreur | En-têtes AS2 non valides. L’un des en-têtes « AS2-To » ou « AS2-From » est vide. | 
+| Description de l'erreur | En-têtes AS2 non valides. L’un des en-têtes « AS2-To » ou « AS2-From » est vide. | 
 | Action requise | Un message AS2 ne contenant pas d’en-tête AS2-From ou AS2-To a été reçu. </br> Vérifiez les en-têtes AS2-From et AS2-To de message AS2 et corrigez-les en fonction de la configuration de l’accord. |
 |  |  | 
 
@@ -51,7 +51,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   |  
 |---|---|
-| Description de l’erreur | Le contenu de la requête est nul ou vide. | 
+| Description de l'erreur | Le contenu de la requête est nul ou vide. | 
 | Action requise | Un message AS2 ne comportant pas de corps de message a été reçu. |
 |  |  | 
 
@@ -59,7 +59,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   | 
 |---|---|
-| Description de l’erreur |  [processed/Error: decryption-failed] | 
+| Description de l'erreur |  [processed/Error: decryption-failed] | 
 | Action requise | Ajoutez @base64ToBinary au message AS2 avant de l’envoyer au partenaire. |
 |||
 
@@ -79,7 +79,7 @@ Par exemple :
 
 |   |   | 
 |---|---|
-| Description de l’erreur |  [processed/Error: decryption-failed] | 
+| Description de l'erreur |  [processed/Error: decryption-failed] | 
 | Action requise | Ajoutez @base64ToBinary à la MDN avant de l’envoyer au partenaire. | 
 |||
 
@@ -98,7 +98,7 @@ Par exemple :
 
 |   |   |  
 |---|---|
-| Description de l’erreur| Le certificat de signature n’a pas été configuré pour le tiers AS2. </br>AS2-From : partner1 AS2-To : partner2 | 
+| Description de l'erreur| Le certificat de signature n’a pas été configuré pour le tiers AS2. </br>AS2-From : partner1 AS2-To : partner2 | 
 | Action requise | Configurez les paramètres d’accord AS2 avec le certificat approprié pour la signature. |
 |  |  | 
 
@@ -108,7 +108,7 @@ Par exemple :
     
 |   |   | 
 |---|---|
-| Description de l’erreur | Erreur rencontrée lors de l’analyse. Le document informatisé EDIFACT avec l’ID ’123456’ contenu dans l’échange (sans groupe) avec l’ID ’987654’, avec l’ID d’expéditeur ’Partner1’ et l’ID de destinataire ’Partner2’, est interrompu avec les erreurs suivantes : <p>« Séparateur de début et de fin trouvé » |
+| Description de l'erreur | Erreur rencontrée lors de l’analyse. Le document informatisé EDIFACT avec l’ID ’123456’ contenu dans l’échange (sans groupe) avec l’ID ’987654’, avec l’ID d’expéditeur ’Partner1’ et l’ID de destinataire ’Partner2’, est interrompu avec les erreurs suivantes : <p>« Séparateur de début et de fin trouvé » |
 | Action requise | Les paramètres d’accord doivent être configurés de manière à autoriser les espaces de début et de fin. </br>Modifiez les paramètres d’accord de manière à autoriser les espaces de début et de fin. |
 |   |   |
 
@@ -118,7 +118,7 @@ Par exemple :
 
 |   |   | 
 |---|---| 
-| Description de l’erreur | Numéro de contrôle en double |
+| Description de l'erreur | Numéro de contrôle en double |
 | Action requise | Cette erreur indique que le message reçu contient des numéros de contrôle en double. </br>Corrigez le numéro de contrôle et renvoyez le message. |
 |   |   |
 
@@ -126,7 +126,7 @@ Par exemple :
 
 |   |   | 
 |---|---| 
-| Description de l’erreur | Erreur rencontrée lors de l’analyse. Le document informatisé X12 avec l’ID '564220001' contenu dans le groupe fonctionnel avec l’ID '56422', dans l'échange avec l’ID '000056422', avec l’ID d'expéditeur '12345678' et l'ID de destinataire '87654321' est interrompu avec les erreurs suivantes : <p>« Le type de document du message est inconnu, et n’a pas été résolu en l’un des schémas existants configurés dans l’accord » |
+| Description de l'erreur | Erreur rencontrée lors de l’analyse. Le document informatisé X12 avec l’ID '564220001' contenu dans le groupe fonctionnel avec l’ID '56422', dans l'échange avec l’ID '000056422', avec l’ID d'expéditeur '12345678' et l'ID de destinataire '87654321' est interrompu avec les erreurs suivantes : <p>« Le type de document du message est inconnu, et n’a pas été résolu en l’un des schémas existants configurés dans l’accord » |
 | Action requise | Configurez le schéma dans les paramètres d’accord.  |
 |   |   |
 
@@ -134,7 +134,7 @@ Par exemple :
 
 |   |   | 
 |---|---| 
-| Description de l’erreur | Le type de document du message est inconnu, et n’a pas été résolu en l’un des schémas existants configurés dans l’accord. |
+| Description de l'erreur | Le type de document du message est inconnu, et n’a pas été résolu en l’un des schémas existants configurés dans l’accord. |
 | Action requise | Configurez le schéma correct dans les paramètres d’accord. |
 |   |   |
 
@@ -144,7 +144,7 @@ Par exemple :
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Modèle non valide. Impossible de traiter les expressions de langage de gabarit dans les entrées d’action ’Flat_File_Decoding’ à la ligne « 1 » et à la colonne « 1902 » : la propriété « content » requise attend une valeur, mais a reçu null. Chemin d’accès « . ». |
+| Description de l'erreur | Modèle non valide. Impossible de traiter les expressions de langage de gabarit dans les entrées d’action ’Flat_File_Decoding’ à la ligne « 1 » et à la colonne « 1902 » : la propriété « content » requise attend une valeur, mais a reçu null. Chemin d’accès « . ». |
 | Action requise | Cette erreur indique que le message d’entrée ne contient pas de corps. |
 |   |   | 
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024005"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425530"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure AD Domain Services
 
-Azure Active Directory Domain Services (AD DS) fournissant des services d’authentification et de gestion à d’autres applications et charges de travail, la connectivité réseau est un composant clé. Si les ressources du réseau virtuelle ne sont pas correctement configurées, les applications et les charges de travail ne peuvent pas communiquer avec les fonctionnalités fournies par Azure AD DS ou les utiliser. Si vous planifiez correctement votre réseau virtuel, vous vous assurez qu’Azure AD DS soit en mesure de traiter vos applications et vos charges selon vos besoins.
+Azure Active Directory Domain Services (AD DS) fournissant des services d’authentification et de gestion à d’autres applications et charges de travail, la connectivité réseau est un composant clé. Si les ressources de réseau virtuel ne sont pas correctement configurées, les applications et les charges de travail ne peuvent pas communiquer avec les fonctionnalités fournies par Azure AD DS ni les utiliser. Si vous planifiez correctement votre réseau virtuel, vous vous assurez qu’Azure AD DS soit en mesure de traiter vos applications et vos charges selon vos besoins.
 
 Cet article décrit les considérations et les exigences relatives à la conception qui sont requises pour un réseau virtuel Azure prenant en charge Azure AD DS.
 
@@ -107,10 +107,10 @@ Les règles de groupe de sécurité réseau suivantes sont requises pour permett
 
 | Numéro de port | Protocol | Source                             | Destination | Action | Obligatoire | Objectif |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | AUTORISER  | OUI      | Synchronisation avec votre locataire Azure AD. |
-| 3389        | TCP      | CorpNetSaw                         | Quelconque         | AUTORISER  | OUI      | Gestion de votre domaine. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | AUTORISER  | OUI      | Gestion de votre domaine. |
-| 636         | TCP      | Quelconque                                | Quelconque         | AUTORISER  | Non       | Activé uniquement lorsque vous configurez le LDAP sécurisé (LDAPS). |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Synchronisation avec votre locataire Azure AD. |
+| 3389        | TCP      | CorpNetSaw                         | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | Quelconque         | Allow  | Oui      | Gestion de votre domaine. |
+| 636         | TCP      | Quelconque                                | Quelconque         | Allow  | Non       | Activé uniquement lorsque vous configurez le LDAP sécurisé (LDAPS). |
 
 > [!WARNING]
 > Ne modifiez pas manuellement ces configurations et ressources réseau. Lorsque vous associez un groupe de sécurité réseau mal configuré ou une table d’itinéraire définie par l’utilisateur au sous-réseau dans lequel Azure AD DS est déployé, vous risquez de perturber la capacité de Microsoft à traiter et à gérer le domaine. La synchronisation entre votre locataire Azure AD et votre domaine managé Azure AD DS est également interrompue.

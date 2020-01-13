@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 68cd0d51c16ecd63a1446c284f81c5dea07b8c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894566"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75363521"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Gérer un espace de travail Log Analytics dans Azure Monitor à l’aide de PowerShell
 
@@ -37,7 +37,7 @@ Cet article fournit deux exemples de code qui illustrent quelques-unes des fonct
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Ces exemples fonctionnent avec la version 1.0.0 ou ultérieure du module Az.OperationalInsights.
 
 
@@ -177,6 +177,10 @@ New-AzOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroupName 
 New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 
 ```
+
+> [!NOTE]
+> Le format du paramètre **CustomLogRawJson** qui définit la configuration d’un journal personnalisé peut être complexe. Utilisez [AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) pour récupérer la configuration d’un journal personnalisé existant. La propriété **Properties** correspond à la configuration requise pour le paramètre **CustomLogRawJson**.
+
 Dans l’exemple ci-dessus regexDelimiter a été défini comme « \\n » pour le saut de ligne. Le délimiteur de journal peut également être un horodateur.  Voici les formats pris en charge :
 
 | Format | Le format RegEx JSON utilise deux \\ pour chaque \ dans une expression régulière standard, par conséquent si les tests dans une application RegEx réduit \\ à \ | | |
@@ -198,24 +202,24 @@ Pour une analyse sans agent des ressources Azure, celles-ci doivent avoir les di
 
 | Type de ressource | Journaux d’activité | Mesures |
 | --- | --- | --- |
-| Passerelles d’application    | OUI | OUI |
-| Comptes Automation     | OUI | |
-| Comptes Batch          | OUI | OUI |
-| Data Lake analytics     | OUI | |
-| Data Lake Store         | OUI | |
-| Pool élastique SQL        |     | OUI |
-| Espace de noms Event Hub     |     | OUI |
-| IoT Hubs                |     | OUI |
-| Key Vault               | OUI | |
-| Équilibreurs de charge          | OUI | |
-| Logic Apps              | OUI | OUI |
-| Network Security Group | OUI | |
-| Cache Azure pour Redis             |     | OUI |
-| Services de recherche         | OUI | OUI |
-| Espace de noms Service Bus   |     | OUI |
-| SQL (v12)               |     | OUI |
-| Sites web               |     | OUI |
-| Batteries de serveurs web        |     | OUI |
+| Passerelles d’application    | Oui | Oui |
+| Comptes Automation     | Oui | |
+| Comptes Batch          | Oui | Oui |
+| Data Lake analytics     | Oui | |
+| Data Lake Store         | Oui | |
+| Pool élastique SQL        |     | Oui |
+| Espace de noms Event Hub     |     | Oui |
+| IoT Hubs                |     | Oui |
+| Key Vault               | Oui | |
+| Équilibreurs de charge          | Oui | |
+| Logic Apps              | Oui | Oui |
+| Network Security Group | Oui | |
+| Cache Azure pour Redis             |     | Oui |
+| Services de recherche         | Oui | Oui |
+| Espace de noms Service Bus   |     | Oui |
+| SQL (v12)               |     | Oui |
+| Sites web               |     | Oui |
+| Batteries de serveurs web        |     | Oui |
 
 Pour plus d’informations sur les métriques disponibles, voir [Mesures prises en charge avec Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 

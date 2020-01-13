@@ -1,19 +1,14 @@
 ---
-title: Azure Service Fabric- Utiliser une identité managée avec des applications Service Fabric | Microsoft Docs
-description: Comment utiliser des identités managées à partir du code d’application de Service Fabric
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Utiliser une identité gérée avec une application
+description: Comment utiliser des identités managées dans du code d’application Azure Service Fabric pour accéder aux services Azure. Cette fonctionnalité est en version préliminaire publique.
 ms.topic: article
-ms.date: 7/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 6a3d33954bda0605e752555922914a9fd432d8c1
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.date: 10/09/2019
+ms.openlocfilehash: 59680ec7911f55c3dc49d8834b410a039aa435dc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968235"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610316"
 ---
 # <a name="how-to-leverage-a-service-fabric-applications-managed-identity-to-access-azure-services-preview"></a>Tirer parti de l’identité managée d’une application Service Fabric pour accéder aux services Azure (préversion)
 
@@ -53,7 +48,7 @@ Exemple de demande :
 ```http
 GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
-où :
+où :
 
 | Élément | Description |
 | ------- | ----------- |
@@ -75,7 +70,7 @@ Content-Type: application/json
     "resource":  "https://keyvault.azure.com/"
 }
 ```
-où :
+où :
 
 | Élément | Description |
 | ------- | ----------- |
@@ -362,7 +357,7 @@ Il est recommandé de retenter les demandes échouées pour cause de limitation 
 | 3 | Attendre 4 seconde et réessayer |
 | 4 | Attendre 8 seconde et réessayer |
 | 4 | Attendre 8 seconde et réessayer |
-| 5\. | Attendre 16 seconde et réessayer |
+| 5 | Attendre 16 seconde et réessayer |
 
 ## <a name="resource-ids-for-azure-services"></a>ID de ressource pour les services Azure
 Consultez [Services Azure prenant en charge l’authentification de Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md) pour obtenir une liste des ressources qui prennent en charge Azure AD et leur ID de ressources respectif.

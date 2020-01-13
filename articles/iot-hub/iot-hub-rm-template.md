@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b0a647fe3499590c0307b89d45d662ecf7e53392
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d9fe58457f9a74466128273dcffee08e17aeb75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457040"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Créer un IoT Hub avec un modèle Azure Resource Manager (.NET)
 
@@ -32,7 +32,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 * Visual Studio.
 * Un compte Azure actif. <br/>Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
 * Un [compte Stockage Azure][lnk-storage-account] dans lequel vous pouvez stocker vos fichiers de modèles Azure Resource Manager.
-* [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
+* [Azure PowerShell 1.0][lnk-powershell-install] ou version ultérieure.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -76,7 +76,7 @@ Utilisez un fichier de paramètres et un modèle JSON pour créer un IoT Hub dan
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur votre projet, cliquez sur **Ajouter**, puis sur **Nouvel élément**. Ajoutez un fichier JSON appelé **template.json** à votre projet.
 
-2. Pour ajouter un IoT Hub standard à la région **USA Est**, remplacez le contenu de **template.json** par la définition de ressource suivante. Pour obtenir la liste des régions qui prennent en charge IoT Hub, consultez [Statut Azure][lnk-status] :
+2. Pour ajouter un IoT Hub standard à la région **USA Est**, remplacez le contenu de **template.json** par la définition de ressource suivante. Pour obtenir la liste des régions qui prennent en charge IoT Hub, voir [Statut Azure][lnk-status] :
 
     ```json
     {
@@ -204,17 +204,17 @@ Vous pouvez maintenant terminer l’application en appelant la méthode **Create
 Maintenant que vous avez déployé un IoT Hub à l’aide d’un modèle Azure Resource Manager avec un programme C#, vous pouvez aller encore plus loin :
 
 * Découvrez les capacités de [l’API REST du fournisseur de ressources IoT Hub][lnk-rest-api].
-* Pour plus d’informations sur les capacités d’Azure Resource Manager, voir [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
+* Pour plus d’informations sur les capacités d’Azure Resource Manager, consultez [Vue d’ensemble d’Azure Resource Manager][lnk-azure-rm-overview].
 * Pour connaître la syntaxe JSON et les propriétés à utiliser dans les modèles, consultez [Types de ressources Microsoft.Devices](/azure/templates/microsoft.devices/iothub-allversions).
 
 Pour en savoir plus sur le développement pour IoT Hub, consultez les articles suivants :
 
-* [Présentation du Kit de développement logiciel (SDK) C][lnk-c-sdk]
+* [Présentation du SDK C][lnk-c-sdk]
 * [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks]
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -222,7 +222,7 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: /powershell/azure/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/management/overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md

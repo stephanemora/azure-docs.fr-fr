@@ -3,19 +3,19 @@ title: Advanced Threat Protection pour Azure Cosmos DB
 description: Découvrez comment Azure Cosmos DB assure le chiffrement des données au repos, et comment s’effectue son implémentation.
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445542"
 ---
-# <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Advanced Threat Protection pour Azure Cosmos DB
+# <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection pour Azure Cosmos DB (préversion)
 
 Advanced Threat Protection pour Azure Cosmos DB offre une couche supplémentaire de sécurité intelligente qui détecte les tentatives d’accès ou d’exploitation inhabituelles et potentiellement dangereuses des comptes Azure Cosmos DB. Cette couche de protection vous permet de traiter efficacement les menaces sans pour autant être un expert en sécurité et de les intégrer aux systèmes centraux de supervision de la sécurité.
 
@@ -27,6 +27,14 @@ Les alertes de sécurité sont déclenchées lorsque des anomalies se produisent
 > * Advanced Threat Protection pour Azure Cosmos DB n’est actuellement pas disponible dans Azure government et les régions cloud souverain.
 
 Pour une expérience d’investigation complète des alertes de sécurité, nous vous recommandons d’activer la [journalisation des diagnostics dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), ce qui journalise les opérations sur la base de données elle-même, notamment les opérations CRUD sur l’ensemble des documents, conteneurs et bases de données.
+
+## <a name="threat-types"></a>Types de menaces
+
+Advanced Threat Protection pour Azure Cosmos DB détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. Il peut actuellement déclencher les alertes suivantes :
+
+- **Accès à partir d’emplacements inhabituels** : Cette alerte est déclenchée en cas de modification du modèle d’accès à un compte Azure Cosmos, où un utilisateur s’est connecté au point de terminaison Azure Cosmos DB à partir d’un emplacement géographique inhabituel. Dans certains cas, l’alerte détecte une action légitime indiquant une nouvelle application ou une opération de maintenance du développeur. Dans d’autres cas, l’alerte détecte une action malveillante, par exemple, d’un ancien employé, d’un attaquant externe, etc.
+
+- **Extraction de données inhabituelles** : Cette alerte est déclenchée quand un client extrait une quantité inhabituelle de données d’un compte Azure Cosmos DB. Il peut s’agir d’un symptôme d’exfiltration de données effectuée pour transférer toutes les données stockées dans le compte vers un magasin de données externe.
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurer Advanced Threat Protection
 
@@ -101,5 +109,5 @@ Une notification par e-mail est également envoyée avec les détails de l’ale
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la [Journalisation des diagnostics dans Azure Cosmos DB](monitor-cosmos-db.md#diagnostic-settings)
+* En savoir plus sur la [Journalisation des diagnostics dans Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
 * En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

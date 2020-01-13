@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c4e2681121a15e0b84a11c7cf35119c3f1b69f11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443718"
 ---
 # <a name="get-started-with-azcopy"></a>Bien démarrer avec AzCopy
 
@@ -34,14 +34,7 @@ Commencez par télécharger le fichier exécutable AzCopy V10 dans un répertoir
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-Ces fichiers sont compressés dans un fichier zip (Windows et Mac) ou un fichier tar (Linux).
-
-Vous pouvez utiliser ces commandes pour télécharger et décompresser le fichier tar sur Linux.
-
-```bash
-wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
-tar -xf azcopy.tar.gz
-```
+Ces fichiers sont compressés dans un fichier zip (Windows et Mac) ou un fichier tar (Linux). Pour télécharger et décompresser le fichier tar sur Linux, consultez la documentation de votre distribution Linux.
 
 > [!NOTE]
 > Si vous voulez copier des données depuis et vers le service [Table de stockage Azure](https://docs.microsoft.com/azure/storage/tables/table-storage-overview), installez [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -76,7 +69,7 @@ Utilisez ce tableau pour vous guider :
 |**Stockage de blobs (espace de noms hiérarchique)** | Azure AD et SAS |
 |**Stockage Fichier** | SAS uniquement |
 
-### <a name="option-1-use-azure-active-directory"></a>Option 1 : Utiliser Azure Active Directory
+### <a name="option-1-use-azure-active-directory"></a>Option 1 : Utiliser Azure Active Directory
 
 En utilisant Azure Active Directory, vous pouvez fournir des informations d’identification en une seule fois au lieu d’ajouter un jeton SAS à chaque commande.  
 
@@ -242,7 +235,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Remplacez l'espace réservé `<resource-id>` par l'ID ressource de l’identité managée attribuée par l’utilisateur.
 
-### <a name="option-2-use-a-sas-token"></a>Option 2 : Utiliser un jeton SAS
+### <a name="option-2-use-a-sas-token"></a>Option n°2 : Utiliser un jeton SAS
 
 Vous pouvez ajouter un jeton SAP à chaque URL source ou de destination utilisée dans vos commandes AzCopy.
 
@@ -254,7 +247,7 @@ azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/
 
 Pour en savoir plus sur les jetons SAS et savoir comment en obtenir un, voir [Utilisation des signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
-## <a name="transfer-files"></a>Transférer des fichiers
+## <a name="transfer-files"></a>Transférer les fichiers
 
 Une fois que vous avez authentifié votre identité ou obtenu un jeton SAP, vous pouvez commencer le transfert des fichiers.
 

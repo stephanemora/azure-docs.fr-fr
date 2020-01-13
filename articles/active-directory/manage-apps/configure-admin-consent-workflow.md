@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e1af654f0e82017bab4db5eb529b7d65b44714
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 83b3f0d97daf0b4ac17f74981119b380d1776d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430213"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurer le workflow du consentement administrateur (préversion)
 
@@ -127,7 +127,7 @@ Le tableau ci-dessous décrit les scénarios et les valeurs d’audit disponible
 |Réviseurs approuvant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            |Pour l’heure, vous ne pouvez pas trouver le contexte de l’utilisateur ou l’ID de l’application qui a reçu le consentement de l’administrateur.           |
 |Réviseurs refusant une demande de consentement administrateur       |Révisions d’accès           |UserManagement           |Approuver toutes les requêtes dans le workflow d’entreprise          |Contexte de l’application            | Pour l’heure, vous ne pouvez pas trouver le contexte utilisateur de l’acteur qui a refusé une demande de consentement administrateur.          |
 
-## <a name="faq"></a>Forum Aux Questions 
+## <a name="faq"></a>Questions fréquentes (FAQ) 
 
 **J’ai activé ce flux de travail, mais lors du test de la fonctionnalité, pourquoi ne puis-je pas voir la nouvelle invite « Approbation requise » me permettant de demander l’accès ?**
 
@@ -153,8 +153,10 @@ Si vous souhaitez accorder le consentement de l’administrateur et permettre à
 
 Pour plus d’informations sur le consentement des applications, consultez [Infrastructure de consentement d’Azure Active Directory](../develop/consent-framework.md).
 
-[Consentement et intégration d’applications pour Azure AD](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)
+[Configurer le consentement de l’utilisateur final pour une application](configure-user-consent.md)
 
-[Consentement et octroi d’autorisations pour les applications convergées Azure AD v2.0](../develop/active-directory-v2-scopes.md)
+[Accorder le consentement de l’administrateur au niveau locataire à une application](grant-admin-consent.md)
 
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[Autorisations et consentement dans la plateforme d’identités Microsoft](../develop/active-directory-v2-scopes.md)
+
+[Azure AD sur StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

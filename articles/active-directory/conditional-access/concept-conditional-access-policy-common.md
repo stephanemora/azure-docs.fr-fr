@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1d8d803a8256845c61def1b1df4d633ce95a3ce6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846111"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424987"
 ---
 # <a name="common-conditional-access-policies"></a>Stratégies d’accès conditionnel courantes
 
-Les stratégies de protection de la base de référence sont intéressantes, mais beaucoup d’organisations ont besoin d’une plus grande flexibilité. Par exemple, de nombreuses organisations ont besoin de pouvoir exclure des comptes spécifiques, tels que leurs comptes d’administration d’accès d’urgence ou d’administration de secours avec des stratégies d’accès conditionnel nécessitant l’authentification multifacteur. Pour ces organisations, les stratégies courantes référencées dans cet article peuvent être utilisées.
+Les [paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md) sont intéressants, mais beaucoup d’organisations ont besoin d’une plus grande flexibilité. Par exemple, de nombreuses organisations ont besoin de pouvoir exclure des comptes spécifiques, tels que leurs comptes d’administration d’accès d’urgence ou d’administration de secours avec des stratégies d’accès conditionnel nécessitant l’authentification multifacteur. Pour ces organisations, les stratégies courantes référencées dans cet article peuvent être utilisées.
 
 ![Stratégies d’accès conditionnel sur le portail Azure](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 

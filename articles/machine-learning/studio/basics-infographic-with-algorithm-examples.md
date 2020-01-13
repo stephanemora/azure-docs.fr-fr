@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 75f1424c68f3fe78f0dbf5e729943771ff25a09d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b57728b56efc84b903ed442c0dea7e70d4eb5bb2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839711"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454835"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Infographie téléchargeable : principes de base de l’apprentissage automatique avec exemples d’algorithmes
 
@@ -34,8 +34,8 @@ Téléchargez cette vue d’ensemble infographique présentant de manière simpl
 ## <a name="more-help-with-algorithms-for-beginners-and-advanced-users"></a>Aide supplémentaire sur les algorithmes pour les débutants et les utilisateurs expérimentés
 
 * Pour plus d’informations sur les différents types d’algorithmes d’apprentissage automatique, sur leur utilisation et sur la manière de choisir l’algorithme qui convient à votre solution, consultez [Comment choisir des algorithmes Microsoft Azure Machine Learning Studio (classique)](algorithm-choice.md).
-* Pour obtenir la liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans la version classique de Machine Learning Studio, consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio (classique) : aide sur les algorithmes et les modules.
-* Pour obtenir la liste alphabétique complète des algorithmes et des modules de la version classique de Machine Learning Studio, consultez [Liste alphabétique des modules de Machine Learning Studio (classique)][a-z-list] dans Machine Learning Studio (classique) : aide sur les algorithmes et les modules.
+* Pour obtenir la liste par catégorie de tous les algorithmes d’apprentissage automatique disponibles dans Machine Learning Studio (classique), consultez [Initialiser le modèle][initialize-model] dans Machine Learning Studio (classique) : aide sur les algorithmes et les modules.
+* Pour obtenir la liste alphabétique complète des algorithmes et des modules de la version classique de Machine Learning Studio, consultez [Liste alphabétique des modules Machine Learning Studio (classique)][a-z-list] dans Machine Learning Studio (classique) : aide sur les algorithmes et les modules.
 * Pour obtenir une vue d’ensemble d’Azure AI Gallery et des nombreuses ressources proposées par la communauté, consultez la page [Partager et découvrir des ressources dans Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
 

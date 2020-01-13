@@ -1,5 +1,6 @@
 ---
-title: Concepts clés pour l’administration de la solution Azure VMware par CloudSimple
+title: Concepts clés pour l’administration de la solution VMware de CloudSimple
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Décrit mes concepts clés pour l’administration de la solution Azure VMware par CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 120ab94ce62010acf4e742bd5220405961dad6db
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: d4de25f281f9164d5cfe3de64d2ca644593a8dd3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450777"
 ---
 # <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Concepts clés pour l’administration de la solution Azure VMware par CloudSimple
 
@@ -45,7 +46,7 @@ En savoir plus sur le [cloud privé CloudSimple](cloudsimple-private-cloud.md).
 
 ## <a name="service-networking"></a>Mise en réseau du service
 
-Le service de CloudSimple fournit un réseau par région où votre service CloudSimple est déployé. Le réseau est un seul espace d’adressage TCP de couche 3 avec routage activé par défaut. Tous les clouds privés et sous-réseaux créés dans cette région communiquent entre eux sans aucune configuration supplémentaire. Vous créez des groupes de ports distribués sur le serveur vCenter en utilisant les réseaux locaux virtuels. Vous pouvez utiliser les fonctionnalités réseau suivantes pour configurer et sécuriser les ressources de charge de travail de votre cloud privé :
+Le service de CloudSimple fournit un réseau par région où votre service CloudSimple est déployé. Le réseau est un seul espace d’adressage TCP de couche 3 avec routage activé par défaut. Tous les clouds privés et sous-réseaux créés dans cette région communiquent entre eux sans aucune configuration supplémentaire. Vous créez des groupes de ports distribués sur le serveur vCenter en utilisant les réseaux locaux virtuels. Vous pouvez utiliser les fonctionnalités réseau suivantes pour configurer et sécuriser les ressources de charge de travail de votre cloud privé :
 
 * [Réseaux locaux virtuels et sous-réseaux](cloudsimple-vlans-subnets.md)
 * [Tables de pare-feu](cloudsimple-firewall-tables.md)

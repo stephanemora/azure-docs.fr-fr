@@ -12,12 +12,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 8860c943dafdb9d166510519d0fb058f523537b3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e8ad1a9468c52fd120360827ed3a08f8f53ec3d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426000"
 ---
 # <a name="sap-hana-azure-backup-on-file-level"></a>Sauvegarde SAP HANA sur Azure au niveau fichier
 
@@ -137,7 +137,7 @@ Cela fonctionne donc, mais les performances n’étaient pas bonnes pour le test
 
 ## <a name="copy-sap-hana-backup-files-to-azure-files"></a>Copier les fichiers de sauvegarde SAP HANA dans Azure Files
 
-Il est possible de monter un partage Azure Files dans une machine virtuelle Linux Azure. L’article [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/files/storage-how-to-use-files-linux.md) fournit des détails sur la manière de procéder. N’oubliez pas qu’il existe actuellement une limite de 5 To pour un partage de fichiers Azure, et une limite de taille de fichier de 1 To. Pour plus d’informations sur les limites de stockage, voir [Objectifs de performance et évolutivité du stockage Azure](../../../storage/common/storage-scalability-targets.md).
+Il est possible de monter un partage Azure Files dans une machine virtuelle Linux Azure. L’article [Utilisation du stockage de fichiers Azure avec Linux](../../../storage/files/storage-how-to-use-files-linux.md) fournit des détails sur la manière de procéder. N’oubliez pas qu’il existe actuellement une limite de 5 To pour un partage de fichiers Azure, et une limite de taille de fichier de 1 To. Pour plus d’informations, voir [Objectifs de performance et d’extensibilité d’Azure Files](../../../storage/files/storage-files-scale-targets.md).
 
 Des tests ont toutefois démontré que la sauvegarde SAP HANA ne fonctionne pas directement avec ce type de montage CIFS. La [note SAP 1820529](https://launchpad.support.sap.com/#/notes/1820529) indique également que CIFS n’est pas recommandé.
 

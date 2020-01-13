@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Ajouter une instance gérée à un groupe de basculement'
+title: 'Tutoriel : Ajouter une instance gérée à un groupe de basculement'
 description: Apprenez à configurer un groupe de basculement pour votre instance gérée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b7c406c1d7f55b364d72b2b5626b3c17a34d8338
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286757"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552761"
 ---
-# <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Didacticiel : Ajouter une instance managée SQL Database à un groupe de basculement
+# <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>Tutoriel : Ajouter une instance managée SQL Database à un groupe de basculement
 
 Ajoutez une instance managée SQL Database à un groupe de basculement. Dans cet article, vous allez apprendre à :
 
@@ -31,11 +31,12 @@ Ajoutez une instance managée SQL Database à un groupe de basculement. Dans cet
   > [!NOTE]
   > - Ce didacticiel explique comment configurer vos ressources dans le respect des [conditions préalables à la configuration de groupes de basculement pour une instance managée](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - La création d’une instance gérée peut prendre beaucoup de temps. En conséquence, ce didacticiel peut prendre plusieurs heures. Pour plus d’informations sur les délais d’approvisionnement, consultez [Opérations de gestion des instances gérées](sql-database-managed-instance.md#managed-instance-management-operations). 
+  > - Les instances gérées participant à un groupe de basculement requièrent [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou deux passerelles VPN connectées. Ce didacticiel décrit les étapes de création et de connexion des passerelles VPN. Ignorez ces étapes si vous avez déjà configuré ExpressRoute. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants : 
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
@@ -54,7 +55,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 Au cours de cette étape, vous allez créer le groupe de ressources et l’instance managée principale pour votre groupe de basculement à l’aide du portail Azure ou de PowerShell. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal) 
 
 Créez le groupe de ressources et votre instance managée principale à l’aide du portail Azure. 
 
@@ -404,7 +405,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 ## <a name="2---create-secondary-virtual-network"></a>2 - Créer le réseau virtuel secondaire
 Si vous utilisez le portail Azure pour créer votre instance managée, vous devez créer le réseau virtuel séparément, car les plages du sous-réseau de l’instance managée principale et secondaire ne doivent pas se chevaucher. Si vous utilisez PowerShell pour configurer votre instance managée, passez directement à l’étape 3. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal) 
 Pour vérifier la plage du sous-réseau de votre réseau virtuel principal, procédez comme suit :
 1. Dans le [portail Azure](https://portal.azure.com), accédez à votre groupe de ressources et sélectionnez le réseau virtuel pour votre instance principale. 
 1. Sélectionnez **Sous-réseaux** sous **Paramètres** et notez la **Plage d’adresses**. La plage d’adresses du sous-réseau du réseau virtuel pour l’instance managée secondaire ne peut pas la chevaucher. 
@@ -445,7 +446,7 @@ Votre deuxième instance gérée doit :
 - Être vide. 
 - Avoir un sous-réseau et une plage d’adresses IP différents de ceux de l’instance managée principale. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal) 
 
 Créez l’instance managée secondaire à l’aide du portail Azure. 
 
@@ -728,10 +729,12 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 ---
 
 ## <a name="4---create-primary-gateway"></a>4 - Créer la passerelle principale 
-Pour que deux instances gérées participent à un groupe de basculement, une passerelle doit être configurée entre les réseaux virtuels des deux instances managées pour permettre la communication réseau. Vous pouvez créer la passerelle pour l’instance managée principale à l’aide du portail Azure. 
+Pour que deux instances gérées participent à un groupe de basculement, il doit y avoir ExpressRoute ou une passerelle configurée entre les réseaux virtuels des deux instances gérées pour permettre la communication réseau. Si vous choisissez de configurer [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) au lieu de connecter deux passerelles VPN, passez directement à l’[étape 7](#7---create-a-failover-group).  
+
+Cet article explique comment créer les deux passerelles VPN et les connecter, mais vous pouvez passer directement à la création du groupe de basculement si vous avez configuré ExpressRoute à la place. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Créez la passerelle pour le réseau virtuel de votre instance managée principale à l’aide du portail Azure. 
 
@@ -825,7 +828,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Dans cette étape, créez la passerelle pour le réseau virtuel de votre instance managée secondaire à l’aide du portail Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Via le portail Azure, répétez les étapes de la section précédente pour créer le sous-réseau et la passerelle du réseau virtuel pour l’instance managée secondaire. Renseignez les champs requis pour configurer la passerelle de votre instance managée secondaire. 
 
@@ -905,7 +908,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Dans cette étape, créez une connexion bidirectionnelle entre les deux passerelles des deux réseaux virtuels. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Connectez les deux passerelles à l’aide du portail Azure. 
 
@@ -955,7 +958,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 
 | Commande | Notes |
 |---|---|
-| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crée une connexion entre les deux réseaux virtuels.   |
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | Crée une connexion entre les deux passerelles de réseau virtuel.   |
 
 ---
 
@@ -964,7 +967,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 Au cours de cette étape, vous allez créer le groupe de basculement et y ajouter des instances managées. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Créez le groupe de basculement à l’aide du portail Azure. 
 
 
@@ -1007,7 +1010,7 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Testez le basculement en utilisant le portail Azure. 
 
 
@@ -1070,10 +1073,10 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Nettoyez les ressources en supprimant d’abord l’instance managée, puis le cluster virtuel, puis les ressources restantes et enfin le groupe de ressources. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com). 
 1. Sélectionnez la ou les instances gérées, puis choisissez **Supprimer**. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer**. Ce processus peut prendre un certain temps en arrière-plan et tant qu’il n’est pas terminé, vous ne pourrez pas supprimer le *cluster virtuel* ou d’autres ressources dépendantes. Surveillez la suppression dans l’onglet Activité pour confirmer que votre instance managée a été supprimée. 
 1. Une fois l’instance managée supprimée, supprimez le *cluster virtuel* en le sélectionnant dans votre groupe de ressources, puis en choisissant **Supprimer**. Saisissez `yes` dans la zone de texte pour confirmer que vous souhaitez supprimer la ressource, puis sélectionnez **Supprimer**. 
@@ -1133,7 +1136,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | Exécute un basculement d’un groupe de basculement d’une instance managée. | 
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal) 
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal) 
 
 Aucun script n’est disponible pour le portail Azure.
 
@@ -1141,7 +1144,7 @@ Aucun script n’est disponible pour le portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré un groupe de basculement entre deux instances managées. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré un groupe de basculement entre deux instances managées. Vous avez appris à :
 
 > [!div class="checklist"]
 > - Créer une instance managée principale

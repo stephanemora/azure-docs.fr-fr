@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 17ba06d6ac09f220b4343092292275a1cc315377
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489215"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494509"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -19,9 +19,9 @@ Cet article décrit la fonctionnalité de visualisation des dépendances dans Az
 
 La visualisation des dépendances vous permet de comprendre les dépendances entre les machines que vous voulez utiliser et migrer. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les machines avec des niveaux de confiance élevés.
 
-- Dans Azure Migrate : Server Assessment, vous rassemblez les machines en groupes à des fins d'évaluation. Les groupes se composent généralement de machines que vous souhaitez migrer simultanément et, dans un tel contexte, la visualisation des dépendances vous permet de vérifier les dépendances de ces machines afin de les regrouper de manière précise.
+- Dans Azure Migrate : Server Assessment, vous rassemblez les machines en groupes à des fins d’évaluation. Les groupes se composent généralement de machines que vous souhaitez migrer simultanément et, dans un tel contexte, la visualisation des dépendances vous permet de vérifier les dépendances de ces machines afin de les regrouper de manière précise.
 - Grâce à la visualisation, vous pouvez découvrir les systèmes interdépendants devant migrer en même temps. Vous pouvez déterminer si les systèmes en cours d’exécution sont toujours utilisés ou s'ils peuvent être mis hors service plutôt qu'être migrés.
-- La visualisation des dépendances permet de s'assurer que rien n'est laissé de côté et d'éviter les pannes inopinées lors de la migration.
+- La visualisation des dépendances permet de s’assurer que rien n’est laissé de côté et d’éviter les pannes inopinées lors de la migration.
 - Cette fonctionnalité est particulièrement utile si vous ne connaissez pas de manière précise les machines faisant partie d'applications et devant, dès lors, être migrées ensemble vers Azure.
 
 
@@ -32,7 +32,7 @@ La visualisation des dépendances vous permet de comprendre les dépendances ent
 
 Deux options permettent de déployer la visualisation des dépendances :
 
-- **Visualisation des dépendances sans agent** : Cette option est actuellement en préversion. Il n’est pas nécessaire d’installer des agents sur les machines. 
+- **Visualisation des dépendances sans agent** : Cette option actuellement en préversion n’est disponible que pour des machines virtuelles VMware. Il n’est pas nécessaire d’installer des agents sur les machines. 
     - Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit. [Plus d’informations](how-to-create-group-machine-dependencies-agentless.md)
 Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines à un intervalle d’interrogation de cinq minutes.
     - Les données suivantes sont collectées :

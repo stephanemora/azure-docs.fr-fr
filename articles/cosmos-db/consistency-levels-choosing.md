@@ -1,5 +1,5 @@
 ---
-title: Choisir le bon niveau de cohérence pour votre application qui utilise Azure Cosmos DB
+title: Choisir le niveau de cohérence approprié dans votre application Azure Cosmos DB
 description: Choisir le bon niveau de cohérence pour votre application dans Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 89c81e978c5f3dbbb8fac1ea5e75fc506612308f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: cea157e272a2bf464141e592b8e742f314a83233
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384905"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441919"
 ---
 # <a name="choose-the-right-consistency-level"></a>Choisir le bon niveau de cohérence 
 
@@ -61,6 +61,6 @@ La métrique de probabilités en fonction de l’obsolescence limitée montre co
 Pour en savoir plus sur les niveaux de cohérence, consultez les articles suivants :
 
 * [Mappage du niveau de cohérence entre les API Cosmos DB](consistency-levels-across-apis.md)
-* [Compromis de disponibilité et de performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
+* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
 * [Gestion du jeton de session pour votre application](how-to-manage-consistency.md#utilize-session-tokens)
 * [Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

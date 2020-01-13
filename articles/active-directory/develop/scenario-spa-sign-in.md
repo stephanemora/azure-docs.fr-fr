@@ -1,5 +1,5 @@
 ---
-title: Connexion à une application monopage - Plateforme d’identités Microsoft | Azure
+title: Connexion et déconnexion d’une application monopage - Plateforme d’identités Microsoft | Azure
 description: Apprendre à créer une application monopage (connexion)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b3d7afdc634649ca3baf5f43d5e2376fb5d8b05d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423643"
 ---
-# <a name="single-page-application-sign-in"></a>Application monopage : Connexion
+# <a name="single-page-application-sign-in-and-sign-out"></a>Application monopage : Se connecter et se déconnecter
 
 Découvrez comment ajouter une connexion au code de votre application monopage.
 

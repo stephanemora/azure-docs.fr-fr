@@ -1,5 +1,5 @@
 ---
-title: Ajouter ou supprimer un groupe dans un autre groupe - Azure Active Directory | Microsoft Docs
+title: Ajouter ou supprimer un groupe dans un autre groupe - Azure AD
 description: Instructions pour ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896a8b2c96dc10afbc3f179aed5a8497a8948ca9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 830bf7134b3a8b0425c53673a1347dd77897a5bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423025"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Ajouter ou supprimer un groupe dans un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
@@ -30,7 +30,7 @@ Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l
 Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécurité (aussi appelé groupe imbriqué), créer un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
 
 >[!Important]
->Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes à un groupe synchronisé avec Active Directory en local.</li><li>L’ajout de groupes de sécurité aux groupes Office 365.</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365.</li><li>L’affectation d’applications à des groupes imbriqués.</li><li>L’application de licences à des groupes imbriqués.</li></ul>
+>Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes à un groupe synchronisé avec Active Directory en local.</li><li>L’ajout de groupes de sécurité aux groupes Office 365.</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365.</li><li>L’affectation d’applications à des groupes imbriqués.</li><li>L’application de licences à des groupes imbriqués.</li><li>Ajout de groupes de distribution dans des scénarios d’imbrication.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
 
@@ -49,15 +49,11 @@ Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécu
 
     Le groupe **MDM policy - West** (Stratégie GPM - Ouest) est maintenant un membre du groupe **MDM policy - All org** (Stratégie GPM - Toutes les org), héritant ainsi de toutes les propriétés et de la configuration du groupe Stratégie GPM - Toutes les org.
 
-    ![Créer une appartenance de groupe en ajoutant un groupe à un autre groupe](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+    ![Créer une appartenance de groupe en ajoutant un groupe à un autre groupe](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. Consultez la page **MDM policy - West - Group memberships** (Stratégie GPM - Ouest - Appartenances aux groupes) pour voir la relation de groupe et de membre.
 
-    ![Page MDM policy - West - Group memberships (Stratégie GPM - Ouest - Appartenances aux groupes) montrant le groupe parent](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-
 6. Pour une vue plus détaillée de la relation de groupe et de membre, sélectionnez le nom du groupe (**MDM policy - All org** (Stratégie GPM - Toutes les org)) et observez les détails de la page **MDM policy - West** (Stratégie GPM - Ouest).
-
-    ![Page d’appartenance au groupe affichant les détails du membre et du groupe](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
 ## <a name="remove-a-group-from-another-group"></a>Supprimer un groupe d’un autre groupe
 Vous pouvez supprimer un groupe de sécurité existant d’un autre groupe de sécurité. Toutefois, la suppression du groupe supprime également les attributs et propriétés hérités pour ses membres.
@@ -67,12 +63,9 @@ Vous pouvez supprimer un groupe de sécurité existant d’un autre groupe de s�
 
 2. Dans la page **MDM policy - West overview** (Vue d’ensemble de la stratégie GPM - Ouest), sélectionnez **Group memberships** (Appartenances aux groupes).
 
-    ![Page MDM policy - West overview (Vue d’ensemble de la stratégie GPM - Ouest)](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
-
 3. Sélectionnez le groupe **MDM policy - All org** (Stratégie GPM - Toutes les org) dans la page **MDM policy - West - Group memberships** (Stratégie GPM - Ouest - Appartenances aux groupes), puis sélectionnez **Supprimer** dans les détails de la page **MDM policy - West** (Stratégie GPM - Ouest).
 
     ![Page d’appartenance au groupe affichant les détails du membre et du groupe](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
-
 
 ## <a name="additional-information"></a>Informations supplémentaires
 Ces articles fournissent des informations supplémentaires sur Azure Active Directory.

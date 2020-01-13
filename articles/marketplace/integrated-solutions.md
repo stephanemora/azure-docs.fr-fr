@@ -1,31 +1,33 @@
 ---
-title: Solutions intégrées | Azure
+title: Solutions intégrées – Place de marché Azure
 description: Solutions préférées dans la Place de marché Azure et AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: v-chjen
-ms.openlocfilehash: 420dfbc117a45c325db8e9fa2a622414bc78bd07
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 11f1504e8bd57fe34eb7acdc50598403225adcd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427173"
 ---
-# <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Solutions préférées dans la Place de marché Azure et AppSource
+# <a name="integrated-solutions-in-microsoft-appsource-and-azure-marketplace"></a>Solutions intégrées dans Microsoft AppSource et la Place de marché Azure
 
-Une solution intégrée rassemble les meilleures technologies de partenaires Microsoft, ainsi que des services de consultation, de déploiement et de support fournis par des intégrateurs système experts.
+Une solution intégrée rassemble les meilleures technologies de partenaires Microsoft, ainsi que des services de consultation, de déploiement et de support fournis par des partenaires de services experts.
 
-Ces solutions sont conçues pour répondre à un besoin ou à un scénario spécifique du client. Cela commence par une compréhension des difficultés ou préoccupations du secteur. Au moins deux technologies de pointe sont intégrées par un intégrateur système afin de créer une expérience de déploiement unifiée et renouvelable pour les clients, ce qui permet de les rendre rapidement opérationnelles. L’intégrateur système fournit également un point de contact unique au client, à des fins de personnalisation, de conseil et de support en lien avec la solution.  Le résultat est une solution intégrée, incluant de la technologie et des services.
+Au moins deux partenaires Microsoft intègrent leurs technologies et services pour créer une expérience de déploiement unifiée, transparente et reproductible, afin de permettre aux clients d’être rapidement opérationnels.  Le partenaire principal de la solution (généralement le partenaire des services) fournit un point de contact unique pour le client, offrant une personnalisation, un conseil et un support adaptés à la solution.
+
+Dans d’autres scénarios, les partenaires vendent ou commercialisent ensemble leur solution, tandis qu’une solution intégrée est une nouvelle solution conçue conjointement qui intègre la technologie et les services des partenaires.
 
 ## <a name="advantages"></a>Avantages
 
 Les avantages d’une approche intégrée sont les suivants :
 
-* *Expertise sectorielle* : intégrateurs de systèmes proposant des solutions et connaissances spécifiques du secteur.
+* *Expertise sectorielle* : Partenaires de services proposant des solutions et connaissances spécifiques du secteur
 * *Temps de valorisation* : approche de déploiement intégré pour vous aider à réaliser des bénéfices immédiats.
 * *Solutions de pointe* : découvrez la facilité d’une expérience d’achat et d’implémentation intégrée.
 

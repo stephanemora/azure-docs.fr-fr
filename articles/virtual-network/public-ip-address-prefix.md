@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: f89218b066b0a22559c00c4a53316f0df9c0bb8f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12fb7e03062600745cd8511d37b439ce44f2ef78
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488447"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640718"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -39,7 +39,7 @@ Quand vous créez des ressources d’adresse IP publique, Azure attribue une adr
 - Vous pouvez créer des ressources d’adresse IP publique à partir d’une plage connue.
 - Vous ou vos partenaires commerciaux pouvez créer des règles de pare-feu avec des plages qui incluent des adresses IP publiques que vous avez déjà attribuées, ainsi que des adresses que vous n’avez pas encore attribuées. Cela évite d’avoir à changer les règles de pare-feu quand vous attribuez des adresses IP à de nouvelles ressources.
 - La taille par défaut d’une plage que vous pouvez créer est /28 ou 16 adresses IP.
-- Le nombre de plages que vous pouvez créer n’est pas limité. Toutefois, il existe des limites sur le nombre maximal d’adresses IP publiques statiques que vous pouvez avoir dans un abonnement Azure. Par conséquent, le nombre de plages que vous créez ne peut pas comprendre plus d’adresses IP publiques que vous ne pouvez en avoir dans votre abonnement. Pour plus d'informations, consultez [Limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Le nombre de plages que vous pouvez créer n’est pas limité. Toutefois, il existe des limites sur le nombre maximal d’adresses IP publiques statiques que vous pouvez avoir dans un abonnement Azure. Par conséquent, le nombre de plages que vous créez ne peut pas comprendre plus d’adresses IP publiques que vous ne pouvez en avoir dans votre abonnement. Pour plus d'informations, consultez [Limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Les adresses que vous créez à l’aide d’adresses provenant du préfixe peuvent être attribuées à n’importe quelle ressource Azure à laquelle vous pouvez attribuer une adresse IP publique.
 - Vous pouvez facilement voir quelles adresses IP de la plage sont allouées et lesquelles ne le sont pas encore.
 
@@ -56,7 +56,7 @@ Vous pouvez associer les ressources suivantes à une adresse IP publique statiq
 ## <a name="constraints"></a>Contraintes
 
 - Vous ne pouvez pas spécifier les adresses IP pour le préfixe. Azure alloue les adresses IP pour le préfixe, en fonction de la taille que vous spécifiez.
-- Il est possible de créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28. Pour plus d'informations, consultez [Limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Vous pouvez créer un préfixe pouvant inclure jusqu’à 16 adresses IP ou un /28. Pour plus d'informations, consultez [Limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Vous ne pouvez pas changer la plage une fois que vous avez créé le préfixe.
 - Seules les adresses IP publiques créées avec la référence (SKU) standard peuvent être attribuées à partir de la plage du préfixe. Pour en savoir plus sur les références (SKU) d’adresses IP publiques, consultez [Adresse IP publique](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 - Les adresses de la plage ne peuvent être attribuées qu’à des ressources Azure Resource Manager. Il n’est pas possible d’attribuer des adresses aux ressources du modèle de déploiement classique.

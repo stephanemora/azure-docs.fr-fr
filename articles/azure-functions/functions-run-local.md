@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 65fa8502be43076e06cea18b2499ceed9d7d770e
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941829"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667528"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -74,7 +74,7 @@ Les étapes suivantes utilisent npm pour installer les outils Core sur Windows. 
 
    Le téléchargement et l’installation du package Core Tools par npm peut prendre quelques minutes.
 
-1. Si vous ne prévoyez pas d’utiliser des [bundles d’extension], installez le [SDK .NET Core 2.x pour Windows](https://www.microsoft.com/net/download/windows).
+1. Si vous ne prévoyez pas d’utiliser des [bundles d’extension], installez le [Kit de développement logiciel (SDK) .NET Core 2.x pour Windows](https://www.microsoft.com/net/download/windows).
 
 #### <a name="brew"></a>MacOS avec Homebrew
 
@@ -129,9 +129,8 @@ Les étapes suivantes utilisent [APT](https://wiki.debian.org/Apt) pour installe
 
     | Distribution Linux | Version |
     | --------------- | ----------- |
-    | Debian 10 | `buster` |
     | Debian 9 | `stretch` |
-    | Debian 8 | `jessie` |
+    | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
@@ -149,13 +148,13 @@ Les étapes suivantes utilisent [APT](https://wiki.debian.org/Apt) pour installe
     sudo apt-get install azure-functions-core-tools
     ```
 
-1. Si vous ne prévoyez pas d’utiliser des [bundles d’extension], installez le [SDK .NET Core 2.x pour Linux](https://www.microsoft.com/net/download/linux).
+1. Si vous ne prévoyez pas d’utiliser des [bundles d’extension], installez le [Kit de développement logiciel (SDK) .NET Core 2.x pour Linux](https://www.microsoft.com/net/download/linux).
 
 ## <a name="create-a-local-functions-project"></a>Créer un projet Functions local
 
 Un répertoire de projet de fonctions contient les fichiers [host.json](functions-host-json.md) et [local.settings.json](#local-settings-file), ainsi que des sous-dossiers qui contiennent le code des fonctions individuelles. Ce répertoire est l’équivalent d’une application de fonction dans Azure. Pour en savoir plus sur la structure de dossiers Functions, consultez le [Guide de développement Azure Functions](functions-reference.md#folder-structure).
 
-Pour la version 2.x, vous devez sélectionner un langage par défaut pour votre projet lors de son initialisation, et toutes les fonctions ajoutées utilisent les modèles de langage par défaut. Dans la version 1.x, vous spécifiez le langage à chaque fois que vous créez une fonction.
+Pour la version 2.x, vous devez sélectionner un langage par défaut pour votre projet lors de son initialisation. Dans la version 2. x, toutes les fonctions ajoutées utilisent des modèles de langage par défaut. Dans la version 1.x, vous spécifiez le langage à chaque fois que vous créez une fonction.
 
 Dans la fenêtre du terminal ou à partir d’une invite de commandes, exécutez la commande suivante pour créer le projet et le référentiel Git local :
 
@@ -212,7 +211,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Par défaut, ces paramètres ne sont pas migrés automatiquement lorsque le projet est publié dans Azure. Utilisez le commutateur `--publish-local-settings` [lors de la publication](#publish) pour vous assurer que ces paramètres sont ajoutés à l’application de fonction dans Azure. Notez que les valeurs dans **ConnectionStrings** ne sont jamais publiées.
+Par défaut, ces paramètres ne sont pas migrés automatiquement lorsque le projet est publié dans Azure. Utilisez le commutateur `--publish-local-settings`[lors de la publication](#publish) pour vous assurer que ces paramètres sont ajoutés à l’application de fonction dans Azure. Notez que les valeurs dans **ConnectionStrings** ne sont jamais publiées.
 
 Ces valeurs de paramètres d’application de fonction peuvent aussi être lues dans votre code en tant que variables d’environnement. Pour plus d’informations, consultez la section Variables d’environnement de ces rubriques de référence spécifiques à une langue :
 
@@ -227,9 +226,9 @@ Si aucune chaîne de connexion de stockage valide n’est définie pour [`AzureW
 
 ### <a name="get-your-storage-connection-strings"></a>Obtenir vos chaînes de connexion de stockage
 
-Même si vous utilisez l’émulateur de stockage pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-create-storage-account.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
+Même si vous utilisez l’Émulateur de stockage Microsoft Azure pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-create-storage-account.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
 
-- Dans le [Portail Azure], recherchez et sélectionnez **Comptes de stockage**. 
+- Dans le [Azure portal], recherchez et sélectionnez **Comptes de stockage**. 
   ![Sélectionner des comptes de stockage à partir du Portail Azure](./media/functions-run-local/select-storage-accounts.png)
   
   Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres**, puis copiez une des valeurs **Chaîne de connexion**.
@@ -352,7 +351,7 @@ func host start
 | **`--cert`** | Le chemin d’accès vers un fichier .pfx qui contient une clé privée. Utilisé uniquement avec `--useHttps`. Version 2.x uniquement. |
 | **`--cors-credentials`** | Autoriser les demandes authentifiées cross-origin (autrement dit, les cookies et l’en-tête d’authentification). Version 2.x uniquement. |
 | **`--cors`** | Liste séparée par des virgules d’origines CORS, sans espaces. |
-| **`--language-worker`** | Arguments pour configurer le travailleur de langage. Version 2.x uniquement. |
+| **`--language-worker`** | Arguments pour configurer le travailleur de langage. Par exemple, vous pouvez activer le débogage pour le rôle de travail du langage en fournissant un [port de débogage et d’autres arguments requis](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Version 2.x uniquement. |
 | **`--nodeDebugPort -n`** | Port du débogueur de nœud à utiliser. Valeur par défaut : une valeur issue de launch.json ou 5858. Version 1.x uniquement. |
 | **`--password`** | Le mot de passe ou un fichier qui contient le mot de passe pour un fichier .pfx. Utilisé uniquement avec `--cert`. Version 2.x uniquement. |
 | **`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
@@ -474,7 +473,7 @@ Les options de publication suivantes s’appliquent aux versions 1.x et 2.x :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà. Si vous utilisez l’émulateur de stockage, changez d’abord le paramètre d’application en choisissant une [connexion de stockage réelle](#get-your-storage-connection-strings). |
+| **`--publish-local-settings -i`** |  Publier dans Azure les paramètres figurant dans local.settings.json, avec demande de confirmation du remplacement si le paramètre existe déjà. Si vous utilisez l’Émulateur de stockage Microsoft Azure, commencez par changer le paramètre d’application en choisissant une [connexion de stockage réelle](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | Supprimer l’invite de remplacement des paramètres de l’application lorsque `--publish-local-settings -i` est utilisé.|
 
 Les options de publication suivantes sont uniquement prises en charge dans la version 2.x :
@@ -516,9 +515,9 @@ Les options de déploiement de conteneur personnalisées suivantes sont disponib
 
 Il est recommandé de superviser l’exécution de vos fonctions par l’intégration à Azure Application Insights. Vous pouvez également diffuser des journaux d’exécution sur votre ordinateur local. Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
-### <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
+### <a name="application-insights-integration"></a>Intégration d’Application Insights
 
-Lorsque vous créez une Function App dans le portail Azure, l’intégration d’Application Insights est faite pour vous par défaut. Toutefois, quand vous créez votre application de fonction à l’aide de l’interface Azure CLI, l’intégration à votre application de fonction dans Azure n’est pas effectuée.
+L’intégration d’Application Insights doit être activée lorsque vous créez votre application de fonction dans Azure. Si, pour une raison quelconque, votre application de fonction n’est pas connectée à une instance Application Insights, il est facile d’effectuer cette intégration dans le portail Azure. 
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -530,7 +529,7 @@ Vous pouvez afficher un flux de fichiers journaux générés par vos fonctions d
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-Ce type de journal de diffusion en continu nécessite que vous [activiez l’intégration d’Application Insights](#enable-application-insights-integration) pour votre Function App.   
+Les journaux de diffusion en continu de ce type nécessitent que l’intégration d’Application Insights soit activée pour votre application de fonction.   
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -541,7 +540,7 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Portail Azure]: https://portal.azure.com 
+[Azure portal]: https://portal.azure.com 
 [Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

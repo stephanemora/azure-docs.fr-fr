@@ -1,18 +1,18 @@
 ---
 title: Fonctionnalités de rendu – Azure Batch
-description: Fonctionnalités de rendu Azure Batch
+description: Les fonctionnalités Standard d’Azure Batch sont utilisées pour exécuter des applications et des charges de travail de rendu. Batch inclut des fonctionnalités spécifiques qui prennent en charge les charges de travail de rendu.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5eaaa6d41b9dae97a2d6219ffa44fb75ed67e61
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 697e2640b7215e0bbb9202c672f936535831eb99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449721"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -30,7 +30,7 @@ Il existe une image Windows 2016 et une image CentOS.  Dans la [Place de marché
 
 Pour un exemple de configuration de pool, consultez le [tutoriel sur le rendu Azure CLI](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Le portail Azure et Batch Explorer fournissent des outils GUI permettant de sélectionner une image de machine virtuelle de rendu lorsque vous créez un pool.  Si vous utilisez une API Batch, spécifiez les valeurs de propriété suivantes pour [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) quand vous créez un pool :
 
-| Publisher | Offre | Sku | Version |
+| Serveur de publication | Offre | Sku | Version |
 |---------|---------|---------|--------|
 | lot | rendering-centos73 | rendu | latest |
 | lot | rendering-windows2016 | rendu | latest |

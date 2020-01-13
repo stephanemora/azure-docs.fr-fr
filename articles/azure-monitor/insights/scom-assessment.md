@@ -4,15 +4,15 @@ description: La solution System Center Operations Manager Health Check permet d�
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 33aa246e21b54aebaa902304ff92d4b74bfaac4b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5ec0f181d9d22e9e1183a59a4fbd7d77e658862e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75402866"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimisation de votre environnement avec la solution System Center Operations Manager Health Check (préversion)
 
@@ -34,7 +34,7 @@ Une fois la solution ajoutée et l’évaluation effectuée, le résumé des inf
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 
-La solution fonctionne avec Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager et Microsoft System Center Operations Manager 1807
+La solution fonctionne avec Microsoft System Center 2012 Operations Manager Service Pack 1, Microsoft System Center 2012 R2 Operations Manager, Microsoft System Center 2016 Operations Manager et Microsoft System Center Operations Manager 1807. Une version prise en charge de .NET Framework 4.6.2 doit être installée sur chaque serveur d’administration.
 
 Utilisez les informations suivantes pour installer et configurer la solution.
 

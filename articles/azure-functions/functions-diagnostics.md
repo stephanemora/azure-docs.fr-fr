@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 71edb9a32254eeee123b874305dd25b699e05cc1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227022"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562049"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Vue d’ensemble des diagnostics Azure Functions
 
@@ -40,11 +40,11 @@ Après avoir sélectionné une vignette, vous pouvez voir une liste des rubrique
 
 ## <a name="view-a-diagnostic-report"></a>Afficher un rapport de diagnostic
 
-Une fois que vous avez choisi une rubrique, vous pouvez afficher un rapport de diagnostic spécifique à votre application de fonction. Les rapports de diagnostic utilisent des icônes d’état pour indiquer si des problèmes spécifiques existent dans votre application. Vous y trouverez une description détaillée du problème, des actions recommandées, des mesures associées et des documents utiles. Les rapports de diagnostic personnalisés sont générés à partir d’une série de vérifications exécutées sur votre application de fonction. Les rapports de diagnostic peuvent être un outil utile pour identifier les problèmes dans votre application de fonction et vous guider vers la résolution du problème.
+Une fois que vous avez choisi une rubrique, vous pouvez afficher un rapport de diagnostic spécifique à votre application de fonction. Les rapports de diagnostic utilisent des icônes d’état pour indiquer la présence de problèmes spécifiques dans votre application. Vous y trouverez une description détaillée du problème, des actions recommandées, des mesures associées et des documents utiles. Les rapports de diagnostic personnalisés sont générés à partir d’une série de vérifications exécutées sur votre application de fonction. Les rapports de diagnostic peuvent être un outil utile pour identifier les problèmes dans votre application de fonction et vous guider vers la résolution du problème.
 
 ## <a name="find-the-problem-code"></a>Trouver le code problématique 
 
-Pour les fonctions basées sur des scripts, vous pouvez utiliser **Exécution de la fonction** et **Erreurs sous Function App cesse de fonctionner ou signale des erreurs** pour cerner la ligne de code provoquant des exceptions ou des erreurs. Cette fonctionnalité peut être utile pour déterminer la cause racine et résoudre les problèmes à partir d’une ligne de code spécifique. Cette option n’est pas disponible pour les fonctions précompilées C# et Java.
+Pour les fonctions basées sur des scripts, vous pouvez utiliser **Exécution de la fonction** et **Erreurs** sous **Function App cesse de fonctionner ou signale des erreurs** pour circonscrire la ligne de code provoquant des exceptions ou des erreurs. Cette fonctionnalité peut être utile pour déterminer la cause racine et résoudre les problèmes à partir d’une ligne de code spécifique. Cette option n’est pas disponible pour les fonctions précompilées C# et Java.
 
 ![Rapport de diagnostic sur les erreurs d’exécution de fonction](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454653"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
 
@@ -19,7 +19,7 @@ Cet article explique comment configurer le mappage de dépendances sans agent da
 
 > [!IMPORTANT]
 > La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure détectées à l’aide d’une appliance Azure Migrate.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
+> Certaines fonctionnalités peuvent être limitées ou non prises en charge. Cette préversion est couverte par le support client et peut être utilisée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="about-dependency-mapping"></a>À propos du mappage des dépendances
@@ -34,14 +34,14 @@ Le mappage des dépendances vous aide à visualiser les dépendances entre les m
 
 La visualisation des dépendances sans agent ne nécessite pas d’installation d’agents des machines. Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit.
 
-- Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines selon un intervalle d’interrogation de cinq minutes.
+- Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines à un intervalle d’interrogation de cinq minutes.
 - Les données suivantes sont collectées :
     - Connexions TCP
     - Noms des processus ayant des connexions actives
     - Noms des applications installées exécutant les processus ci-dessus
     - Non. de connexions détectées à chaque intervalle d’interrogation
 
-## <a name="current-limitations"></a>Limitations actuelles
+## <a name="current-limitations"></a>Limites actuelles
 
 - La visualisation des dépendances sans agent n’est actuellement disponible que pour des machines virtuelles.
 - Pour le moment, vous ne pouvez pas ajouter ou supprimer un serveur d’un groupe dans la vue d’analyse des dépendances.

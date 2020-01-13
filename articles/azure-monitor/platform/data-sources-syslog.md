@@ -4,15 +4,15 @@ description: Syslog est un protocole de journalisation d’événements commun �
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450627"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Sources de données Syslog dans Azure Monitor
 Syslog est un protocole de journalisation d’événements commun à Linux. Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog. Lorsque l’agent Log Analytics pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent. L’agent envoie ensuite le message à Azure Monitor, où un enregistrement correspondant est créé.  
@@ -27,7 +27,7 @@ Syslog est un protocole de journalisation d’événements commun à Linux. Les 
 Les fonctionnalités suivantes sont prises en charge avec le collecteur Syslog :
 
 * kern
-* user
+* utilisateur
 * mail
 * daemon
 * auth
@@ -48,7 +48,7 @@ L’agent Log Analytics pour Linux collecte uniquement les événements avec les
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurer Syslog dans le portail Azure
 Configurez Syslog à partir du [menu Données dans Paramètres avancés](agent-data-sources.md#configuring-data-sources). Cette configuration est remise au fichier de configuration sur chaque agent Linux.
 
-Vous pouvez ajouter une nouvelle installation en tapant son nom et en cliquant sur **+** . Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
+Vous pouvez ajouter une fonctionnalité en commençant par sélectionner l’option **Appliquer la configuration ci-dessous à mes machines**, puis en tapant son nom et en cliquant sur **+** . Pour chaque installation, seuls les messages avec les niveaux de gravité sélectionnés seront collectés.  Vérifiez les niveaux de gravité de l’installation que vous souhaitez collecter. Vous ne pouvez pas fournir de critères supplémentaires pour filtrer les messages.
 
 ![Configurer les messages Syslog](media/data-sources-syslog/configure.png)
 

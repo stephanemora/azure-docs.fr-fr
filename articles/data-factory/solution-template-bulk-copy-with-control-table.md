@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3a42d7da21cfb2e3066fbdd81b27c82155d8456f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440030"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Copier en bloc à partir d’une base de données avec une table de contrôle
 
@@ -33,12 +33,16 @@ Le modèle comporte trois activités :
 - **ForEach** obtient la liste de partitions à partir de l’activité Lookup et itère au sein de chaque partition vers l’activité Copy.
 - **Copy** copie chaque partition du magasin de base de données source vers le magasin de destination.
 
-Le modèle définit cinq paramètres :
+Le modèle définit les paramètres suivants :
 - *Control_Table_Name* est votre table de contrôle externe, qui stocke la liste de partitions pour la base de données source.
 - *Control_Table_Schema_PartitionID* est le nom de la colonne dans votre table de contrôle externe qui stocke chaque ID de partition. Veillez à ce que l’ID de partition soit unique pour chaque partition dans la base de données source.
 - *Control_Table_Schema_SourceTableName* est votre table de contrôle externe qui stocke chaque nom de table de la base de données source.
 - *Control_Table_Schema_FilterQuery* est le nom de la colonne dans votre table de contrôle externe qui stocke la requête de filtre servant à obtenir les données de chaque partition dans la base de données source. Par exemple, si vous avez partitionné les données par année, la requête stockée dans chaque ligne peut ressembler à ceci : 'select * from datasource where LastModifytime >= ''2015-01-01 00:00:00'' and LastModifytime <= ''2015-12-31 23:59:59.999'''.
-- *Data_Destination_Folder_Path* est le chemin où les données sont copiées dans votre magasin de destination. Ce paramètre est visible uniquement si la destination que vous choisissez est un stockage basé sur des fichiers. Si vous choisissez SQL Data Warehouse comme magasin de destination, ce paramètre n’est pas obligatoire. Cependant, les noms des tables et le schéma dans SQL Data Warehouse doivent être identiques à ceux de la base de données source.
+- *Data_Destination_Folder_Path* est le chemin de l’emplacement où les données sont copiées dans votre magasin de destination (applicable lorsque la destination choisie est « Système de fichiers » ou « Azure Data Lake Storage Gen1 »). 
+- *Data_Destination_Container* est le chemin d’accès du dossier racine où les données sont copiées dans votre magasin de destination. 
+- *Data_Destination_Directory* est le chemin du répertoire sous la racine où les données sont copiées dans votre magasin de destination. 
+
+Les trois derniers paramètres qui définissent le chemin d’accès dans votre magasin de destination sont visibles uniquement si la destination que vous choisissez est un stockage basé sur des fichiers. Si vous choisissez « Azure Synapse Analytics (anciennement SQL DW) » comme magasin de destination, ces paramètres ne sont pas requis. Cependant, les noms des tables et le schéma dans SQL Data Warehouse doivent être identiques à ceux de la base de données source.
 
 ## <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 
@@ -68,7 +72,7 @@ Le modèle définit cinq paramètres :
 
 3. Créez une **nouvelle** connexion à la base de données source à partir de laquelle vous copiez des données.
 
-     ![Créer une connexion à la base de données source](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
+    ![Créer une connexion à la base de données source](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable3.png)
     
 4. Créez une **nouvelle** connexion au magasin de données de destination vers lequel vous copiez des données.
 
@@ -76,8 +80,6 @@ Le modèle définit cinq paramètres :
 
 5. Sélectionnez **Utiliser ce modèle**.
 
-    ![Utiliser ce modèle](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable5.png)
-    
 6. Vous voyez le pipeline, comme indiqué dans l’exemple suivant :
 
     ![Passer en revue le pipeline](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable6.png)
@@ -90,7 +92,7 @@ Le modèle définit cinq paramètres :
 
     ![Vérifier le résultat](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable8.png)
 
-9. (Facultatif) Si vous avez choisi SQL Data Warehouse comme destination des données, vous devez entrer une connexion à un stockage d’objets blob Azure comme emplacement intermédiaire, conformément aux exigences de SQL Data Warehouse Polybase. Vérifiez que le conteneur a déjà été créé dans le stockage d’objets blob.
+9. (Facultatif) Si vous choisissez « Azure Synapse Analytics (anciennement SQL DW) » comme destination des données, vous devez entrer une connexion à un stockage d’objets blob Azure pour la mise en lots, conformément aux exigences de SQL Data Warehouse Polybase. Le modèle génère automatiquement un chemin de conteneur pour votre stockage d’objets blob. Vérifiez si le conteneur a été créé après l’exécution du pipeline.
     
     ![Paramètre Polybase](media/solution-template-bulk-copy-with-control-table/BulkCopyfromDB_with_ControlTable9.png)
        

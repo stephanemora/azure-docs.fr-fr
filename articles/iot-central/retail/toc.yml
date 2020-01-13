@@ -1,6 +1,6 @@
 - name: Documentation Azure IoT Central pour la vente au détail
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Création de solutions de vente au détail avec Azure IoT Central
       href: overview-iot-central-retail-pnp.md
@@ -36,6 +36,8 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: Architecture de l’analytique de magasins
       href: store-analytics-architecture.md
+    - name: Architecture du modèle d’application de centre de microtraitement
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Connectivité
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Présentation des modèles d’application
@@ -80,7 +82,7 @@
           href: ../preview/howto-administer.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Exporter votre application
           href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-        - name: Gérer des utilisateurs et des rôles
+        - name: Gérer les utilisateurs et les rôles
           href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Gérer votre facture
           href: ../preview/howto-view-bill.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json

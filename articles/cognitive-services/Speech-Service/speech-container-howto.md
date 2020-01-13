@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
 ms.openlocfilehash: d5ecc104c7845a1881cbcdecfbccb75148f6e070
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 12/28/2019
 ms.locfileid: "74815361"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installer et exécuter des conteneurs du service Speech (préversion)
@@ -26,7 +26,7 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 > [!IMPORTANT]
 > Tous les conteneurs Speech sont actuellement proposés dans le cadre d’une [préversion « contingentée » publique](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio). Une annonce sera effectuée quand les conteneurs Speech passeront en disponibilité générale.
 
-| Fonction | Caractéristiques | Latest |
+| Fonction | Fonctionnalités | Latest |
 |--|--|--|
 | Reconnaissance vocale | Transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.0.0 |
 | Reconnaissance vocale personnalisée | À l’aide d’un modèle personnalisé issu du [portail Custom Speech](https://speech.microsoft.com/customspeech), transcrit en continu de la parole en temps réel ou des enregistrements audio en texte, avec des résultats intermédiaires. | 2.0.0 |
@@ -35,7 +35,7 @@ Les conteneurs Speech permettent aux clients de créer une architecture d’appl
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 
@@ -43,7 +43,7 @@ L’utilisation des conteneurs Speech est soumise aux prérequis suivants :
 |--|--|
 | Moteur Docker | Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br> |
 | Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base. |
-| Ressource Speech | Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Une ressource _Speech_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs sont disponibles sur les pages Vue d’ensemble et Clés de la ressource **Speech** du portail Azure. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble** |
+| Ressource Speech | Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Une ressource _Speech_ d’Azure afin d’obtenir la clé API et l’URI du point de terminaison associés. Les deux valeurs sont disponibles sur les pages Vue d’ensemble et Clés de la ressource **Speech** du portail Azure. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble** |
 
 ## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
@@ -75,25 +75,25 @@ Le tableau suivant indique l’allocation de ressources minimale et recommandée
 
 # <a name="speech-to-texttabstt"></a>[Reconnaissance vocale](#tab/stt)
 
-| Conteneur | Minimale | Recommandé |
+| Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Reconnaissance vocale | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 
 # <a name="custom-speech-to-texttabcstt"></a>[Reconnaissance vocale personnalisée](#tab/cstt)
 
-| Conteneur | Minimale | Recommandé |
+| Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Reconnaissance vocale personnalisée | 2 cœurs, 2 Go de mémoire | 4 cœurs, 4 Go de mémoire |
 
 # <a name="text-to-speechtabtts"></a>[Synthèse vocale](#tab/tts)
 
-| Conteneur | Minimale | Recommandé |
+| Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Synthèse vocale | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
 
 # <a name="custom-text-to-speechtabctts"></a>[Synthèse vocale personnalisée](#tab/ctts)
 
-| Conteneur | Minimale | Recommandé |
+| Conteneur | Minimum | Recommandé |
 |-----------|---------|-------------|
 | Synthèse vocale personnalisée | 1 cœur, 2 Go de mémoire | 2 cœur, 3 Go de mémoire |
 
@@ -396,7 +396,7 @@ Vous pouvez avoir ce conteneur, et un autre conteneur Azure Cognitive Services q
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Au démarrage ou pendant l’exécution du conteneur, vous pouvez rencontrer des problèmes. Utilisez une [montage](speech-container-configuration.md#mount-settings) de sortie et activez la journalisation. Ainsi, le conteneur pourra générer des fichiers journaux utiles à la résolution des problèmes.
 

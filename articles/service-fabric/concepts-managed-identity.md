@@ -1,18 +1,14 @@
 ---
-title: Vue d’ensemble des identités managées Service Fabric | Microsoft Docs
-description: Cet article est une vue d’ensemble des Identités managées.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
+title: Présentation des identités managées Service Fabric
+description: Cet article présente Managed Identity et ses applications dans Azure Service Fabric.
 ms.topic: conceptual
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.date: 12/09/2019
+ms.openlocfilehash: dc7dafa59596537456accde66e878c06f9e5ca23
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243030"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528145"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identité managée pour l’application Service Fabric (préversion)
 

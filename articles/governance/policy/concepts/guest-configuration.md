@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f68bbc64ee8f0da02d213895a70e4c533b9a5f63
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463796"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666718"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -72,12 +72,12 @@ Le client de configuration d'invité vérifie le nouveau contenu toutes les 5 m
 
 Le tableau suivant affiche une liste des systèmes d’exploitation pris en charge sur des images Azure :
 
-|Publisher|Nom|Versions|
+|Serveur de publication|Name|Versions|
 |-|-|-|
 |Canonical|Serveur Ubuntu|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 Datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
-|Microsoft|Client Windows|Windows 10|
+|Microsoft|Client Windows|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |SUSE|SLES|12 SP3|
@@ -93,10 +93,10 @@ Windows Server Nano Server n’est pris en charge dans aucune version.
 
 Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du [groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). Il n’existe pas actuellement d’étiquette de service pour la configuration d’invité Azure Policy.
 
-Pour les listes d’adresses IP, vous pouvez télécharger les [plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP. Vous avez uniquement besoin d’autoriser l’accès sortant vers les adresses IP dans les régions où vos machines virtuelles seront déployées.
+Pour les listes d’adresses IP, vous pouvez télécharger [Plages d’adresses IP et étiquettes des services Azure](https://www.microsoft.com/download/details.aspx?id=56519). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP. Vous avez uniquement besoin d’autoriser l’accès sortant vers les adresses IP dans les régions où vos machines virtuelles seront déployées.
 
 > [!NOTE]
-> Le fichier XML Azure Datacenter IP address répertorie les plages d’adresses IP qui sont utilisées dans les centres de données Microsoft Azure. Le fichier comprend les plages Compute, SQL et Stockage. Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
+> Le fichier JSON de plages d’adresses IP et de balises de service répertorie les plages d’adresses IP utilisées dans les centres de données Microsoft Azure. Le fichier comprend les plages Compute, SQL et Stockage. Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 
@@ -124,7 +124,7 @@ Toutes les stratégies intégrées pour la configuration d’invité sont inclus
 
 L’une des initiatives disponibles dans Azure Policy permet d’auditer les paramètres du système d’exploitation à l’intérieur des machines virtuelles en suivant une « ligne de base » de Microsoft. La définition, _\[Préversion\] : Auditer les machines virtuelles Windows qui ne correspondent pas aux paramètres de la base de référence de sécurité Azure_ comprend un ensemble complet de règles d’audit basées sur les paramètres de stratégie de groupe Active Directory.
 
-La plupart des paramètres sont disponibles en tant que tels. Cette fonctionnalité vous permet de personnaliser ce qui est audité afin d’aligner la stratégie sur les besoins de votre organisation, ou de mapper la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
+La plupart des paramètres sont disponibles en tant que tels. Cette fonctionnalité vous permet de personnaliser ce qui est audité afin d’aligner la stratégie sur les besoins de votre organisation, ou de mapper la stratégie à des informations tierces, telles que des normes réglementaires sectorielles.
 
 Certains paramètres prennent en charge une plage de valeurs entières. Par exemple, le paramètre Âge maximum du mot de passe peut être défini à l’aide d’un opérateur de plage pour offrir de la flexibilité aux propriétaires d’ordinateurs. Vous pouvez vérifier que le paramètre de stratégie de groupe effectif exigeant que les utilisateurs modifient leur mot de passe ne soit pas supérieur à 70 jours ou inférieur à 1 jour. Comme décrit dans l’info-bulle du paramètre, pour faire de cette stratégie d’entreprise la valeur d’audit effective, définissez la valeur sur « 1,70 ».
 

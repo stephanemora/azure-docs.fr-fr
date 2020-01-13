@@ -1,5 +1,5 @@
 ---
-title: Benchmarking de votre application sur Stockage sur disque Azure - disques managés
+title: Benchmarking de votre application sur Stockage sur disque Azure
 description: En savoir plus sur le processus de benchmarking de votre application sur Azure.
 author: roygara
 ms.author: rogarana
@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 600b456cd77d866f1365b7dadfa9ea2473db0fa4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e73999925c68ca8f68ba386808e443c9e2779498
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460173"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking d’un disque
 

@@ -2,19 +2,15 @@
 title: Utiliser une alerte pour déclencher un runbook Azure Automation
 description: Découvrez comment déclencher un runbook à exécuter quand une alerte Azure est déclenchée.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: df28116c588ed77f02c78a42a85feb91ca339e7b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850378"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366698"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
@@ -49,7 +45,7 @@ Comme décrit dans la section précédente, chaque type d’alerte a un schéma 
 
 Dans cet exemple, il s’agit d’une alerte depuis une machine virtuelle. Il récupère les données de la machine virtuelle à partir de la charge utile, puis utilise ces informations pour arrêter la machine virtuelle. La connexion doit être configurée dans le compte Automation sur lequel le runbook est exécuté. Lorsque vous utilisez des alertes pour déclencher des runbooks, il est important de vérifier l’état de l’alerte dans le runbook déclenché. Le runbook se déclenche chaque fois que l’alerte change d’état. Les alertes ont plusieurs états, les deux plus courants étant `Activated` et `Resolved`. Recherchez cet état dans la logique de runbook pour vous assurer que le runbook ne s’exécute pas plusieurs fois. L’exemple de cet article montre uniquement comment rechercher des alertes `Activated`.
 
-Le runbook utilise le [compte d’identification](automation-create-runas-account.md) **AzureRunAsConnection** pour s’authentifier auprès d’Azure pour effectuer l’action de gestion sur la machine virtuelle.
+Le runbook utilise le [compte d’identification](automation-create-runas-account.md) **AzureRunAsConnection** pour s’authentifier auprès d’Azure afin d’effectuer l’action de gestion sur la machine virtuelle.
 
 Utilisez cet exemple pour créer un runbook appelé **Stop-AzureVmInResponsetoVMAlert**. Vous pouvez modifier le script PowerShell et l’utiliser avec de nombreuses ressources différentes.
 

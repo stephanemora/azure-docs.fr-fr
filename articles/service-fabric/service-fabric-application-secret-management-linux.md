@@ -1,31 +1,22 @@
 ---
-title: Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Linux Azure Service Fabric | Microsoft Docs
+title: Configurer un certificat de chiffrement sur des clusters Linux
 description: Découvrez comment configurer un certificat de chiffrement et chiffrer des secrets sur clusters Linux.
-services: service-fabric
-documentationcenter: .net
 author: shsha
-manager: ''
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: shsha
-ms.openlocfilehash: 9589d6ea69a2293d592a9e63f2b726f1a620bb9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 350718e4ce890fcbfaa7f2b10cc4c47dfac4da90
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126985"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614704"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-linux-clusters"></a>Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Linux
-Dans cet article, découvrez comment configurer un certificat de chiffrement et l’utiliser pour chiffrer des secrets sur clusters Linux. Pour les clusters Windows, consultez [Configurer un certificat de chiffrement et chiffrer des secrets sur Windows][secret-management-windows-specific-link].
+Dans cet article, découvrez comment configurer un certificat de chiffrement et l’utiliser pour chiffrer des secrets sur clusters Linux. Pour les clusters Windows, voir [Configurer un certificat de chiffrement et chiffrer des secrets sur Windows][secret-management-windows-specific-link].
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Obtenir un certificat de chiffrement de données
-Un certificat de chiffrement de données est utilisé exclusivement pour le chiffrement et le déchiffrement des [paramètres][parameters-link] du fichier Settings.xml d’un service et des [variables d'environnement][environment-variables-link] du fichier ServiceManifest.xml d’un service. Il n’est pas utilisé pour l’authentification ou la signature du texte chiffré. Le certificat doit répondre aux exigences suivantes :
+Un certificat de chiffrement de données est utilisé exclusivement pour le chiffrement et le déchiffrement des [paramètres][parameters-link] du fichier Settings.xml d’un service et des [variables d’environnement][environment-variables-link] du fichier ServiceManifest.xml d’un service. Il n’est pas utilisé pour l’authentification ou la signature du texte chiffré. Le certificat doit répondre aux exigences suivantes :
 
 * Le certificat doit contenir une clé privée.
 * L’utilisation d’une clé de certificat doit inclure le chiffrement de données (10) et ne doit pas inclure l’authentification du serveur ou l’authentification du client.

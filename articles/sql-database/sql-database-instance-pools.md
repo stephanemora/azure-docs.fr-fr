@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810408"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552778"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Que sont les pools d’instances SQL Database (préversion) ?
 
@@ -136,7 +136,7 @@ Le prix des vCores pour un pool est facturé quel que soit le nombre d’instanc
 
 Pour le prix du calcul (mesuré en vCores), deux options de tarification sont disponibles :
 
-  1. *Licence incluse* : S’applique aux licences SQL Server existantes avec Software Assurance.
+  1. *Licence incluse* : Le prix des licences SQL est inclus. Cette option est destinée aux clients qui décident de ne pas appliquer de licences SQL Server existantes avec Software Assurance.
   2. *Azure Hybrid Benefit* : Un prix réduit incluant Azure Hybrid Benefit pour SQL Server. Les clients peuvent choisir cette tarification en utilisant leurs licences SQL Server existantes avec Software Assurance. Pour obtenir des informations sur l’éligibilité et d’autres informations, consultez [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 La définition d’options de tarification différentes n’est pas possible pour les instances individuelles d’un pool. Toutes les instances du pool parent doivent être au prix de la licence incluse ou au prix d’Azure Hybrid Benefit. Le modèle de licence du pool peut être modifié après la création du pool.

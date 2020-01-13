@@ -5,28 +5,31 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb, rogoya
+ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9bb384045c8b2e0a5743fdc301a829792639b7e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a15b55aa3d8cc8f16a35c858d11e3d20c260bff8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425013"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
-Les stratégies de référence forment un ensemble de stratégies prédéfinies qui aident les organisations à se protéger contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.  
+Les stratégies de référence forment un ensemble de stratégies prédéfinies qui aident les organisations à se protéger contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.
 
 La gestion de stratégies d’accès conditionnel personnalisé requiert une licence Azure AD Premium.
 
+> [!IMPORTANT]
+> Les stratégies de base sont déconseillées. Pour plus d’informations, voir [Nouveautés d’Azure Active Directory](../fundamentals/whats-new.md#replacement-of-baseline-policies-with-security-defaults).
+
 ## <a name="baseline-policies"></a>Stratégies de base de référence
 
-![Stratégies de référence d’accès conditionnel dans le portail Azure](./media/concept-baseline-protection/conditional-access-policies.png)
+![Stratégies de référence d’accès conditionnel dans le portail Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
 Il existe quatre stratégies de référence :
 
@@ -36,6 +39,10 @@ Il existe quatre stratégies de référence :
 * exiger l’authentification MFA pour le management des services (préversion)
 
 Ces quatre stratégies de base influent sur les flux d’authentification hérités comme POP, IMAP ou clients Office pour ordinateur de bureau plus ancien.
+
+### <a name="exclusions"></a>Exclusions
+
+Lorsque les stratégies de base ont été intégrées dans leur préversion publique d’origine, une option permettait d’en exclure des utilisateurs. Cette fonctionnalité a évolué au cours de la préversion, jusqu’à être supprimée en juillet 2019. Les organisations qui avaient déjà créé des exclusions ont pu les conserver mais de nouveaux utilisateurs ne pouvaient pas ajouter d’exclusions aux stratégies.
 
 ### <a name="require-mfa-for-admins-preview"></a>Exiger l’authentification multifacteur pour les administrateurs (préversion)
 
@@ -60,8 +67,8 @@ Les administrateurs hautement privilégiés ne sont pas les seuls ciblés lors d
 
 **Protection de l’utilisateur final (préversion)** est une stratégie de référence qui protège tous les utilisateurs dans un répertoire. L’activation de cette stratégie nécessite que tous les utilisateurs s’inscrive à l’authentification multifacteur Azure dans un délai de 14 jours. Une fois inscrits, les utilisateurs seront invités à effectuer l’authentification multifacteur uniquement lors de tentatives de connexion risquées. Les comptes d'utilisateur compromis sont bloqués jusqu'à la réinitialisation du mot de passe et l’élimination du risque. 
 
-[!NOTE]
-Tous les utilisateurs précédemment identifiés comme présentant un risque sont bloqués jusqu'à la réinitialisation du mot de passe et risquent d'être rejetés lors de l'activation de la stratégie.
+> [!NOTE]
+> Tous les utilisateurs précédemment identifiés comme présentant un risque sont bloqués jusqu'à la réinitialisation du mot de passe et risquent d'être rejetés lors de l'activation de la stratégie.
 
 ### <a name="block-legacy-authentication-preview"></a>Bloquer l’authentification héritée (préversion)
 
@@ -71,13 +78,13 @@ La meilleure façon de protéger votre compte de requêtes d’authentification 
 
 La stratégie de référence **Bloquer l’authentification héritée (préversion)** bloque les requêtes d’authentification établies en utilisant les protocoles hérités. Tous les utilisateurs doivent employer l’authentification moderne pour se connecter. Utilisées conjointement avec les autres stratégies de référence, les requêtes provenant des protocoles hérités seront bloquées. En outre, tous les utilisateurs devront employer l’authentification multifacteur chaque fois qu’elle sera nécessaire. Cette stratégie ne bloque pas Exchange ActiveSync.
 
-### <a name="require-mfa-for-service-management-preview"></a>Exiger l’authentification multifacteur pour le management des services (préversion)
+### <a name="require-mfa-for-service-management-preview"></a>exiger l’authentification MFA pour le management des services (préversion)
 
 Les organisations utilisent divers services Azure et les gèrent à partir d’outils reposant sur Azure Resource Manager :
 
 * Portail Azure
 * Azure PowerShell
-* D’Azure CLI
+* Azure CLI
 
 Le fait d’utiliser ces outils pour gérer des ressources est une action impliquant des privilèges élevés. Ces outils peuvent modifier les configurations à l’échelle de l’abonnement, telles que les paramètres de service et la facturation de l’abonnement.
 
@@ -87,6 +94,6 @@ Pour protéger les actions privilégiées, la stratégie **Exiger l’authentifi
 
 Pour plus d'informations, consultez les pages suivantes :
 
+* [Activation des paramètres de sécurité par défaut](../fundamentals/concept-fundamentals-security-defaults.md)
 * [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 * [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
-* [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)

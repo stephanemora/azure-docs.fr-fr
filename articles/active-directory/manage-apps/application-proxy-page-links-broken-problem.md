@@ -2,32 +2,27 @@
 title: Les liens de la page ne fonctionnent pas pour une application avec proxy d’application
 description: Comment résoudre les problèmes de liens rompus dans les applications avec proxy d’application intégrées à Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
-manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268775d125e783b0c640e565c5f63e416cb197fd
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ca782b5a190704911472d70c414d12afa7e558f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996950"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430240"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Les liens de la page ne fonctionnent pas pour une application avec proxy d’application
 
 Cet article vous aide à corriger les problèmes de liens rompus dans votre application avec proxy d’application Azure Active Directory.
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 Après la publication d’une application avec proxy d’application, les seuls liens qui fonctionnent par défaut dans l’application sont ceux qui dirigent vers des destinations contenues dans l’URL racine publiée. Si les liens ne fonctionnent pas dans l’application, il est possible que l’URL interne de l’application n’inclue pas toutes les destinations de liens de l’application.
 
 **Pourquoi cela se produit-il ?** Lorsque vous cliquez sur un lien dans une application, le proxy d’application tente de résoudre l’URL en tant qu’URL interne au sein de la même application ou en tant qu’URL accessible depuis l’extérieur. Si le lien pointe vers une URL interne qui n’est pas dans la même application, il n’appartient à aucun de ces compartiments et provoque une erreur d’adresse introuvable.
@@ -41,7 +36,7 @@ Il existe trois façons de résoudre ce type de problème. Les solutions ci-dess
     Si vous modifiez l’URL interne, mais ne souhaitez pas modifier la page d’arrivée pour les utilisateurs, remplacez l’URL de la page d’accueil par l’URL interne publiée précédemment. Pour ce faire, accédez à « Active Directory Azure » -&gt; Inscriptions des applications -&gt; sélectionnez l’application -&gt; Personnalisation. Dans la section de personnalisation, vous voyez le champ « URL de la page d’accueil » que vous pouvez configurer sur la page d’arrivée de votre choix. Si vous utilisez toujours l’expérience d’inscription d’applications héritée, l’onglet Propriétés montre les détails « URL de la page d’accueil ». 
     
     > [!IMPORTANT]
-    > Pour apporter les changements ci-dessus, vous devez disposer des droits nécessaires pour modifier les objets d’application dans Azure AD. L’utilisateur doit se voir attribuer le rôle « [Administrateur d’application](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/roles-delegate-app-roles#assign-built-in-application-admin-roles) », qui accorde des droits de modification d’application dans Azure AD à l’utilisateur. 
+    > Pour apporter les changements ci-dessus, vous devez disposer des droits nécessaires pour modifier les objets d’application dans Azure AD. L’utilisateur doit se voir attribuer le rôle [Administrateur d’application](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles), qui accorde des droits de modification d’application dans Azure AD à l’utilisateur.
     >
 
 2.  Si vos applications utilisent des noms de domaine complets (FQDN), utilisez des [domaines personnalisés](application-proxy-configure-custom-domain.md) pour publier vos applications. Cette fonctionnalité permet à la même URL d’être utilisée à la fois en interne et en externe.

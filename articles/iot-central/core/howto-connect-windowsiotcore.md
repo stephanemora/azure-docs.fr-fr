@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 452d18908406214bb7e1253363a42d8ba8287d96
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454034"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connecter un appareil Windows IoT Core à votre application Azure IoT Central
 
@@ -25,19 +25,24 @@ Cet article vous explique comment, en tant que développeur d’appareils, conne
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-- Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+- Une application Azure IoT Central créée à partir du modèle **Application héritée**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 
 - Un appareil exécutant le système d’exploitation Windows 10 IoT Core. Pour plus d’informations, consultez procédure de [configuration de votre appareil Windows 10 IoT Standard](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 - Une machine de développement où [Node.js](https://nodejs.org/) version 8.0.0 ou ultérieure est installée. Vous pouvez exécuter `node --version` sur la ligne de commande pour vérifier la version. Node.js est disponible pour un large éventail de systèmes d’exploitation.
 
-## <a name="the-sample-devkits-application"></a>Exemple d’application Devkits
+## <a name="add-a-device-template"></a>Ajouter un modèle d’appareil
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Windows IoT Core** avec les caractéristiques suivantes :
+Dans votre application Azure IoT Central, ajoutez un nouveau modèle d’appareil **Windows IoT Standard** présentant les caractéristiques suivantes :
 
 - Mesures de télémétrie de l’appareil : **humidité**, **température** et **pression**.
 - Paramètre pour contrôler la **vitesse du ventilateur**.
 - Propriété d’appareil **Numéro gravé** et propriété cloud **Emplacement**.
+
+1. Sélectionnez **+ Nouveau** dans ![Modèle d’appareil](media/howto-connect-windowsiotcore/adddevicetemplate.png)
+   
+
+2. Sélectionnez **Windows IoT Standard**, puis ![Ajouter un modèle d’appareil](media/howto-connect-windowsiotcore/newdevicetemplate.png) pour créer le modèle d’appareil Windows IoT Core
 
 Pour plus d’informations sur la configuration du modèle d’appareil, voir [Détails de modèle d’appareil Windows IoT Standard](#device-template-details).
 
@@ -104,7 +109,7 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
 
-| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
+| Nom du champ     | Units  | Minimum | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -114,15 +119,15 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| Nom complet | Nom du champ | Units | Nombre de décimales | Minimum | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Vitesse du ventilateur    | fanSpeed   | TR/MIN   | 0              | 0       | 1 000    | 0       |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
 | Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
-| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | nombre    |
 | Texte            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>Étapes suivantes

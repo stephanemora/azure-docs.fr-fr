@@ -1,6 +1,6 @@
 ---
 title: Traiter par lots les messages en tant que groupe
-description: Envoyer et recevoir des messages sous forme de lots dans Azure Logic Apps
+description: Envoyer et recevoir des messages dans des groupes entre vos workflows à l’aide d’un traitement par lots dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 813c625fc72fa7c1440b5d1b9147af9a44c2260f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e48d2bb2ffce0dd4f9293417534165165d426784
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791564"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666752"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
 
@@ -29,7 +29,7 @@ Pour envoyer et traiter ensemble des messages sous la forme spécifique de group
 
 Assurez-vous que votre récepteur et votre expéditeur de lots partagent le même abonnement *et* la même région Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
@@ -129,7 +129,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
 À présent, créez une ou plusieurs applications logiques expéditrices de lots qui envoient des messages vers l’application logique réceptrice de lots. Dans chaque expéditeur de lots, vous spécifiez le récepteur de lots avec le nom du lot, le contenu du message et tout autre paramètre nécessaire. Vous pouvez éventuellement fournir une clé de partition unique pour diviser le lot en sous-ensembles logiques pour la collecte des messages avec cette clé. 
 
-* En vous assurant d’avoir [créé votre récepteur de lots](#batch-receiver) avant de créer votre expéditeur de lots, vous pouvez sélectionner ce récepteur existant comme destinataire de lots. Alors que les récepteurs de lots n’ont pas besoin de connaître les expéditeurs de lots, les expéditeurs de lots, eux, doivent savoir où envoyer les messages. 
+* En vous assurant d’avoir [créé votre récepteur de lots](#batch-receiver) avant de créer votre expéditeur de lots, vous pouvez sélectionner le récepteur existant comme destinataire de lots. Alors que les récepteurs de lots n’ont pas besoin de connaître les expéditeurs de lots, les expéditeurs de lots, eux, doivent savoir où envoyer les messages. 
 
 * Vérifiez que vos récepteur et expéditeur de lots partagent la même région *et* le même abonnement Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 

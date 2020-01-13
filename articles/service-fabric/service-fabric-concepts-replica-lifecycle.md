@@ -1,25 +1,16 @@
 ---
-title: Réplicas et instances dans Azure Service Fabric | Microsoft Docs
-description: Comprendre les réplicas et les instances, leurs fonction et cycles de vie
-services: service-fabric
-documentationcenter: .net
+title: Réplicas et instances dans Azure Service Fabric
+description: Découvrez les réplicas et les instances dans Service Fabric, ainsi qu’une vue d’ensemble de leurs cycles de vie et fonctions.
 author: appi101
-manager: anuragg
-editor: ''
-ms.assetid: d5ab75ff-98b9-4573-a2e5-7f5ab288157a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/10/2018
 ms.author: aprameyr
-ms.openlocfilehash: 7f8638365b40395a5dd82457c40e5c15209ba1a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf21af43de553a2802289e44eaece12952d077d3
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882388"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614602"
 ---
 # <a name="replicas-and-instances"></a>Réplicas et instances 
 Cet article donne une vue d’ensemble du cycle de vie des réplicas de services avec état et des instances de services sans état.
@@ -63,7 +54,7 @@ Un réplica InBuild est un réplica qui est créé ou préparé en vue de rejoin
 
 Si le nœud ou l’hôte d’application d’un réplica InBuild tombe en panne, son état passe à hors service.
 
-   - **Réplicas Primary InBuild** : les réplicas Primary InBuild sont les premiers réplicas d’une partition. Ce réplica se produit généralement à la création de la partition. Les réplicas Principal InBuild apparaissent également lorsque tous les réplicas d’une partition redémarrent ou sont abandonnés.
+   - **Réplicas Primary InBuild** : Les réplicas Primary InBuild sont les premiers réplicas d’une partition. Ce réplica se produit généralement à la création de la partition. Les réplicas Principal InBuild apparaissent également lorsque tous les réplicas d’une partition redémarrent ou sont abandonnés.
 
    - **Réplicas IdleSecondary InBuild** : il s’agit de réplicas créés par Cluster Resource Manager, ou de réplicas existants qui ont été mis hors service et qui doivent être rajoutés au jeu. Ces réplicas sont amorcés ou générés par le réplica principal avant de pouvoir rejoindre le jeu de réplicas en tant que réplicas ActiveSecondary et ainsi participer à l’accusé de réception quorum d’opérations.
 

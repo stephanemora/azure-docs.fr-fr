@@ -1,25 +1,16 @@
 ---
-title: Interface de ligne de commande CLI Azure Service Fabric - sfctl compose| Microsoft Docs
-description: Décrit les commandes sfctl compose de l’interface de ligne de commande CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: Interface de ligne de commande Azure Service Fabric – sfctl compose
+description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour les applications Docker Compose.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 561616fca7401f5251c4fbac67173260a665b602
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a9fa142dd45674e4a3e88745acffef225b80a64
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901665"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645393"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Permet de créer, de supprimer et de gérer les applications Docker Compose.
@@ -54,11 +45,11 @@ Permet de créer un déploiement compose Service Fabric.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-list"></a>sfctl compose list
 Permet d’obtenir la liste des déploiements compose créés dans le cluster Service Fabric.
@@ -69,7 +60,7 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 
 |Argument|Description|
 | --- | --- |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
@@ -77,11 +68,11 @@ Permet d’obtenir l’état des déploiements compose créés ou qui sont en co
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-remove"></a>sfctl compose remove
 Permet de supprimer un déploiement compose Service Fabric existant du cluster.
@@ -99,11 +90,11 @@ Permet de supprimer un déploiement compose Service Fabric existant.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-status"></a>sfctl compose status
 Permet d’obtenir des informations sur un déploiement compose Service Fabric.
@@ -121,11 +112,11 @@ Renvoie l’état du déploiement compose créé ou en cours de création dans l
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-upgrade"></a>sfctl compose upgrade
 Permet de commencer la mise à niveau d’un déploiement compose dans le cluster Service Fabric.
@@ -161,11 +152,11 @@ Permet de valider les paramètres de mise à niveau fournis et de commencer la m
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
 Permet de commencer la restauration d’une mise à niveau de déploiement compose dans le cluster Service Fabric.
@@ -183,11 +174,11 @@ Permet de restaurer une mise à niveau de déploiement compose Service Fabric.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-compose-upgrade-status"></a>sfctl compose upgrade-status
 Permet d’obtenir des informations sur la dernière mise à niveau effectuée sur le déploiement Compose Service Fabric.
@@ -205,11 +196,11 @@ Renvoie les informations concernant l’état de la mise à niveau du déploieme
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

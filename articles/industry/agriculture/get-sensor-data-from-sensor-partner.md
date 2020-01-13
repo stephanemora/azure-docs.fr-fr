@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ece310a248140b7913ffcc9f7146d382ee44fb5d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435174"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -24,10 +24,10 @@ Pour démarrer le streaming des données de capteur, vérifiez les points suivan
 
 -  Vous avez installé FarmBeats (disponible dans la Place de marché Azure).
 -  Vous avez déterminé quels capteurs et appareils vous souhaitez installer dans votre ferme.
--  Si vous prévoyez d’utiliser des capteurs d’humidité du sol, utilisez la carte d’emplacement des capteurs d’humidité du sol de FarmBeats pour obtenir une recommandation quant au nombre de capteurs et à leur emplacement exact. Pour plus d’informations, consultez [Générer des cartes](generate-maps.md).
+-  Si vous prévoyez d’utiliser des capteurs d’humidité du sol, utilisez la carte d’emplacement des capteurs d’humidité du sol de FarmBeats pour obtenir une recommandation quant au nombre de capteurs et à leur emplacement exact. Pour plus d’informations, consultez [Générer des cartes](generate-maps-in-azure-farmbeats.md).
 - Achetez des appareils ou des capteurs auprès de votre fournisseur d’appareils partenaire et déployez-les dans votre ferme. Vérifiez que vous pouvez accéder aux données des capteurs par le biais de la solution de votre partenaire.
 
-## <a name="enable-device-integration-with-farmbeats"></a>Activer l’intégration des appareils à FarmBeats 
+## <a name="enable-device-integration-with-farmbeats"></a>Activer l’intégration des appareils à FarmBeats
 
 Après avoir démarré le streaming des données de capteur, vous pouvez commencer le processus de récupération des données dans votre système FarmBeats. Indiquez les informations suivantes au fournisseur d’appareils pour activer l’intégration à FarmBeats :
 
@@ -55,7 +55,7 @@ Vous pouvez également générer les informations d’identification en exécuta
     ![Bouton de chargement dans la barre d’outils](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
 5. Accédez au répertoire où les fichiers ont été chargés. Par défaut, ils sont chargés dans le répertoire de base sous le nom d’utilisateur.
-6. Exécutez le script qui suit :
+6. Exécutez le script suivant :
 
     ```azurepowershell-interactive 
 
@@ -155,4 +155,4 @@ Effectuez les opérations suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les données de capteur sont à présent transmises à votre instance Azure FarmBeats. À présent, découvrez comment [générer des cartes](generate-maps.md#generate-maps) pour vos fermes.
+Les données de capteur sont à présent transmises à votre instance Azure FarmBeats. À présent, découvrez comment [générer des cartes](generate-maps-in-azure-farmbeats.md#generate-maps) pour vos fermes.

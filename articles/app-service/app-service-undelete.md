@@ -5,19 +5,23 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: a30ac638422f99134ebe9cc26e4b418f5de079b9
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: c7d778a0afca4b3552976526d58a2cb2efe12161
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672145"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689621"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Restaurer une application App Service supprimée à l’aide de PowerShell
 
 Si vous avez supprimé accidentellement votre application dans Azure App Service, vous pouvez la restaurer à l’aide des commandes du [module PowerShell Az](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
+> [!NOTE]
+> Les applications supprimées sont purgées du système 30 jours après la suppression initiale. Une fois qu’une application a été purgée, il n’est plus possible de la récupérer.
+>
+
 ## <a name="re-register-app-service-resource-provider"></a>Réinscrire le fournisseur de ressources App Service
-Certains clients peuvent rencontrer un problème où la récupération de la liste des applications supprimées échoue. Pour résoudre le problème, exécutez la commande suivante :
+Certains clients peuvent rencontrer un problème entraînant l’échec de la récupération de la liste des applications supprimées. Pour résoudre le problème, exécutez la commande suivante :
 
 ```powershell
  Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
@@ -39,7 +43,7 @@ Les informations détaillées incluent :
 - **SubscriptionID** : Abonnement contenant la ressource supprimée.
 - **Emplacement** : Emplacement de l’application d’origine.
 - **ResourceGroupName** : Nom du groupe de ressources d’origine.
-- **Nom** : Nom de l’application d’origine.
+- **Name** : Nom de l’application d’origine.
 - **Emplacement** : Nom de l’emplacement.
 - **Heure de la suppression** : Horodatage de la suppression de l’application.  
 
@@ -54,7 +58,7 @@ Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServ
 Les entrées de la commande sont les suivantes :
 
 - **Groupe de ressources** : Groupe de ressources cible dans lequel l’application sera restaurée.
-- **Nom** : Nom de l’application qui doit être globalement unique.
+- **Name** : Nom de l’application qui doit être globalement unique.
 - **TargetAppServicePlanName** : Plan App Service lié à l’application.
 
 Par défaut, `Restore-AzDeletedWebApp` restaure à la fois la configuration de votre application et son contenu. Si vous voulez uniquement restaurer le contenu, utilisez l’indicateur `-RestoreContentOnly` avec cette cmdlet.

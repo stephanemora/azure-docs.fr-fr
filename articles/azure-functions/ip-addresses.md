@@ -3,12 +3,12 @@ title: Adresses IP dans Azure Functions
 description: Découvrez comment trouver les adresses IP entrantes et sortantes des applications de fonction, et ce qui les fait changer.
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a1c4174b8f1f2349cbd35c32cbee468ee5b4cd4a
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230340"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612885"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -25,7 +25,7 @@ Les adresses IP sont associées à des applications de fonction, et non à des f
 
 Chaque application de fonction a une seule adresse IP entrante. Pour la trouver :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à l’application de fonction.
 3. Sélectionnez **Fonctionnalités de la plateforme**.
 4. Sélectionnez **Propriétés** : l’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
@@ -86,9 +86,9 @@ L’adresse IP entrante **peut** changer dans les cas suivants :
 
 - vous supprimez une application de fonction, puis la recréez dans un autre groupe de ressources ;
 - vous supprimez la dernière application de fonction dans une combinaison de groupe de ressources et de région, puis la recréez ;
-- vous supprimez une liaison SSL, par exemple, pendant le [renouvellement des certificats](../app-service/configure-ssl-certificate.md#renew-certificate)).
+- vous supprimez une liaison SSL, par exemple, pendant le [renouvellement des certificats](../app-service/configure-ssl-certificate.md#renew-certificate).
 
-Lorsque votre application de fonction s’exécute dans un [Plan Consommation](functions-scale.md#consumption-plan), l’adresse IP entrante peut également changer dans d’autres situations.
+Lorsque votre application de fonction s’exécute dans un [Plan Consommation](functions-scale.md#consumption-plan), l’adresse IP entrante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
 
 ## <a name="outbound-ip-address-changes"></a>Changement d’adresse IP sortante
 
@@ -97,7 +97,7 @@ L’ensemble d’adresses IP sortantes disponibles pour une application de fonct
 * vous effectuez une action susceptible de modifier l’adresse IP entrante ;
 * vous modifiez le niveau tarifaire de votre plan App Service. La liste de toutes les adresses IP sortantes utilisables par votre application, pour tous les niveaux tarifaires, est donnée dans la propriété `possibleOutboundIPAddresses`. Consultez [Trouver des adresses IP sortantes](#find-outbound-ip-addresses).
 
-Lorsque votre application de fonction s’exécute dans un [Plan Consommation](functions-scale.md#consumption-plan), l’adresse IP sortante peut également changer dans d’autres situations.
+Lorsque votre application de fonction s’exécute dans un [Plan Consommation](functions-scale.md#consumption-plan), l’adresse IP sortante peut également changer, même quand vous n’avez effectué aucune des actions [répertoriées ci-dessus](#inbound-ip-address-changes).
 
 Pour forcer délibérément un changement d’adresse IP sortante :
 
@@ -115,7 +115,7 @@ Si vous avez besoin d’adresses IP dédiées statiques, nous vous recommandons 
 
 Pour savoir si votre application de fonction s’exécute dans un environnement App Service :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez à l’application de fonction.
 3. Sélectionnez l’onglet **Vue d’ensemble**.
 4. Le niveau du plan App Service apparaît sous **Niveau tarifaire/plan App Service**. Le niveau tarifaire de l’environnement App Service est **Isolé**.

@@ -2,17 +2,17 @@
 title: Mise à jour d’un service cloud | Microsoft Docs
 description: Découvrez comment mettre à jour des services cloud dans Azure. Découvrez comment mettre à jour un service cloud se poursuit pour garantir la disponibilité.
 services: cloud-services
-author: georgewallace
+author: tgore03
 ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: gwallace
-ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.author: tagore
+ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360342"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Mettre à jour un service cloud
 
@@ -47,18 +47,18 @@ Le tableau suivant présente les modifications de service autorisées au cours d
 
 | Modifications autorisées de l’hébergement, des services et des rôles | Mise à jour sur place | Intermédiaire (échange d’adresses IP virtuelles) | Supprimer et redéployer |
 | --- | --- | --- | --- |
-| Version de système d’exploitation |OUI |OUI |OUI |
-| Niveau de confiance .NET |OUI |OUI |OUI |
-| Taille de la machine virtuelle<sup>1</sup> |Oui<sup>2</sup> |OUI |OUI |
-| Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |OUI |OUI |
-| Ajouter et supprimer les rôles dans un service |OUI |OUI |OUI |
-| Nombre d’instances d’un rôle particulier |OUI |OUI |OUI |
-| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non |OUI |
-| Noms et valeurs de paramètres de configuration |OUI |OUI |OUI |
-| Valeurs (et non noms) des paramètres de configuration |OUI |OUI |OUI |
-| Ajouter de nouveau certificats |OUI |OUI |OUI |
-| Modifier les certificats existants |OUI |OUI |OUI |
-| Déployer un nouveau code |OUI |OUI |OUI |
+| Version du système d'exploitation |Oui |Oui |Oui |
+| Niveau de confiance .NET |Oui |Oui |Oui |
+| Taille de la machine virtuelle<sup>1</sup> |Oui<sup>2</sup> |Oui |Oui |
+| Paramètres de stockage locaux |Augmentation uniquement<sup>2</sup> |Oui |Oui |
+| Ajouter et supprimer les rôles dans un service |Oui |Oui |Oui |
+| Nombre d’instances d’un rôle particulier |Oui |Oui |Oui |
+| Nombre ou type de points de terminaison pour un service |Oui<sup>2</sup> |Non |Oui |
+| Noms et valeurs de paramètres de configuration |Oui |Oui |Oui |
+| Valeurs (et non noms) des paramètres de configuration |Oui |Oui |Oui |
+| Ajouter de nouveau certificats |Oui |Oui |Oui |
+| Modifier les certificats existants |Oui |Oui |Oui |
+| Déployer un nouveau code |Oui |Oui |Oui |
 
 <sup>1</sup> Modification de la taille limitée au sous-ensemble des tailles disponibles pour le service cloud.
 
@@ -183,3 +183,6 @@ Le diagramme suivant montre comment un service contenant deux rôles qui sont di
 [Gestion des services cloud](cloud-services-how-to-manage-portal.md)  
 [Surveillance des services cloud](cloud-services-how-to-monitor.md)  
 [Configuration des services cloud](cloud-services-how-to-configure-portal.md)  
+
+
+

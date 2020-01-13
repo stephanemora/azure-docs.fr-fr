@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 8387e41d57edfa0e54ac930c9462714aca571f2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95272956da4567ec21e1c4603b88472e45373a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848280"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351173"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Conception de tables extensibles et performantes
 
@@ -73,7 +73,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 <th>Email</th>
 </tr>
 <tr>
-<td>Jun</td>
+<td>Juin</td>
 <td>Cao</td>
 <td>47</td>
 <td>junc@contoso.com</td>
@@ -82,7 +82,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </tr>
 <tr>
 <td>Marketing</td>
-<td>Département</td>
+<td>department</td>
 <td>2014-08-22T00:50:30Z</td>
 <td>
 <table>
@@ -98,7 +98,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </td>
 </tr>
 <tr>
-<td>Sales</td>
+<td>Ventes</td>
 <td>00010</td>
 <td>2014-08-22T00:50:44Z</td>
 <td>
@@ -128,7 +128,7 @@ Le choix de la valeur de **PartitionKey** et de **RowKey** est fondamental pour 
 Une table est constituée d’une ou plusieurs partitions et la plupart des décisions de conception que vous prenez consistent à choisir une valeur de **PartitionKey** et **RowKey** convenable pour optimiser votre solution. Une solution peut être constituée d’une seule table contenant toutes vos entités organisées en partitions, mais généralement, une solution a plusieurs tables. Les tables vous permettent d'organiser vos entités logiquement, de gérer l'accès aux données en utilisant des listes de contrôle d'accès, et de supprimer une table entière à l'aide d'une opération de stockage unique.  
 
 ## <a name="table-partitions"></a>Partitions de table
-Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifient la partition dans le service de stockage où le service de Table stocke l’entité. Tout en appartenant au schéma d’adressage des entités, les partitions définissent une étendue pour les transactions (pour en savoir plus, consultez [Transactions de groupe d’entités](#entity-group-transactions) ci-dessous) et constituent la base de la méthode de mise à l’échelle du service de Table. Pour plus d’informations sur les partitions, consultez [Objectifs de scalabilité et de performances du Stockage Azure](../../storage/common/storage-scalability-targets.md).  
+Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifient la partition dans le service de stockage où le service de Table stocke l’entité. Tout en appartenant au schéma d’adressage des entités, les partitions définissent une étendue pour les transactions (pour en savoir plus, consultez [Transactions de groupe d’entités](#entity-group-transactions) ci-dessous) et constituent la base de la méthode de mise à l’échelle du service de Table. Pour plus d’informations sur les partitions, voir [Liste de contrôle des performances et de l’extensibilité pour le stockage Table](storage-performance-checklist.md).  
 
 Dans le service de Table, un nœud individuel traite une ou plusieurs partitions complètes et le service se met à l’échelle en équilibrant la charge des partitions de manière dynamique sur les nœuds. Si un nœud est en sous-charge, le service de Table peut *fractionner* la plage de partitions traitées par ce nœud en différents nœuds. En cas de réduction du trafic, le service peut *fusionner* les plages de partitions à partir des nœuds silencieux en un nœud unique.  
 
@@ -137,7 +137,7 @@ Pour plus d’informations sur les détails internes du service de Table et nota
 ## <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le service de Table, les transactions de groupe d'entités (EGT) constituent l'unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les EGT sont également parfois appelées *transactions par lots*. Les EGT peuvent uniquement fonctionner sur des entités stockées dans la même partition (autrement dit, elles partagent la même clé de partition dans une table donnée). Par conséquent, chaque fois que vous avez besoin d’un comportement transactionnel atomique sur plusieurs entités, vous devez vérifier que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d'entité dans la même table (et partition) au lieu de l'utilisation de plusieurs tables pour différents types d'entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, vérifiez bien que ces EGT ne fonctionnent pas sur des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.
 
-Les EGT représentent également un éventuel compromis à prendre en compte dans votre conception. Autrement dit, l’utilisation de plusieurs partitions augmente la scalabilité de votre application, car Azure a plus d’occasions d’équilibrer la charge des requêtes sur les nœuds. Toutefois, l’utilisation de plusieurs partitions peut limiter la capacité de votre application à effectuer des transactions atomiques et à assurer une cohérence forte pour vos données. Par ailleurs, il s’agit d’objectifs de scalabilité spécifiques au niveau d’une partition qui peuvent limiter le débit de transactions attendu pour un nœud unique. Pour plus d’informations sur les objectifs de scalabilité pour les comptes de stockage et le service de Table Azure, consultez [Scalabilité du Stockage Azure et objectifs de performances](../../storage/common/storage-scalability-targets.md).   
+Les EGT représentent également un éventuel compromis à prendre en compte dans votre conception. Autrement dit, l’utilisation de plusieurs partitions augmente la scalabilité de votre application, car Azure a plus d’occasions d’équilibrer la charge des requêtes sur les nœuds. Toutefois, l’utilisation de plusieurs partitions peut limiter la capacité de votre application à effectuer des transactions atomiques et à assurer une cohérence forte pour vos données. Par ailleurs, il s’agit d’objectifs de scalabilité spécifiques au niveau d’une partition qui peuvent limiter le débit de transactions attendu pour un nœud unique. Pour plus d’informations sur les objectifs d’extensibilité pour les comptes de stockage Azure standard, voir [objectifs d’extensibilité pour les comptes de stockage standard](../common/scalability-targets-standard-account.md). Pour plus d’informations sur les objectifs d’extensibilité pour le stockage Table, voir [Objectifs d’extensibilité et de performances pour le stockage Table](scalability-targets.md).
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 Le tableau suivant décrit certaines valeurs clés à connaître quand vous concevez une solution de service de Table :  
