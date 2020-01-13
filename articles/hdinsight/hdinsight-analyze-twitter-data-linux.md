@@ -2,18 +2,18 @@
 title: Analyser des données Twitter avec Apache Hive - Azure HDInsight
 description: Découvrez comment utiliser Apache Hive et Apache Hadoop sur HDInsight pour transformer des données Twitter brutes en une table Hive utilisable dans une requête.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 8c7f6695880cfdb0a350edc37d61e771d03b92df
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.date: 12/16/2019
+ms.openlocfilehash: f3705170be28f33e5994bd00e363dc7ec7f94642
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435612"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analyser des données Twitter avec Apache Hive et Apache Hadoop sur HDInsight
 
@@ -28,27 +28,27 @@ Twitter vous permet de récupérer les données de chaque tweet sous la forme d�
 
 ### <a name="create-a-twitter-application"></a>Création d'une application Twitter
 
-1. Dans un navigateur web, connectez-vous à [https://apps.twitter.com/](https://apps.twitter.com/). Cliquez sur le lien **Sign up now** si vous ne possédez pas de compte Twitter.
+1. Dans un navigateur web, connectez-vous à [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Sélectionnez le lien **Sign up now** si vous ne possédez pas de compte Twitter.
 
-2. Cliquez sur **Create New App**.
+2. Sélectionnez **Create New App** (Créer une application).
 
 3. Renseignez les champs **Name**, **Description** et **Website**. Vous pouvez créer une URL pour le champ **Website** . Le tableau suivant affiche quelques exemples de valeurs à utiliser :
 
    | Champ | Valeur |
-   |:--- |:--- |
-   | Nom |MyHDInsightApp |
+   |--- |--- |
+   | Name |MyHDInsightApp |
    | Description |MyHDInsightApp |
-   | Website |https:\//www.myhdinsightapp.com |
+   | Website |`https://www.myhdinsightapp.com` |
 
-4. Cochez la case **Yes, I agree**, puis cliquez **Create your Twitter application**.
+4. Sélectionnez **Yes, I agree**, puis **Create your Twitter application**.
 
-5. Cliquez sur l'onglet **Permissions** . L'autorisation par défaut est **Read only**.
+5. Sélectionnez l’onglet **Permissions**. L'autorisation par défaut est **Read only**.
 
-6. Cliquez sur l’onglet **Keys and Access Tokens** .
+6. Sélectionnez l’onglet **Keys and Access Tokens** .
 
-7. Cliquez sur **Create my access token**.
+7. Sélectionnez **Create my access token**.
 
-8. Cliquez sur **Test OAuth** dans le coin supérieur droit de la page.
+8. Sélectionnez **Test OAuth** dans le coin supérieur droit de la page.
 
 9. Renseignez les valeurs **consumer key**, **Consumer secret**, **Access token** et **Access token secret**.
 
@@ -59,20 +59,18 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
 > [!NOTE]  
 > Les étapes suivantes sont effectuées sur le cluster HDInsight, puisque Python a déjà été installé.
 
-1. Connectez-vous au cluster HDInsight à l’aide de SSH :
+1. Utilisez la [commande ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) pour vous connecter à votre cluster. Modifiez la commande ci-dessous en remplaçant CLUSTERNAME par le nom de votre cluster, puis entrez la commande :
 
-    ```bash
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-3. Utilisez les commandes suivantes pour installer [Tweepy](https://www.tweepy.org/), la [barre de progression](https://pypi.python.org/pypi/progressbar/2.2) et d’autres packages requis :
+1. Utilisez les commandes suivantes pour installer [Tweepy](https://www.tweepy.org/), la [barre de progression](https://pypi.python.org/pypi/progressbar/2.2) et d’autres packages requis :
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
    sudo apt remove python-openssl
-   pip install virtualenv
+   python -m pip install virtualenv
    mkdir gettweets
    cd gettweets
    virtualenv gettweets
@@ -80,13 +78,13 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-4. Utilisez la commande suivante pour créer un fichier nommé **gettweets.py** :
+1. Utilisez la commande suivante pour créer un fichier nommé **gettweets.py** :
 
    ```bash
    nano gettweets.py
    ```
 
-5. Utilisez le texte suivant comme contenu du fichier **gettweets.py** :
+1. Modifiez le code ci-dessous en remplaçant `Your consumer secret`, `Your consumer key`, `Your access token` et `Your access token secret` par les informations pertinentes de votre application Twitter. Collez ensuite le code modifié comme contenu du fichier **gettweets.py**.
 
    ```python
    #!/usr/bin/python
@@ -104,7 +102,7 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
    access_token_secret='Your access token secret'
 
    #The number of tweets we want to get
-   max_tweets=10000
+   max_tweets=100
 
    #Create the listener class that receives and saves tweets
    class listener(StreamListener):
@@ -142,20 +140,12 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]  
-    > Remplacez les espaces réservés des éléments suivants par les informations de votre application twitter :
-    >
-    > * `consumer_secret`
-    > * `consumer_key`
-    > * `access_token`
-    > * `access_token_secret`
-
     > [!TIP]  
     > Ajustez le filtre de rubriques sur la dernière ligne afin de suivre les mots clés courants. L’utilisation des mots clés courants au moment de l’exécution du script permet une capture plus rapide des données.
 
-6. Appuyez sur **Ctrl + X**, puis sur **Y** pour enregistrer le fichier.
+1. Appuyez sur **Ctrl + X**, puis sur **Y** pour enregistrer le fichier.
 
-7. Utilisez la commande suivante pour exécuter le fichier et télécharger des tweets :
+1. Utilisez la commande suivante pour exécuter le fichier et télécharger des tweets :
 
     ```bash
     python gettweets.py
@@ -164,7 +154,7 @@ Le code Python suivant télécharge 10 000 tweets à partir de Twitter et les e
     Un indicateur de progression s’affiche. Il progresse jusqu’à 100 % au fur et à mesure que les tweets sont téléchargés.
 
    > [!NOTE]  
-   > Si la barre de progression n’avance pas, vous devez modifier le filtre pour effectuer le suivi des tendances. Lorsqu’il existe un grand nombre de tweets concernant la rubrique que vous filtrez, vous pouvez obtenir rapidement les 10 000 tweets nécessaires.
+   > Si la barre de progression n’avance pas, vous devez modifier le filtre pour effectuer le suivi des tendances. Lorsqu’il existe un grand nombre de tweets concernant la rubrique que vous filtrez, vous pouvez obtenir rapidement les 100 tweets nécessaires.
 
 ### <a name="upload-the-data"></a>Téléchargement des données
 
@@ -293,8 +283,9 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
    WHERE (length(json_response) > 500);
    ```
 
-2. Appuyez sur **Ctrl + X**, puis sur **Y** pour enregistrer le fichier.
-3. Utilisez la commande suivante pour exécuter le HiveQL contenu dans le fichier :
+1. Appuyez sur **Ctrl + X**, puis sur **Y** pour enregistrer le fichier.
+
+1. Utilisez la commande suivante pour exécuter le HiveQL contenu dans le fichier :
 
    ```bash
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
@@ -302,7 +293,7 @@ Ces commandes stockent les données dans un emplacement accessible à tous les n
 
     Cette commande exécute le fichier **twitter.hql**. Une fois la requête terminée, vous voyez une invite `jdbc:hive2//localhost:10001/>`.
 
-4. À l’invite Beeline, utilisez la requête suivante pour vérifier que les données ont été importées :
+1. À l’invite Beeline, utilisez la requête suivante pour vérifier que les données ont été importées :
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
@@ -323,10 +314,3 @@ Vous avez appris à transformer un jeu de données JSON non structuré en une ta
 
 * [Prise en main de HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analyse des données sur les retards de vol avec HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
-
-[curl]: https://curl.haxx.se
-[curl-download]: https://curl.haxx.se/download.html
-
-[apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
-
-[twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

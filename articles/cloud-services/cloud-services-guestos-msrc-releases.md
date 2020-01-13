@@ -10,17 +10,59 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/5/2019
+ms.date: 12/13/2019
 ms.author: raiye
-ms.openlocfilehash: 027fb5176ecf1fdb32119c933d1b44eaf9f82bb8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894647"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386202"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="december-2019-guest-os"></a>Système d’exploitation invité, décembre 2019
+
+>[!NOTE]
+>Le système d’exploitation invité de décembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de décembre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 12-19  |  [4530692]  |  Sécurité Windows  | 2,93 | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | 2,93 | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | 3.80 | 10 décembre 2019 |
+|  Version 12-19  |  [4530698]  |  Sécurité Windows  | 3.80 | 10 décembre 2019 |
+|  Version 12-19  |  [4530730]  |  Sécurité Windows  | 4.73 | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | 4.73 | 10 décembre 2019 |
+|  Version 12-19  |  [4530689]  |  Dernière mise à jour cumulative  | 5.38 | 10 décembre 2019 |
+|  Version 12-19  |  [4530715]  |  Dernière mise à jour cumulative  | 6.14 | 10 décembre 2019 |
+|  Version 12-19  |  [4525235]  |  Non relatif à la sécurité  | 2,93 | 12 nov. 2019 |
+|  Version 12-19  |  [4531786]  |  Mise à jour de la pile de maintenance  | 2,93 | 10 décembre 2019 |
+|  Version 12-19  |  [4525246]  |  Non relatif à la sécurité  | 3.80 | 12 nov. 2019 |
+|  Version 12-19  |  [4523208]  |  Mise à jour de la pile de maintenance  | 3.8 | 12 nov. 2019 |
+|  Version 12-19  |  [4525243]  |  Non relatif à la sécurité  | 4.73 | 12 nov. 2019 |
+|  Version 12-19  |  [4524445]  |  Mise à jour de la pile de maintenance  | 4.73 | 12 nov. 2019 |
+|  Version 12-19  |  [4520724]  |  Mise à jour de la pile de maintenance  | 5.38 | 12 nov. 2019 |
+|  Version 12-19  |  [4523204]  |  ServicingStackUpdate  | 6.14 | 12 nov. 2019 |
+
+[4530692]: https://support.microsoft.com/kb/4530692
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530698]: https://support.microsoft.com/kb/4530698
+[4530730]: https://support.microsoft.com/kb/4530730
+[4530677]: https://support.microsoft.com/kb/4530677
+[4530689]: https://support.microsoft.com/kb/4530689
+[4530715]: https://support.microsoft.com/kb/4530715
+[4525235]: https://support.microsoft.com/kb/4525235
+[4531786]: https://support.microsoft.com/kb/4531786
+[4525246]: https://support.microsoft.com/kb/4525246
+[4523208]: https://support.microsoft.com/kb/4523208
+[4525243]: https://support.microsoft.com/kb/4525243
+[4524445]: https://support.microsoft.com/kb/4524445
+[4520724]: https://support.microsoft.com/kb/4520724
+[4523204]: https://support.microsoft.com/kb/4523204
+
 
 ## <a name="november-2019-guest-os"></a>Système d’exploitation invité, novembre 2019
 
@@ -260,14 +302,14 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 06-19   |  [4503327]  |  Sécurité de Windows 10   |  6.8  |  11 juin 2019  |
-|  Version 06-19   |  [4503267]  |  Sécurité de Windows 10   |  5.32  |  11 juin 2019  |
-|  Version 06-19   |  [4503290]  |  Sécurité Windows   |  4.67  |  11 juin 2019  |
-|  Version 06-19   |  [4503263]  |  Sécurité Windows   |  3.74  |  11 juin 2019  |
-|  Version 06-19   |  [4503269]  |  Sécurité Windows   |  2.87  |  11 juin 2019  |
-|  Version 06-19   |  [4494174]  |  Mise à jour du microcode   |  6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4503327]  |  Sécurité de Windows 10   |  6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4503267]  |  Sécurité de Windows 10   |  5.32  |  11 juin 2019  |
+|  Version 06-19   |  [4503290]  |  Sécurité Windows   |  4.67  |  11 juin 2019  |
+|  Version 06-19   |  [4503263]  |  Sécurité Windows   |  3.74  |  11 juin 2019  |
+|  Version 06-19   |  [4503269]  |  Sécurité Windows   |  2.87  |  11 juin 2019  |
+|  Version 06-19   |  [4494174]  |  Mise à jour du microcode   |  6.8  |  11 juin 2019  |
 |  Version 06-19   |  [4494175]  |  Mise à jour du microcode   |  5.32  |  3 juin 2019  |
-|  Version 06-19   |  [4503308]  |  Clignote   |  3.74, 4.67, 5.32, 6.8  |  11 juin 2019  |
+|  Version 06-19   |  [4503308]  |  Clignote   |  3.74, 4.67, 5.32, 6.8  |  11 juin 2019  |
 |  Version 06-19   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 juin 2019  |
 |  N/A  |  [4499164]  |  Non relatif à la sécurité, mai 2019  |  2.87  |  14 mai 2019  |
 |  N/A  |  [4495606]  |  .NET 3.5 non relatif à la sécurité, mai 2019  |  2.87  |  14 mai 2019  |
@@ -441,8 +483,8 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Version 02-19 | [4483484] | Sécurité .NET 3.5 | 4.63 | 12 février 2019 |
 | Version 02-19 | [4483472] | Sécurité .NET 4.5.2 | 4.63 | 12 février 2019 |
 | Version 02-19 | [4487026] | Sécurité Windows | 5.28 | 12 février 2019 |
-| Version 02-19 | [4487044] | Sécurité Windows | 6.4. | 12 février 2019 |
-| Version 02-19 | [4483452] | Sécurité .NET 3.5, 4.7.2 | 6.4. | 12 février 2019 |
+| Version 02-19 | [4487044] | Sécurité Windows | 6.4 | 12 février 2019 |
+| Version 02-19 | [4483452] | Sécurité .NET 3.5, 4.7.2 | 6.4 | 12 février 2019 |
 | N/A | [4480970] | Correctif cumulatif non relatif à la sécurité de janvier | 2.83 | 8 janvier 2019 |
 | N/A | [4483483] | Correctif cumulatif .NET 3.5.1 non relatif à la sécurité de janvier  | 2.83 | 8 janvier 2019 |
 | N/A | [4480059] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de janvier  | 2.83 | 8 janvier 2019 |
@@ -740,22 +782,22 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 18/05 | [4054856] |.NET 4.7x Security |5.19 |8 mai 2018 |
 | Éd. 18/05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 mai 2018 |
 | Éd. 18/05 | [4103729] |Clignote |3.61, 4.74, 5.19 |8 mai 2018 |
-| N/A | [4093118] |Correctif cumulatif non relatif à la sécurité d’avril |2.73 |10 avril 2018 |
-| N/A | [4093123] |Correctif cumulatif non relatif à la sécurité d’avril |3.61 |10 avril 2018 |
-| N/A | [4093114] |Correctif cumulatif non relatif à la sécurité d’avril |4.74 |10 avril 2018 |
-| N/A | [4093137] |SSU avril |5.19 |10 avril 2018 |
-| N/A | [4093753] |Mise à jour du fuseau horaire |2.74, 3.61, 4.74 |10 avril 2018 |
+| N/A | [4093118] |Correctif cumulatif non relatif à la sécurité d’avril |2.73 |10 avril 2018 |
+| N/A | [4093123] |Correctif cumulatif non relatif à la sécurité d’avril |3.61 |10 avril 2018 |
+| N/A | [4093114] |Correctif cumulatif non relatif à la sécurité d’avril |4.74 |10 avril 2018 |
+| N/A | [4093137] |SSU avril |5.19 |10 avril 2018 |
+| N/A | [4093753] |Mise à jour du fuseau horaire |2.74, 3.61, 4.74 |10 avril 2018 |
 
 
 ## <a name="april-2018-guest-os"></a>Système d’exploitation invité, avril 2018
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| Éd. 18/04 | [4093119] |Sécurité de Windows 10 |5.18 |10 avril 2018 |
-| Éd. 18/04 | [4093108] |Sécurité Windows uniquement |2.73 |10 avril 2018 |
-| Éd. 18/04 | [4093122] |Sécurité Windows uniquement |3.60 |10 avril 2018 |
-| Éd. 18/04 | [4093115] |Sécurité Windows uniquement |4.53 |10 avril 2018 |
-| Éd. 18/04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 avril 2018 |
-| Éd. 18/04 | [4093110] |Clignote |3.60, 4.53, 5.18 |10 avril 2018 |
+| Éd. 18/04 | [4093119] |Sécurité de Windows 10 |5.18 |10 avril 2018 |
+| Éd. 18/04 | [4093108] |Sécurité Windows uniquement |2.73 |10 avril 2018 |
+| Éd. 18/04 | [4093122] |Sécurité Windows uniquement |3.60 |10 avril 2018 |
+| Éd. 18/04 | [4093115] |Sécurité Windows uniquement |4.53 |10 avril 2018 |
+| Éd. 18/04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 avril 2018 |
+| Éd. 18/04 | [4093110] |Clignote |3.60, 4.53, 5.18 |10 avril 2018 |
 | N/A | [4088875] |Correctif cumulatif non relatif à la sécurité de mars |2.73 |13 mars 2018 |
 | N/A | [4099950] |Prérequis du correctif cumulatif non relatif à la sécurité de mars|2.73 |13 mars 2018 |
 | N/A | [4088877] |Correctif cumulatif non relatif à la sécurité de mars |3.60 |13 mars 2018 |
@@ -869,7 +911,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 ## <a name="july-2017-guest-os"></a>Système d’exploitation invité, juillet 2017
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| Éd. 17/07 | [4025339] |Mises à jour Windows 10 |5.9 |11 juillet 2017 |
+| Éd. 17/07 | [4025339] |Mises à jour Windows 10 |5.9 |11 juillet 2017 |
 | Éd. 17/07 | [4025337] |Sécurité Windows uniquement |2.64 |11 juillet 2017 |
 | Éd. 17/07 | [4025333] |Sécurité Windows uniquement |4.44 |11 juillet 2017 |
 | Éd. 17/07 | [4025343] |Sécurité Windows uniquement |3.51 |11 juillet 2017 |
@@ -964,7 +1006,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | Éd. 17/03 |  [4012213] |Mise à jour qualité de la sécurité seule de mars 2017 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
 | Éd. 17/03 |  [4012214] |Mise à jour qualité de la sécurité seule de mars 2017 Windows Server 2012|3.47 |14 mars 2017 |
 | Éd. 17/03 |  [4012204] |Mise à jour de sécurité pour Internet Explorer |2.60, 3.47, 4.40, 5.5 |14 mars 2017 |
-| N/A |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre du Nord, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
+| N/A |  [4012864] |Modifications de l’heure d’été dans Windows pour Chypre, la Mongolie et la région russe de Saratov |2.60, 3.47, 4.40 |14 mars 2017 |
 | N/A |  [3212646] |Correctif cumulatif qualitatif mensuel de sécurité de janvier 2017 pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.60 |14 mars 2017 |
 | N/A |  [3205409] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows Server 2012 |3.47 |14 mars 2017 |
 | N/A |  [3205401] |Correctif cumulatif qualitatif mensuel de sécurité de décembre 2016 pour Windows 8.1 et Windows Server 2012 R2 |4.40 |14 mars 2017 |
@@ -1026,7 +1068,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS16-124 |[3193227] |Mise à jour de sécurité pour le registre Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
 | MS16-126 |[3196067] |Mise à jour de sécurité pour l’API de messagerie Microsoft Internet |2.56 |11 octobre 2016 |
 | MS16-101 |[3178465] |Mise à jour de sécurité pour les méthodes d’authentification Windows |4.37, 3.44, 2.56 |11 octobre 2016 |
-| N/A |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novosibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
+| N/A |[3182203] |Septembre 2016 Changement de fuseau horaire pour Novossibirsk |4.37, 3.44, 2.56 |11 octobre 2016 |
 | N/A |[3185278] |Septembre 2016 Correctif cumulatif pour Windows 7 SP1 et Windows Server 2008 R2 SP1 |2.56 |11 octobre 2016 |
 | N/A |[3185280] |Septembre 2016 Correctif cumulatif pour Windows Server 2012 |3.44 |11 octobre 2016 |
 | N/A |[3185279] |Septembre 2016 Correctif cumulatif pour Windows 8.1 et Windows Server 2012 R2 |4.37 |11 octobre 2016 |
@@ -1082,19 +1124,19 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 ## <a name="june-2016-guest-os"></a>Système d’exploitation invité, juin 2016
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-| MS16-035 |[3141780] |Mise à jour de sécurité pour .NET Framework afin de résoudre un problème de contournement de la fonctionnalité de sécurité |4.33, 3.40, 2.52 |14 juin 2016 |
+| MS16-035 |[3141780] |Mise à jour de sécurité pour .NET Framework afin de résoudre un problème de contournement de la fonctionnalité de sécurité |4,33, 3,40, 2,52 |14 juin 2016 |
 | Conseil |[3155527] |Mise à jour des suites de chiffrement pour FalseStart |4.33, 3.40 |14 juin 2016 |
 | MS16-063 |[3163649] |Mise à jour de sécurité cumulative pour Internet Explorer |4,33, 3,40, 2,52 |14 juin 2016 |
 | MS16-069 |[3163640] |Mise à jour de sécurité cumulative pour JScript et VBScript |2.52 |14 juin 2016 |
 | MS16-071 |[3164065] |Mise à jour de sécurité pour Microsoft Windows DNS Server |4.33, 3.40 |14 juin 2016 |
-| MS16-072 |[3163622] |Mise à jour de sécurité pour la stratégie de groupe |4.33, 3.40, 2.52 |14 juin 2016 |
-| MS16-073 |[3164028] |Mise à jour de sécurité pour les pilotes en mode noyau |4.33, 3.40, 2.52 |14 juin 2016 |
-| MS16-074 |[3164036] |Mise à jour de sécurité pour le composant graphique Microsoft |4.33, 3.40, 2.52 |14 juin 2016 |
-| MS16-075 |[3164038] |Mise à jour de sécurité pour Windows SMB Server |4.33, 3.40, 2.52 |14 juin 2016 |
+| MS16-072 |[3163622] |Mise à jour de sécurité pour la stratégie de groupe |4,33, 3,40, 2,52 |14 juin 2016 |
+| MS16-073 |[3164028] |Mise à jour de sécurité pour les pilotes en mode noyau |4,33, 3,40, 2,52 |14 juin 2016 |
+| MS16-074 |[3164036] |Mise à jour de sécurité pour le composant graphique Microsoft |4,33, 3,40, 2,52 |14 juin 2016 |
+| MS16-075 |[3164038] |Mise à jour de sécurité pour Windows SMB Server |4,33, 3,40, 2,52 |14 juin 2016 |
 | MS16-076 |[3167691] |Mise à jour de sécurité pour Netlogon |4.33 |14 juin 2016 |
-| MS16-077 |[3165191] |Mise à jour de sécurité pour WPAD |4.33, 3.40, 2.52 |14 juin 2016 |
+| MS16-077 |[3165191] |Mise à jour de sécurité pour WPAD |4,33, 3,40, 2,52 |14 juin 2016 |
 | MS16-080 |[3164302] |Mise à jour de sécurité pour Microsoft Windows PDF |4.33, 3.40 |14 juin 2016 |
-| MS16-081 |[3160352] |Mise à jour de sécurité pour Active Directory |4.33, 3.40, 2.52 |14 juin 2016 |
+| MS16-081 |[3160352] |Mise à jour de sécurité pour Active Directory |4,33, 3,40, 2,52 |14 juin 2016 |
 | N/A |[2922223] |Vous ne pouvez pas modifier le temps système si l’entrée de Registre RealTimeIsUniversal est activée dans Windows |2.52 |14 juin 2016 |
 | N/A |[3121255] |Erreur d’arrêt « 0 x 00000024 » dans FsRtlNotifyFilterReportChange ; la copie du fichier peut échouer dans Windows |2.52 |14 juin 2016 |
 | N/A |[3125424] |Windows Server 2012 R2 ou Windows Server 2012 ne répondent pas en raison de blocages LSASS |4.33, 3.40 |14 juin 2016 |
@@ -1104,7 +1146,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | N/A |[3149157] |Améliorations de la fiabilité et de l’évolutivité de TCP/IP pour Windows 8.1 et Windows Server 2012 R2 |4.33 |14 juin 2016 |
 | N/A |[3156416] |Correctif cumulatif de mai 2016 pour Windows Server 2012 |3.40 |14 juin 2016 |
 | N/A |[3156418] |Correctif cumulatif de mai 2016 pour Windows RT 8.1, Windows 8.1 et Windows Server 2012 R2 |4.33 |14 juin 2016 |
-| N/A |[3153731] |Mise à jour de mai 2016 de l’heure d’été dans Windows pour l’Azerbaïdjan, le Chili, Haïti et le Maroc |4.33, 3.40, 2.52 |14 juin 2016 |
+| N/A |[3153731] |Mise à jour de mai 2016 de l’heure d’été dans Windows pour l’Azerbaïdjan, le Chili, Haïti et le Maroc |4,33, 3,40, 2,52 |14 juin 2016 |
 
 ## <a name="may-2016-guest-os"></a>Système d’exploitation invité, mai 2016
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
@@ -1319,7 +1361,7 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 | MS15-014 |[3004361] |Une vulnérabilité dans SMB pourrait permettre de contourner la fonctionnalité de sécurité |4.17, 3.24, 2.36 |N/A |
 | MS15-015 |[3031432] |Une vulnérabilité dans Microsoft Windows pourrait permettre une élévation des privilèges |4.17, 3.24, 2.36 |N/A |
 | MS15-016 |[3029944] |Une vulnérabilité dans le composant des graphiques Windows pourrait permettre la divulgation d'informations |4.17, 3.24, 2.36 |N/A |
-| N/A |[3004375] |Mise à jour permettant d’améliorer l’audit de la ligne de commande Windows<p/>**Remarque**: Elle est installée, mais la clé de registre permettant de l’activer est désactivée |4.17, 3.24, 2.36 |N/A |
+| N/A |[3004375] |Mise à jour permettant d’améliorer l’audit de la ligne de commande Windows<p/>**Remarque** : Elle est installée, mais la clé de registre permettant de l’activer est désactivée |4.17, 3.24, 2.36 |N/A |
 
 ## <a name="january-2015-guest-os"></a>Système d’exploitation invité, janvier 2015
 | ID de bulletin | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

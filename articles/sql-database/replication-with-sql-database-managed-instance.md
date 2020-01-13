@@ -1,26 +1,30 @@
 ---
 title: Configurer la réplication dans une base de données Managed Instance
-description: Familiarisez-vous avec la configuration de la réplication transactionnelle dans une base de données d’instances managées Azure SQL Database
+description: Apprenez à configurer la réplication transactionnelle entre un serveur de publication/distribution Azure SQL Database Managed Instance et un abonné Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: MashaMSFT
+ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: f303a363fd4d42889e7817273be5d5e5440a2293
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fd881142e0260d313e197d5e40ae25a2621646df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372468"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
 La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances. 
+
+Cet article explique comment configurer la réplication entre un serveur de publication/distribution Managed Instance et un abonné Managed Instance. 
+
+![Répliquer entre deux instances managées](media/replication-with-sql-database-managed-instance/sqlmi-sqlmi-repl.png)
 
 Vous pouvez également utiliser la réplication transactionnelle pour envoyer les modifications apportées à une base de données d’instances dans une instance gérée Azure SQL Database vers :
 
@@ -31,9 +35,10 @@ Vous pouvez également utiliser la réplication transactionnelle pour envoyer le
 La réplication transactionnelle est disponible en préversion publique dans une [instance gérée Azure SQL Database](sql-database-managed-instance.md). Une instance managée peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Consultez [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
 
   > [!NOTE]
-  > Cet article vise à guider l’utilisateur dans la configuration de la réplication avec une instance gérée Azure Database de bout en bout, en commençant par la création du groupe de ressources. Si vous avez déjà déployé des instances gérées, passez directement à [l’étape 4](#4---create-a-publisher-database) pour créer la base de données du serveur de publication ou à [l’étape 6](#6---configure-distribution) si vous avec déjà une base de données de serveur de publication et d’abonné et que vous êtes prêt à commencer la configuration de la réplication.  
+  > - Cet article vise à guider l’utilisateur dans la configuration de la réplication avec une instance gérée Azure Database de bout en bout, en commençant par la création du groupe de ressources. Si vous avez déjà déployé des instances gérées, passez directement à [l’étape 4](#4---create-a-publisher-database) pour créer la base de données du serveur de publication ou à [l’étape 6](#6---configure-distribution) si vous avec déjà une base de données de serveur de publication et d’abonné et que vous êtes prêt à commencer la configuration de la réplication.  
+  > - Cet article configure votre serveur de publication et votre serveur de distribution sur la même instance managée. Pour placer le serveur de distribution sur une instance managée distincte, consultez le tutoriel [Configurer la réplication entre un serveur de publication MI et un serveur de distribution MI](sql-database-managed-instance-configure-replication-tutorial.md). 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 La configuration d’une instance gérée pour fonctionner en tant que base de données du serveur de publication et/ou base de données du serveur de distribution implique que les conditions suivantes soient respectées :
 
@@ -48,7 +53,7 @@ La configuration d’une instance gérée pour fonctionner en tant que base de d
  > Les bases de données uniques et les bases de données mises en pool dans Azure SQL Database ne peuvent être que des abonnés. 
 
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Prend en charge :
 
@@ -67,10 +72,10 @@ Utilisez le [Portail Azure](https://portal.azure.com) pour créer un groupe de r
 
 ## <a name="2---create-managed-instances"></a>2 - Créer des instances gérées
 
-Utilisez le [Portail Azure](https://portal.azure.com) pour créer deux [instances gérées](sql-database-managed-instance-create-tutorial-portal.md) sur le même réseau virtuel et le même sous-réseau. Les deux instances gérées doivent être nommées :
+Utilisez le [Portail Azure](https://portal.azure.com) pour créer deux [instances gérées](sql-database-managed-instance-create-tutorial-portal.md) sur le même réseau virtuel et le même sous-réseau. Par exemple, nommez les deux instances managées comme suit :
 
-- `sql-mi-pub`
-- `sql-mi-sub`
+- `sql-mi-pub` (avec certains caractères pour la randomisation)
+- `sql-mi-sub` (avec certains caractères pour la randomisation)
 
 Vous devrez également [configurer une machine virtuelle Azure pour qu’elle se connecte](sql-database-managed-instance-configure-vm.md) à vos instances gérées Azure SQL Database. 
 
@@ -80,9 +85,13 @@ Vous devrez également [configurer une machine virtuelle Azure pour qu’elle se
 
 Copiez le chemin d’accès au partage de fichier au format : `\\storage-account-name.file.core.windows.net\file-share-name`
 
+Exemple : `\\replstorage.file.core.windows.net\replshare`
+
 Copiez les clés d’accès de stockage au format : `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
- Pour plus d’informations, voir [Affichage et copie de clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys). 
+Exemple : `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
+
+Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md). 
 
 ## <a name="4---create-a-publisher-database"></a>4 - Créer une base de données du serveur de publication
 
@@ -160,8 +169,9 @@ Sur l’instance gérée de la base de données du serveur de publication `sql-m
 :setvar username loginUsedToAccessSourceManagedInstance
 :setvar password passwordUsedToAccessSourceManagedInstance
 :setvar file_storage "\\storage-account-name.file.core.windows.net\file-share-name"
+-- example: file_storage "\\replstorage.file.core.windows.net\replshare"
 :setvar file_storage_key "DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net"
-
+-- example: file_storage_key "DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net"
 
 USE [master]
 EXEC sp_adddistpublisher
@@ -173,6 +183,9 @@ EXEC sp_adddistpublisher
   @working_directory = N'$(file_storage)',
   @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
+
+   > [!NOTE]
+   > Utilisez uniquement des barres obliques inverses (`\`) pour le paramètre file_storage. L’utilisation d’une barre oblique (`/`) peut provoquer une erreur lors de la connexion au partage de fichiers. 
 
 Ce script configure une base de données du serveur de publication locale sur l’instance gérée, ajoute un serveur lié et crée un ensemble de travaux pour  SQL Server Agent. 
 
@@ -293,7 +306,7 @@ Exécutez l’extrait de code T-SQL suivant pour insérer des lignes supplément
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer la publication, exécutez la commande T-SQL suivante :
 
@@ -322,10 +335,11 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Vous pouvez nettoyer vos ressources Azure en [supprimant les ressources d’instance gérée du groupe de ressources](../azure-resource-manager/manage-resources-portal.md#delete-resources), puis en supprimant le groupe de ressources `SQLMI-Repl`. 
+Vous pouvez nettoyer vos ressources Azure en [supprimant les ressources d’instance gérée du groupe de ressources](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), puis en supprimant le groupe de ressources `SQLMI-Repl`. 
 
    
 ## <a name="see-also"></a>Voir aussi
 
 - [Réplication transactionnelle](sql-database-managed-instance-transactional-replication.md)
-- [Présentation de Managed Instance](sql-database-managed-instance.md)
+- [Tutoriel : Configurer la réplication transactionnelle entre un serveur de publication MI et un abonné SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Qu’est-ce qu’une instance managée ?](sql-database-managed-instance.md)

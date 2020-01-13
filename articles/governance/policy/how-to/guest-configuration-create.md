@@ -1,14 +1,14 @@
 ---
 title: Créer des stratégies Guest Configuration
 description: Découvrez comment créer une stratégie Guest Configuration Azure Policy pour des machines virtuelles Windows ou Linux à l’aide d’Azure PowerShell.
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873078"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75608522"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
@@ -24,6 +24,9 @@ Utilisez les actions suivantes pour créer votre propre configuration pour la va
 ## <a name="add-the-guestconfiguration-resource-module"></a>Ajouter le module de ressource GuestConfiguration
 
 Pour créer une stratégie Guest Configuration, le module de ressources doit être ajouté. Vous pouvez utiliser ce module de ressources avec PowerShell installé localement, avec [Azure Cloud Shell](https://shell.azure.com) ou avec l’[image Docker Azure PowerShell Core](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+
+> [!NOTE]
+> Tandis que le module **GuestConfiguration** fonctionne dans les environnements ci-dessus, les étapes de compilation d’une configuration DSC doivent être effectuées dans Windows PowerShell 5.1.
 
 ### <a name="base-requirements"></a>Configuration de base requise
 
@@ -60,6 +63,12 @@ Si votre configuration nécessite uniquement des ressources qui sont intégrées
 
 Quand Guest Configuration audite une machine, il exécute d’abord `Test-TargetResource` pour déterminer si son état est approprié. La valeur booléenne retournée par la fonction détermine si l’état Azure Resource Manager de l’affectation d’invité doit être conforme ou non conforme. Si la valeur booléenne est `$false` pour une ressource de la configuration, le fournisseur exécutera `Get-TargetResource`. Si la valeur booléenne est `$true`, alors `Get-TargetResource` n’est pas appelé.
 
+#### <a name="configuration-requirements"></a>Exigences de configuration
+
+La seule exigence pour que la configuration d’invité utilise une configuration personnalisée est que le nom de la configuration soit cohérent partout où il est utilisé.  Cela inclut le nom du fichier .zip pour le package de contenu, le nom de la configuration dans le fichier MOF stocké à l’intérieur du package de contenu, et le nom de configuration utilisé dans ARM comme nom d’affectation d’invité.
+
+#### <a name="get-targetresource-requirements"></a>Exigences Get-TargetResource
+
 La fonction `Get-TargetResource` a des exigences pour Guest Configuration qu’elle n’a pas pour la configuration d’état souhaité Windows.
 
 - La table de hachage qui est retournée doit inclure une propriété nommée **Reasons**.
@@ -73,7 +82,7 @@ Les propriétés **Code** et **Phrase** sont attendues par le service. Lorsque v
 - **Code** (chaîne) : nom de la ressource, répété, puis un nom abrégé sans espaces comme identificateur de la raison. Ces trois valeurs doivent être séparées par des points-virgules, sans espaces.
   - Par exemple, `registry:registry:keynotpresent`.
 - **Phrase** (chaîne) : texte lisible par l’utilisateur expliquant pourquoi le paramètre n’est pas conforme.
-  - `The registry key $key is not present on the machine.` en est un exemple.
+  - Par exemple, `The registry key $key is not present on the machine.`.
 
 ```powershell
 $reasons = @()
@@ -96,7 +105,7 @@ La configuration DSC pour Guest Configuration sur Linux utilise la ressource `Ch
 
 L’exemple suivant crée une configuration nommée **baseline**, importe le module de ressources **GuestConfiguration** et utilise la ressource `ChefInSpecResource` pour définir le nom de la définition InSpec sur **linux-patch-baseline** :
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration baseline
 {
@@ -120,7 +129,7 @@ La configuration DSC d’une configuration Guest Configuration d’Azure Policy 
 
 L’exemple suivant crée une configuration nommée **AuditBitLocker**, importe le module de ressources **GuestConfiguration** et utilise la ressource `Service` pour faire l’audit d’un service en cours d’exécution :
 
-```azurepowershell-interactive
+```powershell
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
@@ -160,7 +169,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 Paramètres de la cmdlet `New-GuestConfigurationPackage` :
 
-- **Nom** : Nom du package Guest Configuration.
+- **Name** : Nom du package Guest Configuration.
 - **Configuration** : Chemin d’accès complet au document de configuration DSC compilé.
 - **Chemin d’accès** : Chemin d’accès au dossier de sortie. Ce paramètre est facultatif. S’il n’est pas spécifié, le package est créé dans le répertoire actif.
 - **ChefProfilePath** : Chemin d’accès complet au profil InSpec. Ce paramètre est pris en charge uniquement lors de la création de contenu pour auditer Linux.
@@ -214,7 +223,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 
 Paramètres de la cmdlet `Test-GuestConfigurationPackage` :
 
-- **Nom** : Nom de la stratégie Guest Configuration.
+- **Name** : Nom de la stratégie Guest Configuration.
 - **Paramètre** : Paramètres de stratégie fournis au format Hashtable.
 - **Chemin d’accès** : Chemin d’accès complet du package Guest Configuration.
 
@@ -298,7 +307,7 @@ New-GuestConfigurationPolicy
 
 Pour les stratégies Linux, ajoutez la propriété **AttributesYmlContent** à votre configuration et remplacez les valeurs en conséquence. L’agent Guest Configuration crée automatiquement le fichier YaML utilisé par InSpec pour stocker les attributs. Reportez-vous à l’exemple ci-dessous.
 
-```azurepowershell-interactive
+```powershell
 Configuration FirewalldEnabled {
 
     Import-DscResource -ModuleName 'GuestConfiguration'
@@ -403,7 +412,7 @@ Vous trouverez une bonne référence de création de clés GPG à utiliser avec 
 
 Une fois votre contenu publié, ajoutez une balise nommée `GuestConfigPolicyCertificateValidation` et avec une valeur `enabled` à toutes les machines virtuelles où la signature du code doit être requise. Cette balise peut être fournie à l’échelle à l’aide d’Azure Policy. Consultez l’exemple [Appliquer la balise et sa valeur par défaut](../samples/apply-tag-default-value.md). Une fois cette balise en place, la définition de stratégie générée via la cmdlet `New-GuestConfigurationPolicy` met en œuvre l’exigence via l’extension Guest Configuration.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[PRÉVERSION] Résolution des problèmes liés aux attributions de stratégie Guest Configuration
+## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Résolution des problèmes liés aux attributions de stratégie Guest Configuration (préversion)
 
 Un outil est disponible en préversion pour favoriser la résolution des problèmes liés aux attributions de configuration d’invité Azure Policy. L’outil est en préversion et a été publié sur PowerShell Gallery avec le nom de module [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
 

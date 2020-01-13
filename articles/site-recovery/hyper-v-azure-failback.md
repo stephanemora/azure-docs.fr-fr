@@ -1,6 +1,6 @@
 ---
 title: Restauration automatique des machines virtuelles Hyper-V à partir d’Azure avec Azure Site Recovery
-description: Découvrez comment restaurer automatiquement des machines virtuelles Hyper-V sur un site local pendant la reprise d’activité sur Azure avec le service Azure Site Recovery.
+description: Découvrez comment restaurer automatiquement des machines virtuelles Hyper-V à partir d’Azure vers un site local avec Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,91 +8,78 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: rajanaki
-ms.openlocfilehash: b924c1424a309fb61f690c21e5665a70356c7a62
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4b005ae308576db6fd26fcf079161430b266ec3f
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084227"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498187"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Exécuter une restauration automatique pour les machines virtuelles Hyper-V
 
-Cet article explique comment restaurer automatiquement des machines virtuelles Hyper-V protégées par Site Recovery.
+Cet article explique comment restaurer automatiquement des machines virtuelles Azure créées après le basculement de machines virtuelles Hyper-V à partir d’un site local vers Azure avec [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+- Vous restaurez automatiquement des machines virtuelles Hyper-V à partir d’Azure en exécutant un basculement planifié d’Azure vers le site local. Si le sens du basculement est d’Azure vers un site local, il est considéré comme une restauration automatique.
+- Étant donné qu’Azure est un environnement hautement disponible et que les machines virtuelles sont toujours disponibles, la restauration automatique à partir d’Azure est une activité planifiée. Vous pouvez planifier un faible temps d’arrêt afin que les charges de travail puissent recommencer à s’exécuter localement. 
+- La restauration automatique planifiée désactive les machines virtuelles dans Azure et télécharge les dernières modifications. Il ne doit y avoir aucune perte de données.
 
-- Vérifiez que vous avez lu les détails sur les [différents types de restauration automatique](concepts-types-of-failback.md) et les avertissements correspondants.
-- Assurez-vous que le serveur VMM ou le serveur d’hôte Hyper-V du site principal est connecté à Azure.
-- Vous devez avoir effectué une **validation** sur la machine virtuelle.
-- Veuillez à utiliser un compte de stockage pour la réplication, et non pas des disques managés. La restauration automatique des machines virtuelles Hyper-V répliquées à l’aide de la gestion de disques n’est pas prise en charge.
+## <a name="before-you-start"></a>Avant de commencer
 
-## <a name="perform-failback"></a>Effectuer une restauration automatique
-Après le basculement du site principal vers l’emplacement secondaire, les machines virtuelles répliquées ne sont pas protégées par Site Recovery et l’emplacement secondaire joue désormais le rôle d’emplacement actif. Pour effectuer une restauration automatique des machines virtuelles dans un plan de récupération, exécutez un basculement planifié à partir du site secondaire vers le site primaire, comme suit. 
-1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Type de basculement** > **Planned Type de basculement**.
-2. Sur la page **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement depuis le site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent à l’emplacement secondaire, ces éléments sont fournis à titre informatif uniquement.
-3. Si vous effectuez la restauration à partir de Microsoft Azure, sélectionnez différents paramètres dans la zone **Synchronisation des données**:
-    - **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)**  : cette option minimise le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les étapes suivantes :
-        - Phase 1 : un instantané de la machine virtuelle est créé dans Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
-        - Phase 2 : la machine virtuelle est arrêtée dans Azure pour qu’aucun changement n’ait lieu. L’ensemble final des modifications différentielles est transféré au serveur local, et la machine virtuelle locale est démarrée.
-
-    - **Synchroniser les données uniquement lors du basculement (téléchargement complet)** - Cette option est plus rapide.
-        - Cette option est plus rapide, car nous nous attendons à ce que la majeure partie du disque ait changé et nous ne voulons pas passer du temps au calcul de la somme de contrôle. Elle effectue un téléchargement du disque. C’est également utile lorsque la machine virtuelle locale a été supprimée.
-        - Nous vous recommandons d’utiliser cette option si vous exécutez Azure depuis un certain temps (un mois ou plus) ou si la machine virtuelle locale a été supprimée. Cette option n’effectue aucun calcul de somme de contrôle.
+1. [Examinez en revue les types de restaurations automatiques](failover-failback-overview.md#hyper-v-reprotectionfailback) que vous pouvez utiliser : récupération dans l’emplacement d’origine et récupération dans un autre emplacement.
+2. Assurez-vous que les machines virtuelles Azure utilisent un compte de stockage et non des disques managés. La restauration automatique de machines virtuelles Hyper-V répliquées à l’aide de la gestion de disques managés n’est pas prise en charge.
+3. Vérifiez que l’hôte Hyper-V local (ou le serveur System Center VMM si vous utilisez Site Recovery) est en cours d’exécution et connecté à Azure. 
+4. Assurez-vous que le basculement et la validation sont terminés pour les machines virtuelles. Vous n’avez pas besoin de configurer des composants Site Recovery spécifiques pour la restauration automatique de machines virtuelles Hyper-V à partir d’Azure.
+5. Le temps nécessaire pour effectuer la synchronisation des données et démarrer la machine virtuelle locale dépend de plusieurs facteurs. Pour accélérer le téléchargement des données, vous pouvez configurer l’agent Microsoft Azure Recovery Services afin qu’il utilise davantage de threads pour effectuer le téléchargement en parallèle. [Plus d’informations](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)
 
 
-4. Si la fonction de chiffrement des données est activée pour le cloud, accédez à la zone **Clé de chiffrement** et sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur sur le serveur VMM.
+## <a name="fail-back-to-the-original-location"></a>Restauration dans l’emplacement d’origine
+
+Pour restaurer automatiquement des machines virtuelles Hyper-V dans Azure sur la machine virtuelle d’origine, exécutez un basculement planifié d’Azure vers le site local comme suit :
+
+1. Dans le coffre > **Éléments répliqués**, sélectionnez la machine virtuelle. Cliquez avec le bouton droit sur la machine virtuelle > **Basculement planifié**. Si vous effectuez restaurez automatiquement un plan de récupération, sélectionnez le nom du plan, puis cliquez sur **Basculement** > **Basculement planifié**.
+2. Dans **Confirmer le basculement planifié**, choisissez les emplacements source et cible. Notez le sens du basculement. Si le basculement à partir du site principal a fonctionné comme prévu, et si toutes les machines virtuelles se trouvent dans l’emplacement secondaire, ces informations sont communiquées à titre purement informatif.
+3. Dans **Synchronisation des données**, sélectionnez une option :
+    - **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)**  : cette option minimise le temps d’arrêt des machines virtuelles, car elle les synchronise sans les arrêter.
+        - **Phase 1** : Prend une capture instantanée de la machine virtuelle Azure et la copie sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
+        - **Phase 2** : Arrête la machine virtuelle Azure de sorte que plus aucune modification ne se produise. L’ensemble final des modifications différentielles est transféré au serveur local et la machine virtuelle locale est démarrée.
+    - **Synchroniser les données uniquement lors du basculement (téléchargement complet)** : cette option est plus rapide car nous supposons que la majeure partie du disque a changé et ne voulons pas perdre de temps à calculer des sommes de contrôle. Cette option n’effectue aucun calcul de somme de contrôle.
+        - Elle effectue un téléchargement du disque. 
+        - Nous vous recommandons d’utiliser cette option si vous exécutez Azure depuis un certain temps (au moins un mois) ou en cas de suppression de machine virtuelle locale.
+
+4. Pour VMM uniquement, si la fonction de chiffrement des données est activée pour le cloud, dans **Clé de chiffrement**, sélectionnez le certificat émis lorsque vous avez activé le chiffrement des données pendant l’installation du fournisseur sur le serveur VMM.
 5. Lancez le basculement. Vous pouvez suivre la progression du basculement sur l’onglet **Tâches** .
-6. Si vous avez sélectionné l’option de synchronisation des données avant le basculement, quand la synchronisation initiale des données est terminée et que vous êtes prêt à arrêter les machines virtuelles dans Azure, cliquez sur **Tâches** > nom de la tâche > **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, laquelle est ensuite démarrée en local.
-7. Vous pouvez maintenant vous connecter à la machine virtuelle afin de vérifier qu’elle est disponible.
+6. Si vous avez sélectionné l’option de synchronisation des données avant le basculement, une fois la synchronisation initiale des données terminée, quand vous êtes prêt à arrêter les machines virtuelles dans Azure, cliquez sur **Tâches** > nom de la tâche > **Terminer le basculement**. Cette opération effectue les actions suivantes :
+    - Arrête l’ordinateur Azure.
+    - Transfère les dernières modifications apportées à la machine virtuelle locale.
+    - Démarre la machine virtuelle locale.
+7. Vous pouvez maintenant vous connecter à la machine virtuelle locale pour vérifier qu’elle est disponible comme prévu.
 8. Cette dernière présente un état de validation en attente. Cliquez sur **Valider** pour valider le basculement.
-9. Pour terminer la restauration automatique, cliquez sur **Réplication inverse** pour commencer à protéger la machine virtuelle sur le site principal.
+9. Pour terminer la restauration automatique, cliquez sur **Réplication inverse** pour démarrer à nouveau la réplication de la machine virtuelle locale vers Azure.
 
 
-Suivez ces procédures pour effectuer la restauration automatique vers le site principal d’origine. Cette procédure explique comment exécuter un test de basculement planifié pour un plan de récupération. Vous pouvez également exécuter le basculement d’une machine virtuelle unique, via l’onglet **Machines virtuelles** .
 
+## <a name="fail-back-to-an-alternate-location"></a>Restauration dans un autre emplacement 
 
-## <a name="failback-to-an-alternate-location-in-hyper-v-environment"></a>Restauration automatique vers un autre emplacement dans un environnement Hyper-V
-Si vous avez déployé la fonction de protection entre un [site Hyper-V et Microsoft Azure](site-recovery-hyper-v-site-to-azure.md) , vous avez la possibilité d’effectuer une restauration automatique depuis Microsoft Azure vers un autre emplacement local. Cette opération est utile si vous devez configurer de nouveaux composants matériels locaux. Voici comment procéder.
+Restauration dans un autre emplacement comme suit :
 
-1. Si vous configurez un nouveau composant matériel, installez le logiciel Windows Server 2012 R2 et le rôle Hyper-V sur le serveur.
+1. Si vous configurez un nouveau matériel, installez une [version prise en charge de Windows](hyper-v-azure-support-matrix.md#replicated-vms)et le rôle Hyper-V sur l’ordinateur.
 2. Créez un commutateur réseau virtuel portant le même nom que celui du serveur d’origine.
-3. Sélectionnez **Éléments protégés** -> **Groupe de protection** -> \<ProtectionGroupName> -> \<VirtualMachineName> que vous souhaitez restaurer de manière automatique, puis sélectionnez **Basculement planifié**.
-4. Cliquez sur **Confirmer le basculement planifié** select **Créer une machine virtuelle locale si elle n’existe pas**.
-5. Dans Nom d’hôte,** sélectionnez le nouveau serveur hôte Hyper-V sur lequel vous souhaitez placer la machine virtuelle.
-6. Dans le champ Synchronisation des données, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement. Cela permet de réduire le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Il effectue les opérations suivantes :
-
-    - Phase 1 : un instantané de la machine virtuelle est créé dans Azure, puis copié sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
-    - Phase 2 : la machine virtuelle est arrêtée dans Azure pour qu’aucun changement n’ait lieu. L’ensemble final des modifications est transféré au serveur local, et la machine virtuelle locale est démarrée.
+3. Dans **Éléments protégés** > **Groupe de protection** > \<NomGroupeProtection > -> \<NomMachineVirtuelle >, sélectionnez le machine virtuelle dont vous voulez opérer la restauration automatique, puis sélectionnez **Basculement planifié**.
+4. Dans **Confirmer le basculement planifié**, sélectionnez **Créer une machine virtuelle locale si elle n’existe pas**.
+5. Dans **Nom d’hôte**, sélectionnez le nouveau serveur hôte Hyper-V sur lequel vous souhaitez placer la machine virtuelle.
+6. Dans **Synchronisation des données**, nous vous recommandons de sélectionner l’option de synchronisation des données avant le basculement. Cela permet de réduire le temps d’arrêt des machines virtuelles, car elles sont synchronisées sans être arrêtées. Elle effectue les opérations suivantes :
+    - **Phase 1** : Prend une capture instantanée de la machine virtuelle Azure et la copie sur l’hôte Hyper-V local. La machine continue de s’exécuter dans Microsoft Azure.
+    - **Phase 2** : Arrête la machine virtuelle Azure de sorte que plus aucune modification ne se produise. L’ensemble final des modifications est transféré au serveur local, et la machine virtuelle locale est démarrée.
     
 7. Cochez la base pour commencer le basculement (restauration automatique).
-8. Lorsque la synchronisation initiale se termine et que vous êtes prêt à arrêter la machine virtuelle dans Microsoft Azure, cliquez sur **Tâches** > \<Nom de la tâche de basculement planifié> > **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, qui est ensuite démarrée.
-9. Vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu. Ensuite, cliquez sur **Valider** pour terminer le basculement. La validation supprime la machine virtuelle et ses disques, et prépare la machine virtuelle à protéger à nouveau.
-10. Cliquez sur **Réplication inverse** pour commencer à protéger la machine virtuelle locale.
+8. Lorsque la synchronisation initiale se termine et que vous êtes prêt à arrêter la machine virtuelle Azure, cliquez sur **Travaux** > \<Tâche de basculement planifiée> > **Terminer le basculement**. Cette action arrête la machine Microsoft Azure et transfère les dernières modifications apportées à la machine virtuelle locale, puis démarre celle-ci.
+9. Vous pouvez vous connecter à la machine virtuelle locale pour vérifier que tout fonctionne comme prévu.
+10. Cliquez sur **Valider** pour terminer le basculement. La validation supprime la machine virtuelle Azure et ses disques, et prépare la machine virtuelle locale en vue de la protéger à nouveau.
+10. Cliquez sur **Réplication inverse** pour démarrer la réplication de la machine virtuelle locale sur Azure. Seules les modifications différentielles depuis la désactivation de la machine virtuelle dans Azure sont répliquées.
 
     > [!NOTE]
-    > Si vous annulez l’opération de restauration automatique à l’étape de synchronisation des données, l’état de la machine virtuelle locale sera corrompu. En effet, la synchronisation des données copie les données les plus récentes de la machine virtuelle Azure vers les disques de données locaux, et tant que la synchronisation n’est pas terminée, l’état du disque de données risque de ne pas être cohérent. Si la machine virtuelle locale est démarrée après l’annulation de la synchronisation des données, l’opération risque d’échouer. Relancez le basculement pour terminer la synchronisation des données.
-
-
-## <a name="why-is-there-no-button-called-failback"></a>Pourquoi n’y a-t-il pas de bouton Restauration automatique ?
-Dans le portail, il n’existe pas d’option Restauration automatique explicite. La restauration automatique est une étape consistant à revenir au site principal. Par définition, une restauration automatique se produit lorsque vous basculez les machines virtuelles du mode récupération en mode principal.
-
-Lorsque vous lancez un basculement, le panneau vous informe sur la direction dans laquelle les machines virtuelles doivent être déplacées. Si cette direction est d’Azure à local, il s’agit d’une restauration automatique.
-
-## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>Pourquoi y a-t-il uniquement une option de basculement planifié pour la restauration automatique ?
-Azure est un environnement hautement disponible et vos machines virtuelles sont toujours disponibles. La restauration automatique est une activité planifiée où vous décidez d’observer un bref temps d’arrêt afin que les charges de travail puissent être exécutées à nouveau en local. Il ne doit y avoir aucune perte de données. Par conséquent, vous disposez uniquement d’une option de basculement planifié qui permet de désactiver les machines virtuelles dans Azure, de télécharger les dernières modifications et de s’assurer qu’aucune donnée n’est perdue.
-
-## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Ai-je besoin d’un serveur de processus dans Azure pour procéder à une restauration automatique vers Hyper-V ?
-Non, un serveur de processus est requis uniquement si vous protégez des machines virtuelles VMware. Aucun déploiement de composants supplémentaires n’est nécessaire lors de la protection/restauration automatique de machines virtuelles Hyper-V.
-
-
-## <a name="time-taken-to-failback"></a>Durée de la restauration automatique
-Le temps nécessaire pour effectuer la synchronisation de données et démarrer la machine virtuelle dépend de différents facteurs. Nous allons vous expliquer ce qui se passe pendant la synchronisation de données pour vous donner une idée de ce temps nécessaire.
-
-La synchronisation de données prend une capture instantanée des disques de la machine virtuelle, procède à une vérification bloc par bloc et calcule la somme de contrôle. Cette somme de contrôle calculée est envoyée au niveau local pour être comparée à la somme de contrôle locale du même bloc. Si les sommes de contrôle correspondent, le bloc de données n’est pas transféré. S’ils ne correspondent pas, le bloc de données est transféré au niveau local. La durée de ce transfert dépend de la bande passante disponible. La vitesse de la somme de contrôle correspond à quelques Go par minute. 
-
-Pour accélérer le téléchargement des données, vous pouvez configurer votre agent MARS pour utiliser plusieurs threads parallèles pour effectuer le téléchargement. Reportez-vous au [document ici](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) pour savoir comment modifier les threads de téléchargement dans l’agent.
+    > Si vous annulez l’opération de restauration automatique durant la synchronisation des données, la machine virtuelle locale est dans un état endommagé. En effet, la synchronisation des données copie les données les plus récentes de la machine virtuelle Azure vers les disques de données locaux et, tant que la synchronisation n’est pas terminée, l’état du disque de données risque de ne pas être cohérent. Si la machine virtuelle locale est démarrée après l’annulation de la synchronisation des données, l’opération risque d’échouer. Dans ce cas, réexécutez le basculement pour terminer la synchronisation des données.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Après la **validation**, vous pouvez lancer la *réplication inverse*. Cela démarre la reprotection de la machine virtuelle du site local vers Azure. Cette opération réplique uniquement les modifications apportées depuis que la machine virtuelle a été désactivée dans Azure et n’envoie donc que les modifications différentielles.
+Une fois la machine virtuelle locale répliquée sur Azure, vous pouvez [exécuter un autre basculement](site-recovery-failover.md) vers Azure si nécessaire.

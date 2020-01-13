@@ -14,22 +14,24 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: c597bb47ba6d075523b2eb2ca4d146fa22a97a2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4012048100bbed2229c45434ee4a27dfe9b952e7
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083091"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530071"
 ---
 # <a name="ibm-db2-purescale-on-azure"></a>IBM DB2 pureScale sur Azure
 
 L’environnement IBM DB2 pureScale fournit un cluster de bases de données pour Azure avec haute disponibilité et scalabilité sur les systèmes d’exploitation Linux. Cet article présente une architecture d’exécution de DB2 pureScale sur Azure.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Les entreprises ont longtemps utilisé des plateformes de système de gestion de base de données relationnelle (SGBDR) pour répondre à leurs besoins en matière de traitement transactionnel en ligne (OLTP). Aujourd’hui, nombreuses sont celles qui migrent leur environnement de base de données reposant sur un ordinateur central vers Azure afin d’étendre la capacité, de réduire les coûts et de maintenir une structure de coûts d’exploitation stable.
+Les entreprises ont longtemps utilisé des plateformes traditionnelles de système de gestion de base de données relationnelle (SGBDR) pour répondre à leurs besoins en matière de traitement transactionnel en ligne (OLTP). Aujourd’hui, nombreuses sont celles qui migrent leur environnement de base de données reposant sur un ordinateur central vers Azure afin d’étendre la capacité, de réduire les coûts et de maintenir une structure de coûts d’exploitation stable. La migration est souvent la première étape du processus de modernisation d’une plateforme héritée. 
 
-La migration est souvent la première étape du processus de modernisation d’une plateforme ancienne. Par exemple, un client d’entreprise a récemment migré son environnement IBM DB2 s’exécutant sur z/OS vers IBM DB2 pureScale sur Azure. Quoique différent de l’environnement d’origine, IBM DB2 pureScale sur Linux offre des fonctionnalité de haute disponibilité et d’évolutivité similaires à IBM DB2 pour z/OS exécuté dans une configuration Parallel Sysplex sur un ordinateur central.
+Un client d’entreprise a récemment migré son environnement IBM DB2 s’exécutant sur z/OS vers IBM DB2 pureScale sur Azure. La solution de cluster de bases de données Db2 pureScale fournit haute disponibilité et scalabilité sur les systèmes d’exploitation Linux. Le client a exécuté Db2 avec succès en tant qu’instance autonome, avec montée en puissance sur une machine virtuelle unique dans un système à grande échelle sur Azure avant d’installer Db2 pureScale. 
+
+Quoique différent de l’environnement d’origine, IBM DB2 pureScale sur Linux offre des fonctionnalité de haute disponibilité et d’évolutivité similaires à IBM DB2 pour z/OS exécuté dans une configuration Parallel Sysplex sur un ordinateur central. Dans ce scénario, le cluster est connecté via iSCSI à un cluster de stockage partagé. Nous avons utilisé le système de fichiers GlusterFS, qui est un système de fichiers distribué, scalable, gratuit et open source, optimisé spécialement pour le stockage cloud. Toutefois, IBM ne prend plus en charge cette solution. Pour continuer à bénéficier de la prise en charge d’IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Microsoft offre l’option d’espaces de stockage direct
 
 Cet article décrit l’architecture utilisée pour cette migration Azure. Le client a utilisé Red Hat Linux 7.4 pour tester la configuration. Cette version est disponible sur Azure Marketplace. Avant de choisir une distribution Linux, veillez à vérifier les versions actuellement prises en charge. Pour plus d’informations, consultez la documentation relative à [IBM DB2 pureScale](https://www.ibm.com/support/knowledgecenter/SSEPGG) et [GlusterFS](https://docs.gluster.org/en/latest/).
 
@@ -46,20 +48,20 @@ Pour vous aider à choisir la meilleure architecture DB2 pureScale pour votre en
 
 Pour prendre en charge la haute disponibilité et l’évolutivité sur Azure, vous pouvez utiliser une architecture de données partagées scale-out pour DB2 pureScale. La migration du client a utilisé l’exemple d’architecture suivant.
 
-![DB2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau](media/db2-purescale-on-azure/pureScaleArchitecture.png "DB2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau")
+![DB2 PureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau](media/db2-purescale-on-azure/pureScaleArchitecture.png "Db2 pureScale sur des machines virtuelles Azure montrant le stockage et la mise en réseau")
 
 
 Le diagramme illustre les couches logiques nécessaires à un cluster DB2 pureScale. Ces couches incluent des machines virtuelles pour un client, pour la gestion, pour la mise en cache, pour le moteur de base de données et pour le stockage partagé. 
 
-En plus des nœuds du moteur de base de données, le diagramme comporte deux nœuds utilisés pour les installations de mise en cache de cluster. Au moins deux nœuds sont utilisés pour le moteur de base de données lui-même. Un serveur DB2 qui appartient à un cluster pureScale est appelé membre. 
+En plus des nœuds du moteur de base de données, le diagramme comporte deux nœuds utilisés pour les installations de mise en cache de cluster. Un minimum de deux nœuds sont utilisés pour le moteur de base de données lui-même. Un serveur DB2 qui appartient à un cluster pureScale est appelé membre. 
 
-Le cluster est connecté via iSCSI à un cluster de stockage partagé GlusterFS comportant trois nœuds afin de fournir un stockage scale-out et la haute disponibilité. DB2 pureScale est installé sur les machines virtuelles Azure exécutant Linux.
+Le cluster est connecté via iSCSI à un cluster de stockage partagé comportant trois nœuds afin de fournir un stockage scale-out et une haute disponibilité. DB2 pureScale est installé sur les machines virtuelles Azure exécutant Linux.
 
 Cette approche est un modèle que vous pouvez modifier selon la taille et l’échelle de votre organisation. Elle se base sur les éléments suivants :
 
 -   Deux membres de la base de données ou plus sont combinés avec au moins deux nœuds d’installations de mise en cache. Les nœuds gèrent un pool de mémoires tampons global pour les services de mémoire partagée et de gestionnaire de verrou global afin de contrôler l’accès partagé et la contention de verrou des membres actifs. Un nœud CF joue le rôle de nœud principal et l’autre, en temps que nœud secondaire, joue le rôle de nœud CF de basculement. Pour éviter un point de défaillance unique dans l’environnement, un cluster DB2 pureScale nécessite au moins quatre nœuds.
 
--   Stockage partagé hautement performant (illustré dans la taille P30 dans le diagramme). Chacun des nœuds Gluster FS utilise ce stockage.
+-   Stockage partagé hautement performant (illustré dans la taille P30 dans le diagramme). Chaque nœud utilise ce stockage.
 
 -   Réseau hautes performances pour les membres de données et le stockage partagé.
 
@@ -75,13 +77,13 @@ Cette architecture exécute les couches application, stockage et données sur de
 
 -   L’installation de mise en cache DB2 utilise des machines virtuelles à mémoire optimisée, comme la série E ou la série L.
 
--   Le stockage GlusterFS utilise des machines virtuelles \_DS4\_v2 standard exécutant Linux.
+-   Un cluster de stockage partagé utilise des machines virtuelles \_DS4\_v2 Standard exécutant Linux.
 
--   Un serveur de rebond GlusterFS est une machine virtuelle \_DS2\_v2 standard exécutant Linux.
+-   Le « jumpbox » de gestion est une machine virtuelle \_DS2\_v2 standard exécutant Linux.  Une alternative est Azure Bastion, service qui offre une expérience RDP/SSH sécurisée pour toutes les machines virtuelles de votre réseau virtuel.
 
 -   Le client est une machine virtuelle \_DS3\_v2 standard exécutant Windows (pour le test).
 
--   Un serveur témoin est une machine virtuelle \_DS3\_v2 standard exécutant Linux (utilisé pour DB2 pureScale).
+-   *Facultatif*. Un serveur témoin. Ceci est nécessaire uniquement avec certaines versions antérieures de Db2 pureScale. Cet exemple utilise une machine virtuelle \_DS3\_v2 standard exécutant Linux (utilisé pour Db2 pureScale).
 
 > [!NOTE]
 > Un cluster DB2 pureScale nécessite au moins deux instances de DB2. Il nécessite aussi une instance de cache et une instance de gestionnaire de verrou.
@@ -92,9 +94,7 @@ Comme Oracle RAC, DB2 pureScale est une base de données scale-out d’E/S de bl
 
 DB2 pureScale utilise une architecture de partage intégral, où toutes les données sont accessibles à partir de tous les nœuds de cluster. Stockage Premium doit être partagé entre plusieurs instances, que ce soit à la demande ou sur des instances dédiées.
 
-Un grand cluster DB2 pureScale peut nécessiter 200 téraoctets (To) ou plus de stockage partagé Premium, avec un IOPS de 100 000. DB2 pureScale prend en charge une interface de bloc iSCSI que vous pouvez utiliser sur Azure. L’interface iSCSI nécessite un cluster de stockage partagé que vous pouvez implémenter avec GlusterFS, S2D ou un autre outil. Ce type de solution crée un appareil de réseau de zone de stockage virtuel (vSAN) dans Azure. DB2 pureScale utilise le réseau vSAN pour installer le système de fichiers en cluster qui est utilisé pour partager des données entre plusieurs machines virtuelles.
-
-L’exemple d’architecture utilise GlusterFS, un système de fichiers distribués open source, scalable et gratuit qui est optimisé pour le stockage cloud.
+Un grand cluster DB2 pureScale peut nécessiter 200 téraoctets (To) ou plus de stockage partagé Premium, avec un IOPS de 100 000. DB2 pureScale prend en charge une interface de bloc iSCSI que vous pouvez utiliser sur Azure. L’interface iSCSI nécessite un cluster de stockage partagé que vous pouvez implémenter avec S2D ou un autre outil. Ce type de solution crée un appareil de réseau de zone de stockage virtuel (vSAN) dans Azure. DB2 pureScale utilise le réseau vSAN pour installer le système de fichiers en cluster qui est utilisé pour partager des données entre plusieurs machines virtuelles.
 
 ### <a name="networking-considerations"></a>Mise en réseau - Éléments à prendre en compte
 

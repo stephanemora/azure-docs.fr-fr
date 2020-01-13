@@ -1,6 +1,6 @@
 ---
-title: Contrôles d’application adaptative dans Azure Security Center | Microsoft Docs
-description: Ce document vous aide à utiliser les contrôles d’application adaptative dans Azure Security Center afin de mettre dans une liste verte des applications s’exécutant sur les machines virtuelles Azure.
+title: Contrôles d’application adaptative dans Azure Security Center
+description: Ce document vous aide à utiliser les contrôles d’application adaptatifs dans Azure Security Center afin de mettre dans une liste verte des applications s’exécutant sur les machines Azure.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 46ab2fc5c796d960de8b1c5e3391a6356563b50a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353440"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center"></a>Contrôles d’application adaptative dans Azure Security Center
+# <a name="adaptive-application-controls"></a>Contrôles d’application adaptative
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Que sont les contrôles d’application adaptative dans Azure Security Center ?
-Le contrôle d’application adaptatif est une solution de bout en bout intelligente et automatisée d’Azure Security Center qui vous permet de contrôler les applications qui peuvent s’exécuter sur vos machines virtuelles Azure et non-Azure (Windows et Linux). Parmi d’autres avantages, cela permet de renforcer la protection de vos machines virtuelles contre les logiciels malveillants. Security Center utilise le Machine Learning pour analyser les applications en cours d’exécution sur vos machines virtuelles et tire parti de ces informations pour créer une liste verte. Cette fonctionnalité simplifie considérablement le processus de configuration et de gestion des stratégies de mise en liste verte des applications, ce qui vous permet d’effectuer les applications suivantes :
+Le contrôle d’application adaptatif est une solution de bout en bout intelligente et automatisée d’Azure Security Center qui vous permet de contrôler les applications qui peuvent s’exécuter sur vos machines Azure et non-Azure (Windows et Linux). Parmi d’autres avantages, cela permet de renforcer la protection de vos machines contre les logiciels malveillants. Security Center utilise le Machine Learning pour analyser les applications en cours d’exécution sur vos machines et tire parti de ces informations pour créer une liste verte. Cette fonctionnalité simplifie considérablement le processus de configuration et de gestion des stratégies de mise en liste verte des applications, ce qui vous permet d’effectuer les applications suivantes :
 
 - Bloquer ou vous alerter si une application malveillante tente de s’exécuter, y compris celles pouvant être omises par les solutions de logiciels anti-programme malveillant.
 - Respecter la stratégie de sécurité de votre organisation qui autorise uniquement l’utilisation de certains logiciels licenciés.
@@ -34,15 +34,17 @@ Le contrôle d’application adaptatif est une solution de bout en bout intellig
 - Autoriser le service informatique à contrôler l’accès aux données sensibles en utilisant l’application.
 
 > [!NOTE]
-> Pour les machines virtuelles Linux et non Azure, les contrôles d’application adaptatifs sont pris en charge en mode audit uniquement.
+> Pour les machines Linux et non-Azure, les contrôles d’application adaptatifs sont pris en charge en mode audit uniquement.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Comment activer les contrôles d’application adaptative ?
-Les contrôles d’application adaptative vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes configurés de machines virtuelles. Cette fonctionnalité est disponible pour les machines virtuelles et les serveurs Azure et non Azure Windows (toutes versions, classique ou Azure Resource Manager), mais aussi Linux. Effectuez les étapes suivantes pour configurer vos listes vertes d’applications :
+
+Les contrôles d’application adaptatifs vous aident à définir un ensemble d’applications autorisées à s’exécuter sur des groupes configurés de machines. Cette fonctionnalité est disponible pour les machines et les serveurs Azure et non-Azure Windows (toutes versions, classique ou Azure Resource Manager), mais aussi Linux. Effectuez les étapes suivantes pour configurer vos listes vertes d’applications :
 
 1. Ouvrez le tableau de bord **Security Center**.
-2. Dans le volet de gauche, sélectionnez **Adaptive application controls** (Contrôles d’application adaptatifs) situé sous **Advanced cloud defense** (Défense de cloud avancée).
 
-    ![Défense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. Dans le volet de gauche, sélectionnez **Adaptive application controls** (Contrôles d’application adaptatifs) situé sous **Advanced cloud defense** (Défense de cloud avancée).
+
+    [![Défense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 La page **Adaptive application controls** (Contrôles d’application adaptatifs) apparaît.
 
@@ -60,7 +62,8 @@ La section **Groupes de machines virtuelles** contient trois onglets :
 >
 
 ### <a name="configure-a-new-application-control-policy"></a>Configurer une nouvelle stratégie de contrôle des applications
-1. Cliquez sur l’onglet **Recommandé** pour obtenir une liste des groupes disposant de recommandations de contrôle d’applications :
+
+1. Sélectionnez l’onglet **Recommandé** pour obtenir une liste des groupes disposant de recommandations de contrôle d’applications :
 
    ![Recommandé](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
@@ -73,7 +76,7 @@ La section **Groupes de machines virtuelles** contient trois onglets :
 
 2. Cliquez sur un groupe pour ouvrir l’option **Créer des règles de contrôle d’applications**.
 
-   ![Règles de contrôle d’application](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![Règles de contrôle d’application](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. Dans **Sélectionner les machines virtuelles**, examinez la liste des machines virtuelles recommandées et décochez celles pour lesquelles vous ne souhaitez pas appliquer de stratégie de mise en liste verte d’application. Ensuite, deux listes sont affichées :
 

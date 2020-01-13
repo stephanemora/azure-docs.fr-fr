@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842405"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561148"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -37,7 +37,10 @@ Les avantages liés à l’utilisation de l’authentification Azure AD pour se 
    - Vérification du risque de connexion
 - Automatisez et mettez à l’échelle la jointure Azure AD de machines virtuelles Microsoft Azure qui font partie de vos déploiements VDI.
 
-## <a name="requirements"></a>Configuration requise
+> [!NOTE]
+> Une fois cette fonctionnalité activée, vos machines virtuelles Windows dans Azure sont jointes à Azure AD. Vous ne pouvez pas les joindre à un autre domaine, par exemple sur AD ou Azure AD DS en local. Si vous devez le faire, vous devez déconnecter la machine virtuelle de votre locataire Azure AD en désinstallant l’extension.
+
+## <a name="requirements"></a>Spécifications
 
 ### <a name="supported-azure-regions-and-windows-distributions"></a>Régions Azure et distributions Windows prises en charge
 
@@ -200,7 +203,7 @@ Vous pouvez appliquer des stratégies d’accès conditionnel, telles qu’une a
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Se connecter à l’aide des informations d’identification Azure AD sur une machine virtuelle Windows
 
 > [!IMPORTANT]
-> La connexion à distance aux machines virtuelles jointes à Azure AD est autorisée uniquement à partir des PC Windows 10 qui sont joints à Azure AD ou hybrides joints à Azure AD au **même** répertoire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification de Azure AD, l’utilisateur doit appartenir à l’un des deux rôles RBAC, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles.
+> La connexion à distance aux machines virtuelles jointes à Azure AD est autorisée uniquement à partir des PC Windows 10 qui sont joints à Azure AD ou hybrides joints à Azure AD au **même** répertoire que la machine virtuelle. En outre, pour se connecter via RDP à l’aide d’informations d’identification de Azure AD, l’utilisateur doit appartenir à l’un des deux rôles RBAC, Connexion de l’administrateur aux machines virtuelles ou Connexion de l’utilisateur aux machines virtuelles. Pour l’instant, Azure Bastion ne peut pas être utilisé pour se connecter à l’aide de l’authentification Azure Active Directory avec l’extension AADLoginForWindows. Seul le protocole RDP direct est pris en charge.
 
 Pour vous connecter à votre machine virtuelle Windows Server 2019 à l’aide d’Azure AD : 
 
@@ -216,7 +219,7 @@ Vous êtes à présent connecté à la machine virtuelle Azure Windows Server 2
 > [!NOTE]
 > Vous pouvez enregistrer le fichier .RDP localement sur votre ordinateur pour lancer les futures connexions de bureau à distance sur votre machine virtuelle au lieu d’accéder à la page de vue d’ensemble de la machine virtuelle dans le Portail Azure et à l’aide de l’option de connexion.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

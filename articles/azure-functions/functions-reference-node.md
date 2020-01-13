@@ -3,13 +3,13 @@ title: Information de référence pour les développeurs JavaScript sur Azure Fu
 description: Découvrez comment développer des fonctions à l’aide de JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
-ms.date: 02/24/2019
-ms.openlocfilehash: b6b7db4c5f13a264b76dcab02dba51c464297307
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/17/2019
+ms.openlocfilehash: 506f71664616686a66227af7e55fe3f4046376f2
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226719"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561913"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -242,7 +242,7 @@ context.done([err],[propertyBag])
 
 Permet au runtime de savoir que votre code s’est exécuté. Lorsque votre fonction utilise la déclaration [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function), vous n’avez pas besoin d’utiliser `context.done()`. Le rappel `context.done` est appelé de manière implicite. Les fonctions asynchrones sont disponibles dans Node 8 ou version ultérieure, qui nécessite la version 2.x du runtime Functions.
 
-Si votre fonction n’est pas une fonction asynchrone, **vous devez appeler**  `context.done` pour indiquer au runtime que votre fonction est terminée. Sinon, l’exécution arrive à expiration.
+Si votre fonction n’est pas une fonction asynchrone, **vous devez appeler** `context.done` pour indiquer au runtime que votre fonction est complète. Sinon, l’exécution arrive à expiration.
 
 La méthode `context.done` vous permet de transmettre à la fois une erreur définie par l’utilisateur au runtime et un objet JSON contenant les données de liaison de sortie. Les propriétés transmises à `context.done` remplacent tout ce qui est défini sur l’objet `context.bindings`.
 
@@ -406,6 +406,16 @@ Quand vous utilisez des déclencheurs HTTP, de nombreuses méthodes vous permett
     context.done(null, res);   
     ```  
 
+## <a name="scaling-and-concurrency"></a>Mise à l’échelle et accès concurrentiel
+
+Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Node.js, si nécessaire. Functions utilise des seuils intégrés (non configurables par l’utilisateur) pour différents types de déclencheurs pour décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
+
+Ce comportement de mise à l’échelle est suffisant pour de nombreuses applications Node.js. Pour les applications utilisant le processeur de manière intensive, vous pouvez améliorer encore plus les performances en utilisant plusieurs processus Worker de langage.
+
+Par défaut, chaque instance d’hôte Functions a un seul processus Worker de langage. Vous pouvez augmenter le nombre de processus Worker par hôte (jusqu’à 10) à l’aide du paramètre d’application [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande. 
+
 ## <a name="node-version"></a>Version de nœud
 
 Le tableau suivant montre la version de Node.js qui est utilisée par chaque version majeure du runtime Functions :
@@ -445,7 +455,7 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 
 
 ### <a name="using-kudu"></a>Utilisation de Kudu
-1. Accédez à `https://<function_app_name>.scm.azurewebsites.net`
+1. Atteindre `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Cliquez sur **Console de débogage** > **CMD**.
 
@@ -455,7 +465,7 @@ Vous pouvez installer des packages sur votre application de fonction de deux fa�
 4. Une fois le fichier package.json chargé, exécutez la commande `npm install` dans la **console d’exécution à distance Kudu**.  
     Les packages d’actions indiqués dans le fichier package.json sont téléchargés et Function App redémarre.
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 
 Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres à l’aide de `process.env`, comme illustré ici dans les deuxième et troisième appels à `context.log()`, où nous consignons les variables d’environnement `AzureWebJobsStorage` et `WEBSITE_SITE_NAME` :
 
@@ -475,7 +485,7 @@ Lors de l’exécution en local, les paramètres de l’application sont lus à 
 
 ## <a name="configure-function-entry-point"></a>Configurer le point d’entrée de la fonction
 
-Vous pouvez utiliser les propriétés `function.json` `scriptFile` et `entryPoint` pour configurer l’emplacement et le nom de votre fonction exportée. Ces propriétés peuvent être importantes lorsque votre code JavaScript est transpilé.
+Vous pouvez utiliser les propriétés `function.json``scriptFile` et `entryPoint` pour configurer l’emplacement et le nom de votre fonction exportée. Ces propriétés peuvent être importantes lorsque votre code JavaScript est transpilé.
 
 ### <a name="using-scriptfile"></a>Utilisation de `scriptFile`
 

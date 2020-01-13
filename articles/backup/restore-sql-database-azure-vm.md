@@ -3,12 +3,12 @@ title: Restaurer des bases de données SQL Server sur une machine virtuelle Azur
 description: Cet article explique comment restaurer des bases de données SQL Server exécutées sur une machine virtuelle Azure et sauvegardées avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0dbf5c48884dc665355d2806ff343facfbeffc29
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 58525069af28be250c3536db076a38fb350bc1da
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171899"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390763"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurer des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -23,7 +23,7 @@ Sauvegarde Azure peut restaurer des bases de données SQL Server s’exécutant 
 - Restaurer à une date ou une heure spécifique (à la seconde), en utilisant les sauvegardes de fichiers journaux. Sauvegarde Azure détermine automatiquement la sauvegarde différentielle complète appropriée, et la chaîne des sauvegardes de fichiers journaux nécessaires pour restaurer en fonction de la date/heure sélectionnée.
 - Restaurez une sauvegarde complète ou différentielle spécifique sur un point de récupération spécifique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de restaurer une base de données, notez les points suivants :
 
@@ -37,7 +37,7 @@ Avant de restaurer une base de données, notez les points suivants :
 - Fermez toutes les applications qui tentent de voler une connexion à l’une de ces bases de données.
 - Si plusieurs instances sont en cours d’exécution sur un serveur, toutes les instances doivent fonctionner. Dans le cas contraire, le serveur n’apparaît pas dans la liste des serveurs de destination pour vous permettre d’y restaurer la base de données.
 
-## <a name="restore-a-database"></a>Restauration d’une base de données
+## <a name="restore-a-database"></a>Restaurer une base de données
 
 Pour effectuer la restauration, vous avez besoin des autorisations suivantes :
 
@@ -110,7 +110,15 @@ Pour restaurer les données de sauvegarde sous forme de fichiers .bak plutôt qu
 
 1. Dans le menu **Configuration de la restauration**, sous **Où voulez-vous restaurer**, sélectionnez **Restaurer sous forme de fichiers**.
 2. Sélectionnez le nom du serveur SQL Server où vous voulez restaurer les fichiers de sauvegarde.
-3. Dans le **Chemin d’accès de destination sur le serveur**, entrez le chemin d’accès du dossier sur le serveur sélectionné à l’étape 2. Il s’agit de l’emplacement où le service doit vider tous les fichiers de sauvegarde nécessaires. En règle générale, un chemin d’accès de partage réseau, ou le chemin d’un partage de fichiers Azure monté lorsqu’il est spécifié comme chemin de destination, permet un accès plus facile à ces fichiers par d’autres ordinateurs du même réseau ou avec le même partage de fichiers Azure monté sur ces fichiers.
+3. Dans le **Chemin d’accès de destination sur le serveur**, entrez le chemin d’accès du dossier sur le serveur sélectionné à l’étape 2. Il s’agit de l’emplacement où le service doit vider tous les fichiers de sauvegarde nécessaires. En règle générale, un chemin d’accès de partage réseau, ou le chemin d’un partage de fichiers Azure monté lorsqu’il est spécifié comme chemin de destination, permet un accès plus facile à ces fichiers par d’autres ordinateurs du même réseau ou avec le même partage de fichiers Azure monté sur ces fichiers.<BR>
+
+>Pour restaurer les fichiers de sauvegarde de base de données sur un partage de fichiers Azure monté sur la machine virtuelle inscrite cible, assurez-vous que NT AUTHORITY\SYSTEM a accès au partage de fichiers. Vous pouvez effectuer les étapes ci-dessous pour accorder les autorisations de lecture/écriture au compte AFS monté sur la machine virtuelle :
+>- Exécuter `PsExec -s cmd` pour entrer dans l’interpréteur de commandes NT AUTHORITY\SYSTEM
+>   - Exécutez `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+>   - Vérifier l’accès avec `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+>- Lancer une restauration en tant que fichiers à partir du coffre de sauvegarde vers `\\<storageacct>.file.core.windows.net\<filesharename>` comme chemin d’accès<BR>
+Vous pouvez télécharger PsExec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+
 4. Sélectionnez **OK**.
 
 ![Sélectionner Restaurer sous forme de fichiers](./media/backup-azure-sql-database/restore-as-files.png)

@@ -4,15 +4,15 @@ description: Connectez vos appareils et les ordinateurs contrôlés par Operatio
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
-ms.date: 10/30/2019
-ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+author: bwren
+ms.author: bwren
+ms.date: 12/24/2019
+ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847280"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530984"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -45,7 +45,7 @@ L’ordinateur qui exécute la passerelle Log Analytics demande à l’agent Win
 
 Une passerelle peut être multirésidente sur un maximum de quatre espaces de travail. Il s’agit du nombre total d’espaces de travail qu’un agent Windows peut prendre en charge.  
 
-Chaque agent doit disposer d’une connexion réseau avec la passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. Évitez d’installer la passerelle sur un contrôleur de domaine.
+Chaque agent doit disposer d’une connexion réseau avec la passerelle, afin que les agents puissent automatiquement transférer des données vers la passerelle et recevoir des données de cette dernière. Évitez d’installer la passerelle sur un contrôleur de domaine. Les ordinateurs Linux qui se trouvent derrière un serveur de passerelle ne peuvent pas utiliser la méthode d’[installation de script Wrapper](agent-linux.md#install-the-agent-using-wrapper-script) pour installer l’agent Log Analytics pour Linux. L’agent doit être téléchargé manuellement, copié sur l’ordinateur et installé manuellement, car la passerelle ne prend en charge que la communication avec les services Azure mentionnés précédemment.
 
 Le diagramme suivant affiche le flux de données entre les agents directs et Azure Automation avec Log Analytics utilisant le serveur de passerelle. La configuration de proxy des agents doit correspondre au même port que celui avec lequel la passerelle Log Analytics est configurée.  
 
@@ -61,7 +61,7 @@ Les ordinateurs désignés pour exécuter la passerelle Log Analytics doivent re
 
 * Windows 10, Windows 8.1 ou Windows 7
 * Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008
-* Microsoft .NET Framework 4.5
+* Microsoft .NET Framework 4.5
 * Au moins un processeur 4 cœurs et 8 Go de mémoire 
 * Un [agent Log Analytics pour Windows](agent-windows.md) configuré pour transmettre ses rapports vers l’espace de travail avec lequel les agents communiquent via la passerelle
 
@@ -135,7 +135,7 @@ Pour installer une passerelle à l’aide de l’Assistant Installation, procéd
    a. Entrez le numéro de port TCP à utiliser pour la passerelle. Le programme d’installation utilise ce numéro de port pour configurer une règle entrante sur le pare-feu Windows.  La valeur par défaut est 8080.
       Les numéros de port valides sont compris entre 1 et 65535. Si la valeur saisie n’est pas comprise dans cette plage, un message d’erreur s’affiche.
 
-   b. Si le serveur sur lequel la passerelle est installée doit communiquer par le biais d’un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, entrez : `http://myorgname.corp.contoso.com:80`.  Si vous laissez ce champ vide, la passerelle tentera de se connecter directement à Internet.  Si votre serveur proxy requiert une authentification, entrez un nom d'utilisateur et un mot de passe.
+   b. Si le serveur sur lequel la passerelle est installée doit communiquer par le biais d’un proxy, saisissez l’adresse proxy à laquelle la passerelle doit se connecter. Par exemple, entrez `http://myorgname.corp.contoso.com:80`.  Si vous laissez ce champ vide, la passerelle tentera de se connecter directement à Internet.  Si votre serveur proxy requiert une authentification, entrez un nom d'utilisateur et un mot de passe.
 
    c. Sélectionnez **Suivant**.
 
@@ -149,11 +149,12 @@ Pour installer une passerelle à l’aide de l’Assistant Installation, procéd
    ![Capture d’écran indiquant les services locaux, montrant que la passerelle OMS est en cours d’exécution](./media/gateway/gateway-service.png)
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Installer la passerelle Log Analytics en utilisant l’interface en ligne de commande
+
 Le fichier téléchargé pour la passerelle est un package Windows Installer qui prend en charge une installation sans assistance à partir de l’interface en ligne de commande ou d’une autre méthode automatisée. Si vous n’êtes pas familiarisé avec les options standards de l’interface de ligne de commande pour Windows Installer, veuillez consulter la page [Options de l’interface en ligne de commande](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
  
 Le tableau suivant répertorie les paramètres pris en charge par le programme d’installation.
 
-|parameters| Notes|
+|Paramètres| Notes|
 |----------|------| 
 |PORTNUMBER | Numéro de port TCP pour la passerelle à écouter |
 |PROXY | Adresse IP du serveur proxy |
@@ -183,10 +184,12 @@ Après l’installation, vous pouvez vérifier que les paramètres sont accepté
 - **Get-OMSGatewayConfig** : retourne le port TCP que la passerelle est configurée pour écouter.
 - **Get-OMSGatewayRelayProxy** : retourne l’adresse IP du serveur proxy que vous avez configuré pour la communication.
 
-## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau 
+## <a name="configure-network-load-balancing"></a>Configuration de l’équilibrage de la charge réseau
+
 Vous pouvez configurer la passerelle pour la haute disponibilité à l’aide de [l’équilibrage de la charge réseau (NLB) Microsoft](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) ou les équilibreurs de charge basés sur le matériel. L’équilibreur de charge gère le trafic en redirigeant les connexions demandées à partir des agents Log Analytics ou des serveurs d’administration Operations Manager sur ses nœuds. Si un serveur de passerelle tombe en panne, le trafic est redirigé vers d’autres nœuds.
 
 ### <a name="microsoft-network-load-balancing"></a>Équilibrage de la charge réseau Microsoft
+
 Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge réseau Windows Server 2016, consultez [Équilibrage de charge réseau](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Les étapes suivantes décrivent comment configurer un cluster d’équilibrage de charge réseau Microsoft.  
 
 1. Connectez-vous au serveur Windows qui est membre du cluster d’équilibrage de charge réseau avec un compte d’administration.  
@@ -197,9 +200,10 @@ Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge r
  
 4. Entrez l’adresse IP du serveur de passerelle que vous voulez connecter. 
 
-    ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Connecter](./media/gateway/nlb03.png) 
+    ![Gestionnaire d’équilibrage de charge réseau – Ajouter l’hôte au cluster : Se connecter](./media/gateway/nlb03.png) 
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
+
 Pour apprendre à concevoir et déployer une instance d’Azure Load Balancer, veuillez consulter l’article [Qu’est-ce qu’Azure Load Balancer ?](../../load-balancer/load-balancer-overview.md). Pour déployer un équilibreur de charge de base, veuillez suivre les étapes décrites dans ce [guide de démarrage rapide](../../load-balancer/quickstart-create-basic-load-balancer-portal.md), excepté la procédure décrite dans la section **Créer des serveurs principaux**.   
 
 > [!NOTE]
@@ -213,18 +217,20 @@ Après avoir créé l’équilibreur de charge, vous devez créer un pool princi
 >
 
 ## <a name="configure-the-log-analytics-agent-and-operations-manager-management-group"></a>Configurer l’agent Log Analytics et le groupe d’administration Operations Manager
+
 Cette section explique comment configurer les agents Log Analytics connectés directement, d’un groupe d’administration Operations Manager ou Runbook Worker hybride Azure Automation avec la passerelle Log Analytics pour communiquer avec Azure Automation ou Log Analytics.  
 
 ### <a name="configure-a-standalone-log-analytics-agent"></a>Configuration d’un agent Log Analytics autonome
+
 Lorsque vous configurez l’agent Log Analytics, remplacez la valeur du serveur proxy par l’adresse IP du serveur de passerelle Log Analytics et son numéro de port. Si vous avez déployé plusieurs serveurs de passerelle derrière un équilibreur de charge, la configuration de proxy de l’agent Log Analytics est l’adresse IP virtuelle de l’équilibreur de charge.  
 
 >[!NOTE]
->Pour installer l’agent Log Analytics sur la passerelle et les ordinateurs Windows qui se connectent directement à Log Analytics, veuillez consulter l’article [Connecter des ordinateurs Windows au service Log Analytics dans Azure](agent-windows.md). Pour connecter des ordinateurs Linux, veuillez consulter [Configurer un agent Log Analytics pour des ordinateurs Linux dans un environnement hybride](../../azure-monitor/learn/quick-collect-linux-computer.md). 
+>Pour installer l’agent Log Analytics sur la passerelle et les ordinateurs Windows qui se connectent directement à Log Analytics, veuillez consulter l’article [Connecter des ordinateurs Windows au service Log Analytics dans Azure](agent-windows.md). Pour connecter des ordinateurs Linux, consultez [Connecter des ordinateurs Linux à Azure Monitor](agent-linux.md). 
 >
 
 Après avoir installé l’agent sur le serveur de passerelle, configurez-le pour transférer ses rapports à l’espace de travail ou aux agents de l’espace de travail qui communiquent avec la passerelle. Si l’agent Windows Log Analytics n’est pas installé sur la passerelle, l’événement 300 est écrit dans le journal des événements de la Passerelle OMS pour signaler que l’agent doit être installé. Si l’agent est installé mais pas configuré pour transférer ses rapports au même espace de travail que les agents communiquant par son intermédiaire, l’événement 105 est écrit dans le même journal, pour signaler que l’agent sur la passerelle doit être configuré pour transférer ses rapports au même espace de travail que les agents communiquant avec la passerelle.
 
-Après avoir terminé la configuration, redémarrez le service de passerelle OMS pour appliquer les modifications. Autrement, la passerelle rejettera les agents tentant de communiquer avec Log Analytics et écrira l’événement 105 dans le journal des événements de la Passerelle OMS. Ceci peut également arriver si vous ajoutez ou supprimez un espace de travail de la configuration de l’agent sur le serveur de passerelle.   
+Quand vous avez effectué la configuration, redémarrez le service de **passerelle OMS** pour appliquer les modifications. Autrement, la passerelle rejettera les agents tentant de communiquer avec Log Analytics et écrira l’événement 105 dans le journal des événements de la Passerelle OMS. Ceci peut également arriver si vous ajoutez ou supprimez un espace de travail de la configuration de l’agent sur le serveur de passerelle.
 
 Pour plus d’informations sur le Runbook Worker hybride Automation, veuillez consulter l’article [Automatiser les ressources de votre centre de données ou de votre cloud à l’aide d’un Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md).
 
@@ -251,7 +257,7 @@ Pour configurer l’intégration, mettez à jour la configuration du proxy syst�
 
    b. Cliquez avec le bouton droit sur **Invite de commandes**, puis sélectionnez **Exécuter en tant qu’administrateur**.  
 
-1. Entrez la commande suivante :
+1. Entrez la commande suivante :
 
    `netsh winhttp set proxy <proxy>:<port>`
 
@@ -300,13 +306,13 @@ Reportez-vous à la section [Configurer votre réseau](../../automation/automati
 
 Si votre ordinateur est automatiquement inscrit en tant que Runbook Worker hybride, par exemple si la solution de gestion des mises à jour est activée pour une ou plusieurs machines virtuelles, suivez ces étapes :
 
-1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Redémarrez le service de passerelle Log Analytics en utilisant la cmdlet PowerShell suivante : `Restart-Service OMSGatewayService`
 
 Si votre ordinateur est joint à Azure Automation à l’aide de la cmdlet d’inscription Runbook Worker hybride, suivez ces étapes :
 
-1. Ajoutez l’URL d’enregistrement de service de l’agent à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Ajoutez l’URL d’enregistrement de service de l’agent à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
+1. Ajoutez les URL de service de données d’exécution de la tâche à la liste d’hôtes autorisés sur la passerelle Log Analytics. Par exemple : `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 1. Redémarrez le service de passerelle Log Analytics.
     `Restart-Service OMSGatewayService`
 
@@ -335,7 +341,7 @@ Si une erreur survient lors de l’étape 3, cela signifie que le module n’a 
 | `Remove-OMSGatewayAllowedClientCertificate` |Objet (obligatoire) |Supprime l’objet du certificat client de la liste d’éléments autorisés |`Remove-OMSGatewayAllowed` <br> `ClientCertificate` <br> `-Subject mycert` |  
 | `Get-OMSGatewayAllowedClientCertificate` | |Récupère les objets de certificat client actuellement autorisés (uniquement les objets configurés localement, pas les objets autorisés téléchargés automatiquement) |`Get-`<br>`OMSGatewayAllowed`<br>`ClientCertificate` |  
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Pour collecter des événements journalisés par la passerelle, vous devez avoir installé l’agent Log Analytics.
 
