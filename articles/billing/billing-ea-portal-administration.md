@@ -4,16 +4,16 @@ description: Cet article présente les tâches courantes à la charge d’un adm
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: c53a051df0a0100d9209530490d910612be2f30d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4db710dc93b0a1fc3c85d24e9d79fb2e2d552cd1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849919"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644543"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -117,6 +117,8 @@ L’offre Dev/Test ne s’applique pas aux clients Azure Gov pour le moment.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Transférer un compte d’entreprise vers une nouvelle inscription
 
+Un transfert de compte déplace un propriétaire de compte d’une inscription à une autre. Tous les abonnements associés sous le propriétaire du compte seront déplacés vers l’inscription cible. Cette opération est effectuée quand vous avez plusieurs inscriptions actives et que vous souhaitez uniquement déplacer les propriétaires de comptes sélectionnés.
+
 Gardez les points suivants à l’esprit quand vous transférez un compte d’entreprise vers une nouvelle inscription :
 
 - Seuls les comptes spécifiés dans la demande sont transférés. Si tous les comptes sont choisis, ils sont tous transférés.
@@ -124,44 +126,37 @@ Gardez les points suivants à l’esprit quand vous transférez un compte d’en
 
 ### <a name="effective-transfer-date"></a>Date de transfert effectif
 
-La date de transfert effectif peut être la date de début de l’inscription vers laquelle vous souhaitez effectuer le transfert ou une date ultérieure. L’inscription vers laquelle vous effectuez le transfert est l’_inscription cible_. Une fois le compte transféré, toutes les informations sur l’utilisation du compte avant la date de transfert effectif restent dans l’inscription à partir de laquelle vous effectuez le transfert. L’inscription à partir de laquelle vous effectuez le transfert est l’_inscription source_.  L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
+Vous pouvez antidater un transfert de compte jusqu’à la date de début de l’inscription cible, ou la date d’ouverture du compte, selon celle qui est la plus récente. Une fois le compte transféré, toutes les informations sur l’utilisation du compte avant la date de transfert effectif restent dans l’inscription à partir de laquelle vous effectuez le transfert. Les informations d’utilisation après la date de transfert seront déplacées vers l’inscription cible.
 
-Vous pouvez antidater un transfert d’inscription jusqu’à la date de début de l’inscription cible. Ou, jusqu’à la date de début effectif de l’inscription source.
-
-### <a name="monetary-commitment"></a>Engagement monétaire
-
-L’engagement monétaire n’est pas transférable entre les inscriptions. Les soldes d’engagement monétaire sont liées contractuellement à l’inscription dans laquelle elles ont été commandées. L’engagement monétaire n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
-
-### <a name="services-affected"></a>Services affectés
-
-Il n’y a aucun temps d’arrêt pendant le transfert de compte. Il peut être effectué le même jour que votre demande si toutes les informations requises sont fournies.
-
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Lorsque vous demandez un transfert de compte, fournissez les informations suivantes :
 
-
-- Nom du compte et ID du propriétaire du compte à transférer
+- Le numéro de l’inscription cible, le nom du compte et l’e-mail du propriétaire du compte à transférer
 - Pour l’inscription source, le numéro d’inscription et le compte à transférer
-- Pour l’inscription cible, le numéro de l’inscription vers laquelle transférer
-- Pour la date de transfert effectif du compte, il peut s’agir d’une date identique ou postérieure à la date de début de l’inscription cible.
+- Pour la date d’effet de transfert du compte, elle peut être antidatée jusqu’à la date de début de l’inscription cible, ou la date d’ouverture du compte, selon celle qui est la plus récente
 
 Autres points à garder à l’esprit avant un transfert de compte :
 
 - L’approbation d’un administrateur EA est requise pour les inscriptions source et cible.
 - Si un transfert de compte ne répond pas à vos exigences, envisagez un transfert d’inscription.
 - Le transfert de compte transfère tous les services et abonnements associés aux comptes spécifiques.
-- Au terme du transfert, le compte transféré est indiqué comme inactif sous l’inscription source.
-- Un transfert de compte peut être antidaté à n’importe quelle date avant la date de début de l’inscription cible.
+- Au terme du transfert, le compte transféré est indiqué comme inactif sous l’inscription source et comme actif sous l’inscription cible.
 - Le compte affiche la date de fin correspondant à la date de transfert effectif sur l’inscription source, et comme date de début sur l’inscription cible.
 - Toute utilisation du compte effectuée avant la date de transfert effectif reste sous l’inscription source.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transférer l’inscription d’entreprise vers une nouvelle inscription
 
+Un transfert d’inscription est envisagé dans les cas suivants :
+
+- La durée d’engagement d’une inscription en cours se termine.
+- Une inscription présente l’état expiré/étendu et un nouveau contrat est négocié.
+- Vous avez plusieurs inscriptions et souhaitez centraliser tous les comptes et la facturation dans le cadre d’une seule inscription.
+
 Lorsque vous demandez à transférer une inscription d’entreprise complète vers une autre inscription, les actions suivantes se produisent :
 
-- Tous les services, les abonnements et les comptes Azure, ainsi que la structure d’inscription complète, y compris tous les administrateurs de service EA, sont transférés.
+- L’ensemble des services, abonnements et comptes Azure, ainsi que la structure d’inscription toute entière, dont tous les administrateurs de service EA, sont transférés vers une nouvelle inscription cible.
 - L’état de l’inscription est défini sur _Transféré_. L’inscription transférée est disponible uniquement à des fins de création de rapports d’utilisation.
 - Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription transférée. L’état transféré empêche une utilisation supplémentaire en relation avec l’inscription.
 - Tout solde restant de l’engagement monétaire dans le contrat est perdu, y compris les termes futurs.
@@ -171,36 +166,33 @@ Lorsque vous demandez à transférer une inscription d’entreprise complète ve
 
 ### <a name="effective-transfer-date"></a>Date de transfert effectif
 
-Le jour du transfert effectif peut correspondre à la date de début de l’inscription que vous souhaitez transférer vers l’inscription cible ou à une date ultérieure.
+Le jour du transfert effectif peut correspondre à la date de début de l’inscription cible ou à une date ultérieure.
 
 L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
 
-### <a name="effective-transfer-date-in-the-past"></a>Date de transfert effectif dans le passé
+Un transfert antidaté est accepté jusqu’à la date de début de l’inscription cible. Le fait de fournir la date de transfert choisie n’affecte pas l’utilisation d’une facture de dépassement qui a déjà été émise.
 
-Vous pouvez antidater un transfert de compte jusqu’à la date de début de l’inscription cible. Ou, jusqu’à la date de début effectif de l’inscription source.
-
-### <a name="monetary-commitment"></a>Engagement monétaire
-
-L’engagement monétaire n’est pas transférable entre les inscriptions. Les soldes d’engagement monétaire sont liées contractuellement à l’inscription dans laquelle elles ont été commandées. L’engagement monétaire n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
-
-### <a name="services-affected"></a>Services affectés
-
-Il n’y a aucun temps d’arrêt pendant le transfert de compte. Il peut être effectué le même jour que votre demande si toutes les informations requises sont fournies.
-
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Lorsque vous demandez un transfert d’inscription, fournissez les informations suivantes :
 
-- Pour l’inscription source, le numéro d’inscription et le compte à transférer.
+- Pour l’inscription source, le numéro d’inscription.
 - Pour l’inscription cible, le numéro de l’inscription vers laquelle effectuer le transfert.
 - Pour la date de transfert effectif de l’inscription, il peut s’agir d’une date identique ou postérieure à la date de début de l’inscription cible. La date choisie ne peut pas affecter l’utilisation pour une facture de dépassement déjà émise.
 
 Autres points à garder à l’esprit avant un transfert d’inscription :
 
-- L’approbation d’un administrateur EA est obligatoire pour les inscriptions source et cible.
+- L’approbation des administrateurs EA pour les inscriptions source et cible est obligatoire.
 - Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
-- Seuls les comptes que vous spécifiez sont transférés. Vous pouvez demander à transférer tous vos comptes.
-- L’inscription source conserve son état actif ou étendu. Vous pouvez continuer à utiliser l’inscription jusqu’à ce qu’elle expire.
+- L’état de l’inscription source est mis à jour sur Transféré et sera disponible uniquement à des fins de création de rapports d’utilisation historiques.
+
+### <a name="monetary-commitment"></a>Engagement monétaire
+
+L’engagement monétaire n’est pas transférable entre les inscriptions. Les soldes d’engagement monétaire sont liées contractuellement à l’inscription dans laquelle elles ont été commandées. L’engagement monétaire n’est pas transféré dans le cadre du processus de transfert d’un compte ou d’une inscription.
+
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Aucun service n’est affecté pour les transferts de comptes et d’inscriptions
+
+Il n’y a aucun temps d’arrêt lors du transfert d’un compte ou d’une inscription. Il peut être effectué le même jour que votre demande si toutes les informations requises sont fournies.
 
 ## <a name="change-account-owner"></a>Changer le propriétaire du compte
 
@@ -224,7 +216,7 @@ Si l’abonnement est transféré vers un compte figurant dans un autre locatair
 
 Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès à ses ressources Azure. La plupart des ressources peuvent être mises à jour en procédant comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
 3. Sélectionnez la ressource.
 4. Dans la page de la ressource, cliquez sur **Paramètres** pour afficher et mettre à jour les secrets existants.

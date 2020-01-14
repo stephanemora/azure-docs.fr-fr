@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c6b52585200db07ebc2e15f509b1def55dff5caf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dd6eec34a1f1bd59aed397111e31048196e1e9c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427720"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio (classique)
 
@@ -45,7 +45,7 @@ Ce guide de démarrage rapide suit le workflow par défaut d’une expérience 
 ## <a name="get-the-data"></a>Obtenir les données
 
 Les données sont la première chose dont vous avez besoin pour l’apprentissage automatique.
-Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans la version classique de Studio ou importer d’autres données à partir de sources diverses. Pour les besoins de cet exemple, nous allons utiliser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** inclus dans votre espace de travail.
+Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans Studio (classique) ou importer d’autres données à partir de sources diverses. Pour les besoins de cet exemple, nous allons utiliser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** inclus dans votre espace de travail.
 Ce jeu de données comprend des entrées relatives à plusieurs véhicules, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix.
 
 > [!TIP]
@@ -111,7 +111,7 @@ Nous commençons par ajouter un module qui supprime toute la colonne **normalize
 
      ![Double-cliquez sur un module pour ajouter un commentaire](./media/create-experiment/add-comment.png)
 
-1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] jusqu’à la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Nettoyer les données manquantes][clean-missing-data] de nettoyer les données en supprimant les lignes où il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
+1. Faites glisser le module [Nettoyer les données manquantes][clean-missing-data] jusqu’à la zone de dessin de l’expérience et connectez-le au module [Sélectionner des colonnes dans le jeu de données][select-columns]. Dans le volet **Propriétés**, sélectionnez **Supprimer toute la ligne** sous **Mode de nettoyage**. Ces options indiquent au module [Clean Missing Data][clean-missing-data] de nettoyer les données en supprimant les lignes dans lesquelles il manque des valeurs. Double-cliquez sur le module et saisissez le commentaire suivant : « Supprimer les lignes de valeur manquantes ».
 
     ![Définissez le mode de nettoyage du module « Nettoyage des données manquantes » sur « Supprimer toute la ligne »](./media/create-experiment/set-remove-entire-row.png)
 
@@ -231,7 +231,7 @@ Les statistiques suivantes s’affichent pour notre modèle :
 
 Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites sont privilégiées. En effet, une valeur plus petite indique un degré de correspondance plus étroit avec la valeur réelle. Plus la valeur du **Coefficient de détermination**, est proche de un (1.0), plus la prévision est correcte.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
@@ -240,7 +240,7 @@ Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites s
 Dans ce guide de démarrage rapide, vous avez créé une expérience simple à partir d’un exemple de jeu de données. Pour approfondir le processus de création et de déploiement d’un modèle, passez au tutoriel sur les solutions prédictives.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Développer une solution prédictive dans Studio (classique)](tutorial-part1-credit-risk.md)
+> [Tutoriel : Développer une solution prédictive dans Studio (classique)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

@@ -1,18 +1,14 @@
 ---
 title: Configuration d’Azure Monitor pour la collecte de données de l’agent de conteneurs | Microsoft Docs
 description: Cet article décrit comment configurer Azure Monitor pour que l’agent de conteneurs contrôle stdout/stderr et la collecte des journaux de variables d’environnement.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75405677"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs
 
@@ -25,7 +21,7 @@ Cet article montre comment créer la ConfigMap et configurer la collecte de donn
 Un fichier ConfigMap de modèle est fourni. Vous pouvez le modifier facilement avec vos personnalisations sans avoir à le créer à partir de zéro. Avant de commencer, vous devez consulter la documentation Kubernetes sur [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) et vous familiariser avec la manière de créer, de configurer et de déployer ConfigMaps. Cela vous permet de filtrer stderr et stdout par espace de noms ou dans l’ensemble du cluster et les variables d’environnement pour les conteneurs en cours d’exécution sur tous les nœuds/pods du cluster.
 
 >[!IMPORTANT]
->La version minimale de l’agent prise en charge pour collecter des variables stdout, stderr et environnementales à partir de charges de travail de conteneur est ciprod06142019 ou ultérieure. Pour vérifier la version de votre agent, sous l’onglet **Nœud**, sélectionnez un nœud, puis dans la valeur note du volet Propriétés de la propriété **Balise d’image de l’agent**. Pour plus d’informations sur les versions de l’agent et sur ce qui est inclus dans chaque version, consultez les [notes de publication de l’agent](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
+>La version minimale de l’agent prise en charge pour collecter des variables stdout, stderr et environnementales à partir de charges de travail de conteneur est ciprod06142019 ou ultérieure. Pour vérifier la version de votre agent, sous l’onglet **Nœud**, sélectionnez un nœud, puis dans la valeur note du volet Propriétés de la propriété **Balise d’image de l’agent**. Pour plus d’informations sur les versions de l’agent et le contenu de chaque version, consultez les [notes de publication de l’agent](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### <a name="data-collection-settings"></a>Paramètres de collecte de données
 
@@ -34,12 +30,13 @@ Voici les paramètres qui peuvent être configurés pour contrôler la collecte 
 |Clé |Type de données |Valeur |Description |
 |----|----------|------|------------|
 |`schema-version` |Chaîne (respecte la casse) |v1 |Il s’agit de la version de schéma utilisée par l’agent lors de l’analyse de cette ConfigMap. Actuellement, la version prise en charge est v1. Modifier cette valeur n’est pas pris en charge et est rejeté lors de l’évaluation de l’élément ConfigMap.|
-|`config-version` |Chaîne | | Prend en charge la possibilité d’effectuer le suivi de la version de ce fichier de configuration dans votre système/dépôt de contrôle de code source. Le nombre maximal de caractères autorisé est 10 et tous les autres caractères sont tronqués. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true ou false | Ce paramètre contrôle si la collecte de journaux de conteneur stdout est activée. Lorsque la valeur est `true` et qu’aucun espace de noms n’est exclus de la collecte de journaux stdout (paramètre `log_collection_settings.stdout.exclude_namespaces` ci-dessous), les journaux stdout sont collectés à partir de tous les conteneurs parmi l’ensemble des nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMaps, la valeur par défaut est `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|Chaîne | Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stdout n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. S’il n’est pas spécifié dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true ou false |Ce paramètre contrôle si la collecte de journaux de conteneur stderr est activée. Lorsque la valeur est `true` et qu’aucun espace de noms n’est exclus de la collecte de journaux stdout (paramètre `log_collection_settings.stderr.exclude_namespaces`), les journaux stderr sont collectés à partir de tous les conteneurs parmi l’ensemble des nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMaps, la valeur par défaut est `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |Chaîne |Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stderr n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. S’il n’est pas spécifié dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true ou false | Ce paramètre contrôle la collecte des variables d’environnement sur tous les pods/nœuds du cluster et a pour valeur par défaut `enabled = true` lorsqu’il n’est pas spécifié dans ConfigMaps. Si la collecte des variables d’environnement est globalement activée, vous pouvez la désactiver pour un conteneur spécifique en définissant la variable d’environnement `AZMON_COLLECT_ENV` sur **False** avec un paramètre Dockerfile ou dans le [fichier de configuration pour le pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) dans la section **env :** . Si la collecte des variables d’environnement est désactivée globalement, vous ne pouvez pas activer la collecte pour un conteneur spécifique (autrement dit, la seule substitution applicable au niveau du conteneur consiste à désactiver la collecte lorsqu’elle est déjà activée globalement). |
+|`config-version` |String | | Prend en charge la possibilité d’effectuer le suivi de la version de ce fichier de configuration dans votre système/dépôt de contrôle de code source. Le nombre maximal de caractères autorisé est 10 et tous les autres caractères sont tronqués. |
+|`[log_collection_settings.stdout] enabled =` |Boolean | True ou False | Ce paramètre contrôle si la collecte de journaux de conteneur stdout est activée. Lorsque la valeur est `true` et qu’aucun espace de noms n’est exclus de la collecte de journaux stdout (paramètre `log_collection_settings.stdout.exclude_namespaces` ci-dessous), les journaux stdout sont collectés à partir de tous les conteneurs parmi l’ensemble des nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMaps, la valeur par défaut est `enabled = true`. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String | Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stdout n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. Si elle n’est pas spécifiée dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`.|
+|`[log_collection_settings.stderr] enabled =` |Boolean | True ou False |Ce paramètre contrôle si la collecte de journaux de conteneur stderr est activée. Lorsque la valeur est `true` et qu’aucun espace de noms n’est exclus de la collecte de journaux stdout (paramètre `log_collection_settings.stderr.exclude_namespaces`), les journaux stderr sont collectés à partir de tous les conteneurs parmi l’ensemble des nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMaps, la valeur par défaut est `enabled = true`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String |Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stderr n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. Si elle n’est pas spécifiée dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | True ou False | Ce paramètre contrôle la collecte des variables d’environnement sur tous les pods/nœuds du cluster et a pour valeur par défaut `enabled = true` lorsqu’il n’est pas spécifié dans ConfigMaps. Si la collecte des variables d’environnement est globalement activée, vous pouvez la désactiver pour un conteneur spécifique en définissant la variable d’environnement `AZMON_COLLECT_ENV` sur **False** avec un paramètre Dockerfile ou dans le [fichier de configuration pour le pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) dans la section **env :** . Si la collecte des variables d’environnement est désactivée globalement, vous ne pouvez pas activer la collecte pour un conteneur spécifique (autrement dit, la seule substitution applicable au niveau du conteneur consiste à désactiver la collecte lorsqu’elle est déjà activée globalement). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | True ou False | Ce paramètre contrôle l’enrichissement du journal de conteneur pour renseigner les valeurs de propriété de nom et d’image pour chaque enregistrement de journal écrit dans la table ContainerLog pour tous les journaux de conteneurs du cluster. La valeur par défaut est `enabled = false` lorsqu’elle n’est pas spécifiée dans ConfigMap. |
 
 ConfigMaps est une liste globale et il ne peut y avoir qu’un seul élément ConfigMap appliqué à l’agent. Vous ne pouvez pas avoir un autre élément ConfigMaps qui annule les collectes.
 
@@ -72,7 +69,7 @@ Pour vérifier que la configuration a été correctement appliquée, utilisez la
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Des erreurs liées à l’application des modifications de configuration sont également disponibles pour évaluation. Les options suivantes sont disponibles pour effectuer un dépannage supplémentaire des modifications de configuration :
+Les erreurs liées à l’application de modifications de configuration sont également disponibles pour consultation. Les options suivantes sont disponibles pour effectuer un dépannage supplémentaire des modifications de configuration :
 
 - À partir de journaux d’activité d’un pod d’agent à l’aide de la même commande `kubectl logs`. 
 
@@ -82,7 +79,7 @@ Des erreurs liées à l’application des modifications de configuration sont é
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant les *informations* de gravité, lesquelles ne signalent aucune erreur. La propriété **Balises** contient plus d’informations sur le pod et l’ID de conteneur où l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
+- À partir de la table **KubeMonAgentEvents** dans votre espace de travail Log Analytics. Les données sont envoyées toutes les heures avec la gravité de *l’erreur* pour les erreurs de configuration. S’il n’y a pas d’erreur, l’entrée de la table contient des données indiquant une gravité *Informations*, laquelle ne signale aucune erreur. La propriété **Balises** contient plus d’informations sur le pod et l’ID de conteneur où l’erreur s’est produite, ainsi que sur la première occurrence, la dernière occurrence et le nombre d’occurrences au cours de la dernière heure.
 
 Des erreurs empêchent omsagent d’analyser le fichier, ce qui provoque son redémarrage et l’utilisation de la configuration par défaut. Une fois que vous avez corrigé les erreurs dans ConfigMap, enregistrez le fichier yaml et appliquez la ConfigMaps mise à jour en exécutant la commande : `kubectl apply -f <configmap_yaml_file.yaml`.
 

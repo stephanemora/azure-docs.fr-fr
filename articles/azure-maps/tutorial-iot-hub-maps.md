@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Implémenter l’analytique spatiale IoT avec Azure Maps'
-description: 'Didacticiel : Intégrez IoT Hub à des API du service Azure Maps.'
+title: 'Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps'
+description: 'Tutoriel : Intégrez IoT Hub à des API du service Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 6c35b52149e3c0117c727771d38d0f010180fc63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107041"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432807"
 ---
-# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Didacticiel : Implémenter l’analytique spatiale IoT avec Azure Maps
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
 Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. Par exemple, dans les applications de gestion de flotte, de suivi de ressources, de mobilité et de ville intelligente. Ce tutoriel explore le modèle de solution permettant d’utiliser des API Azure Maps sur des événements pertinents capturés par IoT Hub à l’aide du modèle d’abonnement aux événements fourni par Event Grid.
 
@@ -77,7 +77,7 @@ La figure ci-dessous représente la zone de la limite géographique mise en surb
   ![Itinéraire dans la limite géographique](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -104,7 +104,8 @@ Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps 
 
-Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions mentionnées dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
+Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+
 
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
@@ -157,7 +158,7 @@ Ouvrez l’application Postman et suivez les étapes ci-dessous pour charger la 
 
 1. Dans l’application Postman, cliquez sur New (Nouveau) | Create new (Créer), puis sélectionnez Request (Requête). Entrez un nom de requête dans Upload geofence data (Charger les données de la limite géographique), sélectionnez la collection ou le dossier où enregistrer la requête, puis cliquez sur Save.
 
-    ![Charger des limites géographiques à l’aide de Postman](./media/tutorial-iot-hub-maps/postman-new.png)
+    ![Chargement de limites géographiques à l’aide de Postman](./media/tutorial-iot-hub-maps/postman-new.png)
 
 2. Sélectionnez la méthode HTTP POST sous l’onglet Builder (Générateur), puis entrez l’URL suivante pour envoyer une requête POST.
 
@@ -167,7 +168,7 @@ Ouvrez l’application Postman et suivez les étapes ci-dessous pour charger la 
     
     La valeur « geojson » définie pour le paramètre `dataFormat` dans le chemin d’URL représente le format des données en cours de chargement.
 
-3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé primaire d’abonnement Azure Maps.
+3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé Azure Maps.
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 

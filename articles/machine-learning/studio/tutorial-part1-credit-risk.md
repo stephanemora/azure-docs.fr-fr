@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel 1 : Prédire le risque de crédit'
 titleSuffix: ML Studio (classic) - Azure
-description: Didacticiel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans la version classique d’Azure Machine Learning Studio. Ce tutoriel est la première partie d’une série de tutoriels qui en compte trois.  Il montre comment créer un espace de travail, charger des données, puis créez une expérience.
+description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio (classique). Ce tutoriel est la première partie d’une série de tutoriels qui en compte trois.  Il montre comment créer un espace de travail, charger des données, puis créez une expérience.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: e8c1eea097fc3ea2704acfae198eb493943b6ccf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 07621bd2d0593ea3896aba0deb65e0b856e5987b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838866"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432241"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutoriel 1 : Prédire le risque de crédit – Azure Machine Learning Studio (classique)
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous étudiez de manière approfondie le processus de dévelop
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.  
 
-L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser la version classique d’Azure Machine Learning Studio et un service web Machine Learning pour cette solution.  
+L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser Machine Learning Studio (classique) et un service web Machine Learning pour cette solution.  
 
 Dans ce tutoriel en trois parties, vous commencez avec des données de risque crédit disponibles publiquement.  Ensuite, vous développez et entraînez un modèle prédictif.  Enfin, vous déployez le modèle en tant que service web.
 
@@ -34,11 +34,11 @@ Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Créer un espace de travail Machine Learning Studio (classique)
 > * Charger des données existantes
-> * Création d'une expérience
+> * Créer une expérience
 
 Vous pouvez ensuite utiliser cette expérience pour [entraîner des modèles dans la deuxième partie](tutorial-part2-credit-risk-train.md), puis [les déployer dans la troisième partie](tutorial-part3-credit-risk-deploy.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce didacticiel suppose que vous avez utilisé Machine Learning Studio (classique) au moins une fois et que vous comprenez les concepts du Machine Learning. Il ne suppose pas non plus que vous êtes un expert.
 
@@ -95,7 +95,7 @@ Ensuite, si le modèle considère une personne présentant un risque élevé com
 
 ### <a name="convert-the-dataset-format"></a>Conversion du format du jeu de données
 
-Le jeu de données d'origine utilise un format séparé par des espaces. La version classique de Machine Learning Studio fonctionne mieux avec un fichier de valeurs séparées par des virgules (CSV). Vous allez donc convertir le jeu de données en remplaçant les espaces par des virgules.  
+Le jeu de données d'origine utilise un format séparé par des espaces. Machine Learning Studio (classique) fonctionne mieux avec un fichier de valeurs séparées par des virgules (CSV). Vous allez donc convertir le jeu de données en remplaçant les espaces par des virgules.  
 
 Il existe de nombreux moyens de convertir ces données. L'une des méthodes consiste à utiliser la commande Windows PowerShell suivante :   
 
@@ -109,7 +109,7 @@ Dans les deux cas, vous avez créé une version séparée par des virgules des d
 
 ### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Télécharger le jeu de données vers Machine Learning Studio (classique)
 
-Une fois les données converties au format CSV, vous devez les charger dans la version classique de Machine Learning Studio. 
+Une fois les données converties au format CSV, vous devez les charger sur Machine Learning Studio (classique). 
 
 1. Ouvrez la page d’accueil de Machine Learning Studio (classique) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -143,9 +143,9 @@ Vous pouvez gérer les jeux de données que vous avez téléchargés dans Studio
 
 Pour plus d’informations sur l’importation d’autres types de données dans une expérience, consultez [Importez vos données d’apprentissage dans Azure Machine Learning Studio (classique)](import-data.md).
 
-## <a name="create-an-experiment"></a>Création d'une expérience
+## <a name="create-an-experiment"></a>Créer une expérience
 
-L’étape suivante de ce didacticiel consiste à créer une expérience dans la version classique de Machine Learning Studio qui utilise le jeu de données que vous avez chargé.  
+L’étape suivante de ce tutoriel consiste à créer une expérience dans Machine Learning Studio (classique) qui utilise le jeu de données que vous avez chargé.  
 
 1. Dans Studio (classique), cliquez sur **+NOUVEAU** en bas de la fenêtre.
 1. Sélectionnez **EXPÉRIENCE**, puis sélectionnez « Expérience vide ». 
@@ -173,7 +173,7 @@ L’étape suivante de ce didacticiel consiste à créer une expérience dans la
 
 Vous pouvez afficher les 100 premières lignes des données et quelques informations statistiques sur l’ensemble du jeu de données : Cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et sélectionnez **Visualiser**.  
 
-Le fichier de données étant dépourvu d’en-têtes de colonne, la version classique de Studio a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
+Le fichier de données étant dépourvu d’en-têtes de colonne, Studio (classique) a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
 
 Vous pouvez ajouter des en-têtes de colonne en utilisant le module [Modifier les métadonnées][edit-metadata].
 
@@ -286,7 +286,7 @@ Vous devez répéter cette opération de réplication pour chaque sortie du modu
 Pour plus d’informations sur l'utilisation de scripts R dans vos expériences, consultez la page [Prolonger votre expérience avec R](extend-your-experiment-with-r.md).
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
@@ -297,7 +297,7 @@ Dans ce tutoriel, vous avez effectué les étapes suivantes :
 > [!div class="checklist"]
 > * Créer un espace de travail Machine Learning Studio (classique)
 > * Charger des données existantes dans l’espace de travail
-> * Création d'une expérience
+> * Créer une expérience
 
 Vous êtes maintenant prêt à entraîner et à évaluer des modèles pour ces données.
 

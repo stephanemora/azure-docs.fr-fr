@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et JIRA SAML SSO by Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6deeb224f8c70dabcf8c5a29e80e87414ea32657
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 7cd922d0e65da627f11e6aab3827cb848c3dd635
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561422"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560486"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft
 
 Dans ce tutoriel, vous allez apprendre à intégrer JIRA SAML SSO by Microsoft à Azure Active Directory (Azure AD). Quand vous intégrez JIRA SAML SSO by Microsoft à Azure AD, vous pouvez :
 
@@ -37,12 +37,12 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian JIRA pour activer l’authentification unique. Ainsi, tous les utilisateurs de votre organisation peuvent utiliser les informations d’identification Azure Active Directory pour se connecter à l’application JIRA. Ce plug-in utilise SAML 2.0 pour la fédération.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à JIRA SAML SSO by Microsoft, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-- JIRA Core et Software versions 6.4 à 8.0 ou JIRA Service Desk versions 3.0 à 3.5 doivent être installés et configurés dans Windows version 64 bits
+- JIRA Core et Software versions 6.4 à 8.5.1 ou JIRA Service Desk versions 3.0 à 4.6.0 doivent être installés et configurés dans Windows version 64 bits
 - L’activation du HTTPS dans le serveur JIRA
 - Notez que les versions prises en charge par le plug-in JIRA sont mentionnées dans la section ci-dessous.
 - L’accessibilité du serveur JIRA via Internet (particulièrement pour la page de connexion Azure AD pour l’authentification) et la capacité à recevoir le jeton d’Azure AD
@@ -61,7 +61,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 ## <a name="supported-versions-of-jira"></a>Versions de JIRA prises en charge
 
 * JIRA Core et Software : 6.4 à 8.5.1
-* JIRA Service Desk 3.0.0 à 4.5.1
+* JIRA Service Desk 3.0.0 à 4.6.0
 * JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](jira52microsoft-tutorial.md).
 
 > [!NOTE]
@@ -158,11 +158,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon1.png)
 
 3. Téléchargez le plug-in depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Chargez manuellement le plug-in fourni par Microsoft à l’aide du menu **Upload add-on** (Charger le module complémentaire). Le téléchargement du plug-in est couvert dans [Contrat de Services Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon12.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
 4. Pour exécuter le scénario de proxy inverse JIRA ou le scénario d’équilibreur de charge, procédez comme suit :
 
@@ -173,19 +173,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
     b. Modifiez l’**URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
 5. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon14.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Effectuez les opérations suivantes dans la page de configuration :
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon54.png)
+    ![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.

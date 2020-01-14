@@ -6,26 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: db0b5db98f654c140a640f10df2c22c22c85c848
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895321"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665289"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Configurer des clés gérées par le client avec Azure Key Vault à l’aide d’Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 Cet article explique comment configurer un coffre de clés Azure avec des clés gérées par le client à l’aide d’Azure CLI. Pour en savoir plus sur la création d’un coffre de clés à l’aide d’Azure CLI, consultez [Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](../../key-vault/quick-create-cli.md).
-
-> [!IMPORTANT]
-> Pour utiliser des clés gérées par le client avec le chiffrement Stockage Azure, deux propriétés doivent être configurées sur le coffre de clés, **Suppression réversible** et **Ne pas vider**. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez PowerShell ou Azure CLI.
-> Seules les clés RSA et la taille de clé 2048 sont prises en charge.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage
 
@@ -46,7 +42,7 @@ Pour plus d’informations sur la configuration d’identités managées affect�
 
 ## <a name="create-a-new-key-vault"></a>Créer un coffre de clés
 
-Le coffre de clés que vous utilisez pour stocker des clés gérées par le client pour le chiffrement du stockage Azure doit disposer de deux paramètres de protection de clés, **Suppression réversible** et **Ne pas vider**. Pour créer un coffre de clés à l’aide de PowerShell ou Azure CLI avec ces paramètres sont activés, exécutez les commandes suivantes. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs. 
+Le coffre de clés que vous utilisez pour stocker des clés gérées par le client pour le chiffrement du stockage Azure doit disposer de deux paramètres de protection de clés, **Suppression réversible** et **Ne pas vider**. Pour créer un coffre de clés à l’aide de PowerShell ou Azure CLI avec ces paramètres sont activés, exécutez les commandes suivantes. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 Pour créer un coffre de clés avec Azure CLI, appelez [az keyvault create](/cli/azure/keyvault#az-keyvault-create). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
@@ -58,6 +54,8 @@ az keyvault create \
     --enable-soft-delete \
     --enable-purge-protection
 ```
+
+Pour savoir comment activer les options **Suppression réversible** et les **Ne pas vider** sur un coffre de clés existant avec Azure CLI, consultez les sections intitulées **Activation de la suppression réversible** et **Activation de la protection contre le vidage** dans [Guide pratique pour utiliser la suppression réversible avec CLI](../../key-vault/key-vault-soft-delete-cli.md).
 
 ## <a name="configure-the-key-vault-access-policy"></a>Configurer la stratégie d’accès au coffre de clés
 
@@ -92,7 +90,7 @@ az keyvault key create
 
 Par défaut, le chiffrement du stockage Azure utilise des clés gérées par Microsoft. À cette étape, configurez votre compte de stockage Azure pour utiliser les clés gérées par le client et spécifiez la clé à lui associer.
 
-Pour mettre à jour les paramètres de chiffrement du compte de stockage, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update). Cet exemple exécute également une requête pour l’URI du coffre de clés et la dernière version de la clé, ces deux valeurs étant nécessaires pour associer la clé au compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
+Pour mettre à jour les paramètres de chiffrement du compte de stockage, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update), comme illustré dans l’exemple suivant. Incluez le paramètre `--encryption-key-source` et définissez-le sur `Microsoft.Keyvault` pour activer les clés gérées par le client pour le compte de stockage. L’exemple exécute également une requête pour l’URI du coffre de clés et la dernière version de la clé, ces deux valeurs étant nécessaires pour associer la clé au compte de stockage. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -105,7 +103,7 @@ key_version=$(az keyvault key list-versions \
     --vault-name <key-vault> \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
-az storage account update 
+az storage account update
     --name <storage-account> \
     --resource-group <resource_group> \
     --encryption-key-name <key> \
@@ -117,6 +115,21 @@ az storage account update
 ## <a name="update-the-key-version"></a>Mettre à jour la version de la clé
 
 Lors de la création d’une nouvelle version d’une clé, vous devez mettre à jour le compte de stockage afin qu’il utilise cette nouvelle version. Tout d’abord, lancez une requête pour l’URI du coffre de clés en appelant [az keyvault show](/cli/azure/keyvault#az-keyvault-show)et pour la version de la clé en appelant [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Appelez ensuite [az storage account update](/cli/azure/storage/account#az-storage-account-update) pour mettre à jour les paramètres de chiffrement du compte de stockage afin d’utiliser la nouvelle version de la clé, comme indiqué dans la section précédente.
+
+## <a name="use-a-different-key"></a>Utiliser une autre clé
+
+Pour modifier la clé utilisée pour le chiffrement de Stockage Azure, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update) comme indiqué dans [Configurer des clés de chiffrement gérées par le client](#configure-encryption-with-customer-managed-keys) et indiquez le nom et la version de la nouvelle clé. Si la nouvelle clé se trouve dans un coffre de clés différent, mettez également à jour l’URI du coffre de clés.
+
+## <a name="disable-customer-managed-keys"></a>Désactiver les clés gérées par le client
+
+Lorsque vous désactivez les clés gérées par le client, votre compte de stockage est chiffré avec des clés gérées par Microsoft. Pour désactiver les clés gérées par le client, appelez [az storage account update](/cli/azure/storage/account#az-storage-account-update) et définissez le `--encryption-key-source parameter` sur `Microsoft.Storage`, comme indiqué dans l’exemple suivant. N’oubliez pas de remplacer les valeurs de l’espace réservé entre crochets par vos propres valeurs et d’utiliser les variables définies dans les exemples précédents.
+
+```powershell
+az storage account update
+    --name <storage-account> \
+    --resource-group <resource_group> \
+    --encryption-key-source Microsoft.Storage
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

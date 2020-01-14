@@ -1,5 +1,5 @@
 ---
-title: Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD - Azure Active Directory
+title: Afficher les rapports et les journaux dans la gestion des droits d’utilisation - Azure AD
 description: Découvrez comment afficher le rapport d’affectations d’utilisateur et les journaux d’audit dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3302fc3b2513794cd66d1ebf6db2cbcdb0f713dd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422551"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Afficher les rapports et les journaux dans la gestion des droits d’utilisation Azure AD
 
@@ -101,9 +101,9 @@ Azure AD écrira des enregistrements d’audit supplémentaires lorsque la deman
 | `EntitlementManagement` | `Approve access package assignment request` | Demande approuvée |
 | `EntitlementManagement` | `Ready to fulfill access package assignment request` |Demande approuvée, ou ne nécessite pas d’approbation |
 
-Lorsqu’un utilisateur se voit affecté l’accès, Azure AD écrit un enregistrement d’audit pour la catégorie `EntitlementManagement` avec l’**activité** `Fulfill access package assignment`.  L’utilisateur qui a reçu l’accès est identifié par le champ **ActorUserPrincipalName**.
+Lorsqu’un utilisateur se voit affecter l’accès, Azure AD écrit un enregistrement d’audit pour la catégorie `EntitlementManagement` avec l’**activité** `Fulfill access package assignment`.  L’utilisateur qui a reçu l’accès est identifié par le champ **ActorUserPrincipalName**.
 
-Si l’accès n’a pas été affecté, Azure AD écrit un enregistrement d’audit pour la catégorie `EntitlementManagement` avec l’**activité** `Deny access package assignment request`, si la demande a été refusée par un approbateur, ou `Access package assignment request timed out (no approver action taken)`, si la demande a expiré avant l’approbation.
+Si l’accès n’a pas été affecté, Azure AD écrit un enregistrement d’audit pour la catégorie `EntitlementManagement` avec l’**activité**`Deny access package assignment request`, si la demande a été refusée par un approbateur, ou `Access package assignment request timed out (no approver action taken)`, si la demande a expiré avant l’approbation.
 
 Lorsque l’attribution du package d’accès d’un utilisateur expire, est annulé par l’utilisateur, ou supprimé par un administrateur, Azure AD écrit un enregistrement d’audit pour la catégorie `EntitlementManagement` avec l’**activité** de `Remove access package assignment`.
 

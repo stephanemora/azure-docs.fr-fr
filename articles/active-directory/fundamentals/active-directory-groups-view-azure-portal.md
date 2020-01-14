@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide pour afficher les membres et groupes – Azure Active Directory | Microsoft Docs
+title: 'Démarrage rapide : Afficher les membres et groupes - Azure AD'
 description: Instructions permettant de rechercher et d’afficher les groupes et membres assignés de votre organisation.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: d52c90db5414c39c4e916bbab19c43739d9ea904
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423016"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -29,7 +29,7 @@ Dans ce démarrage rapide, vous allez afficher tous les groupes existants de vot
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de débuter, vous avez besoin d’effectuer les opérations ci-après :
 
 - Créer un locataire Azure Active Directory. Pour plus d’informations, consultez [Quickstart: Access Azure Active Directory to create a new tenant](active-directory-access-create-new-tenant.md) (Démarrage rapide : Accéder à Azure Active Directory pour créer un locataire).
@@ -50,7 +50,7 @@ Créez un groupe nommé _MDM policy - West_ (Stratégie GPM - Ouest). Pour plus 
     
     - **Type d’appartenance :** Sélectionnez **Assigné**.
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-new-user"></a>Créer un utilisateur
 Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d’être ajouté comme membre du groupe. Consultez d’abord l’onglet « Noms de domaine personnalisés » pour connaître le nom de domaine vérifié dans lequel créer des utilisateurs. Pour plus d’informations sur la création d’un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](add-users-azure-active-directory.md).
@@ -61,7 +61,7 @@ Créez un utilisateur nommé _Alain Charon_. Un utilisateur doit exister avant d
 
     - **Nom :** Tapez _Alain Charon_.
 
-    - **Nom d’utilisateur :** Tapez *alain\@contoso.com*.
+    - **Nom d'utilisateur :** Tapez *alain\@contoso.com*.
 
 3. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**, puis sélectionnez **Créer**.
 
@@ -72,7 +72,7 @@ Maintenant que vous avez un groupe et un utilisateur, vous pouvez ajouter _Alain
 
 2. Sur la page **Groups - All groups** (Groupes - Tous les groupes), recherchez le groupe **MDM policy - West** (Stratégie GPM - Ouest) et sélectionnez-le.
 
-3. Sur la page **MDM policy - West Overview** (Vue d’ensemble de la stratégie GPM - Ouest), sélectionnez **Membres** dans la zone **Gérer**.
+3. Sur la page **Vue d’ensemble de la stratégie GPM - Ouest**, sélectionnez **Membres** dans la zone **Gérer**.
 
 4. Sélectionnez **Ajouter des membres**, puis recherchez et sélectionnez **Alain Charon**.
 
@@ -109,7 +109,7 @@ Maintenant que vous avez trouvé le groupe, vous pouvez afficher tous les membre
 
     ![Liste des membres assignés au groupe MDM policy – West (Stratégie GPM - Ouest)](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Ce groupe est utilisé dans plusieurs procédures qui sont disponibles dans la section **Guides pratiques** de cette documentation. Toutefois, si vous préférez ne pas utiliser ce groupe, vous pouvez le supprimer, ainsi que ses membres assignés, en suivant les étapes ci-après :
 
 1. Sur la page **Groups - All groups** (Groupes - Tous les groupes), recherchez le groupe **MDM policy - West** (Stratégie GPM - Ouest).

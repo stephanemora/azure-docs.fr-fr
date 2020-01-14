@@ -1,38 +1,71 @@
 ---
 title: Vue d’ensemble des machines virtuelles Linux dans Azure
-description: Décrit les services de calcul, de stockage et de mise en réseau Azure à l’aide de machines virtuelles Linux.
+description: Vue d’ensemble des machines virtuelles Linux dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: rickstercdn
+author: cynthn
 manager: gwallace
-editor: ''
-ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/29/2017
-ms.author: rclaus
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.date: 11/14/2019
+ms.author: cynthn
+ms.custom: mvc
+ms.openlocfilehash: 46a1198b4052cb8663c60e53e8c2b965f78af948
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035355"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644288"
 ---
-# <a name="azure-and-linux"></a>Azure et Linux
-Microsoft Azure propose une collection croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
+# <a name="linux-virtual-machines-in-azure"></a>Machines virtuelles Linux dans Azure
 
-Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document de mappage de définition](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)Azure vs AWS.
+Les Machines Virtuelles Azure sont l’un des nombreux types de [ressources informatiques évolutives et à la demande](/azure/architecture/guide/technology-choices/compute-decision-tree) proposés par Azure. En règle générale, une machine virtuelle est mieux adaptée à vos besoins si vous devez surtout améliorer le contrôle de votre environnement informatique. Cet article vous informe sur les points à prendre en compte avant de créer une machine virtuelle, sur sa création et sur sa gestion.
 
-## <a name="regions"></a>Régions
-Les ressources Microsoft Azure sont réparties sur plusieurs régions géographiques dans le monde.  Une « région » représente plusieurs centres de données au sein d’une seule zone géographique. Azure possède actuellement (août 2018) 42 régions généralement disponibles dans le monde avec 12 autres régions prévues, soit plus de régions que n’importe quel autre fournisseur cloud. Une liste mise à jour des régions existantes et récemment annoncées est disponible à la page suivante :
+Une machine virtuelle Azure vous donne la flexibilité de la virtualisation sans que vous ayez à acheter le matériel physique qui exécute la machine virtuelle ni à en assurer la maintenance. Toutefois, vous devez toujours assurer la maintenance de la machine virtuelle en effectuant des tâches comme la configuration, la mise à jour corrective et l’installation des logiciels qui s’exécutent dessus.
 
-* [Régions Azure](https://azure.microsoft.com/regions/)
+Les Machines Virtuelles Azure peuvent être utilisées de différentes manières. Quelques exemples :
+
+* **Développement et test** : les machines virtuelles Azure permettent de créer rapidement et facilement un ordinateur avec des configurations spécifiques requises pour encoder et tester une application.
+* **Applications dans le cloud** : la demande de votre application étant susceptible de fluctuer, il peut être économique de l’exécuter sur une machine virtuelle dans Azure. Vous payez pour des machines virtuelles supplémentaires lorsque vous en avez besoin et vous les arrêtez le reste du temps.
+* **Centre de données étendu** : les machines virtuelles au sein d’un réseau virtuel Azure peuvent être facilement connectées au réseau de votre organisation.
+
+Le nombre de machines virtuelles utilisées par votre application peut varier (montée en puissance et augmentation de la charge) pour répondre à vos besoins.
+
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>À quoi dois-je penser avant de créer une machine virtuelle ?
+Il existe toujours une multitude de [considérations liées à la conception](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) lorsque vous générez une infrastructure d’application dans Azure. Il est important de réfléchir à ces aspects des machines virtuelles avant de commencer :
+
+* le nom de vos ressources d’application,
+* l’emplacement de stockage des ressources,
+* la taille de la machine virtuelle,
+* le nombre maximal de machines virtuelles qui peuvent être créées,
+* le système d’exploitation de la machine virtuelle,
+* la configuration de la machine virtuelle après son démarrage
+* et les ressources liées dont a besoin la machine virtuelle.
+
+### <a name="locations"></a>Emplacements
+Toutes les ressources créées dans Azure sont réparties sur plusieurs [régions géographiques](https://azure.microsoft.com/regions/) dans le monde. En règle générale, la région est appelée **emplacement** lorsque vous créez une machine virtuelle. Pour une machine virtuelle, l’emplacement spécifie l’endroit où les disques durs virtuels sont stockés.
+
+Ce tableau présente quelques moyens d’obtenir la liste des emplacements disponibles.
+
+| Méthode | Description |
+| --- | --- |
+| Portail Azure |Sélectionnez un emplacement dans la liste lorsque vous créez une machine virtuelle. |
+| Azure PowerShell |Utilisez la commande [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
+| API REST |Utilisez l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions). |
+| Azure CLI |Utilisez l’opération [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Disponibilité
 Azure a annoncé un contrat de niveau de service de pointe pour machine virtuelle à instance unique de 99,9 % à condition de déployer la machine virtuelle avec le stockage premium pour tous les disques.  Afin que votre déploiement puisse bénéficier du contrat de niveau de service standard de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Un groupe à haute disponibilité assure que vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans les centres de données Azure et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
+
+## <a name="vm-size"></a>Taille de la machine virtuelle
+La [taille](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
+
+Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
+
+## <a name="vm-limits"></a>Limites des machines virtuelles
+Votre abonnement comporte des [limites de quota](../../azure-resource-manager/management/azure-subscription-service-limits.md) par défaut qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement. Les limites peuvent être augmentées en [soumettant un ticket de support demandant leur hausse](../../azure-supportability/resource-manager-core-quotas-request.md).
 
 ## <a name="managed-disks"></a>Disques managés
 
@@ -40,34 +73,11 @@ La fonctionnalité Disques managés se charge de la création et de la gestion d
 
 Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur la fonctionnalité Disques managés, consultez [Vue d’ensemble de la fonctionnalité Disques managés](../linux/managed-disks-overview.md).
 
-## <a name="azure-virtual-machines--instances"></a>Machines virtuelles et instances Azure
+## <a name="distributions"></a>Distributions 
 Microsoft Azure prend en charge un certain nombre de distributions Linux populaires fournies et gérées par plusieurs partenaires.  Vous pouvez trouver des distributions comme Red Hat Enterprise, CentOS, SUSE Linux Enterprise, Debian, Ubuntu, CoreOS, RancherOS, FreeBSD et plus encore dans la Place de marché Microsoft Azure. Microsoft travaille activement avec différentes communautés Linux pour enrichir davantage la liste des [distributions Linux approuvées par Azure](endorsed-distros.md).
 
 Si votre distribution Linux préférée n’est pas présente dans la galerie, vous pouvez « apporter votre propre machine virtuelle Linux » en [créant et chargeant un disque dur virtuel dans Azure](create-upload-generic.md).
 
-Les machines virtuelles Azure vous permettent de déployer un large éventail de solutions informatiques et ce, en toute flexibilité. Vous pouvez déployer pratiquement toute charge de travail et tout langage sur presque n’importe quel système d’exploitation : Windows, Linux ou un système personnalisé créé à partir de l’un des nombreux partenaires. Vous ne trouvez toujours pas ce que vous cherchez ?  Ne vous inquiétez pas, vous pouvez également ajouter vos propres images en local.
-
-## <a name="vm-sizes"></a>Tailles de machine virtuelle
-La [taille](sizes.md) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
-
-Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
-
-## <a name="automation"></a>Automatisation
-Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être du code.  Lorsque l’ensemble de l’infrastructure se trouve dans le code, elle est facile à recréer (serveurs Phoenix).  Azure fonctionne avec tous les principaux outils d’automatisation, comme Ansible, Chef, SaltStack et Puppet.  Azure propose également ses propres outils pour l’automatisation :
-
-* [Modèles Azure](create-ssh-secured-vm-from-template.md)
-* [Azure VMAccess](using-vmaccess-extension.md)
-
-Azure déploie la prise en charge de [cloud-init](https://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Actuellement, les machines virtuelles Ubuntu de Canonical sont déployées avec cloud-init activé par défaut.  Fedora, CentOS et Red Hat’s RHEL prennent en charge cloud-init, mais les images Azure maintenues par Red Hat ne disposent actuellement pas de cloud-init installé.  Pour utiliser cloud-init sur un système d’exploitation de la famille Red Hat, vous devez créer une image personnalisée avec cloud-init installé.
-
-* [À l’aide de cloud-init sur les machines virtuelles Linux Azure](using-cloud-init.md)
-
-## <a name="quotas"></a>Quotas
-Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement.  Les limites de quota peuvent être augmentées rapidement et facilement en soumettant un ticket de support demandant leur hausse.  Pour plus d’informations sur les limites de quota :
-
-* [Limites du service d’abonnement Azure](../../azure-subscription-service-limits.md)
-
-## <a name="partners"></a>Partenaires
 Microsoft travaille en étroite collaboration avec des partenaires afin de garantir que les images disponibles sont mises à jour et optimisées pour un runtime Azure.  Pour plus d’informations sur les partenaires Azure, consultez les liens suivants :
 
 * Linux sur Azure : [Distributions approuvées](endorsed-distros.md)
@@ -83,36 +93,32 @@ Microsoft travaille en étroite collaboration avec des partenaires afin de garan
 * Docker - [Place de marché Azure - Azure Container Service avec Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins - [Place de marché Azure - CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
-## <a name="getting-started-with-linux-on-azure"></a>Bien démarrer avec Linux sur Azure
-Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’interface de ligne de commande Azure installée et d’une paire de clés SSH (publique et privée).
+## <a name="vm-sizes"></a>Tailles de machine virtuelle
+La [taille](sizes.md) de la machine virtuelle que vous utilisez est déterminée par la charge de travail que vous souhaitez exécuter. La taille que vous choisissez détermine ensuite des facteurs comme la puissance de traitement, la mémoire et la capacité de stockage. Azure propose différentes tailles vous permettant de prendre en charge de nombreux types d'utilisation.
 
-### <a name="sign-up-for-an-account"></a>Inscrivez-vous pour obtenir un compte
-La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
+Azure facture un [prix horaire](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) en fonction de la taille et du système d’exploitation de la machine virtuelle. Pour les heures partielles, Azure facture uniquement les minutes utilisées. Le stockage est facturé séparément.
 
-### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI](/cli/azure/install-azure-cli) sur votre station de travail Mac ou Linux.
+## <a name="cloud-init"></a>Cloud-Init 
 
-### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
-Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](mac-create-ssh-keys.md) pour activer les connexions sans mot de passe et améliorer la sécurité.
+Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être du code.  Lorsque l’ensemble de l’infrastructure se trouve dans le code, elle est facile à recréer.  Azure fonctionne avec tous les principaux outils d’automatisation, comme Ansible, Chef, SaltStack et Puppet.  Azure propose également ses propres outils pour l’automatisation :
 
-### <a name="create-a-vm-using-the-cli"></a>Créer une machine virtuelle à l’aide de l’interface de ligne de commande
-La création d’une machine virtuelle Linux à l’aide de l’interface de ligne de commande est un moyen rapide de déployer une machine virtuelle sans quitter le terminal que vous utilisez.  Tout ce que vous pouvez spécifier sur le portail web est disponible via un commutateur ou un indicateur de ligne de commande.  
+* [Les modèles Azure](create-ssh-secured-vm-from-template.md)
+* [Azure VMAccess](using-vmaccess-extension.md)
 
-* [Créer une machine virtuelle Linux à l’aide de l’interface de ligne de commande](quick-create-cli.md)
+Azure prend en charge [cloud-init](https://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettent à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques.
 
-### <a name="create-a-vm-in-the-portal"></a>Créer une machine virtuelle dans le portail
-La création d’une machine virtuelle sur le portail web Azure consiste à facilement définir les différentes options à l’aide de la souris pour accéder à un déploiement.  Au lieu d’utiliser des indicateurs de ligne de commande ou des commutateurs, vous pouvez afficher une belle disposition d’options et de paramètres.  Tous les éléments disponibles au moyen de l’interface de ligne de commande sont également disponibles sur le portail.
+* [À l’aide de cloud-init sur les machines virtuelles Linux Azure](using-cloud-init.md)
 
-* [Créer une machine virtuelle Linux à l’aide du portail](quick-create-portal.md)
+## <a name="quotas"></a>Quotas
+Chaque abonnement Azure comporte des limites de quota qui peuvent avoir un impact négatif sur le déploiement d’un grand nombre de machines virtuelles pour votre projet. La limite est de 20 machines virtuelles par région et par abonnement.  Les limites de quota peuvent être augmentées rapidement et facilement en soumettant un ticket de support demandant leur hausse.  Pour plus d’informations sur les limites de quota :
 
-### <a name="log-in-using-ssh-without-a-password"></a>Connexion avec SSH sans mot de passe
-La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vous connecter.  L’utilisation de mots de passe pour vous connecter via le protocole SSH est peu sûre et prend du temps.  L’utilisation de clés SSH est la méthode la plus sûre et la plus rapide pour vous connecter.  Lorsque vous créez vos machines virtuelles Linux via le portail ou l’interface de ligne de commande, vous avez deux possibilités pour l’authentification.  Si vous choisissez un mot de passe pour SSH, Azure configure la machine virtuelle pour autoriser les connexions via les mots de passe.  Si vous choisissez d’utiliser une clé publique SSH, Azure configure la machine virtuelle pour autoriser uniquement les connexions via les clés SSH et désactive les connexions de mot de passe. Pour sécuriser votre machine virtuelle Linux en autorisant uniquement les connexions par clé SSH, utilisez l’option de clé SSH publique lors de la création de machines virtuelles sur le portail ou dans l’interface de ligne de commande.
+* [Limites du service d’abonnement Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
-## <a name="related-azure-components"></a>Composants Azure connexes
+
 ## <a name="storage"></a>Stockage
-* [Introduction à Stockage Microsoft Azure](../../storage/common/storage-introduction.md)
+* [Introduction à Microsoft Azure Storage](../../storage/common/storage-introduction.md)
 * [Ajouter un disque à une machine virtuelle Linux avec l’interface de ligne de commande Azure](add-disk.md)
-* [Attacher un disque de données à une machine virtuelle Linux dans le Portail Azure](attach-disk-portal.md)
+* [Attachement d’un disque de données à une machine virtuelle Linux dans le portail Azure](attach-disk-portal.md)
 
 ## <a name="networking"></a>Mise en réseau
 * [Présentation du réseau virtuel.](../../virtual-network/virtual-networks-overview.md)
@@ -120,12 +126,12 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 * [Ouverture de ports sur une machine virtuelle Linux dans Azure](nsg-quickstart.md)
 * [Créer un nom de domaine complet dans le portail Azure](portal-create-fqdn.md)
 
-## <a name="containers"></a>Containers
-* [Machines virtuelles et conteneurs dans Azure](containers.md)
-* [Présentation d’Azure Container Service](../../container-service/container-service-intro.md)
-* [Déploiement d’un cluster Azure Container Service](../../container-service/dcos-swarm/container-service-deployment.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous avez maintenant une vue d’ensemble de Linux sur Azure.  L’étape suivante consiste à aller plus loin et créer quelques machines virtuelles.
 
-* [Explorez la liste croissante d’exemples de scripts pour les tâches courantes via AzureCLI](cli-samples.md)
+Créer votre première machine virtuelle
+
+- [Portail](quick-create-portal.md)
+- [Azure CLI](quick-create-cli.md)
+- [PowerShell](quick-create-powershell.md)
+

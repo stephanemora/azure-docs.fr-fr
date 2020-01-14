@@ -1,5 +1,5 @@
 ---
-title: Présentation des rôles d'administrateur de facturation dans le cadre des Contrats client Microsoft - Azure
+title: Rôles de facturation pour des Contrats clients Microsoft - Azure
 description: Découvrez-en plus sur les rôles de facturation des comptes de facturation Azure dans le cadre des Contrats client Microsoft.
 author: amberbhargava
 manager: amberbhargava
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f143297ce3a3e41174cbd6cf59ca3df29f8ebc63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3949d2a70d29f2bfa33596ef2c47f45e1c87c2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223524"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388152"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft
 
 Pour gérer votre compte de facturation dans le cadre d'un Contrat client Microsoft, utilisez les rôles décrits dans les sections suivantes. Ces rôles s'ajoutent aux rôles intégrés dont Azure doit contrôler l'accès aux ressources. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md).
 
-Cet article s'applique à un compte de facturation associé à un Contrat client Microsoft. Vérifiez que vous avez accès à un Contrat client Microsoft.
+Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. Vérifiez que vous avez accès à un Contrat client Microsoft.
 
 ## <a name="billing-role-definitions"></a>Définitions des rôles de facturation
 
@@ -38,7 +38,7 @@ Le tableau suivant décrit les rôles de facturation que vous utilisez pour gér
 |Gestionnaire de factures|Consulter et payer les factures pour le profil de facturation|
 |Propriétaire de section de facture|Gérer tout le contenu de la section de facture|
 |Contributeur de section de facture|Gérer tout le contenu de la section de facture, à l'exception des autorisations|
-|Lecteur de section de facture|Affichage en lecture seule de tout ce qui se trouve sur la section de facture|
+|Lecteur de section de facture|Affichage en lecture seule de tout le contenu de la section de facture|
 |Créateur de l'abonnement Azure|Créer des abonnements Azure|
 
 ## <a name="billing-account-roles-and-tasks"></a>Rôles et tâches liés au compte de facturation
@@ -180,7 +180,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
 ## <a name="manage-billing-roles-in-the-azure-portal"></a>Gérer les rôles de facturation sur le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -192,7 +192,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
    ![Capture d'écran présentant la liste des administrateurs du compte de facturation](./media/billing-understand-mca-roles/billing-list-admins.png)
 
-5. Pour accorder l'accès à un utilisateur, sélectionnez **Ajouter** en haut de la page. Dans la liste déroulante Rôle, sélectionnez un rôle. Entrez l'adresse e-mail de l'utilisateur auquel vous souhaitez accorder l'accès. Sélectionnez **Enregistrer** pour attribuer le rôle.
+5. Pour accorder l'accès à un utilisateur, sélectionnez **Ajouter** en haut de la page. Dans la liste déroulante Rôle, sélectionnez un rôle. Entrez l’adresse e-mail de l’utilisateur auquel vous souhaitez accorder l’accès. Sélectionnez **Enregistrer** pour attribuer le rôle.
 
    ![Capture d'écran illustrant l'ajout d'un administrateur à un compte de facturation](./media/billing-understand-mca-roles/billing-add-admin.png)
 
@@ -200,7 +200,7 @@ Les tableaux suivants indiquent le rôle dont vous avez besoin pour accomplir de
 
    ![Capture d'écran illustrant la suppression d'un administrateur d'un compte de facturation](./media/billing-understand-mca-roles/billing-remove-admin.png)
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un Contrat client Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

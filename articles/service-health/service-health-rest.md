@@ -1,18 +1,15 @@
 ---
 title: Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST | Microsoft Docs
 description: Utilisez l’API REST Azure pour obtenir les événements d’intégrité de vos ressources Azure.
-author: stephbaron
-ms.author: stbaron
-ms.service: service-health
 ms.custom: REST
 ms.topic: article
 ms.date: 06/06/2017
-ms.openlocfilehash: 6d83aed6910127ceb34b9a694f48ca9c19ab6d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790910"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451390"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>Obtenir des événements d’intégrité des ressources Azure à l’aide de l’API REST 
 
@@ -34,12 +31,12 @@ Les en-têtes suivants sont requis :
 
 |En-tête de requête|Description|  
 |--------------------|-----------------|  
-|*Content-Type :*|Requis. Défini sur `application/json`.|  
-|*Authorization :*|Requis. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
+|*Content-Type :*|Obligatoire. Défini sur `application/json`.|  
+|*Authorization :*|Obligatoire. Défini sur un [jeton d’accès](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |  
 
 ### <a name="uri-parameters"></a>Paramètres URI
 
-| Nom | Description |
+| Name | Description |
 | :--- | :---------- |
 | subscriptionId | L’ID d’abonnement d’un abonnement Azure. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | Version de l’API à utiliser pour la requête.<br /><br /> Ce document aborde la version d’API `2015-04-01`, incluse dans l’URL ci-dessus.  |

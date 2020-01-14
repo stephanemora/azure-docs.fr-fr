@@ -1,14 +1,14 @@
 ---
 title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
-ms.date: 05/22/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3b5b67dbf1fad5c74570c4bf70401df1a5ed943f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436553"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 
@@ -64,11 +64,9 @@ Pour supprimer un groupe d’administration, les conditions suivantes doivent ê
 
 1. Le groupe d’administration ne contient pas de groupes d’administration enfants ni d’abonnements.
 
-   - Pour déplacer un abonnement en dehors d’un groupe d’administration, consultez [Déplacer un abonnement vers un autre groupe d’administration](#move-subscriptions-in-the-hierarchy).
+   - Pour déplacer un abonnement ou groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration et des abonnements dans la hiérarchie](#moving-management-groups-and-subscriptions).
 
-   - Pour déplacer un groupe d’administration vers un autre groupe d’administration, consultez [Déplacer des groupes d’administration dans la hiérarchie](#move-management-groups-in-the-hierarchy).
-
-1. Vous avez des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).  
+1. Vous devez disposer des autorisations en écriture sur le groupe d'administration (« Propriétaire », « Contributeur » ou « Contributeur du groupe d’administration »). Pour connaître vos autorisations, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Supprimer dans le portail
 
@@ -194,25 +192,31 @@ Pour renvoyer un groupe d’administration spécifique et tous ses niveaux de hi
 az account management-group show --name 'Contoso' -e -r
 ```
 
-## <a name="move-subscriptions-in-the-hierarchy"></a>Déplacer des abonnements dans la hiérarchie
+## <a name="moving-management-groups-and-subscriptions"></a>Déplacement des groupes d’administration et des abonnements   
 
 L’une des raisons de créer un groupe d’administration est de regrouper des abonnements. Seuls les groupes d’administration et les abonnements peuvent être enfants d’un autre groupe d’administration. Un abonnement déplacé vers un groupe d’administration hérite de toutes les stratégies et de tous les accès utilisateur du groupe d’administration parent.
 
-Pour déplacer l’abonnement, toutes les autorisations RBAC suivantes doivent définies sur true :
+Lors du déplacement d'un abonnement ou groupe d’administration en tant qu'enfant d’un autre groupe d’administration, trois règles sont à prendre en compte.
 
-- Rôle de « propriétaire » sur l’abonnement enfant.
-- Rôle de « propriétaire », « contributeur » ou « contributeur du groupe d’administration » sur le groupe d'administration parent cible.
-- Rôle de « propriétaire », « contributeur » ou « contributeur du groupe d’administration » sur le groupe d'administration parent existant.
+Pour effectuer le déplacement, vous devez avoir : 
 
-Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
+-  Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
+    - Un rôle intégré, par exemple, **Propriétaire**
+- L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
+    - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+- L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.
+    - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
 
-Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur.
+**Exception** : Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
+
+Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur. 
 
 Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe d’administration, puis sélectionnez **IAM**. Pour en savoir plus sur les rôles RBAC, consultez [Gérer l’accès et les autorisations avec le contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/overview.md).
 
-### <a name="move-subscriptions-in-the-portal"></a>Déplacer des abonnements dans le portail
 
-#### <a name="add-an-existing-subscription-to-a-management-group"></a>Ajouter un abonnement existant à un groupe d’administration
+## <a name="move-subscriptions"></a>Déplacer des abonnements 
+
+#### <a name="add-an-existing-subscription-to-a-management-group-in-the-portal"></a>Ajouter un abonnement existant à un groupe d’administration dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -228,7 +232,7 @@ Pour connaître vos autorisations dans le portail Azure, sélectionnez le groupe
 
 1. Sélectionnez « Enregistrer ».
 
-#### <a name="remove-a-subscription-from-a-management-group"></a>Supprimer un abonnement d’un groupe d’administration
+#### <a name="remove-a-subscription-from-a-management-group-in-the-portal"></a>Supprimer un abonnement d’un groupe d’administration dans le portail
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -276,9 +280,7 @@ Pour supprimer l’abonnement du groupe d’administration, utilisez la commande
 az account management-group subscription remove --name 'Contoso' --subscription '12345678-1234-1234-1234-123456789012'
 ```
 
-## <a name="move-management-groups-in-the-hierarchy"></a>Déplacer des groupes d’administration dans la hiérarchie  
-
-Lorsque vous déplacez un groupe d’administration parent, la hiérarchie située sous ce groupe se déplace avec lui. Pour plus d'informations sur l'accès dont vous avez besoin pour déplacer des groupes d’administration, consultez [Accès aux groupes d’administration](overview.md#management-group-access).
+## <a name="move-management-groups"></a>Déplacer des groupes d’administration 
 
 ### <a name="move-management-groups-in-the-portal"></a>Déplacer des groupes d’administration dans le portail
 

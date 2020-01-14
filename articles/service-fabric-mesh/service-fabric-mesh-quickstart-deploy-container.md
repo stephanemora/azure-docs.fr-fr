@@ -1,20 +1,16 @@
 ---
-title: 'Démarrage rapide : Déployer Hello World vers Azure Service Fabric Mesh | Microsoft Docs'
+title: 'Démarrage rapide : Déployer Hello World sur Azure Service Fabric Mesh'
 description: Ce démarrage rapide montre comment déployer une application Service Fabric Mesh vers Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: N’ajoutez pas ou ne modifiez pas de mots clés sans consulter votre expert SEO.
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce897b6e0e9d6a0b9b672907a64f4683f907b677
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458961"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Démarrage rapide : Déployer Hello World dans Service Fabric Mesh
 
@@ -95,9 +91,9 @@ Examinez les journaux d’activité de l’application déployée en utilisant l
 az mesh code-package-log get --resource-group myResourceGroup --application-name helloWorldApp --service-name helloWorldService --replica-name 0 --code-package-name helloWorldCode
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous êtes prêt à supprimer l’application, exécutez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources ainsi que les ressources réseau et l’application qu’il contient.
+Quand vous êtes prêt à supprimer l’application, exécutez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources ainsi que les ressources réseau et l’application qu’il contient.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

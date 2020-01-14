@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un compte d’API Cassandra à l’aide d’une application Java - Azure Cosmos DB'
+title: 'Tutoriel : Générer une application Java pour créer un compte d’API Cassandra Azure Cosmos DB'
 description: Ce didacticiel montre comment créer un compte d’API Cassandra, et ajouter une base de données (également appelée « espace de clés ») et une table à ce compte avec une application Java.
 author: kanshiG
 ms.author: govindk
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: d2d4d568f53c426b063f3285cc8d3d510c3db440
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b0103f7b827de77c522f78000c8d28683ac85f4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441896"
 ---
-# <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutoriel : Créer un compte d’API Cassandra dans Azure Cosmos DB avec une application Java pour stocker des données de clé/valeur
+# <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutoriel : Créer un compte d’API Cassandra dans Azure Cosmos DB avec une application Java pour stocker des données de clé/valeur
 
 En tant que développeur, vous pouvez avoir des applications qui utilisent des paires clé/valeur. Vous pouvez utiliser un compte d’API Cassandra dans Azure Cosmos DB pour stocker les données de clé/valeur. Ce tutoriel explique comment utiliser une application Java pour créer un compte d’API Cassandra dans Azure Cosmos DB et ajouter une base de données (également appelée « espace de clés ») et une table. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) pour créer une base de données utilisateur qui contient des détails comme l’ID d’utilisateur, le nom d’utilisateur et la localité de l’utilisateur.  
 
@@ -28,9 +28,9 @@ Ce tutoriel décrit les tâches suivantes :
 > * Obtenir la chaîne de connexion du compte
 > * Créer un projet Maven et des dépendances
 > * Ajouter une base de données et une table
-> * Exécution de l'application
+> * Exécuter l’application
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer. 
 
@@ -41,7 +41,7 @@ Ce tutoriel décrit les tâches suivantes :
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/). 
 
 2. Sélectionnez **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**. 
 
@@ -204,7 +204,7 @@ Cette section décrit comment ajouter une base de données (espace de clés) et 
    } 
    ```
  
-## <a name="run-the-app"></a>Exécution de l'application 
+## <a name="run-the-app"></a>Exécuter l’application 
 
 1. Ouvrez une invite de commandes ou une fenêtre de terminal. Collez le bloc de code suivant. 
 

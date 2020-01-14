@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Tutoriel sur l’entité composite - LUIS'
+title: 'Tutoriel : Tutoriel sur l’entité composite - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Ajoutez une entité composite pour regrouper les données extraites de différents types dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
+description: Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0e72563f366330f841d1a61ed67956b6314c769a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f2b2c3f52610cd9fae0845b15aebf032a088000b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447944"
 ---
-# <a name="tutorial-group-and-extract-related-data"></a>Didacticiel : Regrouper et extraire les données associées
+# <a name="tutorial-group-and-extract-related-data"></a>Tutoriel : Regrouper et extraire les données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
 
 L’objectif de l’entité composite est de regrouper des entités connexes dans une entité de catégorie parente. Les informations existent en tant qu’entités distinctes avant la création d’un composite.
@@ -28,8 +28,6 @@ Elle est adaptée à ce type de données, car les données :
 * Sont associées.
 * Utilisent divers types d’entités.
 * Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
-
-[!INCLUDE [Only valid with current portal](includes/old-portal-only.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -46,9 +44,10 @@ Elle est adaptée à ce type de données, car les données :
 
 ## <a name="import-example-app"></a>Importer l’exemple d’application
 
-1.  Téléchargez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) à partir du tutoriel d’entité de liste et enregistrez-le.
+1.  Téléchargez le [fichier JSON de l’application](
+https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json?raw=true) à partir du tutoriel d’entité de liste et enregistrez-le.
 
-2. Importez le code JSON dans une nouvelle application.
+2. Importez le fichier JSON dans une nouvelle application à partir du [portail LUIS](https://www.luis.ai).
 
 3. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `composite`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
@@ -187,7 +186,7 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
    Cet énoncé retourne un tableau d’entités composites. Chaque entité se voit attribuer un type et une valeur. Pour une plus grande précision de chaque entité enfant, utilisez la combinaison de type et de valeur de l’élément de tableau composite pour trouver l’élément correspondant dans le tableau d’entités.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

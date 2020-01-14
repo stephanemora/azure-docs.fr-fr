@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aea9fbb14d3892419af104c44c8bfd5528eef421
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6da6bffbc54bfa6e9c39ddace665eb7cfec58614
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021930"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638661"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>API Microsoft Graph pour Privileged Identity Management (préversion)
 
@@ -29,6 +29,8 @@ Pour plus d’informations sur les API Microsoft Graph, consultez la [référenc
 
 > [!IMPORTANT]
 > Les API sous la version /beta dans Microsoft Graph sont en préversion et susceptibles de changer. L’utilisation de ces API dans les applications de production n’est pas prise en charge.
+>
+> Bien que toutes les opérations PIM soient prises en charge par le biais des commandes de notre API Graph, nous utilisons un système différent pour approuver les demandes d’activation. L’API Graph pour les approbations est en cours de développement et sera lancée dans les prochains mois.
 
 ## <a name="required-permissions"></a>Autorisations requises
 

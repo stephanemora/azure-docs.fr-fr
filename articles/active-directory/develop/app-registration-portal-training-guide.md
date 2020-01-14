@@ -1,5 +1,5 @@
 ---
-title: Transition du portail des inscriptions d’applications à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
+title: Nouvelle expérience d’inscription d’applications dans le portail Azure
 titleSuffix: Microsoft identity platform
 description: Présentation de la nouvelle expérience d’inscription d’application dans le portail Azure
 services: active-directory
@@ -14,27 +14,27 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93af32e99e725a72c20c05690b2a96c74082e2ff
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2f7ed8902da40dc7b5783ebb116a6c993bbbba5b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844514"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424655"
 ---
-# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transition du portail des inscriptions d’applications à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
+# <a name="the-new-azure-portal-app-registration-experience"></a>La nouvelle expérience d’inscription d’applications dans le Portail Azure
 
 La nouvelle expérience relative aux [inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le portail Azure a été considérablement améliorée. Si vous êtes plus à l’aise avec l’expérience liée au portail d’inscription d’applications (apps.dev.microsoft.com) pour l’inscription ou la gestion d’applications convergées, qu’on appelle l’ancienne expérience, ce guide de formation vous permet de commencer à utiliser la nouvelle expérience.
 
 ## <a name="whats-not-changing"></a>Ce qui ne change pas
 
--   Vos applications et les configurations associées peuvent être trouvées telles quelles dans la nouvelle expérience. Vous n’avez pas besoin de réinscrire les applications et les utilisateurs de vos applications n’ont pas besoin de se reconnecter.
+- Vos applications et les configurations associées peuvent être trouvées telles quelles dans la nouvelle expérience. Vous n’avez pas besoin de réinscrire les applications et les utilisateurs de vos applications n’ont pas besoin de se reconnecter.
 
     > [!NOTE]
     > Vous devez vous connecter avec le compte que vous avez utilisé pour inscrire des applications afin de les trouver dans le portail Azure. Nous vous recommandons de vérifier que l’utilisateur connecté dans le portail Azure correspond à l’utilisateur qui était connecté au portail d’inscription d’applications en comparant l’adresse e-mail issue de votre profil.
     > 
     > Dans certains cas, en particulier lorsque vous vous connectez à l’aide de comptes Microsoft personnels (par exemple, Outlook, Live, Xbox, etc.) avec une adresse e-mail Azure AD, nous avons découvert que lorsque vous accédez au portail Azure à partir de l’ancienne expérience, vous êtes connecté à un compte différent avec la même adresse e-mail que celle dans votre locataire Azure AD. Si vous pensez toujours que vos applications sont manquantes, déconnectez-vous et connectez-vous avec le compte approprié.
 
--   Les applications SDK Live créées à l’aide de comptes Microsoft personnels ne sont pas encore prises en charge dans le portail Azure et seront conservées dans l’ancienne expérience pour le moment.
+- Les applications SDK Live créées à l’aide de comptes Microsoft personnels ne sont pas encore prises en charge dans le portail Azure et seront conservées dans l’ancienne expérience pour le moment.
 
 ## <a name="key-changes"></a>Principales modifications
 

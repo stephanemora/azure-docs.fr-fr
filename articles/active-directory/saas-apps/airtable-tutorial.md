@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Airtable | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Airtable.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 12/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f43d965e2c1d706097c9cc2c432ca77e16f162c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b4c8e254b2ceb040b487de1cfaac6e4d8670d8b5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74187263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430963"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Airtable
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-airtable"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Airtable
 
 Dans ce tutoriel, vous allez apprendre à intégrer Airtable à Azure Active Directory (Azure AD). Quand vous intégrez Airtable à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Airtable à Azure Active Dir
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -94,7 +94,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Cliquez sur **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
@@ -134,7 +134,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-airtable-sso"></a>Configurer l’authentification unique Airtable
 
-Pour configurer l’authentification unique côté **Airtable**, vous devez envoyer le **Certificat (en base64)** téléchargé et les URL appropriées copiées sur le portail Azure à l’[équipe de support technique Airtable](mailto:azure-ad-marketplace@airtable.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Suivez ce [lien](https://support.airtable.com/hc/articles/360037475234) pour obtenir des instructions afin de configurer l’authentification unique côté **Airtable**.
 
 ### <a name="create-airtable-test-user"></a>Créer un utilisateur de test Airtable
 

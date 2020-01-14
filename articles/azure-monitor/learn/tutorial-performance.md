@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/13/2019
 ms.custom: mvc
-ms.openlocfilehash: cd1a483cd50051ade5d7d4f45c8eb7e5d8351787
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f9074a004683393df18d621a679fbb7378dc6704
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398636"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -26,7 +26,7 @@ Azure Application Insights collecte des données de télémétrie à partir de v
 > * Analyser les détails des affichages de page à l’aide du langage de requête
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -72,7 +72,7 @@ Application Insights collecte des informations sur les performances pour les dif
 
     ![Conseil relatif aux performances](media/tutorial-performance/6-perf-tip.png)
 
-8.  Pour une analyse plus approfondie, vous pouvez cliquer sur **Télécharger la trace** pour télécharger la trace dans Visual Studio.
+8.   Pour une analyse plus approfondie, vous pouvez cliquer sur **Télécharger la trace** afin de télécharger la trace. Vous pouvez afficher ces données à l’aide de [PerfView](https://github.com/Microsoft/perfview#perfview-overview).
 
 ## <a name="use-logs-data-for-server"></a>Utiliser les données de journaux pour le serveur
  Logs fournit un langage de requête enrichi qui vous permet d’analyser toutes les données collectées par Application Insights. Vous pouvez utiliser ces informations pour effectuer une analyse approfondie des données concernant les requêtes et les performances.
@@ -98,7 +98,7 @@ En plus d’identifier les processus côté serveur à optimiser, Application In
 ## <a name="use-logs-data-for-client"></a>Utiliser les données de journaux pour le client
 Comme avec les données collectées pour les performances du serveur, Application Insights rend toutes les données du client disponibles pour une analyse approfondie à l’aide de Logs.
 
-1. Retournez au résumé du navigateur, puis cliquez sur l’![icône Logs](media/tutorial-performance/app-viewinlogs-icon.png) **Afficher dans Logs (Analytics)**
+1. Retournez au résumé du navigateur, puis cliquez sur l’![icône Journaux](media/tutorial-performance/app-viewinlogs-icon.png) **Voir dans les journaux (analytique)**
 
 2. Logs s’ouvre et affiche une requête pour chacune des vues dans le panneau. La première requête indique la durée de différents affichages de page au fil du temps.
 

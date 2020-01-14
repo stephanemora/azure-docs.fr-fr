@@ -1,85 +1,108 @@
 ---
 title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, C++ – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 01/02/2020
+ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 78fbf35fab69dd91d5ba1841fee1fb5290fb1347
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9c8501f3b859127bd1a4067bd0ffbda3d761d760
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816050"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660486"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer, assurez-vous de :
+Avant de commencer :
 
-> [!div class="checklist"]
->
-> * [Créer une ressource Azure Speech](../../../../get-started.md)
-> * [Créer une application LUIS et obtenir une clé de point de terminaison](../../../../quickstarts/create-luis.md)
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=windows)
+* S’il s’agit de votre premier projet C++, utilisez ce guide pour <a href="../quickstarts/create-project.md?tabs=windows" target="_blank">créer un exemple de projet vide</a>.
+* <a href="../quickstarts/setup-platform.md?tabs=windows" target="_blank">Installez le kit SDK Speech pour votre environnement de développement</a>.
+
+## <a name="create-a-luis-app-for-intent-recognition"></a>Créer une application LUIS pour la reconnaissance de l’intention
+
+[!INCLUDE [Create a LUIS app for intent recognition](../luis-sign-up.md)]
 
 ## <a name="open-your-project-in-visual-studio"></a>Ouvrez votre projet dans Visual Studio.
 
-La première étape consiste à vérifier que votre projet est ouvert dans Visual Studio.
+Ensuite, ouvrez votre projet dans Visual Studio.
 
 1. Lancez Visual Studio 2019.
 2. Chargez votre projet et ouvrez `helloworld.cpp`.
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
-Nous allons ajouter du code qui servira de squelette à notre projet. Notez que vous avez créé une méthode asynchrone appelée `recognizeIntent()`.
+Nous allons ajouter du code qui servira de squelette à notre projet Notez que vous avez créé une méthode asynchrone appelée `recognizeIntent()`.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
 
 ## <a name="create-a-speech-configuration"></a>Créer une configuration Speech
 
-Avant de pouvoir initialiser un objet `IntentRecognizer`, vous devez créer une configuration qui utilise votre clé et votre région de point de terminaison LUIS. Insérez ce code dans la méthode `recognizeIntent()`.
+Pour pouvoir initialiser un objet `IntentRecognizer`, vous devez au préalable créer une configuration qui utilise la clé et la localisation de votre ressource de prédiction LUIS. 
 
-Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
-Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
+> [!IMPORTANT]
+> Votre clé de démarrage et vos clés de création ne fonctionneront pas. Vous devez utiliser la clé de prédiction et la localisation que vous avez créés précédemment. Pour plus d’informations, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition). 
 
-> [!NOTE]
-> Il est important d’utiliser la clé de point de terminaison LUIS, et non les clés de démarrage ou de création, car seule la clé de point de terminaison est valide pour la reconnaissance de conversion de sortie orale en intention. Consultez [Créer une application LUIS et obtenir une clé de point de terminaison](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) pour obtenir des instructions sur la façon d’obtenir la clé appropriée.
+Insérez ce code dans la méthode `recognizeIntent()`. Veillez à mettre à jour ces valeurs :
+
+* Remplacez `"YourLanguageUnderstandingSubscriptionKey"` par votre clé de prédiction LUIS. 
+* Remplacez `"YourLanguageUnderstandingServiceRegion"` par votre localisation LUIS. 
+
+>[!TIP]
+> Si vous avez besoin d’aide pour trouver ces valeurs, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
+
+Cet exemple utilise la méthode `FromSubscription()` pour générer la `SpeechConfig`. Pour obtenir la liste complète des méthodes disponibles, consultez la rubrique [Classe SpeechConfig](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+
+Le kit SDK Speech reconnaît par défaut l’utilisation de la langue en-US. Consultez [Spécifier la langue source pour la reconnaissance vocale](../../../../how-to-specify-source-language.md) pour plus d’informations sur le choix de la langue source.
 
 ## <a name="initialize-an-intentrecognizer"></a>Initialiser IntentRecognizer
 
 Créons maintenant un `IntentRecognizer`. Insérez ce code dans la méthode `recognizeIntent()`, juste en dessous de votre configuration Speech.
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Ajouter un LanguageUnderstandingModel et des intentions
 
-Vous devez maintenant associer un `LanguageUnderstandingModel` au module de reconnaissance de l’intention et ajouter les intentions que vous souhaitez reconnaître.
+Vous devez associer un `LanguageUnderstandingModel` au module de reconnaissance de l’intention et ajouter les intentions que vous souhaitez reconnaître. Nous allons utiliser les intentions du domaine prédéfini pour la domotique. 
+
+Insérez ce code en dessous de votre `IntentRecognizer`. Veillez à remplacer `"YourLanguageUnderstandingAppId"` par votre ID d’application LUIS. 
+
+>[!TIP]
+> Si vous avez besoin d’aide pour trouver cette valeur, consultez [Créer une application LUIS pour la reconnaissance de l’intention](#create-a-luis-app-for-intent-recognition).
+
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
 
 ## <a name="recognize-an-intent"></a>Reconnaître une intention
 
-À partir de l’objet `IntentRecognizer`, vous devez appeler la méthode `RecognizeOnceAsync()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule expression pour reconnaissance, et d’arrêter la reconnaissance une fois que l’expression a été identifiée.
-Pour faire simple, nous attendons la fin des prochains retours.
+À partir de l’objet `IntentRecognizer`, vous devez appeler la méthode `RecognizeOnceAsync()`. Cette méthode permet au service Speech de savoir que vous envoyez une seule expression pour reconnaissance, et d’arrêter la reconnaissance une fois que l’expression a été identifiée. Pour faire simple, nous attendons la fin des prochains retours.
 
-À l’intérieur de l’instruction using, ajoutez le code suivant : [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
+Insérez ce code en dessous de votre modèle :
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Afficher les résultats de la reconnaissance (ou les erreurs)
 
 Lorsque le résultat de la reconnaissance est retourné par le service de reconnaissance vocale, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et imprimer le résultat dans la console.
 
-À l’intérieur de l’instruction using, sous `RecognizeOnceAsync()`, ajoutez ce code : [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+Insérez ce code en dessous de `auto result = recognizer->RecognizeOnceAsync().get();` :
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
 
 ## <a name="check-your-code"></a>Vérifier votre code
 
 À ce stade, votre code doit ressembler à ceci :  
-(Nous avons ajouté des commentaires à cette version) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+
+> [!NOTE]
+> Nous avons ajouté des commentaires à cette version.
+
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 

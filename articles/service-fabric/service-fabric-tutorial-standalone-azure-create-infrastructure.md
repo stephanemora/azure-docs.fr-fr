@@ -1,28 +1,17 @@
 ---
-title: Tutoriel sur la création de l’infrastructure pour un cluster Service Fabric sur des machines virtuelles Azure - Azure Service Fabric | Microsoft Docs
+title: Créer une infrastructure pour un cluster sur des machines virtuelles Azure
 description: Dans ce tutoriel, vous découvrez comment configurer l’infrastructure de machines virtuelles Azure pour exécuter un cluster Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 93a7e2507ab3a467ef83924479872694cae2dd5b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166280"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614007"
 ---
-# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure de machines virtuelles Azure pour héberger un cluster Service Fabric
+# <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>Tutoriel : Créer l’infrastructure de machines virtuelles Azure pour héberger un cluster Service Fabric
 
 Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur des machines virtuelles Azure et vous installez une application sur celui-ci.
 
@@ -36,7 +25,7 @@ Dans ce premier volet, vous apprenez à :
 > * Vous connecter à une des instances
 > * Préparer l’instance pour Service Fabric
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure.  Si vous n’avez pas encore de compte, accédez au [portail Azure](https://portal.azure.com) pour en créer un.
 

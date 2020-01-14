@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Content Moderator pour Java'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment prendre en main la bibliothèque cliente Azure Cognitive Services Content Moderator pour Java.
+description: Dans ce guide de démarrage rapide, apprenez à utiliser la bibliothèque cliente Azure Cognitive Services Content Moderator pour Java.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 53ac5c10672c433cb16d9ad326d936affe82a8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744443"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381934"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>Démarrage rapide : Bibliothèque cliente Content Moderator pour Java
 
@@ -27,7 +27,7 @@ Utilisez la bibliothèque cliente Content Moderator pour Java aux fins suivantes
 
 [Documentation de référence](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [Artifact (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [Exemples](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * La version actuelle du [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -95,7 +95,7 @@ Créez ensuite un fichier nommé *ContentModeratorQuickstart.java* dans le nouve
 
 Les classes suivantes gèrent certaines des principales fonctionnalités du SDK Java Content Moderator.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.contentmoderatorclient?view=azure-java-stable)|Cette classe est nécessaire pour toutes les fonctionnalités Content Moderator. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
 |[ImageModeration](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.contentmoderator.imagemoderations?view=azure-java-stable)|Cette classe fournit les fonctionnalités permettant d’analyser des images pour y rechercher du contenu pour adultes, des informations personnelles ou des visages.|
@@ -190,12 +190,12 @@ gradle run
 
 Accédez ensuite au fichier *src/main/resources/ModerationOutput.json* et affichez les résultats de la modération du contenu.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

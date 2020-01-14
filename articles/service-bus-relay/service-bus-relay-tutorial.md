@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay'
-description: 'Didacticiel : Créez une application cliente et un service à l’aide de WCF Relay.'
+title: Exposer un service REST WCF local aux clients à l’aide d’Azure Relay
+description: 'Tutoriel : Créez une application cliente et un service à l’aide de WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452289"
 ---
-# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Didacticiel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutoriel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
 Ce didacticiel vous montre comment créer une application cliente et un service WCF Relay à l’aide d’Azure Relay. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 >
-> * Configuration requise pour l’exécution de ce didacticiel
+> * Installer la configuration requise pour ce didacticiel.
 > * Créer un espace de noms Relay
 > * Définir un contrat de service WCF
 > * Implémenter le contrat WCF
@@ -43,7 +43,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 > * Implémenter le client WCF
 > * Exécutez les applications.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -65,12 +65,12 @@ Le contrat de service spécifie les opérations prises en charge par le service.
 
 1. Lancez Microsoft Visual Studio en tant qu'administrateur. Pour ce faire, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis sélectionnez **Exécuter en tant qu’administrateur**.
 1. Dans Visual Studio, sélectionnez **Créer un nouveau projet**.
-1. Dans **Créer un projet**, choisissez **Application console (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
+1. Dans **Créer un projet**, sélectionnez **Application console (.NET Framework)** pour C#, puis **Suivant**.
 1. Nommez le projet *EchoService* et sélectionnez **Créer**.
 
    ![Créer une application console][2]
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**. Dans **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, puis recherchez et choisissez **WindowsAzure.ServiceBus**. Sélectionnez **Installer**et acceptez les conditions d’utilisation.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Gérer les packages NuGet**. Dans **Gestionnaire de package NuGet**, sélectionnez **Parcourir**, puis recherchez et choisissez **WindowsAzure.ServiceBus**. Sélectionnez **Installer** et acceptez les conditions d’utilisation.
 
     ![Package Service Bus][3]
 
@@ -188,9 +188,9 @@ La création d’un relais Azure nécessite la création au préalable du contra
 
 ### <a name="define-the-configuration-for-the-service-host"></a>Définition de la configuration de l’hôte de service
 
-Le fichier de configuration est similaire à un fichier de configuration WCF. Il inclut le nom du service, le point de terminaison et la liaison. Le point de terminaison est l’emplacement qu’Azure Relay expose pour que les clients et les hôtes communiquent entre eux. La liaison est le type de protocole utilisé pour communiquer. La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à la liaison [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding), qui ne fait pas partie de .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) est l’une des liaisons définies par le service.
+Le fichier de configuration est similaire à un fichier de configuration WCF. Il inclut le nom du service, le point de terminaison et la liaison. Le point de terminaison correspond à l'emplacement qu’Azure Relay expose pour permettre aux clients et aux hôtes de communiquer. La liaison correspond au type de protocole utilisé pour communiquer. La principale différence réside dans le fait que le point de terminaison de service configuré fait référence à la liaison [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding), qui ne fait pas partie de .NET Framework. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) est l’une des liaisons définies par le service.
 
-1. Dans **l’Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio.
+1. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio.
 1. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
 1. Dans les balises `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
 
@@ -458,7 +458,7 @@ La tâche suivante consiste à créer une application cliente et à définir le 
 1. Installez le [package NuGet Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) :
 
    1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur **EchoClient**, puis sélectionnez **Gérer les packages NuGet**.
-   1. Sélectionnez **Parcourir**, puis recherchez et sélectionnez **WindowsAzure.ServiceBus**. Sélectionnez **Installer**et acceptez les conditions d’utilisation.
+   1. Sélectionnez **Parcourir**, puis recherchez et sélectionnez **WindowsAzure.ServiceBus**. Sélectionnez **Installer** et acceptez les conditions d’utilisation.
 
       ![Installer le package Service Bus][4]
 

@@ -3,14 +3,14 @@ title: 'Exécution de plusieurs services dépendants : Java et Visual Studio Co
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer une application Java multiservice sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 3fe19997ab54f02b6a5f029abbdb69d5ea6532f7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: beab91964cab9938a5d63584089326bb408f6efc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438325"
 ---
 # <a name="running-multiple-dependent-services-java-and-visual-studio-code-with-azure-dev-spaces"></a>Exécution de plusieurs services dépendants : Java et Visual Studio Code avec Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Dans ce tutoriel, vous allez apprendre à développer des applications multiserv
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>Appeler un service en cours d’exécution dans un conteneur distinct
 
-Dans cette section, vous créez un deuxième service `mywebapi` et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous effectuerez le débogage dans les deux conteneurs.
+Dans cette section, vous créez un deuxième service `mywebapi` et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
 
 ![Plusieurs conteneurs](media/common/multi-container.png)
 
@@ -38,7 +38,7 @@ Pour des questions de temps, nous allons télécharger un exemple de code à par
 1. Lorsque `mywebapi` est prêt, ouvrez votre navigateur à l’adresse localhost.
 1. Si toutes les étapes se sont déroulées correctement, vous pouvez voir une réponse du service `mywebapi`.
 
-### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une requête de *webfrontend* à *mywebapi*
+### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une requête à partir de *webfrontend* sur *mywebapi*
 Nous allons maintenant écrire du code dans `webfrontend` qui envoie une requête à `mywebapi`.
 1. Basculez vers la fenêtre VS Code pour `webfrontend`.
 1. *Ajoutez* les instructions `import` suivantes après l’instruction `package` :

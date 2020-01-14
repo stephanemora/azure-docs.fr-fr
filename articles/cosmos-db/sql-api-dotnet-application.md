@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel ASP.NET Core MVC pour Azure Cosmos DB : Développement d’applications web'
+title: Tutoriel d’application web ASP.NET Core MVC avec Azure Cosmos DB
 description: Tutoriel ASP.NET Core MVC pour créer une application web MVC à l’aide d’Azure Cosmos DB. Vous allez stocker JSON et accéder aux données à partir d’une application todo hébergée sur Azure App Service - Tutoriel étape par étape ASP NET Core MVC.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 1cfb7718c55920d817e1f87407fa1af590e9f006
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444928"
 ---
-# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Didacticiel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET
+# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Tutoriel : Développer une application web ASP.NET Core MVC avec Azure Cosmos DB à l’aide du kit SDK .NET
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -187,7 +187,7 @@ Une fois ces étapes terminées, fermez tous les documents *cshtml* dans Visual 
 
 L’attribut **ValidateAntiForgeryToken** est utilisé ici pour protéger cette application contre les attaques de type falsification de requête intersites. Vos vues doivent aussi fonctionner avec ce jeton anti-contrefaçon. Pour plus d’informations et d’exemples, consultez [Prévention des attaques par falsification de requête intersites (CSRF) dans une application ASP.NET MVC][Preventing Cross-Site Request Forgery]. Le code source fourni sur [GitHub][GitHub] comporte l’implémentation complète.
 
-Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Tutoriel : Implémentez la fonctionnalité CRUD avec Entity Framework dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+Nous utilisons également l’attribut **Bind** sur le paramètre de méthode pour établir une protection contre les attaques par sur-validation. Pour plus d’informations, consultez [Didacticiel : Implémentez la fonctionnalité CRUD avec Entity Framework dans ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 ## <a name="connect-to-cosmosdb"></a>Étape 5 : Se connecter à Azure Cosmos DB
 
@@ -260,7 +260,7 @@ Pour tester l’application sur votre ordinateur local, effectuez les étapes su
 
 1. Une fois que vous avez testé l'application, sélectionnez Ctrl+F5 pour arrêter le débogage de l’application. Vous êtes prêt à déployer.
 
-## <a name="deploy-the-application-to-azure"></a>Étape 7 : Déployer l’application
+## <a name="deploy-the-application-to-azure"></a>Étape 7 : Déployer l’application
 
 Maintenant que l’application complète fonctionne correctement avec Azure Cosmos DB, nous allons déployer cette application web vers Azure App Service.  
 

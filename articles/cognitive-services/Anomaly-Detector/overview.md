@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/05/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 05ed7903cafbb265f23ba74a24ee0498be0effe9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012058"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448973"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
@@ -25,7 +25,7 @@ L’API Détecteur d’anomalies vous permet de surveiller et de détecter des a
 
 L’utilisation du détecteur d'anomalies ne nécessite aucune expérience préalable de l’apprentissage automatique et l’API RESTful permet d’intégrer facilement le service dans vos applications et processus.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des anomalies, dans l’ensemble de vos données de série chronologique ou en temps réel. 
 
@@ -41,7 +41,7 @@ Grâce au détecteur d’anomalies, vous pouvez automatiquement détecter des an
 Consultez cette [démonstration interactive](https://aka.ms/adDemo) pour comprendre le fonctionnement du détecteur d’anomalies.
 Pour exécuter la démonstration, vous devez créer une ressource Détecteur d’anomalies et récupérer la clé API ainsi que le point de terminaison.
 
-## <a name="notebook"></a>Bloc-notes
+## <a name="notebook"></a>Notebook
 
 Pour savoir comment appeler l’API Détecteur d’anomalies, essayez ce [notebook Azure](https://aka.ms/adNotebook). Ce notebook Jupyter hébergé sur le web vous montre comment envoyer une demande d’API et visualiser le résultat.
 
@@ -53,7 +53,7 @@ Pour exécuter le notebook, procédez comme suit :
 1. Cliquez sur **Exécuter sur le calcul gratuit**
 1. Sélectionnez l’un des notebooks.
 1. Ajoutez votre clé d’abonnement à l’API Détecteur d'anomalies valide à la variable `subscription_key`. 
-1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
+1. Modifiez la variable `endpoint` à votre point de terminaison. Par exemple : `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
 1. Dans la barre de menus supérieure, cliquez sur **Cellule**, puis sur **Exécuter tout**.
 
 ## <a name="workflow"></a>Workflow
@@ -72,8 +72,12 @@ Après l’inscription :
 
 ## <a name="algorithms"></a>Algorithmes
 
-* Reportez-vous aux blogs techniques [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) et [Overview of SR-CNN algorithm in Azure Anomaly Detector](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) qui concernent les algorithmes.
-* Reportez-vous au document [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepté par KDD 2019) pour les algorithmes SR-CNN de pointe développés par Microsoft.
+* Pour plus d’informations sur les algorithmes utilisés, consultez les blogs techniques suivants :
+    * [Présentation de l’API Détecteur d’anomalies](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
+    * [Présentation de l’algorithme SR-CNN dans le Détecteur d’anomalies Azure](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798)
+
+Pour plus d’informations sur les algorithmes SR-CNN de pointe développés par Microsoft, lisez le document [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepté par KDD 2019) .
+
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
 
@@ -84,6 +88,6 @@ Après l’inscription :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies](quickstarts/detect-data-anomalies-csharp.md)
 * [Démonstration en ligne](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector) de l’API Détecteur d’anomalies
 * La [référence d’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) du Détecteur d'anomalies

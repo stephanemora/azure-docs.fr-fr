@@ -5,17 +5,17 @@ services: azure-app-configuration
 author: yegu
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 12/03/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: c98a17be394887ef4e008b079467c85d4ded7e09
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: ccd2a0ded1cd915dc52dea1449d75136bbef18fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75413390"
 ---
-1. Pour créer un magasin App Configuration, connectez-vous au [portail Azure](https://portal.azure.com). En haut à gauche du volet, sélectionnez **+ Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et sélectionnez Entrée.
+1. Pour créer un magasin App Configuration, connectez-vous au [portail Azure](https://portal.azure.com). En haut à gauche de la page d’accueil, sélectionnez **Créer une ressource**. Dans la zone **Rechercher dans la Place de marché**, entrez **App Configuration** et sélectionnez Entrée.
 
     ![Rechercher App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-new.png)
 
@@ -32,6 +32,6 @@ ms.locfileid: "66393300"
 
     ![Créer une ressource de magasin App Configuration](../articles/azure-app-configuration/media/quickstarts/azure-app-configuration-create.png)
 
-1. Sélectionnez **Créer**. Le déploiement peut prendre quelques minutes.
+1. Sélectionnez **Create** (Créer). Le déploiement peut prendre quelques minutes.
 
-1. À la fin du déploiement, sélectionnez **Paramètres** > **Clés d’accès**. Prenez note de la chaîne de connexion de la clé primaire, en lecture seule ou en lecture-écriture. Vous utilisez cette chaîne de connexion plus tard pour configurer votre application, afin qu’elle communique avec le magasin App Configuration que vous avez créé.
+1. Une fois le déploiement terminé, sélectionnez **Paramètres** > **Clés d’accès**. Notez la chaîne de connexion de la clé primaire en lecture seule. Vous utilisez cette chaîne de connexion plus tard pour configurer votre application, afin qu’elle communique avec le magasin App Configuration que vous avez créé.

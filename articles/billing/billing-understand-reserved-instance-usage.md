@@ -1,5 +1,5 @@
 ---
-title: Utilisation d’une réservation Azure pour un abonnement individuel avec tarifs de paiement à l’utilisation
+title: Utilisation d’une réservation Azure pour un abonnement individuel
 description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement individuel avec tarifs de paiement à l’utilisation.
 author: bandersmsft
 manager: yashr
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0b578436a118539517d2d515717f2bdd97612d6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 991afd5a91ef5f5586acd624c03babc38b5c1960
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449143"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement individuel avec tarifs de paiement à l’utilisation
 
@@ -55,7 +55,7 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 
 1. **L’ID de réservation** dans le champ **Infos supplémentaires** représente la réservation appliquée à la machine virtuelle.
 2. Le **compteur de consommation** est l’ID du compteur de la machine virtuelle.
-3. La ligne **Instances réservées-Machines virtuelles de base** dans **Sous-catégorie du compteur** correspond au coût de 0 dollar US dans la section du relevé. Le coût d’exécution de cette machine virtuelle est déjà payé par la réservation.
+3. La ligne **Instances réservées-Machines virtuelles de base** dans **Sous-catégorie du compteur** correspond au coût de 0 dollar US dans la section du relevé. Le coût d’exécution de cette machine virtuelle est déjà payé par la réservation.
 4. **L’ID du compteur** correspond à l’ID du compteur pour la réservation. Le coût de ce compteur est de 0 dollar US. Cet ID de compteur est indiqué pour toute machine virtuelle répondant aux critères de la remise de réservation.
 5. Standard_DS1_v2 est une machine virtuelle à processeur virtuel qui est déployée sans Azure Hybrid Benefit. Ce compteur couvre donc les frais supplémentaires des logiciels Windows. Pour trouver le compteur correspondant à la machine virtuelle à 1 cœur de la série D, consultez [Coûts des logiciels Windows dans les instances de machine virtuelle réservées](billing-reserved-instance-windows-software-costs.md). Si vous avez Azure Hybrid Benefit, ce coût supplémentaire n’est pas appliqué.
 

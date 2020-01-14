@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d4a436540460240ebd97c39d3406b2886586a6df
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e110c87835cdf517bdd54adda0ef6d9168a44d52
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468073"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de :
 
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide, nous allons utiliser un sérialiseur/désér
 
 Ouvrez votre fichier pom.xml et ajoutez la référence suivante : [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
 Nous allons ajouter du code qui servira de squelette à notre projet
 
@@ -57,10 +57,10 @@ Placez leurs déclarations avant `Main`.
 
 ## <a name="create-and-configure-an-http-client"></a>Créer et configurer un client HTTP
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
-Insérez ce code dans `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
+Insérer ce code dans `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
 ## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
-Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
+Nous allons ensuite générer la demande de transcription. Ajouter ce code à `Main` [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.
@@ -85,7 +85,7 @@ Nous allons télécharger le contenu de cette URL, désérialiser le JSON et par
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 
-Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service Speech.
+Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

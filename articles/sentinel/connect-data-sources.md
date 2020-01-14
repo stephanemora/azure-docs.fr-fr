@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4b21d6aa95a38df402cf7a2640467c7a060a7f49
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496390"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610605"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -43,7 +43,8 @@ Pour intégrer Azure Sentinel, vous devez d’abord vous connecter à vos source
 
 Les méthodes de connexion de données suivantes sont prises en charge par Azure Sentinel :
 
-- **Services Microsoft** :<br> Les services Microsoft sont connectés en mode natif. En tirant parti de la base Azure une intégration prête à l’emploi, les solutions suivantes peuvent être connectées en quelques clics :
+- **Intégration de service à service** :<br> Certains services sont connectés en mode natif, tels que les services Microsoft et AWS. Ces services tirent parti de la base Azure pour une intégration prête à l’emploi ; les solutions suivantes peuvent être connectées en quelques clics :
+    - [Amazon Web Services - CloudTrail](connect-aws.md)
     - [Office 365](connect-office-365.md)
     - [Journaux d’audit et infos d’identification Azure AD](connect-azure-active-directory.md)
     - [Activité Azure](connect-azure-activity.md)
@@ -129,5 +130,5 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour commencer à utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Pour utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
 - Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).

@@ -1,6 +1,6 @@
 ---
-title: Exemples Azure PowerShell - Créer un groupe de machines virtuelles identiques complet | Microsoft Docs
-description: Exemples Azure PowerShell
+title: Exemples Azure PowerShell - Créer un groupe de machines virtuelles identiques complet
+description: Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016, dans lequel des ressources sont configurées et créées.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebbc47739b2be72d0dd98c0659bfcaba512e79e9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b116a6cb4266b5ec05abd2b3210ebc772bac9868
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350937"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques complet à l’aide de PowerShell
 
@@ -30,7 +30,7 @@ Ce script crée un groupe de machines virtuelles identiques exécutant Windows S
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Exemple de script
 

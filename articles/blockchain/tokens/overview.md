@@ -4,12 +4,12 @@ description: Azure Blockchain Tokens est une plateforme en tant que service (Paa
 ms.date: 11/04/2019
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: c1c18298ba82775c9b10bb79c420704bd462e2b4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e7c106ffee8ea06c7c0ce738aa8be0aba96a38ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387171"
 ---
 # <a name="what-is-azure-blockchain-tokens"></a>Qu’est-ce qu’Azure Blockchain Tokens ?
 
@@ -25,7 +25,7 @@ Utilisez Azure Blockchain Tokens pour sélectionner un modèle de jeton prédéf
 
 Pour plus d’informations sur les modèles Azure Blockchain Tokens, consultez [Modèles Azure Blockchain Tokens](templates.md).
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 Azure Blockchain Tokens fournit la gestion du portail Azure et des API pour vous connecter à un réseau blockchain existant. Actuellement, vous pouvez vous connecter à [Azure Blockchain Service](../service/overview.md) ou à un autre blockchain de la famille Ethereum.
 
@@ -40,6 +40,14 @@ Pour plus d’informations sur la gestion des comptes Azure Blockchain Tokens, c
 ## <a name="token-taxonomy-framework"></a>Infrastructure de taxonomie des jetons
 
 Azure Blockchain Tokens est basé sur un ensemble de normes appelé Infrastructure de taxonomie des jetons (TTF). TTF est un ensemble de livrables créés par le groupe de travail [Token Taxonomy Initiative](https://entethalliance.org/participate/token-taxonomy-initiative/) (TTI). Le groupe de travail TTI définit une taxonomie métier pour les jetons et leurs comportements qui peut être appliquée à tous les grands registres, y compris Ethereum, Quorum, Corda et Hyperledger Fabric. L’objectif du groupe de travail est de créer une infrastructure qui normalise l’utilisation des jetons du point de vue de l’entreprise pour simplifier et démocratiser le développement basé sur les jetons. En permettant au secteur de définir ces jetons et leur comportement au niveau de l’entreprise, l’implémentation détaillée des jetons est abstraite de la logique métier qui manipule les jetons.
+
+## <a name="support-and-feedback"></a>Support et commentaires
+
+Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de l’équipe technique d’Azure Blockchain.
+
+Pour accéder à la préversion des jetons Azure Blockchain, [Contactez l’équipe Azure Blockchain Tokens](https://aka.ms/PreviewForm).
+
+Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnalités, postez votre idée ou votez pour une autre idée sur le [forum de commentaires Azure pour Blockchain](https://aka.ms/blockchainuservoice).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Générer une application monopage AngularJS Azure AD pour la connexion et la déconnexion | Microsoft Docs
+title: Générer une application monopage AngularJS Azure AD pour la connexion/déconnexion | Microsoft Docs
 description: Découvrez comment générer une application monopage AngularJS qui s’intègre à Azure AD pour la connexion et la déconnexion, et appelle des API protégées par Azure AD à l’aide d’OAuth.
 services: active-directory
 author: rwike77
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e66b51199d19ea6af2b88c48aa89a93c1ed731c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424107"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Démarrage rapide : Générer une application monopage AngularJS pour la connexion à et la déconnexion avec Azure Active Directory
 
@@ -48,18 +48,18 @@ Pour générer l’application fonctionnelle complète, vous devez :
 2. Installer la bibliothèque ADAL et configurer l’application à page unique.
 3. Utilisez la bibliothèque ADAL pour sécuriser les pages dans l’application à page unique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, configurez les prérequis suivants :
 
 * Téléchargez [la structure de l’application](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) ou [l’exemple terminé](https://github.com/AzureADQuickStarts/SinglePageApp-AngularJS-DotNet/archive/complete.zip).
 * Procurez-vous un locataire Azure AD dans lequel vous pouvez créer des utilisateurs et inscrire une application. Si vous ne disposez pas encore d’un client, [découvrez comment en obtenir un](quickstart-create-new-tenant.md).
 
-## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
+## <a name="step-1-register-the-directorysearcher-application"></a>Étape 1 : Inscrire l’application DirectorySearcher
 
 Pour autoriser votre application à authentifier les utilisateurs et à obtenir des jetons, vous devez tout d’abord l’inscrire dans votre client Azure AD :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Si vous êtes connecté à plusieurs répertoires, vous devez peut-être vous assurer que vous consultez le répertoire approprié. Pour ce faire, dans la barre supérieure, cliquez sur votre compte. Dans la liste **Répertoire**, choisissez le locataire Azure AD auprès duquel vous voulez inscrire votre application.
 1. Cliquez sur **Tous les services** dans le volet de gauche, puis sélectionnez **Azure Active Directory**.
 1. Cliquez sur **Inscriptions d’applications**, puis sur **Nouvelle inscription**.
@@ -73,7 +73,7 @@ Pour autoriser votre application à authentifier les utilisateurs et à obtenir 
 1. Accordez les autorisations à votre locataire sur votre application. Accédez à **autorisations d’API**, puis sélectionnez le bouton **Accorder le consentement de l’administrateur** sous **Accorder le consentement**.
 1. Sélectionnez **Oui** pour confirmer.
 
-## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application monopage
+## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>Étape 2 : Installer la bibliothèque ADAL et configurer l’application monopage
 
 Maintenant que vous disposez d’une application dans Azure AD, vous pouvez installer adal.js et écrire votre code lié à l’identité.
 

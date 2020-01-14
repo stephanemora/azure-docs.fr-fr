@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Créer un compte Batch - abonnement utilisateur | Documents Microsoft
-description: Exemple de script Azure CLI - Créer un compte Batch en mode abonnement utilisateur
+title: Exemple de script Azure CLI - Créer un compte Batch - abonnement utilisateur
+description: Ce script crée un compte Azure Batch en mode abonnement utilisateur. Ce compte alloue des nœuds de calcul dans votre abonnement.
 services: batch
 documentationcenter: ''
 author: laurenhughes
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: lahugh
-ms.openlocfilehash: a22bd7a2ab4e3a9c0d56aa9f4a2137881b6216af
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 55429e0aafe978cfa6861d73b132ebcee26de493
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449706"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Exemple CLI : Créer un compte Batch en mode abonnement utilisateur
 

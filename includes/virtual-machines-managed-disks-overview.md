@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 05e4dc5bc96ef654006a98f27ff4a12e924250b4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355919"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -37,7 +37,7 @@ Les disques managés prennent en charge les [zones de disponibilité](../article
 
 ### <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
-Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
+Pour vous protéger contre les sinistres régionaux, [Sauvegarde Azure](../articles/backup/backup-overview.md) peut être utilisé pour créer un travail de sauvegarde avec des sauvegardes périodiques et des stratégies de rétention de sauvegarde. Ceci vous permet d’effectuer des restaurations des machines virtuelles à volonté. Actuellement, le service Sauvegarde Azure prend en charge les tailles de disque jusqu’à quatre tébioctets (TiB).  Sauvegarde Azure prend en charge la sauvegarde et la restauration des disques managés. [Apprenez-en davantage](../articles/backup/backup-support-matrix-iaas.md) sur la prise en charge de la sauvegarde des machines virtuelles Azure.
 
 ### <a name="granular-access-control"></a>Contrôle d’accès granulaire
 
@@ -126,5 +126,7 @@ Azure utilise pour le trafic de disque un canal réseau qui est prioritaire par 
 Consultez notre article sur la [conception pour des performances élevées](../articles/virtual-machines/windows/premium-storage-performance.md) afin de connaître les bonnes pratiques permettant d’optimiser les configurations de machines virtuelles et de disques et d’obtenir les performances souhaitées.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Si vous souhaitez obtenir une vidéo qui aborde plus en détail les disques managés, consultez : [Meilleure résilience de machine virtuelle Azure avec la fonctionnalité Disques managés](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
 
 Apprenez-en davantage sur les différentes offres de types de disques Azure, sur le type de disque le plus adapté à vos besoins et sur les cibles de performances en lisant notre article sur les types de disques.

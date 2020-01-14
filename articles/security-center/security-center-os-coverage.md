@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 42bd6037bcc94a83e649433e9ea0425fbdf11cd2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353321"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -41,7 +41,7 @@ Les sections suivantes répertorient les systèmes d’exploitation serveur pris
 
 ### Systèmes d’exploitation de serveur Windows <a name="os-windows"></a>
 
-|OS|Pris en charge par Azure Security Center|Prise en charge de l’intégration avec Microsoft Defender ATP|
+|Système d''exploitation|Pris en charge par Azure Security Center|Prise en charge de l’intégration avec Microsoft Defender ATP|
 |:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
@@ -56,11 +56,11 @@ Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes
 
 * CentOS 6 et 7
 * Amazon Linux 2017.09
-* Oracle Linux 6 et 7
+* Oracle Linux 6 et Oracle Linux 7
 * Red Hat Enterprise Linux Server 6 et 7
 * Debian GNU/Linux 8 et 9
 * Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12
 
 32 bits
 * CentOS 6
@@ -122,6 +122,6 @@ La protection des machines virtuelles résidant dans Azure Stack est également 
 - Découvrez comment [Security Center gère et protège les données](security-center-data-security.md).
 - [Découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception](security-center-planning-and-operations-guide.md).
 - Découvrez les [fonctionnalités disponibles pour les différents environnements cloud](security-center-services.md).
-- Découvrez-en plus sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
+- Apprenez-en davantage sur la [détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center](security-center-alerts-iaas.md).
 - Découvrez [les réponses aux questions le plus souvent posées sur l’utilisation d’Azure Security Center](security-center-faq.md).
 - Accédez à des [billets de blog sur la sécurité et la conformité Azure](https://blogs.msdn.com/b/azuresecurity/).

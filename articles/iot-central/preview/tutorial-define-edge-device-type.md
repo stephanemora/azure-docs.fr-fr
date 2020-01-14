@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 00ab92effbc5167d8bca3242e55d566c71209ac4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e5aa41023e1d7f84e8de095d13835d5ebdf66f57
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434870"
 ---
-# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Didacticiel : Définir un nouveau type d’appareil Azure IoT Edge dans votre application Azure IoT Central (fonctionnalités en préversion)
+# <a name="tutorial-define-a-new-azure-iot-edge-device-type-in-your-azure-iot-central-application-preview-features"></a>Tutoriel : Définir un nouveau type d’appareil Azure IoT Edge dans votre application Azure IoT Central (fonctionnalités en préversion)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -36,18 +36,18 @@ Un **modèle d’appareil** définit les fonctionnalités de votre appareil et d
 Dans ce tutoriel, vous allez créer un modèle d’appareil Capteur environnemental. Un appareil capteur environnemental :
 
 * Envoie des données de télémétrie, comme la température.
-* Répond aux propriétés accessibles en écriture durant sa mise à jour dans le cloud, par exemple l’intervalle d’envoi de la télémétrie.
-* Répond aux commandes, telles que la réinitialisation de la température.
+* Répond aux propriétés accessibles en écriture durant sa mise à jour dans le cloud, par exemple l’intervalle d’envoi de la télémétrie
+* Répond aux commandes telles que la réinitialisation de la température
 
 Dans ce tutoriel, vous allez aussi créer un modèle d’appareil Environment Gateway (Passerelle d’environnement). Un appareil de passerelle environnemental :
 
 * Envoie des données de télémétrie, comme la température.
-* Répond aux propriétés accessibles en écriture durant sa mise à jour dans le cloud, par exemple l’intervalle d’envoi de la télémétrie.
+* Répond aux propriétés accessibles en écriture durant sa mise à jour dans le cloud, par exemple l’intervalle d’envoi de la télémétrie
 * Répond aux commandes telles que la réinitialisation de la température
 * Permet l’établissement de relations avec d’autres modèles de capacité d’appareil.
 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un modèle d’appareil Azure IoT Edge.
@@ -57,7 +57,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter des relations aux modèles d’appareil en aval.
 > * Publier votre modèle d’appareil.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez [créer une application Azure IoT Central](quick-deploy-iot-central.md).
 
@@ -291,10 +291,10 @@ Un modèle d’appareil peut inclure des propriétés du cloud. Les propriétés
 
 1. Sélectionnez **Propriétés du cloud** >  **+ Ajouter une propriété cloud**. Utilisez les informations du tableau suivant pour ajouter une propriété du cloud à votre modèle d’appareil.
 
-    | Nom complet      | Type sémantique | Schéma |
+    | Nom complet      | Type sémantique | schéma |
     | ----------------- | ------------- | ------ |
-    | Dernière date de service | Aucun          | Date   |
-    | Nom du client     | Aucun          | Chaîne |
+    | Dernière date de service | None          | Date   |
+    | Nom du client     | None          | String |
 
 2. Sélectionnez **Enregistrer**.
 
@@ -387,7 +387,7 @@ Une fois qu’un modèle d’appareil a été publié, il est visible dans la pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 * Créer un appareil Edge comme modèle d’appareil de nœud terminal.
 * Générer des modules à partir d’un manifeste de déploiement chargé.
@@ -400,4 +400,4 @@ Dans ce tutoriel, vous avez appris à :
 Maintenant que vous avez créé un modèle d’appareil dans votre application Azure IoT Central, vous pouvez effectuer l’opération ci-après :
 
 > [!div class="nextstepaction"]
-> [Connecter l’appareil](./tutorial-connect-pnp-device.md)
+> [Connecter un appareil de périphérie](./tutorial-add-edge-as-leaf-device.md)

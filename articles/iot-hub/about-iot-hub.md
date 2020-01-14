@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 78678474430792eb7fe419ef4f15828d461c1fec
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950462"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647405"
 ---
 # <a name="what-is-azure-iot-hub"></a>Qu’est-ce qu’Azure IoT Hub ?
 
@@ -111,7 +111,7 @@ Si votre solution ne peut pas utiliser un des protocoles pris en charge, vous po
 
 Chaque abonnement Azure a des limites de quota par défaut pour empêcher tout abus du service et ces limites peuvent impacter l’étendue de votre solution IoT. La limite actuelle est de 50 IoT Hubs par abonnement. Vous pouvez demander une augmentation de ce quota en contactant le support. Pour plus d’informations, consultez [Quotas et limitations IoT Hub](iot-hub-devguide-quotas-throttling.md). Pour plus d’informations sur les limites de quota, consultez l’un des articles suivants :
 
-* [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md)
+* [Limites du service d’abonnement Azure](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [Limitation d’IoT Hub et vous](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -119,4 +119,8 @@ Chaque abonnement Azure a des limites de quota par défaut pour empêcher tout a
 
 Pour tester une solution IoT de bout en bout, consultez les démarrages rapides relatifs à IoT Hub :
 
-* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-node.md)
+* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-node.md)
+
+Pour en savoir plus sur la façon dont vous pouvez générer et déployer des solutions IoT avec Azure IoT, consultez la page :
+
+* [Fondamentaux : Technologies et solutions Azure IoT](../iot-fundamentals/iot-services-and-technologies.md).

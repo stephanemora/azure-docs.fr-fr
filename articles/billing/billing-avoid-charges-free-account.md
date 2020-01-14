@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 9f75b630dd26e2cdef009771ad5e09cc3d230449
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1b7d08ba25a02334152e661501acf826d6c9bdf7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226435"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449633"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Éviter les frais avec votre compte Azure gratuit
 
@@ -41,7 +41,7 @@ Après avoir mis à niveau votre compte, des frais de paiement à l’utilisatio
 
 Vos services et quantités gratuits expirent au bout de 12 mois. Vous pouvez savoir à quel moment vos services gratuits expirent dans le portail Azure.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Dans la zone de navigation de gauche, sélectionnez **Tous les services**.
 

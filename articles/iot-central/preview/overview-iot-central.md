@@ -3,18 +3,18 @@ title: Qu’est-ce que Azure IoT Central | Microsoft Docs
 description: Azure IoT Central est une plateforme IoT qui simplifie la création de vos solutions IoT et contribue à réduire la charge et le coût liés à la gestion, aux opérations et au développement IoT. Cet article donne une vue d’ensemble des fonctionnalités de Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 12/10/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 52504fb8333b286407b3f2df8f962da59b80ac53
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74479712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434845"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Présentation d’IoT Central (fonctionnalités en préversion)
 
@@ -25,7 +25,7 @@ ms.locfileid: "74479712"
 
 IoT Central est une plateforme d’application IoT qui réduit les charges et les coûts associés au développement, à la gestion et à la maintenance de solutions IoT de qualité professionnelle. Choisir de créer des applications avec IoT Central vous offre la possibilité de consacrer votre temps, votre argent et votre énergie à transformer votre activité avec des données IoT, au lieu de simplement gérer et mettre à jour une infrastructure IoT complexe et en constante évolution.
 
-L’interface utilisateur Web vous permet de superviser les conditions des appareils, de créer des règles et de gérer des millions d’appareils et leurs données tout au long de leur cycle de vie. Elle vous permet également d’agir sur les insights des appareils en élargissant l’intelligence IoT aux applications métier.
+L’interface utilisateur web vous permet de superviser les conditions des appareils, de créer des règles et de gérer des millions d’appareils et leurs données tout au long de leur cycle de vie. Elle vous permet également d’agir sur les insights des appareils en élargissant l’intelligence IoT aux applications métier.
 
 Cet article décrit, en ce qui concerne IoT Central :
 
@@ -41,15 +41,11 @@ Cet article décrit, en ce qui concerne IoT Central :
 > [!Note]
 > Ces problèmes connus s’appliquent uniquement à l’application IoT Central en préversion.
 
-- Les règles ne prennent pas en charge toutes les actions (uniquement les e-mails).
-- Pour les types complexes, les règles, les analyses et les groupes d’appareils ne sont pas pris en charge.
 - L’exportation continue des données ne prend pas en charge le format Avro (incompatibilité).
-- Les appareils simulés ne prennent pas en charge tous les types complexes.
 - GeoJSON n’est pas actuellement pris en charge.
 - La mosaïque n’est pas actuellement prise en charge.
 - Les travaux ne prennent pas en charge les types complexes.
 - Les types de schémas de tableaux ne sont pas pris en charge.
-- L’exportation de modèle d’application et la copie d’application ne sont pas prises en charge.
 - Seuls le SDK d’appareil C et les SDK de service et d’appareil Node.js sont pris en charge.
 - Elle est uniquement disponible aux États-Unis et en Europe.
 - Les modèles de capacité d’appareil doivent avoir toutes les interfaces définies inline dans le même fichier.
@@ -85,7 +81,7 @@ Ce modèle d’appareil inclut les éléments suivants :
 
 ### <a name="create-device-templates"></a>Créer des modèles d’appareils
 
-[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils sans que vous n’ayez à écrire de code d’appareil incorporé. Au cœur de IoT Plug-and-Play est un schéma de modèle de fonctionnalité d’appareil qui décrit les fonctionnalités de l’appareil. Dans une application IoT Central en préversion, les modèles d’appareil utilisent ces modèles de fonctionnalité d’appareil IoT Plug-and-Play.
+[IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md) permet à IoT Central d’intégrer des appareils sans que vous n’ayez à écrire de code d’appareil incorporé. Un schéma de modèle de capacité d’appareil est au cœur d’IoT Plug-and-Play, qui décrit les capacités des appareils. Dans une application IoT Central en préversion, les modèles d’appareil utilisent ces modèles de fonctionnalité d’appareil IoT Plug-and-Play.
 
 Plusieurs choix s’offrent à vous pour créer des modèles d’appareil :
 
@@ -149,7 +145,7 @@ Chaque abonnement Azure a des quotas par défaut qui peuvent impacter l’étend
 
 À présent que vous avez une vue d’ensemble de IoT Central, voici les prochaines étapes suggérées :
 
-- Comprendre les différences entre [IoT Central et les accélérateurs de solution Azure IoT](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json).
+- Découvrez les [technologies et services Azure disponibles pour créer des solutions IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Vous familiariser avec [l’interface utilisateur de Azure IoT Central](overview-iot-central-tour.md).
 - Mise en route avec la [création d’une application Azure IoT Central](quick-deploy-iot-central.md).
 - En savoir plus sur [IoT Plug-and-Play](../../iot-pnp/overview-iot-plug-and-play.md)

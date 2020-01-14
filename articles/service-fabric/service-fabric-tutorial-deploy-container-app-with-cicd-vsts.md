@@ -1,28 +1,17 @@
 ---
-title: Déployer une application conteneur avec intégration et déploiement continus sur un cluster Azure Service Fabric
+title: Déployer une application conteneur avec CI/CD
 description: Dans ce tutoriel, vous allez apprendre à configurer l’intégration et le déploiement continus pour une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/29/2018
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: a2dc6aeb7dc2a62c543a58c322c23c9661c6940a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9cf619eddd07bbe55cd7aea5f27051a7d0415c24
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832738"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614126"
 ---
-# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Didacticiel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
+# <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
 Deuxième d’une série, ce tutoriel explique comment configurer l’intégration et le déploiement continus d’une application conteneur Azure Service Fabric à l’aide de Visual Studio et d’Azure DevOps.  Une application Service Fabric existante est requise. L’application créée dans [Déployer une application .NET dans un conteneur Windows sur Azure Service Fabric](service-fabric-host-app-in-a-container.md) est utilisée à titre d’exemple.
 
@@ -34,7 +23,7 @@ Dans ce deuxième volet, vous apprenez à :
 > * Créer une définition de mise en production dans Visual Studio Team Explorer
 > * Déployer et mettre à niveau une application automatiquement
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -185,7 +174,7 @@ La mise à niveau de l’application peut prendre plusieurs minutes. Une fois la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet

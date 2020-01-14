@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0165da8adbb28b97d524f1a07c725716b69277d4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8f3b38b3455b171701ff78345a3ee667c2c45071
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449323"
 ---
 # <a name="optimize-azure-databricks-costs-with-a-pre-purchase"></a>Optimiser les coûts de Azure Databricks avec un pré-achat
 
@@ -27,7 +27,7 @@ La remise de pré-achat s’applique uniquement à l’utilisation de DBU. Les a
 
 Le pré-achat de Databricks s’applique à toutes les charges de travail et les niveaux Databricks. Vous pouvez considérer le pré-achat comme un pool d’unités de validation Databricks pré-payé. L’utilisation est déduite du pool, quelle que soit la charge de travail ou le niveau. L’utilisation est déduite dans le rapport suivant :
 
-| **Charge de travail** | **Rapport d’application DBU - niveau Standard** | **Rapport d’application DBU - niveau Premium** |
+| **Charge de travail** | **Rapport d’application DBU - niveau Standard** | **Rapport d’application DBU : niveau Premium** |
 | --- | --- | --- |
 | Analytique des données | 0.4 | 0,55 |
 | Engineering données | 0.15 | 0.30 |
@@ -41,8 +41,8 @@ Avant de procéder à l’achat, calculez la quantité totale de DBU utilisée p
 
 Vous pouvez acheter des plans Databricks dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22Databricks%22%7D). Pour acheter une capacité de réserve, vous devez avoir le rôle de propriétaire pour au moins un abonnement d’entreprise.
 
-- Actuellement, le pré-achat est disponible uniquement pour les clients avec un Contrat Entreprise.
-- Vous devez avoir un rôle de propriétaire pour au moins un abonnement d’entreprise.
+- Vous devez avoir un rôle de propriétaire pour au moins un Contrat Entreprise (références de l’offre : MS-AZR-0017P or MS-AZR-0148P) ou Microsoft Customer Agreement (MCA) ou un abonnement individuel avec paiement à l’utilisation (numéros de l’offre : MS-AZR-0003P ou MS-AZR-0023P).
+- Pour les abonnements EA, l’option Ajouter des instances réservées doit être activée dans le portail EA. Ou, si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 - Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com/). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
 
 **Pour acheter :**

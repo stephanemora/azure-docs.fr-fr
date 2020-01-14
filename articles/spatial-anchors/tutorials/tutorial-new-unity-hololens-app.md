@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application HoloLens Unity'
+title: 'Tutoriel : Créer une application HoloLens Unity'
 description: Dans ce tutoriel, vous allez apprendre à créer une application HoloLens Unity avec Azure Spatial Anchors.
 author: julianparismorgan
 manager: vriveras
@@ -8,18 +8,18 @@ ms.author: pmorgan
 ms.date: 07/05/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0d63f2df17804d5cc171f94a34ebc5831be384fb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1abb759c80e770f1e650c232b6b2e21232b7e6f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276918"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457725"
 ---
-# <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Didacticiel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
+# <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutoriel : Instructions pas à pas pour créer une application HoloLens Unity avec Azure Spatial Anchors
 
 Ce tutoriel vous montre comment créer une application HoloLens Unity avec Azure Spatial Anchors.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 
@@ -141,17 +141,27 @@ Utilisons maintenant la boucle Update() pour vérifier l’existence d’une Act
 
 ## <a name="get-the-azure-spatial-anchors-sdk"></a>Obtenir le kit SDK Azure Spatial Anchors
 
-Nous allons maintenant télécharger le kit SDK Azure Spatial Anchors. Accédez à la [page des versions Azure Spatial Anchors de GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). Sous Assets (Ressources), téléchargez le fichier **AzureSpatialAnchors.unitypackage**.
+## <a name="via-unity-packagetabunitypackage"></a>[Via le package Unity](#tab/UnityPackage)
 
-Dans Unity, accédez à **Assets**, cliquez sur **Import Package** > **Custom Package...** . Accédez au package et sélectionnez **Open**.
+Nous allons maintenant télécharger le kit SDK Azure Spatial Anchors. Accédez à la [page des versions Azure Spatial Anchors de GitHub](https://github.com/Azure/azure-spatial-anchors-samples/releases). Sous Assets (Ressources), téléchargez le fichier **AzureSpatialAnchors.unitypackage**. Dans Unity, accédez à **Assets**, cliquez sur **Import Package** > **Custom Package...** . Accédez au package et sélectionnez **Open**.
 
-Dans la nouvelle fenêtre **Import Unity Package** qui s’affiche, sélectionnez **None** en bas à gauche. Ensuite, sous **AzureSpatialAnchorsPlugin** > **plugins**, sélectionnez **Common**, **Editor** et **HoloLens**. Cliquez sur **Import** dans l’angle inférieur droit.
+Dans la nouvelle fenêtre **Import Unity Package** qui s’affiche (Importer le package Unity), désélectionnez **Plug-ins**, puis cliquez sur **Import** (Importer) en bas à droite.
 
 Nous devons à présent restaurer les packages Nuget pour obtenir le kit SDK Azure Spatial Anchors. Générez à partir de **Unity**, puis ouvrez et générez de nouveau la solution **Visual Studio** obtenue, tel que décrit en détail à la section [Essai](#trying-it-out).
 
+## <a name="via-nugetforunitytabnugetforunity"></a>[Via NuGetForUnity](#tab/NuGetForUnity)
+
+Tout d’abord, nous devons installer NuGetForUnity. Accédez à la [page concernant les versions NuGetForUnity sur GitHub](https://github.com/GlitchEnzo/NuGetForUnity/releases). Sous Assets, téléchargez la dernière version de **NuGetForUnity.unitypackage**. Dans Unity, accédez à **Assets**, cliquez sur **Import Package** > **Custom Package...** . Accédez au package et sélectionnez **Open**. Unity va maintenant installer NugetForUnity. Si vous ne voyez pas un nouveau menu déroulant **NuGet** s’afficher dans Unity, vous devrez peut-être cliquer avec le bouton droit sous **Projects** > **Assets**. Sélectionnez ensuite **Reimport All** (Tout réimporter).
+
+Une fois NuGetForUnity installé, sélectionnez **NuGet** > **Manage NuGet Packages** (Gérer les packages NuGet). Ensuite, recherchez Microsoft.Azure.SpatialAnchors.Unity, puis sélectionnez **Install** (Installer).
+
+Nous devons maintenant créer du code pour obtenir le SDK Azure Spatial Anchors, car le package NuGet que nous venons de télécharger contient uniquement des scripts d’assistance. Générez à partir de **Unity**, puis ouvrez et générez de nouveau la solution **Visual Studio** obtenue, tel que décrit en détail à la section [Essai](#trying-it-out).
+
+---
+
 Dans votre solution **Visual Studio**, ajoutez l’importation suivante à votre `<ProjectName>\Assets\Scripts\AzureSpatialAnchorsScript.cs` :
 
-[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=23-26&highlight=1)]
+[!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=18-21&highlight=1)]
 
 Ajoutez ensuite les variables de membre suivantes dans votre classe `AzureSpatialAnchorsScript` :
 

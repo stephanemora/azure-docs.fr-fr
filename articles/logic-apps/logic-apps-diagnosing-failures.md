@@ -1,17 +1,17 @@
 ---
-title: Dépanner et diagnostiquer les échecs
-description: Découvrir comment résoudre les problèmes et diagnostiquer les échecs de flux de travail dans Azure Logic Apps
+title: Résoudre les problèmes et diagnostiquer des échecs de flux de travail
+description: Découvrir comment résoudre les problèmes et diagnostiquer les erreurs et les échecs de flux de travail dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 93b6d9d2975aa1758afffd19deb1d315b974cc47
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790764"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666803"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Résoudre les problèmes et diagnostiquer les échecs de flux de travail dans Azure Logic Apps
 

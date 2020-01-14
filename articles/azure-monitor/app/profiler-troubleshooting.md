@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes liés à Azure Application Insights Profiler | Microsoft Docs
+title: Résoudre les problèmes liés à Azure Application Insights Profiler
 description: Cet article décrit les étapes de dépannage et donne des informations afin d’aider les développeurs qui rencontrent des difficultés à activer ou utiliser Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899974"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432380"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -127,7 +127,7 @@ Profiler s’exécute comme une tâche web continue dans l’application web. Vo
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Résoudre les problèmes de Profiler et de Diagnostics Azure
 
->**Le bogue dans le profileur fourni avec WAD pour les Services cloud a été résolu.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du kit de développement logiciel (SDK) App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n'est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
+>**Le bogue du profileur fourni avec WAD pour les Services cloud a été corrigé.** La dernière version de WAD (1.12.2.0) pour les Services cloud fonctionne avec toutes les versions récentes du kit de développement logiciel (SDK) App Insights. Les hôtes des Services cloud mettent automatiquement à niveau WAD, mais ce n'est pas immédiat. Pour forcer une mise à niveau, vous pouvez redéployer votre service ou redémarrer le nœud.
 
 Pour voir si Profiler est correctement configuré par Diagnostics Azure, effectuez les trois actions suivantes : 
 1. Premièrement, vérifiez si le contenu de la configuration Diagnostics Azure qui est déployé est celui que vous attendez. 
@@ -163,6 +163,11 @@ Pour vérifier les paramètres qui ont été utilisés pour configurer Diagnosti
     Si Profiler s’exécute pendant que votre application reçoit des demandes, vous voyez ce message : *Activité de l’iKey détectée*. 
 
     Quand la trace est en cours de chargement, le message suivant s’affiche : *Démarrage du chargement de la trace*. 
+
+
+## <a name="edit-network-proxy-or-firewall-rules"></a>Modifier les règles de pare-feu ou de proxy réseau
+
+Si votre application se connecte à Internet via un proxy ou un pare-feu, il se peut que vous deviez modifier les règles pour autoriser votre application à communiquer avec le service Application Insights Profiler. Les adresses IP utilisées par Application Insights Profiler sont incluses dans la balise de service Azure Monitor.
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png

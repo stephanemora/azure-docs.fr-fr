@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec iOS et macOS - Plateforme d’identités Microsoft | Azure
-description: Comment les applications iOS et macOS (Swift) peuvent appeler une API qui nécessite des jetons d’accès en utilisant la plateforme d’identités Microsoft
+title: Tutoriel MSAL pour iOS et macOS – Plateforme d’identités Microsoft | Azure
+description: Découvrez comment les applications iOS et macOS (Swift) peuvent appeler une API qui nécessite des jetons d’accès en utilisant la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: tylermsft
@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f161d94d622ae76932e88be52df6f068bfc945
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0aa97f2cb54295d9403ec332eb9c0ada684df12
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423401"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -45,7 +45,7 @@ Cet exemple utilise la bibliothèque d’authentification Microsoft (MSAL) afin 
 
 Ce tutoriel est applicable aux applications iOS et macOS. Notez que certaines étapes varient d’une plateforme à l’autre. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - XCode version 10.x ou supérieure est nécessaire pour générer l’application de ce guide. Vous pouvez télécharger XCode sur le [site web iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL de téléchargement de XCode").
 - Microsoft Authentication Library ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)). Vous pouvez utiliser un gestionnaire de dépendances ou ajouter la bibliothèque manuellement. Les instructions ci-dessous montrent comment procéder.
@@ -500,7 +500,7 @@ Après avoir obtenu un jeton, votre application peut l’utiliser dans l’en-t�
 
 | clé d’en-tête    | value                 |
 | ------------- | --------------------- |
-| Authorization | Porteur \<jeton-accès> |
+| Autorisation | Porteur \<jeton-accès> |
 
 Ajoutez le code suivant à la classe `ViewController` :
 
@@ -575,9 +575,9 @@ Pour ajouter une fonctionnalité de déconnexion, ajoutez le code suivant dans l
 Par défaut, MSAL met en cache les jetons de votre application dans le trousseau iOS ou macOS. 
 
 Pour activer la mise en cache des jetons
-1. Vérifiez que votre application est correctement signée.
+1. Vérifiez que votre application est signée correctement.
 2. Accédez à vos paramètres de projet Xcode > **onglet Fonctionnalités** > **Activer le partage de trousseau**.
-3. Cliquez sur **+** et fournissez l’une des entrées **Groupes de trousseaux** suivantes : 3.a Pour iOS, entrez `com.microsoft.adalcache` 3.b Pour macOS, entrez `com.microsoft.identity.universalstorage`
+3. Cliquez sur **+** et fournissez l’une des entrées **Groupes de trousseaux** suivantes : 3.a. Pour iOS, entrez `com.microsoft.adalcache` 3.b. Pour macOS, entrez `com.microsoft.identity.universalstorage`.
 
 ### <a name="add-helper-methods"></a>Ajouter des méthodes d’assistance
 Ajoutez les méthodes d’assistance suivantes à la classe `ViewController` pour compléter l’exemple.
@@ -653,7 +653,7 @@ Une fois que vous êtes connecté, l’application affiche les données retourn�
 
 Si vous rencontrez des problèmes avec ce tutoriel ou avec la plateforme d’identités Microsoft, consultez le [Centre d’aide et de support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options).
 
-Aidez-nous à améliorer la plateforme d’identité Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
+Aidez-nous à améliorer la plateforme des identités Microsoft. Faites-nous part de votre avis en répondant à une petite enquête de deux questions.
 
 > [!div class="nextstepaction"]
 > [Enquête sur la plateforme des identités Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

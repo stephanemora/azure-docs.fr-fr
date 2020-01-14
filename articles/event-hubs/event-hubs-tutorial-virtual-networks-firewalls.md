@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Activer l’intégration des réseaux virtuels et des pare-feu Event Hubs | Microsoft Docs'
+title: Azure Event Hubs - Activer l’intégration des réseaux virtuels et les pare-feu
 description: Dans ce tutoriel, vous allez apprendre à intégrer Event Hubs avec des réseaux virtuels et des pare-feux pour permettre un accès sécurisé.
 services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
-ms.date: 11/28/2018
+ms.date: 12/20/2019
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 0f7c7e348c154aab1deb10273346a5395599b745
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: f911a1513c6f89180ea51cc0de96dc8a475c7fc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437117"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Tutoriel : Activer l’intégration des réseaux virtuels et des pare-feu sur l’espace de noms Event Hubs
 
@@ -47,7 +47,7 @@ Dans ce tutoriel, vous allez découvrir comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Nous utiliserons un espace de noms Event Hubs existant. Vérifiez donc que vous en avez un à votre disposition. Si ce n’est pas le cas, consultez [ce tutoriel](./event-hubs-create.md).
 

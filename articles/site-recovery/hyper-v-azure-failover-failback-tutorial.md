@@ -1,29 +1,28 @@
 ---
-title: Configurer le basculement et la restauration automatique des machines virtuelles Hyper-V dans Azure Site Recovery
-description: Découvrez comment basculer et restaurer automatiquement des machines virtuelles Hyper-V pour la reprise d’activité sur Azure avec le service Azure Site Recovery.
+title: Configurer le basculement des machines virtuelles Hyper-V vers Azure dans Azure Site Recovery
+description: Découvrez comment configurer le basculement des machines virtuelles Hyper-V vers Azure dans Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/14/2019
+ms.date: 12/16/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a8c197c2f0875bb31d091fb5839730ee1568b471
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 03826abf6da94859c510f4c127dfce035aa79370
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082646"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498162"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
+# <a name="fail-over-hyper-v-vms-to-azure"></a>Effectuer le basculement de machines virtuelles Hyper-V vers Azure
 
-Ce didacticiel explique comment basculer une machine virtuelle Hyper-V vers Azure. Une fois que vous avez procédé au basculement, vous restaurez automatiquement sur votre site local quand il est disponible. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel explique comment effectuer le basculement des machines virtuelles Hyper-V vers Azure dans [Azure Site Recovery](site-recovery-overview.md). Une fois que vous avez procédé au basculement, vous restaurez automatiquement sur votre site local quand il est disponible. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier la conformité des propriétés des machines virtuelles Hyper-V aux spécifications d’Azure
-> * Effectuer un basculement vers Azure
-> * Restaurer automatiquement depuis Azure vers un site local
-> * Inverser la réplication de machines virtuelles locales pour redémarrer la réplication vers Azure
+> * Effectuer le basculement de certaines machines virtuelles vers Azure
+
 
 Ce didacticiel est le cinquième d’une série. Il suppose que vous avez déjà effectué les tâches des didacticiels précédents.    
 
@@ -32,8 +31,9 @@ Ce didacticiel est le cinquième d’une série. Il suppose que vous avez déjà
 3. Configurer la récupération d’urgence pour les [machines virtuelles Hyper-V](tutorial-hyper-v-to-azure.md) ou pour les [machines virtuelles Hyper-V gérées par les clouds System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
 4. [Effectuer un test de récupération d’urgence](tutorial-dr-drill-azure.md)
 
-## <a name="prepare-for-failover-and-failback"></a>Préparer le basculement et la restauration automatique
+[Découvrez](failover-failback-overview.md#types-of-failover) les différents types de basculements. Si vous souhaitez effectuer le basculement de plusieurs machines virtuelles dans le cadre d’un plan de récupération, consultez [cet article](site-recovery-failover.md).
 
+## <a name="prepare-for-failover"></a>Préparer un basculement 
 Assurez-vous qu’il n’existe aucun instantané sur la machine virtuelle et que la machine virtuelle locale est arrêtée pendant la restauration automatique. Ceci permet de garantir la cohérence des données pendant la réplication. N’activez pas la machine virtuelle locale pendant la restauration automatique. 
 
 Le basculement et la restauration automatique comportent trois étapes :
@@ -56,7 +56,7 @@ Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine
 
 1. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques**.
 
-## <a name="failover-to-azure"></a>Basculement vers Azure
+## <a name="fail-over-to-azure"></a>Basculer vers Azure
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
 2. Dans **Basculement** sélectionnez le point de récupération **le plus récent**. 
@@ -66,15 +66,18 @@ Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine
 > [!WARNING]
 > **N’annulez pas un basculement en cours** : Si vous annulez un basculement en cours, il s’arrête mais la machine virtuelle ne sera pas à nouveau répliquée.
 
-## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Restauration automatique de machine virtuelle Azure vers un site local et inverser la réplication de la machine virtuelle locale
+## <a name="connect-to-failed-over-vm"></a>Se connecter à une machine virtuelle basculée
 
-L’opération de restauration automatique est essentiellement un basculement d’Azure vers le site local et, dans l’inversion de la réplication, elle redémarre la réplication des machines virtuelles du site local vers Azure.
+1. Si vous souhaitez vous connecter à des machines virtuelles Azure après le basculement en utilisant le protocole RDP (Remote Desktop Protocol) et Secure Shell (SSH), [vérifiez que les exigences ont été satisfaites](failover-failback-overview.md#connect-to-azure-after-failover).
+2. Une fois le basculement effectué, accédez à la machine virtuelle et validez-la en vous [connectant](../virtual-machines/windows/connect-logon.md) à celle-ci.
+3. Utilisez **Changer le point de récupération**, si vous souhaitez vous servir d’un autre point de récupération après le basculement. Une fois le basculement validé au cours de l’étape suivante, cette option n’est plus disponible.
+4. Une fois la validation effectuée, sélectionnez **Valider** pour finaliser le point de récupération de la machine virtuelle après le basculement.
+5. Une fois que vous avez effectué la validation, tous les autres points de récupération disponibles sont supprimés. Cette étape marque la fin du basculement.
 
-1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculement planifié**.
-2. Dans **Confirmer le basculement planifié**, vérifiez le sens du basculement (depuis Azure), et sélectionnez les emplacements source et cible.
-3. Sélectionnez **Synchroniser les données avant le basculement (synchroniser seulement les modifications d’ordre différentiel)** . Cette option réduit le temps d’arrêt de machine virtuelle, car il synchronise la machine virtuelle sans l’arrêter.
-4. Lancez le basculement. Vous pouvez suivre la progression du basculement sur l’onglet **Tâches** .
-5. Quand la synchronisation initiale des données est terminée et que vous êtes prêt à arrêter les machines virtuelles Azure, cliquez sur **Tâches** > Nom de la tâche de basculement planifié > **Terminer le basculement**. Ceci arrête la machine virtuelle Azure, transfère les dernières modifications locales et démarre la machine virtuelle locale.
-6. Connectez-vous à la machine virtuelle locale pour vérifier qu’elle est disponible comme prévu.
-7. La machine virtuelle locale est maintenant dans l’état **Validation en attente**. Cliquez sur **Valider**. Ceci supprime les machines virtuelles Azure et leurs disques, et prépare la machine virtuelle locale pour la réplication inverse.
-Pour démarrer la réplication de la machine virtuelle locale sur Azure, activez **Réplication inverse**. Ceci déclenche la réplication des modifications delta qui se sont produites depuis que la machine virtuelle Azure a été désactivée.  
+>[!TIP]
+> Si vous rencontrez des problèmes de connectivité après le basculement, suivez le [guide de résolution des problèmes](site-recovery-failover-to-azure-troubleshoot.md).
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Après le basculement, reprotégez les machines virtuelles Azure en les répliquant localement. Ensuite, une fois les machines virtuelles reprotégées et répliquées sur le site local, effectuez une restauration automatique à partir d’Azure quand vous êtes prêt.

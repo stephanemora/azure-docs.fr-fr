@@ -1,6 +1,7 @@
 ---
-title: 'Démarrage rapide : Créer une instance en mode hybride d’Azure Database Migration Service à l’aide du portail Azure | Microsoft Docs'
-description: Utiliser le portail Azure pour créer une instance d’Azure Database Migration Service en mode hybride
+title: 'Démarrage rapide : Créer une instance en mode hybride à l’aide du portail Azure'
+titleSuffix: Azure Database Migration Service
+description: Utilisez le portail Azure pour créer une instance d’Azure Database Migration Service en mode hybride.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,21 +9,32 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/06/2019
-ms.openlocfilehash: a124c33f15318f1b9b22a750a1de15601823afa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/17/2019
+ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74890689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437751"
 ---
-# <a name="quickstart-create-an-instance-of-azure-database-migration-service-in-hybrid-mode-using-the-azure-portal-preview"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service en mode hybride à l’aide du portail Azure (préversion)
+# <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Démarrage rapide : Créer une instance en mode hybride à l’aide du portail Azure et d’Azure Database Migration Service
 
 Le mode hybride d’Azure Database Migration Service gère les migrations de base de données à l’aide d’un Worker de migration hébergé localement avec une instance d’Azure Database Migration Service exécutée dans le cloud. Le mode hybride est particulièrement utile pour les scénarios dans lesquels la connectivité de site à site entre le réseau local et Azure fait défaut ou si la bande passante de la connectivité de site à site est limitée.
 
+>[!NOTE]
+>Actuellement, Azure Database Migration Service exécuté en mode hybride prend en charge les migrations SQL Server vers :
+>
+>- Une instance managée d’Azure SQL Database avec un temps d’arrêt quasi nul (en ligne).
+>- Une base de données unique Azure SQL Database avec un temps d’arrêt (hors connexion).
+>- MongoDb vers Azure CosmosDB avec un temps d’arrêt quasi nul (en ligne).
+>- MongoDb vers Azure CosmosDB avec un temps d’arrêt (hors connexion).
+
 Dans ce guide de démarrage rapide, vous allez utiliser le portail Azure pour créer une instance d’Azure Database Migration Service en mode hybride. Vous allez ensuite télécharger, installer et configurer le Worker hybride dans votre réseau local. Pendant la préversion, vous pouvez utiliser Azure Database Migration Service en mode hybride pour migrer les données d’une instance SQL Server locale vers Azure SQL Database.
+
+> [!NOTE]
+> Le programme d’installation hybride d’Azure Database Migration Service est exécutable sur Microsoft Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 et Windows 10.
 
 > [!IMPORTANT]
 > Le programme d’installation hybride Azure Database Migration Service nécessite .NET 4.7.2 ou ultérieur. Pour trouver les versions les plus récentes de .NET, consultez la page [Télécharger .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
@@ -51,7 +63,7 @@ Avant de créer votre première instance d’Azure Database Migration Service, v
 
 1. Sélectionnez +**Créer une ressource** pour créer une instance d’Azure Database Migration Service.
 
-2. Recherchez « migration » sur la marketplace, sélectionnez **Azure Database Migration Service**, puis, dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
+2. Recherchez « migration » sur la Place de marché, sélectionnez **Azure Database Migration Service** et, dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
 
 3. Sur l’écran **Créer un service de migration** :
 
@@ -59,13 +71,9 @@ Avant de créer votre première instance d’Azure Database Migration Service, v
     - Sélectionnez l’**abonnement** Azure dans lequel vous souhaitez créer l’instance.
     - Sélectionnez un **Groupe de ressources** existant ou créez-en un.
     - Choisissez **l’emplacement** le plus proche de votre serveur source ou cible.
-
-    > [!IMPORTANT]
-    > Pendant la préversion, le mode hybride est pris en charge uniquement dans la région USA Est. Le Worker hybride étant installé dans votre réseau local, l’impact sur les performances est faible voire inexistant même si vous effectuez une migration vers une cible située dans une autre région.
-
     - Pour **Mode de service**, sélectionnez **Hybride (préversion)** .
 
-      ![Créer un service de migration - Notions de base](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Sélectionnez **Revoir + créer**.
 
@@ -120,7 +128,7 @@ Vous devez créer un ID d’inscription Azure App qui permettra au Worker hybrid
 4. Dans le dossier d’installation, recherchez et ouvrez le fichier **dmsSettings.json**, indiquez les valeurs **ApplicationId** et **resourceId**, puis enregistrez le fichier.
 
     ![Paramètres du Worker hybride Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
- 
+
 5. Générez un certificat qui permettra à Azure Database Migration Service d’authentifier la communication à partir du Worker hybride à l’aide de la commande suivante.
 
     ```
@@ -141,6 +149,12 @@ Vous devez créer un ID d’inscription Azure App qui permettra au Worker hybrid
     <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a Install -IAcceptDMSLicenseTerms
     ```
 
+    > [!NOTE]
+    > Vous pouvez également exécuter la commande install en spécifiant les paramètres suivants :
+    >
+    > - **-TelemetryOptOut** : empêche le Worker d’envoyer des données de télémétrie, mais continue d’effectuer une journalisation minimale au niveau local.  Le programme d’installation envoie toujours des données de télémétrie.
+    > - **-p {InstallLocation}** . Autorise le changement du chemin d’installation, qui est par défaut « C:\Program Files\DatabaseMigrationServiceHybrid ».
+
 8. Si le programme d’installation s’exécute sans erreur, le service présente l’état en ligne dans Azure Database Migration Service et vous pouvez commencer à migrer vos bases de données.
 
     ![État en ligne d’Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode-online.png)
@@ -152,6 +166,27 @@ Actuellement, la désinstallation d’Azure Database Migration Service en mode h
 ```
 <drive>:\<folder>\Install>DMSWorkerBootstrap.exe -a uninstall
 ```
+
+> [!NOTE]
+> Vous pouvez également exécuter la commande uninstall en spécifiant le paramètre « -ReuseCert » pour conserver le certificat AdApp généré par le workflow generateCert.  Cela vous permet de réutiliser le certificat qui a été précédemment généré et chargé.
+
+## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Installer le Worker hybride Azure Database Migration Service à l’aide de PowerShell
+
+Vous pouvez installer le Worker hybride Azure Database Migration Service par le biais du portail Azure, mais aussi l’installer au moyen d’un script PowerShell que nous fournissons. Avec ce script, vous automatisez les étapes d’installation du Worker après avoir créé une instance d’Azure Database Migration Service en mode hybride. Le script :
+
+1. Crée une AdApp.
+2. Télécharge le programme d’installation.
+3. Exécute le workflow generateCert.
+4. Charge le certificat.
+5. Ajoute l’AdApp comme contributeur à votre instance d’Azure Database Migration Service.
+6. Exécute le workflow d’installation.
+
+Ce script est conçu pour un prototypage rapide lorsque l’utilisateur possède déjà toutes les autorisations nécessaires dans l’environnement. Notez que dans votre environnement de production, l’AdApp et le certificat peuvent avoir des exigences différentes, et faire échouer le script.
+
+> [!IMPORTANT]
+> Ce script suppose qu’il existe déjà une instance d’Azure Database Migration Service en mode hybride et que le compte Azure utilisé a les autorisations appropriées pour créer des AdApps dans le locataire et modifier les règles RBAC sur l’abonnement.
+
+Spécifiez simplement les paramètres en haut du script, puis exécutez le script à partir d’une instance de PowerShell en tant qu’administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

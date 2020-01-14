@@ -1,5 +1,5 @@
 ---
-title: Comprendre les frais indiqués sur la facture de votre contrat client Microsoft - Azure
+title: Frais de facture de Contrat client Microsoft - Azure
 description: Découvrez comment lire et comprendre les frais indiqués sur votre facture.
 author: jureid
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e9c74fd18bf80dfb8fa406912795fb53e655bd88
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b5dfffecbd2908e987b76f29b14937f0e50ce64f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226152"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388990"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Comprendre les frais indiqués sur votre facture du Contrat client Microsoft
 
@@ -26,7 +26,7 @@ Cet article s'applique à un compte de facturation associé à un contrat client
 
 ## <a name="view-transactions-for-an-invoice-in-the-azure-portal"></a>Afficher les transactions d’une facture dans le portail Microsoft Azure
 
-1. Connectez-vous au [Portail Azure](https://www.azure.com).
+1. Connectez-vous au [portail Azure](https://www.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -71,7 +71,7 @@ Dans le compte de facturation d’un contrat client de Microsoft, tant que les f
 
 ### <a name="view-summary-of-pending-charges"></a>Afficher un résumé des frais en attente
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -91,7 +91,7 @@ Les frais du mois en cours sont des frais en attente. Ils seront facturés lors 
 
 Lorsque vous avez identifié les frais en attente, vous pouvez les comprendre en analysant les transactions individuelles qui forment ces frais. À ce stade, les frais d’utilisation en attente ne sont pas affichés sur la page Toutes les transactions. Vous pouvez les afficher sur la page Abonnements Azure. Pour plus d’informations, veuillez consulter [Afficher les frais d’utilisation en attente](#view-pending-usage-charges)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -107,7 +107,7 @@ Lorsque vous avez identifié les frais en attente, vous pouvez les comprendre en
 
 ### <a name="view-pending-usage-charges"></a>Afficher les frais d’utilisation en attente
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez *Gestion des coûts + facturation*.
 

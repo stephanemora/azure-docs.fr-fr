@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
-description: Fournit des instructions permettant de configurer rapidement une application mobile pour la surveillance avec Application Insights et App Center
+title: Superviser des applications mobiles avec Azure Monitor Application Insights
+description: Fournit des instructions permettant de configurer rapidement une application mobile pour sa supervision avec Azure Monitor Application Insights et App Center
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -9,18 +9,18 @@ ms.author: mbullwin
 ms.date: 06/26/2019
 ms.reviewer: daviste
 ms.custom: mvc
-ms.openlocfilehash: fe514e7a05701901759ab5453e1c1d02870da91d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 07e162dc74a514c9e7e6c82c38b51460a2f797fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398884"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
 Ce démarrage rapide vous guide tout au long de la connexion de l’instance App Center de votre application à Application Insights. Avec Application Insights, vous pouvez interroger, segmenter, filtrer et analyser vos données de télémétrie avec davantage d’outils puissants que ceux disponibles à partir du service [Analytics](https://docs.microsoft.com/mobile-center/analytics/) d’App Center.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
@@ -68,7 +68,7 @@ Pour vous assurer que vos événements personnalisés sont reçus, accédez à l
 
 Dès que votre application envoie des événements personnalisés et que ces derniers sont reçus par App Center, vous devez créer une ressource Application Insights de type App Center dans le Portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**.
 
     > [!NOTE]
@@ -151,7 +151,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
    * **Classeurs**, pour combiner des visualisations et du texte dans un rapport partageable.
    * **Cohortes**, pour nommer et enregistrer des groupes d’utilisateurs ou d’événements spécifiques afin qu’ils puissent être facilement référencés à partir d’autres outils d’analytique.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne souhaitez pas continuer à utiliser Application Insights avec App Center, désactivez l’exportation dans App Center, puis supprimez la ressource Application Insights. Ainsi, vous ne serez plus facturé par Application Insights pour cette ressource.
 

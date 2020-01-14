@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Révision des énoncés de point de terminaison - LUIS'
+title: 'Tutoriel : Révision des énoncés de point de terminaison - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité.
+description: Dans ce tutoriel, améliorez les prédictions d’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2019
+ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 0a4d2a3345ce4f69d4492d1a782b778b1ee3bf4c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447816"
 ---
-# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Didacticiel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée.
 
 Ce processus de révision permet à LUIS de découvrir le domaine de votre application. LUIS sélectionne les énoncés qui apparaissent dans la liste de révision. Cette liste est :
@@ -28,8 +28,6 @@ Ce processus de révision permet à LUIS de découvrir le domaine de votre appli
 * Doit être révisée régulièrement.
 
 En passant en revue les énoncés de point de terminaison, vous vérifiez ou corrigez l’intention prédite de l’énoncé.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -46,7 +44,7 @@ En passant en revue les énoncés de point de terminaison, vous vérifiez ou cor
 
 Utilisez les étapes suivantes pour importer une application.
 
-1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
 1. Dans le [portail LUIS en préversion](https://preview.luis-ai), importez le fichier .json dans une nouvelle application.
 
@@ -228,7 +226,7 @@ Vous vous demandez sûrement pourquoi ne pas ajouter plus d’énoncés d’exem
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Pourquoi la meilleure intention est-elle sur la liste des énoncés ?
 Certains des énoncés de point de terminaison auront un score de prédiction élevé dans la liste de révision. Vous devez quand même réviser et vérifier ces énoncés. Ils figurent dans la liste car l’intention suivante la plus haute avait un score trop proche de celui de la meilleure intention. Vous souhaitez une différence d’environ 15 % entre les deux meilleures intentions.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

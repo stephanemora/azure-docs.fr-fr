@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Créer une première instance Recherche personnalisée Bing | Microsoft Docs'
+title: 'Démarrage rapide : Créer une première instance de Recherche personnalisée Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilisez cet article pour créer une instance Bing personnalisée qui peut effectuer des recherches dans les domaines et pages web que vous définissez.
+description: Utilisez ce guide de démarrage rapide pour créer une instance Bing personnalisée qui peut effectuer des recherches dans les domaines et pages web que vous définissez.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 2c98395e2671c245d9349a72ed6a964b2ebd28ca
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 45478c8e4f5003ff41eb8b486d67caa452739cd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978541"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384744"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Démarrage rapide : Créer votre première instance de Recherche personnalisée Bing
 
@@ -25,7 +25,7 @@ Pour créer l’instance, utilisez le [portail Recherche personnalisée Bing](ht
 
 ![Image du portail Recherche personnalisée Bing](media/blockedCustomSrch.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
@@ -52,4 +52,4 @@ Pour créer une instance Recherche personnalisée Bing :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing](./call-endpoint-csharp.md)
+> [Démarrage rapide : Appeler votre point de terminaison Recherche personnalisée Bing](./call-endpoint-csharp.md)

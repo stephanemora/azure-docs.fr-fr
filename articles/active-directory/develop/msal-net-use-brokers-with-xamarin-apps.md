@@ -1,5 +1,5 @@
 ---
-title: Authentification répartie sur Xamarin, iOS et Android | Azure
+title: Utiliser des répartiteurs avec Xamarin, iOS et Android | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment migrer des applications Xamarin iOS de la bibliothèque Azure AD Authentication pour .NET (ADAL.NET) vers la bibliothèque Microsoft Authenticator pour .NET (MSAL.NET) en utilisant Microsoft Authenticator
 author: jmprieur
@@ -13,12 +13,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a26f73354b99160275649855f7a2a616249ce05c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 49198909da103debd77fcf0d630e0fa16c1e4448
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424223"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Utiliser Microsoft Authenticator ou le portail d’entreprise Microsoft Intune sur des applications Xamarin
 
@@ -34,10 +34,10 @@ Pour activer l’une de ces fonctionnalités, les développeurs d’applications
 
 Suivez ces étapes pour permettre à votre application Xamarin.iOS de communiquer avec l’application [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458).
 
-### <a name="step-1-enable-broker-support"></a>Étape 1 : Activer la prise en charge du répartiteur
+### <a name="step-1-enable-broker-support"></a>Étape 1 : Activer la prise en charge du répartiteur
 La prise en charge du répartiteur est activée pour chaque application cliente publique (PublicClientApplication). Elle est désactivée par défaut. Utilisez le paramètre `WithBroker()` (dont la valeur est true par défaut) lorsque vous créez l’application cliente publique (PublicClientApplication) via le générateur d’application cliente publique (PublicClientApplicationBuilder).
 
-```CSharp
+```csharp
 var app = PublicClientApplicationBuilder
                 .Create(ClientId)
                 .WithBroker()
@@ -45,10 +45,24 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>Étape 2 : Mettre à jour AppDelegate pour gérer le rappel
+### <a name="step-2-enable-keychain-access"></a>Étape 2 : Activer l’accès au trousseau
+
+Pour activer l’accès au trousseau, votre application doit avoir un groupe d’accès au trousseau. Vous pouvez utiliser l’API `WithIosKeychainSecurityGroup()` pour définir votre groupe d’accès au trousseau lorsque vous créez votre application :
+
+```csharp
+var builder = PublicClientApplicationBuilder
+     .Create(ClientId)
+      
+     .WithIosKeychainSecurityGroup("com.microsoft.adalcache")
+     .Build();
+```
+
+Pour plus d'informations, consultez [Activer l’accès au trousseau](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
+
+### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Étape 3 : Mettre à jour AppDelegate pour gérer le rappel
 Lorsque la bibliothèque d'authentification Microsoft pour .NET (MSAL.NET) appelle le répartiteur, ce dernier rappelle votre application via la méthode `OpenUrl` de la classe `AppDelegate`. MSAL attendant la réponse du répartiteur, votre application doit coopérer pour rappeler MSAL.NET. Pour permettre cette coopération, mettez à jour le fichier `AppDelegate.cs` pour remplacer la méthode suivante.
 
-```CSharp
+```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, 
                              string sourceApplication,
                              NSObject annotation)
@@ -70,7 +84,7 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 Cette méthode est appelée chaque fois que l'application est lancée. Elle permet de traiter la réponse du répartiteur et d’accomplir le processus d’authentification initié par MSAL.NET.
 
-### <a name="step-3-set-a-uiviewcontroller"></a>Étape 3 : Définir un UIViewController()
+### <a name="step-4-set-a-uiviewcontroller"></a>Étape 4 : Définir un UIViewController()
 Toujours dans `AppDelegate.cs`, vous devez définir une fenêtre d’objet. Normalement, avec Xamarin iOS, vous n'êtes pas tenu de définir la fenêtre d'objet. Pour envoyer et recevoir des réponses du répartiteur, vous avez besoin d’une fenêtre d’objet. 
 
 Pour ce faire, vous devez effectuer deux opérations. 
@@ -80,22 +94,22 @@ Pour ce faire, vous devez effectuer deux opérations.
 **Par exemple :**
 
 Dans `App.cs` :
-```CSharp
+```csharp
    public static object RootViewController { get; set; }
 ```
 Dans `AppDelegate.cs` :
-```CSharp
+```csharp
    LoadApplication(new App());
    App.RootViewController = new UIViewController();
 ```
 Dans l’appel d’acquisition de jeton :
-```CSharp
+```csharp
 result = await app.AcquireTokenInteractive(scopes)
              .WithParentActivityOrWindow(App.RootViewController)
              .ExecuteAsync();
 ```
 
-### <a name="step-4-register-a-url-scheme"></a>Étape 4 : Inscrire un schéma d’URL
+### <a name="step-5-register-a-url-scheme"></a>Étape 5 : Inscrire un schéma d’URL
 MSAL.NET utilise des URL pour appeler le répartiteur, avant de retourner la réponse du répartiteur à votre application. Pour terminer l’aller-retour, inscrivez un schéma d’URL pour votre application dans le fichier `Info.plist`.
 
 Le nom `CFBundleURLSchemes` doit inclure le préfixe `msauth.`, suivi de votre `CFBundleURLName`.
@@ -125,7 +139,7 @@ Le nom `CFBundleURLSchemes` doit inclure le préfixe `msauth.`, suivi de votre `
     </array>
 ```
 
-### <a name="step-5-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Étape 5 : Ajouter l’identificateur du répartiteur à la section LSApplicationQueriesSchemes
+### <a name="step-6-add-the-broker-identifier-to-the-lsapplicationqueriesschemes-section"></a>Étape 6 : Ajouter l’identificateur du répartiteur à la section LSApplicationQueriesSchemes
 MSAL utilise `–canOpenURL:` pour vérifier si le répartiteur est installé sur l’appareil. Dans iOS 9, Apple a verrouillé la liste des schémas dans lesquels une application peut lancer une requête. 
 
 Ajoutez `msauthv2` à la section `LSApplicationQueriesSchemes` du fichier `Info.plist`.
@@ -134,21 +148,22 @@ Ajoutez `msauthv2` à la section `LSApplicationQueriesSchemes` du fichier `Info.
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
+      <string>msauthv3</string>
     </array>
 ```
 
-### <a name="step-6-register-your-redirect-uri-in-the-application-portal"></a>Étape 6 : Inscrire votre URI de redirection dans le portail d’applications
+### <a name="step-7-register-your-redirect-uri-in-the-application-portal"></a>Étape 7 : Inscrire votre URI de redirection dans le portail d’applications
 L’utilisation du répartiteur ajoute une exigence à votre URI de redirection. Le format de l'URI de redirection _doit_ être le suivant :
-```CSharp
+```csharp
 $"msauth.{BundleId}://auth"
 ```
 **Par exemple :**
-```CSharp
+```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth"; 
 ```
 Vous remarquerez que l'URI de redirection correspond au nom `CFBundleURLSchemes` que vous avez inclus dans le fichier `Info.plist`.
 
-### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Étape 7 : Vérifier que l’URI de redirection est inscrit avec votre application
+### <a name="step-8-make-sure-the-redirect-uri-is-registered-with-your-app"></a>Étape 8 : Vérifier que l’URI de redirection est inscrit avec votre application
 
 Cet URI de redirection doit être inscrit sur le portail d’inscription d’application (https://portal.azure.com) en tant qu’URI de redirection valide pour votre application. 
 

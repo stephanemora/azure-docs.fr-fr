@@ -1,5 +1,5 @@
 ---
-title: Générer une application web Flask en utilisant l’API d’Azure Cosmos DB pour MongoDB et le kit de développement logiciel (SDK) Python
+title: Créer une application web Flask en Python à l’aide de l’API d’Azure Cosmos DB pour MongoDB
 description: Cet article présente un exemple de code Python Flask que vous pouvez utiliser pour vous connecter à l’API d’Azure Cosmos DB pour MongoDB et pour l’interroger.
 author: markjbrown
 ms.author: mjbrown
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 2bd8fa81d0825e604c42c54c0f789b7939206804
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8e58d0bdaaa5e4fb4564a68b46de7887ec28336d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756933"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445493"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Python en utilisant l’API d’Azure Cosmos DB pour MongoDB
 
@@ -30,7 +30,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce guide de démarrage rapide utilise [l'exemple Flask](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) suivant et illustre comment créer une application de liste de tâches Flask simple avec [l'émulateur Azure Cosmos DB](local-emulator.md) et l'API pour MongoDB d'Azure Cosmos DB.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Téléchargez [l’émulateur Azure Cosmos DB](local-emulator.md). L’émulateur est actuellement pris en charge uniquement sur Windows. L’exemple montre comment utiliser une clé de production d’Azure, ce qui peut être effectué sur n’importe quelle plateforme.
 
@@ -90,7 +90,7 @@ Les extraits de code suivants proviennent tous du fichier app.py et utilisent la
     todos = db.todo #Select the collection
     ```
 
-* Création de l'application
+* Créer l’application
 
     ```Python
     app = Flask(__name__)
@@ -157,7 +157,7 @@ Si vous ne souhaitez pas créer de duplication de ce dépôt, vous pouvez égale
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

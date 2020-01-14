@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide Azure - Exécution d’un travail Batch - .NET
-description: Exécution rapide d’un travail Batch et de tâches avec la bibliothèque cliente .NET de Batch.
+description: Exécutez rapidement un exemple de travail Azure Batch et ses tâches à partir d’une application C# en utilisant la bibliothèque cliente .NET de Batch.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 613f771af71c4f03f7ccf9283b98c09836c312cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322324"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390318"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
 
@@ -25,7 +25,7 @@ Ce démarrage rapide exécute un travail Azure Batch à partir d’une applicati
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/vs), ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) pour Linux, macOS ou Windows. 
 
@@ -206,7 +206,7 @@ try
 ...
 ```
 
-### <a name="create-tasks"></a>Création de tâches
+### <a name="create-tasks"></a>Créer des tâches
 
 L’application crée une liste d’objets [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Chaque tâche traite un objet d’entrée `ResourceFile` à l’aide d’une propriété [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Dans l’exemple, la ligne de commande exécute la commande Windows `type` afin d’afficher le fichier d’entrée. Cette commande est un exemple simple à des fins de démonstration. Lorsque vous utilisez Azure Batch, la ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
@@ -227,7 +227,7 @@ for (int i = 0; i < inputFiles.Count; i++)
 batchClient.JobOperations.AddTask(JobId, tasks);
 ```
 
-### <a name="view-task-output"></a>Afficher les sorties des tâches
+### <a name="view-task-output"></a>Afficher la sortie des tâches
 
 L’application crée un [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) pour surveiller les tâches et s’assurer qu’elles se terminent. L’application utilise ensuite la propriété [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) pour afficher le fichier `stdout.txt` généré par chaque tâche terminée. Lorsque la tâche s’exécute avec succès, la sortie de la commande de tâche est écrite dans `stdout.txt` :
 
@@ -242,7 +242,7 @@ foreach (CloudTask task in completedtasks)
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 L’application supprime automatiquement le conteneur de stockage créé et vous donne la possibilité de supprimer le travail et le pool Azure Batch. Vous êtes facturé pour le pool pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin du pool, supprimez-le. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées.
 

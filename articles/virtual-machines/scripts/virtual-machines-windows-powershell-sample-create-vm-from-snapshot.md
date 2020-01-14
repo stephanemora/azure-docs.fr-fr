@@ -1,5 +1,5 @@
 ---
-title: Exemples de script Azure PowerShell - Créer une machine virtuelle à partir d’une capture instantanée
+title: Créer une machine virtuelle à partir d’une capture instantanée - Exemple PowerShell
 description: Exemples de script Azure PowerShell - Créer une machine virtuelle à partir d’une capture instantanée
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: ee332e391e3cbd9c5e76263145e6a8efda34625b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fb10f6c2d8109d240840faf5fa864176c89f24e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368317"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Créer une machine virtuelle à partir d’une capture instantanée avec PowerShell
 

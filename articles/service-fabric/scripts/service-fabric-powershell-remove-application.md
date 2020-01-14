@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure PowerShell - Supprimer l’application d’un cluster | Microsoft Docs
+title: Supprimer une application d’un cluster dans PowerShell
 description: Exemple de script Azure PowerShell - Supprimer une application d’un cluster Service Fabric
 services: service-fabric
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: f572996b4e460480335dbe32c4599bde206251d4
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 9ac4c23468c74b5a2c6874de2cb6b8d0e6b9e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035512"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610282"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Supprimer une application d’un cluster Service Fabric
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-powershell"></a>Supprimer une application d’un cluster Service Fabric à l’aide de PowerShell
 
-Cet exemple de script supprime une instance d’application Service Fabric en cours d’exécution et annule l’inscription d’un type d’application et de la version du cluster.  La suppression de l’instance d’application entraîne également celle de toutes les instances de service en cours d’exécution associées à cette application. Personnalisez les paramètres, le cas échéant. 
+Cet exemple de script supprime une instance d’application Service Fabric en cours d’exécution et annule l’inscription d’un type d’application et de la version du cluster.  La suppression de l’instance d’application entraîne également celle de toutes les instances de service en cours d’exécution associées à cette application. Personnalisez les paramètres selon vos besoins. 
 
 Si nécessaire, installez le module Service Fabric PowerShell avec le [Kit de développement logiciel (SDK) Service Fabric](../service-fabric-get-started.md). 
 

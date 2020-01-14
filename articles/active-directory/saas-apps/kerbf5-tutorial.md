@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5 | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et F5.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1ec0dd844dea8cf98621130d6a19b415bda1cf0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a1f06b0b5aa59328d2fe39d501cfdf3ad7524427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786484"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431471"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à F5
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à F5
 
 Dans ce tutoriel, vous allez découvrir comment intégrer F5 à Azure Active Directory (Azure AD). Quand vous intégrez F5 à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez découvrir comment intégrer F5 à Azure Active Dir
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -220,7 +220,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure01.png) 
 
-1. En outre, vous aurez besoin d’un **certificat SSL pour le nom d’hôte de l’application. Accédez à System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Sélectionnez **Import** (Importer) en haut à droite. **Import Type** (Type d’importation) aura la valeur **PKCS 12 (IIS)** . Spécifiez un nom de clé dans le champ **Key Name** (sera référencé plus tard dans la configuration), puis le fichier PFX. Spécifiez le mot de passe du fichier PFX dans le champ **Password**. Cliquez sur **Importer**.
+1. De plus, vous aurez besoin d’un **certificat SSL pour le nom d’hôte de l’application. Accédez à System > Certificate Management > Traffic Certificate Management > SSL Certificate List** (Système > Gestion des certificats > Gestion des certificats de trafic > Liste des certificats SSL). Sélectionnez **Import** (Importer) en haut à droite. **Import Type** (Type d’importation) aura la valeur **PKCS 12 (IIS)** . Spécifiez un nom de clé dans le champ **Key Name** (sera référencé plus tard dans la configuration), puis le fichier PFX. Spécifiez le mot de passe du fichier PFX dans le champ **Password**. Cliquez sur **Importer**.
 
     >[!NOTE]
     >Dans l’exemple, le nom de notre application est `Kerbapp.superdemo.live`, nous utilisons un certificat à caractères génériques, et le nom de clé est `WildCard-SuperDemo.live`.
@@ -370,7 +370,7 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
     >[!Note]
     > Vous devrez créer et spécifier le compte de délégation Kerberos. Consultez la section KCD (voir l’annexe pour obtenir des informations de référence sur les variables).
 
-    * **Username Source** (Source du nom d’utilisateur) : session.saml.last.attr.name. http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
+    * **Username Source** (Source de nom d’utilisateur) : session.saml.last.attr.name.http:\//schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname
 
     * **User Realm Source** (Source du domaine utilisateur) : session.logon.last.domain
 
@@ -454,7 +454,7 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
 >[!NOTE]
 >Pour obtenir des informations de référence, cliquez [ici](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
 
-*  **Étape 1 :** Créer un compte de délégation
+*  **Étape 1 :** Créer un compte de délégation
 
     **Exemple :**
     * Domain Name (Nom du domaine) : **superdemo.live**
@@ -463,12 +463,12 @@ Vous pouvez configurer un serveur Active Directory AAA dans Access Policy Manage
 
     * New-ADUser -Name "APM Delegation Account" -UserPrincipalName host/big-ipuser.superdemo.live@superdemo.live -SamAccountName "big-ipuser" -PasswordNeverExpires $true -Enabled $true -AccountPassword (Read-Host -AsSecureString "Password!1234")
 
-* **Étape 2 :** Définir le SPN (sur le compte de délégation APM)
+* **Étape 2 :** Définir le SPN (sur le compte de délégation APM)
 
     **Exemple :**
     * setspn –A **host/big-ipuser.superdemo.live** big-ipuser
 
-* **Étape 3 :** La délégation SPN (pour le compte App Service) configure la délégation appropriée pour le compte de délégation F5.
+* **Étape 3 :** La délégation SPN (pour le compte App Service) configure la délégation appropriée pour le compte de délégation F5.
     Dans l’exemple ci-dessous, le compte de délégation APM est configuré pour KCD pour l’application FRP-App1.superdemo. live.
 
     ![Configuration F5 (Kerberos)](./media/kerbf5-tutorial/configure43.png)

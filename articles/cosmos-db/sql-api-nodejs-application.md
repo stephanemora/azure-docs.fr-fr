@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application web Node.js avec le kit SDK JavaScript pour gérer les données de l’API SQL Azure Cosmos DB'
+title: 'Tutoriel : Créer une application web Node.js avec le SDK JavaScript Azure Cosmos DB pour gérer les données de l’API SQL'
 description: Ce didacticiel Node.js explique comment utiliser Microsoft Azure Cosmos DB pour stocker des données et y accéder à partir d’une application web Express Node.js hébergée sur la fonctionnalité Web Apps de Microsoft Azure App Service.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a67870cc2494321aa739d6f59f18651013b7403b
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 7a01c436f31a8ce5b8071db3eda4cf5562c421c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995947"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441274"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Didacticiel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutoriel : Créer une application web Node.js avec le Kit de développement logiciel (SDK) JavaScript pour gérer un compte d’API SQL dans Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -102,7 +102,7 @@ Le fichier **package.json** est l'un des fichiers créés à la racine du projet
 ## <a name="_Toc395783180"></a>Connecter l’application Node.js à Azure Cosmos DB
 Maintenant que vous avez terminé l’installation et la configuration initiales, ensuite vous écrirez du code qui est requis par l’application de tâches pour communiquer avec Azure Cosmos DB.
 
-### <a name="create-the-model"></a>Création du modèle
+### <a name="create-the-model"></a>Créer le modèle
 1. À la racine du répertoire de votre projet, créez un répertoire nommé **models**.  
 
 2. Dans le répertoire **models**, créez un fichier nommé **taskDao.js**. Ce fichier contient le code nécessaire pour créer la base de données et le conteneur. Il définit également des méthodes pour lire, mettre à jour, créer et rechercher des tâches dans Azure Cosmos DB. 
@@ -474,9 +474,9 @@ Lorsque votre application a bien été exécutée localement, vous pouvez la dé
 
 4. Dans quelques secondes, votre application web sera publiée et lancée dans un navigateur.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources que vous avez utilisé pour le compte Azure Cosmos DB, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
+Dès que vous n’avez plus besoin de ces ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources que vous avez utilisé pour le compte Azure Cosmos DB, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 
 ## <a name="_Toc395637775"></a>Étapes suivantes
 

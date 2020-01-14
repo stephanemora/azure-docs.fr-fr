@@ -3,19 +3,19 @@ title: Registres de conteneurs managés
 description: Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud.
 author: stevelas
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 12/03/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 2ceae0a6d6eb4dc989a53b35dc4a2f64472a5f54
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892972"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445732"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
-Azure Container Registry est un service de registre Docker managé privé, qui est basé sur le registre open source Docker 2.0. Créez et gérez des registres de conteneur Azure pour stocker et gérer vos images de conteneur Docker privées.
+Azure Container Registry est un service de registre Docker managé privé, qui est basé sur le registre open source Docker 2.0. Créez et tenez à jour des registres de conteneurs Azure pour stocker et gérer vos images conteneur Docker privées et les artefacts associés.
 
 Utilisez des registres de conteneurs Azure avec vos pipelines de développement et de déploiement existants, ou utilisez Azure Container Registry Tasks pour créer des images conteneur dans Azure. Créez des builds à la demande ou des builds entièrement automatisées avec des déclencheurs tels que des validations du code source ou des mises à jour d’images de base.
 
@@ -38,11 +38,18 @@ Azure fournit des outils, notamment l’interface de ligne de commande Azure, le
 
 * **Références SKU de registre** : créez au moins un registre de conteneurs dans votre abonnement Azure. Les registres sont disponibles dans trois références SKU : [De base, Standard et Premium](container-registry-skus.md), chacune prenant en charge l’intégration webhook, l’authentification de registres auprès d’Azure Active Directory et la fonctionnalité de suppression. Tirez parti du stockage local proche du réseau de vos images de conteneur en créant un registre dans le même emplacement Azure que vos déploiements. Utilisez la fonctionnalité [géoréplication](container-registry-geo-replication.md) des registres Premium pour les scénarios avancés de réplication et de distribution d’image conteneur. 
 
-  Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneurs à l’aide d’une identité Azure, d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou d’un compte d’administration fourni. Connectez-vous au registre à l’aide d’Azure CLI ou de la commande standard `docker login`.
+* **Sécurité et accès** : vous vous connectez à un registre à l’aide d’Azure CLI ou de la commande `docker login` standard. Azure Container Registry transfère les images conteneur via HTTPS et prend en charge TLS pour sécuriser les connexions clientes. 
+
+  > [!IMPORTANT]
+  > À partir du 13 janvier 2020, Azure Container Registry exigera l’utilisation de TLS 1.2 pour toutes les connexions sécurisées établies à partir des serveurs et des applications. TLS 1.0 et 1.1 ne seront plus pris en charge.
+
+  Vous [contrôlez l’accès](container-registry-authentication.md) à un registre de conteneurs à l’aide d’une identité Azure, d’un [principal de service](../active-directory/develop/app-objects-and-service-principals.md) pris en charge par Azure Active Directory ou d’un compte d’administration fourni. Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations affinées au niveau utilisateurs ou systèmes à un registre.
+
+  Les fonctionnalités de sécurité de la référence SKU Premium incluent l’[approbation de contenu](container-registry-content-trust.md) pour la signature des étiquettes d’images, et les [pare-feu et réseaux virtuels (préversion)](container-registry-vnet.md) pour restreindre l’accès au registre. Azure Security Center s’intègre éventuellement avec Azure Container Registry pour [analyser les images](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) chaque fois qu’une image est envoyée (push) vers un registre.
 
 * **Images et artefacts pris en charge** : placée dans un dépôt, chaque image est une capture instantanée en lecture seule d’un conteneur compatible avec Docker. Les registres de conteneur Azure peuvent inclure des images de Windows et Linux. Vous contrôlez les noms d’images pour tous les déploiements de votre conteneur. Utilisez des [commandes Docker](https://docs.docker.com/engine/reference/commandline/) standard pour envoyer les images dans un référentiel ou extraire une image d’un référentiel. En plus des images conteneurs Docker, Azure Container Registry stocke des [formats de contenu associés](container-registry-image-formats.md) comme les [graphiques Helm](container-registry-helm-repos.md) et les images générées selon la [spécification du format d’image Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
-* **Azure Container Registry Tasks** : utilisez [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) pour concevoir, tester, pousser (push) et déployer plus simplement des images dans Azure. Par exemple, vous pouvez utiliser ACR Tasks pour étendre votre développement interne dans le cloud en déchargeant les opérations `docker build` dans Azure. Configurez des tâches de build pour automatiser le pipeline des mises à jour correctives (infrastructure et système d’exploitation du conteneur) et ainsi créer automatiquement des images lorsque votre équipe valide le code pour contrôler la source.
+* **Génération d’images automatisée** : utilisez [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) pour créer, tester, envoyer (push) et déployer plus simplement des images dans Azure. Par exemple, vous pouvez utiliser ACR Tasks pour étendre votre développement interne dans le cloud en déchargeant les opérations `docker build` dans Azure. Configurez des tâches de build pour automatiser le pipeline des mises à jour correctives (infrastructure et système d’exploitation du conteneur) et ainsi créer automatiquement des images lorsque votre équipe valide le code pour contrôler la source.
 
   Les [tâches multiétapes](container-registry-tasks-overview.md#multi-step-tasks) permettent la définition et l’exécution basées sur une tâche pour la génération, le test et la mise à jour corrective d’images conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 

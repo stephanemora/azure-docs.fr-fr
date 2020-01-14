@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: e96d0103a03e841f39e8adb88215f6d6e24a305a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ba78645f754072c7f75b5b4f457c76bb9895b6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706083"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355022"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
@@ -51,7 +51,7 @@ Les messages d’écoute, d’acceptation et de requête sont reçus en provenan
 
 Pour indiquer au service qu’il est prêt à accepter les connexions, l’écouteur crée une connexion WebSocket sortante. L’établissement de la connexion porte le nom d’une connexion hybride configurée dans l’espace de noms Relay, et un jeton de sécurité qui confère le droit « d’écoute » sur ce nom.
 
-Quand le WebSocket est accepté par le service, l’inscription est terminée et le WebSocket établi reste actif en tant que « canal de contrôle » autorisant toutes les interactions suivantes. Le service autorise jusqu’à 25 écouteurs simultanés sur une même connexion hybride. Le quota pour les crochets d’application (AppHooks) doit être déterminé.
+Quand le WebSocket est accepté par le service, l’inscription est terminée et le WebSocket établi reste actif en tant que « canal de contrôle » autorisant toutes les interactions suivantes. Le service autorise jusqu’à 25 écouteurs simultanés pour une même connexion hybride. Le quota pour les crochets d’application (AppHooks) doit être déterminé.
 
 Dans le cas des connexions hybrides, s’il existe plusieurs écouteurs actifs, les connexions entrantes sont réparties entre tous ces écouteurs selon un ordre aléatoire, et de façon la plus équitable possible.
 
@@ -147,8 +147,8 @@ Voici les options de paramètres des chaînes de requête.
 
 | Paramètre        | Obligatoire | Description
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | OUI      | Pour le rôle d’écouteur, le paramètre doit être **sb-hc-action=listen**
-| `{path}`         | OUI      | Chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
+| `sb-hc-action`   | Oui      | Pour le rôle d’écouteur, le paramètre doit être **sb-hc-action=listen**
+| `{path}`         | Oui      | Chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
 | `sb-hc-token`    | Oui\*    | L’écouteur doit fournir un jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’écoute**.
 | `sb-hc-id`       | Non       | Cet ID facultatif fourni par le client permet un suivi de diagnostic de bout en bout.
 
@@ -167,7 +167,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | --------- | -------------------------------------------------------------------------------
 | 1001      | Le chemin d’accès de la connexion hybride a été supprimé ou désactivé.
 | 1008      | Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée.
-| 1011      | Un problème est survenu dans le service.
+| 1010      | Un problème est survenu dans le service.
 
 #### <a name="accept-handshake"></a>Négociation d’acceptation
 
@@ -207,8 +207,8 @@ L’URL doit être utilisée telle quelle pour établir le socket d’acceptatio
 
 | Paramètre      | Obligatoire | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | OUI      | Pour accepter un socket, le paramètre doit être `sb-hc-action=accept`
-| `{path}`       | OUI      | (voir le paragraphe suivant)
+| `sb-hc-action` | Oui      | Pour accepter un socket, le paramètre doit être `sb-hc-action=accept`
+| `{path}`       | Oui      | (voir le paragraphe suivant)
 | `sb-hc-id`     | Non       | Voir la description précédente de **id**.
 
 `{path}` est le chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
@@ -232,7 +232,7 @@ En cas d’erreur, le service peut répondre ceci :
 | 1001      | Le client expéditeur arrête la connexion.                                    |
 | 1001      | Le chemin d’accès de la connexion hybride a été supprimé ou désactivé.                        |
 | 1008      | Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
-| 1011      | Un problème est survenu dans le service.                                            |
+| 1010      | Un problème est survenu dans le service.                                            |
 
 ##### <a name="rejecting-the-socket"></a>Rejeter le socket
 
@@ -244,8 +244,8 @@ En cas d’erreur, le service peut répondre ceci :
 
 | Paramètre                   | Obligatoire | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | OUI      | Code d’état HTTP numérique.                |
-| sb-hc-statusDescription | OUI      | Motif du rejet lisible. |
+| sb-hc-statusCode        | Oui      | Code d’état HTTP numérique.                |
+| sb-hc-statusDescription | Oui      | Motif du rejet lisible. |
 
 L’URI obtenu est ensuite utilisé pour établir une connexion WebSocket.
 
@@ -379,7 +379,7 @@ L’URL `address` de l’objet `request` doit être utilisée telle quelle pour 
 
 | Paramètre      | Obligatoire | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | OUI      | Pour accepter un socket, le paramètre doit être `sb-hc-action=request`
+| `sb-hc-action` | Oui      | Pour accepter un socket, le paramètre doit être `sb-hc-action=request`
 
 En cas d’erreur, le service peut répondre ceci :
 
@@ -396,7 +396,7 @@ En cas d’erreur, le service peut répondre ceci :
 | 1001      | Le client expéditeur arrête la connexion.                                    |
 | 1001      | Le chemin d’accès de la connexion hybride a été supprimé ou désactivé.                        |
 | 1008      | Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée. |
-| 1011      | Un problème est survenu dans le service.                                            |
+| 1010      | Un problème est survenu dans le service.                                            |
 
 
 #### <a name="listener-token-renewal"></a>Renouvellement du jeton de l’écouteur
@@ -437,8 +437,8 @@ Voici les options de paramètres des chaînes de requête :
 
 | Paramètre          | Requis ? | Description
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | OUI       | Pour le rôle de l’expéditeur, le paramètre doit être `sb-hc-action=connect`.
-| `{path}`       | OUI       | (voir le paragraphe suivant)
+| `sb-hc-action` | Oui       | Pour le rôle de l’expéditeur, le paramètre doit être `sb-hc-action=connect`.
+| `{path}`       | Oui       | (voir le paragraphe suivant)
 | `sb-hc-token`  | Oui\*     | L’écouteur doit fournir un jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’envoi**.
 | `sb-hc-id`     | Non        | ID facultatif qui permet le suivi de diagnostic de bout en bout et est accessible à l’écouteur pendant la liaison d’acceptation.
 
@@ -466,7 +466,7 @@ Si la connexion du WebSocket est intentionnellement arrêtée par le service apr
 | 1 000      | L’écouteur a fermé le socket.
 | 1001      | Le chemin d’accès de la connexion hybride a été supprimé ou désactivé.
 | 1008      | Le jeton de sécurité a expiré et, par conséquent, la stratégie d’autorisation n’est pas respectée.
-| 1011      | Un problème est survenu dans le service.
+| 1010      | Un problème est survenu dans le service.
 
 ### <a name="http-request-protocol"></a>Protocole de requête HTTP
 
@@ -510,7 +510,7 @@ En cas d’erreur, le service peut répondre comme suit. Il est possible de dét
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [FAQ sur Azure Relay](relay-faq.md)
+* [FAQ Relay](relay-faq.md)
 * [Créer un espace de noms](relay-create-namespace-portal.md)
 * [Prise en main de .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Prise en main de Node](relay-hybrid-connections-node-get-started.md)

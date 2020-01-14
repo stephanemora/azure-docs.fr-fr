@@ -1,17 +1,17 @@
 ---
-title: Script Azure PowerShell - Modifier la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos
+title: Script PowerShell pour changer la priorité de basculement d’un compte Azure Cosmos
 description: Exemple de script Azure PowerShell - Modifier la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: e4406124a7ea4eac213d830d0e5960e76fb6d364
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 6a742486918e5134a73256ef6c7490a823f14335
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155404"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441501"
 ---
 # <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-using-powershell"></a>Modifier la priorité de basculement ou déclencher un basculement pour un compte Azure Cosmos à l’aide de PowerShell
 

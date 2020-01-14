@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Bot Language Understanding Node.js v4'
+title: 'Tutoriel : Bot Language Understanding Node.js v4'
 titleSuffix: Azure Cognitive Services
-description: À l’aide de Node.js, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise l’application Ressources humaines pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework version 4 et le bot d’application web Azure.
+description: En utilisant Node.js, générez un chatbot intégré avec Language Understanding (LUIS) dans ce tutoriel. Ce bot conversationnel utilise l’application Ressources humaines pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework version 4 et le bot d’application web Azure.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a38f43b24e5db6a60ff38cd0f1d9b59b9875bba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447998"
 ---
-# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Didacticiel : Utilisez un Web App Bot activé avec Language Understanding dans Node.js 
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutoriel : Utilisez un Web App Bot activé avec Language Understanding dans Node.js 
 
 Utilisez Node.js pour créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Le bot est conçu avec la ressource Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) et [Bot Framework V4](https://github.com/Microsoft/botbuilder-dotnet).
 
@@ -32,7 +32,7 @@ Utilisez Node.js pour créer un bot conversationnel intégré avec compréhensio
 > * Démarrer le bot et l’émulateur localement sur votre ordinateur
 > * Afficher les résultats d’énoncé dans le bot
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Émulateur de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -83,7 +83,7 @@ Le processus de création du service de bot crée également une application LUI
 |Réserver le vol|`Travel to Paris`|
 |Annuler|`bye`|
 |GetWeather|`what's the weather like?`|
-|Aucun|Quoi que ce soit en dehors du domaine de l’application.|
+|None|Quoi que ce soit en dehors du domaine de l’application.|
 
 ## <a name="test-the-bot-in-web-chat"></a>Tester le bot dans la Discussion Web
 

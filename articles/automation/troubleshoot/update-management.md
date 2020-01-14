@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f5346f2f11df2282a1cd2592db930f7ff829a2d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416775"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -45,7 +45,7 @@ Vous devrez peut-être réinscrire et réinstaller le Runbook Worker hybride.
 
 Vous avez peut-être défini dans votre espace de travail un quota qui a été atteint et empêche le stockages d’autres données.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 * Exécutez l’utilitaire de résolution des problèmes pour [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux](update-agent-issues-linux.md#troubleshoot-offline), selon le système d’exploitation utilisé.
 
@@ -86,7 +86,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 Le fournisseur de ressources Automation n’est pas inscrit dans l’abonnement.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour inscrire le fournisseur de ressources Automation, effectuez les opérations suivantes dans le portail Azure :
 
@@ -113,7 +113,7 @@ Cette erreur peut se produire pour les raisons suivantes :
 - La communication avec le compte Automation est bloquée.
 - La machine virtuelle embarquée peut provenir d’un ordinateur cloné qui n’a pas été préparé avec Sysprep à l’aide de la version de Microsoft Monitoring Agent (MMA) installée.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Accédez à [Planification réseau](../automation-hybrid-runbook-worker.md#network-planning) pour savoir quelles adresses et quels ports doivent être autorisés pour le fonctionnement d’Update Management.
 2. Si vous utilisez une image clonée :
@@ -136,7 +136,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 Cette erreur se produit lorsque vous créez un déploiement de mise à jour dans lequel des machines virtuelles Azure d’un autre locataire sont incluses.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Utilisez la solution de contournement suivante pour planifier ces éléments. Vous pouvez utiliser l’applet de commande [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) avec le commutateur `-ForUpdate` pour créer une planification. Ensuite, utilisez l’applet de commande [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) et transférez les ordinateurs de l’autre locataire vers le paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
@@ -161,7 +161,7 @@ Même si vous avez défini l’option **Contrôle de redémarrage** sur **Ne jam
 
 Windows Update peut être modifié par plusieurs clés de Registre dont chacune peut modifier les comportements de redémarrage.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Passez en revue les clés de Registre répertoriées sous [Configuration automatique des mises à jour par modification du Registre](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) et [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) pour vous assurer que vos ordinateurs sont configurés correctement.
 
@@ -185,7 +185,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 * MMA a été mis à jour, ce qui a modifié le paramètre SourceComputerId.
 * L’exécution de votre mise à jour a été limitée si vous avez atteint la limite de 2 000 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche, et chaque ordinateur dans un déploiement de mise à jour est également considéré comme une tâche. Toutes les autres tâches d’automatisation ou de déploiement de mise à jour en cours d’exécution dans votre compte Automation comptent dans la limite des tâches qu’il est possible d’effectuer simultanément.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Lorsque c’est possible, utilisez les [groupes dynamiques](../automation-update-management-groups.md) pour vos déploiements de mise à jour. De plus :
 
@@ -208,7 +208,7 @@ Lorsque vous inscrivez un ordinateur Windows à Update Management, vous voyez le
 
 Sur Windows, les mises à jour sont installées automatiquement dès qu’elles sont disponibles. Ce comportement peut être à l’origine d’une certaine confusion si vous n’avez pas planifié de déploiement de mise à jour sur l’ordinateur.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 La valeur par défaut de 4 est affectée à la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` : **télécharger et installer automatiquement**.
 
@@ -230,7 +230,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 L’ordinateur est déjà intégré à un autre espace de travail pour Update Management.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Suivez les étapes de [Machines n’apparaissent pas dans le portail sous Update Management](#nologs) pour vous assurer que l’ordinateur est associé au bon espace de travail.
 2. Nettoyez les anciens artefacts sur l’ordinateur en [supprimant le groupe de runbooks hybrides](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group), puis réessayez.
@@ -253,11 +253,15 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
+```error
+Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
+```
+
 ### <a name="cause"></a>Cause :
 
-Un proxy, une passerelle ou un pare-feu bloquent peut-être la communication réseau.
+Un proxy, une passerelle ou un pare-feu bloquent peut-être la communication réseau. 
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Passez en revue votre réseau, et vérifiez que les ports et les adresses appropriés sont autorisés. Consultez [Configuration réseau requise](../automation-hybrid-runbook-worker.md#network-planning) pour obtenir la liste des ports et des adresses nécessaires pour Update Management et pour les Runbooks Worker hybrides.
 
@@ -275,7 +279,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Le Runbook Worker hybride n’a pas pu générer de certificat autosigné.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
 
@@ -285,7 +289,7 @@ Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData
 
 La fenêtre de maintenance par défaut pour les mises à jour est de 120 minutes. Vous pouvez augmenter la taille de la fenêtre de maintenance à un maximum de 6 heures, soit 360 minutes.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Modifiez tous les déploiements de mise à jour planifiés ayant échoué et augmentez la taille de la fenêtre de maintenance.
 
@@ -303,7 +307,7 @@ Pour plus d’informations sur les fenêtres de maintenance, consultez [Installe
 
 L’agent de mise à jour (agent Windows Update sur Windows ; le gestionnaire de package pour une distribution Linux) n’est pas configuré correctement. Update Management s’appuie sur l’agent de mise à jour de l’ordinateur pour fournir les mises à jour nécessaires, l’état du correctif et les résultats des correctifs déployés. Sans ces informations, Update Management ne peut pas générer de rapport exact sur les correctifs nécessaires ou installés.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Essayez d’exécuter des mises à jour localement sur l’ordinateur. En cas d’échec, cela signifie généralement qu’il y a une erreur de configuration de l’agent de mise à jour.
 
@@ -325,16 +329,17 @@ Si vous voyez un HRESULT, double-cliquez sur l’exception affichée en rouge po
 |`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` spécifient le bon serveur WSUS.        |
 |`0x80072EE2`|Il y a un problème de connectivité réseau ou problème de communication avec un serveur WSUS configuré. Vérifiez les paramètres WSUS et assurez-vous que le service est accessible à partir du client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assurez-vous que le service Windows Update (wuauserv) est en cours d’exécution et qu’il n’est pas désactivé.        |
+|`0x80070005`| Une erreur d'accès refusé peut être due à l’une des raisons suivantes :<br> Ordinateur infecté<br> Les paramètres Windows Update ne sont pas correctement configurés<br> Erreur d’autorisation de fichier avec le dossier %WinDir%\SoftwareDistribution<br> Espace disque insuffisant sur le lecteur système (C:)
 |Toute autre exception générique     | Effectuez une recherche sur Internet pour découvrir des solutions possibles et contactez votre support technique local.         |
 
-L’examen du fichier Windowsupdate.log peut également vous aider à déterminer les causes possibles. Pour savoir comment lire le journal, consultez l’article [Comment lire le fichier Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
+L’examen du fichier %Windir%\Windowsupdate.log peut également vous aider à déterminer les causes possibles. Pour savoir comment lire le journal, consultez l’article [Comment lire le fichier Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Vous pouvez également télécharger et exécuter l’[utilitaire de résolution des problèmes de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) pour vérifier si l’ordinateur présente des problèmes liés à Windows Update.
 
 > [!NOTE]
 > La documentation de l’[outil de résolution des problèmes de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indique qu’il est destiné à être utilisé sur des clients Windows, mais il fonctionne également sur Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status-linux"></a>Scénario : L’exécution de la mise à jour retourne l’état « Échec » (Linux)
+## <a name="scenario-update-run-returns-failed-status-linux"></a>Scénario : L’exécution de la mise à jour retourne l’état « Échec » (Linux)
 
 ### <a name="issue"></a>Problème
 
@@ -350,7 +355,7 @@ Causes possibles :
 * L’ordinateur est inaccessible.
 * Les mises à jour ont des dépendances qui n’ont pas été résolues.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si des échecs se produisent pendant l’exécution d’une mise à jour après qu’elle a démarré avec succès, [vérifiez la sortie du travail](../manage-update-multi.md#view-results-of-an-update-deployment) de la machine affectée dans l’exécution. Vous trouverez peut-être des messages d’erreur spécifiques provenant de votre machine, effectuer des recherches sur ces erreurs et entreprendre des actions pour les résoudre. Update Management nécessite que le Gestionnaire de package soit sain pour que les déploiements des mises à jour réussisse.
 

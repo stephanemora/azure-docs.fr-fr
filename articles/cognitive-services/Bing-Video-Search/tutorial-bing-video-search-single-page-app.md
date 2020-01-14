@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Générer une application monopage pour la recherche de vidéos Bing'
+title: 'Tutoriel : Générer une application monopage pour la recherche de vidéos Bing'
 titleSuffix: Azure Cognitive Services
-description: Explique comment utiliser l’API Recherche de vidéos Bing dans une application web à page unique.
+description: Ce tutoriel explique comment utiliser l’API Recherche de vidéos Bing dans une application web monopage.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500076"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382461"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application monopage pour la recherche de vidéos
+# <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -96,7 +96,7 @@ La balise `onsubmit` du code HTML `<form>` appelle la fonction `bingWebSearch` p
 ## <a name="selecting-search-options"></a>Sélection des options de recherche
 L’illustration suivante montre la zone de texte de requête et les options qui définissent une recherche.
 
-![Options de Recherche d’actualités Bing](media/video-search-options.png)
+![Options de recherche d’actualités Bing](media/video-search-options.png)
 
 Le formulaire HTML inclut des éléments avec les noms suivants :
 
@@ -141,7 +141,7 @@ function bingSearchOptions(form) {
 Par exemple, le paramètre `SafeSearch` dans un appel d’API réel peut être `strict`, `moderate` ou `off`, `moderate` étant la valeur par défaut. Notre formulaire, cependant, utilise une case à cocher qui a seulement deux états. Le code JavaScript convertit ce paramètre en la valeur `strict` ou `off` (`moderate` n’est pas utilisé).
 
 ## <a name="performing-the-request"></a>Exécution de la requête
-Selon la requête, la chaîne d’options et la clé d’API, la fonction `BingWebSearch` utilise un objet `XMLHttpRequest` pour effectuer la requête au point de terminaison Recherche Bing.
+Selon la requête, la chaîne d’options et la clé d’API, la fonction `BingWebSearch` utilise un objet `XMLHttpRequest` pour effectuer la requête au point de terminaison Recherche Bing. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
 ```javascript
 // Search on the query, using search options, authenticated by the key.
@@ -270,7 +270,7 @@ Une grande partie du code dans les deux fonctions précédentes est dédiée à 
 Les erreurs sont gérées en appelant `renderErrorMessage()` avec des détails connus de l’erreur. Si la réponse transmet tous les tests d’erreurs, nous appelons `renderSearchResults()` pour afficher les résultats de la recherche sur la page.
 
 ## <a name="displaying-search-results"></a>Affichage des résultats de la recherche
-La principale fonction d’affichage des résultats de la recherche est `renderSearchResults()`. Cette fonction utilise le JSON renvoyé par le service Recherche d’actualités Bing et affiche les résultats d’actualités et les recherches associées, le cas échéant.
+La principale fonction d’affichage des résultats de la recherche est `renderSearchResults()`. Cette fonction utilise le JSON renvoyé par le service Recherche d’actualités Bing et restitue les résultats d’actualités et les recherches associées, le cas échéant.
 
 ```javascript
 // render the search results given the parsed JSON response

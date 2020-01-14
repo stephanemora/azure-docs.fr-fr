@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer la réécriture SuccessFactors dans Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer la réécriture SuccessFactors dans Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer la réécriture des attributs sur SuccessFactors à partir d’Azure AD.
 services: active-directory
 author: cmmdesai
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: c780ee973c1dabb15c37b2519eb8253d2371080a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932130"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530032"
 ---
-# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Didacticiel : Configurer la réécriture des attributs d’Azure AD sur SAP SuccessFactors (préversion)
+# <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>Tutoriel : Configurer la réécriture des attributs d’Azure AD sur SAP SuccessFactors (préversion)
 L’objectif de ce tutoriel est de vous montrer les étapes à effectuer pour réécrire des attributs d’Azure AD sur SuccessFactors Employee Central. Le seul attribut actuellement pris en charge pour la réécriture est l’attribut email. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Après avoir configuré l’intégration du provisionnement entrant à l’aide de l’application de provisionnement [SuccessFactors vers AD local](sap-successfactors-inbound-provisioning-tutorial.md) ou [SuccessFactors vers Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md), vous pouvez éventuellement configurer l’application SuccessFactors Writeback pour réécrire l’adresse e-mail vers SuccessFactors. 
 
@@ -63,7 +63,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 * Faites défiler la liste dans la même zone et sélectionnez **Employee Central API**. Ajoutez des autorisations comme indiqué ci-dessous pour lire à l’aide de l’API ODATA et modifier à l’aide de l’API ODATA. Sélectionnez l’option de modification si vous envisagez d’utiliser le même compte pour le scénario de réécriture vers SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Autorisations de lecture-écriture](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Cliquez sur **Done** (Terminé). Cliquez sur **Save Changes** (Enregistrer les modifications).
+* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Créer un groupe d’autorisations pour l’utilisateur des API
 
@@ -78,7 +78,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
   > ![Nom du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
 * Ajoutez des membres au groupe. Par exemple, vous pouvez sélectionner **Username** dans le menu déroulant People Pool, puis entrer le nom d’utilisateur du compte d’API qui sera utilisé pour l’intégration. 
   > [!div class="mx-imgBorder"]
-  > ![Ajouter des membres à un groupe](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+  > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png) (Ajouter des membres à un groupe)
 * Cliquez sur **Done** pour terminer la création du groupe d’autorisations.
 
 ### <a name="grant-permission-role-to-the-permission-group"></a>Accorder le rôle d’autorisation au groupe d’autorisations
@@ -92,17 +92,17 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 * Passez en revue l’octroi de rôle d’autorisation au groupe d’autorisations. 
   > [!div class="mx-imgBorder"]
   > ![Détails du rôle et du groupe d’autorisations](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Cliquez sur **Save Changes**.
+* Cliquez sur **Enregistrer les modifications**.
 
 ## <a name="configuring-successfactors-writeback"></a>Configuration de SuccessFactors Writeback
 
 Cette section décrit les étapes à suivre pour 
 
 * [Ajouter l’application du connecteur de provisionnement et configurer la connectivité à SuccessFactors](#part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors).
-* [Configurer les mappages d'attributs](#part-2-configure-attribute-mappings).
-* [Activer et lancer le provisionnement des utilisateurs](#enable-and-launch-user-provisioning).
+* [Configurer les mappages d'attributs](#part-2-configure-attribute-mappings)
+* [Activer et lancer l'approvisionnement des utilisateurs](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Partie 1 : Ajouter l’application du connecteur de provisionnement et configurer la connectivité à SuccessFactors
+### <a name="part-1-add-the-provisioning-connector-app-and-configure-connectivity-to-successfactors"></a>Première partie : Ajouter l’application du connecteur de provisionnement et configurer la connectivité à SuccessFactors
 
 **Pour configurer SuccessFactors Writeback**
 
@@ -118,7 +118,7 @@ Cette section décrit les étapes à suivre pour
 
 6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
 
-7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
+7. Définissez **Mode** **d'approvisionnement** sur **Automatique**
 
 8. Fermez la section **Informations d’identification de l’administrateur**, comme suit :
 
@@ -129,16 +129,16 @@ Cette section décrit les étapes à suivre pour
    * **URL du locataire** : entrez le nom du point de terminaison des services de l’API OData SuccessFactors. Entrez uniquement le nom d’hôte du serveur, sans http ou https. Cette valeur doit ressembler à ceci : **nom_serveur_API.successfactors.com**.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification et l’URL SuccessFactors sont valides.
     >[!div class="mx-imgBorder"]
-    >![Portail Azure](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
+    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
    * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les utilisateurs d’Azure Active Directory avec SuccessFactors**.
 
-### <a name="part-2-configure-attribute-mappings"></a>Partie 2 : Configuration des mappages d’attributs
+### <a name="part-2-configure-attribute-mappings"></a>Deuxième partie : Configuration des mappages d’attributs
 
 Dans cette section, vous allez configurer le flux des données utilisateur de SuccessFactors vers Active Directory.
 
@@ -152,7 +152,7 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
 
 1. Dans la section **Mappages d’attributs**, vous pouvez uniquement modifier l’ID correspondant qui est utilisé pour lier un profil utilisateur SuccessFactors à un utilisateur Azure AD et l’attribut dans Azure AD qui sert de source d’email. 
     >[!div class="mx-imgBorder"]
-    >![Portail Azure](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
+    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sfwb-attribute-mapping.png)
 
    >[!NOTE]
    >La réécriture SuccessFactors prend uniquement en charge l’attribut email. N’utilisez pas **Ajouter un nouveau mappage** pour ajouter de nouveaux attributs. 
@@ -185,6 +185,6 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
 * [Découvrez comment configurer l’authentification unique entre SuccessFactors et Azure Active Directory](successfactors-tutorial.md)
-* [Découvrez comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
+* [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
 * [Découvrez comment exporter et importer vos configurations de provisionnement](../manage-apps/export-import-provisioning-configuration.md)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel 3 : Déployer un modèle de risque de crédit'
-titleSuffix: ML Studio (classic) - Azure
-description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans la version classique d’Azure Machine Learning Studio. Ce tutoriel est la troisième partie d’une série de tutoriels qui en compte trois. Il montre comment déployez un modèle en tant que service web.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio (classique). Ce tutoriel est la troisième partie d’une série de tutoriels qui en compte trois. Il montre comment déployez un modèle en tant que service web.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques, déployer, service web
 author: sdgilley
 ms.author: sgilley
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 4e8e8a114a06029ef9a81d92b60afd575bc9661f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9353e5749906aca1f0c91b622c93ba6028cd3bef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839481"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432198"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio (classique)
 
@@ -23,7 +23,7 @@ Dans ce tutoriel, vous étudiez de manière approfondie le processus de dévelop
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.  
 
-L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser la version classique d’Azure Machine Learning Studio et un service web Machine Learning pour cette solution. 
+L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser Machine Learning Studio (classique) et un service web Machine Learning pour cette solution. 
 
 Dans ce tutoriel en trois parties, vous commencez avec des données de risque crédit disponibles publiquement.  Ensuite, vous développez et entraînez un modèle prédictif.  Enfin, vous déployez le modèle en tant que service web.
 
@@ -34,17 +34,17 @@ Dans la [deuxième partie du tutoriel](tutorial-part2-credit-risk-train.md), vou
 Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Préparation du déploiement
+> * Préparer le déploiement
 > * Déploiement du service web
 > * Test du service web
 > * Gérer le service web
 > * Accès au service web
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Effectuez la [deuxième partie du tutoriel](tutorial-part2-credit-risk-train.md).
 
-## <a name="prepare-for-deployment"></a>Préparation du déploiement
+## <a name="prepare-for-deployment"></a>Préparer le déploiement
 Pour que d’autres personnes puissent utiliser le modèle prédictif que vous avez développé dans ce tutoriel, vous pouvez le déployer en tant que service web sur Azure.
 
 Jusqu’à présent, vous avez testé l’expérience de l’entraînement de votre modèle. Mais le service déployé n’effectue plus l’apprentissage ; il va produire de nouvelles prédictions en évaluant l’entrée de l’utilisateur en fonction de notre modèle. Nous allons donc effectuer quelques préparatifs pour convertir cette expérience de ***i*** en expérience ***prédictive***. 
@@ -235,7 +235,7 @@ Pour plus d’informations sur les modèles d’applications web, consultez [Uti
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
@@ -244,7 +244,7 @@ Pour plus d’informations sur les modèles d’applications web, consultez [Uti
 Dans ce tutoriel, vous avez effectué les étapes suivantes :
 
 > [!div class="checklist"]
-> * Préparation du déploiement
+> * Préparer le déploiement
 > * Déploiement du service web
 > * Test du service web
 > * Gérer le service web

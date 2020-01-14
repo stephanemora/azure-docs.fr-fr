@@ -1,28 +1,19 @@
 ---
-title: Tutoriel - Nettoyer des ressources Azure Service Fabric Mesh | Microsoft Docs
+title: Tutoriel - Nettoyer des ressources Azure Service Fabric Mesh
 description: Découvrez comment supprimer des ressources Azure Service Fabric Mesh afin de ne pas être facturé pour des ressources que vous n’utilisez plus.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/18/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a60c42310f0698b8290e7ba6195eeed44fe0b95e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d5e33099d58c9cb4c110a78f2576d6eac83a7932
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351870"
 ---
-# <a name="tutorial-remove-azure-resources"></a>Tutoriel : Supprimer des ressources Azure
+# <a name="tutorial-remove-azure-resources"></a>Tutoriel : Supprimer des ressources Azure
 
 Ce tutoriel est la cinquième partie d’une série de tutoriels. Il vous explique comment supprimer l’application et ses ressources pour ne pas qu’elles vous soient facturées.
 
@@ -40,13 +31,13 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas déployé l’application To-Do, suivez les instructions fournies dans [Publier une application web Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Ceci est la fin du tutoriel. Une fois que vous avez fini d’utiliser les ressources que vous avez créées, supprimez-les afin d’éviter d’être facturé pour des ressources que vous n’utilisez plus. Cela est particulièrement important dans la mesure où Mesh est un service serverless facturé à la seconde. Pour en savoir plus sur la tarification de Mesh, consultez https://aka.ms/sfmeshpricing.
 
@@ -62,7 +53,7 @@ az group delete --resource-group sfmeshTutorial1RG
 Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
 ```
 
-Vous pouvez également supprimer le groupe de ressources **sfmeshTutorial1RG** [à partir du portail](../azure-resource-manager/manage-resource-groups-portal.md#delete-resource-groups). 
+Vous pouvez également supprimer le groupe de ressources **sfmeshTutorial1RG**[à partir du portail](../azure-resource-manager/management/manage-resource-groups-portal.md#delete-resource-groups). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

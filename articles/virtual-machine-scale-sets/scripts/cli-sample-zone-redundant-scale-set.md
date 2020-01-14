@@ -1,6 +1,6 @@
 ---
-title: Exemples Azure CLI - Groupe identique redondant interzone | Microsoft Docs
-description: Exemples d’interface de ligne de commande Azure
+title: Exemples Azure CLI - Groupe identique redondant interzone
+description: Ce script crée un groupe de machines virtuelles identiques Azure exécutant Ubuntu dans plusieurs zones de disponibilité.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 903a4d1a9864a9ab19df7c453adc002a8bd0f576
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 433c49208cdd115c1efdd53258f6e3c6e5721164
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983183"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350978"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-azure-cli"></a>Créer un groupe de machines virtuelles identiques redondant interzone avec Azure CLI
 Ce script crée un groupe de machines virtuelles identiques exécutant Ubuntu sur plusieurs zones de disponibilité. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.

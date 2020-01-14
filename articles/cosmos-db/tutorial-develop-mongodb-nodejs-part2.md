@@ -1,6 +1,5 @@
 ---
-title: Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Créer une application Express Node.js
-titleSuffix: Azure Cosmos DB
+title: Créer une application Node.js Express avec l’API d’Azure Cosmos DB pour MongoDB (Partie 2)
 description: Il s’agit de la partie 2 de cette série de didacticiels sur la création d’une application MongoDB avec Angular et Node sur Azure Cosmos DB à l’aide des mêmes API que celles utilisées pour MongoDB.
 author: johnpapa
 ms.service: cosmos-db
@@ -11,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: 8dd725bed6364979a9388d5741bf17f667bda0b7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 693222f4c1abd9bda128d18dc4dd67703a245bc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441127"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Créer une application Angular avec l’API d’Azure Cosmos DB pour MongoDB - Créer une application Express Node.js
 
@@ -34,7 +33,7 @@ La partie 2 de ce didacticiel est basée sur l’[introduction](tutorial-develo
 
 > [!VIDEO https://www.youtube.com/embed/lIwJIYcGSUg]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer cette partie du didacticiel, assurez-vous d’avoir bien visionné la [vidéo d’introduction](tutorial-develop-mongodb-nodejs.md).
 
@@ -148,11 +147,11 @@ Ce didacticiel requiert les éléments suivants :
 
 7. Enregistre tous vos fichiers modifiés. 
 
-8. Dans Visual Studio Code, cliquez sur le bouton **Déboguer** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png). Cliquez sur le bouton en forme d’engrenage ![Bouton Engrenage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Le fichier launch.json s’ouvre dans Visual Studio Code.
+8. Dans Visual Studio Code, cliquez sur le bouton **Déboguer**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png). Cliquez sur le bouton en forme d’engrenage ![Bouton Engrenage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). Le fichier launch.json s’ouvre dans Visual Studio Code.
 
 8. À la ligne 11 du fichier launch.json, remplacez `"${workspaceFolder}\\server"` par `"program": "${workspaceRoot}/src/server/index.js"` et enregistrez le fichier.
 
-9. Cliquez sur le bouton **Démarrer le débogage** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) pour exécuter l’application.
+9. Cliquez sur le bouton **Démarrer le débogage**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) pour exécuter l’application.
 
     L’application doit s’exécuter sans erreurs.
 

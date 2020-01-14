@@ -4,12 +4,12 @@ description: Découvrez comment créer votre première fonction Python dans Azur
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 18ae1ed000ffe61ce1ea9ff5c18aae98a0ffae65
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433191"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Démarrage rapide : Créer une fonction Python déclenchée par HTTP dans Azure
 
@@ -19,7 +19,7 @@ Cet article est le premier de deux guides de démarrage rapide Python pour Azure
 
 Si vous souhaitez consulter une version de cet article adaptée à Visual Studio Code, [cliquez ici](/azure/python/tutorial-vs-code-serverless-python-01).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez :
 
@@ -124,7 +124,7 @@ Avant de pouvoir déployer votre application, vous devez créer des ressources A
 
 Une application de fonction fournit un environnement pour l’exécution du code de votre fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
 
-Exécutez la commande ci-dessous. Remplacez `<APP_NAME>` par un nom d’application de fonction unique. Remplacez `<STORAGE_NAME>` par un nom de compte de stockage. `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure.
+Exécutez la commande suivante : Remplacez `<APP_NAME>` par un nom d’application de fonction unique. Remplacez `<STORAGE_NAME>` par un nom de compte de stockage. `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure.
 
 > [!NOTE]
 > Vous ne pouvez pas héberger des applications Linux et Windows dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `myResourceGroup` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
@@ -144,10 +144,10 @@ Vous êtes désormais prêt à publier votre projet de fonctions local sur l’a
 Après avoir créé l’application de fonction dans Azure, vous pouvez utiliser la commande Core Tools [func azure functionapp publish](functions-run-local.md#project-file-deployment) pour déployer votre code de projet sur Azure. Dans cet exemple, remplacez `<APP_NAME>` par le nom de votre application.
 
 ```console
-func azure functionapp publish <APP_NAME> --build remote
+func azure functionapp publish <APP_NAME>
 ```
 
-L’option `--build remote` permet de générer votre projet Python à distance dans Azure à partir des fichiers du package de déploiement, ce qui est recommandé. 
+Votre projet Python est généré à distance dans Azure à partir des fichiers du package de déploiement. 
 
 La sortie ressemble au message suivant. Elle est tronquée ici pour vous donner une meilleure lisibilité :
 

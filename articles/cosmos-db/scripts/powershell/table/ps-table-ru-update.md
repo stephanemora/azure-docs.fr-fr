@@ -1,5 +1,5 @@
 ---
-title: Script Azure PowerShell - Mise à jour du débit (RU/s) dans Azure Cosmos DB pour l’API Table
+title: Script PowerShell pour mettre à jour le débit (RU/s) pour l’API Table Azure Cosmos DB
 description: Découvrez comment utiliser un script PowerShell pour mettre à jour le débit d’une base de données ou d’un conteneur dans le compte d’API Table Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8188089f216fa33ba958cf670bb321816387f5c9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 37e7ab82a42b8bcd633e0c083e1a3f51505a95cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444902"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Mise à jour du débit (RU/s) pour une table dans Azure Cosmos DB - API Table
 

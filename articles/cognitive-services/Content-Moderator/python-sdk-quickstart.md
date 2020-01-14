@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque cliente Content Moderator pour Python | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque cliente Content Moderator pour Python'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment prendre en main la bibliothèque cliente Azure Cognitive Services Content Moderator pour Python.
+description: Dans ce guide de démarrage rapide, apprenez à utiliser la bibliothèque cliente Azure Cognitive Services Content Moderator pour Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 931e6e35df520f4a0ab35dfb6067654f9d08ed9d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538997"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448269"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente Content Moderator pour Python
 
@@ -31,7 +31,7 @@ Utilisez la bibliothèque cliente Content Moderator pour Python aux fins suivant
 
 [Documentation de référence](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Exemples C#](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-contentmoderator
 
 Les classes suivantes gèrent certaines des principales fonctionnalités du SDK Python Content Moderator.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python)|Cette classe est nécessaire pour toutes les fonctionnalités Content Moderator. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
 |[ImageModerationOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.imagemoderationoperations?view=azure-python)|Cette classe fournit les fonctionnalités permettant d’analyser des images pour y rechercher du contenu pour adultes, des informations personnelles ou des visages.|
@@ -341,12 +341,12 @@ Exécutez l’application avec la commande `python` de votre fichier de démarra
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

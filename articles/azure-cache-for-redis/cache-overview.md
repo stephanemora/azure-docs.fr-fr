@@ -1,18 +1,18 @@
 ---
 title: Présentation du cache Azure pour Redis
-description: Découvrez le cache Azure pour Redis et ses usages courants.
+description: Découvrez Azure Cache for Redis et ses utilisations courantes, notamment le modèle Cache-Aside, la mise en cache du contenu, la mise en cache des sessions utilisateur, la mise en file d’attente des travaux et des messages ainsi que les transactions distribuées.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/26/2018
-ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 87e7505bddfce431b5e859fbbeee79f75867cfc9
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.date: 03/26/2018
+ms.openlocfilehash: 5224be999ff8ff52c2f52568a504095dc5962398
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433422"
 ---
 # <a name="azure-cache-for-redis-description"></a>Description du cache Azure pour Redis
 
@@ -54,7 +54,7 @@ Vous pouvez mettre à l’échelle votre cache vers un niveau supérieur après 
 
 La page [Tarifs du cache Azure pour Redis](https://azure.microsoft.com/pricing/details/cache/) fournit une comparaison détaillée des différents niveaux. Le tableau suivant décrit quelques-unes des fonctionnalités prises en charge par niveau :
 
-| Description de la fonctionnalité | Premium | Standard | De base |
+| Description de la fonctionnalité | Premium | standard | De base |
 | ------------------- | :-----: | :------: | :---: |
 | [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) |✔|✔|-|
 | [Persistance des données Redis](cache-how-to-premium-persistence.md) |✔|-|-|

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d899f477612e4c738314187f61551fe5c0b17f8d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422839"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -60,7 +60,7 @@ Nous avons tendance à considérer que les comptes administrateur sont les seuls
 
 Une fois que ces personnes malveillantes ont accès, elles peuvent demander l’accès aux informations privilégiées pour le compte du détenteur du compte d’origine. Elles peuvent même télécharger l’annuaire entier pour effectuer une attaque par hameçonnage sur l’ensemble de votre organisation. 
 
-Une méthode courante pour améliorer la protection de tous les utilisateurs consiste à demander une forme de vérification de compte plus stricte, telle Multi-Factor Authentication, pour tous. Une fois que les utilisateurs ont terminé l’inscription Multi-Factor Authentication, ils sont invités à fournir une authentification supplémentaire chaque fois que nécessaire.
+Une méthode courante pour améliorer la protection de tous les utilisateurs consiste à demander une forme de vérification de compte plus stricte, telle Multi-Factor Authentication, pour tous. Lorsque les utilisateurs ont terminé l’inscription Multi-Factor Authentication, ils sont invités à fournir une authentification supplémentaire chaque fois que nécessaire.
 
 ### <a name="blocking-legacy-authentication"></a>Blocage de l’authentification héritée
 
@@ -73,13 +73,16 @@ Aujourd’hui, la majorité des tentatives de connexion compromettantes ont pour
 
 Lorsque les paramètres de sécurité par défaut sont activés dans votre locataire, toutes les demandes d’authentification effectuées par un protocole hérité sont bloquées. Les paramètres de sécurité par défaut ne bloquent pas Exchange ActiveSync.
 
+> [!WARNING]
+> Avant d’activer les paramètres de sécurité par défaut, assurez-vous que vos administrateurs n’utilisent aucun protocole d’authentification plus anciens. Pour plus d’informations, voir [Comment se passer de l’authentification héritée](concept-fundamentals-block-legacy-authentication.md).
+
 ### <a name="protecting-privileged-actions"></a>Protection des actions privilégiées
 
 Les organisations utilisent divers services Azure managés par le biais de l’API Azure Resource Manager, entre autres :
 
 - Portail Azure 
 - Azure PowerShell 
-- D’Azure CLI
+- Azure CLI
 
 Utiliser Azure Resource Manager pour gérer vos services est une action très privilégiée. Azure Resource Manager peut modifier des configurations à l’échelle du locataire, telles que les paramètres de service et la facturation de l’abonnement. L’authentification à facteur unique est vulnérable à diverses attaques comme le hameçonnage et la pulvérisation de mots de passe. 
 
@@ -89,22 +92,30 @@ Une fois que vous avez activé les paramètres de sécurité par défaut dans vo
 
 Si l’utilisateur n’est pas inscrit pour Multi-Factor Authentication, celui-ci devra s’inscrire à l’aide de l’application d’authentification Microsoft Authenticator pour continuer. Aucune période d’inscription Multi-Factor Authentication de 14 jours n’est fournie.
 
+> [!NOTE]
+> Le compte de synchronisation Azure AD Connect est exclu des paramètres de sécurité par défaut et ne sera pas invité à s’inscrire ou à effectuer une authentification multifacteur. Les organisations ne doivent pas utiliser ce compte à d’autres fins.
+
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
 Les considérations supplémentaires suivantes concernent le déploiement des paramètres de sécurité par défaut pour votre locataire.
 
-### <a name="older-protocols"></a>Protocoles plus anciens
+### <a name="authentication-methods"></a>Méthodes d’authentification
 
-Les clients de messagerie utilisent des protocoles d’authentification plus anciens (comme IMAP, SMTP et POP3) pour effectuer des requêtes d’authentification. Ces protocoles ne prennent pas en charge Multi-Factor Authentication. La plupart des compromissions de compte que Microsoft voit proviennent d’attaques contre les anciens protocoles qui essaient de contourner Multi-Factor Authentication. 
+Les paramètres de sécurité par défaut permettent l’inscription et l’utilisation d’Azure Multi-Factor Authentication **à l'aide de l’application de Microsoft Authenticator uniquement avec notifications**. L’accès conditionnel permet l'utilisation de n’importe quelle méthode d’authentification que l’administrateur choisit d’activer.
 
-Afin de s’assurer que l’authentification Multi-Factor Authentication est requise au moment de la connexion à un compte Administrateur et que les attaquants ne peuvent pas la contourner, les paramètres de sécurité par défaut bloquent toute demande d’authentification effectuée auprès de comptes Administrateur à partir de protocoles plus anciens.
+|   | Paramètres de sécurité par défaut | Accès conditionnel |
+| --- | --- | --- |
+| Notification via une application mobile | X | X |
+| Code de vérification provenant d’une application mobile ou d’un jeton matériel |   | X |
+| Message texte vers le téléphone |   | X |
+| Appel vers le téléphone |   | X |
+| Mots de passe d'application |   | X** |
 
-> [!WARNING]
-> Avant d’activer ce paramètre, assurez-vous que vos administrateurs n’utilisent aucun protocole d’authentification plus anciens. Pour plus d’informations, voir [Comment se passer de l’authentification héritée](concept-fundamentals-block-legacy-authentication.md).
+** Les mots de passe d’application sont uniquement disponibles dans l’authentification multifacteur par utilisateur avec des scénarios d’authentification hérités uniquement s’ils sont activés par des administrateurs.
 
 ### <a name="conditional-access"></a>Accès conditionnel
 
-Vous pouvez utiliser l’accès conditionnel pour configurer des stratégies qui fournissent le même comportement que celui activé par les paramètres de sécurité par défaut. Si vous utilisez l’accès conditionnel et que des stratégies d’accès conditionnel sont activées dans votre environnement, les paramètres de sécurité par défaut ne seront pas disponibles pour vous. Si vous disposez d’une licence qui fournit un accès conditionnel, mais que vous n’avez activé aucune stratégie d’accès conditionnel dans votre environnement, vous êtes invité à utiliser les paramètres de sécurité par défaut, tant que vous activez pas des stratégies d’accès conditionnel.
+Vous pouvez utiliser l’accès conditionnel pour configurer des stratégies similaires aux paramètres de sécurité par défaut, mais avec une plus grande granularité, notamment des exclusions d’utilisateurs, non disponibles dans les paramètres de sécurité par défaut. Si vous utilisez l’accès conditionnel et que des stratégies d’accès conditionnel sont activées dans votre environnement, les paramètres de sécurité par défaut ne seront pas disponibles pour vous. Si vous disposez d’une licence qui fournit un accès conditionnel, mais que vous n’avez activé aucune stratégie d’accès conditionnel dans votre environnement, vous êtes invité à utiliser les paramètres de sécurité par défaut, tant que vous activez pas des stratégies d’accès conditionnel. Pour plus d’informations sur les licences Azure AD, consultez la [page des tarifs Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ![Message d’avertissement indiquant que vous pouvez avoir des paramètres de sécurité par défaut ou un accès conditionnel, mais pas les deux](./media/concept-fundamentals-security-defaults/security-defaults-conditional-access.png)
 

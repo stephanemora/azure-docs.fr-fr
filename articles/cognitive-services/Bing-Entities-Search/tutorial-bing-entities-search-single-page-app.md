@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Recherche d’entités Bing dans une application web monopage'
+title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage'
 titleSuffix: Azure Cognitive Services
-description: Montre comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
+description: Ce tutoriel montre comment utiliser l’API Recherche d’entités Bing dans une application web monopage.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 12/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 875a83501b00f0b23aa13317493ab6d341e4e283
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448604"
 ---
-# <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
+# <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
 
 L’API Recherche d’entités Bing vous permet de rechercher sur le web des informations sur les *entités* et les *lieux.* Vous pouvez demander l’un ou l’autre type de résultat, ou les deux, dans une requête donnée. Les définitions des lieux et des entités sont fournies ci-dessous.
 
@@ -37,7 +37,7 @@ Notre application appelle donc le service Bing Maps pour obtenir la latitude et 
 -->
 
 > [!NOTE]
-> Les en-têtes HTTP et JSON en bas de la page révèlent la réponse JSON et les informations de requête HTTP lorsque vous cliquez dessus. Ces détails sont utiles lorsque vous explorez le service.
+> Les en-têtes HTTP et JSON en bas de la page révèlent la réponse JSON et les informations de requête HTTP lorsque vous cliquez dessus. Ces détails sont utiles lorsque vous explorez le service.
 
 L’application du didacticiel illustre les actions suivantes :
 
@@ -49,7 +49,7 @@ L’application du didacticiel illustre les actions suivantes :
 > * Gérer l’ID de client Bing et les clés d’abonnement d’API
 > * Gérer les erreurs pouvant se produire
 
-La page du didacticiel est entièrement autonome. Elle n’utilise pas d’infrastructures, de feuilles de style ni même de fichiers image externes. Elle a uniquement recours à des fonctionnalités de langage JavaScript largement prises en charge et fonctionne avec les versions actuelles des principaux navigateurs web.
+La page du didacticiel est entièrement autonome ; elle n’utilise pas d’infrastructures, de feuilles de style ni même de fichiers image externes. Elle a uniquement recours à des fonctionnalités de langage JavaScript largement prises en charge et fonctionne avec les versions actuelles des principaux navigateurs web.
 
 Dans ce didacticiel, nous abordons seulement certaines parties du code source. Le code source complet est disponible [sur une page distincte](tutorial-bing-entities-search-single-page-app-source.md). Copiez et collez ce code dans un éditeur de texte, puis enregistrez-le en tant que `bing.html`.
 
@@ -86,7 +86,7 @@ Le code HTML contient également les divisions (balises `<div>` HTML) où les r�
 
 Pour éviter d’avoir à inclure les clés d’abonnement des API Recherche Bing et Bing Maps dans le code, nous utilisons le stockage persistant du navigateur pour les stocker. Si l’une des clés n’a pas été stockée, nous la demandons et la stockons pour une utilisation ultérieure. Si la clé est par la suite rejetée par l’API, nous invalidons la clé stockée et en demandons une autre à l’utilisateur lors de sa recherche suivante.
 
-Nous définissons les fonctions `storeValue` et `retrieveValue` qui utilisent l’objet `localStorage` (si le navigateur le prend en charge) ou un cookie. Notre fonction `getSubscriptionKey()` utilise ces fonctions pour stocker et récupérer la clé de l’utilisateur.
+Nous définissons les fonctions `storeValue` et `retrieveValue` qui utilisent l’objet `localStorage` (si le navigateur le prend en charge) ou un cookie. Notre fonction `getSubscriptionKey()` utilise ces fonctions pour stocker et récupérer la clé de l’utilisateur. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
 ```javascript
 // cookie names for data we store
@@ -388,7 +388,7 @@ Une grande partie du code dans les deux fonctions précédentes est dédiée à 
 
 Les erreurs sont gérées en appelant `renderErrorMessage()` avec des détails connus de l’erreur. Si la réponse transmet tous les tests d’erreurs, nous appelons `renderSearchResults()` pour afficher les résultats de la recherche sur la page.
 
-## <a name="displaying-search-results"></a>Gestion des résultats de la recherche
+## <a name="displaying-search-results"></a>Affichage des résultats de la recherche
 
 L’API Recherche d’entités Bing [exige d’afficher les résultats dans un ordre spécifié](use-display-requirements.md). Étant donné que l’API peut renvoyer deux types de réponses différents, il n’est pas suffisant de procéder à une itération au sein de la collection `Entities` ou `Places` de niveau supérieur dans la réponse JSON et d’afficher les résultats. (Si vous ne souhaitez qu’un seul type de résultat, utilisez le paramètre de requête `responseFilter`.)
 
@@ -451,7 +451,7 @@ Une fonction de renderer peut accepter les paramètres suivants :
 
 Les paramètres `index` et `count` peuvent être utilisés pour compter les résultats, pour générer un code HTML spécial pour le début ou la fin d’une collection, pour insérer des sauts de ligne après un certain nombre d’éléments et ainsi de suite. Si un renderer n’a pas besoin de cette fonctionnalité, il est inutile d’accepter ces deux paramètres. En fait, nous ne les utilisons pas dans les renderers de notre application du didacticiel.
 
-Examinons de plus près le renderer `entities` :
+Examinons de plus près le renderer `entities` :
 
 ```javascript
     entities: function(item) {
@@ -507,7 +507,7 @@ Notre fonction de renderer d’entité :
 > [!div class="checklist"]
 > * génère la balise HTML `<img>` pour afficher la miniature de l’image, le cas échéant. 
 > * génère la balise HTML `<a>` qui établit un lien vers la page contenant l’image.
-> * crée la description qui affiche des informations sur l’image et le site sur laquelle elle se trouve.
+> * Génère la description qui affiche des informations sur l’image et le site sur lequel elle se trouve.
 > * Incorpore la classification de l’entité à l’aide d’indicateurs d’affichage, le cas échéant.
 > * Inclut un lien vers une recherche Bing pour obtenir plus d’informations sur l’entité.
 > * Affiche les informations de licence ou d’attribution requises par les sources de données.

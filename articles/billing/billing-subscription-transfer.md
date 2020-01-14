@@ -1,5 +1,5 @@
 ---
-title: Transfert de la propriété de facturation d’un abonnement Azure à un autre compte | Microsoft Docs
+title: Transférer la propriété de facturation d’un abonnement Azure
 description: Décrit comment transférer la propriété de facturation d’un abonnement Azure à un autre compte et Questions fréquentes (FAQ) concernant la procédure
 keywords: transférer abonnement azure, azure transfert abonnement, déplacer un abonnement azure vers un autre compte, changer abonnement azure, transférer abonnement azure à un autre compte, transférer facturation azure
 author: bandersmsft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a858ef9918135bfb660c059d80f4c7c49e1e3364
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 721c8a1381ad90a68cfeb628ad00e39aadbb1db7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223567"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388939"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -36,7 +36,7 @@ Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entre
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 
-1. Sélectionnez **Abonnements** dans le volet gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis sélectionner **Abonnements** ou **Abonnements Azure**.
+1. Sélectionnez **Abonnements** dans le volet de gauche. Selon votre accès, vous devrez peut-être sélectionner une étendue de facturation, puis sélectionner **Abonnements** ou **Abonnements Azure**.
 
 1. Sélectionnez **Transférer la propriété de facturation** pour l’abonnement que vous voulez transférer.
 
@@ -66,7 +66,7 @@ Si vous êtes client Contrat Entreprise (EA), les administrateurs de votre entre
 
    ![Page web de transfert du deuxième abonnement](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
 
-1. Vous avez réussi ! L’abonnement est à présent transféré.
+1. Opération réussie. L’abonnement est à présent transféré.
 
 ## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Transfert de l’abonnement à un compte dans un autre locataire Azure AD
 
@@ -115,7 +115,7 @@ Le transfert d’abonnement dans le portail Azure est disponible pour les types 
 - [Visual Studio Enterprise : BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
 - [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
 - [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
-- [Plan Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
+- [Offre Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
 \* [Via le portail EA](#EA).
 
@@ -190,7 +190,7 @@ Même si les affectations de [contrôle d’accès en fonction du rôle (RBAC)](
 
 Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès aux ressources. La plupart des ressources peuvent être mises à jour en procédant comme suit :
 
-  1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+  1. Connectez-vous au [portail Azure](https://portal.azure.com).
   2. Dans le menu Hub, sélectionnez **Toutes les ressources**.
   3. Sélectionnez la ressource.
   4. Dans la page des ressources, cliquez sur **Paramètres**. Ici, vous pouvez afficher et mettre à jour les clés secrètes existantes.
@@ -207,7 +207,7 @@ Oui. Lors de l’acceptation de la demande de transfert, vous pouvez sélectionn
 
 L’administrateur d’entreprise peut mettre à jour la propriété d’un compte même si le propriétaire du compte d’origine ne fait plus partie de l’organisation. Pour cela, il peut suivre les instructions relatives au [transfert de la propriété du compte de tous les abonnements](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) dans le portail EA.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a id="no-button"></a> Pourquoi le bouton Transférer un abonnement ne s’affiche-t-il pas ?
 

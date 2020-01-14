@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1b9d8c98391e7e2bac3492dcf696f098f5c6cf57
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408410"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Démarrage rapide : Créer une carte de recherche interactive avec Azure Maps
 
@@ -26,24 +26,38 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="create-an-account-and-get-your-key"></a>Créer un compte et obtenir une clé
+<a id="createaccount"></a>
 
-1. En haut à gauche du [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
-2. Dans la zone **Rechercher sur la Place de marché**, entrez **Maps**.
-3. Dans les **Résultats**, sélectionnez **Maps**. Sélectionnez le bouton **Créer** situé sous la carte.
-4. Dans la page **Créer un compte Azure Maps**, entrez les valeurs suivantes :
-   - Le **Nom** de votre nouveau compte.
-   - **L’Abonnement** à utiliser pour ce compte.
-   - Le **Groupe de ressources** de ce compte. Vous pouvez choisir de **créer** ou d’utiliser un groupe de ressources **Existant**.
-   - Sélectionnez le **Niveau tarifaire** de votre choix.
-   - Prenez connaissance de la **licence** et de la **déclaration de confidentialité**. Cochez la case pour accepter les conditions.
-   - Enfin, sélectionnez le bouton **Créer**.
+## <a name="create-an-account-with-azure-maps"></a>Créer un compte avec Azure Maps
 
-     ![Créer un compte Azure Maps dans le portail](./media/quick-demo-map-app/create-account.png)
+Créez un compte Maps en suivant la procédure suivante :
 
-5. Après avoir créé votre compte, ouvrez le compte et accédez à la section Paramètres dans le menu Compte. Sélectionnez **Authentification** pour voir les clés primaire et secondaire de votre compte Azure Maps. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante.
+1. En haut à gauche du [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource**.
+2. Dans la zone *Rechercher sur la Place de marché*, tapez **Maps**.
+3. Dans les *Résultats*, sélectionnez **Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
+4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
+    * *L’Abonnement* à utiliser pour ce compte.
+    * Le *Groupe de ressources* pour ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
+    * Le *Nom* de votre nouveau compte.
+    * Le *niveau tarifaire* pour ce compte.
+    * Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions.
+    * Cliquez sur le bouton **Créer**.
+
+![Créer un compte Maps sur le Portail](./media/quick-demo-map-app/create-account.png)
+
+<a id="getkey"></a>
+
+## <a name="get-the-primary-key-for-your-account"></a>Obtenir la clé primaire de votre compte
+
+Une fois le compte Maps créé, récupérez la clé qui vous permet d’interroger les API Maps. Nous vous recommandons d’utiliser la clé primaire de votre compte comme clé d’abonnement lors de l’appel de services Azure Maps.
+
+1. Ouvrez votre compte Maps dans le portail.
+2. Dans la section des paramètres, sélectionnez **Authentification**.
+3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
+
+![Obtenir la clé primaire dans le portail](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Télécharger l’application
 
@@ -61,7 +75,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
     ![Application web de recherche interactive](./media/quick-demo-map-app/interactive-search.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les tutoriels expliquent en détail comment utiliser et configurer Azure Maps avec votre compte. Si vous souhaitez suivre les tutoriels, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, effectuez ces étapes pour nettoyer les ressources :
 

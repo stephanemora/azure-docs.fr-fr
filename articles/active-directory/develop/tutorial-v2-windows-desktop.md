@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f816091e3e8682069a950ff6f6eb839e285bb2f
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423356"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Appeler l’API Microsoft Graph à partir d’une application de bureau Windows
 
@@ -87,14 +87,14 @@ Pour créer l’application, procédez comme suit :
 
 Vous pouvez inscrire votre application de deux manières.
 
-### <a name="option-1-express-mode"></a>Option 1 : Mode Express
+### <a name="option-1-express-mode"></a>Option 1 : Mode Express
 
 Vous pouvez inscrire rapidement votre application en procédant comme suit :
 1. Accédez au [portail Azure - Inscription d’applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 
-### <a name="option-2-advanced-mode"></a>Option 2 : Mode Avancé
+### <a name="option-2-advanced-mode"></a>Option n°2 : Mode Avancé
 
 Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
@@ -106,9 +106,9 @@ Pour inscrire votre application et ajouter les informations d’inscription de l
    - Sélectionnez **Inscrire** pour créer l’application.
 1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
    1. Dans la section **URI de redirection**, dans la liste des URI de redirection :
-   1. Dans la colonne **TYPE**, sélectionnez **Client public (mobile et bureau)** .
-   1. Dans la colonne **URI de redirection**, entrez `urn:ietf:wg:oauth:2.0:oob`.
-1. Sélectionnez **Enregistrer**.
+   1. Dans la colonne **TYPE**, sélectionnez **Client public/natif (mobile & bureau)** .
+   1. Dans la colonne **URI de redirection**, entrez `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+1. Sélectionnez **Inscription**.
 1. Accédez à Visual Studio, ouvrez le fichier *App.xaml.cs*, puis remplacez `Enter_the_Application_Id_here` dans l’extrait de code ci-dessous par l’ID de l’application que vous venez d’inscrire et de copier.
 
     ```csharp
@@ -256,7 +256,7 @@ Dans cette section, vous allez utiliser MSAL pour obtenir un jeton pour l’API 
     ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Plus d’informations
+### <a name="more-information"></a>Informations complémentaires
 
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
 
@@ -371,7 +371,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Plus d’informations
+### <a name="more-information"></a>Informations complémentaires
 
 Outre le jeton d’accès qui est utilisé pour appeler l’API Microsoft Graph, MSAL obtient également un jeton d’ID une fois l’utilisateur connecté. Ce jeton contient un petit sous-ensemble d’informations pertinentes pour les utilisateurs. La méthode `DisplayBasicTokenInfo` affiche les informations de base du jeton. Par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Si vous cliquez plusieurs fois sur le bouton *Call Microsoft Graph API* (Appeler l’API Microsoft Graph), vous observerez que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
 <!--end-collapse-->

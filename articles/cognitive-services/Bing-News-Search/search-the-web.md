@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 06/19/2019
+ms.date: 12/18/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 577ce53b4667928d7eb5a870f57ff7180caaf6f5
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e0e99c7f677173c64afad3109b2f4accd7cb3cb9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448447"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>Qu’est-ce que l’API Recherche d’actualités Bing ?
 
@@ -55,5 +55,5 @@ Pour démarrer rapidement avec votre première requête d’API, suivez un guide
 ## <a name="see-also"></a>Voir aussi
 
 * La section de référence concernant l’[API Recherche d’actualités Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) contient des définitions et des informations sur les points de terminaison, en-têtes, réponses d’API et paramètres de requête que vous pouvez utiliser pour obtenir des actualités dans les résultats de la recherche.
-
 * L’article [Conditions d’utilisation et d’affichage de l’API Recherche Bing](./useanddisplayrequirements.md) spécifie les utilisations acceptables du contenu et des informations obtenus par le biais des API Recherche Bing.
+* Visitez la [page hub de l’API Recherche Bing](../bing-web-search/search-the-web.md) pour explorer les autres API disponibles.

@@ -9,14 +9,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/07/2019
 ms.author: aahi
-ms.openlocfilehash: 221bcdf3a98a48646bab5abf780dc2a69c8e10f2
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: bce751da0e6f03d197951d2f207ac5c54d72c7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378759"
 ---
-> [!TIP]
+> [!IMPORTANT]
 > Pour trouver votre clé et votre point de terminaison sur le portail Azure :
 > 1. Accédez à votre ressource Azure à l’adresse https://portal.azure.com/.
 > 2. Cliquez sur **Démarrage rapide**, sous **Gestion des ressources**.
+>
+> N’oubliez pas de supprimer vos informations d’identification de votre code une fois que vous avez terminé, et ne les publiez jamais publiquement. Pour la production, envisagez d’utiliser une méthode de stockage et d’accès sécurisée pour vos informations d’identification. Par exemple, [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).

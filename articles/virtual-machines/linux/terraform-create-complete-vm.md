@@ -14,16 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 819aeb225c4f55f803a5fad19eff33bd1748bf46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75368927"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Créer une infrastructure de machine virtuelle Linux complète dans Azure avec Terraform
 
 Terraform vous permet de définir et de créer des déploiements d’infrastructures complètes dans Azure. Vous générez des modèles Terraform dans un format lisible pour créer et configurer des ressources Azure de manière cohérente et reproductible. Cet article vous explique comment créer un environnement Linux complet et des ressources de support avec Terraform. Vous pouvez également apprendre à [installer et configurer Terraform](terraform-install-configure.md).
+
+> [!NOTE]
+> Pour une prise en charge spécifique à Terraform, contactez directement Terraform en utilisant l’un de leurs canaux de la communauté :
+>
+>   • La [section Terraform](https://discuss.hashicorp.com/c/terraform-core) du portail de la communauté contient des questions, des cas d’usage et des modèles utiles.
+>
+>   • Pour les questions relatives au fournisseur, consultez la section [Fournisseurs Terraform](https://discuss.hashicorp.com/c/terraform-providers) du portail de la communauté.
 
 
 ## <a name="create-azure-connection-and-resource-group"></a>Créer une connexion Azure et un groupe de ressources

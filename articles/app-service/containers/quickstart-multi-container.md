@@ -7,16 +7,19 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687527"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430546"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Créer une application à plusieurs conteneurs (préversion) à l’aide d’une configuration Docker Compose
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose.
+> [!NOTE]
+> La fonctionnalité multiconteneur est en préversion.
+
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Ce guide de démarrage rapide montre comment déployer une application multiconteneur (préversion) sur Web App pour conteneurs dans [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) à l’aide d’une configuration Docker Compose.
 
 Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud Shell, mais vous pouvez également exécuter ces commandes en local avec [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur). 
 
@@ -26,7 +29,7 @@ Vous allez effectuer les étapes de ce guide de démarrage rapide dans Cloud She
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 Pour ce guide de démarrage rapide, vous utilisez le fichier Composer de [Docker](https://docs.docker.com/compose/wordpress/#define-the-project). Le fichier de configuration se trouve dans les [exemples Azure](https://github.com/Azure-Samples/multicontainerwordpress).
 
@@ -130,7 +133,7 @@ Accédez à l’application déployée dans (`http://<app_name>.azurewebsites.ne
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)
+> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurer un conteneur personnalisé](configure-custom-container.md)

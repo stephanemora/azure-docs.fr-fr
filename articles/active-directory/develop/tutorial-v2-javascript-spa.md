@@ -1,5 +1,5 @@
 ---
-title: Guide des applications monopages JavaScript dans la plateforme d’identités Microsoft | Azure
+title: Tutoriel d’application monopage JavaScript – Plateforme d’identités Microsoft | Azure
 description: Comment les applications monopages (SPA) JavaScript peuvent appeler une API qui nécessite des jetons d’accès à partir d’un point de terminaison Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3576c015fcca7eb9c390f38c6527d76353efe06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 995210e720040448927b2aaac2c2eb590e3de981
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423369"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Connecter les utilisateurs et appeler l’API Microsoft Graph à partir d’une application monopage (SPA) JavaScript
 
@@ -35,7 +35,7 @@ Ce guide montre comment une application monopage (SPA) JavaScript peut :
 ![Fonctionnement de l’exemple d’application généré par ce tutoriel](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
 
 <!--start-collapse-->
-### <a name="more-information"></a>Plus d’informations
+### <a name="more-information"></a>Informations complémentaires
 
 L’exemple d’application créé par ce guide permet à une application monopage (SPA) JavaScript d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons provenant du point de terminaison de la plateforme d’identités Microsoft. Dans ce scénario, une fois qu’un utilisateur s’est connecté, un jeton d’accès est demandé et ajouté aux requêtes HTTP par le biais de l’en-tête d’autorisation. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
 
@@ -58,7 +58,7 @@ Ce guide utilise la bibliothèque suivante :
 
 ## <a name="set-up-your-web-server-or-project"></a>Configurer le serveur web ou projet
 
-> Vous préférez télécharger le projet de cet exemple ? Effectuez l’une des actions suivantes :
+> Vous préférez télécharger le projet de cet exemple ? Effectuez l'une des opérations suivantes :
 > 
 > - Pour exécuter le projet à l’aide d’un serveur web local, par exemple Node.js, [téléchargez les fichiers du projet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip).
 >
@@ -66,7 +66,7 @@ Ce guide utilise la bibliothèque suivante :
 >
 > Pour configurer l’exemple de code avant de l’exécuter, passez à l’[étape de configuration](#register-your-application).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * L’exécution de ce didacticiel requiert un serveur web local tel que [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) ou l’intégration d’IIS Express à [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
@@ -76,10 +76,10 @@ Ce guide utilise la bibliothèque suivante :
 
 ## <a name="create-your-project"></a>Créer votre projet
 
-> ### <a name="option-1-nodejs-or-other-web-servers"></a>Option 1 : Node.js ou autres serveurs web
+> ### <a name="option-1-nodejs-or-other-web-servers"></a>Option 1 : Node.js ou autres serveurs web
 > Vérifiez que [Node.js](https://nodejs.org/en/download/) est installé, puis créez un dossier pour héberger votre application.
 >
-> ### <a name="option-2-visual-studio"></a>Option 2 : Visual Studio
+> ### <a name="option-2-visual-studio"></a>Option n°2 : Visual Studio
 > Si vous utilisez Visual Studio et que vous créez un projet, effectuez les étapes suivantes :
 > 1. Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**.
 > 1. Sous **Visual C#\Web**, sélectionnez **Application web ASP.NET (.NET Framework)** .
@@ -259,7 +259,7 @@ Ajoutez le code ci-après à votre fichier `index.html` entre les balises `<scri
    ```
 
 <!--start-collapse-->
-### <a name="more-information"></a>Plus d’informations
+### <a name="more-information"></a>Informations complémentaires
 
 Quand un utilisateur sélectionne le bouton **Se connecter** pour la première fois, la méthode `signIn` appelle `loginPopup` pour le connecter. Cette méthode ouvre une fenêtre contextuelle avec le *point de terminaison de la plateforme d’identités Microsoft* afin de demander et de valider les informations d’identification de l’utilisateur. Après une connexion réussie, l’utilisateur est redirigé vers la page *index.html* d’origine. Un jeton est reçu, traité par `msal.js`, puis les informations contenues dans le jeton sont mises en cache. Ce jeton est le *jeton d’ID* et contient des informations de base sur l’utilisateur, telles que son nom d’affichage. Si vous envisagez d’utiliser les données fournies par ce jeton à toutes fins que ce soit, vous devez vous assurer que ce jeton est validé par le serveur principal afin de garantir qu’il a été émis pour un utilisateur valide de votre application.
 
@@ -326,7 +326,7 @@ Ajoutez le code ci-après à votre fichier `index.html` entre les balises `<scri
 
 ## <a name="register-your-application"></a>Inscrivez votre application
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Si votre compte vous donne accès à plusieurs locataires, sélectionnez le compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
 1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.

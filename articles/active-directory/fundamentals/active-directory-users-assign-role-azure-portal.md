@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2df52969ea79e5d1af132aa82c2ec1ceedb92b82
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422901"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
 Si un utilisateur de votre organisation a besoin d’une autorisation pour gérer les ressources Azure Active Directory (Azure AD), vous devez assigner un rôle approprié à l’utilisateur dans Azure AD en fonction des actions qu’il souhaite effectuer et pour lesquelles il a besoin d’une permission.
@@ -31,17 +31,24 @@ Une méthode courante pour assigner des rôles Azure AD à un utilisateur se tro
 Vous pouvez également assigner des rôles à l’aide de Privileged Identity Management (PIM). Pour plus d’informations sur l’utilisation de PIM, consultez [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management).
 
 ### <a name="to-assign-a-role-to-a-user"></a>Assigner un rôle à un utilisateur
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte Administrateur général pour le répertoire.
+1. Accédez au [portail Azure](https://portal.azure.com/) et connectez-vous à l’aide d’un compte d’administrateur général pour le répertoire. 
 
-2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez assigner le rôle. Par exemple, _Alain Charon_.
+2. Recherchez et sélectionnez **Azure Active Directory**.
+
+      ![Recherche dans le portail Azure d'Azure Active Directory](media/active-directory-users-assign-role-azure-portal/search-azure-active-directory.png)
+
+
+3. Sélectionnez **Utilisateurs**.
+
+4. Recherchez et sélectionnez l’utilisateur qui obtient l’attribution de rôle. Par exemple, _Alain Charon_.
 
       ![Page Tous les utilisateurs - Sélectionner l’utilisateur](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
 
-3. Sur la page **Alain Charon - Profil**, sélectionnez **Rôles affectés**.
+5. Sur la page **Alain Charon - Profil**, sélectionnez **Rôles affectés**.
 
     La page **Alain Charon - Rôle d’annuaire** s’affiche.
 
-4. Sélectionnez **Ajouter une affectation**. Ensuite, sélectionnez le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
+6. Sélectionnez **Ajouter une affectation**. Ensuite, sélectionnez le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
 
     ![Page Rôles affectés, affichant le rôle sélectionné](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 

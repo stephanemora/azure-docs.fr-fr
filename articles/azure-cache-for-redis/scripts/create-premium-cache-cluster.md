@@ -1,19 +1,19 @@
 ---
-title: Exemple de script Azure CLI – Créer un cache Azure Premium pour Redis avec clustering
-description: Exemple de script Azure CLI - Créer un cache Azure de niveau Premium pour Redis avec clustering
+title: Créer une instance Azure Cache for Redis Premium avec clustering - Azure CLI
+description: Cet exemple de code Azure CLI explique comment créer une instance Azure Cache for Redis de niveau Premium de 6 Go avec clustering activé et deux partitions.
 author: yegu-ms
+ms.author: yegu
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.author: yegu
-ms.openlocfilehash: 1813bf7112969436012627147b94f656537029d5
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122492"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411140"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Créer un cache Azure Premium pour Redis avec clustering
 

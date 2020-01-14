@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 30e7b4c39c24f4271c53f7a9f8940e4fb3c2e298
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: a1aa2f12f62a95ac14750c821079df2bac46e8ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048672"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434967"
 ---
 <!---
 Purpose of an Overview article: 
@@ -99,7 +99,7 @@ Les administrateurs gèrent l’accès à votre application avec des [rôles d�
 
 À présent que vous avez une vue d’ensemble de Azure IoT Central, voici les prochaines étapes suggérées :
 
-- Comprendre les différences entre [Azure IoT Central et les accélérateurs de solution Azure IoT](overview-iot-options.md).
+- Découvrez les [technologies et services Azure disponibles pour créer des solutions IoT](../../iot-fundamentals/iot-services-and-technologies.md).
 - Vous familiariser avec [l’interface utilisateur de Azure IoT Central](overview-iot-central-tour.md).
 - Mise en route avec la [création d’une application Azure IoT Central](quick-deploy-iot-central.md).
 - Suivez une série de didacticiels qui vous indiquent :

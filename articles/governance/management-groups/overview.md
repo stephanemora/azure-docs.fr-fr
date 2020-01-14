@@ -2,14 +2,14 @@
 title: Organiser vos ressources avec des groupes d’administration - Azure Governance
 description: Découvrez les groupes d’administration, le fonctionnement des autorisations et leur utilisation.
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
-ms.date: 04/22/2019
+ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 7e121ed256e04332ca7fd33c9fc48cd2bc7bae03
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 72e37c3ef96f8068d9d9958910a6d75bbebd37fb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960194"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436474"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -23,7 +23,7 @@ Vous pouvez créer une structure flexible de groupes d’administration et d’a
 
 ![Exemple d’une arborescence hiérarchique de groupes de gestion](./media/tree.png)
 
-Vous pouvez créer une hiérarchie qui applique une stratégie, par exemple, qui limite les emplacements de machines virtuelles à la région USA Ouest dans le groupe appelé « Production ». Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+Vous pouvez créer une hiérarchie qui applique une stratégie, par exemple, qui limite les emplacements de machines virtuelles à la région USA Ouest dans le groupe appelé « Production ». Cette stratégie est héritée par tous les abonnements EA descendants de ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 
 Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
 Une affectation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin, au lieu de créer un script RBAC sur différents abonnements.
@@ -45,7 +45,7 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
 ### <a name="important-facts-about-the-root-management-group"></a>Faits importants sur le groupe d’administration racine
 
 - Par défaut, le nom d’affichage du groupe d’administration racine est **Groupe racine de locataire**. L’ID est l’ID Azure Active Directory.
-- Pour changer le nom d’affichage, votre compte doit avoir le rôle Propriétaire ou Contributeur sur le groupe d’administration racine. Pour connaître les étapes permettant de changer le nom, consultez [Changer le nom d’un groupe d’administration](manage.md#change-the-name-of-a-management-group).
+- Pour changer le nom d’affichage, votre compte doit avoir le rôle Propriétaire ou Contributeur sur le groupe d’administration racine. Pour savoir comment mettre à jour le nom du groupe d’administration, consultez [Changer le nom d’un groupe d’administration](manage.md#change-the-name-of-a-management-group).
 - Le groupe d’administration racine ne peut pas être déplacé ni supprimé, contrairement aux autres groupes d’administration.  
 - Tous les abonnements et groupes d’administration sont contenus dans le groupe d’administration racine de l’annuaire.
   - Toutes les ressources de l’annuaire sont contenues dans le groupe d’administration racine à des fins de gestion globale.
@@ -82,12 +82,12 @@ Si vous avez des questions sur ce processus de renvoi, contactez : managementgr
 ## <a name="management-group-access"></a>Accès aux groupes d’administration
 
 Les groupes d’administration Azure prennent en charge le [contrôle d’accès en fonction du rôle (RBAC) Azure](../../role-based-access-control/overview.md) pour tous les accès aux ressources et toutes les définitions de rôles.
-Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle RBAC intégré à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources.
+Les ressources enfants qui existent dans la hiérarchie héritent de ces autorisations. Vous pouvez attribuer n’importe quel rôle RBAC à un groupe d’administration, qui héritera ensuite de la hiérarchie des ressources.
 Par exemple, un contributeur de machine virtuelle avec rôle RBAC peut être affecté à un groupe d’administration. Ce rôle n’a aucun effet sur le groupe d’administration, mais il hérite de toutes les machines virtuelles situées sous ce groupe d’administration.
 
 Le graphique suivant montre la liste des rôles, ainsi que les actions prises en charge par les groupes d’administration.
 
-| Nom du rôle RBAC             | Créer | Renommer | Déplacer** | Supprimer | Attribuer l’accès | Attribuer la stratégie | Lire  |
+| Nom du rôle RBAC             | Créer | Renommer | Déplacer** | DELETE | Attribuer l’accès | Attribuer la stratégie | Lire  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |Propriétaire                       | X      | X      | X      | X      | X             | X             | X     |
 |Contributeur                 | X      | X      | X      | X      |               |               | X     |
@@ -100,9 +100,86 @@ Le graphique suivant montre la liste des rôles, ainsi que les actions prises en
 * : Contributeur MG et lecteur MG autorisent uniquement les utilisateurs à effectuer ces actions sur l’étendue du groupe d’administration.  
 ** : Les attributions de rôles sur le groupe d’administration racine ne sont pas nécessaires pour déplacer un abonnement ou un groupe d’administration.  Consultez [Gérer vos ressources avec des groupes d’administration](manage.md) pour des détails sur le déplacement d’éléments dans la hiérarchie.
 
-### <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
+## <a name="custom-rbac-role-definition-and-assignment"></a>Définition et attribution d’un rôle RBAC personnalisé
 
-Les rôles RBAC personnalisés ne sont pas pris en charge par les groupes d’administration. Pour connaître le statut de cette prise en charge, consultez le [forum de commentaires des groupes d’administration](https://aka.ms/mgfeedback).
+Les rôles RBAC personnalisés sont pris en charge pour les groupes d’administration, mais avec certaines [limitations](#limitations).  Vous pouvez définir l’étendue d’un groupe d’administration dans l’étendue attribuable de la définition de rôle.  Ce rôle RBAC personnalisé est alors ensuite attribuable dans ce groupe d’administration ainsi que tout groupe d’administration, abonnement, groupe de ressources ou ressource dont il est parent. Ce rôle personnalisé hérite ensuite la hiérarchie comme n’importe quel rôle intégré.    
+
+### <a name="example-definition"></a>Exemple de définition
+Le processus de [définition et création d’un rôle personnalisé](../../role-based-access-control/custom-roles.md) ne change pas avec l’inclusion de groupes d’administration. Spécifiez le chemin complet pour définir le groupe d’administration **/providers/Microsoft.Management/managementgroups/{groupId}** . 
+
+Utilisez l’ID du groupe d’administration et non le nom d’affichage du groupe d’administration. Cette erreur courante est due au fait qu’il s’agit de deux champs personnalisés définis au moment de la création d’un groupe d’administration. 
+
+```json
+...
+{
+  "Name": "MG Test Custom Role",
+  "Id": "id", 
+  "IsCustom": true,
+  "Description": "This role provides members understand custom roles.",
+  "Actions": [
+    "Microsoft.Management/managementgroups/delete",
+    "Microsoft.Management/managementgroups/read",
+    "Microsoft.Management/managementgroup/write",
+    "Microsoft.Management/managementgroup/subscriptions/delete",
+    "Microsoft.Management/managementgroup/subscriptions/write",
+    "Microsoft.resources/subscriptions/read",
+    "Microsoft.Authorization/policyAssignments/*",
+    "Microsoft.Authorization/policyDefinitions/*",
+    "Microsoft.Authorization/policySetDefinitions/*",
+    "Microsoft.PolicyInsights/*",
+    "Microsoft.Authorization/roleAssignments/*",
+    "Microsoft.Authorization/roledefinitions/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+        "/providers/microsoft.management/managementGroups/ContosoCorporate"
+  ]
+}
+...
+```
+
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problèmes de chemin rompu entre la définition de rôle et l’attribution de rôle
+L’étendue attribuable aux définitions de rôles peut être n’importe où dans la hiérarchie d’un groupe d’administration. Une définition de rôle peut être définie sur un groupe d’administration parent alors que l’attribution de rôle réelle existe sur l’abonnement enfant. Comme ces deux éléments sont liés, une erreur se produit quand vous tentez de séparer l’attribution de sa définition. 
+
+Par exemple :  Examinons une petite section d’une hiérarchie pour un visuel. 
+
+![sous-arborescence](./media/subtree.png)
+
+Supposons qu’un rôle personnalisé est défini sur le groupe d’administration Marketing. Ce rôle personnalisé est ensuite attribué dans les deux abonnements d’essai gratuit.  
+
+Si nous tentons de déplacer l’un de ces abonnements pour qu’il devienne enfant du groupe d’administration Production, ce déplacement rompt le chemin entre l’attribution de rôle de l’abonnement et la définition de rôle du groupe d’administration Marketing. Dans ce scénario, vous recevez une erreur indiquant que le déplacement n’est pas autorisé, car il rompt cette relation.  
+
+Il existe plusieurs solutions pour corriger ce scénario :
+- Supprimez l’attribution de rôle de l’abonnement avant de déplacer l’abonnement vers un autre groupe d’administration parent.
+- Ajoutez l’abonnement dans l’étendue attribuable de la définition de rôle.
+- Changez l’étendue attribuable dans la définition de rôle. Dans l’exemple ci-dessus, vous pouvez changer les étendues attribuables du groupe d’administration Marketing vers le groupe d’administration racine afin que la définition soit disponible dans les deux branches de la hiérarchie.   
+- Créez un rôle personnalisé supplémentaire qui sera défini dans l’autre branche.  Pour ce nouveau rôle, vous devrez également changer l’attribution de rôle dans l’abonnement.  
+
+### <a name="limitations"></a>Limites  
+Certaines limitations s’appliquent quand vous utilisez des rôles personnalisés dans des groupes d’administration. 
+
+ - Vous pouvez définir un seul groupe d’administration dans les étendues attribuables d’un nouveau rôle.  Cette limitation vise à réduire le nombre de situations où la relation entre les définitions de rôles et les attributions de rôles est rompue.  Ce problème se produit quand un abonnement ou un groupe d’administration avec une attribution de rôle est déplacé vers un autre parent qui n’a pas la définition de rôle.   
+ - Les actions du plan de données RBAC ne peuvent pas être définies dans des rôles personnalisés de groupe d’administration.  Cette restriction s’explique par l’existence d’un problème de latence avec les actions RBAC mettant à jour les fournisseurs de ressources de plan de données. Nous travaillons actuellement sur ce problème de latence ; ces actions seront désactivées de la définition de rôle pour réduire les risques.
+ - Azure Resource Manager ne valide pas le groupe d’administration existant dans l’étendue attribuable de la définition de rôle.  Même si vous avez fait une faute de frappe ou indiqué un ID de groupe d’administration incorrect, la définition de rôle est créée.   
+
+## <a name="moving-management-groups-and-subscriptions"></a>Déplacement des groupes d’administration et des abonnements 
+
+Pour qu’un abonnement ou un groupe d’administration puisse être un enfant d’un autre groupe d’administration, trois règles doivent être remplies.
+
+Pour effectuer le déplacement, vous devez avoir : 
+
+-  Les autorisations en écriture pour le groupe d’administration et l’attribution de rôle dans l’abonnement ou le groupe d’administration enfant.
+   - Un rôle intégré, par exemple, **Propriétaire**
+- L’accès en écriture au groupe d’administration dans le groupe d’administration parent cible.
+   - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+- L’accès en écriture au groupe d’administration dans le groupe d’administration parent existant.
+   - Un rôle intégré, par exemple, **Propriétaire**, **Contributeur**, **Contributeur du groupe d’administration**
+
+**Exception** : Si le groupe d'administration parent cible ou existant correspond au groupe d'administration racine, les exigences en matière d'autorisations ne s'appliquent pas. Le groupe d’administration racine correspondant à l'emplacement de destination de tous les nouveaux groupes d’administration et abonnements, vous ne devez pas disposer d'autorisations sur ce dernier pour déplacer un élément.
+
+Si le rôle Propriétaire de l'abonnement est hérité du groupe d’administration actuel, vos cibles de déplacement sont limitées. Vous pouvez uniquement déplacer l’abonnement vers un autre groupe d’administration pour lequel vous détenez le rôle Propriétaire. Vous ne pouvez pas le déplacer vers un groupe d’administration pour lequel vous détenez un rôle Contributeur si vous perdez la propriété de l’abonnement. Si vous vous voyez attribuer directement le rôle Propriétaire de l'abonnement (non hérité du groupe d’administration), vous pouvez le déplacer vers un groupe d’administration au sein duquel vous détenez un rôle Contributeur. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditer les groupes d’administration à l’aide des journaux d’activité
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 8c0328c1d82af5e96afca29f05a065450eab9ae4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435001"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid
 
@@ -28,7 +28,7 @@ Dans ce guide pratique, vous allez apprendre à effectuer les opérations suivan
 * Créer une requête Stream Analytics qui détecte le moment où un appareil a arrêté d’envoyer des données.
 * Envoyer une notification par e-mail à l’aide des services Azure Functions et SendGrid.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes décrites dans ce guide pratique, vous avez besoin d’un abonnement Azure actif.
 
@@ -41,14 +41,14 @@ Créez une application IoT Central sur le site web [Gestionnaire d’application
 | Paramètre | Valeur |
 | ------- | ----- |
 | Plan de paiement | Pay-As-You-Go |
-| Modèle d’application | Exemple Contoso |
-| Nom de l’application | Acceptez la valeur par défaut ou choisissez votre propre nom |
+| Modèle d’application | Application héritée |
+| Nom de l'application | Acceptez la valeur par défaut ou choisissez votre propre nom |
 | URL | Acceptez la valeur par défaut ou choisissez votre propre préfixe d’URL unique |
 | Répertoire | Votre locataire Azure Active Directory |
 | Abonnement Azure | Votre abonnement Azure |
-| Région | USA Est |
+| Région | États-Unis |
 
-Les exemples et captures d’écran de cet article concernent la région **USA Est**. Choisissez un emplacement proche de vous et assurez-vous de créer toutes vos ressources dans la même région.
+Les exemples et captures d’écran de cet article concernent la région **États-Unis**. Choisissez un emplacement proche de vous et assurez-vous de créer toutes vos ressources dans la même région.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -60,7 +60,7 @@ Utilisez le [portail Azure pour créer un espace de noms Event Hubs](https://por
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Nom    | Choisissez le nom de votre espace de noms |
+| Name    | Choisissez le nom de votre espace de noms |
 | Niveau tarifaire | De base |
 | Subscription | Votre abonnement |
 | Resource group | DetectStoppedDevices |
@@ -73,7 +73,7 @@ Utilisez le [portail Azure pour créer un travail Stream Analytics](https://port
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Nom    | Choisissez le nom de votre travail |
+| Name    | Choisissez le nom de votre travail |
 | Subscription | Votre abonnement |
 | Resource group | DetectStoppedDevices |
 | Location | USA Est |
@@ -89,7 +89,7 @@ Utilisez le [portail Azure pour créer une application de fonction](https://port
 | Nom de l’application    | Choisissez le nom de votre application de fonction |
 | Subscription | Votre abonnement |
 | Resource group | DetectStoppedDevices |
-| OS | Windows |
+| Système d''exploitation | Windows |
 | Plan d’hébergement | Plan de consommation |
 | Location | USA Est |
 | Pile d’exécution | .NET |
@@ -101,7 +101,7 @@ Utilisez le [portail Azure pour créer un compte SendGrid](https://portal.azure.
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Nom    | Choisissez le nom de votre compte SendGrid |
+| Name    | Choisissez le nom de votre compte SendGrid |
 | Mot de passe | Créez un mot de passe |
 | Subscription | Votre abonnement |
 | Resource group | DetectStoppedDevices |

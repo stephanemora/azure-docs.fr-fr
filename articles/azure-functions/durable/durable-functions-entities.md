@@ -3,14 +3,14 @@ title: Entités durables - Azure Functions
 description: Découvrez ce que sont les entités durables et comment les utiliser dans l’extension Durable Functions pour Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: aa4d1c4bfab349659c42a34ca5a73f676a2ea2b8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433321"
 ---
 # <a name="entity-functions"></a>Fonctions d’entité
 
@@ -41,6 +41,7 @@ Pour appeler une opération sur une entité, vous devez spécifier :
 * L’**ID d’entité** de l’entité cible.
 * Le **nom de l’opération**, une chaîne qui spécifie l’opération à effectuer. Par exemple, l’entité `Counter` peut prendre en charge les opérations `add`, `get` ou `reset`.
 * L’**entrée d’opération**, qui est un paramètre d’entrée facultatif pour l’opération. Par exemple, l’opération « add » peut prendre une valeur entière comme entrée.
+* L’**heure planifiée*, qui est un paramètre facultatif pour spécifier le délai de livraison de l’opération. Par exemple, une opération peut être planifiée de manière fiable pour s’exécuter plusieurs jours à l’avenir.
 
 Les opérations peuvent retourner une valeur de résultat ou un résultat d’erreur (par exemple une erreur JavaScript ou une exception .NET). Ce résultat ou cette erreur peut être observé par les orchestrations qui ont appelé l’opération.
 
@@ -54,7 +55,7 @@ Une **syntaxe basée sur la fonction**, où les entités sont représentées en 
 
 Une **syntaxe basée sur la classe**, où les entités et les opérations sont représentées par des classes et des méthodes. Cette syntaxe produit un code plus facile à lire et permet d’appeler des opérations de façon sécurisée. La syntaxe basée sur la classe est une fine couche par-dessus la syntaxe basée sur la fonction ; ainsi, les deux variantes peuvent être utilisées de manière interchangeable dans la même application.
 
-### <a name="example-function-based-syntax---c"></a>Exemple : Syntaxe basée sur les fonctions - C#
+### <a name="example-function-based-syntax---c"></a>Exemple : Syntaxe basée sur les fonctions - C#
 
 Le code suivant est un exemple d’entité `Counter` simple implémentée en tant que fonction durable. Cette fonction définit trois opérations (`add`, `reset` et `get`), chacune d’elles opérant sur un état d’entier.
 
@@ -79,7 +80,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 Pour plus d’informations sur la syntaxe basée sur la fonction et sur son utilisation, consultez [Syntaxe basée sur la fonction](durable-functions-dotnet-entities.md#function-based-syntax).
 
-### <a name="example-class-based-syntax---c"></a>Exemple : Syntaxe basée sur la classe - C#
+### <a name="example-class-based-syntax---c"></a>Exemple : Syntaxe basée sur la classe - C#
 
 L’exemple suivant est une implémentation équivalente de l’entité `Counter` à l’aide de classes et de méthodes.
 
@@ -106,7 +107,7 @@ L’état de cette entité est un objet de type `Counter`, qui contient un champ
 
 Pour plus d’informations sur la syntaxe basée sur la classe et sur son utilisation, consultez [Définition des classes d’entités](durable-functions-dotnet-entities.md#defining-entity-classes).
 
-### <a name="example-javascript-entity"></a>Exemple : Entité JavaScript
+### <a name="example-javascript-entity"></a>Exemple : Entité JavaScript
 
 Les entités durables sont disponibles dans JavaScript à partir de la version **1.3.0** du package npm `durable-functions`. Le code suivant est l’entité `Counter` implémentée en tant que fonction durable écrite en JavaScript.
 
@@ -163,9 +164,9 @@ Les exemples ci-dessous illustrent les différentes façons d’accéder aux ent
 > [!NOTE]
 > Par souci de simplicité, les exemples ci-dessous illustrent la syntaxe faiblement typée pour l’accès aux entités. En général, nous vous recommandons d’[accéder aux entités via des interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces), car cela permet un meilleur contrôle de type.
 
-### <a name="example-client-signals-an-entity"></a>Exemple : Le client signale une entité
+### <a name="example-client-signals-an-entity"></a>Exemple : Le client signale une entité
 
-Pour accéder aux entités à partir d’une fonction Azure ordinaire, également connue sous le nom de fonction cliente, utilisez la [liaison de sortie du client d’entité](durable-functions-bindings.md#entity-client). L’exemple suivant montre une fonction déclenchée par une file d’attente qui signale une entité à l’aide de cette liaison.
+Pour accéder aux entités à partir d’une fonction Azure ordinaire, également connue sous le nom de fonction cliente, utilisez la [liaison du client d’entité](durable-functions-bindings.md#entity-client). L’exemple suivant montre une fonction déclenchée par une file d’attente qui signale une entité à l’aide de cette liaison.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -186,13 +187,13 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    await context.df.signalEntity(entityId, "add", 1);
+    await client.signalEntity(entityId, "add", 1);
 };
 ```
 
 Le terme *signal* signifie que l’appel de l’API d’entité est unidirectionnel et asynchrone. Il n’est pas possible pour une fonction cliente de savoir quand l’entité a traité l’opération. De plus, la fonction cliente ne peut pas observer les valeurs de résultat ou les exceptions. 
 
-### <a name="example-client-reads-an-entity-state"></a>Exemple : Le client lit un état d’entité
+### <a name="example-client-reads-an-entity-state"></a>Exemple : Le client lit un état d’entité
 
 Les fonctions clientes peuvent également interroger l’état d’une entité, comme illustré dans l’exemple suivant :
 
@@ -203,8 +204,8 @@ public static async Task<HttpResponseMessage> Run(
     [DurableClient] IDurableEntityClient client)
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
-    JObject state = await client.ReadEntityStateAsync<JObject>(entityId);
-    return req.CreateResponse(HttpStatusCode.OK, state);
+    EntityStateResponse<JObject> stateResponse = await client.ReadEntityStateAsync<JObject>(entityId);
+    return req.CreateResponse(HttpStatusCode.OK, stateResponse.EntityState);
 }
 ```
 
@@ -214,13 +215,14 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    return context.df.readEntityState(entityId);
+    const stateResponse = await context.df.readEntityState(entityId);
+    return stateResponse.entityState;
 };
 ```
 
 Les requêtes d’état d’entité sont envoyées au magasin de suivi durable et retournent l’état persistant le plus récent de l’entité. Cet état est toujours un état « validé » ; autrement dit, il ne s’agit jamais d’un état intermédiaire temporaire adopté au milieu de l’exécution d’une opération. Toutefois, il est possible que cet état soit obsolète par rapport à l’état en mémoire de l’entité. Seules les orchestrations peuvent lire l’état en mémoire d’une entité, comme décrit dans la section suivante.
 
-### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemple : L’orchestration signale et appelle une entité
+### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exemple : L’orchestration signale et appelle une entité
 
 Les fonctions orchestrator peuvent accéder à des entités en utilisant des API sur la [liaison du déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). L’exemple de code suivant montre une fonction orchestrator qui appelle et signale une entité `Counter`.
 
@@ -249,19 +251,18 @@ module.exports = df.orchestrator(function*(context){
 
     // Two-way call to the entity which returns a value - awaits the response
     currentValue = yield context.df.callEntity(entityId, "get");
-    if (currentValue < 10) {
-        // One-way signal to the entity which updates the value - does not await a response
-        yield context.df.signalEntity(entityId, "add", 1);
-    }
 });
 ```
+
+> [!NOTE]
+> JavaScript ne prend pas actuellement en charge la signalisation d’une entité à partir d’un orchestrateur. Utilisez `callEntity` à la place.
 
 Seules les orchestrations peuvent appeler des entités et obtenir une réponse, qui peut être une valeur de retour ou une exception. Les fonctions clientes utilisant la [liaison cliente](durable-functions-bindings.md#entity-client) peuvent uniquement signaler des entités.
 
 > [!NOTE]
 > Appeler une entité à partir d’une fonction orchestrator revient à appeler une [fonction d’activité](durable-functions-types-features-overview.md#activity-functions) à partir d’une fonction orchestrator. La principale différence réside dans le fait que les fonctions d’entité sont des objets durables avec une adresse, qui est l’ID de l’entité. Elles prennent en charge la spécification d’un nom d’opération. Les fonctions d’activité, quant à elles, sont sans état et n’intègrent pas le concept d’opérations.
 
-### <a name="example-entity-signals-an-entity"></a>Exemple : L’entité signale une entité
+### <a name="example-entity-signals-an-entity"></a>Exemple : L’entité signale une entité
 
 Une fonction d’entité peut envoyer des signaux à d’autres entités (voire à elle-même) pendant qu’elle exécute une opération.
 Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédente pour qu’elle envoie un signal « milestone-reached » à une entité de supervision quand le compteur atteint la valeur 100.
@@ -294,7 +295,7 @@ Par exemple, nous pouvons modifier l’exemple d’entité `Counter` précédent
 
 Il peut arriver que vous deviez coordonner des opérations entre plusieurs entités. Par exemple, dans une application bancaire, vous pouvez avoir des entités représentant des comptes bancaires individuels. Lorsque vous transférez de l’argent d’un compte à un autre, vous devez vous assurer que le compte source possède des fonds suffisants. Vous devez également veiller à ce que les mises à jour des deux comptes (source et de destination) soient effectuées de manière cohérente par rapport au contexte de transaction.
 
-### <a name="example-transfer-funds-c"></a>Exemple : Transférer des fonds (C#)
+### <a name="example-transfer-funds-c"></a>Exemple : Transférer des fonds (C#)
 
 L’exemple de code suivant transfère des fonds entre deux entités de compte à l’aide d’une fonction orchestrator. La coordination des mises à jour d’entité nécessite l’utilisation de la méthode `LockAsync` pour créer une _section critique_ dans l’orchestration.
 

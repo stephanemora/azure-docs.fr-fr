@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Activer l’authentification dans une application web'
+title: 'Tutoriel : Activer l’authentification dans une application web'
 titleSuffix: Azure AD B2C
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application web ASP.NET.
 services: active-directory-b2c
@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4305e9b3cfdb5e05ce76ee1811dc0d2dcc265b7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 6fa0379f2f8194356ed122e86b5a225f72adfe7d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950195"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367601"
 ---
-# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutoriel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
 
 Ce tutoriel vous montre comment utiliser Azure Active Directory B2C (Azure AD B2C) pour connecter et inscrire des utilisateurs dans une application web ASP.NET. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes de réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Mettre à jour l’application dans Azure AD B2C
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Créer des flux d’utilisateur](tutorial-create-user-flows.md) pour activer les expériences utilisateur dans votre application
 * Installer [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
@@ -46,7 +46,7 @@ Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications**, puis l’application *webapp1*.
@@ -56,7 +56,7 @@ Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications (préversion)** , sélectionnez l’onglet **Applications détenues**, puis l’application *webapp1*.
@@ -94,7 +94,7 @@ Mettez à jour les paramètres dans le fichier Web. config pour qu’ils fonctio
 1. Dans le projet **TaskWebApp**, ouvrez le fichier **Web.config**.
     1. Mettez à jour la valeur de `ida:Tenant` et `ida:AadInstance` avec le nom du locataire Active AD B2C que vous avez créé. Par exemple, remplacez `fabrikamb2c` par `contoso`.
     1. Remplacez la valeur de `ida:ClientId` par l’ID d’application que vous avez enregistré.
-    1. Remplacez la valeur de `ida:ClientSecret` avec la clé que vous avez enregistrée. Vous devez encoder le secret client au format XML avant de l’ajouter au fichier Web.config.
+    1. Remplacez la valeur de `ida:ClientSecret` avec la clé que vous avez enregistrée. Si la clé secrète client contient des entités XML prédéfinies, par exemple inférieur à (`<`), supérieur à (`>`), perluète (`&`) ou guillemet double (`"`), vous devez placer ces caractères dans une séquence d’échappement en encodant au format XML la clé secrète client avant de l’ajouter à votre fichier Web.config.
     1. Remplacez la valeur de `ida:SignUpSignInPolicyId` par `b2c_1_signupsignin1`.
     1. Remplacez la valeur de `ida:EditProfilePolicyId` par `b2c_1_profileediting1`.
     1. Remplacez la valeur de `ida:ResetPasswordPolicyId` par `b2c_1_passwordreset1`.
@@ -120,7 +120,7 @@ Cependant, la fonctionnalité **Liste de tâches** ne fonctionne pas tant que vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre à jour l’application dans Azure AD B2C
@@ -130,4 +130,4 @@ Dans ce tutoriel, vous avez appris à :
 Passez maintenant au tutoriel suivant pour activer la fonctionnalité **Liste de tâches** de l’application web. Vous y inscrirez une application d’API web de votre propre locataire Azure AD B2C et modifierez l’exemple de code de façon à utiliser votre locataire pour l’authentification de l’API.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Utiliser Azure Active Directory B2C pour protéger une API web ASP.NET >](active-directory-b2c-tutorials-web-api.md)
+> [Tutoriel : Utiliser Azure Active Directory B2C pour protéger une API web ASP.NET >](active-directory-b2c-tutorials-web-api.md)

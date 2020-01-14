@@ -1,5 +1,5 @@
 ---
-title: Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure | Microsoft Docs
+title: Charger en parallèle de grandes quantités de données aléatoires dans le Stockage Azure
 description: Découvrir comment utiliser la bibliothèque de client Stockage Azure pour charger en parallèle de grandes quantités de données aléatoires dans un compte de stockage Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371936"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure
 
@@ -22,15 +22,15 @@ Dans ce deuxième volet, vous apprenez à :
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l’application
-> * Exécution de l’application
+> * Créer l’application
+> * Exécution de l'application
 > * Valider le nombre de connexions
 
-Le Stockage blob Azure fournit un service évolutif pour stocker vos données. Pour que votre application soit aussi performante que possible, vous devez comprendre le fonctionnement du stockage blob. Vous devez connaître les limites des objets blob Azure. Pour en savoir plus sur ces limites, consultez : [Objectifs d’évolutivité du stockage blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
+Le Stockage blob Azure fournit un service évolutif pour stocker vos données. Pour que votre application soit aussi performante que possible, vous devez comprendre le fonctionnement du stockage blob. Vous devez connaître les limites des objets blob Azure. Pour en savoir plus sur ces limites, consultez : [Objectifs de performance et de scalabilité du Stockage Blob](../blobs/scalability-targets.md)
 
 La [convention de nommage des partitions](../blobs/storage-performance-checklist.md#partitioning) est un autre facteur potentiellement important quand vous concevez une application hautes performances à l’aide d’objets blob. Pour les tailles de bloc supérieures ou égales à 4 Mio, des [objets blob de blocs à débit élevé](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) sont utilisés, et le nommage des partitions n’affecte pas les performances. Pour les tailles de bloc inférieures à 4 Mio, le Stockage Azure utilise un schéma de partitionnement basé sur une plage pour mettre à l’échelle et équilibrer la charge. Cette configuration signifie que les fichiers qui ont des conventions de nommage ou des préfixes similaires sont dirigés dans la même partition. Cette logique inclut le nom du conteneur dans lequel les fichiers sont chargés. Dans ce didacticiel, vous utilisez des fichiers qui ont des GUID comme noms ainsi que du contenu généré aléatoirement. Ils sont ensuite chargés dans cinq conteneurs différents avec des noms aléatoires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez avoir terminé le tutoriel précédent sur le stockage : [Créer une machine virtuelle et un compte de stockage pour une application évolutive][previous-tutorial].
 
@@ -71,7 +71,7 @@ En plus de définir les paramètres de limite de threads et de connexion, les va
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| Le paramètre divise l’objet blob en blocs pendant le chargement. Pour optimiser les performances, cette valeur doit être huit fois supérieure au nombre de cœurs. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Cette propriété désactive la vérification du hachage MD5 du contenu chargé. La désactivation de la validation MD5 entraîne un transfert plus rapide. Toutefois, elle ne confirme pas la validité ou l’intégrité des fichiers transférés.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Cette propriété détermine si un hachage MD5 est calculé et stocké avec le fichier.   |
-| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Interruption de 2 secondes avec 10 nouvelles tentatives au maximum |Détermine la stratégie de nouvelle tentative des demandes. Les connexions qui ont échoué sont réessayées, dans cet exemple une stratégie [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) est configurée avec une interruption de 2 secondes et 10 nouvelles tentatives au maximum. Ce paramètre est important quand votre application se rapproche des [objectifs d’évolutivité du stockage blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |
+| [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Interruption de 2 secondes avec 10 nouvelles tentatives au maximum |Détermine la stratégie de nouvelle tentative des demandes. Les connexions qui ont échoué sont réessayées, dans cet exemple une stratégie [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) est configurée avec une interruption de 2 secondes et 10 nouvelles tentatives au maximum. Ce paramètre est important quand votre application se rapproche des objectifs de scalabilité du Stockage Blob. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](../blobs/scalability-targets.md).  |
 
 La tâche `UploadFilesAsync` est illustrée dans l’exemple suivant :
 
@@ -186,8 +186,8 @@ Dans la deuxième partie de la série, vous avez appris à charger de grandes qu
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l’application
-> * Exécution de l’application
+> * Créer l’application
+> * Exécution de l'application
 > * Valider le nombre de connexions
 
 Passez à la troisième partie de la série pour télécharger de grandes quantités de données à partir d’un compte de stockage.

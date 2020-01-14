@@ -1,7 +1,7 @@
 ---
-title: Guide de démarrage rapide - Créer un groupe de machines virtuelles identiques dans le portail Azure | Microsoft Docs
-description: Apprendre à créer rapidement un groupe de machines virtuelles identiques dans le portail Azure
-services: virtual-machine-scale-sets
+title: 'Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure'
+description: Commencez vos déploiements en apprenant à créer rapidement un groupe de machines virtuelles identiques dans le portail Azure.
+services: virtual-machine-scale-sets.
 author: cynthn
 manager: gwallace
 tags: azure-resource-manager
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 1bbbef6d8037b819c557e1c7fc3fff6248507986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351141"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 
@@ -42,7 +42,7 @@ Commencez par créer un équilibreur de charge de base public à l’aide du por
     | ---| ---|
     | Subscription  | Sélectionnez votre abonnement.    |    
     | Resource group | Sélectionnez **Créer**, puis entrez *myVMSSResourceGroup* dans la zone de texte.|
-    | Nom           | *myLoadBalancer*         |
+    | Name           | *myLoadBalancer*         |
     | Région         | Sélectionnez **USA Est**.       |
     | Type          | Sélectionnez **Public**.       |
     | SKU           | Sélectionnez **Standard**.       |
@@ -80,12 +80,12 @@ Vous pouvez déployer un groupe identique avec une image Windows Server ou une i
 1. Après la validation, sélectionnez **Créer** pour déployer le groupe identique.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources, le groupe identique et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le groupe identique, puis sélectionnez **Supprimer**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez créé un groupe de machines virtuelles identiques dans le portail Azure. Pour en savoir plus, passez au didacticiel pour savoir comment créer et gérer des machines virtuelles identiques Azure.
+Dans ce guide de démarrage rapide, vous avez créé un groupe de machines virtuelles identiques dans le portail Azure. Pour en savoir plus, passez au didacticiel dédié à la création et la gestion des groupes de machines virtuelles identiques Azure.
 
 > [!div class="nextstepaction"]
 > [Créer et gérer des groupes de machines virtuelles identiques Azure](tutorial-create-and-manage-powershell.md)

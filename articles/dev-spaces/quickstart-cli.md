@@ -3,15 +3,15 @@ title: Développer une application dans Kubernetes
 services: azure-dev-spaces
 ms.date: 07/08/2019
 ms.topic: quickstart
-description: Déployer un microservice sur AKS à l’aide d’Azure Dev Spaces
+description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et la ligne de commande pour développer une application sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 932b25e277936a2efe6a3e037458fabd67b024c2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b4902930b04e880bbbdfbe7418d5e0ec86f89470
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438255"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développer une application dans Kubernetes - Azure Dev Spaces
 Dans ce guide, vous allez apprendre à :
@@ -19,7 +19,7 @@ Dans ce guide, vous allez apprendre à :
 - Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.
 - Développez et exécutez du code dans des conteneurs à l’aide de la ligne de commande.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -119,7 +119,7 @@ Si vous arrêtez la commande `azds up` avec *Ctrl+C*, le service continue de s�
 Pour déployer une version mise à jour de votre service, vous pouvez mettre à jour n’importe quel fichier de votre projet, puis réexécuter la commande `azds up`. Par exemple :
 
 1. Si `azds up` est toujours en cours d’exécution, appuyez sur *Ctrl+C*.
-1. Mettez à jour la [ligne 13 dans `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) de la façon suivante :
+1. Changez la [ligne 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) en :
     
     ```javascript
         res.send('Hello from webfrontend in Azure');

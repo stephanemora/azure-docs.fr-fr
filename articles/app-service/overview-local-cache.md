@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687075"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680883"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -36,7 +36,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Comment le cache local change le comportement d’App Service
 * _D:\home_ pointe vers le cache local, qui est créé sur l’instance de machine virtuelle au démarrage de l’application. _D:\local_ continue de pointer vers le stockage propre à la machine virtuelle temporaire.
-* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 300 Mo par défaut, mais vous pouvez l’augmenter jusqu’à 2 Go.
+* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 300 Mo par défaut, mais vous pouvez l’augmenter jusqu’à 2 Go. Si les fichiers copiés dépassent la taille du cache local, App Service ignore silencieusement le cache local et lit à partir du partage de fichiers distant.
 * Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
 * _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
 * Le [streaming des journaux](troubleshoot-diagnostic-logs.md#stream-logs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu’à une minute de délai dans les journaux d’activité diffusés en continu.
@@ -48,7 +48,7 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 ## <a name="enable-local-cache-in-app-service"></a>Activer le cache local dans App Service
 Configurez le cache local à l’aide d’une combinaison de paramètres d’application réservés. Pour configurer ces paramètres d’application, vous pouvez utiliser les méthodes suivantes :
 
-* [Portail Azure](#Configure-Local-Cache-Portal)
+* [Azure portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurer le cache local à l’aide du portail Azure
@@ -83,12 +83,12 @@ Activez le cache local pour chaque application web en utilisant ce paramètre d�
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Modifier le paramètre de taille dans le cache local
-Par défaut, la taille du cache local est de **1 Go**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application.
+Par défaut, la taille du cache local est de **300 Mo**. Elle inclut les dossiers /site et /siteextensions qui sont copiés à partir du magasin de contenu, ainsi que tous les dossiers de journaux d’activité et de données créés localement. Pour augmenter cette limite, utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`. Vous pouvez augmenter la taille jusqu’à **2 Go** (2000 Mo) par application.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Bonnes pratiques pour utiliser le cache local d’App Service
 Nous vous recommandons d’utiliser le cache local conjointement avec la fonctionnalité [Environnements de préproduction](../app-service/deploy-staging-slots.md) .
 
-* Ajoutez le paramètre d’application *associé* `WEBSITE_LOCAL_CACHE_OPTION` avec la valeur `Always` à votre emplacement de **production**. Si vous utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`, ajoutez-le également comme paramètre associé à votre emplacement de production.
+* Ajoutez le paramètre d’application *associé*`WEBSITE_LOCAL_CACHE_OPTION` avec la valeur `Always` à votre emplacement de **production**. Si vous utilisez le paramètre d’application `WEBSITE_LOCAL_CACHE_SIZEINMB`, ajoutez-le également comme paramètre associé à votre emplacement de production.
 * Créez un emplacement de **préproduction** pour la publication. En règle générale, si vous utilisez le cache local pour l’emplacement de production, vous n’avez pas à définir l’emplacement de préproduction pour utiliser le cache local en vue d’implémenter un cycle de vie build-déploiement-test transparent.
 * Testez votre site par rapport à votre emplacement de préproduction.  
 * Quand vous êtes prêt, lancez une [opération d’échange](../app-service/deploy-staging-slots.md#Swap) entre vos emplacements de préproduction et de production.  

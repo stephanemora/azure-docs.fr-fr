@@ -1,5 +1,5 @@
 ---
-title: Script Azure PowerShell – Azure Cosmos DB – Créer une base de données et un conteneur pour l’API SQL (Core)
+title: Script PowerShell pour créer une base de données et un conteneur d’API SQL (Core) Azure Cosmos DB
 description: Script Azure PowerShell – Azure Cosmos DB – Créer une base de données et un conteneur pour l’API SQL (Core)
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: eee1e31808412dc5e4308dee92f3685507e771f3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5a57b8cb3e4e7076d3be73a9010d9a29a8b004a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441356"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>Créer une base de données et un conteneur pour Azure Cosmos DB – API SQL (Core)
 

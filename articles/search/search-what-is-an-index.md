@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: d2b8b2fecbf85e6590294f1fbd7ff2a4453b9e87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460750"
 ---
 # <a name="create-a-basic-index-in-azure-cognitive-search"></a>Créer un index de base dans la Recherche cognitive Azure
 
@@ -175,10 +175,9 @@ Les API que vous utilisez pour créer un index ont différents comportements par
 | `facetable` |Permet d’utiliser un champ pour le filtrage autonome dans une structure de [navigation par facettes](search-faceted-navigation.md) par un utilisateur. En général, les champs contenant des valeurs répétitives que vous pouvez utiliser pour regrouper plusieurs documents (par exemple, plusieurs documents appartenant à une seule marque ou catégorie de service) sont les mieux adaptés en tant que facettes. |
 | `searchable` |Indique que le champ peut faire l’objet d’une recherche en texte intégral. |
 
+## <a name="index-size"></a>Taille d'index
 
-## <a name="storage-implications"></a>Implications au niveau du stockage
-
-Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
+La taille d’un index est déterminée par la taille des documents que vous chargez, plus la configuration de l’index, par exemple si vous incluez des suggesteurs, et la façon dont vous définissez des attributs sur des champs individuels. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
 
 L’index est basé sur la source de données de l’[l’exemple intégré real estate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
 
@@ -186,13 +185,13 @@ L’index est basé sur la source de données de l’[l’exemple intégré real
 
 Bien que ces variantes d’index soient artificielles, nous pouvons nous y reporter pour nous faire une idée de la façon dont les attributs affectent le stockage. Le paramètre **retrievable** fait-il croître l’index ? Non. L’ajout de champs à un **suggesteur** fait-il croître l’index ? Oui.
 
-Les index qui prennent en charge le filtrage et le tri sont en proportion plus volumineux que les index qui prennent en charge uniquement la recherche en texte intégral. La raison en est que le filtrage et le tri portent sur les correspondances exactes. De ce fait, les documents sont stockés intacts. En revanche, les champs pouvant faire l’objet d’une recherche en texte intégral ou approximative utilisent des index inversés, qui sont remplis avec des termes assortis de jetons qui occupent moins d’espace que les documents entiers.
+Les index qui prennent en charge le filtrage et le tri sont en proportion plus volumineux que ceux qui prennent en charge uniquement la recherche en texte intégral. Les opérations de filtre et de tri recherchent les correspondances exactes, ce qui nécessite la présence de documents intacts. En revanche, les champs pouvant faire l’objet d’une recherche en texte intégral ou approximative utilisent des index inversés, qui sont remplis avec des termes assortis de jetons qui occupent moins d’espace que les documents entiers. 
 
 > [!Note]
 > L’architecture de stockage est considérée comme un détail d’implémentation de Recherche cognitive Azure et est susceptible d’évoluer sans préavis. Il n’est pas garanti que le comportement actuel persistera dans l’avenir.
 
 ## <a name="suggesters"></a>Générateurs de suggestions
-Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble d’expressions suggérées. 
+Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble de documents ou d’expressions suggérés. 
 
 Les champs ajoutés à un suggesteur sont utilisés pour générer des termes de recherche à saisie semi-automatique (« type-ahead »). Tous les termes de recherche sont créés pendant l’indexation et stockés séparément. Pour plus d’informations sur la création d’une structure de suggesteur, consultez [Ajouter des suggesteurs](index-add-suggesters.md).
 
@@ -220,7 +219,7 @@ Les options suivantes peuvent être définies pour CORS :
 
 ## <a name="encryption-key"></a>Clé de chiffrement
 
-Si tous les index de Recherche cognitive Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour en savoir plus, consultez [Gérer les clés de chiffrement dans la Recherche cognitive Azure](search-security-manage-encryption-keys.md).
+Si tous les index de Recherche cognitive Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour en savoir plus, consultez [Gérer les clés de chiffrement dans Recherche cognitive Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

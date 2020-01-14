@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Rechercher un itinéraire avec Azure Maps'
-description: 'Didacticiel : Établir un itinéraire vers un point d’intérêt avec Azure Maps'
+title: 'Tutoriel : Rechercher un itinéraire avec Azure Maps'
+description: 'Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c9e407b271fd77397723ee49f530339847096749
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106618"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613599"
 ---
-# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Didacticiel : Établir un itinéraire vers un point d’intérêt avec Azure Maps
+# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
-Ce didacticiel montre comment utiliser votre compte Azure Maps et le SDK Route Service pour rechercher l’itinéraire vers votre point d’intérêt. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment utiliser votre compte Azure Maps et le SDK Route Service pour rechercher l’itinéraire vers votre point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control
 > * Définir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de poursuivre, suivez les instructions mentionnées dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
+Avant de poursuivre, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -211,7 +211,7 @@ Cette section montre comment utiliser les API Route Service d’Azure Maps pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control

@@ -1,5 +1,5 @@
 ---
-title: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
+title: Planification de migration de ressources Classic vers Azure Resource Manager
 description: Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bebfcedcd2944e2c6b05c3203e67df7658dd751a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460052"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planification de la migration des ressources IaaS d’Azure Classic vers Azure Resource Manager
 Si Azure Resource Manager offre de nombreuses fonctionnalités exceptionnelles, il est essentiel de planifier le parcours de migration pour éviter tout heurt. Il est nécessaire de consacrer du temps à la planification pour être sûr de ne pas rencontrer de problèmes lors de l’exécution des activités de migration.
@@ -31,7 +31,7 @@ Le parcours de migration comprend quatre étapes générales :<br>
 
 ![Phases de migration](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Planification
+## <a name="plan"></a>Plan
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considérations et concessions techniques
 
@@ -133,13 +133,13 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
     
      
 
-    **Calcul** *(cœurs, groupes à haute disponibilité)*
+    **Compute** *(cœurs, groupes à haute disponibilité)*
 
     ```powershell
     Get-AzVMUsage -Location <azure-region>
     ```
 
-    **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
+    **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de route)*
 
     ```powershell
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
@@ -190,7 +190,7 @@ Des tests incomplets peuvent provoquer des problèmes et des retards de migratio
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considérations et concessions techniques
 
-Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur parti de la plateforme.  Lisez la [vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) pour découvrir les avantages supplémentaires.
+Maintenant que vous êtes en mode Azure Resource Manager, tirez le meilleur parti de la plateforme.  Lisez la [vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md) pour découvrir les avantages supplémentaires.
 
 Points importants à prendre en compte :
 

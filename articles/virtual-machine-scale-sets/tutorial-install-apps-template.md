@@ -1,5 +1,5 @@
 ---
-title: Didacticiel -Installer des applications dans un groupe identique avec des modèles Azure | Microsoft Docs
+title: Tutoriel - Installer des applications dans un groupe identique avec des modèles Azure
 description: Découvrez comment utiliser des modèles Azure Resource Manager pour installer des applications dans des groupes identiques de machines virtuelles avec l’extension de script personnalisé
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1bb6345ee05c5dcb8d88cc7f756a096bfe5d2c4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460154"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Didacticiel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec un modèle Azure
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -43,10 +43,10 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être utilisée avec Azure CLI, Azure PowerShell, le Portail Azure ou l’API REST. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md).
 
-Pour voir l’extension de script personnalisé en action, créez un groupe identique qui installe le serveur web NGINX et qui affiche le nom d’hôte de l’instance de machine virtuelle du groupe identique. La définition suivante de l’extension de script personnalisé télécharge un exemple de script à partir de GitHub, installe les packages requis, puis écrit le nom d’hôte de l’instance de machine virtuelle sur une page HTML de base.
+Pour voir l’extension de script personnalisé en action, créez un groupe identique qui installe le serveur web NGINX et qui affiche le nom d’hôte de l’instance de machine virtuelle du groupe identique. La définition d’extension de script personnalisé suivante télécharge un exemple de script à partir de GitHub, installe les packages requis, puis écrit le nom d’hôte de l’instance de machine virtuelle sur une page HTML de base.
 
 
-## <a name="create-custom-script-extension-definition"></a>Créer une définition de l’extension de script personnalisé
+## <a name="create-custom-script-extension-definition"></a>Créer une définition d’extension de script personnalisé
 Lorsque vous définissez un groupe identique de machines virtuelles avec un modèle Azure, le fournisseur de ressources *Microsoft.Compute/virtualMachineScaleSets* peut inclure une section sur les extensions. Le *extensionsProfile* détaille ce qui est appliqué aux instances de machine virtuelle dans un groupe identique. Pour utiliser l’extension de script personnalisé, vous spécifiez un éditeur de *Microsoft.Azure.Extensions* et un type de *CustomScript*.
 
 La propriété *fileUris* est utilisée pour définir les packages ou les scripts d’installation sources. Pour démarrer le processus d’installation, les scripts nécessaires sont définis dans *commandToExecute*. L’exemple suivant définit un exemple de script à partir de GitHub qui installe et configure le serveur web NGINX :
@@ -154,7 +154,7 @@ Toutes les instances de machine virtuelle dans le groupe identique sont automati
 ![Page web mise à jour dans NGINX](media/tutorial-install-apps-template/running-nginx-updated.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive

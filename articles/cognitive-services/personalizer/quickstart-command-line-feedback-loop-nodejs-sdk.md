@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Personalizer pour Node.js | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Personalizer pour Node.js'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser la bibliothèque de client Personalizer pour Node.js à l’aide d’une boucle d’apprentissage.
+description: Ce guide de démarrage rapide montre comment commencer avec la bibliothèque cliente Personalizer pour Node.js en utilisant une boucle d’apprentissage.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91aee7f4a110490495a3cf840e6b3ef3282c91c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494464"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446367"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Personalizer pour Node.js
 
@@ -28,7 +28,7 @@ Commencez à utiliser la bibliothèque de client Personalizer pour Node.js. Suiv
 
 [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Exemples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [Node.js](https://nodejs.org) et NPM.
@@ -185,12 +185,12 @@ node sample.js
 
 ![Ce programme de démarrage rapide pose quelques questions pour recueillir les préférences de l’utilisateur, appelées « caractéristiques », puis fournit l’action classée en premier.](./media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

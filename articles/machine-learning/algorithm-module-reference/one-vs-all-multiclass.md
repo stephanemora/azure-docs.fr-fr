@@ -1,7 +1,7 @@
 ---
 title: One-vs-All Multiclass
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module One-vs-All Multiclass dans le service Azure Machine Learning pour créer un modèle de classification multiclasse à partir d’un ensemble de modèles de classification binaire.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module One-vs-All Multiclass dans Azure Machine Learning pour créer un modèle de classification multiclasse à partir d’un ensemble de modèles de classification binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 5c59f2865e7ebf768cdd8b80e59d69359f8607c6
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428512"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
@@ -61,4 +61,4 @@ Vous pouvez également transmettre le classifieur non entraîné au module [Mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

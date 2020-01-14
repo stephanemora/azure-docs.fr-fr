@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927545"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440331"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -49,15 +49,13 @@ Pour copier des données d’une source vers un récepteur, le service qui exéc
 
 ### <a name="supported-file-formats"></a>Formats de fichiers pris en charge
 
-Vous pouvez utiliser l’activité de copie pour copier des fichiers tels quels entre deux magasins de données basés sur des fichiers. Dans ce cas, les données sont copiées efficacement sans sérialisation ni désérialisation.
-
 [!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-Par exemple, vous pouvez effectuer les activités de copie suivantes :
+Vous pouvez utiliser l’activité de copie pour copier des fichiers en l'état entre deux banques de données de fichiers, auquel cas les données sont copiées efficacement sans sérialisation ou désérialisation. En outre, vous avez la possibilité d'analyser ou de générer des fichiers d’un format donné. Vous pouvez notamment effectuer ce qui suit :
 
-* Copier des données à partir d’une base de données SQL Server locale et écrire les données dans Azure Data Lake Storage Gen2 au format Parquet.
+* Copier des données à partir d’une base de données SQL Server locale et écrire dans Azure Data Lake Storage Gen2 au format Parquet.
 * Copier des fichiers au format texte (CSV) à partir d’un système de fichiers local et les écrire dans le stockage d’objets BLOB Azure au format Avro.
-* Copier des fichiers compressés à partir d’un système de fichiers local, les décompresser et les écrire dans Azure Data Lake Storage Gen2.
+* Copier des fichiers compressés à partir d’un système de fichiers local, les décompresser à la volée et écrire les fichiers extraits dans Azure Data Lake Storage Gen2.
 * Copier des données au format de texte compressé Gzip (CSV) à partir du stockage Blob Azure et les écrire dans Azure SQL Database.
 * Beaucoup d’autres activités qui nécessitent la sérialisation/désérialisation ou la compression/décompression.
 
@@ -127,17 +125,18 @@ Le modèle suivant d’activité de copie contient une liste complète des propr
 
 | Propriété | Description | Requis ? |
 |:--- |:--- |:--- |
-| Type | Pour une activité de copie, définissez sur `Copy` | OUI |
-| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
-| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données de récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
-| typeProperties | Spécifiez les propriétés pour configurer l’activité de copie. | OUI |
-| source | Spécifiez le type de source de copie et les propriétés correspondantes pour la récupération des données.<br/><br/>Pour plus d’informations, consultez la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Magasins de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
-| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes pour l’écriture des données.<br/><br/>Pour plus d’informations, consultez la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Magasins de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
-| translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. Cette propriété s’applique lorsque le comportement de copie par défaut ne répond pas à vos besoins.<br/><br/>Pour plus d’informations, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md). | Non |
-| dataIntegrationUnits | Spécifiez une mesure qui représente la quantité d’énergie que le [runtime d’intégration Azure](concepts-integration-runtime.md) utilise pour la copie des données. Ces unités étaient auparavant appelées unités de déplacement de données Cloud. <br/><br/>Pour plus d’informations, consultez [Unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non |
-| parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données vers le récepteur.<br/><br/>Pour plus d’informations, voir [Copie en parallèle](copy-activity-performance.md#parallel-copy). | Non |
-| enableStaging<br/>stagingSettings | Spécifiez s’il faut effectuer une copie intermédiaire des données intermédiaires dans le stockage Blob au lieu de copier directement les données de la source vers le récepteur.<br/><br/>Pour plus d’informations sur les scénarios utiles et les détails de la configuration, consultez [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lorsque vous copiez des données de la source vers le récepteur.<br/><br/>Pour plus d’informations, consultez [Tolérance aux pannes](copy-activity-fault-tolerance.md). | Non |
+| type | Pour une activité de copie, définissez sur `Copy` | Oui |
+| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
+| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données de récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
+| typeProperties | Spécifiez les propriétés pour configurer l’activité de copie. | Oui |
+| source | Spécifiez le type de source de copie et les propriétés correspondantes pour la récupération des données.<br/>Pour plus d’informations, consultez la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Magasins de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
+| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes pour l’écriture des données.<br/>Pour plus d’informations, consultez la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Magasins de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
+| translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. Cette propriété s’applique lorsque le comportement de copie par défaut ne répond pas à vos besoins.<br/>Pour plus d’informations, consultez [Mappage de schéma dans l’activité de copie](copy-activity-schema-and-type-mapping.md). | Non |
+| dataIntegrationUnits | Spécifiez une mesure qui représente la quantité d’énergie que le [runtime d’intégration Azure](concepts-integration-runtime.md) utilise pour la copie des données. Ces unités étaient auparavant appelées unités de déplacement de données Cloud. <br/>Pour plus d’informations, consultez [Unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non |
+| parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données vers le récepteur.<br/>Pour plus d’informations, voir [Copie en parallèle](copy-activity-performance.md#parallel-copy). | Non |
+| conserves | Spécifiez s’il faut conserver les métadonnées/ACL lors de la copie des données. <br/>Pour plus d’informations, consultez [Conserver les métadonnées](copy-activity-preserve-metadata.md). |Non |
+| enableStaging<br/>stagingSettings | Spécifiez s’il faut effectuer une copie intermédiaire des données intermédiaires dans le stockage Blob au lieu de copier directement les données de la source vers le récepteur.<br/>Pour plus d’informations sur les scénarios utiles et les détails de la configuration, consultez [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lorsque vous copiez des données de la source vers le récepteur.<br/>Pour plus d’informations, consultez [Tolérance aux pannes](copy-activity-fault-tolerance.md). | Non |
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -170,7 +169,7 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 
 | Nom de la propriété  | Description | Unité |
 |:--- |:--- |:--- |
-| dataRead | Quantité de données lues à partir de la source. | Valeur Int64 en octets |
+| dataRead | Quantité de données lues à partir de la source. | Valeur Int64, en octets |
 | dataWritten | Quantité de données écrites dans le récepteur. | Valeur Int64, en octets |
 | filesRead | Nombre de fichiers copiés lors de la copie à partir du stockage de fichiers. | Valeur Int64 (aucune unité) |
 | filesWritten | Nombre de fichiers copiés lors de la copie à partir du stockage de fichiers. | Valeur Int64 (aucune unité) |
@@ -238,13 +237,9 @@ Les détails de l’exécution de l’activité de copie et les caractéristique
 }
 ```
 
-## <a name="schema-and-data-type-mapping"></a>Mappage du schéma et du type de données
+## <a name="incremental-copy"></a>Copie incrémentielle
 
-Pour plus d’informations sur la façon dont l’activité de copie met en correspondance vos données sources et votre récepteur, consultez [Mappage de type de données et de schéma](copy-activity-schema-and-type-mapping.md).
-
-## <a name="fault-tolerance"></a>Tolérance de panne
-
-Par défaut, l’activité de copie arrête la copie des données et retourne un échec lorsque les lignes de données sources sont incompatibles avec les lignes de données du récepteur. Pour que la copie aboutisse, vous pouvez configurer l’activité de copie afin d’ignorer et de journaliser les lignes incompatibles et de copier uniquement les données compatibles. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md).
+Data Factory vous permet de copier de façon incrémentielle des données delta d’un magasin de données source vers un magasin de données récepteur. Pour plus d’informations, consultez [Didacticiel : Copier les données de façon incrémentielle](tutorial-incremental-copy-overview.md).
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 
@@ -258,8 +253,17 @@ Dans cet exemple, lors de l’exécution d’une copie, Data Factory effectue le
 
 ![Surveillance de la copie avec conseils d'optimisation des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Copie incrémentielle
-Data Factory vous permet de copier de façon incrémentielle des données delta d’un magasin de données source vers un magasin de données récepteur. Pour plus d’informations, consultez [Didacticiel : Copier les données de façon incrémentielle](tutorial-incremental-copy-overview.md).
+## <a name="preserve-metadata-along-with-data"></a>Conserver les métadonnées avec les données
+
+Lors de la copie des données de la source vers le récepteur, dans des scénarios tels que la migration d'un lac de données, vous pouvez également choisir de conserver les métadonnées et ACL avec les données à l’aide de l’activité de copie. Pour plus d’informations, consultez [Conserver les métadonnées](copy-activity-preserve-metadata.md).
+
+## <a name="schema-and-data-type-mapping"></a>Mappage du schéma et du type de données
+
+Pour plus d’informations sur la façon dont l’activité de copie met en correspondance vos données sources et votre récepteur, consultez [Mappage de type de données et de schéma](copy-activity-schema-and-type-mapping.md).
+
+## <a name="fault-tolerance"></a>Tolérance de panne
+
+Par défaut, l’activité de copie arrête la copie des données et retourne un échec lorsque les lignes de données sources sont incompatibles avec les lignes de données du récepteur. Pour que la copie aboutisse, vous pouvez configurer l’activité de copie afin d’ignorer et de journaliser les lignes incompatibles et de copier uniquement les données compatibles. Pour plus d’informations, consultez [Tolérance de panne de l’activité de copie](copy-activity-fault-tolerance.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Voir les procédures de démarrage rapide, didacticiels et exemples suivants :

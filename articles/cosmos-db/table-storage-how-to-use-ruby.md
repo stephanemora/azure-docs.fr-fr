@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
+title: Utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0a2649db7639338b7b2714181b8caf670306f987
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036254"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441159"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Comment utiliser le Stockage Table et l’API Table d’Azure Cosmos DB avec Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -70,8 +70,8 @@ common_client = Azure::Storage::Common::Client.create(storage_account_name:'myac
 table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
-## <a name="create-a-table"></a>Création d’une table
-L’objet **Azure::Storage::Table::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create_table()**. L’exemple suivant crée une table ou imprime l’erreur le cas échéant.
+## <a name="create-a-table"></a>Créer une table
+L’objet **Azure::Storage::Table::TableService** permet d’utiliser des tables et des entités. Pour créer une table, utilisez la méthode **create_table()** . L’exemple suivant crée une table ou imprime l’erreur le cas échéant.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -107,7 +107,7 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-Avec **update_entity()** et **merge_entity()**, si l’entité que vous mettez à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez plutôt **insert_or_replace_entity()** ou **insert_or_merge_entity()**.
+Avec **update_entity()** et **merge_entity()** , si l’entité que vous mettez à jour n’existe pas, l’opération échoue. Si vous voulez stocker une entité, qu’elle existe déjà ou non, utilisez plutôt **insert_or_replace_entity()** ou **insert_or_merge_entity()** .
 
 ## <a name="work-with-groups-of-entities"></a>Utilisation des groupes d'entités
 Il est parfois intéressant de soumettre un lot d'opérations simultanément pour assurer un traitement atomique par le serveur. Pour cela, vous devez d’abord créer un objet **Batch**, puis utiliser la méthode **execute_batch()** sur **TableService**. L'exemple ci-dessous présente l'envoi de deux entités avec RowKey 2 et 3 dans un lot. Notez qu'il ne s'applique qu'aux entités possédant le même élément PartitionKey.
@@ -131,7 +131,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## <a name="query-a-set-of-entities"></a>Interrogation d’un ensemble d’entités
-Pour interroger un ensemble d’entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query_entities()**. L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey**:
+Pour interroger un ensemble d’entités dans une table, créez un objet de hachage de requête et utilisez la méthode **query_entities()** . L'exemple ci-dessous présente l'obtention de toutes les identités avec le même élément **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -153,7 +153,7 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Suppression d’une entité
-Pour supprimer une entité, utilisez la méthode**delete_entity()**. Transmettez le nom de la table qui contient l’entité, ainsi que les éléments PartitionKey et RowKey de l’entité.
+Pour supprimer une entité, utilisez la méthode**delete_entity()** . Transmettez le nom de la table qui contient l’entité, ainsi que les éléments PartitionKey et RowKey de l’entité.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")

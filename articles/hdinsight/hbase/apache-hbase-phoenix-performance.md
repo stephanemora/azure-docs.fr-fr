@@ -2,18 +2,18 @@
 title: Performances de Phoenix dans Azure HDInsight
 description: Bonnes pratiques pour optimiser les performances d’Apache Phoenix sur les clusters Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: b2a40802070510939332c3f5e876293445cf2df1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 12/27/2019
+ms.openlocfilehash: 7f8f20be81e815414c283f7ec48aa6503e3b60ed
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810428"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552642"
 ---
 # <a name="apache-phoenix-performance-best-practices"></a>Bonnes pratiques pour les performances d’Apache Phoenix
 
@@ -52,13 +52,13 @@ Avec cette nouvelle clé primaire, les clés de ligne générées par Phoenix se
 
 Dans la première ligne ci-dessus, les données de l’attribut rowkey sont représentées comme indiqué :
 
-|rowkey|       key|   value| 
+|rowkey|       key|   value|
 |------|--------------------|---|
 |  Dole-John-111|address |1111 San Gabriel Dr.|  
 |  Dole-John-111|phone |1-425-000-0002|  
 |  Dole-John-111|firstName |John|  
 |  Dole-John-111|lastName |Dole|  
-|  Dole-John-111|socialSecurityNum |111| 
+|  Dole-John-111|socialSecurityNum |111|
 
 Maintenant, cet attribut rowkey stocke une copie des données. Prenez en compte la taille et le nombre de colonnes que vous incluez dans votre clé primaire, car cette valeur est incluse dans chaque cellule de la table HBase sous-jacente.
 
@@ -72,7 +72,7 @@ En outre, si certaines colonnes ont tendance à faire l’objet d’un accès en
 
 ### <a name="column-design"></a>Conception de colonne
 
-* Les colonnes VARCHAR doivent avoir une taille inférieure à 1 Mo en raison des coûts d’E/S des colonnes volumineuses. Lors du traitement des requêtes, HBase matérialise les cellules entièrement avant de les transmettre au client et le client les reçoit entièrement avant de les transmettre au code de l’application.
+* Les colonnes VARCHAR doivent avoir une taille inférieure à 1 Mo en raison des coûts d’E/S des colonnes volumineuses. Lors du traitement des requêtes, HBase matérialise les cellules entièrement avant de les transmettre au client et le client les reçoit entièrement avant de les transmettre au code de l’application.
 * Stockez les valeurs de colonne à l’aide d’un format compact comme protobuf, Avro, msgpack ou BSON. JSON n’est pas recommandé, car il est plus volumineux.
 * Envisagez de compresser les données avant le stockage pour réduire la latence et les coûts d’E/S.
 

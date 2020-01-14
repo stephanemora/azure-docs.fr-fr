@@ -3,14 +3,14 @@ title: Développement en équipe à l’aide de .NET Core et Visual Studio Code
 services: azure-dev-spaces
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour développer en équipe une application .NET Core dans Azure Kubernetes Service.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 30d132b78279e9ae1ca190c0037c962a7cbd8e6f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e864d67e0126edf9138ff0d811331829bc758030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325509"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438140"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio Code avec Azure Dev Spaces
 
@@ -53,7 +53,7 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 
 1. Clonez l’[exemple d’application Dev Spaces](https://github.com/Azure/dev-spaces) : `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
 1. Extrayez la branche distante *azds_updates* : `git checkout -b azds_updates origin/azds_updates`
-1. Sélectionnez l’espace _dev_ : `azds space select --name dev`. Quand vous êtes invité à sélectionner un espace de développement parent, sélectionnez _\<aucun\>_ .
+1. Sélectionnez l’espace _dev_ : `azds space select --name dev`. Quand vous êtes invité à sélectionner un espace dev parent, sélectionnez _\<aucun\>_ .
 1. Accédez au répertoire _mywebapi_ et exécutez : `azds up -d`
 1. Accédez au répertoire _webfrontend_ et exécutez : `azds up -d`
 1. Exécutez `azds list-uris` pour voir le point de terminaison public de _webfrontend_
@@ -63,7 +63,7 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 >
 > Découvrez notre [guide de configuration de CI/CD avec Azure DevOps](how-to/setup-cicd.md) pour créer un workflow similaire à celui du diagramme suivant.
 >
-> ![Diagramme d’un exemple CI/CD](media/common/ci-cd-complex.png)
+> ![Exemple de diagramme CI/CD](media/common/ci-cd-complex.png)
 
 À ce stade, votre base de référence doit être en cours d’exécution. Exécutez la commande `azds list-up --all`. La sortie ressemble à ce qui suit :
 
@@ -147,7 +147,7 @@ Maintenant, supprimez la partie « scott.s » de l’URL, puis actualisez le nav
 Une fois que vous disposerez d’un espace _dev_ contenant en permanence les dernières modifications, et si votre application est conçue pour tirer parti d’un routage DevSpace basé sur un espace, comme décrit dans cette section du tutoriel, vous vous rendrez compte à quel point Dev Spaces facilite les tests des nouvelles fonctionnalités dans le contexte d’une application plus grande. Au lieu de déployer _tous_ les services dans votre espace privé, vous pouvez créer un espace privé dérivé de _dev_, puis « activer » uniquement les services que vous utilisez réellement. L’infrastructure de routage Dev Spaces gère le reste en utilisant tous les services issus de votre espace privé qu’elle peut trouver, tout en utilisant par défaut la dernière version actuellement exécutée dans l’espace _dev_. Mieux encore, _plusieurs_ développeurs peuvent développer différents services simultanément dans leur propre espace, sans s’interrompre mutuellement.
 
 ### <a name="well-done"></a>C’est terminé !
-Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à effectuer les actions suivantes :
+Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.

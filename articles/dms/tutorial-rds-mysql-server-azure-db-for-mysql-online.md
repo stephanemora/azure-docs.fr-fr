@@ -1,5 +1,6 @@
 ---
-title: 'Didacticiel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de RDS MySQL vers Azure Database pour MySQL | Microsoft Docs'
+title: 'Tutoriel : Migrer les services Bureau à distance MySQL en ligne vers Azure Database pour MySQL'
+titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer une migration en ligne de RDS MySQL vers Azure Database pour MySQL à l’aide d’Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/28/2019
-ms.openlocfilehash: 2df76c5906037fc5ce35e0c3a6558b0240c4b2be
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 8b1120f6a453e199882ca57ec967a1417025e04a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043303"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437533"
 ---
-# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Didacticiel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
+# <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migrer RDS MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
-Vous pouvez utiliser Azure Database Migration Service pour migrer des bases de données à partir d’une instance RDS MySQL vers [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/) tandis que la base de données source reste en ligne pendant la migration. En d’autres termes, la migration peut être effectuée moyennant un temps d’arrêt minimal de l’application. Dans ce didacticiel, vous allez migrer l’exemple de base de données **Employés** à partir d’une instance RDS MySQL vers Azure Database pour MySQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
+Vous pouvez utiliser Azure Database Migration Service pour migrer des bases de données à partir d’une instance RDS MySQL vers [Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/) tandis que la base de données source reste en ligne pendant la migration. En d’autres termes, la migration peut être effectuée avec un temps d’arrêt minimal de l’application. Dans ce didacticiel, vous allez migrer l’exemple de base de données **Employés** à partir d’une instance RDS MySQL vers Azure Database pour MySQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > * Migrer l’exemple de schéma à l’aide des utilitaires mysqldump et mysql.
@@ -41,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Cet article décrit comment effectuer une migration en ligne d’une instance RDS MySQL vers Azure Database pour MySQL.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
@@ -119,7 +120,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
       GROUP BY SchemaName;
     ```
 
-4. Exécutez le script drop foreign key (qui est la deuxième colonne) dans le résultat de la requête pour supprimer la clé étrangère.
+4. Exécutez la suppression de clé étrangère (deuxième colonne) dans le résultat de la requête pour supprimer la clé étrangère.
 
 5. Si vous avez un déclencheur (d’insertion ou de mise à jour) dans les données, il appliquera l’intégrité des données dans la cible avant de répliquer les données de la source. Nous vous recommandons de désactiver les déclencheurs dans toutes les tables *côté cible* pendant la migration, puis d’activer les déclencheurs une fois la migration terminée.
 
@@ -164,7 +165,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     Le réseau virtuel fournit à Azure Database Migration Service un accès à l’instance MySQL source et à l’instance Azure Database pour MySQL cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, voir l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/DMSVnet).
 
 6. Sélectionnez un niveau tarifaire. Pour cette migration en ligne, sélectionnez le niveau tarifaire Premium : 4vCores.
 
@@ -235,7 +236,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 1. Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à ce que le champ **État** de la migration prenne la valeur **En cours d’exécution**.
 
-    ![État de l’activité – en cours d’exécution](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
+    ![État de l’activité – En cours d’exécution](media/tutorial-rds-mysql-server-azure-db-for-mysql-online/dms-activity-status4.png)
 
 2. Sous **NOM DE LA BASE DE DONNÉES**, sélectionnez une base de données spécifique pour obtenir l’état de migration des opérations **Full data load** (Charge complète des données) et **Incremental data sync** (Synchronisation incrémentielle des données).
 

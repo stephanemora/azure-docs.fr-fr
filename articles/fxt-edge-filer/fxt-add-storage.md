@@ -1,19 +1,19 @@
 ---
-title: Ajouter un stockage back-end au cluster Microsoft Azure FXT Edge Filer
+title: 'Tutoriel : Ajouter un stockage à un cluster Azure FXT Edge Filer'
 description: Découvrez comment configurer un stockage back-end et le pseudo-espace de nom exposé aux clients pour Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3f736942627d088e3a639f89bef5438714c2608b
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256065"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551962"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Didacticiel : Ajouter un stockage back-end et configurer l’espace de noms virtuel 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutoriel : Ajouter un stockage back-end et configurer l’espace de noms virtuel 
 
 Ce tutoriel explique comment ajouter un stockage back-end pour le cache et comment configurer le système de fichiers virtuel exposé aux clients. 
 

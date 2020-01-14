@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 081951e2e77c7fdd077dc92fe0368423db85f641
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e6f074dd6748f58a86a6ac8166ca0ee858926975
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75379791"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 
@@ -36,10 +36,14 @@ La solution Azure Cognitive Services est une famille d’API, de kits de dévelo
 
 |Nom du service|Description du service|
 |:-----------|:------------------|
-|[Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Services Speech")|Speech Service ajoute des fonctionnalités vocales aux applications.|
+|[Service Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Service Speech")|Le service Speech ajoute des fonctionnalités vocales aux applications.|
 |[API Reconnaissance de l’orateur](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API Speaker Recognition") (préversion)|L’API Reconnaissance de l’orateur fournit des algorithmes pour l’identification et la vérification de l’orateur.|
 |[Reconnaissance vocale Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Reconnaissance vocale Bing") (retrait)|L’API Reconnaissance vocale Bing vous offre un moyen facile de créer des fonctionnalités vocales dans vos applications.|
 |[Traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech") (retrait)|La Traduction de conversation Translator Speech est un service de traduction automatique.|
+
+> [!NOTE]
+> Où trouver la [Recherche cognitive Azure](https://docs.microsoft.com/azure/search/) ? Bien qu’elle ait recours à Cognitive Services pour certaines tâches, il s’agit d’une technologie de recherche différente qui prend en charge d’autres scénarios.
+
 
 ## <a name="language-apis"></a>Les API Langage
 
@@ -49,7 +53,7 @@ La solution Azure Cognitive Services est une famille d’API, de kits de dévelo
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker vous permet de générer un service de questions et réponses à partir de votre contenu semi-structuré.|
 |[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Analyse de texte")|L’Analyse de texte effectue un traitement en langage naturel sur du texte brut pour l’analyse des sentiments, l’extraction de phrases clés et la détection de langue.|
 |[Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Translator Text")|La Traduction de texte Translator Text fournit une traduction de texte automatique en quasi temps réel.|
-|[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "Video Indexer")|Video Indexer vous permet d’extraire des informations de vos vidéos.|
+
 
 ## <a name="search-apis"></a>API Recherche
 
@@ -84,7 +88,7 @@ Une fois connecté avec votre compte Microsoft, vous pouvez accéder à [Mes abo
 
 ## <a name="upgrade-to-unlock-limits"></a>Mettre à niveau pour débloquer les limites
 
-Toutes les API ont un plan d’évaluation gratuit qui a des limites d’utilisation et de débit.  Vous pouvez augmenter ces limites en utilisant une offre payante et en sélectionnant l’option de niveau de tarification approprié lors du déploiement du service dans le portail Azure. [En savoir plus sur les offres et la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/ "o« Offres et tarification »). Vous devez créer un compte d’abonné Azure avec une carte de crédit et un numéro de téléphone. Si vous avez des exigences particulières ou souhaitez simplement communiquer avec le service commercial, cliquez sur le bouton « Nous contacter » en haut de la page de tarification.
+Toutes les API ont un plan d’évaluation gratuite qui présentent des limites en ce qui concerne l’utilisation et le débit.  Vous pouvez augmenter ces limites en utilisant une offre payante et en sélectionnant l’option de niveau de tarification approprié lors du déploiement du service dans le portail Azure. [En savoir plus sur les offres et la tarification](https://azure.microsoft.com/pricing/details/cognitive-services/ "offres et tarifs"). Vous devez créer un compte d’abonné Azure avec une carte de crédit et un numéro de téléphone. Si vous avez des exigences particulières ou souhaitez simplement communiquer avec le service commercial, cliquez sur le bouton « Nous contacter » en haut de la page de tarification.
 
 ## <a name="regional-availability"></a>Disponibilité régionale
 
@@ -95,6 +99,10 @@ Les API figurant dans Cognitive Services sont hébergées sur un réseau croissa
 ## <a name="supported-cultural-languages"></a>Langues prises en charge
 
  Cognitive Services prend en charge un large éventail de langues au niveau du service. Vous trouverez les langues disponibles pour chaque API dans la [liste des langues prises en charge](language-support.md).
+
+## <a name="securing-resources"></a>Sécurisation des ressources
+
+Azure Cognitive Services propose un modèle de sécurité en couches, notamment une [authentification](authentication.md) via les informations d’identification Azure Active Directory, une clé de ressource valide et les [réseaux virtuels Azure](cognitive-services-virtual-networks.md).
 
 ## <a name="container-support"></a>Support pour les conteneurs
 
@@ -110,8 +118,7 @@ Pour comprendre la gestion de la confidentialité et des données, accédez au [
 
 ## <a name="support"></a>Support
 
-* Pour une demande d’assistance ou des questions techniques, publiez votre demande dans [Stack Overflow](https://stackoverflow.com/questions/tagged/microsoft-cognitive).
-* Pour une demande de commentaires ou de fonctionnalité, accédez à [UserVoice](https://cognitive.uservoice.com/).
+Cognitive Services offre plusieurs [options de support](cognitive-services-support-options.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

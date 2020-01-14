@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2019
+ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0cafc439a24c10c4c5a678219a0e0dce84476ff
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423331"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -55,7 +55,7 @@ Cette section fournit des instructions pas à pas pour intégrer une application
 Ce guide crée une application qui affiche un bouton qui permet d’interroger l’API Graph et un bouton destiné à se déconnecter. Elle affiche aussi des zones de texte qui contiennent les résultats des appels.
 
 > [!NOTE]
-> Vous préférez télécharger le projet Visual Studio de cet exemple au lieu de le créer ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) et passez à l’étape d’[inscription d’application](#register-your-application "ainscription d’application") pour configurer l’exemple de code avant son exécution.
+> Vous préférez télécharger le projet Visual Studio de cet exemple au lieu de le créer ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) et passez à l’étape d’[inscription d’application](#register-your-application "étape d’inscription d’application") pour configurer l’exemple de code avant son exécution.
 
 ### <a name="create-your-application"></a>Créer votre application
 
@@ -344,7 +344,7 @@ Ajoutez la nouvelle méthode suivante à *MainPage.xaml.cs* :
 
 Vous devez maintenant inscrire votre application :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Azure Active Directory** > **Inscriptions des applications**.
 1. Sélectionnez **Nouvelle inscription**. Entrez un nom d’application cohérent que les utilisateurs de l’application verrons, par exemple *App-UWP-appelant-MSGraph*.
 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , puis sélectionnez **Enregistrer** pour continuer.
@@ -353,7 +353,7 @@ Vous devez maintenant inscrire votre application :
 Configurez l’authentification pour votre application :
 
 1. De retour sur le [portail Azure](https://portal.azure.com), sous **Gérer**, sélectionnez **Authentification**.
-1. Dans la liste **URI de redirection**, pour **TYPE**, sélectionnez **Client public (mobile et bureau)** , puis entrez `urn:ietf:wg:oauth:2.0:oob`pour **URI DE REDIRECTION**.
+1. Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)** , cochez **https://login.microsoftonline.com/common/oauth2/nativeclient** .
 1. Sélectionnez **Enregistrer**.
 
 Configurez des autorisations d’API pour votre application :

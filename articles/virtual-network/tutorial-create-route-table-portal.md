@@ -18,16 +18,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350289"
 ---
-# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
+# <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutoriel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
-Azure achemine le trafic entre tous les sous-réseaux au sein d’un réseau virtuel par défaut. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Azure achemine le trafic entre tous les sous-réseaux au sein d’un réseau virtuel par défaut. Vous pouvez créer vos propres itinéraires pour remplacer le routage par défaut d’Azure. La possibilité de créer des itinéraires personnalisés est utile si, par exemple, vous souhaitez router le trafic entre des sous-réseaux via une appliance virtuelle réseau (NVA). Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une table de routage
@@ -44,7 +44,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
@@ -54,11 +54,11 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *myRouteTablePublic*. |
+    | Name | Entrez *myRouteTablePublic*. |
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez *OK*. |
     | Location | Conservez la valeur par défaut **USA Est**.
-    | Propagation d’itinéraire BGP | Conservez la valeur par défaut **Activé**. |
+    | Propagation de la route de la passerelle de réseau virtuel | Conservez la valeur par défaut **Activé**. |
 
 1. Sélectionnez **Create** (Créer).
 
@@ -95,7 +95,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *myVirtualNetwork*. |
+    | Name | Entrez *myVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.0.0.0/16*. |
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez ***Sélectionner*** > **myResourceGroup**. |
@@ -119,7 +119,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *Privé*. |
+    | Name | Entrez *Privé*. |
     | Espace d’adressage | Entrez *10.0.1.0/24*. |
 
 1. Laissez les autres valeurs par défaut et sélectionnez **OK**.
@@ -128,7 +128,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *DMZ*. |
+    | Name | Entrez *DMZ*. |
     | Espace d’adressage | Entrez *10.0.2.0/24*. |
 
 1. Comme précédemment, conservez les autres valeurs par défaut et sélectionnez **OK**.
@@ -171,11 +171,11 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
     | **ÉCONOMISEZ DE L’ARGENT** |  |
     | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non**. |
 
-1. Sélectionnez **Suivant : Disques**.
+1. Sélectionnez **Suivant : Disques**.
 
 1. Dans **Créer une machine virtuelle - Disques**, sélectionnez les paramètres répondant à vos besoins.
 
-1. Sélectionnez **Suivant : Mise en réseau**.
+1. Sélectionnez **Suivant : Mise en réseau**.
 
 1. Dans **Créer une machine virtuelle - Mise en réseau**, sélectionnez ces informations :
 
@@ -193,7 +193,7 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *mynvastorageaccount*. |
+    | Name | Entrez *mynvastorageaccount*. |
     | Type de compte | Conservez la valeur par défaut **Stockage (usage général v1)** . |
     | Performances | Conservez la valeur par défaut **Standard**. |
     | Réplication | Conservez la valeur par défaut **Stockage localement redondant (LRS)** .
@@ -375,7 +375,7 @@ Nous allons tout d’abord tester le routage du trafic réseau de la machine vir
 
 1. Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources ainsi que toutes les ressources qu’il contient :
 

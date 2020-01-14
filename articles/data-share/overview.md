@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1665ef3e845491f116174cf1914c38e7cf5c691
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499371"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660798"
 ---
 # <a name="what-is-azure-data-share"></a>Qu’est-ce qu’Azure Data Share ?
 
@@ -47,7 +47,7 @@ Les fournisseurs de données peuvent fournir aux consommateurs des mises à jour
 
 Quand un consommateur de données accepte un partage de données, il peut choisir le magasin de données où doivent arriver les données. Par exemple, si le fournisseur de données partage des données à l’aide du stockage Blob Azure, le consommateur de données peut recevoir ces données dans Azure Data Lake Store. De même, si le fournisseur de données partage des données à partir d’un Azure SQL Data Warehouse, le consommateur de données peut choisir s’il souhaite recevoir les données dans un Azure Data Lake Store, une Azure SQL Database ou un Azure SQL Data Warehouse. Dans le cas d’un partage à partir de sources SQL, le consommateur de données peut également choisir de recevoir des données au format Parquet ou CSV. 
 
-Le partage sur place est actuellement en préversion limitée pour Azure Data Explorer. Les fournisseurs de données sont en mesure de partager des données là où elles se trouvent, sans déplacement de données via un lien symbolique. Inscrivez-vous [ici](https://aka.ms/azuredatasharepreviewsignup) à la préversion limitée du partage sur place pour Azure Data Explorer. 
+Le partage sur place est actuellement en préversion limitée pour Azure Data Explorer. Les fournisseurs de données sont en mesure de partager des données là où elles se trouvent, sans déplacement de données via un lien symbolique. Inscrivez-vous [ici](https://aka.ms/azuredatasharepreviewsignup) à la préversion limitée du partage sur place d’Azure Data Explorer. 
 
 ## <a name="key-capabilities"></a>Fonctionnalités clés
 

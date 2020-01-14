@@ -1,28 +1,19 @@
 ---
-title: Didacticiel sur la création de l’infrastructure d’un cluster Service Fabric sur AWS - Azure Service Fabric | Microsoft Docs
+title: Créer une infrastructure pour un cluster sur AWS
 description: Dans ce didacticiel, vous apprenez à configurer l’infrastructure AWS pour exécuter un cluster Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: b6348d9fdcd4133a4fa69aac3ccf5494e904094e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "73177831"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613973"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Didacticiel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutoriel : Créer l’infrastructure AWS pour héberger un cluster Service Fabric
 
 Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS et vous installez une application dans celui-ci.
 
@@ -36,7 +27,7 @@ Dans ce premier volet, vous apprenez à :
 > * Se connecter à l’une des instances
 > * Préparer l’instance pour Service Fabric
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin d’un compte AWS.  Si vous n’en avez pas, accédez à la [console AWS](https://aws.amazon.com/) pour en créer un.
 

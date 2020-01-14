@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953154"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457053"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -30,7 +30,7 @@ L’activation du traçage distribué pour IoT Hub vous permet de :
 
 Dans cet article, vous allez utiliser [Azure IoT device SDK pour le langage C](iot-hub-device-sdk-c-intro.md) avec le traçage distribué. La prise en charge du traçage distribué par les autres SDK est en cours.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour le moment, la préversion du traçage distribué est uniquement prise en charge par les hubs IoT créés dans les régions suivantes :
 
@@ -88,22 +88,23 @@ Ces instructions concernent la création de l’exemple sur un système Windows
 
 ### <a name="clone-the-source-code-and-initialize"></a>Cloner le code source et initialiser
 
-1. Installez la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) pour Visual Studio 2015 ou 2017.
+1. Installez la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) pour Visual Studio 2019. Visual Studio 2017 et 2015 sont également pris en charge.
 
 1. Installez [CMake](https://cmake.org/). Vérifiez qu’il se trouve dans votre chemin (`PATH`) en tapant `cmake -version` dans une invite de commandes.
 
-1. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
+1. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez les commandes suivantes pour cloner la dernière version du dépôt GitHub du [kit de développement logiciel (SDK) C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) :
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
+    git clone -b public-preview https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-1. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier.
+1. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire `azure-iot-sdk-c` :
 
     ```cmd
-    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -242,8 +243,8 @@ Pour mettre à jour la configuration d’échantillonnage du traçage distribué
 
 | Nom de l'élément | Obligatoire | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | OUI | Integer | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
-| `sampling_rate` | OUI | Integer | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
+| `sampling_mode` | Oui | Integer | Deux valeurs de mode sont prises en charge pour activer et désactiver l’échantillonnage. `1` signifie Activé et `2` signifie Désactivé. |
+| `sampling_rate` | Oui | Integer | Cette valeur est un pourcentage. Seules les valeurs de `0` à `100` (inclus) sont autorisées.  |
 
 ## <a name="query-and-visualize"></a>Interroger et visualiser
 
@@ -263,11 +264,11 @@ AzureDiagnostics
 
 Voici des exemple de journaux d’activité tels qu’ils apparaissent dans Log Analytics :
 
-| TimeGenerated | OperationName | Category | Niveau | CorrelationId | DurationMs | properties |
+| TimeGenerated | NomOpération | Category | Level | CorrelationId | DurationMs | Propriétés |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informations | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | Informationnel | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informationnel | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informationnel | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 Pour connaître les différents types de journaux d’activité, consultez [Journaux de diagnostic Azure IoT Hub](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 

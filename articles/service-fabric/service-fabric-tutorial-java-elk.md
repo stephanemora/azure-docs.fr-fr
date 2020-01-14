@@ -1,28 +1,19 @@
 ---
-title: Surveiller vos applications dans Azure Service Fabric avec ELK | Microsoft Docs
+title: Superviser vos applications dans Azure Service Fabric avec ELK
 description: Dans ce tutoriel, découvrez comment configurer ELK et surveiller vos applications Service Fabric.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b283982e11449d234da966f15b86cc5b638a026c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376654"
 ---
-# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Didacticiel : Superviser vos applications dans Azure Service Fabric avec ELK
+# <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutoriel : Superviser vos applications dans Azure Service Fabric avec ELK
 
 Ce tutoriel est la quatrième partie de la série. Il montre comment utiliser ELK (Elasticsearch, Logstash et Kibana) pour surveiller les applications Service Fabric s’exécutant dans Azure.
 
@@ -40,7 +31,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Configurer la surveillance et les diagnostics pour l’application
 > * [Configurer CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -155,7 +146,7 @@ Vous pouvez utiliser un environnement ELK préconfiguré pour ce didacticiel. Si
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Obtenir un serveur ELK s’exécutant dans Azure

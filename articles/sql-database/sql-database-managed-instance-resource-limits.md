@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 11/27/2019
-ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 90f39a5edd32225b7fed259ca48dcf4802d0ced3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548369"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443831"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -49,7 +49,7 @@ La quantité d’espace OLTP en mémoire au niveau de service [Critique pour l�
 | --- | --- | --- |
 | 4 vCores  | 3,14 Go | |   
 | 8 vCores  | 6,28 Go | 8 Go |
-| 16 vCores | 15,77 Go | 20 Go |
+| 16 vCores | 15,77 Go | 20 Go |
 | 24 vCores | 25,25 Go | 36 Go |
 | 32 vCores | 37,94 Go | |
 | 40 vCores | 52,23 Go | |
@@ -87,7 +87,7 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 > - Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’activité d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
 > - Le débit et les IOPS sur le niveau Usage général dépendent également de la [taille de page](#file-io-characteristics-in-general-purpose-tier) qui n’est pas explicitement limitée par l’instance gérée.
 > - Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
-> - Le nombre maximal d’IOPS d’instance dépend de la disposition des fichiers et de la distribution de la charge de travail. Par exemple, si vous créez sept fichiers de 1 Go avec un maximum de 5 000 IOPS et sept fichiers de petite taille (moins de 128 Go) avec 500 IOPS chacun, vous pouvez vous obtenir 38 500 IOPS par instance (7x5000+7x500) si votre charge de travail peut utiliser tous les fichiers. Notez qu’un certain nombre d’IOPS sont également utilisés pour les sauvegardes automatiques.
+> - Le nombre maximal d’IOPS d’instance dépend de la disposition des fichiers et de la distribution de la charge de travail. Par exemple, si vous créez sept fichiers de 1 To avec un maximum de 5 000 IOPS et sept fichiers de petite taille (moins de 128 Go) avec 500 IOPS chacun, vous pouvez vous obtenir 38500 IOPS par instance (7x5000+7x500) si votre charge de travail peut utiliser tous les fichiers. Notez qu’un certain nombre d’IOPS sont également utilisés pour les sauvegardes automatiques.
 
 > [!NOTE]
 > Vous trouverez plus d’informations sur les [limites des ressources dans les pools d’instances managées dans cet article](sql-database-instance-pools.md#instance-pools-resource-limitations).
@@ -98,7 +98,7 @@ Avec le niveau de service Usage général, chaque fichier de base de données re
 
 | Taille du fichier           | 0 - 128 Gio | 128 - 256 Gio | 256 - 512 Gio | 0,5 - 1 Tio    | 1 - 2 Tio    | 2 - 4 Tio | 4 - 8 Tio |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS par fichier       | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500   |
+| IOPS par fichier       | 500   | 1100 | 2300              | 5 000              | 7500              | 7500              | 12 500   |
 | Débit par fichier | 100 Mio/s | 125 Mio/s | 150 Mio/s | 200 Mio/s | 250 Mio/s | 250 Mio/s | 480 Mio/s | 
 
 Si vous constatez une latence élevée des E/S sur un fichier de base de données, ou si vous constatez que les IOPS ou le débit atteignent la limite, vous pouvez améliorer les performances en [augmentant la taille de fichier](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).

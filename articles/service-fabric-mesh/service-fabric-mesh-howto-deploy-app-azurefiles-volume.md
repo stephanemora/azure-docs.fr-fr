@@ -1,25 +1,17 @@
 ---
-title: Utiliser un volume basé sur Azure Files dans une application Service Fabric Mesh | Microsoft Docs
+title: Utiliser un volume basé sur Azure Files dans une application Service Fabric Mesh
 description: Découvrez comment stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files dans un service avec Azure CLI.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e02afde27335e9a512d1e297880993b19fa4304e
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: e2172c1808ddf72c09bc08efe680ed497f960b75
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034729"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498002"
 ---
 # <a name="mount-an-azure-files-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Azure Files dans une application Service Fabric Mesh 
 
@@ -27,7 +19,7 @@ Cet article décrit comment monter un volume basé sur Azure Files dans un servi
 
 Pour monter un volume dans un service, créez une ressource de volume dans votre application Service Fabric Mesh et référencez ce volume dans votre service.  Vous pouvez déclarer la ressource de volume et la référencer dans la ressource de service dans les [fichiers de ressources YAML](#declare-a-volume-resource-and-update-the-service-resource-yaml) ou le [modèle de déploiement basé sur JSON](#declare-a-volume-resource-and-update-the-service-resource-json). Avant de monter le volume, commencez par créer un compte de stockage Azure et un [partage de fichiers dans Azure Files](/azure/storage/files/storage-how-to-create-file-share).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 > [!NOTE]
 > **Problème connu du déploiement sur l’ordinateur de développement RS5 Windows :** Il existe un bogue ouvert avec le cmdlet New-SmbGlobalMapping de PowerShell sur les machines Windows RS5 qui empêche le montage d’Azurefile Volumes. Voici un exemple d’erreur qui se produit lorsque le volume AzureFile est monté sur un ordinateur de développement local.
 ```

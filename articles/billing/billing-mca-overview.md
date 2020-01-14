@@ -1,5 +1,5 @@
 ---
-title: Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft - Azure
+title: Bien démarrer avec la facturation dans le cadre d’un Contrat client Microsoft - Azure
 description: Comprendre le fonctionnement de votre compte de facturation associé à un Contrat client Microsoft
 author: bandersmsft
 manager: amberbhargava
@@ -10,18 +10,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
-ms.openlocfilehash: e27d2116cf58c64fca7fb0273c852d6223f00c6e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46918810648deb15ce0ae0dd13824702dcfb7073
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226114"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389228"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
 
-Vous créez un compte de facturation lorsque vous vous inscrivez auprès de Microsoft Azure. Votre compte de facturation vous permet de gérer vos factures et paiements, et d’effectuer un suivi des coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, vous pouvez vous être inscrit à Azure pour vos projets personnels. Vous pouvez aussi accéder à Azure via le Contrat Entreprise de votre organisation ou le Contrat client Microsoft. Pour chacun de ces scénarios, vous disposez d'un compte de facturation distinct.
+Un compte de facturation est créé lorsque vous vous inscrivez pour utiliser Azure. Votre compte de facturation vous permet de gérer vos factures et paiements, et d’effectuer un suivi des coûts. Vous pouvez accéder à plusieurs comptes de facturation. Par exemple, vous pouvez vous être inscrit à Azure pour vos projets personnels. Vous pouvez aussi accéder à Azure via le Contrat Entreprise de votre organisation ou le Contrat client Microsoft. Pour chacun de ces scénarios, vous disposez d’un compte de facturation distinct.
 
-Cet article s’applique à un compte de facturation associé à un Contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 ## <a name="your-billing-account"></a>Votre compte de facturation
 
@@ -65,7 +65,7 @@ Vous pouvez appliquer des stratégies afin de contrôler les achats de Réservat
 
 Les plans Azure déterminent les contrats de niveau de service et la tarification associés aux abonnements. Ils sont automatiquement activés lorsque vous créez un profil de facturation. Toutes les sections de facture associées au profil de facturation peuvent utiliser ces plans. Les utilisateurs ayant accès à la section de facture utilisent les plans pour créer des abonnements Azure. Les plans Azure suivants sont pris en charge dans les comptes de facturation du Contrat client Microsoft :
 
-| Planification             | Définition  |
+| Plan             | Définition  |
 |------------------|-------------|
 |Offre Microsoft Azure   | Autorisez les utilisateurs à créer des abonnements pouvant exécuter n'importe quelle charge de travail.  |
 |Offre Microsoft Azure pour Dev/Test | Autorisez les abonnés Visual Studio à créer des abonnements limités aux charges de travail de développement ou de test. Ces abonnements s'accompagnent d'avantages tels que des tarifs privilégiés et un accès à des images de machine virtuelle exclusives dans le portail Azure. |
@@ -78,7 +78,7 @@ Lorsqu’une section de facture est créée, vous pouvez autoriser d’autres ut
 
 Les rôles figurant dans la section de facture sont autorisés à contrôler qui crée des abonnements Azure. Attribuez ces rôles aux utilisateurs configurant l’environnement Azure pour les équipes de votre organisation, tels que les responsables d'ingénierie et les architectes techniques. Pour plus d’informations, consultez [Rôles et tâches liés aux sections de facture](billing-understand-mca-roles.md#invoice-section-roles-and-tasks).
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l’accès à un Contrat client Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.

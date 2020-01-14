@@ -1,29 +1,29 @@
 ---
-title: 'Didacticiel : Se connecter au service Analyse de texte avec des services connectés dans Visual Studio'
+title: 'Tutoriel : Se connecter au service Analyse de texte avec des services connectés dans Visual Studio'
 titleSuffix: Azure Cognitive Services
-description: Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio du service Analyse de texte.
+description: Découvrez comment utiliser la fonctionnalité Service connecté de Visual Studio pour le service Analyse de texte.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 317a5f4ae642dc2306ae84c42a042206b9059ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837188"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446154"
 ---
-# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Didacticiel : Se connecter au service Analyse de texte avec des services connectés dans Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutoriel : Se connecter au service Analyse de texte avec des services connectés dans Visual Studio
 
 Le service Analyse de texte vous permet d’extraire de riches informations afin de catégoriser et de traiter des données visuelles et d’effectuer une modération des images assistée par ordinateur pour organiser vos services.
 
 Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio du service Analyse de texte. Elle est disponible dans Visual Studio 2019 et les versions ultérieures, à condition que l’extension Cognitive Services soit installée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2019 avec installation de la charge de travail Développement web. [Téléchargez-le maintenant](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -35,7 +35,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 1. Créez un projet web ASP.NET Core nommé TextAnalyticsDemo. Utilisez le modèle de projet Application web (modèle-vue-contrôleur), avec tous les paramètres par défaut. Il est important de nommer le projet MyWebApplication, afin que l’espace de noms corresponde lors de la copie du code dans le projet.  L’exemple de cet article utilise MVC, mais vous pouvez utiliser le service connecté Analyse de texte avec n’importe quel type de projet ASP.NET.
 
 1. Dans **l’Explorateur de solutions**, double-cliquez sur l’élément **Service connecté**.
-   La page Service connecté s’affiche et montre des services que vous pouvez ajouter à votre projet.
+   La page Service connecté s’affiche et montre les services qui peuvent être ajoutés au projet.
 
    ![Capture d’écran de Service connecté dans l’Explorateur de solutions](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
@@ -257,9 +257,9 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
  
 1. Générez et exécutez l’exemple localement. Entrez un texte pour voir quelle langue Analyse de texte détecte.
    
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
+Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce tutoriel dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.

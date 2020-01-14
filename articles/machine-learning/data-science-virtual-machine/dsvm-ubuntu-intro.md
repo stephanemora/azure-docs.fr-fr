@@ -6,40 +6,34 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 951191422e80ef6224cd140beed782de31cb3822
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 12/31/2019
+ms.openlocfilehash: 263c12b344e8634c639167aa3e455032f0817e2f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677843"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612085"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Démarrage rapide : Configurer la machine virtuelle Science des données pour Linux (Ubuntu)
 
-Devenez opérationnel avec la machine virtuelle Data Science Virtual Machine Ubuntu.
+Devenez opérationnel avec la machine virtuelle Data Science Virtual Machine Ubuntu 18.04.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour créer une machine virtuelle Windows Data Science Virtual Machine, vous devez disposer d’un abonnement Azure. [Essayez Azure gratuitement](https://azure.com/free).
+Pour créer une machine virtuelle Data Science Virtual Machine Ubuntu 18.04, vous devez disposer d’un abonnement Azure. [Essayez Azure gratuitement](https://azure.com/free).
 Notez que les comptes gratuits Azure ne prennent pas en charge les références SKU de machines virtuelles où le GPU est activé.
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Créer une machine virtuelle pour la science des données pour Linux
 
-Voici les étapes de création d’une instance de la machine virtuelle pour la science des données pour Linux :
+Voici les étapes de création d’une instance de DSVM Ubuntu 18.04 :
 
 1. Accédez au [portail Azure](https://portal.azure.com). Si vous n’êtes pas encore connecté, vous pouvez être invité à vous connecter à votre compte Azure.
-1. Recherchez la liste des machines virtuelles en tapant « data science virtual machine », puis en sélectionnant « Data Science Virtual Machine pour Linux (Ubuntu) ».
-    
-    ![Liste des machines virtuelles Ubuntu](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+1. Recherchez la liste des machines virtuelles en tapant « data science virtual machine », puis en sélectionnant « Data Science Virtual Machine- Ubuntu 18.04 Preview ».
 
 1. Dans la fenêtre suivante, sélectionnez **Créer**.
 
-   [![](media/dsvm-ubuntu-intro/create-linux.png "Bouton permettant de créer une machine Ubuntu")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
-
 1. Vous devez être redirigé vers le panneau « Créer une machine virtuelle ».
    
-   ![Onglet Informations de base correspondant à la machine virtuelle Ubuntu](./media/dsvm-ubuntu-intro/review-create-ubuntu.png)
-
 1. Entrez les informations suivantes pour configurer chaque étape de l’Assistant :
 
     1. **Paramètres de base**:
@@ -49,7 +43,7 @@ Voici les étapes de création d’une instance de la machine virtuelle pour la 
        * **Nom de la machine virtuelle** : Entrez le nom de la machine virtuelle. Voici comment il s’affichera dans votre portail Azure.
        * **Région** : Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique. Apprenez-en davantage sur les [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image** : Conservez la valeur par défaut.
-       * **Taille**: Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/linux/sizes.md).
+       * **Size** : Cette valeur doit être renseignée automatiquement avec une taille appropriée pour les charges de travail générales. Découvrez-en plus sur les [tailles des machines virtuelles Linux dans Azure](../../virtual-machines/linux/sizes.md).
        * **Type d'authentification** : Pour une configuration plus rapide, sélectionnez « Mot de passe ». 
          
          > [!NOTE]
@@ -102,7 +96,7 @@ La machine virtuelle Linux est déjà provisionnée avec le serveur X2Go et ell
      * **Hôte** : Entrez l’adresse IP de votre machine virtuelle, que vous avez notée précédemment.
      * **Connexion** : Entrez le nom d’utilisateur dans la machine virtuelle Linux.
      * **Port SSH** : conservez la valeur par défaut (22).
-     * **Type de session** : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
+     * **Type de session** : remplacez la valeur par **XFCE**. La machine virtuelle Linux prend uniquement en charge l’environnement de bureau XFCE.
    * **Onglet Multimédia** : vous pouvez désactiver l’impression client et la prise en charge du son si vous n’en avez pas besoin.
    * **Dossiers partagés** : si vous voulez que des répertoires de vos ordinateurs clients soient montés sur la machine virtuelle Linux, ajoutez ceux que vous souhaitez partager avec la machine virtuelle sous cet onglet.
 

@@ -1,6 +1,5 @@
 ---
-title: Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
-titleSuffix: Azure Cosmos DB
+title: Connecter l’application Angular à l’API d’Azure Cosmos DB pour MongoDB à l’aide de Mongoose
 description: Ce didacticiel vous explique comment générer une application Node.js en utilisant Angular et Express pour gérer les données stockées dans Cosmos DB. Dans cette partie, vous allez utiliser Mongoose pour établir la connexion à Azure Cosmos DB.
 author: johnpapa
 ms.service: cosmos-db
@@ -12,12 +11,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ba893eeb8c2560397f3524d1042566dbafee7d1b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69616417"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444709"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Créer une application Angular avec l’API Azure Cosmos DB pour MongoDB - Utiliser Mongoose pour établir la connexion à Cosmos DB
 
@@ -34,7 +33,7 @@ Dans cette partie du didacticiel, vous allez :
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Avant de commencer ce didacticiel, terminez la procédure de [l’étape 4](tutorial-develop-mongodb-nodejs-part4.md).
 
@@ -228,11 +227,11 @@ Ensuite, vous devez définir des itinéraires pour gérer les URL des requêtes 
 
 Prenons quelques instants pour examiner et parcourir le code précédent. Le fichier index.js apparaît en premier. Il configure le serveur de nœud. Notez qu’il configure et définit les itinéraires. Ensuite, le fichier routes.js communique avec le service héros pour lui demander d’obtenir vos fonctions, comme **getHeroes**, et de transmettre les requêtes et les réponses. Le fichier hero.service.js obtient le modèle et établit la connexion à Mongo. Ensuite, il exécute **getHeroes** lorsque nous l’appelons et retourne la réponse 200. 
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 Ensuite, exécutez l’application en procédant comme suit :
 
-1. Dans Visual Studio Code, enregistrez toutes les modifications. Sur le côté gauche, cliquez sur le bouton **Déboguer** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), puis cliquez sur le bouton **Démarrer le débogage** ![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. Dans Visual Studio Code, enregistrez toutes les modifications. Sur le côté gauche, cliquez sur le bouton **Déboguer**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png), puis cliquez sur le bouton **Démarrer le débogage**![Icône de débogage dans Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
 1. Ensuite, basculez vers le navigateur. Ouvrez les **outils de développement** et **l’onglet Réseau**. Accédez à `http://localhost:3000`, où vous pouvez voir l’application.
 
@@ -240,7 +239,7 @@ Ensuite, exécutez l’application en procédant comme suit :
 
 Pour le moment, aucun héros n’est stocké dans l’application. Dans la partie suivante de ce didacticiel, nous allons ajouter des fonctionnalités d’ajout, d’envoi et de suppression. Nous pouvons ensuite ajouter, mettre à jour et supprimer des héros de l’interface utilisateur en utilisant des connexions Mongoose à notre base de données Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’avez plus besoin des ressources, vous pouvez supprimer le groupe de ressources, le compte Azure Cosmos DB et toutes les ressources associées. Procédez comme suit pour supprimer le groupe de ressources :
 

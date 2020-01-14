@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a8132735d1af08055e9341608dcac0564ed4b927
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e00de295a7f41bf0ff768c4f948a667bc188616
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456951"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>Utiliser des outils de ligne de commande pour démarrer et arrêter des machines virtuelles Azure DevTest Labs
 Cet article vous montre comment utiliser Azure PowerShell ou Azure CLI pour démarrer ou arrêter des machines virtuelles dans un labo Azure DevTest Labs. Vous pouvez créer des scripts PowerShell/CLI pour automatiser ces opérations. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure DevTest Labs permet de créer des environnements de développement/test rapides, simples et légers. Cela vous permet de gérer rapidement les coûts, d’approvisionner approvisionner les machines virtuelles et de réduire le gaspillage.  Il existe des fonctionnalités intégrées au Portail Azure qui vous permettent de configurer les machines virtuelles dans un labo pour qu’elles démarrent et s’arrêtent automatiquement à un moment donné. 
 
 Toutefois, dans certains scénarios, il peut être souhaitable d’automatiser le démarrage et l’arrêt des machines virtuelles à partir de scripts PowerShell/CLI. Cela vous offre une certaine flexibilité pour démarrer et arrêter à tout moment certaines machines virtuelles plutôt que de le faire à un moment déterminé. Voici quelques situations dans lesquelles il pourrait être utile d’exécuter ces tâches à l’aide de scripts.
@@ -34,6 +34,10 @@ Toutefois, dans certains scénarios, il peut être souhaitable d’automatiser l
 - L’utiliser comme tâche dans un flux de travail CI/CD pour commencer au début du flux, utiliser des machines virtuelles comme ordinateurs de build, comme ordinateurs de test ou comme infrastructure, puis arrêter les machines virtuelles une fois le processus terminé. Un bon exemple est la fabrique d’images personnalisées avec Azure DevTest Labs.  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
+
+> [!NOTE]
+> Le script suivant utilise le module Azure PowerShell Az. 
+
 Les scripts PowerShell suivants démarrent une machine virtuelle dans un labo. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) est au cœur de ce script. Le paramètre **ResourceId** est l’ID de ressource qualifiée pour la machine virtuelle dans le labo. Le paramètre **Action** permet de définir les options **Démarrer** ou **Arrêter** en fonction des besoins.
 
 ```powershell
@@ -53,11 +57,7 @@ $vmAction = "Start"
 Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+$devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceName $devTestLabName
 
 # Start the VM and return a succeeded or failed status
 $returnStatus = Invoke-AzResourceAction `

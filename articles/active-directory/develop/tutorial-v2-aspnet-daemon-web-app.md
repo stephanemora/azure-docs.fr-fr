@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2019
+ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d130a962c14415c417eedecd6ae26af1131b2e86
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423394"
 ---
-# <a name="build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
+# <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutoriel : Créer un démon multilocataire qui utilise le point de terminaison de la plateforme d’identités Microsoft
 
 Ce tutoriel vous montre comment utiliser la plateforme d’identités Microsoft pour accéder aux données de clients professionnels Microsoft dans un processus non interactif de longue durée. L’exemple de démon utilise l’[octroi d’informations d’identification de client OAuth2](v2-oauth2-client-creds-grant-flow.md) pour acquérir un jeton d’accès. Le démon utilise ensuite le jeton pour appeler [Microsoft Graph](https://graph.microsoft.io) et accéder aux données organisationnelles.
+
+> [!div class="checklist"]
+> * Intégrer une application démon à la plateforme d’identités Microsoft
+> * Accorder des autorisations d’application directement à l’application par un administrateur
+> * Obtenir un jeton d’accès pour appeler l’API Microsoft Graph
+> * Appeler l’API Microsoft Graph
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 L’application est générée comme une application ASP.NET MVC. Elle utilise le middleware (intergiciel) OWIN OpenID Connect pour connecter les utilisateurs.  
 
@@ -42,7 +50,7 @@ L’application est une application multilocataire destinée aux clients profess
 
 Pour plus d’informations sur les concepts utilisés dans cet exemple, lisez la [documentation relative au protocole d’informations d’identification de client pour le point de terminaison de la plateforme d’identités](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour exécuter l’exemple dans ce guide de démarrage rapide, vous avez besoin des éléments suivants :
 
@@ -60,11 +68,11 @@ git clone https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2.git
 
 Ou [téléchargez l’exemple dans un fichier zip](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/archive/master.zip).
 
-## <a name="register-the-sample-application-with-your-azure-ad-tenant"></a>Inscrire l’exemple d’application auprès de votre locataire Azure AD
+## <a name="register-your-application"></a>Inscrivez votre application
 
-Cet exemple comporte un projet. Pour l’inscrire, choisissez l’une des méthodes suivantes :
+Cet exemple comporte un projet. Pour inscrire l’application auprès de votre locataire Azure AD, vous pouvez choisir l’une des méthodes suivantes :
 
-- Effectuer les étapes décrites dans [Inscrire l’exemple d’application auprès de votre locataire Azure AD](#register-the-sample-application-with-your-azure-ad-tenant) et [Configurer l’exemple pour utiliser votre locataire Azure AD](#choose-the-azure-ad-tenant)
+- Effectuer les étapes décrites dans [Inscrire l’exemple d’application auprès de votre locataire Azure AD](#register-your-application) et [Configurer l’exemple pour utiliser votre locataire Azure AD](#choose-the-azure-ad-tenant)
 - Utilisez des scripts PowerShell pour :
   - Créer *automatiquement* les applications Azure AD et les objets associés (mots de passe, autorisations et dépendances)
   - Modifier les fichiers de configuration des projets Visual Studio.
@@ -171,7 +179,7 @@ Le code correspondant à cet exemple se trouve dans les fichiers suivants :
 
 ## <a name="re-create-the-sample-app"></a>Recréer l’exemple d’application
 
-1. Dans Visual Studio, créez un projet **Visual C#** **Application web ASP.NET (.NET Framework)** . 
+1. Dans Visual Studio, créez un projet **Visual C#** **Application web ASP.NET (.NET Framework)** . 
 1. Dans l’écran suivant, choisissez le modèle de projet **MVC**. Ensuite, ajoutez des références de dossier et de base pour **API web**, car vous ajouterez un contrôleur d’API Web plus tard. Conservez le mode d’authentification sélectionné par défaut pour le projet : **Aucune authentification**.
 1. Sélectionnez le projet dans la fenêtre **Explorateur de solutions**, puis appuyez sur la touche **F4**. 
 1. Dans les propriétés du projet, définissez **SSL activé** sur **True**. Notez les informations qui se trouvent dans **URL SSL**. Vous devrez les fournir au moment de configurer l’inscription de cette application dans le portail Azure.
@@ -208,7 +216,7 @@ Ce projet comporte des projets d’API web et d’applications web. Pour les dé
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Créer et publier dotnet-web-daemon-v2 sur un site web Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le coin supérieur gauche, sélectionnez **Créer une ressource**.
 1. Sélectionnez **Web** > **Application web**, puis donnez un nom à votre site web. Par exemple, nommez-le **dotnet-web-daemon-v2-contoso.azurewebsites.net**.
 1. Sélectionnez les informations concernant l’**abonnement**, le **groupe de ressources**, ainsi que le **plan App Service et l’emplacement**. **Système d’exploitation** est défini sur **Windows** et **Publier** est défini sur **Code**.
@@ -237,7 +245,10 @@ Visual Studio publie le projet et ouvre automatiquement l’URL du projet dans u
 1. Enregistrez la configuration.
 1. Ajoutez la même URL à la liste d’URL du menu **Authentification** > **URI de redirection**. Si vous avez plusieurs URL de redirection, vérifiez qu’il existe une nouvelle entrée correspondant à l’URI du service d’application pour chaque URL de redirection.
 
-## <a name="community-help-and-support"></a>Aide et support de la communauté
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Quand vous n’en avez plus besoin, supprimez l’objet d’application que vous avez créé à l’étape [Inscrivez votre application](#register-your-application).  Pour supprimer l’application, suivez les instructions fournies dans [Supprimer une application créée par vous ou votre organisation](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
+
+## <a name="get-help"></a>Obtenir de l’aide
 
 Accédez à [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) pour obtenir un support de la part de la communauté.
 Posez vos questions sur Stack Overflow d’abord et parcourez les problèmes déjà rencontrés pour voir si quelqu’un d’autre a déjà posé la même question.
@@ -259,8 +270,8 @@ Pour plus d’informations, consultez la documentation conceptuelle suivante :
 - [Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire](howto-convert-app-to-be-multi-tenant.md)
 - [Comprendre le consentement de l’utilisateur et de l’administrateur](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
 - [Objets application et principal du service dans Azure Active Directory](app-objects-and-service-principals.md)
-- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
-- [Démarrage rapide : configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
+- [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
+- [Démarrage rapide : configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md).
 - [Acquisition d’un jeton pour une application à l’aide des flux d’informations d’identification du client](msal-client-applications.md)
 
 Pour obtenir un exemple d’application de démon de console multilocataire plus simple, consultez le [Guide de démarrage rapide du démon .NET Core](quickstart-v2-netcore-daemon.md).

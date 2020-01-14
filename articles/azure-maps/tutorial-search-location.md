@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Rechercher avec Azure Maps'
-description: 'Didacticiel : Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps'
+title: 'Tutoriel : Rechercher avec Azure Maps'
+description: 'Tutoriel : Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432744"
 ---
-# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Didacticiel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
-Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un compte Azure Maps
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -55,13 +55,15 @@ Créez un compte Maps en suivant la procédure suivante :
 
 ## <a name="get-the-primary-key-for-your-account"></a>Obtenir la clé primaire de votre compte
 
-Une fois le compte Maps créé, récupérez la clé qui vous permet d’interroger les API Maps.
+Une fois le compte Maps créé, récupérez la clé qui vous permet d’interroger les API Maps. Nous vous recommandons d’utiliser la clé primaire de votre compte comme clé d’abonnement lors de l’appel de services Azure Maps.
 
 1. Ouvrez votre compte Maps dans le portail.
 2. Dans la section des paramètres, sélectionnez **Authentification**.
 3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
 ![Obtenir la clé primaire dans le portail](./media/tutorial-search-location/get-key.png)
+
+Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 <a id="createmap"></a>
 
@@ -70,7 +72,7 @@ Une fois le compte Maps créé, récupérez la clé qui vous permet d’interrog
 L’API Map Control est une bibliothèque cliente pratique qui vous permet d’intégrer facilement Maps à votre application web. Elle masque la complexité des appels de service REST bruts et améliore votre productivité grâce à des composants personnalisables et dont vous pouvez définir le style. Les étapes suivantes vous indiquent comment créer une page HTML statique intégrée avec l’API Map Control.
 
 1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html**.
-2. Ajoutez les composants HTML au fichier :
+2. Ajoutez les composants HTML suivants au fichier :
 
    ```HTML
     <!DOCTYPE html>
@@ -275,7 +277,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Maps

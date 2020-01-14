@@ -1,28 +1,19 @@
 ---
-title: Didacticiel sur l’installation d’un client autonome Service Fabric - Azure Service Fabric | Microsoft Docs
+title: Installer un client autonome Service Fabric
 description: Au cours de ce didacticiel, vous allez apprendre à installer le client autonome Service Fabric sur le cluster que vous avez créé dans l’article didacticiel précédent.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 82358f4d5548464f1304d77a846d71863ed9efa1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bbaf7dfc546c739dfb858be7ef8372eccf60111b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385003"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613939"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Didacticiel : installer et créer un cluster Service Fabric
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutoriel : installer et créer un cluster Service Fabric
 
 Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS ou Azure et vous installez une application dans celui-ci.
 
@@ -108,7 +99,7 @@ NoDomainController         : True
 Passed                     : True
 ```
 
-## <a name="create-the-cluster"></a>Création du cluster
+## <a name="create-the-cluster"></a>Créer le cluster
 
 Après avoir validé la configuration du cluster, exécutez le script *CreateServiceFabricCluster.ps1* pour déployer le cluster Service Fabric sur les machines virtuelles dans le fichier de configuration.
 
@@ -141,8 +132,8 @@ Dans la deuxième partie de la série, vous avez appris à charger de grandes qu
 
 > [!div class="checklist"]
 > * Configurer la chaîne de connexion
-> * Création de l’application
-> * Exécution de l’application
+> * Créer l’application
+> * Exécution de l'application
 > * Valider le nombre de connexions
 
 Passez au troisième volet de la série de tutoriels pour installer une application dans le cluster que vous avez créé.

@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: alzam
-ms.openlocfilehash: 394ca0c244db751645eb56f50e7023fcee229876
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 02c8bf24d4ddb6408160da7a4c517d6c8c82de5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807457"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450898"
 ---
-# <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Didacticiel : Créer une connexion de VPN utilisateur à l’aide d’Azure Virtual WAN
+# <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutoriel : Créer une connexion de VPN utilisateur à l’aide d’Azure Virtual WAN
 
 Ce didacticiel vous montre comment utiliser Azure Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv2) ou OpenVPN. Pour utiliser ce type de connexion, un client doit être configuré sur l’ordinateur client. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un WAN
@@ -51,16 +51,16 @@ Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et con
 
 1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource**. Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
 2. Sélectionnez **WAN virtuel** dans les résultats. Sur la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
-3. Sur la page **Créer un WAN**, dans l’onglet **Fonctions de base**, renseignez les champs suivants :
+3. Sur la page **Créer un WAN**, dans l’onglet **Fonctions de base**, renseignez les champs suivants :
 
    ![WAN virtuel](./media/virtual-wan-point-to-site-portal/vwan.png)
 
    * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
    * **Groupe de ressources** : créez-en un nouveau ou utilisez-en un qui existe déjà.
-   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un réseau étendu est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région afin de gérer et de localiser plus facilement la ressource de réseau étendu que vous créez.
+   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un réseau étendu est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région afin de gérer et de localiser plus facilement la ressource de réseau étendu que vous créez.
    * **Nom** : tapez le nom que vous souhaitez donner à votre réseau étendu.
    * **Type :** Standard. Si vous créez un WAN de base, vous ne pourrez créer qu’un hub de base. Les hubs de base offrent uniquement une connectivité de site VPN à site.
-4. Lorsque vous avez fini de renseigner les champs, cliquez sur **Vérifier + créer**.
+4. Lorsque vous avez fini de renseigner les champs, cliquez sur **Vérifier + Créer**.
 5. Après la validation, sélectionnez **Créer** pour créer le WAN virtuel.
 
 ## <a name="site"></a>Créer un hub virtuel vide
@@ -135,7 +135,7 @@ Pour configurer les clients avec accès à distance, utilisez le profil téléch
 2. Téléchargez le profil VPN pour la passerelle. Pour cela, accédez à l’onglet Configurations de VPN utilisateur dans le portail Azure, ou saisissez New-AzureRmVpnClientConfiguration dans PowerShell.
 3. Décompressez le profil. Utilisez le bloc-notes pour ouvrir le fichier de configuration vpnconfig.ovpn à partir du dossier OpenVPN.
 4. Renseignez la section du certificat client P2S avec la clé publique du certificat client P2S en base64. Dans un certificat au format PEM, vous pouvez simplement ouvrir le fichier .cer et copier la clé base64 entre les en-têtes de certificat. Découvrez ici [comment exporter un certificat pour obtenir la clé publique encodée](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site).
-5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Découvrez ici comment extraire la clé privée.
+5. Renseignez la section de la clé privée avec la clé privée du certificat client P2S en base64. Découvrez ici [comment extraire la clé privée](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-openvpn-clients#windows).
 6. Ne modifiez aucun autre champ. Utilisez la configuration complétée dans l’entrée client pour vous connecter au VPN.
 7. Copiez le fichier vpnconfig.ovpn dans C:\Program Files\OpenVPN\config folder.
 8. Cliquez avec le bouton droit de la souris sur l’icône OpenVPN de la barre d’état du système et cliquez sur l’option de connexion.

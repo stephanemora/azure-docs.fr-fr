@@ -2,18 +2,18 @@
 title: 'Stockage : Effectuer la migration d’Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant le stockage pour la migration des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: 6fe7dfaccc3cf1c3fbe4a9ea42578c56f910ea36
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494952"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435772"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight
 
@@ -39,8 +39,7 @@ Vous pouvez utiliser un des formats suivants pour accéder aux données stockée
 |`wasbs:///`|Accédez au stockage par défaut à l’aide d’une communication chiffrée.|
 |`wasb://<container-name>@<account-name>.blob.core.windows.net/`|Utilisé pour communiquer avec un compte de stockage autre que celui par défaut. |
 
-
-[Objectifs de performance et de scalabilité d’Azure Storage](../../storage/common/storage-scalability-targets.md) liste les limites actuelles des comptes de stockage Azure. Si les besoins de votre application dépassent cibles de scalabilité d’un seul compte de stockage, vous pouvez concevoir votre application pour qu’elle utilise plusieurs comptes de stockage, puis partitionner vos objets de données entre ces comptes.
+[Objectifs d’extensibilité pour les compte de stockage standard](../../storage/common/scalability-targets-standard-account.md) liste les limites actuelles des comptes de stockage Azure. Si les besoins de votre application dépassent cibles de scalabilité d’un seul compte de stockage, vous pouvez concevoir votre application pour qu’elle utilise plusieurs comptes de stockage, puis partitionner vos objets de données entre ces comptes.
 
 [Azure Storage Analytics](../../storage/storage-analytics.md)  fournit des métriques pour tous les services de stockage et le portail Azure peut être configuré pour la visualisation des métriques collectées via des graphiques. Vous pouvez créer des alertes pour avertir quand des seuils ont été atteints pour les métriques des ressources de stockage.
 
@@ -74,7 +73,8 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 Pour plus d’informations, consultez les articles suivants :
 
 - [Utiliser Stockage Azure avec des clusters Azure HDInsight](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md)
+- [Objectifs d'extensibilité pour les comptes de stockage standard](../../storage/common/scalability-targets-standard-account.md)
+- [Objectifs de performance et d’extensibilité du Stockage Blob](../../storage/blobs/scalability-targets.md)
 - [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](../../storage/common/storage-performance-checklist.md)
 - [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Surveiller un compte de stockage dans le portail Azure](../../storage/common/storage-monitor-storage-account.md)
@@ -104,7 +104,7 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 - **Rentabilité** : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les frais facturés changent de façon à minimiser les coûts via des fonctionnalités intégrées, comme le  [cycle de vie du Stockage Blob Azure](../../storage/common/storage-lifecycle-management-concepts.md).
 
-- **Fonctionne avec les outils, les frameworks et les applications de stockage Blob** : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent actuellement pour le stockage Blob.
+- **Fonctionne avec les outils, les frameworks et les applications de stockage Blob** : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent aujourd’hui pour Stockage Blob.
 
 - **Pilote optimisé** : Le pilote ABFS (Azure Blob Filesystem) est  [optimisé spécifiquement](../../storage/data-lake-storage/abfs-driver.md)  pour l’analytique du Big Data. Les API REST correspondantes sont exposées via le point de terminaison dfs, dfs.core.windows.net.
 
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Sécuriser les clés de Stockage Azure au sein de la configuration de cluster Hadoop local
 
-Les clés de stockage Azure qui sont ajoutées aux fichiers de configuration Hadoop établissent la connectivité entre le stockage HDFS local et Stockage Blob Azure. Vous pouvez protéger ces clés en les chiffrant avec l’infrastructure du fournisseur d’informations d’identification Hadoop. Une fois qu’elles sont chiffrées, vous pouvez les stocker et y accéder de façon sécurisée.
+Les clés de Stockage Azure qui sont ajoutées aux fichiers de configuration Hadoop établissent la connectivité entre le stockage HDFS local et Stockage Blob Azure. Vous pouvez protéger ces clés en les chiffrant avec l’infrastructure du fournisseur d’informations d’identification Hadoop. Une fois qu’elles sont chiffrées, vous pouvez les stocker et y accéder de façon sécurisée.
 
 **Pour provisionner les informations d’identification :**
 
@@ -147,7 +147,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
 ```
 
-## <a name="restrict-azure-storage-data-access-using-sas"></a>Restreindre l’accès aux données de stockage Azure à l’aide de SAP
+## <a name="restrict-azure-storage-data-access-using-sas"></a>Restreindre l’accès aux données de Stockage Azure à l’aide de SAP
 
 Par défaut, HDInsight dispose d’un accès total aux données dans les comptes Stockage Azure associés au cluster. Vous pouvez utiliser des signatures d’accès partagé sur le conteneur d’objets blob pour restreindre l’accès aux données, comme fournir aux utilisateurs un accès en lecture seule aux données.
 
@@ -157,11 +157,11 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
     |Propriété de jeton|Description|
     |---|---|
-    |policy_name|Nom à utiliser pour la stratégie stockée à créer.|
-    |storage_account_name|Nom de votre compte de stockage.|
+    |policy_name|nom à utiliser pour la stratégie stockée à créer.|
+    |storage_account_name|nom de votre compte de stockage.|
     |storage_account_key|Clé du compte de stockage.|
-    |storage_container_name|Conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.|
-    |example_file_path|Chemin d’un fichier qui est chargé dans le conteneur.|
+    |storage_container_name|conteneur du compte de stockage auquel vous souhaitez restreindre l’accès.|
+    |example_file_path|chemin d’un fichier qui est chargé dans le conteneur.|
 
 2. Le fichier SASToken.py est fourni avec les autorisations `ContainerPermissions.READ + ContainerPermissions.LIST` et peut être ajusté en fonction du cas d’usage.
 
@@ -173,7 +173,7 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
 6. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
-    **Clé** : **Valeur** `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
+    **Clé** : `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Valeur** : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
 
 7. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer**.
 
@@ -181,11 +181,11 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
 9. Répétez ce processus pour les entrées MapReduce2 et YARN.
 
-Trois points sont importants à retenir pour l’utilisation de jetons de signature d’accès partagé dans Azure :
+Trois points sont importants à retenir pour l’utilisation de jetons de signature d’accès partagé dans Azure :
 
 1. Quand des jetons de signature d’accès partagé sont créés avec les autorisations « READ + LIST » (LECTURE + LISTE), les utilisateurs qui accèdent au conteneur d’objets blob avec ce jeton de signature d’accès partagé ne peuvent pas « écrire et supprimer » des données. Les utilisateurs qui accèdent au conteneur d’objets blob avec ce jeton de signature d’accès partagé, et qui essayent d’effectuer une opération d’écriture ou de suppression, reçoivent un message indiquant `"This request is not authorized to perform this operation"`.
 
-2. Quand les jetons de signature d’accès partagé sont générés avec des autorisations `READ + LIST + WRITE` (pour interdire seulement `DELETE`), des commandes comme `hadoop fs -put` écrivent d’abord dans un fichier `\_COPYING\_`, puis essayent de renommer le fichier. Cette opération HDFS est mappée à une opération `copy+delete` pour WASB. Dans la mesure où l’autorisation `DELETE` n’a pas été accordée, le « put » échoue. L’opération `\_COPYING\_` est une fonctionnalité de Hadoop destinée à fournir un contrôle des accès concurrentiels. Il n’existe actuellement aucun moyen d’interdire simplement l’opération « DELETE » (SUPPRESSION) sans affecter également les opérations « WRITE » (ÉCRITURE).
+2. Quand les jetons de signature d’accès partagé sont générés avec des autorisations `READ + LIST + WRITE` (pour interdire seulement `DELETE`), des commandes comme `hadoop fs -put` écrivent d’abord dans un fichier `\_COPYING\_`, puis essayent de renommer le fichier. Cette opération HDFS est mappée à une opération `copy+delete` pour WASB. Dans la mesure où l’autorisation `DELETE` n’a pas été accordée, le « put » échoue. L’opération `\_COPYING\_` est une fonctionnalité de Hadoop destinée à fournir un contrôle des accès concurrentiels. Il n’existe actuellement aucun moyen d’interdire simplement l’opération « DELETE » (SUPPRESSION) sans affecter également les opérations « WRITE » (ÉCRITURE).
 
 3. Malheureusement, le fournisseur d’informations d’identification Hadoop et le fournisseur de clé de déchiffrement (ShellDecryptionKeyProvider) ne fonctionnent actuellement pas avec les jetons de signature d’accès partagé, et une protection contre la visibilité est donc actuellement impossible.
 
@@ -193,23 +193,23 @@ Pour plus d’informations, consultez [Utiliser des signatures d’accès partag
 
 ## <a name="use-data-encryption-and-replication"></a>Utiliser le chiffrement et la réplication des données
 
-Toutes les données écrites dans Stockage Azure sont automatiquement chiffrées avec  [SSE (Storage Service Encryption)](../../storage/common/storage-service-encryption.md). Les données placées dans le compte de stockage Azure sont toujours répliquées de façon à garantir une haute disponibilité. Quand vous créez un compte de stockage, vous pouvez choisir une des options de réplication suivantes :
+Toutes les données écrites dans Stockage Azure sont automatiquement chiffrées avec  [SSE (Storage Service Encryption)](../../storage/common/storage-service-encryption.md). Les données placées dans le compte de Stockage Azure sont toujours répliquées de façon à garantir une haute disponibilité. Quand vous créez un compte de stockage, vous pouvez choisir une des options de réplication suivantes :
 
 - [Stockage localement redondant (LRS)](../../storage/common/storage-redundancy-lrs.md)
 - [Stockage redondant interzone (ZRS)](../../storage/common/storage-redundancy-zrs.md)
 - [Stockage géo-redondant (GRS)](../../storage/common/storage-redundancy-grs.md)
 - [Stockage géo-redondant avec accès en lecture (RA-GRS)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage fournit un stockage localement redondant (LRS), mais il est également recommandé de copier les données critiques vers un autre compte Data Lake Storage dans une autre région selon une périodicité adaptée aux besoins du plan de reprise d’activité. Il existe différents moyens de copier des données, notamment  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) ou  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Il est également recommandé d’appliquer des stratégies d’accès pour le compte Data Lake Storage pour éviter toute suppression accidentelle.
+Azure Data Lake Storage fournit un stockage localement redondant (LRS), mais il est également recommandé de copier les données critiques vers un autre compte Data Lake Storage dans une autre région selon une périodicité adaptée aux besoins du plan de reprise d’activité. Il existe différents moyens de copier des données, notamment  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md),  [DistCp](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html), [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) ou  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md). Il est également recommandé d’appliquer des stratégies d’accès pour le compte Data Lake Storage pour éviter toute suppression accidentelle.
 
 Pour plus d’informations, consultez les articles suivants :
 
-- [Réplication du stockage Azure](../../storage/common/storage-redundancy.md)
+- [Réplication Azure Storage](../../storage/common/storage-redundancy.md)
 - [Recommandations en matière de reprise d’activité pour Azure Data Lake Storage](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
-## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Attacher des comptes de stockage Azure supplémentaires au cluster
+## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Attacher des comptes de Stockage Azure supplémentaires au cluster
 
-Lors du processus de création d’HDInsight, un compte Stockage Azure ou un compte de stockage Azure Data Lake Storage est choisi comme système de fichiers par défaut. Lors du processus de création ou à l’issue de la création d’un cluster, à ce compte de stockage par défaut, vous pouvez ajouter d’autres comptes provenant du même abonnement Azure ou d’autres abonnements Azure.
+Lors du processus de création de HDInsight, un compte Stockage Azure ou un compte de stockage Azure Data Lake Storage est choisi comme système de fichiers par défaut. Lors du processus de création ou à l’issue de la création d’un cluster, à ce compte de stockage par défaut, vous pouvez ajouter d’autres comptes provenant du même abonnement Azure ou d’autres abonnements Azure.
 
 Vous pouvez ajouter un compte de stockage supplémentaire de l’une des façons suivantes :
 - Ambari > HDFS > Configs > Advanced > Custom core-site > Add the storage > Account Name and key > Restarting the services
@@ -218,11 +218,8 @@ Vous pouvez ajouter un compte de stockage supplémentaire de l’une des façons
 > [!Note]
 > Dans les cas d’utilisation valides, les limites sur le stockage Azure peuvent être augmentées via une demande adressée au  [support technique d’Azure](https://azure.microsoft.com/support/faq/).
 
-Pour plus d’informations, consultez les articles suivants :
-- [Ajouter des comptes de stockage supplémentaires à HDInsight](../hdinsight-hadoop-add-storage.md)
+Pour plus d’informations, consultez [Ajouter des comptes de stockage supplémentaires à HDInsight](../hdinsight-hadoop-add-storage.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez l’article suivant de cette série :
-
-- [Bonnes pratiques concernant la migration de données d’une infrastructure locale vers Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md)
+Lisez l’article suivant de cette série : [Bonnes pratiques concernant la migration de données d’une infrastructure locale vers Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

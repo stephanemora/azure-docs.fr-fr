@@ -4,12 +4,12 @@ description: Apprenez rapidement à créer un registre de conteneurs Docker priv
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 319fd670c8e82120ef63e94395f4d6809eeb2601
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455223"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611234"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Démarrage rapide : Créer un registre de conteneurs privé à l’aide du portail Azure
 
@@ -43,7 +43,7 @@ Notez la valeur du **Serveur de connexion**. Vous en aurez besoin dans les étap
 
 ## <a name="log-in-to-registry"></a>Se connecter au registre
 
-Avant d’extraire et de transmettre des images conteneur, vous devez vous connecter à l’instance ACR. Ouvrez un interpréteur de commandes dans votre système d’exploitation, puis utilisez la commande [az acr login][az-acr-login] dans Azure CLI.
+Avant d’extraire et de transmettre des images conteneur, vous devez vous connecter à l’instance ACR. Ouvrez un interpréteur de commandes dans votre système d’exploitation, puis utilisez la commande [az acr login][az-acr-login] dans Azure CLI. (Spécifiez uniquement le nom du conteneur. N’incluez pas 'azurecr.io')
 
 ```azurecli
 az acr login --name <acrName>
@@ -63,7 +63,7 @@ Dans cet exemple, nous sélectionnons le référentiel **hello-world**, et nous 
 
 [!INCLUDE [container-registry-quickstart-docker-pull](../../includes/container-registry-quickstart-docker-pull.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer vos ressources, accédez au groupe de ressources **myResourceGroup** dans le portail. Une fois le groupe de ressources chargé, cliquez sur **Supprimer le groupe de ressources** pour supprimer le groupe de ressources, le registre de conteneurs et les images conteneur stockées à cet endroit.
 

@@ -6,103 +6,103 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7241287e0438d6da5efb517a89b984bff72848c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708770"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461482"
 ---
-# <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>Didacticiel : Utilisation du suivi distribué avec Azure Spring Cloud
+# <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Utiliser le suivi distribué avec Azure Spring Cloud
 
-Les outils de suivi distribué de Spring Cloud facilitent le débogage et la supervision de problèmes complexes. Azure Spring Cloud intègre [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) d’Azure pour fournir de puissantes fonctionnalités de suivi distribué à partir du portail Azure.
+Avec les outils de suivi distribué d’Azure Spring Cloud, vous pouvez facilement déboguer et superviser les problèmes complexes. Azure Spring Cloud intègre [Azure Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) au service [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) d’Azure. Cette intégration fournit une fonctionnalité puissante de suivi distribué qui est disponible dans le portail Azure.
 
-Dans cet article, vous allez apprendre à :
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Activer le suivi distribué dans le portail Azure
-> * Ajouter Spring Cloud Sleuth à votre application
+> * Ajouter Azure Spring Cloud Sleuth à votre application
 > * Afficher des cartes de dépendances pour vos applications de microservices
-> * Lancer des recherches dans des données de suivi avec des filtres différents
+> * Lancer des recherches dans des données de suivi avec différents filtres
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce tutoriel :
-
-* Un service Azure Spring Cloud déjà provisionné et en cours d’exécution.  Suivez ce [guide de démarrage rapide](spring-cloud-quickstart-launch-app-cli.md) pour provisionner et lancer un service Azure Spring Cloud.
+Pour suivre ce tutoriel, vous avez besoin d’un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Suivez le [guide de démarrage rapide concernant le déploiement d’une application via Azure CLI](spring-cloud-quickstart-launch-app-cli.md) afin de provisionner et d’exécuter un service Azure Spring Cloud.
     
 ## <a name="add-dependencies"></a>Ajout de dépendances
 
-Ajoutez la ligne suivante au fichier application.properties pour autoriser l’expéditeur zipkin à envoyer des données au web :
+1. Ajoutez la ligne suivante au fichier application.properties :
 
-```xml
-spring.zipkin.sender.type = web
-```
+   ```xml
+   spring.zipkin.sender.type = web
+   ```
 
-Vous pouvez ignorer l’étape suivante si vous avez suivi notre [guide de préparation d’une application Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md). Sinon, accédez à votre environnement de développement local et modifiez votre fichier `pom.xml` en y ajoutant la dépendance Spring Cloud Sleuth :
+   Après cette modification, l’expéditeur Zipkin peut envoyer des données vers le Web.
 
-```xml
-<dependencyManagement>
+1. Vous pouvez ignorer l’étape suivante si vous avez suivi notre [guide de préparation d’une application Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md). Sinon, accédez à votre environnement de développement local et modifiez votre fichier pom.xml en y ajoutant la dépendance Azure Spring Cloud Sleuth :
+
+    ```xml
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth</artifactId>
+                <version>${spring-cloud-sleuth.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-sleuth</artifactId>
-            <version>${spring-cloud-sleuth.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
+            <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
     </dependencies>
-</dependencyManagement>
-<dependencies>
-    <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-sleuth</artifactId>
-    </dependency>
-</dependencies>
-```
+    ```
 
-* Générez et déployez à nouveau votre service Azure Spring Cloud pour refléter ces changements. 
+1. Générez et déployez à nouveau votre service Azure Spring Cloud pour refléter ces changements.
 
 ## <a name="modify-the-sample-rate"></a>Modifier le taux d’échantillonnage
-Vous pouvez changer la fréquence de collecte de vos données de télémétrie en modifiant le taux d’échantillonnage. Par exemple, si vous souhaitez échantillonner deux fois moins souvent, accédez à votre fichier `application.properties` et changez la ligne suivante :
+
+Vous pouvez changer la fréquence de collecte de vos données de télémétrie en modifiant le taux d’échantillonnage. Par exemple, si vous souhaitez échantillonner deux fois moins souvent, ouvrez le fichier application.properties et modifiez la ligne suivante :
 
 ```xml
 spring.sleuth.sampler.probability=0.5
 ```
 
-Si vous avez déjà généré et déployé une application, vous pouvez modifier le taux d’échantillonnage en ajoutant la ligne ci-dessus comme variable d’environnement dans Azure CLI ou le portail. 
+Si vous avez déjà créé et déployé une application, vous pouvez modifier le taux d’échantillonnage. Pour ce faire, ajoutez la ligne précédente en tant que variable d’environnement dans Azure CLI ou dans le portail Azure.
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 
 1. Accédez à la page du service Azure Spring Cloud dans le portail Azure.
-1. Dans la section Supervision, sélectionnez **Suivi distribué**.
+1. Dans la section **Supervision**, sélectionnez **Suivi distribué**.
 1. Sélectionnez **Modifier le paramètre** pour modifier ou ajouter un nouveau paramètre.
-1. Créez une requête Application Insight ou sélectionnez une requête existante.
+1. Créez une ressource Application Insights ou sélectionnez-en une existante.
 1. Choisissez la catégorie de journalisation à superviser, puis spécifiez la durée de conservation (en jours).
 1. Sélectionnez **Appliquer** pour appliquer le nouveau suivi.
 
-## <a name="view-application-map"></a>Voir la cartographie d’application
+## <a name="view-the-application-map"></a>Ouvrir la Cartographie d’application
 
-Revenez à la page de suivi distribué et sélectionnez **Afficher la cartographie d’application**. Passez en revue la représentation visuelle de votre application et les paramètres de supervision. Pour savoir comment utiliser la cartographie d’application, lisez [cet article](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Revenez à la page **Suivi distribué** et sélectionnez **Afficher la cartographie d’application**. Passez en revue la représentation visuelle de votre application et les paramètres de supervision. Pour savoir comment utiliser la cartographie d’application, consultez [Cartographie d’application : trier des applications distribuées](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
 
-## <a name="search"></a>Recherche
+## <a name="use-search"></a>Utiliser la recherche
 
-Utilisez la fonction de recherche pour interroger d’autres éléments de télémétrie spécifiques. Dans la page **Suivi distribué**, sélectionnez **Rechercher**. Pour plus d’informations sur l’utilisation de la fonctionnalité de recherche, lisez [cet article](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Utilisez la fonction de recherche pour interroger certaines données de télémétrie. Dans la page **Suivi distribué**, sélectionnez **Rechercher**. Pour plus d’informations sur l’utilisation de la fonction de recherche, consultez [Utilisation de la recherche dans Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
 
-## <a name="application-insights-page"></a>Page Application Insights
+## <a name="use-application-insights"></a>Utiliser Application Insights
 
-En plus des fonctionnalités de cartographie d’application et de recherche, Application Insights fournit des fonctions de supervision. Recherchez le nom de votre application dans le portail Azure, puis lancez une page Application Insights pour en savoir plus. Pour plus d’informations sur l’utilisation de ces outils, [lisez la documentation](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
-
+En plus des fonctionnalités de cartographie d’application et de recherche, Application Insights fournit des fonctions de supervision. Recherchez le nom de votre application dans le portail Azure, puis ouvrez une page Application Insights pour accéder aux informations de supervision. Pour plus d’informations sur l’utilisation de ces outils, consultez [Requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
 
 ## <a name="disable-application-insights"></a>Désactiver Application Insights
 
 1. Accédez à la page du service Azure Spring Cloud dans le portail Azure.
-1. Dans la section Supervision, cliquez sur **Suivi distribué**.
-1. Cliquez sur **Désactiver** pour désactiver Application Insights.
+1. Dans la section **Supervision**, sélectionnez **Suivi distribué**.
+1. Sélectionnez **Désactiver** pour désactiver Application Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et avez vu comment l’activer. Pour savoir comment lier votre application à une base de données Azure CosmosDB, passez au tutoriel suivant.
+Dans ce tutoriel, vous avez appris ce qu’est le suivi distribué dans Azure Spring Cloud et vous avez vu comment l’activer. Pour savoir comment lier votre application à une base de données Azure Cosmos DB, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Découvrir comment lier votre application à une base de données Azure CosmosDB](spring-cloud-tutorial-bind-cosmos.md)
+> [En savoir plus sur la liaison à une base de données Azure Cosmos DB](spring-cloud-tutorial-bind-cosmos.md)

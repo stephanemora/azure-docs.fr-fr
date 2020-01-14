@@ -1,14 +1,14 @@
 ---
 title: Instructions pour les requêtes limitées
-description: Apprenez à traiter par lot, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
-ms.date: 11/21/2019
+description: Apprenez à regrouper, échelonner, paginer et interroger en parallèle pour éviter que les demandes soient limitées par Azure Resource Graph.
+ms.date: 12/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436079"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -17,7 +17,7 @@ Lors de la programmation et de l’utilisation fréquente des données Azure Res
 Cet article traite de quatre domaines et modèles en rapport avec la création de requêtes dans Azure Resource Graph :
 
 - Présentation des en-têtes de limitation
-- Traitement par lot des requêtes
+- Regroupement des requêtes
 - Échelonnement des requêtes
 - Impact de la pagination
 
@@ -37,9 +37,9 @@ Pour illustrer le fonctionnement des en-têtes, jetons un œil à une réponse d
 
 Pour voir un exemple d’utilisation des en-têtes pour effectuer une _interruption_ lors des demandes de requête, consultez l’exemple fourni dans [Interroger en parallèle](#query-in-parallel).
 
-## <a name="batching-queries"></a>Traitement par lot des requêtes
+## <a name="grouping-queries"></a>Regroupement des requêtes
 
-Traiter les requêtes par lot d’après l’abonnement, le groupe de ressources ou la ressource est plus efficace que paralléliser les requêtes. Le coût du quota d’une requête plus grande est souvent inférieur à celui de nombreuses requêtes petites et ciblées. Nous vous recommandons de choisir une taille de lot inférieure à _300_.
+Regrouper les requêtes d’après l’abonnement, le groupe de ressources ou la ressource est plus efficace que paralléliser les requêtes. Le coût du quota d’une requête plus grande est souvent inférieur à celui de nombreuses requêtes petites et ciblées. Nous vous recommandons de choisir une taille de groupe inférieure à _300_.
 
 - Exemple d’approche mal optimisée
 
@@ -62,19 +62,19 @@ Traiter les requêtes par lot d’après l’abonnement, le groupe de ressources
   }
   ```
 
-- Exemple n°1 d’approche de traitement par lot optimisée
+- Exemple n°1 d’approche de regroupement optimisée
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var subscriptionIds = /* A big list of subscriptionIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= subscriptionIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= subscriptionIds.Count / groupSize; ++i)
   {
-      var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
+      var currSubscriptionGroup = subscriptionIds.Skip(i * groupSize).Take(groupSize).ToList();
       var userQueryRequest = new QueryRequest(
-          subscriptions: currSubscriptionBatch,
+          subscriptions: currSubscriptionGroup,
           query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
@@ -85,21 +85,25 @@ Traiter les requêtes par lot d’après l’abonnement, le groupe de ressources
   }
   ```
 
-- Exemple n°2 d’approche de traitement par lot optimisée
+- Exemple n°2 d'approche de regroupement optimisée afin d'obtenir plusieurs ressources dans une même requête
+
+  ```kusto
+  Resources | where id in~ ({resourceIdGroup}) | project name, type
+  ```
 
   ```csharp
   // RECOMMENDED
   var header = /* your request header */
   var resourceIds = /* A big list of resourceIds */
 
-  const int batchSize = 100;
-  for (var i = 0; i <= resourceIds.Count / batchSize; ++i)
+  const int groupSize = 100;
+  for (var i = 0; i <= resourceIds.Count / groupSize; ++i)
   {
-      var resourceIdBatch = string.Join(",",
-          resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
+      var resourceIdGroup = string.Join(",",
+          resourceIds.Skip(i * groupSize).Take(groupSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIdGroup}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -149,12 +153,12 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Interroger en parallèle
 
-Bien que le traitement par lot soit préférable à la parallélisation, il y a des moments où les requêtes ne peuvent pas facilement être traitées par lot. Dans ces cas-là, vous souhaiterez peut-être interroger Azure Resource Graph en envoyant plusieurs requêtes de manière parallèle. Voici un exemple montrant comment effectuer une _interruption_ sur la base des en-têtes de limitation dans ce genre de scénario :
+Bien que le regroupement soit préférable à la parallélisation, il arrive parfois que les requêtes soient difficiles à regrouper. Dans ces cas-là, vous souhaiterez peut-être interroger Azure Resource Graph en envoyant plusieurs requêtes de manière parallèle. Voici un exemple montrant comment effectuer une _interruption_ sur la base des en-têtes de limitation dans ce genre de scénario :
 
 ```csharp
-IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
-// Run batches in parallel.
-await Task.WhenAll(queryBatches.Select(ExecuteQueries)).ConfigureAwait(false);
+IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
+// Run groups in parallel.
+await Task.WhenAll(queryGroup.Select(ExecuteQueries)).ConfigureAwait(false);
 
 async Task ExecuteQueries(IEnumerable<string> queries)
 {

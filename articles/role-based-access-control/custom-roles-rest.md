@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 474de8934ec7e27df601fe80809566a801e6af61
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452935"
 ---
 # <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer ou mettre à jour des rôles personnalisés pour les ressources Azure à l’aide de l’API REST
 
-Si les [rôles intégrés pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide de l’API REST.
+Si les [rôles intégrés prévus pour les ressources Azure](built-in-roles.md) ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres rôles personnalisés. Cet article explique comment lister, créer, mettre à jour ou supprimer des rôles personnalisés à l’aide de l’API REST.
 
 ## <a name="list-custom-roles"></a>Répertorier les rôles personnalisés
 
@@ -120,7 +120,7 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
 1. Utilisez un outil GUID pour générer un identificateur unique qui servira d’identificateur de rôle personnalisé. Cet identificateur est au format : `00000000-0000-0000-0000-000000000000`.
 
-1. Commencez par la demande et le corps suivants :
+1. Commencez par la requête et le corps suivants :
 
     ```http
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId}?api-version=2015-07-01
@@ -311,6 +311,6 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+- [Rôles intégrés pour les ressources Azure](custom-roles.md)
 - [Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et de l'API REST](role-assignments-rest.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)

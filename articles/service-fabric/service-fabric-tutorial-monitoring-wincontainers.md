@@ -1,32 +1,22 @@
 ---
-title: Surveillance et diagnostics des conteneurs Windows dans Azure Service Fabric | Microsoft Docs
+title: Superviser et diagnostiquer les conteneurs Windows
 description: Dans ce tutoriel, vous configurez les journaux Azure Monitor pour la surveillance et les diagnostics de conteneurs Windows sur Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eeb279892f987ed1f26ced97ab267e8140ccb20e
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933914"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614058"
 ---
-# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
+# <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutoriel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
 Il s’agit de la troisième partie du tutoriel, qui vous guide dans la configuration des journaux Azure Monitor pour surveiller vos conteneurs Windows orchestrés sur Service Fabric.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;
@@ -35,7 +25,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce didacticiel, vous devez :
 
@@ -233,7 +223,7 @@ Vous accédez ainsi à votre espace de travail Log Analytics où vous pouvez con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * configurer les journaux Azure Monitor pour votre cluster Service Fabric ;

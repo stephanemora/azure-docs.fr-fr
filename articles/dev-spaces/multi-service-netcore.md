@@ -3,14 +3,14 @@ title: 'Exécution de plusieurs services dépendants : .NET Core et Visual Stu
 services: azure-dev-spaces
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer une application .NET Core multiservice sur Azure Kubernetes Service.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 453cf1fdf2d37817d12ec32f2cba00b3671b1d11
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0bbb1aefe517c45207160b83b89f7207e8909666
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438312"
 ---
 # <a name="running-multiple-dependent-services-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Exécution de plusieurs services dépendants : .NET Core et Visual Studio Code avec Azure Dev Spaces
 
@@ -18,7 +18,7 @@ Dans ce tutoriel, vous allez apprendre à développer des applications multiserv
 
 ## <a name="call-a-service-running-in-a-separate-container"></a>Appeler un service en cours d’exécution dans un conteneur distinct
 
-Dans cette section, vous allez créer un deuxième service (`mywebapi`) et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous effectuerez le débogage dans les deux conteneurs.
+Dans cette section, vous allez créer un deuxième service (`mywebapi`) et demander à `webfrontend` de l’appeler. Chaque service s’exécutera dans un conteneur distinct. Ensuite, vous allez effectuer le débogage dans les deux conteneurs.
 
 ![Plusieurs conteneurs](media/common/multi-container.png)
 
@@ -33,7 +33,7 @@ Pour des questions de temps, nous allons télécharger un exemple de code à par
 1. Lorsque `mywebapi` est prêt, ouvrez votre navigateur à l’adresse localhost. Ajoutez `/api/values` à l’URL pour appeler l’API GET par défaut pour le `ValuesController`.
 1. Si toutes les étapes se sont déroulées correctement, vous pouvez voir une réponse du service `mywebapi`.
 
-### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une requête de *webfrontend* à *mywebapi*
+### <a name="make-a-request-from-webfrontend-to-mywebapi"></a>Effectuer une requête à partir de *webfrontend* sur *mywebapi*
 Nous allons maintenant écrire du code dans `webfrontend` qui envoie une requête à `mywebapi`.
 1. Basculez vers la fenêtre VS Code pour `webfrontend`.
 1. *Remplacez* le code de la méthode About dans `HomeController.cs` :
@@ -65,8 +65,8 @@ L’exemple de code précédent transfère l’en-tête `azds-route-as` de la re
 
 ### <a name="debug-across-multiple-services"></a>Déboguer dans plusieurs services
 1. À ce stade, `mywebapi` doit toujours être en cours d’exécution avec le débogueur joint. Si ce n’est pas le cas, appuyez sur F5 dans le projet `mywebapi`.
-1. Définissez un point d’arrêt dans la méthode `Get(int id)` qui gère les requêtes GET `api/values/{id}`. C’est environ à la [ligne 23 dans le fichier *Controllers/ValuesController.cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
-1. Dans le projet `webfrontend`, définissez un point d’arrêt juste avant l’envoi d’une requête GET à `mywebapi/api/values`. C’est environ à la ligne 32 dans le fichier [ *Controllers/HomeController.cs* ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) que vous avez modifié dans la section précédente.
+1. Définissez un point d’arrêt dans la méthode `Get(int id)` qui gère les requêtes GET `api/values/{id}`. C’est environ à la [ligne 23 dans le fichier *Controllers/ValuesController.cs*](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
+1. Dans le projet `webfrontend`, définissez un point d’arrêt juste avant l’envoi d’une requête GET à `mywebapi/api/values`. C’est environ à la ligne 32 dans le fichier [*Controllers/HomeController.cs*](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) que vous avez modifié dans la section précédente.
 1. Appuyez sur F5 dans le projet `webfrontend`.
 1. Appelez l’application web et parcourez le code dans les deux services.
 1. Dans l’application web, la page About affichera un message concaténé par les deux services : « Hello from webfrontend and Hello from mywebapi. »

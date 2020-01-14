@@ -3,14 +3,14 @@ title: 'Tutoriel : Créer un cluster de machines virtuelles Azure avec Terrafor
 description: Utilisez Terraform et HCL pour créer un cluster de machines virtuelles Linux avec un équilibreur de charge dans Azure
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: f28cbbf13015d07c9d789ed258a9e2b0582ba1da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159267"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665372"
 ---
-# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Didacticiel : Créer un cluster de machines virtuelles Azure avec Terraform et HCL
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>Tutoriel : Créer un cluster de machines virtuelles Azure avec Terraform et HCL
 
 Dans ce tutoriel, vous allez apprendre à créer un petit cluster de calcul à l’aide de [HCL](https://www.terraform.io/docs/configuration/syntax.html). 
 
@@ -208,7 +208,7 @@ Dans cette section, vous créez un fichier qui contient les définitions des res
       disable_password_authentication = false
     }
 
-    tags {
+    tags = {
       environment = "staging"
     }
    }
@@ -260,10 +260,10 @@ Par défaut, Terraform a essayé de trouver votre fichier de variables comme sui
 - Fichier nommé `terraform.tfvars`
 - Fichier nommé à l’aide du modèle suivant : `*.auto.tfvars`
 
-Toutefois, votre fichier de variables n’a pas besoin de suivre l’une des deux conventions précédentes. Dans ce cas, spécifiez le nom de votre fichier de variables avec le paramètre `-var-file`. L’exemple suivant illustre ce point :
+Toutefois, votre fichier de variables n’a pas besoin de suivre l’une des deux conventions précédentes. Dans ce cas, spécifiez le nom de votre fichier de variables avec le paramètre `-var-file`, sans inclure l’extension du fichier. L’exemple suivant illustre ce point :
 
 ```hcl
-terraform plan -var-file <my-variables-file.tf>
+terraform plan -var-file <my-variables-file>
 ```
 
 Terraform détermine les actions nécessaires pour atteindre l’état spécifié dans le fichier de configuration.

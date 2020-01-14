@@ -1,5 +1,5 @@
 ---
-title: Télécharger de grandes quantités de données aléatoires depuis le stockage Azure | Microsoft Docs
+title: Télécharger de grandes quantités de données aléatoires à partir du Stockage Azure | Microsoft Docs
 description: Découvrez comment utiliser le Kit de développement logiciel (SDK) Azure pour télécharger de grandes quantités de données aléatoires à partir d’un compte de stockage Azure
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: 8d270485cef9fb6859de056bc364a36c054c0121
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699018"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372089"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Télécharger de grandes quantités de données aléatoires depuis le stockage Azure
 
@@ -25,7 +25,7 @@ Dans ce troisième volet, vous apprenez à :
 > * Exécution de l'application
 > * Valider le nombre de connexions
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez avoir terminé le tutoriel précédent sur le stockage : [Charger en parallèle de grandes quantités de données aléatoires dans le Stockage Azure][previous-tutorial].
 
@@ -189,7 +189,7 @@ private static async Task DownloadFilesAsync()
 
 ### <a name="validate-the-connections"></a>Valider les connexions
 
-Pendant le téléchargement des fichiers, vous pouvez vérifier le nombre de connexions simultanées à votre compte de stockage. Ouvrez une `Command Prompt` et tapez `netstat -a | find /c "blob:https"`. Cette commande affiche le nombre de connexions actuellement ouvertes à l’aide de `netstat`. L’exemple suivant montre une sortie similaire à celle que vous voyez lorsque vous suivez ce didacticiel. Comme vous pouvez le voir dans cet exemple, plus de 280 connexions étaient ouvertes lors du téléchargement de fichiers aléatoires à partir du compte de stockage.
+Pendant le téléchargement des fichiers, vous pouvez vérifier le nombre de connexions simultanées à votre compte de stockage. Ouvrez une `Command Prompt` et tapez `netstat -a | find /c "blob:https"`. Cette commande affiche le nombre de connexions actuellement ouvertes à l’aide de `netstat`. L’exemple suivant illustre une sortie similaire à celle que vous voyez quand vous suivez ce didacticiel. Comme vous pouvez le voir dans cet exemple, plus de 280 connexions étaient ouvertes lors du téléchargement de fichiers aléatoires à partir du compte de stockage.
 
 ```
 C:\>netstat -a | find /c "blob:https"

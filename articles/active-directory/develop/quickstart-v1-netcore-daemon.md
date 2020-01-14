@@ -1,5 +1,5 @@
 ---
-title: Obtenir un jeton et appeler des API Microsoft Graph à partir d’applications console (v1.0) | Azure
+title: Acquérir un jeton et appeler Microsoft Graph (console .NET Core) (v1.0) | Azure
 description: Créez une application démon .NET qui s’intègre à Azure AD et appelle des API protégées par Azure AD en utilisant OAuth 2.0.
 services: active-directory
 author: rwike77
@@ -14,14 +14,14 @@ ms.author: jmprieur
 ms.reviewer: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2858a0b14863195ee0f56c89fe2c55c9e63873de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d44dfe3eb03ff086d3785311c34ab1a6a5b3982a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424051"
 ---
-# <a name="quickstart-acquire-token-and-call-microsoft-graph-api-with-console-apps-identity-v10"></a>Démarrage rapide : Acquérir un jeton et appeler l'API Microsoft Graph avec l'identité de l'application de console (v1.0) 
+# <a name="quickstart-acquire-token-and-call-microsoft-graph-using-console-apps-identity-v10"></a>Démarrage rapide : Acquérir un jeton et appeler Microsoft Graph en utilisant l’identité de l’application console (v1.0)
 
 La [plateforme des identités Microsoft](v2-overview.md) est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées.
 
@@ -29,4 +29,4 @@ La [plateforme des identités Microsoft](v2-overview.md) est une évolution de l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour les nouvelles applications démons .NET, nous vous recommandons d’utiliser la plateforme des identités Microsoft (v 2.0) et MSAL pour acquérir des jetons et accéder aux API web sécurisées : [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application](quickstart-v2-netcore-daemon.md)
+Pour les nouvelles applications démons .NET, nous vous recommandons d’utiliser la plateforme des identités Microsoft (v 2.0) et MSAL pour acquérir des jetons et accéder aux API web sécurisées : [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application](quickstart-v2-netcore-daemon.md)

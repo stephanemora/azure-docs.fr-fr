@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466935"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de :
 
@@ -34,7 +34,7 @@ Pour exécuter l’exemple, vous devez générer la bibliothèque Python pour l�
 
 Effectuez les étapes suivantes pour procéder à l’installation :
 
-1. Accédez à https://editor.swagger.io
+1. Atteindre https://editor.swagger.io.
 1. Cliquez sur **Fichier**, puis sur **Importer l’URL**.
 1. Entrez l’URL de Swagger, en incluant la région de votre abonnement au service Speech : `https://<your-region>.cris.ai/docs/v2.0/swagger`.
 1. Cliquez sur **Générer un client** et sélectionnez **Python**.
@@ -62,7 +62,7 @@ L’exemple utilise la bibliothèque `requests`. Vous pouvez l’installer go-sp
 pip install requests
 ```
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
 Nous allons ajouter du code qui servira de squelette à notre projet
 
@@ -71,10 +71,10 @@ Nous allons ajouter du code qui servira de squelette à notre projet
 
 ## <a name="create-and-configure-an-http-client"></a>Créer et configurer un client HTTP
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
-Insérez ce code dans `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
+Insérer ce code dans `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
 ## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
-Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
+Nous allons ensuite générer la demande de transcription. Ajouter ce code à `transcribe` [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.
@@ -99,7 +99,7 @@ Ici, nous obtenons ce résultat JSON, puis l’affichons.
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 
-Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service Speech.
+Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

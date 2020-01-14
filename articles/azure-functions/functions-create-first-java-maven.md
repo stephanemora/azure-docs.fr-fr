@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: cb43f558a5c983a8a4cc3823b278b75cb8cde78d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230747"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562032"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Démarrage rapide : Utiliser Java et Maven pour créer et publier une fonction sur Azure
 
@@ -21,13 +21,13 @@ Cet article montre comment générer et publier une fonction Java sur Azure Func
 > You can also create a Kotlin-based Azure Functions project by using the azure-functions-kotlin-archetype instead. Visit the [GitHub repository](https://github.com/microsoft/azure-maven-archetypes/tree/develop/azure-functions-kotlin-archetype) for more information.
 -->
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour développer des fonctions avec Java, les éléments suivants doivent être installés :
 
 - [Java Developer Kit (JDK)](https://aka.ms/azure-jdks), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 ou ultérieure
-- [Interface de ligne de commande Azure]
+- [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 ou ultérieure
 - Un abonnement Azure.
 
@@ -75,14 +75,17 @@ Maven vous invite à entrer les valeurs nécessaires pour terminer la générati
 | **version** | Choisissez la valeur par défaut `1.0-SNAPSHOT`. |
 | **package** | Valeur qui correspond au package Java pour le code de fonction généré. Utilisez la valeur par défaut. Les exemples de ce guide de démarrage rapide utilisent `com.fabrikam.functions`. |
 | **appName** | Nom global unique qui identifie votre nouvelle application de fonction dans Azure. Utilisez la valeur par défaut, qui est l’_artifactId_ auquel est ajouté un nombre aléatoire. Prenez note de cette valeur ; vous en aurez besoin plus tard. |
-| **appRegion** | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. Par défaut, il s’agit de `westus`. Exécutez cette commande [Interface de ligne de commande Azure] pour obtenir une liste de toutes les régions :<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
-| **resourceGroup** | Nom du nouveau [groupe de ressources](../azure-resource-manager/resource-group-overview.md) dans lequel créer votre application de fonction. Utilisez `myResourceGroup`, qui est utilisé par les exemples de ce guide de démarrage rapide. Un groupe de ressources doit être unique dans votre abonnement Azure.|
+| **appRegion** | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. Par défaut, il s’agit de `westus`. Exécutez cette commande [Azure CLI] pour obtenir une liste de toutes les régions :<br/>`az account list-locations --query '[].{Name:name}' -o tsv` |
+| **resourceGroup** | Nom du nouveau [groupe de ressources](../azure-resource-manager/management/overview.md) dans lequel créer votre application de fonction. Utilisez `myResourceGroup`, qui est utilisé par les exemples de ce guide de démarrage rapide. Un groupe de ressources doit être unique dans votre abonnement Azure.|
 
 Tapez `Y` ou appuyez sur Entrée pour confirmer.
 
 Maven crée les fichiers projet dans un nouveau dossier avec le nom d’_artifactId_, qui est `fabrikam-functions` dans cet exemple. 
 
 Ouvrez le nouveau fichier Function.java à partir du chemin *src/main/java* dans un éditeur de texte et passez en revue le code généré. Ce code est une fonction [déclenchée par HTTP](functions-bindings-http-webhook.md) qui renvoie le corps de la requête. 
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=generate-project)
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
@@ -119,6 +122,9 @@ Hello AzureFunctions!
 ```
 La [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) n’est pas nécessaire lors de l’exécution locale. Utilisez `Ctrl+C` dans le terminal pour arrêter le code de la fonction.
 
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=local-run)
+
 ## <a name="deploy-the-function-to-azure"></a>Déployer la fonction sur Azure
 
 Une application de fonction et les ressources associées sont créées dans Azure lors du déploiement initial de votre application de fonction. Avant de procéder au déploiement, utilisez la commande Azure CLI [az login](/cli/azure/authenticate-azure-cli) pour vous connecter à votre abonnement Azure. 
@@ -145,7 +151,10 @@ Cette cible Maven `azure-functions:deploy` crée les ressources suivantes dans A
 
 Le déploiement empaquette également les fichiers projet et les déploie dans la nouvelle application de fonction à l’aide de [zip deployment](functions-deployment-technologies.md#zip-deploy), en activant le mode d’exécution à partir du package.
 
-Une fois le déploiement terminé, vous voyez l’URL que vous pouvez utiliser pour accéder aux points de terminaison de votre application de fonction. Étant donné que le déclencheur HTTP que nous avons publié utilise `authLevel = AuthorizationLevel.FUNCTION`, vous devez obtenir la clé de fonction pour appeler le point de terminaison de fonction sur HTTP. Le moyen le plus simple d’obtenir la clé de fonction consiste à passer par le [portail Azure].
+Une fois le déploiement terminé, vous voyez l’URL que vous pouvez utiliser pour accéder aux points de terminaison de votre application de fonction. Étant donné que le déclencheur HTTP que nous avons publié utilise `authLevel = AuthorizationLevel.FUNCTION`, vous devez obtenir la clé de fonction pour appeler le point de terminaison de fonction sur HTTP. Le moyen le plus simple d’obtenir la clé de fonction consiste à passer par le [Azure portal].
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=deploy)
 
 ## <a name="get-the-http-trigger-url"></a>Obtient l’URL du déclencheur HTTP
 
@@ -153,7 +162,7 @@ Une fois le déploiement terminé, vous voyez l’URL que vous pouvez utiliser p
 
 Vous pouvez obtenir l’URL requise pour déclencher votre fonction, avec la clé de fonction, à partir du portail Azure. 
 
-1. Accédez au [portail Azure], connectez-vous, tapez l’_appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
+1. Accédez au [Azure portal], connectez-vous, tapez l’_appName_ de votre application de fonction dans **Rechercher** en haut de la page, puis appuyez sur Entrée.
  
 1. Dans votre application de fonction, développez **Fonctions (Lecture seule)** , choisissez votre fonction, puis sélectionnez **</> Obtenir l’URL de fonction** en haut à droite. 
 
@@ -177,6 +186,9 @@ Cela envoie une requête POST au point de terminaison de fonction avec `AzureFun
 Hello AzureFunctions!
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=functions-maven-quickstart&step=verify-deployment)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez créé un projet de fonctions Java avec une fonction déclenchée par HTTP, vous l’avez exécuté sur votre ordinateur local et vous l’avez déployée sur Azure. À présent, étendez votre fonction en effectuant un...
@@ -185,5 +197,5 @@ Vous avez créé un projet de fonctions Java avec une fonction déclenchée par 
 > [Ajout de liaison de sortie de file d’attente Stockage Azure](functions-add-output-binding-storage-queue-java.md)
 
 
-[Interface de ligne de commande Azure]: /cli/azure
-[Portail Azure]: https://portal.azure.com
+[Azure CLI]: /cli/azure
+[Azure portal]: https://portal.azure.com

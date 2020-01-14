@@ -4,21 +4,21 @@ description: Ce tutoriel vous aide à comprendre les alertes avec Log Analytics 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11ce572cdb8a04dac07689b37eef76f354475df3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894657"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365620"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
 Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](tutorial-logs-dashboards.md).   
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Création d'une règle d'alerte
@@ -36,7 +36,7 @@ Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métriq
 
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet gauche, sélectionnez **Alertes** puis cliquez sur **Nouvelle règle d’alerte** en haut de la page pour créer une nouvelle alerte.<br><br> ![Créer une nouvelle règle d’alerte](./media/tutorial-response/alert-rule-02.png)<br>
-3. Pour la première étape, dans la section **Créer une alerte**, sélectionnez votre espace de travail Log Analytics en tant que ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Si vous avez plusieurs résultats, filtrez-les en choisissant l’**abonnement** spécifique dans la liste déroulante, qui contient la machine virtuelle et l’espace de travail Log Analytics créés précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Enfin, sélectionnez la **ressource** **DefaultLAWorkspace** puis cliquez sur **Terminé**.<br><br> ![Créer une tâche d’alerte étape 1](./media/tutorial-response/alert-rule-03.png)<br>
+3. Pour la première étape, dans la section **Créer une alerte**, sélectionnez votre espace de travail Log Analytics en tant que ressource, car il s’agit d’un signal d’alerte basé sur des journaux.  Si vous avez plusieurs résultats, filtrez-les en choisissant l’**abonnement** spécifique dans la liste déroulante, qui contient la machine virtuelle et l’espace de travail Log Analytics créés précédemment.  Filtrez le **Type de ressource** en sélectionnant **Log Analytics** dans la liste déroulante.  Pour finir, sélectionnez la **ressource** **DefaultLAWorkspace** et cliquez sur **Terminé**.<br><br> ![Créer une tâche d’alerte étape 1](./media/tutorial-response/alert-rule-03.png)<br>
 4. Dans la section **Critères d’alerte**, cliquez sur **Ajouter des critères** pour sélectionner notre requête enregistrée, puis la logique spécifiée que la règle d’alerte suit.  Dans le volet **Configurer la logique du signal**, sélectionnez *Machines virtuelles Azure - Utilisation du processeur* dans la liste.  Le volet se met à jour pour présenter les paramètres de configuration de l’alerte.  En haut, il affiche les résultats pour les 30 dernières minutes du signal sélectionné et pour la requête de recherche.  
 5. Configurez l’alerte avec les informations suivantes :  
    a. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**.  Une mesure des métriques créera une alerte pour chaque objet de la requête dont la valeur dépasse notre seuil spécifié.  

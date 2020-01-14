@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cc1eb4c4fce1398365145b2f3d63db984635d667
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454548"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
@@ -21,7 +21,7 @@ Cet article vous aide à préparer l’évaluation de machines virtuelles VMware
 [Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
 
 
-Ce tutoriel est le premier d’une série qui explique comment évaluer et migrer des machines virtuelles VMware. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est le premier d’une série qui explique comment évaluer et migrer des machines virtuelles VMware. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Préparez Azure pour qu’il fonctionne avec Azure Migrate.
@@ -65,7 +65,7 @@ Pour inscrire l’appliance, vous affectez des autorisations pour permettre à A
 > - Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée.
 
 
-#### <a name="grant-account-permissions"></a>Octroyer des autorisations au compte
+#### <a name="grant-account-permissions"></a>Accorder des autorisations au compte
 
 L’administrateur général ou le locataire peuvent octroyer des autorisations de la façon suivante :
 
@@ -124,7 +124,7 @@ Vérifiez les exigences relatives à l’appliance avant de la déployer.
 
 1. [Vérifiez](migrate-support-matrix-vmware.md#assessment-appliance-requirements) les exigences et les limitations relatives à l’appliance.
 2. Si vous utilisez un proxy de pare-feu basé sur une URL, [passez en revue](migrate-support-matrix-vmware.md#assessment-url-access-requirements) les URL Azure auxquelles l’appliance doit accéder. Vérifiez que le proxy résout tous les enregistrements CNAME reçus durant la recherche des URL.
-3. Passez en revue les [données de performance](migrate-appliance.md#collected-performance-data-vmware)] et les [métadonnées](migrate-appliance.md#collected-metadata-vmware) que l’appliance va collecter pendant la découverte et l’évaluation.
+3. Passez en revue les [données de performance](migrate-appliance.md#collected-performance-data-vmware) et les [métadonnées](migrate-appliance.md#collected-metadata-vmware) que l’appliance va collecter pendant la découverte et l’évaluation.
 4. [Notez](migrate-support-matrix-vmware.md#assessment-port-requirements) les ports auxquels l’appliance a accès.
 5. Sur vCenter Server, vérifiez que votre compte dispose des autorisations nécessaires pour créer une machine virtuelle à l’aide d’un fichier OVA. Vous déployez l’appliance Azure Migrate en tant que machine virtuelle VMware à l’aide d’un fichier OVA.
 
@@ -137,7 +137,7 @@ Si vous utilisez un proxy de pare-feu basé sur des URL, autorisez l’accès au
 
 Passez en revue les exigences relatives à la migration sans agent des machines virtuelles VMware.
 
-1. [Vérifiez](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) les exigences relatives au serveur VMware.
+1. [Vérifiez](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) les exigences des serveurs VMware.
 2. Configurez un compte avec les [autorisations requises](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), de sorte qu’Azure Migrate puisse accéder à vCenter Server pour la migration sans agent à l’aide d’Azure Migrate Server Migration.
 3. [Passez en revue](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) les exigences relatives aux machines virtuelles VMware à migrer vers Azure à l’aide de la migration sans agent.
 4. [Passez en revue](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) les exigences relatives à l’utilisation de l’appliance Azure Migrate pour la migration sans agent.

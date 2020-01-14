@@ -1,5 +1,5 @@
 ---
-title: Script Azure PowerShell - Obtention du débit (RU/s) Azure Cosmos DB pour l’API Table
+title: Script PowerShell pour obtenir le débit (RU/s) pour l’API Table Azure Cosmos DB
 description: Script Azure PowerShell - Obtention du débit (RU/s) Azure Cosmos DB pour l’API Table
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5d3fa2e2122c006825a8413a2ca2f292bda2de74
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 76645dee5927b321b0a974911ce6514d4277c6c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178695"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441288"
 ---
 # <a name="get-throughput-rus-for-a-table-for-azure-cosmos-db---table-api"></a>Obtenir le débit (RU/s) d’une table pour Azure Cosmos DB - API Table
 

@@ -1,28 +1,19 @@
 ---
-title: 'Tutoriel : Déployer une application sur Azure Service Fabric Mesh | Microsoft Docs'
+title: Tutoriel - Déployer une application sur Azure Service Fabric Mesh
 description: Dans ce tutoriel, vous allez apprendre à déployer une application sur Service Fabric Mesh à l’aide d’un modèle.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 1ff1407400843fdb0f0ff997e2e0a3c1b7e67c7d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306946"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494942"
 ---
-# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Didacticiel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
+# <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutoriel : Déployer une application sur Service Fabric Mesh à l’aide d’un modèle
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à déployer une application Azure Service Fabric Mesh à l’aide d’un modèle.  L’application est composée d’un service frontal web ASP.NET et d’un service backend d’API web ASP.NET Core, qui se trouvent dans Docker Hub.  Vous tirez (pull) les deux images conteneur de Docker Hub et vous les envoyez (push) vers votre propre registre privé. Ensuite, vous créez un modèle Azure RM pour l’application, puis déployez celle-ci à partir de votre registre de conteneurs sur Service Fabric Mesh. Quand vous avez terminé, vous disposez d’une application simple de liste de tâches qui s’exécute dans Service Fabric Mesh.
 
@@ -43,7 +34,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -204,7 +195,7 @@ Une application Service Fabric Mesh est une ressource Azure que vous pouvez dép
 
 Ce tutoriel utilise l’exemple de liste de tâches.  Au lieu de créer des fichiers de modèle et de paramètres, téléchargez les fichiers de [modèle de déploiement mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) et de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée, ou que vous souhaitez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs. La bonne façon de procéder consiste à créer une section « parameters » en haut de votre modèle de déploiement, où vous spécifiez les noms et propriétés des paramètres, qui sont ensuite référencés dans le modèle de déploiement. Chaque définition de paramètre inclut les propriétés *type* et *defaultValue*, ainsi qu’une section *metadata* facultative comportant une *description*.
 
 La section parameters est définie au début de votre modèle de déploiement, juste avant la section *ressources* :
@@ -264,7 +255,7 @@ Les services sont spécifiés dans le modèle en tant que propriétés de la res
                   "endpoints": [
                     {
                       "name": "ServiceAListener",
-                      "port": 20001
+                      "port": 80
                     }
                   ],
                   "resources": {

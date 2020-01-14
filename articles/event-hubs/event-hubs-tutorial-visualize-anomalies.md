@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Visualiser les anomalies des données dans les événements en temps réel - Azure Event Hubs'
-description: 'Didacticiel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
+title: Azure Event Hubs - Visualiser les anomalies des données dans les événements en temps réel
+description: 'Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,21 +8,21 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 11/05/2019
-ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 12/20/2019
+ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307347"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437142"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Didacticiel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
 Avec Azure Event Hubs, vous pouvez utiliser Azure Stream Analytics pour vérifier les données entrantes et rejeter les anomalies, que vous pouvez ensuite visualiser dans Power BI. Supposons que vous avez des milliers d’appareils qui envoient en permanence des données en temps réel à un hub d’événements, ajoutant des millions d’événements par seconde. Comment trouver les anomalies ou les erreurs dans de telles quantités de données ? Par exemple, que se passe-t-il si les appareils envoient des transactions par carte de crédit, et que vous devez les capturer partout où vous devez gérer plusieurs transactions dans plusieurs pays/régions, dans un intervalle de 5 secondes ? Ce scénario peut se produire si quelqu’un vole des cartes de crédit et les utilise pour acheter des articles à travers le monde au même moment. 
 
 Dans ce tutoriel, vous simulez cet exemple. Vous exécutez une application qui crée et envoie des transactions par carte de crédit à un hub d’événements. Vous lisez ensuite le flux de données en temps réel avec Azure Stream Analytics, qui sépare les transactions valides des transactions non valides, puis vous utilisez Power BI pour identifier visuellement les transactions qui sont marquées comme non valides.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer un espace de noms Event Hubs
 > * Créer un hub d’événements
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -47,7 +47,7 @@ Pour ce tutoriel, vous avez besoin d’un espace de noms Event Hubs et d’un hu
 
 Les sections suivantes expliquent comment effectuer ces étapes nécessaires. Suivez les instructions destinées à l’interface CLI *ou* à PowerShell pour effectuer les étapes suivantes :
 
-1. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). 
+1. Créez un [groupe de ressources](../azure-resource-manager/management/overview.md). 
 
 2. Créez un espace de noms Event Hubs. 
 
@@ -182,7 +182,7 @@ Vous pouvez maintenant envoyer des données dans votre hub d’événements. Pou
 
    **Groupe de ressources** : utilisez le même groupe de ressources que celui utilisé par votre hub d’événements (**ContosoResourcesEH**).
 
-   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration (**USA Ouest**).
+   **Emplacement** : utilisez le même emplacement que celui utilisé dans le script de configuration (**USA Ouest**).
 
    ![Capture d’écran montrant comment créer une tâche Azure Stream Analytics.](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -347,7 +347,7 @@ Dans la tâche Stream Analytics, cliquez sur **Démarrer**, **Maintenant**, puis
 
     ![Capture d’écran montrant les résultats dans Power BI](./media/event-hubs-tutorial-visualize-anomalies/power-bi-results.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous voulez supprimer toutes les ressources que vous avez créées, supprimez les données de visualisation Power BI, puis supprimez le groupe de ressources. La suppression du groupe de ressources supprime toutes les ressources qu’il contient. Dans ce cas, il supprime le hub d’événements, l’espace de noms Event Hubs, la tâche Stream Analytics et le groupe de ressources lui-même. 
 
@@ -373,7 +373,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Créer un espace de noms Event Hubs
 > * Créer un hub d’événements

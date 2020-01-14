@@ -1,7 +1,7 @@
 ---
 title: "Démarrage rapide : Détecter des anomalies de données à l’aide de la bibliothèque de client Détecteur d'anomalies pour Python"
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’API Détecteur d’anomalies pour détecter les anomalies dans vos séries de données, soit par lot, soit sur des données de streaming.
+description: Utilisez l’API Détecteur d’anomalies pour détecter les anomalies dans vos séries de données en lot ou en streaming avec ce guide de démarrage rapide.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 084ef1b81f7db5bd4a2d371e0c322211c0f0e142
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448888"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Détecteur d’anomalies pour Node.js
 
@@ -28,7 +28,7 @@ Utilisez la bibliothèque de client Détecteur d’anomalies pour Node.js pour 
 
 [Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [Trouver le code sur GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [Node.js](https://nodejs.org/)
@@ -110,7 +110,7 @@ Lisez votre fichier de données avec la méthode `readFileSync()` de la biblioth
 
 ## <a name="detect-anomalies-in-the-entire-data-set"></a>Détecter des anomalies dans un jeu de données entier 
 
-Appelez l’API pour détecter les anomalies dans l’ensemble de la série chronologique en tant que lot avec la méthode [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) du client. Stockez l'objet [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) renvoyé. Itérez dans la liste `isAnomaly` de la réponse et imprimez l'index des valeurs `true`. Ces valeurs correspondent à l’indice des points de données anormaux, le cas échéant.
+Appelez l’API pour détecter les anomalies dans l’ensemble de la série chronologique en tant que lot avec la méthode [entireDetect()](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest#entiredetect-request--msrest-requestoptionsbase-) du client. Stockez l'objet [EntireDetectResponse](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse?view=azure-node-latest) renvoyé. Itérez dans la liste `isAnomaly` de la réponse et imprimez l'index des valeurs `true`. Ces valeurs correspondent à l’index des points de données anormaux, le cas échéant.
 
 [!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
 

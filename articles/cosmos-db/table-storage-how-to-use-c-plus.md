@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour utiliser le Stockage Table Azure et l’API Table Azure Cosmos DB avec C++
+title: Utiliser le Stockage Table Azure et l’API Table Azure Cosmos DB avec C++
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: b8fa0a3cebd87f4da1a47c605ba21b0cb10a2517
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5df344b3f9f3d2fc2ff6fa65667039c545b70841
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441182"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Procédure d’utilisation du Stockage Table Azure et de l’API de Table Azure Cosmos DB avec C++
 
@@ -49,8 +49,8 @@ Dans ce guide, vous utilisez les fonctionnalités de stockage d’une applicatio
 
 Pour installer la bibliothèque cliente Stockage Azure pour C++, procédez comme suit :
 
-* **Linux :** Suivez les instructions disponibles dans la page [Bibliothèque cliente de stockage Azure pour C++ - LISEZ-MOI : Bien démarrer avec Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
-* **Windows :** Sur Windows, utilisez [vcpkg](https://github.com/microsoft/vcpkg) comme gestionnaire de dépendances. Suivez le [guide de démarrage rapide](https://github.com/microsoft/vcpkg#quick-start) pour initialiser vcpkg. Puis, pour installer la bibliothèque, utilisez la commande suivante :
+* **Linux :** Suivez les instructions disponibles dans la page [Bibliothèque de client du stockage Azure pour C++ README : Prise en main de la page Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux).
+* **Windows :** Sous Windows, utilisez [vcpkg](https://github.com/microsoft/vcpkg) en tant que manager de dépendances. Suivez le [démarrage rapide](https://github.com/microsoft/vcpkg#quick-start) pour initialiser vcpkg. Puis, pour installer la bibliothèque, utilisez la commande suivante :
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
@@ -118,7 +118,7 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 
 ## <a name="create-and-add-entities-to-a-table"></a>Créer et ajouter une entité à une table
 
-### <a name="create-a-table"></a>Création d’une table
+### <a name="create-a-table"></a>Créer une table
 
 Un objet `cloud_table_client`vous permet d’obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet `cloud_table_client` et l’utilise pour créer une table.
 
@@ -497,7 +497,7 @@ else
 }
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Pour Visual Studio Community Edition, si votre projet obtient des erreurs de build en raison des fichiers include *storage_account.h* et *table.h*, supprimez le commutateur du compilateur **/permissive-**  :
 

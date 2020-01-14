@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0ff6f24e30febd57a3a9740ec72a927225b37933
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367125"
 ---
 # <a name="json-claims-transformations"></a>Transformations de revendications JSON
 
@@ -24,11 +24,77 @@ ms.locfileid: "74948847"
 
 Cet article fournit des exemples pour l’utilisation de transformations de revendications JSON du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
+## <a name="generatejson"></a>GenerateJson
+
+Utilisez des valeurs de revendication ou de constantes pour générer une chaîne JSON. La chaîne de chemin d’accès suivant la notation par points est utilisée pour indiquer où insérer les données dans une chaîne JSON. Une fois le fractionnement par points effectué, tous les entiers sont interprétés comme l’index d’un tableau JSON et les valeurs non entières sont interprétées comme l’index d’un objet JSON.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | Toute chaîne suivant la notation par points | string | JsonPath du JSON dans lequel la valeur de revendication sera insérée. |
+| InputParameter | Toute chaîne suivant la notation par points | string | JsonPath du JSON dans lequel la valeur de chaîne de constante sera insérée. |
+| OutputClaim | outputClaim | string | Chaîne JSON générée. |
+
+L’exemple suivant génère une chaîne JSON en fonction de la valeur de revendication « email » et « otp », ainsi que de chaînes de constante.
+
+```XML
+<ClaimsTransformation Id="GenerateRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-4c56ffb40fa648b1aa6822283df94f60"/>
+    <InputParameter Id="from.email" DataType="string" Value="service@contoso.com"/>
+    <InputParameter Id="personalizations.0.subject" DataType="string" Value="Contoso account email verification code"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="requestBody" TransformationClaimType="outputClaim"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+La transformation des revendications suivante génère une revendication de chaîne JSON qui constituera le corps de la requête envoyée à SendGrid (un fournisseur de messagerie tiers). La structure de l'objet JSON est définie par les ID en notation par points des éléments InputParameters et des éléments TransformationClaimTypes de InputClaims. Les nombres dans la notation par points impliquent des tableaux. Les valeurs proviennent des valeurs InputClaims et des propriétés « Value » des éléments InputParameters.
+
+- Revendications d’entrée :
+  - **email**,  transformation claim type  **personalizations.0.to.0.email**: "someone@example.com"
+  - **otp**, transformation claim type **personalizations.0.dynamic_template_data.otp** "346349"
+- Paramètre d’entrée :
+  - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
+  - **from.email**: "service@contoso.com"
+  - **personalizations.0.subject** "Contoso account email verification code"
+- Revendication de sortie :
+  - **requestBody** : Valeur JSON
+
+```JSON
+{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "someone@example.com"
+        }
+      ],
+      "dynamic_template_data": {
+        "otp": "346349",
+        "verify-email" : "someone@example.com"
+      },
+      "subject": "Contoso account email verification code"
+    }
+  ],
+  "template_id": "d-989077fbba9746e89f3f6411f596fb96",
+  "from": {
+    "email": "service@contoso.com"
+  }
+}
+```
+
 ## <a name="getclaimfromjson"></a>GetClaimFromJson
 
 Obtient un élément spécifié à partir de données JSON.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
 | InputParameter | claimToExtract | string | Nom de l’élément JSON à extraire. |
@@ -50,7 +116,7 @@ Dans l’exemple suivant, la transformation de revendication a extrait l’élé
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
@@ -64,7 +130,7 @@ Dans l’exemple suivant, la transformation de revendication a extrait l’élé
 
 Obtenir une liste d’éléments spécifiés à partir de données Json.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
 | InputParameter | errorOnMissingClaims | boolean | Spécifie s’il faut lever une erreur si l’une des revendications est manquante. |
@@ -102,7 +168,7 @@ Dans l’exemple suivant, la transformation de revendication extrait les revendi
 
 - Revendications d’entrée :
   - **jsonSourceClaim** : [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
-- Paramètres d’entrée :
+- Paramètres d’entrée :
     - **errorOnMissingClaims** : false
     - **includeEmptyClaims** : false
     - **jsonSourceKeyName** : key
@@ -118,7 +184,7 @@ Dans l’exemple suivant, la transformation de revendication extrait les revendi
 
 Obtient un élément numérique (long) spécifié à partir de données JSON.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJson | string | ClaimTypes utilisés par la transformation de revendication pour obtenir les revendications. |
 | InputParameter | claimToExtract | string | Nom de l’élément JSON à extraire. |
@@ -148,7 +214,7 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
@@ -161,7 +227,7 @@ Dans l’exemple suivant, la transformation de revendication extrait l’éléme
 
 Obtient le premier élément à partir d’un tableau de données JSON.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputJsonClaim | string | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément à partir du tableau JSON. |
 | OutputClaim | extractedClaim | string | ClaimType généré après l’appel de cette ClaimsTransformation, le premier élément du tableau JSON. |
@@ -179,7 +245,7 @@ Dans l’exemple suivant, la transformation de revendication extrait le premier 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputJsonClaim** : ["someone@example.com", "Someone", 6353399]
@@ -190,7 +256,7 @@ Dans l’exemple suivant, la transformation de revendication extrait le premier 
 
 Convertit des données XML au format JSON.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | Xml | string | ClaimTypes qui sont utilisés par la transformation de revendication pour convertir les données XML au format JSON. |
 | OutputClaim | json | string | ClaimType généré après l’appel de cette ClaimsTransformation, les données au format JSON. |
@@ -208,7 +274,7 @@ Convertit des données XML au format JSON.
 
 Dans l’exemple suivant, la transformation de revendication convertit les données XML suivantes au format JSON.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 Revendication d’entrée :
 
 ```XML
@@ -228,4 +294,3 @@ Revendication de sortie :
   }
 }
 ```
-

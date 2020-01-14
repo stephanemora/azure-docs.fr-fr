@@ -1,5 +1,5 @@
 ---
-title: Configurer votre compte de facturation pour un contrat client Microsoft - Azure
+title: Configurer la facturation pour un Contrat client Microsoft - Azure
 description: Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft.
 author: amberbhargava
 manager: amberb
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 5d01fa5f4bb7367bdd1939d77dc1f80bd4436765
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8855552ef4bc5e8135d1df62cca384b5ee14a02d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225576"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388344"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Découvrez comment configurer votre compte de facturation associé à un contrat client Microsoft
 
@@ -136,7 +136,7 @@ Les services Azure compris dans votre abonnement continuent de s’exécuter san
 
 ### <a name="user-access-to-azure-resources"></a>Accès utilisateur aux ressources Azure
 
-L’accès aux ressources Azure qui a été défini à l’aide du contrôle d’accès en fonction du rôle (RBAC) n’est pas affecté au cours de la transition.
+L’accès aux ressources Azure défini à l’aide du RBAC (contrôle d’accès en fonction du rôle) Azure n’est pas affecté lors de la transition.
 
 ### <a name="azure-reservations"></a>Réservations Azure
 
@@ -187,7 +187,7 @@ Pour terminer la configuration, vous devez accéder à la fois au nouveau compte
     - Une hiérarchie de facturation correspondant à votre hiérarchie de Contrat Entreprise est créée dans le nouveau compte de facturation. Pour plus d’informations, consultez [explorer les modifications apportées à votre hiérarchie de facturation](#understand-changes-to-your-billing-hierarchy).
     - Les administrateurs de votre inscription à un Contrat Entreprise obtiennent un accès au nouveau compte de facturation afin qu’ils continuent à gérer la facturation pour votre organisation.
     - La facturation de vos abonnements Azure est transférée vers le nouveau compte. **Vos services Azure ne seront pas affectés pendant cette transition. Ils continueront de s’exécuter sans interruption**.
-    - Si vous avez des réservations Azure, elles sont transférées vers votre nouveau compte de facturation avec les mêmes avantages ou conditions. 
+    - Si vous avez des réservations Azure, elles sont transférées vers votre nouveau compte de facturation avec les mêmes avantages ou conditions.
 
 4. Vous pouvez surveiller l’état de la transition sur la page **État de la transition**.
 
@@ -199,7 +199,7 @@ Pour terminer la configuration, vous devez accéder à la fois au nouveau compte
 
 ### <a name="azure-subscriptions"></a>Abonnements Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -219,7 +219,7 @@ Les réservations Azure associées à votre inscription à un Contrat Entreprise
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-account"></a>Accès des administrateurs d’entreprise sur le compte de facturation
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -235,7 +235,7 @@ Les administrateurs d’entreprise sont listés en tant que propriétaires du co
 
 ### <a name="access-of-enterprise-administrators-on-the-billing-profile"></a>Accès des administrateurs d’entreprise sur le profil de facturation
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
@@ -251,7 +251,7 @@ Les administrateurs d’entreprise sont répertoriés en tant que propriétaires
 
 ### <a name="access-of-enterprise-administrators-department-administrators-and-account-owners-on-invoice-sections"></a>Accès des administrateurs d’entreprise, des administrateurs de département et des propriétaires de comptes sur des sections de facture
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 

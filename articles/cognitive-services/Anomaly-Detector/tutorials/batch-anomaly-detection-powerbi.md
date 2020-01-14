@@ -1,23 +1,23 @@
 ---
-title: Visualiser les anomalies à l’aide de la détection par lot et de Power BI
+title: 'Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI'
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’API Détecteur d’anomalies et Power BI pour visualiser les anomalies dans l’ensemble de vos données de série chronologique.
+description: Découvrez comment utiliser l’API Détecteur d’anomalies et Power BI pour visualiser les anomalies dans vos données de série chronologique.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: fa78e737cd863d19e294c5001dfd27b07760521f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 1d1f71ed56138f2c799c7410508c0bc4899e7887
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840865"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448848"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Didacticiel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutoriel : Visualiser les anomalies à l’aide de la détection par lot et de Power BI
 
 Ce tutoriel vous aide à rechercher par lot des anomalies au sein d’un jeu de données de série chronologique. À l’aide de Power BI Desktop, vous allez prendre un fichier Excel, préparer les données pour l’API Détecteur d’anomalies et visualiser les anomalies statistiques dans toutes ces données.
 
@@ -28,7 +28,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Intégrer Power BI Desktop à l’API Détecteur d’anomalies pour la détection d’anomalie par lot
 > * Visualisez les anomalies détectées dans vos données, notamment les valeurs attendues et observées, et les limites de détection d’anomalie.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponible gratuitement
 * Un fichier Excel (.xlsx) contenant des points de données de série chronologique. Les exemples de données pour ce guide de démarrage rapide sont disponibles sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)

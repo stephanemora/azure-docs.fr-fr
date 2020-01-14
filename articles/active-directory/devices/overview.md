@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423119"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -38,13 +38,13 @@ Pour obtenir un appareil à Azure AD, vous avez plusieurs options :
 
 - **Appareils inscrits sur Azure AD**
    - Les appareils qui sont inscrits auprès d’Azure AD sont généralement des appareils personnels ou mobiles connectés à un compte personnel Microsoft ou à un autre compte local.
-      - Windows 10
+      - Windows 10
       - iOS
       - Android
       - MacOS
 - **Appareil joints à Azure AD**
    - Les appareils joints à Azure AD appartiennent à une organisation et sont connectés avec un compte Azure AD appartenant à cette organisation. Ils existent uniquement dans le cloud.
-      - Windows 10 
+      - Windows 10 
 - **joints à Azure AD hybrides**
    - Les appareils joints à Azure AD hybrides appartiennent à une organisation et sont connectés avec un compte Azure AD appartenant à cette organisation. Ils existent dans le cloud et en local.
       - Windows 7, 8.1 ou 10
@@ -58,7 +58,10 @@ Les appareils d’Azure AD peuvent être gérés à l’aide d’outils de gesti
 
 ## <a name="resource-access"></a>Accès aux ressources
 
-L’inscription et la jonction offrent aux utilisateurs une authentification unique aux ressources cloud et offrent aux administrateurs la possibilité d’appliquer des stratégies d’accès conditionnel à ces ressources. 
+L’inscription et la jonction d’appareils à Azure AD permet aux utilisateurs de se connecter aux ressources cloud à l’aide de l’authentification unique (SSO) fluide. Ce processus permet également aux administrateurs d’appliquer des stratégies d’accès conditionnel aux ressources en fonction de l’appareil utilisé pour y accéder. 
+
+> [!NOTE]
+> Les stratégies d’accès conditionnel en fonction de l’appareil s’appliquent uniquement à des appareils joints à Azure AD Hybride ou à des appareils conformes joints à Azure AD ou inscrits auprès d’Azure AD.
 
 Les appareils qui sont des appareils Azure AD joints ou des appareils Azure AD joints hybrides bénéficient de l’authentification unique aux ressources sur site de votre organisation ainsi qu’aux ressources cloud. Pour plus d’informations, consultez [Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD](azuread-join-sso.md).
 

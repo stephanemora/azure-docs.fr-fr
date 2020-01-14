@@ -1,5 +1,5 @@
 ---
-title: Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation d’Azure Active Directory - Azure Active Directory
+title: Processus de demande et notifications - Gestion des droits d’utilisation Azure AD
 description: Découvrez le processus de demande d’un package d’accès, et les envois de notifications par e-mail dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b86e4019b26eebb8b805a4846e583c68acb53ad6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422607"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Processus de demande et notifications par e-mail dans la gestion des droits d’utilisation Azure AD
 
@@ -75,7 +75,7 @@ Le tableau suivant fournit plus de détails sur chacune de ces notifications par
 | 2 | Action demandée : Approuver ou refuser la demande d’ici le *[date]* | Cet e-mail sera envoyé au premier approbateur, si l’escalade est désactivée, pour lui demander d’agir. | Premier approbateur |
 | 3 | Rappel : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est désactivée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
 | 4 | Approuver ou refuser la demande avant *[heure]* le *[date]* | Cet e-mail sera envoyé au premier approbateur (si l’escalade est activée) pour lui demander d’agir. | Premier approbateur |
-| 5\. | Rappel d’action requise : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est activée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
+| 5 | Rappel d’action requise : Approuver ou refuser la demande avant le *[date]* pour *[demandeur]* | Cet e-mail de rappel sera envoyé au premier approbateur, si l’escalade est activée. L’e-mail lui demande d’agir s’il ne l’a pas fait. | Premier approbateur |
 | 6 | La demande a expiré pour *[package d’accès]* | Cet e-mail sera envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 après l’expiration de la demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 7 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de phase 1 à la fin d’une demande. | Premier approbateur, approbateurs de substitution de la phase 1 |
 | 8 | Demande approuvée pour *[demandeur]* à *[package d’accès]* | Cet e-mail est envoyé au premier approbateur et aux approbateurs de substitution de la phase 1 d’une demande en deux phases lorsque la phase 1 est approuvée. | Premier approbateur, approbateurs de substitution de la phase 1 |

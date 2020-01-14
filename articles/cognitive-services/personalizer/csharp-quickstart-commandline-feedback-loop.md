@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Personalizer pour .NET | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Personalizer pour .NET'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser la bibliothèque de client Personalizer pour .NET à l’aide d’une boucle d’apprentissage.
+description: Ce guide de démarrage rapide montre comment commencer avec la bibliothèque cliente Personalizer pour .NET en utilisant une boucle d’apprentissage.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 411bd82ade2ca7b904b36a3a4408c1a00852fc2c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c17bf54d89e3a98ca667eeba40f2d2b166550833
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446390"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Personalizer pour .NET
 
@@ -28,7 +28,7 @@ Commencez à utiliser la bibliothèque de client Personalizer pour .NET. Suivez 
 
 [Documentation de référence](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -198,12 +198,12 @@ dotnet run
 
 Le [code source de ce guide de démarrage rapide](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/csharp/PersonalizerExample/Program.cs) est disponible dans le dépôt GitHub d’exemples Personalizer.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -213,4 +213,3 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 * [Qu’est-ce que Personalizer ?](what-is-personalizer.md)
 * [Où utiliser Personalizer ?](where-can-you-use-personalizer.md)
 * [Dépannage](troubleshooting.md)
-

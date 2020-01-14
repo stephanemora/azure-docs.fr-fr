@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/10/2019
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 70b886286980c065379678ba21ab21e02d0e2bbb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f2e76229673033ab001c5499739090a7c435ef8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180173"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468751"
 ---
 | |
 |--|
-|Si ce que vous voyez sur votre écran ne correspond pas à ce qui est qui est abordé dans cet article, cela signifie que votre administrateur n'a pas encore activé la nouvelle expérience **Mes applications** (en préversion). Pour utiliser l'ancienne expérience, vous devez suivre les instructions et les informations de la section [Portail Mes applications](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-overview).|
-| |
+|Si votre administrateur a activé la nouvelle expérience en préversion **Mes applications** pour votre organisation, vous voyez désormais une bannière en haut de la page **Mes applications** qui indique **Une expérience Mes applications mise à jour est disponible**. Si vous sélectionnez **Essayer**, vous accédez immédiatement à la nouvelle URL (myapplications.microsoft.com) et à l’expérience mise à jour. Après quoi, chaque fois que vous revenez à la page **Mes applications**, vous accédez automatiquement à la nouvelle expérience.<br><br>Pour cesser d’utiliser la nouvelle expérience, vous pouvez sélectionner **Oui** dans la bannière **Quitter la nouvelle expérience** en haut de la nouvelle page **Mes applications**. Vous revenez immédiatement à l’URL (myapps.microsoft.com) et à l’expérience anciennes. Après quoi, chaque fois que vous revenez à la page **Mes applications**, vous accédez automatiquement à l’ancienne expérience.|
+|

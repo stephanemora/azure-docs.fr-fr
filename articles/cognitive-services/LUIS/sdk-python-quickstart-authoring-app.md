@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour Python'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser la bibliothèque de client LUIS pour Python. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
+description: Commencez avec la bibliothèque cliente LUIS pour Python avec ce guide de démarrage rapide. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 398220306fad4dc3459446fa5f77371ac669dd7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422710"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381492"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client de création Language Understanding (LUIS) pour Python
 
@@ -30,7 +30,7 @@ Utilisez la bibliothèque de client de création Language Understanding (LUIS) p
 
 [Documentation de référence](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Package de création (Pypi)](https://pypi.org/project/azure-cognitiveservices-language-luis/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Compte de portail Language Understanding (LUIS) : [Créez-en un gratuitement](https://www.luis.ai).
 * [Python 3.x](https://www.python.org/)
@@ -192,12 +192,12 @@ Exécutez l’application avec la commande `python` de votre fichier de démarra
 python quickstart-file.py
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources) 
+* [Portail](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#clean-up-resources)
+* [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

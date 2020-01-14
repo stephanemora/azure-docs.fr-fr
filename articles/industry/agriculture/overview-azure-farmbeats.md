@@ -1,0 +1,57 @@
+---
+title: Qu’est-ce qu’Azure FarmBeats ?
+description: Offre une vue d’ensemble d’Azure FarmBeats
+author: uhabiba04
+ms.topic: overview
+ms.date: 11/04/2019
+ms.author: v-umha
+ms.openlocfilehash: b4f0a082ba68ce9de417d196c1f6ea593c5c8feb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75455453"
+---
+# <a name="overview-of-azure-farmbeats-preview"></a>Vue d’ensemble d’Azure FarmBeats (préversion)
+
+Azure FarmBeats est une offre interentreprise disponible sur la Place de marché Azure. Cette solution permet d’agréger des jeux de données agricoles provenant de différents fournisseurs. Avec Azure FarmBeats, vous pouvez créer des modèles d’intelligence artificielle (IA) ou des modèles Machine Learning (ML) basés sur les jeux de données fusionnés. En utilisant Azure FarmBeats, les entreprises du secteur agricole peuvent se concentrer sur leur valeur ajoutée principale plutôt que passer du temps sur des tâches indifférenciées d’ingénierie des données.
+
+> [!NOTE]
+> Azure FarmBeats est actuellement disponible en préversion publique. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats est fourni sans contrat de niveau de service. Utilisez le [Forum Azure FarmBeats](https://aka.ms/FarmBeatsMSDN ) pour obtenir du support technique.
+
+![Projet FarmBeats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
+
+Avec la préversion d’Azure FarmBeats, vous pouvez :
+
+- Évaluer l’intégrité de l’exploitation à l’aide d’un indice de la végétation et de l’eau basé sur des images satellite.
+- Obtenir des suggestions sur le nombre de capteurs d’humidité du sol à utiliser et sur leur implantation.
+- Effectuer le suivi de l’état de l’exploitation agricole en visualisant les données de sol collectées par les capteurs de différents fournisseurs.
+- Obtenir une carte du taux d’humidité du sol basé sur la fusion de données satellite et de capteurs.
+- Obtenir des insights exploitables en générant des modèles AI/ML à partir de jeux de données agrégés.
+- Créer ou enrichir votre solution agricole numérique en fournissant des conseils pour favoriser l’intégrité de l’exploitation.
+
+## <a name="datahub"></a>Datahub
+
+Azure FarmBeats Datahub est une couche d’API qui permet l’agrégation, la normalisation et la contextualisation de jeux de données agricoles issus de différents fournisseurs. Vous pouvez utiliser Azure FarmBeats pour obtenir :
+- Des **données de capteur** de deux fournisseurs de capteurs : [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/) et [Teralytic](https://teralytic.com/)
+- Des **images satellite** transmises par la mission du satellite [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) de l’Agence spatiale européenne
+- Des **images par drone** de trois fournisseurs d’images prises par des drones : [senseFly](https://www.sensefly.com/), [SlantRange](https://slantrange.com/) et [DJI](https://dji.com/)
+
+Datahub est conçu comme une plateforme d’API extensible. Nous cherchons à intégrer d’autres fournisseurs à Azure FarmBeats pour vous proposer davantage d’options lors de la création de votre solution.
+
+## <a name="accelerator"></a>Accélérateur
+
+Azure FarmBeats Accelerator est un exemple d’application web qui repose sur DataHub. Cette solution accélère le développement de votre interface utilisateur et de votre modèle. Elle s’appuie sur les API d’Azure FarmBeats. Elle représente les données de capteurs ingérées sous forme de graphiques et illustre les sorties du modèle sur des cartes. Par exemple, vous pouvez utiliser l’accélérateur pour créer rapidement une exploitation agricole et obtenir facilement une carte de l’indice de végétation ou de l’implantation des capteurs de cette exploitation.
+
+## <a name="resources"></a>Ressources
+
+Azure FarmBeats est fourni sans frais supplémentaires. Vous payez uniquement les ressources Azure que vous consommez. Pour en savoir plus sur l’offre, vous pouvez :
+
+- Lire les toutes dernières informations relatives à Azure FarmBeats en visitant notre [blog Azure FarmBeats](https://aka.ms/farmbeatsblog).
+- Demander de l’aide en postant une question sur notre [forum de support Azure FarmBeats](https://aka.ms/farmbeatssupport).
+- Envoyer vos commentaires en postant une idée de fonctionnalité ou en votant pour une idée existante sur notre [forum de commentaires Azure FarmBeats](https://aka.ms/farmbeatsfeedback).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Installer Azure FarmBeats](install-azure-farmbeats.md)

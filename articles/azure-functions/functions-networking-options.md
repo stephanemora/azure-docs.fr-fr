@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a3df48115dde27478446614c0446d64709adbc6f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226800"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561930"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -32,8 +32,8 @@ Vous pouvez héberger des applications de fonction de deux façons :
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|✅Oui|✅Oui|✅Oui|✅Oui|
 |[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|✅Oui (Zones géographiques)|✅Oui (Zones géographiques et Passerelle)|✅Oui|
-|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ❌Non|✅Oui|✅Oui|
-|[Connexions hybrides](#hybrid-connections)|❌Non|✅Oui|✅Oui|✅Oui|
+|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ✅Oui |✅Oui|✅Oui|
+|[Connexions hybrides](#hybrid-connections) (Windows uniquement)|❌Non|✅Oui|✅Oui|✅Oui|
 |[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|❌Non| ❌Non|❌Non|✅Oui|
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
@@ -123,19 +123,51 @@ Actuellement, les références [Key Vault](../app-service/app-service-key-vault-
 
 ## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
 
-Actuellement, pour utiliser des déclencheurs Function autres que HTTP à partir d'un réseau virtuel, vous devez exécuter votre application de fonction dans le cadre d'un plan App Service ou dans un environnement App Service Environment.
+Vous pouvez utiliser des fonctions de déclencheur non-HTTP à partir d’un réseau virtuel de deux manières : 
++ Exécutez votre application de fonction dans un plan Premium et activez la prise en charge des déclencheurs de réseau virtuel.
++ Exécutez votre application de fonction dans un plan ou environnement App Service.
 
-Supposons, par exemple, que vous souhaitiez configurer Azure Cosmos DB pour accepter le trafic uniquement à partir d’un réseau virtuel. Vous devez déployer votre application de fonction dans un plan App service qui offre l’intégration au réseau virtuel avec ce réseau virtuel afin de configurer des déclencheurs Azure Cosmos DB à partir de cette ressource. Pendant la phase de préversion, la configuration de l'intégration au réseau virtuel ne permet pas au plan Premium d'utiliser des déclencheurs à partir de cette ressource Azure Cosmos DB.
+### <a name="premium-plan-with-virtual-network-triggers"></a>Plan Premium avec déclencheurs de réseau virtuel
 
-Consultez la [liste de tous les déclencheurs non HTTP](./functions-triggers-bindings.md#supported-bindings) pour déterminer ce qui est pris en charge.
+En cas d'exécution dans un plan Premium, vous pouvez connecter des fonctions de déclencheur non-HTTP vers des services s'exécutant au sein d’un réseau virtuel. Pour ce faire, vous devez activer la prise en charge des déclencheurs de réseau virtuel pour votre application de fonction. Le paramètre de **prise en charge des déclencheurs de réseau virtuel** se trouve dans le [portail Azure](https://portal.azure.com), sous **Paramètres de l’application de fonction**.
+
+![VNETToggle](media/functions-networking-options/virtual-network-trigger-toggle.png)
+
+Vous pouvez également activer les déclencheurs de réseau virtuel à l’aide de la commande Azure CLI suivante :
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+```
+
+Les déclencheurs de réseau virtuel sont pris en charge dans la version 2.x et les versions ultérieures du runtime Functions. Les types de déclencheurs non-HTTP suivants sont pris en charge.
+
+| Extension | Version minimale |
+|-----------|---------| 
+|[Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage/) | 3.0.10 ou ultérieure |
+|[Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs)| 4.1.0 ou ultérieure|
+|[Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus)| 3.2.0 ou ultérieure|
+|[Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB)| 3.0.5 ou ultérieure|
+|[Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask)| 2.0.0 ou ultérieure|
+
+> [!IMPORTANT]
+> Lorsque vous activez la prise en charge des déclencheurs de réseau virtuel, seuls les types de déclencheurs ci-dessus sont mis à l’échelle dynamiquement avec votre application. Vous pouvez cependant utiliser les déclencheurs non répertoriés ci-dessus, mais ils ne sont pas mis à l’échelle au-delà de leur nombre d’instances chauffées au préalable. Pour obtenir la liste complète des déclencheurs, consultez [Déclencheurs et liaisons](./functions-triggers-bindings.md#supported-bindings).
+
+### <a name="app-service-plan-and-app-service-environment-with-virtual-network-triggers"></a>Plan App Service et App Service Environment avec déclencheurs de réseau virtuel
+
+Lorsque votre application de fonction s’exécute dans un plan App Service ou App Service Environment, vous pouvez utiliser des fonctions de déclencheur non-HTTP. Pour le bon déclenchement de vos fonctions, vous devez être connecté à un réseau virtuel, avec accès à la ressource définie dans la connexion de déclenchement. 
+
+Supposons, par exemple, que vous souhaitiez configurer Azure Cosmos DB pour accepter le trafic uniquement à partir d’un réseau virtuel. Dans ce cas, vous devez déployer votre application de fonction dans un plan App Service fournissant une intégration de réseau virtuel à ce réseau virtuel. Ainsi, une fonction peut être déclenchée par cette ressource Azure Cosmos DB. 
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
-[Connexions hybrides](../service-bus-relay/relay-hybrid-connections-protocol.md) est une fonctionnalité d’Azure Relay que vous pouvez utiliser pour accéder aux ressources d’application dans d’autres réseaux. Elles permettent d’accéder depuis votre application à un point de terminaison d’application. Vous ne pouvez pas l’utiliser pour accéder à votre application. Connexions hybrides est disponible pour les fonctions exécutées dans tous les plans, sauf le plan Consommation.
+[Connexions hybrides](../service-bus-relay/relay-hybrid-connections-protocol.md) est une fonctionnalité d’Azure Relay que vous pouvez utiliser pour accéder aux ressources d’application dans d’autres réseaux. Elles permettent d’accéder depuis votre application à un point de terminaison d’application. Vous ne pouvez pas l’utiliser pour accéder à votre application. Connexions hybrides est disponible pour les fonctions exécutées sur Windows dans tous les plans, sauf le plan Consommation.
 
 Utilisée dans Azure Functions, chaque connexion hybride correspond à une combinaison d’hôte et de port TCP unique. Cela signifie que le point de terminaison de connexion hybride peut se trouver sur un quelconque système d’exploitation et toute application tant que vous accédez à un port d’écoute TCP. La fonctionnalité Connexions hybrides ne détecte pas et ne prend pas en compte le protocole d’application ou les ressources auxquels vous accédez. Elle fournit simplement un accès réseau.
 
 Pour plus d’informations, consultez la [documentation App Service pour les connexions hybrides](../app-service/app-service-hybrid-connections.md). Ces mêmes étapes de configuration prennent en charge Azure Functions.
+
+>[!IMPORTANT]
+> Les connexions hybrides sont uniquement prises en charge dans les plans Windows. Linux n'est pas pris en charge.
 
 ## <a name="outbound-ip-restrictions"></a>Restrictions d’adresse IP sortantes
 

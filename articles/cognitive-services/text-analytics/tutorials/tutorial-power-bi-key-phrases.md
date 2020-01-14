@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Intégrer Power BI au service cognitif Analyse de texte'
+title: 'Tutoriel : Intégrer Power BI au service cognitif Analyse de texte'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le service Analyse de texte pour extraire les expressions clés d’un texte stocké dans Power BI.
+description: Découvrez comment utiliser l’API Analyse de texte pour extraire les expressions clés d’un texte stocké dans Power BI.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 12/19/2019
 ms.author: aahi
-ms.openlocfilehash: 97245a10602f763c3269218d87c6b1a5ba309817
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 2398bfa2ce828e716831cc7ce438bd1c241ca5f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241025"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378532"
 ---
-# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Didacticiel : Intégrer Power BI au service cognitif Analyse de texte
+# <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutoriel : Intégrer Power BI au service cognitif Analyse de texte
 
 Microsoft Power BI Desktop est une application gratuite qui vous permet de vous connecter à vos données, de les transformer et de les visualiser. Le service Analyse de texte, qui fait partie de l’offre Microsoft Azure Cognitive Services, fournit des fonctionnalités de traitement en langage naturel. Dans un texte brut non structuré, il est capable d’extraire les phrases les plus importantes, d’analyser les sentiments et d’identifier les entités bien connues, telles que les marques. Utilisés conjointement, ces outils peuvent vous aider à identifier rapidement ce dont parlent vos clients, ainsi que leurs sentiments à ce sujet.
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Utiliser l’API d’extraction de phrases clés Analyse de texte pour extraire les phrases plus importantes dans les commentaires clients
 > * Créer un nuage de mots-clés à partir des commentaires clients
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 <a name="Prerequisites"></a>
 
 - Microsoft Power BI Desktop. [Téléchargez-le sans frais](https://powerbi.microsoft.com/get-started/).
@@ -168,7 +168,7 @@ Cliquez sur **Modifier les informations d’identification**, vérifiez que `Ano
 > [!div class="mx-imgBorder"]
 > ![[Définition du mode d’accès anonyme]](../media/tutorials/power-bi/access-web-content.png)
 
-Si la bannière Modifier les informations d’identification reste visible une fois que vous avez choisi l’accès anonyme, il se peut que vous ayez oublié de coller votre clé d’accès Analyse de texte dans le code de la [fonction personnalisée](#CreateCustomFunction) `KeyPhrases`.
+Si la bannière Modifier les informations d’identification reste visible même après avoir choisi l’accès anonyme, il se peut que vous ayez oublié de coller votre clé d’accès Analyse de texte dans le code de la [fonction personnalisée](#CreateCustomFunction) `KeyPhrases`.
 
 Ensuite, une bannière peut vous inviter à fournir des informations sur la confidentialité de vos sources de données. 
 

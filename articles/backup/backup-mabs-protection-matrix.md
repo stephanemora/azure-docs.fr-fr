@@ -3,12 +3,12 @@ title: Ce que peut sauvegarder le serveur de sauvegarde Azure
 description: Cet article fournit une matrice de prise en charge répertoriant toutes les charges de travail, les types de données et les installations que protège le serveur de sauvegarde Azure.
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e34ba81ad20b2d6a4e89995ab8b834f5f7dc725
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8f1ae1432f619dafc5084d250e3f89707405e08b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996151"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449889"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matrice de protection du serveur de sauvegarde Azure
 
@@ -16,9 +16,9 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 
 ## <a name="protection-support-matrix"></a>Matrice de prise en charge de la protection
 
-|Charge de travail|Version|Serveur de sauvegarde Azure</br> installation|Serveur de sauvegarde Azure pris en charge|Protection et récupération|
+|Charge de travail|Version|Azure Backup Server</br> installation|Serveur de sauvegarde Azure pris en charge|Protection et récupération|
 |------------|-----------|---------------|--------------|--------------|
-|Ordinateurs clients (64 bits et 32 bits)|Windows 10|Serveur physique<br /><br />Machine virtuelle Hyper-V<br /><br />Machine virtuelle VMware|V3, V2|Volume, partage, dossier, fichiers, volumes dédupliqués<br /><br />Les volumes protégés doivent être au format NTFS. Les formats FAT et FAT32 ne sont pas pris en charge.<br /><br />Les volumes doivent être d’au moins 1 Go. Le serveur de sauvegarde Azure utilise le service VSS pour prendre un l’instantané des données, et cet instantané fonctionne seulement si le volume est d’au moins 1 Go.|
+|Ordinateurs clients (64 bits et 32 bits)|Windows 10|Serveur physique<br /><br />Machine virtuelle Hyper-V<br /><br />Machine virtuelle VMware|V3, V2|Volume, partage, dossier, fichiers, volumes dédupliqués<br /><br />Les volumes protégés doivent être au format NTFS. Les formats FAT et FAT32 ne sont pas pris en charge.<br /><br />Les volumes doivent être d’au moins 1 Go. Le serveur de sauvegarde Azure utilise le service VSS pour prendre un l’instantané des données, et cet instantané fonctionne seulement si le volume est d’au moins 1 Go.|
 |Ordinateurs clients (64 bits et 32 bits)|Windows 8.1|Serveur physique<br /><br />Machine virtuelle Hyper-V|V3, V2|Fichiers<br /><br />Les volumes protégés doivent être au format NTFS. Les formats FAT et FAT32 ne sont pas pris en charge.<br /><br />Les volumes doivent être d’au moins 1 Go. Le serveur de sauvegarde Azure utilise le service VSS pour prendre un l’instantané des données, et cet instantané fonctionne seulement si le volume est d’au moins 1 Go.|
 |Ordinateurs clients (64 bits et 32 bits)|Windows 8.1|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)|V3, V2|Volume, partage, dossier, fichiers, volumes dédupliqués<br /><br />Les volumes protégés doivent être au format NTFS. Les formats FAT et FAT32 ne sont pas pris en charge.<br /><br />Les volumes doivent être d’au moins 1 Go. Le serveur de sauvegarde Azure utilise le service VSS pour prendre un l’instantané des données, et cet instantané fonctionne seulement si le volume est d’au moins 1 Go.|
 |Ordinateurs clients (64 bits et 32 bits)|Windows 8|Serveur physique<br /><br />Machine virtuelle Hyper-V locale|V3, V2|Volume, partage, dossier, fichiers, volumes dédupliqués<br /><br />Les volumes protégés doivent être au format NTFS. Les formats FAT et FAT32 ne sont pas pris en charge.<br /><br />Les volumes doivent être d’au moins 1 Go. Le serveur de sauvegarde Azure utilise le service VSS pour prendre un l’instantané des données, et cet instantané fonctionne seulement si le volume est d’au moins 1 Go.|
@@ -39,10 +39,10 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 |Serveurs (32 bits et 64 bits)|Windows Server 2008 SP2|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
 |Serveurs (32 bits et 64 bits)|Windows Storage Server 2008|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Volume, partage, dossier, fichier, état/sauvegarde complète du système|
 |SQL Server|SQL Server 2019|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure) <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2017|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure) <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2017|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure) <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2016 SP2|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2016 SP1|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2016|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2016 SP1|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2016|Serveur physique <br /><br /> Machine virtuelle Hyper-V locale <br /> <br /> Machine virtuelle Azure <br /><br /> Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2014|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2014|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2012 avec SP2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
@@ -51,18 +51,18 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 |SQL Server|SQL Server 2012, SQL Server 2012 avec SP1|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2012, SQL Server 2012 avec SP1|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
 |SQL Server|SQL Server 2012, SQL Server 2012 avec SP1|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008 R2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008 R2|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008 R2|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|SQL Server|SQL Server 2008|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
-|Microsoft Exchange|Exchange 2016|Serveur physique<br/><br/> Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack<br /> <br />Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
-|Microsoft Exchange|Exchange 2016|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
-|Microsoft Exchange|Exchange 2013|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
-|Microsoft Exchange|Exchange 2013|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
-|Microsoft Exchange|Exchange 2010|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) :  boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
-|Microsoft Exchange|Exchange 2010|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) :  boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|SQL Server|SQL Server 2008 R2|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2008 R2|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2008 R2|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2008|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2008|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|SQL Server|SQL Server 2008|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Tous les scénarios de déploiement : base de données|
+|Exchange|Exchange 2016|Serveur physique<br/><br/> Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack<br /> <br />Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|Exchange|Exchange 2016|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|Exchange|Exchange 2013|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|Exchange|Exchange 2013|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) : boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|Exchange|Exchange 2010|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) :  boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
+|Exchange|Exchange 2010|Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) : serveur Exchange autonome, base de données dans un groupe de disponibilité de base de données<br /><br />Récupérer (tous les scénarios de déploiement) :  boîte aux lettres, bases de données de boîtes aux lettres dans un groupe de disponibilité de base de données<br/><br/> Sauvegarde d’Exchange sur ReFS non prise en charge |
 |SharePoint|SharePoint 2016|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /><br />Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure)<br /><br />Machine virtuelle Windows dans VMware (protège les charges de travail s’exécutant dans une machine virtuelle Windows dans VMware)<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) :  batterie de serveurs, contenu de serveur web front-end<br /><br />Récupérer (tous les scénarios de déploiement) :  batterie de serveurs, base de données, application web, élément de fichier ou de liste, recherche SharePoint, serveur web front-end<br /><br />Notez que la protection d’une batterie de serveurs SharePoint qui utilise la fonctionnalité AlwaysOn de SQL Server 2012 pour les bases de données de contenu n’est pas prise en charge.|
 |SharePoint|SharePoint 2013|Serveur physique<br /><br />Machine virtuelle Hyper-V locale<br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) :  batterie de serveurs, contenu de serveur web front-end<br /><br />Récupérer (tous les scénarios de déploiement) :  batterie de serveurs, base de données, application web, élément de fichier ou de liste, recherche SharePoint, serveur web front-end<br /><br />Notez que la protection d’une batterie de serveurs SharePoint qui utilise la fonctionnalité AlwaysOn de SQL Server 2012 pour les bases de données de contenu n’est pas prise en charge.|
 |SharePoint|SharePoint 2013|Machine virtuelle Azure (quand la charge de travail s’exécute en tant que machine virtuelle Azure) - <br /> <br /> Azure Stack|V3, V2|Protéger (tous les scénarios de déploiement) :  batterie de serveurs, recherche SharePoint, contenu de serveur web front-end<br /><br />Récupérer (tous les scénarios de déploiement) :  batterie de serveurs, base de données, application web, élément de fichier ou de liste, recherche SharePoint, serveur web front-end<br /><br />Notez que la protection d’une batterie de serveurs SharePoint qui utilise la fonctionnalité AlwaysOn de SQL Server 2012 pour les bases de données de contenu n’est pas prise en charge.|
@@ -82,9 +82,23 @@ Cet article répertorie les différents serveurs et charges de travail que vous 
 
 ## <a name="azure-expressroute-support"></a>Support Azure ExpressRoute
 
-Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il ne peut pas servir à sauvegarder les données dans Azure.
+Vous pouvez sauvegarder vos données sur Azure ExpressRoute avec le Peering publique (disponible pour les anciens circuits) et le Peering Microsoft. La sauvegarde sur le Peering privé n’est pas prise en charge.
 
-Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il peut servir à sauvegarder les données dans Azure.
+Avec le Peering public : Garantissez l’accès aux domaines/adresses suivants :
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Avec le Peering Microsoft, sélectionnez les services/régions suivants et les valeurs de communauté pertinentes :
+
+* Azure Active Directory (12076:5060)
+* Région Microsoft Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+* Stockage Azure (en fonction de l’emplacement de votre coffre Recovery Services)
+
+Pour plus d’informations, consultez [Configuration requise pour le routage ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Le peering public Azure est déconseillé pour les nouveaux circuits.
@@ -93,17 +107,17 @@ Si Azure ExpressRoute est configuré avec un peering privé ou Microsoft, il peu
 
 Le serveur de sauvegarde Azure peut protéger les données dans les applications en cluster suivantes :
 
-- Serveurs de fichiers
+* Serveurs de fichiers
 
-- SQL Server
+* SQL Server
 
-- Hyper-V : si vous protégez un cluster Hyper-V en utilisant l’agent de protection MABS avec montée en charge, vous ne pouvez pas ajouter de protection secondaire pour les charges de travail Hyper-V protégées.
+* Hyper-V : si vous protégez un cluster Hyper-V en utilisant l’agent de protection MABS avec montée en charge, vous ne pouvez pas ajouter de protection secondaire pour les charges de travail Hyper-V protégées.
 
     Si vous exécutez Hyper-V sur Windows Server 2008 R2, veillez à installer la mise à jour décrite dans l’article de la Base de connaissances [975354](https://support.microsoft.com/kb/975354).
     Si vous exécutez Hyper-V sur Windows Server 2008 R2 dans une configuration de cluster, veillez à installer SP2 et KB [971394](https://support.microsoft.com/kb/971394).
 
-- Exchange Server : le serveur de sauvegarde Azure peut protéger des clusters de disques non partagés pour les versions d’Exchange Server prises en charge (réplication continue en cluster) et peut également protéger Exchange Server configuré pour la réplication continue locale.
+* Exchange Server : le serveur de sauvegarde Azure peut protéger des clusters de disques non partagés pour les versions d’Exchange Server prises en charge (réplication continue en cluster) et peut également protéger Exchange Server configuré pour la réplication continue locale.
 
-- SQL Server : le serveur de sauvegarde Azure ne prend en charge la sauvegarde des bases de données SQL Server hébergées sur des volumes partagés de cluster.
+* SQL Server : le serveur de sauvegarde Azure ne prend en charge la sauvegarde des bases de données SQL Server hébergées sur des volumes partagés de cluster.
 
 Le serveur de sauvegarde Azure peut protéger les charges de travail de cluster qui se trouvent dans le même domaine que le serveur MABS, et dans un domaine enfant ou approuvé. Si vous voulez protéger des sources de données dans des domaines ou des groupes de travail non approuvés, utilisez NTLM ou l’authentification par certificat pour un serveur unique, ou l’authentification par certificat uniquement pour un cluster.

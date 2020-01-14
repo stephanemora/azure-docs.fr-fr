@@ -1,18 +1,20 @@
 ---
-title: Se connecter à Azure Notebooks
-description: Connectez-vous rapidement à Azure Notebooks et définissez un ID utilisateur pour pouvoir accéder à des projets enregistrés et partager des notebooks avec d’autres utilisateurs.
+title: Connexion à Azure Notebooks (préversion)
+description: Connectez-vous rapidement à Azure Notebooks (préversion) et définissez un ID utilisateur pour pouvoir accéder à des projets enregistrés et partager des notebooks avec d’autres utilisateurs.
 ms.topic: quickstart
 ms.date: 04/15/2019
-ms.openlocfilehash: 234703da9662380a59c7673ca3b34a1b01b7dbef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b6572a7c0b965b2b72916db577b47eff4f1921c0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277435"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647014"
 ---
-# <a name="quickstart-sign-in-and-set-a-user-id"></a>Démarrage rapide : Se connecter et définir un identifiant utilisateur
+# <a name="quickstart-sign-in-and-set-a-user-id-for-azure-notebooks-preview"></a>Démarrage rapide : Se connecter et définir un identifiant utilisateur pour Azure Notebooks (préversion)
 
 Bien que vous puissiez toujours afficher Azure Notebooks sans vous connecter, vous devez vous connecter pour exécuter des notebooks, accéder aux notebooks et projets enregistrés, et partager vos notebooks avec d’autres utilisateurs.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="sign-in"></a>Se connecter
 

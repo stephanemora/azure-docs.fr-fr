@@ -1,6 +1,6 @@
 ---
-title: Exemples Azure CLI - Batch | Microsoft Docs
-description: Exemples Azure CLI pour le service Batch
+title: Exemples Azure CLI - Batch
+description: Exemples Azure CLI pour le service Azure Batch. Découvrez comment créer un compte Batch et ajouter une application.
 services: batch
 documentationcenter: batch
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 01/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 026e6be7dec90da86e602ff23df2f7efdd067238
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ae16fc3dc8c273b201d7266f5afc252da3676ce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390290"
 ---
 # <a name="azure-cli-examples-for-azure-batch"></a>Exemples Azure CLI pour Azure Batch
 

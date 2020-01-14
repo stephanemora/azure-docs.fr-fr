@@ -1,25 +1,16 @@
 ---
-title: Contrôle d’intégrité de Service Fabric | Microsoft Docs
+title: Contrôle d’intégrité dans Service Fabric
 description: Présentation du modèle de contrôle d’intégrité d’Azure Service Fabric, qui permet d’analyser le cluster, ses applications et ses services.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60949135"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433896"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Présentation du contrôle d’intégrité de Service Fabric
 Azure Service Fabric introduit un modèle d’intégrité qui fournit une évaluation et des rapports d’intégrité riches, flexibles et extensibles. Ce modèle permet un contrôle quasiment en temps réel de l’état du cluster et des services qu’il exécute. Vous pouvez facilement obtenir les informations de contrôle d’intégrité et corriger les problèmes potentiels avant qu’ils ne s’enchaînent et ne provoquent des pannes massives. Dans le modèle standard, les services envoient des rapports en fonction de leur vue locale et les informations sont agrégées pour fournir une vue globale du cluster.
@@ -49,7 +40,7 @@ Entités d’intégrité, organisées dans une hiérarchie basée sur les relati
 Les entités d'intégrité sont les suivantes :
 
 * **Cluster**. Représente l'intégrité d'un cluster Service Fabric. Les rapports d’intégrité de cluster décrivent les conditions qui affectent l’ensemble du cluster. Ces conditions affectent plusieurs entités du cluster ou l’ensemble du cluster. En fonction de la condition, le rapporteur d’intégrité ne peut pas attribuer le problème à un ou plusieurs enfants non sains. Exemple : split-brain du cluster en raison de problèmes liés au partitionnement réseau ou à la communication.
-* **Nœud**. Représente l'intégrité d'un nœud Service Fabric. Les rapports d’intégrité de partition décrivent les conditions qui affectent la fonctionnalité de nœud. En général, ces conditions affectent toutes les entités déployées qui sont exécutées sur ce nœud. Exemples : le nœud manque d’espace disque (ou d’une autre propriété au niveau de l’ordinateur comme la mémoire, les connexions, etc.) ou le nœud est inactif. L'entité de nœud est identifiée par le nom du nœud (chaîne).
+* **Node**. Représente l'intégrité d'un nœud Service Fabric. Les rapports d’intégrité de partition décrivent les conditions qui affectent la fonctionnalité de nœud. En général, ces conditions affectent toutes les entités déployées qui sont exécutées sur ce nœud. Exemples : le nœud manque d’espace disque (ou d’une autre propriété au niveau de l’ordinateur comme la mémoire, les connexions, etc.) ou le nœud est inactif. L'entité de nœud est identifiée par le nom du nœud (chaîne).
 * **Application**. Représente l'intégrité d'une instance d'application s'exécutant dans le cluster. Les rapports d’intégrité d’une application décrivent les conditions qui affectent l’intégrité globale de l’application. Ils ne peuvent pas être limités à des enfants particuliers (services ou applications déployées). Exemple : interaction de bout en bout entre les différents services de l’application. L’entité d’application est identifiée par le nom de l’application (URI).
 * **Service**. Représente l'intégrité d'un service s'exécutant dans le cluster. Les rapports d’intégrité du service décrivent les conditions qui affectent l’intégrité globale du service. Le rapporteur ne peut pas attribuer le problème à une partition ou à un réplica non sains. Exemple : une configuration de service (par exemple, le partage de fichiers externes ou de ports) à l’origine de problèmes pour toutes les partitions. L’entité de service est identifiée par le nom du service (URI).
 * **Partition**. Représente l'intégrité d'une partition de service. Les rapports d'intégrité de partition décrivent les conditions qui affectent le jeu entier de réplicas. Exemple : le nombre de réplicas est inférieur au nombre cible ou la partition est en perte de quorum. L’entité de partition est identifiée par l’ID de la partition (GUID).
@@ -196,7 +187,7 @@ Les [rapports d'intégrité](https://docs.microsoft.com/dotnet/api/system.fabric
 * **SourceId**. Chaîne qui identifie de façon unique le rapporteur de l'événement d'intégrité.
 * **Entity identifier**. Identifie l’entité sur laquelle le rapport est appliqué. Il diffère selon le [type d'entité](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. Aucune.
+  * Cluster. Aucun.
   * Nœud. Nom du nœud (chaîne).
   * console. Nom de l’application (URI). Représente le nom de l'instance d'application déployée dans le cluster.
   * Service. Nom du service (URI). Représente le nom de l'instance de service déployée dans le cluster.
@@ -229,7 +220,7 @@ Les champs de transition d’état peuvent être utilisés pour des niveaux d’
 * Alerte uniquement sur les conditions modifiées au cours des X dernières minutes. Si un rapport indiquait déjà l’état Error avant la période spécifiée, il peut être ignoré car il a déjà été signalé précédemment.
 * Si une propriété oscille entre Warning et Error, détermine la durée pendant laquelle elle a été défectueuse (donc pas à l’état OK). Par exemple, une alerte indiquant que la propriété a été défectueuse pendant plus de 5 minutes peut être traduite en : (HealthState != Ok et Now - LastOkTransitionTime > 5 minutes).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exemple : évaluer et établir un rapport sur l'intégrité de l'application
+## <a name="example-report-and-evaluate-application-health"></a>Exemple : évaluer et établir un rapport sur l'intégrité de l'application
 L’exemple suivant envoie un rapport d’intégrité via PowerShell sur l’application **fabric:/WordCount** à partir de la source **MyWatchdog**. Le rapport d’intégrité contient des informations sur la « disponibilité » de la propriété d’intégrité dans un état d’intégrité Error avec une valeur TimeToLive infinie. Il interroge ensuite l’intégrité de l’application, qui retourne l’état d’intégrité agrégé Error et les événements d’état signalés dans la liste des événements d’intégrité.
 
 ```powershell

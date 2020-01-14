@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure | Microsoft Docs'
+title: Démarrage rapide - Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 description: Apprendre à créer rapidement un groupe de machines virtuelles identiques Windows avec un modèle Azure Resource Manager qui déploie un exemple d’application et configure des règles de mise à l’échelle automatique
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: bfbe3d6aac6e97f3568c3c0ce3643bb215726a0b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f3dd2fd092e49a0e526856f1e55211ec1837cfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376180"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351096"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 
@@ -41,8 +41,8 @@ Un modèle définit la configuration de chaque type de ressource. Un type de res
 
 | Propriété                     | Description de la propriété                                  | Exemple de valeur de modèle                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
-| Nom                         | Nom du groupe identique                                       | myScaleSet                                |
+| type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | Nom du groupe identique                                       | myScaleSet                                |
 | location                     | Emplacement de création du groupe identique                     | USA Est                                   |
 | sku.name                     | Taille de machine virtuelle pour chaque instance de groupe identique                  | Standard_A1                               |
 | sku.capacity                 | Nombre d’instances de machines virtuelles à créer initialement           | 2                                         |
@@ -173,7 +173,7 @@ Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur 
 ![Site IIS en cours d’exécution](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Quand vous n’en avez plus besoin, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et le groupe identique. Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive

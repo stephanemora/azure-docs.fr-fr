@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle Azure | Microsoft Docs'
+title: Démarrage rapide - Créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle Azure
 description: Apprendre à créer rapidement un groupe de machines virtuelles identiques Linux avec un modèle Azure Resource Manager qui déploie un exemple d’application et configure des règles de mise à l’échelle automatique
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: aa1aca6a1c47e486e0630e779c975b699a193d41
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 34cc269bc9355fa6744c7d31fff7e986baf1e049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375962"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351109"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Linux à l’aide d’un modèle Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans cet article de démarrage rapide, vous créez un groupe de machines virtuelles identiques et déployez un exemple d’application avec un modèle Azure Resource Manager.
@@ -42,8 +42,8 @@ Pour créer un groupe identique avec un modèle, vous définissez les ressources
 
 | Propriété                     | Description de la propriété                                  | Exemple de valeur de modèle                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
-| Type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
-| Nom                         | Nom du groupe identique                                       | myScaleSet                                |
+| type                         | Type de ressource Azure à créer                            | Microsoft.Compute/virtualMachineScaleSets |
+| name                         | Nom du groupe identique                                       | myScaleSet                                |
 | location                     | Emplacement de création du groupe identique                     | USA Est                                   |
 | sku.name                     | Taille de machine virtuelle pour chaque instance de groupe identique                  | Standard_A1                               |
 | sku.capacity                 | Nombre d’instances de machines virtuelles à créer initialement           | 2                                         |
@@ -166,7 +166,7 @@ Entrez l’adresse IP publique de l’équilibreur de charge dans un navigateur 
 ![Page web par défaut dans NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, le groupe identique et toutes les ressources associées, comme suit. Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive
@@ -175,7 +175,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article de démarrage rapide, vous avez créé un groupe identique Linux avec un modèle Azure et vous avez utilisé l’extension de script personnalisé pour installer un serveur web Python de base sur les instances de machine virtuelle. Pour en savoir plus, passez au didacticiel dédié à la création et à la gestion de groupes de machines virtuelles identiques Azure.
+Dans cet article de démarrage rapide, vous avez créé un groupe identique Linux avec un modèle Azure et vous avez utilisé l’extension de script personnalisé pour installer un serveur web Python de base sur les instances de machine virtuelle. Pour en savoir plus, passez au didacticiel dédié à la création et la gestion des groupes de machines virtuelles identiques Azure.
 
 > [!div class="nextstepaction"]
 > [Créer et gérer des groupes de machines virtuelles identiques Azure](tutorial-create-and-manage-cli.md)

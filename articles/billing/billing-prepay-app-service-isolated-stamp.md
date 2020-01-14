@@ -1,5 +1,5 @@
 ---
-title: Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
+title: Réduire les coûts d’Azure App Service avec une capacité réservée
 description: Découvrez comment réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée.
 services: billing
 author: yashesvi
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 5aafc2288b9e6b7ef217ec386211af7c3739c08b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5e2ae705b271f55f8c8888f464c9e73863002c06
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389126"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Réduire les coûts liés aux frais de timbre Azure App Service Isolé avec une capacité réservée
 
@@ -30,7 +30,7 @@ En achetant une réservation, vous vous engagez à utiliser les quantités rése
 En outre, assurez-vous que vous comprenez comment l’horodatage Isolé émet un compteur Linux ou Windows.
 
 - Par défaut, un horodatage Isolé vide émet le compteur de timbres Windows. Par exemple, sans worker déployé. Il continue à émettre le compteur lorsque les workers Windows sont déployés sur l’horodatage.
-- Si vous déployez un worker Linux, le compteur prend la valeur du compteur d’horodatage Linux.
+- Si vous déployez un rôle de travail Linux, le compteur prend la valeur du compteur de tampon Linux.
 - Lorsque les workers Linux et Windows sont déployés, l’horodatage émet le compteur Windows.
 
 Le compteur d’horodatage peut donc changer entre Windows et Linux pendant toute la durée de vie de l’horodatage.

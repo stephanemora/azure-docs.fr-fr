@@ -1,19 +1,19 @@
 ---
-title: Utiliser Python et TensorFlow dans Azure Functions pour produire des inférences machine learning
+title: Utiliser Python et TensorFlow pour le Machine Learning dans Azure
 description: Ce tutoriel montre comment appliquer des modèles Machine Learning TensorFlow dans Azure Functions
 author: anthonychu
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409772"
 ---
-# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Didacticiel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
+# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutoriel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
 
 Cet article explique comment Azure Functions permet d’utiliser Python et TensorFlow avec un modèle Machine Learning pour classifier une image en fonction de son contenu.
 
@@ -29,7 +29,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Pour créer Azure Functions dans Python, vous devez installer quelques outils.
 
@@ -67,7 +67,7 @@ python3.6 -m venv .venv
 source .venv/bin/activate
 ```
 
-#### <a name="windows"></a>Windows :
+#### <a name="windows"></a>Windows :
 
 ```powershell
 cd start
@@ -144,7 +144,7 @@ Le modèle se compose de deux fichiers présents dans le dossier *<REPOSITORY_RO
 cp ../resources/model/* classify
 ```
 
-#### <a name="windows"></a>Windows :
+#### <a name="windows"></a>Windows :
 
 ```powershell
 copy ..\resources\model\* classify
@@ -162,7 +162,7 @@ Certaines fonctions d’assistance, pour la préparation de l’image d’entré
 cp ../resources/predict.py classify
 ```
 
-#### <a name="windows"></a>Windows :
+#### <a name="windows"></a>Windows :
 
 ```powershell
 copy ..\resources\predict.py classify
@@ -255,7 +255,7 @@ cd <FRONT_END_FOLDER>
 python3.6 -m http.server
 ```
 
-#### <a name="windows"></a>Windows :
+#### <a name="windows"></a>Windows :
 
 ```powershell
 cd <FRONT_END_FOLDER>
@@ -271,7 +271,7 @@ Dans un navigateur, accédez à l’URL du serveur HTTP qui est affichée dans l
 
 Lorsque vous cliquez sur Envoyer, l’application de fonction est appelée et un résultat s’affiche dans la page.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Comme l’intégralité de ce tutoriel s’exécute localement sur votre machine, il n’y a pas de ressources ni de services Azure à nettoyer.
 
 ## <a name="next-steps"></a>Étapes suivantes

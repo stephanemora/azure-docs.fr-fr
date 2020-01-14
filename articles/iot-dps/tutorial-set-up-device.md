@@ -9,14 +9,14 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 337ac2f60809370e6a07b2b0403d21ef7230b034
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6ff732888e416fcd51216070b3b30ed37b79e92c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434583"
 ---
-# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Didacticiel : Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Tutoriel : Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
 Dans le didacticiel précédent, vous avez appris à configurer le service IoT Hub Device Provisioning afin de provisionner automatiquement vos appareils pour votre hub IoT. Ce didacticiel vous montre comment configurer votre appareil pendant le processus de fabrication, pour lui permettre d’être approvisionné automatiquement avec IoT Hub. Votre appareil est approvisionné en fonction de son [mécanisme d’attestation](concepts-device.md#attestation-mechanism), au premier démarrage et à la première connexion au service d’approvisionnement. Ce tutoriel décrit les tâches suivantes :
 
@@ -34,12 +34,13 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+Les prérequis suivants sont nécessaires pour un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du SDK.
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
+
 * Dernière version de [Git](https://git-scm.com/download/) installée.
-
-
 
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Générer une version spécifique à la plateforme du Kit de développement (SDK)
 
@@ -49,23 +50,26 @@ Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous 
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-1. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
-    
+2. Recherchez le nom d’étiquette de la [version la plus récente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) du SDK.
+
+3. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez les commandes suivantes pour cloner la dernière version du dépôt GitHub du [SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c). Utilisez l’étiquette obtenue à l’étape précédente comme valeur pour le paramètre `-b` :
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-
-1. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+4. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire `azure-iot-sdk-c` :
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-1. Générez le kit de développement logiciel (SDK) pour votre plateforme de développement basée sur les mécanismes d’attestation que vous allez utiliser. Utilisez l’une des commandes suivantes (notez également les deux points à la fin de chaque commande). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
+5. Générez le kit de développement logiciel (SDK) pour votre plateforme de développement basée sur les mécanismes d’attestation que vous allez utiliser. Utilisez l’une des commandes suivantes (notez également les deux points à la fin de chaque commande). Une fois l’opération terminée, CMake génère le sous-répertoire `/cmake` avec du contenu spécifique à votre appareil :
  
     - Pour les appareils qui utilisent le simulateur TPM pour l’attestation :
 
@@ -96,8 +100,9 @@ Selon que vous générez le kit de développement logiciel (SDK) pour utiliser l
 
 - Pour un appareil X.509, vous devez obtenir les certificats délivrés à votre appareil. Le service de provisionnement expose deux types d’entrées d’inscription qui contrôlent l’accès aux appareils qui recourent au mécanisme d’attestation X.509. Les certificats requis varient selon les types d’inscription que vous allez utiliser.
 
-    1. Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-security.md#end-entity-leaf-certificate).
-    1. Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+    - Inscriptions individuelles : inscription pour un appareil spécifique unique. Ce type d’entrée d’inscription requiert des [certificats « feuille » et « d’entité finale »](concepts-security.md#end-entity-leaf-certificate).
+    
+    - Groupes d’inscription : ce type d’entrée d’inscription requiert des certificats racines ou intermédiaires. Pour plus d’informations, consultez [Contrôle de l’accès des appareils au service de provisionnement avec des certificats X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Simulations d’appareils
 
@@ -193,7 +198,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 Vous pouvez également estimer qu’un affinement de votre application d’enregistrement Device Provisioning Service Client est nécessaire à l’aide d’un appareil simulé dans un premier temps et d’une configuration de service de test. Une fois que votre application fonctionne dans l’environnement de test, vous pouvez la générer pour votre appareil et copier le fichier exécutable sur l’image de votre appareil. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 À ce stade, vous pouvez avoir les services IoT Hub et Device Provisioning Service qui s’exécutent dans le portail. Si vous souhaitez abandonner la configuration de l’approvisionnement d’appareils et/ou retarder la fin de cette série de didacticiels, nous vous recommandons d’arrêter ces services pour éviter des coûts inutiles.
 
@@ -201,7 +206,7 @@ Vous pouvez également estimer qu’un affinement de votre application d’enreg
 1. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Dans la partie supérieure du panneau **Toutes les ressources**, cliquez sur **Supprimer**.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Générer un Kit de développement logiciel (SDK) Device Provisioning Service Client spécifique à une plateforme

@@ -4,12 +4,12 @@ description: Vue d’ensemble d’Azure Blockchain Service
 ms.date: 11/21/2019
 ms.topic: overview
 ms.reviewer: janders
-ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 55e1be191b21c7c66b013f70d83fe6c046488e05
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455912"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75387375"
 ---
 # <a name="what-is-azure-blockchain-service"></a>À propos d’Azure Blockchain Service
 
@@ -19,7 +19,7 @@ Azure Blockchain Service est un service de registre complètement managé qui pe
 * Gestion de consortium intégrée
 * Développer des contrats intelligents avec des outils de développement familiers
 
-Azure Blockchain Service est conçu pour prendre en charge plusieurs protocoles de registre. Actuellement, il prend en charge le registre [Quorum](https://www.jpmorgan.com/Quorum) Ethereum à l’aide du mécanisme de consensus [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
+Azure Blockchain Service est conçu pour prendre en charge plusieurs protocoles de registre. Actuellement, il prend en charge le registre [Quorum](https://www.goquorum.com/) Ethereum à l’aide du mécanisme de consensus [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus).
 
 Ces fonctionnalités ne demandent pratiquement aucune administration, et toutes sont fournies sans coût supplémentaire. Vous pouvez vous concentrer sur la logique métier et le développement d’applications plutôt que sur le temps et les ressources nécessaires à la gestion des machines virtuelles et de l’infrastructure. Vous pouvez également continuer à développer votre application avec les outils open source et la plateforme de votre choix, ce qui vous permet de fournir vos solutions sans avoir besoin d’acquérir de nouvelles compétences.
 
@@ -67,10 +67,17 @@ Blockchain Data Manager pour Azure Blockchain Service capture, transforme et fou
 
 ## <a name="support-and-feedback"></a>Support et commentaires
 
-Vous avez besoin d’aide ou vous avez des commentaires ?
+Pour vous tenir informé sur Azure Blockchain, visitez le [blog Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/). Vous y trouverez les toutes dernières offres du service Blockchain ainsi que diverses informations de l’équipe technique d’Azure Blockchain.
 
-* Rendez-vous sur le [blog d’Azure Blockchain](https://azure.microsoft.com/blog/topics/blockchain/), la page [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain) et le [forum d’Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain).
-* Pour donner votre avis ou demander de nouvelles fonctionnalités, créez une entrée via [UserVoice](https://feedback.azure.com/forums/921130-azure-blockchain-service).
+Pour faire des commentaires sur le produit ou suggérer de nouvelles fonctionnalités, postez votre idée ou votez pour une autre idée sur le [forum de commentaires Azure pour Blockchain](https://aka.ms/blockchainuservoice).
+
+### <a name="community-support"></a>Support de la communauté pour les objets blob
+
+Communiquez avec les ingénieurs Microsoft et les experts de la communauté Azure Blockchain.
+
+* [Forum MSDN Azure Blockchain](https://social.msdn.microsoft.com/Forums/home?forum=azureblockchain)
+* [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Modérer les images de produits e-commerce - Content Moderator'
+title: 'Tutoriel : Modérer les images de produits e-commerce - Content Moderator'
 titleSuffix: Azure Cognitive Services
-description: Configurez une application pour analyser et classer des images de produits avec des étiquettes spécifiques (à l’aide des API Azure Vision par ordinateur et Custom Vision). Étiquetez les images litigieuses pour les analyser de manière plus approfondie (à l’aide d’Azure Content Moderator).
+description: Ce tutoriel montre comment configurer une application pour analyser et classifier des images de produits avec des étiquettes spécifiques (à l’aide des API Azure Vision par ordinateur et Custom Vision). Étiquetez les images litigieuses pour les analyser de manière plus approfondie (à l’aide d’Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5ee96cd0cf8ca33cae785bc15eb824332dcb3c9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382155"
 ---
-# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Didacticiel : Modérer les images de produits e-commerce avec Azure Content Moderator
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Tutoriel : Modérer les images de produits e-commerce avec Azure Content Moderator
 
 Dans ce tutoriel, vous allez apprendre à utiliser Azure Cognitive Services, et notamment Content Moderator, pour classer et modérer des images de produits dans le cadre d’un scénario d’e-commerce. Vous allez utiliser Vision par ordinateur et Custom Vision pour appliquer des étiquettes aux images, puis vous allez créer une révision d’équipe, qui associe les technologies de Content Moderator basées sur le machine learning à des équipes de révision humaines pour fournir un système de modération intelligent.
 
@@ -34,7 +34,7 @@ L’exemple de code complet est disponible dans le dépôt [Samples eCommerce Ca
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Une clé d’abonnement Content Moderator. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Content Moderator et obtenir votre clé.
 - Une clé d’abonnement Vision par ordinateur (mêmes instructions que ci-dessus).

@@ -1,6 +1,6 @@
 ---
-title: Exemples d’interface de ligne de commande Azure | Microsoft Docs
-description: Exemples d’interface de ligne de commande Azure
+title: Exemples d’interface de ligne de commande Azure
+description: Tableau contenant des liens vers des exemples de scripts bash créés à l’aide d’Azure CLI permettant, par exemple, de créer et de gérer un groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1ea397616c7909283128118f66fc36218ff36d53
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 540941bd2d54c5d3c8d26186e700727e8d75f501
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882572"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459354"
 ---
 # <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Exemples Azure CLI pour les groupes de machines virtuelles identiques
 

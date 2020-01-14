@@ -4,33 +4,29 @@ description: Utiliser des déploiements automatiques dans Azure IoT Edge pour g�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/27/2018
+ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb45f2b929c08ce77c83af450726a00dd6af458e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 13390de8d3008907a0b55bf3a61c931dfdcd84e6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456734"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552353"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
-Les appareils Azure IoT Edge suivent un [cycle de vie des appareils](../iot-hub/iot-hub-device-management-overview.md) similaire à d’autres types d’appareils IoT :
+Les déploiements automatiques et les déploiements en couches facilitent la gestion et la configuration de nombreux modules sur les appareils IoT Edge. 
 
-1. Provisionnez de nouveaux appareils IoT Edge en créant une image d’un appareil doté d’un système d’exploitation et en installant le [runtime IoT Edge](iot-edge-runtime.md).
-2. Configurez les appareils de façon à ce qu’ils exécutent les [modules IoT Edge](iot-edge-modules.md), puis analysez leur fonctionnement. 
-3. Enfin, mettez les appareils hors service lorsqu’ils sont remplacés ou deviennent obsolètes.  
-
-Azure IoT Edge propose deux façons de configurer les modules à exécuter sur les appareils IoT Edge : une pour le développement et les itérations rapides sur un seul appareil (vous avez utilisé cette méthode dans les [tutoriels](tutorial-deploy-function.md) Azure IoT Edge), et une pour la gestion de grandes flottes d’appareils IoT Edge. Ces deux approches sont disponibles dans le portail Azure et par programmation. Pour cibler des groupes ou un grand nombre d’appareils, vous pouvez spécifier les appareils sur lesquels vous aimeriez déployer vos modules en utilisant des [étiquettes](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) dans le jumeau d’appareil. Les étapes suivantes parlent d’un déploiement dans un groupe d’appareils de l’État de Washington identifié avec la propriété tags. 
+Azure IoT Edge propose deux méthodes de configuration des modules à exécuter sur des appareils IoT Edge. La première consiste à déployer les modules sur la base de chaque appareil. Vous créez un manifeste de déploiement, puis vous l’appliquez à un appareil donné par nom. La seconde méthode consiste à déployer automatiquement les modules sur tous les appareils inscrits répondant à un ensemble de conditions définies. Vous créez un manifeste de déploiement, puis définissez les appareils auxquels il s’applique en fonction des [indicateurs](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags) dans le jumeau d'appareil. 
 
 Cet article se concentre sur les étapes de configuration et de surveillance des appareils, collectivement appelées des déploiements automatiques IoT Edge. Les étapes de déploiement global sont les suivantes : 
 
 1. Un opérateur définit un déploiement qui décrit un ensemble de modules, ainsi que les appareils cibles. Chaque déploiement possède un manifeste de déploiement qui reflète ces informations. 
 2. Le service de IoT Hub communique avec tous les appareils ciblés pour les configurer avec les modules souhaités. 
 3. Le service IoT Hub récupère l’état des appareils IoT Edge et les met à la disposition de l’opérateur.  Par exemple, un opérateur voit quand un appareil Edge n’est pas correctement configuré ou si un module échoue durant l’exécution. 
-4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement. Par exemple, un déploiement qui cible tous les appareils IoT Edge dans l’état de Washington configure automatiquement un nouvel appareil IoT Edge une fois qu’il est approvisionné et ajouté au groupe des périphériques de l’état de Washington. 
+4. À tout moment, les nouveaux appareils IoT Edge qui remplissent les conditions de ciblage sont configurés pour le déploiement. 
  
 Cet article décrit chaque composant impliqué dans la configuration et la surveillance d’un déploiement. Pour connaître la procédure de création et de mise à jour d’un déploiement, consultez [Déployer et surveiller des modules IoT Edge à l’échelle](how-to-deploy-monitor.md).
 
@@ -90,19 +86,90 @@ Une priorité définit si un déploiement doit être appliqué à un appareil ci
 
 Les étiquettes sont des paires clé-valeur de type chaîne que vous pouvez utiliser pour filtrer et grouper les déploiements. Un déploiement peut avoir plusieurs étiquettes. Les étiquettes sont facultatives et n’ont aucun impact sur la configuration des appareils IoT Edge. 
 
-### <a name="deployment-status"></a>état du déploiement
+### <a name="metrics"></a>Mesures
 
-Un déploiement peut être surveillé pour déterminer s’il est correctement appliqué pour n’importe quel appareil IoT Edge ciblé.  Un périphérique Edge ciblé apparaîtra dans une ou plusieurs des catégories d’état suivantes : 
+Par défaut, tous les déploiements rapportent quatre métriques :
 
-* **Cible** affiche les périphériques IoT Edge qui correspondent à la condition de ciblage du déploiement.
-* **Réel** affiche les appareils IoT Edge ciblés qui ne sont pas ciblés par un autre déploiement de priorité plus élevée.
-* **Intègre** affiche les appareils IoT Edge ayant signalé au service que les modules ont été déployés correctement. 
-* **Défectueux** affiche les appareils IoT Edge ayant signalé au service qu’un ou plusieurs modules n’ont pas été déployés correctement. Pour examiner l’erreur plus en détail, connectez-vous à distance à ces appareils et consultez les fichiers journaux.
-* **Inconnu** affiche les appareils IoT Edge qui n’ont pas signalé d’état concernant le déploiement. Pour approfondir vos recherches, consultez les informations de service et les fichiers journaux.
+* **Ciblé** affiche les périphériques IoT Edge qui correspondent à la condition de ciblage du déploiement.
+* **Appliqué** affiche les appareils IoT Edge ciblés qui ne sont pas ciblés par un autre déploiement de priorité plus élevée.
+* **Signalement d'une réussite** affiche les appareils IoT Edge ayant signalé au service que les modules ont été déployés correctement. 
+* **Signalement d’un échec** affiche les appareils IoT Edge ayant signalé au service qu’un ou plusieurs modules n’ont pas été déployés correctement. Pour examiner l’erreur plus en détail, connectez-vous à distance à ces appareils et consultez les fichiers journaux.
+
+En outre, vous pouvez définir vos propres mesures personnalisées pour faciliter la surveillance et la gestion du déploiement. 
+
+Les métriques fournissent des nombres récapitulatifs des différents états qu’un appareil peut signaler après l’application d’une configuration de déploiement. Les métriques peuvent interroger le [propriétés signalées par le jumeau de module edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties), comme le dernier état souhaité ou l'heure de la dernière connexion. Par exemple : 
+
+```sql
+SELECT deviceId FROM devices
+  WHERE properties.reported.lastDesiredStatus.code = 200
+```
+
+L'ajout de vos propres métriques est facultatif et n’a aucun impact sur la configuration des appareils IoT Edge. 
+
+## <a name="layered-deployment"></a>Déploiement en couches
+
+Les déploiements en couches sont des déploiements automatiques qui peuvent être combinés afin de réduire le nombre de déploiements uniques à créer. Les déploiements en couches s'avèrent utiles dans les scénarios où les mêmes modules sont réutilisés selon différentes combinaisons dans de nombreux déploiements automatiques. 
+
+Les déploiements en couches possèdent les mêmes composants de base que n’importe quel déploiement automatique. Ils ciblent les appareils en fonction des balises présentes dans les jumeaux d'appareil et fournissent les mêmes fonctionnalités en termes d'étiquettes, de métriques et de rapports d’état. Les déploiements en couches sont également associés à des priorités et celles-ci sont utilisées pour déterminer le classement de plusieurs déploiements sur un appareil, et non le déploiement à lui appliquer. Par exemple, si deux déploiements en couches présentent un module ou un itinéraire portant le même nom, le déploiement en couches doté de la priorité la plus élevée est appliqué et remplace la priorité la plus faible. 
+
+Les modules d’exécution du système, edgeAgent et edgeHub, ne sont pas configurés dans le cadre d’un déploiement en couches. Tout appareil IoT Edge ciblé par un déploiement en couches doit d'abord faire l'objet d'un déploiement automatique standard qui fait office de base sur laquelle ajouter les déploiements en couches. 
+
+Un appareil IoT Edge ne peut appliquer qu'un seul déploiement automatique standard, mais peut appliquer plusieurs déploiements automatiques en couches. Les déploiements en couches ciblant un appareil doivent avoir une priorité plus élevée que le déploiement automatique pour cet appareil. 
+
+Prenons pour exemple une entreprise gérant des bâtiments. Cette dernière a développé des modules IoT Edge pour collecter des données à partir de caméras de sécurité, de capteurs de mouvement et d’ascenseurs. Cela étant, tous ses bâtiments ne peuvent pas utiliser les trois modules. Avec les déploiements automatiques standard, l’entreprise doit créer des déploiements individuels pour toutes les combinaisons de modules dont ses bâtiments ont besoin. 
+
+![Les déploiements automatiques standard doivent s’adapter à chaque combinaison de modules.](./media/module-deployment-monitoring/standard-deployment.png)
+
+Toutefois, lorsque l'entreprise bascule vers des déploiements automatiques en couches, elle peut créer les mêmes combinaisons de modules pour ses bâtiments, tout en réduisant ses déploiements à gérer. Chaque module possède son propre déploiement en couches, et les balises des appareils identifient les modules ajoutés à chaque bâtiment. 
+
+![Le déploiement automatique en couches simplifie les scénarios dans lesquels les mêmes modules sont combinés de différentes façons.](./media/module-deployment-monitoring/layered-deployment.png)
+
+### <a name="module-twin-configuration"></a>Configuration de jumeau de module
+
+Lorsque vous utilisez les déploiements en couches, vous pouvez, intentionnellement ou non, avoir deux déploiements avec le même module ciblant un appareil. Dès lors, vous pouvez décider si le déploiement doté d'une priorité plus élevée doit remplacer le jumeau de module ou s’y ajouter. Par exemple, vous pouvez avoir un déploiement qui applique le même module à 100 appareils différents. Pour autant, dix de ces appareils se trouvent dans des installations sécurisées et nécessitent une configuration supplémentaire pour pouvoir communiquer via les serveurs proxy. Vous pouvez utiliser un déploiement en couches pour ajouter des propriétés de jumeau de module permettant à ces dix appareils de communiquer en toute sécurité, sans remplacer les informations de jumeau de module existantes du déploiement de base. 
+
+Vous pouvez ajouter les propriétés de jumeau de module souhaitées dans le manifeste de déploiement. Alors que dans un déploiement standard, vous ajoutez des propriétés à la section **properties.desired** du jumeau de module, dans un déploiement en couches, vous pouvez déclarer un nouveau sous-ensemble de propriétés souhaitées. 
+
+Par exemple, dans un déploiement standard, vous pouvez ajouter le module de capteur de température simulé avec les propriétés souhaitées suivantes pour lui indiquer d’envoyer les données toutes les 5 secondes :
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+Dans un déploiement en couches ciblant les mêmes appareils, ou un sous-ensemble des mêmes appareils, vous pouvez ajouter une propriété supplémentaire indiquant au capteur simulé d’envoyer 1 000 messages, puis de s’arrêter. Pour ne pas remplacer les propriétés existantes, vous créez une nouvelle section dans les propriétés souhaitées appelée `layeredProperties`, contenant la nouvelle propriété :
+
+```json
+"SimulatedTemperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "StopAfterCount": 1000
+  }
+}
+```
+
+Un appareil sur lequel les deux déploiements sont appliqués indique ce qui suit dans le jumeau de module pour le capteur de température simulé : 
+
+```json
+"properties": {
+  "desired": {
+    "SendData": true,
+    "SendInterval": 5,
+    "layeredProperties": {
+      "StopAfterCount": 1000
+    }
+  }
+}
+```
+
+Si vous définissez le champ `properties.desired` du jumeau de module dans un déploiement en couches, les propriétés souhaitées pour ce module sont remplacées dans les déploiements de priorité inférieure. 
 
 ## <a name="phased-rollout"></a>Déploiement progressif 
 
-Un déploiement progressif est un processus global par lequel un opérateur déploie les modifications sur un ensemble étendu d’appareils IoT Edge. L’objectif est d’apporter des modifications progressivement afin de réduire le risque d’étendre les modifications avec rupture à une plus grande échelle.  
+Un déploiement progressif est un processus global par lequel un opérateur déploie les modifications sur un ensemble étendu d’appareils IoT Edge. L’objectif est d’apporter des modifications progressivement afin de réduire le risque d’étendre les modifications avec rupture à une plus grande échelle. Les déploiements automatiques facilitent la gestion des déploiements progressifs sur une flotte d'appareils IoT Edge. 
 
 Un déploiement progressif est exécuté dans les phases et étapes suivantes : 
 
@@ -115,7 +182,9 @@ Un déploiement progressif est exécuté dans les phases et étapes suivantes :
 
 ## <a name="rollback"></a>Restauration
 
-Les déploiements peuvent être restaurés en cas d’erreur ou de mauvaise configuration.  Étant donné qu’un déploiement définit la configuration de module absolue pour un appareil IoT Edge, un déploiement supplémentaire doit cibler le même appareil à une priorité inférieure, même si l’objectif est de supprimer tous les modules.  
+Les déploiements peuvent être restaurés en cas d’erreur ou de mauvaise configuration. Étant donné qu’un déploiement définit la configuration de module absolue pour un appareil IoT Edge, un déploiement supplémentaire doit cibler le même appareil à une priorité inférieure, même si l’objectif est de supprimer tous les modules.  
+
+La suppression d’un déploiement ne supprime pas les modules des appareils ciblés. Un autre déploiement doit définir une nouvelle configuration pour les appareils, même s’il s’agit d’un déploiement vide. 
 
 Effectuez des restaurations dans l’ordre suivant : 
 

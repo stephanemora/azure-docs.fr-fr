@@ -1,5 +1,6 @@
 ---
-title: Gérer des comptes de développeurs à l’aide de groupes dans Gestion des API Azure | Microsoft Docs
+title: Gérer des comptes de développeurs à l'aide de groupes dans Gestion des API Azure
+titleSuffix: Azure API Management
 description: Apprenez à gérer des comptes de développeurs à l'aide de groupes dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: f83b91933e2aca4bf77fcab4a30f2123f4eb4ed0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 182f0ea93ddfb2ab64de1c15b36958537fa5431f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073633"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430723"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Création et utilisation de groupes pour gérer les comptes de développeurs dans Gestion des API Azure
 
@@ -37,13 +38,13 @@ En plus de créer et gérer des groupes dans le portail de publication, vous pou
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Effectuez les tâches indiquées dans cet article : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-group"></a>Création d’un groupe
+## <a name="create-group"> </a>Créer un groupe
 
 Cette section montre comment ajouter un nouveau groupe à votre compte Gestion des API.
 
@@ -58,7 +59,7 @@ Une fois le groupe créé, il est ajouté à la liste **Groupes**. <br/>Pour mod
 
 Maintenant que le groupe est créé, il peut être associé à des produits et des développeurs.
 
-## <a name="associate-group-product"></a>Association d’un groupe à un produit
+## <a name="associate-group-product"> </a>Associer un groupe à un produit
 
 1. Sélectionnez l’onglet **Produits** vers la gauche.
 2. Cliquez sur le nom du produit souhaité.
@@ -79,7 +80,7 @@ Une fois le produit associé à un groupe, les développeurs de ce groupe peuven
 > [!NOTE]
 > Pour ajouter des groupes Azure Active Directory, consultez la rubrique [Comment autoriser des comptes de développeur utilisant Azure Active Directory dans Gestion des API Azure](api-management-howto-aad.md).
 
-## <a name="associate-group-developer"></a>Association des groupes aux développeurs
+## <a name="associate-group-developer"> </a>Associer des groupes aux développeurs
 
 Cette section montre comment associer des groupes à des membres.
 

@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Personalizer pour Python | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Personalizer pour Python'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser la bibliothèque de client Personalizer pour Python à l’aide d’une boucle d’apprentissage.
+description: Ce guide de démarrage rapide montre comment commencer avec la bibliothèque cliente Personalizer pour Python en utilisant une boucle d’apprentissage.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 02c4e0142ed7b3719cc07306f089769c532d6653
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f999a54c7841437e169205fed2edea1630aa81a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378940"
 ---
 # <a name="quickstart-personalizer-client-library-for-python"></a>Démarrage rapide : Bibliothèque de client Personalizer pour Python
 
@@ -28,7 +28,7 @@ Découvrez comment utiliser la bibliothèque de client Personalizer pour Python.
 
 [Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Exemples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
@@ -39,7 +39,7 @@ Découvrez comment utiliser la bibliothèque de client Personalizer pour Python.
 Plusieurs étapes sont nécessaires pour utiliser ce guide de démarrage rapide :
 
 * Dans le portail Azure, créer une ressource Personalizer
-* Dans le portail Azure, pour la ressource Personalizer, dans la page **Configuration**, changer la fréquence de mise à jour du modèle
+* Dans le portail Azure, pour la ressource Personalizer, dans la page **Configuration**, changez la fréquence de mise à jour du modèle.
 * Dans un éditeur de code, créer un fichier de code et le modifier
 * À partir de la ligne de commande ou du terminal, installer le SDK
 * À partir de la ligne de commande ou du terminal, exécuter le fichier de code
@@ -170,12 +170,12 @@ python sample.py
 
 ![Ce programme de démarrage rapide pose quelques questions pour recueillir les préférences de l’utilisateur, appelées « caractéristiques », puis fournit l’action classée en premier.](./media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
+title: Termes du fichier d’utilisation et de frais Azure dans le cadre d’un Contrat client Microsoft
 description: Apprenez à lire et à comprendre les sections du fichier CSV détaillant l’utilisation et les frais Azure associés à votre profil de facturation.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b46c635b28d693cb0d6ab9e643a8a1ee9e55fc64
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f619d11c3df29a629b8b4da7b440376d6e9aedbd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226084"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388888"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termes du fichier détaillant l’utilisation et les frais Azure dans le cadre d’un Contrat client Microsoft
 
@@ -34,10 +34,10 @@ Les clients EA remarqueront que les termes employés dans le fichier CSV d’uti
 
 | Fichier CSV détaillant l’utilisation Azure dans le cadre d’un Contrat Entreprise | Fichier CSV détaillant l'utilisation et les frais Azure dans le cadre d'un Contrat client Microsoft |
 | --- | --- |
-| Date | date |
-| Mois| date |
-| jour | date |
-| Year | date |
+| Date | Date |
+| Month| Date |
+| jour | Date |
+| Year | Date |
 | Produit | product |
 | ID du compteur | meterID |
 | MeterCategory | meterCategory |
@@ -80,7 +80,7 @@ billingPeriodStartDate | Date de début de la période de facturation pour laque
 billingPeriodEndDate | Date de fin de la période de facturation pour laquelle la facture est générée
 servicePeriodStartDate | Date de début de la période de tarification qui a défini et bloqué les prix correspondant au service consommé ou acheté
 servicePeriodEndDate | Date de fin de la période de tarification qui a défini et bloqué les prix correspondant au service consommé ou acheté
-date | Pour les frais basés sur l'utilisation d'Azure et de la Place de marché, il s'agit de la date de tarification. Pour les achats ponctuels (Réservations, Place de marché) ou les frais récurrents fixes (offres de support), il s'agit de la date d'achat.
+Date | Pour les frais basés sur l'utilisation d'Azure et de la Place de marché, il s'agit de la date de tarification. Pour les achats ponctuels (Réservations, Place de marché) ou les frais récurrents fixes (offres de support), il s'agit de la date d'achat.
 serviceFamily | Famille de services à laquelle le service appartient
 productOrderId | Identificateur unique de la commande de produit
 productOrderName | Nom unique de la commande de produit
@@ -106,7 +106,7 @@ resourceType | Type d'instance de ressource
 resourceLocation | Identifie l'emplacement du centre de données dans lequel la ressource est exécutée
 location | Emplacement normalisé de la ressource si différents emplacements de ressource sont configurés pour les mêmes régions
 quantité | Nombre d'unités achetées ou consommées
-unitOfMeasure | Unité de mesure utilisée pour la facturation du service. Par exemple, les services de calcul sont facturés à l'heure.
+unitOfMeasure | Unité de mesure pour la facturation du service. Par exemple, les services de calcul sont facturés à l’heure.
 chargeType | Type de frais. Valeurs : <ul><li>AsCharged-Usage : frais comptabilisés en fonction de l'utilisation d'un service Azure. Cela inclut l'utilisation sur des machines virtuelles non facturés pour cause d'instances réservées.</li><li>AsCharged-PurchaseMarketplace : frais récurrents ponctuels ou fixes liés à des achats effectués sur la Place de marché</li><li>AsCharged-UsageMarketplace : frais liés à des services de la Place de marché facturés en unités de consommation</li></ul>
 isAzureCreditEligible | Indicateur signalant si les frais liés au service peuvent être payés à l'aide de crédits Azure (valeurs : True, False)
 serviceInfo1 | Métadonnées spécifiques au service

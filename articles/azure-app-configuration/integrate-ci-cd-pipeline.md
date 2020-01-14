@@ -1,5 +1,6 @@
 ---
-title: Tutoriel pour l’intégration avec un pipeline d’intégration et de livraison continu à l’aide d’Azure App Configuration | Microsoft Docs
+title: 'Tutoriel : Intégrer avec un pipeline d’intégration et livraison continus'
+titleSuffix: Azure App Configuration
 description: Dans ce tutoriel, vous allez apprendre à créer un fichier de configuration en utilisant des données dans Azure App Configuration pendant l’intégration et la livraison continues
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: e9b81baed14b18c6db736bd94a2aba43a4e671ad
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f8adfee1e707181e78f4e845f61477b08af935e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185099"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433638"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Intégrer avec un pipeline CI/CD
 
@@ -37,7 +38,7 @@ L’exemple suivant montre comment inclure les données d’App Configuration en
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce tutoriel. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous créez localement, téléchargez et installez l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) si vous ne l’avez pas déjà fait.
 

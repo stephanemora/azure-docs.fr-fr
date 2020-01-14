@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
+title: 'Tutoriel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment configurer une instance de recherche personnalisée Bing et comment l’intégrer à une page web.
+description: Découvrez comment configurer une instance de recherche personnalisée Bing et comment l’intégrer à une page web avec ce tutoriel.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-custom-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: 5a4d797fecca8e040a6e22bf59a5776b1ffff80f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3d571f494d5f08c7c9e3c551eba88fb86e1ec23
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977197"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448782"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web Recherche personnalisée
+# <a name="tutorial-build-a-custom-search-web-page"></a>Tutoriel : Créer une page web Recherche personnalisée
 
-La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
+La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
 Ce tutoriel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
 
@@ -32,10 +32,10 @@ Les tâches traitées sont les suivantes :
 > - Ajout d’entrées épinglées
 > - Intégration de la recherche personnalisée à une page web
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Pour suivre ce tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Recherche personnalisée Bing.  Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-- Si vous n’avez pas encore installé Visual Studio 2017 ou version ultérieure, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
+- Si vous n’avez pas encore installé Visual Studio 2017 ou ultérieur, vous pouvez télécharger et utiliser **gratuitement** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée
 
@@ -45,7 +45,7 @@ Pour créer une instance Recherche personnalisée Bing :
   
 2. Accédez au [portail](https://customsearch.ai) de la Recherche personnalisée.  
   
-3. Connectez-vous au portail à l’aide d’un compte Microsoft. Si vous n’en avez pas, cliquez sur **Créer un compte Microsoft**. Si c’est la première fois que vous utilisez le portail, des autorisations d’accès à vos données vous sont demandées. Cliquez sur **Oui**.  
+3. Connectez-vous au portail en utilisant un compte Microsoft. Si vous n’avez pas de compte Microsoft, cliquez sur **Create a Microsoft account** (Créer un compte Microsoft). Si c’est la première fois que vous utilisez le portail, des autorisations d’accès à vos données vous sont demandées. Cliquez sur **Oui**.  
   
 4. Une fois connecté, cliquez sur **New custom search** (Nouvelle recherche personnalisée). Dans la fenêtre **Create a new custom search instance** (Créer une nouvelle instance de recherche personnalisée), entrez un nom explicite et décrivez le type de contenu que la recherche retourne. Vous pouvez modifier le nom à tout moment.  
   
@@ -127,8 +127,8 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
 
 Il existe deux façons de consommer l’IU hébergée.  
 
-- Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
-- Option 2 : utiliser le point de terminaison HTML fourni.
+- Option 1 : intégrer l’extrait de code JavaScript fourni dans votre application.
+- Option n°2 : utiliser le point de terminaison HTML fourni.
 
 Le reste de ce tutoriel illustre l’**Option 1 : Extrait de code Javascript**.  
 

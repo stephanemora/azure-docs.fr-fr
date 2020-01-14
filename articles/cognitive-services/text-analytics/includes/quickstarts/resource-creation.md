@@ -2,18 +2,28 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 2fe3104d61b5fe2fbf9624ed2fd4fdb2de5686a2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6b0b7b857e109997afb441aa60972c6da61f54b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750123"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446199"
 ---
-Obtenez une clé et un point de terminaison pour authentifier vos applications. Créez une ressource pour Analyse de texte en utilisant le [portail Azure](../../../cognitive-services-apis-create-account.md) ou [Azure CLI](../../../cognitive-services-apis-create-account-cli.md) sur votre ordinateur local. Vous pouvez également :
+Commencez à utiliser le API Analyse de texte avec l’une des options ci-dessous.
 
-* Obtenir une [clé d’évaluation](https://azure.microsoft.com/try/cognitive-services/#decision) valide pendant 7 jours gratuitement. Une fois l’inscription terminée, elle sera disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).
 
-Après avoir obtenu une clé et un point de terminaison à partir de votre ressource ou abonnement d’essai, créez deux [variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). L’une nommée `TEXT_ANALYTICS_SUBSCRIPTION_KEY` pour votre clé, l’autre nommée `TEXT_ANALYTICS_ENDPOINT` pour votre point de terminaison.
+* <a href="https://azure.microsoft.com/try/cognitive-services/my-apis/?api=text-analytics" title="Créer une ressource d’évaluation Analyse de texte" target="_blank">Créer une ressource d’évaluation <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * Aucun abonnement Azure n’est nécessaire. 
+    * Valable pendant sept jours, gratuitement. Une fois l’inscription terminée, une clé d’essai et un point de terminaison seront disponibles sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
+    * Il s’agit d’une option intéressante si vous souhaitez essayer l’API Analyse de texte, mais que vous n’avez pas d’abonnement Azure.
+    
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Créer une ressource Analyse de texte"  target="_blank">Créer une ressource Analyse de texte <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.
+    * Utilisez le niveau tarifaire Gratuit pour tester le service, puis effectuez par la suite une mise à niveau vers un niveau payant pour la production.
+     
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="Créer une ressource pour plusieurs services" target="_blank">Créer une ressource multiservice <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+    * Disponible via le portail Azure jusqu’à ce que vous supprimiez la ressource.  
+    * Utilisez la même clé et le même point de terminaison pour vos applications, dans plusieurs services Cognitive Services.
+    
