@@ -11,18 +11,18 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819839"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462612"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
 Azure SQL Database vous permet d’ajouter de manière dynamique des ressources à votre base de données avec un [temps d’arrêt](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/) minimal ; toutefois, il existe un délai de basculement durant lequel la connectivité à la base de données est perdue pendant un court laps de temps, qui peut être atténué à l’aide d’une logique de nouvelle tentative.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lorsque la demande ciblant votre application s’accroît de quelques appareils et clients à plusieurs millions, Azure SQL Database se met à l’échelle immédiatement avec un temps d’arrêt minimal. L’extensibilité est une des caractéristiques les plus importantes de PaaS qui vous permet d’ajouter plus de ressources de façon dynamique à votre service, si besoin. Azure SQL Database vous permet de modifier en toute simplicité vos ressources (alimentation processeur, mémoire, débit E/S et stockage) allouées à vos bases de données.
 

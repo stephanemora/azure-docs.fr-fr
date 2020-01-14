@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 01/06/2020
+ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213360"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689094"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -22,27 +22,27 @@ Pour commencer à créer des offres Software as a service (SaaS), veillez à d�
 ![Tableau de bord de la Place de marché commerciale sur Partner Center](./media/new-offer-overview.png)
 
 >[!Note]
-> Dès lors qu’une offre est publiée, les modifications dont elle fait l’objet dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont dans le store après republication. Veillez à soumettre l’offre pour publication après y avoir apporté des modifications.
+> Dès lors qu’une offre est publiée, les modifications dont elle fait l’objet dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont dans le store après republication. Veillez à soumettre l’offre pour publication après avoir apporté des modifications.
 
-Sélectionnez le + **Nouvelle offre...** , puis sélectionnez l’élément de menu **Software as a service**. 
+Sélectionnez le + **Nouvelle offre...** , puis sélectionnez l’élément de menu **Software as a service**.
 
 Si vous sélectionnez un autre type d’offre, vous pouvez être redirigé vers l’ancien [Portail Cloud Partner](https://cloudpartner.azure.com/). À l’heure actuelle, seules les offres SaaS et Dynamics 365 sont disponibles dans le portail de la Place de marché commerciale sur Partner Center.
 
 ![Créer une fenêtre d’offre sur Partner Center](./media/new-offer-click.png)
 
-La boîte de dialogue **Nouvelle offre** s’affiche. 
+La boîte de dialogue **Nouvelle offre** s’affiche.
 
 ![Boîte de dialogue Nouvelle offre](./media/new-offer-popup.png)
 
 ## <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et vous ne pouvez pas le modifier après avoir cliqué sur *Créer*.  
+- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). L’ **ID de l’offre** est limité à 50 caractères et ne peut pas être modifié une fois que vous avez sélectionné *Créer*.  
 Exemple : test-offer-1
 <br>Voici l’URL obtenu : `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Alias de l’offre** : Le nom utilisé pour faire référence à l’offre dans le portail espace partenaires. Ce nom n’est pas utilisé dans la place de marché et est différent du *nom de l’offre* et d’autres valeurs qui seront présentées aux clients. Cette valeur ne peut pas être modifiée après que vous ayez sélectionné *Créer*.
 
-<br>Exemple : Offre test 1&#8482;
+<br>Exemple : Offre test 1&#8482;
 
 Sélectionnez **Create** (Créer).  Une page **Présentation de l’offre** est créée.  
 
@@ -52,14 +52,14 @@ Sélectionnez **Create** (Créer).  Une page **Présentation de l’offre** est 
 
 ## <a name="offer-overview"></a>Vue d’ensemble de l’offre
 
-La page **Présentation de l’offre** comprend les informations suivantes : 
+La page **Présentation de l’offre** comprend les informations suivantes :
 
-- Le **statut de publication**, qui affiche une représentation visuelle des étapes requises pour publier cette offre et le temps nécessaire à chaque étape. Les icônes des étapes de publication non complétées sont grisées. 
+- Le **statut de publication**, qui affiche une représentation visuelle des étapes requises pour publier cette offre et le temps nécessaire à chaque étape. Les icônes des étapes de publication non complétées sont grisées.
 
 - Le menu **Présentation de l’offre** contient une liste de liens pour réaliser des opérations sur cette offre. Cette liste d’opérations change selon la sélection que vous faites pour votre offre.  
-    - Si l’offre est un brouillon : Supprimer le brouillon 
-    - Si l’offre est publiée : Arrêter de vendre l’offre 
-    - Si l’offre est disponible en préversion : Mettre en service 
+    - Si l’offre est un brouillon : Supprimer le brouillon
+    - Si l’offre est publiée : Arrêter de vendre l’offre
+    - Si l’offre est disponible en préversion : Mettre en service
     - Si vous n’avez pas complété Déconnexion de l’éditeur : Annuler la publication
 
 ## <a name="offer-setup"></a>Configuration de l’offre
@@ -68,7 +68,7 @@ L’onglet **Configuration de l’offre** nécessite les informations suivantes 
 
 - **Souhaitez-vous vendre via Microsoft ?** (Oui/Non)
     - **Oui**, vous souhaitez vendre votre offre via Microsoft, avec des transactions sur la place de marché hébergée par Microsoft en votre nom, ou 
-    - **Non**, vous préférez simplement répertorier votre offre via les places de marché, et traiter les transactions monétaires indépendamment de Microsoft.    
+    - **Non**, vous préférez simplement répertorier votre offre via les places de marché, et traiter les transactions monétaires indépendamment de Microsoft.
 
 ### <a name="sell-through-microsoft"></a>Vendre via Microsoft
 
@@ -102,16 +102,16 @@ Le tableau suivant montre un exemple de répartition des coûts et des paiements
 - Les partenaires ayant été qualifiés pour les **Frais liés au service Place de marché réduits** verront des frais de transaction réduits sur les offres SaaS de mai 2019 à juin 2020. Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et verse 90 $ à l’éditeur.
 
 > [!NOTE]
-> **Frais liés au service Place de marché réduits** : Pour certaines offres SaaS que vous avez publiées sur notre Place de marché commercial, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d’éditeur Microsoft) à 10 %. Afin que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP.  L’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin de chaque mois afin de recevoir ces frais liés au service Place de marché réduits pour le mois.  Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits ne sont disponibles qu’aux offres qualifiées pour les frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retournent à leur montant initial. 
+> **Frais liés au service Place de marché réduits** : Pour certaines offres SaaS que vous avez publiées sur notre Place de marché commercial, Microsoft réduit ses frais liés au service Place de marché de 20 % (comme décrit dans le Contrat d’éditeur Microsoft) à 10 %. Afin que votre offre soit qualifiée, au moins une de vos offres doit avoir été désignée par Microsoft comme étant Prête à la co-vente IP ou Priorité à la co-vente IP.  L’éligibilité doit être respectée au moins cinq (5) jours ouvrés avant la fin de chaque mois afin de recevoir ces frais liés au service Place de marché réduits pour le mois.  Les frais liés au service Place de marché réduits ne s’appliquent pas aux machines virtuelles, aux applications managées ou tout autre produit, disponible via notre Place de marché commerciale.  Les frais liés au service Place de marché réduits ne sont disponibles qu’aux offres qualifiées pour les frais de licence collectés par Microsoft entre le 1er mai 2019 et le 30 juin 2020.  Au-delà de cette date, les frais liés au service Place de marché réduits retournent à leur montant initial.
 
 ### <a name="list-through-microsoft"></a>Répertorier via Microsoft
 
-Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de marché. Choisir de répertorier votre offre uniquement et de ne pas faire de transactions via Microsoft signifie que Microsoft ne participe pas directement dans les transactions de licences logicielles. Il n’y a aucun frais de transaction associé et l’éditeur récupère 100 % des frais de licence logicielle collectés auprès des clients. Toutefois, l’éditeur a la responsabilité et la charge de tous les aspects des transactions de licence logicielle, y compris mais sans s’y limiter, la commande, le traitement, le contrôle, la tarification, la facturation, le paiement et la collecte. 
+Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de marché. Choisir de répertorier votre offre uniquement et de ne pas faire de transactions via Microsoft signifie que Microsoft ne participe pas directement dans les transactions de licences logicielles. Il n’y a aucun frais de transaction associé et l’éditeur récupère 100 % des frais de licence logicielle collectés auprès des clients. Toutefois, l’éditeur a la responsabilité et la charge de tous les aspects des transactions de licence logicielle, y compris mais sans s’y limiter, la commande, le traitement, le contrôle, la tarification, la facturation, le paiement et la collecte.
 
 - **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?**
 
 ##### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
+Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Essai gratuit (annonce)
 Répertoriez votre offre aux clients avec un lien vers une version d’évaluation gratuite en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.
@@ -120,7 +120,7 @@ Répertoriez votre offre aux clients avec un lien vers une version d’évaluati
 > Les jetons que votre application recevra via votre lien d’évaluation peuvent uniquement être utilisés pour obtenir des informations utilisateur par le biais de Azure AD pour automatiser la création de comptes dans votre application. Les comptes Microsoft (MSA) ne sont pas pris en charge pour l’authentification à l’aide de ce jeton.
 
 ##### <a name="contact-me"></a>Me contacter
-Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
+Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management).
 
 ## <a name="example-marketplace-offer-listing"></a>Exemple d’annonce d’offre sur Place de marché
 
@@ -159,36 +159,64 @@ En activant une version d’évaluation, vous devrez configurer un environnement
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
-## <a name="properties"></a>properties
-L’onglet **Propriétés** vous invite à définir les catégories et secteurs utilisés pour grouper votre offre selon les Places de marché, les contrats légaux de votre offre, et la version de votre application. 
+## <a name="properties"></a>Propriétés
 
-Sélectionnez **Enregistrer** après avoir renseigné ces champs. 
+L’onglet **Propriétés** vous invite à définir les catégories et secteurs utilisés pour grouper votre offre selon les Places de marché, les contrats légaux de votre offre, et la version de votre application.
+
+Sélectionnez **Enregistrer** après avoir renseigné ces champs.
 
 ### <a name="category"></a>Category
-Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Expliquez dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
+
+Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Dans la description de l’offre, expliquez comment votre offre prend en charge ces catégories.
 
 ### <a name="industry"></a>Secteur d’activité
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Version de l’application
-Il s’agit d’un champ facultatif utilisé dans la Place de marché AppSource pour identifier le numéro de version de votre offre. 
 
-### <a name="standard-contract"></a>Contrat standard
+Il s’agit d’un champ facultatif utilisé dans la Place de marché AppSource pour identifier le numéro de version de votre offre.
 
-- **Utiliser le contrat standard ?**
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrat standard pour la place de marché commerciale de Microsoft
 
-Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter les transactions sur la place de marché. 
+Microsoft fournit un modèle de contrat Standard.
 
-Plutôt que d’élaborer des conditions générales personnalisées, les éditeurs de la Place de marché Azure peuvent choisir de proposer leur logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois. 
+- **Utiliser le contrat Standard pour la place de marché commercial Microsoft ?**
 
-Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid=2041178.
+Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un contrat Standard pour la place de marché commerciale de Microsoft afin de faciliter les transactions sur la place de marché. Plutôt que d’élaborer des conditions générales personnalisées, les éditeurs de la place de marché commerciale peuvent choisir de proposer leur logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois. Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid=2041178.
 
-#### <a name="terms-of-use"></a>Conditions d’utilisation
+Vous pouvez choisir d’utiliser le contrat Standard au lieu de fournir vos propres conditions générales en activant la case à cocher « Utiliser le contrat Standard pour la place de marché commerciale ».
 
-Si les termes du contrat de licence sont différents du contrat Standard, vous pouvez choisir d’entrer vos propres conditions d’utilisation ici. Vous pouvez les saisir sous forme de texte brut ou en tant qu’URL unique liée aux termes du contrat de licence.
+![Utiliser la case à cocher Contrat Standard](./media/use-standard-contract.png)
 
-Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. 
+> [!NOTE]
+> Après avoir publié une offre à l’aide du contrat Standard pour la place de marché commerciale de Microsoft, vous ne pouvez pas utiliser vos propres conditions générales. Vous devez faire un choix entre les deux. Vous proposez votre solution avec le contrat Standard **ou** avec vos propres conditions générales. Si vous souhaitez modifier les conditions du contrat Standard, vous pouvez le faire par le biais des Modifications du contrat Standard.
+
+#### <a name="standard-contract-amendments"></a>Contrat Standard | Modifications
+
+Les modifications du contrat Standard permettent aux éditeurs de sélectionner le contrat Standard par souci de simplicité et de personnaliser les conditions pour leur produit ou entreprise. Les clients sont invités à examiner les modifications apportées au contrat, puis à accepter le contrat Standard de Microsoft.
+
+Deux types de modifications sont proposées aux éditeurs de la place de marché commerciale :
+
+- Modifications universelles : Ces modifications sont appliquées de manière universelle au contrat Standard de tous les clients. Les modifications universelles s’affichent pour chaque client de l’offre dans le flux d’achat. Les clients doivent accepter les conditions du contrat Standard et la modification avant de pouvoir utiliser votre offre.
+- Modifications personnalisées : Il s’agit de modifications spéciales apportées au contrat Standard qui ciblent certains clients uniquement via les ID de locataires Azure. Les éditeurs peuvent choisir le locataire qu'ils souhaitent cibler. Seuls les clients du locataire recevront les conditions personnalisées dans le flux d’achat de l’offre.  Les clients doivent accepter les conditions du contrat Standard et la ou les modifications avant de pouvoir utiliser votre offre.
+
+>[!NOTE]
+> Ces deux types de modifications s’ajoutent l’un à l’autre. Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée au contrat Standard lors de l’achat.
+
+**Termes d’amendement universel au contrat Standard pour la place de marché commerciale Microsoft** : Entrez les conditions de l’amendement universel dans cette zone. Vous pouvez fournir un seul amendement universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ceux-ci sont affichés pour les clients dans AppSource, la place de marché Azure et/ou le Portail Azure pendant le processus de découverte et d’achat.
+
+**Termes d'amendements personnalisées du contrat Standard pour la place de marché commerciale de Microsoft**: Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées**. Vous pouvez fournir jusqu’à 10 termes d’amendement personnalisés par offre.
+
+- **Termes d’amendement personnalisés**: Saisissez vos conditions d’amendement personnalisées dans la zone Conditions d’amendement personnalisées. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Seuls les clients des ID de locataire que vous spécifiez pour ces conditions personnalisées seront présentés avec les termes de l’amendement personnalisé dans le flow d’achat de l’offre dans le Portail Azure.  
+- **ID de locataire** (obligatoire) : Chaque amendement personnalisé peut être ciblé vers jusqu’à 20 ID de locataire. Si vous ajoutez un amendement personnalisé, vous devez fournir au moins un ID de locataire. L’ID de locataire identifie votre client dans Azure. Vous pouvez demander à votre client cet ID et il peut le trouver en accédant à portal.azure.com > Azure Active Directory > Propriétés. La valeur de l’ID de répertoire est l’ID de locataire (par exemple, 50c464d3-4930-494c-963C-1e951d15360e). Vous pouvez également Rechercher l’ID de locataire de l’organisation de votre client à l’aide de son URL de nom de domaine sur [Qu’est-ce que mon Microsoft Azure et mon ID de locataire Office 365 ?](https://www.whatismytenantid.com).
+- **Description** (facultatif) : Vous pouvez éventuellement fournir une description claire de l’ID de locataire, qui vous aide à identifier le client que vous ciblez avec cet amendement.
+
+#### <a name="terms-and-conditions"></a>Conditions générales
+
+Si vous souhaitez fournir vos propres conditions générales, vous pouvez les saisir dans le champ Conditions générales. Vous pouvez saisir jusqu’à 10 000 caractères dans ce champ. Si vos conditions générales nécessitent une description plus longue, saisissez un lien URL unique dans ce champ où trouver les conditions générales. Ceci affichera un lien actif aux clients.
+
+Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
@@ -208,28 +236,28 @@ Renseignez les informations à afficher dans la place de marché, dont les descr
 - **Description** (obligatoire) : Renseignez une description de votre offre à afficher dans la présentation des annonces sur une place de marché. Vous pouvez inclure une proposition de valeur, des avantages principaux, des associations de catégorie ou de secteur, des opportunités d’achats dans une application, des publications requises et un lien pour en savoir plus.
 Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. Pour obtenir plus d’astuces, consultez l’article [Rédiger une bonne description d’application](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Mots clés de recherche** : Entrez un maximum de trois mots clés que les clients pourront utiliser pour rechercher votre offre sur les Places de marché.
-- **Instructions de prise en main** (obligatoire) : Expliquez comment configurer et démarrer votre application à des clients potentiels.  Ce démarrage rapide peut contenir des liens vers des ressources en ligne plus détaillées. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. 
+- **Instructions de prise en main** (obligatoire) : Expliquez comment configurer et démarrer votre application à des clients potentiels.  Ce démarrage rapide peut contenir des liens vers des ressources en ligne plus détaillées. Jusqu’à 3 000 caractères peuvent être entrés dans ce champ.
 
 #### <a name="description"></a>**Description**
 
-Ce champ est obligatoire. Éléments à inclure dans la description : 
+Ce champ est obligatoire. Éléments à inclure dans la description :
 
 * Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description.  
 * Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
 * Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients.  
-* Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés. 
+* Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
 
-Votre proposition de valeur doit comprendre les composants suivants : 
+Votre proposition de valeur doit comprendre les composants suivants :
 
-* Description du produit. 
-* Type d’utilisateur qui tire parti du produit. 
-* Les clients ont des besoins ou des problèmes auxquels le produit répond. 
+* Description du produit.
+* Type d’utilisateur qui tire parti du produit.
+* Les clients ont des besoins ou des problèmes auxquels le produit répond.
 
-Pour que la description de votre offre soit plus attrayante, vous pouvez utiliser des balises HTML pour mettre en forme la description. 
+Pour que la description de votre offre soit plus attrayante, vous pouvez utiliser des balises HTML pour mettre en forme la description.
 
 1. Si vous souhaitez créer des paragraphes, ajoutez `<p>` au début du texte et ajoutez `</p>` à la fin.
 
-    **Exemple**: 
+    **Exemple** :
 
     `<p>` Il s’agit de mon premier paragraphe. `</p>` <br>
     `<p>` Il s’agit de mon deuxième paragraphe. `</p>` <br>
@@ -239,46 +267,46 @@ Pour que la description de votre offre soit plus attrayante, vous pouvez utilise
     <p> Il s’agit de mon premier paragraphe. </p>
     <p> Il s’agit de mon deuxième paragraphe. </p>
 
-1. Si vous souhaitez ajouter une **liste à puces**, placez votre texte entre les balises `<li>` ci-dessous. Vous pouvez copier et coller plus d’éléments à puces (éléments entre les balises `<li>` et `</li>`) à l’intérieur des balises `<ul>` et `</ul>`. .Assurez-vous d’ajouter le`<ul></ul>`. 
+1. Si vous souhaitez ajouter une **liste à puces**, placez votre texte entre les balises `<li>` ci-dessous. Vous pouvez copier et coller plus d’éléments à puces (éléments entre les balises `<li>` et `</li>`) à l’intérieur des balises `<ul>` et `</ul>`. .Assurez-vous d’ajouter le`<ul></ul>`.
 
-    **Exemple**:
+    **Exemple** :
 
     ```
     <ul> 
-        <li>add text here</li> 
-        <li> add text here </li> 
-        <li> add text here </li> 
-    </ul> 
+        <li>add text here</li>
+        <li> add text here </li>
+        <li> add text here </li>
+    </ul>
     ```
 
     La section ci-dessus ressemblerait à ceci :
     <ul> 
-        <li>ajoutez du texte ici</li> 
-        <li> ajoutez du texte ici </li> 
-        <li> ajoutez du texte ici </li> 
+        <li>ajoutez du texte ici</li>
+        <li> ajoutez du texte ici </li>
+        <li> ajoutez du texte ici </li>
     </ul> 
 
-1. Pour **mettre en gras** le contenu, ajoutez `<b>` au début du texte que vous souhaitez mettre en gras et ajoutez `</b>` à la fin du texte que vous souhaitez mettre en gras. 
+1. Pour **mettre en gras** le contenu, ajoutez `<b>` au début du texte que vous souhaitez mettre en gras et ajoutez `</b>` à la fin du texte que vous souhaitez mettre en gras.
 
-    **Exemple**: `<b>`VERSION D’ÉVALUATION GRATUITE`</b>`
+    **Exemple** : `<b>`VERSION D’ÉVALUATION GRATUITE`</b>`
     
-    Avec le texte ci-dessus, les mots VERSION D’ÉVALUATION GRATUITE seront mis en gras dans la description de l’offre dans la vitrine. 
+    Avec le texte ci-dessus, les mots VERSION D’ÉVALUATION GRATUITE seront mis en gras dans la description de l’offre dans la vitrine.
 
     **VERSION D’ÉVALUATION GRATUITE**
 
-1. Pour ajouter des **sauts de ligne** entre votre contenu, ajoutez `<br>` avant le contenu que vous souhaitez démarrer sur une nouvelle ligne. Si vous souhaitez conserver un espace et vous assurer que le contenu commence sur une nouvelle ligne, ajoutez `<br><br>` avant le contenu. 
+1. Pour ajouter des **sauts de ligne** entre votre contenu, ajoutez `<br>` avant le contenu que vous souhaitez démarrer sur une nouvelle ligne. Si vous souhaitez conserver un espace et vous assurer que le contenu commence sur une nouvelle ligne, ajoutez `<br><br>` avant le contenu.
 
-    **Exemple**:
+    **Exemple** :
 
-    Il s’agit d’une ligne de texte. `<br>` Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. `<br><br>` Il s’agit d’une ligne qui démarre deux lignes au-dessous. 
+    Il s’agit d’une ligne de texte. `<br>` Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. `<br><br>` Il s’agit d’une ligne qui démarre deux lignes au-dessous.
 
     La section ci-dessus ressemblerait à ceci :
 
-    Il s’agit d’une ligne de texte. <br> Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. <br><br> Il s’agit d’une ligne qui démarre deux lignes au-dessous. 
+    Il s’agit d’une ligne de texte. <br> Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. <br><br> Il s’agit d’une ligne qui démarre deux lignes au-dessous.
 
-1. Si vous souhaitez **augmenter la taille du texte**, commencez par choisir la taille du texte. Utilisez les exemples ci-dessous. Après avoir sélectionné la taille du texte, ajoutez les balises `<H*></H*>` correspondantes au début et à la fin du texte. 
+1. Si vous souhaitez **augmenter la taille du texte**, commencez par choisir la taille du texte. Utilisez les exemples ci-dessous. Après avoir sélectionné la taille du texte, ajoutez les balises `<H*></H*>` correspondantes au début et à la fin du texte.
 
-    **Exemple**:
+    **Exemple** :
 
     `<h1>`Il s’agit du titre 1`</h1>` <br>
     `<h2>`Il s’agit du titre 2`</h2>` <br>
@@ -372,7 +400,7 @@ L’onglet **Liste des plans** affiche les langues (et les marchés) disponibles
 
 Sélectionnez l’une des langues de plan pour afficher les informations relatives à la **Liste des plans**, dont le **Nom** et la **Description**.
 
-- **Nom** : Ces informations sont préremplies en fonction de votre saisie **Nouveau plan** et serviront de titre du « plan logiciel » de votre offre, affichée sur la place de marché.
+- **Name** : Ces informations sont préremplies en fonction de votre saisie **Nouveau plan** et serviront de titre du « plan logiciel » de votre offre, affichée sur la place de marché.
 - **Description :** Cette description permet d’expliquer ce qui rend ce plan logiciel unique et de pointer les différences par rapport aux autres plans logiciels dans votre offre. Peut contenir jusqu’à 500 caractères.
 
 Sélectionnez **Enregistrer** après avoir renseigné ces champs.
@@ -476,7 +504,7 @@ S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
     - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
-    - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Veuillez revenir à la ou les sections et mettez-les à jour.
+    - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Vous devez revenir à la section et la mettre à jour.
     - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Vous devez revenir à Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).

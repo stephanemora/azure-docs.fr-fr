@@ -1,5 +1,5 @@
 ---
-title: Ajouter un abonnement Azure existant à votre locataire - Azure Active Directory | Microsoft Docs
+title: Ajouter un abonnement Azure existant à votre locataire - Azure AD
 description: Instructions pour l’ajout d’un abonnement Azure existant à votre locataire Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f61792235d13ef801cffb3a69c32df54f058a9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8d2111e631dd43b5d86a0bd486642657a20cc3ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422981"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 

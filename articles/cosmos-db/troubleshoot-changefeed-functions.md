@@ -1,5 +1,5 @@
 ---
-title: Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
+title: Résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 description: Problèmes courants, solutions de contournement et procédures de diagnostic relatifs à l’utilisation du déclencheur Azure Functions pour Cosmos DB
 author: ealsur
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064107"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441120"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 

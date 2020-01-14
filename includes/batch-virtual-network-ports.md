@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 98f5269c27643e7ce6c0aaf9b359503a124d9232
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68322647"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663096"
 ---
 ### <a name="general-requirements"></a>Conditions générales
 
@@ -46,7 +46,7 @@ Les exigences de réseau virtuel supplémentaires diffèrent si le pool Batch es
 
 **Autorisations** : vérifiez si vos stratégies ou verrous de sécurité l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations d’un utilisateur pour gérer le réseau virtuel.
 
-**Ressources de mise en réseau supplémentaires** : Batch alloue automatiquement des ressources de mise en réseau supplémentaires dans le groupe de ressources contenant le réseau virtuel. Pour chacun des 50 nœuds dédiés (ou chacun des 20 nœuds de faible priorité), Batch alloue : 1 groupe de sécurité réseau (NSG), 1 adresse IP publique et 1 équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../articles/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de ces ressources.
+**Ressources de mise en réseau supplémentaires** : Batch alloue automatiquement des ressources de mise en réseau supplémentaires dans le groupe de ressources contenant le réseau virtuel. Pour chacun des 50 nœuds dédiés (ou chacun des 20 nœuds de faible priorité), Batch alloue : 1 groupe de sécurité réseau (NSG), 1 adresse IP publique et 1 équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de ces ressources.
 
 #### <a name="network-security-groups"></a>Groupes de sécurité réseau
 
@@ -64,16 +64,16 @@ Vous n’avez pas besoin spécifier de groupes de sécurité réseau au niveau d
 
 **Règles de sécurité entrantes**
 
-| Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocole | Action |
+| Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/A | `BatchNodeManagement` [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | * | Quelconque | 29876-29877 | TCP | AUTORISER |
-| Adresses IP sources utilisateurs pour accéder à distance à des nœuds de calcul et/ou à un sous-réseau de nœuds de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | AUTORISER |
+| N/A | `BatchNodeManagement`[Balise du service](../articles/virtual-network/security-overview.md#service-tags) | * | Quelconque | 29876-29877 | TCP | Allow |
+| Adresses IP sources utilisateurs pour accéder à distance à des nœuds de calcul et/ou à un sous-réseau de nœuds de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Règles de sécurité de trafic entrant**
 
-| Source | Ports source | Destination | Identification de destination | Ports de destination | Protocole | Action |
+| Source | Ports source | Destination | Identification de destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| Quelconque | * | [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (dans la même région que votre compte Batch et votre réseau virtuel) | 443 | TCP | AUTORISER |
+| Quelconque | * | [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (dans la même région que votre compte Batch et votre réseau virtuel) | 443 | TCP | Allow |
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Pools dans la configuration des services cloud
 
@@ -97,13 +97,13 @@ Configurez le trafic entrant sur le port 3389 (Windows) si vous avez besoin d’
 
 **Règles de sécurité entrantes**
 
-| Adresses IP sources | Ports source | Destination | Ports de destination | Protocole | Action |
+| Adresses IP sources | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-Quelconque <br /><br />Bien que cela nécessite réellement de « tout autoriser », le service Batch applique une règle ACL au niveau de chaque nœud, excluant toutes les adresses IP des services autres que Batch. | * | Quelconque | 10100, 20100, 30100 | TCP | AUTORISER |
-| Facultatif, pour autoriser l’accès RDP aux nœuds de calcul. | * | Quelconque | 3389 | TCP | AUTORISER |
+Quelconque <br /><br />Bien que cela nécessite réellement de « tout autoriser », le service Batch applique une règle ACL au niveau de chaque nœud, excluant toutes les adresses IP des services autres que Batch. | * | Quelconque | 10100, 20100, 30100 | TCP | Allow |
+| Facultatif, pour autoriser l’accès RDP aux nœuds de calcul. | * | Quelconque | 3389 | TCP | Allow |
 
 **Règles de sécurité de trafic entrant**
 
-| Source | Ports source | Destination | Ports de destination | Protocole | Action |
+| Source | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-| Quelconque | * | Quelconque | 443  | Quelconque | AUTORISER |
+| Quelconque | * | Quelconque | 443  | Quelconque | Allow |

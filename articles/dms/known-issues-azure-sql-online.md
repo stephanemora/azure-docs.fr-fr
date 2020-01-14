@@ -1,6 +1,7 @@
 ---
-title: Article sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database | Microsoft Docs
-description: Apprenez-en plus sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database.
+title: 'Problèmes connus : Migrations en ligne vers SQL Database'
+titleSuffix: Azure Database Migration Service
+description: En savoir plus sur les problèmes connus et les limitations de migration avec les migrations en ligne vers Azure SQL Database à l’aide d’Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 07/27/2019
-ms.openlocfilehash: 7cd8b7c2accae097c971aec4b92cf38ed5d3af08
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf747b6deb4b3c25df74364143ac48c59eb48ae1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561505"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437824"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure SQL Database
 

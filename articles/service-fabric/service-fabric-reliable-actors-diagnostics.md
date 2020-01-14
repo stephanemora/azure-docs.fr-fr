@@ -1,25 +1,16 @@
 ---
-title: Diagnostics et surveillance des performances pour les acteurs | Microsoft Docs
+title: Diagnostics et surveillance des acteurs
 description: Cet article décrit les fonctionnalités de diagnostic et de surveillance des performances dans le runtime Reliable Actors de Service Fabric, notamment les événements et les compteurs de performances émis par celui-ci.
-services: service-fabric
-documentationcenter: .net
 author: abhishekram
-manager: chackdan
-editor: vturecek
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/26/2017
 ms.author: abhisram
-ms.openlocfilehash: 5f573db887b3acc2c4a668a8c19c7f8e3cb25019
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6e9fb66368461e0d3ebdd2709f4ced0e796bea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726568"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376730"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-actors"></a>Diagnostics et surveillance des performances pour Reliable Actors
 Le runtime Reliable Actors émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) et les [compteurs de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime et permettent de résoudre les problèmes et de surveiller les performances.
@@ -32,17 +23,17 @@ Le nom du fournisseur EventSource du runtime Reliable Actors est « Microsoft-S
 ### <a name="keywords"></a>Mots clés
 Tous les événements qui appartiennent à la source d'événements Acteurs fiables sont associés à un ou plusieurs mots clés. Cela permet de filtrer les événements collectés. Les bits de mots clés suivants sont définis.
 
-| Bit | Description |
+| bit | Description |
 | --- | --- |
 | 0x1 |Jeu d'événements importants qui résument le fonctionnement du runtime Fabric Actors. |
 | 0x2 |Jeu d'événements décrivant les appels de méthode d'acteur. Pour plus d'informations, consultez la [rubrique d'introduction sur les acteurs](service-fabric-reliable-actors-introduction.md). |
 | 0x4 |Jeu d'événements liés à l'état de l'acteur. Pour plus d’informations, consultez la rubrique sur la [gestion des états d’acteur](service-fabric-reliable-actors-state-management.md). |
 | 0x8 |Jeu d'événements liés à l'accès concurrentiel en alternance dans l'acteur. Pour plus d'informations, consultez la rubrique sur [l'accès concurrentiel](service-fabric-reliable-actors-introduction.md#concurrency). |
 
-## <a name="performance-counters"></a>compteurs de performances
+## <a name="performance-counters"></a>Compteurs de performance
 Le runtime Acteurs fiables définit les catégories suivantes de compteur de performances.
 
-| Catégorie | Description |
+| Category | Description |
 | --- | --- |
 | Service Fabric Actor |Compteurs spécifiques des acteurs Azure Service Fabric. Par exemple, la durée d'enregistrement de l'état de l'acteur. |
 | Service Fabric Actor Method |Compteurs spécifiques des méthodes implémentées par les acteurs Service Fabric. Par exemple, la fréquence à laquelle une méthode d'acteur est appelée. |
@@ -92,10 +83,10 @@ Dans l'exemple ci-dessus, `ivoicemailboxactor.leavemessageasync` est le nom de l
 ### <a name="actor-method-events-and-performance-counters"></a>Événements et compteurs de performances de la méthode d'acteur
 Le runtime Reliable Actors émet les événements suivants liés aux [méthodes d'acteur](service-fabric-reliable-actors-introduction.md).
 
-| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
+| Nom d'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ActorMethodStart |7 |Détaillé |0x2 |Le runtime Actors est sur le point d'appeler une méthode d'acteur. |
-| ActorMethodStop |8 |Détaillé |0x2 |Une méthode d’acteur a fini de s’exécuter. Cela signifie que l'appel asynchrone du runtime à la méthode d'acteur a été retourné et que la tâche retournée par la méthode d'acteur est terminée. |
+| ActorMethodStart |7 |Commentaires |0x2 |Le runtime Actors est sur le point d'appeler une méthode d'acteur. |
+| ActorMethodStop |8 |Commentaires |0x2 |Une méthode d’acteur a fini de s’exécuter. Cela signifie que l'appel asynchrone du runtime à la méthode d'acteur a été retourné et que la tâche retournée par la méthode d'acteur est terminée. |
 | ActorMethodThrewException |9 |Avertissement |0x3 |Une exception a été levée pendant l'exécution d'une méthode d'acteur, pendant l'appel asynchrone du runtime à la méthode d'acteur ou pendant l'exécution de la tâche retournée par la méthode d'acteur. Cet événement indique une sorte de défaillance dans le code de l'acteur qui nécessite un examen. |
 
 Le runtime Acteurs fiables publie les compteurs de performances suivants liés à l'exécution des méthodes d'acteur.
@@ -109,9 +100,9 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="concurrency-events-and-performance-counters"></a>Événements et compteurs de performances de l'accès concurrentiel
 Le runtime Reliable Actors émet les événements suivants liés à l' [accès concurrentiel](service-fabric-reliable-actors-introduction.md#concurrency).
 
-| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
+| Nom d'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ActorMethodCallsWaitingForLock |12 |Détaillé |0x8 |Cet événement est écrit au début de chaque nouveau tour d'un acteur. Il contient le nombre d'appels d'acteur en attente d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance. |
+| ActorMethodCallsWaitingForLock |12 |Commentaires |0x8 |Cet événement est écrit au début de chaque nouveau tour d'un acteur. Il contient le nombre d'appels d'acteur en attente d'acquisition du verrou par acteur qui applique l'accès concurrentiel en alternance. |
 
 Le runtime Acteurs fiables publie les compteurs de performances suivants liés à l'accès concurrentiel.
 
@@ -124,10 +115,10 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="actor-state-management-events-and-performance-counters"></a>Événements et compteurs de performances de gestion des états d'acteur
 Le runtime Reliable Actors émet les événements suivants liés à la [gestion des états d'acteur](service-fabric-reliable-actors-state-management.md).
 
-| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
+| Nom d'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ActorSaveStateStart |10 |Détaillé |0x4 |Le runtime Actors est sur le point d'enregistrer l'état de l'acteur. |
-| ActorSaveStateStop |11 |Détaillé |0x4 |Le runtime Actors a terminé d'enregistrer l'état de l'acteur. |
+| ActorSaveStateStart |10 |Commentaires |0x4 |Le runtime Actors est sur le point d'enregistrer l'état de l'acteur. |
+| ActorSaveStateStop |11 |Commentaires |0x4 |Le runtime Actors a terminé d'enregistrer l'état de l'acteur. |
 
 Le runtime Acteurs fiables publie les compteurs de performances suivants liés à la gestion des états d'acteur.
 
@@ -139,18 +130,18 @@ Le runtime Acteurs fiables publie les compteurs de performances suivants liés �
 ### <a name="events-related-to-actor-replicas"></a>Événements liés aux réplicas d'acteur
 Le runtime Reliable Actors émet les événements suivants liés aux [réplicas d'acteur](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors).
 
-| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
+| Nom d'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ReplicaChangeRoleToPrimary |1 |Informations |0x1 |Rôle de réplica d'acteur changé en rôle principal. Cela implique que les acteurs pour cette partition sont créés dans ce réplica. |
-| ReplicaChangeRoleFromPrimary |2 |Informations |0x1 |Rôle de réplica d'acteur changé en rôle non principal. Cela implique que les acteurs pour cette partition ne sont plus créés dans ce réplica. Aucune nouvelle demande n'est remise aux acteurs déjà créés dans ce réplica. Les acteurs sont détruits une fois effectuées toutes les demandes en cours. |
+| ReplicaChangeRoleToPrimary |1 |Informationnel |0x1 |Rôle de réplica d'acteur changé en rôle principal. Cela implique que les acteurs pour cette partition sont créés dans ce réplica. |
+| ReplicaChangeRoleFromPrimary |2 |Informationnel |0x1 |Rôle de réplica d'acteur changé en rôle non principal. Cela implique que les acteurs pour cette partition ne sont plus créés dans ce réplica. Aucune nouvelle demande n'est remise aux acteurs déjà créés dans ce réplica. Les acteurs sont détruits une fois effectuées toutes les demandes en cours. |
 
 ### <a name="actor-activation-and-deactivation-events-and-performance-counters"></a>Événements d'activation et de désactivation des acteurs et compteurs de performances
 Le runtime Reliable Actors émet les événements suivants liés à l' [activation et la désactivation des acteurs](service-fabric-reliable-actors-lifecycle.md).
 
-| Nom de l'événement | ID de l’événement | Niveau | Mot clé | Description |
+| Nom d'événement | ID de l’événement | Level | Mot clé | Description |
 | --- | --- | --- | --- | --- |
-| ActorActivated |5\. |Informations |0x1 |Un acteur a été activé. |
-| ActorDeactivated |6\. |Informations |0x1 |Un acteur a été désactivé. |
+| ActorActivated |5 |Informationnel |0x1 |Un acteur a été activé. |
+| ActorDeactivated |6 |Informationnel |0x1 |Un acteur a été désactivé. |
 
 Le runtime Reliable Actors publie les compteurs de performances suivants liés à l’activation et à la désactivation d'acteur.
 

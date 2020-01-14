@@ -1,35 +1,24 @@
 ---
-title: Modes Transactions et Verrouillage dans les Collections fiables Azure Service Fabric | Microsoft Docs
+title: Transactions et modes de verrouillage dans les collections Reliable
 description: Verrouillage et transactions des collections fiables et gestionnaire d’état fiable Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/1/2017
-ms.author: atsenthi
-ms.openlocfilehash: 8e77e488a3c0a40a714a0e8efffba0a2947454bf
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f27381aa0979b37c759f66d0e873126edc006d6d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599317"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614177"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Modes Transactions et Verrouillage dans les Collections fiables Azure Service Fabric
 
 ## <a name="transaction"></a>Transaction
-Une transaction est une séquence d’opérations effectuées en tant qu’unité logique de travail unique.
+Une transaction est une suite d'opérations effectuées comme une seule unité logique de travail.
 Une transaction doit présenter les propriétés ACID suivantes. Consultez https://technet.microsoft.com/library/ms190612).
 * **Atomicité** : une transaction doit correspondre à une unité de travail atomique. En d’autres termes, soit toutes les modifications de données sont effectuées, soit aucune n’est effectuée.
-* **Cohérence** : une fois terminée, une transaction doit laisser toutes les données dans un état cohérent. Toutes les structures de données internes doivent être correctes à la fin de la transaction.
-* **Isolation** : les modifications apportées par des transactions concurrentes doivent être isolées des modifications apportées par d’autres transactions simultanées. Le niveau d’isolation utilisé pour une opération dans une ITransaction est déterminé par le IReliableState effectuant l’opération.
-* **Durabilité** : lorsqu’une transaction est terminée, ses effets sont définitivement en place dans le système. Les modifications persistent même en cas de défaillance du système.
+* **Cohérence** : Lorsqu'elle est terminée, une transaction doit laisser les données dans un état cohérent. Toutes les structures de données internes doivent être correctes à la fin de la transaction.
+* **Isolation** : Les modifications effectuées par des transactions concurrentes doivent être isolées transaction par transaction. Le niveau d’isolation utilisé pour une opération dans une ITransaction est déterminé par le IReliableState effectuant l’opération.
+* **Durabilité** : lorsqu’une transaction est terminée, ses effets sont définitivement en place dans le système. Les modifications sont conservées même en cas de défaillance du système.
 
 ### <a name="isolation-levels"></a>Niveaux d'isolement
 Le niveau d’isolement définit le degré auquel la transaction doit être isolée des modifications apportées par d’autres transactions.
@@ -38,7 +27,7 @@ Il existe deux niveaux d'isolement pris en charge dans les Collections fiables 
 * **Lecture renouvelée** : spécifie que les instructions ne peuvent pas lire les données qui ont été modifiées, mais pas encore validées par d’autres transactions et qu’aucune autre transaction ne peut modifier des données qui ont été lues par la transaction actuelle avant la fin de celle-ci. Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
 * **Capture instantanée** : spécifie que les données lues par une instruction dans une transaction sont la version transactionnellement cohérente des données qui existaient au début de la transaction.
   La transaction ne peut reconnaître que les modifications de données qui ont été validées avant son démarrage.
-  Les modifications de données effectuées par d'autres transactions après le début de la transaction actuelle ne sont pas visibles pour les instructions qui s’exécutent dans la transaction actuelle.
+  Autrement dit, les modifications de données effectuées par d'autres transactions après le début de la transaction active ne sont pas visibles pour les instructions qui s'exécutent dans le cadre de ladite transaction.
   C’est comme si les instructions d’une transaction obtenaient un instantané des données validées telles qu’elles existaient au début de la transaction.
   Les instantanés sont cohérents sur les Collections fiables.
   Pour plus d’informations, consultez la page [https://msdn.microsoft.com/library/ms173763.aspx](https://msdn.microsoft.com/library/ms173763.aspx).
@@ -46,7 +35,7 @@ Il existe deux niveaux d'isolement pris en charge dans les Collections fiables 
 Les Collections fiables choisissent automatiquement le niveau d'isolement à utiliser pour une opération de lecture donnée en fonction de l'opération et du rôle du réplica lors de la création de la transaction.
 Voici le tableau qui décrit les valeurs par défaut du niveau d’isolement pour les opérations Dictionnaire fiable et File d’attente fiable.
 
-| Fonctionnement \ Rôle | Primaire | Secondaire |
+| Fonctionnement \ Rôle | Principal | Secondary |
 | --- |:--- |:--- |
 | Lecture d'une seule entité |Lecture renouvelée |Instantané |
 | Énumération, décompte |Instantané |Instantané |
@@ -75,10 +64,10 @@ Un verrou de mise à jour est un verrou asymétrique utilisé pour éviter une f
 
 La matrice de compatibilité de verrouillage est disponible dans la table ci-après :
 
-| Requête \ Accordé | Aucun | Partagé | Mettre à jour | Exclusif |
+| Requête \ Accordé | None | Partagé | Update | Exclusif |
 | --- |:--- |:--- |:--- |:--- |
 | Partagé |Aucun conflit |Aucun conflit |Conflit |Conflit |
-| Mettre à jour |Aucun conflit |Aucun conflit |Conflit |Conflit |
+| Update |Aucun conflit |Aucun conflit |Conflit |Conflit |
 | Exclusif |Aucun conflit |Conflit |Conflit |Conflit |
 
 Un argument de délai d’expiration dans les API de Collections fiables est utilisé comme détection de blocage.

@@ -3,12 +3,12 @@ title: Configurer les rapports Power BI
 description: Configurez les rapports Power BI pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 6e8482aea4f1d757550d4490e3a9972f664729c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 9b6ef62a924761642ef3217ff8af64ac6847c766
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173185"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450102"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
@@ -28,7 +28,7 @@ Téléchargez la dernière application (version 1.8) pour éviter ce problème.
 - Vous pouvez afficher des rapports sur différents coffres et abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 - La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation à la demande des rapports dans Power BI. Dans ce cas, les données les plus récentes dans le compte de stockage client sont utilisées pour restituer des rapports.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Créez un [compte de stockage Azure](../storage/common/storage-quickstart-create-account.md) afin de le configurer pour les rapports. Il est utilisé pour stocker des données associées aux rapports.
 - [Créez un compte Power BI](https://powerbi.microsoft.com/landing/signin/) pour afficher, personnaliser et créer vos propres rapports à l’aide du portail Power BI.
@@ -88,7 +88,7 @@ Pour personnaliser et partager le rapport, créez un espace de travail et procé
 4. Entrez le nom du compte de stockage configuré à l’étape 5 précédente, puis sélectionnez **Suivant**.
 
     ![Entrer le nom du compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
-5. À l’aide de la méthode d'authentification « Clé », entrez la clé de ce compte de stockage. Pour [afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys), accédez à votre compte de stockage sur le Portail Azure.
+5. À l’aide de la méthode d'authentification « Clé », entrez la clé de ce compte de stockage. Vous pouvez trouver les clés d’accès de votre compte de stockage dans le portail Azure. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
 
      ![Entrer le compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
 
@@ -112,9 +112,9 @@ Pour personnaliser et partager le rapport, créez un espace de travail et procé
 
       ![Onglets des rapports de la Sauvegarde Azure](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-## <a name="troubleshooting-errors"></a>Résolution des erreurs
+## <a name="troubleshooting-errors"></a>Dépannage des erreurs
 
-| Détails de l’erreur | Résolution : |
+| Détails de l’erreur | Résolution |
 | --- | --- |
 | Une fois que vous avez configuré le compte de stockage pour les rapports de sauvegarde, **Compte de stockage** indique toujours **Non configuré**. | Si vous avez configuré correctement un compte de stockage, vos données de rapport arrivent malgré ce problème. Pour résoudre ce problème, accédez au portail Azure et sélectionnez **Tous les services** > **Paramètres de diagnostic** > **Coffre Recovery Services** > **Modifier le paramètre**. Supprimez le paramètre configuré et créez un paramètre sur le même panneau. Cette fois, dans la case **Nom**, sélectionnez **service**. Le compte de stockage configuré s’affiche maintenant. |
 |Après avoir importé l’application modèle Sauvegarde Azure dans Power BI, un message d’erreur « 404 - Conteneur introuvable » s’affiche. | Comme indiqué précédemment, vous devez attendre 24 heures pour afficher correctement les rapports dans Power BI après les avoir configurés dans le coffre Recovery Services. Si vous essayez d’accéder aux rapports avant le terme de ce délai, vous obtenez ce message d’erreur, car il manque des données pour afficher des rapports valides. |

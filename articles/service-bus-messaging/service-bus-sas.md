@@ -1,5 +1,5 @@
 ---
-title: Contrôle d’accès Azure Service Bus avec des signatures d’accès partagé | Microsoft Docs
+title: Contrôle d’accès Azure Service Bus avec des signatures d’accès partagé
 description: Vue d’ensemble du contrôle d’accès Service Bus avec des signatures d’accès partagé, et informations sur l’autorisation SAP avec Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: ac240fee9a71714f2c7368b43e60f4e6c5d7093d
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462081"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -27,7 +27,7 @@ Les *signatures d’accès partagé* (SAP) constituent le mécanisme principal d
 SAP protège l’accès à Service Bus en fonction de règles d’autorisation. Celles-ci sont configurées sur un espace de noms, ou sur une entité de messagerie (relais, file d’attente ou rubrique). Une règle d’autorisation a un nom, est associée à des droits spécifiques et comporte une paire de clés de chiffrement. Vous utilisez le nom et la clé de la règle via le Kit de développement logiciel (SDK) Service Bus ou dans votre propre code pour générer un jeton SAP. Un client peut ensuite passer le jeton à Service Bus pour prouver l’autorisation pour l’opération demandée.
 
 > [!NOTE]
-> Azure Service Bus prend en charge l’autorisation de l’accès à un espace de noms Service Bus et à ses entités à l’aide d’Azure Active Directory (Azure AD). Le fait d’autoriser des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD confère une sécurité et une facilité d’utilisation supérieures à ce qu’offrent les signatures d’accès partagé. Avec Azure AD, il n’est pas nécessaire de stocker les jetons d’accès dans votre code, ce qui élimine les risques de failles de sécurité potentielles.
+> Azure Service Bus prend en charge l’autorisation de l’accès à un espace de noms Service Bus et à ses entités à l’aide d’Azure Active Directory (Azure AD). L’autorisation des utilisateurs ou des applications avec un jeton OAuth 2.0 retourné par Azure AD assure une meilleure sécurité que les signatures d’accès partagé. De plus, elle offre une plus grande simplicité d’utilisation. Azure AD vous évite d’avoir à stocker les jetons dans votre code. Vous êtes ainsi moins exposé au risque de failles de sécurité.
 >
 > Nous vous recommandons d’utiliser Azure AD avec vos applications Azure Service Bus dans la mesure du possible. Pour plus d’informations, consultez les articles suivants :
 > - [Authentifier et autoriser une application avec Azure Active Directory pour accéder aux entités Azure Service Bus](authenticate-application.md).
@@ -264,17 +264,17 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Opération | Revendication obligatoire | Étendue de la revendication |
 | --- | --- | --- |
 | **Espace de noms** | | |
-| Configure une règle d’autorisation dans un espace de noms |gérer |N’importe quelle adresse d’espace de noms |
+| Configure une règle d’autorisation dans un espace de noms |Gérer |N’importe quelle adresse d’espace de noms |
 | **Registre de service** | | |
-| Énumération des stratégies privées |gérer |N’importe quelle adresse d’espace de noms |
+| Énumération des stratégies privées |Gérer |N’importe quelle adresse d’espace de noms |
 | Commencer à écouter sur un espace de noms |Écouter |N’importe quelle adresse d’espace de noms |
 | Envoyer des messages à un écouteur sur un espace de noms |Envoyer |N’importe quelle adresse d’espace de noms |
 | **File d'attente** | | |
-| Créer une file d’attente |gérer |N’importe quelle adresse d’espace de noms |
-| Suppression d'une file d'attente |gérer |N’importe quelle adresse de file d’attente valide |
-| Énumérer les files d’attente |gérer |/$Resources/Queues |
-| Obtenir la description de file d’attente |gérer |N’importe quelle adresse de file d’attente valide |
-| Configure une règle d’autorisation pour une file d’attente |gérer |N’importe quelle adresse de file d’attente valide |
+| Créer une file d’attente |Gérer |N’importe quelle adresse d’espace de noms |
+| Suppression d'une file d'attente |Gérer |N’importe quelle adresse de file d’attente valide |
+| Énumérer les files d’attente |Gérer |/$Resources/Queues |
+| Obtenir la description de file d’attente |Gérer |N’importe quelle adresse de file d’attente valide |
+| Configure une règle d’autorisation pour une file d’attente |Gérer |N’importe quelle adresse de file d’attente valide |
 | Envoyer dans la file d’attente |Envoyer |N’importe quelle adresse de file d’attente valide |
 | Réception des messages d'une file d'attente |Écouter |N’importe quelle adresse de file d’attente valide |
 | Abandonner ou terminer des messages après la réception du message en mode de verrouillage |Écouter |N’importe quelle adresse de file d’attente valide |
@@ -284,25 +284,25 @@ Le tableau suivant affiche les droits d’accès requis pour effectuer diverses 
 | Obtenir l’état associé à une session de file d’attente de message |Écouter |N’importe quelle adresse de file d’attente valide |
 | Planifiez un message pour une remise ultérieure ; par exemple, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Écouter | N’importe quelle adresse de file d’attente valide
 | **Rubrique** | | |
-| Création d'une rubrique |gérer |N’importe quelle adresse d’espace de noms |
-| Supprimer une rubrique |gérer |N’importe quelle adresse de rubrique valide |
-| Énumérer les rubriques |gérer |/$Resources/Topics |
-| Obtenir la description de la rubrique |gérer |N’importe quelle adresse de rubrique valide |
-| Configure une règle d’autorisation pour une rubrique |gérer |N’importe quelle adresse de rubrique valide |
+| Création d'une rubrique |Gérer |N’importe quelle adresse d’espace de noms |
+| Supprimer une rubrique |Gérer |N’importe quelle adresse de rubrique valide |
+| Énumérer les rubriques |Gérer |/$Resources/Topics |
+| Obtenir la description de la rubrique |Gérer |N’importe quelle adresse de rubrique valide |
+| Configure une règle d’autorisation pour une rubrique |Gérer |N’importe quelle adresse de rubrique valide |
 | Envoyer à la rubrique |Envoyer |N’importe quelle adresse de rubrique valide |
 | **Abonnement** | | |
-| Création d’un abonnement |gérer |N’importe quelle adresse d’espace de noms |
-| Supprimer l’abonnement |gérer |../myTopic/Subscriptions/mySubscription |
-| Énumérer les abonnements |gérer |../myTopic/Subscriptions |
-| Obtenir la description de l’abonnement |gérer |../myTopic/Subscriptions/mySubscription |
+| Création d’un abonnement |Gérer |N’importe quelle adresse d’espace de noms |
+| Supprimer l’abonnement |Gérer |../myTopic/Subscriptions/mySubscription |
+| Énumérer les abonnements |Gérer |../myTopic/Subscriptions |
+| Obtenir la description de l’abonnement |Gérer |../myTopic/Subscriptions/mySubscription |
 | Abandonner ou terminer des messages après la réception du message en mode de verrouillage |Écouter |../myTopic/Subscriptions/mySubscription |
 | Différer un message pour une récupération ultérieure |Écouter |../myTopic/Subscriptions/mySubscription |
 | Mettre un message au rebut |Écouter |../myTopic/Subscriptions/mySubscription |
 | Obtenir l’état associé à une session de rubrique |Écouter |../myTopic/Subscriptions/mySubscription |
 | Définir l’état associé à une session de rubrique |Écouter |../myTopic/Subscriptions/mySubscription |
 | **Règles** | | |
-| Créer une règle |gérer |../myTopic/Subscriptions/mySubscription |
-| Supprimer une règle |gérer |../myTopic/Subscriptions/mySubscription |
+| Créer une règle |Gérer |../myTopic/Subscriptions/mySubscription |
+| Supprimer une règle |Gérer |../myTopic/Subscriptions/mySubscription |
 | Énumérer des règles |Gérer ou écouter |.. /myTopic/Subscriptions/mySubscription/Rules
 
 ## <a name="next-steps"></a>Étapes suivantes

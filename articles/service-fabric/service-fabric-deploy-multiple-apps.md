@@ -1,25 +1,16 @@
 ---
-title: Déployer une application Node.js qui utilise MongoDB sur Azure Service Fabric | Documents Microsoft
+title: Déployer une application node.js qui utilise MongoDB
 description: Procédure détaillée indiquant comment empaqueter plusieurs exécutables invités à déployer sur un cluster Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: mikkelhegn
-manager: chackdan
-editor: ''
-ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 677a9d02493bf5fac1bfcbe8c40ce9efe2040be9
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4538efc8a2426fc20dd20d1a85edaf6f76bfc649
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537745"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614466"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a991a41466d216b9f245c20dbd8054f3ae5ef3d0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451336"
 ---
 # <a name="scale-session-hosts-dynamically"></a>Mettre à l’échelle dynamiquement des hôtes de session
 
@@ -20,7 +20,7 @@ Pour de nombreux déploiements de Windows Virtual Desktop dans Azure, les coûts
 
 Cet article utilise un script de mise à l’échelle simple pour mettre automatiquement à l’échelle les machines virtuelles de l’hôte de la session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur le fonctionnement du script de mise à l’échelle, consultez la section [How the scaling script works](#how-the-scaling-script-works) (Fonctionnement du script de mise à l’échelle).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 L’environnement dans lequel vous exécutez le script doit disposer des éléments suivants :
 
@@ -50,7 +50,7 @@ Tout d’abord, préparez votre environnement pour le script de mise à l’éch
 
 1. Connectez-vous à la machine virtuelle (machine virtuelle scaler) qui exécutera la tâche planifiée avec un compte d’administration de domaine.
 2. Créez un dossier sur la machine virtuelle scaler pour stocker le script de mise à l’échelle et sa configuration (par exemple, **C:\\scaling-HostPool1**).
-3. Téléchargez les fichiers **basicScale.ps1**, **Config.xml** et **Functions-PSStoredCredentials.ps1**, ainsi que le dossier **PowershellModules** dans le [référentiel du script de mise à l’échelle](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script), puis copiez-les dans le dossier que vous avez créé à l’étape 2. Il existe deux méthodes principales pour obtenir les fichiers avant de les copier dans la machine virtuelle scaler :
+3. Téléchargez les fichiers **basicScale.ps1**, **Config.json** et **Functions-PSStoredCredentials.ps1**, ainsi que le dossier **PowershellModules** dans le [référentiel du script de mise à l’échelle](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script), puis copiez-les dans le dossier que vous avez créé à l’étape 2. Il existe deux méthodes principales pour obtenir les fichiers avant de les copier dans la machine virtuelle scaler :
     - Clonez le référentiel Git sur votre ordinateur local.
     - Affichez la version **Raw** de chaque fichier, et copiez et collez le contenu de chaque fichier dans un éditeur de texte. Enregistrez les fichiers avec le nom de fichier et le type de fichier correspondants. 
 
@@ -73,13 +73,13 @@ Ensuite, vous devez créer des informations d’identification stockées en tout
     ```
     
     Par exemple, **Set-Variable -Name KeyPath -Scope Global -Value "c:\\scaling-HostPool1"**
-5. Exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Lorsque vous y êtes invité, entrez vos informations d’identification Windows Virtual Desktop avec des autorisations pour interroger le pool d’hôtes (le pool d’hôtes est spécifié dans le fichier **config.xml**).
+5. Exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath**. Lorsque vous y êtes invité, entrez vos informations d’identification Windows Virtual Desktop avec des autorisations pour interroger le pool d’hôtes (le pool d’hôtes est spécifié dans le fichier **config.json**).
     - Si vous utilisez différents principaux de service ou un compte standard, exécutez la cmdlet **New-StoredCredential -KeyPath \$KeyPath** une fois pour chaque compte pour créer des informations d’identification stockées localement.
 6. Exécutez **Get-StoredCredential -List** pour confirmer que les informations d’identification ont bien été créées.
 
-### <a name="configure-the-configxml-file"></a>Configurer le fichier config.xml
+### <a name="configure-the-configjson-file"></a>Configurer le fichier config.json
 
-Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les paramètres du script de mise à l’échelle dans le fichier config.xml :
+Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les paramètres du script de mise à l’échelle dans le fichier config.json :
 
 | Champ                     | Description                    |
 |-------------------------------|------------------------------------|
@@ -103,7 +103,7 @@ Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les
 
 ### <a name="configure-the-task-scheduler"></a>Configurer le Planificateur de tâches
 
-Après avoir configuré le fichier .xml de configuration, vous devez configurer le Planificateur de tâches pour exécuter le fichier basicScaler.ps1 à intervalles réguliers.
+Après avoir configuré le fichier JSON de configuration, vous devez configurer le Planificateur de tâches pour exécuter le fichier basicScaler.ps1 à intervalles réguliers.
 
 1. Démarrez le **Planificateur de tâche**.
 2. Dans la fenêtre **Planificateur de tâches**, sélectionnez **Créer une tâche...**
@@ -117,13 +117,13 @@ Après avoir configuré le fichier .xml de configuration, vous devez configurer 
 
 ## <a name="how-the-scaling-script-works"></a>Fonctionnement du script de mise à l’échelle
 
-Ce script de mise à l’échelle lit les paramètres à partir d’un fichier config.xml, y compris le début et la fin des heures de pointe pendant la journée.
+Ce script de mise à l’échelle lit les paramètres à partir d’un fichier config.json, y compris le début et la fin des heures de pointe pendant la journée.
 
-Durant les heures de pointe, le script vérifie le nombre actuel de sessions et la capacité RDSH actuelle en cours d’exécution pour chaque pool d’hôtes. Elle calcule si les machines virtuelles hôtes de la session en cours d’exécution dispose d’une capacité suffisante pour prendre en charge les sessions existantes en fonction du paramètre SessionThresholdPerCPU défini dans le fichier config.xml. Si ce n’est pas le cas, le script démarre des machines virtuelles hôtes de session supplémentaires dans le pool d’hôtes.
+Durant les heures de pointe, le script vérifie le nombre actuel de sessions et la capacité RDSH actuelle en cours d’exécution pour chaque pool d’hôtes. Elle calcule si les machines virtuelles hôtes de la session en cours d’exécution dispose d’une capacité suffisante pour prendre en charge les sessions existantes en fonction du paramètre SessionThresholdPerCPU défini dans le fichier config.json. Si ce n’est pas le cas, le script démarre des machines virtuelles hôtes de session supplémentaires dans le pool d’hôtes.
 
-Durant les heures creuses, le script détermine quelles machines virtuelles hôtes de la session doivent être arrêtées en fonction du paramètre MinimumNumberOfRDSH dans le fichier config.xml. Le script configurera les machines virtuelles hôtes de la session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.xml sur une valeur positive différente de zéro, le script enverra une notification aux utilisateurs actuellement connectés leur demandant d’enregistrer leur travail, attendra le laps de temps configuré et puis forcera les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur déconnectées sur une machine virtuelle hôte de session, le script arrête le serveur.
+Durant les heures creuses, le script détermine quelles machines virtuelles hôtes de la session doivent être arrêtées en fonction du paramètre MinimumNumberOfRDSH dans le fichier config.json. Le script configurera les machines virtuelles hôtes de la session sur le mode de drainage pour empêcher les nouvelles sessions de se connecter aux hôtes. Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.json sur une valeur positive différente de zéro, le script enverra une notification aux utilisateurs actuellement connectés leur demandant d’enregistrer leur travail, attendra le laps de temps configuré et puis forcera les utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur déconnectées sur une machine virtuelle hôte de session, le script arrête le serveur.
 
-Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.xml sur zéro, le script autorisera le paramètre de configuration de session dans les propriétés du pool d’hôtes à gérer la déconnexion des sessions utilisateur. S’il reste des sessions en cours sur une machine virtuelle hôte de session, il laissera la machine virtuelle hôte de session s’exécuter. S’il ne reste aucune session, le script arrêtera la machine virtuelle hôte de session.
+Si vous définissez le paramètre **LimitSecondsToForceLogOffUser** dans le fichier config.json sur zéro, le script autorisera le paramètre de configuration de session dans les propriétés du pool d’hôtes à gérer la déconnexion des sessions utilisateur. S’il reste des sessions en cours sur une machine virtuelle hôte de session, il laissera la machine virtuelle hôte de session s’exécuter. S’il ne reste aucune session, le script arrêtera la machine virtuelle hôte de session.
 
 Le script est conçu pour s’exécuter périodiquement sur le serveur de machine virtuelle scaler à l’aide du Planificateur de tâches. Sélectionnez l’intervalle de temps approprié en fonction de la taille de votre environnement Services Bureau à distance et n’oubliez pas que le démarrage et l’arrêt des machines virtuelles peuvent prendre un certain temps. Nous vous recommandons d’exécuter le script de mise à l’échelle toutes les 15 minutes.
 

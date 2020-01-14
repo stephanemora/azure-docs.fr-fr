@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 62b42a39e2ce2c86d7f17c611e89d60bc583640e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 43110036c685cd17ba912766dd8ec19aa274e7c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459520"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personnaliser les propriétés de RDP pour un pool d’hôtes
 
@@ -26,6 +26,18 @@ Tout d’abord, si vous ne l’avez pas déjà fait, [téléchargez et importez 
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
+## <a name="default-rdp-properties"></a>Propriétés RDP par défaut
+
+Par défaut, les fichiers RDP publiés contiennent les propriétés suivantes :
+
+|Propriétés RDP | Bureaux | RemoteApps |
+|---|---| --- |
+| Mode à plusieurs écrans | activé | N/A |
+| Redirections de lecteur activées | Lecteurs, presse-papiers, imprimantes, ports COM, périphériques USB et cartes à puce| Lecteurs, presse-papiers et imprimantes |
+| Mode audio distant | Lire localement | Lire localement |
+
+Toutes les propriétés personnalisées que vous définissez pour le pool hôte remplacent ces valeurs par défaut.
+
 ## <a name="add-or-edit-a-single-custom-rdp-property"></a>Ajouter ou modifier une seule propriété RDP personnalisée
 
 Pour ajouter ou modifier une seule propriété RDP personnalisée, exécutez l’applet de commande PowerShell suivante :
@@ -33,6 +45,7 @@ Pour ajouter ou modifier une seule propriété RDP personnalisée, exécutez l�
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty "<property>"
 ```
+
 ![Capture d’écran de l’applet de commande PowerShell Get-RDSRemoteApp avec le nom et le nom convivial en évidence.](media/singlecustomrdpproperty.png)
 
 ## <a name="add-or-edit-multiple-custom-rdp-properties"></a>Ajouter ou modifier plusieurs propriétés RDP personnalisées
@@ -43,6 +56,7 @@ Pour ajouter ou modifier plusieurs propriétés RDP personnalisées, exécutez l
 $properties="<property1>;<property2>;<property3>"
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty $properties
 ```
+
 ![Capture d’écran de l’applet de commande PowerShell Get-RDSRemoteApp avec le nom et le nom convivial en évidence.](media/multiplecustomrdpproperty.png)
 
 ## <a name="reset-all-custom-rdp-properties"></a>Réinitialiser toutes les propriétés RDP personnalisées
@@ -52,11 +66,12 @@ Vous pouvez réinitialiser des propriétés RDP personnalisées à leurs valeurs
 ```powershell
 Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty ""
 ```
+
 ![Capture d’écran de l’applet de commande PowerShell Get-RDSRemoteApp avec le nom et le nom convivial en évidence.](media/resetcustomrdpproperty.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez personnalisé les propriétés RDP pour un pool d’hôtes donné, connectez-vous à un client Windows Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Pour cela, passez aux rubriques de procédures Se connecter à Windows Virtual Desktop :
+Maintenant que vous avez personnalisé les propriétés RDP pour un pool d’hôtes donné, connectez-vous à un client Windows Virtual Desktop pour les tester dans le cadre d’une session utilisateur. Ces deux procédures suivantes vous indiquent comment vous connecter à une session à l’aide du client de votre choix :
 
-- [Se connecter à partir de Windows 10 et Windows 7](connect-windows-7-and-10.md)
-- [Se connecter à partir d’un navigateur web](connect-web.md)
+- [Se connecter avec le client Windows Desktop](connect-windows-7-and-10.md)
+- [Se connecter avec le client web](connect-web.md)

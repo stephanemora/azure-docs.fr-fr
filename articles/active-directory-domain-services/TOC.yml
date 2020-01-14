@@ -1,6 +1,6 @@
 - name: Documentation sur Azure AD Domain Services
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Présentation d’Azure AD Domain Services
       href: overview.md
@@ -49,8 +49,6 @@
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Architecture Azure Active Directory
       href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
-    - name: Implémenter des modèles d’administration avec privilèges minimum
-      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: Procédures
   items:
     - name: Configurer les paramètres courants
@@ -107,7 +105,7 @@
           href: deploy-azure-app-proxy.md
         - name: "Activer la synchronisation de profil pour SharePoint\_Server"
           href: deploy-sp-profile-sync.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Erreurs courantes
           href: troubleshoot.md

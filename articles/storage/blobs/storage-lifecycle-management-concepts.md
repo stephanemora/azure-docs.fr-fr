@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: f5578d00d633b4b1ccce41236526e1696744f59f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851772"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351337"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -46,9 +46,9 @@ La fonctionnalité de gestion du cycle de vie est disponible dans toutes les ré
 
 Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide de l’une des méthodes suivantes :
 
-* [Portail Azure](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * [Azure PowerShell](https://github.com/Azure/azure-powershell/releases)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies)
 
 Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jour partielles ne sont pas prises en charge. 
@@ -58,7 +58,7 @@ Une stratégie peut être lue ou écrite dans son intégralité. Les mises à jo
 
 Cet article explique comment gérer une stratégie en utilisant le portail et des méthodes PowerShell.  
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microsoft Azure. 
 
@@ -67,9 +67,9 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 #### <a name="azure-portal-list-view"></a>Mode Liste du Portail Microsoft Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+2. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage. 
 
 3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier vos règles.
 
@@ -88,9 +88,9 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 9. Sélectionnez **Ajouter** pour ajouter la stratégie.
 
 #### <a name="azure-portal-code-view"></a>Mode Code du Portail Microsoft Azure
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2. Choisissez **Toutes les ressources**, puis sélectionnez votre compte de stockage.
+2. Dans le Portail Azure, recherchez et sélectionnez votre compte de stockage.
 
 3. Sous **Service Blob**, sélectionnez **Gestion du cycle de vie** pour afficher ou modifier votre stratégie.
 
@@ -128,7 +128,7 @@ Il existe deux façons d’ajouter une stratégie à l’aide du Portail Microso
 
 6. Pour plus d’informations sur cet exemple de JSON, voir les sections [Stratégie](#policy) et [Règles](#rules).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 Le script PowerShell suivant permet d’ajouter une stratégie à votre compte de stockage. La variable `$rgname` doit être initialisée avec le nom de votre groupe de ressources. La variable `$accountName` doit être initialisée avec le nom de votre compte de stockage.
 
@@ -234,7 +234,7 @@ Chaque règle au sein de la stratégie a plusieurs paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes | Obligatoire |
 |----------------|----------------|-------|----------|
-| `name`         | Chaîne |Un nom de règle peut compter jusqu’à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| `name`         | String |Un nom de règle peut compter jusqu’à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
 | `enabled`      | Boolean | Valeur booléenne facultative pour permettre la désactivation temporaire d’une règle. La valeur par défaut est true. | False | 
 | `type`         | Une valeur enum | Le type valide actuel est `Lifecycle`. | True |
 | `definition`   | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
@@ -288,7 +288,7 @@ Les filtres sont les suivants :
 
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | OUI |
+| blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | Oui |
 | prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Chaque règle peut définir jusqu’à 10 préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous `https://myaccount.blob.core.windows.net/container1/foo/...` pour une règle, prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets blob au sein du compte de stockage.  | Non |
 
 ### <a name="rule-actions"></a>Actions de règle
@@ -301,7 +301,7 @@ La gestion du cycle de vie prend en charge la hiérarchisation et la suppression
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Prend actuellement en charge les objets blob au niveau chaud         | Non pris en charge |
 | tierToArchive | Prend actuellement en charge les objets blob au niveau chaud ou froid | Non pris en charge |
-| delete        | Pris en charge                                   | Pris en charge     |
+| delete        | Prise en charge                                   | Prise en charge     |
 
 >[!NOTE]
 >Si vous définissez plusieurs actions sur le même objet blob, la gestion du cycle de vie applique l’action la moins coûteuse à l’objet blob. Par exemple, l’action `delete` est moins coûteuse que l’action `tierToArchive`. L’action `tierToArchive` est moins coûteuse que l’action `tierToCool`.
@@ -429,7 +429,7 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 }
 ```
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **J’ai créé une stratégie. Pourquoi les actions ne s’exécutent-elles pas immédiatement ?**  
 La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous avez configuré une stratégie, jusqu’à 24 heures peuvent s’écouler avant que certaines actions s’exécutent pour la première fois.  

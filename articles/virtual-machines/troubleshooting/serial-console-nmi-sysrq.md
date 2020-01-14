@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: d5c647bac2bc6abc85a74531e052f0f3a54b2047
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ad68438f5fc015b6a9150d67485b90a095f1a4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090091"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451267"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
 ## <a name="system-request-sysrq"></a>Requête système (SysRq)
 Une SysRq est une séquence de clés comprise par le noyau du système d’exploitation Linux et pouvant déclencher un ensemble d’actions prédéfinies. Ces commandes sont souvent utilisées quand l’administration classique ne permet pas de résoudre les problèmes ou de récupérer les machines virtuelles (par exemple, quand celles-ci ne répondent pas). La fonction SysRq de la console série Azure permet de simuler l’appui sur la touche SysRq et la saisie de caractères sur un clavier physique.
 
-Une fois que la séquence SysRq est livrée, la configuration du noyau contrôle le mode de réponse du système. Pour plus d’informations sur l’activation et la désactivation de SysRq, consultez le *SysRq Admin Guide* (Guide administrateur SysRq) [texte](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).  
+Une fois que la séquence SysRq est livrée, la configuration du noyau contrôle le mode de réponse du système. Pour plus d’informations sur l’activation et la désactivation de SysRq, consultez le *SysRq Admin Guide* (Guide administrateur SysRq) [texte](https://aka.ms/kernelorgsysreqdoc) | [markdown](https://aka.ms/linuxsysrq).
 
 La console série Azure peut être utilisée pour envoyer une SysRq à une machine virtuelle Azure via l’icône de clavier dans la barre de commande ci-dessous.
 
@@ -37,7 +37,7 @@ En sélectionnant « Envoyer une commande SysRq », une boîte de dialogue s’o
 
 La commande SysRq ne peut pas être utilisée sur les machines virtuelles arrêtées ou dont le noyau n’est pas en état réactif. (par exemple un état d’alerte du noyau).
 
-### <a name="enable-sysrq"></a>Activer SysRq 
+### <a name="enable-sysrq"></a>Activer SysRq
 Comme décrit dans le *Guide administrateur SysRq* ci-dessus, il est possible de configurer SysRq de façon à ce que toutes, aucune ou seulement certaines commandes soient disponibles. Vous pouvez activer toutes les commandes SysRq en suivant l’étape ci-dessous, mais cette configuration ne sera pas conservée après un redémarrage :
 ```
 echo "1" >/proc/sys/kernel/sysrq
@@ -48,7 +48,7 @@ Pour conserver la configuration de SysReq, vous pouvez procéder comme suit pour
 1. Redémarrage ou mise à jour de sysctl en exécutant <br>
     `sysctl -p`
 
-### <a name="command-keys"></a>Touches de commande 
+### <a name="command-keys"></a>Touches de commande
 Dans le guide administrateur SysRq ci-dessus :
 
 |Commande| Fonction
@@ -97,8 +97,8 @@ Pour obtenir la documentation propre à la distribution sur SysRq et les étapes
 #### <a name="coreos"></a>CoreOS ####
 - [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
-## <a name="non-maskable-interrupt-nmi"></a>Interruption non masquable (NMI) 
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.
+## <a name="non-maskable-interrupt-nmi"></a>Interruption non masquable (NMI)
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne répondent pas.
 
 La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système.  Les systèmes d’exploitation Linux peuvent être configurés de façon à provoquer un incident et à créer une image mémoire lorsque le système d’exploitation reçoit une NMI.
 
@@ -112,23 +112,23 @@ Pour les systèmes Linux qui prennent en charge sysctl pour configurer les param
     `sysctl -p`
 
 Pour plus d'informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez ce qui suit : [Documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
- 
-### <a name="ubuntu"></a>Ubuntu 
+
+### <a name="ubuntu"></a>Ubuntu
  - [Vidage sur incident du noyau](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
-### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat
  - [En quoi consiste une NMI et à quoi peut-elle servir ?](https://access.redhat.com/solutions/4127)
  - [Comment configurer mon système pour qu’il provoque un incident lorsque le commutateur NMI est actionné ?](https://access.redhat.com/solutions/125103)
  - [Guide administrateur de vidage sur incident](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
-### <a name="suse"></a>SUSE 
+### <a name="suse"></a>SUSE
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
 
-### <a name="coreos"></a>CoreOS 
+### <a name="coreos"></a>CoreOS
 - [Collecte des journaux d’activité d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * La page principale de documentation de la console série Linux se trouve [ici](serial-console-linux.md).
 * Utiliser la console série pour [démarrer dans GRUB et entrer en mode mono-utilisateur](serial-console-grub-single-user-mode.md)
-* La console série est également disponible pour les machines virtuelles [Windows](serial-console-windows.md).
+* La console série est également disponible pour les machines virtuelles [Windows](serial-console-windows.md)
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md)

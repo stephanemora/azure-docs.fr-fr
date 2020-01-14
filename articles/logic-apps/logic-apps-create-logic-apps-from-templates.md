@@ -1,6 +1,6 @@
 ---
-title: Créer des workflows à partir de modèles
-description: Générer des workflows plus rapidement à l’aide de modèles d’application logique dans Azure Logic Apps
+title: Créer plus rapidement des workflows d’application logique à partir de modèles prédéfinis
+description: Générer rapidement des workflows d’application logique à l’aide de modèles prédéfinis fournis par Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: kevinlam1
@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: c7033185ac3a5411568195d788242a674b569183
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793184"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666820"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
 
@@ -48,7 +48,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    | ------- | ----- | ----------- | 
    | **Nom** | *nom-de-votre-application-logique* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
-   | **Groupe de ressources** | *nom-de-votre-groupe-de-ressources-Azure* | Créez ou sélectionnez un [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour cette application logique et pour organiser toutes les ressources associées à celle-ci. | 
+   | **Groupe de ressources** | *nom-de-votre-groupe-de-ressources-Azure* | Créez ou sélectionnez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) pour cette application logique et pour organiser toutes les ressources associées à celle-ci. | 
    | **Lieu** | *région-de-votre-centre-de-données-Azure* | Sélectionnez la région du centre de données où déployer votre application logique, par exemple USA Ouest. | 
    | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Activez la [journalisation des diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) pour votre application logique via [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Pour cela, vous devez déjà disposer d’un espace de travail Log Analytics. | 
    |||| 

@@ -1,20 +1,21 @@
 ---
-title: Déterminer le modèle de clé de chiffrement utilisé pour le compte de stockage - Stockage Azure
+title: Déterminer le modèle de clé de chiffrement utilisé pour le compte de stockage
+titleSuffix: Azure Storage
 description: Utilisez le portail Azure, PowerShell ou Azure CLI pour vérifier le mode de gestion des clés de chiffrement pour le compte de stockage. Les clés peuvent être gérées par Microsoft (configuration par défaut) ou par le client. Les clés gérées par le client doivent être stockées dans Azure Key Vault.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e6f278008a59721d8d0c74e34c0252eeb1138
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3806fead9226978c277e87f3d97b14ee38d9552d
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666517"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665419"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Déterminer le modèle de clé de chiffrement Stockage Azure utilisé pour le compte de stockage
 
@@ -31,7 +32,7 @@ Pour plus d’informations sur les clés de chiffrement, consultez [Chiffrement 
 
 Pour déterminer si un compte de stockage utilise des clés gérées par Microsoft ou des clés gérées par le client pour le chiffrement, utilisez l’une des méthodes suivantes.
 
-# <a name="azure-portaltabportal"></a>[Portail Azure](#tab/portal)
+# <a name="azure-portaltabportal"></a>[Azure portal](#tab/portal)
 
 Pour vérifier le modèle de chiffrement associé au compte de stockage à l’aide du portail Azure, effectuez les étapes suivantes  :
 
@@ -54,7 +55,7 @@ $account.Encryption.KeySource
 
 Si la valeur de la propriété **KeySource** est `Microsoft.Storage`, le compte est chiffré avec des clés gérées par Microsoft. Si la valeur de la propriété **KeySource** est `Microsoft.Keyvault`, le compte est chiffré avec des clés gérées par le client.
 
-# <a name="azure-clitabcli"></a>[Interface de ligne de commande Azure](#tab/cli)
+# <a name="azure-clitabcli"></a>[Azure CLI](#tab/cli)
 
 Pour vérifier le modèle de chiffrement associé au compte de stockage à l’aide d’Azure CLI, appelez la commande [az storage account show](/cli/azure/storage/account#az-storage-account-show), puis vérifiez la propriété **keySource** relative au compte.
 

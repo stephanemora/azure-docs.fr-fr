@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 969f2f6b2e25d9eb804349eccbed66e17b7fbb87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427159"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -223,7 +223,7 @@ Cette section expose les exigences relatives aux différents types d’offres Tr
 - Un compte Microsoft et des informations financières sont requis pour l’offre de publication Transaction, quel que soit son modèle de tarification.
 - Les informations financières obligatoires comprennent un compte de paiement et un profil fiscal.
 
-Pour plus d’informations sur la configuration de ces comptes, consultez [Gérer votre compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Pour plus d’informations sur la configuration de ces comptes, consultez [Gérer votre compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
 
 
 ### <a name="requirements-for-specific-offer-types"></a>Exigences applicables à certains types d’offres

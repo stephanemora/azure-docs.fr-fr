@@ -1,20 +1,16 @@
 ---
-title: Terminologie d’Azure Service Fabric mesh | Microsoft Docs
+title: Terminologie d’Azure Service Fabric mesh
 description: Cet article décrit en détail la terminologie utilisée dans Azure Service Fabric Mesh pour vous aider à mieux comprendre les termes utilisés dans la documentation.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 11/28/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6df7a6b708bca81f1390ac879f24ea4c22c38bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351971"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologie de Service Fabric mesh
 
@@ -72,15 +68,15 @@ Les différents environnements ont différents niveaux de prise en charge pour l
 
 | Type d’Application | Décrit par | Azure Service Fabric mesh | Clusters Azure Service Fabric (tout système d’exploitation)| Cluster local | Cluster autonome |
 |---|---|---|---|---|---|
-| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Pris en charge |Non pris en charge | Windows : pris en charge, Linux et Mac : non pris en charge | Windows : non pris en charge |
-|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Pris en charge|Pris en charge|Windows : pris en charge|
+| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Prise en charge |Non pris en charge | Windows : pris en charge, Linux et Mac : non pris en charge | Windows : non pris en charge |
+|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Prise en charge|Prise en charge|Windows : pris en charge|
 
 Le tableau suivant décrit les différents modèles d’application et les outils existants pour ceux-ci par rapport à Service Fabric.
 
 | Type d’Application | Décrit par | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | VS 2017 |Non pris en charge |Non pris en charge | Pris en charge : environnement Mesh uniquement | Non pris en charge|
-|Applications natives Service Fabric | Modèle d’application native (XML) | VS 2017 et VS 2015| Pris en charge|Pris en charge|Pris en charge|Pris en charge|
+|Applications natives Service Fabric | Modèle d’application native (XML) | VS 2017 et VS 2015| Prise en charge|Prise en charge|Prise en charge|Prise en charge|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

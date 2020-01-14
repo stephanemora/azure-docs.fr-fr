@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: c064a5afee8db0c747273ab1c38c901a6f10ef98
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 10a061163447a60f1c25b386ef28028436284650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876145"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453070"
 ---
 # <a name="microsoft-global-network"></a>Réseau Microsoft mondial
 
@@ -56,7 +56,7 @@ Microsoft Azure offre la gamme de services et de fonctionnalités la plus compl�
 
 ## <a name="well-managed-using-software-defined-innovation"></a>Gestion efficace à l’aide d’une innovation à définition logicielle
 
-En exécutant l’un des clouds leaders sur le marché mondial, Microsoft a tiré beaucoup d’insights et d’expérience de la [création et de la gestion](https://myignite.techcommunity.microsoft.com/sessions/66668) d’une infrastructure mondiale hautes performances.  
+En exécutant l’un des clouds leaders sur le marché mondial, Microsoft a tiré beaucoup d’insights et d’expérience de la création et de la gestion d’une infrastructure mondiale hautes performances.  
  
 Nous respectons un ensemble performant de principes de fonctionnement : 
  

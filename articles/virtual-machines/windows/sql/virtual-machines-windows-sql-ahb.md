@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 00262b48b8fa2fd1292554155e8ec8e933d886e6
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790615"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690904"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**.
@@ -41,7 +41,7 @@ Pour déclarer l’utilisation d’Azure Hybrid Benefit pour SQL Server sur une 
 
 Le type de licence SQL Server est défini lorsque la machine virtuelle est approvisionnée. Vous pouvez le modifier à tout moment par la suite. Le passage d’un modèle à un autre n’entraîne aucun temps d’arrêt, aucun redémarrage de la machine virtuelle ou du service SQL Server, aucun coût supplémentaire et prend effet immédiatement. En fait, l’activation d'*Azure Hybrid Benefit* réduit les coûts.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le changement de modèle de licence de votre machine virtuelle SQL Server présente les exigences suivantes : 
 
@@ -52,7 +52,7 @@ Le changement de modèle de licence de votre machine virtuelle SQL Server prése
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>Changer la licence pour les machines virtuelles déjà inscrites auprès du fournisseur de ressources 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -66,7 +66,7 @@ Vous pouvez modifier le modèle de licence directement à partir du portail :
 ![Azure Hybrid Benefit dans le portail](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez utiliser l’interface de ligne de commande Azure pour changer votre modèle de licence.  
 
@@ -115,12 +115,12 @@ Vous êtes uniquement autorisé à installer automatiquement SQL Server sur une 
 
 Vous pouvez modifier le type de licence d’une machine virtuelle SQL Server avec paiement à l'utilisation ou Azure Hybrid Benefit uniquement si la machine virtuelle SQL Server est inscrite auprès du fournisseur de ressources de la machine virtuelle SQL.
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 - Les clients Azure Cloud Solution Provider (CSP) peuvent utiliser Azure Hybrid Benefit en commençant par déployer une machine virtuelle avec paiement à l’utilisation, puis en la convertissant en licence BYOL s’ils disposent d’un programme Software Assurance actif.
 - Si vous supprimez votre ressource de machine virtuelle SQL Server, vous revenez au paramètre de licence codé en dur de l’image. 
-- La possibilité de changer de modèle de licence est une fonctionnalité du fournisseur de ressources de machine virtuelle SQL. Le déploiement d’une image de Place de marché Azure via le portail Azure inscrit automatiquement une machine virtuelle SQL Server auprès du fournisseur de ressources. Mais les clients qui installent automatiquement SQL Server doivent [inscrire manuellement leur machine virtuelle SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md). 
-- L'ajout d'une machine virtuelle SQL Server à un groupe à haute disponibilité implique la recréation de la machine virtuelle. Dès lors, toute machine virtuelle ajoutée à un groupe à haute disponibilité revient au type de licence paiement par défaut à l'utilisation. Azure Hybrid Benefit doit être réactivé. 
+- La possibilité de changer de modèle de licence est une fonctionnalité du fournisseur de ressources de machine virtuelle SQL. Pendant le déploiement d’une image de la Place de marché Azure via le portail Azure, une machine virtuelle SQL Server est inscrite automatiquement auprès du fournisseur de ressources. Mais les clients qui installent automatiquement SQL Server doivent [inscrire manuellement leur machine virtuelle SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md). 
+- L’ajout d’une machine virtuelle SQL Server à un groupe à haute disponibilité implique la recréation de la machine virtuelle. Dès lors, toute machine virtuelle ajoutée à un groupe à haute disponibilité revient au type de licence paiement par défaut à l'utilisation. Azure Hybrid Benefit doit être réactivé. 
 
 
 ## <a name="limitations"></a>Limites
@@ -129,7 +129,7 @@ Le changement de modèle de licence est :
    - Disponible uniquement pour les clients disposant de [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview).
    - Pris en charge uniquement pour les éditions Standard et Entreprise de SQL Server. Les changements de licence ne sont pas pris en charge pour les versions Express, Web et Développeur. 
    - Pris en charge uniquement pour les machines virtuelles déployées à l’aide du modèle Azure Resource Manager. Les machines virtuelles déployées via le modèle classique ne sont pas prises en charge. 
-   - Disponible uniquement pour les installations de cloud public. 
+   - Disponible uniquement pour les clouds publics ou Azure Government. 
    - Pris en charge uniquement sur les machines virtuelles dotées d’une seule interface réseau (NIC). 
 
 
@@ -144,7 +144,7 @@ Cette erreur se produit lorsque vous essayez de changer le modèle de licence su
 Vous devez inscrire votre abonnement auprès du fournisseur de ressources, puis [inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La machine virtuelle « \<vmname\> » a plus d’une carte réseau associée
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>La machine virtuelle « \<vmname\> » a plus d’une carte réseau associée
 
 Cette erreur se produit sur les machines virtuelles dotées de plusieurs cartes d’interface réseau. Supprimez l’une des cartes d’interface réseau avant de changer de modèle de licence. Bien que vous puissiez rajouter la carte d’interface réseau à la machine virtuelle après avoir changé de modèle de licence, les opérations dans le portail Azure telles que la sauvegarde et la mise à jour corrective automatiques ne sont plus prises en charge. 
 

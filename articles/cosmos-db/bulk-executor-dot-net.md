@@ -1,5 +1,5 @@
 ---
-title: Utilisation de la bibliothèque .NET de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB
+title: Utiliser la bibliothèque .NET Bulk Executor dans Azure Cosmos DB pour les opérations d’importation et de mise à jour en bloc
 description: Découvrez comment importer et mettre à jour en bloc les documents dans Azure Cosmos DB à l’aide de la bibliothèque .NET de l’exécuteur en bloc.
 author: tknandu
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: d76426e738d78391b92b008e821672017520b7d2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d7600267dcd196a9a5c06c29774ea21d582cd7ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442195"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque d’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque de 
 
 Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .NET de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec les comptes d’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas encore installé Visual Studio 2019, vous pouvez télécharger et utiliser [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le « développement Azure » lors de l’installation de Visual Studio.
 

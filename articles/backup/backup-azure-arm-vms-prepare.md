@@ -3,12 +3,12 @@ title: Sauvegarder des machines virtuelles Azure dans un coffre Recovery Service
 description: Décrit comment sauvegarder des machines virtuelles Azure dans un coffre Recovery Services à l’aide de Sauvegarde Azure
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450146"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -42,7 +42,7 @@ Par ailleurs, vous risquez de devoir faire deux choses dans certaines circonstan
 
  Un coffre stocke les sauvegardes et points de récupération créés au fil du temps, ainsi que les stratégies de sauvegarde associées aux machines sauvegardées. Créez un coffre comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans Rechercher, tapez **Recovery Services**. Sous **Services**, cliquez sur **Coffres Recovery Services**.
 
      ![Rechercher les coffres Recovery Services](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -63,9 +63,8 @@ Une fois le coffre créé, il apparaît dans la liste Coffres Recovery Services.
 
 ![Liste des archivages de sauvegarde](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
-> [!NOTE]
-> Pour stocker l’instantané, le service Sauvegarde Azure crée un groupe de ressources distinct (autre que le groupe de ressources de la machine virtuelle). Son nom est au format **AzureBackupRG_géographie_numéro** (par exemple, AzureBackupRG_northeurope_1). Les données dans ce groupe de ressources sont conservées pendant la durée en jours spécifiée dans la section *Conserver l’instantané de récupération instantanée* de la stratégie Sauvegarde de machines virtuelles Azure.  L’application d’un verrou à ce groupe de ressources peut entraîner des échecs de sauvegarde.<br>
-Ce groupe de ressources doit également être exclu des restrictions de nom/étiquette, car une stratégie de restriction peut y empêcher la création de collections de points de ressources, entraînant de nouveau des échecs de sauvegarde.
+>[!NOTE]
+> Il est désormais possible de personnaliser le nom du groupe de ressources créé par le service Sauvegarde Azure. Pour plus d’informations, consultez [Groupe de ressources Sauvegarde Azure pour les machines virtuelles](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ### <a name="modify-storage-replication"></a>Modifier la réplication du stockage
 
@@ -149,7 +148,7 @@ La sauvegarde initiale s’exécutera conformément à la planification, mais vo
 2. Sur **Éléments de sauvegarde**, cliquez sur **Machine virtuelle Azure**.
 3. Dans la liste **Éléments de sauvegarde**, cliquez sur le bouton de sélection (...).
 4. Cliquez sur **Sauvegarder maintenant**.
-5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour où le point de récupération doit être conservé. Cliquez ensuite sur **OK**.
+5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Cliquez ensuite sur **OK**.
 6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ## <a name="verify-backup-job-status"></a>Vérifier l’état du travail de sauvegarde

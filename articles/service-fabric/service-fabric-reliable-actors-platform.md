@@ -1,25 +1,16 @@
 ---
-title: Reliable Actors dans Service Fabric | Microsoft Docs
+title: Reliable Actors dans Service Fabric
 description: Décrit comment les Reliable Actors sont superposés en couches sur des Reliable Services et utilisent les fonctionnalités de la plateforme Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 45839a7f-0536-46f1-ae2b-8ba3556407fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: bc7569c9f230abb7677a8df9fc0cc0268e57296f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92c717fa2c82dd147acd3c28333e37ccf8dd2e89
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725900"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349242"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Comment le service Reliable Actors utilise la plateforme Service Fabric
 Cet article décrit le fonctionnement du service Reliable Actors sur la plateforme Azure Service Fabric. La solution Reliable Actors s’exécute dans une infrastructure hébergée dans une implémentation d’un service fiable avec état nommé *service d’acteur*. Le service d’acteur contient tous les composants nécessaires pour gérer le cycle de vie et la distribution des messages destinés à vos acteurs :

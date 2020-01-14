@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: f0937ee53e66cb1bf0c5d6b55a8dde045570e924
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309723"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551384"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -22,19 +22,21 @@ Application Gateway publie des points de données, appelés métriques, sur [Azu
 
 ### <a name="timing-metrics"></a>Métriques de minutage
 
-Les métriques suivantes relatives au minutage de la requête et de la réponse sont disponibles. En analysant ces métriques, vous pouvez déterminer si le ralentissement de l’application a lieu en raison du réseau étendu, d’Application Gateway, du réseau entre Application Gateway et le principal ou des performances de l’application.
+Les métriques suivantes relatives au minutage de la requête et de la réponse sont disponibles. En analysant ces mesures pour un écouteur spécifique, vous pouvez déterminer si le ralentissement de l’application a lieu en raison du réseau étendu, d’Application Gateway, du réseau entre Application Gateway et l’application principale, ou des performances de l’application principale.
+
+> [!NOTE]
+>
+> S’il existe plusieurs écouteurs dans Application Gateway, filtrez toujours par dimension *Écouteur* tout en comparant différentes mesures de latence afin d’obtenir une inférence significative.
 
 - **RTT client**
 
-  Durée moyenne des allers-retours entre les clients et Application Gateway. Cette métrique indique le temps nécessaire à l’établissement des connexions et au retour des accusés de réception.
+  Durée moyenne des allers-retours entre les clients et Application Gateway. Cette métrique indique le temps nécessaire à l’établissement des connexions et au retour des accusés de réception. 
 
 - **Durée totale d’Application Gateway**
 
   Temps moyen nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle moyen entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que cela implique généralement le temps de traitement d’Application Gateway, le temps pendant lequel les paquets de requête et de réponse transitent sur le réseau et le temps que le serveur principal a mis pour répondre.
-
-- **Temps de connexion au principal**
-
-  Temps passé à établir une connexion avec un principal. 
+  
+Si le *RTT client* est bien plus grand que le *temps total d'Application Gateway*, il peut être déduit que la latence observée par le client est due à la connectivité réseau entre le client et Application Gateway. Si les deux latences sont comparables, la latence élevée peut être due à l’une des raisons suivantes : Application Gateway, le réseau entre le Application Gateway et l’application principale, ou les performances de l’application principale.
 
 - **Temps de réponse du premier octet du principal**
 
@@ -43,6 +45,13 @@ Les métriques suivantes relatives au minutage de la requête et de la réponse 
 - **Temps de réponse du dernier octet du principal**
 
   Intervalle de temps entre le début de l’établissement d’une connexion au principal et la réception du dernier octet du corps de la réponse
+  
+Si *temps total d’Application Gateway* est bien plus important que le *temps de réponse du dernier octet du principal* pour un écouteur spécifique, il peut être déduit que la latence élevée peut être due à Application Gateway. D’un autre côté, si les deux mesures sont comparables, le problème peut être dû au réseau entre Application Gateway et l’application principale, ou aux performances de l’application principale.
+
+- **Temps de connexion au principal**
+
+  Temps passé à établir une connexion avec une application principale. Dans le cas de SSL, il comprend le temps consacré à la négociation. Notez que cette mesure est différente des autres métriques de latence puisque cela mesure uniquement le temps de connexion et, par conséquent, ne doit pas être directement comparé en grandeur avec les autres latences. Toutefois, la comparaison du modèle de *temps de connexion au principal* avec le modèle des autres latences peut indiquer si une augmentation des autres latences peut être déduite en raison d’une variation du réseau entre Application Gateway et l’application principale. 
+  
 
 ### <a name="application-gateway-metrics"></a>Mesures Application Gateway
 
@@ -115,6 +124,10 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 Pour Application Gateway, les métriques suivantes sont disponibles :
 
+- **Utilisation du processeur**
+
+  Affiche l’utilisation des processeurs alloués à Application Gateway.  Dans des conditions normales, l’utilisation du processeur ne doit pas dépasser 90 %, car cela peut entraîner une latence dans les sites Web hébergés derrière Application Gateway et perturber l’expérience du client. Vous pouvez indirectement contrôler ou améliorer l'utilisation du processeur en modifiant la configuration d'Application Gateway en augmentant le nombre d'instances ou en passant à une taille SKU plus grande, ou en faisant les deux.
+
 - **Connexions en cours**
 
   Nombre de connexions courantes établies avec Application Gateway
@@ -157,7 +170,7 @@ Accédez à une passerelle d’application, sous **Supervision**, sélectionnez 
 
 Dans l’image suivante, consultez un exemple avec trois métriques affichées pour les 30 dernières minutes :
 
-[![](media/application-gateway-diagnostics/figure5.png "Affichage des métriques")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Pour afficher une liste actuelle des métriques, consultez [Mesures prises en charge avec Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 

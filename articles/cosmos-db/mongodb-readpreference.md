@@ -1,5 +1,5 @@
 ---
-title: Utilisation de la préférence de lecture MongoDB avec l’API Azure Cosmos DB pour MongoDB
+title: Utiliser la préférence de lecture MongoDB avec l’API Azure Cosmos DB pour MongoDB
 description: Découvrir comment utiliser la préférence de lecture MongoDB avec l’API Azure Cosmos DB pour MongoDB
 author: sivethe
 ms.author: sivethe
@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 8fc66d70b840578bff086519a7b39e5f389a3de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10e6ed556abe8f8c438e5436fbb93c1b70b85d2b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445161"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Comment distribuer à l’échelle mondiale des lectures par l’intermédiaire de l’API Azure Cosmos DB pour MongoDB
 
 Cet article explique comment distribuer à l’échelle mondiale des opérations de lecture à l’aide des paramètres de [préférence de lecture MongoDB](https://docs.mongodb.com/manual/core/read-preference/) avec l’API Azure Cosmos DB pour MongoDB.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -161,7 +161,7 @@ Pour d’autres plateformes telles que [.NET](https://github.com/Azure-Samples/a
 
 Dans cet article, vous avez découvert comment distribuer à l’échelle mondiale des opérations de lecture à l’aide de la préférence de lecture avec l’API Azure Cosmos DB pour MongoDB.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez toutes les ressources créées par cet article dans le portail Azure en effectuant les étapes suivantes :
 

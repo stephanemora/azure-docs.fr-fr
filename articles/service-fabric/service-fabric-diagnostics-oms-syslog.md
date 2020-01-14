@@ -1,25 +1,16 @@
 ---
-title: Surveiller les événements de cluster Linux dans Azure Service Fabric | Microsoft Docs
-description: Découvrez comment surveiller les événements de cluster Linux à partir de Syslog
-services: service-fabric
-documentationcenter: .net
+title: Surveiller les événements de cluster Linux dans Azure Service Fabric
+description: Découvrez comment surveiller des événements de cluster Service Fabric Linux en écrivant des événements de plateforme Service Fabric dans syslog.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 402e3dfe018c94ef068caf918b38aaad00064a49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd3bda71943b2ba8a34cd4fbd0b20917b875670
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118372"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645750"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>événements de cluster Linux Service Fabric dans Syslog
 
@@ -35,7 +26,7 @@ Chaque événement Syslog comprend 4 composants
 * Facility
 * Identité
 * Message
-* Severity
+* severity
 
 Le SyslogConsumer écrit tous les événements de plateforme à l’aide de la Facility `Local0`. Vous pouvez choisir une autre Facility valide en modifiant la configuration. L’identité utilisée est `ServiceFabric`. Le champ Message contient l’événement entier sérialisé au format JSON afin qu’il puisse être interrogé et consommé par une variété d’outils. 
 

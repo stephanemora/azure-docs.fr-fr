@@ -1,20 +1,20 @@
 ---
 title: Se connecter à la recherche Bing
-description: Rechercher des actualités avec les API REST de la recherche Bing et Azure Logic Apps
+description: Automatiser les tâches et les workflows qui recherchent les résultats dans Recherche Bing obtenus à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789947"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665885"
 ---
-# <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Rechercher des actualités avec la recherche Bing et Azure Logic Apps
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Résultats de la recherche de Recherche Bing obtenus à l’aide d’Azure Logic Apps
 
 Cet article explique comment rechercher des actualités, des vidéos et d’autres éléments par le biais de la recherche Bing, à partir d’une application logique à l’aide du connecteur de recherche Bing. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour le traitement des résultats de la recherche, et rendre ces éléments disponibles pour d’autres actions. 
 
@@ -23,7 +23,7 @@ Par exemple, vous pouvez rechercher des éléments d’actualités en fonction d
 Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur de recherche Bing](https://docs.microsoft.com/connectors/bingsearch/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un [compte Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -50,11 +50,11 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
    Pour cet exemple, fournissez les critères permettant de retourner des articles d’actualités correspondants à partir de la recherche Bing.
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | Search Query | OUI | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
-   | Market | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Safe Search | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Search Query | Oui | <*search-words*> | Entrez les mots clés de recherche à utiliser. |
+   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
    | Count | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
    | Offset | Non | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
@@ -65,7 +65,7 @@ Ou bien, si votre connexion existe déjà, fournissez les informations nécessai
 
 4. Sélectionnez l’intervalle et la fréquence à laquelle vous souhaitez que le déclencheur recherche des résultats.
 
-5. Lorsque c'est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+5. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 6. Continuez maintenant à ajouter une ou plusieurs actions à votre application logique pour les tâches à effectuer avec les résultats du déclencheur.
 
@@ -101,11 +101,11 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
    Pour cet exemple, fournissez les critères permettant de retourner un sous-ensemble des résultats du déclencheur.
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | Search Query | OUI | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
-   | Market | OUI | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
-   | Safe Search | OUI | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
+   | Search Query | Oui | <*search-expression*> | Entrez une expression pour interroger les résultats du déclencheur. Vous pouvez sélectionner à partir des champs dans la liste de contenu dynamique, ou créer une expression avec le Générateur d’expressions. |
+   | Market | Oui | <*locale*> | Les paramètres régionaux de recherche. La valeur par défaut est « en-US », mais vous pouvez sélectionner une autre valeur. |
+   | Safe Search | Oui | <*search-level*> | Le niveau de filtre d’exclusion du contenu pour adultes. La valeur par défaut est « Modéré », mais vous pouvez sélectionner un autre niveau. |
    | Count | Non | <*results-count*> | Retourne le nombre spécifié de résultats. La valeur par défaut est 20, mais vous pouvez spécifier une autre valeur. Le nombre réel de résultats retournés peut être inférieur au nombre spécifié. |
    | Offset | Non | <*skip-value*> | Le nombre de résultats à ignorer avant de retourner les résultats |
    |||||
@@ -138,7 +138,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. Lorsque c'est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+5. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
 <a name="create-connection"></a>
 
@@ -148,11 +148,11 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
 1. Lorsque vous êtes invité à entrer des informations de connexion, fournissez les précisions suivantes :
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | Nom de connexion | OUI | <*connection-name*> | Nom à créer pour votre connexion |
-   | Version de l'API | OUI | <*API-version*> | Par défaut, la version de l’API Recherche Bing est définie sur la version actuelle. Vous pouvez sélectionner une version antérieure si nécessaire. |
-   | Clé de l’API | OUI | <*API-key*> | Clé API Recherche Bing obtenue précédemment. Si vous n’avez pas de clé, procurez-vous votre [clé API maintenant](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Nom de connexion | Oui | <*connection-name*> | Nom à créer pour votre connexion |
+   | Version de l'API | Oui | <*API-version*> | Par défaut, la version de l’API Recherche Bing est définie sur la version actuelle. Vous pouvez sélectionner une version antérieure si nécessaire. |
+   | Clé de l’API | Oui | <*API-key*> | Clé API Recherche Bing obtenue précédemment. Si vous n’avez pas de clé, procurez-vous votre [clé API maintenant](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Par exemple :
@@ -163,7 +163,7 @@ Dans la liste des actions, sélectionnez l’action souhaitée.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/bingsearch/).
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

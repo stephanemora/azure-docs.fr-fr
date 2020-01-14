@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: d5662fa3cae8ba0cec0fd76965597ccac7c83889
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 2b4893ab804d7e3394320284399626437e5e78dc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639478"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645122"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article décrit comment enregistrer en toute sécurité des paramètres de configuration d’application de secret pour des applications Azure.
 
 Tous les paramètres de configuration d’application web sont généralement enregistrés dans des fichiers de configuration tels que Web.config. Cette pratique entraîne l’archivage des paramètres de secret tels que les informations d’identification de cloud dans des systèmes de contrôle de code source publics, par exemple GitHub. Il peut toutefois être difficile de suivre les meilleures pratiques de sécurité en raison de la surcharge requise pour modifier le code source et pour reconfigurer des paramètres de développement.
@@ -42,6 +42,7 @@ Si vous développez un projet et si vous devez partager le code source en toute 
     ![Créer un Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
 2. Accordez un accès au Key Vault à vous et aux membres de votre équipe. Si votre équipe est importante, vous pouvez créer un [groupe Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md) et ajouter cet accès de groupe de sécurité au Key Vault. Dans la liste déroulante *Autorisations du secret*, vérifiez *Get* et *Liste* sous *Opérations de gestion des secrets*.
+Si vous avez déjà créé votre application web, accordez-lui l'accès au Key Vault afin qu’elle puisse y accéder sans avoir à stocker la configuration secrète dans les paramètres ou les fichiers de l’application. Recherchez votre application Web en utilisant son nom et ajoutez-la de la même façon que vous accordez l’accès aux utilisateurs.
 
     ![Ajouter une stratégie d’accès à Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
@@ -49,10 +50,10 @@ Si vous développez un projet et si vous devez partager le code source en toute 
 
     ![Ajouter un secret Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-    > [!NOTE] 
+    > [!NOTE]
     > Avant Visual Studio 2017 V15.6, nous recommandions d’installer l’extension Azure Services Authentication pour Visual Studio. Cela est toutefois maintenant déprécié, car la fonctionnalité est intégrée à Visual Studio. Par conséquent, si vous utilisez une version antérieure de Visual Studio 2017, nous vous suggérons de mettre à jour vers, au minimum, Visual Studio 2017 15.6 ou version supérieure pour pouvoir utiliser cette fonctionnalité en mode natif et accéder au coffre de clés à partir de l’identité de connexion Visual Studio.
     >
- 
+
 4. Ajoutez les packages NuGet suivants à votre projet :
 
     ```

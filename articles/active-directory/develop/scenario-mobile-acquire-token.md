@@ -1,5 +1,5 @@
 ---
-title: Obtenir un jeton pour appeler des API web dans des applications mobiles | Azure
+title: Acquérir un jeton pour appeler une API Web (applications mobiles) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment générer une application mobile qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5d584dc2eef27747627133511af3defe085068ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423839"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Application mobile qui appelle des API web - acquisition d’un jeton
 
@@ -45,7 +45,7 @@ let scopes = ["https://graph.microsoft.com/.default"]
 ```
 
 #### <a name="xamarin"></a>Xamarin
-```CSharp 
+```csharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
@@ -200,7 +200,7 @@ MSAL pour iOS et macOS prend en charge différents modificateurs lors de l’obt
 
 L’exemple suivant montre le code minimal permettant d’obtenir un jeton de manière interactive pour lire le profil de l’utilisateur avec Microsoft Graph.
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -243,7 +243,7 @@ La classe définit les constantes suivantes :
 
 Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft v2.0). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 2429a8d08baa34aed120cffa069abae1fb9a3df9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353514"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>Configurer les captures de paquets pour les passerelles VPN
 
@@ -25,6 +25,8 @@ Il existe des outils couramment disponibles pour la capture de paquets. Toutefoi
 Les captures de paquets de la passerelle VPN peuvent être exécutées sur la passerelle ou sur une connexion spécifique en fonction des besoins du client. Vous pouvez également exécuter des captures de paquets sur plusieurs tunnels à la fois. Vous pouvez capturer le trafic à sens unique ou bidirectionnel, le trafic IKE et ESP, et les paquets internes, ainsi que filtrer sur une passerelle VPN.
 
 L’utilisation de filtres à 5 tuples (sous-réseau source, sous-réseau de destination, port source, port de destination, protocole) et d’indicateurs TCP (SYN, ACK, FIN, URG, PSH, RST) est utile pour isoler les problèmes sur un trafic à volume élevé.
+
+Vous ne pouvez utiliser qu’une seule option par propriété lors de l’exécution de la capture de paquets.
 
 ## <a name="setup-packet-capture-using-powershell"></a>Configurer la capture de paquets à l’aide de PowerShell
 
@@ -62,7 +64,7 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 - L’exécution de captures de paquets peut affecter les performances. N’oubliez pas d’arrêter la capture de paquets lorsqu’elle n’est pas nécessaire.
 - La durée de capture de paquets minimale suggérée est de 600 secondes. Une durée de capture de paquets plus faible peut ne pas fournir de données complètes en raison des problèmes de synchronisation entre plusieurs composants sur le chemin.
-- Les fichiers de données de capture de paquets sont générés au format PCAP ou ETL. Vous aurez peut-être besoin de l’analyseur Netmon pour comprendre les données.
+- Les fichiers de données de capture de paquets sont générés au format PCAP. Utilisez Wireshark ou d’autres applications couramment disponibles pour ouvrir les fichiers PCAP.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

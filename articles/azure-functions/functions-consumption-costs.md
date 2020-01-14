@@ -3,18 +3,18 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9d81c99f3602e3d7ed5508884b0b313ef2f2fcaf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 38a3435ddbc6e7cce5d18c99e227d405fdc2e7dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230855"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613056"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
 Il existe actuellement trois types de plans d’hébergement pour une application qui s’exécute dans Azure Functions, chaque plan ayant son propre modèle de tarifs : 
 
-| Planification | Description |
+| Plan | Description |
 | ---- | ----------- |
 | [**Consommation**](functions-scale.md#consumption-plan) | Vous êtes facturé uniquement pour la durée d’exécution de votre application de fonction. Ce plan comprend un [forfait gratuit][page des tarifs] par abonnement.|
 | [**Premium**](functions-scale.md#premium-plan) | Fournit les mêmes fonctionnalités et le même mécanisme de mise à l’échelle que le plan Consommation, mais avec des performances améliorées et un accès au réseau virtuel. Le coût se base sur le niveau tarifaire choisi. Pour plus d’informations, consultez [Plan Premium Azure Functions](functions-premium-plan.md). |
@@ -63,13 +63,13 @@ Les comportements suivants de vos fonctions peuvent exercer un impact sur la dur
 
 Dans [votre facture](/azure/billing/billing-download-azure-invoice), vous pouvez voir les données relatives aux coûts **Nombre total d’exécutions - Fonctions** et **Durée d’exécution - Fonctions**, ainsi que les coûts réels facturés. En revanche, ces données de facture sont un agrégat mensuel correspondant à une période de facturation passée. 
 
-Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [portail Azure] ou les API REST pour obtenir ces données.
+Pour mieux comprendre l’impact sur les coûts de vos fonctions, vous pouvez utiliser Azure Monitor pour voir les métriques relatives aux coûts en cours de génération par vos applications de fonction. Vous pouvez utiliser [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) dans le [Azure portal] ou les API REST pour obtenir ces données.
 
 ### <a name="monitor-metrics-explorer"></a>Monitor Metrics Explorer
 
 Utilisez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) pour voir dans un format graphique les données relatives aux coûts de vos applications de fonction relevant du plan Consommation. 
 
-1. En haut du [portail Azure], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
+1. En haut du [Azure portal], dans la zone de **recherche dans les services, ressources et documents**, recherchez `monitor` et sélectionnez **Monitor** sous **Services**.
 
 1. Sur la gauche, sélectionnez **Metrics** > **Sélectionner une ressource**, puis utilisez les paramètres situés sous l’image pour choisir votre application de fonction.
 
@@ -99,7 +99,7 @@ Le graphique obtenu contient les totaux des deux métriques d’exécution dans 
 
 Ce graphique présente un total de 1,11 milliard `Function Execution Units` consommé sur une période de deux heures, exprimé en Mo-millisecondes. Pour convertir ce total en Go-secondes, divisez-le par 1 024 000. Dans cet exemple, l’application de fonction a consommé `1110000000 / 1024000 = 1083.98` Go-secondes. Vous pouvez utiliser cette valeur et la multiplier par le prix en vigueur de la durée d’exécution figurant dans la [page des tarifs Functions][page des tarifs], ce qui vous permet d’obtenir le coût de ces deux heures, en supposant que vous avez déjà utilisé tous les forfaits gratuits de durée d’exécution. 
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI](/cli/azure/) contient des commandes pour récupérer des métriques. Vous pouvez utiliser CLI à partir d’un environnement de commande local ou directement à partir du portail en utilisant [Azure Cloud Shell](../cloud-shell/overview.md). Par exemple, la commande [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) suivante retourne les données horaires sur la même période que celle utilisée précédemment.
 
@@ -188,7 +188,7 @@ Cette commande retourne une charge utile JSON semblable à l’exemple suivant 
   ]
 }
 ```
-Cette réponse particulière indique qu’entre `2019-09-11T21:46` et `2019-09-11T23:18`, l’application a consommé 1,11 milliard Mo-millisecondes (1083,98 Go-secondes).
+Cette réponse particulière indique qu’entre `2019-09-11T21:46` et `2019-09-11T23:18`, l’application a consommé 1110000000 Mo-millisecondes (1083,98 Go-secondes).
 
 ## <a name="determine-memory-usage"></a>Déterminer l’utilisation de la mémoire
 
@@ -206,7 +206,7 @@ performanceCounters
 
 Les résultats sont semblables à l’exemple qui suit :
 
-| Horodatage \[UTC\]          | Nom          | value       |
+| Horodatage \[UTC\]          | name          | value       |
 |----------------------------|---------------|-------------|
 | 9/12/2019, 1:05:14\.947 AM | Octets privés | 209 932 288 |
 | 9/12/2019, 1:06:14\.994 AM | Octets privés | 212 189 184 |
@@ -226,7 +226,7 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| Nom                       | averageDurationMilliseconds |
+| name                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
 | QueueTrigger AvgDurationMs | 16\.087                     |
 | QueueTrigger MaxDurationMs | 90\.249                     |
@@ -238,4 +238,4 @@ customMetrics
 > [En savoir plus sur la supervision des applications de fonction](functions-monitoring.md)
 
 [Page des tarifs]: https://azure.microsoft.com/pricing/details/functions/
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

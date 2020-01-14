@@ -1,25 +1,16 @@
 ---
-title: Communication à distance des services à l’aide de C# dans Service Fabric | Microsoft Docs
+title: Communication à distance des services à l’aide de C# dans Service Fabric
 description: La communication à distance dans Service Fabric permet aux clients et aux services de communiquer avec les services C# en utilisant un appel de procédure distante.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: BharatNarasimman
-ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0d59275f25931a11b2d551a2e9eb019838e4c1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433887"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Communication à distance des services en C# avec Reliable Services
 
@@ -239,7 +230,7 @@ Cette étape vérifie que le service écoute uniquement sur l’écouteur V2.
 
 ## <a name="use-the-remoting-v2-interface-compatible-stack"></a>Utiliser la pile V2 de communication à distance (compatible avec l’interface)
 
- La pile V2 de communication à distance (compatible avec l’interface, appelée V2_1) a toutes les fonctionnalités de la pile de communication à distance V2. Sa pile d’interface est compatible avec la pile V1 de communication à distance, mais elle ne présente pas de compatibilité descendante avec les piles V1 et V2. Pour mettre à niveau de V1 à V2_1 sans affecter la disponibilité du service, suivez les étapes décrites dans l’article Mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface).
+ La pile de communication à distance V2 (compatible avec l’interface, appelée V2_1) a toutes les fonctionnalités de la pile de communication à distance V2. Sa pile d’interface est compatible avec la pile V1 de communication à distance, mais elle ne présente pas de compatibilité descendante avec les piles V1 et V2. Pour mettre à niveau de V1 à V2_1 sans affecter la disponibilité du service, suivez les étapes décrites dans l’article Mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface).
 
 
 ### <a name="use-an-assembly-attribute-to-use-the-remoting-v2-interface-compatible-stack"></a>Utilisation d’un attribut d’assembly pour se servir de la pile V2 de communication à distance (compatible avec l’interface)
@@ -322,7 +313,7 @@ Procédez comme suit :
 Pour mettre à niveau de la version V1 vers la version V2 (compatible avec l’interface, appelée V2_1), des mises à niveau en deux étapes sont nécessaires. Suivez les étapes dans l’ordre indiqué.
 
 > [!NOTE]
-> Lors de la mise à niveau de V1 vers V2, assurez-vous que l'espace de nom `Remoting` est mis à jour pour utiliser V2. Exemple : « Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client »
+> Lors de la mise à niveau de V1 vers V2, assurez-vous que l'espace de nom `Remoting` est mis à jour pour utiliser V2. Exemple : « Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client »
 >
 >
 

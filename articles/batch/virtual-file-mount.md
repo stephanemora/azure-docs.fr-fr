@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 1c990c864f9daa98460832166b31f43fece1ed15
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a153a8000552100d62807442d466c22cd0964e43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75389840"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Monter un système de fichiers virtuel sur un pool Batch
 
@@ -85,7 +85,7 @@ new PoolAddParameter
 
 ### <a name="azure-blob-file-system"></a>Système de fichiers blob Azure
 
-Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Afficher les clés de compte](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
+Une autre option consiste à utiliser le stockage d'objets blob Azure via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Le montage d’un système de fichiers blob nécessite une `AccountKey` ou `SasKey` pour votre compte de stockage. Pour plus d’informations sur l’obtention de ces clés, consultez [Gérer les clés d’accès des comptes de stockage](../storage/common/storage-account-keys-manage.md) ou [Utiliser des signatures d’accès partagé (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Pour plus d’informations sur l’utilisation de blobfuse, consultez le [Forum aux questions sur la résolution des problèmes](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ) de blobfuse. Pour accéder par défaut au répertoire monté avec blobfuse, exécutez la tâche en tant **qu'administrateur**. Blobfuse monte le répertoire au niveau de l’espace utilisateur et, lors de la création du pool, il est monté en tant que racine. Dans Linux, toutes les tâches **de l’Administrateur** sont racine. Toutes les options du module FUSE sont décrites dans la [Page de référence sur FUSE](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 Outre le guide de résolution des problèmes, les problèmes GitHub dans le référentiel blobfuse sont un moyen utile de vérifier les problèmes et solutions pour blobfuse. Pour plus d’informations, consultez [Problèmes blobfuse](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -170,7 +170,7 @@ Pour obtenir les fichiers journaux de débogage, utilisez [OutputFiles](batch-ta
 
 ## <a name="supported-skus"></a>Références prises en charge
 
-| Publisher | Offre | SKU | Partage Azure Files | Blobfuse | Montage NFS | Montage CIFS |
+| Serveur de publication | Offre | SKU | Partage Azure Files | Blobfuse | Montage NFS | Montage CIFS |
 |---|---|---|---|---|---|---|
 | lot | rendering-centos73 | rendu | :heavy_check_mark: <br>Remarque : Compatible avec CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

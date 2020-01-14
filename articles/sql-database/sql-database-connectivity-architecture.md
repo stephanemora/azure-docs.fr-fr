@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 6f6c64acf814b39d38138ed0e6a9c6075b693c7d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6a90e9ba264c4abddf2c26cb7b1761a7a51b1778
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707982"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647677"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architecture de la connectivité Azure SQL
 
@@ -39,7 +39,7 @@ Les étapes suivantes expliquent comment une connexion est établie avec une bas
 
 Azure SQL Database prend en charge les trois options suivantes pour la configuration de la stratégie de connexion d’un serveur SQL Database :
 
-- **Redirection (recommandée) :** Les clients établissent des connexions directement au nœud qui héberge la base de données, ce qui permet de réduire la latence et d’améliorer les performances. Pour que les connexions utilisent ce mode, les clients doivent
+- **Redirection (recommandée) :** Les clients établissent des connexions directement au nœud qui héberge la base de données, ce qui permet de réduire la latence et d’améliorer le débit. Pour que les connexions utilisent ce mode, les clients doivent
    - Autoriser les communications entrantes et sortantes à partir du client vers toutes les adresses IP Azure de la région sur les ports de la plage comprise entre 11000 et 11999.  
    - Autorisez les communications entrantes et sortantes à partir du client vers les adresses IP de la passerelle Azure SQL Database sur le port 1433.
 
@@ -83,7 +83,7 @@ L’article suivant décrit comment migrer le trafic vers de nouvelles passerell
 | Est du Canada          | 40.86.226.166      |
 | USA Centre           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Chine orientale           | 139.219.130.35     |
-| Chine Est 2         | 40.73.82.1         |
+| Chine orientale 2         | 40.73.82.1         |
 | Chine du Nord          | 139.219.15.17      |
 | Chine Nord 2        | 40.73.50.0         |
 | Asie Est            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |

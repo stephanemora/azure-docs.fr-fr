@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583948"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428983"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurer des comptes de laboratoire dans Azure Lab Services 
 Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les types de laboratoires gérés tels que les laboratoires de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
@@ -133,9 +133,17 @@ Dans la page **Options de connexion**, sélectionnez **Se connecter avec GitHub*
 
 Enfin, il est invité à créer un compte Microsoft qui est lié à son compte GitHub. Cela se produit automatiquement lorsque le formateur sélectionne **Suivant**.  Le formateur est alors immédiatement inscrit et connecté au labo de classe.
 
+## <a name="automatic-shutdown-of-vms-on-disconnect"></a>Arrêt automatique des machines virtuelles lors de la déconnexion
+Vous pouvez activer ou désactiver l’arrêt automatique des machines virtuelles Lab Windows (modèle ou étudiant) après la déconnexion d’une connexion Bureau à distance. Vous pouvez également spécifier la durée pendant laquelle les machines virtuelles doivent attendre que l’utilisateur se reconnecte avant de s’arrêter automatiquement.
+
+![Paramètre d’arrêt automatique au niveau du compte Lab](../media/how-to-configure-lab-accounts/automatic-shutdown-vm-disconnect.png)
+
+Ce paramètre s’applique à tous les laboratoires créés dans le compte Lab. Un propriétaire de laboratoire peut remplacer ce paramètre au niveau du laboratoire. La modification apportée à ce paramètre au niveau du compte Lab n’affecte que les laboratoires créés après la modification.
+
+Pour en savoir plus sur la façon dont un propriétaire de laboratoire peut configurer ce paramètre au niveau du laboratoire, consultez [cet article](how-to-enable-shutdown-disconnect.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)
 - [En tant que propriétaire de labo, configurer et publier des modèles](how-to-create-manage-template.md)

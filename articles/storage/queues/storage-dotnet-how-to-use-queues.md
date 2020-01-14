@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: aa92b72b09ed28b41d85ac7c7605077761657d40
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5ffee146bdbd666d4175af2f49f6b447743b2bc0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457654"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 
@@ -21,9 +21,9 @@ ms.locfileid: "68721558"
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Le stockage de files d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le stockage de files d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
+Le Stockage File d’attente Azure fournit une messagerie cloud entre les composants d’application. Lors de la conception d'applications pour la mise à l'échelle, des composants d'application sont souvent découplés, de sorte qu'ils peuvent être mis à l'échelle indépendamment. Le Stockage File d’attente offre une messagerie asynchrone pour la communication entre les composants d’application, qu’ils soient exécutés dans le cloud, sur le bureau, sur un serveur local ou sur un appareil mobile. Le stockage de files d’attente prend également en charge la gestion des tâches asynchrones et la création des flux de travail de processus.
 
 ### <a name="about-this-tutorial"></a>À propos de ce didacticiel
 
@@ -31,7 +31,7 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 
 **Durée estimée :** 45 minutes
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Bibliothèque de client commune du Stockage Azure pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
@@ -43,7 +43,7 @@ Ce didacticiel montre comment écrire du code .NET pour des scénarios courants
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
-## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
+## <a name="set-up-your-development-environment"></a>Configurer l''environnement de développement
 
 Ensuite, configurez votre environnement de développement dans Visual Studio afin d’être prêt pour essayer les exemples de code fournis dans ce guide.
 
@@ -89,7 +89,7 @@ Vous avez le choix entre deux environnements pour exécuter les exemples de ce g
 * Vous pouvez exécuter votre code sur un compte Azure Storage dans le cloud.
 * Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../common/storage-use-emulator.md).
 
-Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, consultez l’article [Clés d’accès](../common/storage-account-manage.md#access-keys).
+Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../common/storage-account-keys-manage.md).
 
 > [!NOTE]
 > Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de ce didacticiel seront négligeables.

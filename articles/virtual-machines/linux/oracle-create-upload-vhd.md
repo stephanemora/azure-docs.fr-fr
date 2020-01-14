@@ -12,33 +12,33 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 12/10/2019
 ms.author: szark
-ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c1c70243748c1f8d3b93eac501bd50f8d80ecd75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463808"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Préparation d’une machine virtuelle Linux Oracle pour Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous avez déjà installé un système d'exploitation Oracle Linux dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="oracle-linux-installation-notes"></a>Notes générales d’installation d’Oracle Linux
 * Consultez également les [Notes générales d’installation sous Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
-* Le noyau Oracle compatible Red Hat et leur noyau UEK3 (Unbreakable Enterprise Kernel) sont tous les deux pris en charge sur Hyper-V et Azure. Pour de meilleurs résultats, n'oubliez pas de mettre à jour le noyau lorsque vous préparez votre disque dur virtuel Oracle Linux.
+* Hyper-V et Azure prennent en charge Oracle Linux avec le noyau d’entreprise UEK ou le noyau compatible Red Hat.
 * Le noyau UEK2 d'Oracle n'est pas pris en charge sur Hyper-V et Azure, car il ne comporte pas les pilotes nécessaires.
 * Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**.  Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
-* Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) est utilisable sur les disques de données, si vous le souhaitez.
-* NUMA n'est pas pris en charge pour les tailles de machines virtuelles plus élevées en raison d'un bogue dans les versions du noyau Linux inférieures à 2.6.37. Ce problème touche spécialement les distributions utilisant le noyau Red Hat 2.6.32 en amont. L'installation manuelle de l'Agent Linux Azure (waagent) désactive automatiquement NUMA dans la configuration GRUB pour le noyau Linux. Les étapes ci-dessous fournissent plus d’informations à ce sujet.
+* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données, le cas échéant.
+* Les versions du noyau Linux antérieures à la version 2.6.37 ne prennent pas en charge NUMA sur Hyper-V avec des machines virtuelles de taille supérieure. Ce problème affecte principalement les anciennes distributions à l’aide du noyau Red Hat 2.6.32 en amont et a été résolu dans Oracle Linux 6.6 et versions ultérieures.
 * Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 * Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Lors de la conversion d’un disque brut vers VDH, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo avant la conversion. Pour plus d’informations, consultez [Notes d’installation sur Linux](create-upload-generic.md#general-linux-installation-notes).
 * Assurez-vous que le référentiel `Addons` est activé. Modifiez le fichier `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) ou `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7), remplacez la ligne `enabled=0` par `enabled=1` sous **[ol6_addons]** ou **[ol7_addons]** dans ce fichier.
 
-## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
+## <a name="oracle-linux-64-and-later"></a>Oracle Linux 6.4 et versions ultérieures
 Vous devez suivre des étapes de configuration spécifiques dans le système d'exploitation afin que la machine virtuelle fonctionne sur Azure.
 
 1. Dans le panneau central de Hyper-V Manager, sélectionnez la machine virtuelle.
@@ -71,11 +71,11 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 8. Saisissez la commande suivante pour installer python-pyasn1 :
    
         # sudo yum install python-pyasn1
-9. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau par défaut comprend les paramètres suivants :
+9. Modifiez la ligne de démarrage du noyau dans votre configuration grub pour y inclure les paramètres de noyau supplémentaires pour Azure. Pour cela, ouvrez le fichier « /boot/grub/menu.lst » dans un éditeur de texte et vérifiez que le noyau comprend les paramètres suivants :
    
-        console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
+        console=ttyS0 earlyprintk=ttyS0 rootdelay=300
    
-   Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Cela désactive NUMA en raison d'une erreur dans le noyau compatible Red Hat d'Oracle.
+   Ceci permet d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour l'assistance d'Azure.
    
    Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
    
@@ -107,12 +107,12 @@ Vous devez suivre des étapes de configuration spécifiques dans le système d'e
 14. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
 ---
-## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
+## <a name="oracle-linux-70-and-later"></a>Oracle Linux 7.0 et versions ultérieures
 **Modifications dans Oracle Linux 7**
 
 La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très similaire à Oracle Linux 6 ; cependant, certaines différences importantes méritent d'être notées :
 
-* Le noyau compatible Red Hat et le noyau UEK3 d'Oracle sont pris en charge dans Azure.  Le noyau UEK3 est recommandé.
+* Azure prend en charge Oracle Linux avec le noyau de l’entreprise (UEK) ou le noyau compatible Red Hat. Oracle Linux avec UEK est recommandé.
 * Le package NetworkManager n'est plus en conflit avec l'agent Azure Linux. Ce package est installé par défaut ; nous recommandons de ne pas le supprimer.
 * GRUB2 est maintenant utilisé comme chargeur de démarrage (bootloader) par défaut ; la modification des paramètres du noyau a donc changé (voir ci-dessous).
 * XFS est maintenant le système de fichiers par défaut. Le système de fichiers ext4 est toujours utilisable si vous le souhaitez.
@@ -151,7 +151,7 @@ La préparation d'une machine virtuelle Oracle Linux 7 pour Azure est très 
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Cela désactive également les nouvelles conventions d’affectation de noms OEL 7 pour les cartes réseau. Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
+   Ce permet également d'assurer que tous les messages de la console sont envoyés vers le premier port série, ce qui peut simplifier les problèmes de débogage pour la prise en charge d'Azure. Il désactive également les conventions d’affectation de noms pour les cartes réseau dans Oracle Linux 7 avec le noyau de l’entreprise. Outre les précautions ci-dessus, il est recommandé de *supprimer* les paramètres suivants :
    
        rhgb quiet crashkernel=auto
    

@@ -1,25 +1,16 @@
 ---
-title: Surveillance au niveau de l’application Azure Service Fabric | Microsoft Docs
+title: Surveillance au niveau de l’application Azure Service Fabric
 description: Découvrez les événements et journaux d’activité de niveau application et service utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 613faf5bbc9498b82bc04460d30b2e94c30340db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97c3be391dfbee7301ea47bf7234a9549d373370
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393093"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464723"
 ---
 # <a name="application-logging"></a>Journalisation des applications
 

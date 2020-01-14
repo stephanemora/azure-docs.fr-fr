@@ -1,5 +1,5 @@
 ---
-title: Présentation de la gestion des droits d’utilisation Azure AD - Azure Active Directory
+title: Présentation de la gestion des droits d’utilisation - Azure AD
 description: Obtenez une vue d’ensemble de la gestion des droits d'utilisation Azure Active Directory et découvrez comment l’utiliser pour gérer l’accès aux groupes, applications et sites SharePoint Online pour les utilisateurs internes et externes.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fd72bba6e8c01644adebaa333c8fe588c35b8c7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927314"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422573"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -119,7 +119,7 @@ Pour mieux comprendre la gestion des droits d’utilisation et sa documentation,
 | package d'accès | Bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Un package d’accès est toujours contenu dans un catalogue. Vous créez un package d’accès pour un scénario dans lequel les utilisateurs doivent demander l’accès.  |
 | demande d’accès | Demande d’accès aux ressources dans un package d’accès. Cette demande transite généralement par un flux d’approbation.  Si elle est approuvée, l’utilisateur demandeur reçoit une affectation de package d’accès. |
 | affectation | L’affectation d’un package d’accès à un utilisateur garantit que l’utilisateur dispose de tous les rôles de ressources de ce package d’accès.  Les affectations de package d’accès ont généralement une durée limite avant leur expiration. |
-| catalog | Conteneur de ressources connexes et de packages d’accès.  Les catalogues sont utilisés pour la délégation, afin que les non-administrateurs puissent créer leurs propres packages d’accès. Les propriétaires de catalogue peuvent ajouter les ressources qu’ils possèdent à un catalogue. |
+| catalogue | Conteneur de ressources connexes et de packages d’accès.  Les catalogues sont utilisés pour la délégation, afin que les non-administrateurs puissent créer leurs propres packages d’accès. Les propriétaires de catalogue peuvent ajouter les ressources qu’ils possèdent à un catalogue. |
 | créateur de catalogue | Regroupement d’utilisateurs autorisés à créer des catalogues.  Lorsqu’un utilisateur non-administrateur, autorisé à être créateur de catalogue, crée un catalogue, il devient automatiquement le propriétaire de ce catalogue. |
 | organisation connectée | Domaine ou annuaire Azure AD externe avec lequel vous collaborez. Les utilisateurs provenant d’une organisation connectée peuvent être spécifiés dans une stratégie comme étant autorisés à demander l’accès. |
 | policy | Ensemble de règles définissant le cycle de vie d’un accès, telles que le mode d’accès des utilisateurs, les approbateurs et la durée d’accès par le biais d’une affectation. Une stratégie est liée à un package d’accès. Par exemple, un package d’accès peut avoir deux stratégies de demande d’accès : l’une pour les employés, l’autre pour les utilisateurs externes. |
@@ -148,5 +148,5 @@ Pour plus d’informations sur l’attribution de licences aux utilisateurs, con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tutoriel : Créer votre premier package d’accès](entitlement-management-access-package-first.md)
+- [Tutoriel : Créer votre premier package d’accès](entitlement-management-access-package-first.md)
 - [Scénarios courants](entitlement-management-scenarios.md)

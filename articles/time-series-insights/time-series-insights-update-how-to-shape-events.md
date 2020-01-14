@@ -1,6 +1,6 @@
 ---
 title: Mettre en forme des événements - Azure Time Series Insights | Microsoft Docs
-description: Découvrez comment mettre en forme des événements avec Azure Time Series Insights en préversion.
+description: Découvrez les meilleures pratiques et le façonnage d’événements pour l’interrogation dans Azure Time Insights (préversion).
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006262"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452612"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
 Cet article vous permet de mettre en forme votre fichier JSON en vue de l’ingérer et d’optimiser l’efficacité de vos requêtes Azure Time Series Insights (préversion).
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Réfléchissez à la façon dont vous envoyez les événements à Time Series Insights (préversion). Vous devez toujours :
 
@@ -46,7 +46,7 @@ Dans l’exemple, il y a un seul message IoT Hub dans lequel le tableau externe 
 
 L’instance de série chronologique contient les métadonnées de l’appareil. Ces métadonnées ne changent pas avec chaque événement, mais fournissent des propriétés utiles pour l’analyse des données. Pour économiser sur les octets envoyés sur le réseau et rendre le message plus efficace, pensez à utiliser un traitement par lot pour les valeurs de dimension courantes et à utiliser les métadonnées de l’instance de série chronologique.
 
-### <a name="example-1"></a>Exemple 1 :
+### <a name="example-1"></a>Exemple 1 :
 
 ```JSON
 [
@@ -134,7 +134,7 @@ Dans l’exemple précédent, notez les points suivants :
 > Les champs d’instance ne sont pas stockés avec les données de télémétrie. Ils sont stockés avec les métadonnées dans le modèle de série chronologique.
 > Le tableau précédent représente la vue de la requête.
 
-### <a name="example-2"></a>Exemple 2 :
+### <a name="example-2"></a>Exemple 2 :
 
 Examinons le code JSON suivant :
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: abd6b13dc56f8f948d50e2b3564712ed8f5b1476
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720288"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443347"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
 Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
@@ -34,10 +34,11 @@ Cet article vous montre comment assigner des utilisateurs ou des groupes à une 
 
 La disponibilité de l’affectation basée sur le groupe est déterminée par votre contrat de licence. L’attribution basée sur le groupe est uniquement prise en charge pour les groupes de sécurité. L’appartenance aux groupes imbriqués et aux groupes O365 n’est pas prise en charge actuellement.
 
-## <a name="prerequisites"></a>Prérequis
-Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour exiger l’affectation des utilisateurs :
+## <a name="configure-the-application-to-require-assignment"></a>Configuration de l’application pour exiger une attribution
 
-1. Connectez-vous au portail Azure avec un compte administrateur.
+Une application peut être configurée pour exiger une attribution avant de pouvoir y accéder. Pour exiger une attribution :
+
+1. Connectez-vous au Portail Azure avec un compte d’administrateur ou en tant que propriétaire de l’application sous **Applications d’entreprise**.
 2. Dans le menu principal, cliquez sur **Tous les services**.
 3. Choisissez le répertoire que vous utilisez pour l’application.
 4. Cliquez sur l’onglet **Applications d’entreprise**.
@@ -74,7 +75,7 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 11. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo de l’utilisateur pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
+12. **Facultatif :** Si vous souhaitez **ajouter plusieurs utilisateurs**, entrez un autre **nom complet** ou une autre **adresse de messagerie** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter cet utilisateur à la liste **Sélectionné**.
 
 13. Après avoir sélectionné les utilisateurs, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
@@ -112,7 +113,7 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 11. Pointez sur le **groupe** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou du logo du groupe pour ajouter ce dernier à la liste **Sélectionné**.
 
-12. **Facultatif** : Si vous souhaitez **ajouter plusieurs groupes**, entrez un autre **nom de groupe complet** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter ce groupe à la liste **Sélectionné**.
+12. **Facultatif :** Si vous souhaitez **ajouter plusieurs groupes**, entrez un autre **nom de groupe complet** dans la zone de recherche **Rechercher par nom ou adresse de messagerie**, puis cochez la case pour ajouter ce groupe à la liste **Sélectionné**.
 
 13. Lorsque vous avez fini de sélectionner les groupes, cliquez sur le bouton **Sélectionner** pour les ajouter à la liste des utilisateurs et des groupes à affecter à l’application.
 
@@ -148,7 +149,7 @@ Pour activer l’accès en libre-service à une application, procédez comme sui
 
 9. Ensuite, pour sélectionner le groupe auquel les utilisateurs qui demandent l’accès à cette application doivent être ajoutés, cliquez sur le sélecteur en regard de l’étiquette **À quel groupe les utilisateurs attribués doivent-ils être ajoutés ?** et sélectionnez un groupe.
 
-10. **Facultatif** : Si vous souhaitez exiger une approbation d’entreprise avant d’accorder l’accès aux utilisateurs, définissez l’option **Demander une approbation avant d’accorder l’accès à cette application ?** sur **Oui**.
+10. **Facultatif :** Si vous souhaitez exiger une approbation d’entreprise avant d’accorder l’accès aux utilisateurs, définissez l’option **Demander une approbation avant d’accorder l’accès à cette application ?** sur **Oui**.
 
 11. **Facultatif : Pour les applications utilisant uniquement l’authentification unique par mot de passe,** si vous souhaitez autoriser ces approbateurs d’entreprise à spécifier les mots de passe envoyés à cette application pour les utilisateurs approuvés, définissez l’option **Autoriser les approbateurs à définir les mots de passe de l’utilisateur pour cette application ?** sur **Oui**.
 

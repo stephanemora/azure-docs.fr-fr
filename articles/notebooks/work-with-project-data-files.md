@@ -1,18 +1,20 @@
 ---
-title: Importer et exporter des données de projet avec Azure Notebooks
-description: Découvrez comment importer des données dans un projet Azure Notebooks à partir de sources externes et comment exporter les données à partir d'un projet.
-ms.topic: article
+title: Importer et exporter des données de projet avec Azure Notebooks (préversion)
+description: Découvrez comment importer des données dans un projet Azure Notebooks (préversion) à partir de sources externes et comment exporter les données à partir d’un projet.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: bd7ba27859e9d05c0d57c2f78b6449c2bc48ca33
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e1d4a52ab7f4ad2ca3438af4bc87bec0b79f34d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277385"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646974"
 ---
-# <a name="work-with-data-files-in-azure-notebook-projects"></a>Utiliser des fichiers de données dans les projets Azure Notebooks
+# <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Utiliser des fichiers de données dans des projets Azure Notebooks (préversion)
 
 Les données sont l'élément moteur des notebooks Jupyter, notamment des notebooks utilisés pour la science des données. Avec Azure Notebooks, vous pouvez facilement importer des données issues de différentes sources dans un projet, puis utiliser ces données à partir des notebooks. Vous pouvez aussi veiller à ce que les notebooks génèrent les données stockés dans le projet, puis les télécharger pour les utiliser ailleurs.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Le menu **Données** d'un notebook en cours d'exécution propose également les commandes **Charger** et **Télécharger**, qui fonctionnent avec les fichiers du projet ainsi que les fichiers temporaires pour la session de notebook en cours.
 
@@ -34,11 +36,11 @@ Vous pouvez déplacer des fichiers dans un projet depuis le tableau de bord du p
 
    - **À partir d'une URL** : Entrez l’adresse source dans le champ **URL du fichier** ainsi que le nom de fichier à des fins d'affectation au notebook de votre projet dans le champ **Nom de fichier**. Sélectionnez ensuite **+ Ajouter un fichier** pour ajouter l’URL à la liste de téléchargement. Répétez la procédure pour les URL supplémentaires, puis sélectionnez **Terminé**.
 
-     ![Charger à partir d'une fenêtre contextuelle d’URL](media/quickstarts/upload-from-url-popup.png)
+     ![Charger à partir de la fenêtre contextuelle de l’URL](media/quickstarts/upload-from-url-popup.png)
 
    - **À partir de l'ordinateur** : Faites glisser les fichiers dans la fenêtre contextuelle ou sélectionnez **Choisir des fichiers**, puis recherchez et sélectionnez les fichiers de données que vous souhaitez importer. Vous pouvez supprimer ou choisir le nombre de fichiers de votre choix, de même que leur type et leur format puisqu'il incombe au code du notebook d'ouvrir ces fichiers et d'analyser les données qu'ils contiennent.
 
-     ![Charger à partir de la fenêtre contextuelle de l'ordinateur](media/quickstarts/upload-from-computer-popup.png)
+     ![Charger à partir de la fenêtre contextuelle de l’ordinateur](media/quickstarts/upload-from-computer-popup.png)
 
 1. Une fois importés, les fichiers apparaissent dans le tableau de bord du projet et sont accessibles dans le code du notebook à l’aide de chemins d’accès menant au dossier correspondant.
 

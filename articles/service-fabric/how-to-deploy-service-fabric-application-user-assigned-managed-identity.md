@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric - Déployer une application avec une identité managée attribuée par l’utilisateur | Microsoft Docs
+title: Déployer une application avec une identité managée affectée par l’utilisateur
 description: Cet article explique comment déployer une application Service Fabric avec une identité managée attribuée par l’utilisateur
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 08/09/2019
-ms.author: atsenthi
-ms.openlocfilehash: 0cc1e51a4d5f9ad54866066a4247e1588da381a6
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 12/09/2019
+ms.openlocfilehash: a5eeaf0d6420fa36c0a78f7553ddfd82197d8ec4
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037484"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610333"
 ---
 # <a name="deploy-service-fabric-application-with-a-user-assigned-managed-identity-preview"></a>Déployer une application Service Fabric avec une identité managée affectée par l’utilisateur (préversion)
 

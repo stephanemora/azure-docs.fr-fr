@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment mettre à jour la configuratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: cbd958dd71d2d62f7b4c7e8d66ab7e56dc679a51
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998723"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390534"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Mettre à jour les configurations du coffre Azure Recovery Services à l’aide de l’API REST
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 La réponse correcte pour l’opération « GET » est indiquée ci-dessous :
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 
@@ -83,10 +83,10 @@ Les définitions courantes suivantes permettent de créer un corps de demande.
 
 Pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body).
 
-|Nom  |Obligatoire  |Type  |Description  |
+|Name  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
-|eTag     |         |   Chaîne      |  eTag facultatif       |
-|location     |  true       |Chaîne         |   Emplacement des ressources      |
+|eTag     |         |   String      |  eTag facultatif       |
+|location     |  true       |String         |   Emplacement de la ressource      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriétés du coffre       |
 |tags     |         | Object        |     Balises de ressource    |
 
@@ -107,7 +107,7 @@ L’exemple suivant permet de définir l’état de suppression réversible sur 
 
 La réponse correcte pour l’opération « PATCH » est indiquée ci-dessous :
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | OK        |
 

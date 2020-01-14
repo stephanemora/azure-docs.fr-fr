@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c17b344764fd9c1d18f787952a6193f0c8b634d0
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2bda344c32d03425c7cfec4d253e18451eb1f5a1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065019"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367501"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
@@ -47,9 +47,9 @@ Pour utiliser un compte QQ en tant que fournisseur d’identité dans Azure Acti
 
 ## <a name="configure-qq-as-an-identity-provider"></a>Configuration de QQ en tant que fournisseur d'identité
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **QQ (Préversion)** .
 1. Saisissez un **Nom**. Par exemple, *QQ*.
 1. Dans **ID client**, entrez l’ID d’application de l’application QQ que vous avez créée précédemment.

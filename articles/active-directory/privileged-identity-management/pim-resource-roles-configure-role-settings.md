@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/01/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74182710"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638678"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Configurer les paramètres des rôles de ressource Azure dans Privileged Identity Management
 
@@ -58,10 +58,17 @@ Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
 1. Utilisez l’onglet **Notification** ou le bouton **Suivant : Activation** au bas de la page pour accéder à l’onglet du paramètre de notification pour ce rôle. Ces paramètres gèrent tous les e-mails de notification relatifs à ce rôle.
 
-    > [!NOTE]
-    > L’interface utilisateur des notifications est actuellement déployée dans les régions et les abonnements Azure. Si vous ne pouvez pas configurer ces notifications précises, revenez vérifier dans un ou deux jours.
-
     ![Onglet Notifications de rôle dans la page des paramètres de rôle](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+    Sous l’onglet **Notifications** dans la page des paramètres de rôle, l’option Privileged Identity Management permet de contrôler précisément qui reçoit telle notification.
+
+    - **Désactivation d’un e-mail**<br>Vous pouvez désactiver certains e-mails en désactivant la case à cocher du destinataire par défaut et en supprimant les éventuels destinataires supplémentaires.  
+
+    - **Limiter les e-mails à des adresses e-mail spécifiées**<br>Vous pouvez désactiver les e-mails envoyés aux destinataires par défaut en désactivant la case à cocher du destinataire par défaut. Vous pouvez ensuite ajouter d’autres adresses e-mail comme destinataires supplémentaires. Si vous souhaitez ajouter plusieurs adresses e-mail, séparez-les par un point-virgule (;).
+
+    - **Envoyer des e-mails à la fois aux destinataires par défaut et à des destinataires supplémentaires**<br>Vous pouvez envoyer des e-mails à la fois à des destinataires par défaut et à des destinataires supplémentaires en activant la case à cocher du destinataire par défaut et en ajoutant les adresses e-mail des destinataires supplémentaires.
+
+    - **E-mails critiques uniquement**<br>Pour chaque type d’e-mail, vous pouvez activer la case à cocher pour recevoir uniquement les e-mails critiques. Cela signifie que Privileged Identity Management continue d’envoyer des e-mails aux destinataires configurés uniquement lorsqu’une action immédiate est requise. Par exemple, les e-mails qui demandent à l’utilisateur d’étendre son attribution de rôle ne seront pas déclenchés, tandis que ceux qui demandent à un administrateur d’approuver une demande d’extension seront déclenchés.
 
 1. Sélectionnez le bouton **Mettre à jour** quand vous voulez pour mettre à jour les paramètres de rôle.
 

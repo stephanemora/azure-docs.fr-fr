@@ -3,12 +3,12 @@ title: Sauvegarde des fichiers et des dossiers - Questions courantes
 description: Cette section répond aux questions courantes liées à la sauvegarde des fichiers et des dossiers avec Sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: b66eb7bca3c9a57f6b44697aa0340cd852fc3db4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d2049036d52eea29b03a2ca3cea29e3d6c52e9cc
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173057"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611626"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>Questions courantes sur la sauvegarde de fichiers et de dossiers
 
@@ -151,11 +151,44 @@ Le dossier du cache et les métadonnées du disque dur virtuel ne possèdent les
 
 Oui. Vous pouvez utiliser l’option **Modifier les propriétés** de l’agent MARS pour régler la bande passante et la durée. [Plus d’informations](backup-configure-vault.md#enable-network-throttling)
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurer
+### <a name="manage"></a>Gérer
+**Puis-je effectuer la récupération si j’ai oublié ma phrase secrète ?**<br>
+L’agent Sauvegarde Azure a besoin d’une phrase secrète (que vous avez fournie lors de l’inscription) pour déchiffrer les données sauvegardées lors de la restauration. Passez en revue les scénarios ci-dessous pour comprendre les options de gestion d’une phrase secrète perdue :<br>
+
+| Ordinateur d’origine <br> *(ordinateur source sur lequel les sauvegardes ont été effectuées)* | Passphrase | Options disponibles |
+| --- | --- | --- |
+| Disponible |Perdue |Si votre ordinateur d’origine (où les sauvegardes ont été effectuées) est disponible et toujours inscrit auprès du même coffre Recovery Services, vous pouvez régénérer la phrase secrète en suivant ces [étapes](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
+| Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |
+
+Tenez compte des conditions suivantes :
+- Si vous désinstallez et réinscrivez l’agent sur le même ordinateur d’origine avec
+  - *Même phrase secrète*, vous serez en mesure de restaurer vos données sauvegardées.<br>
+  - *Phrase secrète différente*, vous ne serez alors pas en mesure de restaurer vos données sauvegardées.
+-   Si vous installez l’agent sur un *autre ordinateur* avec<br>
+  - la même phrase secrète (utilisée sur l’ordinateur d’origine), vous serez en mesure de restaurer vos données sauvegardées.<br>
+  - une phrase secrète différente, vous ne serez pas en mesure de restaurer vos données sauvegardées.<br>
+-   En outre, si votre ordinateur d’origine est endommagé (vous empêchant de régénérer la phrase secrète via la console MARS) ; toutefois, vous pouvez restaurer/accéder au dossier de travail d’origine utilisé par l’agent MARS, puis effectuer la restauration (si vous avez oublié le mot de passe). Pour obtenir de l’aide, contactez le service clientèle.
+
+**Comment effectuer la récupération si j’ai perdu mon ordinateur d’origine (sur lequel les sauvegardes ont été effectuées) ?**<br>
+
+Si vous avez la même phrase secrète (que celle que vous avez fournie lors de l’inscription) de l’ordinateur d’origine, vous pouvez restaurer les données sauvegardées sur un autre ordinateur. Passez en revue les scénarios ci-dessous pour comprendre vos options de restauration.
+
+| Ordinateur d’origine | Passphrase | Options disponibles |
+| --- | --- | --- |
+| Perdue |Disponible |Vous pouvez installer et inscrire l’agent MARS sur un autre ordinateur avec la même phrase secrète que celle que vous avez fournie lors de l’inscription de l’ordinateur d’origine. Choisissez **Option de récupération** > **Autre emplacement** pour effectuer la restauration. Pour plus d’informations, reportez-vous à cet [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Perdue |Perdue |Impossible de récupérer les données ou les données ne sont pas disponibles |
+
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Que se passe-t-il si j’annule un travail de restauration en cours ?
 
 Si un travail de restauration en cours est annulé, le processus de restauration s’arrête. Tous les fichiers restaurés avant l’annulation restent dans la destination configurée (emplacement d’origine ou autre), sans aucun restauration.
+
+### <a name="does-the-mars-agent-back-up-and-restore-acls-set-on-files-folders-and-volumes"></a>L’agent MARS sauvegarde-t-il et restaure-t-il les listes de contrôle d’accès définies sur les fichiers, les dossiers et les volumes ?
+
+* L’agent MARS sauvegarde les listes de contrôle d’accès définies sur les fichiers, dossiers et volumes
+* Pour l’option de récupération Restaurer le volume, l’agent MARS fournit une option permettant d’ignorer la restauration des autorisations de liste de contrôle d’accès au fichier ou dossier en cours de récupération.
+* Pour l’option de récupération de fichiers et dossiers individuels, l’agent MARS effectue une restauration avec les autorisations de liste de contrôle d’accès (il n’existe aucune option permettant d’ignorer la restauration de liste de contrôle d’accès).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

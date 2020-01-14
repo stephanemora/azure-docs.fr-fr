@@ -1,5 +1,6 @@
 ---
-title: Guide pratique de la Gestion des API Azure avec des réseaux virtuels internes | Microsoft Docs
+title: Utiliser la gestion des API Azure avec des réseaux virtuels internes
+titleSuffix: Azure API Management
 description: Découvrez comment installer et configurer la Gestion des API Azure sur un réseau virtuel interne
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 29c86363842299870179b35a0466d2e44d2e56e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430594"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -38,7 +39,7 @@ Avec la Gestion des API en mode interne, vous pouvez effectuer les scénarios su
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes décrites dans cet article, vous devez disposer des éléments suivants :
 
@@ -129,8 +130,8 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 * Les adresses IP privée et publique à charge équilibrée se trouvent dans le panneau Vue d’ensemble sur le portail Azure.
 * Les adresses IP attribuées pour un accès public et privé peuvent changer si le service est supprimé, puis rajouté au réseau virtuel. Dans ce cas, il peut être nécessaire de mettre à jour les enregistrements DNS, règles d'acheminement et listes de restriction d'adresses IP au sein du réseau virtuel.
 
-## <a name="related-content"></a>Contenu connexe
-Pour en savoir plus, consultez les articles suivants :
+## <a name="related-content"> </a>Contenu associé
+Pour en savoir plus, consultez les articles suivants :
 * [Problèmes courants de configuration réseau lors de la configuration de la Gestion des API Azure dans un réseau virtuel][Common network configuration problems]
 * [FAQ des réseaux virtuels](../virtual-network/virtual-networks-faq.md)
 * [Création d’un enregistrement A dans DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))

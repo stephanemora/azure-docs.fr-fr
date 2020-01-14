@@ -1,6 +1,6 @@
 ---
-title: Déplacer des applications de BizTalk Services vers Azure Logic Apps
-description: Migrer d’Azure BizTalk Services (MABS) vers Azure Logic Apps
+title: Migrer des applications de BizTalk Services vers Azure Logic Apps
+description: Procédure de déplacement de vos applications et solutions Microsoft Azure BizTalk Services (MABS) vers Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: jonfancey
@@ -8,14 +8,14 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 97b498091451b0bf39741ed4340b8e02517c5447
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791879"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666650"
 ---
-# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrer de BizTalk Services vers Azure Logic Apps
+# <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrer vos applications et solutions de BizTalk Services vers Azure Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) fait l’objet d’une mise hors service. Pour déplacer vos solutions d’intégration MABS vers[Azure Logic Apps](../logic-apps/logic-apps-overview.md), suivez les instructions de cet article. 
 
@@ -32,7 +32,7 @@ Le service [Connexions hybrides d’Azure App Service](../app-service/app-servic
 
 Ce tableau mappe les fonctionnalités de BizTalk Services à Logic Apps.
 
-| BizTalk Services   | Logic Apps            | Objectif                      |
+| BizTalk Services   | Logic Apps            | Objectif                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Connecteur          | Connecteur             | Envoyer et recevoir des données   |
 | Pont             | Application logique             | Processeur de pipeline           |

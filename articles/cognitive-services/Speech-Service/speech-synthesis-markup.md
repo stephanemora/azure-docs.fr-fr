@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ffa17010f874eeb82fe8f4c367f0a0ac429979b
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: d97073666a18a3ffb7a88e1d2350f213ef589e6a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815519"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562525"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>SSML (Speech Synthesis Markup Language)
 
@@ -28,7 +28,7 @@ L’implémentation par SSML du service Speech est basée sur le [langage SSML v
 
 ## <a name="standard-neural-and-custom-voices"></a>Voix standard, neuronales et personnalisées
 
-Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
+Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour obtenir la liste complète des langues, paramètres régionaux et voix (neuronales et standard) pris en charge, consultez [prise en charge linguistique](language-support.md).
 
 Pour en savoir plus sur les voix standard, neuronales et personnalisées, voir [Vue d’ensemble de la synthèse vocale](text-to-speech.md).
 
@@ -77,7 +77,7 @@ L’élément `voice` est obligatoire. Il spécifie la voix utilisée pour la sy
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| Nom | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
+| name | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
 
 **Exemple**
 
@@ -100,7 +100,7 @@ Dans l’élément `speak`, vous pouvez spécifier plusieurs voix pour la sortie
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| Nom | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
+| name | Identifie la voix utilisée pour la sortie de synthèse vocale. Pour accéder à la liste complète des voix prises en charge, voir [Prise en charge des langues](language-support.md#text-to-speech). | Obligatoire |
 
 **Exemple**
 
@@ -138,15 +138,17 @@ Des modifications sont appliquées au niveau de la phrase, et le style varie sel
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| Type | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques de la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le type doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
+| type | Spécifie le style oral. Actuellement, les styles oraux sont spécifiques de la voix. | Obligatoire en cas d’ajustement du style oral pour une voix neuronale. Si vous utilisez `mstts:express-as`, le type doit être fourni. Si une valeur non valide est fournie, cet élément est ignoré. |
 
 Reportez-vous à ce tableau pour déterminer les styles oraux pris en charge pour chaque voix neuronale.
 
 | Voix | Type | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | type=`cheerful` | Exprime une émotion positive et heureuse |
-| | type=`empathy` | Exprime une de la compassion et de la compréhension |
+| | type=`empathy` | Exprime de la compassion et de la compréhension |
 | | type=`chat` | Parlez sur un ton décontracté et détendu |
+| | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
+| | type=`customerservice` | Parle de manière engageante et patiente à la façon d’un service client |
 | `zh-CN-XiaoxiaoNeural` | type=`newscast` | Exprime un ton formel, similaire aux journaux télévisés |
 | | type=`sentiment` | Transmet un message ou récit touchant |
 
@@ -290,7 +292,7 @@ L’élément `prosody` est utilisé pour spécifier des modifications apportée
 
 | Attribut | Description | Obligatoire/facultatif |
 |-----------|-------------|---------------------|
-| pitch | Indique la tonalité de base pour le texte. Vous pouvez spécifier la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple, 600 Hz.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple, +80 Hz ou -2 st. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>basse</li><li>moyenne</li><li>élevée</li><li>x-high</li><li>default</li></ul></li></ul>. | Facultatif |
+| pitch | Indique la tonalité de base pour le texte. Vous pouvez spécifier la tonalité comme suit :<ul><li>Valeur absolue, exprimée sous la forme d’un nombre suivi de « Hz » (Hertz). Par exemple, 600 Hz.</li><li>Valeur relative, exprimée sous la forme d’un nombre précédé du signe « + » ou « - » et suivi de « Hz » ou « st », qui spécifie l’importance d’un changement de tonalité. Par exemple, +80 Hz ou -2 st. « st » indique que l’unité de changement est le demi-ton, c’est-à-dire la moitié d’un ton sur l’échelle diatonique standard.</li><li>Valeur constante :<ul><li>x-low</li><li>low</li><li>moyenne</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | Facultatif |
 | contour | Le contour n’est pas pris en charge pour la voix neuronale. Le contour représente les variations de la tonalité du contenu vocal sous la forme de cibles à des positions temporelles spécifiées dans la sortie vocale. Chaque cible est définie par des ensembles de paires de paramètres. Par exemple : <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>La première valeur dans chaque paire de paramètres spécifie l’emplacement du changement de tonalité sous la forme d’un pourcentage de la durée du texte. La deuxième valeur spécifie la quantité de hausse ou de baisse de la tonalité, à l’aide d’une valeur relative ou une valeur d’énumération pour la tonalité (voir `pitch`). | Facultatif |
 | range  | Valeur représentant la plage de tonalités pour le texte. Vous pouvez exprimer `range` à l’aide des mêmes valeurs absolues, relatives ou d’énumération que celles utilisées pour décrire `pitch`. | Facultatif |
 | rate  | Indique la cadence d’énonciation du texte. Vous pouvez exprimer `rate` comme suit :<ul><li>Valeur relative exprimée sous forme de nombre agissant comme multiplicateur de la valeur par défaut. Par exemple, la valeur *1* n’entraîne aucun changement de cadence. La valeur *.5* entraîne une réduction de moitié de la cadence. La valeur *3* entraîne un triplement de la cadence.</li><li>Valeur constante :<ul><li>x-slow</li><li>slow</li><li>moyenne</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Facultatif |
@@ -386,7 +388,7 @@ Les types de contenu suivants sont pris en charge pour les attributs `interpret-
 | address | | Le texte est prononcé sous forme d'adresse. Le moteur de synthèse vocale prononce :<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Par exemple, « Je suis au 150th court north east redmond washington ». |
 | cardinal, number | | Le texte est prononcé sous forme de nombre cardinal. Le moteur de synthèse vocale prononce :<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Par exemple, « Il existe trois alternatives ». |
 | characters, spell-out | | Le texte est prononcé sous forme de lettres individuelles (épelées). Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />Par exemple, « T E S T ». |
-| date  | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
+| Date  | dmy, mdy, ymd, ydm, ym, my, md, dm, d, m, y | Le texte est prononcé sous forme de date. L’attribut `format` spécifie le format de la date (*j=day (jour), m=month (mois) et y=year (année)* ). Le moteur de synthèse vocale prononce :<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Par exemple, « Nous sommes le 19 octobre 2016 ». |
 | digits, number_digit | | Le texte est prononcé sous forme de séquence de chiffres individuels. Le moteur de synthèse vocale prononce :<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Par exemple, « 1 2 3 4 5 6 7 8 9 ». |
 | fraction | | Le texte est prononcé sous forme de nombre fractionnaire. Le moteur de synthèse vocale prononce :<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Par exemple, « Trois huitièmes de pouce ». |
 | ordinal  | | Le texte est prononcé sous forme de nombre ordinal. Le moteur de synthèse vocale prononce :<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Par exemple, « Sélectionnez la troisième option ». |

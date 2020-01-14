@@ -1,5 +1,6 @@
 ---
-title: Solution Azure VMware par CloudSimple - Surveiller une activité de cloud privé
+title: Surveiller l’activité du cloud privé
+titleSuffix: Azure VMware Solution by CloudSimple
 description: Décrit les informations disponibles sur l’activité dans la solution Azure VMware par l’environnement CloudSimple, y compris les alertes, les événements, les tâches et les audits.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 1228f3a54e02d4fe7a5133e2bfba55c38e34718a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543760"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459207"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Surveiller l’activité d’une solution VMware de CloudSimple
 
@@ -85,7 +86,7 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 | Nom de la ressource | Nom attribué à la ressource. |
 | Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
 | ID de ressource | Identificateur de la ressource. |
-| Start | Heure de début de la tâche. |
+| Démarrer | Heure de début de la tâche. |
 | End | Heure de fin de la tâche. |
 | Statut | État actuel de la tâche. |
 | Temps écoulé | Durée d’exécution de la tâche (si elle est terminée) ou en cours (si l’exécution n’est pas terminée). |
@@ -105,7 +106,7 @@ Les colonnes d’informations suivantes sont disponibles pour les alertes. Cliqu
 | Nom de la ressource | Nom attribué à la ressource. |
 | Type de ressource | Catégorie de la ressource : Cloud privé, rack de cloud. |
 | ID de ressource | Identificateur de la ressource. |
-| Résultat | Résultat de l’activité, par exemple **Réussie**. |
+| Résultats | Résultat de l’activité, par exemple **Réussie**. |
 | Durée | Durée d’exécution de la tâche. |
 | Description | Description de l’action. |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: c9beda9c271c755c9ea61498b24a9e40bde35a7e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434711"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
 
@@ -30,7 +30,7 @@ Cet article traite d’une station de travail Windows. Toutefois, vous pouvez ef
 > [!NOTE]
 > L’exemple utilisé dans cet article est écrit en C. Un [exemple de clé symétrique d’approvisionnement d’appareil en C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) est également disponible. Pour utiliser cet exemple, téléchargez ou clonez le référentiel [azure-iot-samples-csharp ](https://github.com/Azure-Samples/azure-iot-samples-csharp) et suivez les instructions en ligne de l’exemple de code. Vous pouvez suivre les instructions de cet article pour créer un groupe d’inscription de clé symétrique à l’aide du portail et pour rechercher l’étendue de l’ID et les clés primaires et secondaires du groupe d’inscription nécessaires à l’exécution de l’exemple. Vous pouvez également créer des inscriptions individuelles à l’aide de l’exemple.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Un ID d’inscription unique est défini pour chaque appareil en fonction des informations qui identifient cet appareil. Par exemple, l’adresse MAC ou un numéro de série.
 
@@ -41,12 +41,15 @@ Le code de l’appareil montré dans cet article suit le même modèle que le [D
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
-* Dernière version de [Git](https://git-scm.com/download/) installée.
 
+Les pré-requis suivants sont nécessaires pour un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du kit de développement logiciel (SDK).
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
+
+* Dernière version de [Git](https://git-scm.com/download/) installée.
 
 ## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Préparer un environnement de développement pour le SDK Azure IoT pour C
 
@@ -58,23 +61,26 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le dépôt GitHub du SDK Azure IoT pour C :
-    
+2. Recherchez le nom de balise de la [version la plus récente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) du kit de développement logiciel (SDK).
+
+3. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez les commandes suivantes pour cloner la dernière version du dépôt GitHub du [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Utilisez la balise de l’étape précédente comme valeur pour le paramètre `-b` :
+
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
+
     Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-
-3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+4. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire `azure-iot-sdk-c` :
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
+5. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -111,7 +117,7 @@ Le SDK inclut l’exemple de code pour l’appareil simulé. Cet appareil simul�
 
    - **Type d’attestation** : sélectionnez **Clé symétrique**.
 
-   - **Générer automatiquement les clés** : activez cette case à cocher.
+   - **Générer automatiquement les clés** : cochez cette case.
 
    - **Sélectionner le mode d’affectation des appareils aux hubs** : sélectionnez **Configuration statique** afin de les affecter à un hub spécifique.
 
@@ -226,7 +232,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Recherchez l’appel vers `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c** qui est commenté.
+6. Recherchez l'appel vers `prov_dev_set_symmetric_key_info()` dans **prov\_dev\_client\_sample.c** qui est commenté.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -263,7 +269,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     Press enter key to exit:
     ```
 
-9. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT* **activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
+9. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT***activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -280,7 +286,7 @@ Ne perdez pas de vue que ceci laisse la clé d’appareil dérivée incluse dans
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
-* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
+* [Démarrage rapide : provisionner un appareil simulé avec des clés symétriques](quick-create-simulated-device-symm-key.md)
 * Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 

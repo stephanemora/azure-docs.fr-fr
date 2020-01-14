@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment sauvegarder des bases de donn�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 52a7e98702299e790ee097cca871332ebb6a52c5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172101"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611387"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -17,7 +17,7 @@ Les bases de données SQL Server sont des charges de travail critiques nécessit
 
 Cet article explique comment sauvegarder dans un coffre Recovery Services de Sauvegarde Azure une base de données SQL Server s’exécutant sur une machine virtuelle Azure.
 
-Cet article porte sur les points suivants :
+Dans cet article, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
@@ -25,7 +25,7 @@ Cet article porte sur les points suivants :
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour pouvoir sauvegarder une base de données SQL Server, vérifiez les critères suivants :
 
@@ -43,32 +43,47 @@ Pour toute opération, une machine virtuelle SQL Server requiert une connectivit
 
 Établissez la connectivité en utilisant l’une des options suivantes :
 
-* **Autorisez les plages d’adresses IP du centre de données Azure**. Cette option autorise les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder à un groupe de sécurité réseau, utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si vous êtes un destinataire sûr, dressez la liste des adresses IP spécifiques à une région ; vous devez également mettre à jour la liste des destinataires sûrs en indiquant la balise du service Azure Active Directory (Azure AD) pour activer l’authentification.
+#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Autoriser les plages d’adresses IP du centre de données Azure
 
-* **Autorisez l’accès à l’aide de balises de groupe de sécurité réseau**.  Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure. Vous devez également utiliser des [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et Stockage Azure afin de permettre la connectivité pour l’authentification et le transfert de données. Pour ce faire, vous pouvez utiliser le portail ou PowerShell.
+Cette option autorise les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le fichier téléchargé. Pour accéder à un groupe de sécurité réseau, utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si votre liste de destinataires sûrs ne comporte que des adresses IP spécifiques à une région, vous devez également mettre à jour la liste des destinataires sûrs avec la balise du service Azure Active Directory (Azure AD) pour activer l’authentification.
 
-    Pour créer une règle avec le portail :
+#### <a name="allow-access-using-nsg-tags"></a>Autoriser l’accès à l’aide de balises de groupe de sécurité réseau
 
-  * Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
-  * Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
-  * Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l'option **Destination** est définie sur **Balise de service** et **Balise de service de destination** sur **AzureBackup**.
-  * Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
+Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure. Vous devez également utiliser des [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et Stockage Azure afin de permettre la connectivité pour l’authentification et le transfert de données. Cette opération peut être effectuée à partir du portail Azure ou via PowerShell.
 
-   Pour créer une règle à l’aide de Powershell :
+Pour créer une règle avec le portail :
 
-  * Ajoutez les identifiants de compte Azure et mettez à jour les clouds nationaux<br/>
-    ``Add-AzureRmAccount``
-  * Sélectionnez l’abonnement au groupe de sécurité réseau<br/>
-    ``Select-AzureRmSubscription "<Subscription Id>"``
-  * Sélectionnez le groupe de sécurité réseau<br/>
-    ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  * Ajoutez la règle de trafic sortant autorisée pour la balise du service Sauvegarde Azure<br/>
-   ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  * Enregistrez le groupe de sécurité réseau<br/>
-    ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
+  1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+  2. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
+  3. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l'option **Destination** est définie sur **Balise de service** et **Balise de service de destination** sur **AzureBackup**.
+  4. Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
 
-* **Autorisez l’accès à l’aide de balises de Pare-feu Azure**. Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la balise [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) d’AzureBackup. Cela autorise l’accès sortant à Sauvegarde Azure.
-* **Déployez un serveur proxy HTTP pour le routage du trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure, et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant configuré pour l’accès à l’internet public.
+Pour créer une règle à l’aide de Powershell :
+
+ 1. Ajoutez les identifiants de compte Azure et mettez à jour les clouds nationaux<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Sélectionnez l’abonnement au groupe de sécurité réseau<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Sélectionnez le groupe de sécurité réseau<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Ajoutez la règle de trafic sortant autorisée pour la balise du service Sauvegarde Azure<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Ajoutez la règle de trafic sortant autorisée pour la balise du service Stockage<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Ajoutez la règle de trafic sortant autorisée pour la balise du service AzureActiveDirectory<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Enregistrez le groupe de sécurité réseau<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Autorisez l’accès à l’aide de balises de Pare-feu Azure**. Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la balise [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) d’AzureBackup. Cela autorise l’accès sortant à Sauvegarde Azure.
+
+**Déployez un serveur proxy HTTP pour le routage du trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure, et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant configuré pour l’accès à l’internet public.
 
 Les options de connectivité présentent les avantages et inconvénients suivants :
 
@@ -232,11 +247,12 @@ Pour créer une stratégie de sauvegarde :
 
     ![Modifier la stratégie de sauvegarde de fichier journal](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-13. Dans le menu **Stratégie de sauvegarde**, choisissez s’il convient d’activer l’option **Compression de la sauvegarde SQL**,
-    * qui est désactivée par défaut.
-    * Sur le serveur principal, Sauvegarde Azure utilise la compression de sauvegarde native SQL.
+13. Dans le menu **Stratégie de sauvegarde**, choisissez s’il convient d’activer l’option **Compression de la sauvegarde SQL**, qui est désactivée par défaut. Si elle est activée, SQL Server envoie un flux de sauvegarde compressé à VDI.  Notez que Sauvegarde Azure remplace les valeurs par défaut au niveau de l’instance par la clause COMPRESSION / NO_COMPRESSION en fonction de la valeur de ce contrôle.
 
 14. Après avoir terminé les modifications apportées à la stratégie de sauvegarde, sélectionnez **OK**.
+
+> [!NOTE]
+> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour et des journaux d’activité toutes les 2 heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, la sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de rétention, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
 
 ## <a name="enable-auto-protection"></a>Activer la protection automatique  
 

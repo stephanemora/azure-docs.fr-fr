@@ -7,7 +7,17 @@
 - name: Documentation sur les extensions de machine virtuelle
   href: ./extensions/overview.md
 - name: Charges de travail
-  href: ./workloads/workloads.md
+  items:
+    - name: Red Hat
+      href: /redhat/redhat-overview.md
+    - name: Calcul haute performance
+      href: /hpc/overview.md
+    - name: SAP
+      href: /sap/get-started.md
+    - name: Oracle
+      href: /oracle/oracle-considerations.md
+    - name: Réhergement d’ordinateurs mainframe
+      href: /mainframe-rehosting/overview.md
 - name: Déploiements Classic
   items:
     - name: Machines virtuelles Linux avec le déploiement classique

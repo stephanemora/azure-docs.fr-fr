@@ -1,7 +1,7 @@
 ---
 title: 'Importance de la fonctionnalité de permutation : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Importance de la fonctionnalité de permutation dans le service Azure Machine Learning pour calculer les scores d’importance des fonctionnalités de permutation des variables de fonctionnalité en fonction d’un modèle formé et d’un jeu de données de test.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Importance de la fonctionnalité de permutation dans Azure Machine Learning pour calculer les scores d’importance des fonctionnalités de permutation des variables de fonctionnalité en fonction d’un modèle formé et d’un jeu de données de test.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b939e88606fba5d7759e55239838d5308bf0563c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837549"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428486"
 ---
 # <a name="permutation-feature-importance"></a>Importance de la fonctionnalité de permutation
 
@@ -69,4 +69,4 @@ La raison de cette différence tient au fait que le module Importance de la fonc
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

@@ -11,16 +11,16 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 06c8784c235b157f5799bb727df9784dfaa2f376
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440534"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’intégration continue consiste à tester automatiquement et, dès que possible, chaque modification apportée à votre code base. La livraison continue fait suite au test effectué pendant l’intégration continue, et envoie (push) les modifications à un système de production ou de préproduction.
 
@@ -56,11 +56,11 @@ Vous trouverez ci-dessous une vue d’ensemble de l’intégration continue et d
 
 Dans vos fabriques de données de test et de production, sélectionnez **Importer un modèle ARM**. Cette action ouvre le portail Azure, dans lequel vous pouvez importer le modèle exporté. Sélectionnez **Créer votre propre modèle dans l’éditeur** pour ouvrir l’éditeur de modèle Resource Manager.
 
-![](media/continuous-integration-deployment/continuous-integration-image3.png) 
+![Déploiement personnalisé - Créer votre propre modèle](media/continuous-integration-deployment/custom-deployment-build-your-own-template.png) 
 
 Cliquez sur **Charger le fichier** et sélectionnez le modèle Resource Manager généré.
 
-![](media/continuous-integration-deployment/continuous-integration-image4.png)
+![Déploiement personnalisé - Modifier le modèle](media/continuous-integration-deployment/custom-deployment-edit-template.png)
 
 Dans le volet Paramètres, entrez les valeurs de configuration telles que les informations d’identification du service lié. Lorsque vous avez terminé, cliquez sur **Acheter** pour déployer le modèle Resource Manager.
 
@@ -78,7 +78,7 @@ Ci-dessous, un guide de configuration d’une version Azure Pipelines automatise
 
 ![Diagramme de l’intégration continue à Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 -   Un abonnement Azure lié à Team Foundation Server ou Azure Repos utilisant le  [point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 

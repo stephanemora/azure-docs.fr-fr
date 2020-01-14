@@ -1,5 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) concernant les problèmes de configuration et de gestion pour Microsoft Azure Cloud Services | Microsoft Docs
+title: FAQ sur les problèmes de configuration et de gestion
+titleSuffix: Azure Cloud Services
 description: Cet article répertorie les questions fréquentes sur la configuration et la gestion pour Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 704d6d4a12550507a8e38be4777e5abc7b57fe74
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161767"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660611"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -198,7 +199,7 @@ Windows 10 et Windows Server 2016 prennent en charge HTTP/2 à la fois côté cl
 Pour plus d'informations, consultez les pages suivantes :
 
 - [HTTP/2 sur IIS](https://blogs.iis.net/davidso/http2)
-- [Vidéo : HTTP/2 dans Windows 10 : Navigateur, applications et serveur Web](https://channel9.msdn.com/Events/Build/2015/3-88)
+- [Vidéo : HTTP/2 dans Windows 10 : Navigateur, applications et serveur Web](https://channel9.msdn.com/Events/Build/2015/3-88)
          
 
 Ces étapes peuvent être automatisées via une tâche de démarrage de manière à pouvoir effectuer les modifications ci-dessus dans le Registre système chaque fois qu’une instance PaaS est créée. Pour plus d’informations, consultez [Comment configurer et exécuter des tâches de démarrage pour un service cloud](cloud-services-startup-tasks.md).
@@ -276,7 +277,7 @@ Vous pouvez également ajouter ce paramètre dans IIS. Utilisez la commande suiv
 Utilisez le script de démarrage IIS à partir de l’article [tâches courantes de démarrage](cloud-services-startup-tasks-common.md#configure-iis-startup-with-appcmdexe).
 
 ### <a name="what-is-the-quota-limit-for-my-cloud-service"></a>Quelle est la limite de quota de mon service cloud ?
-Consultez [Limites spécifiques des services](../azure-subscription-service-limits.md#subscription-limits).
+Consultez [Limites spécifiques des services](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
 ### <a name="why-does-the-drive-on-my-cloud-service-vm-show-very-little-free-disk-space"></a>Pourquoi le lecteur de la machine virtuelle de mon service cloud dispose-t-il d’aussi peu d’espace disque ?
 Il s’agit d’un comportement normal qui ne devrait pas causer de problèmes à votre application. La journalisation est activée pour le lecteur %approot% des machines virtuelles Azure PaaS, ce qui dans l’absolu a pour effet de consommer normalement le double d’espace que les fichiers. Cependant, cela ne pose pas de problème, et ce pour plusieurs raisons.

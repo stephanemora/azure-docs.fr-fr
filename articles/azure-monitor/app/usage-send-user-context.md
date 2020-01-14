@@ -1,5 +1,5 @@
 ---
-title: Envoi d’ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights | Microsoft Docs
+title: ID de contexte utilisateur pour suivre l’activité – Azure Application Insights
 description: Suivez les déplacements des utilisateurs dans votre service en affectant une chaîne d’ID unique et permanente à chacun d’eux dans Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: b105e8ba79e99be02420ca1821f6a080b0862d6f
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ee26aeff87f56ec09bced6029154c5152f26750d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887408"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432297"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Envoyer des ID de contexte utilisateur pour activer les expériences d’utilisation dans Azure Application Insights
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101420"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353229"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -112,9 +112,14 @@ Les applications utilisant leurs propres méthodes héritées pour s’authentif
 
 En adoptant l’idée qu’une violation de la sécurité peut se produire, vous devez réduire l’impact des informations d’identification utilisateur compromises le cas échéant. Pour chaque application dans votre environnement, considérez les cas d’utilisation valides : quels groupes, réseaux, appareils et autres éléments sont autorisés, puis bloquez le reste. Avec [l’accès conditionnel Azure AD](../../active-directory/conditional-access/overview.md), vous pouvez contrôler comment les utilisateurs autorisés accèdent à leurs applications et ressources selon des conditions spécifiques que vous définissez.
 
-### <a name="block-end-user-consent"></a>Bloquer le consentement de l'utilisateur final
+### <a name="restrict-user-consent-operations"></a>Limiter les opérations de consentement de l’utilisateur
 
-Par défaut, dans Azure AD tous les utilisateurs peuvent autoriser les applications tirant parti d’OAuth 2.0 et du [framework de consentement](../../active-directory/develop/consent-framework.md) de Microsoft à accéder aux données d’entreprise. Ce consentement, qui permet aux utilisateurs d’acquérir facilement des applications utiles qui s’intègrent à Microsoft 365 et à Azure, peut cependant représenter un risque s’il n’est pas utilisé et surveillé avec précaution. La [désactivation de toutes les opérations futures de consentement d'utilisateurs](../../active-directory/manage-apps/methods-for-removing-user-access.md) peut aider à réduire votre surface d'exposition et à atténuer ce risque. Si le consentement de l’utilisateur final est désactivé, les autorisations de consentement préalables sont toujours respectées, mais toutes les opérations de consentement futures doivent être effectuées par un administrateur. Avant de désactiver cette fonctionnalité, nous vous recommandons de vous assurer que les utilisateurs comprendront comment demander une approbation d’administrateur pour les nouvelles applications. Cela doit vous aider à réduire l’insatisfaction des utilisateurs, à limiter le volume de support et à garantir que les utilisateurs ne s’inscrivent pas à des applications avec des informations d’identification autres que celles d’Azure AD.
+Il est important de comprendre les différentes [expériences de consentement d’application d’Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [les types d’autorisations et de consentement](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)et leurs implications sur la sécurité de votre organisation. Par défaut, tous les utilisateurs de Azure AD peuvent autoriser les applications qui tirent parti de la plateforme Microsoft Identity à accéder aux données de votre organisation. Ce consentement, qui permet aux utilisateurs d’acquérir facilement des applications utiles qui s’intègrent à Microsoft 365, à Azure et à d’autres services, peut cependant représenter un risque s’il n’est pas utilisé et surveillé avec précaution.
+
+Microsoft vous recommande de [désactiver toutes les opérations futures de consentement d'utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) peut aider à réduire votre surface d'exposition et à atténuer ce risque. Si le consentement de l’utilisateur final est désactivé, les autorisations de consentement préalables sont toujours respectées, mais toutes les opérations de consentement futures doivent être effectuées par un administrateur. Le consentement de l’administrateur peut être demandé par les utilisateurs via un flux de travail de demande d’autorisation d’administrateur [intégré](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) ou par le biais de vos propres processus de support. Avant de désactiver cette fonctionnalité, il est recommandé de consulter votre journal d’audit pour comprendre les applications auxquelles les utilisateurs accèdent et de planifier la modification en conséquence. Pour les applications auxquelles vous souhaitez autoriser l’accès à tous les utilisateurs, envisagez [d’accorder le consentement pour le compte de tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), en vous assurant que les utilisateurs qui n’ont pas encore accepté individuellement pourront accéder à l’application. Si vous ne souhaitez pas que ces applications soient disponibles pour tous les utilisateurs dans tous les scénarios, utilisez [Affectation d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) et [Accès conditionnel ](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour restreindre l’accès des utilisateurs aux applications.
+
+Assurez-vous que les utilisateurs peuvent demander l’approbation de l’administrateur pour les nouvelles applications afin de réduire la friction des utilisateurs, de réduire le volume de support et d’empêcher les utilisateurs de s’inscrire aux applications en utilisant des informations d’identification différentes de celles d’Azure AD. Une fois que vous avez régulé vos opérations de consentement, les administrateurs doivent auditer régulièrement l’application et les autorisations accordées.
+
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Mettre en œuvre Azure AD Privileged Identity Management
 
@@ -173,7 +178,9 @@ Azure AD Identity Protection fournit deux rapports importants que vous devez sur
 
 ### <a name="audit-apps-and-consented-permissions"></a>Applications d’audit et autorisations accordées
 
-Les utilisateurs risquent d’entrer en contact à leur insu avec un site web ou des applications compromis qui pourront ainsi accéder aux informations de leur profil et à des données à caractère personnel telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations données par les utilisateurs.
+Les utilisateurs risquent d’entrer en contact à leur insu avec un site web ou des applications compromis qui pourront ainsi accéder aux informations de leur profil et à des données à caractère personnel telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations accordées par les utilisateurs ou désactiver la capacité des utilisateurs à donner leur consentement par défaut. 
+
+Outre l’audit des autorisations fournies par les utilisateurs, il peut être utile d’essayer de [localiser les applications OAuth risquées ou indésirables](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) spécifiquement (fonctionnalité disponible pour les environnements Premium).
 
 ## <a name="step-5---enable-end-user-self-service"></a>Étape 5 - Activer le libre-service pour l’utilisateur final
 

@@ -1,7 +1,7 @@
 ---
 title: Guide pratique pour effectuer des commandes personnalisées sur le client avec le SDK Speech
 titleSuffix: Azure Cognitive Services
-description: Dans cet article, gérez des activités de commandes personnalisées sur le client avec le Kit de développement logiciel (SDK) Speech
+description: Dans cet article, nous expliquons comment gérer des activités de commandes personnalisées sur le client avec le kit de développement logiciel (SDK) Speech.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 39e0a512e42dd861c0ee2c833501c7594204cb8b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d17ccc67f8254f05461012a9ae443d96ffd58fa5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806148"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446925"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>Procédure : Effectuer des commandes sur le client avec le Kit de développement logiciel (SDK) Speech (préversion)
 
@@ -26,15 +26,15 @@ Dans cet article, vous allez :
 - Définir et envoyer une charge utile JSON personnalisée à partir de votre application de commandes personnalisées
 - Recevoir et visualiser le contenu de la charge utile JSON personnalisée d’une application cliente du Kit de développement logiciel (SDK) Speech UWP C#
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Clé d’abonnement Azure pour le service Speech
   - [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
 - Application de commandes personnalisées créée précédemment
-  - [Démarrage rapide : Créer une commande personnalisée avec des paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
+  - [Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
 - Application cliente compatible avec le Kit de développement logiciel (SDK) Speech
-  - [Démarrage rapide : Se connecter à une application de commandes personnalisées avec le Kit de développement logiciel (SDK) Speech (préversion)](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Facultatif : Démarrer rapidement
 
@@ -53,7 +53,7 @@ Cet article explique, étape par étape, comment créer une application cliente 
    | ------- | --------------- | ----------- |
    | Nom de la règle | UpdateDeviceState | Nom décrivant l’objectif de la règle |
    | Conditions | Paramètre obligatoire : `OnOff` et `SubjectDevice` | Conditions déterminant le moment où la règle peut s’exécuter |
-   | Actions | `SendActivity` (voir ci-dessous) | Action à exécuter lorsque la condition de règle est remplie |
+   | Actions | `SendActivity` (voir ci-dessous) | Action à exécuter lorsque la condition de la règle est remplie |
 
    > [!div class="mx-imgBorder"]
    > ![Charge utile d’activité d’envoi](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -142,4 +142,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)](./how-to-custom-speech-commands-validations.md)
+> [Procédure : ajouter des validations aux paramètres de commande personnalisée (préversion)](./how-to-custom-speech-commands-validations.md)

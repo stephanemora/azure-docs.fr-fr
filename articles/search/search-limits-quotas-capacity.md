@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d5d621ec9eccca56c4e4e9075b6e9cca75c05c98
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/17/2019
+ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462495"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
 
-Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
+Les limites maximales du stockage, des charges de travail et des quantités d’index et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Les requêtes d’indexation et d’interrogation s’exécutent sur les réplicas et les partitions utilisés par d’autres locataires.
 
@@ -65,13 +65,12 @@ Les limites maximales du stockage, des charges de travail et des quantités d’
 
 ## <a name="document-limits"></a>Limites du document 
 
-Depuis octobre 2018, il n’y a plus de limites au nombre de documents<sup>1</sup> pour tout nouveau service créé, quels que soient le niveau facturable (De base, S1, S2, S3, S3 HD) dans une région. Si la plupart des régions prennent en charge des nombres illimités de documents depuis novembre/décembre 2017, cinq régions ont continué d’imposer de telles limites. Selon le moment et le lieu de création d’un service de recherche, vous pourriez exécuter un service toujours sujet à des limites de nombre de documents.
+Depuis octobre 2018, il n’y a plus de limites au nombre de documents pour tout nouveau service créé, quels que soient le niveau facturable (De base, S1, S2, S3, S3 HD) et la région. Si la plupart des régions prennent en charge des nombres illimités de documents depuis novembre/décembre 2017, quelques régions ont continué d’imposer de telles limites après cette période. Selon le moment et le lieu de création d’un service de recherche, vous pourriez exécuter un service toujours sujet à des limites de nombre de documents.
 
-Pour savoir si votre service a un nombre limité de documents, consultez la vignette Utilisation dans la page de présentation de votre service. Les nombres de documents sont illimités ou soumis à une limite établie en fonction du niveau.
+Pour déterminer si des limites du document sont définies pour votre service, utilisez l’[API REST GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Les limites du document figurent dans la réponse, `null` indiquant aucune limite.
 
-  ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
-
-<sup>1</sup> Même s’il n’existe aucune limite de nombre de documents spécifique d’une référence SKU, chaque index reste soumis à une limite maximale de sécurité pour garantir la stabilité du service. Cette limite provient de Lucene. Chaque document Recherche cognitive Azure est indexé en interne en tant qu’un ou plusieurs documents Lucene. Le nombre de documents Lucene par document de recherche dépend du nombre total d’éléments dans les champs de collection complexes. Chaque élément est indexé en tant que document Lucene distinct. Par exemple, un document comportant 3 éléments dans un champ de collection complexe est indexé en tant que 4 documents Lucene : 1 pour le document et 3 pour les éléments. Le nombre maximal de documents Lucene est approximativement de 25 milliards par index.
+> [!NOTE]
+> Même s’il n’existe aucune limite de nombre de documents spécifique d’une référence SKU, chaque index reste soumis à une limite maximale de sécurité pour garantir la stabilité du service. Cette limite provient de Lucene. Chaque document Recherche cognitive Azure est indexé en interne en tant qu’un ou plusieurs documents Lucene. Le nombre de documents Lucene par document de recherche dépend du nombre total d’éléments dans les champs de collection complexes. Chaque élément est indexé en tant que document Lucene distinct. Par exemple, un document comportant 3 éléments dans un champ de collection complexe est indexé en tant que 4 documents Lucene : 1 pour le document et 3 pour les éléments. Le nombre maximal de documents Lucene est approximativement de 25 milliards par index.
 
 ### <a name="regions-previously-having-document-limits"></a>Régions précédemment sujettes à des limites de nombre de documents
 
@@ -116,7 +115,7 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 | Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |Aucune limite |Aucune limite |
 | Planification minimale | 5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes | 5 minutes |
 | Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |24 heures |24 heures |
-| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
+| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
 | Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;millions |4&nbsp;millions |4&nbsp;millions |N/A |4&nbsp;millions |4&nbsp;millions |
 
@@ -135,11 +134,11 @@ Les durées d’exécution maximales existent pour fournir équilibre et stabili
 
 ## <a name="synonym-limits"></a>Limites des synonymes
 
-Le nombre maximal de mappages de synonymes autorisé varie en fonction du niveau de tarification. Chaque règle peut avoir jusqu’à 20 expansions, où une expansion est un terme equivalvent. Par exemple, pour le mot « chat », l’association avec « minou », « félin » et « felis » (le genre des chats) est comptée comme 3 expansions.
+Le nombre maximal de mappages de synonymes autorisé varie en fonction du niveau de tarification. Chaque règle peut avoir jusqu’à 20 expansions, où une expansion est un terme equivalvent. Par exemple, pour le mot « chat », l’association avec « minou », « félin » et « felis » (le genre des chats) est comptée comme 3 expansions.
 
 | Ressource | Gratuit | De base | S1 | S2 | S3 | S3-HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
-| Mappages de synonymes maximum |3 |3|5\. |10 |20 |20 | 10 | 10 |
+| Mappages de synonymes maximum |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Nombre maximal de règles par mappage |5 000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
 ## <a name="queries-per-second-qps"></a>Requêtes par seconde

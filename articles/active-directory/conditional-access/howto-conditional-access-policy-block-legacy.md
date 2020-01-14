@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b4627080879c9e7d2635b950bb7f31b7d23581
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c40993df8033b9dbc49c81e8db2f9f01c6de37d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803629"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424915"
 ---
-# <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
+# <a name="conditional-access-block-legacy-authentication"></a>Accès conditionnel : Bloquer l’authentification héritée
 
 En raison des risques accrus associés aux protocoles d’authentification hérités, Microsoft recommande aux organisations de bloquer les demandes d’authentification utilisant ces protocoles et d’exiger une authentification moderne.
 
@@ -34,9 +34,11 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
    1. Sous **Inclure**, sélectionnez **Tous les utilisateurs**.
    1. Sous **Exclure**, sélectionnez **Utilisateurs et groupes**, puis choisissez les comptes qui doivent conserver la possibilité d’utiliser l’authentification héritée. 
    1. Sélectionnez **Terminé**.
+1. Sous **Applications ou actions cloud**, sélectionnez **Toutes les applications cloud**.
+   1. Sélectionnez **Terminé**.
 1. Sous **Conditions** > **Applications clientes (préversion)** , réglez **Configurer** sur **Oui**.
    1. Cochez uniquement les cases **Applications mobiles et clients de bureau** > **Autres clients**.
-   2. Sélectionnez **Terminé**.
+   1. Sélectionnez **Terminé**.
 1. Sous **Contrôles d'accès** > **Accorder**, sélectionnez **Bloquer l’accès**.
    1. Sélectionnez **Sélectionner**.
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
@@ -45,5 +47,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
+
+[Déterminer l’impact à l’aide du mode de rapport d’accès conditionnel uniquement](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

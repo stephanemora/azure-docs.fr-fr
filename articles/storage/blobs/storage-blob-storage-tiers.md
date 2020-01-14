@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a7f9969c7c9a341b48581536dd856b25b50bf96f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825447"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371953"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage Blob Azure : niveaux d’accès chaud, froid et archive
 
@@ -115,11 +115,11 @@ Le tableau suivant présente une comparaison du stockage d’objets blob de bloc
 
 |                                           | **Performances Premium**   | **Niveau chaud** | **Niveau froid**       | **Niveau archive**  |
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
-| **Disponibilité**                          | 99,9 %                     | 99,9 %        | 99 %                 | Hors ligne           |
-| **Disponibilité** <br> **(Lectures RA-GRS)**  | N/A                       | 99,99 %       | 99,9 %               | Hors ligne           |
+| **Disponibilité**                          | 99,9 %                     | 99,9 %        | 99 %                 | Hors connexion           |
+| **Disponibilité** <br> **(Lectures RA-GRS)**  | N/A                       | 99,99 %       | 99,9 %               | Hors connexion           |
 | **Frais d’utilisation**                         | Coûts de stockage supérieurs, coût d’accès et de transaction inférieur | Coûts de stockage supérieurs, coûts d'accès et de transaction inférieurs | Coûts de stockage inférieurs, coûts d'accès et de transaction supérieurs | Coûts de stockage les plus faibles, coûts d'accès et de transaction les plus élevés |
 | **Taille minimale des objets**                   | N/A                       | N/A          | N/A                 | N/A               |
-| **Durée de stockage minimale**              | N/A                       | N/A          | 30 jours<sup>1</sup> | 180 jours
+| **Durée de stockage minimale**              | N/A                       | N/A          | 30 jours<sup>1</sup> | 180 jours
 | **Latence** <br> **(Temps jusqu’au premier octet)** | Millisecondes à un chiffre | millisecondes | millisecondes        | heures<sup>2</sup> |
 
 <sup>1</sup> Les objets du niveau froid sur des comptes GPv2 ont une durée de rétention minimale de 30 jours. Les comptes de stockage d’objets blob n’ont pas de durée de rétention minimale pour le niveau d’accès froid.
@@ -138,11 +138,13 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 ### <a name="change-the-default-account-access-tier-of-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’accès de compte par défaut d’un compte de stockage GPv2 ou d’objets blob
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
+1. Dans la Portail Azure, recherchez et sélectionnez **Toutes les ressources**.
 
-1. Dans Paramètres, cliquez sur **Configuration** pour afficher et modifier la configuration du compte.
+1. Sélectionnez votre compte de stockage.
+
+1. Dans **Paramètres**, cliquez su **Configuration** pour afficher et modifier la configuration du compte.
 
 1. Sélectionnez le niveau d’accès adapté à vos besoins : Affectez la valeur **Froid** ou **Chaud** au **Niveau d’accès**.
 
@@ -150,9 +152,11 @@ Dans cette section, les scénarios suivants sont décrits à l’aide du Portail
 
 ### <a name="change-the-tier-of-a-blob-in-a-gpv2-or-blob-storage-account"></a>Changer le niveau d’un objet blob dans un compte de stockage GPv2 ou d’objets blob
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Pour accéder à votre objet blob dans votre compte de stockage, sélectionnez Toutes les ressources, puis votre compte de stockage et enfin sélectionnez votre objet blob.
+1. Dans la Portail Azure, recherchez et sélectionnez **Toutes les ressources**.
+
+1. Sélectionnez votre conteneur, puis sélectionnez votre objet blob.
 
 1. Dans **Propriétés de l’objet blob**, sélectionnez **Modifiez le niveau**.
 
@@ -174,7 +178,7 @@ Tous les comptes de stockage utilisent un modèle tarifaire pour le stockage d�
 > [!NOTE]
 > Pour plus d’informations sur la tarification des objets blob de blocs, consultez la page [Présentation de la tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/). Pour plus d’informations sur les frais de transfert de données sortantes, consultez la page [Détails de la tarification – Transferts de données](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Dois-je utiliser un compte de stockage GPv2 ou d’objets blob si je souhaite niveler mes données ?**
 

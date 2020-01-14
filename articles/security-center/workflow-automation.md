@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 57351ccf0c6155a1a3532ec9e6481a724e3219aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151697"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462439"
 ---
 # <a name="workflow-automation-preview"></a>Automatisation des workflows (préversion)
 
@@ -25,7 +25,7 @@ Cet article décrit la fonctionnalité Automatisation des workflows (préversion
 > Si vous avez précédemment accédé à la vue Playbooks (préversion) dans la barre latérale, vous retrouverez les mêmes fonctionnalités regroupées avec les fonctionnalités étendues dans la nouvelle page Automatisation des workflows (préversion).
 
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 * Pour utiliser des workflows Azure Logic Apps, vous devez avoir les autorisations/rôles Logic Apps suivants :
 
@@ -87,6 +87,9 @@ Pour exécuter manuellement une application logique, ouvrez une recommandation, 
 
 [![Déclencher manuellement une application logique](media/workflow-automation/manually-trigger-logic-app.png)](media/workflow-automation/manually-trigger-logic-app.png#lightbox)
 
+## <a name="data-types-schemas"></a>Schémas des types de données
+
+Pour consulter les schémas d’événements bruts des alertes de sécurité ou les recommandations que les événements ont transmises à l’instance Logic App, consultez [Schémas des types de données pour l’automatisation du workflow](https://aka.ms/ASCAutomationSchemas). Cela peut se révéler utile si vous n’utilisez pas les connecteurs Logic App intégrés du Centre de sécurité mentionnés plus haut, mais le connecteur HTTP générique de Logic App. Vous pouvez utiliser le schéma JSON d’événement pour l’analyser manuellement si vous le souhaitez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -98,3 +101,4 @@ Pour d’autres informations connexes, consultez les articles suivants :
 - [Alertes de sécurité dans le Centre de sécurité Azure](security-center-alerts-overview.md)
 - [À propos d’Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
 - [Connecteurs d’applications logiques](https://docs.microsoft.com/connectors/)
+- [Schémas des types de données pour l’automatisation du workflow](https://aka.ms/ASCAutomationSchemas)

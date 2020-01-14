@@ -11,14 +11,14 @@ ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/05/2017
+ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: a91098d06f481afaae75eb497d5a076c3eb42c07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 231c8cb8e66d658ad49e02fd585f6c8a1593cb2d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75373988"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 
@@ -28,7 +28,7 @@ Cette rubrique explique comment Azure configure le stockage pour vos machines vi
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser les paramètres de configuration automatisée du stockage, votre machine virtuelle doit répondre aux conditions suivantes :
 
@@ -110,7 +110,6 @@ Vous pouvez modifier les paramètres de disque des lecteurs configurés lors du 
 ![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
 
-
 ## <a name="storage-configuration"></a>Configuration du stockage
 
 Cette section contient des informations de référence sur les modifications de configuration de stockage qu’Azure effectue automatiquement lors du provisionnement des machines virtuelles SQL dans le portail Azure.
@@ -143,7 +142,7 @@ Le tableau suivant décrit les trois options de type de charge de travail dispon
 
 | Type de charge de travail | Description | Optimisations |
 | --- | --- | --- |
-| **Généralités** |Paramètre par défaut qui prend en charge la plupart des charges de travail |Aucun |
+| **Généralités** |Paramètre par défaut qui prend en charge la plupart des charges de travail |None |
 | **Traitement transactionnel** |Optimise le stockage pour les charges de travail OLTP de base de données traditionnelles |Indicateur de trace 1117<br/>Indicateur de trace 1118 |
 | **Entrepôt de données** |Optimise le stockage pour les charges de travail d’analyse et de création de rapports |Indicateur de trace 610<br/>Indicateur de trace 1117 |
 

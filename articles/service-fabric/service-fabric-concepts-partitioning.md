@@ -1,25 +1,14 @@
 ---
-title: Partitionnement des services Service Fabric | Microsoft Docs
+title: Partitionnement des services Service Fabric
 description: Explique comment partitionner les services Service Fabric avec état. Les partitions permettent le stockage des données sur les ordinateurs locaux pour que les données et le calcul puissent être mis à l’échelle ensemble.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 3b7248c8-ea92-4964-85e7-6f1291b5cc7b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/30/2017
-ms.author: atsenthi
-ms.openlocfilehash: 833d87dab59890b9903ea8eecf2334d7dd1c7436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1f3ee2196bad8b8a0c992ed498d40b4cf5820f2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711894"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434061"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -165,7 +154,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
    
     Le GUID supplémentaire est fourni dans les cas où des réplicas secondaires écouteraient également les demandes en lecture seule. Dans ce cas de figure, vous voudrez vous assurer qu’une nouvelle adresse unique est utilisée lors de la transition du réplica principal vers le réplica secondaire afin de forcer les clients à résoudre l’adresse. « + » est utilisé ici comme adresse afin de permettre au réplica d’écouter tous les hôtes disponibles (IP, FQDN, localhost, etc.). Le code ci-dessous en montre un exemple.
    
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
          return new[] { new ServiceReplicaListener(context => this.CreateInternalListener(context))};
@@ -193,7 +182,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     L’URL d’écoute est donnée à HttpListener. L’URL publiée est l’URL qui est publiée dans le service de nommage Service Fabric, utilisé pour la découverte de service. Les clients demanderont cette adresse via ce service de découverte. L’adresse obtenue par les clients doit comporter l’IP ou le nom de domaine complet du nœud pour pouvoir établir la connexion. Vous devez remplacer « + » par l’adresse IP ou le nom de domaine complet du nœud comme indiqué ci-dessus.
 9. La dernière étape consiste à ajouter la logique de traitement au service comme indiqué ci-dessous.
    
-    ```CSharp
+    ```csharp
     private async Task ProcessInternalRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         string output = null;
@@ -249,7 +238,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     ```
 13. Vous devez retourner une collection de ServiceInstanceListeners dans la classe Web. Là encore, vous pouvez choisir d’implémenter un simple HttpCommunicationListener.
     
-    ```CSharp
+    ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[] {new ServiceInstanceListener(context => this.CreateInputListener(context))};
@@ -265,7 +254,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     ```
 14. Maintenant, vous devez implémenter la logique de traitement. HttpCommunicationListener appelle `ProcessInputRequest` lorsqu’une demande lui parvient. Par conséquent, vous devez ajouter le code ci-dessous.
     
-    ```CSharp
+    ```csharp
     private async Task ProcessInputRequest(HttpListenerContext context, CancellationToken cancelRequest)
     {
         String output = null;
@@ -311,7 +300,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     
     Voici la procédure pas à pas. Le code lit la première lettre du paramètre de chaîne de requête `lastname` sous forme de caractère. Il détermine ensuite la clé de partition pour cette lettre en soustrayant la valeur hexadécimale de `A` de la valeur hexadécimale de la première lettre des noms.
     
-    ```CSharp
+    ```csharp
     string lastname = context.Request.QueryString["lastname"];
     char firstLetterOfLastName = lastname.First();
     ServicePartitionKey partitionKey = new ServicePartitionKey(Char.ToUpper(firstLetterOfLastName) - 'A');
@@ -320,19 +309,19 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     N’oubliez pas que, dans cet exemple, nous utilisons 26 partitions avec une seule clé de partition par partition.
     Nous obtenons ensuite la partition de service `partition` pour cette clé en utilisant la méthode `ResolveAsync` sur l’objet `servicePartitionResolver`. `servicePartitionResolver` est défini comme
     
-    ```CSharp
+    ```csharp
     private readonly ServicePartitionResolver servicePartitionResolver = ServicePartitionResolver.GetDefault();
     ```
     
     La méthode `ResolveAsync` accepte l’URI de service, la clé de partition et un jeton d’annulation en tant que paramètres. L’URI du service pour le service de traitement est `fabric:/AlphabetPartitions/Processing`. Ensuite, nous obtenons le point de terminaison de la partition.
     
-    ```CSharp
+    ```csharp
     ResolvedServiceEndpoint ep = partition.GetEndpoint()
     ```
     
     Pour finir, nous allons générer l’URL du point de terminaison ainsi que la chaîne de requête avant d’appeler le service de traitement.
     
-    ```CSharp
+    ```csharp
     JObject addresses = JObject.Parse(ep.Address);
     string primaryReplicaAddress = (string)addresses["Endpoints"].First();
     

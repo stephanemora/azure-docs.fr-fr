@@ -1,32 +1,21 @@
 ---
-title: Créer un cluster Service Fabric Linux dans Azure | Microsoft Docs
+title: Créer un cluster Service Fabric Linux dans Azure
 description: Découvrez comment déployer un cluster Service Fabric Linux dans un réseau virtuel Azure existant à l’aide de l’interface Azure CLI.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/14/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 2ba157d7bf2e6effbaf7ab129dbbbfd1ca8b9667
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 059f0f4b1eac9546f1adc05bf1f2799affc0dd8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465399"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
 Dans cet article, vous découvrirez comment déployer un cluster Service Fabric Linux dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) à l’aide de l’interface Azure CLI et d’un modèle. Lorsque vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Windows à l’aide de PowerShell, consultez la section relative à la [création d’un cluster Windows sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -83,7 +72,7 @@ Si d’autres ports de l’application sont nécessaires, vous devez ajuster les
 
 Le fichier de paramètres [AzureDeploy.Parameters][parameters] déclare de nombreuses valeurs servant à déployer le cluster et les ressources associées. Voici certains des paramètres que vous devrez peut-être modifier pour votre déploiement :
 
-|Paramètre|Exemple de valeur|Notes|
+|Paramètre|Valeur d'exemple|Notes|
 |---|---||
 |adminUsername|vmadmin| Nom d’utilisateur administrateur pour les machines virtuelles de cluster. |
 |adminPassword|Password#1234| Mot de passe d’administrateur pour les machines virtuelles de cluster.|
@@ -158,7 +147,7 @@ Vérifiez que vous êtes connecté et que le cluster est sain à l’aide de la 
 sfctl cluster health
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne passez pas immédiatement à l’article suivant, vous souhaiterez peut-être [supprimer le cluster](service-fabric-cluster-delete.md) pour éviter de subir des frais.
 

@@ -1,6 +1,6 @@
 ---
-title: Écrire une application web qui connecte des utilisateurs – Plateforme d’identités Microsoft | Azure
-description: Apprenez à générer une application web qui connecte des utilisateurs (connexion)
+title: Écrire une application web qui connecte/déconnecte des utilisateurs – Plateforme Microsoft Identity | Azure
+description: Apprenez à générer une application web qui connecte/déconnecte des utilisateurs (connexion)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb32ae29c533b8ea27bf68e012040a17bb36355
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423485"
 ---
-# <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
+# <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Application web qui connecte les utilisateurs : Se connecter et se déconnecter
 
 Découvrez comment ajouter une connexion au code de votre application web pour connecter les utilisateurs. Ensuite, découvrez comment les autoriser à se déconnecter.
 
@@ -118,7 +118,7 @@ Le code pour `AccountController` est disponible dans le référentiel ASP.NET C
 
 Dans ASP.NET, la déconnexion est déclenchée par la méthode `SignOut()` sur un contrôleur (par exemple, [AccountController.cs#L16-L23](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Controllers/AccountController.cs#L16-L23)). Cette méthode ne fait pas partie de l’infrastructure ASP.NET (contrairement à ASP.NET Core). Envoi d’une demande de connexion OpenID après avoir proposé un URI de redirection.
 
-```CSharp
+```csharp
 public void SignIn()
 {
     // Send an OpenID Connect sign-in request.
@@ -342,7 +342,7 @@ Dans ASP.NET, la déconnexion est déclenchée par la méthode `SignOut()` sur u
 - Elle efface le cache.
 - Effectue une redirection vers la page souhaitée.
 
-```CSharp
+```csharp
 /// <summary>
 /// Send an OpenID Connect sign-out request.
 /// </summary>
@@ -396,7 +396,7 @@ L’URI Post-déconnexion permet aux applications de participer à la déconnexi
 
 L’intergiciel OpenID Connect ASP.NET Core permet à votre application d’intercepter l’appel au point de terminaison `logout` de la plateforme d’identités Microsoft en fournissant un événement OpenID Connect nommé `OnRedirectToIdentityProviderForSignOut`. Pour obtenir un exemple illustrant comment s’abonner à cet événement (pour effacer le cache de jeton), voir [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156).
 
-```CSharp
+```csharp
     // Handling the global sign-out
     options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
     {
@@ -408,7 +408,7 @@ L’intergiciel OpenID Connect ASP.NET Core permet à votre application d’inte
 
 Dans ASP.NET, vous déléguez à l’intergiciel (middleware) l’exécution de la déconnexion, en effaçant le cookie de session :
 
-```CSharp
+```csharp
 public class AccountController : Controller
 {
  ...

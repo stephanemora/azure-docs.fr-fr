@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014707"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615093"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -23,7 +23,9 @@ Cet article décrit les mises à jour de l’entrée et du stockage des données
 
 ## <a name="data-ingress"></a>Entrée de données
 
-Votre environnement Azure Time Series Insights contient un moteur d’ingestion pour collecter, traiter et stocker des données de série chronologique. Lors de la planification de votre environnement, il est important de tenir compte de certaines considérations afin de garantir que toutes les données entrantes sont traitées, d’obtenir une grande échelle d’entrée et de réduire la latence d’ingestion (le temps pris par TSI pour lire et traiter les données de l’événement source). Dans Time Series Insights (préversion), les stratégies d’entrée de données déterminent la provenance possible des données et leur format.
+Votre environnement Azure Time Series Insights contient un moteur d’ingestion pour collecter, traiter et stocker des données de série chronologique. Lors de la planification de votre environnement, il est important de tenir compte de certaines considérations afin de garantir que toutes les données entrantes sont traitées, d’obtenir une grande échelle d’entrée et de réduire la latence d’ingestion (le temps pris par TSI pour lire et traiter les données de l’événement source). 
+
+Dans Time Series Insights (préversion), les stratégies d’entrée de données déterminent la provenance possible des données et leur format.
 
 ### <a name="ingress-policies"></a>Stratégies d’entrée
 
@@ -32,12 +34,12 @@ Time Series Insights (préversion) prend en charge les sources d’événements 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
-Time Series Insights (préversion) prend en charge un maximum de deux sources d’événements par instance.
-  
-Azure Time Series Insights prend en charge le format JSON via Azure IoT Hub ou Azure Event Hubs.
+Time Series Insights (préversion) prend en charge un maximum de deux sources d’événements par instance. Azure Time Series Insights prend en charge le format JSON via Azure IoT Hub ou Azure Event Hubs.
 
 > [!WARNING] 
-> Lors de l’ajout d’une nouvelle source d’événements à votre environnement Time Series Insights (préversion), vous pouvez constater une latence importante de l’ingestion initiale selon le nombre d’événements actuellement présents dans votre IoT Hub ou Event Hub. À mesure que les données sont ingérées, vous devriez vous attendre à ce que cette latence importante diminue, mais si votre expérience indique le contraire, veuillez nous contacter en soumettant un ticket de support via le Portail Azure.
+> * Vous pouvez rencontrer une latence initiale élevée lors de la jonction d’une source d’événement à votre environnement en préversion. 
+> La latence de la source d’événement dépend du nombre d’événements actuellement présents dans votre IoT Hub ou votre Event Hub.
+> * Une latence élevée sera impartie après la réception des données de la source d’événements. Veuillez nous contacter en soumettant un ticket de support via le Portail Azure si vous rencontrez une latence élevée de façon continue.
 
 ## <a name="ingress-best-practices"></a>Meilleures pratiques relatives à l’entrée
 
@@ -49,12 +51,19 @@ Nous vous recommandons d’utiliser les meilleures pratiques suivantes :
 
 ### <a name="ingress-scale-and-limitations-in-preview"></a>Mise à l’échelle de l’entrée et limitations de la préversion
 
-Par défaut, Time Series Insights (préversion) prend en charge une mise à l’échelle de l’entrée initiale allant jusqu’à 1 mégaoctets par seconde (Mo/s) et par environnement. Un débit allant jusqu’à 16 Mo/s est disponible si nécessaire ; veuillez nous contacter en nous envoyant un ticket de support dans le Portail Azure le cas échéant. En outre, une limite de 0,5 Mo/s par partition est fixée. Cela a des conséquences pour les clients qui utilisent IoT Hub spécifiquement, étant donné l’affinité entre un appareil IoT Hub et une partition. Dans les scénarios où un appareil de passerelle transfère des messages au hub en utilisant son propre ID d’appareil et sa propre chaîne de connexion, il existe un risque d’atteindre la limite de 0,5 Mo/s, étant donné que les messages arrivent dans une partition unique, même si la charge utile de l’événement spécifie des ID TS différents. En général, le taux d’entrée est considéré comme un facteur du nombre d’appareils qui se trouvent dans votre organisation, de la fréquence d’émission des événements et de la taille d’un événement. Lors du calcul du taux d’ingestion, les utilisateurs d’IoT Hub doivent utiliser le nombre de connexions au hub en cours d’utilisation, plutôt que le nombre total d’appareils dans l’organisation. L’amélioration de la prise en charge de la mise à l’échelle est en cours. Cette documentation sera mise à jour pour tenir compte de ces améliorations. 
+Par défaut, les environnements en préversion préliminaire prennent en charge des débits d’entrée allant jusqu’à **1 mégaoctet par seconde (Mo/s) par environnement**. Les clients peuvent augmenter le débit de leurs environnements en préversion jusqu’à **16 Mo/s** si nécessaire.
+Une limite de **0,5 Mo/s** par partition est également fixée. 
 
-> [!WARNING]
-> Pour les environnements qui utilisent IoT Hub comme source d’événement, calculez le taux d’ingestion à l’aide du nombre d’appareils hubs en cours d’utilisation.
+La limite par partition n’est pas sans conséquence pour les clients qui utilisent IoT Hub. Spécifiquement, en raison de l’affinité entre un appareil IoT Hub et une partition. Dans les scénarios où un appareil de passerelle transfère des messages au hub en utilisant son propre ID d’appareil et sa propre chaîne de connexion, il existe un risque d’atteindre la limite de 0,5 Mo/s, étant donné que les messages arrivent dans une partition unique, même si la charge utile de l’événement spécifie des ID de série chronologique différents. 
 
-Pour plus d’informations sur les unités de débit et les partitions, veuillez consulter les liens suivants :
+En général, les taux d’entrée sont considérés comme le facteur du nombre d’appareils qui se trouvent dans votre organisation, de la fréquence d’émission des événements et de la taille de chaque événement :
+
+*  **Nombre d’appareils** × **Fréquence d’émission d’événements** × **Taille de chaque événement**.
+
+> [!TIP]
+> Pour les environnements qui utilisent IoT Hub en tant que source d’événement, calculez le taux d’ingestion en utilisant le nombre de connexions au hub en cours d’utilisation, plutôt que le nombre total d’appareils en cours d’utilisation ou dans l’organisation.
+
+Pour plus d’informations sur les unités de débit, les limites et les partitions :
 
 * [Mise à l’échelle d’IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
 * [Mise à l’échelle d’Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
@@ -113,7 +122,7 @@ Vous pouvez accéder à vos données au moyen de trois méthodes générales :
 
 ### <a name="data-deletion"></a>Suppression des données
 
-Ne supprimez pas vos fichiers Time Series Insights (préversion). Vous devez gérer les données associées à partir de Time Series Insights (préversion) uniquement.
+Ne supprimez pas vos fichiers Time Series Insights (préversion). Gérez les données associées à partir de Time Series Insights (préversion) uniquement.
 
 ## <a name="parquet-file-format-and-folder-structure"></a>Format de fichier Parquet et structure de dossiers
 

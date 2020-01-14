@@ -1,7 +1,7 @@
 ---
 title: 'Entraîner le générateur de recommandations SVD : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Entraîner le générateur de recommandations SVD dans le service Azure Machine Learning pour entraîner un générateur de recommandations bayésien à l’aide de l’algorithme SVD.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Entraîner le générateur de recommandations SVD dans Azure Machine Learning pour former un conseiller bayésien à l’aide de l’algorithme SVD.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 2019b752ab224abc244e471de3d427a77f7ed93a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dc78322b09548e4e9c2f666e0c8315ce688d6541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428421"
 ---
 # <a name="train-svd-recommender"></a>Entraîner le générateur de recommandations SVD
 
@@ -57,7 +57,7 @@ Le jeu de données **Notations de restaurants** dans le concepteur Azure Machine
 
 À partir de cet exemple, vous pouvez voir qu’un utilisateur unique a évalué deux restaurants distincts. 
 
-### <a name="train-the-model"></a>Formation du modèle
+### <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 
 1.  Ajoutez le module Entraîner le générateur de recommandations SVD à votre pipeline dans le concepteur et connectez-le aux données d’entraînement.  
    
@@ -76,4 +76,4 @@ Le jeu de données **Notations de restaurants** dans le concepteur Azure Machine
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

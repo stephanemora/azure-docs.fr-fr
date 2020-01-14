@@ -1,5 +1,6 @@
 ---
-title: 'Didacticiel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de PostgreSQL vers Azure Database pour PostgreSQL | Microsoft Docs'
+title: 'Tutoriel : Migrer PostgreSQL en ligne vers Azure Database pour PostgreSQL'
+titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer une migration en ligne de PostgreSQL en local vers Azure Database pour PostgreSQL à l’aide d’Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,21 +9,21 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/28/2019
-ms.openlocfilehash: 1b4eebafadcdbebfc89ce7265f4d4f77f4f5ac8c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a710512d7063a73fde42e2b076a3bb67c5efbf7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043243"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437353"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Didacticiel : Migrer PostgreSQL vers Azure Database pour PostgreSQL en ligne à l’aide de DMS
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutoriel : Migrer PostgreSQL vers Azure Database pour PostgreSQL en ligne à l’aide de DMS
 
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance PostgreSQL locale vers [Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/) avec un temps d’arrêt minimal. En d’autres termes, la migration peut être effectuée avec un temps d’arrêt minimal de l’application. Dans ce tutoriel, vous allez migrer l’exemple de base de données **DVD Rental** à partir d’une instance PostgreSQL 9.6 locale vers Azure Database pour PostgreSQL à l’aide de l’activité de migration en ligne dans Azure Database Migration Service.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > * Migrez l’exemple de schéma à l’aide de l’utilitaire pg_dump.
@@ -37,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
@@ -208,7 +209,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
    Par exemple, la commande suivante crée un service dans :
 
-   * Emplacement : USA Est 2
+   * Localisation : USA Est 2
    * Abonnement : 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nom du groupe de ressources : PostgresDemo
    * Nom du service DMS : PostgresCLI
@@ -257,7 +258,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
 
     Par exemple, la commande suivante crée un projet à l’aide de ces paramètres :
 
-   * Emplacement : Centre-USA Ouest
+   * Localisation : Centre-USA Ouest
    * Nom du groupe de ressources : PostgresDemo
    * Nom du service : PostgresCLI
    * Nom du projet : PGMigration
@@ -356,7 +357,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
-   Ou
+   OR
 
     ```
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output

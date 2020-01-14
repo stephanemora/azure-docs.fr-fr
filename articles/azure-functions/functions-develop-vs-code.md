@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 54bbc46c703646f4680f6dc22d5c4b6781614ae7
+ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975582"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75667543"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -38,7 +38,7 @@ Cet article fournit des informations sur le développement et la publication sur
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail pour une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant que vous puissiez installer et exécuter l’[extension Azure Functions][Extension Azure Functions pour Visual Studio Code], ces conditions doivent être remplies :
 
@@ -94,10 +94,6 @@ Vous pouvez également [ajouter une fonction à votre projet](#add-a-function-to
 
 À l’exception des déclencheurs HTTP et de minuteur, les liaisons sont implémentées dans des packages d’extension. Vous devez installer les packages d’extension pour les déclencheurs et les liaisons qui en ont besoin. La façon dont vous devez installer les extensions de liaison dépend du langage de votre projet.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package) dans la fenêtre de terminal pour installer les packages d’extension dont vous avez besoin dans votre projet. La commande suivante permet d’installer l’extension de stockage Azure, qui implémente des liaisons pour le stockage d’objets blob, de files d’attente et de tables.
@@ -105,6 +101,10 @@ Exécutez la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 ---
 
@@ -114,13 +114,13 @@ Vous pouvez ajouter une nouvelle fonction à un projet existant à l’aide de l
 
 Les résultats de cette action varient selon le langage de votre projet :
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-Un dossier est créé dans le projet. Il contient un nouveau fichier function.json et le nouveau fichier de code JavaScript.
-
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Un nouveau fichier de bibliothèque de classes C# (.cs) est ajouté à votre projet.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+Un dossier est créé dans le projet. Il contient un nouveau fichier function.json et le nouveau fichier de code JavaScript.
 
 ---
 
@@ -129,6 +129,24 @@ Un nouveau fichier de bibliothèque de classes C# (.cs) est ajouté à votre pro
 Vous pouvez développer votre fonction en ajoutant des liaisons d’entrée et de sortie. La façon dont vous devez ajouter les liaisons dépend du langage de votre projet. Pour en savoir plus sur les liaisons, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
 
 Les exemples suivants permettent de se connecter à une file d’attente de stockage nommée `outqueue`, où la chaîne de connexion pour le compte de stockage est définie le paramètre d’application `MyStorageConnection` du fichier local.settings.json.
+
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+Mettez à jour la méthode de la fonction et ajoutez le paramètre suivant à la définition de la méthode `Run` :
+
+```cs
+[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
+```
+
+Ce code vous oblige à ajouter l’instruction `using` suivante :
+
+```cs
+using Microsoft.Azure.WebJobs.Extensions.Storage;
+```
+
+Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection de messages écrits dans une liaison de sortie quand la fonction se termine. Vous ajoutez un ou plusieurs messages à la collection. Ces messages sont envoyés à la file d’attente lorsque la fonction se termine.
+
+Pour plus d’informations, consultez la documentation [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output---c-example).
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -144,7 +162,7 @@ Voici des exemples d’invites pour définir une nouvelle liaison de sortie de s
 | **Sélectionner une liaison avec un sens** | `Azure Queue Storage` | La liaison est une liaison de file d’attente Stockage Azure. |
 | **Nom utilisé pour identifier cette liaison dans votre code** | `msg` | Nom qui identifie le paramètre de liaison référencé dans votre code. |
 | **File d’attente à laquelle le message sera envoyé** | `outqueue` | Nom de la file d’attente dans laquelle écrit la liaison. Si *queueName* n’existe pas, la liaison le crée à la première utilisation. |
-| **Sélectionnez le paramètre dans « local.setting.json »** | `MyStorageConnection` | Nom d’un paramètre d’application qui contient la chaîne de connexion du compte de stockage. Le paramètre `AzureWebJobsStorage` contient la chaîne de connexion du compte de stockage que vous avez créé avec l’application de fonction. |
+| **Sélectionnez un paramètre dans « local.setting.json »** | `MyStorageConnection` | Nom d’un paramètre d’application qui contient la chaîne de connexion du compte de stockage. Le paramètre `AzureWebJobsStorage` contient la chaîne de connexion du compte de stockage que vous avez créé avec l’application de fonction. |
 
 Dans cet exemple, une liaison est ajoutée au tableau `bindings` dans votre fichier function.json :
 
@@ -168,25 +186,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 Pour plus d’informations, consultez la référence [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output---javascript-example).
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-Mettez à jour la méthode de la fonction et ajoutez le paramètre suivant à la définition de la méthode `Run` :
-
-```cs
-[Queue("outqueue"),StorageAccount("MyStorageConnection")] ICollector<string> msg
-```
-
-Ce code vous oblige à ajouter l’instruction `using` suivante :
-
-```cs
-using Microsoft.Azure.WebJobs.Extensions.Storage;
-```
-
 ---
-
-Le paramètre `msg` est un type `ICollector<T>`, qui représente une collection de messages écrits dans une liaison de sortie quand la fonction se termine. Vous ajoutez un ou plusieurs messages à la collection. Ces messages sont envoyés à la file d’attente lorsque la fonction se termine.
-
-Pour plus d’informations, consultez la documentation [Liaison de sortie de stockage de file d’attente](functions-bindings-storage-queue.md#output---c-example).
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
@@ -267,7 +267,7 @@ Pour exécuter votre projet Functions localement, vous devez vous conformer à c
 
 * Installer les exigences spécifiques pour le langage choisi :
 
-    | Langage | Prérequis |
+    | Langage | Condition requise |
     | -------- | --------- |
     | **C#** | [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Outils CLI .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Extension de débogueur pour Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou version ultérieure](https://maven.apache.org/) |

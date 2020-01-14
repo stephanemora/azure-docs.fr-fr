@@ -1,5 +1,5 @@
 ---
-title: Vérifier les étendues et les rôles d’application | Azure
+title: Vérifier les étendues et les rôles d’application avec l’API web protégée | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment créer une API web protégée et configurer le code de votre application.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a7a5a0df87910d2093bfee47e46c9c1a06530
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2eb9cdf68bf5103776d50db28e9e6facc89c9278
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423688"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protégée : Vérifier les étendues et les rôles d’application
 
@@ -42,7 +42,7 @@ Pour protéger une API web ASP.NET/ASP.NET Core, vous devez ajouter l’attribut
 - Le contrôleur proprement dit, si vous souhaitez protéger toutes les actions du contrôleur
 - L’action de contrôleur individuelle pour votre API
 
-```CSharp
+```csharp
     [Authorize]
     public class TodoListController : Controller
     {
@@ -59,7 +59,7 @@ Mais cette protection n’est pas suffisante. Elle garantit uniquement que ASP.N
 
 Si votre API est appelée par une application cliente pour le compte d’un utilisateur, elle doit demander un jeton du porteur ayant des étendues spécifiques pour l’API. (Consultez [Configuration de code | Jeton du porteur](scenario-protected-web-api-app-configuration.md#bearer-token).)
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : Controller
 {
@@ -86,7 +86,7 @@ La méthode `VerifyUserHasAnyAcceptedScope` doit vérifier ce qui suit :
 - Vérifier qu’il existe une revendication nommée `http://schemas.microsoft.com/identity/claims/scope` ou `scp`.
 - Vérifier que la revendication a une valeur qui contient l’étendue attendue par l’API.
 
-```CSharp
+```csharp
     /// <summary>
     /// When applied to a <see cref="HttpContext"/>, verifies that the user authenticated in the 
     /// web API has any of the accepted scopes.
@@ -121,7 +121,7 @@ Cet [exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-n
 Si votre API web est appelée par une [application de démon](scenario-daemon-overview.md), cette application doit exiger une autorisation d’application à votre API web. Nous avons vu dans [Exposition des autorisations d’application (rôles d’application)](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#exposing-application-permissions-app-roles) que votre API expose de telles autorisations (par exemple, le rôle d’application `access_as_application`).
 Vous devez maintenant demander à vos API de vérifier que le jeton reçu contient la revendication `roles` et que cette revendication a la valeur attendue. Le code effectuant cette vérification est similaire au code qui vérifie les autorisations déléguées, à ceci près que, au lieu de tester `scopes`, votre action de contrôleur teste `roles` :
 
-```CSharp
+```csharp
 [Authorize]
 public class TodoListController : ApiController
 {
@@ -134,7 +134,7 @@ public class TodoListController : ApiController
 
 La méthode `ValidateAppRole()` peut ressembler à ce qui suit :
 
-```CSharp
+```csharp
 private void ValidateAppRole(string appRole)
 {
     //
@@ -161,7 +161,7 @@ La revendication `roles` est également utilisée pour les utilisateurs dans les
 
 Si vous souhaitez autoriser uniquement des applications de démon à appeler votre API web, ajoutez une condition, lorsque vous validez le rôle d’application, indiquant que le jeton est un jeton d’application uniquement :
 
-```CSharp
+```csharp
 string oid = ClaimsPrincipal.Current.FindFirst("oid")?.Value;
 string sub = ClaimsPrincipal.Current.FindFirst("sub")?.Value;
 bool isAppOnlyToken = oid == sub;

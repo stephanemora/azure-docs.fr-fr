@@ -1,5 +1,5 @@
 ---
-title: Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
+title: Étapes de prémigration pour la migrations de données vers l’API Azure Cosmos DB pour MongoDB
 description: Ce document fournit une vue d’ensemble des prérequis pour une migration de données de MongoDB vers Cosmos DB.
 author: roaror
 ms.service: cosmos-db
@@ -7,18 +7,18 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
-ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc7038d0ff5180f15a43268fd3f3aa0cbb0c7a0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61330857"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445194"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de prémigration pour les migrations de données de MongoDB vers l’API Azure Cosmos DB pour MongoDB
 
 Avant de migrer vos données de MongoDB (local ou dans le cloud (IaaS)) vers l’API Azure Cosmos DB pour MongoDB, vous devez :
 
-1. [Créer un compte Azure Cosmos DB](#create-account)
+1. [Création d’un compte Azure Cosmos DB](#create-account)
 2. [Estimer le débit nécessaire pour vos charges de travail](#estimate-throughput)
 3. [Choisir une clé de partition optimale pour vos données](#partitioning)
 4. [Comprendre la stratégie d’indexation que vous pouvez définir sur vos données](#indexing)
@@ -86,7 +86,7 @@ Par défaut, Azure Cosmos DB indexe tous vos champs de données lors de l’inge
 ## <a name="next-steps"></a>Étapes suivantes
 * [Migrer vos données MongoDB vers Cosmos DB à l’aide de Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Provisionner le débit sur les conteneurs et les bases de données Azure Cosmos](set-throughput.md)
-* [Partitionnement dans Azure Cosmos DB](partition-data.md)
+* [Partitioning in Azure Cosmos DB](partition-data.md) (Partitionnement dans Azure Cosmos DB)
 * [Distribution de données mondiale avec Azure Cosmos DB](distribute-data-globally.md)
 * [Indexation dans Azure Cosmos DB](index-overview.md)
 * [Unités de requête dans Azure Cosmos DB](request-units.md)

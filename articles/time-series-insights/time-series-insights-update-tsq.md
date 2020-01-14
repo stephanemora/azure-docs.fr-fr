@@ -1,6 +1,6 @@
 ---
 title: Interrogation de données dans la Préversion – Azure Time Series Insights | Microsoft Docs
-description: Découvrez l’interrogation de données Azure Time Series Insights (préversion).
+description: Concepts de l’interrogation de données et vue d’ensemble de l’API REST HTTP dans Azure Time Series Insights Preview.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53693c64ff03146619e17b276a1f817e69f5ed6e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374576"
 ---
 # <a name="data-querying-in-azure-time-series-insights-preview"></a>Interrogation de données dans Azure Time Series Insights (préversion)
 
@@ -39,8 +39,8 @@ Les API principales suivantes sont prises en charge.
 
 Les API d’environnement suivantes sont disponibles :
 
-* [API Obtenir l’environnement](/rest/api/time-series-insights/management/environments/get) : retourne la liste des environnements auxquels l’appelant est autorisé à accéder.
-* [API Obtenir la disponibilité de l’environnement](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) : retourne la distribution du nombre d’événements au cours du timestamp `$ts` de l’événement. Cette API permet de déterminer s’il s’est produit des événements dans le timestamp en renvoyant le nombre d’événements.
+* [API Obtenir les environnements](/rest/api/time-series-insights/management/environments/get) : retourne la liste des environnements auxquels l’appelant est autorisé à accéder.
+* [API Obtenir la disponibilité des environnements](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability) : retourne la distribution du nombre d’événements au cours du timestamp `$ts` de l’événement. Cette API permet de déterminer s’il s’est produit des événements dans le timestamp en renvoyant le nombre d’événements.
 * [API Obtenir le schéma des événements](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema) : retourne les métadonnées du schéma des événements pour une période de recherche donnée. Cette API permet de récupérer toutes les métadonnées et propriétés disponibles dans le schéma sur une période définie.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>API modèle-requête de série chronologique (TSM-Q)
