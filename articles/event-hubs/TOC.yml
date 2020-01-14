@@ -1,6 +1,6 @@
 - name: Documentation Event Hubs
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Event Hubs\_?"
       href: event-hubs-about.md
@@ -17,7 +17,7 @@
       items:
         - name: Portail Azure
           href: event-hubs-create.md
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: event-hubs-quickstart-cli.md
         - name: Azure PowerShell
           href: event-hubs-quickstart-powershell.md
@@ -83,7 +83,7 @@
           href: event-hubs-geo-dr.md
     - name: Sécurité
       items:
-        - name: Authorization
+        - name: Autorisation
           items:
             - name: Autoriser l’accès à Azure Event Hubs
               href: authorize-access-event-hubs.md
@@ -108,7 +108,7 @@
       maintainContext: true
 - name: Guides pratiques
   items:
-    - name: Développement
+    - name: Développer
       items:
         - name: "Obtenir la chaîne de connexion Event\_Hubs"
           href: event-hubs-get-connection-string.md
@@ -164,9 +164,9 @@
           href: event-hubs-service-endpoints.md
         - name: Activer l’intégration des réseaux virtuels et des pare-feu sur l’espace de noms Event Hubs
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Configurer les clés gérées par le client pour le chiffrement des données au repos (préversion)
+        - name: Configurer les clés gérées par le client pour le chiffrement des données au repos
           href: configure-customer-managed-key.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Guide de résolution des problèmes
           href: event-hubs-messaging-exceptions.md
@@ -204,7 +204,7 @@
   items:
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-event-hubs
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: event-hubs-faq.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
