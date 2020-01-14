@@ -2,19 +2,15 @@
 title: Runbook Worker hybride Windows Azure Automation
 description: Cet article fournit des informations sur l’installation d’un Runbook Worker hybride Azure Automation qui vous permet d’exécuter des Runbooks sur les machines Windows de votre centre de données local ou de votre environnement cloud.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: cd599fcfe403d64483e6b4db869b93b26f5db754
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 696885fa3e082ae7096954fb55b17da5b77788bc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75418893"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -22,7 +18,13 @@ Vous pouvez utiliser la fonctionnalité de Runbook Worker hybride d’Azure Auto
 
 ## <a name="installing-the-windows-hybrid-runbook-worker"></a>Installation de la fonctionnalité Windows Runbook Worker hybride
 
-Il existe deux méthodes pour installer et configurer un Runbook Worker hybride Windows. La méthode recommandée utilise un runbook Automation afin d’automatiser totalement le processus de configuration d’un ordinateur Windows. La deuxième méthode consiste à suivre la procédure pas à pas pour installer et configurer le rôle manuellement.
+Pour installer et configurer un Windows Runbook Worker hybride, vous pouvez utiliser l’une des trois méthodes suivantes :
+
+* Pour les machines virtuelles Azure, vous installez l’agent de Log Analytics pour Windows à l’aide de l’[extension de machine virtuelle pour Windows](../virtual-machines/extensions/oms-windows.md). L’extension installe l’agent Log Analytics sur des machines virtuelles Azure et inscrit des machines virtuelles dans un espace de travail Log Analytics existant à l’aide d’un modèle Azure Resource Manager ou PowerShell. Une fois l’agent installé, la machine virtuelle peut être ajoutée à un groupe Runbook Worker hybride dans votre compte Automation à la suite de l’**étape 4** dans la section [Déploiement manuel](#manual-deployment) ci-dessous.
+
+* Utilisez un runbook Automation pour automatiser complètement le processus de configuration d’un ordinateur Windows. Il s’agit de la méthode recommandée pour les ordinateurs de votre centre de données ou d’un autre environnement Cloud.
+
+* Suivez une procédure pas-à-pas pour installer et configurer manuellement le rôle Runbook Worker hybride sur votre machine virtuelle non-Azure.
 
 > [!NOTE]
 > Pour gérer la configuration des serveurs qui prennent en charge le rôle Runbook Worker hybride avec Desired State Configuration (DSC), vous devez les ajouter en tant que nœuds DSC.
@@ -89,11 +91,11 @@ Effectuez les deux premières étapes pour votre environnement Automation, puis 
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1. Créer un espace de travail Log Analytics
 
-Si vous ne disposez pas déjà d’un espace de travail Log Analytics, créez-en un en suivant les instructions de l’article [Gestion des espaces de travail](../azure-monitor/platform/manage-access.md). Vous pouvez utiliser un espace de travail existant si vous en avez déjà un.
+Si vous ne disposez pas déjà d’un espace de travail Log Analytics, commencez par consulter le [guide de conception de journal Azure Monitor](../azure-monitor/platform/design-logs-deployment.md) avant de créer un espace de travail. 
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2. Ajouter une solution Automation à l’espace de travail Log Analytics
 
-La solution de journaux Azure Monitor Automation ajoute des fonctionnalités à Azure Automation, notamment la prise en charge des Runbooks Workers hybrides. Lorsque vous ajoutez la solution à votre espace de travail, les composants Worker sont automatiquement transférés à l’ordinateur agent que vous allez installer à l’étape suivante.
+La solution Automation ajoute des fonctionnalités à Azure Automation, notamment la prise en charge des Runbooks Workers hybrides. Lorsque vous ajoutez la solution à votre espace de travail Log Analytics, elle envoie automatiquement les composants Worker à l’ordinateur agent que vous allez installer à l’étape suivante.
 
 Pour ajouter la solution de journaux Azure Monitor **Automation** à votre espace de travail, exécutez la commande PowerShell suivante.
 
@@ -101,17 +103,25 @@ Pour ajouter la solution de journaux Azure Monitor **Automation** à votre espac
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <logAnalyticsResourceGroup> -WorkspaceName <LogAnalyticsWorkspaceName> -IntelligencePackName "AzureAutomation" -Enabled $true
 ```
 
-#### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Installation de Microsoft Monitoring Agent
+#### <a name="3-install-the-log-analytics-agent-for-windows"></a>3. Installer l’agent Log Analytics pour Windows
 
-Microsoft Monitoring Agent connecte les ordinateurs aux journaux Azure Monitor. Lorsque vous installez l’agent sur votre ordinateur local et que vous le connectez à votre espace de travail, il télécharge automatiquement les composants nécessaires pour le Runbook Worker hybride.
+L’agent Log Analytics pour Windows connecte les ordinateurs à un espace de travail Log Analytics Azure Monitor. Lorsque vous installez l’agent sur votre ordinateur et que vous le connectez à votre espace de travail, il télécharge automatiquement les composants requis pour le Runbook Worker hybride.
 
-Pour installer l’agent sur l’ordinateur local, suivez les instructions de l’article [Connecter des ordinateurs Windows aux journaux Azure Monitor](../log-analytics/log-analytics-windows-agent.md). Vous pouvez répéter ce processus pour plusieurs ordinateurs afin d’ajouter plusieurs Workers à votre environnement.
+Pour installer l’agent sur l’ordinateur, suivez les instructions de l’article [Connecter des ordinateurs Windows aux journaux Azure Monitor](../log-analytics/log-analytics-windows-agent.md). Vous pouvez répéter ce processus pour plusieurs ordinateurs afin d’ajouter plusieurs Workers à votre environnement.
 
-Lorsque l’agent parvient à se connecter aux journaux Azure Monitor, il est répertorié sous l’onglet **Sources connectées** de la page **Paramètres** de Log Analytics. Vous pouvez vérifier que l’agent a correctement téléchargé la solution Automation lorsqu’un dossier appelé **AzureAutomationFiles** figure dans C:\Program Files\Microsoft Monitoring Agent\Agent. Pour vérifier la version du Runbook Worker hybride, vous pouvez accéder à C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ et consulter le sous-dossier \\*version*.
+Lorsque l’agent s’est correctement connecté à votre espace de travail Log Analytics, après quelques minutes, vous pouvez exécuter la requête suivante pour vérifier qu’il envoie les données de pulsation à l’espace de travail :
+
+```kusto
+Heartbeat 
+| where Category == "Direct Agent" 
+| where TimeGenerated > ago(30m)
+```
+
+Dans les résultats de recherche retournés, vous devez voir des enregistrements de pulsation pour l’ordinateur, indiquant qu’il est connecté et qu’il rend compte au service. L’enregistrement de pulsation est transféré à partir de chaque agent par défaut vers l’espace de travail qui lui est attribué. Vous pouvez vérifier que l’agent a correctement téléchargé la solution Automation lorsqu’un dossier appelé **AzureAutomationFiles** figure dans C:\Program Files\Microsoft Monitoring Agent\Agent. Pour vérifier la version du Runbook Worker hybride, vous pouvez accéder à C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ et consulter le sous-dossier \\*version*.
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Installer l'environnement de Runbook et se connecter à Azure Automation
 
-Lorsque vous ajoutez un agent aux journaux Azure Monitor, la solution Automation déclenche le module PowerShell **HybridRegistration**, qui contient la cmdlet **Add-HybridRunbookWorker**. Vous utilisez cette applet de commande pour installer l'environnement de Runbook sur la machine et l'inscrire auprès d'Azure Automation.
+Quand vous configurez un agent pour qu’il envoie des rapports à un espace de travail Log Analytics, la solution d’automatisation pousse le module **HybridRegistration** PowerShell, qui contient l’applet de commande **Add-HybridRunbookWorker**. Vous utilisez cette applet de commande pour installer l'environnement de Runbook sur la machine et l'inscrire auprès d'Azure Automation.
 
 Ouvrez une session PowerShell en mode administrateur et exécutez les commandes suivantes pour importer le module :
 

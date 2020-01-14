@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: ad196f52935af4ab4aa7af1b80183161065d4b4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365020"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
 Cet article explique comment configurer une application logique pour qu’elle crée une conversation dans Microsoft Teams quand une alerte se déclenche.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Quand une alerte Azure Monitor se déclenche, elle appelle un [groupe d’actions](../../azure-monitor/platform/action-groups.md). Les groupes d’actions permettent de déclencher une ou plusieurs actions pour avertir les autres en cas d’alerte et y remédier.
 
 Le processus général est le suivant :
@@ -52,7 +52,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 6.  Sélectionnez **Modifier** pour changer de déclencheur de requête HTTP.
 
-    ![Déclencheurs de requête HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Déclencheurs de requête HTTP")
+    ![Déclencheurs de requêtes HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Déclencheurs de requêtes HTTP")
 
 7.  Sélectionnez **Utiliser l’exemple de charge utile pour générer le schéma**.
 
@@ -69,10 +69,10 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/…"
+                    "scope": "/subscriptions/�"
                     },
                     "channels": "Operation",
-                    "claims": "…",
+                    "claims": "�",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -82,12 +82,12 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/…",
+                    "resourceId": "/subscriptions/�",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "…",
+                    "subscriptionId": "�",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -99,7 +99,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 9. Le **Concepteur d’applications logiques** affiche une fenêtre indépendante rappelant que la requête envoyée à l’application logique doit définir l’en-tête **Content-Type** sur **application/json**. Fermez la fenêtre indépendante. L’alerte Azure Monitor définit l’en-tête.
 
-    ![Définir l’en-tête Content-Type](media/action-groups-logic-app/content-type-header.png "Définir l’en-tête Content-Type")
+    ![Définir l'en-tête Content-Type](media/action-groups-logic-app/content-type-header.png "Définir l'en-tête Content-Type")
 
 10. Sélectionnez **+** **Nouvelle étape**, puis **Ajouter une action**.
 
@@ -107,7 +107,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 11. Recherchez et sélectionnez le connecteur Microsoft Teams. Choisissez l’action **Microsoft Teams – Publier un message**.
 
-    ![Actions Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Actions Microsoft Teams")
+    ![Action Microsoft Teams](media/action-groups-logic-app/microsoft-teams-actions.png "Action Microsoft Teams")
 
 12. Configurez l’action Microsoft Teams. Le **Concepteur d’applications logiques** vous invite à vous authentifier pour vous connecter à votre compte Office 365. Choisissez l’**ID de l’équipe** et l’**ID du canal** auxquels envoyer le message.
 
@@ -125,7 +125,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
     > [!NOTE]
     > Il existe deux champs dynamiques nommés **status**. Ajoutez les deux au message. Utilisez celui du jeu de propriétés **activityLog** et supprimez l’autre. Placez le curseur sur le champ **status** pour voir la référence complète au champ, comme sur la capture d’écran suivante :
 
-    ![Action Microsoft Teams : Poster un message](media/action-groups-logic-app/teams-action-post-message.png "Action Microsoft Teams : Poster un message")
+    ![Action Microsoft Teams : Poster un message](media/action-groups-logic-app/teams-action-post-message.png "Action Microsoft Teams : Envoyer un message")
 
 14. En haut du **Concepteur d’applications logiques**, sélectionnez **Enregistrer** pour enregistrer votre application logique.
 
@@ -151,7 +151,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "…",
+                    "description": "�",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -159,23 +159,23 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "…",
-                        "service": "…",
+                        "title": "�",
+                        "service": "�",
                         "region": "Global",
-                        "communication": "…",
+                        "communication": "�",
                         "incidentType": "Incident",
-                        "trackingId": "…",
+                        "trackingId": "�",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "…",
-                        "defaultLanguageContent": "…",
+                        "defaultLanguageTitle": "�",
+                        "defaultLanguageContent": "�",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "…",
+                    "subscriptionId": "�",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -192,7 +192,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
        - `eventSource == ServiceHealth`
        - `version == "0.1.1"`
 
-      ![« Condition de charge utile d’intégrité du service »](media/action-groups-logic-app/service-health-payload-condition.png "Condition de charge utile d’intégrité du service")
+      ![« Condition de charge utile Service Health »](media/action-groups-logic-app/service-health-payload-condition.png "Condition de charge utile Service Health")
 
    1. Dans la condition **If true**, suivez les instructions des étapes 11 à 13 de [Créer une alerte de journal d’activité](#create-an-activity-log-alert-administrative) pour ajouter l’action Microsoft Teams.
 
@@ -209,7 +209,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
        <p>[communication]</p>
        ```
 
-       ![« Action de publication pour condition vraie d’intégrité du service »](media/action-groups-logic-app/service-health-true-condition-post-action.png "Action de publication pour condition vraie d’intégrité du service")
+       ![« Action postérieure condition vraie Service Health »](media/action-groups-logic-app/service-health-true-condition-post-action.png "Action postérieure condition vraie Service Health")
 
    1. Pour la condition **If false**, indiquez un message utile :
 
@@ -219,7 +219,7 @@ Les entrées Azure Service Health font partie du journal d’activité. Le proce
        <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
        ```
 
-       ![« Action de publication pour condition fausse d’intégrité du service »](media/action-groups-logic-app/service-health-false-condition-post-action.png "Action de publication pour condition fausse d’intégrité du service")
+       ![« Action postérieure condition fausse Service Health »](media/action-groups-logic-app/service-health-false-condition-post-action.png "Action postérieure condition fausse Service Health")
 
 - L’étape 15 est identique. Suivez les instructions pour enregistrer votre application logique et mettre à jour votre groupe d’actions.
 
@@ -238,7 +238,7 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "…",
+        "id": "�",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -260,12 +260,12 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
             }
             ]
         },
-        "subscriptionId": "…",
+        "subscriptionId": "�",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "…",
-        "portalLink": "…"
+        "resourceId": "�",
+        "portalLink": "�"
         },
         "properties": {}
     }
@@ -283,11 +283,11 @@ Le processus de création d’une alerte de métrique est semblable à celui de 
 
   1. Dans la condition **If true**, ajoutez une boucle **For each** et l’action Microsoft Teams. Définissez le message en utilisant une combinaison de HTML et de contenu dynamique.
 
-      ![« Action de publication pour condition vraie d’alerte de métrique »](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Action de publication pour condition vraie d’alerte de métrique")
+      ![« Action postérieure condition vraie d’alerte métrique »](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Action postérieure condition vraie d’alerte métrique")
 
   1. Dans la condition **If false**, définissez une action Microsoft Teams pour signaler que l’alerte de métrique ne correspond pas aux attentes de l’application logique. Incluez la charge utile JSON. Notez comment faire référence au contenu dynamique `triggerBody` de l’expression `json()`.
 
-      ![« Action de publication pour condition fausse d’alerte de métrique »](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Action de publication pour condition fausse d’alerte de métrique")
+      ![« Action postérieure condition fausse d’alerte métrique »](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Action postérieure condition fausse d’alerte métrique")
 
 - L’étape 15 est identique. Suivez les instructions pour enregistrer votre application logique et mettre à jour votre groupe d’actions.
 
