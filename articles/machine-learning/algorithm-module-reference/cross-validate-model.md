@@ -1,7 +1,7 @@
 ---
 title: 'Modèle de validation croisée : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Modèle de validation croisée dans le service Azure Machine Learning afin d’effectuer une validation croisée des estimations de paramètre pour les modèles de classification ou de régression en partitionnant les données.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Modèle de validation croisée dans Azure Machine Learning afin d’effectuer une validation croisée des estimations de paramètre pour les modèles de classification ou de régression en partitionnant les données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d83a9b5df7acc9d626613e53369f483367e55a54
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717242"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428562"
 ---
 # <a name="cross-validate-model"></a>Modèle de validation croisée
 
@@ -127,5 +127,5 @@ Le module inclut aussi les métriques suivantes pour chaque repli, en fonction d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 
