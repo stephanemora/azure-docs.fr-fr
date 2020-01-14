@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 057bd18c50d7074e8a88b8273bec766a306a3776
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b44b48b504fc080971a2797b89026e14be5cdd17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432990"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -21,11 +21,11 @@ Suite à la création d’un compte Azure Maps, un ID client et des clés sont c
 
 ## <a name="view-authentication-details"></a>Afficher les détails de l’authentification
 
+Après la création du compte Azure Maps, les clés primaires et secondaires sont générées. Il est recommandé d’utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps à l’aide de l’[authentification par clé partagée](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Une clé secondaire peut être utilisée dans des scénarios tels que la modification de clés de substitution. Pour en savoir plus, voir [Authentification avec Azure Maps](https://aka.ms/amauth).
+
 Vous pouvez afficher les détails de votre authentification sur le portail Microsoft Azure. Accédez à votre compte, puis sélectionnez **Authentification** dans le menu **Paramètres**.
 
 ![Informations sur l’authentification](./media/how-to-manage-authentication/how-to-view-auth.png)
-
- Pour en savoir plus, voir [Authentification avec Azure Maps](https://aka.ms/amauth).
 
 
 ## <a name="set-up-azure-ad-app-registration"></a>Configurer l’inscription d’application Azure AD

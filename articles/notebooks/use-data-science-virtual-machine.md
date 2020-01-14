@@ -1,17 +1,17 @@
 ---
 title: Utiliser des Azure Data Science Virtual Machines
-description: Connectez-vous à une Azure Data Science Virtual Machine (DSVM) pour étendre la puissance de calcul disponible pour Azure Notebooks.
+description: Apprenez à vous connecter à une machine Azure DSVM (Data Science Virtual Machine) pour étendre la puissance de calcul disponible à Azure Notebooks (préversion).
 author: getroyer
 manager: andneil
 ms.author: getroyer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2019
-ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7a47be46818c633c016c791d0c52eb9393029973
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277405"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646992"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Utiliser des Azure Data Science Virtual Machines
 
@@ -19,6 +19,8 @@ Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à
 
 > [!Note]
 > Azure Notebooks est pris uniquement en charge sur les DSVM créées sur lesquelles l’image Linux Ubuntu est active. Les Notebooks ne sont pas pris en charge sur les images Windows 2012, Windows 2016 ou Linux CentOS.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-dsvm-instance"></a>Créer une instance DSVM
 
@@ -56,7 +58,7 @@ Lorsqu’un projet est exécuté sur une machine virtuelle, les fichiers sont mo
 
 Si plusieurs utilisateurs partagent une DSVM, vous pouvez éviter qu’ils ne se bloquent entre eux en créant et en utilisant un utilisateur de DSVM pour chaque utilisateur de notebook :
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre machine virtuelle.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à votre machine virtuelle.
 1. Sous **Support et dépannage** dans la marge de gauche, sélectionnez **Réinitialiser le mot de passe**.
 1. Entrez un nouveau nom d’utilisateur et un mot de passe, puis sélectionnez **Mettre à jour**. (Les noms d’utilisateur existants ne sont pas affectés.)
 1. Répétez l’étape précédente pour les autres utilisateurs.

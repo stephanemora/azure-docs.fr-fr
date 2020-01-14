@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: b8e9748360b22cd1c693b2c601024c0824ffb483
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7dd9106539b6756d74629ac663241a5b5562cefb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437044"
 ---
 # <a name="expressroute-encryption"></a>Chiffrement ExpressRoute
  
@@ -40,7 +40,7 @@ Oui. MACsec sécurise les connexions physiques entre vos appareils et ceux de Mi
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-between-my-on-premises-network-and-my-azure-virtual-network"></a>Puis-je utiliser la passerelle VPN Azure pour configurer le tunnel IPsec entre mon réseau local et mon réseau virtuel Azure ?
 Oui. Vous pouvez configurer ce tunnel IPsec sur le peering Microsoft de votre circuit ExpressRoute. Consultez notre [guide de configuration](site-to-site-vpn-over-microsoft-peering.md).
 ### <a name="can-i-use-azure-vpn-gateway-to-set-up-the-ipsec-tunnel-over-azure-private-peering"></a>Puis-je utiliser la passerelle VPN Azure pour configurer le tunnel IPsec sur le peering privé Azure ?
-Non. Vous devez déployer une passerelle VPN tierce dans votre réseau virtuel Azure et configurer un tunnel IPsec entre cette passerelle et votre passerelle VPN locale.
+Si vous adoptez un Azure Virtual WAN, vous pouvez suivre [ces étapes](../virtual-wan/vpn-over-expressroute.md) pour chiffrer la connexion de bout en bout. Si vous avez un réseau virtuel Azure traditionnel, vous pouvez déployer une passerelle VPN tierce dans votre réseau virtuel et configurer un tunnel IPsec entre cette passerelle et votre passerelle VPN locale.
 ### <a name="what-is-the-throughput-i-will-get-after-enabling-ipsec-on-my-expressroute-connection"></a>Après l’activation d’IPsec sur ma connexion ExpressRoute, quel sera le débit ?
 Si vous utilisez la passerelle VPN Azure, consultez les [résultats des performances](../vpn-gateway/vpn-gateway-about-vpngateways.md). Si vous utilisez une passerelle VPN tierce, contactez le fournisseur pour obtenir les résultats des performances.
 

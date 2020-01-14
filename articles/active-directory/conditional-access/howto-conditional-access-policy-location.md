@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26299ca12071b521fc825a0b1ab1425f24af67e0
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bf34abaf072b7b80f5831f15d86b12ad2780a920
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803595"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424874"
 ---
-# <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
+# <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
 Avec la condition d’emplacement dans l’accès conditionnel, vous pouvez contrôler l’accès à vos applications cloud basées sur l’emplacement réseau d’un utilisateur. La condition d’emplacement est couramment utilisée pour bloquer l’accès à partir des pays où votre organisation sait que le trafic ne doit pas provenir.
 
@@ -57,5 +57,7 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
+
+[Déterminer l’impact à l’aide du mode de rapport d’accès conditionnel uniquement](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

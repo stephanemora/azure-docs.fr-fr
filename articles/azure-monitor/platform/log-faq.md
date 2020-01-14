@@ -4,15 +4,15 @@ description: Réponses aux questions fréquentes sur le service Azure Monitor Lo
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eb921fc8ea19486db0fc3311764931f09e11464
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 77159e0fa73a1f56688c867c55ae46f28016992c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579307"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75394784"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 
@@ -23,13 +23,13 @@ Cette FAQ Microsoft consiste en une liste de questions fréquentes sur l’espac
 
 ## <a name="new-logs-experience"></a>Nouvelle expérience de journaux d’activité
 
-### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q : Quelle est la différence entre la nouvelle expérience de journaux d’activité et Log Analytics ?
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q : Quelle est la différence entre la nouvelle expérience de journaux d’activité et Log Analytics ?
 
-R : Il n’y en a pas. [Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) pour fournir une expérience de surveillance plus uniforme. La nouvelle expérience de journaux d’activité dans Azure Monitor est strictement identique aux requêtes Log Analytics déjà utilisées par de nombreux clients.
+A : Il n’y en a pas. [Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor](../../azure-monitor/azure-monitor-rebrand.md) pour fournir une expérience de surveillance plus uniforme. La nouvelle expérience de journaux d’activité dans Azure Monitor est strictement identique aux requêtes Log Analytics déjà utilisées par de nombreux clients.
 
-### <a name="q-can-i-still-use-log-search"></a>Q : Puis-je continuer à utiliser Recherche dans les journaux ? 
+### <a name="q-can-i-still-use-log-search"></a>Q : Puis-je continuer à utiliser Recherche dans les journaux ? 
 
-R : Recherche dans les journaux d’activité est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux d’activité (classique)** . Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux d’activité classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux d’activité. 
+A : Recherche dans les journaux d’activité est actuellement toujours disponible dans le portail OMS et dans le portail Azure, sous le nom **Journaux d’activité (classique)** . Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux d’activité classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux d’activité. 
 
 ### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. Puis-je continuer à utiliser le portail Advanced Analytics ? 
 La nouvelle expérience de journaux d’activité dans le portail Azure est basée sur le portail Advanced Analytics, mais vous pouvez toujours y accéder en dehors du portail Azure. La feuille de route de suppression de ce portail externe sera bientôt annoncée.
@@ -40,31 +40,31 @@ Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’aler
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. Comment extraire des champs personnalisés dans la nouvelle expérience de journaux d’activité ? 
 
-R : L’extraction de champs personnalisée est actuellement prise en charge dans l’expérience de journaux d’activité classique. 
+A : L’extraction de champs personnalisée est actuellement prise en charge dans l’expérience de journaux d’activité classique. 
 
 ### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. Où trouver le mode liste dans les nouveaux journaux d’activité ? 
 
-R : Le mode Liste n’est pas disponible dans les nouveaux journaux d’activité. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
+A : Le mode Liste n’est pas disponible dans les nouveaux journaux d’activité. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
 
 ### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>Q. Après l'exécution d'une requête, une liste de filtres suggérés est disponible. Comment puis-je voir ces filtres ? 
 
-R : Cliquez sur « Filtres » dans le volet de gauche pour afficher un aperçu de la nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
+A : Cliquez sur « Filtres » dans le volet de gauche pour afficher un aperçu de la nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. Pourquoi l’erreur : « Inscrivez le fournisseur de ressources ’Microsoft.Insights’ pour cet abonnement afin d’activer cette requête » dans les journaux d’activité après une exploration à partir d’une machine virtuelle ? 
 
-R : Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Ceci configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+A : Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Ceci configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. Pourquoi est-ce que je ne reçois aucun message d’erreur d’accès lorsque j’accède aux journaux d’activité à partir d’une page de machine virtuelle ? 
 
-R : Pour voir les journaux d’activité de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
+A : Pour voir les journaux d’activité de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
 
 ### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. Pourquoi puis-je accéder à mon espace de travail dans le portail OMS, mais que je reçois l’erreur « Vous n’avez aucun accès » dans le portail Azure ?  
 
-R : Pour accéder à un espace de travail dans Azure, des autorisations Azure doivent vous être assignées. Dans certains cas, vous ne disposerez peut-être pas des autorisations d’accès appropriées. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure. Consultez [Migration du portail OMS vers Azure](oms-portal-transition.md) pour plus d’informations.
+A : Pour accéder à un espace de travail dans Azure, des autorisations Azure doivent vous être assignées. Dans certains cas, vous ne disposerez peut-être pas des autorisations d’accès appropriées. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure. Consultez [Migration du portail OMS vers Azure](oms-portal-transition.md) pour plus d’informations.
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. Pourquoi ne puis-je pas voir l’entrée Concepteur de vues dans les journaux d’activité ?
 
-R : Le Concepteur de vues est disponible dans les journaux d’activité seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
+A : Le Concepteur de vues est disponible dans les journaux d’activité seulement pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
 
 ### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Puis-je continuer à utiliser le portail Analytics en dehors d’Azure ?
 
@@ -72,24 +72,19 @@ R. Oui, la page Journaux d’activité dans Azure et le portail Advanced Analyti
 
 
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>Q. Comment puis-je voir mes vues et solutions dans le portail Azure ? 
 
-R : Les listes des vues et des solutions installées sont disponibles dans le portail Azure. Cliquez sur **Tous les services**. Dans la liste des ressources, sélectionnez **Surveiller**, puis cliquez sur **...Plus**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. 
-
-### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. Pourquoi ne puis-je pas créer des espaces de travail dans la région ouest USA Centre-Ouest ? 
-
-R : Cette région a une limite de capacité temporaire. Cette limite devrait être traitée d’ici à fin du mois de septembre 2019.
-
+A : Les listes des vues et des solutions installées sont disponibles dans le portail Azure. Cliquez sur **Tous les services**. Dans la liste des ressources, sélectionnez **Surveiller**, puis cliquez sur **...Plus**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
 
-R : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+A : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. Quels sont les contrôles effectués par les solutions AD et SQL Assessment ?
 
-R : La requête suivante comporte une description de tous les contrôles effectués actuellement :
+A : La requête suivante comporte une description de tous les contrôles effectués actuellement :
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -99,17 +94,17 @@ Les résultats peuvent ensuite être exportés vers Excel pour être examinés.
 
 ### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q. Pourquoi vois-je autre chose qu’OMS dans la console System Center Operations Manager ?
 
-R : Selon le correctif cumulatif d’Operations Manager que vous utilisez, vous pouvez voir un nœud pour *System Center Advisor*, *Operational Insights* ou *Log Analytics*.
+A : Selon le correctif cumulatif d’Operations Manager que vous utilisez, vous pouvez voir un nœud pour *System Center Advisor*, *Operational Insights* ou *Log Analytics*.
 
 La mise à jour de la chaîne de texte vers *OMS* est incluse dans un pack d’administration, qui doit être importé manuellement. Pour afficher le texte et les fonctionnalités actuels, suivez les instructions de l’article de la Base de connaissances sur le dernier correctif cumulatif de System Center Operations Manager et actualisez la console.
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version locale de Log Analytics ?
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>Q : Existe-t-il une version locale de Log Analytics ?
 
-R :  Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
+A : Non. Log Analytics est un service cloud évolutif qui traite et stocke d’importants volumes de données. 
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Comment être informé de l’arrêt de la collecte de données ?
 
-R : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../../azure-monitor/platform/alerts-metric.md) pour être averti lorsque la collecte de données s’arrête.
+A : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../../azure-monitor/platform/alerts-metric.md) pour être averti lorsque la collecte de données s’arrête.
 
 Lorsque vous créez l’alerte d’arrêt de la collecte de données, définissez les valeurs suivantes :
 
@@ -117,7 +112,7 @@ Lorsque vous créez l’alerte d’arrêt de la collecte de données, définisse
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche personnalisée dans les journaux**.
    - **Requête de recherche** sur `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-   - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
+   - La **logique d’alerte** est **basée sur** le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
    - **Période de temps** de *30* minutes et **Fréquence d’alerte** toutes les *10* minutes
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :
    - **Nom** : *Collecte de données arrêtée*
@@ -151,36 +146,36 @@ Cette modification peut également être effectuée dans le portail Azure.
 
 Vous ne pouvez pas déplacer les données d’un espace de travail Log Analytics vers un autre ou modifier la région de données dans laquelle les données Log Analytics sont stockées.
 
-### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>Q : Comment ajouter Log Analytics à System Center Operations Manager ?
+### <a name="q-how-do-i-add-log-analytics-to-system-center-operations-manager"></a>Q : Comment ajouter Log Analytics à System Center Operations Manager ?
 
-R :  R : La mise à jour vers le dernier correctif cumulatif et l’importation de packs d’administration permettent de connecter Operations Manager à Log Analytics.
+A :  R : La mise à jour vers le dernier correctif cumulatif et l’importation de packs d’administration permettent de connecter Operations Manager à Log Analytics.
 
 >[!NOTE]
 >La connexion d’Operations Manager à Log Analytics n’est disponible que pour System Center Operations Manager 2012 SP1 et les versions ultérieures.
 
-### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>Q : Comment puis-je vérifier qu’un agent est en mesure de communiquer avec Log Analytics ?
+### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>Q : Comment puis-je vérifier qu’un agent est en mesure de communiquer avec Log Analytics ?
 
-R : Pour que l’agent puisse communiquer avec l’espace de travail Log Analytics, accédez à : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
+A : Pour que l’agent puisse communiquer avec l’espace de travail Log Analytics, accédez à : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
 
 Sous l’onglet **Azure Log Analytics (OMS)** , recherchez une coche verte. Une icône en forme de coche verte confirme que l’agent est en mesure de communiquer avec le service Azure.
 
 Une icône d’avertissement jaune signifie que l’agent rencontre des problèmes de communication avec Log Analytics. L’une des raisons courantes est que le service Microsoft Monitoring Agent s’est arrêté. Utilisez le Gestionnaire de contrôle des services pour redémarrer le service.
 
-### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q : Comment interrompre la communication d’un agent avec Log Analytics ?
+### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q : Comment interrompre la communication d’un agent avec Log Analytics ?
 
-R : Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs gérés par Log Analytics. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. En ce qui concerne les agents connectés directement à Log Analytics, vous pouvez les empêcher de communiquer de la façon suivante : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
+A : Dans System Center Operations Manager, supprimez l’ordinateur de la liste des ordinateurs gérés par Log Analytics. Operations Manager met à jour la configuration de l’agent pour qu’il ne fasse plus de rapports à Log Analytics. En ce qui concerne les agents connectés directement à Log Analytics, vous pouvez les empêcher de communiquer de la façon suivante : Panneau de configuration, Sécurité et paramètres, **Microsoft Monitoring Agent**.
 Sous **Azure Log Analytics (OMS)** , supprimez tous les espaces de travail répertoriés.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q : Pourquoi j’obtiens une erreur quand j’essaie de déplacer mon espace de travail d’un abonnement Azure vers un autre ?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q : Pourquoi j’obtiens une erreur quand j’essaie de déplacer mon espace de travail d’un abonnement Azure vers un autre ?
 
-R : Pour déplacer un espace de travail vers un autre abonnement ou groupe de ressources, vous devez d’abord dissocier le compte Automation dans l’espace de travail. La dissociation d’un compte Automation nécessite la suppression de ces solutions si elles sont installées dans l’espace de travail : Update Management, Change Tracking ou Start/Stop VMs during off-hours sont supprimées. Une fois ces solutions supprimées, dissociez le compte Automation en sélectionnant **espaces de travail associé** sur le volet gauche dans ressource du compte Automation, puis cliquez sur **dissocier l’espace de travail** sur le ruban.
+A : Pour déplacer un espace de travail vers un autre abonnement ou groupe de ressources, vous devez d’abord dissocier le compte Automation dans l’espace de travail. La dissociation d’un compte Automation nécessite la suppression de ces solutions si elles sont installées dans l’espace de travail : Update Management, Change Tracking ou Start/Stop VMs during off-hours sont supprimées. Une fois ces solutions supprimées, dissociez le compte Automation en sélectionnant **espaces de travail associé** sur le volet gauche dans ressource du compte Automation, puis cliquez sur **dissocier l’espace de travail** sur le ruban.
  > Les solutions supprimées doivent être réinstallées dans l’espace de travail et le compte Automation associé à l’espace de travail doit être remis en l’état après le déplacement.
 
 Vérifiez que vous disposez de l’autorisation nécessaire dans les deux abonnements Azure.
 
-### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>Q : Pourquoi j’obtiens une erreur quand j’essaie de mettre à jour une recherche enregistrée ?
+### <a name="q-why-am-i-getting-an-error-when-i-try-to-update-a-savedsearch"></a>Q : Pourquoi j’obtiens une erreur quand j’essaie de mettre à jour une recherche enregistrée ?
 
-R : Vous devez ajouter 'etag' au corps de l’API, ou les propriétés du modèle Azure Resource Manager :
+A : Vous devez ajouter 'etag' au corps de l’API, ou les propriétés du modèle Azure Resource Manager :
 ```
 "properties": {
    "etag": "*",

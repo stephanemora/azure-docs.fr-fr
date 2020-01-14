@@ -10,16 +10,18 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 10/27/2019
+ms.date: 12/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a8f4174fca1a8703bb112c19e785d4d9686a82f5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453301"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
+
+>Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -28,7 +30,18 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Résolution des bogues
 * Fonctionnalités dépréciées
 
-## <a name="october-2019"></a>Octobre 2019
+## <a name="november-2019"></a>Novembre 2019
+ 
+* Prise en charge des modèles de langage personnalisés en coréen
+
+    Video Indexer prend désormais en charge les modèles de langage personnalisés coréens (`ko-KR`) à la fois dans l’API et le portail. 
+* Nouvelles langues prises en charge pour la reconnaissance vocale (STT)
+
+    Les API Video Indexer prennent désormais en charge STT en Arabe levantin (ar-SY), en dialecte anglais britannique (en-GB) et en dialecte anglais australien (en-AU).
+    
+    Pour le téléchargement de vidéos, nous avons remplacé zh-HANS par zh-CN. Les deux sont pris en charge, mais zh-CN est recommandé et plus précis.
+    
+## <a name="october-2019"></a>2 octobre 2019
  
 * Rechercher des caractères animés dans la galerie
 

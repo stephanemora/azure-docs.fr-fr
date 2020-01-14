@@ -1,25 +1,16 @@
 ---
-title: Sécuriser les communications de service basées sur WCF dans Azure Service Fabric | Documents Microsoft
+title: Sécuriser les communications de service basées sur WCF
 description: Découvrez comment sécuriser des communications basées sur WCF pour des services fiables s’exécutant dans un cluster Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: suchiagicha
-manager: chackdan
-editor: vturecek
-ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 04/20/2017
 ms.author: pepogors
-ms.openlocfilehash: 31a7a3a42436f3a818fcf48f2af5ca395fa02386
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ca5eafa4612503a13f80b7f238e4827979c0358b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170416"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614160"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Sécuriser les communications basées sur WCF pour un service
 La sécurité est un des aspects les plus importants de la communication. L’infrastructure d’application Reliable Services fournit quelques piles et outils de communication prédéfinis afin d’améliorer la sécurité. Cet article explique comment améliorer la sécurité lorsque vous utilisez un service de communication à distance.

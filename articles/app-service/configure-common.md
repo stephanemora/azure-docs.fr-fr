@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e4ba7326d9c23bed2406e62fe1a206501d05a1b1
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671966"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666179"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Configurer une app App Service dans le portail Azure
 
@@ -21,7 +21,11 @@ Cette rubrique explique comment configurer les paramètres courants d’une appl
 
 Dans App Service, les paramètres d’application sont des variables transmises comme des variables d’environnement au code de l’application. Pour les applications Linux et les conteneurs personnalisés, App Service envoie les paramètres d’application au conteneur via l’indicateur `--env` pour définir la variable d'environnement dans le conteneur.
 
-Dans le [portail Azure], accédez à la page de gestion de votre application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Paramètres de l'application**.
+Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. 
+
+![Rechercher App Services](./media/configure-common/search-for-app-services.png)
+
+Dans le menu de gauche de l'application, sélectionnez **Configuration** > **Paramètres de l'application**.
 
 ![Paramètres de l’application](./media/configure-common/open-ui.png)
 
@@ -82,7 +86,7 @@ Les paramètres de l'application affichent le format JSON suivant :
 
 ## <a name="configure-connection-strings"></a>Configuration des chaînes de connexion
 
-Dans le [portail Azure], accédez à la page de gestion de l’application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Paramètres de l'application**.
+Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. Dans le menu de gauche de l'application, sélectionnez **Configuration** > **Paramètres de l'application**.
 
 ![Paramètres de l’application](./media/configure-common/open-ui.png)
 
@@ -153,7 +157,7 @@ Les chaînes de connexion affichent le format JSON suivant :
 
 ## <a name="configure-general-settings"></a>Configurer les paramètres généraux
 
-Dans le [portail Azure], accédez à la page de gestion de l’application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Paramètres de l'application**.
+Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. Dans le menu de gauche de l'application, sélectionnez **Configuration** > **Paramètres généraux**.
 
 ![Paramètres généraux :](./media/configure-common/open-general.png)
 
@@ -176,9 +180,9 @@ Ici, vous pouvez configurer quelques paramètres communs pour l'application. Cer
 
 Ce paramètre ne concerne pour les applications Windows.
 
-Dans le [portail Azure], accédez à la page de gestion de l’application. Dans le menu de gauche de l'application, cliquez sur **Configuration** > **Documents par défaut**.
+Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. Dans le menu de gauche de l'application, sélectionnez **Configuration** > **Documents par défaut**.
 
-![Paramètres généraux :](./media/configure-common/open-documents.png)
+![Documents par défaut](./media/configure-common/open-documents.png)
 
 Le document par défaut est la page web qui s’affiche à l’URL racine pour un site web. Le premier fichier correspondant dans la liste est utilisé. Pour ajouter un nouveau document par défaut, cliquez sur **Nouveau document**. N’oubliez pas de cliquer sur **Enregistrer**.
 
@@ -186,9 +190,9 @@ Si l’application utilise des modules qui effectuent un routage en fonction de 
 
 ## <a name="configure-path-mappings"></a>Configurez les mappages de chemin d'accès
 
-Dans le [portail Azure], accédez à la page de gestion de l’application. Dans le menu de gauche, cliquez sur **Configuration** > **Mappages de chemin d’accès**.
+Dans le [portail Azure], recherchez et sélectionnez **App Services**, puis sélectionnez votre application. Dans le menu de gauche, sélectionnez **Configuration** > **Mappages de chemin d’accès**.
 
-![Paramètres généraux :](./media/configure-common/open-path.png)
+![Mappages de chemin d’accès](./media/configure-common/open-path.png)
 
 Les informations affichées sur la page **Mappages de chemin d'accès** varient selon le type de système d’exploitation.
 
@@ -210,7 +214,7 @@ Pour configurer des applications et des répertoires virtuels, spécifiez chaque
 
 Vous pouvez [ajouter du stockage personnalisé pour votre application conteneurisée](containers/how-to-serve-content-from-azure-storage.md). Les applications conteneurisées comprennent toutes les applications Linux ainsi que les conteneurs personnalisés Windows et Linux fonctionnant sur App Service. Cliquez sur **Nouveau montage de stockage Azure** et configurez votre stockage personnalisé comme suit :
 
-- **Nom** : Le nom d’affichage.
+- **Name** : Le nom d’affichage.
 - **Options de configuration** : **De base** ou **Avancé**.
 - **Comptes de stockage** : Le compte de stockage avec le conteneur de votre choix.
 - **Type de stockage** : **Objets blob Azure** ou **Fichiers Azure**.

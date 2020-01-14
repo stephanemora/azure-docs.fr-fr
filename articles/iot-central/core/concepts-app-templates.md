@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: af1870ecc9714eceaf69f2892537e59f068c6a70
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 85d882cff968c9b68ece104e850a7f16c33947b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480323"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435102"
 ---
 # <a name="what-are-application-templates"></a>Présentation des modèles d’application
 
@@ -30,11 +30,10 @@ Les modèles d’applications se décomposent ainsi :
 
 Le modèle d’application que vous choisissez détermine si votre application utilise des fonctionnalités d’évaluation IoT Central, telles que Plug-and-Play pour les appareils.
 
-Actuellement, les modèles d’application qui utilisent les fonctionnalités _généralement disponibles_ sont les suivants :
+Actuellement, le modèle d’application qui utilise les fonctionnalités _généralement disponibles_ est le suivant :
 
-- Application personnalisée > Application personnalisée
-- Application personnalisée > Exemple Contoso
-- Application personnalisée > Exemple de kits de développement
+- Application personnalisée > Application héritée
+
 
 Actuellement, les modèles d’application qui utilisent les fonctionnalités en _préversion publique_ sont :
 
@@ -52,7 +51,7 @@ Actuellement, les modèles d’application qui utilisent les fonctionnalités en
 - Santé > Surveillance continue des patients
 
 > [!NOTE]
-> Les modèles **Application personnalisée, Exemple Contoso, Exemple Devkits** sont actuellement disponibles dans les emplacements **États-Unis**, **Australie**, **Asie-Pacifique** ou **Europe**, alors que d’autres modèles sont actuellement disponibles uniquement dans les emplacements **Europe** et **USA**.
+> Les modèles **application héritée** sont actuellement disponibles dans les emplacements **États-Unis**, **Australie**, **Asie-Pacifique** ou **Europe**, alors que d’autres modèles sont actuellement disponibles uniquement dans les emplacements **Europe** et **USA**.
 
 ## <a name="industry-focused-templates"></a>Modèles sectoriels
 

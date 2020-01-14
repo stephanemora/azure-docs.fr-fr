@@ -1,19 +1,15 @@
 ---
 title: Utilisation de la mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique
-description: 'Découvrez comment utiliser des actions de mise à l’échelle automatique pour appeler des URL web ou envoyer des notifications par courrier électronique dans Azure Monitor. '
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
+description: Découvrez comment utiliser des actions de mise à l’échelle automatique pour appeler des URL web ou envoyer des notifications par courrier électronique dans Azure Monitor.
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: fd5aeadd72123b58801ce038b0cc99d17dcfd200
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67491528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75364201"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -33,7 +29,7 @@ Vous pouvez l’activer depuis le portail Azure pour les services cloud et les b
 
 ## <a name="virtual-machine-scale-sets"></a>Jeux de mise à l’échelle de machine virtuelle
 Pour des machines virtuelles plus récentes créées avec Resource Manager (groupes identiques de machines virtuelles), vous pouvez effectuer cette configuration à l’aide de l’API REST, de modèles Resource Manager, de PowerShell et de l’interface de ligne de commande (CLI). Aucune interface de portail n’est disponible pour l’instant.
-Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’élément de notifications avec les options suivantes.
+Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’élément de notifications dans vos [autoscalesettings](https://docs.microsoft.com/azure/templates/microsoft.insights/2015-04-01/autoscalesettings) avec les options suivantes.
 
 ```
 "notifications": [
@@ -62,7 +58,7 @@ Lorsque vous utilisez l’API REST ou le modèle Resource Manager, incluez l’�
 
 | Champ | Obligatoire ? | Description |
 | --- | --- | --- |
-| operation |Oui |la valeur doit être « Scale » |
+| opération |Oui |la valeur doit être « Scale » |
 | sendToSubscriptionAdministrator |Oui |la valeur doit être « true » ou « false » |
 | sendToSubscriptionCoAdministrators |Oui |la valeur doit être « true » ou « false » |
 | customEmails |Oui |la valeur peut être null ou un tableau de chaînes d’e-mails |
@@ -106,19 +102,19 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | Champ | Obligatoire ? | Description |
 | --- | --- | --- |
 | status |Oui |L’état qui indique qu’une action de mise à l’échelle automatique a été générée. |
-| operation |Oui |Pour une augmentation des instances, l’option est « augmenter la taille des instances » ; pour une diminution des instances, l’option est « Diminuer la taille des instances » |
-| context |Oui |Le contexte de l’action de mise à l’échelle automatique |
+| opération |Oui |Pour une augmentation des instances, l’option est « augmenter la taille des instances » ; pour une diminution des instances, l’option est « Diminuer la taille des instances » |
+| contexte |Oui |Le contexte de l’action de mise à l’échelle automatique |
 | timestamp |Oui |Horodatage du déclenchement de l’action de mise à l’échelle automatique. |
-| id |OUI |ID Resource Manager du paramètre de mise à l’échelle automatique |
-| name |OUI |Le nom du paramètre de mise à l’échelle automatique |
-| details |OUI |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |
-| subscriptionId |OUI |ID d’abonnement de la ressource cible mise à l’échelle |
-| resourceGroupName |OUI |Nom de groupe de ressources de la ressource cible mise à l’échelle |
-| resourceName |OUI |Nom de la ressource cible mise à l’échelle |
-| resourceType |OUI |Trois valeurs sont prises en charge : « microsoft.classiccompute/domainnames/slots/roles » - Rôles de service cloud, « microsoft.compute/virtualmachinescalesets » - Jeux de mise à l’échelle de machine virtuelle et « Microsoft.Web/serverfarms » - Application Web |
-| resourceId |OUI |ID Resource Manager de la ressource cible mise à l’échelle |
-| portalLink |OUI |Lien du portail Azure vers la page de résumé de la ressource cible |
-| oldCapacity |OUI |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
-| newCapacity |OUI |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
+| id |Oui |ID Resource Manager du paramètre de mise à l’échelle automatique |
+| name |Oui |Le nom du paramètre de mise à l’échelle automatique |
+| details |Oui |Explication de l’action exécutée par le service de mise à l’échelle automatique et de la modification du nombre d’instances |
+| subscriptionId |Oui |ID d’abonnement de la ressource cible mise à l’échelle |
+| resourceGroupName |Oui |Nom de groupe de ressources de la ressource cible mise à l’échelle |
+| resourceName |Oui |Nom de la ressource cible mise à l’échelle |
+| resourceType |Oui |Trois valeurs sont prises en charge : « microsoft.classiccompute/domainnames/slots/roles » - Rôles de service cloud, « microsoft.compute/virtualmachinescalesets » - Jeux de mise à l’échelle de machine virtuelle et « Microsoft.Web/serverfarms » - Application Web |
+| resourceId |Oui |ID Resource Manager de la ressource cible mise à l’échelle |
+| portalLink |Oui |Lien du portail Azure vers la page de résumé de la ressource cible |
+| oldCapacity |Oui |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
+| newCapacity |Oui |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |
 | properties |Non |facultatif. Jeu de paires < clé, valeur > (par exemple, Dictionary < String, String >). Le champ properties est facultatif. Dans un flux de travail basé sur une application logique ou une interface utilisateur personnalisée, vous pouvez entrer des clés et des valeurs transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au webhook sortant consiste à utiliser l’URI du webhook (sous la forme de paramètres de requête). |
 

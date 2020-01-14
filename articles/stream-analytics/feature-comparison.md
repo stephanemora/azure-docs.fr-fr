@@ -1,18 +1,17 @@
 ---
 title: Comparaison des fonctionnalités Azure Stream Analytics
 description: Cet article compare les fonctionnalités prises en charge pour les tâches cloud et IoT Edge Azure Stream Analytics dans le portail Azure, Visual Studio et Visual Studio Code.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 4eb19a5b344cc5bda5ecad724daaddf9b0000d7e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8cdba27ac949584e1fa96e3f7b0874f4fc0d4212
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580906"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443658"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
 
@@ -24,54 +23,54 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Fonctionnalité  |Portail  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
 |Multiplateforme     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
-|Création de script     |OUI         |OUI         |OUI         |
+|Création de script     |Oui         |Oui         |Oui         |
 |Script Intellisense     |Mise en surbrillance de la syntaxe         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |Mise en surbrillance de la syntaxe</br>Complétion de code</br>Marqueur d’erreur         |
-|Définir des entrées, des sorties et des configurations de projet     |OUI         |OUI         |OUI         |
-|Partitionnement de la sortie des objets blob     |OUI         |OUI         |OUI         |
-|Power BI comme sortie     |OUI         |OUI         |Non         |
-|Données de référence SQL Database     |OUI         |OUI         |OUI         |
-|Propriétés de message personnalisées     |OUI         |Non         |Non         |
-|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |OUI         |OUI         |
-|UDF et UDA JavaScript     |OUI         |OUI         |Windows uniquement         |
-|Légendes de Machine Learning     |Oui, mais la requête ne peut pas être testée        |Oui, mais ne peut pas être testé localement         |Non         |
-|Niveau de compatibilité     |1.0</br>1.1</br>1.2         |1.0</br>1.1</br>1.2          |1.0</br>1.1</br>1.2          |
-|Fonctions de détection d’anomalie ML intégrées     |OUI         |OUI         |OUI         |
-|Fonctions géospatiales intégrées     |OUI         |OUI         |OUI         |
-|Test de requête avec un exemple de fichier     |OUI         |OUI         |OUI         |
-|Test local des données actives     |Non         |OUI         |Non         |
-|Répertorier les travaux et afficher les entités de travail     |OUI         |OUI         |OUI         |
-|Exporter un travail vers un projet local     |Non         |OUI         |OUI         |
-|Envoyer, lancer et arrêter des tâches     |OUI         |OUI         |OUI         |
-|Contrôle de code source     |Non         |OUI         |OUI         |
-|Prise en charge de CI/CD     |Partiel         |OUI         |OUI         |
-|Afficher les métriques de tâche et le diagramme     |OUI         |OUI         |Ouvrir dans le portail         |
-|Afficher les erreurs d’exécution de tâches     |OUI         |OUI         |Non         |
-|Journaux de diagnostic     |OUI         |Non         |Non         |
+|Définir tous les types d'entrées, de sorties et de configurations de projet     |Oui         |Oui         |Oui         |
+|Contrôle de code source     |Non         |Oui         |Oui         |
+|Prise en charge de CI/CD     |Partiel         |Oui         |Oui         |
+|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |Oui         |Oui         |
+|Test de requête avec un exemple de fichier     |Oui         |Oui        |Oui         |
+|Test local des données actives     |Non         |Oui       |Oui      |
+|Répertorier les travaux et afficher les entités de travail     |Oui         |Oui        |Oui         |
+|Exporter un travail vers un projet local     |Non         |Oui         |Oui         |
+|Envoyer, lancer et arrêter des tâches     |Oui         |Oui         |Oui         |
+|Afficher les métriques de tâche et le diagramme     |Oui         |Oui         |Ouvrir dans le portail         |
+|Afficher les erreurs d’exécution de tâches     |Oui         |Oui         |Non         |
+|Journaux de diagnostic     |Oui         |Non         |Non         |
+|Propriétés de message personnalisées     |Oui         |Oui         |Non       |
+|Fonction de code personnalisé C# et désérialiseur|Mode Lecture seule|Oui|Non|
+|UDF et UDA JavaScript     |Oui         |Oui         |Windows uniquement         |
+|Machine Learning Service     |Oui, mais la requête ne peut pas être testée        |Oui         |Non         |
+|Machine Learning Studio     |Oui, mais la requête ne peut pas être testée        |Oui |Non         |
+|Niveau de compatibilité     |1.0</br>1.1</br>1.2 (valeur par défaut)         |1.0</br>1.1</br>1.2 (valeur par défaut)           |1.0</br>1.1</br>1.2 (valeur par défaut)           |
+|Fonctions de détection d’anomalie ML intégrées     |Oui         |Oui         |Oui         |
+|Fonctions géospatiales intégrées     |Oui         |Oui         |Oui         |
+
 
 
 ## <a name="iot-edge-job-features"></a>Fonctionnalités des tâches IoT Edge
 
 |Fonctionnalité  |Portail  |Visual Studio  |Visual Studio Code  |
 |---------|---------|---------|---------|
-|Création de tâches     |OUI         |OUI         |Non         |
-|Contrôle de code source     |Non         |OUI         |Non         |
-|Exporter un travail vers un projet local     |Non         |OUI         |Non         |
-|Test de requête avec un exemple de fichier     |OUI         |OUI         |Non         |
-|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |OUI         |Non         |
-|C# UDF     |Non         |OUI         |Non         |
-|Soumettre les travaux     |OUI         |OUI         |Non         |
-|Répertorier les travaux et afficher les entités de travail     |OUI         |OUI         |Non         |
-|Afficher les métriques de tâche et le diagramme     |OUI         |Partiel         |Non         |
-|Afficher les erreurs d’exécution de tâches     |OUI         |Partiel         |Non         |
+|Création de tâches     |Oui         |Oui         |Non         |
+|Contrôle de code source     |Non         |Oui         |Non         |
+|Exporter un travail vers un projet local     |Non         |Oui         |Non         |
+|Test de requête avec un exemple de fichier     |Oui         |Oui         |Non         |
+|Partager des entrées et des sorties entre plusieurs requêtes     |Non         |Oui         |Non         |
+|C# UDF     |Non         |Oui         |Non         |
+|Soumettre les travaux     |Oui         |Oui         |Non         |
+|Répertorier les travaux et afficher les entités de travail     |Oui         |Oui         |Non         |
+|Afficher les métriques de tâche et le diagramme     |Oui         |Partiel         |Non         |
+|Afficher les erreurs d’exécution de tâches     |Oui         |Partiel         |Non         |
 |Prise en charge de CI/CD     |Non         |Non         |Non         |
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Azure Stream Analytics sur IoT Edge](stream-analytics-edge.md)
-* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour une tâche IoT Edge Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
+* [Tutoriel : Écrire une fonction C# définie par l’utilisateur pour une tâche IoT Edge Azure Stream Analytics (préversion)](stream-analytics-edge-csharp-udf.md)
 * [Développer des tâches IoT Edge Azure Stream Analytics avec les outils Visual Studio](stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics](stream-analytics-vs-tools.md)
-* [Explorer Azure Stream Analytics avec Visual Studio Code (préversion)](vscode-explore-jobs.md)
+* [Explorer Azure Stream Analytics avec Visual Studio Code (préversion)](visual-studio-code-explore-jobs.md)
 
 

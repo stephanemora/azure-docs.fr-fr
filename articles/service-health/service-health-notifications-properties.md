@@ -1,19 +1,14 @@
 ---
 title: Qu’est-ce qu’une notification Azure Service Health ?
 description: Les notifications Service Health vous permettent de voir les messages relatifs à l’intégrité du service publiés par Microsoft Azure.
-author: stephbaron
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
+ms.topic: article
 ms.date: 4/12/2018
-ms.author: stbaron
-ms.subservice: logs
-ms.openlocfilehash: b41c2cdc54ab5eecdc4503cbd98e69932c901a3d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451550"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Afficher les notifications Service Health dans le portail Azure
 
@@ -44,7 +39,7 @@ submissionTimestamp | Horodatage lorsque l’événement est devenu disponible p
 subscriptionId | L’abonnement Azure dans lequel l’événement est enregistré.
 status | Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : **Started**, **In Progress**, **Succeeded**, **Failed**, **Active** et **Resolved**.
 operationName | Nom de l’opération.
-category | Cette propriété est toujours **ServiceHealth**.
+catégorie | Cette propriété est toujours **ServiceHealth**.
 resourceId | ID de ressource de la ressource impactée.
 Properties.title | Le titre localisé pour cette communication. L’anglais est la langue par défaut.
 Properties.communication | Les détails localisés de la communication avec le balisage HTML. L’anglais est la langue par défaut.

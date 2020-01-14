@@ -7,7 +7,7 @@ author: Yahnoosh
 ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/10/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111807"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460803"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Ajouter des analyseurs de langue à des champs de chaîne dans l’index de Recherche cognitive Azure
 
@@ -48,7 +48,10 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
 
 ## <a name="configuring-analyzers"></a>Configuration des analyseurs
 
-Les analyseurs linguistiques sont utilisés en l’état. Pour chaque champ de la définition d’index, vous pouvez attribuer à la propriété **analyzer** un nom d’analyseur qui spécifie la langue et la pile linguistique (Microsoft ou Lucene). Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Il peut par exemple y avoir des champs distincts pour des descriptions d'hôtels en anglais, en français et en espagnol côte à côte dans le même index. Au lieu de **analyzer**, vous pouvez aussi utiliser **indexAnalyzer** et **searchAnalyzer** pour appliquer des règles d’analyse différentes au moment de l’indexation et de l’interrogation. 
+Les analyseurs linguistiques sont utilisés en l’état. Pour chaque champ de la définition d’index, vous pouvez attribuer à la propriété **analyzer** un nom d’analyseur qui spécifie la langue et la pile linguistique (Microsoft ou Lucene). Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Il peut par exemple y avoir des champs distincts pour des descriptions d'hôtels en anglais, en français et en espagnol côte à côte dans le même index.
+
+> [!NOTE]
+> Il n’est pas possible d’utiliser un autre analyseur de langage au moment de l’indexation qu’au moment de la requête pour un champ. Cette fonctionnalité est réservée aux [analyseurs personnalisés](index-add-custom-analyzers.md). C’est la raison pour laquelle, si vous tentez de définir les propriétés **searchAnalyzer** ou **indexAnalyzer** sur le nom d’un analyseur de langage, l’API REST renvoie une réponse d’erreur. Vous devez utiliser la propriété **analyzer** à la place.
 
 Utilisez le paramètre de requête **searchFields** pour spécifier le champ de langue dans vos requêtes. Vous pouvez consulter les exemples de requêtes qui contiennent la propriété analyzer dans [Recherche dans les documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
@@ -67,7 +70,7 @@ Pour plus d’informations sur les propriétés d’index, voir [Créer un index
 |Basque||eu.lucene|  
 |Bulgare|bg.microsoft|bg.lucene|  
 |Catalan|ca.microsoft|ca.lucene|  
-|Chinois simplifié|zh-Hans.microsoft|zh-Hans.lucene|  
+|Chinois (simplifié)|zh-Hans.microsoft|zh-Hans.lucene|  
 |Chinois traditionnel|zh-Hant.microsoft|zh-Hant.lucene|  
 |Croate|hr.microsoft||  
 |Tchèque|cs.microsoft|cs.lucene|  

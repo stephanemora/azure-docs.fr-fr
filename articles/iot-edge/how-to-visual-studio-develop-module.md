@@ -1,6 +1,6 @@
 ---
-title: Développer et déboguer des modules dans Visual Studio – Azure IoT Edge | Microsoft Docs
-description: Utiliser Visual Studio 2019 pour développer et déboguer des modules pour Azure IoT Edge
+title: Développer et déboguer des modules dans Visual Studio – Azure IoT Edge
+description: Utilisez Visual Studio avec les outils Azure IoT pour développer un module IoT Edge C ou C# et l’envoyer de votre IoT Hub à un appareil IoT, comme configuré par un manifeste de déploiement.
 services: iot-edge
 author: shizn
 manager: philmea
@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a94bc4825f70b9858260feaadaeded6c76ba46e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561693"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457254"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio 2019 pour développer et déboguer des modules pour Azure IoT Edge
 
@@ -28,7 +28,7 @@ Azure IoT Edge Tools pour Visual Studio offre les avantages suivants :
 
 Cet article vous explique comment utiliser Azure IoT Edge Tools pour Visual Studio 2019 pour développer vos modules IoT Edge. Vous y découvrez aussi comment déployer votre projet sur votre appareil Azure IoT Edge. Actuellement, Visual Studio 2019 prend en charge les modules écrits en C et C#. Les architectures d’appareils prises en charge sont Windows x64 et Linux x64 ou ARM32. Pour plus d’informations sur les systèmes d’exploitation, les langages et les architectures pris en charge, consultez [Prise en charge des langages et architectures](module-development.md#language-and-architecture-support).
   
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows comme machine de développement. Sur les ordinateurs Windows, vous pouvez développer des modules Windows ou Linux. Pour développer des modules Windows, utilisez un ordinateur Windows exécutant la version 1809/build 17763 ou une version plus récente. Pour développer des modules Linux, utilisez un ordinateur Windows qui est conforme à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 

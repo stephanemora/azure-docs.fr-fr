@@ -1,17 +1,17 @@
 ---
-title: Modèles Azure Resource Manager pour l’API Cassandra Azure Cosmos DB
+title: Modèles Resource Manager pour l’API Cassandra Azure Cosmos DB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer l’API Cassandra Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: f09ab6958eb768895a2d16f129354074cb6f00c8
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 54d1c27148f20c89e17b343f0ac87295f978c140
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445290"
 ---
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API Cassandra Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -19,7 +19,7 @@ Cet article explique comment effectuer différentes opérations pour automatiser
 
 ## Créer un compte, un espace de clés et une table Azure Cosmos <a id="create-resource"></a>
 
-Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos pour l’API Cassandra avec deux tables qui partagent un débit de 400 RU/s au niveau de l’espace de clés. Copiez le modèle et déployez-le comme indiqué ci-dessous ou consultez la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) et procédez au déploiement à partir du Portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
+Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos pour l’API Cassandra avec deux tables qui partagent un débit de 400 RU/s au niveau de l’espace de clés. Copiez le modèle et déployez-le comme indiqué ci-dessous ou consultez la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-cassandra/) et procédez au déploiement à partir du portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
 
 > [!NOTE]
 > Les noms de compte doivent comporter au maximum 44 caractères en minuscules.
@@ -29,7 +29,7 @@ Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource 
 
 ## <a name="deploy-with-the-azure-cli"></a>Déployer avec Azure CLI
 
-Pour déployer le modèle Azure Resource Manager à l’aide de l’interface de ligne de commande Azure, **copiez** le script et sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller** :
+Pour déployer le modèle Azure Resource Manager avec Azure CLI, **copiez** le script et sélectionnez **Essayer** pour ouvrir Azure Cloud Shell. Pour coller le script, cliquez avec le bouton droit dans l’interpréteur de commandes, puis sélectionnez **Coller** :
 
 ```azurecli-interactive
 
@@ -51,7 +51,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-La commande `az cosmosdb show` montre le compte Azure Cosmos nouvellement créé, une fois que ce dernier a été configuré. Si vous choisissez d’utiliser une version de l’interface de ligne de commande Azure installée localement au lieu d’utiliser Cloud Shell, consultez l’article [Interface de ligne de commande Azure (CLI)](/cli/azure/).
+La commande `az cosmosdb show` montre le compte Azure Cosmos nouvellement créé, une fois que ce dernier a été configuré. Si vous choisissez d’utiliser une version de l’interface Azure CLI installée localement au lieu d’utiliser Cloud Shell, consultez l’article [Azure CLI](/cli/azure/).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

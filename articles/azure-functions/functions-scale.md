@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6520f205d0a9c1a33d0cb4911a58a5e680bdadb7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929728"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409104"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -126,7 +126,9 @@ Lorsque la sortie de cette commande est `dynamic`, votre application de fonction
 
 Dans n’importe quel plan, une Function App nécessite un compte de stockage Azure général prenant en charge les stockages Blob, File d’attente, Fichiers et Table Azure. Cela s’explique par le fait qu’Azure Functions utilise le stockage Azure pour les opérations telles que la gestion des déclencheurs et la journalisation des exécutions de fonctions. Certains comptes de stockage ne prennent cependant pas en charge les files d’attente et les tables. Ces comptes, qui incluent les comptes de stockage Blob uniquement (notamment le stockage Premium) et les comptes de stockage à usage général avec la réplication de stockage redondant interzone (ZRS), ne sont pas inclus dans la liste de **comptes de stockage** existants que vous pouvez sélectionner lorsque vous créez une application de fonction.
 
-Le même compte de stockage que celui utilisé par votre application de fonction peut également être utilisé par vos déclencheurs et liaisons pour stocker vos données d’application. Toutefois, pour les opérations gourmandes en stockage, il est préférable d’utiliser un compte de stockage distinct.   
+Le même compte de stockage que celui utilisé par votre application de fonction peut également être utilisé par vos déclencheurs et liaisons pour stocker vos données d’application. Toutefois, pour les opérations gourmandes en stockage, il est préférable d’utiliser un compte de stockage distinct.  
+
+Plusieurs applications de fonction peuvent partager le même compte de stockage. (Cela peut notamment être le cas lorsque vous développez plusieurs applications dans votre environnement local à l'aide de l'Émulateur de stockage Azure, qui agit comme un compte de stockage unique.) 
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -161,6 +163,8 @@ Différents déclencheurs peuvent également avoir des limites de mise à l’é
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>Bonnes pratiques et modèles pour les applications scalables
 
 Nombreux sont les aspects d’une application de fonction qui impactent sa bonne mise à l’échelle, notamment la configuration de l’hôte, l’encombrement du runtime et l’efficacité des ressources.  Pour plus d’informations, consultez la [section sur l’extensibilité dans l’article Considérations relatives aux performances](functions-best-practices.md#scalability-best-practices). Vous devez également savoir ce qu’il se passe au niveau des connexions lors de la mise à l’échelle de votre application de fonction. Pour plus d’informations, consultez [How to manage connections in Azure Functions](manage-connections.md) (Comment gérer des connexions dans Azure Functions).
+
+Pour plus d'informations sur la mise à l'échelle en Python et Node.js, consultez le [Guide des développeurs Python sur Azure Functions - Mise à l'échelle et concurrence](functions-reference-python.md#scaling-and-concurrency) et le [Guide des développeurs Node.js sur Azure Functions - Mise à l'échelle et concurrence](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modèle de facturation
 

@@ -9,26 +9,28 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 643f0d6dd3ee073bd19f8697346689523032ad9f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67592643"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380624"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Créer un jeu de données d’apprentissage pour un modèle personnalisé
 
 Lorsque vous utilisez le modèle Form Recognizer personnalisé, vous fournissez vos propres données d’entraînement afin d’entraîner le modèle en fonction de vos formulaires spécifiques au secteur. Vous pouvez entraîner un modèle avec cinq formulaires remplis ou avec un formulaire vide (vous devez inclure le mot « empty » (vide) dans le nom de fichier) et deux formulaires remplis. Même si vous avez suffisamment de formulaires remplis pour effectuer l’entraînement, vous pouvez améliorer la précision du modèle en ajoutant un formulaire vide à votre jeu de données d’apprentissage.
 
+Si vous souhaitez utiliser des données d’apprentissage étiquetées manuellement, vous devez commencer par au moins cinq formulaires du même type. Vous pouvez également utiliser des formulaires sans étiquette et un formulaire vide au sein du même jeu de données.
+
 ## <a name="training-data-tips"></a>Conseils relatifs aux données d’entraînement
 
-Il est important d’utiliser un jeu de données optimisé pour l’entraînement. Suivez les conseils suivants pour vous assurer que l’opération [Former le modèle](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) vous fournisse les meilleurs résultats :
+Il est important d’utiliser un jeu de données optimisé pour l’entraînement. Suivez les conseils ci-dessous pour vous assurer que l’opération [Entraîner un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) vous fournisse les meilleurs résultats :
 
 * Si possible, utilisez des documents PDF utilisant du texte au lieu d’images. Les fichiers PDF numérisés sont traités comme des images.
-* S’ils sont disponibles, utiliser un formulaire vide et deux formulaires remplis.
 * Pour les formulaires remplis, utilisez les exemples dont les champs sont tous renseignés.
 * Utilisez des formulaires avec des valeurs différentes dans chaque champ.
 * Si vos images de formulaire sont de faible qualité, utilisez un plus grand jeu de données (par exemple, 10 à 15 images).
+* La taille totale du jeu de données d’apprentissage peut atteindre jusqu’à 500 pages.
 
 ## <a name="general-input-requirements"></a>Critères généraux des entrées
 
@@ -42,7 +44,7 @@ Une fois que vous avez combiné l’ensemble des documents de formulaire que vou
 
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organiser vos données dans des sous-dossiers (facultatif)
 
-Par défaut, l’API [Entraîner le modèle](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) utilisera uniquement les formulaires situés à la racine de votre conteneur de stockage. Toutefois, l’entraînement peut être effectué avec des données dans les sous-dossiers si vous le spécifiez dans l’appel d’API. Normalement, le corps de l’appel [Former le modèle](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/TrainCustomModel) a la forme suivante, où `<SAS URL>` est l’URL de signature d’accès partagé de votre conteneur :
+Par défaut, l’API [Entraîner un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) utilisera uniquement les formulaires situés à la racine de votre conteneur de stockage. Toutefois, l’entraînement peut être effectué avec des données dans les sous-dossiers si vous le spécifiez dans l’appel d’API. Normalement, le corps de l’appel [Entraîner un modèle personnalisé](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) présente la forme suivante, où `<SAS URL>` correspond à l’URL de signature d’accès partagé de votre conteneur :
 
 ```json
 {
@@ -58,7 +60,8 @@ Si vous ajoutez le contenu suivant au corps de la demande, l’API sera entraîn
   "sourceFilter": {
     "prefix": "<prefix string>",
     "includeSubFolders": true
-  }
+  },
+  "useLabelFile": false
 }
 ```
 
@@ -66,6 +69,6 @@ Si vous ajoutez le contenu suivant au corps de la demande, l’API sera entraîn
 
 Maintenant que vous avez appris à créer un jeu de données d’apprentissage, suivez un guide de démarrage rapide pour entraîner un modèle Form Recognizer personnalisé et commencer à l’utiliser sur vos formulaires.
 
-* [Démarrage rapide : entraîner un modèle et extraire des données de formulaire à l’aide de cURL](./quickstarts/curl-train-extract.md)
-* [Démarrage rapide : entraîner un modèle et extraire des données de formulaire à l’aide d’une API REST avec Python](./quickstarts/python-train-extract.md)
-
+* [Démarrage rapide : entraîner un modèle et extraire des données de formulaire à l’aide de cURL](./quickstarts/curl-train-extract.md)
+* [Démarrage rapide : entraîner un modèle et extraire des données de formulaire à l’aide d’une API REST avec Python](./quickstarts/python-train-extract.md)
+* [Entraîner avec des étiquettes en utilisant l’API REST et Python](./quickstarts/python-labeled-data.md)

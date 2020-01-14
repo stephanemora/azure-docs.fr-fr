@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 12/13/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d22973867782ddb64ced2ac95e84c0b27a3addd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 140ad45d9c4f6b6f49a4ea4aefb9298e58a2cf10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72886896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443572"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Forum aux questions sur Identity Protection dans Azure Active Directory
 
@@ -40,7 +40,15 @@ Désactivez **Show dates as** (Afficher les dates en tant que) pour masquer la c
 
 **Résoudre** sur une détection de risque définit l’état sur **Users passed MFA driven by risk-based policy** (Les utilisateurs ont passé la MFA pilotée par une stratégie basée sur les risques).
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
+
+### <a name="why-is-a-user-is-at-risk"></a>Pourquoi un utilisateur est-il à risque ?
+
+Si vous êtes un client Azure AD Identity Protection, accédez à la vue [Utilisateurs à risque](howto-identity-protection-investigate-risk.md#risky-users), puis cliquez sur un utilisateur à risque. Dans le tiroir en bas, l’onglet « Historique des risques » affiche tous les événements qui ont entraîné un changement de risque de l’utilisateur. Pour afficher toutes les connexions à risque pour l’utilisateur, cliquez sur « Connexions risquées de l’utilisateur ». Pour afficher toutes les détections de risque pour cet utilisateur, cliquez sur « Détection des risques de l’utilisateur ».
+
+### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Comment puis-je obtenir un rapport sur les détections d’un type spécifique ?
+
+Accédez à la vue de détection des risques et filtrez par « Type de détection ». Vous pouvez ensuite télécharger ce rapport au format .CSV ou .JSON à l’aide du bouton **Télécharger** au sommet. Pour plus d’informations, consultez l’article [Guide pratique : Examiner les risques](howto-identity-protection-investigate-risk.md#risk-detections).
 
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Pourquoi ne puis-je pas définir mes propres niveaux de risque pour chaque détection de risque ?
 
@@ -49,6 +57,20 @@ Les niveaux de risque dans Identity Protection sont basés sur la précision de 
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Pourquoi l’emplacement d’une connexion ne correspond pas à l’emplacement à partir duquel l’utilisateur s’est réellement connecté ?
 
 Le mappage de géolocalisation IP est un défi à l’échelle du secteur. Si vous pensez que l’emplacement indiqué dans le rapport de connexions ne correspond pas à l’emplacement réel, contactez le support Microsoft. 
+
+### <a name="how-can-i-close-specific-risk-detections-like-i-did-in-the-old-ui"></a>Comment puis-je fermer des détections de risque spécifiques comme je le faisais dans l’ancienne interface utilisateur ?
+
+Vous pouvez envoyer des commentaires sur les détections des risques en confirmant que la connexion liée est compromise ou sécurisée. Les commentaires fournis sur la connexion sont transmis à toutes les détections effectuées sur cette connexion. Si vous souhaitez fermer les détections qui ne sont pas liées à une connexion, vous pouvez fournir ces retours au niveau de l’utilisateur. Pour plus d’informations, consultez l’article [ Indiquer des commentaires sur les risques dans Azure AD Identity Protection](howto-identity-protection-risk-feedback.md).
+
+### <a name="how-far-can-i-go-back-in-time-to-understand-whats-going-on-with-my-user"></a>Jusqu’à quel point puis-je revenir en arrière pour comprendre ce qui se passe avec mon utilisateur ?
+
+- La vue [Utilisateurs à risque](howto-identity-protection-investigate-risk.md#risky-users) montre les risques d’un utilisateur en fonction de l’ensemble des connexions passées. 
+- La vue [Connexions risquées](howto-identity-protection-investigate-risk.md#risky-sign-ins) affiche les signes de risque au cours des 30 derniers jours. 
+- La vue [Détections de risques](howto-identity-protection-investigate-risk.md#risk-detections) affiche les détections de risques effectuées au cours des 90 derniers jours.
+
+### <a name="how-can-i-learn-more-about-a-specific-detection"></a>Comment puis-je en savoir plus sur une détection spécifique ?
+
+Toutes les détections de risques sont documentées dans l’article [Qu’est-ce que le risque](concept-identity-protection-risks.md#risk-types-and-detection). Vous pouvez pointer sur le symbole (i) en regard de la détection sur le portail Azure pour en savoir plus sur une détection.
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Comment les mécanismes de commentaires fonctionnent-ils dans Identity Protection ?
 

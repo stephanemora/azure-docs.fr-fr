@@ -3,12 +3,12 @@ title: Verrouiller des images
 description: Définissez des attributs pour une image conteneur ou un référentiel afin qu’il ne puisse pas être supprimé ou remplacé dans un registre de conteneurs Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442218"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
@@ -23,7 +23,11 @@ Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou l
 
 Par défaut, une image avec balise dans Azure Container Registry est *mutable*. Ainsi, avec les autorisations appropriées vous pouvez mettre à jour et envoyer de manière répétée une image avec la même balise vers un registre. Les images conteneur peuvent également être [supprimées](container-registry-delete.md) en fonction des besoins. Ce comportement est utile quand vous développez des images et que vous devez conserver une certaine taille de registre.
 
-En revanche, quand vous déployez une image conteneur en production vous aurez peut-être besoin d’une image conteneur *immuable*. Une image immuable est une image qui ne peut pas être supprimée ou remplacée accidentellement. Utilisez la commande [az acr repository update][az-acr-repository-update] pour définir les attributs du référentiel afin de pouvoir :
+En revanche, quand vous déployez une image conteneur en production vous aurez peut-être besoin d’une image conteneur *immuable*. Une image immuable est une image qui ne peut pas être supprimée ou remplacée accidentellement.
+
+Consultez les [Suggestions pour la création de balises et de versions pour les images de conteneurs](container-registry-image-tag-version.md) pour des stratégies de création de balises et de versions pour les images dans votre registre.
+
+Utilisez la commande [az acr repository update][az-acr-repository-update] pour définir les attributs du référentiel afin de pouvoir :
 
 * Verrouiller une version d’image ou un référentiel entier.
 
@@ -31,7 +35,7 @@ En revanche, quand vous déployez une image conteneur en production vous aurez p
 
 * Empêcher les opérations de lecture (pull) sur une version d’image ou un référentiel entier.
 
-Pour obtenir des exemples, consultez les sections suivantes.
+Pour obtenir des exemples, consultez les sections suivantes. 
 
 ## <a name="lock-an-image-or-repository"></a>Verrouiller une image ou un référentiel 
 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 11df1557fdcad059910dd2a87e9056e19a90bf01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684178"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640830"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -19,7 +19,7 @@ Cet article explique comment utiliser Visual Studio 2019 pour créer un projet 
 
 Cet article vous explique comment déployer WebJobs en tant qu'application console .NET Core. Pour déployer WebJobs en tant qu'application console .NET Framework, consultez [Tâches web en tant qu’applications console .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Si la version 2.x du kit de développement logiciel (SDK) WebJobs, qui prend uniquement en charge .NET Framework, vous intéresse, consultez [Développer et déployer WebJobs à l’aide de Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Installez Visual Studio 2019](/visualstudio/install/) avec la charge de travail de **développement Azure**. Si vous possédez déjà Visual Studio, mais que vous n’avez pas cette charge de travail, ajoutez-la en sélectionnant **Outils > Get Tools and Features** (Obtenir des outils et des fonctionnalités).
 
@@ -320,13 +320,13 @@ Dans cette section, vous allez effectuer les tâches suivantes pour configurer l
 
 1. Dans la zone **Chaînes de connexion**, ajoutez l’entrée suivante.
 
-   |Nom  |Chaîne de connexion  |Type de base de données|
+   |Name  |Chaîne de connexion  |Type de base de données|
    |---------|---------|------|
-   |AzureWebJobsStorage | {chaîne de connexion de stockage que vous avez copiée précédemment}|Personnalisée|
+   |AzureWebJobsStorage | {chaîne de connexion de stockage que vous avez copiée précédemment}|Custom|
 
 1. Si la zone **Paramètres de l’application** est dépourvue de clé d’instrumentation Application Insights, ajoutez celle que vous avez copiée précédemment. (La clé d’instrumentation figure peut-être déjà dans la zone selon la façon dont vous avez créé l’application App Service.)
 
-   |Nom  |Valeur  |
+   |Name  |Valeur  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {clé d’instrumentation} |
 
@@ -399,21 +399,23 @@ Pour tirer parti de la journalisation [Application Insights](../azure-monitor/ap
 
 Dans cette section, vous allez effectuer une nouvelle exécution locale pour vérifier que les données de journalisation accèdent maintenant à Application Insights et à la console.
 
-1. Utilisez **l’Explorateur de serveurs** de Visual Studio pour créer un message en file d’attente, comme vous l’avez fait [précédemment](#trigger-the-function-in-azure), mais cette fois-ci entrez *Hello App Insights !* comme texte du message.
+1. Utilisez l'**Explorateur de serveurs** de Visual Studio pour créer un message en file d'attente, comme vous l'avez fait [précédemment](#test-locally), mais cette fois-ci entrez *Hello App Insights !* comme texte du message.
 
 1. Exécutez le projet.
 
-   Le Kit de développement logiciel (SDK) WebJobs traite le message en file d’attente, et vous pouvez observer les journaux d’activité dans la fenêtre de console.
+   Le kit de développement logiciel (SDK) WebJobs traite le message en file d'attente, et les journaux d'activité sont disponibles dans la fenêtre de la console.
 
 1. Fermez la fenêtre de console.
 
-1. Ouvrez le [portail Azure](https://portal.azure.com/), puis accédez à la ressource Application Insights.
+1. Ouvrez le [portail Azure](https://portal.azure.com/) pour accéder à la ressource Application Insights. Recherchez et sélectionnez **Application Insights**.
+
+1. Choisissez votre instance d'Application Insights.
 
 1. Sélectionnez **Recherche**.
 
    ![Sélectionner Recherche](./media/webjobs-sdk-get-started/select-search.png)
 
-1. Si le message *Hello App Insights !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes. (Les journaux d’activité n’apparaissent pas immédiatement, car un certain temps est nécessaire au client Application Insights pour vider les journaux d’activité traités.)
+1. Si le message *Hello App Insights !* ne s’affiche pas, sélectionnez **Actualiser** à plusieurs reprises pendant plusieurs minutes. (Les journaux d'activité n'apparaissent pas immédiatement, car un certain temps est nécessaire au client Application Insights pour vider les journaux d'activité traités.)
 
    ![Journaux d’activité dans Application Insights](./media/webjobs-sdk-get-started/logs-in-ai.png)
 

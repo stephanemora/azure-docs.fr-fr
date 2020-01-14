@@ -2,17 +2,17 @@
 title: Questions fréquentes (FAQ) sur Azure Private Link
 description: Découvrez Azure Private Link.
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 53cb9b91d62c65cefb33451c716e677599306e9c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7870b68ca931123d50e88e846aa066ce53972dbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349938"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Questions fréquentes (FAQ) sur Azure Private Link
 
@@ -28,6 +28,7 @@ Le trafic est envoyé dans le cadre d’une connexion privée à l’aide de l�
  
 ### <a name="what-is-the-difference-between-a-service-endpoints-and-a-private-endpoints"></a>Quelle est la différence entre un point de terminaison de service et un point de terminaison privé ?
 - Lorsque vous utilisez des points de terminaison privés, l’accès au réseau est accordé à certaines ressources qui se trouvent derrière un service donné, ce qui permet une segmentation granulaire. En outre, le trafic peut atteindre la ressource de service à partir d’un emplacement local sans utiliser de points de terminaison publics.
+- Un point de terminaison de service reste une adresse IP routable publiquement.  Un point de terminaison privé est une adresse IP privée dans l’espace d’adressage du réseau virtuel sur lequel le point de terminaison privé est configuré.
 
 ### <a name="what-is-the-relationship-between-private-link-service-and-private-endpoint"></a>Quel type de relation existe entre Private Endpoint et le service Private Link ?
 Private Endpoint permet d’accéder à plusieurs types de ressources de liaison privée, y compris les services Azure PaaS et votre propre service Private Link. Il s’agit d’une relation un-à-plusieurs. Un service Private Link peut recevoir des connexions provenant de plusieurs points de terminaison privés. En revanche, un point de terminaison privé ne peut se connecter qu’à un seul service Private Link.    

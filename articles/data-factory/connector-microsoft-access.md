@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/27/2019
-ms.openlocfilehash: 927e5baa3abfef8aabce1a7c3031eb38f790d268
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a5783bfd035c5db06c4e1b0e36a17ca14cc0632
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440599"
 ---
 # <a name="copy-data-from-and-to-microsoft-access-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données Microsoft Access à l’aide de Azure Data Factory
 
@@ -31,7 +31,7 @@ Ce connecteur Microsoft Access est pris en charge pour les activités suivantes�
 
 Vous pouvez copier des données de la source Microsoft Access vers n’importe quel magasin de données récepteur pris en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser ce connecteur Microsoft Access, vous devez :
 
@@ -53,13 +53,13 @@ Les propriétés prises en charge pour le service lié Microsoft Access sont les
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **MicrosoftAccess** | OUI |
-| connectionString | Chaîne de connexion ODBC excluant la partie informations d’identification. Vous pouvez spécifier la chaîne de connexion ou utiliser le système DSN (nom de la source de données) que vous avez configuré sur la machine exécutant le runtime d’intégration (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).| OUI |
-| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données Microsoft Access.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | OUI |
+| type | La propriété type doit être définie sur : **MicrosoftAccess** | Oui |
+| connectionString | Chaîne de connexion ODBC excluant la partie informations d’identification. Vous pouvez spécifier la chaîne de connexion ou utiliser le système DSN (nom de la source de données) que vous avez configuré sur la machine exécutant le runtime d’intégration (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br> Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez la section  [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) .| Oui |
+| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données Microsoft Access.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | Oui |
 | userName | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Marquez ce champ comme SecureString. | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple :**
 
@@ -69,10 +69,7 @@ Les propriétés prises en charge pour le service lié Microsoft Access sont les
     "properties": {
         "type": "Microsoft Access",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
-            },
+            "connectionString": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
@@ -96,7 +93,7 @@ Pour copier des données à partir de Microsoft Access, les propriétés suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **MicrosoftAccessTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **MicrosoftAccessTable** | Oui |
 | tableName | Nom de la table dans Microsoft Access. | Non pour la source (si « query » est spécifié dans la source de l’activité) ;<br/>Oui pour le récepteur |
 
 **Exemple**
@@ -127,7 +124,7 @@ Pour copier des données à partir d’une banque de données compatible avec Mi
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **MicrosoftAccessSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **MicrosoftAccessSource** | Oui |
 | query | Utilise la requête personnalisée pour lire des données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

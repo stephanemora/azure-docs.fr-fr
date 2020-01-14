@@ -1,33 +1,33 @@
 ---
 title: Utiliser PowerShell pour créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob
 titleSuffix: Azure Storage
-description: Découvrez comment créer une SAS de délégation d’utilisateur (préversion) avec des informations d’identification Azure Active Directory à l’aide de PowerShell.
+description: Découvrez comment créer une SAP de délégation d’utilisateur avec des informations d’identification Azure Active Directory à l’aide de PowerShell.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 63075152ea4b3bf1a3aa208cf2a9642ef46642db
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892513"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371771"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell (préversion)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec Azure PowerShell (préversion).
+Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec Azure PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="install-the-preview-module"></a>Installez le module en préversion
+## <a name="install-the-powershell-module"></a>Installer le module PowerShell
 
-Pour utiliser PowerShell afin de créer une SAP de délégation d’utilisateur, vous devez d’abord installer le moduleAz.Storage 1.3.1-preview. Pour installer le module, procédez comme suit :
+Pour créer une SAP de délégation d’utilisateur avec PowerShell, installez la version 1.10.0 ou ultérieure du module Az.Storage. Pour installer la dernière version du module, procédez comme suit :
 
 1. Désinstallez les installations précédentes d’Azure PowerShell :
 
@@ -48,23 +48,18 @@ Pour utiliser PowerShell afin de créer une SAP de délégation d’utilisateur,
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installez un module en préversion du stockage Azure qui prend en charge la SAP de délégation d’utilisateur :
+1. Assurez-vous qu’Azure PowerShell version 3.2.0 ou ultérieure est installé. Exécutez la commande suivante pour installer la dernière version du module PowerShell de Stockage Azure :
 
     ```powershell
-    Install-Module Az.Storage `
-        –Repository PSGallery `
-        -RequiredVersion 1.3.1-preview `
-        –AllowPrerelease `
-        –AllowClobber `
-        –Force
+    Install-Module -Name Az.Storage -Repository PSGallery -Force
     ```
 
 1. Fermez, puis rouvrez la fenêtre PowerShell.
 
-Étant donné que PowerShell charge le dernier module Az.Storage par défaut, il se peut que vous deviez charger explicitement le module 1.3.1-preview quand vous démarrez la console. Pour charger explicitement le module de préversion, exécutez la commande [Import-Module](/powershell/module/microsoft.powershell.core/import-module) :
+Pour identifier quelle version du module Az.Storage est installée, exécutez la commande suivante :
 
 ```powershell
-Import-Module Az.Storage -RequiredVersion 1.3.1
+Get-Module -ListAvailable -Name Az.Storage -Refresh
 ```
 
 Pour en savoir plus sur l’installation d’Azure PowerShell, voir [Installer Azure PowerShell avec PowerShellGet](/powershell/azure/install-az-ps).

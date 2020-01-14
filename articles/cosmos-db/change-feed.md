@@ -1,6 +1,6 @@
 ---
 title: Utilisation du support de flux de modification dans Azure Cosmos DB
-description: Utilisez le support de flux de modification d’Azure Cosmos DB pour suivre les modifications dans les documents et effectuer des opérations de traitement basées sur les événements tels que des déclencheurs et la mise à jour des systèmes de cache et d’analyse.
+description: Utiliser le support de flux de modification d'Azure Cosmos DB pour le suivi des modifications des documents, les opérations de traitement basées sur les événements comme les déclencheurs, et la mise à jour des systèmes de cache et d'analyse
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: eef950c4e8c4a880d331022ed60477bebce65b5d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: bf36c0697b5e30c77610d30475be20adc18810cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445588"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Flux de modification dans Azure Cosmos DB - Vue d'ensemble
 
@@ -33,12 +33,12 @@ Le flux de modification Azure Cosmos DB vous permet de créer des solutions effi
 
 Cette fonctionnalité est prise en charge par les API et les SDK clients Azure Cosmos DB suivants.
 
-| **Pilotes clients** | **Interface de ligne de commande Azure** | **API SQL** | **API Azure Cosmos DB pour Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
+| **Pilotes clients** | **Azure CLI** | **API SQL** | **API Azure Cosmos DB pour Cassandra** | **API pour MongoDB d’Azure Cosmos DB** | **API Gremlin**|**API de table** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | N/D | OUI | OUI | OUI | OUI | Non |
-|Java|N/D|OUI|OUI|OUI|OUI|Non|
-|Python|N/D|OUI|OUI|OUI|OUI|Non|
-|Node/JS|N/D|OUI|OUI|OUI|OUI|Non|
+| .NET | N/D | Oui | Oui | Oui | Oui | Non |
+|Java|N/D|Oui|Oui|Oui|Oui|Non|
+|Python|N/D|Oui|Oui|Oui|Oui|Non|
+|Node/JS|N/D|Oui|Oui|Oui|Oui|Non|
 
 ## <a name="change-feed-and-different-operations"></a>Flux de modification et différentes opérations
 

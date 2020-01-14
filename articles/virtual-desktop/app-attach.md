@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d9a6664caa7d0d84de54de232d6f8d0eab0a793
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972386"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356246"
 ---
 # <a name="set-up-msix-app-attach"></a>Configurer l’attachement d’application MSIX
 
@@ -22,7 +22,7 @@ ms.locfileid: "74972386"
 
 Cette rubrique vous guide tout au long de la configuration de l’attachement d’application MSIX dans un environnement Windows Virtual Desktop.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Avant de commencer, voici ce dont vous avez besoin pour configurer l’attachement d’application MSIX :
 
@@ -172,8 +172,8 @@ Dans votre environnement Windows Virtual Desktop, créez un partage réseau et d
 Si votre application utilise un certificat qui n’est pas approuvé publiquement ou qui a été auto-signé, procédez comme suit pour l’installer :
 
 1. Cliquez avec le bouton droit sur le package et sélectionnez **Propriétés**.
-2. Dans la fenêtre qui s’affiche, sélectionnez l’onglet **Signatures numériques**. Il ne doit y avoir qu’un seul élément dans la liste de l’onglet, comme illustré dans l’image suivante. Sélectionnez cet élément pour le mettre en surbrillance, puis sélectionnez **De
-3. Lorsque la fenêtre Détails du signal numérique s’affiche, sélectionnez l’onglet **Général**, puis **Installer le certificat**.
+2. Dans la fenêtre qui s’affiche, sélectionnez l’onglet **Signatures numériques**. Il ne doit y avoir qu’un seul élément dans la liste de l’onglet, comme illustré dans l’image suivante. Sélectionnez cet élément pour le mettre en surbrillance, puis sélectionnez **Détails**.
+3. Lorsque la fenêtre Détails de la signature numérique s'affiche, sélectionnez l'onglet **Général**, puis **Installer le certificat**.
 4. Quand le programme d’installation s’ouvre, sélectionnez **Machine locale** comme emplacement de stockage, puis sélectionnez **Suivant**.
 5. Si le programme d’installation vous demande si vous souhaitez autoriser l’application à apporter des modifications à votre appareil, sélectionnez **Oui**.
 6. Sélectionnez **Placer tous les certificats dans le magasin suivant**, puis sélectionnez **Parcourir**.
@@ -185,7 +185,7 @@ Si votre application utilise un certificat qui n’est pas approuvé publiquemen
 L’attachement d’application MSIX comprend quatre phases distinctes qui doivent être exécutées dans l’ordre suivant :
 
 1. Étape
-2. Register
+2. Inscrire
 3. Désinscrire
 4. Retrait
 
@@ -199,12 +199,12 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
 
 2.  Cliquez avec le bouton droit sur le disque dur virtuel, puis sélectionnez **Monter**. Le disque dur virtuel est alors monté sur une lettre de lecteur.
 
-3.  Une fois le disque dur virtuel monté, la fenêtre de l’**Explorateur de fichiers** s’ouvre. Capturer le dossier parent et mettre à jour la variable **\$parentFolder**
+3.  Une fois le disque dur virtuel monté, la fenêtre de l’**Explorateur de fichiers** s’ouvre. Capturer le dossier parent et mettre à jour la variable **$parentFolder**
 
     >[!NOTE]
     >Si vous ne voyez pas de dossier parent, cela signifie que le MSIX n’a pas été développé correctement. Répétez la section précédente et réessayez.
 
-4.  Ouvrez le dossier parent. S’il est correctement développé, vous verrez un dossier portant le même nom que le package. Mettez à jour la variable **\$packageName** pour qu’elle corresponde au nom de ce dossier.
+4.  Ouvrez le dossier parent. S’il est correctement développé, vous verrez un dossier portant le même nom que le package. Mettez à jour la variable **$packageName** pour qu'elle corresponde au nom de ce dossier.
 
     Par exemple : `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
@@ -227,7 +227,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     ```
 
 
-6.  Mettez à jour la variable **\$volumeGuid** avec le GUID de volume que vous venez de copier.
+6.  Mettez à jour la variable **$volumeGuid** avec le GUID de volume que vous venez de copier.
 
 7. Ouvrez une invite admin PowerShell et mettez à jour le script PowerShell suivant avec les variables qui s’appliquent à votre environnement.
 
@@ -256,9 +256,9 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
 
     {
 
-    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
 
-    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
+    Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 
     }
 
@@ -266,7 +266,7 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
 
     {
 
-    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    Write-Host ("Mounting of " + $vhdSrc + " has failed!") -BackgroundColor Red
 
     }
 
@@ -298,8 +298,8 @@ Avant de mettre à jour les scripts PowerShell, vérifiez que vous disposez du G
     Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
     $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $_.ToString() -eq 'System.Threading.Tasks.Task`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress`2[TResult,TProgress])'})[0]
 
     $asTaskAsyncOperation =
     $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
@@ -344,7 +344,7 @@ Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 ### <a name="deregister-powershell-script"></a>Désinscription du script PowerShell
 
-Pour ce script, remplacez l’espace réservé pour **\$packageName** par le nom du package que vous testez.
+Pour ce script, remplacez l'espace réservé de **$packageName** par le nom du package que vous testez.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -364,7 +364,7 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
 ### <a name="destage-powershell-script"></a>Retirer le script PowerShell
 
-Pour ce script, remplacez l’espace réservé pour **\$packageName** par le nom du package que vous testez.
+Pour ce script, remplacez l'espace réservé de **$packageName** par le nom du package que vous testez.
 
 ```powershell
 #MSIX app attach de staging sample

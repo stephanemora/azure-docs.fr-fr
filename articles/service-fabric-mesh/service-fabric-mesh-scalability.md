@@ -1,20 +1,16 @@
 ---
-title: Scalabilité des applications Azure Service Fabric Mesh | Microsoft Docs
+title: Scalabilité des applications Azure Service Fabric Mesh
 description: Le déploiement d’applications vers Service Fabric Mesh permet notamment de mettre à l’échelle les services en toute simplicité, soit manuellement soit avec des stratégies de mise à l’échelle automatique.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: timlt
-ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 474eda904df653d514fd2ee59fa046f1f87a66aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73662994"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458998"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Mise à l’échelle des applications Service Fabric Mesh
 
@@ -27,7 +23,7 @@ Dans le modèle de déploiement de la ressource d’application, chaque service 
 Pour des exemples de mise l’échelle manuelle d’instances de service, consultez [Augmenter ou diminuer manuellement la taille de vos services](service-fabric-mesh-tutorial-template-scale-services.md).
 
 ## <a name="autoscaling-service-instances"></a>Mise à l’échelle automatique des instances de service
-La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric qui permet de mettre à l’échelle dynamiquement le nombre de vos instances de service (mise à l’échelle horizontale). La mise à l’échelle automatique offre une grande souplesse et permet de provisionner ou de supprimer des instances de service en se basant sur l’utilisation du processeur ou de la mémoire.  La mise à l’échelle automatique vous permet d’exécuter le bon nombre d’instances de service pour votre charge de travail et d’optimiser les coûts.
+La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric qui permet de mettre à l’échelle dynamiquement le nombre de vos instances de service (mise à l’échelle horizontale). La mise à l’échelle automatique offre une grande souplesse et permet d’approvisionner ou de supprimer des instances de service en fonction de l’utilisation du processeur ou de la mémoire.  La mise à l’échelle automatique vous permet d’exécuter le bon nombre d’instances de service pour votre charge de travail et d’optimiser les coûts.
 
 Une stratégie de mise à l’échelle automatique est définie par service dans le fichier de ressources de service. Chaque stratégie de mise à l’échelle se compose de deux parties :
 

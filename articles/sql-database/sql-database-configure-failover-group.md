@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 05b099eebcbb7b8f77357c9dcf3a4d567d3886d6
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827150"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553067"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurer un groupe de basculement pour Azure SQL Database
 
@@ -25,7 +25,7 @@ Cette rubrique explique comment configurer un [groupe de basculement automatique
 ## <a name="single-database"></a>Base de données unique
 Créez le groupe de basculement et ajoutez-y une base de données en utilisant le portail Azure ou PowerShell.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Prenez en compte les prérequis suivants :
 
@@ -33,10 +33,11 @@ Prenez en compte les prérequis suivants :
 
 ### <a name="create-failover-group"></a>Créer un groupe de basculement
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le portail Azure.
 
-1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez la base de données unique que vous souhaitez ajouter au groupe de basculement. 
 1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
@@ -106,7 +107,7 @@ Créez votre groupe de basculement et ajoutez-y votre base de données unique en
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure ou de PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure. 
 
@@ -183,10 +184,13 @@ Rétablir le groupe de basculement sur le serveur principal :
 
 ---
 
+> [!IMPORTANT]
+> Si vous devez supprimer la base de données secondaire, retirez-la du groupe de basculement avant de la supprimer. La suppression d’une base de données secondaire avant son retrait du groupe de basculement peut entraîner un comportement imprévisible. 
+
 ## <a name="elastic-pool"></a>Pool élastique
 Créez le groupe de basculement et ajoutez-y un pool élastique en utilisant le portail Azure ou PowerShell.  
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Prenez en compte les prérequis suivants :
 
@@ -196,7 +200,7 @@ Prenez en compte les prérequis suivants :
 
 Créez le groupe de basculement pour votre pool élastique en utilisant le portail Azure ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Créez votre groupe de basculement et ajoutez-y votre pool élastique en utilisant le portail Azure.
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
@@ -267,7 +271,7 @@ Créez votre groupe de basculement et ajoutez-y votre pool élastique en utilisa
 
 Testez le basculement de votre pool élastique à l’aide du portail Azure ou de PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Faites basculer votre groupe de basculement sur le serveur secondaire, puis effectuez une restauration automatique en utilisant le portail Azure. 
 
@@ -328,13 +332,16 @@ Basculez vers le serveur secondaire :
 
 ---
 
+> [!IMPORTANT]
+> Si vous devez supprimer la base de données secondaire, retirez-la du groupe de basculement avant de la supprimer. La suppression d’une base de données secondaire avant son retrait du groupe de basculement peut entraîner un comportement imprévisible. 
+
 ## <a name="managed-instance"></a>Instance gérée
 
 Créez un groupe de basculement entre deux instances managées à l’aide du portail Azure ou de PowerShell. 
 
-Vous devrez créer une passerelle pour le réseau virtuel de chaque instance managée, connecter les deux passerelles, puis créer le groupe de basculement.
+Vous devrez soit configurer [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) soit créer une passerelle pour le réseau virtuel de chaque instance managée, connecter les deux passerelles, puis créer le groupe de basculement. 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Prenez en compte les prérequis suivants :
 
 - L’instance managée secondaire doit être vide.
@@ -344,9 +351,9 @@ Prenez en compte les prérequis suivants :
 
 ### <a name="create-primary-virtual-network-gateway"></a>Créer une passerelle de réseau virtuel principal 
 
-Créez la passerelle de réseau virtuel principal avec le portail Azure ou PowerShell. 
+Si vous n’avez pas configuré [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md), vous pouvez créer la passerelle de réseau virtuel principal avec le portail Azure ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Créez la passerelle de réseau virtuel principal avec le portail Azure. 
 
@@ -419,7 +426,7 @@ Créez la passerelle de réseau virtuel principal à l’aide de PowerShell.
 
 Créez la passerelle de réseau virtuel secondaire avec le portail Azure ou PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Répétez les étapes de la section précédente pour créer le sous-réseau et la passerelle du réseau virtuel pour l’instance managée secondaire. Renseignez les champs requis pour configurer la passerelle de votre instance managée secondaire. 
 
    Le tableau suivant montre les valeurs nécessaires pour la passerelle de l’instance managée secondaire :
@@ -481,7 +488,7 @@ Deux connexions doivent être créées : la connexion entre la passerelle princ
 
 La clé partagée utilisée pour les deux connexions doit être la même pour chaque connexion. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Créez les connexions entre les deux passerelles à l’aide du portail Azure. 
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
@@ -539,7 +546,7 @@ Créez les connexions entre les deux passerelles à l’aide de PowerShell.
 ### <a name="create-the-failover-group"></a>Créer le groupe de basculement 
 Créez le groupe de basculement pour vos instances managées à l’aide du portail Azure ou de PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Créez le groupe de basculement pour vos instances managées à l’aide du portail Azure. 
 
@@ -581,7 +588,7 @@ Créez le groupe de basculement pour vos instances managées à l’aide de Powe
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure ou de PowerShell. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure. 
 
@@ -645,7 +652,7 @@ Le point de terminaison de l’écouteur se présente sous la forme, `fog-name.d
 
 ![Chaîne de connexion du groupe de basculement](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 - La suppression d’un groupe de basculement pour une base de données unique ou mise en pool n’interrompt pas la réplication et n’entraîne pas la suppression de la base de données répliquée. Vous devrez arrêter manuellement la géoréplication et supprimer la base de données du serveur secondaire si vous souhaitez rajouter une base de données unique ou mise en pool à un groupe de basculement après sa suppression. Si vous n’effectuez pas l’une ou l’autre de ces opérations, vous risquez d’obtenir une erreur similaire à `The operation cannot be performed due to multiple errors` quand vous tentez d’ajouter la base de données au groupe de basculement. 
 

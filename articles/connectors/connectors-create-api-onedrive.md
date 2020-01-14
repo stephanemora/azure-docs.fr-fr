@@ -1,22 +1,22 @@
 ---
-title: Connexion à OneDrive
-description: Charger et gérer des fichiers avec les API REST de OneDrive et Azure Logic Apps
+title: Accéder aux fichiers et les gérer dans Microsoft OneDrive
+description: Charger et gérer des fichiers dans OneDrive en créant des flux de travail automatisés dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: 93528e257ab45644a79c58fbf600dca10317eb0b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378430"
 ---
-# <a name="get-started-with-the-onedrive-connector"></a>Prise en main du connecteur OneDrive
+# <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Accéder aux fichiers et les gérer dans le connecteur OneDrive à l’aide d'Azure Logic Apps
 
-Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. Avec OneDrive, vous pouvez effectuer ces tâches :
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur [OneDrive](/connectors/onedriveconnector/) vous permettent de créer des tâches et des flux de travail automatisés afin de gérer vos fichiers, notamment de charger, d'obtenir, de supprimer des fichiers et bien plus. Avec OneDrive, vous pouvez effectuer ces tâches :
 
 * Créer votre flux de travail en stockant des fichiers dans OneDrive, ou mettre à jour des fichiers existants dans OneDrive. 
 * Utiliser des déclencheurs pour lancer votre flux de travail lorsqu’un fichier est créé ou mis à jour dans votre OneDrive.
@@ -38,7 +38,7 @@ Pour que votre application logique puisse accéder à un service, vous devez d�
 
 Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Les déclencheurs « interrogent » le service à l’intervalle et à la fréquence de votre choix. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Dans l’application logique, saisissez « onedrive » pour obtenir la liste des déclencheurs :  
+1. Dans le Concepteur d'application logique, saisissez `onedrive` pour obtenir la liste des déclencheurs :  
 
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
 
@@ -66,7 +66,7 @@ Une action est une opération effectuée par le flux de travail défini dans une
 
 2. Choisissez **Ajouter une action**.
 
-3. Dans la zone de texte, saisissez « onedrive » pour obtenir la liste de toutes les actions disponibles.
+3. Dans la zone de recherche, saisissez `onedrive` pour obtenir la liste de toutes les actions disponibles.
 
    ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 

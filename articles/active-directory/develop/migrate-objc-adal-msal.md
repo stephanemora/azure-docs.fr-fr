@@ -1,5 +1,5 @@
 ---
-title: Migrer des applications vers MSAL (iOS/macOS) | Azure
+title: Guide de migration ADAL vers MSAL (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez les différences entre MSAL pour iOS/macOS et la bibliothèque Azure AD Authentication pour ObjectiveC (ADAL.ObjC), ainsi que la façon d’effectuer une migration vers MSAL pour iOS/macOS.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fcb3422c900419abf68173ff5026a7dd0b87ea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f35243e29755c42dbe8e3a696f2718ee3d10178c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963594"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424427"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migrer des applications vers MSAL pour iOS et macOS
 
@@ -62,7 +62,7 @@ Dans MSAL, l’interaction principale s’effectue par le biais d’un objet `MS
 
 Dans ADAL, une application devait fournir un identificateur de *ressource* tel que `https://graph.microsoft.com` pour acquérir des jetons à partir du point de terminaison Azure Active Directory v1.0. Une ressource peut définir plusieurs étendues, ou oAuth2Permissions dans le manifeste de l’application, qu’elle comprend. Cela permettait aux applications clientes de demander des jetons à partir de cette ressource pour un certain ensemble d’étendues prédéfini lors de l’inscription de l’application.
 
-Dans MSAL, au lieu d’un identificateur de ressource unique, les applications fournissent un ensemble d’étendues par demande. Une étendue est un identificateur de ressource suivi d’un nom d’autorisation sous la forme ressource/autorisation. Par exemple, `https://graph.microsoft.com/user.read`
+Dans MSAL, au lieu d’un identificateur de ressource unique, les applications fournissent un ensemble d’étendues par demande. Une étendue est un identificateur de ressource suivi d’un nom d’autorisation sous la forme ressource/autorisation. Par exemple : `https://graph.microsoft.com/user.read`
 
 Il existe deux façons de fournir des étendues dans MSAL :
 
@@ -227,7 +227,7 @@ Vous n’avez pas besoin de modifier votre application AAD existante pour bascul
 
 L’URI de redirection doit être au format suivant : `msauth.<app.bundle.id>://auth`. Remplacez `<app.bundle.id>` par l’ID de bundle de votre application. Spécifiez l’URI de redirection dans le [portail Azure](https://aka.ms/MobileAppReg).
 
-Pour iOS uniquement, afin de prendre en charge l’authentification basée sur le certificat, vous devez inscrire un URI de redirection supplémentaire dans votre application et dans le portail Azure au format suivant : `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. Par exemple, `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
+Pour iOS uniquement, afin de prendre en charge l’authentification basée sur le certificat, vous devez inscrire un URI de redirection supplémentaire dans votre application et dans le portail Azure au format suivant : `msauth://code/<broker-redirect-uri-in-url-encoded-form>`. Par exemple : `msauth://code/msauth.com.microsoft.mybundleId%3A%2F%2Fauth`
 
 Nous recommandons que toutes les applications inscrivent les deux URI de redirection.
 
@@ -321,7 +321,7 @@ Cela n’était pas nécessaire dans ADAL, car les méthodes déléguées d’ap
 Par défaut, MSAL met en cache les jetons de votre application dans le trousseau iOS ou macOS. 
 
 Pour activer la mise en cache des jetons
-1. Vérifiez que votre application est correctement signée.
+1. Vérifiez que votre application est signée correctement.
 2. Accédez à vos paramètres de projet Xcode > **onglet Fonctionnalités** > **Activer le partage de trousseau**.
 3. Cliquez sur **+** et fournissez l’une des entrées **Groupes de trousseaux** suivantes : 3.a. Pour iOS, entrez `com.microsoft.adalcache` 3.b. Pour macOS, entrez `com.microsoft.identity.universalstorage`.
 

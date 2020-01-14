@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 4c72bd37a636ec31c13737705c22aaa895b9ad72
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3c077e2c04cae94d2e1a2a84ccd7d09c7a0829b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439669"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Copie delta à partir d’une base de données avec une table de contrôle
 
@@ -38,10 +38,13 @@ Le modèle contient quatre activités :
 - Une activité **Copy** copie uniquement les modifications de la base de données source vers le magasin de destination. La requête permettant d’identifier les modifications apportées à la base de données source ressemble à ceci : 'SELECT * FROM Data_Source_Table WHERE TIMESTAMP_Column > “last high-watermark” and TIMESTAMP_Column <= “current high-watermark”'.
 - Une activité **SqlServerStoredProcedure** écrit la valeur limite supérieure actuelle dans une table de contrôle externe pour la prochaine opération de copie delta.
 
-Le modèle définit cinq paramètres :
+Le modèle définit les paramètres suivants :
 - Le paramètre *Data_Source_Table_Name* est le nom de la table de la base de données source à partir de laquelle vous souhaitez charger des données.
 - Le paramètre *Data_Source_WaterMarkColumn* est le nom de la colonne dans la table source qui permet d’identifier les lignes nouvelles ou mises à jour. Le type de cette colonne est généralement *datetime*, *INT* ou un type similaire.
-- Le paramètre *Data_Destination_Folder_Path* ou *Data_Destination_Table_Name* indique l’emplacement où les données sont copiées dans votre magasin de destination.
+- *Data_Destination_Container* indique l’emplacement racine où les données sont copiées dans votre magasin de destination.
+- *Data_Destination_Directory* est le chemin du répertoire sous la racine de l’emplacement où les données sont copiées dans votre magasin de destination.
+- *Data_Destination_Table_Name* est l’endroit où les données sont copiées dans votre magasin de destination (applicable lorsque « Azure Synapse Analytics (anciennement SQL DW) » est sélectionné comme destination des données).
+- *Data_Destination_Folder_Path* est l’endroit où les données sont copiées dans votre magasin de destination (applicable lorsque « Système de fichiers » ou « Azure Data Lake Storage Gen1 » est sélectionné comme destination des données).
 - Le paramètre *Control_Table_Table_Name* indique la table de contrôle externe où la valeur de limite supérieure est stockée.
 - Le paramètre *Control_Table_Column_Name* indique la colonne dans la table de contrôle externe où la valeur de limite supérieure est stockée.
 
@@ -100,20 +103,18 @@ Le modèle définit cinq paramètres :
     ![Créer une connexion au magasin de données de la table de contrôle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
 7. Sélectionnez **Utiliser ce modèle**.
-
-     ![Utiliser ce modèle](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     
 8. Vous voyez le pipeline disponible, comme dans l’exemple suivant :
+  
+    ![Passer en revue le pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
 
-     ![Passer en revue le pipeline](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable8.png)
+9. Sélectionnez **Procédure stockée**. Pour **Nom de la procédure stockée**, choisissez **[dbo].[update_watermark]** . Sélectionnez **Paramètre d’importation**, puis sélectionnez **Ajouter du contenu dynamique**.  
 
-9. Sélectionnez **Procédure stockée**. Pour **Nom de la procédure stockée**, choisissez **[update_watermark]** . Sélectionnez **Paramètre d’importation**, puis sélectionnez **Ajouter du contenu dynamique**.  
-
-     ![Définir l’activité Procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png) 
+    ![Définir l’activité Procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable9.png)  
 
 10. Écrivez le contenu **\@{activity(’LookupCurrentWaterMark’).output.firstRow.NewWatermarkValue}** , puis sélectionnez **Terminer**.  
 
-     ![Écrire le contenu pour les paramètres de la procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)      
+    ![Écrire le contenu pour les paramètres de la procédure stockée](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable10.png)       
      
 11. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
@@ -132,13 +133,12 @@ Le modèle définit cinq paramètres :
             INSERT INTO data_source_table
             VALUES (11, 'newdata','9/11/2017 9:01:00 AM')
     ```
-14. Pour réexécuter le pipeline, sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
-    ![Sélectionner **Déboguer**](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable11.png)
+14. Pour réexécuter le pipeline, sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
 
     Vous pouvez voir que seules les nouvelles lignes ont été copiées dans la destination.
 
-15. (Facultatif :) Si vous avez choisi SQL Data Warehouse comme destination des données, vous devez également fournir une connexion à un Stockage Blob Azure pour la mise en lots, conformément aux exigences de SQL Data Warehouse Polybase. Vérifiez que le conteneur a déjà été créé dans le Stockage Blob.
+15. (Facultatif :) Si vous avez choisi Azure Synapse Analytics (anciennement SQL DW) comme destination des données, vous devez également fournir une connexion à un Stockage Blob Azure pour la mise en lots, conformément aux exigences de SQL Data Warehouse Polybase. Le modèle génère un chemin d’accès au conteneur pour vous. Après l’exécution du pipeline, vérifiez si le conteneur a été créé dans le stockage d’objets Blob.
     
     ![Configurer Polybase](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable15.png)
     

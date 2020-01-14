@@ -7,23 +7,23 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 0d279781cdc27dbf2140c0100d84de5128c6a3d5
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: f76134ffc6a7becb9b5719dcb3d826130b7cfa86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453276"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Évaluer de grands nombres de machines virtuelles VMware pour les migrer vers Azure
 
 
-Cet article explique comment évaluer de grands nombres (1 000 à 35 000) de machines virtuelles VMware locales pour les migrer vers Azure à l’aide de l’outil Évaluation de serveur Azure Migrate
+Cet article explique comment évaluer de grands nombres (1 000 à 35 000) de machines virtuelles VMware locales pour les migrer vers Azure à l’aide de l’outil Évaluation de serveur Azure Migrate.
 
 [Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
 Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
-> * Planifier l'évaluation à grande échelle.
+> * Planifier l’évaluation à grande échelle.
 > * Configurer les autorisations Azure et préparer VMware pour l'évaluation.
 > * Créer un projet Azure Migrate et une évaluation.
 > * Examiner l’évaluation au fur et à mesure que vous planifiez la migration.
@@ -37,7 +37,7 @@ Dans cet article, vous apprendrez comment :
 Lorsque vous planifiez l'évaluation d'un grand nombre de machines virtuelles VMware, quelques points sont à prendre en compte :
 
 - **Planification de projets Azure Migrate** : Découvrez comment déployer les projets Azure Migrate. Par exemple, si vos centres de données sont situés dans des zones géographiques différentes, ou si vous avez besoin de stocker des métadonnées de découverte, d’évaluation ou de migration dans une autre zone géographique, vous pouvez avoir besoin de plusieurs projets. 
-- **Planifier des appliances** : Azure Migrate utilise une appliance Azure Migrate locale, déployée en tant que machine virtuelle VMware, pour découvrir en permanence les machines virtuelles. L’appliance surveille les changements d'environnement tels que l'ajout de machines virtuelles, de disques ou d'adaptateurs réseau. Elle envoie également à Azure les métadonnées et les données de performance concernant ces opérations. Vous devez déterminer le nombre d'appliances à déployer.
+- **Planifier des appliances** : Azure Migrate utilise une appliance Azure Migrate locale, déployée en tant que machine virtuelle VMware, pour découvrir en permanence les machines virtuelles. L’appliance surveille les changements d’environnement tels que l’ajout de machines virtuelles, de disques ou d’adaptateurs réseau. Elle envoie également à Azure les métadonnées et les données de performance concernant ces opérations. Vous devez déterminer le nombre d'appliances à déployer.
 - **Planifier des comptes pour la découverte** : L'appliance Azure Migrate utilise un compte avec accès à vCenter Server afin de découvrir les machines virtuelles pour l'évaluation et la migration. Si vous découvrez plus de 10 000 machines virtuelles, configurez plusieurs comptes.
 
 
@@ -69,7 +69,7 @@ Si vous planifiez un environnement multilocataire, vous pouvez définir l’éte
 
 - Vous pouvez définir l’étendue de découverte de l’appliance sur des centres de données, des clusters ou un dossier de clusters, des hôtes ou un dossier d’hôtes, ou des machines virtuelles individuelles vCenter Server.
 - Si votre environnement est partagé entre plusieurs locataires et que vous souhaitez découvrir chaque locataire séparément, vous pouvez accéder au compte vCenter que l'appliance utilise pour la découverte. 
-    - Vous pouvez également définir l’étendue sur des dossiers de machines virtuelles si les locataires partagent des hôtes. Azure Migrate ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle. Pour en savoir plus sur la définition de l’étendue de la découverte, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
+    - Vous pouvez également définir l’étendue sur des dossiers de machines virtuelles si les locataires partagent des hôtes. Azure Migrate ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle. Pour en savoir plus sur la définition de l’étendue de la découverte, cliquez [ici](tutorial-assess-vmware.md#set-the-scope-of-discovery).
 
 ## <a name="prepare-for-assessment"></a>Préparer pour l’évaluation
 
@@ -91,7 +91,7 @@ Conformément à vos exigences de planification, procédez comme suit :
 
 [En savoir plus](how-to-add-tool-first-time.md)
 
-## <a name="create-and-review-an-assessment"></a>Créer et afficher une évaluation
+## <a name="create-and-review-an-assessment"></a>Créer et examiner une évaluation
 
 1. Créez des évaluations pour les machines virtuelles VMware.
 1. Passez en revue les évaluations en préparation de la planification de la migration.

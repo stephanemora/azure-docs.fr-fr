@@ -1,6 +1,7 @@
 ---
-title: Redéployer des packages SQL Server Integration Services vers Azure SQL Database | Microsoft Docs
-description: Découvrez comment migrer des packages SQL Server Integration Services vers Azure SQL Database.
+title: Redéployer des packages SSIS sur une base de données SQL unique
+titleSuffix: Azure Database Migration Service
+description: Découvrez comment migrer ou redéployer des packages et projets SQL Server Integration Services vers une base de données Azure SQL Database unique à l’aide d’Azure Database Migration Service et de l’Assistant Migration de données.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,17 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/08/2019
-ms.openlocfilehash: 603a9df8e3f499c832bbfdcbef966de86003d6b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1889410a6c6925ebba5632a08c34bc967ced627
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437970"
 ---
-# <a name="redeploy-sql-server-integration-services-packages-to-azure-sql-database"></a>Redéployer des packages SQL Server Integration Services vers Azure SQL Database
+# <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Redéployer des packages SSIS sur une base de données Azure SQL Database avec Azure Database Migration Service
 
 Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS à partir de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par Azure SQL Database, vous pouvez les redéployer à l’aide de l’Assistant Déploiement d’Integration Services. Vous pouvez lancer l’Assistant à partir de SQL Server Management Studio (SSMS).
 
@@ -33,7 +34,7 @@ Dans cet article, vous apprendrez comment :
 > * Évaluer des projets/packages SSIS sources.
 > * Migrer des projets/packages SSIS vers Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette procédure, vous avez besoin de :
 

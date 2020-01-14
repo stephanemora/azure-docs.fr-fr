@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d659be5b817317e7cec5726718f154825674349e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894214"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75365340"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor
 
@@ -34,9 +34,9 @@ Les types timespan sont exprimés en tant que valeur décimale suivie d’une un
 |d           | day          |
 |h           | hour         |
 |m           | minute       |
-|s           | seconde       |
+|s           | second       |
 |ms          | milliseconde  |
-|microsecond | microseconde  |
+|microseconde | microseconde  |
 |graduation        | nanoseconde   |
 
 Les types datetime peuvent être créés en castant une chaîne avec l’opérateur `todatetime`. Par exemple, pour passer en revue les pulsations de machine virtuelle envoyées dans un laps de temps spécifique, utilisez l’opérateur `between` pour spécifier une plage de temps.
@@ -163,5 +163,5 @@ Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête 
 - [Agrégations avancées](advanced-aggregations.md)
 - [JSON et structures de données](json-data-structures.md)
 - [Écriture de requêtes avancées](advanced-query-writing.md)
-- [Jointures](joins.md)
+- [Joins](joins.md)
 - [Graphiques](charts.md)

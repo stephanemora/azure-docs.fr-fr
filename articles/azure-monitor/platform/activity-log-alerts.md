@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: d3cb075d5ec0607453ca21f2574df7def02a4453
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 42a8b53f8d1fee2d657ccaa2d57e72b3edfdd4f3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553712"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531052"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les alertes du journal d’activité s’activent quand un nouvel [événement du journal d’activité](activity-log-schema.md) correspond aux conditions spécifiées dans l’alerte. La règle d’alerte se déclenche en fonction de l’ordre et du volume des événements enregistrés dans le [journal d’activité Azure](activity-logs-overview.md). Les règles d’alerte du journal d’activité étant des ressources Azure, elles peuvent être créées à l’aide d’un modèle Azure Resource Manager. Elles peuvent également être créées, mises à jour ou supprimées dans le portail Azure. Cet article présente les concepts qui sous-tendent les alertes de journal d’activité. Pour plus d’informations sur la création ou l’utilisation des règles d’alerte du journal d’activité, consultez [Créer et gérer des alertes du journal d’activité](alerts-activity-log.md).
 
 > [!NOTE]
@@ -31,7 +31,7 @@ Pour bien comprendre les conditions dans lesquelles des règles d’alerte peuve
 
 Dans les deux cas, l’alerte du journal d’activité surveille uniquement les événements de l’abonnement dans lequel elle a été créée.
 
-Vous pouvez configurer une alerte de journal d’activité en fonction de n’importe quelle propriété de niveau supérieur de l’objet JSON d’un événement de journal d’activité. Pour plus d’informations, reportez-vous à la rubrique [Présentation du journal d’activité Azure](./activity-logs-overview.md#categories-in-the-activity-log). Pour en savoir plus sur les événements d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications de service](./alerts-activity-log-service-notifications.md). 
+Vous pouvez configurer une alerte de journal d’activité en fonction de n’importe quelle propriété de niveau supérieur de l’objet JSON d’un événement de journal d’activité. Pour plus d’informations, consultez [Catégories dans le journal d’activité](activity-log-view.md#categories-in-the-activity-log). Pour en savoir plus sur les événements d’intégrité du service, consultez [Recevoir des alertes de journal d’activité sur les notifications de service](alerts-activity-log-service-notifications.md). 
 
 Les alertes de journal d’activité ont quelques options communes :
 
@@ -45,7 +45,7 @@ Les alertes de journal d’activité ont quelques options communes :
 - **Nom de l'opération** : [nom d’opération Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md) utilisé pour le Contrôle d’accès en fonction du rôle. Les opérations non inscrites auprès d’Azure Resource Manager ne peuvent pas être utilisées dans une règle d’alerte du journal d’activité.
 - **Niveau** : le niveau de gravité de l’événement (détaillé, informationnel, avertissement, erreur ou critique).
 - **État** : l’état de l’événement, généralement « Démarré », « Échoué » ou « Réussi ».
-- **Événement lancé par** : également appelé l’« appelant». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
+- **Événement lancé par** : également appelé l’« appelant». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
 
 > [!NOTE]
 > Dans un abonnement, vous pouvez créer jusqu’à 100 règles d’alerte pour une activité d’étendue dans une seule ressource, dans toutes les ressources d’un groupe de ressources (ou) au niveau de l’abonnement tout entier.

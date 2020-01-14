@@ -1,19 +1,15 @@
 ---
 title: Vue d’ensemble des modèles courants de mise à l’échelle automatique
 description: Découvrez certains des modèles courants de mise à l’échelle automatique de vos ressources dans Azure.
-author: anirudhcavale
-services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 8356a8c8c31a043197485b4913b4a67d7d719778
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a77cf1704c20abb77d432eab16569071208f6da8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396089"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Vue d’ensemble des modèles courants de mise à l’échelle automatique
 Cet article décrit certains des modèles courants de mise à l’échelle de vos ressources dans Azure.
@@ -22,7 +18,7 @@ La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [g
 
 ## <a name="lets-get-started"></a>Prise en main
 
-Cet article suppose que vous êtes familiarisé avec la mise à l’échelle automatique. Vous pouvez [commencer ici à mettre à l’échelle votre ressource][1]. Voici quelques modèles de mise à l’échelle courants.
+Cet article suppose que vous êtes familiarisé avec la mise à l’échelle automatique. Vous pouvez [entamer la mise à l'échelle de votre ressource ici][1]. Voici quelques modèles de mise à l’échelle courants.
 
 ## <a name="scale-based-on-cpu"></a>Mise à l’échelle en fonction du processeur
 

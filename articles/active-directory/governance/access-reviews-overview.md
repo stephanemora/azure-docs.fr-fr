@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422765"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Présentation des révisions d’accès Azure AD
 
@@ -66,11 +66,13 @@ Selon ce que vous voulez réviser, vous créez votre révision d’accès dans R
 
 Pour intégrer les révisions d’accès, effectuez les étapes suivantes.
 
-1. Connectez-vous en tant qu’administrateur général ou administrateur d’utilisateurs au [portail Azure](https://portal.azure.com) où vous voulez utiliser les révisions d’accès.
+1. Accédez au [portail Azure](https://portal.azure.com) pour gérer les révisions d'accès et connectez-vous en tant qu'administrateur général ou administrateur d'utilisateurs.
 
-1. Dans le volet de navigation à gauche, cliquez sur **Azure Active Directory**.
+1. Recherchez et sélectionnez **Azure Active Directory**.
 
-1. Dans le menu gauche, cliquez sur **Identity Governance**.
+      ![Recherche d'Azure Active Directory sur le portail Azure](media/access-reviews-overview/search-azure-active-directory.png)
+
+1. Sélectionnez **Identity Governance**.
 
 1. Cliquez sur **Révisions d’accès**.
  

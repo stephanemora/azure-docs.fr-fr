@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les navigateurs et les vues web | Azure
+title: Personnaliser les navigateurs et les vues web (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment personnaliser l’expérience de navigateur iOS/macOS MSAL pour la connexion des utilisateurs.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f409ff519c699ed712ec05213979d9c3308d4197
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963713"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424582"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Activation personnaliser les navigateurs et les vues web pour iOS/macOS
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Procédure : personnaliser les navigateurs et les vues web pour iOS/macOS
 
 Un navigateur web est nécessaire pour l’authentification interactive. Sur iOS, la bibliothèque MSAL (Microsoft Authentication Library) utilise le navigateur web système par défaut (qui peut apparaître au-dessus de votre application) afin d’effectuer une authentification interactive pour la connexion des utilisateurs. L’utilisation du navigateur système présente l’avantage de partager l’état d’authentification unique (SSO) avec d’autres applications et avec les applications web.
 
@@ -66,10 +66,10 @@ Le navigateur que vous utilisez a un impact sur l’expérience d’authentifica
 
 | Technology    | Type de navigateur  | Disponibilité iOS | Disponibilité macOS | Partage des cookies et d’autres données  | Disponibilité MSAL | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 et ultérieur | macOS 10.15 et ultérieur | OUI | iOS uniquement | avec instances de Safari
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 et ultérieur | N/A | OUI | iOS uniquement |  avec instances de Safari
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 et ultérieur | N/A | Non | iOS uniquement | Non**
-| **SFSafariViewController** | System | iOS10 | N/A | OUI | iOS uniquement |  avec instances de Safari
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | Système | iOS12 et ultérieur | macOS 10.15 et ultérieur | Oui | iOS uniquement | avec instances de Safari
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | Système | iOS11 et ultérieur | N/A | Oui | iOS uniquement |  avec instances de Safari
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | Système | iOS11 et ultérieur | N/A | Non | iOS uniquement | Non**
+| **SFSafariViewController** | Système | iOS10 | N/A | Oui | iOS uniquement |  avec instances de Safari
 | **WKWebView**  | Dans l’application | iOS8 et ultérieur | macOS 10.10 et ultérieur | Non | iOS et macOS | Non**
 
 ** Pour que l’authentification unique fonctionne, les jetons doivent être partagés entre les applications. Cela nécessite un cache de jetons ou une application répartiteur, comme Microsoft Authenticator pour iOS.

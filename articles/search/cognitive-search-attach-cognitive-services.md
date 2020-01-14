@@ -7,24 +7,33 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/17/2019
+ms.openlocfilehash: 7ec18cab74d683e4547843f965d22026e7ba22aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461145"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Attacher une ressource Cognitive Services à un ensemble de compétences dans Recherche cognitive Azure 
 
-Les algorithmes IA pilotent les [pipelines d’enrichissement](cognitive-search-concept-intro.md) utilisés pour la transformation de contenu dans Recherche cognitive Azure. Ces algorithmes sont basés sur des ressources Cognitive Services, dont [Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/) pour l’analyse d’image et la reconnaissance optique de caractères (OCR), et [Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) pour la reconnaissance des entités, l’extraction d’expressions clés et d’autres enrichissements. Tels qu’utilisés par Recherche cognitive Azure à des fins d’enrichissement de documents, les algorithmes sont encapsulés dans une *qualification*, placés dans un *ensemble de qualifications* et référencés par un *indexeur* lors de l’indexation.
+Lors de la configuration d’un pipeline d’enrichissement dans la Recherche cognitive Azure, vous pouvez enrichir un nombre limité de documents gratuitement. Vous pouvez également associer une ressource Cognitive Services facturable pour des charges de travail plus volumineuses et plus fréquentes.
 
-Vous pouvez enrichir un nombre limité de documents gratuitement. Vous pouvez également associer une ressource Cognitive Services facturable à un *ensemble de qualifications* pour des charges de travail plus volumineuses et plus fréquentes. Dans cet article, vous allez apprendre à associer une ressource Cognitive Services facturable pour enrichir des documents au cours d’une [indexation](search-what-is-an-index.md) de Recherche cognitive Azure.
+Dans cet article, vous allez apprendre à joindre une ressource en affectant une clé à un ensemble de compétences qui définit un pipeline d’enrichissement.
 
-> [!NOTE]
-> Les événements facturables incluent les appels d’API Cognitive Services et l’extraction d’images durant la phase de craquage de document dans Recherche cognitive Azure. L’extraction de texte à partir de documents ou les qualifications n’appelant pas Cognitive Services ne sont pas facturés.
->
-> L’exécution de qualifications facturables est facturée au [tarif de paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Pour connaître les prix appliqués à l’extraction d’images, voir la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+## <a name="resources-used-during-enrichment"></a>Ressources utilisées pendant l’enrichissement
+
+La Recherche cognitive Azure a une dépendance vis-à-vis de Cognitive Services, y compris [Vision par ordinateur](https://azure.microsoft.com/services/cognitive-services/computer-vision/), pour l’analyse d’images et la reconnaissance optique de caractères (OCR), [Analyse de texte](https://azure.microsoft.com/services/cognitive-services/text-analytics/) pour le traitement en langage naturel et d’autres enrichissements tels que la [Traduction de texte](https://azure.microsoft.com/services/cognitive-services/translator-text-api/). Dans le contexte de l’enrichissement dans la Recherche cognitive Azure, ces algorithmes d’IA sont encapsulés dans une *qualification*, placés dans un *ensemble de qualifications* et référencés par un *indexeur* lors de l’indexation.
+
+## <a name="how-billing-works"></a>Comment la facturation fonctionne
+
++ La Recherche cognitive Azure utilise la clé de ressource Cognitive Services que vous fournissez sur un ensemble de compétences pour facturer l’enrichissement des images et du texte. L’exécution de qualifications facturables est facturée au [tarif de paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
++ L’extraction d’images est une opération de la Recherche cognitive Azure qui se produit lorsque les documents sont décodés avant l’enrichissement. L’extraction d’images est facturable. Pour connaître les prix appliqués à l’extraction d’images, voir la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+
++ L’extraction de texte se produit également lors de la phrase de décodage de document. Elle n’est pas facturable.
+
++ Les qualifications qui n’appellent pas Cognitive Services, y compris les compétences conditionnelles, le modélisateur, la fusion de texte et le fractionnement du texte, ne sont pas facturables.
 
 ## <a name="same-region-requirement"></a>Exigence de même région
 
@@ -33,7 +42,7 @@ Recherche cognitive Azure et Azure Cognitive Services doivent obligatoirement ex
 Il n’existe aucun moyen de changer un service de région. Si vous obtenez cette erreur, vous devez créer une ressource Cognitive Services située dans la même région que le service Recherche cognitive Azure.
 
 > [!NOTE]
-> Certaines compétences intégrées sont basées sur des services cognitifs non régionaux (par exemple la [compétence de traduction de texte](cognitive-search-skill-text-translation.md)). Sachez que si vous ajoutez l’une d’elles à vos compétences, il n’est pas garanti que vos données restent dans la même région que votre ressource Recherche cognitive Azure ou Cognitive Services. Pour plus d’informations, consultez la [page État du service](https://aka.ms/allinoneregioninfo).
+> Certaines compétences intégrées sont basées sur des services cognitifs non régionaux (par exemple la [compétence de traduction de texte](cognitive-search-skill-text-translation.md)). L’utilisation d’une compétence non régionale signifie que votre requête peut être desservie dans une région autre que la région de la Recherche cognitive Azure. Pour plus d’informations sur les services non régionaux, consultez la page [Produit Cognitive Services par région](https://aka.ms/allinoneregioninfo).
 
 ## <a name="use-free-resources"></a>Utiliser des ressources gratuites
 
@@ -137,7 +146,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Exemple : Estimer les coûts
+## <a name="example-estimate-costs"></a>Exemple : Estimer les coûts
 
 Pour estimer les coûts associés à l’indexation de recherche cognitive, commencez par vous représenter à quoi ressemble un document moyen afin de pouvoir donner une approximation. Par exemple, vous pourriez faire une approximation :
 

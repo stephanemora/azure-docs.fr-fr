@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 9d17ff38ad521dcc282be4f06d33021faeb495b8
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 51aad01d5b03335bd1b57f6e5a9c775556187cca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837616"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427590"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Exporter et supprimer d’Azure Machine Learning Studio (classique) des données utilisateur intégrées dans le produit
 
@@ -70,7 +70,7 @@ Les utilisateurs peuvent également supprimer tout leur espace de travail :
 ![Supprimer un espace de travail gratuit dans Machine Learning Studio (classique)](./media/export-delete-personal-data-dsr/delete-studio-data-workspace.png)
  
 ## <a name="export-studio-classic-data-with-powershell"></a>Exporter des données de Studio (classique) avec PowerShell
-Utilisez PowerShell pour exporter toutes les informations à un format portable à partir de la version classique d’Azure Machine Learning Studio en utilisant des commandes. Pour plus d’informations, consultez l’article [Module PowerShell pour Azure Machine Learning Studio (classique)](powershell-module.md).
+Utilisez PowerShell pour exporter toutes vos informations sous un format portable à partir d'Azure Machine Learning Studio (classique) à l'aide des commandes. Pour plus d’informations, consultez l’article [Module PowerShell pour Azure Machine Learning Studio (classique)](powershell-module.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

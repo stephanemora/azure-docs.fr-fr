@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 631a9e2d44b798404ee7567d3ccfed90628d2f8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432862"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 
-Cet article vous montre comment vous pouvez superposer une image à un ensemble fixe de coordonnées sur une carte. Il existe de nombreux scénarios dans lesquels une image est superposée à une carte. Voici quelques exemples d’images qui sont souvent superposées à des cartes :
+Cet article vous montre comment vous pouvez superposer une image à un ensemble fixe de coordonnées sur une carte. Voici quelques exemples d’images qui sont souvent superposées à des cartes :
 
 * Images capturées à l’aide de drones
 * Plans au sol d’un immeuble
@@ -27,7 +27,7 @@ Cet article vous montre comment vous pouvez superposer une image à un ensemble 
 * Images de radar météo
 
 > [!TIP]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) permet de superposer rapidement une image à une carte. Toutefois, si l’image est grande, le navigateur peut avoir du mal à la charger. Dans ce cas, vous pouvez diviser votre image en plusieurs mosaïques et les charger sur la carte en tant que [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
+> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) permet de superposer une image à une carte. Notez que les navigateurs peuvent avoir des difficultés à charger une grande image. Dans ce cas, vous pouvez diviser votre image en plusieurs mosaïques et les charger sur la carte en tant que [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest).
 
 Le calque d’images prend en charge les formats d’image suivants :
 
@@ -53,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctionnalités ci-dessus.
+Voici l’exemple complet du code précédent.
 
 <br/>
 
@@ -62,9 +62,9 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctio
 
 ## <a name="import-a-kml-ground-overlay"></a>Importer un calque de relief KML
 
-Cet exemple montre comment superposer les informations de calque de relief KML comme couche d’images sur la carte. Les calques de relief KML fournissent les coordonnées des points cardinaux ainsi qu’une rotation à gauche, alors que la couche d’images attend des coordonnées pour chaque angle de l’image. Le calque de relief KML de cet exemple est celui de la cathédrale de Chartres et a été tiré de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
+L’exemple suivant montre comment superposer les informations de calque de relief KML comme couche d’images sur la carte. Les calques de relief KML fournissent les coordonnées des points cardinaux ainsi qu’une rotation à gauche, alors que la couche d’images attend des coordonnées pour chaque angle de l’image. Le calque de relief KML de cet exemple est celui de la cathédrale de Chartres et a été tiré de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 
-Le code suivant utilise la fonction statique `getCoordinatesFromEdges` de la classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) pour calculer les quatre angles de l’image à partir des informations relatives aux points cardinaux et à la rotation issues du calque de relief KML.
+Le code suivant utilise la fonction statique `getCoordinatesFromEdges` de la classe [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest). Il calcule les quatre coins de l’image à partir des informations relatives aux points cardinaux et à la rotation issues du calque de relief KML.
 
 <br/>
 

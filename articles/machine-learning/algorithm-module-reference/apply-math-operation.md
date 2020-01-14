@@ -1,7 +1,7 @@
 ---
 title: Appliquer une opération mathématique
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Appliquer une opération mathématique dans Azure Machine Learning Service pour appliquer une opération mathématique aux valeurs de colonne dans un pipeline.
+titleSuffix: Azure Machine Learning
+description: Apprenez à utiliser le module Appliquer une opération mathématique dans Azure Machine Learning pour appliquer une opération mathématique aux valeurs de colonne dans un pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af7431dd808a7d5eb106eff96a790eb876a20026
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428610"
 ---
 # <a name="apply-math-operation"></a>Appliquer une opération mathématique
 
@@ -202,7 +202,7 @@ Retourne la racine carrée des valeurs de la colonne sélectionnée.
 
 Pour chaque valeur de la colonne sélectionnée, multiplie la valeur par pi, puis retourne la racine carrée du résultat.  
 
-### <a name="square"></a>Square
+### <a name="square"></a>Carré
 
 Élève au carré les valeurs de la colonne sélectionnée.  
 
@@ -253,11 +253,11 @@ L’ordre dans lequel vous choisissez les colonnes pour la division et la soustr
 
 Opération|Num1|Num2|Colonne de résultats|Valeur de résultat|
 ----|----|----|----|----
-|Addition|1|5\.|Add(Num2_Num1)| 4|
-|Multiplication|1|5\.|Multiple(Num2_Num1)|5\.|
-|Soustraction|1|5\.|Subtract(Num2_Num1)|4|
+|Addition|1|5|Add(Num2_Num1)| 4|
+|Multiplication|1|5|Multiple(Num2_Num1)|5|
+|Soustraction|1|5|Subtract(Num2_Num1)|4|
 |Soustraction|0|1|Subtract(Num2_Num1)|0|
-|Division|1|5\.|Divide(Num2_Num1)|5\.|
+|Division|1|5|Divide(Num2_Num1)|5|
 |Division|0|1|Divide(Num2_Num1)|Infini|
 
 ### <a name="add"></a>Ajouter
@@ -330,7 +330,7 @@ Retourne les valeurs du **Jeu de colonnes** arrondies au nombre entier pair le p
 
 Retourne les valeurs du **Jeu de colonnes** arrondies au nombre entier impair le plus proche.  
 
-### <a name="truncate"></a>Truncate
+### <a name="truncate"></a>Tronquer
 
 Tronque les valeurs du **Jeu de colonnes** en supprimant tous les chiffres non autorisés par la précision spécifiée.  
   
@@ -493,7 +493,7 @@ Calcule le cosinus des valeurs de colonne.
 
 Calcule le cosinus des valeurs de colonne, en degrés.  
 
-### <a name="cosh"></a>Cosh
+### <a name="cosh"></a>cosh
 
 Calcule le cosinus hyperbolique des valeurs de colonne.  
 
@@ -576,7 +576,7 @@ Supposons que votre jeu de données comporte plusieurs colonnes et que vous ajou
   
 |Num1|Num2|Num3|Add(Num1_Num1)|Add(Num2_Num2)|Add(Num3_Num3)|
 |----|----|----|----|----|----|
-|1|5\.|2|2|10|4|
+|1|5|2|2|10|4|
 |2|3|-1|4|6|-2|
 |0|1|-1|0|2|-2|
 
@@ -590,4 +590,4 @@ Vous pouvez aussi utiliser l’un des modules suivants pour effectuer tous les c
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

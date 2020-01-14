@@ -1,5 +1,5 @@
 ---
-title: Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+title: Approuver ou refuser des demandes d'accès - Gestion des droits d'utilisation Azure AD
 description: Découvrez comment utiliser le portail Mon Accès pour approuver ou refuser les demandes d’accès à un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 634e3532e13fcba5c9b802bd77c9530c0a831eb8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422514"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approuver ou refuser des demandes d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -39,7 +39,7 @@ La première étape pour approuver ou refuser les demandes d’accès consiste �
 
 1. Cliquez sur le lien **Approuver ou refuser la demande** pour ouvrir la demande d’accès.
 
-1. Connectez-vous au portail Mon Accès.
+1. Connectez-vous au portail Mon Accès.
 
 Si vous n’avez pas reçu l’e-mail, vous pouvez localiser les demandes d’accès en attente d’approbation comme suit.
 
@@ -76,4 +76,4 @@ Une fois que vous avez ouvert une demande d’accès en attente d’approbation,
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Demander l’accès à un package d’accès](entitlement-management-request-access.md)
-- [Processus de demande et notifications par e-mail](entitlement-management-process.md)
+- [Processus de requête et notifications par e-mail](entitlement-management-process.md)

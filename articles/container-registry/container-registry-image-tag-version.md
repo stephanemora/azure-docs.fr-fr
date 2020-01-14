@@ -5,12 +5,12 @@ author: stevelasker
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b483317960409fe1fbea181706f12375606fe659
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455001"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445750"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>Suggestions pour la création de balises et de versions pour les images de conteneurs
 
@@ -25,7 +25,7 @@ Lorsque vous déplacez des images de conteneurs vers un registre et que vous les
 
 *Les balises stables* signifient qu’un développeur, ou un système de génération, peut continuer à extraire une balise spécifique, qui continue à recevoir des mises à jour. Stable ne signifie pas que le contenu est figé. Au contraire, le terme stable implique que l’image doit être stabilisée pour les besoins de cette version. Pour rester « stable », il est possible d’appliquer des correctifs de sécurité ou des mises à jour de l’infrastructure.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Une équipe d’infrastructure distribue la version 1.0. Ils savent qu’ils enverront des mises à jour, même celles qui sont mineures. Pour prendre en charge les balises stables pour une version majeure et mineure, ils ont deux ensembles de balises stables.
 
@@ -37,6 +37,10 @@ L’équipe utilise également la balise `:latest`, qui pointe vers la dernière
 Lorsque des mises à jour de l’image de base sont disponibles, ou tout type de version de maintenance de l’infrastructure, les images avec les balises stables sont mises à jour vers la version la plus récente qui représente la version stable la plus récente de cette version.
 
 Dans ce cas, les balises majeures et mineures sont continuellement en cours de maintenance. A partir d’un scénario d’image de base, cela permet au propriétaire de l’image de fournir des images dont la maintenance a été effectuée.
+
+### <a name="delete-untagged-manifests"></a>Supprimer les manifestes sans balise
+
+Si une image avec une balise stable est mise à jour, l’image balisée précédemment n’est pas marquée, ce qui entraîne une image orpheline. Le manifeste de l’image précédente et les données de couche uniques restent dans le registre. Pour maintenir la taille de votre registre, vous pouvez régulièrement supprimer les manifestes sans balise résultant de mises à jour d’image stables. Par exemple, [purgez automatiquement](container-registry-auto-purge.md) les manifestes non balisés antérieurs à une durée spécifiée, ou définissez une [stratégie de rétention](container-registry-retention-policy.md) pour les manifestes sans balise.
 
 ## <a name="unique-tags"></a>Balises uniques
 
@@ -50,6 +54,12 @@ Le balisage unique signifie simplement que chaque image poussée vers un registr
 * **ID de génération :** cette option peut être la meilleure puisqu’elle est probablement incrémentale et qu’elle vous permet d’établir une corrélation avec la compilation spécifique pour trouver tous les artefacts et les journaux. Toutefois, comme un manifeste de code de hachage, il peut être difficile pour un humain de le lire.
 
   Si votre organisation possède plusieurs systèmes de génération, préfixer l’étiquette avec le nom du système est une variante de cette option :`<build-system>-<build-id>`. Par exemple, vous pourrez différencier les générations de système de génération Jenkins de l’équipe API et de celui d’Azure Pipelines de l’équipe Web.
+
+### <a name="lock-deployed-image-tags"></a>Verrouiller les balises d’image déployées
+
+Il est recommandé de [verrouiller](container-registry-image-lock.md) toute balise d’image déployée en définissant son attribut `write-enabled` sur `false`. Cette pratique vous empêche de supprimer par inadvertance une image du registre et d’interrompre potentiellement vos déploiements. Vous pouvez inclure l’étape de verrouillage dans votre pipeline de mise en production.
+
+Le verrouillage d’une image déployée vous permet de supprimer les autres images, non déployées, de votre registre à l’aide des fonctionnalités d’Azure Container Registry pour gérer votre registre. Par exemple, [purgez automatiquement](container-registry-auto-purge.md) les images non verrouillées ou les manifestes non balisés antérieurs à une durée spécifiée, ou définissez une [stratégie de rétention](container-registry-retention-policy.md) pour les manifestes sans balise.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

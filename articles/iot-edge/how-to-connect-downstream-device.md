@@ -4,16 +4,16 @@ description: Guide pratique pour configurer des appareils en aval ou de nœud te
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/08/2019
+ms.date: 12/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 719ec736fd2f28f8d8b3b226109bc988c872d10f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 20de7bc55a62a44d1fa852d86705e7596e1776d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434437"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -33,9 +33,10 @@ Cet article identifie les problèmes courants liés aux connexions d’appareils
 
 Dans cet article, les termes *passerelle* et *passerelle IoT Edge* font référence à un appareil IoT Edge configuré comme passerelle transparente. 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
-Mettez le fichier de certificat **azure-iot-test-only.root.ca.cert.pem** généré dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle. 
+* Mettez le fichier de certificat **azure-iot-test-only.root.ca.cert.pem** généré dans [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md) à la disposition de votre appareil en aval. Celui-ci se sert de ce certificat pour valider l’identité de l’appareil de passerelle. 
+* Utilisez la chaîne de connexion modifiée qui pointe vers l’appareil de passerelle, comme expliqué dans [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="prepare-a-downstream-device"></a>Préparer un appareil en aval
 
@@ -194,7 +195,7 @@ Utilisez cet exemple de commande pour vérifier que votre appareil en aval peut 
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
 
-Cette commande teste les connexions via MQTTS (port 8883). Si vous utilisez un autre protocole, ajustez la commande selon les besoins pour AMQPS (5671) ou HTTPS (433).
+Cette commande teste les connexions via MQTTS (port 8883). Si vous utilisez un autre protocole, ajustez la commande selon les besoins pour AMQPS (5671) ou HTTPS (433)
 
 La sortie de cette commande peut être longue, car elle comprend des informations sur tous les certificats de la chaîne. Si votre connexion réussit, vous verrez une ligne telle que celle-ci `Verification: OK` ou celle-ci `Verify return code: 0 (ok)`.
 

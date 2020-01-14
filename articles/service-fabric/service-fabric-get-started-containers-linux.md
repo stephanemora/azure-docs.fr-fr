@@ -1,25 +1,14 @@
 ---
-title: Créer une application de conteneur Microsoft Azure Service Fabric sur Linux | Microsoft Docs
+title: Créer une application de conteneur Azure Service Fabric sous Linux
 description: Créez votre première application de conteneur Linux sur Microsoft Azure Service Fabric. Concevez une image Docker avec votre application, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/4/2019
-ms.author: atsenthi
-ms.openlocfilehash: 2bb9a5e8e42901f22d9f68d691684614c7161620
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f2f8c7884323667f843382b02c73a570e58617f1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650665"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457961"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Créer votre première application de conteneur Service Fabric sur Linux
 > [!div class="op_single_selector"]
@@ -29,10 +18,10 @@ ms.locfileid: "69650665"
 L’exécution d’une application existante dans un conteneur Linux sur un cluster Service Fabric ne nécessite aucune modification de votre application. Cet article vous accompagne dans la création d’une image Docker contenant une application web [Flask](http://flask.pocoo.org/) Python et le déploiement dans un cluster Service Fabric. Vous allez également partager votre application en conteneur via [Azure Container Registry](/azure/container-registry/). Cet article suppose une connaissance élémentaire de Docker. Pour en savoir plus sur Docker, consultez la [présentation de Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
-> Cet article s’applique à un environnement de développement Linux.  Le runtime du cluster Service Fabric et le runtime Docker doivent être en cours d’exécution sur le même système d’exploitation.  Vous ne pouvez pas exécuter des conteneurs Linux sur un cluster Windows.
+> Cet article s’applique à un environnement de développement Linux.  Le runtime du cluster Service Fabric et le runtime de Docker doivent être en cours d’exécution sur le même système d’exploitation.  Vous ne pouvez pas exécuter des conteneurs Linux sur un cluster Windows.
 
-## <a name="prerequisites"></a>Prérequis
-* Un ordinateur de développement exécutant :
+## <a name="prerequisites"></a>Conditions préalables requises
+* Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interface de ligne de commande de Service Fabric](service-fabric-cli.md)

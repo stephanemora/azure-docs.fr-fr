@@ -1,20 +1,20 @@
 ---
 title: Série de vidéos de procédures sur le portail Azure
-description: Découvrez des démonstrations vidéo sur l’utilisation des services Azure dans le portail
+description: Découvrez des démonstrations vidéo sur l’utilisation des services Azure dans le portail. Affichez et liez directement les dernières vidéos de guides pratiques.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: f29f4d8a6d1c88c178b167e26c3bc6f612ea6217
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c23a6bcffca3f23c67e82ca8c401d354fc0b74d6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597180"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637471"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Série de vidéos de procédures sur le portail Azure
 
@@ -22,19 +22,18 @@ La série de vidéos de procédures du portail Azure explique comment utiliser l
 
 ## <a name="featured-video"></a>Vidéo recommandée
 
-Dans cette vidéo recommandée, nous expliquons comment diagnostiquer et résoudre les problèmes les plus courants liés aux ressources Azure.
+Dans cette vidéo, nous explorons la résolution des problèmes courants liés aux machines virtuelles.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
 
-[Résoudre les problèmes courants liés aux ressources Azure](https://www.youtube.com/watch?v=FgfcSdHErus)
+[Résoudre les problèmes courants liés aux machines virtuelles](https://www.youtube.com/watch?v=MAJrN-2IPY8)
 
 Visionnez ces vidéos récentes que vous avez peut-être manquées :
 
 |   |   |   |
 | ------| ------ | ------ |
-| [![Image d’une vidéo YouTube sur la gestion des coûts](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image d’une vidéo YouTube sur l’application de budgets aux abonnements](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image d’une vidéo YouTube sur la façon de tirer le meilleur parti d’Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [Guide pratique pour utiliser Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [Guide pratique pour appliquer des budgets à des abonnements](https://www.youtube.com/watch?v=UrkHiUx19Po) | [Guide pratique pour tirer le meilleur parti d’Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![Image de la vidéo YouTube sur la création d’une application de fonction](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Image de la vidéo YouTube sur l’utilisation du nouvel écran d’accueil Azure](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Image d’une vidéo YouTube sur la façon de tirer le meilleur parti d’Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [Comment créer une application de fonction](https://www.youtube.com/watch?v=BEIZKCDElMs) | [Comment utiliser la nouvelle page d’accueil Azure](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [Guide pratique pour tirer le meilleur parti d’Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
 
 ## <a name="video-playlist"></a>Sélection vidéo
 

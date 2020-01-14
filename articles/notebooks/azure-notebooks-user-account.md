@@ -1,22 +1,24 @@
 ---
-title: Se connecter à Azure Notebooks
+title: Connexion à Azure Notebooks (préversion)
 description: Configurez votre compte d’utilisateur pour Azure Notebooks à l’aide d’un compte Microsoft ou d’un compte professionnel ou scolaire.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: a2d8c8180dfb5dc31e273c7953a57f40cf31238d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9401a9e483f3f8db5af827f53937cb0f01b27a28
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277618"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646294"
 ---
-# <a name="your-user-account-for-azure-notebooks"></a>Votre compte d’utilisateur pour Azure Notebooks
+# <a name="your-user-account-for-azure-notebooks-preview"></a>Votre compte d’utilisateur pour Azure Notebooks (préversion)
 
 Vous pouvez utiliser Azure Notebooks en vous connectant à un compte d'utilisateur ou non :
 
 - Si vous ne souhaitez pas vous connecter, vous pouvez créer et exécuter des blocs-notes, mais vous ne pouvez pas conserver de blocs-notes ni de fichiers de données dans le cadre de projets. Par exemple, les utilisateurs qui reçoivent un lien vers un bloc-notes Azure peuvent s’en servir sans avoir à se connecter.
 - Lorsque vous vous connectez, Azure Notebooks conserve tous vos projets au sein de votre compte. Les utilisateurs connectés bénéficient également d’un identifiant utilisateur qui leur permet de partager leurs projets et blocs-notes avec d’autres utilisateurs.
-  - Si le compte que vous utilisez avec Azure Notebooks est également associé à un abonnement Azure, vous bénéficiez d’avantages supplémentaires. Par exemple, vous pouvez exécuter des blocs-notes sur des serveurs plus puissants, créer des blocs-notes privés et accorder des privilèges d’accès aux blocs-notes à des utilisateurs individuels.
+- Si le compte que vous utilisez avec Azure Notebooks est également associé à un abonnement Azure, vous bénéficiez d’avantages supplémentaires. Par exemple, vous pouvez exécuter des blocs-notes sur des serveurs plus puissants, créer des blocs-notes privés et accorder des privilèges d’accès aux blocs-notes à des utilisateurs individuels.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Vous devez disposez d’un compte Microsoft ou d’un compte professionnel ou scolaire pour vous connecter à Azure Notebooks. Lorsque vous sélectionnez la commande **Se connecter** dans l’angle supérieur droit de la page Azure Notebooks, vous êtes invité à entrer votre compte :
 

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887750"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407678"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -69,13 +69,13 @@ Pour explorer l’expérience de transaction de bout en bout pouvant présenter 
 
 ![Capture d’écran des détails de transaction de bout en bout](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Afficher dans Analytics
+### <a name="view-logs-analytics"></a>Voir Logs (Analytics)
 
-Pour interroger et analyser vos données d’application de manière plus approfondie, cliquez sur **Afficher dans Analytics**.
+Pour interroger et analyser vos données d’application de manière plus approfondie, cliquez sur **Afficher dans Logs (Analytics)** .
 
-![Capture d’écran du bouton Afficher dans Analytics](media/app-map/view-in-analytics.png)
+![Capture d’écran du bouton Afficher dans Analytics](media/app-map/view-logs.png)
 
-![Capture d’écran de l’expérience d’analyse](media/app-map/analytics.png)
+![Capture d’écran de l’expérience d’analyse. Graphique linéaire résumant la durée moyenne de réponse d’une requête au cours des 12 dernières heures.](media/app-map/log-analytics.png)
 
 ### <a name="alerts"></a>Alertes
 
@@ -146,7 +146,7 @@ Une autre méthode pour les applications web ASP.NET consiste à instancier l’
 
 **Applications ASP.NET Core : Charger l’initialiseur dans la configuration TelemetryConfiguration**
 
-Pour les applications [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), l’ajout d’un nouveau `TelemetryInitializer` se fait en l’ajoutant au conteneur d’injection de dépendance, comme indiqué ci-dessous. Cela se fait dans la méthode `ConfigureServices` de votre classe `Startup.cs`.
+Pour les applications [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers), l’ajout d’un nouveau `TelemetryInitializer` se fait en l’ajoutant au conteneur d’injection de dépendance, comme indiqué ci-dessous. Ceci est fait dans la méthode `ConfigureServices` de votre classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -236,11 +236,11 @@ Vous pouvez vouloir remplacer la valeur de l'instance de rôle cloud si votre ap
 
 Pour plus d’informations sur la substitution de la propriété nom du rôle cloud avec des initialiseurs de télémétrie, consultez [Ajouter des propriétés : ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si la cartographie d’application ne fonctionne pas comme prévu, essayez ces étapes :
 
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 
 1. Veillez à utiliser un SDK officiellement pris en charge. Les SDK non pris en charge ou de la communauté ne prennent pas forcément en charge la corrélation.
 
@@ -278,4 +278,4 @@ Pour envoyer des commentaires, utilisez l’option de commentaires.
 
 * Pour en savoir plus sur le fonctionnement de la corrélation dans Application Insights, consultez [article sur la corrélation des données de télémétrie](https://docs.microsoft.com/azure/application-insights/application-insights-correlation).
 * L’[expérience de diagnostic de la transaction de bout en bout](transaction-diagnostics.md) met en corrélation la télémétrie côté serveur de tous vos composants Application Insights surveillés dans une vue unique.
-* Pour des scénarios de corrélation avancés dans ASP.NET Core et ASP.NET, consultez l’article sur le [suivi des opérations personnalisées](custom-operations-tracking.md).
+* Pour accéder à des scénarios de corrélation avancés dans ASP.NET Core et ASP.NET, consultez l'article consacré au [suivi des opérations personnalisées](custom-operations-tracking.md).

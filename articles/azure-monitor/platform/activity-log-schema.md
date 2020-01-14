@@ -1,22 +1,24 @@
 ---
 title: Schéma d’événements du journal d’activité
 description: Décrit le schéma d’événements pour chaque catégorie dans le journal d’activité Azure.
-author: johnkemnetz
+author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 1/16/2019
-ms.author: dukek
+ms.date: 12/04/2019
+ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 73f6de80348b7d933e45a8145f6bdb8fe22b5954
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893601"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531018"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](activity-log-export.md). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux Azure](diagnostic-logs-schema.md) est fourni à la fin de cet article.
+Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit le schéma d’événements pour chaque catégorie. 
+
+Les exemples ci-dessous montrent le schéma lorsque vous accédez au journal d'activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](resource-logs-stream-event-hubs.md). Un mappage de ces propriétés vers le [schéma des journaux de la ressource](diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
 ## <a name="administrative"></a>Administratif
 Cette catégorie contient l’enregistrement de toutes les opérations de création, mise à jour, suppression et action effectuées par le biais du gestionnaire de ressources. Les exemples de types d’événements que vous pouvez voir dans cette catégorie incluent « créer une machine virtuelle » et « supprimer un groupe de sécurité réseau ». Toute mesure prise par un utilisateur ou une application utilisant le gestionnaire de ressources est modélisée comme une opération sur un type de ressources en particulier. Si le type d’opération est Écrire, Supprimer ou Action, les enregistrements de début et de réussite ou d’échec de cette opération sont enregistrés dans la catégorie Administrative. La catégorie Administrative inclut également toute modification apportée à un contrôle d’accès basé sur un rôle dans un abonnement.
@@ -114,15 +116,15 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | --- | --- |
 | autorisation |Objet blob des propriétés RBAC de l’événement. Inclut généralement les propriétés « action », « role » et « scope ». |
 | caller |Adresse e-mail de l’utilisateur qui a effectué l’opération, la revendication UPN ou la revendication SPN basée sur la disponibilité. |
-| channels |L’une des valeurs suivantes : « Admin », « Opération » |
+| channels |L’une des valeurs suivantes : « Admin », « Opération » |
 | réclamations |Le jeton JWT utilisé par Active Directory pour authentifier l’utilisateur ou l’application afin d’effectuer cette opération dans Resource Manager. |
 | correlationId |Généralement un GUID au format chaîne. Les événements qui partagent un correlationId appartiennent à la même action uber. |
 | description |Description textuelle statique d’un événement. |
 | eventDataId |Identificateur unique d’un événement. |
 | eventName | Nom convivial de l’événement administratif. |
-| category | Toujours « Administrative » |
+| catégorie | Toujours « Administrative » |
 | httpRequest |Objet blob décrivant la requête Http. Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP. Par exemple, PUT). |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
 | resourceGroupName |Nom du groupe de ressources de la ressource affectée. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée. |
 | resourceType | Type de ressource affecté par un événement administratif. |
@@ -130,8 +132,8 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
-| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
-| subStatus |En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état, comme les valeurs courantes suivantes : OK (code d'état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d'état HTTP : 503), Dépassement de délai de la passerelle (code d'état HTTP : 504). |
+| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
+| subStatus |En général, le code d’état HTTP de l’appel REST correspondant. Peut également inclure d’autres chaînes décrivant un sous-état, comme les valeurs courantes suivantes : OK (code d’état HTTP : 200), Créé (code d’état HTTP : 201), Accepté (code d’état HTTP : 202, Aucun contenu (code d’état HTTP : 204, Requête incorrecte (code d’état HTTP : 400, Introuvable (code d’état HTTP : 404), Conflit (code d’état HTTP : 409), Erreur interne du serveur (code d’état HTTP : 500), Service indisponible (code d’état HTTP : 503), Dépassement de délai de la passerelle (code d'état HTTP : 504). |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
 | subscriptionId |ID d’abonnement Azure. |
@@ -263,9 +265,9 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
-| category | Toujours « ResourceHealth » |
+| catégorie | Toujours « ResourceHealth » |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical », « Error », « Warning », « Informational » et « Verbose » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical », « Error », « Warning », « Informational » et « Verbose » |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | resourceGroupName |Nom du groupe de ressources qui contient la ressource. |
@@ -279,8 +281,8 @@ Cette catégorie contient l’enregistrement de tout événement d’intégrité
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement.|
 | properties.title | Chaîne conviviale qui décrit l’état d’intégrité de la ressource. |
 | properties.details | Chaîne conviviale qui fournit des informations supplémentaires sur l’événement. |
-| properties.currentHealthStatus | État d’intégrité actuel de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
-| properties.previousHealthStatus | État d’intégrité précédent de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
+| properties.currentHealthStatus | État d’intégrité actuel de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
+| properties.previousHealthStatus | État d’intégrité précédent de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
 | properties.type | Description du type d’événement d’intégrité de la ressource. |
 | properties.cause | Description de la cause de l’événement d’intégrité de la ressource. « UserInitiated » ou « PlatformInitiated ». |
 
@@ -358,15 +360,15 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
-| category | Toujours « Alert » |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
+| catégorie | Toujours « Alert » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
 | resourceGroupName |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du groupe de ressources qui contient l’alerte elle-même. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom du fournisseur de ressources pour l’alerte elle-même. |
 | resourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, il s’agit du nom de l’ID de ressource pour l’alerte elle-même. |
 | operationId |Un GUID partagé par les événements correspondant à une opération unique. |
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. |
-| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
+| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
 | subStatus | Généralement, nul pour les alertes. |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
@@ -468,7 +470,7 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement de mise à l’échelle automatique. |
 | eventDataId |Identificateur unique de l'événement de mise à l’échelle automatique. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » et « Informatif » |
 | resourceGroupName |Nom du groupe de ressources du paramètre de mise à l’échelle automatique. |
 | resourceProviderName |Nom du fournisseur de ressources du paramètre de mise à l’échelle automatique. |
 | resourceId |ID de ressource du paramètre de mise à l’échelle automatique. |
@@ -480,7 +482,7 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | properties.OldInstancesCount | Le nombre d’instances avant la prise d’effet de l’action de mise à l’échelle automatique. |
 | properties.NewInstancesCount | Le nombre d’instances après la prise d’effet de l’action de mise à l’échelle automatique. |
 | properties.LastScaleActionTime | Horodatage de lorsque l’action de mise à l’échelle s’est produite. |
-| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
+| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
 | subStatus | Généralement, nul pour la mise à l’échelle automatique. |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
@@ -557,9 +559,9 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | description |Description textuelle statique de l’événement de sécurité. |
 | eventDataId |Identificateur unique de l’événement de sécurité. |
 | eventName |Nom convivial de l’événement de sécurité. |
-| category | Toujours « Security » |
+| catégorie | Toujours « Security » |
 | id |URI (Unique Resource Identifier) de l’événement de sécurité. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
 | resourceGroupName |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour Azure Security Center. Toujours Microsoft.Security. |
 | resourceType |Type de ressource qui a généré l’événement de sécurité, par exemple « Microsoft.Security/locations/alerts ». |
@@ -568,7 +570,7 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | operationName |Nom de l’opération. |
 | properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement. Ces propriétés varient selon le type d’alerte de sécurité. Pour obtenir une description des types d’alertes qui proviennent de Security Center, consultez [cette page](../../security-center/security-center-alerts-overview.md). |
 | properties.Severity |Niveau de gravité. Les valeurs possibles sont High (Élevé), Medium (Moyen) ou Low (Bas). |
-| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
+| status |Chaîne décrivant l’état de l’opération. Voici plusieurs valeurs courantes : « Started », « In Progress », « Succeeded », « Failed », « Active », « Resolved ». |
 | subStatus | Généralement nul pour les événements de sécurité. |
 | eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
@@ -637,9 +639,9 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement de recommandation |
 | eventDataId | Identificateur unique de l’événement de recommandation. |
-| category | Toujours « Recommandation » |
+| catégorie | Toujours « Recommandation » |
 | id |Identificateur de ressource unique de l’événement de recommandation. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critique », « Erreur », « Avertissement » ou « Informatif » |
 | operationName |Nom de l’opération.  Toujours « Microsoft.Advisor/generateRecommendations/action »|
 | resourceGroupName |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour la ressource à laquelle cette recommandation s’applique, comme « MICROSOFT.COMPUTE » |
@@ -751,7 +753,7 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 | description | Ce champ est vide pour les événements Azure Policy. |
 | eventDataId | Identificateur unique d’un événement. |
 | eventName | « BeginRequest » ou « EndRequest ». « BeginRequest » est utilisé pour les évaluations auditIfNotExists et deployIfNotExists retardées, et quand un effet deployIfNotExists démarre un déploiement de modèle. Toutes les autres opérations retournent « EndRequest ». |
-| category | Déclare l’événement de journal d’activité comme appartenant à « Policy ». |
+| catégorie | Déclare l’événement de journal d’activité comme appartenant à « Policy ». |
 | eventTimestamp | Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
 | id | Identificateur unique de l’événement sur la ressource spécifique. |
 | level | Niveau de l’événement. Audit utilise « Warning » et Deny utilise « Error ». Une erreur auditIfNotExists ou deployIfNotExists peut générer « Warning » ou « Error », en fonction du niveau de gravité. Tous les autres événements Azure Policy utilisent « Informational ». |
@@ -771,16 +773,20 @@ Cette catégorie contient les enregistrements de toutes les opérations d’acti
 | properties.policies | Inclut des détails sur la définition de stratégie, l’affectation, l’effet et les paramètres dont cette évaluation Azure Policy est le résultat. |
 | relatedEvents | Ce champ est vide pour les événements Azure Policy. |
 
-## <a name="mapping-to-resource-logs-schema"></a>Schéma du mappage aux journaux de ressource
 
-Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers un espace de noms Event Hubs, les données suivent le [schéma des journaux de ressource Azure](./diagnostic-logs-schema.md). Voici le mappage des propriétés du schéma ci-dessus vers le schéma des journaux de ressource :
+## <a name="schema-from-storage-account-and-event-hubs"></a>Schéma à partir du compte de stockage et des Event Hubs
+Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers un compte de stockage ou vers Event Hubs, les données suivent le [schéma des journaux de ressource](diagnostic-logs-schema.md). Le tableau qui suit fournit un mappage des propriétés du schéma ci-dessus vers le schéma des journaux de ressource.
+
+> [!IMPORTANT]
+> Depuis le 1er novembre 2018, le format des données de journal d’activité écrites dans le compte de stockage est devenu JSON Lines. Pour plus de détails sur ce changement de format, consultez [Préparation à la modification du format dans les journaux de ressources Azure Monitor archivés dans un compte de stockage](diagnostic-logs-append-blobs.md).
+
 
 | Propriété du schéma des journaux de ressource | Propriété du schéma de l’API REST Journal d’activité | Notes |
 | --- | --- | --- |
 | time | eventTimestamp |  |
 | resourceId | resourceId | subscriptionId, resourceType et resourceGroupName sont déduits à partir de resourceId. |
 | operationName | operationName.value |  |
-| category | Partie du nom de l’opération | Fraction du type d’opération - « Écrire »/« Supprimer »/« Action » |
+| catégorie | Partie du nom de l’opération | Fraction du type d’opération - « Écrire »/« Supprimer »/« Action » |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
@@ -788,16 +794,77 @@ Lorsque vous diffusez en continu le contenu du journal d’activité Azure vers 
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | identité | propriétés de revendication et d’autorisation |  |
-| Niveau | Niveau |  |
+| Level | Level |  |
 | location | N/A | Emplacement de traitement de l’événement. *Il ne s’agit pas de l’emplacement de la ressource, mais de l’endroit où l’événement a été traité. Cette propriété sera supprimée dans une prochaine mise à jour.* |
-| properties | properties.eventProperties |  |
-| properties.eventCategory | category | Si properties.eventCategory n’est pas présent, la catégorie est « Administrative » |
+| Propriétés | properties.eventProperties |  |
+| properties.eventCategory | catégorie | Si properties.eventCategory n’est pas présent, la catégorie est « Administrative » |
 | properties.eventName | eventName |  |
 | properties.operationId | operationId |  |
 | properties.eventProperties | properties |  |
 
+Voici un exemple d’événement utilisant ce schéma.
+
+``` JSON
+{
+    "records": [
+        {
+            "time": "2015-01-21T22:14:26.9792776Z",
+            "resourceId": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+            "operationName": "microsoft.support/supporttickets/write",
+            "category": "Write",
+            "resultType": "Success",
+            "resultSignature": "Succeeded.Created",
+            "durationMs": 2826,
+            "callerIpAddress": "111.111.111.11",
+            "correlationId": "c776f9f4-36e5-4e0e-809b-c9b3c3fb62a8",
+            "identity": {
+                "authorization": {
+                    "scope": "/subscriptions/s1/resourceGroups/MSSupportGroup/providers/microsoft.support/supporttickets/115012112305841",
+                    "action": "microsoft.support/supporttickets/write",
+                    "evidence": {
+                        "role": "Subscription Admin"
+                    }
+                },
+                "claims": {
+                    "aud": "https://management.core.windows.net/",
+                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "iat": "1421876371",
+                    "nbf": "1421876371",
+                    "exp": "1421880271",
+                    "ver": "1.0",
+                    "http://schemas.microsoft.com/identity/claims/tenantid": "1e8d8218-c5e7-4578-9acc-9abbd5d23315 ",
+                    "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+                    "http://schemas.microsoft.com/identity/claims/objectidentifier": "2468adf0-8211-44e3-95xq-85137af64708",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "admin@contoso.com",
+                    "puid": "20030000801A118C",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "9vckmEGF7zDKk1YzIY8k0t1_EAPaXoeHyPRn6f413zM",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "John",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Smith",
+                    "name": "John Smith",
+                    "groups": "cacfe77c-e058-4712-83qw-f9b08849fd60,7f71d11d-4c41-4b23-99d2-d32ce7aa621c,31522864-0578-4ea0-9gdc-e66cc564d18c",
+                    "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": " admin@contoso.com",
+                    "appid": "c44b4083-3bq0-49c1-b47d-974e53cbdf3c",
+                    "appidacr": "2",
+                    "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+                    "http://schemas.microsoft.com/claims/authnclassreference": "1"
+                }
+            },
+            "level": "Information",
+            "location": "global",
+            "properties": {
+                "statusCode": "Created",
+                "serviceRequestId": "50d5cddb-8ca0-47ad-9b80-6cde2207f97c"
+            }
+        }
+    ]
+}
+```
+
+
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur le journal d’activité](activity-logs-overview.md)
-* [Exporter le journal d’activité vers Stockage Azure ou Event Hubs](activity-log-export.md)
+* [Créer un paramètre de diagnostic pour envoyer le journal d’activité à l’espace de travail Log Analytics, au stockage Azure ou à Event Hub](diagnostic-settings.md)
 

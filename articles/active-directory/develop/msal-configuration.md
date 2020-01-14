@@ -1,5 +1,5 @@
 ---
-title: Fichier de configuration de la bibliothèque d’authentification Microsoft Android | Azure
+title: Fichier de configuration Android MSAL | Azure
 titleSuffix: Microsoft identity platform
 description: Vue d’ensemble du fichier de configuration Microsoft Authentication Library (MSAL) Android, qui représente la configuration d’une application dans Azure Active Directory.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e2d366a48adf536276697959be3418f36e10d8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916824"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424385"
 ---
 # <a name="android-microsoft-authentication-library-configuration-file"></a>Fichier de configuration de la bibliothèque d’authentification Microsoft Authentication Android
 
@@ -33,11 +33,11 @@ Cet article vous permet de comprendre les différents paramètres inclus dans ce
 
 | Propriété | Type de données | Obligatoire | Notes |
 |-----------|------------|-------------|-------|
-| `client_id` | Chaîne | OUI | ID client de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Chaîne | OUI | URI de redirection de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `client_id` | String | Oui | ID client de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Oui | URI de redirection de votre application indiqué dans la [page d’inscription d’application](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | List\<Authority> | Non | Liste des autorités dont votre application a besoin |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Non | Valeurs possibles : `DEFAULT`, `BROWSER`, `WEBVIEW` |
-| `http` | HttpConfiguration | Non | Configurez `HttpUrlConnection` `connect_timeout` et `read_timeout`. |
+| `http` | HttpConfiguration | Non | Configurez `HttpUrlConnection` `connect_timeout` et `read_timeout` |
 | `logging` | LoggingConfiguration | Non | Spécifie le niveau de détail de la journalisation. Les configurations facultatives incluent : `pii_enabled`, qui prend une valeur booléenne et `log_level`, qui prend `ERROR`, `WARNING`, `INFO` ou `VERBOSE`. |
 
 ### <a name="client_id"></a>client_id
@@ -87,7 +87,7 @@ Liste des autorités que vous connaissez et que vous approuvez. En plus des auto
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapper l’autorité AAD et le public aux points de terminaison de la plateforme d’identités Microsoft
 
-| Type | Audience | ID client | Authority_Url | Point de terminaison obtenu | Notes |
+| Type | Public visé | ID client | Authority_Url | Point de terminaison obtenu | Notes |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` est un alias de locataire pour l’emplacement du compte. Exemple : un locataire Azure Active Directory spécifique ou le système de comptes Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Seuls les comptes présents dans contoso.com peuvent acquérir un jeton. Tout domaine vérifié, ou GUID de locataire, peut être utilisé comme ID de locataire. |
@@ -104,17 +104,17 @@ Liste des autorités que vous connaissez et que vous approuvez. En plus des auto
 
 | Propriété | Type de données  | Obligatoire | Notes |
 |-----------|-------------|-----------|--------|
-| `type` | Chaîne | OUI | Reflète le public ou type de compte ciblé par votre application. Valeurs possibles : `AAD`, `B2C` |
+| `type` | String | Oui | Reflète le public ou type de compte ciblé par votre application. Valeurs possibles : `AAD`, `B2C` |
 | `audience` | Object | Non | S’applique uniquement quand le type est `AAD`. Spécifie l’identité ciblée par votre application. Utilisez la valeur issue de votre inscription d’application. |
-| `authority_url` | Chaîne | OUI | Obligatoire uniquement quand le type est `B2C`. Spécifie l’URL de l’autorité ou la stratégie que votre application doit utiliser.  |
-| `default` | boolean | OUI | Une seule propriété `"default":true` est exigée quand une ou plusieurs autorités sont spécifiées. |
+| `authority_url` | String | Oui | Obligatoire uniquement quand le type est `B2C`. Spécifie l’URL de l’autorité ou la stratégie que votre application doit utiliser.  |
+| `default` | boolean | Oui | Une seule propriété `"default":true` est exigée quand une ou plusieurs autorités sont spécifiées. |
 
 #### <a name="audience-properties"></a>Propriétés du public
 
 | Propriété | Type de données  | Obligatoire | Notes |
 |-----------|-------------|------------|-------|
-| `type` | Chaîne | OUI | Spécifie le public que votre application souhaite cibler. Valeurs possibles : `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | Chaîne | OUI | Obligatoire uniquement avec `"type":"AzureADMyOrg"`. Facultatif pour les autres valeurs de `type`. Il peut s’agir d’un domaine de locataire, comme `contoso.com`, ou d’un ID de locataire comme `72f988bf-86f1-41af-91ab-2d7cd011db46`). |
+| `type` | String | Oui | Spécifie le public que votre application souhaite cibler. Valeurs possibles : `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
+| `tenant_id` | String | Oui | Obligatoire uniquement avec `"type":"AzureADMyOrg"`. Facultatif pour les autres valeurs de `type`. Il peut s’agir d’un domaine de locataire, comme `contoso.com`, ou d’un ID de locataire comme `72f988bf-86f1-41af-91ab-2d7cd011db46`). |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 

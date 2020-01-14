@@ -1,6 +1,6 @@
 ---
-title: Guide formation pour la transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
-description: Présentation de la nouvelle expérience d’inscription d’application dans le portail Azure
+title: Nouveau guide de formation sur les inscriptions d’applications dans le portail Azure
+description: Présente la nouvelle expérience d’inscription d’applications dans le Portail Azure
 services: active-directory
 author: archieag
 manager: CelesteDG
@@ -13,14 +13,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3726ebbe0ebc3725a885c847f33760ebd7e2e8b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424662"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>Transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
+# <a name="new-azure-portal-app-registration-training-guide"></a>Nouveau guide de formation sur les inscriptions d’applications dans le portail Azure
 
 La nouvelle expérience relative aux [inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) dans le Portail Azure a été considérablement améliorée. Si vous aviez l’habitude d’utiliser le processus hérité dans le portail Azure, consultez ce guide de formation pour vous familiariser avec la nouvelle expérience.
 

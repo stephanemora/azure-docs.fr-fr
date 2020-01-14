@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+title: Créer et gérer des ressources dans la gestion des droits d'utilisation - Azure AD
 description: Découvrez comment créer un conteneur de ressources et de packages d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66e3dee83ccf4a857fda9d5804848108c0cc251
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 24e82abd2c95bcbfdde843a6636a809bb3aeb70c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174423"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422639"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD
 
@@ -99,7 +99,7 @@ L’utilisateur qui a créé un catalogue devient le premier propriétaire de ca
 
 Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue :
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -117,7 +117,7 @@ Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de cat
 
 Vous pouvez modifier le nom et la description d’un catalogue. Les utilisateurs verront ces informations dans les détails d’un package d’accès.
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
@@ -135,7 +135,7 @@ Vous pouvez modifier le nom et la description d’un catalogue. Les utilisateurs
 
 Vous pouvez supprimer un catalogue, mais seulement s’il ne contient pas de packages d’accès.
 
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
+**Rôle prérequis :** administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue.
 
 1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 

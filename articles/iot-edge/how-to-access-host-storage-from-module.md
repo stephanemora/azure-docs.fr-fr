@@ -4,16 +4,16 @@ description: Utilisez des variables d’environnement et créez des options pour
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 079d5845917e63fadcf0466e5a744ed637d704ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434519"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fournir à des modules l’accès au stockage local d’un appareil
 
@@ -23,7 +23,7 @@ En plus de stocker des données à l’aide des services de stockage Azure ou da
 
 Pour activer un lien entre le stockage du module et le stockage sur le système hôte, créez une variable d’environnement pour votre module qui pointe vers un dossier de stockage dans le conteneur. Utilisez ensuite les options de création pour lier ce dossier de stockage à un dossier situé sur la machine hôte.
 
-Par exemple, si vous souhaitez permettre au hub IoT Edge de stocker des messages dans le stockage local de votre appareil et de les récupérer ultérieurement, vous pouvez configurer les variables d’environnement et les options de création dans le portail Azure, dans la section **Configurer les paramètres avancés du runtime Edge**.
+Par exemple, si vous souhaitez permettre au hub IoT Edge de stocker des messages dans le stockage local de votre appareil et de les récupérer ultérieurement, vous pouvez configurer les variables d’environnement et les options de création dans le portail Azure, dans la section **Paramètres du runtime**.
 
 1. Pour le hub IoT Edge et l’agent IoT Edge, ajoutez une variable d’environnement appelée **storageFolder** qui pointe vers un répertoire dans le module.
 1. Pour le hub IoT Edge et l’agent IoT Edge, ajoutez des liaisons pour connecter un répertoire local sur la machine hôte à un répertoire du module. Par exemple :

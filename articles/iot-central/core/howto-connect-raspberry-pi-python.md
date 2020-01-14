@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 258410bcd4f916ac381188bb38d90a3b89c87c89
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3daa567a916bd0abeb407028c7d06bd1f2bd464b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454116"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (Python)
 
@@ -27,15 +27,15 @@ Cet article vous explique comment, en tant que développeur d’appareils, conne
 
 Pour suivre les étapes décrites dans cet article, vous devez disposer de ce qui suit :
 
-* Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+* Une application Azure IoT Central créée à partir du modèle d’application **Application héritée**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 * Un appareil Raspberry Pi exécutant le système d’exploitation Raspbian. L’appareil Raspberry Pi doit être en mesure de se connecter à Internet. Pour plus d’informations, consultez [Configurer votre appareil Raspberry Pi](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up/3).
 
 > [!TIP]
 > Pour découvrir la configuration et la connexion à un appareil Raspberry Pi, voir [Prise en main de Raspberry Pi](https://projects.raspberrypi.org/en/pathways/getting-started-with-raspberry-pi).
 
-## <a name="sample-devkits-application"></a>**Exemple d’application Devkits**
+## <a name="add-a-device-template"></a>Ajouter un modèle d’appareil
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Raspberry Pi** avec les caractéristiques suivantes :
+Dans votre application Azure IoT Central, ajoutez un nouveau modèle d’appareil **Raspberry Pi** avec les caractéristiques suivantes :
 
 - Les données de télémétrie, qui comprennent les mesures suivantes recueillies par l’appareil :
   - Humidité
@@ -49,15 +49,20 @@ Une application créée à partir du modèle d’application **Exemples de Devki
   - Current
   - Vitesse du ventilateur
   - Bascule IR.
-- properties
+- Propriétés
   - Propriété d’appareil avec numéro gravé
   - Propriété d’emplacement cloud
+
+1. Sélectionnez **+ Nouveau** à partir du ![Modèle d’appareil](media/howto-connect-raspberry-pi-python/adddevicetemplate.png) des modèles d’appareil
+   
+
+2. Sélectionnez **Raspberry Pi** et créez le modèle d’appareil Raspberry Pi ![Ajouter un modèle d’appareil](media/howto-connect-raspberry-pi-python/newdevicetemplate.png)
 
 Pour plus d’informations sur la configuration du modèle d’appareil, consultez [Détails de modèle d’appareil Raspberry Pi](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details).
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **Raspberry Pi**. Notez les détails de connexion de l’appareil : **ID de portée**, **ID d’appareil** et **Clé primaire**. Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
+Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **Raspberry Pi**. Notez les détails de connexion de l’appareil : **ID de l’étendue**, **ID de l’appareil** et **Clé primaire**. Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
 
 ### <a name="configure-the-raspberry-pi"></a>Configurer l’appareil Raspberry Pi
 
@@ -105,7 +110,7 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
 
-| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
+| Nom du champ     | Units  | Minimum | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -124,7 +129,7 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| Nom complet | Nom du champ | Units | Nombre de décimales | Minimum | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
@@ -134,13 +139,13 @@ Paramètres de bascule
 
 | Nom complet | Nom du champ | Texte pour Activé | Texte pour Désactivé | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ACTIVÉ      | ÉTEINT      | Off     |
+| IR           | activateIR | ACTIVÉ      | OFF      | Off     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
 | Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
-| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | nombre    |
 | Texte            | Location     | location   | N/A       |
 
 ## <a name="next-steps"></a>Étapes suivantes

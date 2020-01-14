@@ -1,5 +1,5 @@
 ---
-title: Effectuer une révision d’accès de groupes ou d’applications - Azure Active Directory | Microsoft Docs
+title: Effectuer une révision d’accès des groupes et applications - Azure AD
 description: Découvrez comment effectuer une révision d’accès pour des membres de groupes ou pour l’accès aux applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -16,20 +16,20 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489142"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422721"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès de groupes ou d’applications dans les révisions d’accès Azure AD
+# <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
 En tant qu’administrateur, vous [créez une révision d’accès de groupes ou d’applications](create-access-review.md) tandis que les réviseurs [effectuent la révision d’accès](perform-access-review.md). Cet article explique comment afficher les résultats de la révision d’accès et les appliquer.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Azure AD Premium P2
 - Administrateur général, administrateur d’utilisateurs, administrateur de la sécurité ou lecteur Sécurité

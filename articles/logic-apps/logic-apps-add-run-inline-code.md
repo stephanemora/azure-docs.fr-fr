@@ -1,17 +1,17 @@
 ---
-title: Ajouter et exécuter des extraits de code
-description: Ajouter et exécuter des extraits de code avec du code inclus dans Azure Logic Apps
+title: Ajouter et exécuter des extraits de code avec du code inline
+description: Découvrez comment créer et exécuter des extraits de code en utilisant des actions de code intégrées pour les travaux et flux de travail automatisés que vous créez avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.openlocfilehash: f28a93e47aa028f152d7ca797abb17cb3832aa60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f7a134fd026b42d1666b8310b3fb0c10642c7bb0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453492"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajoutez et exécutez des extraits de code en utilisant du code inclus dans Azure Logic Apps
 
@@ -32,7 +32,7 @@ Dans cet article, l’exemple d’application logique se déclenche lorsqu’un 
 
 ![Présentation des exemples](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
