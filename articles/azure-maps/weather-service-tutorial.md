@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python) | Microsoft Docs'
-description: 'Didacticiel : Ce tutoriel vous montre comment joindre des données de capteur à des prévisions météorologiques à partir du service de prévisions météorologiques Azure Maps, avec Azure Notebooks (Python).'
+title: 'Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python) | Microsoft Docs'
+description: 'Tutoriel : Ce tutoriel vous montre comment joindre des données de capteur à des prévisions météorologiques à partir du service de prévisions météorologiques Azure Maps, avec Azure Notebooks (Python).'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 12/09/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f641640ff6cf4174e2e1374404d47fc0760f79f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 809c188dc37aba64de27e89e38acd8692c7de032
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979575"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613565"
 ---
-# <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Didacticiel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python)
+# <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutoriel : Joindre des données de capteur à des données de prévisions météorologiques avec Azure Notebooks (Python)
 
 L’énergie éolienne est une alternative aux énergies fossiles qui permet de lutter contre le changement climatique. Étant donné que le vent n’est, par nature, pas constant, les opérateurs éoliens doivent créer des modèles ML (Machine Learning) pour prédire la capacité d’énergie éolienne, en vue de répondre à la demande en électricité et de garantir la stabilité du réseau électrique. Dans ce tutoriel, nous allons voir comment les données de prévisions météorologiques Azure Maps peuvent être combinées avec des relevés météo et des jeux de données de démonstration obtenus à partir de capteurs. Les données de prévisions météorologiques peuvent être demandées en appelant le service Azure Maps Weather.
 
@@ -31,12 +31,15 @@ Ce didacticiel présente les procédures suivantes :
 > * Créez des graphiques à partir des données de prévisions.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez d’abord :
 
-1. Créer un abonnement de compte Azure Maps au niveau tarifaire S0 en suivant les instructions fournies dans [Gérer votre compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account).
-2. Obtenir la clé primaire d’abonnement destinée à votre compte en suivant les instructions fournies dans [Créer un compte et obtenir une clé](./tutorial-search-location.md#getkey).
+1. Créer un abonnement de compte Azure Maps au niveau tarifaire S0 en suivant les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps).
+2. Obtenir la clé primaire d’abonnement destinée à votre compte en suivant les instructions fournies dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+
+Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 Pour vous familiariser avec les notebooks Azure et commencer à les utiliser, suivez les instructions fournies dans [Créer un notebook Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
 
@@ -68,7 +71,7 @@ Dans notre exemple de scénario, nous souhaitons demander des prévisions quotid
 
 
 ```python
-subscription_key = "Your Azure Maps primary subscription key"
+subscription_key = "Your Azure Maps key"
 
 # Get a lists of unique station IDs and their coordinates 
 station_ids = pd.unique(df[['StationID']].values.ravel())
@@ -172,11 +175,11 @@ windsPlot.set_xlabel("Date")
 windsPlot.set_ylabel("Wind direction")
 ```
 
-Les graphiques ci-dessous permettent de visualiser les variations prévues concernant la vitesse du vent (graphique de gauche) et la direction du vent (graphique de droite) pour les 15 prochains jours à compter de la date du jour.
+Les graphes ci-dessous permettent de visualiser les variations prévues concernant la vitesse du vent (graphe de gauche) et la direction du vent (graphe de droite) pour les 15 prochains jours à compter de la date à laquelle les données sont demandées.
 
 <center>
 
-![Graphique de la vitesse du vent](./media/weather-service-tutorial/speed-date-plot.png) ![Graphique de la direction du vent](./media/weather-service-tutorial/direction-date-plot.png)</center>
+![Tracé de la vitesse du vent](./media/weather-service-tutorial/speed-date-plot.png) ![Tracé de la direction du vent](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -190,6 +193,6 @@ Pour explorer les API Azure Maps qui sont utilisées dans ce tutoriel, consulte
 * [Daily Forecast](https://aka.ms/AzureMapsWeatherDailyForecast)
 * [Rendu - Obtenir une image de carte](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 
-Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).
+Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Pour en savoir plus sur Azure Notebooks, consultez [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

@@ -7,18 +7,18 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 96062057a139e4ab2c91792b5c451e093f7f4c96
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829139"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467311"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de :
 
@@ -51,7 +51,7 @@ La première étape consiste à vérifier que votre projet est ouvert dans Visua
 
    Une fois le package installé, un message de confirmation s’affiche dans la fenêtre **Console du Gestionnaire de package**.
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
 Nous allons ajouter du code qui servira de squelette à notre projet
 
@@ -67,10 +67,10 @@ Poursuivez et placez leurs déclarations après `TranscribeAsync`.
 
 ## <a name="create-and-configure-an-http-client"></a>Créer et configurer un client HTTP
 La première chose dont nous avons besoin est d’un client HTTP disposant d’une URL de base correcte et pour lequel l’authentification a été définie.
-Insérez ce code dans `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
+Insérer ce code dans `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
 ## <a name="generate-a-transcription-request"></a>Générer une demande de transcription
-Nous allons ensuite générer la demande de transcription. Ajoutez ce code à `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
+Nous allons ensuite générer la demande de transcription. Ajouter ce code à `TranscribeAsync` [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envoyer la requête et vérifier son état
 Nous allons maintenant envoyer la requête au service Speech et vérifier le code de réponse initial. Ce code de réponse indique simplement si le service a reçu la requête. Le service va retourner une URL dans les en-têtes de réponse qui correspond à l’emplacement où il va stocker l’état de la transcription.

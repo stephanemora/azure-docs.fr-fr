@@ -1,5 +1,5 @@
 ---
-title: Utilisation de navigateurs web avec MSAL.NET | Azure
+title: Utilisation de navigateurs web (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: En savoir plus sur les considérations spécifiques lors de l’utilisation de Xamarin Android avec la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET).
 services: active-directory
@@ -14,14 +14,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b8c8e78c554994b71f9e246f8bacc39828b17f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 44698bc88b87aa76dd55ab5d632ad7276a49aea5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424169"
 ---
-# <a name="using-web-browsers-in-msalnet"></a>Utilisation de navigateurs web dans MSAL.NET
+# <a name="using-web-browsers-msalnet"></a>Utilisation de navigateurs web (MSAL.NET)
+
 Des navigateurs web sont nécessaires pour l’authentification interactive. Par défaut, MSAL.NET prend en charge le [navigateur web du système](#system-web-browser-on-xamarinios-xamarinandroid) sur Xamarin.iOS et Xamarin.Android. Par contre, [vous pouvez aussi activer le navigateur web intégré](#enable-embedded-webviews-on-ios-and-android) en fonction de vos exigences (UX, besoin de l’authentification unique (SSO), sécurité) dans les applications [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) et [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid). Et vous pouvez même [choisir de façon dynamique](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) le navigateur web à utiliser en fonction de la présence de Chrome, ou d’un navigateur prenant en charge les onglets personnalisés de Chrome dans Android. Dans les applications de bureau .NET Core, MSAL.NET prend uniquement en charge le navigateur du système.
 
 ## <a name="web-browsers-in-msalnet"></a>Navigateurs web dans MSAL.NET
@@ -45,15 +46,15 @@ En règle générale, il est recommandé d'utiliser la plateforme par défaut, q
 
 ### <a name="at-a-glance"></a>Aperçu
 
-| Framework        | Embedded | System | Default |
+| Framework        | Embedded | Système | Default |
 | ------------- |-------------| -----| ----- |
-| .NET Classic     | OUI | Oui^ | Embedded |
-| .NET Core     | Non | Oui^ | System |
-| .NET Standard | Non | Oui^ | System |
-| UWP | OUI | Non | Embedded |
-| Xamarin.Android | OUI | OUI  | System |
-| Xamarin.iOS | OUI | OUI  | System |
-| Xamarin.Mac| OUI | Non | Embedded |
+| .NET Classic     | Oui | Oui^ | Embedded |
+| .NET Core     | Non | Oui^ | Système |
+| .NET Standard | Non | Oui^ | Système |
+| UWP | Oui | Non | Embedded |
+| Xamarin.Android | Oui | Oui  | Système |
+| Xamarin.iOS | Oui | Oui  | Système |
+| Xamarin.Mac| Oui | Non | Embedded |
 
 ^ Requiert l'URI de redirection « http://localhost  »
 

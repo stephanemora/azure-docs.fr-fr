@@ -1,6 +1,6 @@
 ---
-title: Appeler une API web ASP.NET protégée par Azure AD - Plateforme d’identités Microsoft
-description: Ce démarrage rapide explique comment appeler une API web ASP.NET protégée par Azure Active Directory à partir d’une application de bureau Windows (WPF). Le client WPF authentifie un utilisateur, demande un jeton d’accès et appelle l’API web.
+title: Appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft
+description: Ce guide de démarrage rapide explique comment appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft à partir d’une application de bureau Windows (WPF). Le client WPF authentifie un utilisateur, demande un jeton d’accès et appelle l’API web.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -8,24 +8,24 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3301c3c91343277997be1ee554ced76884274a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1c6c51b0a7ae7255391fd35d234b5ee47b7a9525
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424035"
 ---
-# <a name="quickstart-call-an-aspnet-web-api-protected-by-azure-ad"></a>Démarrage rapide : Appeler une API web ASP.NET protégée par Azure AD
+# <a name="quickstart-call-an-aspnet-web-api-protected-by-microsoft-identity-platform"></a>Démarrage rapide : Appeler une API web ASP.NET protégée par la plateforme d’identités Microsoft
 
-Dans démarrage rapide, vous exposez une API web et la protégez afin que seuls un utilisateur authentifié puisse y accéder. Cet exemple montre comment exposer un API web ASP.NET pour qu’elle puisse accepter des jetons émis par des comptes personnels (y compris outlook.com, live.com et autres), ainsi que des comptes professionnels et scolaires de n’importe quelle société ou organisation intégré avec Azure Active Directory.
+Dans démarrage rapide, vous exposez une API web et la protégez afin que seuls un utilisateur authentifié puisse y accéder. Cet exemple montre comment exposer une API web ASP.NET pour qu’elle accepte des jetons émis par des comptes personnels (y compris outlook.com, live.com, etc.) et des comptes professionnels ou scolaires de toute société ou organisation intégrée à la plateforme d’identités Microsoft.
 
 L’exemple inclut également un client d’application de bureau Windows (WPF) qui montre comment demander un jeton d’accès pour accéder à une API web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
@@ -76,7 +76,7 @@ Si vous souhaitez inscrire vos applications manuellement, commencez par effectue
      - Conservez l’**État** **activée**.
      - Sélectionnez **Ajouter une étendue**
 
-### <a name="configure-the-service-and-client-projects-to-match-the-registered-web-api"></a>Configurer les projets de service et de client pour qu’ils correspondent à l’API web inscrite 
+### <a name="configure-the-service-project-to-match-the-registered-web-api"></a>Configurer le projet de service en fonction de l’API web inscrite 
 
 1. Ouvrez la solution dans Visual Studio, puis ouvrez le fichier **Web. config** sous la racine du projet **TodoListService**.
 1. Remplacez la valeur du paramètre `ida:ClientId` par l’**ID client (ID d’application)** de l’application que vous venez d’inscrire dans le portail d’inscription d’application.
@@ -104,7 +104,7 @@ Dans cette étape, vous configurez votre projet *TodoListClient* en inscrivant u
    - Modifiez les **Types de comptes pris en charge** en sélectionnant **Comptes dans un annuaire organisationnel**.
    - Sélectionnez **Inscrire** pour créer l’application.
 1. Sélectionnez la section **Authentification** dans la page de vue d’ensemble de l’application.
-   - Dans la section **URL de redirection** | **URL de redirection suggérés pour les clients publics (mobile, bureau)** , cochez **urn:ietf:wg:oauth:2.0:oob**
+   - Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)** , cochez **https://login.microsoftonline.com/common/oauth2/nativeclient**
    - Sélectionnez **Enregistrer**.
 1. Sélectionnez la section **Autorisations de l’API** :
    - Cliquez sur le bouton **Ajouter une autorisation**.
@@ -146,14 +146,14 @@ Par défaut, lorsque vous téléchargez cet exemple de code et configurez l’ap
 
 Pour limiter les utilisateurs autorisés à se connecter à votre application, utilisez l’une des options suivantes :
 
-### <a name="option-1-restrict-access-to-a-single-organization-single-tenant"></a>Option 1 : Restreindre l’accès à une seule organisation (locataire unique)
+### <a name="option-1-restrict-access-to-a-single-organization-single-tenant"></a>Option 1 : Restreindre l’accès à une seule organisation (locataire unique)
 
 Vous pouvez restreindre l’accès à votre application aux comptes d’utilisateur qui se trouvent dans un seul locataire Azure AD, y compris les *comptes invités* de ce locataire. Ce scénario est courant pour les *applications métier* :
 
 1. Ouvrez le fichier **App_Start\Startup.Auth** et modifiez la valeur du point de terminaison de métadonnées passée dans le `OpenIdConnectSecurityTokenProvider` à `"https://login.microsoftonline.com/{Tenant ID}/v2.0/.well-known/openid-configuration"` (vous pouvez également utiliser le nom du locataire, par exemple `contoso.onmicrosoft.com`).
 2. Dans le même fichier, définissez la propriété `ValidIssuer` de `TokenValidationParameters` sur `"https://sts.windows.net/{Tenant ID}/"` et l’argument `ValidateIssuer` sur `true`.
 
-### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Option 2 : Utiliser une méthode personnalisée pour valider les émetteurs
+### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Option n°2 : Utiliser une méthode personnalisée pour valider les émetteurs
 
 Vous pouvez implémenter une méthode personnalisée pour valider les émetteurs à l’aide du paramètre **IssuerValidator**. Pour plus d’informations sur l’utilisation de ce paramètre, lisez cette rubrique concernant la [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet).
 

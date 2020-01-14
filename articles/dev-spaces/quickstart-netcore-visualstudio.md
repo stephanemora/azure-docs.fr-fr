@@ -3,17 +3,17 @@ title: 'Déboguer et itérer dans Kubernetes : Visual Studio et .NET Core'
 services: azure-dev-spaces
 ms.date: 11/13/2019
 ms.topic: quickstart
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio pour déboguer et itérer rapidement une application .NET Core sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: a151314bef14e302879f4db0f7c0094779bdcfec
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: bfa798027a3905eff29bf1ce11251ce900bd7267
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438245"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes : Visual Studio et .NET Core - Azure Dev Spaces
 
@@ -28,7 +28,7 @@ Azure Dev Spaces vous permet également de déboguer et d’itérer à l’aide 
 - [Node.js et Visual Studio Code](quickstart-nodejs.md)
 - [.NET Core et Visual Studio Code](quickstart-netcore.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - Visual Studio 2019 sur Windows avec la charge de travail de développement Azure installée. Vous pouvez également utiliser Visual Studio 2017 sur Windows lorsque la charge de travail Développement web et [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools) sont installés. Si vous n’avez pas installé Visual Studio, vous pouvez le télécharger [ici](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -55,7 +55,7 @@ Accédez à votre cluster AKS dans le portail Azure et cliquez sur *Dev Spaces*.
 ## <a name="create-a-new-aspnet-web-app"></a>Créer une application web ASP.NET
 
 1. Ouvrez Visual Studio.
-1. Créer un projet
+1. Créez un projet.
 1. Choisissez *Application web ASP.NET Core*, puis cliquez sur *Suivant*.
 1. Nommez votre projet *webfrontend*, puis cliquez sur *Créer*.
 1. Quand vous y êtes invité, choisissez *Application web (Model-View-Controller)* pour le modèle.

@@ -1,37 +1,27 @@
 ---
-title: Basculer et mettre à l’échelle une application de conteneurs sur Service Fabric dans Azure | Microsoft Docs
+title: Basculer et mettre à l’échelle une application de conteneurs
 description: Dans ce didacticiel, vous apprenez la gestion du basculement dans une application de conteneurs Azure Service Fabric.  Sachez également mettre à l’échelle les conteneurs et les services qui s’exécutent dans un cluster.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a13ce98eeebf60a6b61ee9aff01107c61fa94641
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bef1c42712c881296c5ab7b8096deb50fe94ee55
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385111"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614092"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Didacticiel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Tutoriel : Présenter le basculement et la mise à l’échelle de services de conteneur avec Service Fabric
 
-Ce didacticiel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
+Ce tutoriel est le troisième de la série. Dans ce didacticiel, vous découvrez la gestion du basculement au sein d’applications de conteneur dans Service Fabric. Vous apprenez également à mettre à l’échelle des conteneurs. Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * En savoir plus sur le basculement de conteneur dans un cluster Service Fabric
 > * Mettre à l’échelle les conteneurs web frontaux dans une application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 À partir de la [Partie 2](service-fabric-tutorial-package-containers.md), l’application s’exécute dans un cluster Service Fabric actif.
 

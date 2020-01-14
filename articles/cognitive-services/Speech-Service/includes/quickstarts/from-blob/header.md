@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 12/17/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: ef61139056ad194d89e2a67cb4ac1b1414a3380b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 495d2a8e38b58eb3ef1494e6a3a33ee1dc32d049
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74828907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466573"
 ---
-Dans ce guide de démarrage rapide, vous allez utiliser l’[API REST Batch Transcription](../../../batch-transcription.md) pour reconnaître la voix stockée dans un [objet blob SAS](https://aka.ms/ignite2019/speech/placeholder). Une fois les prérequis respectés, la reconnaissance vocale à l’aide de l’API REST ne comprend que quelques étapes :
-> [!div class="checklist"]
-> * Envoyer la requête JSON au service Speech pour commencer la transcription
-> * Vérifier l’état de la transcription
-> * Télécharger les résultats de la transcription une fois celle-ci terminée
+Dans ce guide de démarrage rapide, vous allez utiliser une API REST pour reconnaître la voix dans des fichiers dans un processus de traitement par lots. Un processus de traitement par lots exécute la transcription vocale sans aucune interaction de l’utilisateur. Il offre un modèle de programmation simple, sans qu’il soit nécessaire de gérer la concurrence, des modèles vocaux personnalisés ou d’autres détails. Cela implique des options de contrôle avancées ainsi qu’une utilisation efficace des ressources du service Azure Speech.
+
+La [vue d’ensemble de la transcription par lot](../../../batch-transcription.md) décrit en détail l’utilisation de cette fonctionnalité. L’API détaillée est disponible sous forme de [document Swagger](https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20transcriptions%3A) intitulé `Custom Speech transcriptins`. 
+
+Le guide de démarrage rapide suivant vous présente un exemple d’utilisation pas à pas.

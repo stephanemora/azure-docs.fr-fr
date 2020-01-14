@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4a56a79798acf4948739b26062ab770fcbb47f7b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 55ae542ed0490248d501cd7c4f50c0a7ba32091a
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707089"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665194"
 ---
-# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Didacticiel : Développer des modules IoT Edge pour les appareils Windows
+# <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutoriel : Développer des modules IoT Edge pour les appareils Windows
 
 Utilisez Visual Studio pour développer et déployer du code sur des appareils Windows exécutant IoT Edge.
 
@@ -24,7 +24,7 @@ Dans le guide de démarrage rapide, vous avez créé un appareil IoT Edge à l�
 
 Ce tutoriel utilise l’exemple de déploiement d’un **module C# sur un appareil Windows**. Cet exemple a été choisi, car il s’agit du scénario de développement le plus courant. Si vous aimeriez développer dans un autre langage ou que vous prévoyez de déployer des services Azure en tant que modules, ce didacticiel est également utile pour en savoir plus sur les outils de développement. Après avoir assimilé les concepts de développement, vous pouvez choisir un langage ou un service Azure spécifique pour vous plonger dans les détails. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer votre machine de développement
@@ -45,13 +45,13 @@ Ce tutoriel cible les appareils Windows exécutant IoT Edge. Les appareils IoT E
 
 Le tableau suivant liste les scénarios de développement pris en charge pour des **conteneurs Windows** dans Visual Studio Code et Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017/2019 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Services Azure** | Azure Functions <br> Azure Stream Analytics |   |
 | **Langues** | C# (débogage non pris en charge) | C <br> C# |
 | **Plus d’informations** | [Azure IoT Edge pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Outils Azure IoT Edge pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Outils Azure IoT Edge pour Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Une machine de développement :
 
@@ -158,7 +158,7 @@ Le runtime IoT Edge a besoin des informations d’identification de registre pou
 
 1. Ouvrez le fichier **deployment.template.json** dans votre solution de module.
 
-1. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées, puis vérifiez qu’elle contient les informations appropriées.
+1. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées. Votre adresse de registre doit être automatiquement remplie à partir des informations que vous avez fournies lors de la création du projet. Les champs du nom d’utilisateur et du mot de passe doivent contenir des noms de variables. Par exemple : 
 
    ```json
    "registryCredentials": {
@@ -264,7 +264,7 @@ Votre machine de développement a désormais accès à votre registre de contene
 
     ![Afficher les deux versions de l’image dans le registre de conteneurs](./media/tutorial-develop-for-windows/view-repository-versions.png)
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Si vous rencontrez des erreurs lors de la génération et de l’envoi (push) de votre image de module, elles sont souvent liées à la configuration de Docker sur votre machine de développement. Pour passer en revue votre configuration, effectuez les vérifications suivantes : 
 

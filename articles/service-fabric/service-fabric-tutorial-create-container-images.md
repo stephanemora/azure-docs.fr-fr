@@ -1,31 +1,21 @@
 ---
-title: Créer des images conteneurs dans Azure Service Fabric | Microsoft Docs
+title: Créer des images conteneur dans Azure Service Fabric
 description: Dans ce tutoriel, vous découvrez comment créer des images conteneurs pour une application Service Fabric à conteneurs multiples.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b5dba1f7e71149c37edc909d2bb43d708192bdbb
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465441"
 ---
-# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Didacticiel : Créer des images conteneurs sur un cluster Service Fabric Linux
+# <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutoriel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
-Ce tutoriel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier tutoriel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les tutoriels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est la première partie d’une série qui montre comment utiliser des conteneurs dans un cluster Service Fabric Linux. Dans le premier tutoriel, vous allez préparer une application à conteneurs multiples afin de pouvoir l’utiliser avec Service Fabric. Dans les tutoriels suivants, ces images seront utilisées dans le cadre d’une application Service Fabric. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Cloner la source de l’application à partir de GitHub
@@ -41,7 +31,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 > * [Créer et exécuter une application Service Fabric avec des conteneurs](service-fabric-tutorial-package-containers.md)
 > * [Gestion du basculement et de la mise à l’échelle dans Service Fabric](service-fabric-tutorial-containers-failover.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Configuration de l’environnement de développement Linux pour Service Fabric. Suivez les instructions [ici](service-fabric-get-started-linux.md) pour configurer votre environnement Linux.
 * Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).

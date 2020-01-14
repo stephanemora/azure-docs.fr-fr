@@ -8,29 +8,29 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 78e8a42c4f1e101f8d083c8d58bb452aadfa3a87
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196259"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454565"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Préparer l’évaluation et la migration de machines virtuelles Hyper-V vers Azure
 
 Cet article explique comment préparer l’évaluation et la migration de machines virtuelles Hyper-V locales vers Azure avec [Azure Migrate](migrate-services-overview.md).
 
-[Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers.
+[Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
 
-Ce tutoriel est le premier d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est le premier d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Préparez Azure. Configurer les autorisations afin que votre compte Azure et les ressources fonctionnent avec Azure Migrate
+> * Préparez Azure. Configurez des autorisations pour permettre à votre compte et vos ressources Azure de fonctionner avec Azure Migrate.
 > * Préparer les machines virtuelles et les hôtes Hyper-V locaux pour l’évaluation des serveurs
 > * Préparer les machines virtuelles et les hôtes Hyper-V locaux pour la migration des serveurs
 
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, afin de vous permettre de configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, passez en revue les procédures d’évaluation et de migration d’Hyper-V.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, passez en revue les procédures d’évaluation et de migration d’Hyper-V.
 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
@@ -62,7 +62,7 @@ Vérifiez que vous disposez des autorisations nécessaires pour créer un projet
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Affecter des autorisations pour inscrire l’appliance
 
-Vous pouvez affecter des autorisations pour permettre à Azure Migrate de créer les applications Azure AD durant l’inscription d’appliance, à l’aide de l’une des méthodes suivantes :
+Vous pouvez affecter des autorisations pour permettre à Azure Migrate de créer les applications Azure AD créées pendant l’inscription d’appliance, à l’aide de l’une des méthodes suivantes :
 
 - L’administrateur général ou le locataire peuvent accorder des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
 - L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
@@ -190,10 +190,10 @@ Quand vous configurez l’appliance, vous terminez la configuration de CredSSP [
 
 ### <a name="verify-appliance-settings"></a>Vérifier les paramètres de l’appliance
 
-Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le tutoriel suivant, préparez le déploiement de l’appliance.
+Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le prochain tutoriel, préparez le déploiement de l’appliance.
 
 1. [Vérifiez](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) la configuration requise de l’appliance.
-2. [Passez en revue](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) les URL Azure auxquelles l’appliance devra accéder.
+2. [Passez en revue](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) les URL Azure auxquelles l’appliance doit accéder.
 3. Passez en revue les données que l’appliance va collecter pendant la découverte et l’évaluation.
 4. [Notez](migrate-support-matrix-hyper-v.md#assessment-port-requirements) les conditions d’accès aux ports pour l’appliance.
 

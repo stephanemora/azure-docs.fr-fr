@@ -1,25 +1,25 @@
 ---
 title: Obtenir les journaux d’activité et les événements d’instance de conteneur
-description: Découvrez comment déboguer les journaux d’activité du conteneur et les événements avec Azure Container Instances
+description: Découvrez comment récupérer les journaux d'activité du conteneur et les événements dans Azure Container Instances pour résoudre les problèmes liés aux conteneurs.
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 12/30/2019
 ms.custom: mvc
-ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: fe30ab875aa6cd7f465ffe69672a771e18134e1c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481753"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75664732"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Récupérer les journaux d’activité du conteneur et les événements dans Azure Container Instances
 
-Lorsque vous avez un conteneur mal configuré, démarrez en affichant ses journaux d’activité avec [journaux d’activité du conteneur az][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [liaison du conteneur az][az-container-attach].
+Dans Azure Container Instances, si un conteneur ne fonctionne pas correctement, commencez par afficher les journaux qui s'y rapportent avec [az container logs][az-container-logs] et diffusez en continu sa sortie standard et son erreur standard avec [az container attach][az-container-attach]. Vous pouvez également afficher les journaux et les événements pour les instances de conteneur dans le portail Azure ou envoyer des données de journal et d’événement pour les groupes de conteneurs aux [Journaux Azure Monitor](container-instances-log-analytics.md).
 
 ## <a name="view-logs"></a>Afficher les journaux d’activité
 
 Pour afficher les journaux d’activité à partir de votre code d’application dans un conteneur, vous pouvez utiliser la commande [az container logs][az-container-logs].
 
-Voici la sortie du journal à partir de l’exemple de conteneur basé sur des tâches dans [Exécuter une tâche en conteneur dans ACI](container-instances-restart-policy.md), après avoir chargé une URL non valide à traiter :
+Voici une sortie de journal extraite de l'exemple de conteneur basé sur des tâches dans [Définir la ligne de commande dans une instance de conteneur](container-instances-start-command.md#azure-cli-example), après avoir fourni une URL non valide à l’aide d’un remplacement de ligne de commande :
 
 ```console
 $ az container logs --resource-group myResourceGroup --name mycontainer
@@ -47,7 +47,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 La commande [liaison de conteneur az][az-container-attach] fournit des informations de diagnostic pendant le démarrage du conteneur. Une fois le conteneur démarré, il diffuse en continu STDOUT et STDERR sur votre console locale.
 
-Par exemple, voici la sortie du conteneur basé sur des tâches dans [Exécuter une tâche en conteneur dans ACI](container-instances-restart-policy.md), après avoir fourni une URL valide d’un fichier texte volumineux à traiter :
+Par exemple, voici la sortie du conteneur basé sur des tâches dans [Définir la ligne de commande dans une instance de conteneur](container-instances-start-command.md#azure-cli-example), après avoir fourni une URL valide de fichier texte volumineux à traiter :
 
 ```console
 $ az container attach --resource-group myResourceGroup --name mycontainer
@@ -76,7 +76,7 @@ Start streaming logs:
 
 ## <a name="get-diagnostic-events"></a>Récupérer des événements de diagnostic
 
-Toutefois, si votre conteneur ne se déploie pas correctement, vous devez examiner les informations de diagnostic fournies par le fournisseur de ressources Azure Container Instances. Pour afficher les événements liés à votre conteneur, exécutez la commande [az container show][az-container-show] :
+Toutefois, si votre conteneur ne se déploie pas correctement, examinez les informations de diagnostic fournies par le fournisseur de ressources Azure Container Instances. Pour afficher les événements liés à votre conteneur, exécutez la commande [az container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer
@@ -145,6 +145,9 @@ La sortie inclut les propriétés principales de votre conteneur, ainsi que les 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment [résoudre les problèmes courants de conteneur et de déploiement](container-instances-troubleshooting.md) pour Azure Container Instances.
 
+Découvrez comment envoyer des données de journaux et d’événements pour les groupes de conteneurs aux [Journaux Azure Monitor](container-instances-log-analytics.md).
+
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach
 [az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show

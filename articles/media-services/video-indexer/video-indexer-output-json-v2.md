@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: juliako
-ms.openlocfilehash: c978fed1675ea80ae9b2f6fb7fbe9a4c84472638
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab48787edcdd8c28891ca49d0f8b64305ce0e747
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978302"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454640"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
 
-Si vous appelez l’API **Get Video Index** (Obtenir un index vidéo) et si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse. Le contenu JSON détaille les insights des vidéos spécifiées. Ces insights incluent des dimensions telles que des transcriptions, des OCR, des visages, des rubriques, des blocs, etc. Les dimensions comptent des instances d’intervalles de temps qui indiquent le moment auquel chaque dimension apparaît dans la vidéo.  
+Si vous appelez l’API **Get Video Index** (Obtenir un index vidéo) et si l’état de la réponse est OK, vous obtenez une sortie JSON détaillée en tant que contenu de la réponse. Le contenu JSON détaille les insights des vidéos spécifiées. Ces insights incluent : des transcriptions, des OCR, des visages, des rubriques, des blocs, etc. Chaque type d’insight comprend des instances d’intervalle de temps qui indiquent quand l’insight apparaît dans la vidéo. 
 
 1. Pour récupérer le fichier JSON, appelez [Get Video Index API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Index?)
 1. Si vous êtes également intéressé par des artefacts spécifiques, appelez [Get Video Artifact Download URL API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Artifact-Download-Url?)
@@ -38,11 +38,11 @@ Cet article examine le contenu JSON retourné par l’API **Get Video Index** (O
 
 ## <a name="root-elements"></a>Éléments racines
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |accountId|ID du compte Video Indexer de la playlist.|
 |id|ID de la playlist.|
-|Nom|Nom de la playlist.|
+|name|Nom de la playlist.|
 |description|Description de la playlist.|
 |userName|Nom du créateur de la playlist.|
 |created|Heure de création de la playlist.|
@@ -80,7 +80,7 @@ Cette section présente le résumé des insights.
 
 |Attribut | Description|
 |---|---|
-|Nom|Nom de la vidéo. Exemple : Azure Monitor.|
+|name|Nom de la vidéo. Exemple : Azure Monitor.|
 |id|ID de la vidéo. Exemple : 63c6d532ff.|
 |privacyMode|La décomposition peut avoir l’un des modes suivants : **Privé**, **Public**. **Public** : tous les membres de votre compte et toutes les personnes disposant d’un lien vers la vidéo peuvent la visionner. **Privé** : tous les membres de votre compte peuvent la visionner.|
 |duration|Contient la durée d’un insight. La durée est exprimée en secondes.|
@@ -92,17 +92,17 @@ Cette section présente le résumé des insights.
 |audioEffects| Peut contenir zéro ou plusieurs éléments audioEffect. Pour plus d’informations, consultez la section [audioEffects](#audioEffects).|
 |étiquettes| Peut contenir zéro ou plusieurs étiquettes. Pour plus d’informations, consultez la section [labels](#labels).|
 |brands| Peut contenir zéro ou plusieurs marques. Pour plus d’informations, consultez la section [brands](#brands).|
-|statistics | Pour plus d’informations, consultez la section [statistics](#statistics).|
+|statistiques | Pour plus d’informations, consultez la section [statistics](#statistics).|
 |émotions| Peut contenir zéro ou plusieurs émotions. Pour plus d’informations, consultez la section [émotions](#emotions).|
-|topics|Peut contenir zéro ou plusieurs rubriques. La dimension [rubriques](#topics).|
+|topics|Peut contenir zéro ou plusieurs rubriques. L’insight [rubriques](#topics).|
 
 ## <a name="videos"></a>videos
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |accountId|ID du compte Video Indexer de la vidéo.|
 |id|ID de la vidéo.|
-|Nom|Nom de la vidéo.
+|name|Nom de la vidéo.
 |state|État de la vidéo (chargée, en cours de traitement, traitée, en échec, sous contrôle).|
 |processingProgress|Progression du traitement (par exemple, 20 %).|
 |failureCode|Code en cas d’échec du traitement (par exemple, « UnsupportedFileType »).|
@@ -121,7 +121,7 @@ Cette section présente le résumé des insights.
 |indexingPreset|Présélection utilisée pour indexer la vidéo.|
 |streamingPreset|Présélection utilisée pour publier la vidéo.|
 |linguisticModelId|Modèle CRIS utilisé pour transcrire la vidéo.|
-|statistics | Pour plus d’informations, consultez la section [statistics](#statistics).|
+|statistiques | Pour plus d’informations, consultez la section [statistics](#statistics).|
 
 ```json
 {
@@ -150,7 +150,7 @@ Cette section présente le résumé des insights.
 ```
 ### <a name="insights"></a>insights
 
-Les insights sont un ensemble de dimensions (par exemple, les lignes de transcription, les visages, les marques, etc.), où chacune d’elles est une liste d’éléments uniques (par exemple, face1, face2, face3), et où chaque élément possède ses propres métadonnées et une liste de ses instances (qui sont des intervalles de temps avec des métadonnées facultatives supplémentaires).
+Chaque insight (par exemple, les lignes de transcription, les visages, les marques, etc.), contient une liste d’éléments uniques (par exemple, face1, face2, face3), et où chaque élément possède ses propres métadonnées et une liste de ses instances (qui sont des intervalles de temps avec des métadonnées facultatives supplémentaires).
 
 Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres métadonnées et d’une liste de ses instances temporelles (exemple : 00:00:05 – 00:00:10, 00:01:00 - 00:02:30 et 00:41:21 – 00:41:49.) Chaque instance temporelle peut compter des métadonnées supplémentaires. Exemple : les coordonnées du rectangle du visage (20, 230, 60, 60).
 
@@ -158,22 +158,22 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |---|---|
 |sourceLanguage|Langue source de la vidéo (en supposant une langue principale). Sous la forme d’une chaîne [BCP-47](https://tools.ietf.org/html/bcp47).|
 |langage|Langue des insights (traduite à partir de la langue source). Sous la forme d’une chaîne [BCP-47](https://tools.ietf.org/html/bcp47).|
-|transcription|Dimension [transcript](#transcript).|
-|ocr|Dimension [OCR](#ocr).|
-|mots clés|Dimension [keywords](#keywords).|
+|transcription|L’insight [transcription](#transcript).|
+|ocr|L’insight [OCR](#ocr).|
+|mots clés|L’insight [mots clés](#keywords).|
 |blocks|Peut contenir un ou plusieurs [blocs](#blocks).|
-|visages|Dimension [faces](#faces).|
-|étiquettes|Dimension [labels](#labels).|
-|captures|Dimension [shots](#shots).|
-|brands|Dimension [brands](#brands).|
-|audioEffects|Dimension [audioEffects](#audioEffects).|
-|sentiments|Dimension [sentiments](#sentiments).|
-|visualContentModeration|Dimension [visualContentModeration](#visualcontentmoderation).|
-|textualContentModeration|Dimension [textualContentModeration](#textualcontentmoderation).|
-|émotions| La dimension [émotions](#emotions).|
-|topics|La dimension [rubriques](#topics).|
+|visages|L’insight [visages](#faces).|
+|étiquettes|L’insight [étiquettes](#labels).|
+|captures|L’insight [captures](#shots).|
+|brands|L’insight [brands](#brands).|
+|audioEffects|L’insight [audioEffects](#audioEffects).|
+|sentiments|L’insight [sentiments](#sentiments).|
+|visualContentModeration|L’insight [visualContentModeration](#visualcontentmoderation).|
+|textualContentModeration|L’insight [textualContentModeration](#textualcontentmoderation).|
+|émotions| L’insight [émotions](#emotions).|
+|topics|L’insight [rubriques](#topics).|
 
-Exemple :
+Exemple :
 
 ```json
 {
@@ -203,14 +203,14 @@ instances|Liste des intervalles de temps de ce bloc.|
 
 #### <a name="transcript"></a>transcription
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
 |langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
 |instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
-Exemple :
+Exemple :
 
 ```json
 "transcript": [
@@ -241,7 +241,7 @@ Exemple :
 
 #### <a name="ocr"></a>ocr
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
@@ -276,7 +276,7 @@ Exemple :
 
 #### <a name="keywords"></a>mots clés
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
@@ -307,10 +307,10 @@ Exemple :
 
 #### <a name="faces"></a>visages
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du visage.|
-|Nom|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
+|name|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
 |confidence|Degré de confiance de l’identification du visage.|
 |description|Description de la célébrité. |
 |thumbnailId|ID de la miniature de ce visage.|
@@ -352,10 +352,10 @@ Exemple :
 
 #### <a name="labels"></a>étiquettes
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de l’étiquette.|
-|Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
+|name|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
 |langage|Langue du nom de l’étiquette (si traduction). BCP-47|
 |instances|Liste des intervalles de temps au cours desquels cette étiquette est apparue (une étiquette peut apparaître plusieurs fois). Chaque instance possède un champ de confiance. |
 
@@ -411,7 +411,7 @@ Exemple :
 
 #### <a name="scenes"></a>scenes
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|L’ID de la scène.|
 |instances|Liste des intervalles de temps de cette scène (une scène ne peut avoir qu’une instance).|
@@ -444,7 +444,7 @@ Exemple :
 
 #### <a name="shots"></a>captures
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la capture.|
 |keyFrames|Liste des images clés au sein de la capture (chacune possède un ID et une liste d’intervalles de temps d’instances). Chaque instance d’image clé dispose d’un champ thumbnailId, qui contient l’ID de la miniature de l’image clé.|
@@ -494,10 +494,10 @@ Exemple :
 
 Noms des entreprises et des marques de produits détectés dans la reconnaissance vocale et/ou la reconnaissance optique de caractères des vidéos. Cela n’inclut pas la reconnaissance visuelle des marques ni la détection des logos.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la marque.|
-|Nom|Nom de la marque.|
+|name|Nom de la marque.|
 |referenceId | Suffixe de l’URL Wikipédia de marque. Exemple : «Target_Corporation » est le suffixe de [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | URL Wikipédia de la marque, le cas échéant. Par exemple : [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|Description de la marque.|
@@ -551,9 +551,9 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 ]
 ```
 
-#### <a name="statistics"></a>statistics
+#### <a name="statistics"></a>statistiques
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
 |SpeakerWordCount|Nombre de mots par intervenant.|
@@ -563,10 +563,10 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de l’effet audio.|
-|Type|Type d’effet audio (par exemple, applaudissements, discours, silence).|
+|type|Type d’effet audio (par exemple, applaudissements, discours, silence).|
 |instances|Liste des intervalles de temps au cours desquels cet effet audio est apparu.|
 
 ```json
@@ -592,7 +592,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 
 Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du sentiment.|
 |averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
@@ -631,7 +631,7 @@ Le bloc visualContentModeration contient des intervalles de temps qui sont susce
 
 Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants peuvent être disponibles pour un affichage privé uniquement. Les utilisateurs peuvent soumettre une demande de révision manuelle du contenu, auquel cas l’attribut IsAdult contient le résultat de la révision manuelle.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de modération du contenu visuel.|
 |adultScore|Degré du contenu pour adultes (d’après Content Moderator).|
@@ -667,7 +667,7 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de modération du contenu textuel.|
 |bannedWordsCount |Nombre de mots interdits.|
@@ -677,10 +677,10 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 
 Video Indexer identifie les émotions grâce à des signaux audio et vocaux. L’émotion identifiée peut être : le bonheur, la tristesse, la colère ou la peur.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de l’émotion.|
-|Type|Instant de l’émotion qui a été identifiée grâce à des signaux audio et vocaux. L’émotion peut être : le bonheur, la tristesse, la colère ou la peur.|
+|type|Instant de l’émotion qui a été identifiée grâce à des signaux audio et vocaux. L’émotion peut être : le bonheur, la tristesse, la colère ou la peur.|
 |instances|Liste des intervalles de temps pendant lesquels cette émotion est apparue.|
 
 ```json
@@ -767,10 +767,10 @@ Video Indexer identifie les émotions grâce à des signaux audio et vocaux. L�
 
 Video Indexer fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de second niveau est incluse lorsque cela est possible. 
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la rubrique.|
-|Nom|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|
+|name|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|
 |referenceId|Barres de navigation indiquant la hiérarchie des rubriques. Par exemple :  « Santé et bien-être/Médecine et soins médicaux/Produits pharmaceutiques ».|
 |confidence|Score de confiance dans la plage [0,1]. Un score plus élevé est d’une plus grande confiance.|
 |langage|Langue utilisée dans la rubrique.|

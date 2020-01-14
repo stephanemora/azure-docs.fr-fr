@@ -4,16 +4,16 @@ description: Cet article explique comment gérer et traiter votre facture Azure 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 15c2e84742ff0f552c688ccf1ba795f742e288ca
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d6faf56554d666ce29b68ba90bb920b4e6c56c30
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849885"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644560"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Factures d’inscription Azure Entreprise
 
@@ -22,8 +22,6 @@ Cet article explique comment gérer et traiter votre facture Azure Enterprise. V
 ## <a name="change-a-po-number-for-an-overage-invoice"></a>Modifier un numéro de bon de commande pour une facture de dépassement
 
 Le portail Azure EA génère automatiquement un numéro de bon de commande par défaut, sauf si l’administrateur EA en définit un avant la date de la facture. L’administrateur EA peut également mettre à jour le numéro de bon de commande dans un délai de sept jours après la réception d’un e-mail de notification de facture automatisée.
-
-Un numéro de bon de commande peut également être entré pour un compte ou un abonnement spécifique. Les rapports affichent par défaut le numéro de bon de commande de plus bas niveau défini dans la hiérarchie, ce qui signifie que si aucun numéro de bon de commande d’abonnement n’est entré, le numéro de bon de commande du compte est utilisé et que, si aucun bon de commande de compte n’est entré, le bon de commande du service sera utilisé.
 
 ### <a name="to-update-the-azure-services-purchase-order-number"></a>Pour mettre à jour le numéro de bon de commande des services Azure :
 
@@ -372,7 +370,7 @@ Pour référence, lorsque vous utilisez Excel pour modéliser les règles d’ar
 | Arrondi de la tarification (2 décimales) | =MROUND({_source_}, 0.02) |
 | Arrondi de la tarification (0 décimale) | =MROUND({_source_}, 2) |
 
-**Tableau** **2** **– Service cloud et conversion d’heures de machine virtuelle**
+**Tableau**  **2**  **– Service cloud et conversion d’heures de machine virtuelle**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>Conversion entre l’affichage de téléchargement du fichier d’utilisation et du résumé de l’utilisation du portail
 
@@ -419,7 +417,7 @@ Pour les services où la zone et la région affectent la tarification, le tablea
 | Zone 2 | Est de l’Asie-Pacifique <br> Sud-est de l’Asie-Pacifique <br> Japon Est <br> OuJapon Est <br> Australie Est <br> Sud-Australie Est | Asie-Pacifique <br> Japon <br> Amérique latine <br> Moyen-Orient / Afrique <br> Australie Est <br> Sud-Australie Est |
 | Zone 3 | Brésil Sud |   |
 
-**Tableau** **4** **– Régions de transfert de données**
+**Tableau**  **4**  **– Régions de transfert de données**
 
 Aucun frais n’est facturé pour la sortie de données entre des services (par exemple, O365 et Azure) hébergés dans le même centre de données.
 
@@ -559,7 +557,7 @@ Pour plus d’informations, consultez ces sources d’informations supplémentai
 | [**Noms de services conviviaux**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Fournit une liste de tous les services actifs avec la catégorie de service, le nom de service convivial, le nom et le numéro de référence de l’engagement, le nom et le numéro de référence de la consommation, les unités de mesure et les facteurs de conversion entre l’utilisation rapportée et l’utilisation affichée dans l’Enterprise Portal. | Friendly\_Service\_Names.xlsx |
 | [**Champs de téléchargement de service**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Cette feuille de calcul fournit une liste de toutes les combinaisons possibles de champs liés au service dans le rapport de téléchargement de l’utilisation. | Service\_Download\_Fields.xlsx |
 
-**Tableau** **5** **– Sources d’informations supplémentaires**
+**Tableau**  **5**  **– Sources d’informations supplémentaires**
 
 ## <a name="power-bi-reporting"></a>Rapports Power BI
 

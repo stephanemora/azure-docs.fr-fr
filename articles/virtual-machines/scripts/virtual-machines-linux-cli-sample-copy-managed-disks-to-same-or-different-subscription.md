@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Copier (déplacer) des disques managés vers un abonnement identique ou différent
-description: Exemple de script Azure CLI - Copier (déplacer) des disques managés vers un abonnement identique ou différent
+title: Copier les disques managés dans un abonnement - Exemple CLI
+description: Exemple de script Azure CLI - Copier (ou déplacer) des disques managés dans un même abonnement ou dans un abonnement différent
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 5f3859d632b14f1ec22ecd37ee0f10b01cbc7cd5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7ccdec703781a4e48870d5b4c27ec9d23de71dd0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458579"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copier des disques managés vers un abonnement identique ou différent avec l’interface de ligne de commande
 
@@ -48,7 +48,7 @@ Ce script utilise les commandes suivantes pour créer un disque géré dans l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une machine virtuelle à partir d’un disque managé](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Créer une machine virtuelle à partir d’un disque géré](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fpowershell%2fmodule%2ftoc.json)
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
 

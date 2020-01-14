@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/19/2017
-ms.openlocfilehash: 9fa18550a3c27ce38599b9a0d47abdc38524d9c2
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 12/26/2019
+ms.openlocfilehash: 5989692aeb59c7394299b4cb2474b244818895b2
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077093"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500073"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -21,7 +21,7 @@ Ce document montre comment prévoir des retards d’arrivée de vol à l’aide 
 
 Bien que les deux packages s’exécutent sur le moteur d’exécution de Spark d’Apache Hadoop, le partage des données en mémoire est bloqué pour eux, car ils requièrent chacun leur propre session Spark respective. En attendant que ce problème soit résolu dans une prochaine version de ML Server, la solution de contournement consiste à gérer des sessions Spark qui ne se recouvrent pas et à échanger les données via des fichiers intermédiaires. Les instructions fournies ici montrent que ces exigences sont faciles à obtenir.
 
-Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio) (Création d’une plateforme de science de données évolutive avec R).
+Cet exemple a été initialement partagé lors d’une intervention de Mario Inchiosa et Roni Burd dans le cadre de la conférence Strata 2016. Vous pouvez retrouver cette intervention sur la page [Building a Scalable Data Science Platform with R](https://channel9.msdn.com/blogs/Cloud-and-Enterprise-Premium/Building-A-Scalable-Data-Science-Platform-with-R-and-Hadoop) (Création d’une plateforme de science de données évolutive avec R).
 
 Le code a été écrit à l’origine pour ML Server s’exécutant sur Spark dans un cluster HDInsight sur Azure. Mais le concept de l’utilisation combinée de SparkR et de ScaleR dans un seul script est également valide dans le contexte d’environnements locaux.
 
@@ -31,7 +31,7 @@ La procédure décrite dans ce document suppose que vous disposez d’un niveau 
 
 Les données de vol sont disponibles à partir des [archives du gouvernement des États-Unis](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Elles sont également disponibles au format .zip dans [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Les données météorologiques peuvent être téléchargées tous les mois sous forme de fichiers zip au format brut à partir du [référentiel de la National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Pour cet exemple, téléchargez les données de mai 2007 à décembre 2012. Utilisez les fichiers de données de toutes les heures et le fichier `YYYYMMMstation.txt` dans tous les zips. 
+Les données météorologiques peuvent être téléchargées tous les mois sous forme de fichiers zip au format brut à partir du [référentiel de la National Oceanic and Atmospheric Administration](https://www.ncdc.noaa.gov/orders/qclcd/). Pour cet exemple, téléchargez les données de mai 2007 à décembre 2012. Utilisez les fichiers de données de toutes les heures et le fichier `YYYYMMMstation.txt` dans tous les zips.
 
 ## <a name="setting-up-the-spark-environment"></a>Configuration de l’environnement Spark
 
@@ -349,7 +349,7 @@ rxHadoopRemove(file.path(dataDir, "joined5Csv/_SUCCESS"))
 
 ## <a name="import-to-xdf-for-use-by-scaler"></a>Importer vers XDF pour une utilisation par ScaleR
 
-Nous pouvons utiliser le fichier CSV de la compagnie aérienne associée et les données météorologiques tels quels pour la modélisation via une source de données de texte ScaleR. Mais nous l’importons d’abord vers un fichier XDF, plus efficace lors de l’exécution de plusieurs opérations sur le jeu de données :
+Nous pouvons utiliser le fichier CSV de la compagnie aérienne associée et les données météorologiques tels quels pour la modélisation via une source de données de texte ScaleR. Mais nous l’importons d’abord vers un fichier XDF, plus efficace lors de l’exécution de plusieurs opérations sur le jeu de données :
 
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
@@ -459,7 +459,7 @@ rxGetInfo(testDS)
 
 ## <a name="train-and-test-a-logistic-regression-model"></a>Effectuer l’apprentissage et tester un modèle de régression logistique
 
-Nous sommes à présent prêts pour créer un modèle. Pour afficher l’influence des données météorologiques sur le retard à l’heure d’arrivée, nous utilisons la routine de régression logistique de ScaleR. Nous les utilisons pour savoir si un retard d’arrivée de plus de 15 minutes est influencé par la météo dans les aéroports de départ et d’arrivée :
+Nous sommes maintenant prêts à créer un modèle. Pour afficher l’influence des données météorologiques sur le retard à l’heure d’arrivée, nous utilisons la routine de régression logistique de ScaleR. Nous les utilisons pour savoir si un retard d’arrivée de plus de 15 minutes est influencé par la météo dans les aéroports de départ et d’arrivée :
 
 ```
 logmsg('train a logistic regression model for Arrival Delay > 15 minutes') 

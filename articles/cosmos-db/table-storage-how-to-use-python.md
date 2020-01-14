@@ -1,5 +1,5 @@
 ---
-title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
+title: Utiliser l’API Table Azure Cosmos DB et le Stockage Table Azure avec Python
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6c01b9581795f4ac74bd74757b9116c0d5df586d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675712"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444757"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec Python
 
@@ -33,7 +33,7 @@ Cet exemple montre comment utiliser le [Kit de développement logiciel (SDK) de 
 
 Pendant que vous étudiez les scénarios de cet exemple, vous pouvez vous référer à la [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous aurez besoin des éléments suivants pour suivre cet exemple :
 
@@ -79,7 +79,7 @@ Pour vous connecter à Azure Cosmos DB, copiez votre chaîne de connexion princi
 table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
-## <a name="create-a-table"></a>Création d’une table
+## <a name="create-a-table"></a>Créer une table
 
 Appelez [create_table][py_create_table] pour créer la table.
 
@@ -233,7 +233,7 @@ table_service.delete_table('tasktable')
 * [FAQ - Développer avec l’API Table](https://docs.microsoft.com/azure/cosmos-db/faq)
 * [Référence du kit de développement logiciel (SDK) Azure Cosmos DB pour l’API Python](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)
 * [Centre de développement Python](https://azure.microsoft.com/develop/python/)
-* [Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
+* [Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) : une application gratuite et multiplateforme qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
 * [Utilisation de Python dans Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)
 
 

@@ -2,19 +2,15 @@
 title: Intégrer les solutions de mises à jour et Change Tracking pour Azure Automation
 description: En savoir plus sur l’intégration des solutions de mises à jour et Change Tracking pour Azure Automation.
 services: automation
-ms.service: automation
-author: eamonoreilly
-ms.author: eamono
-manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d0024b8c43e76e3dd26b4b73c4ae0e09890b3b46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75421840"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Intégrer les solutions de mises à jour et Change Tracking pour Azure Automation
 
@@ -23,11 +19,11 @@ Dans ce didacticiel, vous découvrez comment intégrer automatiquement à Azure 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle Azure
 > * Activer des solutions
-> * Installer et mettre à jour des modules
+> * Installer et mettre à jour les modules
 > * Importer le runbook d’intégration
 > * Démarrer le runbook
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -37,7 +33,7 @@ Pour effectuer ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="onboard-an-azure-vm"></a>Intégrer une machine virtuelle Azure
 
-Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution [à partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md), [par la navigation sur plusieurs machines](automation-onboard-solutions-from-browse.md), [à partir de votre compte Automation](automation-onboard-solutions-from-automation-account.md) ou par runbook. Ce didacticiel vous guide dans l’activation de la solution Update Management par le biais d’un runbook. Pour intégrer à grande échelle Azure Virtual Machines, une machine virtuelle existante doit être intégrée à la solution Change Tracking ou Update Management. Dans cette étape, vous intégrez une machine virtuelle aux solutions Change Tracking et Update Management.
+Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution [à partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md), [par la navigation sur plusieurs machines](automation-onboard-solutions-from-browse.md), à partir de votre compte Automation ou par [runbook](automation-onboard-solutions-from-automation-account.md). Ce didacticiel vous guide dans l’activation de la solution Update Management par le biais d’un runbook. Pour intégrer à grande échelle Azure Virtual Machines, une machine virtuelle existante doit être intégrée à la solution Change Tracking ou Update Management. Dans cette étape, vous intégrez une machine virtuelle aux solutions Change Tracking et Update Management.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
@@ -131,7 +127,7 @@ Vous devez avoir intégré la solution de mise à jour ou Change Tracking à une
 1. Sélectionnez **OK** pour démarrer le travail du runbook.
 1. Surveillez la progression et la présence d’erreurs depuis la page de travail du runbook.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer une machine virtuelle de Update Management :
 
@@ -140,7 +136,7 @@ Pour supprimer une machine virtuelle de Update Management :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Intégrez manuellement une machine virtuelle Azure.

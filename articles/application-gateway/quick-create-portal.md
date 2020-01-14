@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f5a20f80ea8eafa73cbef394dcfdde75087326b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074580"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442341"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure
 
@@ -31,7 +31,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
 ## <a name="create-an-application-gateway"></a>Créer une passerelle Application Gateway
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
 
 2. Sélectionnez **Mise en réseau**, puis sélectionnez **Application Gateway** dans la liste **Sélection**.
 
@@ -48,7 +48,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
     Sous **Configurer le réseau virtuel**, créez un réseau virtuel en sélectionnant **Créer nouveau**. Dans la fenêtre **Créer un réseau virtuel** qui s’ouvre, entrez les valeurs suivantes pour créer le réseau virtuel et deux sous-réseaux :
 
-    - **Nom** : entrez *myVNet* comme nom de réseau virtuel.
+    - **Name** : entrez *myVNet* comme nom de réseau virtuel.
 
     - **Nom de sous-réseau** (sous-réseau Application Gateway) : La grille **Sous-réseaux** affiche un sous-réseau nommé *Par défaut*. Remplacez le nom de ce sous-réseau par *myAGSubnet*.<br>Le sous-réseau de passerelle d’application peut contenir uniquement des passerelles d’application. Aucune autre ressource n’est autorisée.
 
@@ -66,7 +66,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
 1. Sous l’onglet **Front-ends**, vérifiez que **Type d’adresse IP de front-end** est défini sur **Publique**. <br>Vous pouvez l’adresse IP frontale pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
    > [!NOTE]
-   > Pour la référence SKU Application Gateway v2, vous pouvez uniquement choisir la configuration d’une adresse IP front-end **publique**. Seule la configuration d’une adresse IP de front-end privée n’est pas activée pour la référence SKU v2. Vous pouvez disposer d’une configuration d’adresse IP frontale publique et privée.
+   > Pour la référence SKU Application Gateway v2, vous pouvez uniquement choisir la configuration d’une adresse IP front-end **publique**. Seule la configuration d’une adresse IP de front-end privée (uniquement en mode ILB) n’est pas activée pour la référence SKU v2. Vous pouvez disposer d’une configuration d’adresse IP frontale publique et privée.
 
 2. Choisissez **Créer nouveau** pour **Adresse IP publique**, puis entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
 
@@ -82,7 +82,7 @@ Le pool de back-ends est utilisé pour router les demandes vers les serveurs bac
 
 2. Dans la fenêtre **Ajouter un pool de back-ends** qui s’ouvre, entrez les valeurs suivantes pour créer un pool de back-ends vide :
 
-    - **Nom** : Entrez *myBackendPool* comme nom du pool de back-ends.
+    - **Name** : Entrez *myBackendPool* comme nom du pool de back-ends.
     - **Ajouter un pool backend sans cible** : Sélectionnez **Oui** pour créer un pool de back-ends sans cible. Vous ajouterez des cibles de back-end après avoir créé la passerelle d’application.
 
 3. Dans la fenêtre **Ajouter un pool de back-ends**, sélectionnez  **Ajouter** pour enregistrer la configuration du pool de back-ends et revenir à l’onglet **Back-ends**.
@@ -136,7 +136,7 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
 
 ### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. La fenêtre **Nouvelle** apparaît.
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter** dans la liste **Populaire**. La page **Créer une machine virtuelle** s’affiche.<br>Application Gateway peut acheminer le trafic vers n’importe quel type de machine virtuelle utilisée dans son pool principal. Dans cet exemple, vous utilisez un serveur Windows Server 2016 Datacenter.
 3. Sous l’onglet **De base**, entrez ces valeurs pour les paramètres de machine virtuelle suivants :
 
@@ -201,7 +201,7 @@ IIS n’est pas nécessaire pour créer la passerelle d’application, mais vous
 2. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur.
 3. Vérifiez la réponse. Une réponse valide vérifie que la passerelle d’application a bien été créée avec succès et qu’elle est capable de se connecter au back-end.![Tester la passerelle d’application](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin des ressources que vous avez créées avec la passerelle d’application, supprimez le groupe de ressources. En supprimant le groupe de ressources, vous supprimez aussi la passerelle d’application et toutes ses ressources associées. 
 

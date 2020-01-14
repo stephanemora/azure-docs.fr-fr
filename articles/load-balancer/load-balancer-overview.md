@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2019
 ms.author: allensu
-ms.openlocfilehash: 50cb61394043bb8d0e67cae2aea8be4285f3432c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4f6a0a2631c3f7458548a2ff435c3e565e744f41
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926267"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660208"
 ---
 # <a name="what-is-azure-load-balancer"></a>Qu’est-ce qu’Azure Load Balancer ?
 
@@ -51,7 +51,7 @@ Pour plus d’informations, consultez [Configuration du mode de distribution pou
 
   ![Distribution basée sur le hachage](./media/load-balancer-overview/load-balancer-distribution.png)
 
-  *Figure : Distribution basée sur le hachage*
+  *Figure : Distribution basée sur le hachage*
 
 * **Indépendance d’application et transparence** : Load Balancer n’interagit pas directement avec TCP, UDP ou la couche Application. Tous les scénarios d’application TCP ou UDP peuvent être pris en charge. Load Balancer ne met pas fin aux flux ou n’initie pas de flux, n’interagit pas avec la charge utile du flux et ne fournit aucune fonction de passerelle de couche Application. Les liaisons de protocole se produisent toujours directement entre le client et l’instance de pool principal. La réponse à un flux entrant provient toujours d’une machine virtuelle. Lorsque le flux arrive sur la machine virtuelle, l’adresse IP source d’origine est également conservée.
   * Chaque point de terminaison obtient uniquement une réponse d’une machine virtuelle. Par exemple, l’établissement d’une liaison TCP se fait toujours entre le client et la machine virtuelle du serveur principal sélectionnée. La réponse à une demande d’un serveur frontal est une réponse générée par la machine virtuelle du serveur principal. Lorsque vous validez correctement la connectivité à un serveur frontal, vous validez la connectivité de bout en bout à au moins une machine virtuelle du serveur principal.

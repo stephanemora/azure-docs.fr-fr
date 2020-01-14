@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Content Moderator pour .NET | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Content Moderator pour .NET'
 titleSuffix: Azure Cognitive Services
-description: Bien démarrer avec la bibliothèque de client Content Moderator pour .NET
+description: Bien démarrer avec la bibliothèque cliente Content Moderator pour .NET avec ce guide de démarrage rapide.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: cb812a0432e5fdb2828054751ef35f3de82226e7
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382053"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Content Moderator pour .NET
 
@@ -29,7 +29,7 @@ Utilisez la bibliothèque de client Content Moderator pour .NET aux fins suivant
 
 [Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ContentModerator) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) | [Exemples](https://docs.microsoft.com/azure/cognitive-services/content-moderator/samples-dotnet)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
@@ -96,7 +96,7 @@ Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponibl
 
 Les classes suivantes gèrent certaines des fonctionnalités principales du SDK .NET Content Moderator.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |[ContentModeratorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.contentmoderatorclient?view=azure-dotnet)|Cette classe est nécessaire pour toutes les fonctionnalités Content Moderator. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
 |[ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet)|Cette classe fournit les fonctionnalités permettant d’analyser des images pour y rechercher du contenu pour adultes, des informations personnelles ou des visages.|
@@ -266,12 +266,12 @@ Exécutez l’application à partir de votre répertoire d’application avec la
 dotnet run 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

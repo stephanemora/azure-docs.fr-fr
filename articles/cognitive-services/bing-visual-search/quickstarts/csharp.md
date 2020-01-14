@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 04/26/2019
+ms.date: 12/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 82c1159aca51bc30839f5380a414bd2b3b488bb8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 07ecac46ab13058d308c17c5747701ee5ed577fc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383634"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446685"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-c"></a>Démarrage rapide : Obtenir des insights sur les images à l’aide de l’API REST Recherche visuelle Bing et de C#
 
 Ce guide de démarrage rapide montre comment charger une image dans l’API Recherche visuelle Bing et comment visualiser les insights qu’elle retourne.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * N’importe quelle édition de [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Le [framework Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
@@ -41,7 +41,7 @@ Ce guide de démarrage rapide montre comment charger une image dans l’API Rech
     using System.Collections.Generic;
     ```
 
-2. Ajoutez les variables pour votre clé d’abonnement, le point de terminaison et le chemin de l’image que vous voulez charger :
+2. Ajoutez les variables pour votre clé d’abonnement, le point de terminaison et le chemin de l’image que vous voulez charger. `uriBase` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource :
 
     ```csharp
         const string accessKey = "<my_subscription_key>";

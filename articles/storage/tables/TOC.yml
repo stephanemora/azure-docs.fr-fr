@@ -75,7 +75,7 @@
       href: table-storage-design-modeling.md
     - name: Modèles de conception de table
       href: table-storage-design-patterns.md
-- name: Guides pratiques
+- name: Procédures
   items:
     - name: Créez un compte de stockage.
       displayName: 'resource manager, resource manager template, template, ARM'
@@ -83,11 +83,49 @@
       maintainContext: true
     - name: Mettre à niveau un compte de stockage
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Afficher et gérer les clés de compte
-      href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Utilisation de l’émulateur de stockage
+    - name: Utiliser l’émulateur de stockage
       href: /azure/storage/common/storage-use-emulator?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       maintainContext: true
+    - name: Sécuriser les données de table
+      items:
+        - name: Autoriser l’accès aux données de table
+          items:
+            - name: Afficher et gérer les clés de compte
+              href: ../common/storage-account-keys-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Configuration des chaînes de connexion
+              href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Utiliser l’API REST Stockage Azure
+              href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Gérer le chiffrement du stockage Azure
+          items:
+            - name: Créer un compte qui prend en charge les clés gérées par le client
+              href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Configurer les clés gérées par le client
+              items:
+                - name: Portail
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Vérifier le modèle de clé de chiffrement du compte
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Configurer le chiffrement côté client
+          items:
+            - name: .NET
+              href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Java
+              href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Python
+              href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Configurer la sécurité réseau
+          items:
+            - name: Configurer des pare-feu et des réseaux virtuels
+              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Exiger un transfert sécurisé
+              href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Activer TLS (Transport Layer Security)
+              href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Transfert de données
       items:
         - name: AzCopy (v10)

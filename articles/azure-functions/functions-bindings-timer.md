@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d5e78c3ab08e791a5f484e45d487c3a85dc95de7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928379"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613089"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -32,7 +32,7 @@ Le déclencheur de minuteur est fourni dans le package NuGet [Microsoft.Azure.We
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -166,7 +166,9 @@ public void keepAlive(
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Le constructeur de l’attribut prend une expression CRON ou `TimeSpan`. Vous pouvez utiliser `TimeSpan` uniquement si l’application de fonction s’exécute sur un plan App Service. L’exemple suivant illustre une expression CRON :
+Le constructeur de l’attribut prend une expression CRON ou `TimeSpan`. Vous pouvez utiliser `TimeSpan` uniquement si l’application de fonction s’exécute sur un plan App Service. `TimeSpan` n’est pas pris en charge pour la consommation ou les fonctions Premium élastiques.
+
+L’exemple suivant illustre une expression CRON :
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -254,7 +256,7 @@ Azure Functions utilise la bibliothèque [NCronTab](https://github.com/atifaziz/
 
 Chaque champ peut être associé aux types de valeurs suivants :
 
-|Type  |Exemples  |En cas de déclenchement  |
+|Type  |Exemple  |En cas de déclenchement  |
 |---------|---------|---------|
 |Une valeur spécifique |<nobr>"0 5 * * * *"</nobr>|à hh:05:00 où hh correspond à toutes les heures (une fois par heure)|
 |Toutes les valeurs (`*`)|<nobr>"0 * 5 * * *"</nobr>|à 5:mm:00 chaque jour, où mm correspond à toutes les minutes de l’heure (60 fois par jour)|
@@ -268,7 +270,7 @@ Chaque champ peut être associé aux types de valeurs suivants :
 
 Voici quelques exemples d’expressions NCRONTAB que vous pouvez utiliser pour le déclencheur de minuteur dans Azure Functions.
 
-|Exemples|En cas de déclenchement  |
+|Exemple|En cas de déclenchement  |
 |---------|---------|
 |`"0 */5 * * * *"`|une fois toutes les cinq minutes|
 |`"0 0 * * * *"`|une fois toutes les heures|
@@ -310,7 +312,7 @@ Contrairement à une expression CRON, une valeur `TimeSpan` spécifie l’interv
 
 Exprimé sous forme de chaîne, le format `TimeSpan` est `hh:mm:ss` lorsque la valeur de `hh` est inférieure à 24. Lorsque les deux premiers chiffres sont 24 ou plus, le format est `dd:hh:mm`. Voici quelques exemples :
 
-|Exemples |En cas de déclenchement  |
+|Exemple |En cas de déclenchement  |
 |---------|---------|
 |"01:00:00" | toutes les heures        |
 |"00:01:00"|chaque minute         |
@@ -338,7 +340,7 @@ Le déclencheur du minuteur utilise un verrou de stockage pour s’assurer qu’
 
 À la différence du déclencheur de file d’attente, le déclencheur de minuteur n’effectue pas de nouvelle tentative après l’échec d’une fonction. En cas d’échec d’une fonction, elle n’est pas rappelée avant la prochaine période planifiée.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Pour plus d’informations sur la procédure à suivre lorsque le déclencheur du minuteur ne fonctionne pas comme prévu, consultez [Investigating and reporting issues with timer triggered functions not firing](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing) (Examen et rapport des problèmes concernant l’absence de déclenchement des fonctions déclenchées par minuteur).
 

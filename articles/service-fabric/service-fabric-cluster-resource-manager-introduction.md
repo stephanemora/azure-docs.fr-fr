@@ -1,25 +1,16 @@
 ---
-title: Présentation de Service Fabric Cluster Resource Manager | Microsoft Docs
-description: Présentation de Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
+title: Présentation de Service Fabric Cluster Resource Manager
+description: Apprenez-en davantage sur le Gestionnaire des ressources clusters Service Fabric, un moyen de gérer l’orchestration des services de votre application.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da9205f5d95eaf1b4dc655ee727ab8a4fe90893d
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60743653"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563324"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Présentation de Service Fabric Cluster Resource Manager
 Jusqu’ici, pour gérer des systèmes informatiques ou des services en ligne, il fallait dédier des machines physiques ou virtuelles spécifiques à ces services ou systèmes spécifiques. Les services étaient conçus sous forme de niveaux : un niveau « web » et un niveau « données » ou « stockage ». Les applications comportaient un niveau de messagerie où les demandes étaient transmises ou reçues, ainsi qu’un ensemble de machines dédiées à la mise en cache. Chaque niveau ou type de charge de travail recevait des machines spécifiques dédiées : quelques machines pour la base de données, quelques-unes pour les serveurs web. Si un type particulier de charge de travail entraînait la surchauffe des machines sur lesquelles il était exécuté, alors vous ajoutiez davantage de machines avec cette même configuration à ce niveau. Toutefois, il n’était pas possible d’augmenter facilement toutes les charges de travail. Avec le niveau de données en particulier, vous deviez généralement remplacer les machines par des machines plus grandes. Facile. Si une machine venait à tomber en panne, cette partie de l’application globale s’exécutait alors à une capacité inférieure jusqu’à la restauration de la machine. Toujours aussi facile (mais pas forcément très amusant).

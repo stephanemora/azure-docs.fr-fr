@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8b2a24b6f2d7df92f1c8ea1b22432471aa432011
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838078"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644900"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -56,7 +56,7 @@ Une fois que vous avez conçu le package de ressources désiré, l’écriture e
 
 La version d’évaluation exécute des déploiements dans un mode entièrement automatisé et par conséquent, les modèles de version d’évaluation disposent de certaines restrictions décrites ci-dessous.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 La plupart des modèles possèdent un ensemble de paramètres. Les paramètres définissent les noms de ressources, les tailles de ressources (par exemple, les types de comptes de stockage ou les tailles de machine virtuelle), les noms d’utilisateur et les mots de passe, les noms DNS et ainsi de suite. Lorsque vous déployez des solutions à l’aide du portail Azure, vous pouvez manuellement remplir tous ces paramètres, choisir des noms DNS disponibles ou des noms de compte de stockage et ainsi de suite.
 
@@ -86,7 +86,7 @@ Il est également important de noter que **tous les paramètres sont facultatifs
 | Type de métadonnées   | Type de paramètre  | Description     | Exemple de valeur    |
 |---|---|---|---|
 | **baseuri**     | string          | URI de base de votre package de déploiement| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **nom d’utilisateur**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
+| **username**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
 | **mot de passe**    | chaîne sécurisée    | Nouveau mot de passe aléatoire | Lp!ACS\^2kh     |
 | **ID de la session**   | string          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
@@ -266,7 +266,7 @@ Toutefois, pour les modèles Resource Manager de la version d’évaluation, il 
 
 Il n’existe aucune restriction liée aux sorties de modèle. N’oubliez pas que la version d’évaluation convertit toutes les valeurs de sortie en **chaînes**, donc si vous envoyez un objet vers la sortie, un utilisateur verra une chaîne JSON.
 
-Exemple :
+Exemple :
 
 ```json
 "outputs": {
@@ -289,7 +289,7 @@ Exemple :
 
 L’abonnement et les limites de service sont d’autres éléments à prendre en considération. Par exemple, si vous souhaitez déployer jusqu’à dix machines virtuelles à 4 cœurs, vous devez vous assurer que l’abonnement que vous utilisez pour votre laboratoire vous permet d’utiliser 40 cœurs.
 
-Vous trouverez plus d’informations concernant l’abonnement Azure et les limites de service dans [cet article](https://docs.microsoft.com/azure/azure-subscription-service-limits). Étant donné que plusieurs versions d’évaluation peuvent être faites en même temps, vérifiez que votre abonnement peut gérer le  de cœurs multiplié par le nombre total de versions d’évaluation simultanées pouvant être effectuées.\#
+Vous trouverez plus d’informations concernant l’abonnement Azure et les limites de service dans [cet article](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Étant donné que plusieurs versions d’évaluation peuvent être faites en même temps, vérifiez que votre abonnement peut gérer le  de cœurs multiplié par le nombre total de versions d’évaluation simultanées pouvant être effectuées.\#
 
 ### <a name="what-to-upload"></a>Les éléments à télécharger
 
@@ -314,7 +314,7 @@ Le processus de transformation d’une architecture de ressources en modèle Res
 
 ## <a name="how-to-publish-a-test-drive"></a>Publication d’une version d’évaluation
 
-Maintenant que vous avez créé votre version d’évaluation, cette section décrit en détail chacun des champs requis pour pouvoir la publier.
+Maintenant que vous avez créé votre version d’évaluation, cette section décrit en détail chacun des champs obligatoires pour pouvoir la publier.
 
 ![Activation de la version d’évaluation dans l’interface utilisateur](./media/azure-resource-manager-test-drive/howtopub1.png)
 
@@ -328,17 +328,17 @@ La prochaine section à remplir concerne les détails de votre version d’éval
 
 ![Informations détaillées de la version d’évaluation](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Description :** *requis* C’est ici que vous rédigez la description principale sur le contenu de votre version d’évaluation. Le client viendra ici pour savoir quels scénarios seront couverts par la version d’évaluation de votre produit. 
+**Description :** *requis* C’est ici que vous rédigez la description principale sur le contenu de votre version d’évaluation. Le client consulte ici les scénarios qui sont couverts par la version d’évaluation de votre produit. 
 
 **Manuel utilisateur :** *requis* Il s’agit de la procédure approfondie de l’expérience de votre version d’évaluation. Le client l’ouvre et peut savoir exactement ce que vous voulez qu’il fasse dans sa version d’évaluation. Il est important que ce contenu soit facile à comprendre et à suivre ! (fichier PDF uniquement)
 
 **Vidéo de démonstration de la version d’évaluation :** *recommandée* Comme le manuel de l’utilisateur, il est préférable d’inclure un didacticiel vidéo sur l’expérience de votre version d’évaluation. Le client la visionne avant et pendant la version d’évaluation et peut savoir exactement ce que vous voulez qu’il fasse dans sa version d’évaluation. Il est important que ce contenu soit facile à comprendre et à suivre !
 
-- **Nom** : titre de votre vidéo
-- **Lien** : doit être une URL incorporée à partir de votre tube ou vidéo. Voici un exemple de la façon d’obtenir l’URL incorporé :
+- **Nom** : titre de votre vidéo.
+- **Lien** : doit être une URL incorporée à partir de votre tube ou vidéo. Un exemple illustrant l’obtention de l’URL incorporée figure ci-dessous :
 - **Miniature** : ce doit être une image de haute qualité (533 x 324 pixels). Il est recommandé de prendre ici une capture d’écran de certaines parties de votre version d’évaluation.
 
-Voici comment ces champs s’affichent pour votre client lors de la version d’évaluation.
+Voici comment ces champs s’affichent pour votre client lors de son expérience de version d’évaluation.
 
 ![Emplacement des champs de la version d’évaluation dans l’offre de la Place de marché](./media/azure-resource-manager-test-drive/howtopub4.png)
 
@@ -351,7 +351,7 @@ La section suivante à remplir est l’emplacement où vous chargez le modèle R
 **Instances :** *requis* Voici où vous configurez le nombre d’instances que vous désirez, leur(s) région(s), et la vitesse à laquelle vos clients peuvent obtenir la version d’évaluation.
 
 - **Instances** : le modèle Resource Manager de votre version d’évaluation est déployé dans les régions choisies. Il est recommandé de choisir une seule région, celle où la majorité de vos clients se trouvent.
-- **Chaud** : nombre d’instances de version d’évaluation déjà déployées et en attente d’accès par région sélectionnée. Les clients peuvent accéder instantanément à ces versions d’évaluation plutôt que d’attendre un déploiement. L’inconvénient est que ces instances sont toujours en cours d’exécution sur votre abonnement Azure, entraînant des coûts de fonctionnement plus importants. Il est vivement recommandé d’avoir **au moins une instance à chaud**, étant donné que la plupart de vos clients ne souhaitent pas attendre la fin des déploiements complets, et il y a donc une chute dans l’utilisation du client.
+- **Chaud** : nombre d’instances de version d’évaluation déjà déployées et en attente d’accès par région sélectionnée. Les clients peuvent accéder instantanément à ces versions d’évaluation au lieu d’attendre un déploiement. L’inconvénient est que ces instances sont toujours en cours d’exécution sur votre abonnement Azure, entraînant des coûts de fonctionnement plus importants. Il est vivement recommandé d’avoir **au moins une instance à chaud**, étant donné que la plupart de vos clients ne souhaitent pas attendre la fin des déploiements complets, et il y a donc une chute dans l’utilisation du client.
 - **Tiède** : nombre d’instances de version d’évaluation par région ayant été déployées, avant que la machine virtuelle ne soit arrêtée, puis stockée dans le stockage Azure. Le délai d’attente pour les instances tièdes est plus lent que les instances à chaud, mais le coût de fonctionnement du stockage est également moindre.
 - **Froid** : nombre d’instances de version d’évaluation pouvant être déployées par région. Les instances à froid nécessitent le modèle Resource Manager entier de la version d’évaluation pour passer par un déploiement lorsqu’un client demande la version d’évaluation, elles sont donc plus lentes que les instances à chaud ou tièdes. Toutefois, la différence est que vous payez uniquement la durée de la version d’évaluation.
 
@@ -371,7 +371,7 @@ La dernière section à remplir vise à permettre le déploiement automatique de
 
 ![Détails de l’abonnement de déploiement de la version d’évaluation](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**ID d’abonnement Azure :** *requis* Ce paramètre accorde l’accès aux services Azure et au portail Azure. L’abonnement est l’endroit où l’utilisation des ressources est signalée et où les services sont facturés. Si vous n’avez pas encore un abonnement Azure **distinct** uniquement pour les versions d’évaluation, continuez et créez-en un. Vous pouvez trouver les ID d’abonnement Azure en vous connectant au portail Azure et en accédant aux abonnements dans le menu de gauche. (Exemple : « a83645ac-1234-5ab6-6789-1h234g764ghty »)
+**ID d’abonnement Azure :** *requis* Ce paramètre accorde l’accès aux services Azure et au portail Azure. C’est dans l’abonnement que l’utilisation des ressources est signalée et que les services sont facturés. Si vous n’avez pas encore un abonnement Azure **distinct** uniquement pour les versions d’évaluation, continuez et créez-en un. Pour trouver les ID d’abonnement Azure, connectez-vous au portail Azure et accédez aux abonnements dans le menu de gauche. (Exemple : « a83645ac-1234-5ab6-6789-1h234g764ghty »)
 
 ![Abonnements Azure](./media/azure-resource-manager-test-drive/subdetails2.png)
 
@@ -379,7 +379,7 @@ La dernière section à remplir vise à permettre le déploiement automatique de
 
 ![Propriétés Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails3.png)
 
-Autrement, créez un nouveau locataire dans Azure Active Directory.
+Dans le cas contraire, créez un locataire dans Azure Active Directory.
 
 ![Liste des locataires Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
@@ -401,7 +401,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
 
 ![Détails de l’ID d’application Azure AD](./media/azure-resource-manager-test-drive/subdetails7.png)
 
-Étant donné nous utilisons l’application à déployer sur l’abonnement, nous devons ajouter l’application en tant que collaborateur sur l’abonnement. Voici les instructions pour le faire :
+Étant donné que nous utilisons l’application à déployer vers l’abonnement, nous devons ajouter cette application en tant que contributeur dans l’abonnement. Voici les instructions pour le faire :
 
 1. Accédez au panneau Abonnements et sélectionnez l’abonnement approprié que vous utilisez uniquement pour la version d’évaluation.
 1. Cliquez sur **Contrôle d’accès (IAM)** .
@@ -412,7 +412,7 @@ Cliquez sur Enregistrer. La dernière étape consiste à récupérer l’ID de c
     ![Ajouter les autorisations](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
 1. Cliquez sur **Enregistrer**.
 
-**Clé d’application Azure AD :** *requis* Le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée de sorte qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** d’éviter d’avoir une clé expirée, car cela arrête votre version d’évaluation en production. Copiez cette valeur et collez-la dans le champ de votre version d’évaluation.
+**Clé d’application Azure AD :** *requis* Le champ final consiste à générer une clé d’authentification. Sous Clés, ajoutez une description de la clé, définissez la durée afin qu’elle n’expire jamais, puis sélectionnez Enregistrer. Il est **important** d’éviter d’avoir une clé expirée, car cela arrête votre version d’évaluation en production. Copiez cette valeur et collez-la dans le champ obligatoire de votre version d’évaluation.
 
 ![Affiche les clés de l’application Azure AD](./media/azure-resource-manager-test-drive/subdetails8.png)
 
@@ -424,6 +424,6 @@ Maintenant que tous les champs de la version d’évaluation sont remplis, parco
 
 Il est important de noter que vous ne supprimez aucune instance de la version d’évaluation, car elles sont approvisionnées pour vos clients, donc le service de version d’évaluation nettoiera automatiquement ces groupes de ressources une fois qu’un client a terminé de l’utiliser.
 
-Une fois que vous vous sentez à l’aise avec votre offre en préversion, il est maintenant temps de la faire **entrer en service** ! Une fois que l’offre a été publiée, un processus de vérification finale de Microsoft permet de vérifier l’expérience de bout en bout complète. Si l’offre est rejetée pour une raison quelconque, nous enverrons une notification au contact d’ingénierie de votre offre, en expliquant les éléments à résoudre.
+Une fois que vous vous sentez à l’aise avec votre offre en préversion, il est temps de la **mettre en service**. Une fois que l’offre a été publiée, un processus de vérification finale de Microsoft permet de vérifier l’expérience de bout en bout complète. Si l’offre est rejetée pour une raison quelconque, nous envoyons une notification au support technique de votre offre, en expliquant les éléments à corriger.
 
-Si vous avez des questions supplémentaires, ou recherchez des conseils de dépannage ou bien si vous voulez rendre votre version d’évaluation plus réussie, accédez à [Forum aux questions, résolution des problèmes et meilleures pratiques](./marketing-and-best-practices.md).
+Si vous avez d'autres questions, si vous cherchez des conseils de résolution des problèmes ou si vous souhaitez améliorer votre version d'évaluation, consultez l'article [Forum aux questions, résolution des problèmes et meilleures pratiques](./marketing-and-best-practices.md).

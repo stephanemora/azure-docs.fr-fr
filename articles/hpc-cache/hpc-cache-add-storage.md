@@ -4,14 +4,14 @@ description: Comment définir des cibles de stockage pour qu’Azure HPC Cache p
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 396ed84856604c297551c4593e0d7b82b92ac924
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166616"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647212"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -33,21 +33,25 @@ Ajoutez des cibles de stockage après avoir créé votre cache. La procédure es
 
 Les nouvelles cibles de stockage Blob nécessitent un conteneur d’objets blob vide ou un conteneur comprenant des données au format du système de fichiers cloud Azure HPC Cache. Pour plus d’informations sur le préchargement d’un conteneur d’objets blob, consultez [Déplacer les données dans le stockage d’objets blob Azure](hpc-cache-ingest.md).
 
+Vous pouvez créer un conteneur à partir de cette page avant de l’ajouter.
+
 Pour définir un conteneur d’objets blob Azure, entrez les informations ci-dessous.
 
 ![capture d’écran de la page Ajouter une cible de stockage, où ont été renseignées les informations relatives à la nouvelle cible de stockage d’objets blob Azure](media/hpc-cache-add-blob.png)
 
 <!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
-* **Nom de la cible de stockage** : définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
+* **Nom de la cible de stockage** - Définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
 * **Type de cible** : choisissez **Objet blob**.
-* **Compte de stockage** : sélectionnez le compte qui comprend le conteneur à utiliser.
+* **Compte de stockage** : sélectionnez le compte que vous souhaitez utiliser.
 
   Vous devez autoriser l’instance de cache à accéder au compte de stockage, en suivant la procédure décrite dans [Ajouter les rôles d’accès](#add-the-access-control-roles-to-your-account).
 
   Pour plus d’informations sur le type de compte de stockage que vous pouvez utiliser, lisez [Exigences relatives au stockage Blob](hpc-cache-prereqs.md#blob-storage-requirements).
 
-* **Conteneur de stockage** : sélectionnez le conteneur d’objets blob pour cette cible.
+* **Conteneur de stockage** : sélectionnez le conteneur d’objets blob pour cette cible ou cliquez sur **Créer nouveau**.
+
+  ![capture d’écran de la boîte de dialogue permettant de spécifier le nom et le niveau d’accès (privé) du nouveau conteneur](media/add-blob-new-container.png)
 
 * **Chemin de l’espace de noms virtuels** - Définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
 
@@ -146,9 +150,9 @@ Ce tableau récapitule les différences entre les modèles d’utilisation :
 
 | Modèle d’utilisation | Mode de mise en cache | Vérification backend | Délai maximal d’écriture différée |
 | ---- | ---- | ---- | ---- |
-| Lire les écritures lourdes et peu fréquentes | Lire | Jamais | Aucun |
-| Opérations d’écriture supérieures à 15 % | Lecture/écriture | Jamais | 1 heure |
-| Les clients ignorent le cache | Lire | 30 secondes | Aucun |
+| Lire les écritures lourdes et peu fréquentes | Lire | Jamais | None |
+| Opérations d’écriture supérieures à 15 % | Lecture/écriture | Jamais | 1 heure |
+| Les clients ignorent le cache | Lire | 30 secondes | None |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

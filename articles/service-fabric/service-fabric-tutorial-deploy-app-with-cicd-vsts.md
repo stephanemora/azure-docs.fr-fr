@@ -1,26 +1,15 @@
 ---
-title: Déployer une application Service Fabric avec intégration continue et Azure Pipelines dans Azure| Microsoft Docs
+title: Déployer une application avec CI et Azure Pipelines
 description: Dans ce tutoriel, vous allez découvrir comment configurer l’intégration et le déploiement continus pour une application Service Fabric à l’aide d’Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 11485d22abcf0b8e1eb13d8123ff21c7fe0079f8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838970"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614141"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application avec intégration et déploiement continus sur un cluster Service Fabric
 
@@ -42,7 +31,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Configurer CI/CD à l’aide d’Azure Pipelines
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -182,7 +171,7 @@ La mise à niveau de l’application peut prendre plusieurs minutes. Une fois la
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter le contrôle de code source à votre projet

@@ -1,5 +1,5 @@
 ---
-title: Comprendre les conditions de votre grille tarifaire pour un Contrat client Microsoft - Azure
+title: Conditions de la grille tarifaire de votre Contrat client Microsoft - Azure
 description: Découvrir comment lire et comprendre vos données d’utilisation et de facture pour un Contrat client Microsoft.
 author: bandersmsft
 manager: jureid
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 1e7e698bede44ddb3fe701c50f69164b03fe13d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f4285b8185b2df2694f399f6bcb6751c1e9c6650
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223766"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449348"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Conditions de la grille tarifaire de votre Contrat client Microsoft
 

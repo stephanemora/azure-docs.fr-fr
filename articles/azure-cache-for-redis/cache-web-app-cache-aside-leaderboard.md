@@ -1,24 +1,24 @@
 ---
-title: Tutoriel pour créer une application web avec Cache Azure pour Redis qui utilise le modèle Cache-Aside
-description: Découvrez comment créer une application web avec Cache Azure pour Redis qui utilise le modèle Cache-Aside.
+title: 'Tutoriel : Créer une application web (Cache-Aside) - Cache Azure for Redis'
+description: Découvrez comment créer une application web qui utilise le modèle Cache-Aside avec le cache Azure for Redis.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.author: yegu
-ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121518"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75411953"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
 Dans ce tutoriel, vous allez mettre à jour l’application web ASP.NET *ContosoTeamStats*, créée dans le [guide de démarrage rapide ASP.NET pour Cache Azure pour Redis](cache-web-app-howto.md), afin d’inclure un leaderboard qui utilise le [modèle Cache-Aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) avec Cache Azure pour Redis. L’exemple d’application affiche une liste des statistiques d’équipe d’une base de données et montre les différentes façons d’utiliser Cache Azure pour Redis afin de stocker et de récupérer des données à partir du cache pour améliorer les performances. Une fois le tutoriel terminé, vous disposerez d’une application web, optimisée avec Cache Azure pour Redis et hébergée dans Azure, effectuant des opérations de lecture et écriture sur une base de données.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Améliorer le débit des données et réduire la charge de la base de données en stockant et en récupérant des données à l’aide de Cache Azure pour Redis.
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -652,7 +652,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
 1. Utilisez les paramètres suivants pour la nouvelle base de données SQL :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION |
+   | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom de la base de données** | *ContosoTeamsDatabase* | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Abonnement** | *Votre abonnement*  | Sélectionnez l’abonnement que vous avez utilisé pour créer le cache et héberger le service d’application. |
@@ -661,7 +661,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
 1. Sous **Serveur**, cliquez sur **Configurer les paramètres requis** > **Créer un nouveau serveur** et fournissez les informations suivantes, puis cliquez sur le bouton **Sélectionner** :
 
-   | Paramètre       | Valeur suggérée | DESCRIPTION |
+   | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/architecture/best-practices/resource-naming) (Conventions d’affectation de nom). |
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
@@ -678,7 +678,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
 1. Ajouter une nouvelle chaîne de connexion nommée *TeamContext* pour correspondre à la classe de contexte de base de données Entity Framework. Collez la chaîne de connexion de votre nouvelle base de données comme valeur. Veillez à remplacer les espaces réservés suivants dans la chaîne de connexion et cliquez sur **Enregistrer** :
 
-    | Placeholder | Valeur suggérée |
+    | Espace réservé | Valeur suggérée |
     | --- | --- |
     | *{your_username}* | Utilisez la **connexion d’administrateur du serveur** pour le serveur de base de données que vous venez de créer. |
     | *{your_password}* | Utilisez le mot de passe pour le serveur de base de données que vous venez de créer. |
@@ -715,7 +715,7 @@ Dans cette étape du didacticiel, vous allez publier les mises à jour de l’ap
 
 Cliquez sur certaines actions et essayez de récupérer les données de différentes sources. Notez que le temps nécessaire pour récupérer les données à partir de la base de données et du cache varie selon la méthode utilisée.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous avez terminé avec l’exemple d’application du didacticiel, vous pouvez supprimer les ressources Azure utilisées afin de réduire les coûts et de préserver les ressources. Toutes vos ressources doivent être contenues dans le même groupe de ressources, vous pouvez les supprimer ensemble en une seule opération en supprimant le groupe de ressources. Les instructions relatives à cette rubrique utilisaient un groupe de ressources nommé *TestResources*.
 
@@ -727,7 +727,7 @@ Lorsque vous avez terminé avec l’exemple d’application du didacticiel, vous
 2. Tapez le nom de votre groupe de ressources dans la zone de texte **Filtrer des éléments...** .
 3. Cliquez sur **...** à droite du votre groupe de ressources, puis cliquez sur **Supprimer le groupe de ressources**.
 
-    ![Supprimer](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![DELETE](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**.
 

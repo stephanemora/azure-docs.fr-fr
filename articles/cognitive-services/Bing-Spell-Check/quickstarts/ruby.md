@@ -1,27 +1,27 @@
 ---
 title: 'Démarrage rapide : Vérifier l’orthographe avec l’API REST et Ruby - Vérification orthographique Bing'
 titleSuffix: Azure Cognitive Services
-description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire.
+description: Commencez à utiliser l’API REST Vérification orthographique Bing pour vérifier l’orthographe et la grammaire avec ce guide de démarrage rapide.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: e80a7bd3b56ccfd13a20c11f845d076271448b76
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 89a2a345e2a4e3ca1be31297e614e86f800e6316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383835"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448434"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Démarrage rapide : Vérifier l’orthographe avec l’API REST Vérification orthographique Bing et Ruby
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API REST Vérification orthographique Bing avec Ruby. Cette simple application envoie une demande à l’API et retourne une liste de mots qu’elle n’a pas reconnus, suivie des suggestions de corrections. Alors que cette application est écrite en Ruby, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ou ultérieur.
 
@@ -32,13 +32,13 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
 
 1. Créez un fichier Ruby dans votre éditeur ou IDE favori, puis ajoutez les exigences suivantes. 
 
-    ```javascript
+    ```ruby
     require 'net/http'
     require 'uri'
     require 'json'
     ```
 
-2. Créez des variables pour votre clé d’abonnement, l’URI du point de terminaison et le chemin. Créez vos paramètres de demande en ajoutant le paramètre `mkt=` à votre marché et `&mode` au mode de vérification `proof`.
+2. Créez des variables pour votre clé d’abonnement, l’URI du point de terminaison et le chemin. Créez vos paramètres de demande en ajoutant le paramètre `mkt=` à votre marché et `&mode` au mode de vérification `proof`. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -81,6 +81,16 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l�
     result = JSON.pretty_generate(JSON.parse(response.body))
     puts result
     ```
+
+## <a name="run-the-application"></a>Exécution de l'application
+
+Créez et exécutez votre projet.
+
+Si vous utilisez la ligne de commande, utilisez la commande suivante pour exécuter l’application.
+
+```bash
+ruby <FILE_NAME>.rb
+```
 
 ## <a name="example-json-response"></a>Exemple de réponse JSON
 

@@ -8,33 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 58e813d30273db4e011039aa43cd59c61507895e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: f7d6e98205afad2ed2c4aea30e635254f79acaa1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74383706"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448088"
 ---
 # <a name="label-machine-learned-entity-in-an-example-utterance"></a>Étiqueter une entité issue du Machine Learning dans un exemple d’énoncé
 
-L’étiquetage d’une entité dans un exemple d’énoncé donne à LUIS un exemple de cette entité et indique où celle-ci peut apparaître dans l’énoncé. 
+L’étiquetage d’une entité dans un exemple d’énoncé donne à LUIS un exemple de cette entité et indique où celle-ci peut apparaître dans l’énoncé.
 
 ## <a name="labeling-machine-learned-entity"></a>Étiquetage d’une entité issue du Machine Learning
 
-Prenez la phrase `hi, please I want a cheese pizza in 20 minutes` (Bonjour, je voudrais une pizza au fromage dans 20 minutes). 
+Prenez la phrase `hi, please I want a cheese pizza in 20 minutes` (Bonjour, je voudrais une pizza au fromage dans 20 minutes).
 
 1. Sélectionnez le texte le plus à gauche, puis sélectionnez le texte le plus à droite de l’entité. Ensuite, choisissez l’entité que vous souhaitez étiqueter, en l’occurrence, CompleteOrder. L’option _CompleteOrder_ (Terminer la commande) est étiquetée dans l’image suivante.
 
     > [!div class="mx-imgBorder"]
     > ![Étiquetage de l’entité CompleteOrder issue du Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
 
-1. Sélectionnez l’entité dans la fenêtre contextuelle. L’entité CompleteOrder comprend tous les mots (de gauche à droite en anglais) qui sont étiquetés. 
+1. Sélectionnez l’entité dans la fenêtre contextuelle. L’entité CompleteOrder comprend tous les mots (de gauche à droite en anglais) qui sont étiquetés.
 
 ## <a name="review-labeled-text"></a>Vérifier le texte étiqueté
 
-Après l’étiquetage, vérifiez l’exemple d’énoncé et vérifiez que l’étendue de texte sélectionnée a été soulignée avec l’entité choisie. La ligne pleine indique que le texte a été étiqueté. 
+Après l’étiquetage, vérifiez l’exemple d’énoncé et vérifiez que l’étendue de texte sélectionnée a été soulignée avec l’entité choisie. La ligne pleine indique que le texte a été étiqueté.
 
 > [!div class="mx-imgBorder"]
 > ![Entité CompleteOrder issue du Machine Learning étiquetée](media/label-utterances/example-1-label-machine-learned-entity-complete-order-labeled.png)
@@ -55,12 +55,12 @@ Vous pouvez également sélectionner le nom de l’entité au-dessus du texte, p
 
 La palette des entités offre une alternative à l’expérience d’étiquetage précédente. Elle vous permet de surligner du texte afin de l’étiqueter instantanément avec une entité.
 
-1. Ouvrez la palette des entités en sélectionnant l’icône Surligneur en haut à droite de la table des énoncés. 
+1. Ouvrez la palette des entités en sélectionnant l’icône Surligneur en haut à droite de la table des énoncés.
 
     > [!div class="mx-imgBorder"]
     > ![Palette des entités pour l’entité issue du Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
 
-2. Sélectionnez le composant d’entité. Cette action est indiquée visuellement par un nouveau curseur. Le curseur suit les déplacements de la souris dans le portail. 
+2. Sélectionnez le composant d’entité. Cette action est indiquée visuellement par un nouveau curseur. Le curseur suit les déplacements de la souris dans le portail.
 
     > [!div class="mx-imgBorder"]
     > ![Palette des entités pour l’entité issue du Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
@@ -77,11 +77,20 @@ Les sous-composants des entités sont étiquetés exactement de la même façon 
 > [!div class="mx-imgBorder"]
 > ![Palette des entités pour l’entité issue du Machine Learning](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
 
-Les sous-composants peuvent être étiquetés uniquement si le parent est également étiqueté. 
+Les sous-composants peuvent être étiquetés uniquement si le parent est également étiqueté.
+
+## <a name="labeling-entity-roles"></a>Étiquetage des rôles d’entité
+
+Les rôles d’entité sont étiquetés à l’aide de la palette d’entités.
+
+1. Dans la page des détails de l’intention, sélectionnez la **palette d’entités** dans la barre d’outils contextuelle.
+1. Une fois la palette d’entités ouverte, sélectionnez l’entité dans la liste des entités.
+1. Accédez à l’**inspecteur d’entité**, puis sélectionnez un rôle existant ou créez-en un.
+1. Dans l’exemple de texte d’énoncé, étiquetez le texte avec le rôle d’entité. 
 
 ## <a name="unlabel-entities"></a>Supprimer les étiquettes des entités
 
-Pour supprimer l’étiquette d’une entité, sélectionnez le nom de l’entité situé sous le texte et sélectionnez **Unlabel** (Supprimer l’étiquette). Si l’entité dont vous souhaitez supprimer l’étiquette comprend des sous-composants étiquetés, vous devez d’abord supprimer les étiquettes de ces sous-composants. 
+Pour supprimer l’étiquette d’une entité, sélectionnez le nom de l’entité situé sous le texte et sélectionnez **Unlabel** (Supprimer l’étiquette). Si l’entité dont vous souhaitez supprimer l’étiquette comprend des sous-composants étiquetés, vous devez d’abord supprimer les étiquettes de ces sous-composants.
 
 ## <a name="editing-labels-using-the-entity-palette"></a>Modification des étiquettes à l’aide de la palette des entités
 
@@ -98,7 +107,6 @@ Par exemple :
 
     > [!div class="mx-imgBorder"]
     > ![Palette des entités pour l’entité issue du Machine Learning](media/label-utterances/edit-label-with-palette-2.png)
-
 
 ## <a name="labels-for-matching-text-entities"></a>Étiquettes des entités avec correspondance de texte
 

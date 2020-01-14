@@ -9,14 +9,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c16fca06950ea06b80f2e27d6fb845f5d0d282c0
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701908"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665124"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Didacticiel : Stocker des données en périphérie avec les bases de données SQL Server
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutoriel : Stocker des données en périphérie avec les bases de données SQL Server
 
 Déployez un module SQL Server pour stocker des données sur un appareil Linux exécutant Azure IoT Edge.
 
@@ -24,7 +24,7 @@ Utilisez Azure IoT Edge et SQL Server pour stocker et interroger des données en
 
 Cet article fournit des instructions pour le déploiement d’une base de données SQL Server sur un appareil IoT Edge. Azure Functions, exécuté sur l’appareil IoT Edge, structure les données entrantes, puis les envoie vers la base de données. Les étapes décrites dans cet article peuvent également être appliquées aux autres bases de données qui fonctionnent dans des conteneurs, telles que MySQL ou PostgreSQL.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
+Dans ce tutoriel, vous allez apprendre à : 
 
 > [!div class="checklist"]
 > * Utiliser Visual Studio Code pour créer une fonction Azure
@@ -34,12 +34,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies : 
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
+* Un [appareil Linux AMD64 exécutant Azure IoT Edge](quickstart-linux.md).
+  * Les appareils ARM, comme Raspberry Pis, ne peuvent pas exécuter SQL Server. Si vous souhaitez utiliser SQL sur un appareil ARM, vous pouvez vous inscrire pour essayer [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/) en préversion. 
 * Un registre de conteneurs tel qu’[Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
@@ -57,11 +58,11 @@ Pour envoyer des données dans une base de données, vous avez besoin d’un mod
 
 Les étapes suivantes vous montrent comment créer une fonction IoT Edge à l’aide de Visual Studio Code et des outils Azure IoT.
 
-1. Ouvrez Visual Studio Code.
+1. Ouvrez Visual Studio Code.
 
 2. Ouvrez la palette de commandes VS Code en sélectionnant **Affichage** > **Palette de commandes**.
 
-3. Dans la palette de commandes, tapez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution : 
+3. Dans la palette de commandes, saisissez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Dans la palette de commandes, spécifiez les informations suivantes pour créer votre solution : 
 
    | Champ | Valeur |
    | ----- | ----- |
@@ -83,11 +84,11 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 
-Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
+Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
 
-1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Définir la plateforme cible par défaut pour la solution Edge**, ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
+1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge : définir la plateforme cible par défaut pour la solution Edge), ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
 
-2. Dans la palette de commandes, sélectionnez l’architecture cible dans la liste des options. Pour ce tutoriel, comme nous utilisons une machine virtuelle Ubuntu en tant qu’appareil IoT Edge, ce dernier conservera la valeur par défaut **amd64**. 
+2. Dans la palette de commandes, sélectionnez l’architecture cible dans la liste des options. Pour ce tutoriel, comme nous utilisons une machine virtuelle Ubuntu en tant qu’appareil IoT Edge, nous allons conserver la valeur par défaut **amd64**. 
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
@@ -316,7 +317,7 @@ Une fois que votre table est créée, le module sqlFunction démarre le stockage
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 

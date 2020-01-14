@@ -1,20 +1,31 @@
 ---
-title: 'Tutoriel : Créer et exécuter un notebook Jupyter sur Azure'
-description: Comment créer et exécuter un notebook Jupyter dans Azure Notebooks qui illustre le processus de régression linéaire dans la science des données.
+title: 'Tutoriel : créer et exécuter un notebook Jupyter - Azure Notebooks Preview'
+description: Apprenez à créer et exécuter un notebook Jupyter dans Azure Notebooks Preview qui illustre le processus de régression linéaire en science des données.
 ms.topic: tutorial
 ms.date: 01/11/2019
-ms.openlocfilehash: 2c151cb0de2855856e92d9de07ad7dabfda2f55b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8a1c13f41ef1588b040b3540b852d83764c6ce79
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277426"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660815"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutoriel : Créer et exécuter un notebook Jupyter avec Python
 
 Ce tutoriel vous guide tout au long du processus d’utilisation d’Azure Notebooks pour créer un notebook Jupyter complet qui illustre une régression linéaire simple. Au cours de ce tutoriel, vous vous familiarisez avec l’interface utilisateur du notebook Jupyter, ce qui inclut la création de différentes cellules, l’exécution des cellules et la présentation du notebook sous forme de diaporama.
 
 Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps). Toutefois, comme ce tutoriel commence avec un nouveau projet et un notebook vide, vous pouvez assister à sa création étape par étape.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Dans ce tutoriel, vous allez apprendre à :
+
+> [!div class="checklist"]
+> * Créer un notebook de projet avec des exemples de données
+> * Utiliser l’interface du notebook pour créer divers types de cellules
+> * Exécuter le bloc-notes
+> * Enregistrer le notebook
+> * Déboguer le notebook dans Visual Studio Code
 
 ## <a name="create-the-project"></a>Créer le projet
 
@@ -30,10 +41,10 @@ Vous trouverez le notebook terminé sur [GitHub - Exemples Azure Notebooks](http
 
 1. Dans la fenêtre contextuelle **Créer un projet** qui s’affiche, entrez ou définissez les détails suivants, puis sélectionnez **Créer** :
 
-    - **Nom du projet** : Exemple de régression linéaire - Cricket Chirps
-    - **ID de projet** : linear-regression-example
-    - **Projet public** : (désactivé)
-    - **Créer un fichier README.md** : (désactivé)
+   - **Nom du projet** : Exemple de régression linéaire - Cricket Chirps
+   - **ID de projet** : linear-regression-example
+   - **Projet public** : (désactivé)
+   - **Créer un fichier README.md** : (désactivé)
 
 1. Après quelques instants, Azure Notebooks vous dirige vers le nouveau projet.
 

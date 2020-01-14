@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3f715af835df6783ae5d59dd073a042a553fba4d
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091937"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498050"
 ---
 # <a name="moving-azure-vms-to-another-azure-region"></a>Déplacement de machines virtuelles Azure vers une autre région Azure
 
@@ -41,7 +41,7 @@ Déplacer des machines virtuelles implique les étapes suivantes :
 > [!NOTE]
 > Les détails de ces étapes sont fournis dans les sections suivantes.
 > [!IMPORTANT]
-> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre, mais pas le déplacement au sein d’une région.
+> Actuellement, Azure Site Recovery prend en charge le déplacement des machines virtuelles d’une région à une autre, mais pas le déplacement au sein d’une même région.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Architectures classiques d’un déploiement multicouche
 
@@ -81,7 +81,7 @@ Selon les [architectures](#typical-architectures-for-a-multi-tier-deployment) me
 
      ![Déploiement de machines virtuelles à instance unique entre les couches](media/move-vm-overview/single-zone.png)
 
-* **Machines virtuelles de chaque couche déployées entre groupes à haute disponibilité** : Vous pouvez configurer vos machines virtuelles dans un groupe à haute disponibilité dans des zones de disponibilité distinctes quand vous activez la réplication pour votre machine virtuelle à l’aide d’Azure Site Recovery. Le contrat de niveau de service (SLA) s’élèvera à 99,9 % de disponibilité une fois que vous aurez terminé l’opération de déplacement.
+* **Machines virtuelles de chaque couche déployées entre groupes à haute disponibilité** : Vous pouvez configurer vos machines virtuelles dans un groupe à haute disponibilité dans des zones de disponibilité distinctes quand vous activez la réplication pour votre machine virtuelle à l’aide d’Azure Site Recovery. Le contrat de niveau de service (SLA) s’élèvera à 99,99 % de disponibilité une fois que vous aurez terminé l’opération de déplacement.
 
      ![Déploiement de machines virtuelles entre groupes à haute disponibilité et zones de disponibilité](media/move-vm-overview/aset-azone.png)
 

@@ -1,30 +1,19 @@
 ---
-title: Créer une application .NET sur Service Fabric dans Azure | Microsoft Docs
+title: Créer une application .NET sur Service Fabric dans Azure
 description: Dans ce tutoriel, vous découvrez comment créer une application avec un service frontal ASP.NET Core et un service principal fiable avec état, et déployer l’application sur un cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: b5acee47a13e0faa538c5d8464835297088d03e8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cbfae89ffa446ca3915129fd9add2701ac21d837
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465476"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Didacticiel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : Créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
-Ce didacticiel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
+Ce tutoriel est la première partie d’une série d’étapes.  Vous allez découvrir comment créer une application Azure Service Fabric avec un service frontal API Web ASP.NET Core et un service principal avec état pour stocker vos données. Lorsque vous avez terminé, vous disposez d’une application de vote avec un composant web frontal ASP.NET Core qui enregistre les résultats de vote dans un service principal avec état dans le cluster. Si vous ne souhaitez pas créer l’application de vote manuellement, vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée et passer directement au [Guide de l’exemple d’application de vote](#walkthrough_anchor).  Si vous préférez, vous pouvez également regarder une [vidéo de procédure pas-à-pas](https://channel9.msdn.com/Events/Connect/2017/E100) de ce tutoriel.
 
 ![API front-end AngularJS+ASP.NET - Connexion à un service back-end avec état dans Service Fabric](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
@@ -43,7 +32,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer CI/CD à l’aide d’Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -180,7 +169,7 @@ Ouvrez le fichier **Views/Home/Index.cshtml**. Il s’agit de la vue spécifique
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>Mettre à jour le fichier _Layout.cshtml
+### <a name="update-the-_layoutcshtml-file"></a>Mettre à jour le fichier _Layout.cshtml
 
 Ouvrez le fichier **Views/Shared/_Layout.cshtml**. Il s’agit de la disposition par défaut pour l’application ASP.NET.  Remplacez son contenu par la commande suivante, puis enregistrez vos modifications.
 

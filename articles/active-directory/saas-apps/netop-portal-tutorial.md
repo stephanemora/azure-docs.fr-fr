@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Netop Portal | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netop Portal | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Netop Portal.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 715e9b4f3baace39cfe8bebe011ae284fc4c6b2b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c2e456114d186e548cede656da8e8d227efa09aa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893261"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550092"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Netop Portal
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netop-portal"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Netop Portal
 
 Dans ce tutoriel, vous allez apprendre à intégrer Netop Portal à Azure Active Directory (Azure AD). Quand vous intégrez Netop Portal à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Netop Portal à Azure Active
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -84,7 +84,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section  **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le  **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton  **Enregistrer** .
+1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
 1. L’application Netop Portal attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs du jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -92,7 +92,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Netop Portal s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     | ---------------| --------- |
     | NRC-ACCOUNT-ID | "adfs-demo" |
     | NRC-EMAIL | user.userprincipalname |
@@ -146,7 +146,7 @@ Pour configurer l’authentification unique côté **Netop Portal**, vous avez b
 
 ### <a name="create-netop-portal-test-user"></a>Créer l’utilisateur de test Netop Portal
 
-Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Netop Portal. Collaborez avec l’ [équipe du support technique de Netop Portal](mailto:casemanager@netop.com) pour ajouter des utilisateurs à la plateforme Netop Portal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur nommé Britta Simon dans Netop Portal. Collaborez avec l’[équipe du support technique de Netop Portal](mailto:casemanager@netop.com) pour ajouter des utilisateurs à la plateforme Netop Portal. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 74697d69fbeb9072f839f0b6d49c010c5a7a7a05
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b314944f1ae8847470f218ca23a11beed7731f67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448409"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-sdk-for-c"></a>Démarrage rapide : Vérifier l’orthographe avec le kit SDK Vérification orthographique Bing pour C#
 
@@ -83,20 +83,24 @@ Pour ajouter le kit SDK Vérification orthographique Bing à votre projet, séle
 3. Obtenez la première suggestion de correction, s’il en existe une. Affichez le score de suggestion et le mot suggéré. 
 
     ```csharp
-            var suggestions = firstspellCheckResult.Suggestions;
+    var suggestions = firstspellCheckResult.Suggestions;
 
-            if (suggestions?.Count > 0)
-            {
-                var firstSuggestion = suggestions.FirstOrDefault();
-                Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
-                Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
-            }
-   }
+    if (suggestions?.Count > 0)
+    {
+        var firstSuggestion = suggestions.FirstOrDefault();
+        Console.WriteLine("First SpellCheck Suggestion Score: {0} ", firstSuggestion.Score);
+        Console.WriteLine("First SpellCheck Suggestion : {0} ", firstSuggestion.Suggestion);
+    }
+    ```
 
-## Next steps
+## <a name="run-the-application"></a>Exécution de l'application
+
+Créez et exécutez votre projet. Si vous utilisez Visual Studio, appuyez sur **F5** pour déboguer le fichier.
+
+## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Create a single page web-app](tutorials/spellcheck.md)
+> [Créer une application web monopage](tutorials/spellcheck.md)
 
-- [What is the Bing Spell Check API?](overview.md)
-- [Bing Spell Check C# SDK reference guide](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)
+- [Qu’est-ce que l’API Vérification orthographique Bing ?](overview.md)
+- [Guide de référence du SDK C# de Vérification orthographique Bing](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet)

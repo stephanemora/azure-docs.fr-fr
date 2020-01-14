@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer et utiliser un partage Azure Files sur des machines virtuelles Windows | Microsoft Docs'
+title: Créer et utiliser un partage Azure Files sur des machines virtuelles Windows
 description: Dans ce guide de démarrage rapide, vous configurez un partage Azure Files dans le portail Azure, puis vous le connectez à une machine virtuelle Windows. Vous vous connectez au partage Files pour y charger un fichier. Ensuite, vous prenez un instantané du partage Files, modifiez le fichier dans le partage Files et restaurez le précédent instantané du partage Files.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 6bbab0ee2eefe6e86c150d5bddab4f8e91a7c92d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463913"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Démarrage rapide : Créer et gérer le partage Azure Files avec des machines virtuelles Windows
 
@@ -22,7 +22,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -175,7 +175,7 @@ Comme pour les instantanés VSS locaux, vous pouvez afficher les instantanés à
 
    ![Bouton restaurer dans le message d’avertissement](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) Remarque : Si votre fichier n’a pas changé, vous ne verrez pas une version précédente de ce fichier, car ce fichier est de la même version que l’instantané. Ceci est cohérent avec la façon dont cela fonctionne sur un serveur de fichiers Windows.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

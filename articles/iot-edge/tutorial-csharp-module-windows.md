@@ -9,18 +9,18 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701940"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665206"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C# pour les appareils Windows
+# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutoriel : Développer un module IoT Edge en C# pour les appareils Windows
 
 Utilisez Visual Studio pour écrire du code C# et pour le déployer sur un appareil Windows exécutant Azure IoT Edge. 
 
-Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Ce tutoriel vous montre comment effectuer les opérations suivantes :    
+Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Dans ce tutoriel, vous allez apprendre à :    
 
 > [!div class="checklist"]
 > * Utiliser Visual Studio pour créer un module IoT Edge basé sur le SDK C#
@@ -38,12 +38,12 @@ Ce tutoriel montre comment développer un module en **C#** à l’aide de **Visu
 
 Utilisez le tableau suivant afin de comprendre les options dont vous disposez pour développer et déployer des modules en C# sur des appareils Windows : 
 
-| C# | Visual Studio Code | Visual Studio 2017/2019 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Développement pour Windows AMD64** | ![Développer des modules en C# pour WinAMD64 dans VS Code](./media/tutorial-c-module/green-check.png) | ![Développer des modules en C# pour WinAMD64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Débogage pour Windows AMD64** |   | ![Déboguer des modules en C# pour WinAMD64 dans Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement, [Développer un module IoT Edge pour un appareil Windows](tutorial-develop-for-windows.md). Ce tutoriel vous permet d’obtenir les prérequis suivants : 
 
@@ -58,7 +58,7 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 
 ## <a name="create-a-module-project"></a>Créer un projet de module
 
-Les étapes suivantes permettent de créer un projet de module IoT Edge à l’aide de Visual Studio et de l’extension Azure IoT Edge Tools. Une fois le modèle de projet créé, ajoutez le nouveau code afin que le module filtre les messages selon les propriétés signalées. 
+Les étapes suivantes permettent de créer un projet de module IoT Edge à l’aide de Visual Studio et de l’extension Azure IoT Edge Tools. Une fois le modèle de projet créé, ajoutez le nouveau code afin que le module filtre les messages sur la base des propriétés signalées. 
 
 ### <a name="create-a-new-project"></a>Création d'un projet
 
@@ -80,7 +80,7 @@ Azure IoT Edge Tools fournit des modèles de projet pour tous les langages de mo
    | ----- | ----- |
    | Sélectionner un modèle | Sélectionnez **Module C#** . | 
    | Nom du projet de module | Nommez votre module **CSharpModule**. | 
-   | Dépot d’images Docker | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie avec le nom du projet de module. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/csharpmodule. |
+   | Dépôt d’images Docker | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. Votre image conteneur est préremplie avec le nom du projet de module. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/csharpmodule. |
 
    ![Configurer votre projet pour l’appareil cible, le type de module et le registre de conteneurs](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -92,29 +92,30 @@ Le manifeste de déploiement partage les informations d’identification de votr
 
 1. Dans l’Explorateur de solutions Visual Studio, ouvrez le fichier **deployment.template.json**. 
 
-2. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées. 
-
-3. Mettez à jour la propriété avec vos informations d’identification, en respectant le format suivant : 
+2. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées. Votre adresse de registre doit se renseigner automatiquement à partir des informations que vous avez fournies lors de la création du projet. Les champs du nom d’utilisateur et du mot de passe doivent contenir des noms de variables. Par exemple : 
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
-   ```
 
-4. Enregistrez le fichier deployment.template.json. 
+3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
 
-### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
+4. Add the **Username** and **Password** values from your Azure container registry. 
 
-Le code du module par défaut reçoit des messages dans une file d’attente d’entrée, puis les transmet à une file d’attente de sortie. Nous allons ajouter du code supplémentaire afin que le module traite les messages en périphérie avant leur transfert vers IoT Hub. Mettez à jour le module afin qu’il analyse les données de température dans chaque message et n’envoie le message à IoT Hub que si la température dépasse un certain seuil. 
+5. Save your changes to the .env file.
 
-1. Dans Visual Studio, ouvrez **CSharpModule** > **Program.cs**.
+### Update the module with custom code
 
-2. En haut de l’espace de noms **CSharpModule**, ajoutez trois instructions **using** pour les types utilisés ultérieurement :
+The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+
+1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+
+2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>
@@ -297,17 +298,17 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Il se peut que vous receviez un avertissement de sécurité recommandant d’utiliser `--password-stdin`. Bien qu’il s’agisse de la bonne pratique recommandée pour les scénarios de production, elle n’est pas pertinente pour ce tutoriel. Pour plus d’informations, consultez la documentation de référence [Connexion docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Il se peut que vous receviez un avertissement de sécurité recommandant d’utiliser `--password-stdin`. Bien qu’il s’agisse de la bonne pratique recommandée pour les scénarios de production, elle n’est pas pertinente pour ce tutoriel. Pour plus d’informations, consultez les informations de référence sur [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
 2. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur le nom du projet que vous voulez générer. Le nom par défaut est **AzureIotEdgeApp1**, et puisque vous créez un module Windows, l’extension doit être **Windows.Amd64**. 
 
 3. Sélectionnez **Générer et envoyer (push) les modules IoT Edge**. 
 
-   La commande de génération et d’envoi (push) déclenche trois opérations. Tout d’abord, elle crée un dossier dans la solution appelé **config** contenant les manifestes de déploiement en entier. Il est généré à partir des informations dans le modèle de déploiement et d’autres fichiers de solution. Ensuite, elle exécute `docker build` pour générer l’image de conteneur basée sur le fichier docker correspondant à votre architecture cible. Puis, elle exécute `docker push` pour envoyer (push) le dépot d’images vers votre registre de conteneurs. 
+   La commande de génération et d’envoi (push) déclenche trois opérations. Tout d’abord, elle crée un dossier dans la solution appelé **config** contenant les manifestes de déploiement en entier. Il est généré à partir des informations dans le modèle de déploiement et d’autres fichiers de solution. Ensuite, elle exécute `docker build` pour générer l’image de conteneur basée sur le fichier docker correspondant à votre architecture cible. Puis, elle exécute `docker push` pour envoyer (push) le dépôt d’images vers votre registre de conteneurs. 
 
-## <a name="deploy-modules-to-device"></a>Déployer des modules vers un appareil
+## <a name="deploy-modules-to-device"></a>Déployer des modules sur un appareil
 
-Utilisez Visual Studio Cloud Explorer et l’extension Azure IoT Edge Tools pour déployer le projet de module sur votre appareil IoT Edge. Vous disposez déjà d’un manifeste de déploiement pour votre scénario. Il s’agit du fichier **deployment.json** situé dans le dossier config. Il vous suffit alors de sélectionner l’appareil qui recevra le déploiement.
+Utilisez Visual Studio Cloud Explorer et l’extension Azure IoT Edge Tools pour déployer le projet de module sur votre appareil IoT Edge. Vous disposez déjà d’un manifeste de déploiement préparé pour votre scénario. C ’est le fichier **deployment.json** dans le dossier config. Il vous suffit alors de sélectionner l’appareil qui recevra le déploiement.
 
 Vérifiez que votre appareil IoT Edge est opérationnel. 
 
@@ -349,7 +350,7 @@ Nous avons utilisé le jumeau de module de CSharpModule pour définir le seuil d
 
 5. Supervisez les messages appareil-à-cloud entrants. Vous devriez voir les messages s’arrêter jusqu’à ce que le nouveau seuil de température soit atteint. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 

@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Prise en main de la bibliothèque de client Form Recognizer pour .NET | Microsoft Docs'
-description: Bien démarrer avec la bibliothèque de client Form Recognizer pour .NET afin d’entraîner, extraire, analyser et obtenir des données structurées en sortie.
+title: 'Démarrage rapide : Bibliothèque de client Form Recognizer pour .NET'
+description: Bien démarrer avec la bibliothèque cliente Form Recognizer pour .NET afin d’entraîner, extraire, analyser et obtenir des données structurées en sortie à l’aide de ce guide de démarrage rapide.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 018371f4c188d05d92a5fd3fd81511d941a359a6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8fd938e685c712cda60c171ccf9092ff42e6037e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446490"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Form Recognizer pour .NET
 
@@ -28,9 +28,9 @@ Utilisez la bibliothèque de client Form Recognizer pour .NET. pour :
 * [Obtenir une liste de modèles personnalisés](#get-a-list-of-custom-models)
 * [Supprimer un modèle personnalisé](#delete-a-custom-model)
 
-[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
 * Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
@@ -91,7 +91,7 @@ Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponibl
 
 Les classes suivantes gèrent les fonctionnalités principales du kit de développement logiciel (SDK) Form Recognizer.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Cette classe est nécessaire pour toutes les fonctionnalités Form Recognizer. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Vous utilisez cette classe pour effectuer l’apprentissage d’un modèle Form Recognizer avec vos propres données d’apprentissage. |
@@ -180,12 +180,12 @@ Exécutez l’application avec la commande `dotnet run` à partir de votre répe
 dotnet run
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 De plus, si vous avez entraîné un modèle personnalisé que vous voulez supprimer de votre compte, exécutez la méthode de [Supprimer un modèle personnalisé](#delete-a-custom-model).
 

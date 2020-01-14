@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 06/30/2019
 ms.author: banders
-ms.openlocfilehash: 07f8d897d55868923ecca03797cf18a5346d667c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 20eacdb1ab8f7ebdf118646cd548d7b60b2d2ebc
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225788"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644343"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise
 
@@ -43,7 +43,7 @@ Comparaison des deux jeux de données :
 
 | Données | Jeu de données du coût réel | Jeu de données du coût amorti |
 | --- | --- | --- |
-| Achats de réservation | Disponibles dans cet affichage.<br><br>  Pour obtenir ces données, appliquez le filtre ChargeType = &quot;Purchase&quot;. <br><br> Reportez-vous à ReservationID ou ReservationName pour savoir à quelle réservation correspondent les frais.  | Non applicables à cet affichage. <br><br> Les coûts d’achat ne sont pas fournis dans les données amorties. |
+| Achats de réservation | Disponible dans cet affichage.<br><br>  Pour obtenir ces données, appliquez le filtre ChargeType = &quot;Purchase&quot;. <br><br> Reportez-vous à ReservationID ou ReservationName pour savoir à quelle réservation correspondent les frais.  | Non applicables à cet affichage. <br><br> Les coûts d’achat ne sont pas fournis dans les données amorties. |
 | EffectivePrice | La valeur est égale à zéro pour l’utilisation qui bénéficie de la remise de réservation. | La valeur est le coût horaire au prorata de la réservation pour l’utilisation qui bénéficie de la remise de réservation. |
 | Réservation inutilisée (fournit le nombre d’heures pendant lesquelles la réservation n’a pas été utilisée dans une journée et la valeur monétaire de la perte) | Non applicable dans cet affichage. | Disponible dans cet affichage.<br><br> Pour obtenir ces données, appliquez le filtre ChargeType = &quot;UnusedReservation&quot;.<br><br>  Reportez-vous à ReservationID ou ReservationName pour savoir quelle réservation a été sous-utilisée. Il s’agit de la quantité de la réservation qui a été perdue au cours de la journée.  |
 | UnitPrice (prix de la ressource d’après votre grille tarifaire) | Disponible | Disponible |
@@ -65,9 +65,9 @@ Vous pouvez obtenir les données à l’aide de l’API ou les télécharger à 
 
 Vous appelez l’[API Détails d’utilisation](/rest/api/consumption/usagedetails/list) pour obtenir les nouvelles données. Pour plus d’informations sur la terminologie, consultez [Termes relatifs à l’utilisation](billing-understand-your-usage.md). L’appelant doit être administrateur d’entreprise pour le contrat entreprise utilisant le [portail EA](https://ea.azure.com). Les administrateurs d’entreprise disposant d’un accès en lecture seule peuvent également obtenir les données.
 
-Les données ne sont pas disponibles dans [API de création de rapports pour les clients Enterprise - Détails d’utilisation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+Notez que ces données ne sont pas disponibles dans [API de création de rapports pour les clients Enterprise - Détails d’utilisation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-Voici un exemple d’appel de l’API :
+Voici un exemple d’appel de l’API Détails d’utilisation :
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ Les informations contenues dans le tableau suivant sur metric (métrique) et fil
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Télécharger le fichier CSV d’utilisation avec les nouvelles données
 
-Si vous êtes administrateur EA, vous pouvez télécharger le fichier CSV qui contient les nouvelles données d’utilisation à partir du portail Azure. Ces données ne sont pas disponibles à partir du [portail EA](https://ea.azure.com).
+Si vous êtes administrateur EA, vous pouvez télécharger le fichier CSV qui contient les nouvelles données d’utilisation à partir du portail Azure. Ces données n’étant pas disponibles à partir du portail EA (ea.azure.com), vous devez télécharger le fichier d’utilisation à partir du portail Azure (portal.azure.com) pour afficher les nouvelles données.
 
 Dans le portail Azure, accédez à [Gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 

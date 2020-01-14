@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598220"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647286"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-network-watcher"></a>Qu’est-ce que Network Watcher ?
 Network Watcher est conçu pour superviser et réparer l’intégrité réseau des composants IaaS (infrastructure en tant que service), notamment les machines virtuelles, les réseaux virtuels, les passerelles d’application, les équilibreurs de charge et d’autres ressources figurant dans un réseau virtuel Azure. Il ne s’agit pas d’une solution pour superviser l’infrastructure PaaS (plateforme en tant que service) ou pour obtenir une analytique web/mobile.
@@ -51,14 +51,20 @@ Pour plus d’informations, consultez la [page de présentation de Network Watch
 ### <a name="how-does-network-watcher-pricing-work"></a>Comment fonctionne la tarification de Network Watcher ?
 Visitez la page [Tarification](https://azure.microsoft.com/pricing/details/network-watcher/) pour obtenir le détail des composants Network Watcher et de leur tarification.
 
-### <a name="which-regions-is-network-watcher-available-in"></a>Dans quelles régions Network Watcher est-il disponible ?
+### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Dans quelles régions Network Watcher est-il pris en charge/disponible ?
 Vous pouvez consulter la disponibilité régionale la plus récente sur la [page de disponibilité des services Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="what-are-resource-limits-on-network-watcher"></a>Quelles sont les limites des ressources sur Network Watcher ?
-Consultez la page [Limites du service](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) pour connaître toutes les limites.  
+Consultez la page [Limites du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) pour connaître toutes les limites.  
 
 ### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Pourquoi une seule instance de Network Watcher est-elle autorisée par région ?
 Network Watcher n’a besoin d’être activé qu’une seule fois au niveau d’un abonnement pour que ses fonctionnalités soient utilisables ; il ne s’agit pas d’une limite de service.
+
+### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Pourquoi dois-je installer l’extension Network Watcher ? 
+L’extension Network Watcher est requise pour toute fonctionnalité qui doit générer ou intercepter le trafic à partir d’une machine virtuelle. 
+
+### <a name="which-features-require-the-network-watcher-extension"></a>Quelles fonctionnalités nécessitent l’extension Network Watcher ?
+Seule la capture de paquets, la résolution des problèmes de connexion et du moniteur de connexion requièrent que l’extension Network Watcher soit présente.
 
 ## <a name="nsg-flow-logs"></a>Journaux de flux NSG
 
@@ -75,7 +81,7 @@ Consultez les deux questions suivantes pour obtenir des instructions sur la faç
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>Comment utiliser les Journaux de flux NSG avec des point de terminaison de service ?
 
-*Option 1 : Reconfigurer les journaux de flux NSG pour émettre vers le compte de stockage Azure sans point de terminaison de réseau virtuel*
+*Option n°1 : Reconfigurer les journaux de flux NSG pour émettre vers le compte de stockage Azure sans point de terminaison de réseau virtuel*
 
 * Rechercher des sous-réseaux avec des points de terminaison :
 
@@ -94,7 +100,7 @@ Consultez les deux questions suivantes pour obtenir des instructions sur la faç
 
 Vous pouvez consulter les journaux de stockage au bout de quelques minutes. Vous devriez y voir qu’un horodateur a été mis à jour ou qu’un fichier JSON a été créé.
 
-*Option 2 : Désactiver les journaux de flux NSG*
+*Option n°2 : Désactiver les journaux de flux NSG*
 
 Si les points de terminaison de service Microsoft.Storage sont indispensables, vous devez désactiver les Journaux de flux NSG.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Itinéraires multiples avec Azure Maps'
-description: 'Didacticiel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps'
+title: 'Tutoriel : Itinéraires multiples avec Azure Maps'
+description: 'Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106709"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613633"
 ---
-# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Didacticiel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
-Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service pour trouver l’itinéraire vers le point d’intérêt de votre choix, en fonction de votre mode de déplacement. Vous affichez deux itinéraires différents sur votre carte, un dédié aux voitures et l’autre aux camions, qui peuvent présenter des restrictions relatives à la hauteur, au poids ou aux chargements dangereux. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service pour trouver l’itinéraire vers le point d’intérêt de votre choix, en fonction de votre mode de déplacement. Vous affichez deux itinéraires différents sur votre carte, un dédié aux voitures et l’autre aux camions, qui peuvent présenter des restrictions relatives à la hauteur, au poids ou aux chargements dangereux. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control
@@ -26,9 +26,8 @@ Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service 
 > * Créer des requêtes d’itinéraire déclarant le mode de déplacement
 > * Afficher plusieurs itinéraires sur votre carte
 
-## <a name="prerequisites"></a>Prérequis
-
-Avant de poursuivre, suivez les instructions mentionnées dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
+## <a name="prerequisites"></a>Conditions préalables requises
+Avant de poursuivre, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Créer une carte
 
@@ -275,7 +274,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control

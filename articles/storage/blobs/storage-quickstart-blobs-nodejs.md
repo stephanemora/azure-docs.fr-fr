@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 0a6d7ce8f1f6b81c3dbae3d41842345be5d2e551
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 089cda74740d3934c76a3b0ca8803a30654feccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465121"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>Démarrage rapide : Bibliothèque de client du stockage blob Azure v12 pour JavaScript
 
@@ -29,11 +29,11 @@ Utilisez la bibliothèque de client du stockage blob Azure v12 pour JavaScript p
 * Télécharger l’objet blob sur votre ordinateur local
 * Supprimer un conteneur
 
-[Documentation de référence de l’API](/javascript/api/@azure/storage-blob) | [Code source bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Gestionnaire de package de nœud)](https://www.npmjs.com/package/@azure/storage-blob/v/12.0.0) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+[Documentation de référence de l’API](/javascript/api/@azure/storage-blob) | [Code source bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Gestionnaire de package de nœud)](https://www.npmjs.com/package/@azure/storage-blob) | [Exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 * Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -114,7 +114,7 @@ npm install
 
 1. Enregistrez le nouveau fichier sous *blob-quickstart-v12.js* dans le répertoire *blob-quickstart-v12*.
 
-[!INCLUDE [storage-quickstart-connection-string-include](../../../includes/storage-quickstart-credentials-include.md)]
+[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## <a name="object-model"></a>Modèle objet
 
@@ -154,11 +154,11 @@ Ajoutez ce code dans la fonction `main` :
 ```javascript
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the environment variable is
-// created after the application is launched in a console or with Visual Studio,
-// the shell or application needs to be closed and reloaded to take the
-// environment variable into account.
-const CONNECT_STR = process.env.CONNECT_STR;
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
+// environment variable is created after the application is launched in a
+// console or with Visual Studio, the shell or application needs to be closed
+// and reloaded to take the environment variable into account.
+const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
 ```
 
 ### <a name="create-a-container"></a>Créez un conteneur.
@@ -174,7 +174,7 @@ Ajoutez ce code à la fin de la fonction `main` :
 
 ```javascript
 // Create the BlobServiceClient object which will be used to create a container client
-const blobServiceClient = await BlobServiceClient.fromConnectionString(CONNECT_STR);
+const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
 
 // Create a unique name for the container
 const containerName = 'quickstart' + uuidv1();
@@ -308,16 +308,16 @@ Deleting container...
 Done
 ```
 
-Parcourez le code dans le débogueur et vérifiez votre Portail Azure tout au long du processus. Vérifiez que le conteneur est en cours d’exécution. Vous pouvez ouvrir le blob à l’intérieur du conteneur et afficher le contenu.
+Parcourez le code dans le débogueur et vérifiez votre [portail Azure](https://portal.azure.com) tout au long du processus. Vérifiez que le conteneur est en cours d’exécution. Vous pouvez ouvrir le blob à l’intérieur du conteneur et afficher le contenu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez appris à charger, télécharger et répertorier des blobs avec JavaScript.
 
-Pour afficher des exemples d’applications de stockage blob, passez à :
+Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et autres documentations, visitez :
 
 > [!div class="nextstepaction"]
-> [Exemples de Kit de développement logiciel (SDK) de stockage blob Azure v12 JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
+> [Documentation Azure pour JavaScript](/azure/javascript/)
 
-* Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md).
-* Pour obtenir des didacticiels, des exemples, des démarrages rapides et d’autres documents, visitez [documentation du Kit de développement logiciel (SDK) Azure pour JavaScript](/azure/javascript/).
+* Pour plus d’informations, consultez la [bibliothèque cliente Stockage Blob Azure pour JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+* Pour voir des exemples d’applications de stockage Blob, passez à [Exemples JavaScript de bibliothèques clientes Stockage Blob Azure V12](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

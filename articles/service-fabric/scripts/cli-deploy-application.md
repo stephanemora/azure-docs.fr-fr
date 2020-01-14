@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 04/16/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 7417eaecddad60c940bf01535b8fb24b8cbef80c
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ff40dc62b4dcd622156a78518bbdcb6b9b430644
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034770"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526598"
 ---
-# <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Déployer une application sur un cluster Service Fabric
+# <a name="deploy-an-application-to-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Déployer une application sur un cluster Service Fabric à l’aide de l’interface CLI Service Fabric
 
 Cet exemple de script copie un package d’application dans le magasin d’images d’un cluster, inscrit le type d’application dans le cluster et crée une instance d’application à partir du type d’application. Tous les services par défaut sont également créés à ce stade.
 

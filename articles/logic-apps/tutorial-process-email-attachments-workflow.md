@@ -7,18 +7,18 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793468"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428771"
 ---
-# <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Didacticiel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
+# <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
 Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui gère les e-mails entrants et les éventuelles pièces jointes. Cette application logique analyse le contenu de l’e-mail, enregistre le contenu dans Stockage Azure et envoie des notifications de révision de ce contenu.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurez les applications [Stockage Azure](../storage/common/storage-introduction.md) et Explorateur Stockage pour vérifier les e-mails et pièces jointes enregistrés.
@@ -30,11 +30,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajoutez une action qui crée des objets blob de stockage pour les e-mails et les pièces jointes.
 > * Ajoutez une action qui envoie des notifications par e-mail.
 
-Lorsque vous avez terminé, votre application logique ressemble à ce flux de travail à un niveau élevé :
+Lorsque vous avez terminé, votre application logique ressemble au flux de travail suivant à un niveau élevé :
 
 ![Application logique terminée de niveau élevé](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -57,7 +57,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
    | Paramètre | Valeur | Description |
    |---------|-------|-------------|
    | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |  
-   | **Groupe de ressources** | <*Azure-resource-group*> | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. Cet exemple utilise « LA-Tutorial-RG ». <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. |
+   | **Groupe de ressources** | <*Azure-resource-group*> | Nom du [groupe de ressources Azure](../azure-resource-manager/management/overview.md) utilisé pour organiser et gérer les ressources connexes. Cet exemple utilise « LA-Tutorial-RG ». <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. |
    | **Nom du compte de stockage** | <*Azure-storage-account-name*> | Nom de votre compte de stockage, qui doit comporter entre 3 et 24 caractères, et ne peut contenir que des lettres minuscules et des chiffres. Cet exemple utilise « attachmentstorageacct ». |
    | **Lieu** | <*Azure-region*> | Région dans laquelle stocker les informations sur votre compte de stockage. Cet exemple utilise la région « USA Ouest ». |
    | **Performances** | standard | Ce paramètre spécifie les types de données pris en charge et les médias de stockage des données. Voir [Types de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). |
@@ -148,7 +148,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
    | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. |
    | **Pile d’exécution** | Langage préféré | Sélectionnez un runtime qui prend en charge votre langage de programmation de fonction favori. Sélectionnez **.NET** pour les fonctions C# et F#. |
    | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** Ce compte de stockage contient vos applications de fonctions et diffère du compte de stockage créé précédemment pour les pièces jointes d’e-mail. |
-   | **Application Insights** | Désactiver | Active la supervision des applications avec [Application Insights](../azure-monitor/app/app-insights-overview.md), mais pour ce tutoriel, sélectionnez **Désactiver** > **Appliquer**. |
+   | **Application Insights** | Disable | Active la supervision des applications avec [Application Insights](../azure-monitor/app/app-insights-overview.md), mais pour ce tutoriel, sélectionnez **Désactiver** > **Appliquer**. |
    ||||
 
    Si votre application de fonction ne s’ouvre pas automatiquement après le déploiement, dans la zone de recherche [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Application de fonction**. Sous **Application de fonction**, sélectionnez votre application de fonction.
@@ -177,7 +177,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
 1. Dans l’éditeur ouvert, remplacez le code du modèle par cet exemple de code, ce qui supprime le code HTML et retourne les résultats à l’appelant :
 
-   ```CSharp
+   ```csharp
    #r "Newtonsoft.Json"
 
    using System.Net;
@@ -252,7 +252,7 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
    ![Sélectionner un modèle d’application logique vide](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
-Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui écoute les e-mails entrants comportant des pièces jointes. Chaque application logique doit commencer par un déclencheur, qui est activé lorsqu’un événement spécifique se produit ou lorsque de nouvelles données respectent une condition particulière. Pour plus d’informations, voir [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) qui écoute les e-mails entrants comportant des pièces jointes. Chaque application logique doit commencer par un déclencheur, qui est activé lorsqu’un événement spécifique se produit ou lorsque de nouvelles données respectent une condition particulière. Pour plus d’informations, consultez [Quickstart: Build your first logic app workflow - Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) (Démarrage rapide : Générer votre premier flux de travail d’application logique - portail Azure).
 
 ## <a name="monitor-incoming-email"></a>Surveiller les e-mails entrants
 
@@ -277,8 +277,8 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
       | Paramètre | Valeur | Description |
       | ------- | ----- | ----------- |
       | **Folder** | Inbox | Dossier d’e-mail à vérifier |
-      | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. |
-      | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. |
+      | **Contient une pièce jointe** | Oui | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. |
+      | **Inclure des pièces jointes** | Oui | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. |
       | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. |
       | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications. |
       ||||
@@ -600,8 +600,8 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
    | Paramètre | Valeur | Notes |
    | ------- | ----- | ----- |
    | **To** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
-   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. |
-   | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin d’accès** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Objet** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. |
+   | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** |
    ||||
 
    > [!NOTE]
@@ -656,11 +656,11 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
    ![Notification par e-mail envoyée par l’application logique](./media/tutorial-process-email-attachments-workflow/email-notification.png)
 
-   Si vous ne recevez aucun e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types d’e-mails. Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
+   Si vous ne recevez pas d’e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types d’e-mails. Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
 
 Félicitations ! Vous avez maintenant créé et exécuté une application logique qui automatise les tâches dans différents services Azure et appelle un code personnalisé.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées.
 

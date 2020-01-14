@@ -8,21 +8,24 @@ ms.subservice: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
-ms.date: 02/22/2019
-ms.openlocfilehash: 8359a8407e93a2b31466342b82539cef04b0fe01
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 12/31/2019
+ms.openlocfilehash: a63087620d50336c67472348da3b7f37fb380635
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802190"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611966"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Qu’est-ce qu’Azure Data Science Virtual Machine pour Linux et Windows ?
 
 La Data Science Virtual Machine (DSVM) est une image de machine virtuelle personnalisée sur la plateforme cloud Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires qui sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analytique avancée. 
 
 La Data Science Virtual Machine est disponible sur :
++ **Windows Server 2019 (préversion)**
++ **Ubuntu 18.04 LTS (préversion)**
 + Windows Server 2016
 + Ubuntu 16.04 LTS et CentOS 7.4
+
 
 > [!NOTE]
 > Tous les outils de machine virtuelle pour le Deep Learning ont été intégrés à la DSVM. 
@@ -63,7 +66,7 @@ L’édition Windows Server 2016 de la DSVM est préinstallée avec les pilotes
 
 Vous pouvez également déployer l’édition Ubuntu, CentOS ou Windows 2016 de la DSVM sur une machine virtuelle Azure qui n’est pas basée sur des unités GPU. Dans ce cas, toutes les infrastructures d’apprentissage profond repasseront en mode UC.
  
-[Découvrez-en plus sur les frameworks de deep learning et d’intelligence artificielle disponibles](dsvm-deep-learning-ai-frameworks.md).
+[Découvrez-en plus sur les frameworks de deep learning et d’intelligence artificielle disponibles](dsvm-tools-deep-learning-frameworks.md).
 
 <a name="included"></a>
 
@@ -75,7 +78,7 @@ Pour voir la liste complète des outils des DSVM Windows et Linux, [cliquez ici]
 
 Pour en savoir plus, consultez les articles suivants :
 
-+ Windows :
++ Windows :
   + [Configurer une DSVM Windows](provision-vm.md)
   + [Dix choses que vous pouvez effectuer sur une DSVM Windows](vm-do-ten-things.md)
 

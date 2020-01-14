@@ -7,14 +7,14 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Ce tutoriel vous montre comment utiliser Azure Dev Spaces et Visual Studio pour développer en équipe une application .NET Core dans Azure Kubernetes Service.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 895d2edbb268eab9944909ecda7193ce945bbf39
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: f88a0b146a53a5b14ab17ae0d959e9b8a5567302
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438175"
 ---
 # <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Développement en équipe à l’aide de .NET Core et Visual Studio avec Azure Dev Spaces
 
@@ -34,7 +34,7 @@ Votre exemple d’application n’est pas complexe pour le moment. Mais lorsque 
 * Certains services peuvent nécessiter un accès public. Par exemple, un service peut avoir besoin d’un point de terminaison répondant à un webhook.
 * Si vous souhaitez exécuter une partie des services, vous devez connaître la hiérarchie complète des dépendances qui existent entre tous vos services. Il peut être difficile d’établir cette hiérarchie, en particulier lorsque le nombre de vos services augmente.
 * Certains développeurs ont recours à la simulation ou à des objets fictifs, pour la plupart de leurs dépendances de service. Cette approche peut aider, mais la gestion de ces objets fictifs peut rapidement impacter les coûts de développement. En outre, cette approche entraîne des différences entre votre environnement de développement et votre environnement de production, ce qui peut provoquer des bogues subtils.
-* Ensuite, il devient difficile d’effectuer des tests d’intégration, quels qu’ils soient. Les tests d’intégration ne peuvent être effectués qu’après validation, ce qui signifie que vous verrez les problèmes plus tard dans le cycle de développement.
+* Il s’ensuit que les tests d’intégration, quels qu’ils soient, s’avèrent alors difficiles. Les tests d’intégration ne peuvent être effectués qu’après validation, ce qui signifie que vous verrez les problèmes plus tard dans le cycle de développement.
 
     ![](media/common/microservices-challenges.png)
 
@@ -49,8 +49,8 @@ Nous allons illustrer ces idées avec un exemple concret, qui est celui de l’e
 
 _Sans_ Dev Spaces, Scott disposerait d’autres moyens de développer et de tester sa mise à jour, mais aucun ne serait idéal :
 * Exécuter tous les composants localement, ce qui nécessite un ordinateur de développement plus puissant, sur lequel est installé Docker et éventuellement MiniKube
-* Exécuter tous les composants dans un espace de noms isolé du cluster Kubernetes. Dans la mesure où *webfrontend* n’est pas modifié, l’utilisation d’un espace de noms isolé constitue un gaspillage des ressources de cluster.
-* Exécuter uniquement *mywebapi* et effectuer des appels REST manuellement à des fins de test. Ce type de test ne permet pas de tester le flux de bout en bout.
+* Exécuter TOUS les composants dans un espace de noms isolé du cluster Kubernetes. Dans la mesure où *webfrontend* n’est pas modifié, l’utilisation d’un espace de noms isolé constitue un gaspillage des ressources de cluster.
+* Exécuter UNIQUEMENT *mywebapi* et effectuer des appels REST manuellement à des fins de test. Ce type de test ne permet pas de tester le flux de bout en bout.
 * Ajouter du code axé sur le développement à *webfrontend* qui permette au développeur d’envoyer des requêtes vers une autre instance de *mywebapi*. L’ajout de ce code complique le service *webfrontend*.
 
 ### <a name="set-up-your-baseline"></a>Configurer votre base de référence
@@ -76,7 +76,7 @@ Tout d’abord, nous allons devoir déployer une base de référence de nos serv
 >
 > Découvrez notre [guide de configuration de CI/CD avec Azure DevOps](how-to/setup-cicd.md) pour créer un workflow similaire à celui du diagramme suivant.
 >
-> ![Diagramme d’un exemple CI/CD](media/common/ci-cd-complex.png)
+> ![Exemple de diagramme CI/CD](media/common/ci-cd-complex.png)
 
 Toute personne qui ouvre l’URL publique et accède à l’application web appelle le chemin de code que vous avez écrit et qui s’exécute via les deux services à l’aide de l’espace par défaut _dev_. Supposons maintenant que vous souhaitiez continuer à développer *mywebapi*. Comment procéder sans interrompre les autres développeurs qui utilisent l’espace de développement ? Pour ce faire, vous allez configurer votre propre espace.
 
@@ -126,10 +126,10 @@ Pour tester votre nouvelle version de *mywebapi* avec *webfrontend*, ouvrez votr
 
 Maintenant, ajoutez « scott.s » de l’URL de sorte qu’elle indique quelque chose comme http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io et actualisez le navigateur. Vous devriez atteindre le point d’arrêt que vous avez défini dans votre projet *mywebapi*. Appuyez sur F5 pour continuer et dans votre navigateur, vous devriez maintenant voir le nouveau message « Hello from webfrontend » et mywebapi affiche maintenant autre chose. Cela est dû au fait que le chemin de votre code mis à jour dans *mywebapi* est exécuté dans l’espace _dev/scott_.
 
-Une fois que vous disposerez d’un espace _dev_ contenant en permanence les dernières modifications, et si votre application est conçue pour tirer parti d’un routage DevSpace basé sur un espace, comme décrit dans cette section du tutoriel, vous vous rendrez compte à quel point Dev Spaces aide à tester les nouvelles fonctionnalités dans le contexte d’une application de taille plus importante. Au lieu de déployer _tous_ les services dans votre espace privé, vous pouvez créer un espace privé dérivé de _dev_, et « activer » uniquement les services que vous utilisez réellement. L’infrastructure de routage Dev Spaces gère le reste en utilisant tous les services issus de votre espace privé qu’elle peut trouver, tout en utilisant par défaut la dernière version actuellement exécutée dans l’espace _dev_. Mieux encore, _plusieurs_ développeurs peuvent développer différents services simultanément dans leur propre espace, sans s’interrompre mutuellement.
+Une fois que vous disposerez d’un espace _dev_ contenant en permanence les dernières modifications, et si votre application est conçue pour tirer parti d’un routage DevSpace basé sur un espace, comme décrit dans cette section du tutoriel, vous vous rendrez compte à quel point Dev Spaces aide à tester les nouvelles fonctionnalités dans le contexte d’une application de taille plus importante. Au lieu de déployer _tous_ les services dans votre espace privé, vous pouvez créer un espace privé dérivé de _dev_, puis « activer » uniquement les services que vous utilisez réellement. L’infrastructure de routage Dev Spaces gère le reste en utilisant tous les services issus de votre espace privé qu’elle peut trouver, tout en utilisant par défaut la dernière version actuellement exécutée dans l’espace _dev_. Mieux encore, _plusieurs_ développeurs peuvent développer différents services simultanément dans leur propre espace, sans s’interrompre mutuellement.
 
 ### <a name="well-done"></a>C’est terminé !
-Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à effectuer les actions suivantes :
+Vous êtes arrivé au terme du guide de démarrage ! Vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer Azure Dev Spaces avec un cluster Kubernetes géré dans Azure.

@@ -1,25 +1,15 @@
 ---
-title: Questions courantes sur Microsoft Azure Service Fabric | Microsoft Docs
-description: Questions fréquentes sur Service Fabric et leurs réponses
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Questions courantes sur Microsoft Azure Service Fabric
+description: Forum aux questions sur Service Fabric, fonctionnalités, cas d’usage et scénarios courants notamment.
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: dd514bb7c600c99518983855dae1d3b7fb8a1efb
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481642"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614636"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 

@@ -1,32 +1,21 @@
 ---
-title: Mettre à l’échelle un cluster Service Fabric dans Azure | Microsoft Docs
-description: Dans ce tutoriel, vous allez découvrir comment effectuer une mise à l’échelle d’un cluster Service Fabric dans Azure.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
+title: Mettre à l’échelle un cluster Service Fabric dans Azure
+description: Dans ce tutoriel, vous allez apprendre à effectuer un scale-out et un scale-in d’un cluster Service Fabric dans Azure, puis à nettoyer les ressources restantes.
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 6270237e2319c42ed30fc347b7ab9c1c2a008314
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9f3049f5a46918d9e70e27fe862372de2cf577ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177753"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639035"
 ---
-# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à l’échelle un cluster Service Fabric dans Azure
+# <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : Mettre à l’échelle un cluster Service Fabric dans Azure
 
 Ce didacticiel constitue la troisième partie d’une série et montre comment diminuer ou augmenter la taille de votre cluster existant. À la fin de ce tutoriel, vous saurez comment mettre à l’échelle votre cluster et comment nettoyer les ressources restantes.  Pour plus d’informations sur la mise à l’échelle d’un cluster exécuté dans Azure, consultez [Mise à l’échelle de clusters Service Fabric](service-fabric-cluster-scaling.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Ajouter et supprimer des nœuds (scale out et scale in)
@@ -44,7 +33,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -387,6 +376,20 @@ Dans le fichier *template.json*, ajoutez les nouvelles ressources de groupe de m
     },
     "properties": {
         "securityRules": [
+            {
+                "name": "allowSvcFabSMB",
+                "properties": {
+                    "access": "Allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "445",
+                    "direction": "Inbound",
+                    "priority": 3950,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "VirtualNetwork",
+                    "sourcePortRange": "*",
+                    "description": "allow SMB traffic within the net, used by fabric to move packages around"
+                }
+            },
             {
                 "name": "allowSvcFabCluser",
                 "properties": {
@@ -859,7 +862,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter et supprimer des nœuds (scale out et scale in)

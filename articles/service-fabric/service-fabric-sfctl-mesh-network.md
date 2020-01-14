@@ -1,25 +1,16 @@
 ---
-title: 'CLI Azure Service Fabric : sfctl mesh network | Microsoft Docs'
-description: Décrit les commandes sfctl mesh network de l'interface de ligne de commande CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'CLI Azure Service Fabric : sfctl mesh network'
+description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour l’obtention et la suppression de ressources de réseau Service Fabric Mesh.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 4d74e3d37891ad50d8bbaa69757d0d99c80591cc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 2d9d86d41dc031cca2730011c2322e9feb30c827
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901215"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646124"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 Récupère et supprime des ressources du réseau maillé.
@@ -47,11 +38,11 @@ Supprime la ressource réseau identifiée par le nom.
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-mesh-network-list"></a>sfctl mesh network list
 Répertorie toutes les ressources réseau.
@@ -62,11 +53,11 @@ Récupère les informations relatives à toutes les ressources réseau d'un grou
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-mesh-network-show"></a>sfctl mesh network show
 Récupère la ressource réseau portant le nom spécifié.
@@ -83,11 +74,11 @@ Récupère les informations relatives à la ressource réseau portant le nom sp�
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

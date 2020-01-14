@@ -14,14 +14,14 @@ ms.topic: sample
 ms.date: 12/06/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: faec3a519333eab1774989804002e339e509ebba
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: fd5d20ed3f2cc41f4d7d51f06d4bc90a6afd22eb
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035298"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526530"
 ---
-# <a name="remove-an-application-from-a-service-fabric-cluster"></a>Supprimer une application d’un cluster Service Fabric
+# <a name="remove-an-application-from-a-service-fabric-cluster-using-the-service-fabric-cli"></a>Supprimer une application d’un cluster Service Fabric à l’aide de l’interface CLI Service Fabric
 
 Cet exemple de script supprime une instance d’application Service Fabric en cours d’exécution, puis annule l’inscription d’un type d’application et de la version du cluster.  La suppression de l’instance d’application entraîne également celle de toutes les instances de service en cours d’exécution associées à cette application. Ensuite, les fichiers d’application sont supprimés du magasin d’images. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Exemple de script Azure PowerShell : Créer un disque géré à partir d’une capture instantanée'
+title: Créer un disque managé à partir d’une capture instantanée - Exemple PowerShell
 description: 'Exemple de script Azure PowerShell : Créer un disque géré à partir d’une capture instantanée'
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: 93f2e24a2a32af1fb4bfa6560b27ce6c113ad7a1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 20a03c981aa3e7d7b3afc3e4a493c0285ebc79d1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463696"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>Créer un disque géré à partir d’une capture instantanée avec PowerShell
 
-Ce script crée un disque géré à partir d’une capture instantanée. Utilisez-le pour restaurer une machine virtuelle à partir de captures instantanées de disques de système d’exploitation et de données. Créez des disques managés de système d’exploitation et de données à partir des captures instantanées respectives, puis créez une machine virtuelle en joignant les disques managés. Vous pouvez également restaurer les disques de données d’une machine virtuelle existante en joignant les disques de données créés à partir de captures instantanées.
+Ce script crée un disque managé à partir d’une capture instantanée. Utilisez-le pour restaurer une machine virtuelle à partir de captures instantanées de disques de système d’exploitation et de données. Créez des disques managés de système d’exploitation et de données à partir des captures instantanées respectives, puis créez une machine virtuelle en joignant les disques managés. Vous pouvez également restaurer les disques de données d’une machine virtuelle existante en joignant les disques de données créés à partir de captures instantanées.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

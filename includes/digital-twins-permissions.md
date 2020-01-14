@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 01/06/2020
 ms.custom: include file
-ms.openlocfilehash: 832c0e6080b82f3c38beaf051669fbdacd37081c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6f8eaa1d13e7a8c4ea69118cdea4286f2dd90860
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74100943"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692571"
 ---
 >[!NOTE]
 >Cette section fournit les instructions sur [l’inscription de l'application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -39,7 +39,7 @@ ms.locfileid: "74100943"
 
 1.  Ouvrez le volet **Vue d’ensemble** de votre application inscrite, et copiez les valeurs des entités suivantes dans un fichier temporaire. Ces valeurs vous permettront de configurer votre exemple d’application dans les sections suivantes.
 
-    - **ID du client d’application**
+    - **ID d’application (client)**
     - **ID de l’annuaire (locataire)**
 
     [![ID d’application Azure Active Directory](./media/digital-twins-permissions/aad-app-reg-app-id.png)](./media/digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
@@ -59,7 +59,7 @@ ms.locfileid: "74100943"
     > * Les comptes de locataire et client utilisés pour les tests doivent rechercher `Azure Digital Twins`.
     > * Les autres comptes Microsoft doivent rechercher `Azure Smart Spaces Service`.
 
-1. L'API sélectionnée apparaît sous **Azure Digital Twins** dans le même volet **Demander des autorisations d’API**. Sélectionnez l'option de liste déroulante **Read** (Lire), puis activez la case à cocher **Read.Write** (Lire.Écrire). Sélectionnez le bouton **Ajouter des autorisations**.
+1. L'une ou l’autre API apparaît sous **Azure Digital Twins** dans le même volet **Demander des autorisations d’API**. Sélectionnez l'option de liste déroulante **Read** (Lire), puis activez la case à cocher **Read.Write** (Lire.Écrire). Sélectionnez le bouton **Ajouter des autorisations**.
 
     [![Ajouter des autorisations d’API](./media/digital-twins-permissions/aad-app-req-permissions.png)](./media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 

@@ -4,16 +4,16 @@ description: Cet article explique de quelle façon les clients d’Azure Entrepr
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 2f7c4f0d4d8bd7e5209f666dbfca34eaffc8ebc7
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 92581cfcace6ec566428c9cb54d205f108399b1f
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74841368"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660662"
 ---
 # <a name="get-started-with-the-azure-ea-portal"></a>Bien démarrer avec le portail Azure EA
 
@@ -46,14 +46,15 @@ Le diagramme ci-dessous illustre des hiérarchies Azure EA simples.
 
 ![Diagramme de hiérarchies Azure EA simples](./media/billing-ea-portal-get-started/ea-hierarchies.png)
 
-## <a name="enterprise-user-roles"></a>Rôles utilisateur Entreprise
+## <a name="enterprise-user-roles"></a>Rôles d’utilisateur Entreprise
 
-Pour l’administration des services Azure dans votre inscription, il existe quatre rôles utilisateur d’administrateur d’entreprise différents :
+Pour l’administration des services Azure dans votre inscription, il existe cinq rôles utilisateur d’administrateur d’entreprise différents :
 
 - Administrateur d’entreprise
 - Administrateur de service
 - Propriétaire du compte
 - Administrateur de services fédérés
+- Contact de notification
 
 Les rôles permettent d’effectuer des tâches dans deux portails Microsoft Azure différents. Le portail Azure EA (https://ea.azure.com) est conçu pour vous aider à gérer la facturation et les coûts. Le portail Azure (https://portal.azure.com) s’utilise pour gérer les services Azure.
 
@@ -101,9 +102,15 @@ Chaque compte nécessite un compte professionnel, scolaire ou Microsoft unique. 
 
 L’administrateur de service est autorisé à gérer les services dans le portail Azure et à attribuer le rôle de coadministrateur à des utilisateurs.
 
+### <a name="notification-contact"></a>Contact de notification
+
+Le contact de notification reçoit des notifications d’utilisation liées à l’inscription.
+
 ## <a name="activate-your-enrollment"></a>Activer votre inscription
 
 Pour activer votre service, l’administrateur d’entreprise initial ouvre le portail Azure EA sur [https://ea.azure.com](https://ea.azure.com) et se connecte en utilisant l’adresse e-mail indiquée dans son e-mail d’invitation.
+
+Si vous avez été configuré comme administrateur EA, vous n’êtes pas obligé de recevoir l’e-mail d’activation pour vous connecter au portail Azure EA. Vous pouvez passer à [https://ea.azure.com](https://ea.azure.com) et vous connecter avec votre adresse e-mail (professionnelle, scolaire ou Live ID) et un mot de passe.
 
 Si vous avez plusieurs inscriptions, choisissez celle à activer. Par défaut, seules les inscriptions actives sont affichées. Pour voir l’historique des inscriptions, désactivez l’option **Active** en haut à droite du portail Azure EA.
 
@@ -363,13 +370,13 @@ Pour voir les rapports et graphes du résumé de l’utilisation :
 
 Voici une vidéo qui montre comment voir les données d’utilisation :
 
-[Vidéo sur l’affichage des données d’utilisation dans le portail Azure EA](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
+[Vidéo sur le téléchargement des données d’utilisation dans le portail Azure EA](https://www.youtube.com/watch?v=Cv2IZ9QCn9E)
 
 >[!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
 
 ### <a name="download-csv-reports"></a>Télécharger les rapports CSV
 
-Les administrateurs d’entreprise utilisent la page de téléchargement de rapport mensuel pour télécharger plusieurs rapports dans des fichiers au format CSV. À savoir :
+Les administrateurs d’entreprise utilisent la page de téléchargement de rapport mensuel pour télécharger plusieurs rapports dans des fichiers au format CSV. Ils comprennent :
 
 - Balance and Charge (Solde et frais)
 - Usage Detail (Détails de l’utilisation)
@@ -402,7 +409,7 @@ Pour la création de rapports sur des plages de dates ou des comptes spécifique
 1. Sélectionnez **Téléchargement des rapports avancés**.
 1. Sélectionnez **Appropriate Date Range** (Plage de dates appropriée).
 1. Sélectionnez **Appropriate Accounts** (Comptes appropriés).
-1. Sélectionnez **Exiger les données d’utilisation**.
+1. Sélectionnez **Request Usage Data** (Demander les données d’utilisation).
 1. Sélectionnez le bouton **Actualiser** jusqu’à ce que l’état du rapport soit **Télécharger**.
 1. Téléchargez le rapport.
 
@@ -428,7 +435,7 @@ Pour la création de rapports sur des plages de dates ou des comptes spécifique
 ### <a name="enrollment-statuses"></a>États de l'inscription :
 
 - **Pending** : l’administrateur de l’inscription doit se connecter au portail Azure EA. Une fois connecté, l’inscription passe à l’état Active.
-- **Active** : L’inscription est active et les comptes et les abonnements peuvent être créés dans le portail Azure EA. L’inscription reste active jusqu’à la date de fin du contrat Entreprise.
+- **Actif** : L’inscription est active et les comptes et les abonnements peuvent être créés dans le portail Azure EA. L’inscription reste active jusqu’à la date de fin du contrat Entreprise.
 - **Durée prolongée indéterminée** : Une durée prolongée indéterminée prend place quand la date de fin du contrat Entreprise est atteinte. Il permet aux clients EA qui ont opté pour le terme étendu de continuer à utiliser Azure indéfiniment à la fin de leur contrat Entreprise. Avant que l’inscription EA ait atteint la date de fin de contrat Entreprise, l’administrateur de l’inscription doit décider entre le renouvellement de l’inscription en ajoutant un engagement monétaire supplémentaire, le transfert vers une nouvelle inscription, la migration vers Microsoft Online Subscription Program (MOSP), ou la confirmation de la désactivation de tous les services associés à l’inscription.
 - **Expiré** : Le client EA a refusé le terme prolongé, l’inscription de contrat entreprise a atteint la date de fin de contrat Entreprise, l’inscription expire et tous les services associés sont désactivés.
 - **Transférée** : Les inscriptions où tous les comptes et services associés ont été transférés vers une nouvelle inscription se voit appliquer l’état Transférée. Veuillez noter que les inscriptions ne sont pas automatiquement transférées si un nouveau numéro d’inscription est généré lors du renouvellement. Le numéro d’inscription précédent doit être inclus dans la demande de renouvellement du client pour qu’un transfert automatique puisse avoir lieu.
@@ -445,7 +452,7 @@ Oui, vous pouvez. Un point important, tous les abonnements Azure pour lesquels v
 
 Pour récupérer votre offre d’abonnement Visual Studio individuel après vous être authentifié en tant que propriétaire d’un compte EA, après avoir utilisé la même connexion pour EA que votre abonnement Visual Studio, vous devez :
 1. Supprimer ce propriétaire de compte du portail EA, après avoir supprimé ou déplacé les abonnements Azure dont il est propriétaire, et faire qu’ils soient de nouveau inscrits pour leurs avantages individuels de Visual Studio Azure.
- Ou
+ OR
 1. Supprimer l’abonné Visual Studio du site d’administration dans VLSC et réaffectez l’abonnement, en faisant en sorte qu’il utilise une connexion différente cette fois-ci. Ils peuvent ensuite s’inscrire de nouveau pour leurs avantages individuels de Visual Studio Azure.
 
 ### <a name="what-type-of-subscription-should-i-create"></a>Quel type d’abonnement devrais-je créer ?
@@ -527,7 +534,7 @@ Oui. Avec le pack de contenu Microsoft Azure Enterprise pour Power BI, vous pou
  1. Dans le tableau de bord des services, choisissez :
     - Vignette Microsoft Azure Enterprise.
     - Cliquez sur **Connecter**.
- 1. Depuis l’écran « se connecter à Azure Enterprise », choisissez :
+ 1. Sur l’écran « Se connecter à Azure Enterprise », choisissez :
     - URL d’environnement Azure : [https://ea.azure.com](https://ea.azure.com).
     - Nombre de mois : choisissez entre 1 et 36.
     - Numéro d’inscription : entrez le numéro d’inscription.

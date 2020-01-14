@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: da63a5418ab94623f6ce3c9f35a085dd8b198d1a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10fb9e8169b7f4159ccbf4a0ff36021f6033f811
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67177621"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552413"
 ---
 Pour suivre ce didacticiel, vous devez satisfaire aux exigences suivantes :
 
@@ -21,7 +21,7 @@ Pour suivre ce didacticiel, vous devez satisfaire aux exigences suivantes :
 
 **Docker** : ce tutoriel présuppose une compréhension de base des concepts Docker essentiels, tels que les conteneurs, les images conteneur et les commandes `docker` de base. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker][docker-get-started].
 
-**Moteur Docker** : pour suivre ce tutoriel, le moteur Docker doit être installé en local. Docker fournit des packages qui configurent l’environnement Docker sur [macOS][docker-mac], [Windows][docker-windows] et [Linux][docker-linux].
+**Docker** : Pour suivre ce tutoriel, Docker doit être installé localement. Docker fournit des packages qui configurent l’environnement Docker sur [macOS][docker-mac], [Windows][docker-windows] et [Linux][docker-linux].
 
 > [!IMPORTANT]
 > Étant donné qu’Azure Cloud Shell n’inclut pas le démon Docker, vous *devez* installer Azure CLI et le moteur Docker sur votre *ordinateur local* pour suivre ce didacticiel. Vous ne pouvez pas utiliser Azure Cloud Shell pour ce didacticiel.

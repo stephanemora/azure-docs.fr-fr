@@ -1,5 +1,6 @@
 ---
-title: Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure | Microsoft Docs
+title: Importer une application de fonction Azure en tant qu’API dans Gestion des API
+titleSuffix: Azure API Management
 description: Ce didacticiel vous montre comment importer une application de fonction Azure en tant qu’API dans le service Gestion des API Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 97e4863294a32e7c11cd0c4bfa987b4e5764c0d4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107851"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442580"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -34,7 +35,7 @@ Vous apprendrez à :
 > * Tester l’API dans le portail Azure
 > * Tester l’API dans le portail des développeurs
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Suivez le guide de démarrage rapide [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 * Vérifiez que votre abonnement contient une application Azure Functions. Pour plus d’informations, consultez [Création d’une application Azure Function](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). L’application doit contenir des fonctions avec un déclencheur HTTP et un paramètre de niveau d’autorisation défini sur *Anonyme* ou *Fonction*.

@@ -1,16 +1,16 @@
 ---
-title: Créer une définition OpenAPI pour une API serverless à l’aide de Gestion des API Azure
+title: Exposer vos fonctions avec OpenAPI à l’aide de Gestion des API Azure
 description: Créez une définition OpenAPI permettant aux autres applications et services d’appeler votre fonction dans Azure.
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226814"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562011"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Créer une définition OpenAPI pour une API serverless à l’aide de Gestion des API Azure
 
@@ -18,7 +18,7 @@ Les API REST sont souvent décrites à l’aide d’une définition OpenAPI. Cet
 
 Dans ce didacticiel, vous allez créer une fonction qui détermine si la réparation d’urgence d’une éolienne est rentable. Ensuite, vous allez créer une définition OpenAPI pour l’application de fonction en utilisant [Gestion des API Azure](../api-management/api-management-key-concepts.md) afin que la fonction puisse être appelée à partir d’autres applications et services.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une fonction dans Azure
@@ -39,7 +39,7 @@ Ce didacticiel utilise une fonction déclenchée via HTTP qui accepte deux param
 * Durée estimée pour réparer une éolienne réparer, exprimée en heures.
 * La capacité de l’éolienne, exprimée en kilowatts. 
 
-La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne. Pour créer une fonction déclenchée via HTTP dans le [portail Azure](https://portal.azure.com).
+La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne. Pour créer une fonction déclenchée via HTTP dans le [portail Azure](https://portal.azure.com) :
 
 1. Développez votre Function App, puis sélectionnez le bouton **+** en regard de **Fonctions**. Sélectionnez **Dans le portail** > **Continuer**.
 
@@ -139,7 +139,7 @@ Vous êtes maintenant prêt à générer la définition OpenAPI.
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom** | Nom globalement unique | Un nom est généré sur la base du nom de votre application de fonction. |
     | **Abonnement** | Votre abonnement | Abonnement sous lequel cette nouvelle ressource est créée. |  
-    | **[Groupe de ressources](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Même ressource que votre application de fonction, qui doit être définie pour vous. |
+    | **[Groupe de ressources](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Même ressource que votre application de fonction, qui doit être définie pour vous. |
     | **Lieu** | USA Ouest | Choisissez l’emplacement USA Ouest. |
     | **Nom de l’organisation** | Contoso | Nom de l’organisation utilisé dans le portail des développeurs et pour les notifications par e-mail. |
     | **E-mail de l’administrateur** | votre e-mail | E-mail ayant reçu les notifications système de la Gestion des API. |

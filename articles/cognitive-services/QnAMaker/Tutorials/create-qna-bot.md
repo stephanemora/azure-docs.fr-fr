@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Bot QnA - Azure Bot Service - QnA Maker'
+title: 'Tutoriel : Bot QnA - Azure Bot Service - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Créez un bot conversationnel QnA à partir de la page Publier pour une base de connaissances existante. Ce bot utilise le SDK Bot Framework v4. Vous n’avez pas besoin d’écrire de code pour construire le bot, car tout le code vous est fourni.
+description: Ce tutoriel montre comment créer un chatbot de questions-réponses dans la page de publication pour une base de connaissances existante. Ce bot utilise le SDK Bot Framework v4. Vous n’avez pas besoin d’écrire de code pour construire le bot, car tout le code vous est fourni.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 12/11/2019
 ms.author: diberry
-ms.openlocfilehash: ea6e0d266c181d930f3d18171b09d222e53da7ab
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 0ddce3e4112dfb14309878927493abb3cb6b451a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390902"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447361"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Didacticiel : Créer un bot QnA avec Azure Bot Service v4
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutoriel : Créer un bot QnA avec Azure Bot Service v4
 
 Créez un bot conversationnel QnA à partir de la page **Publier** pour une base de connaissances existante. Ce bot utilise le SDK Bot Framework v4. Vous n’avez pas besoin d’écrire de code pour construire le bot, car tout le code vous est fourni.
 
@@ -27,9 +27,9 @@ Créez un bot conversationnel QnA à partir de la page **Publier** pour une base
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Créez un service Azure Bot Service à partir d’une base de connaissances existante
-> * Dialoguer avec le bot pour vérifier que le code fonctionne 
+> * Dialoguer avec le bot pour vérifier que le code fonctionne
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer d’une base de connaissances publiée pour ce tutoriel. Si ce n’est pas le cas, suivez les étapes du tutoriel [Créer et répondre à partir de la base de connaissances](create-publish-query-in-portal.md) pour créer une base de connaissances QnA Maker avec des questions et des réponses.
 
@@ -37,9 +37,9 @@ Vous devez disposer d’une base de connaissances publiée pour ce tutoriel. Si 
 
 ## <a name="create-a-qna-bot"></a>Créer un bot QnA
 
-Créez un bot en tant qu’application cliente pour la base de connaissances. 
+Créez un bot en tant qu’application cliente pour la base de connaissances.
 
-1. Dans le portail QnA Maker, accédez à la page **Publish** et publiez votre base de connaissances. Sélectionnez **Create Bot**. 
+1. Dans le portail QnA Maker, accédez à la page **Publish** et publiez votre base de connaissances. Sélectionnez **Create Bot**.
 
     ![Dans le portail QnA Maker, accédez à la page Publish et publiez votre base de connaissances. Sélectionnez Create Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
@@ -49,20 +49,20 @@ Créez un bot en tant qu’application cliente pour la base de connaissances.
 
     |Paramètre|Valeur|Objectif|
     |--|--|--|
-    |Nom du robot|`my-tutorial-kb-bot`|Il s’agit du nom de ressource Azure pour le bot.|
+    |Descripteur du bot|`qna-maker-central-us-bot`|Il s’agit du nom de ressource Azure pour le bot.|
     |Subscription|Consultez l’objectif.|Sélectionnez le même abonnement que celui utilisé pour créer les ressources QnA Maker.|
-    |Resource group|`my-tutorial-rg`|Groupe de ressources utilisé pour toutes les ressources Azure relatives aux bots.|
+    |Resource group|`docs`|Groupe de ressources utilisé pour toutes les ressources Azure relatives aux bots.|
     |Location|`west us`|Emplacement de la ressource Azure du bot.|
     |Niveau tarifaire|`F0`|Niveau gratuit du service de bot Azure.|
-    |Nom de l’application|`my-tutorial-kb-bot-app`|Il s’agit d’une application web qui ne prend en charge que votre bot. Ce nom d’application doit être différent de celui que votre service QnA Maker utilise déjà. Le partage de l’application web de QnA Maker avec toute autre ressource n’est pas pris en charge.|
+    |Nom de l’application|`qna-maker-central-us-bot-app`|Il s’agit d’une application web qui ne prend en charge que votre bot. Ce nom d’application doit être différent de celui que votre service QnA Maker utilise déjà. Le partage de l’application web de QnA Maker avec toute autre ressource n’est pas pris en charge.|
     |Langage du SDK|C#|Il s’agit du langage de programmation sous-jacent utilisé par le SDK du framework du bot. Vous avez le choix entre [C# ](https://github.com/Microsoft/botbuilder-dotnet) et [Node.js](https://github.com/Microsoft/botbuilder-js).|
     |Clé d’authentification QnA|**Ne pas modifier**|Cette valeur est renseignée automatiquement.|
     |Plan App Service/Emplacement|**Ne pas modifier**|Pour ce tutoriel, l’emplacement est sans importance.|
-    |Stockage Azure|**Ne pas modifier**|Les données de conversation sont stockées dans les tables Stockage Azure.|
     |Application Insights|**Ne pas modifier**|La journalisation est envoyée à Application Insights.|
     |ID d’application Microsoft|**Ne pas modifier**|L’utilisateur et le mot de passe Active Directory sont requis.|
 
-    ![Créez le bot de base de connaissances avec ces paramètres.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
+    > [!div class="mx-imgBorder"]
+    > ![Créez le bot de base de connaissances avec ces paramètres.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
     Attendez quelques minutes jusqu’à ce qu’un message indique que le processus de création du bot a réussi.
 
@@ -70,11 +70,11 @@ Créez un bot en tant qu’application cliente pour la base de connaissances.
 
 ## <a name="chat-with-the-bot"></a>Discuter avec le bot
 
-1. Dans le Portail Azure, ouvrez la nouvelle ressource bot à partir de la notification. 
+1. Dans le Portail Azure, ouvrez la nouvelle ressource bot à partir de la notification.
 
     ![Dans le Portail Azure, ouvrez la nouvelle ressource bot à partir de la notification.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-1. Dans **Gestion du bot**, sélectionnez **Tester dans le chat web** et saisissez : `How large can my KB be?`. Le bot doit répondre avec ce qui suit : 
+1. Dans **Gestion du bot**, sélectionnez **Tester dans le chat web** et saisissez : `How large can my KB be?`. Le bot doit répondre avec ce qui suit :
 
 
     `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
@@ -84,11 +84,11 @@ Créez un bot en tant qu’application cliente pour la base de connaissances.
 
     Pour plus d’informations sur les bots Azure, consultez [Utiliser QnA Maker pour répondre aux questions](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous avez terminé avec le bot de ce tutoriel, supprimez le bot dans le portail Azure. 
+Lorsque vous avez terminé avec le bot de ce tutoriel, supprimez le bot dans le portail Azure.
 
-Si vous avez créé un nouveau groupe de ressources pour les ressources du bot, supprimez-le. 
+Si vous avez créé un nouveau groupe de ressources pour les ressources du bot, supprimez-le.
 
 Dans le cas contraire, vous devez trouver les ressources associées au bot. La façon la plus simple est de rechercher le nom du bot et de l’application bot. Les ressources de bot incluent :
 

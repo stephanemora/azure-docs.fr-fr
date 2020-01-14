@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: a7511b8026cb3f53a23eed0f0c057632314320c4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 70cabc75ebdeb7ed6d7ffd000419295fce6303de
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459509"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Didacticiel : Créer un locataire dans Windows Virtual Desktop
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Tutoriel : Créer un locataire dans Windows Virtual Desktop
 
 La création d’un locataire dans Windows Virtual Desktop constitue la première étape de la création de votre solution de virtualisation de bureau. Un locataire est un groupe d’un ou de plusieurs pools d’hôtes. Chaque pool d’hôtes se compose de plusieurs hôtes de session s’exécutant en tant que machines virtuelles dans Azure et inscrits auprès du service Windows Virtual Desktop. Chaque pool d’hôtes comprend également un ou plusieurs groupes d’applications qui sont utilisés pour publier des ressources du Bureau à distance et d’application à distance pour les utilisateurs. Avec un locataire, vous pouvez générer des pools d’hôtes, créer des groupes d’applications, affecter des utilisateurs et établir des connexions par l’intermédiaire du service.
 
@@ -25,7 +25,9 @@ Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 > * Attribuer le rôle d’application TenantCreator à un utilisateur dans votre locataire Azure Active Directory.
 > * Créer un locataire Windows Virtual Desktop.
 
-Voici ce dont vous avez besoin pour configurer votre locataire Windows Virtual Desktop :
+## <a name="what-you-need-to-set-up-a-tenant"></a>Ce dont vous avez besoin pour configurer un locataire
+
+Avant de configurer votre locataire Windows Virtual Desktop, veillez à disposer des éléments suivants :
 
 * L’ID de locataire [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) pour les utilisateurs Windows Virtual Desktop.
 * Un compte d’administrateur général dans le locataire Azure Active Directory.
@@ -33,6 +35,8 @@ Voici ce dont vous avez besoin pour configurer votre locataire Windows Virtual D
    * Le compte d’administrateur doit provenir du locataire Azure Active Directory dans lequel vous tentez de créer le locataire Windows Virtual Desktop. Ce processus ne prend pas en charge les comptes (invités) Azure Active Directory B2B.
    * Le compte d’administrateur doit être un compte professionnel ou scolaire.
 * Un abonnement Azure.
+
+Vous devez avoir l’ID du locataire, un compte d’administrateur général et un abonnement Azure prêt à l’emploi pour que le processus décrit dans ce tutoriel puisse fonctionner correctement.
 
 ## <a name="grant-permissions-to-windows-virtual-desktop"></a>Octroyer des autorisations à Windows Virtual Desktop
 
@@ -135,6 +139,12 @@ Remplacez les valeurs entre crochets par des valeurs appropriées à votre organ
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
+```
+
+Il est conseillé d’attribuer un accès administrateur à un deuxième utilisateur au cas où vous ne pourriez plus accéder à votre compte, ou si vous partez en vacances et avez besoin d’être remplacé en tant qu’administrateur de locataire. Pour affecter un accès administrateur à un autre utilisateur, exécutez l’applet de commande suivante, dans laquelle vous remplacerez `<TenantName>` et `<Upn>` par le nom de votre locataire et le nom UPN de l’autre utilisateur.
+
+```powershell
+New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

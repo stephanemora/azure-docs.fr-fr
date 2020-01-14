@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3cd3cef4d70ea3f78d7e135ad01e0e00b38c60b9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582604"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666276"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
@@ -37,7 +37,7 @@ En outre, les attaquants ont fait évoluer leurs méthodes pour compromettre les
 
 Les alertes sont les notifications que Security Center génère lorsqu'il détecte des menaces sur vos ressources. Security Center hiérarchise et répertorie les alertes ainsi que les informations vous permettant d’analyser rapidement le problème. Security Center fournit également des suggestions sur la manière dont vous pouvez corriger les problèmes liés à une attaque.
 
-## Comment Security Center détecte-t-il les menaces ? <a name="detect-threats"></a>
+## Comment Security Center détecte-t-il les menaces ? <a name="detect-threats"> </a>
 
 Les chercheurs en sécurité de Microsoft sont constamment à l’affût des nouvelles menaces. Grâce à la présence globale de Microsoft sur le cloud et localement, ils ont accès à un vaste jeu de télémétrie. La collection diverse et étendue de jeux de données permet de détecter de nouveaux modèles et de nouvelles tendances d’attaques dans ses produits locaux destinés au consommateur et aux entreprises, ainsi que dans ses services en ligne. Par conséquent, Azure Security Center peut rapidement mettre à jour ses algorithmes de détection, puisque les pirates sont à l’origine d’attaques innovantes de plus en plus sophistiquées. Cette approche permet de faire face à des menaces en pleine mutation.
 
@@ -105,13 +105,17 @@ Les rubriques suivantes vous guident tout au long des différentes alertes en fo
 Les rubriques suivantes expliquent comment Security Center utilise les différentes données de télémétrie qu’il collecte à partir de l’intégration à l’infrastructure Azure afin d’appliquer des couches de protection supplémentaires pour les ressources déployées sur Azure :
 
 * [Alertes liées à la couche de services](security-center-alerts-service-layer.md)
-* [Intégration aux produits de sécurité Azure](security-center-alerts-integration.md)
+* [Détection des menaces pour Azure WAF et Azure DDoS Protection](security-center-alerts-integration.md)
 
 ## <a name="what-are-security-incidents"></a>Que sont les incidents de sécurité ?
 
 Un incident de sécurité collecte des alertes associées, au lieu de lister des alertes individuelles. Security Center utilise la [corrélation des alertes intelligentes cloud](security-center-alerts-cloud-smart.md) pour mettre en corrélation différentes alertes et signaux faibles en incidents de sécurité.
 
 À l’aide d’incidents, Security Center vous offre une vue unique d’une campagne d’attaque et de toutes les alertes associées. Cette vue vous permet de comprendre rapidement quelles actions l’attaquant a effectuées et quelles ressources ont été impactées. Pour plus d’informations, consultez [Corrélation des alertes intelligentes cloud](security-center-alerts-cloud-smart.md).
+
+## <a name="security-alerts-in-azure-activity-log"></a>Alertes de sécurité dans Journal d'activité Azure
+
+En plus d’être disponibles dans le portail Azure ou par programmation, les alertes et les incidents de sécurité sont audités en tant qu’événements dans [Journal d'activité Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view). Pour plus d’informations sur le schéma d’événement, consultez [Alertes de sécurité dans Journal d'activité Azure](https://go.microsoft.com/fwlink/?linkid=2114113).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

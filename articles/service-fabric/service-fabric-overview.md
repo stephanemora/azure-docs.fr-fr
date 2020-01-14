@@ -1,26 +1,15 @@
 ---
-title: Vue d’ensemble de Service Fabric sur Azure | Microsoft Docs
+title: Vue d’ensemble de Service Fabric sur Azure
 description: Présentation de Service Fabric, où les applications sont composées de nombreux microservices pour fournir une mise à l’échelle et une résilience. Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider
-ms.assetid: bbcc652a-a790-4bc4-926b-e8cd966587c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 0226c9f1b90495cdfd47a5c5c7a415a36761753d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: a9b8c2051322a7d99af7359c31cb6c77f53d4b1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901591"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466304"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Vue d’ensemble d’Azure Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de conteneurs et de microservices évolutifs et fiables. Service Fabric résout également les problèmes non négligeables du développement et de la gestion des applications natives au cloud. Les développeurs et administrateurs sont en mesure d’éviter les problèmes d’infrastructure complexes et peuvent se concentrer sur l’implémentation de charges de travail stratégiques et exigeantes, évolutives, fiables et faciles à gérer. Service Fabric représente la plateforme de nouvelle génération pour la création et la gestion de ces applications d’entreprise de niveau 1 à l’échelle du cloud et exécutées dans des conteneurs.
@@ -32,13 +21,13 @@ Cette courte vidéo présente Service Fabric et les microservices :
 Le fournisseur de ressources Azure Service Fabric est disponible dans toutes les régions Azure, et il est conforme à tous les certificats de conformité d’Azure, notamment : SOC, ISO, PCI DSS, HIPAA et GDPR. Pour obtenir une liste complète des certificats de conformité, consultez la page suivante : [Offres de conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Applications composées de microservices 
-Service Fabric vous permet de créer et gérer des applications évolutives et fiables, composées de microservices qui s’exécutent à haute densité sur un pool partagé d’ordinateurs appelé cluster. Il fournit un runtime léger et sophistiqué pour générer des microservices exécutés dans des conteneurs, avec et sans état distribués et évolutifs. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications incluant des services en conteneur.
+Service Fabric vous permet de créer et de gérer des applications évolutives et fiables, composées de microservices. Ces microservices distribués s’exécutent à très haute densité sur un pool partagé d’ordinateurs, ce qui correspond à un cluster. Service Fabric fournit un runtime léger et sophistiqué qui prend en charge les microservices sans état et avec état. Il fournit également des fonctionnalités complètes de gestion d’application pour la configuration, le déploiement, l’analyse, la mise à niveau/mise à jour corrective et la suppression d’applications.
+
+Service Fabric est adapté à la création de services cloud natifs qui peuvent commencer petit, si nécessaire, et évoluer à grande échelle avec des centaines ou des milliers d’ordinateurs. Actuellement, les services Internet sont composés de microservices. Les microservices sont, par exemple, les passerelles de protocole, les profils utilisateur, les paniers d’achat, le traitement des stocks, les files d’attente et les caches.
 
 Service Fabric alimente de nombreux services Microsoft aujourd’hui, notamment Azure SQL Database, Azure Cosmos DB, Cortana, Microsoft Power BI, Microsoft Intune, Azure Event Hubs, Azure IoT Hub, Dynamics 365, Skype Entreprise et de nombreux services Azure principaux.
 
-Service Fabric est adapté à la création de services cloud natifs qui peuvent commencer petit, si nécessaire, et évoluer à grande échelle avec des centaines ou des milliers d’ordinateurs. Actuellement, les services Internet sont composés de microservices. Les microservices sont, par exemple, les passerelles de protocole, les profils utilisateur, les paniers d’achat, le traitement des stocks, les files d’attente et les caches. 
-
-Service Fabric fournit des fonctionnalités complètes de gestion du runtime et du cycle de vie pour les applications constituées de ces microservices. Il héberge les microservices dans des conteneurs déployés et activés sur le cluster Service Fabric. Le passage de machines virtuelles à des conteneurs rend possible une multiplication par dix de la densité. De même, une nouvelle multiplication par dix de la densité devient possible en passant de conteneurs à des microservices inclus dans ces mêmes conteneurs. Par exemple, un cluster unique pour Azure SQL Database comprend des centaines d’ordinateurs exécutant des dizaines de milliers de conteneurs qui hébergent au total des centaines de milliers de bases de données. Chaque base de données est un microservice Service Fabric avec état. 
+Service Fabric héberge les microservices dans des conteneurs déployés et activés sur le cluster Service Fabric. Le passage de machines virtuelles à des conteneurs rend possible une multiplication par dix de la densité. De même, une nouvelle multiplication par dix de la densité devient possible en passant de conteneurs à des microservices inclus dans ces mêmes conteneurs. Par exemple, un cluster unique pour Azure SQL Database comprend des centaines d’ordinateurs exécutant des dizaines de milliers de conteneurs qui hébergent au total des centaines de milliers de bases de données. Chaque base de données est un microservice Service Fabric avec état.
 
 Pour plus d’informations sur l’approche microservices, consultez [Pourquoi adopter une approche microservices de la création d’applications ?](service-fabric-overview-microservices.md)
 

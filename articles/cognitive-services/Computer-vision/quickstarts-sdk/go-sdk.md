@@ -1,7 +1,7 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Go | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Go'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment bien démarrer avec la bibliothèque de client Vision par ordinateur pour Go.
+description: Commencez à utiliser la bibliothèque cliente Vision par ordinateur pour Go avec ce guide de démarrage rapide.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/22/2019
 ms.author: pafarley
-ms.openlocfilehash: f05ef80d34d1c0635bdcdca244aacba6185565fb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72943092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382307"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Go
 
@@ -28,7 +28,7 @@ Utilisez la bibliothèque de client Vision par ordinateur pour Go aux fins suiva
 
 [Documentation de référence](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * La dernière version de [Go](https://golang.org/dl/)
@@ -99,7 +99,7 @@ Ensuite, vous commencerez à ajouter du code pour effectuer différentes opérat
 
 Les classes et interfaces suivantes prennent en charge certaines des fonctionnalités principales du SDK Go pour Vision par ordinateur.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 | [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#BaseClient) | Cette classe est nécessaire pour toutes les fonctionnalités Vision par ordinateur, telles que l’analyse d’images et la lecture de texte. Vous l’instanciez avec vos informations d’abonnement, et vous l’utilisez pour effectuer la plupart des opérations relatives aux images.|
 |[ImageAnalysis](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision#ImageAnalysis)| Ce type contient les résultats d’un appel de fonction **AnalyzeImage**. Il existe des types similaires pour chacune des fonctions propres à une catégorie.|
@@ -251,12 +251,12 @@ Exécutez l’application à partir de votre répertoire d’application avec la
 go run sample-app.go
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources efface également les autres ressources qui y sont associées.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Interface de ligne de commande Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portail](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

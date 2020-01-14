@@ -1,5 +1,5 @@
 ---
-title: Guide pratique pour utiliser le Stockage Table Azure ou l’API Table Azure Cosmos DB avec Java
+title: Utiliser le Stockage Table Azure ou l’API Table Azure Cosmos DB avec Java
 description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -8,22 +8,22 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 6b8b2d2d035183861f367c9425ec54d1c9babf34
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e5f9d3fbd7fcf12271329ec324b38b03b4dcd7a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444821"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Guide pratique pour utiliser le Stockage Table Azure ou l’API Table d’Azure Cosmos DB avec Java
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
-Cet article montre comment accomplir des tâches courantes à l’aide du service Stockage Table Azure et d’Azure Cosmos DB. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d’une liste de tables**, **insertion**, **interrogation**, **modification** et **suppression** des entités d’une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#next-steps) .
+Cet article montre comment accomplir des tâches courantes à l’aide du service Stockage Table Azure et d’Azure Cosmos DB. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]. Les scénarios abordés sont les suivants : **création**, **suppression** et **affichage d’une liste de tables**, **insertion**, **interrogation**, **modification** et **suppression** des entités d’une table. Pour plus d'informations sur les tables, consultez la section [Étapes suivantes](#next-steps) .
 
 > [!NOTE]
-> un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d’informations, consultez la page [Kit de développement logiciel (SDK) Stockage Azure pour Android][Azure Storage SDK for Android].
+> un Kit de développement logiciel (SDK) est disponible pour les développeurs qui utilisent Azure Storage sur des appareils Android. Pour plus d'informations, consultez la page [Kit de développement logiciel (SDK) Azure Storage pour Android][Azure Storage SDK for Android].
 >
 
 ## <a name="create-an-azure-service-account"></a>Créer un compte de service Azure
@@ -38,7 +38,7 @@ Cet article montre comment accomplir des tâches courantes à l’aide du servic
 ## <a name="create-a-java-application"></a>Création d’une application Java
 Dans ce guide, vous allez utiliser des fonctionnalités de stockage que vous pouvez exécuter dans une application Java en local, ou dans le code s’exécutant dans un rôle Web ou un rôle de travail dans Azure.
 
-Pour utiliser les exemples de cet article, installez le Kit de développement Java (JDK), puis créez un compte de stockage Azure ou un compte Azure Cosmos DB dans votre abonnement Azure. Vérifiez ensuite que votre système de développement répond à la configuration minimale requise et aux dépendances répertoriées dans le référentiel [Kit de développement logiciel (SDK) Stockage Azure pour Java][Azure Storage SDK for Java] sur GitHub. Si tel est le cas, vous pouvez suivre les instructions pour télécharger et installer les bibliothèques Stockage Azure pour Java sur votre système à partir de ce référentiel. Une fois ces tâches effectuées, vous pouvez créer une application Java utilisant les exemples de cet article.
+Pour utiliser les exemples de cet article, installez le Kit de développement Java (JDK), puis créez un compte de stockage Azure ou un compte Azure Cosmos DB dans votre abonnement Azure. Vérifiez ensuite que votre système de développement répond à la configuration minimale requise et aux dépendances listées dans le dépôt [SDK Stockage Azure pour Java][Azure Storage SDK for Java] sur GitHub. Si tel est le cas, vous pouvez suivre les instructions pour télécharger et installer les bibliothèques Stockage Azure pour Java sur votre système à partir de ce référentiel. Une fois ces tâches effectuées, vous pouvez créer une application Java utilisant les exemples de cet article.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>Configuration de votre application pour accéder au stockage de table
 Ajoutez les instructions import suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure ou l’API Table d’Azure Cosmos DB pour accéder aux tables :
@@ -92,7 +92,7 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 
 Les exemples ci-dessous partent du principe que vous avez utilisé l’une de ces méthodes pour obtenir la chaîne de connexion de stockage.
 
-## <a name="create-a-table"></a>Création d’une table
+## <a name="create-a-table"></a>Créer une table
 Un objet **CloudTableClient** vous permet d'obtenir les objets de référence pour les tables et entités. Le code suivant crée un objet **CloudTableClient** et l’utilise pour créer un objet **CloudTable** représentant une table nommée « people ». 
 
 > [!NOTE]
@@ -594,9 +594,9 @@ catch (Exception e)
 
 * [Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome et gratuite de Microsoft qui vous permet d’exploiter visuellement les données de Stockage Azure sur Windows, macOS et Linux.
-* [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]
-* [référence du kit de développement logiciel (sdk) du client azure storage][référence du kit de développement logiciel (sdk) du client azure storage]
-* [API REST Stockage Azure][Azure Storage REST API]
+* [Kit de développement logiciel (SDK) Azure Storage pour Java][Azure Storage SDK for Java]
+* [Référence du Kit de développement logiciel (SDK) du client Azure Storage][Azure Storage Client SDK Reference]
+* [API REST d’Azure Storage][Azure Storage REST API]
 * [Blog de l’équipe Stockage Azure] [Blog de l’équipe Stockage Azure]
 
 Pour plus d’informations, consultez [Azure pour les développeurs Java](/java/azure).

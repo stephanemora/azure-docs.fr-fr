@@ -1,6 +1,6 @@
 ---
-title: "Didacticiel : Traiter les événements Apache Kafka à l'aide de Stream Analytics - Azure Event Hubs"
-description: 'Didacticiel : Cet article décrit comment traiter les événements Kafka ingérés à travers des hubs d’événements à l’aide d’Azure Stream Analytics'
+title: Azure Event Hubs - Traiter les événements Apache Kafka
+description: 'Tutoriel : Cet article décrit comment traiter les événements Kafka ingérés à travers des hubs d’événements à l’aide d’Azure Stream Analytics'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: dd429c7e8478bb0576605bcffe3c72bde35ae41e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437253"
 ---
-# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Didacticiel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutoriel : Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article décrit comment diffuser des données dans des hubs d’événements Kafka et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
 
 1. Créer un espace de noms Event Hubs prenant en charge Kafka.
@@ -30,7 +30,7 @@ Cet article décrit comment diffuser des données dans des hubs d’événements
 Vous n’avez pas besoin de changer vos clients de protocole ou d’exécuter vos propres clusters quand vous utilisez le point de terminaison Kafka exposé par un hub d’événements. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) et versions ultérieures. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 

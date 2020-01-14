@@ -1,5 +1,5 @@
 ---
-title: Stockage de données d’identité pour les clients européens - Azure Active Directory | Microsoft Docs
+title: Stockage de données d’identité pour les clients européens - Azure AD
 description: Découvrez où Azure Active Directory stocke les données relatives à l’identité de ses clients européens.
 services: active-directory
 author: msaburnley
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 7360b11f41cc08c2beb3ffa227e1658881798502
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423002"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Stockage de données d’identité pour les clients européens dans Azure Active Directory
 Les données d’identité sont stockées par Azure AD dans un emplacement géographique en fonction de l’adresse fournie par votre organisation lors de l’abonnement à un service Microsoft Online tel qu’Office 365 ou Azure. Pour obtenir des informations sur le lieu de stockage des données d’identité, vous pouvez utiliser la section [Où se trouvent vos données ?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) du Centre de gestion de la confidentialité Microsoft.
@@ -53,7 +53,7 @@ Azure AD DS stocke les données utilisateur au même emplacement que le réseau 
 Pour plus d’informations sur la fédération dans Microsoft Exchange Server, consultez [Fédération : Article d’aide sur Exchange 2013](https://docs.microsoft.com/exchange/federation-exchange-2013-help).
 
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 
 Les services et les applications s’intégrant avec Azure AD ont accès aux données d’identité. Évaluez chaque service et application que vous utilisez pour déterminer comment ils traitent les données d’identité, et s’ils répondent aux besoins de stockage de données de votre entreprise.
 

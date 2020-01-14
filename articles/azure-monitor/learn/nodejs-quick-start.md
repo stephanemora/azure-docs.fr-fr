@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Superviser avec Azure Application Insights'
-description: Fournit des instructions permettant de configurer rapidement une application web Node.js pour l’analyse avec Application Insights.
+title: 'Démarrage rapide : Superviser Node.js avec Azure Monitor Application Insights'
+description: Fournit des instructions permettant de configurer rapidement une application web Node.js pour sa supervision avec Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1f42dd50ee70d42b5209e186b8af63c820a9a85e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894940"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75398775"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Démarrage rapide : Démarrer la supervision de votre application web Node.js avec Azure Application Insights
 
@@ -21,7 +21,7 @@ Ce guide de démarrage rapide vous accompagne tout au long de l’ajout du Kit d
 
 Azure Application Insights vous permet d’analyser facilement la disponibilité, les performances et l’utilisation de votre application web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. À partir de la version 0.20 du Kit de développement logiciel (SDK), vous pouvez analyser des packages tiers courants, y compris MongoDB, MySQL et Redis.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 
@@ -51,7 +51,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
-   | **Type d’application** | Application Node.js | Type de l’application que vous analysez |
+   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources où héberger les données App Insights. Vous pouvez créer un groupe de ressources ou utiliser un groupe existant. |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
 2. Sélectionnez **Create** (Créer).
@@ -90,7 +90,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Cartographie d’application Application Insights](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![icône Cartographie d’application](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Voir dans Analytics**.  Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3. Sélectionnez l’icône **Analyse d’application** ![icône Cartographie d’application](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Voir dans Analytics**.  Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
    ![Graphes analytiques Application Insights](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -126,9 +126,12 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 Pour plus d’informations sur l’analyse de Node.js, consultez la [documentation supplémentaire sur Application Insights pour Node.js](../../azure-monitor/app/nodejs.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois les tests terminés, vous pouvez supprimer le groupe de ressources et toutes les ressources associées. Pour ce faire, procédez comme suit.
+
+> [!NOTE]
+> Si vous avez utilisé un groupe de ressources existant, les instructions ci-dessous ne s’appliquent pas ; vous devrez simplement supprimer la ressource Application Insights individuelle. N’oubliez pas que lorsque vous supprimez un groupe de ressources, toutes les ressources sous-jacentes qui sont membres de ce groupe seront également supprimées.
 
 1. Dans le menu gauche du portail Azure, sélectionnez **Groupes de ressources**, puis **myResourceGroup**.
 2. Dans la page de votre groupe de ressources, sélectionnez **Supprimer**, entrez **myResourceGroup** dans la zone de texte, puis sélectionnez **Supprimer**.

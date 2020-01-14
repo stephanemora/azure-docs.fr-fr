@@ -11,48 +11,63 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: bbd456f82e333ab8e096e5695a55be43c2084c6d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 48f7e0b3d1289d8e9c620f931f9bc85570b90042
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223787"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449510"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Suivre le solde de crédit Azure d’un Contrat client Microsoft
 
-Vous pouvez vérifier le solde de crédits Azure sur votre compte de facturation d’un Contrat Client Microsoft dans le portail Azure. 
+Vous pouvez vérifier le solde de crédit Azure pour votre compte de facturation d’un Contrat client Microsoft dans le portail Azure ou via des API REST.
 
-Vous utilisez des crédits pour payer les frais associés à des produits éligibles aux crédits. Vous êtes facturé lorsque vous utilisez des produits qui ne sont pas éligibles aux crédits ou quand votre utilisation dépasse votre solde de crédits. Pour plus d’informations, consultez [Produits non couverts par les crédits Azure](#products-that-arent-covered-by-azure-credits).
-
-Dans le compte de facturation associé à un Contrat Client Microsoft, les crédits sont attribués à un profil de facturation. Chaque profil de facturation a des crédits qui lui sont propres. Vous devez avoir un rôle de propriétaire, contributeur, lecteur ou gestionnaire de factures sur le profil de facturation ou bien un rôle de propriétaire, contributeur ou lecteur sur le compte de facturation pour voir le solde de crédits Azure d’un profil de facturation. Pour en savoir plus sur les rôles, consultez [Présentation des rôles d’administrateur Azure dans le cadre des Contrats client Microsoft](billing-understand-mca-roles.md).
+Dans le compte de facturation associé à un Contrat Client Microsoft, les crédits sont attribués à un profil de facturation. Chaque profil de facturation a ses propres crédits qui sont automatiquement appliqués aux frais sur sa facture. Vous devez avoir un rôle de propriétaire, contributeur, lecteur ou gestionnaire de factures sur le profil de facturation ou bien un rôle de propriétaire, contributeur ou lecteur sur le compte de facturation pour voir le solde de crédits Azure d’un profil de facturation. Pour en savoir plus sur les rôles, consultez [Présentation des rôles d’administrateur Azure dans le cadre des Contrats client Microsoft](billing-understand-mca-roles.md).
 
 Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-## <a name="check-your-credit-balance-in-the-azure-portal"></a>Consulter votre solde de crédits dans le portail Azure
+## <a name="check-your-credit-balance"></a>Vérifier votre solde de crédit
 
-1. Connectez-vous au [Portail Azure]( https://portal.azure.com).
+### <a name="azure-portaltabportal"></a>[Azure portal](#tab/portal)
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 2. Recherchez **Gestion des coûts + facturation**.
 
     ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3.  Sélectionnez **Crédits Azure** dans la partie gauche. Selon votre accès, vous devrez peut-être sélectionner un compte ou profil de facturation, puis sélectionner **Crédits Azure**.
+3. Dans la page des étendues de facturation, sélectionnez le compte de facturation pour lequel vous souhaitez suivre le solde de crédit. Le compte de facturation doit être de type **Contrat client Microsoft**.
 
-4. La page Crédits Azure affiche les informations suivantes :
+    ![Capture d’écran montrant la recherche dans le portail pour gestion des coûts + facturation](./media/billing-mca-check-azure-credits-balance/list-of-scopes.png)
 
-   ![Capture d’écran montrant le solde de crédits et les transactions pour un profil de facturation](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-overview.png)
+    > [!NOTE]
+    >
+    > Le portail Azure mémorise la dernière étendue de facturation à laquelle vous accédez et affiche l’étendue la prochaine fois que vous revenez à la page Gestion des coûts + facturation. Vous ne verrez pas la page des étendues de facturation si vous avez déjà consulté Gestion des coûts + facturation. Si c’est le cas, vérifiez que vous êtes dans l’[étendue appropriée](#check-access-to-a-microsoft-customer-agreement). Si ce n’est pas le cas, [changez d’étendue](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal) pour sélectionner le compte de facturation d’un Contrat client Microsoft.
+
+3. Sélectionnez **Modes de paiement** sur le côté gauche, puis **Crédits Azure**.
+
+   ![Capture d’écran du solde de crédit d’un profil de facturation](./media/billing-mca-check-azure-credits-balance/mca-payment-methods.png)
+
+4. La page Crédits Azure contient les sections suivantes :
+    
+   #### <a name="balance"></a>Balance
+   
+   La section Solde affiche le résumé de votre solde de crédit Azure.
+
+   ![Capture d’écran du solde de crédit d’un profil de facturation](./media/billing-mca-check-azure-credits-balance/mca-credit-balance.png)
 
    | Terme               | Définition                           |
    |--------------------|--------------------------------------------------------|
    | Solde estimé  | Montant estimé de crédits dont vous disposez après prise en compte de toutes les transactions facturées et en attente |
    | Solde actuel    | Montant des crédits depuis votre dernière facture. Les transactions en attente ne sont pas incluses. |
-   | Transactions       | Transactions de facturation qui ont impacté votre solde de crédits Azure |
 
    Lorsque votre solde estimé atteint zéro (0), vous êtes facturé pour toute votre utilisation, y compris pour les produits éligibles aux crédits.
 
-6. Sélectionnez **Liste des crédits** pour afficher la liste des crédits du profil de facturation. La liste des crédits fournit les informations suivantes :
+   #### <a name="credits-list"></a>Liste des crédits
+   
+   La section Liste des crédits affiche la liste des crédits Azure.
 
-   ![Capture d’écran des listes de crédits d'un profil de facturation](./media/billing-mca-check-azure-credits-balance/billing-mca-credits-list.png)
+   ![Capture d’écran des listes de crédits d'un profil de facturation](./media/billing-mca-check-azure-credits-balance/mca-credits-list.png)
 
    | Terme | Définition |
    |---|---|
@@ -63,7 +78,28 @@ Cet article s'applique à un compte de facturation associé à un contrat client
    | Montant d’origine | Montant d'origine du crédit |
    | Statut | État actuel du crédit. Cet état peut être actif, utilisé, expiré ou en cours d'expiration |
 
-## <a name="check-your-credit-balance-programmatically"></a>Vérifier votre solde de crédits programmatiquement
+   #### <a name="transactions"></a>Transactions
+
+   La section Transactions affiche toutes les transactions qui ont affecté le solde de vos crédits.
+
+   ![Capture d’écran des transactions de crédits pour un profil de facturation](./media/billing-mca-check-azure-credits-balance/mca-credits-transactions.png)
+    
+   | Terme | Définition |
+   |---|---|
+   | Date de la transaction | Date à laquelle la transaction a eu lieu |
+   | Description | Description de la transaction |
+   | Montant| Le montant de la transaction |
+   | Balance | Solde après la transaction |
+
+    > [!NOTE]
+    >
+    > Si vous ne voyez pas de crédits Azure dans la page des modes de paiement, soit vous n’avez pas de crédits, soit vous n’avez pas sélectionné l’étendue appropriée. Sélectionnez le compte de facturation qui contient des crédits ou un de ses profils de facturation. Pour savoir comment changer d’étendues, consultez [Changer d’étendues de facturation dans le portail Azure](billing-view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
+
+5. Si vous affichez des crédits Azure au niveau de l’étendue du compte de facturation et que le compte de facturation possède plusieurs profils de facturation, la page Crédits Azure affiche un tableau avec un résumé des crédits Azure pour chaque profil de facturation. Sélectionnez un profil de facturation dans la liste, les modes de paiement, puis les crédits Azure pour afficher les détails d’un profil de facturation.
+
+    ![Capture d’écran de la liste des crédits pour un compte de facturation](./media/billing-mca-check-azure-credits-balance/mca-account-credit-list.png)
+
+### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
 
 Vous pouvez utiliser les API [Consommation](https://docs.microsoft.com/rest/api/billing/) et [Facturation Azure](https://docs.microsoft.com/rest/api/consumption/) pour obtenir programmatiquement le solde de crédits de votre compte de facturation.
 
@@ -118,11 +154,11 @@ L’API retourne en réponse une liste de comptes de facturation et des profils 
 }
 ```
 
-Utilisez la propriété `displayName` du profil de facturation pour identifier le profil de facturation pour lequel vous voulez vérifier le solde de crédits. Copiez la propriété `id` du profil de facturation. Par exemple, si vous souhaitez vérifier le solde de crédits du profil de facturation **Development**, vous copiez ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Collez cette valeur quelque part, car vous en aurez besoin à l’étape suivante.
+Utilisez la propriété `displayName` du profil de facturation pour identifier le profil de facturation pour lequel vous voulez vérifier le solde de crédit. Copiez la propriété `id` du profil de facturation. Par exemple, si vous souhaitez vérifier le solde de crédits du profil de facturation **Development**, vous copiez ```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```. Collez cette valeur quelque part, car vous en aurez besoin à l’étape suivante.
 
 ### <a name="get-azure-credit-balance"></a>Obtenir le solde de crédits Azure 
 
-Envoyez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Effectuez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2019-10-01
@@ -173,7 +209,7 @@ L’API retourne en réponse le solde estimé et le solde actuel pour le profil 
 
 ### <a name="get-list-of-credits"></a>Obtenir la liste des crédits
 
-Envoyez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
+Effectuez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). 
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/lots?api-version=2019-10-01
@@ -237,7 +273,7 @@ L’API retourne en réponse les listes de crédits Azure pour un profil de fact
 
 ### <a name="get-transactions-that-affected-credit-balance"></a>Obtenir les transactions ayant impacté le solde de crédits
 
-Envoyez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Vous devez passer une valeur **startDate**  et une valeur **endDate** pour obtenir les transactions relevant de la période qui vous intéresse.
+Effectuez la requête suivante, en remplaçant `<billingProfileId>` par l’élément `id` copié lors de la première étape (```providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx```). Vous devez passer une valeur **startDate**  et une valeur **endDate** pour obtenir les transactions relevant de la période qui vous intéresse.
 
 ```json
 GET https://management.azure.com<billingProfileId>/providers/Microsoft.Consumption/events?api-version=2019-10-01&startDate=2018-10-01T00:00:00.000Z&endDate=2019-10-11T12:00:00.000Z?api-version=2019-10-01
@@ -325,6 +361,8 @@ L’API retourne en réponse toutes les transactions qui ont impacté le solde d
 | `eventType`  | Le type de transaction.   |
 | `invoiceNumber`  | Numéro de la facture sur laquelle la transaction est facturée. Il reste vide si la transaction est en attente.   |
 
+---
+
 ## <a name="how-credits-are-used"></a>Utilisation des crédits
 
 Dans un compte de facturation pour un Contrat client Microsoft, vous utilisez les profils de facturation pour gérer vos factures et modes de paiement. Une facture mensuelle est générée pour chaque profil de facturation et les modes de paiement permettent de payer la facture.
@@ -349,7 +387,7 @@ Vous attribuez vos crédits acquis à un profil de facturation. Quand une factur
 - Produits de la Place de marché Azure
 - Plans de support Azure
 
-## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l’accès à un Contrat client Microsoft
+## <a name="check-access-to-a-microsoft-customer-agreement"></a>Vérifier l'accès à un contrat client Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
@@ -359,4 +397,4 @@ Si vous avez toujours besoin d’aide, [contactez le support technique](https://
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Comprendre le compte de facturation associé à un Contrat client Microsoft](billing-mca-overview.md)
-- [Comprendre les termes indiqués sur votre facture du Contrat client Microsoft](billing-mca-understand-your-invoice.md)
+- [Comprendre les termes indiqués sur votre facture du contrat client Microsoft](billing-mca-understand-your-invoice.md)

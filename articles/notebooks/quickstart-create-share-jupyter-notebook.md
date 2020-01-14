@@ -1,18 +1,24 @@
 ---
-title: Créer et partager un notebook Jupyter sur Azure
-description: Créez et exécutez rapidement un notebook Jupyter sur Azure Notebooks, puis partagez-le avec d’autres utilisateurs.
+title: Créer et partager un notebook Jupyter sur Azure Notebooks (préversion)
+description: Créez et exécutez rapidement un notebook Jupyter sur Azure Notebooks (préversion), puis partagez-le avec d’autres utilisateurs.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 71220fa5aa0367d1cb1694582b4f96459a3016e7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277502"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647082"
 ---
-# <a name="quickstart-create-and-share-a-notebook"></a>Démarrage rapide : Créer et partager un notebook
+# <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>Démarrage rapide : Créer et partager un notebook dans Azure Notebooks (préversion)
 
-1. Accédez à [Azure Notebooks](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
+Dans ce guide de démarrage rapide, vous découvrez comment créer et exécuter un notebook Jupyter sur Azure Notebooks, puis comment le partager avec d’autres utilisateurs.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+## <a name="create-a-new-project-and-notebook"></a>Créer un projet et un notebook
+
+1. Accédez au [site d’Azure Notebooks (https://notebooks.azure.com)](https://notebooks.azure.com) et connectez-vous. (Pour plus d’informations, consultez la rubrique [Démarrage rapide sur la connexion à Azure Notebooks](quickstart-sign-in-azure-notebooks.md).)
 
 1. En haut de votre page de profil public, sélectionnez **Mes projets** :
 
@@ -31,7 +37,7 @@ ms.locfileid: "74277502"
 
      ![Fenêtre contextuelle Nouveau projet avec les détails remplis](media/quickstarts/new-project-popup.png)
 
-1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook** :
+1. Après quelques instants, Azure Notebooks vous dirige vers le nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook** :
 
     [![](media/quickstarts/empty-project-new-notebook-button.png "A new, empty project and add notebook command")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 

@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 042aedf1a043cd89d74ff099554642d38a3c7dd3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 83f66fb7e4d9b07cdcd72e47da1b397a85886e29
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466753"
 ---
 ## <a name="what-is-table-storage"></a>Qu’est-ce qu’un stockage de table ?
 Le stockage de table Azure permet de stocker de grandes quantités de données structurées. Il s’agit d’une banque de données NoSQL qui accepte les appels authentifiés provenant de l’intérieur et de l’extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles. Voici quelques utilisations courantes du stockage de table :
@@ -31,7 +31,7 @@ Le stockage de table est composé des éléments suivants :
   Les comptes de l’API Table d’Azure Cosmos DB utilisent ce format : `http://<storage account>.table.cosmosdb.azure.com/<table>`  
 
   Vous pouvez traiter les tables Azure directement à l’aide de cette adresse avec le protocole OData. Pour plus d’informations, consultez [OData.org][OData.org].
-* **Comptes :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../articles/storage/common/storage-scalability-targets.md) . 
+* **Comptes :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage][../articles/storage/common/storage-account-overview.md].
 
     Tous les accès à Azure Cosmos DB passent par un compte d’API de table. Consultez [Créer un compte d’API de Table](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account) pour plus d’informations sur la création d’un compte d’API de table.
 * **Table**: une table est une collection d’entités. Les tables n’appliquent pas de schéma sur les entités, ce qui signifie qu’une seule table peut contenir des entités ayant différents ensembles de propriétés.  

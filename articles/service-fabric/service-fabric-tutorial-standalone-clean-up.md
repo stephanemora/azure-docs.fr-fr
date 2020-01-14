@@ -1,28 +1,19 @@
 ---
-title: Didacticiel sur la suppression d’un cluster autonome Service Fabric - Azure Service Fabric | Microsoft Docs
-description: Ce didacticiel vous explique comment supprimer votre cluster autonome
-services: service-fabric
-documentationcenter: .net
+title: Nettoyer un cluster autonome
+description: Dans ce tutoriel, vous allez apprendre à nettoyer des ressources AWS ou Azure dans votre cluster Service Fabric autonome.
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: bebe3a2dc83b651e713ee80d7b11068b13096e04
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bfb23ca5f5eb9540491fbd05efdfd6997db15e6b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385165"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639018"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Didacticiel : Supprimer votre cluster autonome
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutoriel : Supprimer votre cluster autonome
 
 Les clusters autonomes Service Fabric vous permettent de choisir votre propre environnement et de créer un cluster dans le cadre de l’approche « n’importe quel SE, n’importe quel cloud » suivie par Service Fabric. Dans le cadre de cette série de tutoriels, vous créez un cluster autonome hébergé sur AWS ou Azure et vous installez une application dans celui-ci.
 

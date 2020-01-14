@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory dans Robin | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Robin | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Robin.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8278f9c0b478d940a629d3308fd73ea474a4aa
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 964ba7ba9ebac84e2895e5a50f3fa31f1dbdd874
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081665"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659693"
 ---
-# <a name="tutorial-integrate-robin-with-azure-active-directory"></a>Didacticiel : Intégrer Robin dans Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-robin"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory avec Robin
 
 Dans ce tutoriel, vous allez apprendre à intégrer Robin dans Azure Active Directory (Azure AD). Quand vous intégrez Robin dans Azure AD, vous pouvez :
 
@@ -33,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Robin dans Azure Active Dire
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -47,6 +46,9 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Robin prend en charge l’authentification unique initiée par le **fournisseur de services et le fournisseur d’identité**.
 * Robin prend en charge l’approvisionnement d’utilisateurs **juste-à-temps**.
 
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+
 ## <a name="adding-robin-from-the-gallery"></a>Ajout de Robin à partir de la galerie
 
 Pour configurer l’intégration de Robin dans Azure AD, vous devez ajouter Robin à votre liste d’applications SaaS managées à partir de la galerie.
@@ -58,32 +60,30 @@ Pour configurer l’intégration de Robin dans Azure AD, vous devez ajouter Rob
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Robin** dans la zone de recherche.
 1. Sélectionnez **Robin** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-robin"></a>Configurer et tester l’authentification unique Azure AD pour Robin
 
 Configurez et testez l’authentification unique Azure AD avec Robin à l’aide d’un utilisateur de test appelé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Robin associé.
 
 Pour configurer et tester l’authentification unique Azure AD auprès de Robin, suivez les indications des sections ci-après :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-    * **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
-    * **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
 1. **[Configurer l’authentification unique Robin](#configure-robin-sso)** pour configurer les paramètres de l’authentification unique côté application.
-    * **[Créer un utilisateur de test Robin](#create-robin-test-user)** pour avoir dans Robin un équivalent de B. Simon lié à la représentation Azure AD associée.
+    1. **[Créer un utilisateur de test Robin](#create-robin-test-user)** pour avoir dans Robin un équivalent de B. Simon lié à la représentation Azure AD associée.
 1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Robin**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
+1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Robin**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
-
-    ![Informations d’authentification unique dans Domaine et URL Robin](common/preintegrated.png)
+1. Dans la section  **Configuration SAML de base** , l’application est préconfigurée en mode Lancement par le  **fournisseur d’identité**  et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton  **Enregistrer** .
 
 1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -95,12 +95,11 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. En plus de ce qui précède, l’application Robin s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-    | Nom | Attribut source|
-    | ---------------|  --------- |
-    | Email | user.userprincipalname |
-    | FirstName |  user.givenname |
-    | LastName |  user.surname |
-
+    | Name | Attribut source|
+    | ---------------| --------- |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | Email | user.mail |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -146,9 +145,9 @@ Pour configurer l’authentification unique côté **Robin**, vous devez envoyer
 
 ### <a name="create-robin-test-user"></a>Créer un utilisateur de test Robin
 
-Dans cette section, un utilisateur appelé B. Simon est créé dans Robin. Robin prend en charge l’attribution d’utilisateurs juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Robin, il en est créé un après l’authentification.
+Dans cette section, un utilisateur appelé Britta Simon est créé dans Robin. Robin prend en charge l’attribution d’utilisateurs juste-à-temps, une option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans Robin, il en est créé un après l’authentification.
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -163,3 +162,4 @@ Lorsque vous cliquez sur la vignette Robin dans le volet d’accès, vous devez 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer Robin avec Azure AD](https://aad.portal.azure.com/)
+

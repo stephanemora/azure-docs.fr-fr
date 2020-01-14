@@ -1,19 +1,19 @@
 ---
-title: Initialiser le matériel - Microsoft Azure FXT Edge Filer
+title: 'Tutoriel : Initialiser le matériel - Azure FXT Edge Filer'
 description: Guide pratique pour définir un mot de passe initial sur les nœuds Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: rohogue
-ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8cb5f639deb0630575c46db30efe70ad967324a8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256020"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550889"
 ---
-# <a name="tutorial-set-hardware-passwords"></a>Didacticiel : Définir des mots de passe pour le matériel
+# <a name="tutorial-set-hardware-passwords"></a>Tutoriel : Définir des mots de passe pour le matériel
 
 La première fois que vous mettez sous tension un nœud Azure FXT Edge Filer, vous devez définir un mot de passe d’utilisateur racine. Les nœuds de matériel ne sont pas livrés avec un mot de passe par défaut. 
 
@@ -23,7 +23,7 @@ Effectuez cette étape après l’installation et le câblage du nœud, mais ava
 
 Ce tutoriel explique comment se connecter au nœud de matériel et définir le mot de passe. 
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes : 
+Dans ce didacticiel, vous apprendrez à : 
 
 > [!div class="checklist"]
 > * Connecter un clavier et un moniteur au nœud et le mettre sous tension
@@ -34,7 +34,7 @@ Répétez ces étapes pour chaque nœud que vous utilisez dans votre cluster.
 
 Ce tutoriel prend environ 15 minutes. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, procédez comme suit : 
 

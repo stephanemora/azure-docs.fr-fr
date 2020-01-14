@@ -1,25 +1,16 @@
 ---
-title: Développer des applications Azure Service Fabric en Java avec Visual Studio Code | Microsoft Docs
+title: Développer des applications Java avec Visual Studio Code
 description: Cet article montre comment générer, déployer et déboguer des applications Service Fabric en Java à l’aide de Visual Studio Code.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 96176149-69bb-4b06-a72e-ebbfea84454b
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 7f60371fb533526ef5bdb154d0c08dface9c0d1f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999dbb8c36c4e0413f287b2a73cf39ab4acd15f5
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393949"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610044"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Développer des applications Service Fabric en Java avec Visual Studio Code
 
@@ -30,7 +21,7 @@ Cet article vous montre comment générer, déployer et déboguer une applicatio
 > [!IMPORTANT]
 > Vous pouvez développer des applications Service Fabric en Java sur des machines Windows, mais ne pouvez les déployer que sur des clusters Azure Linux. Le débogage des applications Java n’est pas pris en charge sur Windows.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez déjà installé VS Code, l’extension Service Fabric Reliable Services pour VS Code et toutes les dépendances requises pour votre environnement de développement. Pour plus d’informations, consultez [Bien démarrer](./service-fabric-get-started-vs-code.md#prerequisites).
 

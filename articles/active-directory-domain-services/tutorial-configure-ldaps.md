@@ -9,20 +9,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 37ff89f6b837aaf0de5c195a89bb827464534d11
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a8028cf4ece79fc31969532a358cca993c7ab948
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703710"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549446"
 ---
-# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
+# <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Configurer le protocole LDAP sécurisé pour un domaine managé Azure Active Directory Domain Services
 
 Pour communiquer avec votre domaine managé Azure Active Directory Domain Services (Azure AD DS), le protocole LDAP (Lightweight Directory Access Protocol) est utilisé. Par défaut, le trafic LDAP n’est pas chiffré, ce qui constitue un problème de sécurité pour de nombreux environnements. Avec Azure AD DS, vous pouvez configurer le domaine managé pour qu’utilise le protocole LDAPS (Lightweight Directory Access Protocol sécurisé). Quand vous utilisez le protocole LDAP sécurisé, le trafic est chiffré. Le protocole LDAP sécurisé est également appelé LDAP over SSL (Secure Sockets Layer) / TLS (Transport Layer Security).
 
 Ce tutoriel vous montre comment configurer LDAPS pour un domaine managé Azure AD DS.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un certificat numérique pour une utilisation avec Azure AD DS
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -63,7 +63,7 @@ Le certificat que vous demandez ou que vous créez doit répondre aux exigences 
 
 * **Émetteur approuvé** : le certificat doit être émis par une autorité approuvée par les ordinateurs qui se connectent au domaine managé à l’aide du protocole LDAP sécurisé. Cette autorité peut être une autorité de certification publique ou une autorité de certification d’entreprise approuvée par ces ordinateurs.
 * **Durée de vie** : le certificat doit être valide pour les 3 à 6 mois à venir. L’accès du protocole LDAP sécurisé à votre domaine géré est interrompu lorsque le certificat expire.
-* **Nom du sujet** : le nom du sujet du certificat doit correspondre à votre domaine managé. Par exemple, si le nom de votre domaine est *aadds.contoso.com*, le nom du sujet du certificat doit être **aadds.contoso.com*.
+* **Nom du sujet** : le nom du sujet du certificat doit correspondre à votre domaine managé. Par exemple, si le nom de votre domaine est *aadds.contoso.com*, le nom du sujet du certificat doit être * *.aadds.contoso.com*.
     * Le nom DNS ou le nom alternatif du sujet du certificat doit être un certificat générique pour garantir le bon fonctionnement du protocole LDAP sécurisé avec Azure AD Domain Services. Les contrôleurs de domaine utilisent des noms aléatoires, et peuvent être supprimés ou ajoutés pour garantir que le service reste disponible.
 * **Utilisation de la clé** : Le certificat doit être configuré pour les *signatures numériques* et le *chiffrage des clés*.
 * **Rôle du certificat** : le certificat doit être valide pour l’authentification de serveur SSL.
@@ -219,9 +219,9 @@ Créons une règle pour autoriser l’accès LDAP sécurisé entrant sur le port
     | Destination                       | Quelconque          |
     | Plages de ports de destination           | 636          |
     | Protocol                          | TCP          |
-    | Action                            | AUTORISER        |
+    | Action                            | Allow        |
     | Priority                          | 401          |
-    | Nom                              | AllowLDAPS   |
+    | Name                              | AllowLDAPS   |
 
 1. Quand vous êtes prêt, sélectionnez **Ajouter** pour enregistrer et appliquer la règle.
 
@@ -267,7 +267,7 @@ Pour voir les objets stockés dans votre domaine managé Azure AD DS :
 
 Pour interroger directement un conteneur spécifique, dans le menu **Afficher > Arborescence**, vous pouvez spécifier un **BaseDN**, comme *OU=AADDC Users,DC=CONTOSO,DC=COM* ou *OU=AADDC Computers,DC=CONTOSO,DC=COM*. Pour plus d’informations sur la façon de mettre en forme et de créer des requêtes, consultez [Principes de base des requêtes LDAP][ldap-query-basics].
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez ajouté une entrée DNS au fichier hosts local de votre ordinateur pour tester la connectivité dans le cadre de ce tutoriel, supprimez cette entrée et ajoutez un enregistrement formel dans votre zone DNS. Pour supprimer l’entrée du fichier hosts local, effectuez les étapes suivantes :
 
@@ -277,7 +277,7 @@ Si vous avez ajouté une entrée DNS au fichier hosts local de votre ordinateur 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un certificat numérique pour une utilisation avec Azure AD DS

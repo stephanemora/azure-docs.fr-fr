@@ -1,19 +1,19 @@
 ---
-title: Connexions réseau et alimentation du Microsoft Azure FXT Edge Filer
+title: 'Tutoriel : Connecter des câbles à Azure FXT Edge Filer'
 description: Découvrez comment câbler les ports réseau et alimenter le matériel Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 474172284383bc9ba0e5b5c11c66e1b990010184
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 1e3c60fd955bd899955c46b7670acd3f088d0f86
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254858"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75550942"
 ---
-# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Didacticiel : Établir des connexions réseau et fournir une alimentation au nœud de l’Azure FXT Edge Filer
+# <a name="tutorial-make-network-connections-and-supply-power-to-the-azure-fxt-edge-filer-node"></a>Tutoriel : Établir des connexions réseau et fournir une alimentation au nœud de l’Azure FXT Edge Filer
 
 Ce tutoriel vous explique comment câbler les connexions réseau pour un nœud matériel de l’Azure FXT Edge Filer.
 
@@ -25,7 +25,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 > * Router les câbles par le passe-câbles (CMA)
 > * Connecter une alimentation à l’appareil en rack et mettre l’appareil sous tension
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de démarrer ce tutoriel, l’Azure FXT Edge Filer doit être déjà installé dans un rack d’équipement standard. Le passe-câbles doit être déjà installé sur le nœud du filer. 
 

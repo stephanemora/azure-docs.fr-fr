@@ -4,26 +4,23 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: f94503c42e689151591a76e7604df0fa223b106d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 42aaacca4ceb59e38687c8396a6c384d107e8038
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74223050"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75388151"
 ---
 Vérifiez le type de contrat pour déterminer si vous avez accès au compte de facturation d’un contrat client Microsoft.
  
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Accédez au [portail Azure ](https://portal.azure.com) pour rechercher l’accès au compte de facturation. Recherchez et sélectionnez **Gestion des coûts + facturation**.
+
+   ![Recherche de Gestion des coûts + facturation, portail Microsoft Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
  
-2. Effectuez une recherche sur **Gestion des coûts + facturation**.
+2. Si vous avez accès à une seule étendue de facturation, sélectionnez **Propriétés** dans le menu. Vous avez accès au compte de facturation d’un contrat client Microsoft si le type de compte de facturation est **Contrat client Microsoft**.
  
-   ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
+    ![Contrat client Microsoft, Type de compte de facturation, Propriétés, portail Microsoft Azure](./media/billing-check-mca/billing-mca-property.png)
  
-3. Si vous avez accès à une seule étendue de facturation, sélectionnez **Propriétés** dans la partie gauche. Vous avez accès au compte de facturation d’un contrat client Microsoft si le type de compte de facturation est **Contrat client Microsoft**.
+3. Si vous avez accès à plusieurs étendues de facturation, vérifiez le type indiqué dans la colonne du compte de facturation. Vous avez accès à un compte de facturation d’un contrat client Microsoft si le type de compte de facturation de l’une des étendues est **Contrat client Microsoft**.
  
-    ![Capture d’écran montrant la page de propriétés d’un contrat client Microsoft](./media/billing-check-mca/billing-mca-property.png)
- 
-4. Si vous avez accès à plusieurs étendues de facturation, vérifiez le type indiqué dans la colonne du compte de facturation. Vous avez accès à un compte de facturation d’un contrat client Microsoft si le type de compte de facturation de l’une des étendues est **Contrat client Microsoft**.
- 
-    ![Capture d’écran montrant la page répertoriant les comptes de facturation d’un contrat client Microsoft](./media/billing-check-mca/billing-mca-in-the-list.png)
- 
+    ![Contrat client Microsoft, Type de compte de facturation, liste de comptes de facturation, portail Microsoft Azure](./media/billing-check-mca/billing-mca-in-the-list.png)

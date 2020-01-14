@@ -63,7 +63,7 @@
           href: security-center-alerts-data-services.md
         - name: Détection des menaces pour les couches des services Azure
           href: security-center-alerts-service-layer.md
-        - name: Détection des menaces pour Azure WAF et Azure DDoS Protection
+        - name: Alertes de détection des menaces d’Azure WAF et Azure DDoS Protection
           href: security-center-alerts-integration.md
         - name: Corrélation des alertes intelligentes cloud (incidents)
           href: security-center-alerts-cloud-smart.md

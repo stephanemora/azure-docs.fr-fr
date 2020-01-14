@@ -1,5 +1,5 @@
 ---
-title: Différences de validation par type de compte - Plateforme d’identités Microsoft | Azure
+title: Différences de validation par types de compte pris en charge – Plateforme d’identités Microsoft | Azure
 description: Découvrez plus en détail les différences de validation de certaines propriétés pour différents types de comptes pris en charge lors de l’inscription de votre application auprès de la plateforme d’identités Microsoft.
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 576adc99ef7d794f50efeb61375f3e59f8815033
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2d15c22e2495432926285dbdbd55a4a6f3b0aa35
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919356"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423450"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Différences de validation par types de comptes pris en charge (signInAudience)
 
@@ -36,14 +36,14 @@ Consultez le tableau suivant pour connaître les différences de validation de c
 
 | Propriété | `AzureADMyOrg` | `AzureADMultipleOrgs`  | `AzureADandPersonalMicrosoftAccount` |
 |--------------|---------------|----------------|----------------|
-| URI d’ID d’application (`identifierURIs`)  | Doit être unique dans le locataire <br><br> Les schémas urn://sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs  | elle doit être globalement unique <br><br> Les schémas urn:// sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs | elle doit être globalement unique <br><br> Les schémas urn:// ne sont pas pris en charge <br><br> Les caractères génériques, les fragments et les chaînes de requête ne sont pas pris en charge <br><br> Longueur maximale de 120 caractères <br><br> Maximum de 50 identifierURIs |
+| URI d’ID d’application (`identifierURIs`)  | Doit être unique dans le locataire <br><br> Les schémas urn:// sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs  | elle doit être globalement unique <br><br> Les schémas urn:// sont pris en charge <br><br> Les caractères génériques ne sont pas pris en charge <br><br> Les fragments et les chaînes de requête sont pris en charge <br><br> Longueur maximale de 255 caractères <br><br> Aucune limite* sur le nombre d’identifierURIs | elle doit être globalement unique <br><br> Les schémas urn:// ne sont pas pris en charge <br><br> Les caractères génériques, les fragments et les chaînes de requête ne sont pas pris en charge <br><br> Longueur maximale de 120 caractères <br><br> Maximum de 50 identifierURIs |
 | Certificats (`keyCredentials`) | Clé de signature symétrique | Clé de signature symétrique | Chiffrement et clé de signature asymétrique | 
 | Secrets client (`passwordCredentials`) | Aucune limite* | Aucune limite* | Si liveSDK est activé : 2 secrets client maximum | 
 | URI de redirection (`replyURLs`) | Consultez [Limitations et restrictions des URL de réponse/URI de redirection](reply-url.md) pour plus d’informations. | | | 
 | Autorisations des API (`requiredResourceAccess`) | Aucune limite* | Aucune limite* | Maximum de 30 autorisations par ressource autorisée (par exemple, Microsoft Graph) | 
 | Étendues définies par cette API (`oauth2Permissions`) | Longueur maximale du nom de l’étendue de 120 caractères <br><br> Aucune limite* sur le nombre de niveaux définis | Longueur maximale du nom de l’étendue de 120 caractères <br><br> Aucune limite* sur le nombre de niveaux définis |  Longueur maximale du nom de l’étendue de 40 caractères <br><br> Maximum de 100 étendues définies | 
 | Applications clientes autorisées (`preautorizedApplications`) | Aucune limite* | Aucune limite* | Nombre total maximal de 500 <br><br> Maximum de 100 applications clientes définies <br><br> Maximum de 30 étendues définies par client | 
-| appRoles | Pris en charge <br> Aucune limite* | Pris en charge <br> Aucune limite* | Non pris en charge | 
+| appRoles | Prise en charge <br> Aucune limite* | Prise en charge <br> Aucune limite* | Non pris en charge | 
 | URL de déconnexion | http://localhost est autorisé <br><br> Longueur maximale de 255 caractères | http://localhost est autorisé <br><br> Longueur maximale de 255 caractères | <br><br> https://localhost est autorisé, http://localhost échoue pour MSA <br><br> Longueur maximale de 255 caractères <br><br> Le schéma HTTP n’est pas autorisé <br><br> Les caractères génériques ne sont pas pris en charge | 
 
 *Il existe une limite globale d’environ 1000 éléments sur l’ensemble des propriétés de collection de l’objet d’application

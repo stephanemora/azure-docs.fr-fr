@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 2fbe1e91204df7901b4ac3ccfdcd323304b2ce3c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c485a21f974e3ed9c8882e7a900d1632b33a1ed
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410653"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Démarrage rapide : Exécuter un travail Spark sur Azure Databricks à l'aide d'un modèle Azure Resource Manager
 
 Dans ce guide de démarrage rapide, vous allez utiliser un modèle Azure Resource Manager pour créer un espace de travail Azure Databricks avec un cluster Apache Spark. Vous exécuterez un travail sur le cluster et utiliserez des graphiques personnalisés pour produire des rapports en temps réel à partir de l’utilisation gratuite/payante en fonction des données démographiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). 
+Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 > [!Note]
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
@@ -50,7 +50,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
    |Propriété  |Description  |
    |---------|---------|
    |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
-   |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
+   |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/management/overview.md). |
    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
    |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
    |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
@@ -123,7 +123,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
           spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-     Pour des instructions sur la récupération de la clé du compte de stockage, consultez [Gérer vos clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys).
+     Pour plus d’informations sur la façon de récupérer les clés d’accès au compte de stockage, consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
 
    > [!NOTE]
    > Vous pouvez également utiliser Azure Data Lake Store avec un cluster Spark sur Azure Databricks. Pour obtenir des instructions, consultez [Utiliser Data Lake Store avec Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).
@@ -176,7 +176,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
    ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-resource-manager-template/databricks-sql-query-output-bar-chart.png "Personnaliser le graphique à barres")
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois l’article terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 

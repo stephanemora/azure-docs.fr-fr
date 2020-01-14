@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 684c067f393b1f6037e67d3b49a861341f3353c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 24738e4d6a9f18bccdbc775fa20cccec222a85fb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706121"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561624"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -48,7 +48,7 @@ Dans le modèle de chaînage de fonctions, une séquence de fonctions s’exécu
 
 Vous pouvez utiliser Durable Functions pour implémenter le modèle de chaînage de fonctions de façon concise, comme indiqué dans l’exemple ci-dessous.
 
-Dans cet exemple, les valeurs `F1`, `F2`, `F3` et `F4` représentent les noms des autres fonctions dans l’application de fonction. Vous pouvez implémenter le flux de contrôle à l’aide de constructions de codage impératives normales. Le code s’exécute du haut vers le bas. Le code peut impliquer une sémantique de flux contrôle de langage existante, notamment des instructions conditionnelles et des boucles. Vous pouvez inclure une logique de gestion des erreurs dans des blocs `try`/`catch`/`finally`.
+Dans cet exemple, les valeurs `F1`, `F2`, `F3` et `F4` représentent les noms d’autres fonctions dans la même application de fonction. Vous pouvez implémenter le flux de contrôle à l’aide de constructions de codage impératives normales. Le code s’exécute du haut vers le bas. Le code peut impliquer une sémantique de flux contrôle de langage existante, notamment des instructions conditionnelles et des boucles. Vous pouvez inclure une logique de gestion des erreurs dans des blocs `try`/`catch`/`finally`.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -206,7 +206,7 @@ L’extension Durable Functions expose des API HTTP intégrées qui gèrent les 
 
 Pour plus d’informations, consultez l’article [Fonctionnalités HTTP](durable-functions-http-features.md), qui explique comment vous pouvez exposer des processus asynchrones à exécution longue sur HTTP à l’aide de l’extension Durable Functions.
 
-### <a name="monitoring"></a>Modèle 4 : Surveiller
+### <a name="monitoring"></a>Modèle 4 : Moniteur
 
 Le modèle de surveillance fait référence à un processus souple et récurrent dans un flux de travail. Il peut s’agir, par exemple, d’une interrogation se poursuivant jusqu’à ce que certaines conditions soient remplies. Vous pouvez utiliser un [déclencheur de minuteur](../functions-bindings-timer.md) standard pour un scénario simple, comme une tâche de nettoyage périodique, mais son intervalle est statique et la gestion de la durée de vie des instances devient complexe. Vous pouvez utiliser Durable Functions pour créer des intervalles de récurrence flexibles, gérer la durée de vie des tâches et créer plusieurs processus de surveillance à partir d’une seule orchestration.
 
@@ -353,7 +353,7 @@ Un client externe peut remettre la notification d’événement à une fonction 
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-Un événement peut également être déclenché à l’aide du client d’orchestration durable à partir d’une autre fonction :
+Un événement peut également être déclenché à l’aide du client d’orchestration durable à partir d’une autre fonction dans la même application de fonction :
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

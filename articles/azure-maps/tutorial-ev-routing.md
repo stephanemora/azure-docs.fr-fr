@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Router les véhicules électriques avec Azure Notebooks (Python)'
-description: 'Didacticiel : Routez les véhicules électriques avec les API de routage Azure Maps, et Azure Notebooks.'
+title: 'Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)'
+description: 'Tutoriel : Routez les véhicules électriques avec les API de routage Azure Maps, et Azure Notebooks.'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7039cd73263388f206075a53d7898e0d15da6b03
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109602"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613684"
 ---
-# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Didacticiel : Router les véhicules électriques avec Azure Notebooks (Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutoriel : Router les véhicules électriques avec Azure Notebooks (Python)
 
 Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure. Avec ces API, les développeurs, les entreprises et les éditeurs de logiciels indépendants peuvent créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. 
 
@@ -35,13 +35,15 @@ Ce didacticiel présente les procédures suivantes :
 > * Rechercher et visualiser une route vers la borne de recharge de véhicule électrique la plus proche en temps de conduite.
 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Pour suivre ce tutoriel, vous devez d’abord créer un compte Azure Maps et obtenir votre clé primaire (clé d’abonnement). 
 
-Pour créer un abonnement de compte Azure Maps au niveau tarifaire S1, suivez les instructions fournies dans [Gérer votre compte Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account). 
+Pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1. 
 
-Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Créer un compte et obtenir une clé](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key).
+Pour obtenir la clé primaire d’abonnement destinée à votre compte, suivez les instructions fournies dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+
+Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="create-an-azure-notebook"></a>Créer un notebook Azure
 
@@ -111,7 +113,7 @@ Dans notre scénario, une société de livraison de colis compte quelques véhic
 Pour déterminer les limites de la zone accessible du véhicule électrique, exécutez le script de la cellule suivante :
 
 ```python
-subscriptionKey = "Your Azure Maps primary subscription key"
+subscriptionKey = "Your Azure Maps key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
@@ -398,6 +400,6 @@ Pour explorer les API Azure Maps qui sont utilisées dans ce tutoriel, consulte
 * [Envoyer une matrice d’itinéraire](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obtenir un itinéraire](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
-Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/#reference).
+Pour obtenir la liste complète des API REST Azure Maps, consultez [API REST Azure Maps](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
 Pour en savoir plus sur Azure Notebooks, consultez [Azure Notebooks](https://docs.microsoft.com/azure/notebooks).

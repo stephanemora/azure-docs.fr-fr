@@ -1,23 +1,23 @@
 ---
-title: 'Didacticiel : Obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
+title: 'Tutoriel : Obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
 titleSuffix: Azure Cognitive Services
-description: Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Vérification orthographique Bing et d’afficher les résultats.
+description: Utilisez ce tutoriel pour générer une page web qui envoie des requêtes à l’API Vérification orthographique Bing et affiche les résultats.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 12/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 038716f43c18432b1b8e7c86c3ffbcab46f1db8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75382794"
 ---
-# <a name="tutorial-build-a-web-page-spell-check-client"></a>Didacticiel : Générer une page web pour le client de vérification orthographique
+# <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutoriel : Générer une page web pour le client de vérification orthographique
 
 Dans ce tutoriel, nous allons générer une page web qui permet aux utilisateurs d’interroger l’API Vérification orthographique Bing. Le code source de cette application est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -27,7 +27,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > - Effectuer une requête simple auprès de l’API Vérification orthographique Bing
 > - Afficher les résultats de la requête
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre le tutoriel, vous avez besoin d’une clé d’abonnement pour l’API Vérification orthographique Bing. Si vous n’en avez pas, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

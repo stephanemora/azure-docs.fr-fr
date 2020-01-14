@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e8fdafc3e8f83cb529718993ffe9d0f7383c10c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70095694"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449820"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Déployer des applications sur les nœuds avec des packages d’applications Batch
 
@@ -42,7 +42,7 @@ Dans Azure Batch, une *application* fait référence à un jeu de versions de fi
 
 ![Diagramme détaillé sur les applications et les packages d’applications][1]
 
-### <a name="applications"></a>APPLICATIONS
+### <a name="applications"></a>Applications
 Dans Batch, une application contient un ou plusieurs packages d’application et spécifie les options de configuration de l’application. Par exemple, une application peut indiquer la version par défaut du package d’application à installer sur les nœuds de calcul, et préciser si ses packages peuvent être mis à jour ou supprimés.
 
 ### <a name="application-packages"></a>packages d’application
@@ -94,7 +94,7 @@ Nous vous recommandons de créer un compte de stockage *spécifiquement* destin�
 > Actuellement, vous ne pouvez pas utiliser les packages d’application avec un compte de stockage Azure qui est configuré avec [des règles de pare-feu](../storage/common/storage-network-security.md).
 > 
 
-Le service Batch utilise un stockage Azure pour stocker vos packages d’application en tant qu’objets blob de blocs. Vous êtes [facturé de façon normale][storage_pricing] pour les données des objets blob de blocs, et la taille de chaque package ne peut pas dépasser la [taille maximale d’objet blob de blocs](../storage/common/storage-scalability-targets.md#azure-blob-storage-scale-targets). Veillez à prendre en compte la taille et le nombre de vos packages d’application, ainsi qu’à supprimer régulièrement les packages obsolètes afin de minimiser les coûts.
+Le service Batch utilise un stockage Azure pour stocker vos packages d’application en tant qu’objets blob de blocs. Vous êtes [facturé de façon normale][storage_pricing] pour les données des objets blob de blocs, et la taille de chaque package ne peut pas dépasser la taille maximale d’objet blob de blocs. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité de Stockage Azure](../storage/blobs/scalability-targets.md). Veillez à prendre en compte la taille et le nombre de vos packages d’application, ainsi qu’à supprimer régulièrement les packages obsolètes afin de minimiser les coûts.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
 title: Présentation de l’API Cassandra Azure Cosmos DB
-description: Découvrez comment utiliser Azure Cosmos DB pour répliquer (« lift-and-shift ») des applications existantes et en générer de nouvelles à l’aide de l’API Cassandra avec les pilotes Cassandra et le langage CQL que vous connaissez déjà.
+description: Découvrez comment utiliser Azure Cosmos DB pour répliquer (« lift-and-shift ») des applications existantes et en créer de nouvelles à l’aide des pilotes Cassandra et du langage CQL
 author: kanshiG
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82ca7814f756a12005ee5802c3e8a7fd28f6d398
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968973"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442132"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Présentation de l’API Cassandra Azure Cosmos DB
 

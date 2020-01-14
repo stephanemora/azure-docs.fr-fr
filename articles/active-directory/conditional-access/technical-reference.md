@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a3518dfcad3678dc298ba8529e731d48ec1d195
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893471"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424804"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -115,9 +115,9 @@ Dans votre stratégie d’accès conditionnel, vous pouvez sélectionner **Navig
 
 Ce paramètre fonctionne avec tous les navigateurs. Toutefois, pour satisfaire à une stratégie d’appareil, telle qu’une exigence d’appareil conforme, les systèmes d’exploitation et navigateurs suivants sont pris en charge :
 
-| OS                     | Navigateurs                                        |
+| Système d''exploitation                     | Navigateurs                                        |
 | :--                    | :--                                             |
-| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                       |
 | Windows 7              | Internet Explorer, Chrome                       |
 | iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
@@ -143,7 +143,7 @@ Pour déployer automatiquement cette extension sur les navigateurs Chrome, crée
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Nom | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Données | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
@@ -152,7 +152,7 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 |    |    |
 | --- | --- |
 | Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Nom | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -169,11 +169,11 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 | Applications clientes | Service cible | Plateforme |
 | --- | --- | --- |
 | Application Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS et Android |
-| Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online | Windows 10 |
+| Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online | Windows 10 |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS |
 | Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
 | Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint | Office 365 SharePoint Online | Windows 10 |
+| Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| macOS|
 | Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
 | Applications mobiles Office | Office 365 SharePoint Online | Android, iOS |
@@ -235,6 +235,7 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Les applications clientes approuvées prennent en charge la fonctionnalité de gestion des applications mobiles Intune.
 - Exigence **Nécessite une application cliente approuvée** :
    - elle prend uniquement en charge iOS et Android pour la [condition de plate-forme de périphérique](#device-platform-condition).
+- L’accès conditionnel ne peut considérer Microsoft Edge en mode InPrivate en tant qu'application cliente approuvée.
 
 ## <a name="app-protection-policy-requirement"></a>Présence obligatoire d’une stratégie de protection des applications 
 

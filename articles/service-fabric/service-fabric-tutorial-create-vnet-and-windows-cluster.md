@@ -1,34 +1,23 @@
 ---
-title: Créer un cluster Service Fabric exécutant Windows dans Azure | Microsoft Docs
+title: Créer un cluster Service Fabric exécutant Windows dans Azure
 description: Dans ce tutoriel, vous allez découvrir comment déployer un cluster Windows Service Fabric dans un réseau virtuel Azure et un groupe de sécurité réseau à l’aide de PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 086379e788966b300f988e06ec42c94b880b8281
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177984"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551707"
 ---
-# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
+# <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutoriel : Déployer un cluster Service Fabric exécutant Windows sur un réseau virtuel Azure
 
 Ce tutoriel est la première partie d’une série d’étapes. Vous allez découvrir comment déployer un cluster Azure Service Fabric exécutant Windows dans un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) et un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) à l’aide de PowerShell et d’un modèle. Quand vous avez terminé, vous disposez d’un cluster en cours d’exécution dans le cloud sur lequel vous pouvez déployer des applications. Pour créer un cluster Linux qui utilise Azure CLI, consultez [Créer un cluster Linux sécurisé sur Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 Ce didacticiel décrit un scénario de production. Si vous souhaitez créer un petit cluster à des fins de test, consultez [Créer un cluster de test](./scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un réseau virtuel dans Azure à l’aide de PowerShell
@@ -53,7 +42,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -112,6 +101,7 @@ Les règles de trafic entrant suivantes sont activées dans la ressource **Micro
 
 * ClientConnectionEndpoint (TCP) : 19000
 * HttpGatewayEndpoint (HTTP/TCP) : 19080
+* SMB : 445
 * Internodecommunication : 1025, 1026, 1027
 * Plage de ports éphémères : 49152 à 65534 (besoin d’un minimum de 256 ports)
 * Ports pour l’utilisation de l’application : 80 et 443
@@ -177,7 +167,7 @@ Un cluster Service Fabric offre plusieurs points d’entrée pour ses fonctionna
 
 Dans cet article, nous partons du principe que vous avez déjà créé un locataire. Si ce n’est pas le cas, commencez par lire [Guide pratique pour obtenir un locataire Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md).
 
-Pour simplifier les étapes de configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell. [Téléchargez les scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) sur votre ordinateur.
+Pour simplifier les étapes de configuration d’Azure AD avec un cluster Service Fabric, nous avons créé un ensemble de scripts Windows PowerShell. [Téléchargez les scripts](https://github.com/Azure-Samples/service-fabric-aad-helpers) sur votre ordinateur.
 
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Créer des applications Azure AD et attribuer des rôles aux utilisateurs
 Créez deux applications Azure AD pour contrôler l'accès au cluster : une application web et une application native. Une fois que vous avez créé les applications pour représenter votre cluster, attribuez à vos utilisateurs les [rôles pris en charge par Service Fabric](service-fabric-cluster-security-roles.md) : lecture seule et administrateur.
@@ -711,7 +701,7 @@ Vérifiez que vous êtes connecté et que le cluster est sain à l’aide de l�
 Get-ServiceFabricClusterHealth
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les autres articles de cette série de tutoriels utilisent le cluster que vous avez créé. Si vous ne passez pas immédiatement à l’article suivant, vous souhaiterez peut-être [supprimer le cluster](service-fabric-cluster-delete.md) pour éviter de subir des frais.
 

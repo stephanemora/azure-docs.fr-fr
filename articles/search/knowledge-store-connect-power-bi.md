@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 11/26/2019
+ms.openlocfilehash: dec792dfd3a2640fa08ebccd9077c081ba9737bb
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406585"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563290"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connecter une base de connaissances à Power BI
 
@@ -28,13 +28,14 @@ Cet article explique comment connecter et explorer une base de connaissances à 
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Exemple de modèle Power BI - Portail Azure uniquement
 
-Si vous [avez créé votre base de connaissances à l’aide du portail Azure](knowledge-store-create-portal.md), vous pouvez utiliser l’[exemple de modèle Recherche cognitive Azure Power BI](https://github.com/Azure-Samples/cognitive-search-templates) pour afficher et expérimenter des visualisations Power BI. Ce modèle est également disponible au téléchargement lorsque vous parcourez l’Assistant **Importer des données**.
+Lorsque vous créez une [base de connaissances à l’aide du portail Azure](knowledge-store-create-portal.md), vous avez la possibilité de télécharger un [modèle Power BI](https://github.com/Azure-Samples/cognitive-search-templates) dans la deuxième page de l’Assistant **Importer des données**. Ce modèle propose plusieurs visualisations, comme WordCloud et Network Navigator, pour le contenu textuel. 
 
-L’exemple de modèle effectue automatiquement les étapes de configuration décrites dans le reste de cet article. En revanche, si vous avez utilisé l’API REST pour créer votre base de connaissances, ignorez le modèle et utilisez les sections restantes de cet article pour connecter votre base de connaissances à Power BI. Commencez par [Se connecter avec Power BI](#connect-with-power-bi).
-
-L’exemple de modèle comprend plusieurs visualisations, telles que WordCloud et Network Navigator. Certaines visualisations dans le modèle, telles que Locations map (mappage d’emplacements) et Entity-Graph Viewer (visionneuse de graphe d’entité), n’affichent pas les données de l’exemple de base de connaissances créé dans [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md). Cela est dû au fait que seul un sous-ensemble des enrichissements de l’IA disponibles dans l’Assistant **Importer des données** a été utilisé.
+Cliquez sur **Obtenir le modèle Power BI** dans la page **Ajouter des compétences cognitives** pour récupérer et télécharger le modèle à partir de son emplacement GitHub public. L’Assistant modifie le modèle pour qu’il s’adapte à la forme de vos données, telles qu’elles sont capturées dans les projections de la base de connaissances spécifiées dans l’Assistant. C’est la raison pour laquelle le modèle que vous téléchargez varie chaque fois que vous exécutez l’Assistant, conformément aux entrées de données et sélections de compétences différentes.
 
 ![Exemple de modèle Recherche cognitive Azure Power BI](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Exemple de modèle Power BI")
+
+> [!NOTE]
+> Bien que le modèle soit téléchargé à mi-parcours de l’Assistant, vous devez attendre que la base de connaissances soit réellement créée dans le stockage Table Azure avant de pouvoir l’utiliser.
 
 ## <a name="connect-with-power-bi"></a>Se connecter avec Power BI
 
@@ -48,7 +49,11 @@ L’exemple de modèle comprend plusieurs visualisations, telles que WordCloud e
 
 1. Si vous y êtes invité, entrez la clé du compte de stockage.
 
-1. Sélectionnez les tables *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* et *hotelReviewsSsPages*. Ces tables sont des projections de tables Azure pour les exemples de données d’avis sur des hôtels. Elles comportent les enrichissements par IA sélectionnés lors de la création de la base de connaissances.
+1. Sélectionnez les tables contenant les données d’évaluation des hôtels créées au long des procédures pas à pas précédentes. 
+
+   + Pour la procédure pas à pas du portail, les noms de table sont *hotelReviewsSsDocument*, *hotelReviewsSsEntities*, *hotelReviewsSsKeyPhrases* et *hotelReviewsSsPages*. 
+   
+   + Pour la procédure pas à pas REST, les noms de table sont *hotelReviewsDocument*, *hotelReviewsPages*, *hotelReviewsKeyPhrases* et *hotelReviewsSentiment*.
 
 1. Cliquez sur **Charger**.
 
@@ -57,7 +62,6 @@ L’exemple de modèle comprend plusieurs visualisations, telles que WordCloud e
    ![Ouvrir Power Query](media/knowledge-store-connect-power-bi/powerbi-edit-queries.png "Ouvrir Power Query")
 
 1. Sélectionnez *hotelReviewsSsDocument*, puis supprimez les colonnes *PartitionKey*, *RowKey* et *Timestamp*. 
-
    ![Modifier les tables](media/knowledge-store-connect-power-bi/powerbi-edit-table.png "Modifier les tables")
 
 1. En haut à droite de la table, cliquez sur l’icône montrant des flèches opposées pour développer le *Contenu*. Une fois que la liste des colonnes s’affiche, sélectionnez toutes les colonnes, puis désélectionnez les colonnes commençant par « métadonnées ». Cliquez sur **OK** pour afficher les colonnes sélectionnées.
@@ -82,6 +86,8 @@ L’exemple de modèle comprend plusieurs visualisations, telles que WordCloud e
    ![Valider les relations](media/knowledge-store-connect-power-bi/powerbi-relationships.png "Valider les relations")
 
 1. Double-cliquez sur chaque relation, puis vérifiez que l’option **Direction du filtre croisé** a la valeur **Les deux**.  Cela permet d’actualiser les visuels quand un filtre est appliqué.
+
+1. Cliquez sur la vignette Rapport dans le volet de navigation gauche pour explorer les données dans des visualisations. Pour les champs de texte, les tables et les cartes s’avèrent être des visualisations utiles. Vous pouvez choisir des champs dans chacune des trois tables pour renseigner la table ou la carte. 
 
 <!-- ## Try with larger data sets
 
@@ -114,8 +120,3 @@ Pour apprendre à explorer cette base de connaissances à l’aide de l’Explor
 
 > [!div class="nextstepaction"]
 > [Voir avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
-
-Pour apprendre à créer une base de connaissances à l’aide des API REST et de Postman, consultez l’article suivant.  
-
-> [!div class="nextstepaction"]
-> [Créer une base de connaissances avec REST](knowledge-store-howto.md)

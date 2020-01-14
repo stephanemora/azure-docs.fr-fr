@@ -1,77 +1,87 @@
 ---
-title: Démarrage rapide de la réinitialisation de mot de passe libre-service Azure AD
-description: Dans ce guide de démarrage rapide, vous allez rapidement configurer la réinitialisation de mot de passe en libre-service Azure AD pour permettre aux utilisateurs de réinitialiser leurs mots de passe
+title: 'Démarrage rapide : Réinitialisation de mot de passe en libre-service Azure AD'
+description: Ce guide de démarrage rapide vous montre comment configurer la réinitialisation de mot de passe en libre-service Azure AD pour autoriser les utilisateurs à réinitialiser leurs mots de passe eux-mêmes et réduire ainsi la charge de travail du service informatique.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: quickstart
-ms.date: 07/17/2018
+ms.date: 12/10/2019
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582a6a32aa4c34b2e6fef37f3de5b5414de16cf3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a168f9bf58c4942fc0b76b9ffefc2b32b5bfbe5a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846655"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549361"
 ---
-# <a name="quickstart-self-service-password-reset"></a>Démarrage rapide : Réinitialisation de mot de passe libre-service
+# <a name="quickstart-configure-azure-active-directory-self-service-password-reset"></a>Démarrage rapide : Configurer la réinitialisation de mot de passe en libre-service Azure Active Directory
 
-Avec ce guide de démarrage rapide, vous serez guidé pas à pas pour configurer la réinitialisation du mot de passe en libre-service (SSPR) pour que les administrateurs informatiques disposent de moyens simples pour permettre aux utilisateurs de réinitialiser leurs mots de passe ou de déverrouiller leurs comptes.
+Dans ce guide de démarrage rapide, vous configurez la réinitialisation de mot de passe en libre-service Azure Active Directory (AD), ou SSPR, pour autoriser les utilisateurs à réinitialiser leurs mots de passe ou débloquer leurs comptes eux-mêmes. Avec la fonctionnalité SSPR, les utilisateurs peuvent réinitialiser leurs propres informations d’identification sans l’aide du support technique ou de l’administrateur. Cette fonctionnalité permet aux utilisateurs de récupérer l’accès à leur compte sans nécessiter une assistance supplémentaire.
 
-## <a name="prerequisites"></a>Prérequis
+> [!IMPORTANT]
+> Ce guide de démarrage rapide montre comment un administrateur peut activer la réinitialisation de mot de passe en libre-service. Si vous êtes un utilisateur final déjà inscrit pour la réinitialisation de mot de passe en libre-service et que vous devez récupérer votre compte, accédez à https://aka.ms/sspr.
+>
+> Si votre équipe informatique n’a pas activé la réinitialisation de votre propre mot de passe, contactez votre support technique pour obtenir une assistance supplémentaire.
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un locataire Azure AD fonctionnel avec au moins une licence d’essai active.
+    * Si nécessaire, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Un compte avec des privilèges d’administrateur général.
-* Un utilisateur test non-administrateur avec un mot de passe que vous connaissez, si vous avez besoin de créer un utilisateur, consultez l’article [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../add-users-azure-active-directory.md).
-* Un groupe pilote avec lequel tester si l’utilisateur test non-administrateur est membre, si vous avez besoin de créer un groupe, consultez l’article [Créer un groupe et ajouter des membres dans Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+* Un utilisateur test non-administrateur avec un mot de passe que vous connaissez, par exemple *testuser*.
+    * Si vous devez créer un utilisateur, consultez [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](../add-users-azure-active-directory.md).
+* Un groupe pilote à tester dont cet utilisateur test non-administrateur est membre, par exemple *SSPR-Test-Group*.
+    * Si vous devez créer un groupe, consultez la procédure à suivre dans [Créer un groupe et ajouter des membres dans Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-self-service-password-reset"></a>Activer la réinitialisation du mot de passe libre-service
 
 [Regardez ce processus sous forme de vidéo dans YouTube](https://youtu.be/Pa0eyqjEjvQ)
 
-1. À partir de votre locataire Azure AD existant, dans le menu du Portail Azure ou depuis la page **d’accueil**, sélectionnez **Azure Active Directory**. Cliquez ensuite sur **Réinitialisation du mot de passe**.
+1. Dans le menu du portail Azure ou dans la page d’**accueil**, sélectionnez **Azure Active Directory**, puis choisissez **Réinitialisation du mot de passe**.
 
-2. Sur la page **Propriétés**, sous l’option **Réinitialisation de mot de passe en libre-service activée**, choisissez **Sélectionné**.
-    * À partir de **Sélectionner un groupe**, choisissez votre groupe pilote créé au cours de la section conditions préalables de cet article.
-    * Cliquez sur **Enregistrer**.
+1. Dans la page **Propriétés** sous l’option **Réinitialisation de mot de passe en libre-service activée**, choisissez **Sélectionné**.
+1. Choisissez **Sélectionner un groupe**, puis sélectionnez votre groupe pilote créé conformément à la section des conditions préalables requises de cet article, par exemple *SSPR-Test-Group*. Quand vous êtes prêt, sélectionnez **Enregistrer**.
+1. Dans la page **Méthodes d’authentification**, effectuez les choix suivants, puis choisissez **Enregistrer** :
+    * Nombre de méthodes requises pour la réinitialisation : **1**
+    * Méthodes disponibles pour les utilisateurs :
+        * **Code de l’application mobile**
+        * **E-mail**
 
-3. À partir de la page **Méthodes d’authentification**, sélectionnez les choix suivants :
-   * Nombre de méthodes requises pour la réinitialisation : **1**
-   * Méthodes disponibles pour les utilisateurs :
-      * **E-mail**
-      * **Code d’application mobile (préversion)**
-   * Cliquez sur **Enregistrer**.
+    > [!div class="mx-imgBorder"]
+    > ![Choix des méthodes d’authentification pour SSPR][Authentication]
 
-     ![Choix des méthodes d’authentification pour SSPR][Authentication]
-
-4. À partir de la page **Inscription**, sélectionnez un des choix suivants :
+4. Dans la page **Inscription**, effectuez les choix suivants, puis choisissez **Enregistrer** :
    * Obliger les utilisateurs à s’inscrire durant la connexion : **Oui**
    * Définir le nombre de jours avant que les utilisateurs ne soient invités à reconfirmer leurs informations d’authentification : **365**
 
 ## <a name="test-self-service-password-reset"></a>Tester la réinitialisation de mot de passe en libre-service
 
-À présent, testons votre configuration SSPR avec un utilisateur de test. Puisque Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure, tester à l’aide d’un compte administrateur peut changer le résultat. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](concept-sspr-policy.md).
+Maintenant, testez votre configuration SSPR avec un utilisateur test qui fait partie du groupe que vous avez sélectionné dans la section précédente, par exemple *testuser*. Puisque Microsoft applique des spécifications d’authentification forte pour les comptes d’administrateur Azure, tester à l’aide d’un compte administrateur peut changer le résultat. Pour plus d’informations sur la stratégie de mot de passe administrateur, consultez notre article [Stratégie de mot de passe](concept-sspr-policy.md).
 
 1. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en navigation privée, et accédez à [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
-2. Connectez-vous avec un utilisateur de test non-administrateur et inscrivez votre téléphone d’authentification.
-3. Une fois cela terminé, cliquez sur le bouton marqué **Les informations semblent correctes** et fermez la fenêtre du navigateur.
+2. Connectez-vous avec un utilisateur test non-administrateur (*testuser*) et inscrivez votre téléphone d’authentification.
+3. Une fois cela terminé, sélectionnez le bouton marqué **Les informations semblent correctes** et fermez la fenêtre du navigateur.
 4. Ouvrez une nouvelle fenêtre de navigateur dans InPrivate ou en navigation privée, et accédez à [https://aka.ms/sspr](https://aka.ms/sspr).
-5. Entrez l’ID d’utilisateur de vos utilisateurs de test non administrateurs, les caractères du test CAPTCHA, puis cliquez sur **Suivant**.
-6. Suivez les étapes de vérification pour réinitialiser votre mot de passe
+5. Entrez l’ID utilisateur de l’utilisateur test non-administrateur (par exemple, *testuser*), les caractères du test CAPTCHA, puis sélectionnez **Suivant**.
+6. Suivez les étapes de vérification pour réinitialiser votre mot de passe.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Il est facile de désactiver la réinitialisation du mot de passe libre-service. Ouvrez votre locataire Azure AD et accédez à **Propriétés** > **Réinitialisation de mot de passe**, puis sélectionnez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**.
+Pour désactiver la réinitialisation de mot de passe en libre-service, recherchez et sélectionnez **Azure Active Directory** dans le portail Azure. Sélectionnez **Propriétés** > **Réinitialisation de mot de passe**, puis choisissez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Quand vous êtes prêt, sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Avec ce guide de démarrage rapide, vous avez appris à configurer rapidement la réinitialisation de mot de passe en libre-service pour vos utilisateurs cloud uniquement. Pour savoir comment effectuer un déploiement plus détaillé, passez à notre guide de déploiement.
+Dans ce guide de démarrage rapide, vous avez appris à configurer la réinitialisation de mot de passe en libre-service pour vos utilisateurs cloud uniquement. Pour savoir comment effectuer un déploiement plus détaillé, passez à notre guide de déploiement.
 
 > [!div class="nextstepaction"]
 > [Déployer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Méthodes d’authentification disponibles dans Azure Active Directory et quantité requise"
+
+<!-- INTERNAL LINKS -->
+[register-sspr]: ../user-help/active-directory-passwords-reset-register.md
+[reset-password]: ../user-help/active-directory-passwords-update-your-own-password.md

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: aa6f18d4f667862687083c5db3679ce9d8e188cd
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5ba08da5c58ff486bc26f2c771dfef55452629a
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177545"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681025"
 ---
-De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant Azure dans votre référentiel Git local. Remplacez _&lt;deploymentLocalGitUrl-from-create-step>_ par l’URL du Git distant que vous avez enregistrée à la section [Créer une app web](#create-a-web-app).
+De retour dans la fenêtre de terminal locale, ajoutez un dépôt distant Azure dans votre dépôt Git local. Remplacez *\<deploymentLocalGitUrl-from-create-step>* par l’URL du Git distant que vous avez enregistrée à la section [Créer une app web](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section Configurer un utilisateur de déploiement, et non pas celles vous permettant de vous connecter au portail Azure.
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Quand Git Credential Manager vous invite à entrer vos informations d’identification, veillez à entrer celles que vous avez créées dans la section [Configurer un utilisateur de déploiement](/azure/app-service/containers/tutorial-python-postgresql-app#configure-a-deployment-user), et non pas celles vous permettant de vous connecter au portail Azure.
 
 ```bash
 git push azure master

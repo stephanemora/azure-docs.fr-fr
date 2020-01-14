@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Créer, publier et répondre dans QnA Maker'
+title: 'Tutoriel : Créer, publier et répondre dans QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Créez une base de connaissances avec des questions et réponses à partir d’un forum aux questions web public. Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande cURL. Ensuite, créez un bot et testez-le avec la même question.
+description: Ce tutoriel montre comment créer une base de connaissances à partir des questions et réponses d’une page web publique de questions fréquentes (FAQ). Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande cURL. Ensuite, créez un bot et testez-le avec la même question.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,18 +11,18 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 51d051fee1da1f9bb0c89ea9123748b512f84007
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5b2f2decf3d070da2fb58bebd424b4209f353316
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75447382"
 ---
-# <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
+# <a name="tutorial-from-the-qna-maker-portal-create-a-knowledge-base"></a>Tutoriel : Dans le portail QnA Maker, créer une base de connaissances
 
 Créez une base de connaissances avec des questions et réponses à partir d’un forum aux questions web public. Enregistrez, entraînez et publiez la base de connaissances. Une fois la base de connaissances publiée, envoyez une question et recevez une réponse avec une commande cURL. Ensuite, créez un bot et testez-le avec la même question. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes : 
+Dans ce tutoriel, vous allez apprendre à : 
 
 > [!div class="checklist"]
 > * Créer une base de connaissances dans le portail QnA Maker.
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!NOTE]
 > La version programmatique de ce didacticiel est disponible avec une solution complète dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md) existant. 
 
@@ -207,7 +207,7 @@ Toutes les questions pour lesquelles QnA Maker n’a pas de certitude reçoivent
 
 Pour plus d’informations, consultez [Créer un bot conversationnel avec cette base de connaissances](create-qna-bot.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous avez terminé avec le bot de base de connaissances, supprimez le groupe de ressources `my-tutorial-rg` pour supprimer toutes les ressources Azure créées dans le processus relatif au bot.
 

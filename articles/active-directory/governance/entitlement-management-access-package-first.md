@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD - Azure Active Directory'
+title: Tutoriel – Créer un package d’accès – Gestion des droits d’utilisation Azure AD
 description: Ce tutoriel pas à pas vous explique comment créer votre premier package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de4d4a1825149a512d7abdb192d8fb9d49e85a20
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cd4feeb83acc3842874e7a2e4bbd32dacabcc00d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174880"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422653"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Didacticiel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
+# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutoriel : Créer votre premier package d’accès dans la gestion des droits d’utilisation Azure AD
 
 La gestion de l’accès à toutes les ressources dont les employés ont besoin, comme les groupes, les applications et les sites, est une fonction importante pour les organisations. Vous devez accorder aux employés le niveau d’accès dont ils ont besoin pour être productifs et leur retirer cet accès dès qu’il n’est plus nécessaire.
 
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous travaillez pour Woodgrove Bank en tant qu’administrateu
 
 ![Présentation du scénario](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un package d’accès avec un groupe comme ressource
@@ -42,7 +42,7 @@ Pour obtenir une démonstration pas à pas du processus de déploiement de la ge
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser la gestion des droits d’utilisation Azure AD, vous devez disposer d’une des licences suivantes :
 
@@ -51,7 +51,7 @@ Pour utiliser la gestion des droits d’utilisation Azure AD, vous devez dispose
 
 Pour plus d’informations, consultez [Exigences des licences](entitlement-management-overview.md#license-requirements).
 
-## <a name="step-1-set-up-users-and-group"></a>Étape 1 : Configurer des utilisateurs et un groupe
+## <a name="step-1-set-up-users-and-group"></a>Étape 1 : Configurer des utilisateurs et un groupe
 
 Un répertoire de ressources comprend une ou plusieurs ressources à partager. Dans cette étape, vous créez un groupe nommé **Marketing resources** dans l’annuaire Woodgrove Bank qui constitue la ressource cible pour la gestion des droits d’utilisation. Vous configurez également un demandeur interne.
 
@@ -65,7 +65,7 @@ Un répertoire de ressources comprend une ou plusieurs ressources à partager. D
 
 1. Créez ou configurez les deux utilisateurs suivants. Vous pouvez utiliser ces noms ou des noms différents. **Admin1** peut être l’utilisateur avec lequel vous êtes actuellement connecté.
 
-    | Nom | Rôle d’annuaire |
+    | Name | Rôle d’annuaire |
     | --- | --- |
     | **Admin1** | Administrateur général<br/>-ou-<br/>Administrateur d’utilisateurs |
     | **Requestor1** | Utilisateur |
@@ -74,7 +74,7 @@ Un répertoire de ressources comprend une ou plusieurs ressources à partager. D
 
     Ce groupe sera la ressource cible pour la gestion des droits d’utilisation. Le groupe ne doit contenir aucun membre pour commencer.
 
-## <a name="step-2-create-an-access-package"></a>Étape 2 : Créer un package d’accès
+## <a name="step-2-create-an-access-package"></a>Étape 2 : Créer un package d’accès
 
 Un *package d’accès* est un bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Les packages d’accès sont définis dans des conteneurs appelés *catalogues*. Dans cette étape, vous allez créer un package d’accès **Marketing Campaign** dans le catalogue **Général**.
 
@@ -228,7 +228,7 @@ Dans cette étape, vous allez vérifier que le package d’accès a été affect
 
     ![Membre du groupe Marketing resources](./media/entitlement-management-access-package-first/group-members.png)
 
-## <a name="step-5-clean-up-resources"></a>Étape 5 : Supprimer des ressources
+## <a name="step-5-clean-up-resources"></a>Étape 5 : Nettoyer les ressources
 
 Dans cette étape, vous supprimez les modifications apportées et le package d’accès **Marketing Campaign**.
 

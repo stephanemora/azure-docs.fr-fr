@@ -7,18 +7,18 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 12/30/2019
+ms.openlocfilehash: 4d9810b9075bc3049758e03ba8376621661b79ba
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720071"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563222"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>Créer une base de connaissances Recherche cognitive Azure en utilisant REST
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du kit SDK .NET.
+> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
 
 La fonctionnalité de base de connaissances dans Recherche cognitive Azure conserve la sortie d’un pipeline d’enrichissement par IA pour une analyse ultérieure ou tout autre traitement en aval. Un pipeline enrichi par IA accepte les fichiers image ou les fichiers texte non structurés, les index en utilisant Recherche cognitive Azure, applique des enrichissements par IA provenant d’Azure Cognitive Services (par exemple l’analyse d’images et le traitement en langage naturel), puis enregistre les résultats au sein d’une base de connaissances dans Stockage Azure. Vous pouvez utiliser des outils comme Power BI ou l’Explorateur Stockage sur le portail Azure pour explorer la base de connaissances.
 
@@ -26,35 +26,36 @@ Dans cet article, vous allez utiliser l’interface de l’API REST pour ingére
 
 Une fois la base de connaissances créée, vous pouvez apprendre à y accéder à l’aide de l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md) ou de [Power BI](knowledge-store-connect-power-bi.md).
 
-## <a name="create-services"></a>Créer des services
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Créer les services suivants :
+> [!TIP]
+> Nous vous recommandons l’[application de bureau Postman](https://www.getpostman.com/) pour cet article. Le [code source](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) de cet article comprend une collection Postman contenant toutes les requêtes. 
 
-- Créez un [service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
+## <a name="create-services-and-load-data"></a>Créer des services et charger des données
 
-- Créez un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données et la base de connaissances. Votre compte de stockage doit utiliser la même région (par exemple USA Ouest) pour votre service Recherche cognitive Azure. La valeur de **Type de compte** doit être **StorageV2 (v2 à usage général)** (valeur par défaut) ou **Storage (v1 à usage général)** .
+Ce guide de démarrage rapide utilise la Recherche cognitive Azure, le Stockage Blob Azure et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’IA. 
 
-- Recommandé : Procurez-vous l’[application de poste de travail Postman](https://www.getpostman.com/) pour envoyer des demandes à Recherche cognitive Azure. Vous pouvez vous servir de l’API REST avec n’importe quel outil capable d’utiliser les requêtes et les réponses HTTP. Postman, qui est un choix judicieux pour l’exploration des API REST, est l’application que nous utilisons dans cet article. De plus, le [code source](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) de cet article comprend une collection de requêtes Postman. 
+En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour, quand il est appelé à partir de la Recherche cognitive Azure. Du moment que vous utilisez les exemples de données que nous fournissons, vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
 
-## <a name="store-the-data"></a>Stocker les données
+1. [Téléchargez le fichier HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Ce fichier CSV contient des données d’avis d’hôtel (issues de Kaggle.com). Il rassemble 19 commentaires de clients relatifs à un seul hôtel. 
 
-Chargez le fichier CSV d’avis sur les hôtels dans Stockage Blob Azure afin de le rendre accessible à un indexeur Recherche cognitive Azure et pour qu’il soit alimenté via le pipeline d’enrichissement par IA.
+1. [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [recherchez un compte existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) dans votre abonnement actuel. Vous utilisez le stockage Azure pour le contenu brut à importer, mais aussi pour la base de connaissances qui est le résultat final.
 
-### <a name="create-a-blob-container-by-using-the-data"></a>Créer un conteneur d’objets blob en utilisant les données
+   Choisissez le type de compte **StorageV2 (usage général v2)** .
 
-1. Téléchargez les [données d’avis sur les hôtels](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) enregistrées dans un fichier CSV (HotelReviews_Free.csv). Ces données proviennent de Kaggle.com et contiennent des commentaires de clients sur les hôtels.
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à votre compte de stockage Azure.
-1. Créez un [conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Pour créer le conteneur, dans le menu de gauche de votre compte de stockage, sélectionnez **Objets blob**, puis **Conteneur**.
-1. Pour le **Nom** du nouveau conteneur, entrez **hotel-reviews**.
-1. Dans **Niveau d’accès public**, sélectionnez n’importe quelle valeur. Nous avons utilisé la valeur par défaut.
-1. Sélectionnez **OK** pour créer le conteneur d’objets blob.
-1. Ouvrez le nouveau conteneur **hotels-review**, sélectionnez **Charger**, puis le fichier HotelReviews-Free.csv que vous avez téléchargé à la première étape.
+1. Ouvrez les pages des services Blob et créez un conteneur nommé *hotel-reviews*.
 
-    ![Télécharger les données](media/knowledge-store-create-portal/upload-command-bar.png "Charger les avis sur les hôtels")
+1. Cliquez sur **Télécharger**.
 
-1. Sélectionnez **Charger** pour importer le fichier CSV dans Stockage Blob Azure. Le nouveau conteneur s’affiche :
+    ![Charger les données](media/knowledge-store-create-portal/upload-command-bar.png "Charger les avis sur les hôtels")
 
-    ![Créer le conteneur d’objets blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Créer le conteneur d’objets blob")
+1. Sélectionnez le fichier **HotelReviews-Free.csv** que vous avez téléchargé à la première étape.
+
+    ![Créer le conteneur d’objets Blob Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Créer le conteneur d’objets Blob Azure")
+
+1. Vous avez presque terminé avec cette ressource, mais avant de quitter ces pages, ouvrez la page **Clés d’accès** à partir du lien correspondant dans le volet de navigation de gauche. Obtenez une chaîne de connexion pour récupérer les données du Stockage Blob. Une chaîne de connexion ressemble à l’exemple suivant : `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
+
+1. Toujours dans le portail, basculez vers Recherche cognitive Azure. [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Vous pouvez utiliser un service gratuit pour cet exercice.
 
 ## <a name="configure-postman"></a>Configurer Postman
 
@@ -72,7 +73,7 @@ Installez et configurez Postman.
 
 Sous l’onglet **Variables**, vous pouvez ajouter les valeurs que Postman récupère chaque fois qu’il trouve une variable spécifique entre double accolades. Par exemple, Postman remplace le symbole `{{admin-key}}` par la valeur actuelle que vous avez définie pour `admin-key`. Postman effectue la substitution dans les URL, les en-têtes, le corps de la requête, etc. 
 
-Pour obtenir la valeur de `admin-key`, accédez au service Recherche cognitive Azure et sélectionnez l’onglet **Clés**. Remplacez les valeurs de `search-service-name` et `storage-account-name` par celles que vous avez choisies dans [Créer des services](#create-services). Définissez `storage-connection-string` en utilisant la valeur figurant sous l’onglet **Clés d’accès** du compte de stockage. Partout ailleurs, vous pouvez conserver les valeurs par défaut.
+Pour obtenir la valeur de `admin-key`, accédez au service Recherche cognitive Azure et sélectionnez l’onglet **Clés**. Remplacez les valeurs de `search-service-name` et `storage-account-name` par celles que vous avez choisies dans [Créer des services](#create-services-and-load-data). Définissez `storage-connection-string` en utilisant la valeur figurant sous l’onglet **Clés d’accès** du compte de stockage. Partout ailleurs, vous pouvez conserver les valeurs par défaut.
 
 ![Onglet Variables de l’application Postman](media/knowledge-store-create-rest/postman-variables-window.png "Fenêtre des variables de Postman")
 
@@ -152,7 +153,7 @@ Sélectionnez **Send** (Envoyer) pour émettre la requête PUT. L’état `201 -
 
 ## <a name="create-the-datasource"></a>Créer la source de données
 
-Ensuite, connectez Recherche cognitive Azure aux données relatives aux hôtels que vous avez stockées dans [Stocker les données](#store-the-data). Pour créer la source de données, envoyez une requête POST à `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Vous devez définir les en-têtes `api-key` et `Content-Type` comme indiqué précédemment. 
+Ensuite, connectez Recherche cognitive Azure aux données relatives aux hôtels que vous avez stockées dans le stockage Blob. Pour créer la source de données, envoyez une requête POST à `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Vous devez définir les en-têtes `api-key` et `Content-Type` comme indiqué précédemment. 
 
 Dans Postman, accédez à la requête **Create Datasource** (Créer une source de données), puis au volet **Body** (Corps). Le code suivant doit s’afficher :
 

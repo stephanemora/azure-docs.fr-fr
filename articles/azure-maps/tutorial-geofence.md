@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Créer une limite géographique à l’aide d’Azure Maps'
-description: 'Didacticiel : Configurez une limite géographique à l’aide d’Azure Maps.'
+title: 'Tutoriel : Créer une limite géographique à l’aide d’Azure Maps'
+description: 'Tutoriel : Configurez une limite géographique à l’aide d’Azure Maps.'
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107097"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407829"
 ---
-# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Didacticiel : Configurer une limite géographique à l’aide d’Azure Maps
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
 Ce tutoriel vous montre les étapes de base qui sont nécessaires à la configuration d’une limite géographique à l’aide d’Azure Maps. Dans ce tutoriel, le but est d’aider les chefs de chantier à s’assurer que le matériel potentiellement dangereux ne sorte pas des zones de construction prévues. Un site de construction implique du matériel coûteux et des réglementations. En général, le matériel doit rester sur le site de construction et ne pas le quitter sans autorisation.
 
@@ -32,11 +32,11 @@ Dans ce tutoriel, vous allez apprendre à :
 > *   Utiliser les API du service de limite géographique d’Azure Maps pour vérifier si le matériel se trouve ou non sur le site de construction.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps 
 
-Pour effectuer les étapes de ce tutoriel, suivez les instructions mentionnées dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin d’obtenir la clé primaire d’abonnement pour votre compte.
+Pour effectuer les étapes de ce tutoriel, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="upload-geofences"></a>Charger des limites géographiques
 
@@ -44,9 +44,9 @@ Pour charger la limite géographique du site de construction à l’aide de l’
 
 Ouvrez l’application Postman et suivez les étapes pour charger la limite géographique du site de construction à l’aide de l’API Data Upload d’Azure Maps.
 
-1. Ouvrez l’application Postman, cliquez sur New | Create New, puis sélectionnez Request. Entrez un nom de requête dans Upload geofence data (Charger les données de la limite géographique), sélectionnez la collection ou le dossier où enregistrer la requête, puis cliquez sur Save.
+1. Ouvrez l’application Postman, cliquez sur New (Nouveau) | Create New (Créer), puis sélectionnez Request (Requête). Entrez un nom de requête dans Upload geofence data (Charger les données de la limite géographique), sélectionnez la collection ou le dossier où enregistrer la requête, puis cliquez sur Save.
 
-    ![Charger des limites géographiques à l’aide de Postman](./media/tutorial-geofence/postman-new.png)
+    ![Chargement de limites géographiques à l’aide de Postman](./media/tutorial-geofence/postman-new.png)
 
 2. Sélectionnez la méthode HTTP POST sous l’onglet Builder (Générateur), puis entrez l’URL suivante pour envoyer une requête POST.
 
@@ -56,7 +56,7 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
     
     Dans le chemin d’URL, le paramètre GEOJSON représente le format des données en cours de chargement.
 
-3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé primaire d’abonnement Azure Maps.
+3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé Azure Maps.
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-geofence/postman-key-vals.png)
 

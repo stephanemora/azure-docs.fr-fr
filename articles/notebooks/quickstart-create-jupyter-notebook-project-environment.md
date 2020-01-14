@@ -1,18 +1,20 @@
 ---
-title: Créer un projet Azure Notebooks avec un environnement personnalisé
-description: Créez un projet dans Azure Notebooks configuré avec un ensemble spécifique de packages installés et de scripts de démarrage.
+title: Créer un projet Azure Notebooks (préversion) avec un environnement personnalisé
+description: Créez un projet dans Azure Notebooks (préversion) configuré avec un ensemble spécifique de packages installés et de scripts de démarrage.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 999133dd7d9d792956f9a2c93ec218e458c921e8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277497"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647065"
 ---
-# <a name="quickstart-create-a-project-with-a-custom-environment"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé
+# <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Démarrage rapide : Créer un projet avec un environnement personnalisé dans Azure Notebooks (préversion)
 
 Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fichiers de données, documentation, images et ainsi de suite, dans un environnement qui peut être configuré avec des commandes de configuration spécifiques. En définissant l’environnement avec le projet, tout utilisateur clonant le projet dans son propre compte Azure Notebooks dispose de toutes les informations dont il a besoin pour recréer l’environnement nécessaire.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="create-a-project"></a>Création d’un projet
 
@@ -28,12 +30,12 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 
 1. Dans la fenêtre contextuelle **Créer un projet** qui s’affiche, entrez ou définissez les détails suivants, puis sélectionnez **Créer** :
 
-    - **Nom du projet** : Projet avec un environnement personnalisé
+    - **Nom du projet** : Projet avec un environnement personnalisé
     - **ID de projet** : project-custom-environment
-    - **Projet public** : (désactivé)
+    - **Projet public** : (désactivé)
     - **Créer un fichier README.md** : (désactivé)
 
-1. Après quelques instants, Azure Notebooks accède au nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook**.
+1. Après quelques instants, Azure Notebooks vous dirige vers le nouveau projet. Pour ajouter un notebook au projet, sélectionnez la liste déroulante **+ Nouveau** (qui peut apparaître seulement sous la forme **+** ), puis **Notebook**.
 
 1. Donnez au notebook un nom comme *Custom environment.ipynb*, sélectionnez **Python 3.6** comme langage, puis sélectionnez **Nouveau**.
 
@@ -67,4 +69,4 @@ Dans Azure Notebooks, un projet est une collection de fichiers : notebooks, fich
 > [Gérer et configurer des projets dans Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Didacticiel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)
+> [Tutoriel : Créer et exécuter un notebook Jupyter pour effectuer une régression linéaire](tutorial-create-run-jupyter-notebook.md)

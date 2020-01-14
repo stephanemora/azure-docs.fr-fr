@@ -1,32 +1,23 @@
 ---
-title: Déployer une application Service Fabric sur un cluster dans Azure | Microsoft Docs
-description: Apprenez à déployer une application sur un cluster à partir de Visual Studio.
-services: service-fabric
-documentationcenter: .net
+title: Déployer une application Service Fabric sur un cluster dans Azure
+description: Découvrez comment déployer une application existante sur un cluster Azure Service Fabric récemment créé à partir de Visual Studio.
 author: athinanthny
-manager: msfussell
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9951610732cbb1c5884a7b7e830033f427db0ab1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213201"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646005"
 ---
-# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Didacticiel : déployer une application Service Fabric sur un cluster dans Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutoriel : déployer une application Service Fabric sur un cluster dans Azure
 
 Ce tutoriel est le deuxième d’une série. Il vous montre comment déployer une application Azure Service Fabric sur un nouveau cluster dans Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer un cluster.
 > * Déployer une application sur un cluster distant à l’aide de Visual Studio.
@@ -39,7 +30,7 @@ Dans cette série de didacticiels, nous allons aborder les points suivants :
 > * [Configurer CI/CD à l’aide d’Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -93,7 +84,7 @@ Sous l’onglet **Certificat**, entrez le mot de passe et le chemin de sortie du
 
 ![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
-Sous l’onglet **Détail de la machine virtuelle**, entrez le **Nom d’utilisateur** et le **Mot de passe** du compte administrateur du cluster.  Sélectionnez l’**Image de machine virtuelle** pour les nœuds de cluster et la **Taille de machine virtuelle** pour chaque nœud du cluster.  Cliquez sur l’onglet **Avancé** .
+Sous l’onglet **Détail de la machine virtuelle**, entrez le **Nom d’utilisateur** et le **Mot de passe** du compte administrateur du cluster.  Sélectionnez l’**Image de machine virtuelle** pour les nœuds de cluster et la **Taille de machine virtuelle** pour chaque nœud du cluster.  Cliquez sur l’onglet **Avancé**.
 
 ![Créer un cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
@@ -112,7 +103,7 @@ Dans **Point de terminaison de connexion**, sélectionnez le point de terminaiso
 
 Sélectionnez **Publier**.
 
-Une fois l’application déployée, ouvrez un navigateur et entrez l’adresse du cluster suivie de  **:8080**. Vous pouvez également entrer un autre port, si configuré. Par exemple `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Vous voyez l’application en cours d’exécution dans le cluster dans Azure. Dans la page web de vote, essayez d’ajouter ou de supprimer des options de vote et de voter pour une ou plusieurs de ces options.
+Une fois l’application déployée, ouvrez un navigateur et entrez l’adresse du cluster suivie de  **:8080**. Vous pouvez également entrer un autre port, si configuré. par exemple `http://mytestcluster.southcentral.cloudapp.azure.com:8080`. Vous voyez l’application en cours d’exécution dans le cluster dans Azure. Dans la page web de vote, essayez d’ajouter ou de supprimer des options de vote et de voter pour une ou plusieurs de ces options.
 
 ![Exemple de vote Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 

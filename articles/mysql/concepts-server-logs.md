@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: 6bd99a200a8f9e6be6d155a334b9b06ac05eacc3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: abb561658a189ce882bdad0a740ab5806b371bb5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453034"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -41,7 +41,7 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - **log_slow_admin_statements** : si ce paramètre est activé, inclut des instructions d’administration telles que ALTER_TABLE et ANALYZE_TABLE dans les instructions écrites dans le journal des requêtes lentes.
 - **log_queries_not_using_indexes** : détermine si les requêtes qui n’utilisent pas les index sont enregistrées dans le journal des requêtes lentes.
 - **log_throttle_queries_not_using_indexes** : Ce paramètre limite le nombre de requêtes hors index qui peuvent être écrites dans le journal des requêtes lentes. Ce paramètre prend effet lorsque log_queries_not_using_indexes est défini sur ON.
-- **log_output** : si défini sur « File », permet au journal des requêtes lentes d’être écrit dans le stockage du serveur local et dans les journaux de diagnostic Azure Monitor. S’il est défini sur « None », le journal des requêtes lentes est uniquement écrit dans le stockage du serveur local. 
+- **log_output** : si défini sur « File », permet au journal des requêtes lentes d’être écrit dans le stockage du serveur local et dans les journaux de diagnostic Azure Monitor. S’il est défini sur « None », le journal des requêtes lentes est uniquement écrit dans les journaux de diagnostics Azure Monitor. 
 
 > [!Note]
 > Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.

@@ -8,45 +8,47 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bf107da82fb3f772a341e70ce472f08ea674a450
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177599"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75692570"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Créer un compte de stockage pour Event Processor Host
 Event Processor Host est un agent intelligent qui simplifie la réception d’événements provenant d’Event Hubs en gérant les points de contrôle persistants et les destinataires parallèles. Pour les points de contrôle, Event Processor Host nécessite un compte de stockage. L’exemple suivant montre comment créer un compte de stockage et comment obtenir ses clés pour l’accès :
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** en haut à gauche de l’écran.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
-2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.
+    ![Élément de menu Créer une ressource, portail Microsoft Azure](./media/event-hubs-create-storage/create-resource.png)
+
+2. Sélectionnez **Stockage** > **Compte de stockage**.
    
-    ![Sélectionner un compte de stockage](./media/event-hubs-create-storage/create-storage1.png)
+    ![Sélectionner Compte de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/select-storage-account.png)
 
 3. Sur la page **Créer un compte de stockage**, procédez comme suit : 
 
-   1. Nommez le compte de stockage. 
-   2. Choisissez un abonnement Azure qui contient l’Event Hub.
-   3. Sélectionnez le groupe de ressources qui contient l’Event Hub.
-   4. Sélectionnez un emplacement dans lequel stocker la ressource. 
-   5. Puis, cliquez sur **Vérifier + créer**.
+   1. Entrez le **nom du compte de stockage**.
+   2. Choisissez un **abonnement** Azure qui contient le hub d’événements.
+   3. Choisissez ou créez le **groupe de ressources** qui contient le hub d’événements.
+   4. Choisissez l’**emplacement** dans lequel stocker la ressource. 
+   5. Sélectionnez **Vérifier + créer**.
    
-      ![Créer un compte de stockage - page](./media/event-hubs-create-storage/create-storage2.png)
+        ![Vérifier + créer, Créer un compte de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/review-create.png)
 
 4. Sur la page **Vérifier + créer**, vérifiez les valeurs, puis sélectionnez **Créer**. 
 
-    ![Vérifier les paramètres de compte de stockage et créer](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. Après l’affichage du message **Déploiements réussis**, sélectionnez **Accéder à la ressource** en haut de la page. Vous pouvez également afficher la page Compte de stockage en sélectionnant votre compte de stockage dans la liste des ressources.  
+    ![Vérifier les paramètres de compte de stockage et créer, portail Microsoft Azure](./media/event-hubs-create-storage/create-storage-account.png)
+5. Une fois le message **Déploiements réussis** affiché dans vos notifications, sélectionnez **Accéder à la ressource** pour ouvrir la page Compte de stockage. Vous pouvez aussi développer **Détails du déploiement** et sélectionner ensuite votre nouvelle ressource dans la liste des ressources.  
 
-    ![Sélectionner le compte de stockage dans le déploiement](./media/event-hubs-create-storage/select-storage-deployment.png) 
-7. Dans la fenêtre **Bases**, sélectionnez **Objets blob**. 
+    ![Accéder à la ressource, déploiement de compte de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/go-to-resource.png) 
+6. Sélectionnez **Conteneurs**.
 
-    ![Sélectionner le service Blobs](./media/event-hubs-create-storage/select-blobs-service.png)
-1. Sélectionnez **+ Conteneur** en haut, entrez le **nom** du conteneur, puis sélectionnez **OK**. 
+    ![Sélectionner le service de conteneur Objets Blob, comptes de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/select-blob-container-service.png)
+7. Sélectionnez **+ Conteneur** en haut, entrez le **nom** du conteneur, puis sélectionnez **OK**. 
 
-    ![Création d’un conteneur d’objets blob](./media/event-hubs-create-storage/create-blob-container.png)
-1. Sélectionnez **Clés d’accès** dans le menu de gauche, puis copiez la valeur de **key1**. 
+    ![Créer un conteneur d’objets blob, comptes de stockage, portail Microsoft Azure](./media/event-hubs-create-storage/create-new-blob-container.png)
+8. Choisissez **Clés d’accès** dans le menu de la page **Compte de stockage**, puis copiez la valeur de **key1**.
 
     Enregistrez les valeurs suivantes dans le Bloc-notes ou un autre emplacement temporaire.
     - Nom du compte de stockage

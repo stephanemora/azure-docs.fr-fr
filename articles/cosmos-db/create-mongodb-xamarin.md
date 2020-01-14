@@ -1,5 +1,5 @@
 ---
-title: Développer une application Xamarin.Forms avec .NET et l’API Azure Cosmos DB pour MongoDB
+title: Créer une application Xamarin avec .NET et l’API Azure Cosmos DB pour MongoDB
 description: Cet article présente un exemple de code Xamarin que vous pouvez utiliser pour vous connecter à l’API Azure Cosmos DB pour MongoDB et pour l’interroger.
 author: codemillmatt
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: a21e3705fe367e478ec02b82ec83c4ad7cfb4151
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860343"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445459"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Démarrage rapide : Générer une application Xamarin.Forms avec le SDK .NET et l’API Azure Cosmos DB pour MongoDB
 
@@ -42,7 +42,7 @@ Si vous préférez travailler sur Mac, téléchargez [Visual Studio pour Mac](ht
 
 <a id="create-account"></a>
 
-## <a name="create-a-database-account"></a>Création d'un compte de base de données
+## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
 
@@ -160,9 +160,9 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 3. Copiez la valeur de votre **chaîne de connexion principale** depuis le portail (avec le bouton copier) et faites-en la valeur du champ **ConnectionString** dans votre fichier **APIKeys.cs**.
 
-Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB.
+Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB.
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
@@ -183,7 +183,7 @@ Vous venez de mettre à jour votre application avec toutes les informations néc
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

@@ -7,24 +7,24 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: a8cc368b2949d9a65034ee4f989b8603dfa01027
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/30/2019
+ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533957"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563453"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Démarrage rapide : Créer une base de connaissances Recherche cognitive Azure dans le portail Azure
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 La base de connaissances est une fonctionnalité de la Recherche cognitive Azure qui conserve la sortie d’un pipeline de compétences cognitives en vue d’analyses ultérieures ou d’un traitement en aval. 
 
-Un pipeline accepte les images et le texte non structuré comme contenu brut, applique l’intelligence artificielle à Cognitive Services (par exemple, pour le traitement des images et du langage naturel) et crée du contenu enrichi (nouvelles structures et informations) en sortie. L’un des artefacts physiques créés par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder par le biais d’outils pour analyser et explorer le contenu.
+Un pipeline accepte le texte non structuré et les images comme contenu brut, applique l’intelligence artificielle à Cognitive Services (par exemple, pour l’OCR, l’analyse des images et le traitement en langage naturel), extrait des informations et génère de nouvelles structures et informations. L’un des artefacts physiques créés par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder par le biais d’outils pour analyser et explorer le contenu.
 
-Dans ce guide de démarrage rapide, vous combinez des services et des données dans le cloud Azure pour créer une base de connaissances. Une fois que tout est prêt, vous exécutez l’Assistant **Importation de données** dans le portail pour tout récupérer. Vous affichez ensuite le contenu d’origine et le contenu généré par l’intelligence artificielle dans le portail (avec l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md)).
+Dans ce guide de démarrage rapide, vous combinez des services et des données dans le cloud Azure pour créer une base de connaissances. Une fois tout en place, vous allez exécuter l’Assistant **Importation de données** dans le portail pour tout rassembler. Vous affichez ensuite le contenu du texte d’origine et le contenu généré par l’intelligence artificielle dans le portail (avec l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md)).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -32,19 +32,15 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce guide de démarrage rapide utilise la Recherche cognitive Azure, le Stockage Blob Azure et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’IA. 
 
-En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour, quand il est appelé à partir de la Recherche cognitive Azure. Tant que vous utilisez les exemples de données que nous fournissons, vous pouvez ignorer les étapes de création ou d’attachement d’une ressource Cognitive Services.
+En raison de la taille réduite de la charge de travail, Cognitive Services est utilisé en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour, quand il est appelé à partir de la Recherche cognitive Azure. Du moment que vous utilisez les exemples de données que nous fournissons, vous pouvez ignorer la création ou l’attachement d’une ressource Cognitive Services.
 
 1. [Téléchargez le fichier HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). Ce fichier CSV contient des données d’avis d’hôtel (issues de Kaggle.com). Il rassemble 19 commentaires de clients relatifs à un seul hôtel. 
 
 1. [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [recherchez un compte existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) dans votre abonnement actuel. Vous utilisez le stockage Azure pour le contenu brut à importer, mais aussi pour la base de connaissances qui est le résultat final.
 
-   Votre compte doit remplir ces deux exigences :
+   Choisissez le type de compte **StorageV2 (usage général v2)** .
 
-   + Il doit être dans la même région que la Recherche cognitive Azure. 
-   
-   + Il doit être de type StorageV2 (V2 universel). 
-
-1. Ouvrez les pages des services Blob et créez un conteneur.  
+1. Ouvrez les pages des services Blob et créez un conteneur nommé *hotel-reviews*.
 
 1. Cliquez sur **Télécharger**.
 
@@ -54,9 +50,9 @@ En raison de la taille réduite de la charge de travail, Cognitive Services est 
 
     ![Créer le conteneur d’objets Blob Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Créer le conteneur d’objets Blob Azure")
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
+1. Vous avez presque terminé avec cette ressource, mais avant de quitter ces pages, ouvrez la page **Clés d’accès** à partir du lien correspondant dans le volet de navigation de gauche. Obtenez une chaîne de connexion pour récupérer les données du Stockage Blob. Une chaîne de connexion ressemble à l’exemple suivant : `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
+1. Toujours dans le portail, basculez vers Recherche cognitive Azure. [Créez un service](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
 
 Vous êtes maintenant prêt à passer à l’Assistant Importation de données.
 
@@ -66,22 +62,23 @@ Dans la page Vue d’ensemble du service de recherche, cliquez sur **Importer de
 
   ![Commande Importer des données](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 
 1. Dans **Se connecter à vos données**, choisissez **Stockage Blob Azure**, puis sélectionnez le compte et le conteneur que vous avez créés. 
 1. Pour **Nom**, entrez `hotel-reviews-ds`.
 1. Pour **Mode d’analyse**, sélectionnez **Texte délimité**, puis cochez la case **La première ligne contient l’en-tête**. Vérifiez que le **Caractère délimiteur** est une virgule (,).
-1. Entrez la **Chaîne de connexion** du service de stockage, que vous avez enregistrée à une étape précédente.
-1. Pour **Nom du conteneur**, entrez `hotel-reviews`.
-1. Cliquez sur **Suivant : Ajouter l’enrichissement par IA (facultatif)** .
+1. Dans **Chaîne de connexion**, collez la chaîne de connexion que vous avez copiée à partir de la page **Clés d’accès** dans Stockage Azure.
+1. Dans **Conteneurs**, entrez le nom du conteneur d’objets blob contenant les données.
 
-      ![Créer un objet de source de données](media/knowledge-store-create-portal/hotel-reviews-ds.png "Créer un objet de source de données")
+    Votre page doit ressembler à la capture d’écran suivante.
+
+    ![Créer un objet de source de données](media/knowledge-store-create-portal/hotel-reviews-ds.png "Créer un objet de source de données")
 
 1. Passez à la page suivante.
 
-### <a name="step-2-add-cognitive-skills"></a>Étape 2 : Ajouter des compétences cognitives
+### <a name="step-2-add-cognitive-skills"></a>Étape 2 : Ajouter des compétences cognitives
 
-Dans cette étape de l’Assistant, vous allez créer un ensemble de compétences par enrichissement des compétences cognitives. Les compétences que nous utilisons dans cet exemple vont extraire des phrases clés et détecter le langage ainsi que les sentiments. Dans une étape ultérieure, ces enrichissements seront « projetés » dans une base de connaissances en tant que tables Azure.
+Dans cette étape de l’Assistant, vous allez créer un ensemble de compétences par enrichissement des compétences cognitives. Les données sources sont constituées des évaluations des clients dans plusieurs langues. Les compétences pertinentes pour ce jeu de données incluent l’extraction d’expressions clés, la détection de sentiments et la traduction de texte. Dans une étape ultérieure, ces enrichissements seront « projetés » dans une base de connaissances en tant que tables Azure.
 
 1. Développez **Attacher Cognitive Services**. **Gratuit (enrichissements limités)** est sélectionné par défaut. Vous pouvez utiliser cette ressource, car le nombre d’enregistrements dans HotelReviews-Free.csv est de 19, et cette ressource gratuite autorise jusqu’à 20 transactions par jour.
 1. Développez **Ajouter des compétences cognitives**.
@@ -90,7 +87,7 @@ Dans cette étape de l’Assistant, vous allez créer un ensemble de compétence
 1. Pour **Niveau de précision d’enrichissement**, sélectionnez **Pages (segments de 5 000 caractères)**
 1. Sélectionnez les compétences cognitives suivantes :
     + **Extraire des expressions clés**
-    + **Détecter la langue**
+    + **Traduire le texte**
     + **Détecter le sentiment**
 
       ![Créer un ensemble de compétences](media/knowledge-store-create-portal/hotel-reviews-ss.png "Créer un ensemble de compétences")
@@ -104,6 +101,8 @@ Dans cette étape de l’Assistant, vous allez créer un ensemble de compétence
 
     ![Configurer la base de connaissances](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurer la base de connaissances")
 
+1. Éventuellement, téléchargez un modèle Power BI. Quand vous accédez au modèle à partir de l’Assistant, le fichier .pbit local est adapté pour refléter la forme de vos données.
+
 1. Passez à la page suivante.
 
 ### <a name="step-3-configure-the-index"></a>Étape 3 : Configurer l’index
@@ -111,10 +110,7 @@ Dans cette étape de l’Assistant, vous allez créer un ensemble de compétence
 Dans cette étape de l’Assistant, vous allez configurer un index pour d’éventuelles requêtes de recherche en texte intégral. L’Assistant va échantillonner votre source de données pour en déduire des champs et des types de données. Il vous suffit de sélectionner les attributs correspondant au comportement souhaité. Par exemple, l’attribut **Récupérable** permet au service de recherche de retourner une valeur de champ, alors que l’attribut **Possibilité de recherche** active la recherche en texte intégral sur le champ.
 
 1. Pour **Nom de l’index**, entrez `hotel-reviews-idx`.
-1. Pour les attributs, effectuez les sélections suivantes :
-    + Sélectionnez **Récupérable** pour tous les champs.
-    + Sélectionnez **Filtrable** et **À choix multiples** pour les champs suivants : *Sentiment*, *Language*, *Keyphrases*
-    + Sélectionnez **Possibilité de recherche** pour les champs suivants : *city*, *name*, *reviews_text*, *language*, *Keyphrases*
+1. Pour les attributs, acceptez les sélections par défaut : **Récupérable** et **Possibilité de recherche** pour les champs que le pipeline crée.
 
     Votre index doit ressembler à l’image suivante. Dans la mesure où la liste est longue, tous les champs ne sont pas visibles dans l’image.
 
@@ -134,7 +130,7 @@ Dans cette étape de l’Assistant, vous allez configurer un indexeur qui doit r
 
 L’indexation des compétences cognitives prend plus de temps que l’indexation standard basée sur du texte. L’Assistant doit ouvrir la liste de l’indexeur sur la page Vue d’ensemble afin que vous puissiez suivre la progression. Pour une navigation automatique, accédez à la page Vue d’ensemble et cliquez sur **Indexeurs**.
 
-Dans le portail Azure, vous pouvez aussi superviser le journal d’activité Notifications, et rechercher un lien d’état **Notification Recherche cognitive Azure** cliquable. L’exécution peut prendre plusieurs minutes.
+Dans le portail Azure, vous pouvez également superviser le journal d’activité Notifications, et rechercher le lien d’état cliquable **Notification Recherche cognitive Azure**. L’exécution peut prendre plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -147,4 +143,4 @@ Vous pouvez afficher le contenu dans l’Explorateur Stockage, ou aller un peu p
 > [Se connecter à Power BI](knowledge-store-connect-power-bi.md)
 
 > [!Tip]
-> Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur *hotel-reviews-idxr*. La suppression de l’indexeur réinitialise le compteur des transactions quotidiennes gratuites à zéro pour le traitement par Cognitive Services.
+> Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur *hotel-reviews-idxr*. La suppression de l’indexeur réinitialise le compteur de transactions quotidiennes gratuites à zéro pour le traitement Cognitive Services.

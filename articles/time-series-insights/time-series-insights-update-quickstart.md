@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Explorer l’environnement de démonstration en préversion - Azure Time Series Insights | Microsoft Docs'
-description: Découvrez les environnements de démonstration Azure Time Series Insights en préversion par le biais d’un exemple de démarrage rapide.
+description: Explorez les fonctionnalités clés de l’environnement de démonstration Azure Time Series Insights (préversion).
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 10/24/2019
-ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 12/20/2019
+ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014755"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497475"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Démarrage rapide : Explorer l’environnement de démonstration Azure Time Series Insights (préversion)
 
@@ -43,33 +43,33 @@ L’Explorateur Time Series Insights (préversion) présente des données histor
    1. Remplacez la plage d’affichage par **Du 01/01/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
    1. Pour sélectionner un capteur, choisissez **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Ensuite, passez en revue les valeurs qui sont affichées.
 
-      [![W7 dans Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
+      [![W7 dans Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
 1. Dernièrement, Contoso a détecté un incendie sur l’éolienne **W7**. Les opinions varient sur ce qui a provoqué l’incendie. Dans Time Series Insights, nous pouvons constater que le capteur d’alerte incendie a été activé au cours de l’incendie.
 
    1. Remplacez la plage d’affichage par **Du 09/03/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
    1. Sélectionnez **Safety System** > **FireAlert**.
 
-      [![Détection par Contoso d’un incendie sur l’éolienne W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
+      [![Détection par Contoso d’un incendie sur l’éolienne W7](media/v2-update-quickstart/quick-start-fire-alert.png)](media/v2-update-quickstart/quick-start-fire-alert.png#lightbox)
 
 1. Passez en revue les autres événements qui se sont produits au moment de l’incendie pour comprendre ce qui s’est passé. Notez l’augmentation de la pression de l’huile et des avertissements actifs avant l’incendie.
 
    1. Sélectionnez **Pitch System** > **HydraulicOilPressure**.
    1. Sélectionnez **Pitch System** > **ActiveWarning**.
 
-      [![Examen des autres événements survenus à peu près au même moment](media/v2-update-quickstart/quickstart-three.png)](media/v2-update-quickstart/quickstart-three.png#lightbox)
+      [![Examen des autres événements survenus à peu près au même moment](media/v2-update-quickstart/quick-start-active-warning.png)](media/v2-update-quickstart/quick-start-active-warning.png#lightbox)
 
 1. Notez l’augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs juste avant l’incendie. Développez la série chronologique affichée pour déterminer la présence d’autres signes précurseurs de l’incendie. Les deux capteurs ont fluctué de manière cohérente au fil du temps. Les fluctuations indiquent un modèle persistant et préoccupant.
 
     * Remplacez la plage d’affichage par **Du 24/02/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
 
-      [![Augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
+      [![Augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs](media/v2-update-quickstart/quick-start-view-range.png)](media/v2-update-quickstart/quick-start-view-range.png#lightbox)
 
 1. L’examen des deux années de données d’historique révèle un autre événement d’incendie associé à la même fluctuation des capteurs.
 
     * Modifiez la plage d’affichage sur **01/01/16 au 31/12/17** (toutes les données).
 
-      [![Recherche de tendances historiques](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
+      [![Recherche de tendances historiques](media/v2-update-quickstart/quick-start-expand-view-range.png)](media/v2-update-quickstart/quick-start-expand-view-range.png#lightbox)
 
 Avec Time Series Insights et la télémétrie des capteurs, nous avons découvert une tendance à long terme dissimulée dans les données historiques. Avec ces nouveaux insights, nous pouvons :
 
@@ -84,7 +84,7 @@ Avec Time Series Insights et la télémétrie des capteurs, nous avons découver
     1. Remplacez la plage d’affichage par **Du 01/06/17 20:00:00.00 au 01/07/17 20:00:00.00 (UTC)** .
     1. Sélectionnez **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
-       [![Modifier la plage d’affichage et sélectionner W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
+       [![Modifier la plage d’affichage et sélectionner W6](media/v2-update-quickstart/quick-start-voltage-switch-warning.png)](media/v2-update-quickstart/quick-start-voltage-switch-warning.png#lightbox)
 
 1. L’avertissement indique un problème au niveau de la tension du générateur. La puissance de sortie totale du générateur se trouve dans les paramètres normaux dans l’intervalle actuel. Si nous augmentons notre intervalle, une autre tendance se dégage. Il se produit une nette baisse.
 
@@ -92,20 +92,20 @@ Avec Time Series Insights et la télémétrie des capteurs, nous avons découver
     1. Sélectionnez **Generator System** > **ActivePower**.
     1. Modifiez l’intervalle sur **3d**.
 
-       [![Modifier l’intervalle sur 3d](media/v2-update-quickstart/quickstart-seven.png)](media/v2-update-quickstart/quickstart-seven.png#lightbox)
+       [![Modifier l’intervalle sur 3d](media/v2-update-quickstart/quick-start-interval-change.png)](media/v2-update-quickstart/quick-start-interval-change.png#lightbox)
 
 1. En développant l’intervalle de temps, nous pouvons déterminer si le problème s’est arrêté ou s’il persiste.
 
     * Faites passer l’intervalle de temps à 60 jours.
 
-      [![Sélection d’un intervalle de temps de 60 jours](media/v2-update-quickstart/quickstart-eight.png)](media/v2-update-quickstart/quickstart-eight.png#lightbox)
+      [![Sélection d’un intervalle de temps de 60 jours](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
 1. Vous pouvez ajouter d’autres points de données de capteur pour fournir davantage de contexte. Plus il y a de capteurs, plus il est facile de cerner le problème. Nous allons placer un marqueur pour voir les valeurs réelles. 
 
     1. Sélectionnez **Generator System**, puis sélectionnez trois capteurs : **GridVoltagePhase1**, **GridVoltagePhase2** et **GridVoltagePhase3**.
     1. Placez un marqueur sur le dernier point de données dans la zone visible.
 
-       [![Placer un marqueur](media/v2-update-quickstart/quickstart-nine.png)](media/v2-update-quickstart/quickstart-nine.png#lightbox)
+       [![Placer un marqueur](media/v2-update-quickstart/quick-start-drop-marker.png)](media/v2-update-quickstart/quick-start-drop-marker.png#lightbox)
 
     Deux des capteurs de tension fonctionnent de manière comparable et dans les limites de la normale. Il semble que le capteur **GridVoltagePhase3** soit la cause du problème.
 
@@ -113,9 +113,9 @@ Avec Time Series Insights et la télémétrie des capteurs, nous avons découver
 
     * Modifiez l’affichage pour superposer tous les capteurs **Generator System** sur la même échelle de graphique.
 
-      [![Modifier l’affichage pour inclure tous les éléments](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+      [![Modifier l’affichage pour inclure tous les éléments](media/v2-update-quickstart/quick-start-generator-system.png)](media/v2-update-quickstart/quick-start-generator-system.png#lightbox)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Maintenant que vous avez suivi le démarrage rapide, nettoyez les ressources que vous avez créées :
 

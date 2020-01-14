@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Détecter des anomalies en tant que lot avec l’API Détecteur d’anomalies et Python'
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’API Détecteur d’anomalies pour détecter les anomalies dans vos séries de données, soit par lot, soit sur des données de streaming.
+description: Utilisez l’API Détecteur d’anomalies pour détecter les anomalies dans vos séries de données en lot ou en streaming avec ce guide de démarrage rapide.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,25 +10,25 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: e24436cef11cc07571adb55bca63add5bda783c4
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7cef1c8c1b05c859f9435b06c3096bb983965656
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483390"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448861"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Démarrage rapide : Détecter des anomalies dans vos données de séries chronologiques avec l’API Détecteur d’anomalies et Python
 
-Utilisez ce démarrage rapide pour commencer à utiliser les deux modes de détection de l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de séries chronologiques. Cette application Python envoie deux requêtes d’API contenant des données de séries chronologiques au format JSON, et reçoit les réponses.
+Utilisez ce guide de démarrage rapide pour commencer à utiliser les deux modes de détection de l’API Détecteur d’anomalies afin de détecter les anomalies dans vos données de séries chronologiques. Cette application Python envoie deux requêtes d’API contenant des données de séries chronologiques au format JSON, et reçoit les réponses.
 
 | Requête d’API                                        | Sortie de l’application                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Détecter des anomalies en tant que lot                        | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour chaque point de données dans les données de la série chronologique, et les positions des anomalies détectées. |
+| Détecter des anomalies par lot                        | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour chaque point de données dans les données de la série chronologique, et les positions des anomalies détectées. |
 | Détecter l’état d’anomalie du dernier point de données | La réponse JSON contenant l’état de l’anomalie (et d’autres données) pour le dernier point de données dans les données de série chronologique.                                                                                                                                         |
 
  Bien que cette application soit écrite en Python, l’API est un service web RESTful compatible avec la plupart des langages de programmation. Vous trouverez le code source de ce guide de démarrage rapide sur [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/python-detect-anomalies.py).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Python 2.x ou 3.x](https://www.python.org/downloads/)
 - Une clé et un point de terminaison de détecteur d’anomalie
@@ -70,15 +70,15 @@ Utilisez ce démarrage rapide pour commencer à utiliser les deux modes de déte
 
     [!code-python[request method](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=request)]
 
-## <a name="detect-anomalies-as-a-batch"></a>Détecter des anomalies en tant que lot
+## <a name="detect-anomalies-as-a-batch"></a>Détecter des anomalies par lot
 
-1. Créez une méthode appelée `detect_batch()` pour détecter les anomalies dans le jeu de données sous forme de lot. Appelez la méthode `send_request()` créée ci-dessus avec votre point de terminaison, url, clé d’abonnement et données json.
+1. Créez une méthode appelée `detect_batch()` pour détecter les anomalies dans le jeu de données sous forme de lot. Appelez la méthode `send_request()` créée ci-dessus avec votre point de terminaison, l’URL, la clé d’abonnement et les données JSON.
 
 2. Appelez `json.dumps()` sur le résultat à mettre en forme, et imprimez-le sur la console.
 
 3. Si la réponse contient un champ `code`, imprimez le code d’erreur et le message d’erreur.
 
-4. Sinon, trouvez les positions des anomalies dans l’ensemble de données. Le champ `isAnomaly` de la réponse contient une valeur booléenne indiquant si un point de données particulier est une anomalie. Itérez dans la liste et imprimez l’index des valeurs `True`. Ces valeurs correspondent à l’indice des points de données anormaux, le cas échéant.
+4. Sinon, trouvez les positions des anomalies dans le jeu de données. Le champ `isAnomaly` de la réponse contient une valeur booléenne indiquant si un point de données particulier est une anomalie. Itérez dans la liste et imprimez l’index des valeurs `True`. Ces valeurs correspondent à l’index des points de données anormaux, le cas échéant.
 
     [!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 

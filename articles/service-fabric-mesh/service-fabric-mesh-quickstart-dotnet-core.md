@@ -1,26 +1,17 @@
 ---
-title: 'Démarrage rapide : Déployer une application web sur Azure Service Fabric Mesh | Microsoft Docs'
+title: 'Démarrage rapide : Déployer une application web sur Azure Service Fabric Mesh'
 description: Ce guide de démarrage rapide montre comment créer un site web ASP.NET Core et le publier sur Azure Service Fabric Mesh à l’aide de Visual Studio.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/17/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b30676e0c5782a95c629571cadead7bf58211789
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 276f8860f407693a7ff08048399fa6edf16aaf0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459070"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Démarrage rapide : Créer et déployer une application web dans Azure Service Fabric Mesh
 
@@ -66,7 +57,7 @@ Lorsque vous avez fini de parcourir le service, arrêtez le débogage de votre p
 
 ## <a name="publish-to-azure"></a>Publication dans Azure
 
-Pour publier votre projet Service Fabric mesh dans Azure, cliquez avec le bouton droit sur **Projet Service Fabric mesh** dans Visual Studio, puis sélectionnez **Publier...**.
+Pour publier votre projet Service Fabric mesh dans Azure, cliquez avec le bouton droit sur **Projet Service Fabric mesh** dans Visual Studio, puis sélectionnez **Publier...** .
 
 ![Clic avec le bouton droit sur le projet Service Fabric mesh dans Visual studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-right-click-publish.png)
 
@@ -76,11 +67,11 @@ Une boîte de dialogue **Publier une application Service Fabric** s’affiche.
 
 Sélectionnez votre compte et votre abonnement Azure. Choisissez un **Emplacement**. Dans cet article, nous utilisons la région **USA Est**.
 
-Sous **Groupe de ressources**, sélectionnez **\<Créer un groupe de ressources...>**. La boîte de dialogue **Créer un groupe de ressources** s’affiche. Définir le **Nom du groupe de ressources** et l’**Emplacement**.  Ce démarrage rapide utilise l’emplacement **USA Est** et nomme le groupe **sfmeshTutorial1RG** (si plusieurs personnes utilisent le même abonnement dans votre organisation, choisissez un nom de groupe de ressources unique).  Cliquez sur **Créer** pour créer le groupe de ressources et revenir à la boîte de dialogue Publier.
+Sous **Groupe de ressources**, sélectionnez **\<Créer un groupe de ressources...>** . La boîte de dialogue **Créer un groupe de ressources** s’affiche. Définir le **Nom du groupe de ressources** et l’**Emplacement**.  Ce démarrage rapide utilise l’emplacement **USA Est** et nomme le groupe **sfmeshTutorial1RG** (si plusieurs personnes utilisent le même abonnement dans votre organisation, choisissez un nom de groupe de ressources unique).  Cliquez sur **Créer** pour créer le groupe de ressources et revenir à la boîte de dialogue Publier.
 
 ![Boîte de dialogue Nouveau groupe de ressources Service Fabric mesh dans Visual studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs...>**. Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **Nom du registre de conteneurs**. Spécifiez un **emplacement** (ce démarrage rapide utilise la région **USA Est**). Sélectionnez dans la liste déroulante le **groupe de ressources** que vous avez créé à l’étape précédente, par exemple, **sfmeshTutorial1RG**. Définissez la **référence (SKU)** sur **De base**, puis cliquez sur **Créer** pour revenir à la boîte de dialogue de publication.
+Revenez à la boîte de dialogue **Publier une application Service Fabric** sous **Azure Container Registry**, sélectionnez **\<Créer un registre de conteneurs...>** . Dans la boîte de dialogue **Créer un registre de conteneurs**, utilisez un nom unique pour le **Nom du registre de conteneurs**. Spécifiez un **emplacement** (ce démarrage rapide utilise la région **USA Est**). Sélectionnez dans la liste déroulante le **groupe de ressources** que vous avez créé à l’étape précédente, par exemple, **sfmeshTutorial1RG**. Définissez la **référence (SKU)** sur **De base**, puis cliquez sur **Créer** pour revenir à la boîte de dialogue de publication.
 
 ![Boîte de dialogue Nouveau groupe de ressources Service Fabric mesh dans Visual studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -101,7 +92,7 @@ Ouvrez un navigateur web et accédez à l’URL pour voir le site web en cours d
 
 ![Exécution d’une application web Service Fabric mesh](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez toutes les ressources que vous avez créées pour ce démarrage rapide. Étant donné que vous avez créé un groupe de ressources pour héberger les ressources de service d’ACR et de Service Fabric mesh, vous pouvez supprimer ce groupe de ressources en toute sécurité, ce qui est un moyen aisé de supprimer toutes les ressources qui y sont associées.
 

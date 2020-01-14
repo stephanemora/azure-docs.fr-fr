@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel Azure Cosmos DB : Créer, interroger et parcourir la console Apache TinkerPops Gremlin'
+title: 'Interroger avec l’API Gremlin d’Azure Cosmos DB et la console TinkerPop Gremlin : Didacticiel'
 description: Démarrage rapide d’Azure Cosmos DB pour créer des vertex, des arêtes et des requêtes à l’aide de l’API Gremlin Azure Cosmos DB.
 author: luisbosquez
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815967"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665178"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 
@@ -33,13 +33,13 @@ Ce guide de démarrage rapide explique comment créer un compte, une base de don
 
 La console Gremlin est basée sur Groovy/Java et s’exécute sous Linux, Mac et Windows. Vous pouvez la télécharger à partir du [site Apache TinkerPop](https://tinkerpop.apache.org/downloads.html).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez posséder un abonnement Azure pour créer un compte Azure Cosmos DB pour ce démarrage rapide.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Vous devez également installer la [console Gremlin](https://tinkerpop.apache.org/). Utilisez la version 3.2.5 ou supérieure. (Pour utiliser la console Gremlin sur Windows, vous devez installer [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
+Vous devez également installer la [console Gremlin](https://tinkerpop.apache.org/downloads.html). **La version recommandée est la version 3.4.3** ou antérieure. (Pour utiliser la console Gremlin sur Windows, vous devez installer [Java Runtime](https://www.oracle.com/technetwork/java/javase/overview/index.html).)
 
 ## <a name="create-a-database-account"></a>Création d’un compte de base de données
 
@@ -308,7 +308,7 @@ Félicitations ! Vous avez terminé ce tutoriel Azure Cosmos DB : Tutoriel sur 
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

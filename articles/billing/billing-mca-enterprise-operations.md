@@ -1,5 +1,5 @@
 ---
-title: Effectuer des tâches Contrat Entreprise dans votre Contrat client Microsoft - Azure
+title: Tâches EA dans un Contrat client Microsoft - Azure
 description: Découvrez comment effectuer des tâches Contrat Entreprise dans votre nouveau compte de facturation.
 author: amberbhargava
 manager: amberb
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: banders
-ms.openlocfilehash: 87fe00066989a0b037fc093c8ddf181b8453d5d9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 38639c43d796774571fd25a865bc042bd73e8c01
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849868"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644373"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Effectuer des tâches Contrat Entreprise dans votre compte de facturation pour un contrat client Microsoft
 
@@ -27,7 +27,7 @@ Si votre organisation a signé un Contrat client Microsoft pour renouveler votre
 
 Le schéma suivant explique comment la facturation est organisée dans le nouveau compte de facturation.
 
-![Image de ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
+![Image de la hiérarchie-post-transition-mca-ea](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Contrat Entreprise   | Contrat client Microsoft    |
 |------------------------|--------------------------------------------------------|
@@ -40,7 +40,7 @@ Le schéma suivant explique comment la facturation est organisée dans le nouvea
 Les modifications suivantes s’appliquent aux administrateurs d’entreprise sur un Contrat Entreprise qui a été renouvelé pour un Contrat client Microsoft.
 
 - Un profil de facturation est créé pour votre accord de mise en œuvre. Le profil de facturation vous permet de gérer la facturation de votre organisation, de la même façon que votre accord de mise en œuvre EA. Pour en savoir plus sur les profils de facturation, consultez [Comprendre les profils de facturation](billing-mca-overview.md#billing-profiles).
-- Une section de la facture est créée pour chaque département dans votre accord de mise en œuvre EA. Les sections de facture vous permettent de gérer vos départements. Vous pouvez créer de nouvelles sections de facture pour configurer d’autres départements. Pour en savoir plus sur les sections de la facture, consultez [Comprendre les sections de la facture](billing-mca-overview.md#invoice-sections).
+- Une section de la facture est créée pour chaque département dans votre accord de mise en œuvre EA. Les sections de facture vous permettent de gérer vos départements. Vous pouvez créer de nouvelles sections de facture pour configurer d’autres départements. Pour en savoir plus sur les sections de facture, consultez [Comprendre les sections de facture](billing-mca-overview.md#invoice-sections).
 - Vous utiliserez le rôle de créateur d’abonnement Azure sur les sections de facture pour autoriser d’autres utilisateurs à créer des abonnements Azure, par exemple les comptes qui ont été créés dans l’accord de mise en œuvre EA.
 - Le [portail Azure](https://portal.azure.com) vous permet de gérer la facturation de votre organisation, au lieu du portail Azure EA.
 
@@ -64,7 +64,7 @@ Une section de facture est créée pour chaque département que vous aviez dans 
 
 ### <a name="view-charges-for-an-account"></a>Voir les frais d’un compte
 
-Les comptes qui ont été créés dans votre accord de mise en œuvre EA ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facturation de son département. Les propriétaires de comptes peuvent créer et gérer leurs abonnements pour leurs sections de facturation.
+Les comptes qui ont été créés dans votre accord de mise en œuvre EA ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facture respective du département. Les propriétaires de comptes peuvent créer et gérer des abonnements pour leurs sections de facture.
 
 Pour voir le coût cumulé pour les abonnements appartenant à un compte, vous devez définir un centre de coûts pour chaque abonnement. Ensuite, vous pouvez utiliser le fichier CSV d’utilisation et de frais Azure pour filtrer les abonnements par centre de coûts.
 
@@ -96,7 +96,7 @@ Affectez aux utilisateurs le rôle de créateur d’abonnement Azure sur les sec
 
 Les modifications suivantes s’appliquent aux administrateurs de département sur un Contrat Entreprise qui a été renouvelé pour un Contrat client Microsoft.
 
-- Une section de la facture est créée pour chaque département dans votre accord de mise en œuvre EA. Les sections de facture vous permettent de gérer vos départements. Pour en savoir plus sur les sections de la facture, consultez [Comprendre les sections de la facture](billing-mca-overview.md#invoice-sections).
+- Une section de la facture est créée pour chaque département dans votre accord de mise en œuvre EA. Les sections de facture vous permettent de gérer vos départements. Pour en savoir plus sur les sections de facture, consultez [Comprendre les sections de facture](billing-mca-overview.md#invoice-sections).
 - Vous utiliserez le rôle de créateur d’abonnement Azure sur les sections de facture pour autoriser d’autres utilisateurs à créer des abonnements Azure, par exemple les comptes qui ont été créés dans l’accord de mise en œuvre EA.
 - Le portail Azure vous permet de gérer la facturation de votre organisation, au lieu du portail Azure EA.
 
@@ -120,7 +120,7 @@ Affecter le rôle de créateur d’abonnement Azure sur la section de facture cr
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Consulter les frais pour les comptes dans vos départements
 
-Les comptes qui ont été créés dans votre accord de mise en œuvre EA ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facturation de son département. Les propriétaires de comptes peuvent créer et gérer leurs abonnements pour leurs sections de facturation.
+Les comptes qui ont été créés dans votre accord de mise en œuvre EA ne sont pas pris en charge dans le nouveau compte de facturation. Les abonnements du compte appartiennent à la section de facture respective du département. Les propriétaires de comptes peuvent créer et gérer des abonnements pour leurs sections de facture.
 
 Pour voir le coût cumulé pour les abonnements appartenant à un compte de votre département, vous devez définir un centre de coûts pour chaque abonnement. Ensuite, vous pouvez utiliser le fichier d’utilisation et de frais Azure pour filtrer les abonnements par centre de coûts.
 

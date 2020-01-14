@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Copier (déplacer) la capture instantanée d’un disque managé vers un abonnement identique ou différent avec l’interface de ligne de commande
-description: Exemple de script Azure CLI - Copier (déplacer) la capture instantanée d’un disque managé vers un abonnement identique ou différent avec l’interface de ligne de commande
+title: Copier la capture instantanée du disque managé dans un abonnement - Exemple CLI
+description: Exemple de script Azure CLI - Copier (ou déplacer) la capture instantanée d’un disque managé vers un abonnement identique ou différent avec CLI
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 23886256e405f57c5a581356b4212498779ae6e5
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 19c791cf1f394f5aab6ad2fcd7f98c4b30497286
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038235"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458537"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copier la capture instantanée d’un disque managé vers un abonnement identique ou différent avec l’interface de ligne de commande
 

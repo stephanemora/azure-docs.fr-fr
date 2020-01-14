@@ -1,25 +1,18 @@
 ---
-title: Démarrage rapide – Configurer Azure NetApp Files et créer un volume NFS | Microsoft Docs
+title: 'Démarrage rapide : Configurer Azure NetApp Files et un volume NFS'
 description: Démarrage rapide – Explique comment configurer Azure NetApp Files et créer un volume rapidement.
-services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/01/2019
-ms.author: b-juche
-ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fc7f13fb7ffe1667aaeaa4a3cc1916c6049a98c1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769844"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551639"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS 
 
@@ -49,7 +42,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > Le processus d’inscription peut prendre du temps.
 >
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Pour connaître les étapes à suivre pour l’inscription à l’aide du portail, ouvrez une session Cloud Shell comme indiqué ci-dessus, puis effectuez les étapes Azure CLI suivantes :
 
@@ -69,7 +62,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
     Register-AzResourceProvider -ProviderNamespace Microsoft.NetApp
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!INCLUDE [azure-netapp-files-cloudshell-include](../../includes/azure-netapp-files-azure-cloud-shell-window.md)]
 
@@ -77,7 +70,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
 ## <a name="create-a-netapp-account"></a>Créer un compte NetApp
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans la zone de recherche du portail Azure, entrez **Azure NetApp Files**, puis sélectionnez **Azure NetApp Files** dans la liste qui s’affiche.
 
@@ -126,7 +119,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
     New-AzNetAppFilesAccount -ResourceGroupName $resourceGroup -Location $location -Name $anfAccountName
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Définissez des variables afin que nous puissions y faire référence dans le reste des exemples :
 
@@ -161,7 +154,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
 ## <a name="set-up-a-capacity-pool"></a>Configurer un pool de capacité
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le panneau de gestion Azure NetApp Files, sélectionnez votre compte NetApp (**myaccount1**).
 
@@ -198,7 +191,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
     New-AzNetAppFilesPool -ResourceGroupName $resourceGroup -Location $location -AccountName $anfAccountName -Name $poolName -PoolSize $poolSizeBytes -ServiceLevel $serviceLevel
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Définition de nouvelles variables pour référence ultérieure
 
@@ -224,7 +217,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
 ## <a name="create-nfs-volume-for-azure-netapp-files"></a>Créer un volume NFS pour Azure NetApp Files
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 1. Dans le panneau de gestion Azure NetApp Files de votre compte NetApp, cliquez sur **Volumes**.
 
@@ -306,7 +299,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
         -ProtocolType NFSv3
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 1. Définition de certaines variables pour une utilisation ultérieure.
     
@@ -361,9 +354,9 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
 ---
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le groupe de ressources. La suppression d’un groupe de ressources est irréversible.  
 
@@ -400,7 +393,7 @@ Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le gro
     Remove-AzResourceGroup -Name $resourceGroup
     ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Lorsque vous avez terminé et si vous le souhaitez, vous pouvez supprimer le groupe de ressources. La suppression d’un groupe de ressources est irréversible.  
 

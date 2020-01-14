@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389988"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457616"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check-list des performances et de la scalabilité pour le stockage Table
 
@@ -29,10 +29,11 @@ Cet article organise les pratiques validées pour les performances dans une chec
 | --- | --- | --- |
 | &nbsp; |Objectifs de scalabilité |[Pouvez-vous concevoir votre application pour ne pas qu’elle utilise plus que le nombre maximal de comptes de stockage ?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Objectifs de scalabilité |[Cherchez-vous à ne pas vous approcher des limites de capacité et de transactions ?](#capacity-and-transaction-targets) |
+| &nbsp; |Objectifs de scalabilité |[Vous approchez-vous des objectifs d'évolutivité en termes d'entités par seconde ?](#targets-for-data-operations) |
 | &nbsp; |Mise en réseau |[Les appareils côté client disposent-ils d’une bande passante suffisamment large et d’une latence suffisamment faible pour parvenir aux performances nécessaires ?](#throughput) |
 | &nbsp; |Mise en réseau |[La qualité du lien réseau côté client est-elle suffisamment élevée ?](#link-quality) |
 | &nbsp; |Mise en réseau |[L’application cliente se trouve-t-elle dans la même région que le compte de stockage ?](#location) |
-| &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAS) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
+| &nbsp; |Accès direct au client |[Utilisez-vous des signatures d’accès partagé (SAP) et un partage des ressources cross-origin (CORS) pour permettre l’accès direct au stockage Azure ?](#sas-and-cors) |
 | &nbsp; |Traitement par lot |[Votre application traite-t-elle les mises à jour par lot à l’aide de transactions de groupe d’entités ?](#batch-transactions) |
 | &nbsp; |Configuration .NET |[Utilisez-vous .NET Core 2.1 ou ultérieur pour obtenir des performances optimales ?](#use-net-core) |
 | &nbsp; |Configuration .NET |[Avez-vous configuré votre client pour qu'il utilise un nombre suffisant de connexions simultanées ?](#increase-default-connection-limit) |
@@ -41,7 +42,6 @@ Cet article organise les pratiques validées pour les performances dans une chec
 | &nbsp; |Outils |[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#client-libraries-and-tools) |
 | &nbsp; |Nouvelle tentatives |[Utilisez-vous une stratégie de nouvelles tentatives avec backoff exponentiel pour les erreurs de limitation et les délais d’expiration ?](#timeout-and-server-busy-errors) |
 | &nbsp; |Nouvelle tentatives |[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#non-retryable-errors) |
-| &nbsp; |Objectifs de scalabilité |[Vous approchez-vous des objectifs d'évolutivité en termes d'entités par seconde ?](#table-specific-scalability-targets) |
 | &nbsp; |Configuration |[Utilisez-vous JSON pour vos demandes de table ?](#use-json) |
 | &nbsp; |Configuration |[Avez-vous désactivé l’algorithme Nagle pour améliorer les performances des petites requêtes ?](#disable-nagle) |
 | &nbsp; |Tables et partitions |[Avez-vous correctement partitionné vos données ?](#schema) |
@@ -61,7 +61,7 @@ Cet article organise les pratiques validées pour les performances dans une chec
 
 Si votre application s’approche de l’un des objectifs d’extensibilité, voire le dépasse, une limitation ou des latences de transaction accrues peuvent survenir. Lorsque le stockage Azure limite votre application, le service commence à retourner les codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Pour améliorer les performances de votre application, il est important d’éviter de telles erreurs en restant dans les limites des objectifs de scalabilité.
 
-Pour plus d’informations sur les objectifs de scalabilité concernant le service de Table, consultez [Objectifs de scalabilité et de performances du Stockage Azure pour les comptes de stockage](/azure/storage/common/storage-scalability-targets?toc=%2fazure%2fstorage%2ftables%2ftoc.json#azure-table-storage-scale-targets).
+Pour plus d’informations sur les objectifs de scalabilité concernant le service de Table, consultez [Objectifs de scalabilité et de performances pour le stockage de tables](scalability-targets.md).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Nombre maximal de comptes de stockage
 
@@ -74,12 +74,20 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 - Réexaminez la charge de travail à cause de laquelle votre application s’approche de l’objectif d’extensibilité ou le dépasse. Est-il possible de la concevoir différemment pour qu’elle utilise moins de bande passante ou de capacité, ou moins de transactions ?
 - Si votre application doit dépasser l’un des objectifs de scalabilité, vous devez créer plusieurs comptes de stockage et partitionner vos données d’application sur ces comptes de stockage. Si vous optez pour ce modèle, veillez à concevoir votre application de telle sorte que vous puissiez ajouter davantage de comptes de stockage à l’avenir en vue de l’équilibrage de la charge. Aucun coût autre que l’utilisation (données stockées, transactions effectuées, données transférées, etc.) n’est associé à ces comptes de stockage.
 - Si votre application s’approche des objectifs de bande passante, pensez à compresser les données côté client afin de réduire la bande passante nécessaire à l’envoi des données au stockage Azure.
-    Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile d’afficher les données à l’aide d’outils standard.
+    Même si la compression des données peut réduire la bande passante et améliorer les performances du réseau, elle présente des inconvénients. Évaluez l’impact sur les performances qu’entraînent les exigences de traitement supplémentaires liées à la compression et à la décompression des données côté client. Gardez à l’esprit que le stockage de données compressées peut compliquer la résolution des problèmes, car il peut être plus difficile de voir les données à l’aide d’outils standard.
 - Si votre application s’approche des objectifs de scalabilité, vérifiez que vous utilisez bien un backoff exponentiel pour les nouvelles tentatives. Il est préférable d’éviter de s’approcher des objectifs de scalabilité en implémentant les recommandations fournies dans cet article. Toutefois, l’utilisation d’un backoff exponentiel pour les nouvelles tentatives va empêcher votre application d’effectuer une nouvelle tentative rapidement, ce qui pourrait compliquer la limitation. Pour plus d’informations, consultez la section intitulée [Erreurs d’expiration de délai et de serveur occupé](#timeout-and-server-busy-errors).
 
-## <a name="table-specific-scalability-targets"></a>Objectifs de scalabilité propres aux tables
+### <a name="targets-for-data-operations"></a>Cibles pour les opérations de données
 
-Outre les limitations de bande passante d’un compte de stockage complet, les tables possèdent leur propre limite d’extensibilité. Le système équilibre la charge à mesure que le trafic augmente. Cependant, en cas de salves de trafic, il peut s’avérer impossible d’obtenir immédiatement ce volume de débit. En cas de pic de trafic, une limitation et/ou des délais d’attente risquent de se produire tandis que le service de stockage décharge automatiquement votre table. Une accélération progressive offre généralement de meilleurs résultats, dans la mesure où cela donne au système le temps d’équilibrer la charge de manière appropriée.
+Stockage Azure équilibre la charge à mesure que le trafic vers votre compte de stockage augmente, mais si le trafic présente des rafales soudaines, vous risquez de ne pas pouvoir récupérer ce volume de débit immédiatement. Attendez-vous à constater une limitation et/ou des délais d’expiration pendant la rafale, car Stockage Azure équilibre automatiquement la charge de votre table. Une accélération progressive procure généralement de meilleurs résultats, car le système a le temps d’équilibrer la charge de manière appropriée.
+
+#### <a name="entities-per-second-storage-account"></a>Entités par seconde (compte)
+
+S’agissant de l’accès aux tables, la limite de scalabilité est de 20 000 entités (d’une taille individuelle de 1 Ko) par seconde pour un compte. En règle générale, chaque entité insérée, mise à jour, supprimée ou analysée est comptabilisée. Une insertion par lots composée de 100 entités compte donc pour 100 entités. De même, une requête qui analyse 1 000 entités et en renvoie 5 compte pour 1 000 entités.
+
+#### <a name="entities-per-second-partition"></a>Entités par seconde (partition)
+
+Dans une partition unique, l’objectif de scalabilité pour l’accès aux tables est de 2 000 entités (d’une taille individuelle de 1 Ko) par seconde, en utilisant le même mode de calcul que celui décrit dans la section précédente.
 
 ## <a name="networking"></a>Mise en réseau
 
@@ -103,9 +111,9 @@ Dans un environnement distribué, le fait de placer le client à proximité du s
 
 Si des applications clientes accèdent au stockage Azure sans être hébergées dans Azure (c’est le cas, par exemple, des applications pour appareil mobile ou des services d’entreprise locaux), le fait de placer le compte de stockage dans une région proche de ces appareils peut réduire la latence. Si vos clients sont distribués à grande échelle (par exemple, certains en Amérique du Nord et d’autres en Europe), il est conseillé d’utiliser un compte de stockage pour chaque région. Cette méthode est plus facile à implémenter si les données stockées par l’application sont propres à certains utilisateurs, et elle ne nécessite pas de réplication des données entre différents comptes de stockage.
 
-## <a name="sas-and-cors"></a>SAS et CORS
+## <a name="sas-and-cors"></a>SAP et CORS
 
-Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui agisse en tant que proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
+Supposons que vous deviez autoriser du code, tel que du code JavaScript qui s’exécute dans le navigateur web d’un utilisateur ou dans une application de téléphone mobile, à accéder aux données du stockage Azure. L’une des méthodes possibles consiste à créer une application de service qui serve de proxy. L’appareil de l’utilisateur s’authentifie auprès du service, qui à son tour autorise l’accès aux ressources du stockage Azure. Vous évitez ainsi d’exposer vos clés de compte de stockage sur des appareils non sécurisés. Cependant, cette méthode entraîne une surcharge importante pour l’application du service, dans la mesure où toutes les données transférées entre l’appareil de l’utilisateur et le stockage Azure doivent transiter par l’application du service.
 
 Vous pouvez éviter d’utiliser une application de service en tant que proxy pour le stockage Azure en utilisant des signatures d’accès partagé (SAS). Avec les signatures d’accès partagé, vous pouvez autoriser l’appareil de votre utilisateur à adresser directement des requêtes au stockage Azure par le biais d’un jeton à accès limité. Par exemple, si un utilisateur souhaite charger une photo vers votre application, votre application de service peut générer une signature d’accès partagé et l’envoyer à l’appareil de l’utilisateur. Le jeton SAS peut accorder l’autorisation d’écrire dans une ressource du stockage Azure pendant un intervalle de temps spécifié, au bout duquel le jeton SAS expire. Pour plus d’informations sur les SAS, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAS)](../common/storage-sas-overview.md).  
 
@@ -125,12 +133,12 @@ Si vous utilisez .NET Framework, vous trouverez dans cette section plusieurs par
 
 ### <a name="use-net-core"></a>Utiliser .NET Core
 
-Développez vos applications du stockage Azure avec .NET Core 2.1 ou une version ultérieure pour tirer parti des performances améliorées. L’utilisation de .NET Core 3.x est recommandée dans la mesure du possible.
+Développez vos applications du stockage Azure avec .NET Core 2.1 ou ultérieur pour tirer parti des performances améliorées. L’utilisation de .NET Core 3.x est recommandée dans la mesure du possible.
 
 Pour plus d’informations sur les améliorations des performances dans .NET Core, consultez les billets de blog suivants :
 
-- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
-- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
+- [Performance Improvements in .NET Core 3.0](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-3-0/)
+- [Performance Improvements in .NET Core 2.1](https://devblogs.microsoft.com/dotnet/performance-improvements-in-net-core-2-1/)
 
 ### <a name="increase-default-connection-limit"></a>Augmenter la limite de connexions par défaut
 
@@ -194,7 +202,7 @@ Pour plus d’informations, consultez le billet [Microsoft Azure Tables: Introdu
 
 L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). L’algorithme Nagle a un impact négatif sur les performances des requêtes adressées aux services Table et File d’attente Azure. Vous devez donc le désactiver si cela s’avère possible.
 
-## <a name="schema"></a>Schéma
+## <a name="schema"></a>schéma
 
 Le mode de représentation et d’interrogation de vos données constitue le principal facteur ayant une incidence sur les performances du service de Table. Bien que chaque application soit différente, cette section énumère quelques pratiques générales concernant les points suivants :
 

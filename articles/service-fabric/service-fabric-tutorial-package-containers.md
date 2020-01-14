@@ -1,31 +1,21 @@
 ---
-title: Empaqueter et déployer des conteneurs sous forme d’application Service Fabric dans Azure | Microsoft Docs
+title: Créer des packages de conteneurs et les déployer
 description: Dans ce tutoriel, vous découvrez comment générer une définition d’application Azure Service Fabric à l’aide de Yeoman et empaqueter l’application.
-services: service-fabric
-documentationcenter: ''
 author: suhuruli
-manager: chackdan
-editor: suhuruli
-tags: servicefabric
-keywords: Docker, Containers, Conteneurs, Microservices, Service Fabric, Azure
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b4931b62aaf04db2ee4ff6f4a5e2b96274b8af88
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385040"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614024"
 ---
-# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Didacticiel : Empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
+# <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : Empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
-Ce tutoriel est le deuxième de la série. Dans ce didacticiel, un outil de génération de modèles (Yeoman) est utilisé pour générer une définition d’application Service Fabric. Cette application peut ensuite servir à déployer des conteneurs sur Service Fabric. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est le deuxième de la série. Dans ce didacticiel, un outil de génération de modèles (Yeoman) est utilisé pour générer une définition d’application Service Fabric. Cette application peut ensuite servir à déployer des conteneurs sur Service Fabric. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Installer Yeoman
@@ -35,7 +25,7 @@ Ce tutoriel est le deuxième de la série. Dans ce didacticiel, un outil de gén
 > * Déployer et exécuter l’application
 > * Nettoyer l’application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Les images conteneur, créées et transmises à Azure Container Registry dans la [Partie 1](service-fabric-tutorial-create-container-images.md) de cette série de didacticiels, sont utilisées.
 * L’environnement de développement Linux est [configuré](service-fabric-tutorial-create-container-images.md).
@@ -227,7 +217,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
 
-Pour déployer l’application sur Azure, vous avez besoin d’un cluster Service Fabric pour exécuter l’application. Les commandes suivantes créent un cluster à cinq nœuds dans Azure.  Elles créent également un certificat auto-signé, l’ajoutent à un coffre de clés et le téléchargent localement sous forme de fichier PEM. Le nouveau certificat est utilisé pour sécuriser le cluster déployé et pour authentifier les clients.
+Pour déployer l’application sur Azure, vous avez besoin d’un cluster Service Fabric pour exécuter l’application. Les commandes suivantes créent un cluster à cinq nœuds dans Azure.  Elles créent également un certificat auto-signé, l’ajoutent à un coffre de clés et le téléchargent localement sous forme de fichier PEM. Le nouveau certificat sert à sécuriser le cluster au moment du déploiement et à authentifier les clients.
 
 ```azurecli
 #!/bin/bash

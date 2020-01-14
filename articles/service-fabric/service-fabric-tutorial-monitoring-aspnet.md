@@ -1,28 +1,19 @@
 ---
-title: Surveillance et diagnostics des services ASP.NET Core dans Azure Service Fabric | Microsoft Docs
+title: Superviser et diagnostiquer les services ASP.NET Core
 description: Dans ce tutoriel, vous allez découvrir comment configurer la supervision et les diagnostics pour une application ASP.NET Core Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/10/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 1f18aef12978b3df1ba1fd654ea4a0e9548a4b46
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b226c37c36da033862377860be4c413229651fb6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228093"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614041"
 ---
-# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Didacticiel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
+# <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : Surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric à l’aide d’Application Insights
 
 Ce tutoriel est la cinquième partie de la série. Il décrit les étapes requises pour configurer la surveillance et les diagnostics pour une application ASP.NET Core s’exécutant sur un cluster Service Fabric à l’aide d’Application Insights. Nous collecterons les données de télémétrie à partir de l’application développée dans la première partie du didacticiel [Créer une application .NET Service Fabric](service-fabric-tutorial-create-dotnet-app.md).
 
@@ -41,7 +32,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * [Configurer CI/CD à l’aide d’Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * Configurer la surveillance et les diagnostics pour l’application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 
@@ -122,7 +113,7 @@ Voici les étapes de configuration du package NuGet :
     ```csharp
     .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
     ```
-    Cette opération ajoute le *Contexte de service* à vos données de télémétrie, ce qui vous permet de mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
+    Cette opération ajoute le *Contexte de service* à vos données de télémétrie, ce qui vous permet de mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
 
     ```csharp
     return new WebHostBuilder()
@@ -266,7 +257,7 @@ Une fois ces modifications effectuées, **démarrez** l’application pour qu’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 > [!div class="checklist"]
 > * Configurer Application Insights pour votre application
 > * Collecter les données de télémétrie de réponse pour effectuer le suivi de la communication basée sur HTTP entre les services

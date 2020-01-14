@@ -1,19 +1,19 @@
 ---
-title: Création d’un cluster Microsoft Azure FXT Edge Filer
+title: 'Tutoriel : Créer le cluster du cache Azure FXT Edge Filer'
 description: Guide pratique pour créer un cluster de cache de stockage hybride avec Azure FXT Edge Filer
 author: ekpgh
+ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: rohogue
-ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: bfe1d1aeeac55039acf0c7eb295001277be9cd2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72256092"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551265"
 ---
-# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Didacticiel : Créer le cluster Azure FXT Edge Filer
+# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutoriel : Créer le cluster Azure FXT Edge Filer
 
 Après avoir installé et initialisé les nœuds matériels Azure FXT Edge Filer pour votre cache, utilisez le logiciel de cluster FXT pour créer le cluster de cache. 
 
@@ -30,7 +30,7 @@ Ce tutoriel vous apprendra à effectuer les opérations suivantes :
 
 Cette procédure prend entre 15 et 45 minutes, en fonction des recherches que vous avez besoin de faire pour identifier les IP adresses et les ressources réseau.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel, effectuez ces prérequis :
 
@@ -131,7 +131,7 @@ Laissez les champs **Nom d’utilisateur** et **Mot de passe** vides. Cliquez su
 
 ![Écran de configuration initiale d’un nœud non configuré dans le panneau de configuration de l’interface graphique utilisateur basée sur un navigateur. Celui-ci présente des options pour mettre à jour le logiciel, configurer un cluster manuellement ou configurer un cluster à partir d’un fichier d’installation.](media/fxt-cluster-create/setup-first-screen.png)
 
-## <a name="create-the-cluster"></a>Création du cluster
+## <a name="create-the-cluster"></a>Créer le cluster
 
 L’outil de configuration de cluster vous guide tout au long d’un ensemble d’écrans pour créer le cluster Azure FXT Edge Filer. Vérifiez que vous disposez des [informations nécessaires](#gather-information-for-the-cluster) avant de commencer. 
 

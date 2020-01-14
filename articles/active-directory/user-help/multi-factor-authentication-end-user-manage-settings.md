@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fbc18d8141c44c2b0863547c33b5c5193e928b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7e557ca1bfc7587b6a65957177440041bf4e902f
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231923"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681325"
 ---
 # <a name="change-your-two-factor-verification-method-and-settings"></a>Modifier la méthode et les paramètres de vérification à deux facteurs
 
@@ -32,16 +32,16 @@ Une fois que vous avez configuré vos méthodes de vérification de sécurité p
 
 ## <a name="using-the-additional-security-verification-page"></a>Utilisation de la page Vérification de sécurité supplémentaire
 
-Si votre organisation vous a fourni des étapes spécifiques expliquant comment activer et gérer la vérification à deux facteurs, vous devez suivre ces instructions. Dans le cas contraire, vous pouvez accéder aux paramètres de méthode de vérification de sécurité à partir de la page [Vérification de sécurité supplémentaire](https://aka.ms/mfasetup).
+Si votre organisation vous a fourni des étapes spécifiques expliquant comment activer et gérer la vérification à deux facteurs, vous devez suivre ces instructions. Dans le cas contraire, vous pouvez accéder aux paramètres de méthode de vérification de sécurité à partir de la page [Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
 >[!Note]
 >Si ce que vous voyez sur votre écran ne correspond pas à ce qui est abordé dans cet article, cela signifie que votre administrateur a activé l’expérience Informations de sécurité (préversion) ou que votre organisation dispose d’un portail personnalisé. Pour en savoir plus sur l’expérience Informations de sécurité, consultez [Vue d’ensemble des informations de sécurité (préversion)](user-help-security-info-overview.md). Pour plus d’informations sur le portail personnalisé de votre organisation, vous devez contacter votre support technique.
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>Pour accéder à la page Vérification de sécurité supplémentaire
 
-- Accédez à https://aka.ms/mfasetup
+- Accédez à la page [Vérification de sécurité supplémentaire](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1).
 
-    ![Écran de vérification de sécurité supplémentaire, avec les détails de la méthode de vérification de sécurité disponibles](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
+    ![Page Vérification de sécurité supplémentaire, avec les détails de la méthode de vérification de sécurité disponibles](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
     Si cliquer sur ce lien n’a pas d’effet, vous pouvez également accéder à la page **Vérification de sécurité supplémentaire** en effectuant les étapes suivantes :
 
@@ -139,6 +139,6 @@ Une fois que vous avez ajouté ou mis à jour vos paramètres de vérification �
 
 - [Gérer les mots de passe d’application pour la vérification à deux facteurs](multi-factor-authentication-end-user-app-passwords.md) pour les applications qui ne prennent pas en charge la vérification à deux facteurs.
 
-- [Se connecter à l’aide de la vérification à deux facteurs](multi-factor-authentication-end-user-signin.md)
+- [Se connecter à l’aide de la vérification en deux étapes](multi-factor-authentication-end-user-signin.md)
 
 - [Obtenir de l’aide pour la vérification à deux facteurs](multi-factor-authentication-end-user-troubleshoot.md)

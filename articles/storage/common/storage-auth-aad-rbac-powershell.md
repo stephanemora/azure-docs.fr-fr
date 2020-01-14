@@ -10,18 +10,18 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1413035c879198cf333aeeb5d8fe993162939172
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460587"
 ---
 # <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser PowerShell pour affecter un rôle RBAC pour l’accès aux données blob et de file d’attente
 
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux conteneurs ou aux files d’attente.
 
-Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+Lorsqu’un rôle RBAC est attribué à un principal de sécurité Azure AD, Azure octroie l’accès à ces ressources pour ce principal de sécurité. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Un principal de sécurité Azure AD peut correspondre à un utilisateur, à un groupe, à un principal de service d’application ou à une [identité managée pour les ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Cet article décrit comment utiliser Azure PowerShell pour répertorier les rôles RBAC intégrés et les attribuer aux utilisateurs. Pour plus d’informations sur l’utilisation Azure PowerShell, consultez la [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -57,7 +57,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ## <a name="assign-an-rbac-role-to-a-security-principal"></a>Attribuer un rôle RBAC à un principal de sécurité
 
-Pour attribuer un rôle RBAC à un principal de sécurité, utilisez la commande [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Le format de la commande peut varier selon l’étendue de l’affectation. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
+Pour attribuer un rôle RBAC à un principal de sécurité, utilisez la commande [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). Le format de la commande peut varier selon l’étendue de l’affectation. Pour exécuter la commande, vous devez avoir le rôle Propriétaire ou Contributeur affecté à l’étendue correspondante. Les exemples suivants montrent comment attribuer un rôle à un utilisateur dans des étendues diverses, mais vous pouvez utiliser la même commande pour attribuer un rôle à n’importe quel principal de sécurité.
 
 ### <a name="container-scope"></a>Étendue du conteneur
 

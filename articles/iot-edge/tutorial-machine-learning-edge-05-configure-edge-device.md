@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer un appareil IoT Edge - Machine Learning sur Azure IoT Edge'
+title: 'Tutoriel : Configurer un appareil IoT Edge - Machine Learning sur Azure IoT Edge'
 description: Dans ce tutoriel, vous allez configurer une machine virtuelle Azure exécutant Linux en tant qu’appareil Azure IoT Edge servant de passerelle transparente.
 author: kgremban
 manager: philmea
@@ -8,14 +8,14 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5be7b66a51113121ed755d8ad9cea3518577f2e7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706951"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612868"
 ---
-# <a name="tutorial-configure-an-iot-edge-device"></a>Didacticiel : Configurer un appareil IoT Edge
+# <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
 > [!NOTE]
 > Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
@@ -28,7 +28,7 @@ Les étapes décrites dans cet article sont généralement effectuées par un d�
 
 Pour qu’un appareil fonctionne comme une passerelle, il doit être capable de se connecter de manière sécurisée aux appareils en aval. Azure IoT Edge vous permet d’utiliser une infrastructure à clé publique (PKI) pour configurer des connexions sécurisées entre les appareils. Dans ce cas, nous autorisons un appareil en aval à se connecter à un appareil IoT Edge faisant office de passerelle transparente. Pour assurer un niveau raisonnable de sécurité, l’appareil en aval doit confirmer l’identité de l’appareil IoT Edge. Pour plus d’informations sur la façon dont les appareils IoT Edge utilisent des certificats, consultez [Détails d’utilisation des certificats Azure IoT Edge](iot-edge-certs.md).
 
-Dans cette section, nous créons les certificats auto-signés à l’aide d’une image Docker que nous devons générer et exécuter. Nous avons choisi d’utiliser une image Docker pour effectuer cette étape, car elle réduit considérablement le nombre d’étapes nécessaires pour créer les certificats sur la machine de développement Windows. Consultez [Générer des certificats avec Windows](how-to-create-transparent-gateway.md#generate-certificates-with-windows) pour plus d’informations sur la génération de certificats sans utiliser de conteneur. [Générer des certificats avec Linux](how-to-create-transparent-gateway.md#generate-certificates-with-linux) contient l’ensemble d’instructions que nous avons automatisées avec l’image Docker.
+Dans cette section, nous créons les certificats auto-signés à l’aide d’une image Docker que nous devons générer et exécuter. Nous avons choisi d’utiliser une image Docker pour effectuer cette étape, car elle réduit considérablement le nombre d’étapes nécessaires pour créer les certificats sur la machine de développement Windows. Consultez [Créer des certificats de démonstration pour tester des fonctionnalités d’appareils IoT Edge](how-to-create-test-certificates.md) pour comprendre ce que nous avons automatisé avec l’image Docker.
 
 1. Connectez-vous à votre machine virtuelle de développement.
 
@@ -40,7 +40,7 @@ Dans cette section, nous créons les certificats auto-signés à l’aide d’un
 
 3. Démarrez **Docker pour Windows** à partir du menu Démarrer de Windows.
 
-4. Ouvrez Visual Studio Code.
+4. Ouvrez Visual Studio Code.
 
 5. Sélectionnez **Fichier** > **Ouvrir le dossier...** et choisissez **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates**.
 

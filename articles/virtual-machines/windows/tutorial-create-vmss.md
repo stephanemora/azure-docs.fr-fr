@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Créer un groupe de machines virtuelles identiques pour Windows dans Azure'
-description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell pour créer et déployer une application hautement disponible sur les machines virtuelles Windows à l’aide d’un groupe de machines virtuelles identiques
+title: 'Tutoriel : Créer un groupe de machines virtuelles identiques Windows'
+description: Découvrez comment utiliser Azure PowerShell pour créer et déployer une application hautement disponible sur les machines virtuelles Windows à l’aide d’un groupe de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6fcf0c14d58e70659ee5e21b03245b705294b445
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bf53b2777c5d1e4d774a9f5ee9df119a0deac9d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067888"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464979"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Didacticiel : Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows avec Azure PowerShell
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Tutoriel : Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Windows avec Azure PowerShell
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique. Vous pouvez également définir des règles pour mettre à l’échelle automatiquement en fonction de l’utilisation des ressources (processeur, demande de mémoire, trafic réseau, etc.). Ce tutoriel explique comment déployer un groupe de machines virtuelles identiques dans Azure et vous apprend à :
 
 > [!div class="checklist"]
@@ -44,11 +44,11 @@ Un groupe de machines virtuelles identiques vous permet de déployer et de gére
 
 Les machines virtuelles sont créées en fonction des besoins dans un groupe identique. En définissant des règles de mise à l’échelle automatique, vous pouvez contrôler quand et comment les machines virtuelles sont ajoutées ou supprimées au niveau du groupe identique. Ces règles peuvent se déclencher en fonction de mesures telles que la charge du processeur, l’utilisation de la mémoire ou le trafic réseau.
 
-Les groupes identiques peuvent prendre en charge jusqu’à 1 000 machines virtuelles quand vous utilisez une image de plateforme Azure. Pour les charges de travail qui s’accompagnent de contraintes importantes en matière d’installation ou de personnalisation de machines virtuelles, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md). Vous pouvez créer un maximum de 300 machines virtuelles dans un groupe identique lorsque vous utilisez une image personnalisée.
+Les groupes identiques prennent en charge jusqu’à 1 000 machines virtuelles lorsque vous utilisez une image de plateforme Azure. Pour les charges de travail qui s’accompagnent de contraintes importantes en matière d’installation ou de personnalisation de machines virtuelles, vous pouvez [créer une image de machine virtuelle personnalisée](tutorial-custom-images.md). Vous pouvez créer un maximum de 300 machines virtuelles dans un groupe identique lorsque vous utilisez une image personnalisée.
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique
-Créez un groupe de machines virtuelles identiques à l’aide de [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). L’exemple suivant crée un groupe identique nommé *myScaleSet* qui utilise l’image de plateforme *Windows Server 2016 Datacenter*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Quand vous y êtes invité, vous pouvez définir vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
+Créez un groupe de machines virtuelles identiques avec [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss). L’exemple suivant crée un groupe identique nommé *myScaleSet* qui utilise l’image de plateforme *Windows Server 2016 Datacenter*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Quand vous y êtes invité, vous pouvez définir vos propres informations d’identification d’administration pour les instances de machine virtuelle du groupe identique :
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -160,7 +160,7 @@ Entrez l’adresse IP publique dans un navigateur web. L’application Web s’a
 
 ![Site IIS en cours d’exécution](./media/tutorial-create-vmss/running-iis-site.png)
 
-Pour voir fonctionner le groupe identique, vous pouvez forcer l’actualisation de votre navigateur web. L’équilibreur de charge répartit alors le trafic entre toutes les machines virtuelles exécutant votre application.
+Pour voir le groupe identique en action, vous pouvez forcer l’actualisation de votre navigateur web pour visualiser la distribution de trafic par l’équilibrage de charge sur l’ensemble des machines virtuelles exécutant votre application.
 
 
 ## <a name="management-tasks"></a>Tâches de gestion
@@ -279,7 +279,7 @@ Pour plus d’informations de conception sur l’utilisation de la mise à l’�
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer un groupe de machines virtuelles identiques. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser l’extension de script personnalisé pour définir un site IIS à mettre à l’échelle

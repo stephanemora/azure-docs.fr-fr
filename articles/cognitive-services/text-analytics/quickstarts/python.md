@@ -1,21 +1,21 @@
 ---
 title: 'Démarrage rapide : Utilisation de Python pour appeler l’API Analyse de texte'
 titleSuffix: Azure Cognitive Services
-description: Cet article contient des informations et des exemples de code pour vous aider à commencer à utiliser rapidement l’API Analyse de texte dans Azure Cognitive Services.
+description: Ce guide de démarrage rapide montre comment obtenir des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API Analyse de texte dans Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 15f0cf7725dec99884497be79b63c21ef16f88b1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 7f2a4ff98345aa43dd6a99eafd60ff2d05ee1bee
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378549"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : Utilisation de l’API REST Python pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ Utilisez ce guide de démarrage rapide pour commencer l’analyse de la langue a
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Python 3.x](https://python.org)
 
@@ -49,20 +49,13 @@ import requests
 from pprint import pprint
 ```
 
-Créez des variables pour le point de terminaison et la clé d’abonnement Azure de votre ressource. Obtenez ces valeurs à partir des variables d’environnement TEXT_ANALYTICS_SUBSCRIPTION_KEY et TEXT_ANALYTICS_ENDPOINT. Si vous avez créé ces variables d’environnement après avoir commencé à modifier l’application, vous devez fermer et rouvrir l’éditeur, l’IDE ou l’interpréteur de commandes que vous utilisez pour accéder aux variables.
+Créez des variables pour le point de terminaison et la clé d’abonnement Azure de votre ressource.
     
 ```python
 import os
 
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
+subscription_key = "<paste-your-text-analytics-key-here>"
+endpoint = "<paste-your-text-analytics-endpoint-here>"
 ```
 
 Les sections suivantes expliquent comment appeler chacune des fonctionnalités de l’API.
@@ -71,7 +64,7 @@ Les sections suivantes expliquent comment appeler chacune des fonctionnalités d
 
 ## <a name="detect-languages"></a>Détecter des langues
 
-Ajoutez `/text/analytics/v2.1/languages` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
+Ajoutez `/text/analytics/v2.1/languages` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/languages`
     
 ```python
 language_api_url = endpoint + "/text/analytics/v2.1/languages"
@@ -140,7 +133,7 @@ pprint(languages)
 
 ## <a name="analyze-sentiment"></a>Analyser les sentiments
 
-Pour détecter le sentiment (positif ou négatif) d’un jeu de documents, ajoutez `/text/analytics/v2.1/sentiment` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
+Pour détecter le sentiment (positif ou négatif) d’un jeu de documents, ajoutez `/text/analytics/v2.1/sentiment` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
     
 ```python
 sentiment_url = endpoint + "/text/analytics/v2.1/sentiment"
@@ -202,7 +195,7 @@ Le score de sentiment d’un document est compris entre 0.0 et 1.0 ; un score s
 
 ## <a name="extract-key-phrases"></a>Extraire des expressions clés
  
-Pour extraire les expressions clés d’un jeu de documents, ajoutez `/text/analytics/v2.1/keyPhrases` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
+Pour extraire les expressions clés d’un jeu de documents, ajoutez `/text/analytics/v2.1/keyPhrases` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`
     
 ```python
 keyphrase_url = endpoint + "/text/analytics/v2.1/keyphrases"
@@ -278,7 +271,7 @@ pprint(key_phrases)
 
 ## <a name="identify-entities"></a>Identification d’entités
 
-Pour identifier des entités connues (personnes, lieux et objets) dans des documents texte, ajoutez `/text/analytics/v2.1/entities` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
+Pour identifier des entités connues (personnes, lieux et objets) dans des documents texte, ajoutez `/text/analytics/v2.1/entities` au point de terminaison de base d’Analyse de texte pour former l’URL de détection de langue. Par exemple : `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
     
 ```python
 entities_url = endpoint + "/text/analytics/v2.1/entities"

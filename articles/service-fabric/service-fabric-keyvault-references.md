@@ -1,25 +1,20 @@
 ---
-title: Azure Service Fabric – Utilisation des références de coffre de clés d’application Service Fabric | Microsoft Docs
+title: Azure Service Fabric – Utilisation des références KeyVault de l'application Service Fabric
 description: Cet article explique comment utiliser la prise en charge de Service Fabric KeyVaultReference pour des secrets d’application.
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
-ms.author: atsenthi
-ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74307328"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463036"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Prise en charge de KeyVaultReference pour les applications Service Fabric (préversion)
 
 Un défi courant lors de la création d’applications Cloud est de savoir comment stocker en toute sécurité les secrets requis par votre application. Par exemple, vous souhaiterez peut-être stocker les informations d’identification du référentiel de conteneurs dans le coffre de clés et les référencer dans le manifeste de l’application. Service Fabric KeyVaultReference utilise les identités managées Service Fabric et facilite la référence aux secrets du coffre de clés. Le reste de cet article explique comment utiliser Service Fabric KeyVaultReference et inclut un cas d’utilisation classique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Identité managée pour application (MIT)
     
@@ -36,8 +31,8 @@ Un défi courant lors de la création d’applications Cloud est de savoir comme
     [
         ...
     {
-        "parameters":  [
-            "name":  "CentralSecretService",
+                "name":  "CentralSecretService",
+                "parameters":  [
                 {
                     "name":  "IsEnabled",
                     "value":  "true"
@@ -50,7 +45,7 @@ Un défi courant lors de la création d’applications Cloud est de savoir comme
                     "name":  "TargetReplicaSetSize",
                     "value":  "3"
                 }
-                ],
+                ]
             },
             {
                 "name":  "ManagedIdentityTokenService",
@@ -142,7 +137,7 @@ KeyVaultReference est un type pris en charge pour le conteneur RepositoryCredent
         <RepositoryCredentials AccountName="user1" Type="KeyVaultReference" Password="https://ttkvault.vault.azure.net/secrets/containerpwd/e225bd97e203430d809740b47736b9b8"/>
       </ContainerHostPolicies>
 ```
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 - L’identité managée doit être activée pour la prise en charge de KeyVaultReference. L’activation de votre application échoue si KeyVaultReference est utilisé sans activer l’identité managée.
 
 - Si vous utilisez une identité attribuée par le système, elle n’est créée qu’après le déploiement de l’application, ce qui crée une dépendance circulaire. Une fois votre application déployée, vous pouvez accorder au système une autorisation d’accès avec identité au coffre de clé. Vous pouvez trouver l’identité attribuée par le système par son nom {cluster}/{nom d’application}/{nom de service}

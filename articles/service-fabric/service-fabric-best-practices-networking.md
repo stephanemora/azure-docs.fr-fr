@@ -1,25 +1,16 @@
 ---
-title: Meilleures pratiques de mise en réseau Azure Service Fabric | Microsoft Docs
-description: Meilleures pratiques de gestion de la mise en réseau Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Meilleures pratiques de mise en réseau Azure Service Fabric
+description: Meilleures pratiques et considérations relatives à la conception pour la gestion de la connectivité réseau à l’aide d’Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 317977af9d41163013545a6e5f60bee887da596c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: de2a74ad2d61de18d2150b72be3251e5b5583f2e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262244"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551792"
 ---
 # <a name="networking"></a>Mise en réseau
 
