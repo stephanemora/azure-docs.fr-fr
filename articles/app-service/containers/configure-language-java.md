@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 571d4cd395cd0cec0982fedf267a88143fd73872
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422192"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -248,8 +248,7 @@ Une configuration supplémentaire peut être nécessaire pour chiffrer votre con
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
-- [Cassandra](https://docs.datastax.com/developer/java-driver/4.3/)
-
+- [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
 #### <a name="manually-initialize-and-load-the-key-store"></a>Initialiser et charger manuellement le magasin de clés
 
@@ -663,7 +662,7 @@ Les étapes suivantes expliquent les exigences de connexion de votre App Service
 
 Lorsque votre App Service redémarre, il exécute le script de démarrage et effectue les étapes de configuration nécessaires. Pour vérifier que cette configuration s’effectue correctement, vous pouvez accéder à votre App Service à l’aide de SSH et exécuter vous-même le script de démarrage à partir de l’invite Bash. Vous pouvez également examiner les journaux d’activité App Service. Pour plus d’informations sur ces options, consultez [Journalisation et débogage des applications](#logging-and-debugging-apps).
 
-Vous devez ensuite mettre à jour la configuration WildFly pour votre application et la redéployer. Procédez comme suit :
+Vous devez ensuite mettre à jour la configuration WildFly pour votre application et la redéployer. Utiliser les étapes suivantes :
 
 1. Ouvrez le fichier *src/main/resources/META-INF/persistence.xml* de votre application et recherchez l’élément `<jta-data-source>`. Remplacez son contenu comme indiqué ici :
 
@@ -703,9 +702,9 @@ Vous pouvez configurer WildFly et vos beans pilotés par message pour utiliser [
 
 Les étapes suivantes décrivent la configuration et le code nécessaires. En effectuant ces étapes, vous êtes censé avoir créé une instance App Service pour héberger votre bean, un espace de noms Service Bus, une file d’attente et une rubrique avec un abonnement. Pour savoir comment créer ces ressources, consultez :
 
-- [Démarrage rapide : Créer une application Java dans Azure App Service sur Linux](/azure/app-service/containers/quickstart-java)
-- [Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus](/azure/service-bus-messaging/service-bus-quickstart-cli)
-- [Démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
+- [Démarrage rapide : Créer une application Java dans Azure App Service sur Linux](/azure/app-service/containers/quickstart-java)
+- [Démarrage rapide : Utiliser Azure CLI pour créer une file d’attente Service Bus](/azure/service-bus-messaging/service-bus-quickstart-cli)
+- [Démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal)
 
 1. Ouvrez un terminal Bash et utilisez les commandes suivantes pour enregistrer vos informations de ressources Azure dans des variables d’environnement. Remplacez les espaces réservés (crochets inclus) par les valeurs indiquées.
 

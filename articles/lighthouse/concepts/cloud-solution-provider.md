@@ -1,14 +1,14 @@
 ---
 title: Considérations sur le programme des fournisseurs de solutions cloud
 description: Pour les partenaires CSP, la gestion des ressources déléguées Azure permet d’améliorer la sécurité et le contrôle en activant des autorisations précises.
-ms.date: 10/23/2019
+ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7e1e371d8c31c45828ee0565545cb40145b40e92
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 66ea74751f12a499a1e2d9e083497da31746e3c7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463961"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456910"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse et le programme Fournisseur de solutions cloud
 
@@ -34,9 +34,9 @@ L’intégration d’un abonnement que vous avez créé par le biais du programm
 ![Gestion des locataires à l’aide du mécanisme Administrer au nom de et de la gestion des ressources déléguées Azure](../media/csp-2.jpg)
 
 > [!NOTE]
-> La page [**Mes clients** du portail Azure](../how-to/view-manage-customers.md) comprend désormais une section **Fournisseur de solutions cloud (préversion)** , qui affiche des informations de facturation et des ressources pour les clients CSP qui ont [signé le contrat client Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) et sont sous le plan Azure. Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](https://docs.microsoft.com/azure/billing/mpa-overview).
+> La page [**Mes clients** du portail Azure](../how-to/view-manage-customers.md) comprend désormais une section **Fournisseur de solutions cloud (préversion)** , qui affiche des informations de facturation et des ressources pour les clients CSP qui ont [signé le contrat client Microsoft (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) et sont [sous le plan Azure](https://docs.microsoft.com/partner-center/azure-plan-get-started). Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](../../billing/mpa-overview.md).
 >
-> Des clients CSP peuvent apparaître dans cette section, qu’ils aient ou non été intégrés pour la gestion des ressources déléguées Azure. Si c'est le cas, ils apparaîtront également dans la section **Clients**, comme décrit dans [Voir et gérer les clients et les ressources déléguées](../how-to/view-manage-customers.md).
+> Des clients CSP peuvent apparaître dans cette section, qu’ils aient ou non aussi été intégrés pour la gestion des ressources déléguées Azure. Si c'est le cas, ils apparaîtront également dans la section **Clients**, comme décrit dans [Voir et gérer les clients et les ressources déléguées](../how-to/view-manage-customers.md). De même, il n’est pas nécessaire qu’un client CSP apparaisse dans la section **Fournisseur de solutions cloud (préversion)** de **Mes clients** pour pouvoir les intégrer à la gestion des ressources déléguée Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

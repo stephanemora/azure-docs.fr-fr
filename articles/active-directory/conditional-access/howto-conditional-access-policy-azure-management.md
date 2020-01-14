@@ -5,26 +5,26 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d0a1f56624314ff0cebe93a46027d3ca5b6a838
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6c4e5d90704e847b3bcd033a20311cc6c69cfe7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803714"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424898"
 ---
-# <a name="conditional-access-require-mfa-for-azure-management"></a>Accès conditionnel : Exiger MFA pour la gestion Azure
+# <a name="conditional-access-require-mfa-for-azure-management"></a>Accès conditionnel : Exiger MFA pour la gestion Azure
 
 Les organisations utilisent divers services Azure et les gèrent à partir d’outils reposant sur Azure Resource Manager :
 
 * Portail Azure
 * Azure PowerShell
-* D’Azure CLI
+* Azure CLI
 
 Ces outils peuvent offrir un accès privilégié aux ressources, ce qui permet de modifier les configurations à l’échelle de l’abonnement, les paramètres du service et la facturation des abonnements. Pour protéger ces ressources privilégiées, Microsoft recommande d’exiger l’authentification multifacteur pour tous les utilisateurs qui accèdent à ces ressources.
 
@@ -57,5 +57,7 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
+
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

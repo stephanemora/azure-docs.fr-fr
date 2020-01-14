@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 14c4ddd5d95abb223fb30e2ce07496e7f2773257
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 29aab4437b7d77b9a00b5745d68dcb5c44a4efe6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434221"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 
@@ -51,13 +51,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
             "settings": {
               "minDockerVersion": "v1.25",
               "loggingOptions": "",
-              "registryCredentials": {
-                "registryName": {
-                  "username": "",
-                  "password": "",
-                  "address": ""
-                }
-              }
+              "registryCredentials": {}
             }
           },
           "systemModules": {
@@ -74,7 +68,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
               "restartPolicy": "always",
               "settings": {
                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                "createOptions": "{}"
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
@@ -96,7 +90,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
         "properties.desired": {
           "schemaVersion": "1.0",
           "routes": {
-            "route": "FROM /* INTO $upstream"
+            "upstream": "FROM /messages/* INTO $upstream"
           },
           "storeAndForwardConfiguration": {
             "timeToLiveSecs": 7200
@@ -104,12 +98,68 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
         }
       },
       "SimulatedTemperatureSensor": {
-        "properties.desired": {}
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
       }
     }
   }
 }
 ```
+
+## <a name="layered-deployment"></a>Déploiement en couches
+
+Les déploiements en couches sont des déploiements automatiques qui peuvent être empilé les uns sur les autres. Pour plus d’informations sur les déploiements en couches, consultez [Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils](module-deployment-monitoring.md). 
+
+Les déploiements en couches peuvent être créés et gérés à l'aide d'Azure CLI comme n’importe quel déploiement automatique, à quelques différences près. Lorsqu'un déploiement en couches est créé, Azure CLI fonctionne de la même manière pour les déploiements en couches que tout autre déploiement. Pour créer un déploiement en couches, ajoutez la balise `--layered` à la commande create. 
+
+La deuxième différence réside dans la construction du manifeste de déploiement. Alors que les déploiements automatiques standard doivent contenir les modules d’exécution du système en plus des modules utilisateur, les déploiements en couches, quant à eux, peuvent uniquement contenir les modules utilisateur. En effet, les déploiements en couches impliquent également un déploiement automatique standard sur un appareil afin de fournir les composants requis de chaque appareil IoT Edge, comme les modules d’exécution du système. 
+
+Par exemple, voici un manifeste de déploiement en couches de base comportant un seul module : 
+
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired.modules.SimulatedTemperatureSensor": {
+          "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": ""
+          },
+          "type": "docker",
+          "status": "running",
+          "restartPolicy": "always",
+          "version": "1.0"
+        }
+      },
+      "$edgeHub": {
+        "properties.desired.routes.upstream": "FROM /messages/* INTO $upstream"
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
+
+L’exemple précédent illustrait un déploiement en couches définissant `properties.desired` pour un module. Si ce déploiement en couches venait à cibler un appareil sur lequel le même module est déjà appliqué, il remplacerait les propriétés souhaitées existantes. Pour procéder à une mise à jour plutôt qu'à un remplacement des propriétés souhaitées, vous pouvez définir une nouvelle sous-section. Par exemple : 
+
+```json
+"SimulatedTEmperatureSensor": {
+  "properties.desired.layeredProperties": {
+    "SendData": true,
+    "SendInterval": 5
+  }
+}
+```
+
+Pour plus d’informations sur la configuration de jumeaux de module au sein des déploiements en couches, consultez [Déploiement en couches.](module-deployment-monitoring.md#layered-deployment)
 
 ## <a name="identify-devices-using-tags"></a>Identifier les appareils à l’aide de balises
 
@@ -138,14 +188,18 @@ Utilisez la commande [az iot edge deployment create](https://docs.microsoft.com/
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
+Utilisez la même commande avec la balise `--layered` pour créer un déploiement en couches.
+
 La commande « deployment create » utilise les paramètres suivants : 
 
-* **--deployment-id** : nom du déploiement à créer dans le hub IoT. Donnez à votre déploiement un nom unique comportant au plus 128 lettres minuscules. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`.
+* **--layered** : indicateur facultatif permettant d’identifier le déploiement en tant que déploiement en couches.
+* **--deployment-id** : nom du déploiement à créer dans le hub IoT. Donnez à votre déploiement un nom unique comportant au plus 128 lettres minuscules. Évitez les espaces et les caractères non valides suivants : `& ^ [ ] { } \ | " < > /`. Paramètre obligatoire. 
+* **--content** : chemin du fichier JSON du manifeste de déploiement. Paramètre obligatoire. 
 * **--hub-name** : nom du hub IoT dans lequel le déploiement sera créé. Le hub doit être dans l’abonnement actuel. Modifiez votre abonnement actuel avec la commande `az account set -s [subscription name]`.
-* **--content** : chemin du fichier JSON du manifeste de déploiement. 
-* **--labels** : ajoutez des étiquettes pour faciliter le suivi de vos déploiements. Les étiquettes sont des paires Nom, Valeur qui décrivent votre déploiement. Les étiquettes utilisent le format JSON pour les noms et les valeurs. Par exemple, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--labels** : ajoutez des étiquettes pour faciliter le suivi de vos déploiements. Les étiquettes sont des paires Nom, Valeur qui décrivent votre déploiement. Les étiquettes utilisent le format JSON pour les noms et les valeurs. Par exemple : `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** : entrez une condition cible pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple : `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** : entier positif. Si deux ou plusieurs déploiements sont ciblés sur le même appareil, le déploiement ayant la valeur numérique la plus élevée pour Priority s’applique.
+* **--metrics** : créez des métriques qui interrogent les propriétés signalées par edgeHub afin de suivre l’état d’un déploiement. Les métriques utilisent une entrée JSON ou un chemin d'accès. Par exemple : `'{"queries": {"mymetric": "SELECT deviceId FROM devices WHERE properties.reported.lastDesiredStatus.code = 200"}}'`. 
 
 ## <a name="monitor-a-deployment"></a>Surveiller un déploiement
 
@@ -156,7 +210,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 ```
 
 La commande « deployment show » utilise les paramètres suivants :
-* **--deployment-id** : nom du déploiement qui existe dans le hub IoT.
+* **--deployment-id** : nom du déploiement qui existe dans le hub IoT. Paramètre obligatoire. 
 * **--hub-name** : nom du hub IoT dans lequel le déploiement existe. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.
 
 Inspectez le déploiement dans la fenêtre de commande. La propriété **metrics** répertorie un nombre pour chaque métrique évaluée par chaque hub :
@@ -174,7 +228,7 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 
 La commande « deployment show-metric » utilise les paramètres suivants : 
 * **--deployment-id** : nom du déploiement qui existe dans le hub IoT.
-* **--metric-id** : nom de la métrique pour laquelle vous souhaitez voir la liste des ID d’appareil, par exemple `reportedFailedCount`
+* **--metric-id** : nom de la métrique pour laquelle vous souhaitez voir la liste des ID d’appareil, par exemple `reportedFailedCount`.
 * **--hub-name** : nom du hub IoT dans lequel le déploiement existe. Le hub doit être dans l’abonnement actuel. Basculez vers l’abonnement souhaité avec la commande `az account set -s [subscription name]`.
 
 ## <a name="modify-a-deployment"></a>Modifier un déploiement
@@ -186,6 +240,8 @@ Si vous mettez à jour la condition cible, les mises à jour suivantes se produi
 * Si un appareil ne remplissait pas l’ancienne condition cible, mais qu’il remplit la nouvelle condition cible et que ce déploiement a la priorité la plus élevée pour cet appareil, ce déploiement est appliqué à l’appareil. 
 * Si un appareil exécutant actuellement ce déploiement ne remplit plus la condition cible, il désinstalle ce déploiement et prend le déploiement suivant dans l’ordre de priorité. 
 * Si un appareil exécutant actuellement ce déploiement ne remplit plus la condition cible et ne remplit la condition cible d’aucun autre déploiement, aucun changement ne se produit sur l’appareil. L’appareil continue à exécuter ses modules actuels dans leur état actuel, mais il n’est plus géré dans le cadre de ce déploiement. Dès qu’il remplit la condition cible d’un autre déploiement, il désinstalle ce déploiement et prend le nouveau. 
+
+Vous ne pouvez pas mettre à jour le contenu d’un déploiement, ce qui comprend les modules et itinéraires définis dans le manifeste de déploiement. Pour mettre à jour le contenu d’un déploiement, vous devez créer un déploiement ciblant les mêmes appareils avec une priorité plus élevée. Vous pouvez modifier certaines propriétés d’un module existant, y compris la condition, les étiquettes, les métriques et la priorité de la cible. 
 
 Utilisez la commande [az iot edge deployment update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) pour mettre à jour un déploiement :
 
@@ -200,6 +256,8 @@ La commande « deployment update » utilise les paramètres suivants :
   * targetCondition : par exemple, `targetCondition=tags.location.state='Oregon'`
   * étiquettes 
   * priority
+* **--add** : ajoutez une nouvelle propriété au déploiement, y compris des conditions cibles ou étiquettes. 
+* **--remove** : supprimez une propriété existante, y compris des conditions cibles ou étiquettes. 
 
 
 ## <a name="delete-a-deployment"></a>Supprimer un déploiement

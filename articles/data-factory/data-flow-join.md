@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/17/2019
-ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: 10149c6eb06e6d2994233aa365f237e6d9330c48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930345"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644752"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
@@ -31,6 +31,9 @@ La jointure interne génère uniquement les lignes possédant des valeurs corres
 
 La jointure externe gauche renvoie toutes les lignes du flux de données gauche et les enregistrements correspondants du flux de droite. Si une ligne du flux de gauche n’a pas de correspondance, les colonnes de sortie du flux de droite ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de gauche.
 
+> [!NOTE]
+> Le moteur Spark utilisé par les flux de données sera calculera parfois un produit cartésien dans vos conditions de jointure. Lorsque c’est le cas, vous pouvez basculer vers une jointure croisée personnalisée et entrer manuellement votre condition de jointure. Cela peut entraîner un ralentissement des performances dans vos flux de données, car le moteur d’exécution peut avoir besoin de calculer toutes les lignes des deux côtés de la relation, puis filtrer les lignes.
+
 ### <a name="right-outer"></a>Externe droite
 
 La jointure externe droite retourne toutes les lignes du flux de données de droite et les enregistrements correspondants du flux de données de gauche. Si une ligne du flux de droite n’a pas de correspondance, les colonnes de sortie du flux de gauche ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de droite.
@@ -39,9 +42,16 @@ La jointure externe droite retourne toutes les lignes du flux de données de dro
 
 La jointure externe complète génère toutes les colonnes et les lignes des deux côtés avec des valeurs NULL pour les colonnes sans correspondance.
 
-### <a name="cross-join"></a>Jointure croisée
+### <a name="custom-cross-join"></a>Jointure croisée personnalisée
 
-La jointure croisée génère le produit croisé des deux flux en fonction d’une condition. Si vous utilisez une condition qui n’est pas une égalité, spécifiez une expression personnalisée comme condition de jointure croisée. Le flux de sortie correspond à toutes les lignes qui répondent à la condition de jointure. Pour créer un produit cartésien qui génère chaque combinaison de ligne, spécifiez `true()` comme condition de jointure.
+La jointure croisée génère le produit croisé des deux flux en fonction d’une condition. Si vous utilisez une condition qui n’est pas une égalité, spécifiez une expression personnalisée comme condition de jointure croisée. Le flux de sortie correspond à toutes les lignes qui répondent à la condition de jointure.
+
+Vous pouvez utiliser ce type de jointure pour les jointures différentes et les conditions de ```OR```.
+
+Si vous souhaitez générer explicitement un produit cartésien complet, utilisez la transformation de colonne dérivée dans chacun des deux flux indépendants avant la jointure pour créer une clé synthétique à faire correspondre. Par exemple, créez une colonne dans la colonne dérivée de chaque flux nommé ```SyntheticKey``` et affectez-lui la valeur ```1```. Utilisez ensuite ```a.SyntheticKey == b.SyntheticKey``` comme expression de jointure personnalisée.
+
+> [!NOTE]
+> Veillez à inclure au moins une colonne de chaque côté de votre relation (gauche et droite) dans une jointure croisée personnalisée. L’exécution de jointures croisées avec des valeurs statiques plutôt que des colonnes de chaque côté entraîne des analyses complètes de l’ensemble du jeu de données, provoquant un fonctionnement médiocre du flux de données.
 
 ## <a name="configuration"></a>Configuration
 
@@ -104,9 +114,9 @@ TripData, TripFare
     )~> JoinMatchedData
 ```
 
-### <a name="cross-join-example"></a>Exemple de jointure croisée
+### <a name="custom-cross-join-example"></a>Exemple de jointure croisée personnalisée
 
-L’exemple ci-dessous illustre une transformation de jointure nommée `CartesianProduct`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`. Cette transformation prend deux flux et retourne le produit cartésien de leurs lignes. La condition de jointure est `true()`, car elle génère un produit cartésien complet. Le `joinType` est `cross`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
+L’exemple ci-dessous illustre une transformation de jointure nommée `JoiningColumns`, qui utilise le flux de gauche `LeftStream` et le flux de droite `RightStream`. Cette transformation prend deux flux et joint toutes les lignes où la colonne `leftstreamcolumn` est supérieure à la colonne `rightstreamcolumn`. Le `joinType` est `cross`. La diffusion n’est pas activée `broadcast` a la valeur `'none'`.
 
 Dans l’expérience utilisateur Data Factory, cette transformation se présente comme dans l’image ci-dessous :
 
@@ -115,12 +125,12 @@ Dans l’expérience utilisateur Data Factory, cette transformation se présente
 Le script de flux de données pour cette transformation se trouve dans l’extrait de code ci-dessous :
 
 ```
-TripData, TripFare
+LeftStream, RightStream
     join(
-        true(),
+        leftstreamcolumn > rightstreamcolumn,
         joinType:'cross',
-        broadcast: 'left'
-    )~> CartesianProduct
+        broadcast: 'none'
+    )~> JoiningColumns
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

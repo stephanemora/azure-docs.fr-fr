@@ -1,6 +1,6 @@
 ---
 title: Planifier votre environnement en disponibilité générale - Azure Time Series Insights | Microsoft Docs
-description: Découvrez les meilleures pratiques à suivre quand vous planifiez votre environnement en disponibilité générale.
+description: Meilleures pratiques pour la préparation, la configuration et le déploiement de votre environnement Azure Time Series Insights en disponibilité générale.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452861"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planifier votre environnement Azure Time Series Insights en disponibilité générale
 
@@ -28,7 +28,7 @@ Cet article explique comment planifier votre environnement Azure Time Series Ins
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Pour commencer à utiliser Azure Time Series Insights, il est conseillé de connaître la quantité de données à transmettre à la minute et la durée de stockage de vos données.  
 

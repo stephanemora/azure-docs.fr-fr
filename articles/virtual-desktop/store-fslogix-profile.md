@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 3577b459a1b6612d24346428512cfbc509515f52
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607426"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451310"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Options de stockage pour conteneurs de profil FSLogix dans Windows Virtual Desktop
 
-Azure propose plusieurs solutions de stockage que vous pouvez utiliser pour stocker votre conteneur de profil FSLogix. Cet article compare les solutions de stockage que le stockage Azure propose pour les profils utilisateur des conteneurs de profil FSLogix de Windows Virtual Desktop.
+Azure propose plusieurs solutions de stockage que vous pouvez utiliser pour stocker votre conteneur de profil FSLogix. Cet article compare les solutions de stockage qu’Azure propose pour les profils utilisateur des conteneurs de profil FSLogix de Windows Virtual Desktop.
 
 Windows Virtual Desktop propose des conteneurs de profil FSLogix en tant que solution recommandée de profil utilisateur. FSLogix est conçu pour l’itinérance des profils dans des environnements informatiques à distance, comme Windows Virtual Desktop. Lors de la connexion, ce conteneur est attaché dynamiquement à l’environnement informatique à l’aide d’un disque dur virtuel (VHD) et d’un disque dur virtuel Hyper-V (VHDX) pris en charge en mode natif. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natif.
 
@@ -24,7 +24,7 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 
 ## <a name="azure-platform-details"></a>Détails de la plateforme Azure
 
-|Caractéristiques|Azure Files|Azure NetApp Files|Espaces de stockage direct|
+|Fonctionnalités|Azure Files|Azure NetApp Files|Espaces de stockage direct|
 |--------|-----------|------------------|---------------------|
 |Service de plateforme|Oui, solution Azure native|Oui, solution Azure native|Non, auto-managé|
 |Disponibilité régionale|Toutes les régions|[Sélectionner les régions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|Toutes les régions|
@@ -36,10 +36,10 @@ Les tableaux suivants comparent les solutions de stockage que le stockage Azure 
 
 ## <a name="azure-management-details"></a>Détails de la gestion Azure
 
-|Caractéristiques|Azure Files|Azure NetApp Files|Espaces de stockage direct|
+|Fonctionnalités|Azure Files|Azure NetApp Files|Espaces de stockage direct|
 |--------|-----------|------------------|---------------------|
-|Access|Cloud, local et hybride (Azure File Sync)|Cloud, local (via ExpressRoute)|Cloud, local|
-|Sauvegarde|Intégration des instantanés de sauvegarde Azure|Instantanés Azure NetApp Files|Intégration des instantanés de sauvegarde Azure|
+|Accès|Cloud, local et hybride (Azure File Sync)|Cloud, local (via ExpressRoute)|Cloud, local|
+|Backup|Intégration des instantanés de sauvegarde Azure|Instantanés Azure NetApp Files|Intégration des instantanés de sauvegarde Azure|
 |Sécurité et conformité|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|Terminé selon ISO|[Tous les certificats pris en charge par Azure](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Intégration d’Azure Active Directory|Azure Active Directory et Azure Active Directory Domain Services|[Azure Active Directory Domain Services et Active Directory natif](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|Prise en charge d’Active Directory natif ou d’Azure Active Directory Domain Services uniquement|
 

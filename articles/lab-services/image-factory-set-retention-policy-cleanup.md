@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: cf1c18fc799014ad862c93076d695f2516c6363d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456930"
 ---
-# <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Créer une fabrique d’images personnalisées dans Azure DevTest Labs
+# <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Configurer une stratégie de rétention dans Azure DevTest Labs
 Cet article couvre la définition d’une stratégie de conservation, le nettoyage de la fabrique et la suppression des anciennes images dans tous les autres DevTest Labs de l’organisation. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Vérifiez que vous avez bien suivi ces articles avant de continuer :
 
 - [Créer une fabrique d’images](image-factory-create.md)
@@ -58,7 +58,7 @@ Cette tâche supprime les anciennes images, en conservant seulement un historiqu
 
 Les paramètres du script sont : `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(devTestLabName) -ImagesToSave $(ImageRetention)`
 
-## <a name="queue-the-build"></a>Placer la génération en file d’attente
+## <a name="queue-the-build"></a>Mettre la build en file d’attente
 Maintenant que vous avez terminé la définition de génération, placez en file d’attente une nouvelle génération pour vérifier que tout fonctionne. Une fois la génération terminée avec succès, les nouvelles images personnalisées s’affichent dans le labo de destination et, si vous vérifiez le labo de fabrique d’images, vous ne voyez pas de machines virtuelles provisionnées. De plus, si vous placez en file d’attente d’autres générations, vous voir les tâches de nettoyage supprimant les anciennes images personnalisées des DevTest Labs, conformément à la valeur de conservation définie dans les variables de génération.
 
 > [!NOTE]

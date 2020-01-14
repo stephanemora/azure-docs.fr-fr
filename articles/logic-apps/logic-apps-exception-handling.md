@@ -1,6 +1,6 @@
 ---
 title: Gestion des erreurs et des exceptions
-description: Découvrez les modèles de gestion des erreurs et des exceptions dans Azure Logic Apps
+description: Apprenez à gérer les erreurs et les exceptions qui surviennent dans les tâches automatisées et les workflows créés à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: dereklee
@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: fa197a04b91f398bda2e402b18a638b9bf0ab9a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792082"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453390"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -71,8 +71,8 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 | Valeur | Type | Description |
 |-------|------|-------------|
-| <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
-| <*retry-interval*> | Chaîne | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
+| <*retry-policy-type*> | String | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
+| <*retry-interval*> | String | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
 | <*retry-attempts*> | Integer | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
 ||||
 
@@ -80,8 +80,8 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 | Valeur | Type | Description |
 |-------|------|-------------|
-| <*minimum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus petit intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
-| <*maximum-interval*> | Chaîne | Pour la stratégie à intervalle exponentiel, il s’agit du plus grand intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*minimum-interval*> | String | Pour la stratégie à intervalle exponentiel, il s’agit du plus petit intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
+| <*maximum-interval*> | String | Pour la stratégie à intervalle exponentiel, il s’agit du plus grand intervalle pour l’intervalle sélectionné de manière aléatoire au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) | 
 |||| 
 
 Voici quelques informations supplémentaires sur les différents types de stratégies.
@@ -112,7 +112,7 @@ Bien que cela ne soit pas défini explicitement dans votre action ou déclencheu
 }
 ```
 
-### <a name="none"></a>Aucun
+### <a name="none"></a>None
 
 Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
 

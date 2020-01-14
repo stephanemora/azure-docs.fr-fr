@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 12/19/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e8e1fd51e0190e0f8889112b17b58680ed9329e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443442"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>Créer des espaces de travail sur le portail Mes applications (préversion)
 
@@ -45,7 +45,7 @@ Vos utilisateurs peuvent utiliser le portail Mes applications (préversion) pour
    ![Fonctionnalités utilisateur en préversion](media/access-panel-workspaces/user-preview-features.png)
 
 > [!NOTE]
-> Pour ouvrir le portail Mes applications, les utilisateurs peuvent utiliser le lien `https://myapps.microsoft.com` ou le lien personnalisé pour votre organisation, par exemple `https://myapps.microsoft.com/contoso.com`. Si les utilisateurs ne sont pas redirigés vers la préversion de Mes applications, ils peuvent essayer `https://myapplications.microsoft.com` ou `https://myapplications.microsoft.com/contoso.com`.
+> Pour ouvrir le portail Mes applications, les utilisateurs peuvent utiliser le lien `https://myapps.microsoft.com` ou le lien personnalisé pour votre organisation, par exemple `https://myapps.microsoft.com/contoso.com`. Une fois la nouvelle expérience Mes applications activée, la bannière indiquant **Une expérience Mes applications mise à jour est disponible** s’affiche en haut de la page Mes applications, et les utilisateurs peuvent sélectionner **Essayer** pour afficher la nouvelle expérience. Pour ne plus utiliser la nouvelle expérience, les utilisateurs peuvent sélectionner **Oui** dans la bannière **Quitter la nouvelle expérience** en haut de la page.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
@@ -98,6 +98,15 @@ Vous pouvez accéder aux journaux d’audit dans le [portail Azure](https://port
 
    ![Attribuer des rôles aux utilisateurs et groupes](media/access-panel-workspaces/audit-log-myapps.png)
 
+## <a name="get-support-for-my-account-pages"></a>Obtenir de l’aide pour les pages Mon compte
+
+À partir de la page Mes applications, un utilisateur peut sélectionner **Mon compte** > **Afficher mon compte** pour ouvrir ses paramètres de compte. Sur la page **Mon compte** Azure AD, les utilisateurs peuvent gérer leurs informations de sécurité, appareils, mots de passe, etc. Ils peuvent également accéder à leurs paramètres de compte Office.
+
+Si vous devez envoyer une demande de support pour un problème lié à la page du compte Azure AD ou à la page du compte Office, procédez comme suit afin de permettre son bon acheminement : 
+
+* Pour les problèmes liés à la page **« Mon compte » Azure AD**, ouvrez une demande de support depuis le portail Azure. Accédez à **Portail Azure** > **Azure Active Directory** > **Nouvelle demande de support**.
+
+* Pour les problèmes liés à la page **« Mon compte » Office**, ouvrez une demande de support depuis le Centre d’administration Microsoft 365. Accédez au **Centre d'administration Microsoft 365** > **Support**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory](end-user-experiences.md)

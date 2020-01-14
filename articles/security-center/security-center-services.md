@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6325af9f577fbee1ab1621acbf10497fab2b78df
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529485"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689161"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -33,32 +33,60 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 
 ## Fonctionnalités prises en charge par les machines virtuelles / serveurs <a name="vm-server-features"></a>
 
-> [!div class="mx-tableFixed"]
+### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
 
-|Serveur|Windows|||Linux|||Tarifs|
-|----|----|----|----|----|----|----|----|
-|**Environment**|**Microsoft Azure**||**Non-Azure**|**Microsoft Azure**||**Non-Azure**||
-||**Machine virtuelle**|**Groupe de machines virtuelles identiques**||**Machine virtuelle**|**Groupe de machines virtuelles identiques**|
-|[Intégration de Microsoft Defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
-|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|[Alertes de détection des menaces sans fichier](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|standard|
-|[Alertes de détection des menaces réseau](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|standard|
-|[Accès juste-à-temps aux machines virtuelles](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|standard|
-|[Supervision de l’intégrité des fichiers](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|standard|
-|[Contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|standard|
-|[Mappage réseau](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|standard|
-|[Durcissement réseau adaptatif](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|standard|
-|Contrôles réseau adaptatifs|✔|✔|X|✔|✔|X|standard|
-|[Tableau de bord et rapports de conformité à la réglementation](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|standard|
-|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|X|X|X|✔|✔|✔|standard|
-|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|✔|✔|✔|Gratuit|
-|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
-|[Évaluation de la protection des points de terminaison](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Gratuit|
-|Évaluation du chiffrement des disques|✔|✔|X|✔|✔|X|Gratuit|
-|Évaluation des vulnérabilités tierces|✔|X|X|✔|X|X|Gratuit|
-|[Évaluation de la sécurité réseau](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Gratuit|
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|standard|
+|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔|✔|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
+|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|standard|
+|[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
+|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
+|[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
+|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
+|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|standard|
+|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|standard|
+|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|standard|
+|Contrôles réseau adaptatifs|✔|✔|-|standard|
+|[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|standard|
+|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|-|-|-|standard|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuit|
+|Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
+|Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
+|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
 
-### Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
+
+### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+
+|||||||||
+|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
+|[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|standard|
+|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
+|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|standard|
+|[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
+|[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
+|[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
+|[Supervision de l’intégrité des fichiers](security-center-file-integrity-monitoring.md)|✔|✔|✔|standard|
+|[Contrôles d’application adaptative](security-center-adaptive-application.md)|✔|-|✔|standard|
+|[Mappage réseau](security-center-network-recommendations.md#network-map)|✔|✔|-|standard|
+|[Durcissement réseau adaptatif](security-center-adaptive-network-hardening.md)|✔|-|-|standard|
+|Contrôles réseau adaptatifs|✔|✔|-|standard|
+|[Tableau de bord et rapports de conformité à la réglementation](security-center-compliance-dashboard.md)|✔|✔|✔|standard|
+|Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|✔|✔|✔|standard|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|Gratuit|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|Gratuit|
+|[Évaluation de la protection des points de terminaison](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuit|
+|Évaluation du chiffrement des disques|✔|✔|-|Gratuit|
+|Évaluation des vulnérabilités tierces|✔|-|-|Gratuit|
+|[Évaluation de la sécurité réseau](security-center-network-recommendations.md)|✔|✔|-|Gratuit|
+
+--- 
+
+## Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
 
 Le tableau suivant fournit une matrice de ce qui suit :
 
@@ -69,18 +97,17 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 
 | Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
-| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| OUI |
-| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | OUI |
-| Trend Micro : toutes les versions* | Gamme Windows Server  | Non | OUI |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non | OUI |
-| McAfee v10+ | Gamme Windows Server  | Non | OUI |
+| Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
+| System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
+| Trend Micro : toutes les versions* | Gamme Windows Server  | Non | Oui |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
+| McAfee v10+ | Gamme Windows Server  | Non | Oui |
 | McAfee v10+ | Famille de serveurs Linux  | Non | Oui **\*** |
 | Sophos V9+| Famille de serveurs Linux  | Non | Oui  **\***  |
 
  **\*** L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Il n’est pas reflété dans le portail Azure Security Center.
 
 > [!NOTE]
->
 > - La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).
 > - La détection de la protection Trend Micro est prise en charge pour les agents Deep Security.  Les agents OfficeScan ne sont pas pris en charge.
 
@@ -89,37 +116,39 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 
 Azure Security Center prend en charge les ressources PaaS suivantes :
 
-|de diffusion en continu|Recommandations (Gratuit)|Détection des menaces (Standard)|
-|----|----|----|
-|SQL|✔| ✔|
-|PostGreSQL*|✔| ✔|
-|MySQL*|✔| ✔|
-|CosmosDB*|X| ✔|
-|Stockage d'objets blob|✔| ✔|
-|Compte de stockage|✔| X|
-|App Service|✔| ✔|
-|Fonction|✔| X|
-|Service cloud|✔| X|
-|Réseau virtuel|✔| X|
-|Subnet|✔| X|
-|Carte d’interface réseau|✔| X|
-|Groupe de sécurité réseau|✔| X|
-|Subscription|✔ **| ✔|
-|Compte Batch|✔| X|
-|Compte Service Fabric|✔| X|
-|Compte Automation|✔| X|
-|Équilibrage de charge|✔| X|
-|Recherche|✔| X|
-|Espace de noms Service Bus|✔| X|
-|Stream Analytics|✔| X|
-|Espace de noms du hub d’événements|✔| X|
-|Logic Apps|✔| X|
-|Redis|✔| X|
-|Data Lake Analytics|✔| X|
-|Data Lake Store|✔| X|
-|Coffre de clés|✔| X|
+|Service|Recommandations (Gratuit)|Alertes de détection des menaces (Standard)|l'Évaluation des vulnérabilités (Standard)|
+|----|:----:|:----:|:----:|
+|BASES DE DONNÉES SQL|✔|✔|✔|
+|Azure Container Registry|-|-|✔|
+|Azure Kubernetes Service|✔|✔|-|
+|Azure Database pour PostgreSQL*|✔|✔|-|
+|Azure Database pour MySQL*|✔|✔|-|
+|Azure CosmosDB*|-|✔|-|
+|Comptes de stockage|✔|-|-|
+|Stockage Blob|✔|✔|-|
+|App Service|✔|✔|-|
+|Conteneur de fonctions|✔|-|-|
+|Cloud Services|✔|-|-|
+|Réseau virtuel|✔|-|-|
+|Subnet|✔|-|-|
+|Carte d’interface réseau|✔|-|-|
+|Network Security Group|✔|-|-|
+|Subscription|✔ **|✔|-|
+|Compte Batch|✔|-|-|
+|Compte Service Fabric|✔|-|-|
+|Compte Automation|✔|-|-|
+|Load Balancer|✔|-|-|
+|Recherche cognitive|✔|-|-|
+|Espace de noms Service Bus|✔|-|-|
+|Stream Analytics|✔|-|-|
+|Espace de noms du hub d’événements|✔|-|-|
+|Logic Apps|✔|-|-|
+|Cache pour Redis|✔|-|-|
+|Data Lake Analytics|✔|-|-|
+|Azure Data Lake Storage|✔|-|-|
+|Key Vault|✔|✔ *|-|
 
-\* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
+\* Ces fonctionnalités sont actuellement prises en charge en préversion.
 
 \*\* Les recommandations Azure Active Directory (Azure AD) sont uniquement disponibles pour les abonnements Standard.
 

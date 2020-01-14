@@ -1,5 +1,6 @@
 ---
-title: Vue d’ensemble du portail des développeurs Gestion des API Azure – Gestion des API Azure | Microsoft Docs
+title: Vue d’ensemble du portail des développeurs Gestion des API Azure
+titleSuffix: Azure API Management
 description: Découvrez le portail des développeurs dans la Gestion des API Azure.
 services: api-management
 documentationcenter: API Management
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b69fdd7abefca360433fc9fb090569cba23febe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454394"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442591"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 

@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 09/19/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 63070b2c1e6adbb0149446b218e6e58023b2d409
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671759"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666451"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -23,7 +23,7 @@ Le déploiement de votre application sur un emplacement hors production présent
 * Déployer d’abord une application dans un emplacement et la basculer ensuite en production permet de vous assurer que toutes les instances de l’emplacement sont initialisées avant d’être basculées en production. Cela permet d’éliminer les temps d’arrêt lors du déploiement de l’application. La redirection du trafic est transparente et aucune requête n’est abandonnée du fait d’opérations de permutation. Vous pouvez automatiser l’intégralité de ce workflow en configurant l’[échange automatique](#Auto-Swap) lorsqu’aucune validation n’est nécessaire avant l’échange.
 * Après basculement, la précédente application de production se retrouve dans l’emplacement de l’application précédemment intermédiaire. Si les modifications permutées en production ne vous conviennent pas, vous pouvez effectuer la même permutation afin de récupérer immédiatement le contenu du précédent site qui vous plaisait.
 
-Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. L’utilisation de ces emplacements de déploiement n’entraîne aucun coût supplémentaire. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-subscription-service-limits#app-service-limits). 
+Chaque niveau de plan App Service prend en charge un nombre différent d’emplacements de déploiement. L’utilisation de ces emplacements de déploiement n’entraîne aucun coût supplémentaire. Pour connaître le nombre d’emplacements pris en charge par le plan de votre application, consultez [Limites App Service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits). 
 
 Pour mettre votre application à l’échelle vers un autre niveau, vérifiez que le niveau cible peut prendre en charge le nombre d’emplacements déjà utilisés par votre application. Par exemple, si votre application comprend plus de cinq emplacements, vous ne pouvez pas effectuer de scale-down vers le niveau **Standard**, car le niveau **Standard** ne prend en charge que cinq emplacements de déploiement. 
 
@@ -32,7 +32,11 @@ Pour mettre votre application à l’échelle vers un autre niveau, vérifiez qu
 ## <a name="add-a-slot"></a>Ajouter un emplacement
 Pour que vous puissiez activer plusieurs emplacements de déploiement, l’application doit s’exécuter au niveau **Standard**, **Premium** ou **Isolé**.
 
-1. Dans le [portail Azure](https://portal.azure.com/), accédez à la [page de ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) de votre application.
+
+1. dans le [portail Azure](https://portal.azure.com/), recherchez et sélectionnez **App Services**, puis sélectionnez votre application. 
+   
+    ![Rechercher App Services](./media/web-sites-staged-publishing/search-for-app-services.png)
+   
 
 2. Dans le volet gauche, sélectionnez **Emplacements de déploiement** > **Ajouter un emplacement**.
    
@@ -206,7 +210,7 @@ Pour plus d’informations sur la personnalisation de l’élément `application
 
 Vous pouvez également personnaliser le comportement d’initialisation en utilisant l’un des deux [paramètres d’application](configure-common.md) suivants (ou les deux) :
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin permettant d’effectuer un test ping afin d’initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. Par exemple `/statuscheck`. La valeur par défaut est `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: chemin permettant d’effectuer un test ping afin d’initialiser votre site. Ajoutez ce paramètre d’application en spécifiant un chemin d’accès personnalisé qui commence par une barre oblique comme valeur. par exemple `/statuscheck`. La valeur par défaut est `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple `200,202`. Si le code d’état retourné ne figure pas dans la liste, les opérations d’initialisation et d’échange sont arrêtées. Par défaut, tous les codes de réponse sont valides.
 
 > [!NOTE]
@@ -241,7 +245,7 @@ Une fois le paramètre enregistré, le pourcentage de clients spécifié est rou
 Lorsqu’un client est automatiquement routé vers un emplacement particulier, il est « épinglé » à cet emplacement pendant toute la durée de cette session cliente. Dans le navigateur client, vous pouvez voir à quel emplacement votre session est épinglée en examinant le cookie `x-ms-routing-name` dans les en-têtes HTTP. Une requête qui est acheminée vers l’emplacement « intermédiaire » contient le cookie `x-ms-routing-name=staging`. Une requête qui est acheminée vers l’emplacement de production a le cookie `x-ms-routing-name=self`.
 
    > [!NOTE]
-   > À côté du Portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
+   > À côté du portail Azure, vous pouvez également utiliser la commande [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing#az-webapp-traffic-routing-set) dans Azure CLI pour définir les pourcentages de routage à partir d’outils CI/CD comme les pipelines DevOps ou d’autres systèmes d’automatisation.
    > 
 
 ### <a name="route-production-traffic-manually"></a>Acheminer le trafic de production manuellement
@@ -268,7 +272,7 @@ Par défaut, les nouveaux emplacements se voient attribuer une règle de routage
 
 ## <a name="delete-a-slot"></a>Supprimer un emplacement
 
-Accédez à la page des ressources de votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement à supprimer>*  > **Vue d’ensemble**. Sélectionnez **Supprimer** dans la barre de commandes.  
+Recherchez et sélectionnez votre application. Sélectionnez **Emplacements de déploiement** >  *\<emplacement à supprimer>*  > **Vue d’ensemble**. Sélectionnez **Supprimer** dans la barre de commandes.  
 
 ![Supprimer un emplacement de déploiement](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 
@@ -327,14 +331,14 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
-## <a name="automate-with-arm-templates"></a>Automatiser avec des modèles ARM
+## <a name="automate-with-resource-manager-templates"></a>Automatiser avec des modèles Resource Manager
 
-Les [modèles ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles ARM, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
+Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles Resource Manager, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
 
 - `buildVersion` : propriété de type chaîne qui représente la version actuelle de l’application déployée dans l’emplacement. Par exemple : « v1 », « 1.0.0.1 » ou « 2019-09-20T11:53:25.2887393-07:00 ».
 - `targetBuildVersion` : propriété de type chaîne spécifiant la valeur `buildVersion` que l’emplacement doit avoir. Si la valeur targetBuildVersion n’est pas la valeur `buildVersion` actuelle, cela déclenche l’opération d’échange en recherchant l’emplacement qui a la valeur `buildVersion` spécifiée.
 
-### <a name="example-arm-template"></a>Exemple de modèle Resource Manager
+### <a name="example-resource-manager-template"></a>Exemple de modèle Resource Manager
 
 Le modèle Resource Manager suivant met à jour la valeur `buildVersion` de l’emplacement de préproduction et définit la valeur `targetBuildVersion` sur l’emplacement de production. Cela a pour effet d’échanger les deux emplacements. Le modèle suppose que vous avez déjà créé un application web avec un emplacement nommé « préproduction ».
 

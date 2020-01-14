@@ -4,15 +4,15 @@ description: Mettez à jour la configuration publique des diagnostics Azure pour
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 6165ff13f489f9f23b9ece677b3643641150130d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285986"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450580"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Cloud services, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric utilisent tous l’extension Diagnostics Azure pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Diagnostics Azure version 1.5 ou ultérieure.
@@ -66,7 +66,7 @@ Exemple de configuration d’un récepteur pour Application Insights :
 - L’élément **Channels** contient au moins un élément **Channel**.
     - L’attribut *name* fait référence uniquement à ce canal.
     - L’attribut *loglevel* vous permet de spécifier le niveau de consignation autorisé par le canal. Les niveaux de consignation disponibles sont, du plus informatif au moins informatif :
-        - Détaillé
+        - Commentaires
         - Information
         - Avertissement
         - Error

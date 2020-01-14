@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8ccd98553b06ef3fcd2241c8223889c0a86e331
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fa25a1b1d24c034a92a94ac9378bc4bff3947348
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024654"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639919"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -53,11 +53,11 @@ Créer, lire, mettre à jour et supprimer des flux utilisateur de connexion | Ad
 Créer, lire, mettre à jour et supprimer des flux utilisateur d’inscription |Administrateur général | 
 Créer, lire, mettre à jour et supprimer des attributs utilisateur | Administrateur général | 
 Créer, lire, mettre à jour et supprimer des utilisateurs | Administrateur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
-Lire toute la configuration | Administrateur général | 
-Lire les journaux d’audit B2C | Administrateur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
+Lire toute la configuration | Lecteur général | 
+Lire les journaux d’audit B2C | Lecteur général ([consultez la documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
 > [!NOTE]
-> Les administrateurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
+> Les lecteurs généraux Azure AD B2C n’ont pas les mêmes autorisations que les administrateurs généraux Azure AD. Si vous disposez de privilèges d’administrateur général Azure AD B2C, vérifiez que vous vous trouvez dans un annuaire Azure AD B2C et non un annuaire Azure AD.
 
 ## <a name="company-branding"></a>Marque de société
 
@@ -72,12 +72,12 @@ Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Configurer les propriétés de l’entreprise | Administrateur général | 
 
-## <a name="connect"></a>Connecter
+## <a name="connect"></a>Se connecter
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Authentification directe | Administrateur général | 
-Lire toute la configuration | Administrateur général | 
+Lire toute la configuration | Lecteur général | 
 Authentification unique homogène | Administrateur général | 
 
 ## <a name="connect-health"></a>Connect Health
@@ -96,7 +96,6 @@ Lire les services de synchronisation | Lecteur ([consultez la documentation](htt
 Afficher les métriques et les alertes | Lecteur ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributeur, propriétaire
 Afficher les métriques et les alertes | Lecteur ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributeur, propriétaire
 Afficher les métriques et les alertes de service de synchronisation | Lecteur ([consultez la documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributeur, propriétaire
-
 
 ## <a name="custom-domain-names"></a>Noms de domaine personnalisés
 
@@ -227,9 +226,9 @@ Configurer un contournement à usage unique | Administrateur général |
 Configurer les paramètres d’appel téléphonique | Administrateur général | 
 Configurer des fournisseurs | Administrateur général | 
 Configurez les paramètres du serveur | Administrateur général | 
-Lire un rapport d’activité | Administrateur général | 
-Lire toute la configuration | Administrateur général | 
-Lire l’état du serveur | Administrateur général |  
+Lire un rapport d’activité | Lecteur général | 
+Lire toute la configuration | Lecteur général | 
+Lire l’état du serveur | Lecteur général |  
 
 ## <a name="organizational-relationships"></a>Relations organisationnelles
 
@@ -238,9 +237,9 @@ Tâche | Rôle moins privilégié | Autres rôles
 Gérer les fournisseurs d’identité | Administrateur général | 
 Gérer les paramètres | Administrateur général | 
 Gérer les conditions d’utilisation | Administrateur général | 
-Lire toute la configuration | Administrateur général | 
+Lire toute la configuration | Lecteur général | 
 
-## <a name="password-reset"></a>Réinitialisation de mot de passe
+## <a name="password-reset"></a>Réinitialisation du mot de passe
 
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
@@ -274,7 +273,7 @@ Lire toute la configuration | Rôle d’utilisateur par défaut ([consultez la d
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
 Configurer les méthodes d’authentification | Administrateur général | 
-Lire toute la configuration | Administrateur général | 
+Lire toute la configuration | Lecteur général | 
 
 ## <a name="security---conditional-access"></a>Sécurité – Accès conditionnel
 

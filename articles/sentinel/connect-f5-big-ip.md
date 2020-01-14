@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: ff5a8f940348c36ca2a19fb31a173b2dfc4f4d6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 273bea7fa8629dd907c228416d06dac087b0ec85
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510682"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610588"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Connecter votre appliance F5 BIG-IP 
 
@@ -55,4 +55,6 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commenc
 Dans ce document, vous avez appris à connecter F5 BIG-IP à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour analyser vos données.
+
 

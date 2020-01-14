@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f503377984a347d85af04d85728c53eaad0c4c74
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451357"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -38,7 +38,6 @@ En tant que fournisseur approuvé, les avantages de Windows Virtual Desktop sero
 
 - [Inscrivez-vous pour avoir accès à la préversion (Tech Preview) d’Horizon Cloud sur Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Visitez le site web du partenaire](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
-
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -82,6 +81,16 @@ deviceTRUST étend la valeur de Windows Virtual Desktop à leur technologie de s
 
 - [Visitez le site web du partenaire](https://devicetrust.com/wvd).
 
+## <a name="hp"></a>HP
+
+![Logo HP](./media/partners/hp.png)
+
+HP Thin Client est un partenaire approuvé et vérifié de Microsoft Azure et des services Windows Virtual Desktop. Les clients HP Thin avec Windows 10 IoT Entreprise offrent une prise en charge immédiate des charges de travail Azure et des bureaux hébergés sur des bureaux virtuels Windows. Le matériel et le système d’exploitation sont optimisés pour offrir une expérience de qualité optimale qui offre des charges de travail distantes efficacement tout en réduisant l’encombrement du système d’exploitation, le matériel et les coûts de maintenance.
+
+Quand HP a étudié les tendances du secteur, les défis des clients et les solutions proposées par la virtualisation pendant le processus de développement, ils ont été inspirés d’inventer le point de terminaison cloud idéal avec une proposition de valeur à quatre piliers : conception, facilité de gestion, sécurité et polyvalence. Chaque HP Thin est spécialement conçu avec les décideurs informatiques à l’esprit. Les clients HP Thin sont durables, sécurisés, faciles à déployer et à gérer et puissants, ce qui vous permet de passer facilement à l’infrastructure VDI ou cloud. Le portefeuille polyvalent de HP vous donne la liberté de choisir la solution de point de terminaison moderne qui vous convient.
+
+- [Visitez le site web du partenaire](https://hp.com/go/thin).
+
 ## <a name="igel"></a>IGEL
 
 ![Logo IGEL](./media/partners/igel.png)
@@ -90,7 +99,7 @@ IGEL est un partenaire approuvé et vérifié de Microsoft Azure et des services
  
 Le système d’exploitation IGEL prend en charge tous les protocoles clients d’applications virtuelles, de bureaux et d’espaces de travail cloud populaires de Citrix, Microsoft et VMware. Il comprend des technologies intégrées des 85 partenaires de périphérique, d’interface et de protocole pour aider les organisations à adopter rapidement les services Windows Virtual Desktop dans leurs propres environnements utilisateur uniques. Le système d’exploitation IGEL est un système d’exploitation de point de terminaison modulaire en lecture seule, ce qui permet de le protéger contre la falsification. Il comprend également une « chaîne de confiance » complète qui vérifie l’intégrité de tous les principaux processus en cours d’exécution sur le point de terminaison, du matériel de point de terminaison (certains modèles sélectionnés) ou du processus UEFI jusqu’au cloud Azure et aux services Windows Virtual Desktop. Avec le système d’exploitation IGEL, les entreprises peuvent s’abonner à Windows Virtual Desktop à partir du cloud Azure en toute confiance dans l’intégrité, la sécurité et la facilité de gestion des appareils de point de terminaison de leurs utilisateurs.
 
-- [Visitez le site web du partenaire.](https://www.igel.com/igel-os-universal-desktop-operating-system/)
+- [Visitez le site web du partenaire](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
 

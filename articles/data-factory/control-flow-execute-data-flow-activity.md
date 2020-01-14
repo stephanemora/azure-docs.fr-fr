@@ -1,5 +1,5 @@
 ---
-title: Activité de flux de données dans Azure Data Factory
+title: Activité Data Flow
 description: Comment exécuter des flux de données à l’intérieur d’un pipeline de fabrique de données.
 services: data-factory
 documentationcenter: ''
@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 10/07/2019
-ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/02/2020
+ms.openlocfilehash: d0b9c59852175b91b4bf799a366ae5124fa0ae42
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929882"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644786"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Activité de flux de données dans Azure Data Factory
 
@@ -30,6 +30,10 @@ Utilisez l’activité de flux de données pour transformer et déplacer des don
       "dataflow": {
          "referenceName": "MyDataFlow",
          "type": "DataFlowReference"
+      },
+      "compute": {
+         "coreCount": 8,
+         "computeType": "General"
       },
       "staging": {
           "linkedService": {
@@ -50,10 +54,12 @@ Utilisez l’activité de flux de données pour transformer et déplacer des don
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-dataflow | Référence au flux de données en cours d’exécution | DataFlowReference | OUI
-integrationRuntime | Environnement de calcul sur lequel le flux de données s’exécute | IntegrationRuntimeReference | OUI
+dataflow | Référence au flux de données en cours d’exécution | DataFlowReference | Oui
+integrationRuntime | L’environnement de calcul sur lequel le flux de données s’exécute. S’il n’est pas spécifié, le runtime d’intégration Azure à résolution automatique est utilisé | IntegrationRuntimeReference | Non
+compute.coreCount | Nombre de cœurs utilisés dans le cluster Spark. Ne peut être spécifié que si le runtime d’intégration Azure à résolution automatique est utilisé | 8, 16, 32, 48, 80, 144, 272 | Non
+compute.computeType | Type de calcul utilisé dans le cluster Spark. Ne peut être spécifié que si le runtime d’intégration Azure à résolution automatique est utilisé | « General », « ComputeOptimized », « MemoryOptimized » | Non
 staging.linkedService | Si vous utilisez une source ou un récepteur SQL DW, le compte de stockage utilisé pour la préproduction de PolyBase | LinkedServiceReference | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
-staging.folderPath | Si vous utilisez une source ou un récepteur SQL DW, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction de PolyBase | Chaîne | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
+staging.folderPath | Si vous utilisez une source ou un récepteur SQL DW, chemin du dossier dans le compte de stockage blob utilisé pour la préproduction de PolyBase | String | Uniquement si le flux de données lit ou écrit dans un entrepôt de données SQL DW
 
 ![Exécuter un flux de données](media/data-flow/activity-data-flow.png "Exécuter un flux de données")
 
@@ -78,13 +84,19 @@ Si vous utilisez Azure SQL Data Warehouse comme récepteur ou source, vous devez
 
 Si votre flux de données utilise des jeux de données paramétrables, définissez les valeurs de paramètre sous l’onglet **Paramètres**.
 
-![Exécuter des paramètres de flux de données](media/data-flow/params.png "parameters")
+![Exécuter des paramètres de flux de données](media/data-flow/params.png "Paramètres")
 
 ### <a name="parameterized-data-flows"></a>Flux de données paramétrables
 
 Si votre flux de données est paramétré, définissez les valeurs dynamiques de ses paramètres sous l’onglet **Paramètres**. Vous pouvez utiliser le langage d’expression de pipeline ADF (uniquement pour les types Chaîne) ou le langage d’expression de flux de données pour affecter des valeurs de paramètres littérales ou statiques. Pour plus d’informations, consultez [Paramètres de flux de données](parameters-data-flow.md).
 
 ![Exemple d’exécution de paramètres de flux de données](media/data-flow/parameter-example.png "Exemple de paramètres")
+
+### <a name="parameterized-compute-properties"></a>Propriétés de calcul paramétrables.
+
+Vous pouvez paramétrer le nombre de cœurs ou le type de calcul si vous utilisez le runtime d'intégration Azure à résolution automatique et spécifiez des valeurs pour compute.coreCount et compute.computeType.
+
+![Exemple d’exécution de paramètres de flux de données](media/data-flow/parameterize-compute.png "Exemple de paramètres")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>Débogage de pipeline de l’activité de flux de données
 

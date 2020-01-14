@@ -3,12 +3,12 @@ title: Activer la sauvegarde quand vous créez une machine virtuelle Azure
 description: Explique comment activer la sauvegarde quand vous créez une machine virtuelle Azure avec Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f34c5dd8cfdc94775b9bd9a896b4cfbe4154ecf8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0cfea6579791c4fd23c1b7acdfe722d57b5ec2fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172358"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449918"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Activer la sauvegarde quand vous créez une machine virtuelle Azure
 
@@ -48,8 +48,22 @@ Si vous n’êtes pas connecté à votre compte, connectez-vous sur le [portail 
 
       ![Stratégie de sauvegarde par défaut](./media/backup-during-vm-creation/daily-policy.png)
 
-> [!NOTE]
-> Pour stocker l’instantané, le service Sauvegarde Azure crée un groupe de ressources distinct (autre que le groupe de ressources de la machine virtuelle). Son nom est au format **AzureBackupRG_géographie_numéro** (par exemple, AzureBackupRG_northeurope_1). Les données dans ce groupe de ressources sont conservées pendant la durée en jours spécifiée dans la section *Conserver l’instantané de récupération instantanée* de la stratégie Sauvegarde de machines virtuelles Azure.  L’application d’un verrou à ce groupe de ressources peut entraîner des échecs de sauvegarde. <br> Ce groupe de ressources doit également être exclu des restrictions de nom/étiquette, car une stratégie de restriction peut y empêcher la création de collections de points de ressources, entraînant de nouveau des échecs de sauvegarde.
+## <a name="azure-backup-resource-group-for-virtual-machines"></a>Groupe de ressources Sauvegarde Azure pour les machines virtuelles
+
+Le service de sauvegarde crée un groupe de ressources (RG) distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration (RPC). La RPC héberge les points de récupération instantanée des machines virtuelles managées. Le format de nom par défaut du groupe de ressources créé par le service de sauvegarde est le suivant : `AzureBackupRG_<Geo>_<number>`. Par exemple :  *AzureBackupRG_northeurope_1*. Vous pouvez maintenant personnaliser le nom du groupe de ressources créé par Sauvegarde Azure.
+
+Points à noter :
+
+1. Vous pouvez utiliser le nom par défaut du groupe de ressources ou le modifier en fonction des besoins de votre entreprise.
+2. Vous fournissez le modèle de nom de groupe de ressources comme entrée lors de la création de la stratégie de sauvegarde de machine virtuelle. Le nom du groupe de ressources doit être au format suivant : `<alpha-numeric string>* n <alpha-numeric string>`. « n » est remplacé par un entier (à partir de 1) et utilisé pour la montée en charge si le premier groupe de ressources est saturé. Un groupe de ressources peut avoir un maximum de 600 RPC.
+              ![Choisir un nom lors de la création de la stratégie](./media/backup-during-vm-creation/create-policy.png)
+3. Le modèle doit suivre les règles de nommage des groupes de ressources ci-dessous et la longueur totale ne doit pas dépasser la longueur maximale autorisée pour le nom de groupe de ressources.
+    1. Le nom d’un groupe de ressources accepte uniquement des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il ne peut pas se terminer par un point.
+    2. Les noms de groupes de ressources peuvent contenir jusqu’à 74 caractères, y compris le nom du groupe de routage et le suffixe.
+4. La première `<alpha-numeric-string>` est obligatoire, tandis que la deuxième après « n » est facultative. Cela s’applique uniquement si vous donnez un nom personnalisé. Si vous n’entrez rien dans les deux zones de texte, le nom par défaut est utilisé.
+5. Vous pouvez modifier le nom du groupe de ressources en modifiant la stratégie si nécessaire. Si le modèle de nom est modifié, les nouveaux RP seront créés dans le nouveau RG. Toutefois, les anciens RP résideront toujours dans l’ancien RG et ne seront pas déplacés, car la collection RP ne prend pas en charge le déplacement des ressources. Les RP finissent par récupérer le garbage collector à l’expiration des points.
+![Changer le nom lors de la modification de la stratégie](./media/backup-during-vm-creation/modify-policy.png)
+6. Il est conseillé de ne pas verrouiller le groupe de ressources créé pour une utilisation par le service Sauvegarde Microsoft Azure.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>Démarrer une sauvegarde après la création de la machine virtuelle
 

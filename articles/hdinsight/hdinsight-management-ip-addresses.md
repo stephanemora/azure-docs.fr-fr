@@ -1,19 +1,19 @@
 ---
 title: Adresses IP de gestion Azure HDInsight
 description: Découvrez les adresses IP à partir desquelles vous devez autoriser le trafic entrant afin de configurer correctement les groupes de sécurité réseau et itinéraires définis par l’utilisateur pour la mise en réseau virtuelle avec Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
+author: hol82
+ms.author: hol
+ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.openlocfilehash: 9caf0a41096a22e94aeb80ccfd0e6e6f70954a3d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 12/16/2019
+ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185651"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435482"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Adresses IP de gestion HDInsight
 
@@ -32,7 +32,7 @@ Si vous utilisez le service DNS fourni par Azure, autorisez l’accès depuis l�
 
 Autorisez le trafic provenant des adresses IP suivantes pour les services de gestion et d’intégrité Azure HDInsight qui s’appliquent à toutes les régions Azure :
 
-| Adresse IP source | Destination  | Direction |
+| Adresse IP source | Destination  | Sens |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*:443 | Trafic entrant |
 | 23.99.5.239 | \*:443 | Trafic entrant |
@@ -46,9 +46,9 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 > [!IMPORTANT]  
 > Si la région Azure que vous utilisez n’est pas répertoriée, utilisez la fonctionnalité [balise de service](hdinsight-service-tags.md) pour les groupes de sécurité réseau.
 
-| Country | Région | Adresses IP sources autorisées | Destination autorisée | Direction |
+| Country | Région | Adresses IP sources autorisées | Destination autorisée | Sens |
 | ---- | ---- | ---- | ---- | ----- |
-| Asie | Asie Est | 23.102.235.122</br>52.175.38.134 | \*:443 | Trafic entrant |
+| Asia | Asie Est | 23.102.235.122</br>52.175.38.134 | \*:443 | Trafic entrant |
 | &nbsp; | Asie Sud-Est | 13.76.245.160</br>13.76.136.249 | \*:443 | Trafic entrant |
 | Australie | Australie Est | 104.210.84.115</br>13.75.152.195 | \*:443 | Trafic entrant |
 | &nbsp; | Sud-Australie Est | 13.77.2.56</br>13.77.2.94 | \*:443 | Trafic entrant |
@@ -70,14 +70,15 @@ Autorisez le trafic provenant des adresses IP répertoriées pour les services d
 | &nbsp; | OuJapon Est | 40.74.125.69</br>138.91.29.150 | \*:443 | Trafic entrant |
 | Corée du Sud | Centre de la Corée | 52.231.39.142</br>52.231.36.209 | \*:443 | Trafic entrant |
 | &nbsp; | Corée du Sud | 52.231.203.16</br>52.231.205.214 | \*:443 | Trafic entrant
-| Royaume-Uni | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
+| United Kingdom | Ouest du Royaume-Uni | 51.141.13.110</br>51.141.7.20 | \*:443 | Trafic entrant |
 | &nbsp; | Sud du Royaume-Uni | 51.140.47.39</br>51.140.52.16 | \*:443 | Trafic entrant |
 | États-Unis | USA Centre | 13.89.171.122</br>13.89.171.124 | \*:443 | Trafic entrant |
 | &nbsp; | USA Est | 13.82.225.233</br>40.71.175.99 | \*:443 | Trafic entrant |
 | &nbsp; | Centre-Nord des États-Unis | 157.56.8.38</br>157.55.213.99 | \*:443 | Trafic entrant |
-| &nbsp; | USA Centre-Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
+| &nbsp; | Centre-USA Ouest | 52.161.23.15</br>52.161.10.167 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest | 13.64.254.98</br>23.101.196.19 | \*:443 | Trafic entrant |
 | &nbsp; | USA Ouest 2 | 52.175.211.210</br>52.175.222.222 | \*:443 | Trafic entrant |
+| &nbsp; | Émirats arabes unis Nord | 65.52.252.96</br>65.52.252.97 | \*:443 | Trafic entrant |
 
 Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 

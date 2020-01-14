@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2f316e57e407a0588e77f56d6e1fbe8c19ba5fee
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539309"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75562117"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
@@ -39,8 +39,8 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
 |Débit d’E/S (approximatif) |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
-|Indexation Columnstore |N/A|S3 et supérieur|Pris en charge|
-|OLTP en mémoire|N/A|N/A|Pris en charge|
+|Indexation Columnstore |N/A|S3 et supérieur|Prise en charge|
+|OLTP en mémoire|N/A|N/A|Prise en charge|
 |||||
 
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 ||De base|standard|Premium|
 | :-- | --: | --: | --: |
 | Taille de stockage maximale | 2 Go | 1 To | 4 To  |
-| DTU maximales | 5\. | 3000 | 4000 | 
+| DTU maximales | 5 | 3000 | 4000 | 
 |||||
 
 > [!IMPORTANT]
@@ -71,7 +71,7 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 | :-- | --: | --: | --: |
 | Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
 | Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |
-| Nombre maximal d’eDTU par base de données | 5\. | 3000 | 4000 |
+| Nombre maximal d’eDTU par base de données | 5 | 3000 | 4000 |
 | eDTU maximales par pool | 1 600 | 3000 | 4000 |
 | Nombre maximal de bases de données par pool | 500  | 500 | 100 |
 |||||
@@ -95,7 +95,7 @@ Le test d’évaluation et sa méthodologie sont décrits plus en détail ci-des
 
 Le test d'évaluation mesure les performances d’une série d’opérations de base de données basiques que l’on rencontre le plus fréquemment dans les charges de travail de traitement transactionnel en ligne (OLTP). Bien qu’il ait été conçu pour les environnements cloud, le schéma de base de données, le remplissage des données et les transactions ont été formulés pour représenter les éléments de base couramment utilisés dans les charges de travail OLTP.
 
-### <a name="schema"></a>Schéma
+### <a name="schema"></a>schéma
 
 Le schéma a été conçu de façon suffisamment variée et complexe pour prendre en charge un large éventail d’opérations. Le test d’évaluation s’exécute sur une base de données composée de six tables. Les tables se répartissent en trois catégories : taille fixe, extensibles et évolutives. Il existe deux tables de taille fixe, trois tables extensibles et une table évolutive. Les tables de taille fixe comportent un nombre constant de lignes. Les tables extensibles ont une cardinalité proportionnelle aux performances de la base de données, mais qui ne varie pas pendant le test d’évaluation. La table évolutive est dimensionnée à la manière d’une table extensible sur la charge initiale, mais la cardinalité change pendant l’exécution du test d’évaluation à mesure que des lignes sont insérées et supprimées.
 
@@ -118,7 +118,7 @@ La charge de travail se compose de neuf types de transactions, comme indiqué da
 | Update Heavy |MISE À JOUR ; principalement hors de la mémoire ; lecture-écriture |
 | Insert Lite |INSERTION ; dans la mémoire ; lecture-écriture |
 | Insert Heavy |INSERTION ; principalement hors de la mémoire ; lecture-écriture |
-| Supprimer |SUPPRESSION ; combinaison de ressources dans la mémoire et hors de la mémoire ; lecture-écriture |
+| DELETE |SUPPRESSION ; combinaison de ressources dans la mémoire et hors de la mémoire ; lecture-écriture |
 | CPU Heavy |SÉLECTION ; dans la mémoire ; charge UC relativement importante ; lecture seule |
 
 ### <a name="workload-mix"></a>Combinaison de charges de travail
@@ -129,12 +129,12 @@ Les transactions sont sélectionnées de manière aléatoire à partir d’une d
 | --- | --- |
 | Read Lite |35 |
 | Read Medium |20 |
-| Read Heavy |5\. |
+| Read Heavy |5 |
 | Update Lite |20 |
 | Update Heavy |3 |
 | Insert Lite |3 |
 | Insert Heavy |2 |
-| Supprimer |2 |
+| DELETE |2 |
 | CPU Heavy |10 |
 
 ### <a name="users-and-pacing"></a>Utilisateurs et rythme

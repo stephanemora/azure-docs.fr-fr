@@ -1,18 +1,22 @@
 ---
-title: Configurer et gérer des projets Azure Notebooks
-description: Comment gérer les métadonnées de projet, les fichiers projet, l’environnement et les étapes de configuration du projet via l’interface utilisateur Azure Notebooks et un accès direct au terminal.
-ms.topic: article
+title: Configurer et gérer Azure Notebooks (préversion)
+description: Découvrez comment gérer les métadonnées de projet, les fichiers projet, l’environnement et les étapes de configuration du projet via l’interface utilisateur Azure Notebooks et un accès direct au terminal.
+ms.topic: how-to
 ms.date: 05/13/2019
-ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5c97372133315e6f0bcd3b854793b6b4746b5ba5
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277639"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646260"
 ---
-# <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
+# <a name="a-idmanage-and-configure-projects--manage-and-configure-projects-in-azure-notebooks-preview"></a><a id="manage-and-configure-projects" />Gérer et configurer des projets dans Azure Notebooks (préversion)
 
-Un projet dans Azure Notebooks est essentiellement une configuration de la machine virtuelle Linux sous-jacente dans laquelle des notebooks Jupyter sont exécutés, avec un dossier de fichiers et des métadonnées descriptives. Le tableau de bord du projet dans Azure Notebooks vous permet de gérer les fichiers et de configurer autrement les caractéristiques du projet :
+Un projet dans Azure Notebooks (préversion) est essentiellement une configuration de la machine virtuelle Linux sous-jacente dans laquelle des notebooks Jupyter sont exécutés, avec un dossier de fichiers et des métadonnées descriptives. 
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+Le tableau de bord du projet dans Azure Notebooks vous permet de gérer les fichiers et de configurer autrement les caractéristiques du projet :
 
 - le niveau de calcul du projet, qui peut être le niveau Gratuit ou une machine virtuelle Azure ;
 - les métadonnées du projet, à savoir un nom, une description, un identificateur utilisé lors du partage du projet et le type (public ou privé) ;
@@ -36,7 +40,7 @@ Dans le tableau de bord du projet, sélectionnez **Paramètres du projet**, puis
 | Paramètre | Description |
 | --- | --- |
 | Nom du projet | Nom convivial de votre projet utilisé par Azure Notebooks pour l’affichage. par exemple « Hello World dans Python ». |
-| ID du projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, et est limité à 30 caractères. Il ne peut pas s’agir de l’[ID d’un projet réservé](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
+| ID de projet | Identificateur personnalisé qui devient partie intégrante de l’URL que vous utilisez pour partager un projet. Cet ID peut utiliser uniquement des lettres, des chiffres et des traits d’union, et est limité à 30 caractères. Il ne peut pas s’agir de l’[ID d’un projet réservé](create-clone-jupyter-notebooks.md#reserved-project-ids). Si vous ne savez pas quoi utiliser, il est d’usage d’employer une version en minuscules du nom de votre projet où les espaces sont transformés en traits d’union, par exemple « mon-projet-notebook » (nom tronqué si nécessaire pour l’adapter à la limite de longueur). |
 | Projet public | Si ce paramètre est défini, permet à toute personne disposant du lien d’accéder au projet. Quand vous créez un projet privé, désactivez cette option. |
 | Hide clones (Masquer les clones) | Si ce paramètre est défini, les autres utilisateurs ne peuvent pas afficher la liste des clones qui ont été créés pour ce projet. Il est utile de masquer les clones pour les projets qui sont partagés avec beaucoup de personnes qui ne font pas partie de la même organisation, comme quand vous utilisez un notebook pour enseigner à une classe. |
 
@@ -78,7 +82,7 @@ Chaque élément dans la liste des fichiers du projet fournit des commandes via 
 | Modifier le fichier | i | Ouvre le fichier pour modification. |
 | Téléchargement | d | Télécharge un fichier zip qui contient le fichier ou le contenu d’un dossier. |
 | Renommer | a | Demande un nouveau nom pour le fichier ou dossier. |
-| Supprimer | x | Demande une confirmation, puis supprime définitivement le fichier du projet. Les suppressions ne peuvent pas être annulées. |
+| DELETE | x | Demande une confirmation, puis supprime définitivement le fichier du projet. Les suppressions ne peuvent pas être annulées. |
 | Déplacer | m | Déplace un fichier vers un autre dossier dans le même projet. |
 
 #### <a name="preview"></a>PRÉVERSION
@@ -90,7 +94,7 @@ La page d’aperçu prend en charge plusieurs commandes de barre d’outils avec
 | Commande | Raccourci clavier | Action |
 | --- | --- | --- |
 | Partager | s | Affiche la fenêtre contextuelle de partage à partir de laquelle vous pouvez obtenir un lien, partager sur les réseaux sociaux, obtenir le code HTML pour l’incorporation et envoyer un e-mail. |
-| Cloner | c  | Clone le notebook sur votre compte. |
+| Clone | c  | Clone le notebook sur votre compte. |
 | Exécuter | r | Exécute le notebook, si vous êtes autorisé à le faire. |
 | Téléchargement | d | Télécharge une copie du notebook. |
 
@@ -181,5 +185,5 @@ Vous pouvez également utiliser la commande à partir d’une cellule de code da
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour utiliser des fichiers de données de projets](work-with-project-data-files.md)
+- [Procédure : utiliser des fichiers de données de projets](work-with-project-data-files.md)
 - [Accéder aux données de cloud dans un notebook](access-data-resources-jupyter-notebooks.md)

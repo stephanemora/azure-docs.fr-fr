@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: affd5b58c312e07177fbfdaaf88f689b1a8caebd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942874"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435124"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 
-Le **tableau de bord** est la page qui se charge quand les utilisateurs autorisés accèdent à l’URL de l’application. Si vous avez créé votre application à partir de l’un des **modèles d’application**, votre application dispose d’un tableau de bord prédéfini pour commencer. Si vous avez créé votre application à partir du modèle d’application **Application personnalisée**, votre tableau de bord est vide pour commencer.
+Le **tableau de bord** est la page qui se charge quand les utilisateurs autorisés accèdent à l’URL de l’application. Si vous avez créé votre application à partir de l’un des **modèles d’application**, votre application dispose d’un tableau de bord prédéfini pour commencer. Si vous avez créé votre application à partir du modèle d’application **Application héritée**, votre tableau de bord est vide pour commencer.
 
 > [!NOTE]
 > Les utilisateurs peuvent [créer plusieurs tableaux de bord](howto-create-personal-dashboards.md) en plus du tableau de bord par défaut de l’application. Ces tableaux de bord peuvent être personnels pour l’utilisateur ou partagés par tous les utilisateurs de l’application. 
@@ -35,7 +35,7 @@ La sélection de **Modifier** ouvre le panneau de la bibliothèque de tableaux d
 > ![Bibliothèque de tableaux de bord](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
 
 Par exemple, vous pouvez ajouter une vignette **Télémétrie** pour la température actuelle de l’appareil. Pour ce faire :
-1. Sélectionnez un **Modèle d’appareil**
+1. Sélectionnez un **Modèle d’appareil**.
 1. Sélectionnez une **Instance d’appareil** pour l’appareil que vous souhaitez afficher sur une vignette du tableau de bord. La liste des propriétés de l’appareil utilisables sur la vignette s’affiche alors.
 1. Pour créer la vignette sur le tableau de bord, cliquez sur **Température** et faites-la glisser dans la zone du tableau de bord. Vous pouvez également cocher la case à côté de **Température** et cliquer sur **Combiner**. La capture d’écran suivante montre comment sélectionner un modèle d’appareil et une instance d’appareil, puis créer une vignette Télémétrie de température sur le tableau de bord.
 1. Sélectionnez **Enregistrer** en haut à gauche pour enregistrer la vignette dans le tableau de bord.

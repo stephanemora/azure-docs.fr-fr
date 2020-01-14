@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435024"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gérer IoT Central à l’aide du Portail Azure
 
@@ -41,7 +41,7 @@ Sélectionnez la ligne **Application IoT Central** dans les résultats de la rec
 
 Renseignez tous les champs dans le formulaire. Ce formulaire ressemble à celui que vous devez compléter pour créer des applications sur le site web du [Gestionnaire d'applications Azure IoT Central](https://aka.ms/iotcentral). Pour plus d’informations, consultez le guide de démarrage rapide [Créer une application IoT Central](quick-deploy-iot-central.md).
 
-Vous pouvez créer une application IoT Central avec les fonctionnalités généralement disponibles en sélectionnant **Exemple Contoso**, **Application personnalisée** et **Exemple Devkits** comme modèles d’application. Tous les autres modèles d’application utilisent des fonctionnalités en préversion publique.
+Vous pouvez créer une application IoT Central avec les fonctionnalités généralement disponibles en sélectionnant **Application héritée** comme modèle d’application. Tous les autres modèles d’application utilisent des fonctionnalités en préversion publique.
 
 ![créer un formulaire IoT Central](media/howto-manage-iot-central-from-portal/image6a.png)
 

@@ -1,17 +1,17 @@
 ---
 title: Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis
-description: Découvrez comment mettre en cache une sortie de pages ASP.NET à l’aide du Cache Azure pour Redis.
+description: Découvrez comment mettre en cache une sortie de pages ASP.NET à l’aide d’Azure Cache pour Redis. Le fournisseur de caches de sortie Redis est un mécanisme de stockage hors processus pour les données de cache de sortie.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.author: yegu
-ms.openlocfilehash: 5d7099779f330bc0a92f0c8f305ac534ab385119
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1a375f063d398c19ed86a0a401e2a41c696ef4e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122460"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75412987"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Fournisseur de caches de sortie ASP.NET pour le Cache Azure pour Redis
 
@@ -21,7 +21,7 @@ Pour utiliser le fournisseur de caches de sortie Redis, configurez d’abord vot
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>Stockage de la sortie de pages ASP.NET dans le cache
 
-Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, cliquez sur **Gestionnaire de package NuGet**, **Console de Service Manager** dans le menu **Outils**.
+Pour configurer une application cliente dans Visual Studio avec le package NuGet de l’État de session du Cache Azure pour Redis, cliquez sur **Gestionnaire de package NuGet**, **Console du Gestionnaire de package** dans le menu **Outils**.
 
 Exécutez la commande suivante depuis la fenêtre `Package Manager Console`.
 

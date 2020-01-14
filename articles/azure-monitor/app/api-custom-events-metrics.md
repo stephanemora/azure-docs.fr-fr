@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: afe2ac60d7b945dd1bb3b8841ae0a7605865f29f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893380"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432665"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -48,11 +48,11 @@ Si vous n’avez pas encore de référence sur le kit SDK Application Insights :
   * [JavaScript dans chaque page web](../../azure-monitor/app/javascript.md) 
 * Ajoutez au code de votre périphérique ou de votre serveur web :
 
-    *C# :* `using Microsoft.ApplicationInsights;`
+    *C#:* `using Microsoft.ApplicationInsights;`
 
     *Visual Basic :* `Imports Microsoft.ApplicationInsights`
 
-    *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+    *Java :* `import com.microsoft.applicationinsights.TelemetryClient;`
 
     *Node.js :* `var applicationInsights = require("applicationinsights");`
 
@@ -656,7 +656,7 @@ finally {
 }
 ```
 
-*JavaScript*
+*Node.JS*
 
 ```javascript
 var success = false;
@@ -1159,10 +1159,10 @@ Si vous définissez une de ces valeurs vous-même, supprimez la ligne approprié
 * **Composant** : l’application et sa version.
 * **Appareil** : données concernant l’appareil sur lequel l’application s’exécute. (dans les applications web, il s’agit du serveur ou de l’appareil client depuis lequel la télémétrie est envoyée.)
 * **InstrumentationKey** : la ressource Application Insights dans Azure dans laquelle la télémétrie s’affiche. Elle est généralement récupérée dans ApplicationInsights.config.
-* **Emplacement** : emplacement géographique de l’appareil.
+* **Emplacement** : emplacement géographique de l’appareil.
 * **Opération** : dans les applications web, il s’agit de la requête HTTP actuelle. Dans d'autres types d'application, vous pouvez définir celle-ci sur les événements regroupés.
-  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » quand vous inspectez un événement dans la Recherche de diagnostic.
-  * **Nom** : un identificateur, généralement l’URL de la requête HTTP.
+  * **ID** : une valeur générée qui met en relation différents événements de manière à ce que vous trouviez les « Éléments associés » quand vous inspectez un événement dans la Recherche de diagnostic.
+  * **Name** : un identificateur, généralement l’URL de la requête HTTP.
   * **SyntheticSource** : si elle est non nulle ou vide, cette chaîne indique que la source de la requête a été identifiée en tant que robot ou test web. Par défaut, elle est exclue des calculs dans Metrics Explorer.
 * **Propriétés** : ce sont les propriétés qui sont envoyées avec toutes les données de télémétrie. Elles peuvent être remplacées dans les appels Track* individuels.
 * **Session**: la session utilisateur. L'ID est définie sur une valeur générée qui est modifiée lorsque l'utilisateur n'a pas été actif pendant un certain temps.
@@ -1197,7 +1197,7 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 
 * *Quelles exceptions peuvent être lancées par les appels Track_() ?*
 
-    Aucune. Vous n’avez pas besoin de les inclure dans des clauses try-catch. Si le Kit de développement logiciel (SDK) rencontre des problèmes, il enregistrera des messages dans la sortie de la console de débogage et, si les messages aboutissent, dans la recherche de diagnostic.
+    Aucun. Vous n’avez pas besoin de les inclure dans des clauses try-catch. Si le Kit de développement logiciel (SDK) rencontre des problèmes, il enregistrera des messages dans la sortie de la console de débogage et, si les messages aboutissent, dans la recherche de diagnostic.
 * *Existe-t-il une API REST pour obtenir des données à partir du portail ?*
 
     Oui, [l’API d’accès aux données](https://dev.applicationinsights.io/). Les autres méthodes d’extraction des données sont [l’exportation d’Analytics vers Power BI](../../azure-monitor/app/export-power-bi.md ) et [l’exportation continue](../../azure-monitor/app/export-telemetry.md).

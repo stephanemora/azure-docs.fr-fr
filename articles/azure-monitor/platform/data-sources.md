@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/23/2019
-ms.openlocfilehash: b93bf4f67c2581b7cac476b83fc130bf344cfa83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/19/2019
+ms.openlocfilehash: 73aa4a8a5dad0e2839c6a643f2ab58494d55458a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450653"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -55,9 +55,9 @@ Les [rapports Azure Active Directory](../../active-directory/reports-monitoring/
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Configurez les journaux Azure AD à collecter dans Azure Monitor pour les analyser avec d'autres données de surveillance. | [Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor (préversion)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Stockage Azure | Exportez les journaux Azure AD vers Stockage Azure à des fins d’archivage. | [Tutoriel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure (préversion)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event Hub | Diffusez en continu des journaux Azure AD sur d’autres emplacements à l'aide d’Event Hubs. | [Tutoriel : Diffuser en continu des journaux d’activité Azure Active Directory sur un hub d’événements Azure (préversion)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Journaux Azure Monitor | Configurez les journaux Azure AD à collecter dans Azure Monitor pour les analyser avec d'autres données de surveillance. | [Intégrer des journaux d’activité Azure AD aux journaux d’activité Azure Monitor (préversion)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Stockage Azure | Exportez les journaux Azure AD vers Stockage Azure à des fins d’archivage. | [Tutoriel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure (préversion)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hub | Diffusez en continu des journaux Azure AD sur d’autres emplacements à l'aide d’Event Hubs. | [Tutoriel : Diffuser en continu des journaux d’activité Azure Active Directory sur un hub d’événements Azure (préversion)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -72,7 +72,7 @@ Le [journal d’activité Azure](activity-logs-overview.md) comprend des enregis
 | Destination | Description | Informations de référence |
 |:---|:---|
 | Journal d’activité | Le journal d'activité est collecté dans sa propre banque de données que vous pouvez consulter depuis le menu Azure Monitor ou utiliser pour créer des alertes de journal d'activité. | [Interroger le journal d’activité dans le portail Azure](activity-log-view.md#azure-portal) |
-| Journaux d’activité Azure Monitor | Configurez les journaux Azure Monitor pour collecter le journal d'activité et l'analyser avec d'autres données de surveillance. | [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md) |
+| Journaux Azure Monitor | Configurez les journaux Azure Monitor pour collecter le journal d'activité et l'analyser avec d'autres données de surveillance. | [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](activity-log-collect.md) |
 | Stockage Azure | Exportez le journal d'activité vers Stockage Azure à des fins d’archivage. | [Archiver le journal d’activité](activity-log-export.md#archive-activity-log)  |
 | Event Hubs | Diffuser en continu le journal d’activité sur d’autres emplacements à l'aide d’Event Hubs | [Diffuser en continu le journal d’activité vers Event Hubs](activity-log-export.md#stream-activity-log-to-event-hub). |
 
@@ -81,7 +81,7 @@ Le [journal d’activité Azure](activity-logs-overview.md) comprend des enregis
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journal d’activité<br>Journaux d’activité Azure Monitor | Les enregistrements de Service Health étant stockés dans le journal d’activité Azure, vous pouvez les afficher dans le portail Azure ou utiliser ce journal d'activité pour effectuer d’autres activités. | [Afficher les notifications d’intégrité du service à l’aide du Portail Azure](service-notifications.md) |
+| Journal d’activité<br>Journaux Azure Monitor | Les enregistrements de Service Health étant stockés dans le journal d’activité Azure, vous pouvez les afficher dans le portail Azure ou utiliser ce journal d'activité pour effectuer d’autres activités. | [Afficher les notifications d’intégrité du service à l’aide du Portail Azure](service-notifications.md) |
 
 
 ## <a name="azure-resources"></a>Ressources Azure
@@ -95,8 +95,8 @@ La plupart des services Azure envoient des [métriques de plateforme](data-platf
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Métriques Azure Monitor | Les métriques de la plate-forme seront inscrites dans la base de données de métriques Azure Monitor, sans aucune configuration. Accédez aux métriques de la plate-forme depuis Metrics Explorer.  | [Prise en main de l’explorateur de métriques Azure](metrics-getting-started.md)<br>[Mesures prises en charge avec Azure Monitor](metrics-supported.md) |
-| Journaux d’activité Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](resource-logs-collect-workspace.md) |
+| Métriques Azure Monitor | Les métriques de la plate-forme seront inscrites dans la base de données de métriques Azure Monitor, sans aucune configuration. Accédez aux métriques de la plate-forme depuis Metrics Explorer.  | [Bien démarrer avec Azure Metrics Explorer](metrics-getting-started.md)<br>[Mesures prises en charge avec Azure Monitor](metrics-supported.md) |
+| Journaux Azure Monitor | Copiez les métriques de la plate-forme dans les journaux pour l'analyse des tendances et d'autres analyses à l'aide de Log Analytics. | [Diagnostics Azure directement dans Log Analytics](resource-logs-collect-workspace.md) |
 | Event Hubs | Diffusez en continu des métriques sur d’autres emplacements à l'aide d’Event Hubs. |[Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>Journaux d’activité de ressources
@@ -130,7 +130,8 @@ Installez l'agent Log Analytics pour une surveillance et une gestion complètes 
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | L'agent Log Analytics se connecte à Azure Monitor soit directement, soit par l'intermédiaire du System Center Operations Manager et vous permet de collecter des données à partir de sources de données que vous configurez ou de solutions de surveillance qui fournissent des informations supplémentaires sur les applications exécutées sur la machine virtuelle. | [Sources de données d’agent dans Azure Monitor](agent-data-sources.md)<br>[Connecter Operations Manager à Azure Monitor](om-agents.md) |
+| Journaux Azure Monitor | L'agent Log Analytics se connecte à Azure Monitor soit directement, soit par l'intermédiaire du System Center Operations Manager et vous permet de collecter des données à partir de sources de données que vous configurez ou de solutions de surveillance qui fournissent des informations supplémentaires sur les applications exécutées sur la machine virtuelle. | [Sources de données d’agent dans Azure Monitor](agent-data-sources.md)<br>[Connecter Operations Manager à Azure Monitor](om-agents.md) |
+| Stockage de machine virtuelle | Azure Monitor pour machines virtuelles utilise l’agent Log Analytics pour stocker les informations d’intégrité dans un emplacement personnalisé. Pour en savoir plus, consultez la section suivante.  |
 
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles 
@@ -138,8 +139,8 @@ Installez l'agent Log Analytics pour une surveillance et une gestion complètes 
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Stocke les données sur les processus et les dépendances sur l'agent. | [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application](../insights/vminsights-maps.md) |
-| Stockage de machine virtuelle | Azure Monitor pour machines virtuelles stocke les informations d’intégrité dans un emplacement personnalisé. Ces informations ne sont disponibles que pour Azure Monitor pour machines virtuelles dans le portail Azure en plus de l'[API REST Azure Resource Health](/rest/api/resourcehealth/). | [Comprendre l’intégrité de vos machines virtuelles Azure](../insights/vminsights-health.md)<br>[API REST Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| Journaux Azure Monitor | Stocke les données sur les processus et les dépendances sur l'agent. | [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application](../insights/vminsights-maps.md) |
+| Stockage de machine virtuelle | Azure Monitor pour machines virtuelles utilise l’agent Log Analytics pour stocker les informations d’intégrité dans un emplacement personnalisé. Ces informations ne sont disponibles que pour Azure Monitor pour machines virtuelles dans le portail Azure en plus de l'[API REST Azure Resource Health](/rest/api/resourcehealth/). | [Comprendre l’intégrité de vos machines virtuelles Azure](../insights/vminsights-health.md)<br>[API REST Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
@@ -154,7 +155,7 @@ Lorsque vous activez Application Insights pour une application en installant un 
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Données opérationnelles concernant votre application, notamment les pages consultées, les demandes d'application, les exceptions et les traces. | [Analyser les données de journal dans Azure Monitor](../log-query/log-query-overview.md) |
+| Journaux Azure Monitor | Données opérationnelles concernant votre application, notamment les pages consultées, les demandes d'application, les exceptions et les traces. | [Analyser les données de journal dans Azure Monitor](../log-query/log-query-overview.md) |
 |                    | Informations sur les dépendances entre les composants d’application pour prendre en charge la cartographie d'application et la corrélation de la télémétrie. | [Corrélation de télémétrie dans Application Insights](../app/correlation.md) <br> [Plan de l’application](../app/app-map.md) |
 |            | Résultats de tests de disponibilité qui évaluent la disponibilité et la réactivité de votre application à partir de différents emplacements sur l’Internet public. | [Analyse de la disponibilité et de la réactivité d'un site Web](../app/monitor-web-app-availability.md) |
 | Métriques Azure Monitor | Application Insights collecte des métriques décrivant les performances et le fonctionnement de l'application en plus des métriques personnalisées que vous définissez dans votre application avec la base de données de métriques Azure Monitor. | [Métriques basées sur le journal et pré-agrégées dans Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API Application Insights pour les événements et les mesures personnalisés](../app/api-custom-events-metrics.md) |
@@ -170,7 +171,7 @@ Les [solutions de supervision](../insights/solutions.md) et [Insights](../insigh
 
 | Destination | Description | Informations de référence
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Les solutions de surveillance recueillent des données dans les journaux d’activité Azure Monitor, qui peuvent les analyser à l’aide du langage de requête, ou dans des [affichages](view-designer.md) qui sont généralement inclus dans la solution. | [Détails sur la collecte de données pour les solutions de gestion dans Azure](../insights/solutions-inventory.md) |
+| Journaux Azure Monitor | Les solutions de surveillance recueillent des données dans les journaux d’activité Azure Monitor, qui peuvent les analyser à l’aide du langage de requête, ou dans des [affichages](view-designer.md) qui sont généralement inclus dans la solution. | [Détails sur la collecte de données pour les solutions de gestion dans Azure](../insights/solutions-inventory.md) |
 
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
@@ -178,7 +179,7 @@ Les [solutions de supervision](../insights/solutions.md) et [Insights](../insigh
 
 | Destination | Description | Informations de référence |
 |:---|:---|:---|
-| Journaux d’activité Azure Monitor | Stocke les données de surveillance pour AKS, y compris l'inventaire, les journaux et les événements. Les données métriques sont également stockées dans les journaux afin de tirer parti de sa fonctionnalité d'analyse dans le portail. | [Comprendre les performances du cluster AKS avec Azure Monitor pour conteneurs](../insights/container-insights-analyze.md) |
+| Journaux Azure Monitor | Stocke les données de surveillance pour AKS, y compris l'inventaire, les journaux et les événements. Les données métriques sont également stockées dans les journaux afin de tirer parti de sa fonctionnalité d'analyse dans le portail. | [Comprendre les performances du cluster AKS avec Azure Monitor pour conteneurs](../insights/container-insights-analyze.md) |
 | Métriques Azure Monitor | Les données métriques sont stockées dans la base de données de métriques pour gérer la visualisation et les alertes. | [Afficher les métriques du conteneur dans Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer). |
 | Azure Kubernetes Service | Fournit un accès direct à vos journaux de conteneur (stdout/stderror), événements et mesures de pod Azure Kubernetes Service (AKS) dans le portail. | [Comment afficher les journaux, événements et mesures de pod Kubernetes en temps réel ](../insights/container-insights-livedata-overview.md) |
 
@@ -192,7 +193,7 @@ Outre les niveaux standard d’une application, vous devrez peut-être surveille
 
 | Destination | Méthode | Description | Informations de référence |
 |:---|:---|:---|:---|
-| Journaux d’activité Azure Monitor | API du collecteur de données | Collectez les données du journal à partir de n'importe quel client REST et stockez-les dans l'espace de travail Log Analytics. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](data-collector-api.md) |
+| Journaux Azure Monitor | API du collecteur de données | Collectez les données du journal à partir de n'importe quel client REST et stockez-les dans l'espace de travail Log Analytics. | [Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)](data-collector-api.md) |
 | Métriques Azure Monitor | API de métriques personnalisée | Collectez les données métriques à partir de n'importe quel client REST et stockez-les dans la base de données de métriques Azure Monitor. | [Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST](metrics-store-custom-rest-api.md) |
 
 
@@ -201,8 +202,8 @@ D'autres services Azure écrivent les données sur la plate-forme de données Az
 
 | Service | Destination | Description | Informations de référence |
 |:---|:---|:---|:---|
-| [Centre de sécurité Azure](/azure/security-center/) | Journaux d’activité Azure Monitor | Azure Security Center stocke les données de sécurité qu'il collecte dans un espace de travail Log Analytics afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
-| [Azure Sentinel](/azure/sentinel/) | Journaux d’activité Azure Monitor | Azure Sentinel stocke dans un espace de travail Log Analytics les données de sécurité qu'il collecte de différentes source de données afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Connecter des sources de données](/azure/sentinel/quickstart-onboard) |
+| [Centre de sécurité Azure](/azure/security-center/) | Journaux Azure Monitor | Azure Security Center stocke les données de sécurité qu'il collecte dans un espace de travail Log Analytics afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
+| [Azure Sentinel](/azure/sentinel/) | Journaux Azure Monitor | Azure Sentinel stocke dans un espace de travail Log Analytics les données de sécurité qu'il collecte de différentes source de données afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Connecter des sources de données](/azure/sentinel/quickstart-onboard) |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

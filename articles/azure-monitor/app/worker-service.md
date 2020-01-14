@@ -1,18 +1,18 @@
 ---
-title: Application Insights pour les applications Service Worker (applications non HTTP) | Microsoft Docs
-description: Surveillance des applications .NET Core/.NET Framework non HTTP avec Application Insights.
+title: Application Insights pour les applications Service Worker (applications non HTTP)
+description: Surveillance des applications .NET Core/.NET Framework non HTTP avec Azure Monitor Application Insights.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/15/2019
-ms.openlocfilehash: 386c171e4785fac2c7fa6da39f249e211f4c660c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/16/2019
+ms.openlocfilehash: bea30ade6d9f6eb77d18c671b824b138ba94fddb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406185"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
@@ -24,7 +24,7 @@ Le nouveau kit de développement logiciel (SDK) n’effectue pas de collecte de 
 
 Le [SDK Application Insights pour Service Worker](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) est particulièrement bien adapté aux applications non HTTP, peu importe où et comment elles s’exécutent. Si votre application est en cours d’exécution et dispose d’une connectivité réseau vers Azure, les données de télémétrie peuvent être collectées. La surveillance Application Insights est prise en charge partout où .NET Core est pris en charge. Ce package peut être utilisé dans le nouveau [Service Worker .NET Core 3.0](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), les [tâches en arrière-plan dans Asp.Net Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), les applications console (.NET Core/ .NET Framework), etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Clé d’instrumentation Application Insights valide. Cette clé est requise pour envoyer les données de télémétrie à Application Insights. Si vous avez besoin créer une ressource Application Insights pour obtenir une instrumentation clé, consultez [Créer une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
@@ -35,7 +35,7 @@ Clé d’instrumentation Application Insights valide. Cette clé est requise pou
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.12.0" />
     </ItemGroup>
 ```
 
@@ -127,7 +127,7 @@ Un exemple complet est disponible [ici](https://github.com/microsoft/Application
 Vous pouvez également spécifier la clé d’instrumentation dans une des variables d’environnement suivantes.
 `APPINSIGHTS_INSTRUMENTATIONKEY` ou `ApplicationInsights:InstrumentationKey`
 
-Par exemple : `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+Par exemple : `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 OU `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 En règle générale, `APPINSIGHTS_INSTRUMENTATIONKEY` spécifie la clé d’instrumentation pour les applications déployées vers Web App en tant que tâches web.
@@ -251,7 +251,8 @@ Un exemple complet est disponible [ici](https://github.com/microsoft/Application
                 IServiceCollection services = new ServiceCollection();
 
                 // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-                // Hence instrumentation key must be specified here.
+                // Hence instrumentation key and any changes to default logging level must be specified here.
+                services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
 
                 // Build ServiceProvider.
@@ -319,7 +320,7 @@ La collecte des dépendances est activée par défaut. [Cet article](asp-net-dep
 
 ### <a name="manually-tracking-additional-telemetry"></a>Suivi manuel des données de télémétrie supplémentaires
 
-Le kit de développement logiciel (SDK) collecte automatiquement les données de télémétrie comme expliqué ci-dessus ; dans la plupart des cas, l’utilisateur doit envoyer des données de télémétrie supplémentaires à Application Insights service. La méthode recommandée pour suivre des données de télémétrie supplémentaires consiste à obtenir une instance de `TelemetryClient` de l’injection de dépendance, puis à appeler l’une des méthodes de l’[API](api-custom-events-metrics.md) `TrackXXX()` prises en charge sur cette instance. Le [suivi personnalisé des opérations](custom-operations-tracking.md) est un autre cas d’utilisation classique de cette approche. Celle-ci est illustrée dans les exemples Worker ci-dessus.
+Le kit de développement logiciel (SDK) collecte automatiquement les données de télémétrie comme expliqué ci-dessus ; dans la plupart des cas, l’utilisateur doit envoyer des données de télémétrie supplémentaires à Application Insights service. La méthode recommandée pour le suivi des données de télémétrie supplémentaires consiste à obtenir une instance de `TelemetryClient` auprès de l'injection de dépendance, puis à appeler l'une des méthodes de `TrackXXX()` [l'API](api-custom-events-metrics.md) prises en charge sur cette instance. Le [suivi personnalisé des opérations](custom-operations-tracking.md) est un autre cas d’utilisation classique de cette approche. Celle-ci est illustrée dans les exemples Worker ci-dessus.
 
 ## <a name="configure-the-application-insights-sdk"></a>Configurer le SDK Application Insights
 
@@ -493,7 +494,7 @@ Si vous souhaitez désactiver la télémétrie de manière conditionnelle et dyn
     }
 ```
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>Comment puis-je suivre les données de télémétrie qui ne sont pas automatiquement collectées ?
 

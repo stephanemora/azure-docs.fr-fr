@@ -1,5 +1,5 @@
 ---
-title: Champs personnalisés dans Azure Monitor | Microsoft Docs
+title: Champs personnalisés dans Azure Monitor (préversion) | Microsoft Docs
 description: La fonction Champs personnalisés d’Azure Monitor vous permet de créer vos propres champs autorisant les recherches, à partir des enregistrements d’un espace de travail Log Analytics qui s’ajoutent aux propriétés d’un enregistrement collecté.  Cet article décrit la création d’un champ personnalisé et fournit une procédure détaillée avec un exemple d’événement.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,21 +7,21 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932611"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75396880"
 ---
-# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Créer des champs personnalisés dans un espace de travail Log Analytics dans Azure Monitor (préversion)
 
 > [!NOTE]
 > Cet article décrit comment analyser les données texte dans un espace de travail Log Analytics au moment de leur collecte. Nous vous recommandons d’analyser les données texte dans un filtre de requête une fois qu’elles ont été collectées en suivant les instructions fournies dans [Analyser les données texte dans Azure Monitor](../log-query/parse-text.md). Cette méthode offre plusieurs avantages par rapport à l’utilisation de champs personnalisés.
 
 La fonction **Champs personnalisés** d’Azure Monitor vous permet de compléter les enregistrements existants dans votre espace de travail Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
-![Vue d'ensemble](media/custom-fields/overview.png)
+![Vue d’ensemble](media/custom-fields/overview.png)
 
 Par exemple, l’enregistrement ci-dessous contient des données utiles dans la description de l’événement. L’extraction de ces données dans une propriété séparée les rend disponibles pour des opérations de tri et de filtrage.
 
@@ -74,7 +74,7 @@ Pour afficher une liste de l’ensemble des champs personnalisés de votre group
 ## <a name="removing-a-custom-field"></a>Suppression d’un champ personnalisé
 Il existe deux méthodes pour supprimer un champ personnalisé.  La première consiste à utiliser l’option **Supprimer** de chaque champ lorsque vous affichez la liste complète, comme indiqué ci-dessus.  L’autre consiste à extraire un enregistrement et à cliquer sur le bouton à gauche du champ.  Le menu affiche une option permettant de supprimer le champ personnalisé.
 
-## <a name="sample-walkthrough"></a>Exemple de procédure
+## <a name="sample-walkthrough"></a>Exemple de procédure pas à pas
 La section suivante décrit la procédure complète de création d’un champ personnalisé.  Cet exemple extrait le nom du service dans les événements Windows indiquant un changement d’état de service.  Il s’appuie sur les événements créés par le Gestionnaire de contrôle des services lors du démarrage du système des ordinateurs Windows.  Si vous souhaitez suivre cet exemple, vous devez [collecter des événements d’information du journal système](data-sources-windows-events.md).
 
 Nous spécifions la requête suivante pour renvoyer tous les événements du Gestionnaire de contrôle des services dont l’ID d’événement est 7036, c’est-à-dire l’événement indiquant le démarrage ou l’arrêt d’un service.

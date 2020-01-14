@@ -2,13 +2,14 @@
 title: Déployer un groupe de conteneurs sur un réseau virtuel Azure
 description: Découvrez comment déployer des groupes de conteneurs dans un réseau virtuel Azure.
 ms.topic: article
-ms.date: 07/11/2019
-ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 12/17/2019
+ms.author: danlep
+ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533264"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442245"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -45,8 +46,8 @@ Les limites des ressources de conteneur peuvent différer des limites des instan
 ### <a name="unsupported-networking-scenarios"></a>Scénarios de mise en réseau non pris en charge 
 
 * **Azure Load Balancer** - Le placement d’un équilibreur de charge Azure devant des instances de conteneurs dans un groupe de conteneurs en réseau n’est pas pris en charge.
-* **Peering de réseaux virtuels** - Vous ne pouvez pas appairer un réseau virtuel contenant un sous-réseau délégué à Azure Container Instances avec un autre réseau virtuel.
-* **Tables de routage** - Vous ne pouvez pas configurer des routes définies par l’utilisateur dans un sous-réseau délégué à Azure Container Instances.
+* **Appairage de réseaux virtuels** : l’appairage de réseaux virtuels ne fonctionne pas pour ACI si le réseau auquel le réseau virtuel ACI est homologué utilise un espace IP public. Le réseau appairé a besoin d’un espace d’adresse IP privée RFC1918 pour que le Peering fonctionne. En outre, vous ne pouvez actuellement appairer votre réseau virtuel qu’à un autre réseau virtuel.
+* **Routage du trafic de réseau virtuel** : les itinéraires des clients ne peuvent pas être configurés sur des adresses IP publiques. Les itinéraires peuvent être configurés dans l’espace IP privé du sous-réseau délégué dans lequel les ressources ACI sont déployées. 
 * **Groupes de sécurité réseau** - Les règles de sécurité de trafic sortant dans les groupes de sécurité réseau appliquées à un sous-réseau délégué à Azure Container Instances ne sont pas appliquées actuellement. 
 * **Étiquette DNS ou adresse IP publique** - Les groupes de conteneurs déployés sur un réseau virtuel ne prennent actuellement pas en charge l’exposition de conteneurs directement sur Internet avec une adresse IP publique ou un nom de domaine complet.
 * **Résolution de noms interne** - La résolution de noms pour les ressources Azure dans le réseau virtuel par le biais du système DNS Azure interne n’est pas prise en charge.
@@ -246,7 +247,7 @@ Name              ResourceGroup    Status    Image                              
 appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 ### <a name="delete-container-instances"></a>Supprimer des instances de conteneur
 

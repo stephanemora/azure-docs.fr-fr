@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN : Créer une table d’itinéraires de hub virtuel sur des appliances réseau virtuelles : Portail Azure'
+title: 'Virtual WAN : Créer une table de routes de hub virtuel sur des appliances réseau virtuelles : Portail Azure'
 description: Table de routage de hub virtuel Azure Virtual WAN pour diriger le trafic vers une appliance réseau virtuelle à l’aide du portail.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c0681024b60827cf589906041c264d912ab209bb
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534131"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612358"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Créer une table de routage de hub Virtual WAN pour des appliances réseau virtuelles : Portail Azure
 
@@ -25,7 +25,7 @@ Cet article explique comment diriger le trafic à partir d’une branche (site l
 
 Vérifiez que vous respectez les critères suivants :
 
-*  Vous avez une appliance réseau virtuelle (NVA). Une appliance réseau virtuelle est un logiciel tiers de votre choix qui est généralement provisionné à partir de la Place de marché Azure dans un réseau virtuel.
+*  Vous avez une appliance virtuelle réseau (NVA). Une appliance réseau virtuelle est un logiciel tiers de votre choix qui est généralement provisionné à partir de la Place de marché Azure dans un réseau virtuel.
 
     * Une adresse IP privée doit être attribuée à l’interface réseau de l’appliance réseau virtuelle.
 
@@ -67,7 +67,7 @@ Créez le hub. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs s
 
 Mettez à jour le hub avec une table de routage de hub. Dans le cadre de cet exercice, vous pouvez utiliser les valeurs suivantes :
 
-* **Espaces d’adressage du réseau virtuel spoke indirect :** (VNet1 et VNet2) 10.0.2.0/24 et 10.0.3.0/24
+* **Espaces d'adressage du réseau virtuel Spoke :** (VNet1 et VNet2) 10.0.2.0/24 et 10.0.3.0/24
 * **Adresses IP privées pour l’interface réseau de l’appliance réseau virtuelle DMZ :** 10.0.4.5
 
 1. Accédez à votre WAN virtuel.
@@ -83,7 +83,7 @@ Créez une connexion de réseau virtuel au hub à partir de chaque réseau virtu
 
  Pour cette étape, vous pouvez utiliser les valeurs suivantes :
 
-| Nom du réseau virtuel| Nom de connexion|
+| Nom du réseau virtuel| Nom de la connexion|
 | --- | --- |
 | VNet1 | testconnexion1 |
 | VNet2 | testconnexion2 |

@@ -4,17 +4,17 @@ description: Utiliser l’extension IoT pour Azure CLI afin d’inscrire un nouv
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/21/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 793ddcb9f218248c396e10f23201dfe905545ceb
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456855"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434124"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Inscrire un appareil Azure IoT Edge
 
@@ -55,7 +55,7 @@ Tous les appareils compatibles avec Edge qui se connectent à votre hub IoT sont
 Pour configurer votre appareil, vous avez besoin de la chaîne de connexion qui établit un lien entre votre appareil physique et son identité dans le hub IoT.
 
 1. Dans la page **IoT Edge** du portail, cliquez sur l’ID de l’appareil dans la liste des appareils IoT Edge.
-2. Copiez la valeur de **Chaîne de connexion (clé primaire)** ou **Chaîne de connexion (clé secondaire)** .
+2. Copiez la valeur de **Chaîne de connexion principale** ou **Chaîne de connexion secondaire**.
 
 ## <a name="register-with-visual-studio-code"></a>S’inscrire avec Visual Studio Code
 

@@ -1,25 +1,14 @@
 ---
-title: Déploiement d’un exécutable existant dans Azure Service Fabric | Microsoft Docs
+title: Déployer un fichier exécutable existant sur Azure Service Fabric
 description: Découvrez comment empaqueter une application existante en tant que fichier exécutable invité afin de la déployer sur un cluster Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: na
 ms.date: 07/02/2017
-ms.author: atsenthi
-ms.openlocfilehash: 575303cc2ec3e880187bac64da06d05721df14e6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cdbc965d0e8ec4a8f42fbe438b8ac6ddfe05a1b3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377104"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -170,7 +159,7 @@ Dans l’exemple ci-dessus, l’élément SetupEntryPoint exécute un fichier de
 
 L’élément `EntryPoint` dans le fichier de manifeste de service sert à spécifier comment lancer le service.
 
-L’élément `ExeHost` spécifie le fichier exécutable (et les arguments) à utiliser pour lancer le service. Vous pouvez éventuellement ajouter l’attribut `IsExternalExecutable="true"` `ExeHost` pour indiquer que le programme est un exécutable externe en dehors du package de code. Par exemple : `<ExeHost IsExternalExecutable="true">`.
+L’élément `ExeHost` spécifie le fichier exécutable (et les arguments) à utiliser pour lancer le service. Vous pouvez éventuellement ajouter l’attribut `IsExternalExecutable="true"``ExeHost` pour indiquer que le programme est un exécutable externe en dehors du package de code. Par exemple : `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` spécifie le nom de l’exécutable qui doit démarrer le service.
 * `Arguments` spécifie les arguments qui doivent être passés au fichier exécutable. Il peut s’agir d’une liste de paramètres avec des arguments.

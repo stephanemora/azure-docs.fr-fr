@@ -1,18 +1,18 @@
 ---
-title: Azure Monitor - Remplacer les points de terminaison par défaut des SDK Azure Application Insights | Microsoft Docs
-description: Modifiez les points de terminaison par défaut des SDK Azure Application Insights pour certaines régions, comme Azure Government.
+title: Remplacer les points de terminaison par défaut des SDK Azure Application Insights
+description: Modifiez les points de terminaison par défaut des SDK Azure Monitor Application Insights pour certaines régions, comme Azure Government.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432589"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Remplacer les points de terminaison par défaut d’Application Insights
 
@@ -197,9 +197,9 @@ Actuellement, seules les régions [Azure Government](https://docs.microsoft.com/
 
 |Région |  Nom du point de terminaison | Valeur |
 |-----------------|:------------|:-------------|
-| Azure China | Canal de télémétrie | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure China | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Chine | Canal de télémétrie | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure Chine | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure Chine | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | Canal de télémétrie |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
@@ -209,7 +209,7 @@ Si vous utilisez actuellement l’[Application Insights API REST](https://dev.ap
 
 |Région |  Nom du point de terminaison | Valeur |
 |-----------------|:------------|:-------------|
-| Azure China | API REST | `api.applicationinsights.azure.cn` |
+| Azure Chine | API REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API REST | `api.applicationinsights.us`|
 
 > [!NOTE]

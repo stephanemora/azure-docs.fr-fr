@@ -1,18 +1,14 @@
 ---
-title: 'Azure Service Fabric : configurer un cluster Azure Service Fabric existant pour activer le support des identités managées | Microsoft Docs'
+title: 'Azure Service Fabric : configurer un cluster Azure Service Fabric existant pour activer le support des identités managées'
 description: Cet article explique comment configurer un cluster Azure Service Fabric existant pour activer le support des identités managées
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
-ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: adc21358011454c8687998dc5d257052959b933b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 12/09/2019
+ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351603"
 ---
 # <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurer un cluster Azure Service Fabric existant pour activer la prise en charge d’identités managées (préversion)
 Afin d’accéder à la fonctionnalité des identités managées pour les applications Azure Service Fabric, vous devez d’abord activer le **Service de jetons des identités managées** sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet de gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService**.

@@ -4,15 +4,15 @@ description: Décrit les symptômes, les causes et les solutions aux problèmes 
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: ca0fcd3b68722d44fc285b2dff52b560c591d0be
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 35c050a17219b80348857494ad41f834d3a60c85
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74306550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397298"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -55,7 +55,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | 2 | Option non valide fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 3 | Aucune option fournie au bundle de l’interpréteur de commandes. Exécutez `sudo sh ./omsagent-*.universal*.sh --help` pour l’utilisation. |
 | 4 | Paramètres de proxy non valide ou type de package non valide ; les packages omsagent-*rpm*.sh peuvent être installés uniquement sur des systèmes basés sur RPM, et les packages omsagent -*deb*.sh peuvent être installés uniquement sur des systèmes Debian. Nous vous recommandons d’utiliser le programme d’installation universel de la [dernière version](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Par ailleurs, lisez ces informations pour vérifier vos paramètres de proxy. |
-| 5\. | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
+| 5 | Le bundle de l’interpréteur de commandes doit être exécuté en tant qu’utilisateur root ou une erreur 403 a été retournée pendant l’intégration. Exécutez votre commande à l’aide de `sudo`. |
 | 6 | Architecture du package non valide ou erreur 200 retournée pendant l’intégration ; les packages omsagent-*x64.sh ne peuvent être installés que sur des systèmes 64 bits, et les packages omsagent-* x86.sh ne peuvent être installés que sur des systèmes 32 bits. Téléchargez le package approprié pour votre architecture à partir de la [dernière version](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | Échec de l’installation du package OMS. Examinez le résultat de la commande pour déterminer l’échec de root. |
 | 19 | Échec de l’installation du package OMI. Examinez le résultat de la commande pour déterminer l’échec de root. |
@@ -78,7 +78,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 | 2 | Option non valide fournie au script omsadmin. Exécutez `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` pour l’utilisation. |
 | 3 | Configuration non valide fournie au script omsadmin. Exécutez `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` pour l’utilisation. |
 | 4 | Proxy non valide fourni au script omsadmin. Vérifiez le proxy et consultez notre [documentation sur l’utilisation d’un proxy HTTP](log-analytics-agent.md#network-firewall-requirements). |
-| 5\. | Erreur HTTP 403 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
+| 5 | Erreur HTTP 403 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 6 | Erreur non HTTP 200 provenant d’Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 7 | Impossible de se connecter à Azure Monitor. Consultez la sortie complète du script omsadmin pour plus d’informations. |
 | 8 | Erreur d’intégration de l’espace de travail Log Analytics. Consultez la sortie complète du script omsadmin pour plus d’informations. |
@@ -153,14 +153,14 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
 * Le proxy spécifié pendant l’intégration est incorrect
 * Les points de terminaison des services Azure Monitor et Azure Automation ne figurent pas dans la liste verte de votre centre de données 
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Réintégrez Azure Monitor avec l’agent Log Analytics pour Linux à l’aide de la commande suivante avec l’option `-v` activée. Cela autorise une sortie détaillée de l’agent qui se connecte via le proxy à Azure Monitor. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
 
 2. Pour vérifier que vous avez correctement configuré l’agent de manière à communiquer via un serveur proxy, consultez la section [Mettre à jour les paramètres du proxy](agent-manage.md#update-proxy-settings).    
 * Vérifiez que les points de terminaison Azure Monitor suivants figurent dans la liste verte :
 
-    |Ressource de l'agent| Ports | Direction |
+    |Ressource de l'agent| Ports | Sens |
     |------|---------|----------|  
     |*.ods.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
     |*.oms.opinsights.azure.com | Port 443| Trafic entrant et sortant |  
@@ -174,7 +174,7 @@ Sous le plug-in de sortie, supprimez les marques de commentaire de la section su
 * La date et l’heure sont incorrectes sur le serveur Linux 
 * L’ID et la clé d’espace de travail utilisés sont incorrects
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Vérifiez l’heure sur votre serveur Linux avec la commande date. Si l’heure est à +/-15 minutes de l’heure actuelle, l’intégration échoue. Pour corriger ce problème, mettez à jour de la date et/ou le fuseau horaire de votre serveur Linux. 
 2. Vérifiez que vous avez installé la dernière version de l’agent Log Analytics pour Linux.  Celle-ci vous avertit si le décalage horaire est à l’origine de l’échec d’intégration.
@@ -218,7 +218,7 @@ Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles 
 - La connexion à Azure Monitor est bloquée
 - Les données de l’agent Log Analytics pour Linux sont sauvegardées
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Vérifiez si l’intégration d’Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. Relancer l’intégration à l’aide des instructions de la ligne de commande `omsadmin.sh`
 3. Si vous utilisez un proxy, reportez-vous à la procédure de résolution de proxy fournie précédemment.
@@ -235,7 +235,7 @@ Les bogues relatifs aux performances ne sont pas réguliers, et sont difficiles 
 * Le message Syslog n’est pas transmis correctement au serveur Linux.
 * Le nombre de messages transmis par seconde est trop élevé pour être géré avec la configuration de base de l’agent Log Analytics pour Linux.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 * Vérifiez que la configuration de l’espace de travail Log Analytics pour Syslog possède toutes les fonctionnalités nécessaires et les niveaux corrects du journal d’activité. Consultez [Configurer la collecte Syslog dans le portail Azure](../../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal).
 * Vérifiez que les démons de messagerie Syslog natifs (`rsyslog`, `syslog-ng`) peuvent recevoir les messages transférés
 * Vérifiez les paramètres de pare-feu sur le serveur Syslog pour vous assurer que les messages ne sont pas bloqués.
@@ -248,7 +248,7 @@ Si vous voyez `[error]: unexpected error error_class=Errno::EADDRINUSE error=#<E
 ### <a name="probable-causes"></a>Causes probables
 Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à côté de l’extension de machine virtuelle Linux Log Analytics, et qu’elle utilise le même port pour la collecte de données syslog qu’omsagent.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. En tant qu’utilisateur root, exécutez les commandes suivantes (25224 étant un exemple, il est possible que dans votre environnement vous voyiez un autre numéro de port utilisé par LAD) :
 
     ```
@@ -270,7 +270,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * L’extension de diagnostic Linux est installée
 * L’extension de diagnostic Linux a été installée et désinstallée, mais vous voyez toujours une erreur indiquant qu’omsagent est utilisé par mdsd et qu’il ne peut pas être supprimé.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Désinstallez l’extension de diagnostic Linux (LAD).
 2. Supprimez les fichiers de l’extension de diagnostic Linux de la machine s’ils sont présents à l’emplacement suivant : `/var/lib/waagent/Microsoft.Azure.Diagnostics.LinuxDiagnostic-<version>/` et `/var/opt/microsoft/omsagent/LAD/`.
 
@@ -280,7 +280,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * L’utilisateur omsagent n’a pas les autorisations nécessaires pour lire le fichier journal Nagios
 * Les marques de commentaire associées au filtre et à la source Nagios n’ont pas été supprimées du fichier omsagent.conf
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Ajoutez l’utilisateur omsagent pour lire à partir du fichier Nagios en suivant ces [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#nagios-alerts).
 2. Dans le fichier de configuration générale de l’agent Log Analytics pour Linux situé à l’emplacement `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`, vérifiez que la source et le filtre Nagios sont **tous deux** exempts de marques de commentaire.
 
@@ -308,7 +308,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * Les données de l’agent Log Analytics sont sauvegardées
 * DSC journalise le message *Aucune configuration actuelle n’existe. Exécutez la commande Start-DscConfiguration avec le paramètre -Path pour commencer par spécifier un fichier de configuration et créer une configuration actuelle.* dans le fichier journal `omsconfig.log`, mais aucun message de journal n’existe concernant les opérations `PerformRequiredConfigurationChecks`.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Installez toutes les dépendances telles que le package auditd.
 2. Vérifiez si l’intégration à Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`.  Si ce n’est pas le cas, relancez l’intégration avec les [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la ligne de commande omsadmin.sh.
 4. Si vous utilisez un proxy, consultez les étapes de résolution de problèmes de proxy décrites plus haut.
@@ -373,7 +373,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
 * L’agent Log Analytics pour Linux n’a pas récupéré la configuration la plus récente.
 * Les paramètres changés dans le portail n’ont pas été appliqués.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 **Contexte :** `omsconfig` est l’agent de configuration de l’agent Log Analytics pour Linux qui cherche la nouvelle configuration côté portail toutes les cinq minutes. Cette configuration est ensuite appliquée aux fichiers de configuration de l’agent Log Analytics pour Linux situés à l’emplacement /etc/opt/microsoft/omsagent/conf/omsagent.conf.
 
 * Dans certains cas, l’agent de configuration de l’agent Log Analytics pour Linux n’est pas en mesure de communiquer avec le service de configuration du portail, de sorte que la configuration la plus récente n’est pas appliquée.
@@ -392,7 +392,7 @@ Cette erreur indique que l’extension Linux Diagnostic (LAD) est installée à 
  * `[DATETIME] [error]: file not accessible by omsagent.`
 * Problème connu lié à une condition de concurrence corrigé dans la version 1.1.0-217 de l’agent Log Analytics pour Linux
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 1. Vérifiez si l’intégration à Azure Monitor a réussi en vous assurant que le fichier suivant existe : `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`. Si ce n’est pas le cas, effectuez l’une des deux opérations suivantes :  
 
   1. Relancez l’intégration avec les [instructions](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#onboarding-using-the-command-line) de la ligne de commande omsadmin.sh.
@@ -413,7 +413,7 @@ Quand vous tentez de réintégrer un agent dans un espace de travail, la configu
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-Ou
+ou
 
 ```
 sudo sh ./onboard_agent.sh --purge
@@ -427,7 +427,7 @@ Vous pouvez poursuivre la réintégration après avoir utilisé l’option `--pu
 * L’agent Log Analytics a été supprimé du système d’exploitation.
 * Le service de l’agent Log Analytics est arrêté, désactivé ou n’est pas configuré.
 
-### <a name="resolution"></a>Résolution : 
+### <a name="resolution"></a>Résolution 
 Effectuez les étapes suivantes pour résoudre le problème.
 1. Supprimez l’extension du portail Azure.
 2. Installez l’agent en suivant les [instructions](../../azure-monitor/learn/quick-collect-linux-computer.md).
@@ -441,7 +441,7 @@ Effectuez les étapes suivantes pour résoudre le problème.
 
 Les packages de l’agent Log Analytics sur l’hôte sont obsolètes.
 
-### <a name="resolution"></a>Résolution : 
+### <a name="resolution"></a>Résolution 
 Effectuez les étapes suivantes pour résoudre le problème.
 
 1. Recherchez la dernière version dans cette [page](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/).

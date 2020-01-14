@@ -1,6 +1,6 @@
 - name: Documentation sur la messagerie Service Bus
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que la messagerie Service Bus\_?"
       href: service-bus-messaging-overview.md
@@ -17,7 +17,7 @@
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
-            - name: D’Azure CLI
+            - name: Azure CLI
               href: service-bus-quickstart-cli.md
             - name: "Modèle Azure\_Resource\_Manager"
               href: service-bus-resource-manager-namespace-queue.md
@@ -116,7 +116,7 @@
   items:
     - name: Créer un espace de noms
       href: service-bus-create-namespace-portal.md
-    - name: Développement
+    - name: Développer
       items:
         - name: Gestion des messages
           items:
@@ -182,7 +182,7 @@
           href: service-bus-end-to-end-tracing.md
         - name: Créer une application Service Bus à plusieurs niveaux
           href: service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Utiliser Azure PowerShell pour approvisionner des entités
           href: service-bus-manage-with-ps.md
@@ -205,9 +205,9 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Sécuriser
       items:
-        - name: Configurer les clés gérées par le client pour le chiffrement au repos (préversion)
+        - name: Configurer des clés gérées par le client pour le chiffrement au repos
           href: configure-customer-managed-key.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Guide de résolution des problèmes
           href: service-bus-messaging-exceptions.md
@@ -247,7 +247,7 @@
       href: service-bus-messaging-sql-rule-action.md
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: service-bus-faq.md
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-service-bus

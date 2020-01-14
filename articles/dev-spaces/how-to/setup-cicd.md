@@ -6,14 +6,14 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Découvrez comment configurer l’intégration continue/le déploiement continu à l’aide d’Azure DevOps avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
-ms.openlocfilehash: 525e18cba48756e725cbc7d837c2352b0fec74fe
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 66ff2080ad44098757a5d9360fd3307e65f7431a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280022"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438443"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utiliser CI/CD avec Azure Dev Spaces
 
@@ -23,7 +23,7 @@ Cet article vous guide tout au long de la configuration de l’intégration cont
 
 Bien que cet article vous guide avec Azure DevOps, les mêmes concepts sont applicables aux systèmes CI/CD tels que Jenkins, TeamCity, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * [Cluster AKS (Azure Kubernetes Service) avec Azure Dev Spaces activé](../get-started-netcore.md)
 * [Interface CLI Azure Dev Spaces installée](upgrade-tools.md)
 * [Organisation Azure DevOps avec un projet](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)

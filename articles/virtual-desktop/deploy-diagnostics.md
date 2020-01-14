@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: 27231dc25604e9031f0456d787530bf2a29616f7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167437"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452423"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -25,7 +25,7 @@ Voici ce que l’outil de diagnostic pour Windows Virtual Desktop peut faire pou
 - Envoyez un message aux utilisateurs actifs sur un hôte de session spécifique.
 - Déconnectez des utilisateurs d’un hôte de session.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez créer une inscription de l’application Azure Active Directory et un espace de travail Log Analytics avant de pouvoir déployer le modèle Azure Resource Manager pour l’outil. Vous ou l’administrateur avez besoin de ces autorisations pour effectuer cette opération :
 
@@ -256,3 +256,8 @@ Vous pouvez également interagir avec les utilisateurs sur l’hôte de la sessi
 - [Retard d’entrée utilisateur par session(\*)\\Délai d’entrée maximal](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters) :
 
     - Seuil : Plus de 2 000 ms sont marqués comme non sains.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrez comment surveiller les journaux d’activité dans [Utiliser les diagnostics avec Log Analytics](diagnostics-log-analytics.md).
+- Consultez des scénarios d’erreur courants et découvrez comment y remédier dans [Identifier et diagnostiquer les problèmes](diagnostics-role-service.md).

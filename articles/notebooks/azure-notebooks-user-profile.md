@@ -1,16 +1,16 @@
 ---
-title: Profil et identifiant utilisateur pour Azure Notebooks
+title: Profil et identifiant utilisateur pour Azure Notebooks (préversion)
 description: Guide pratique pour créer et gérer, avec Azure Notebooks, un profil utilisateur ainsi qu’un identifiant utilisateur qui fera partie de l’URL des notebooks partagés.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d90eebf1b7b463e038bc5e54f51df0eb6ca746c4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277605"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646277"
 ---
-# <a name="your-profile-and-user-id-for-azure-notebooks"></a>Profil et identifiant utilisateur pour Azure Notebooks
+# <a name="your-profile-and-user-id-for-azure-notebooks-preview"></a>Profil et identifiant utilisateur pour Azure Notebooks (préversion)
 
 Dans le puissant espace collaboratif d’Azure Notebooks, votre profil utilisateur présente aux autres votre image publique :
 
@@ -23,6 +23,8 @@ L’identifiant utilisateur fait partie des URL utilisées pour partager des pro
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>`: fichiers projet.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: clones d’un projet donné.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: aperçu HTML d’un bloc-notes ou d’un fichier donné.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="your-user-id"></a>L’identifiant utilisateur
 
@@ -47,7 +49,7 @@ Un profil se compose d’informations publiques à l’URL `https://notebooks.az
 
 Pour modifier votre profil, utilisez la commande **Modifier les informations de profil** sur votre page de profil. Les sections de votre profil sont les suivantes :
 
-| Section | Sommaire |
+| Section | Contents |
 | --- | --- |
 | Photo de profil | Image qui s’affiche sur la page de profil. |
 | Informations sur le compte | Nom d’affichage, identifiant utilisateur et compte de courrier public. Le compte de courrier représente pour les autres utilisateurs un moyen de vous contacter. Il peut être différent du [compte](azure-notebooks-user-account.md) utilisé pour vous connecter à Azure Notebooks. |

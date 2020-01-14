@@ -2,17 +2,17 @@
 title: Créer une instance Azure Private Endpoint à l’aide de PowerShell | Microsoft Docs
 description: En savoir plus sur Azure Private Link
 services: private-link
-author: asudbring
+author: malopMSFT
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 83f1cbc3f8da61370c90744be3f0a7b230e016c3
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430337"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Créer une instance Private Endpoint à l’aide d’Azure PowerShell
 Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link. 
@@ -59,6 +59,9 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
 ```
+
+> [!CAUTION]
+> Il est facile de confondre le paramètre `PrivateEndpointNetworkPoliciesFlag` avec un autre indicateur disponible, `PrivateLinkServiceNetworkPoliciesFlag`, car il s’agit de mots longs et d’une apparence similaire.  Vérifiez que vous utilisez la bonne valeur, `PrivateEndpointNetworkPoliciesFlag`.
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Associer le sous-réseau au réseau virtuel
 
@@ -216,7 +219,7 @@ mstsc /v:<publicIpAddress>
 7. (Facultatif) Créez ou interrogez des informations à partir de mydatabase.
 8. Fermez la connexion Bureau à distance à *myVM*. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Quand vous avez terminé d’utiliser le point de terminaison privé, le serveur SQL Database et la machine virtuelle, utilisez [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient :
 
 ```azurepowershell-interactive

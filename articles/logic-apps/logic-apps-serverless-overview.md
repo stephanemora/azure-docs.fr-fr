@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble – Azure Serverless
-description: Créez des solutions puissantes dans le Cloud sans vous soucier de l’infrastructure
+title: Vue d’ensemble - Azure serverless pour les applications et solutions informatiques
+description: Découvrez comment créer des solutions et des applications informatiques sans vous soucier de l’infrastructure à l’aide d’Azure Logic Apps et d’Azure Functions
 services: logic-apps
 ms.suite: integration
 author: jeffhollan
@@ -8,14 +8,14 @@ ms.author: jehollan
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f20bb5fb249ad6bac862afe2b0e8eee4b32e2a9
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792829"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666548"
 ---
-# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Vue d’ensemble : Offres sans serveur dans Azure avec Azure Logic Apps et Azure Functions
+# <a name="azure-serverless-overview-for-building-cloud-based-apps-and-solutions-with-azure-logic-apps-and-azure-functions"></a>Azure serverless : Vue d’ensemble de la création d’applications et de solutions informatiques avec Azure Logic Apps et Azure Functions
 
 Les applications [sans serveur](https://azure.microsoft.com/solutions/serverless/) offrent des avantages tels que la vitesse de développement accrue, la réduction de codes, la simplicité et la mise à l’échelle. Cet article présente les différents attributs des solutions sans serveur et des offres sans serveur Azure.
 
@@ -45,4 +45,4 @@ Azure fournit des outils riches pour le développement, le déploiement et la ge
 
 * [Créer une application sans serveur dans Visual Studio](logic-apps-serverless-get-started-vs.md)
 * [Créer un tableau de bord des insights client sans serveur](logic-apps-scenario-social-serverless.md)
-* [Automatiser le déploiement de l’application logique](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatiser le déploiement d’application logique](logic-apps-azure-resource-manager-templates-overview.md)

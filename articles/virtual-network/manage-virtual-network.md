@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 2c2994c310369a0a6fe26ccc2c1e2e5de6680349
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 10da1c8e1a4516e3346e5a93cb9fffdac12e23ae
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084695"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638627"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Découvrez comment créer et supprimer un réseau virtuel, ainsi que modifier des paramètres tels que les serveurs DNS et les espaces d’adressage IP, pour un réseau virtuel existant. Si vous découvrez les réseaux virtuels, vous trouverez plus d’informations à leur sujet dans la [Vue d’ensemble du réseau virtuel](virtual-networks-overview.md) ou en suivant un [didacticiel](quick-create-portal.md). Un réseau virtuel contient des sous-réseaux. Pour savoir comment créer, modifier et supprimer des sous-réseaux, voir [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
+Découvrez comment créer et supprimer un réseau virtuel, ainsi que modifier des paramètres tels que les serveurs DNS et les espaces d’adressage IP, pour un réseau virtuel existant. Si vous découvrez les réseaux virtuels, vous trouverez plus d’informations à leur sujet dans l’article [Vue d’ensemble des réseaux virtuels](virtual-networks-overview.md) ou en suivant un [tutoriel](quick-create-portal.md). Un réseau virtuel contient des sous-réseaux. Pour savoir comment créer, modifier et supprimer des sous-réseaux, voir [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -32,14 +32,14 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
-- Le compte auquel vous vous connectez ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées répertoriées dans [Autorisations](#permissions).
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
 1. Sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
 2. Entrez ou sélectionnez des valeurs pour les paramètres suivants, puis cliquez sur **Créer** :
-   - **Nom** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
+   - **Name** : le nom doit être unique dans le [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) dans lequel vous choisissez de créer le réseau virtuel. Vous ne pouvez pas modifier le nom une fois le réseau virtuel créé. Vous pouvez créer plusieurs réseaux virtuels au fil du temps. Pour des suggestions de dénomination, voir [Conventions d’affectation de noms](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources). Le respect d’une convention d’affectation de noms peut simplifier la gestion de plusieurs réseaux virtuels.
    - **Espace d’adressage** : l’espace d’adressage d’un réseau virtuel est composé d’une ou de plusieurs plages d’adresses ne se chevauchant pas et spécifiées dans la notation CIDR. La plage d’adresses que vous définissez peut être publique ou privée (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. Vous ne pouvez pas ajouter les plages d’adresses suivantes :
      - 224.0.0.0/4 (multidiffusion)
      - 255.255.255.255/32 (diffusion)
@@ -62,13 +62,13 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
      - **Plage d’adresses de sous-réseau** : la plage d’adresses doit s’inscrire dans l’espace d’adressage que vous avez entré pour le réseau virtuel. La plus petite plage que vous puissiez spécifier est /29. Celle-ci fournit huit adresses IP pour le sous-réseau. Azure réserve la première et la dernière adresses dans chaque sous-réseau pour la conformité du protocole. Trois adresses supplémentaires sont réservées à l’usage du service Azure. Par conséquent, un réseau virtuel dont la plage d’adresses de sous-réseau est /29 ne comprend que trois adresses IP utilisables. Si vous envisagez de connecter un réseau virtuel à une passerelle VPN, vous devez créer un sous-réseau de passerelle. Pour en savoir plus, voir [Sous-réseau de passerelle](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Vous pouvez modifier la plage d’adresses après la création du sous-réseau sous certaines conditions. Pour savoir comment modifier une plage d’adresses de sous-réseau, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
      - **Abonnement**: sélectionnez un [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Vous ne pouvez pas utiliser un même réseau virtuel dans plus d’un abonnement Azure. En revanche, vous pouvez connecter un réseau virtuel figurant dans un abonnement à des réseaux virtuels figurant dans d’autres abonnements via un [peering de réseau virtuel](virtual-network-peering-overview.md). Toute ressource Azure que vous connectez au réseau virtuel doit figurer dans le même abonnement que le réseau virtuel.
-     - **Groupe de ressources** : sélectionnez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existant ou créez-en un. Une ressource Azure que vous connectez au réseau virtuel peut figurer dans le même groupe de ressources que le réseau virtuel ou dans un autre groupe de ressources.
+     - **Groupe de ressources** : sélectionnez un [groupe de ressources](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) existant ou créez-en un. Une ressource Azure que vous connectez au réseau virtuel peut figurer dans le même groupe de ressources que le réseau virtuel ou dans un autre groupe de ressources.
      - **Emplacement** : sélectionnez un [emplacement](https://azure.microsoft.com/regions/) Azure (également appelé région). Un réseau virtuel peut figurer que dans un seul emplacement d’Azure. En revanche, vous pouvez connecter un réseau virtuel figurant dans un emplacement à un réseau virtuel figurant dans un autre emplacement en utilisant une passerelle VPN. Toute ressource Azure que vous connectez au réseau virtuel doit figurer dans le même emplacement que le réseau virtuel.
 
 **Commandes**
 
 - Azure CLI : [az network vnet create](/cli/azure/network/vnet)
-- PowerShell : [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
+- PowerShell : [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
 
 ## <a name="view-virtual-networks-and-settings"></a>Afficher des réseaux virtuels et des paramètres
 
@@ -92,20 +92,20 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
      - [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)
      - [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Script Automation](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+     - [Script Automation](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Commandes**
 
 - Azure CLI : [az network vnet show](/cli/azure/network/vnet)
-- PowerShell : [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
+- PowerShell : [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)
 
 ## <a name="add-or-remove-an-address-range"></a>Ajouter ou supprimer une plage d’adresses
 
 Vous pouvez ajouter et supprimer des plages d’adresses pour un réseau virtuel. Une plage d’adresses doit être spécifiée dans une notation CIDR. Elle ne peut pas chevaucher d’autres plages d’adresses au sein du même réseau virtuel. Les plages d’adresses que vous définissez peuvent être publiques ou privées (RFC 1918). Que vous définissiez la plage d’adresses comme publique ou privée, celle-ci est uniquement accessible à partir du réseau virtuel, à partir de réseaux virtuels interconnectés et à partir de tout réseau local que vous avez connecté au réseau virtuel. 
 
-Vous pouvez réduire la place d'adresses d'un réseau virtuel si aucun sous-réseau ne lui est associé. Dans le cas contraire, vous pouvez uniquement étendre la plage d'adresses, par exemple, passer de /16 à /8. Vous pouvez commencer par une petite plage d'adresses, puis l'étendre plus tard ou ajouter des plages supplémentaires.
+Vous pouvez réduire la plage d’adresses d’un réseau virtuel tant qu’il comprend toujours les plages de tous les sous-réseaux associés. En outre, vous pouvez étendre la plage d’adresses, par exemple en remplaçant /16 par /8. 
 
-<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 Vous ne pouvez pas ajouter les plages d’adresses suivantes :
 
@@ -128,7 +128,7 @@ Pour ajouter ou supprimer une plage d’adresses :
 **Commandes**
 
 - Azure CLI : [az network vnet update](/cli/azure/network/vnet)
-- PowerShell : [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
+- PowerShell : [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>Modifier les serveurs DNS
 
@@ -139,7 +139,7 @@ Toutes les machines virtuelles connectées au réseau virtuel s’inscrivent aup
 3. Sous**PARAMÈTRES**, sélectionnez **Serveurs DNS**.
 4. Sélectionnez l’une des options suivantes :
    - **Par défaut (fournie par Azure)**  : les noms de ressources et adresses IP privées sont tous inscrits automatiquement sur les serveurs Azure DNS. Vous pouvez résoudre les noms parmi toutes les ressources connectées à un même réseau virtuel. Vous ne pouvez pas utiliser cette option pour résoudre les noms dans plusieurs réseaux virtuels. Pour résoudre les noms dans plusieurs réseaux virtuels, vous devez utiliser un serveur DNS personnalisé.
-   - **Personnalisé** : vous pouvez ajouter un ou plusieurs serveurs, jusqu’à la limite autorisée par Azure pour un réseau virtuel. Pour en savoir plus sur les limites du serveur DNS, voir [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Vous disposez des options suivantes :
+   - **Personnalisé** : vous pouvez ajouter un ou plusieurs serveurs, jusqu’à la limite autorisée par Azure pour un réseau virtuel. Pour en savoir plus sur les limites du serveur DNS, voir [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual-networking-limits-classic). Vous disposez des options suivantes :
    - **Ajouter une adresse** : ajoute le serveur à la liste des serveurs DNS de votre réseau virtuel. Cette option inscrit également le serveur DNS auprès d’Azure. Si vous avez déjà inscrit un serveur DNS auprès d’Azure, vous pouvez sélectionner ce serveur dans la liste.
    - **Supprimer une adresse** : sélectionnez **...** en regard du serveur à supprimer, puis **Supprimer**. La suppression du serveur ne supprime que le serveur de cette liste de réseaux virtuels. Le serveur DNS reste enregistré dans Azure pour être utilisé par vos autres réseaux virtuels.
    - **Réorganiser les adresses des serveurs DNS** : il est important de vérifier que les serveurs DNS sont listés dans l’ordre approprié pour votre environnement. Ils sont utilisés dans l’ordre où ils sont spécifiés. Ils ne fonctionnent pas comme un tourniquet (round robin). Si le premier serveur DNS de la liste est accessible, le client utilise celui-ci, qu’il fonctionne correctement ou non. Supprimez tous les serveurs DNS répertoriés, puis rajoutez-les dans l’ordre souhaité.
@@ -150,7 +150,7 @@ Toutes les machines virtuelles connectées au réseau virtuel s’inscrivent aup
 **Commandes**
 
 - Azure CLI : [az network vnet update](/cli/azure/network/vnet)
-- PowerShell : [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
+- PowerShell : [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>Supprimer un réseau virtuel
 
@@ -165,13 +165,13 @@ Vous pouvez supprimer un réseau virtuel uniquement si aucune ressource n’est 
 **Commandes**
 
 - Azure CLI : [azure network vnet delete](/cli/azure/network/vnet)
-- PowerShell : [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
+- PowerShell : [Remove-AzVirtualNetwork](/powershell/module/az.network/remove-azvirtualnetwork)
 
 ## <a name="permissions"></a>Autorisations
 
 Pour effectuer des tâches sur des réseaux virtuels, votre compte doit posséder le rôle de [contributeur de réseaux](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un rôle [personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des actions appropriées qui sont répertoriées dans le tableau suivant :
 
-| Action                                  |   Nom                                |
+| Action                                  |   Name                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Lire un réseau virtuel              |
 |Microsoft.Network/virtualNetworks/write  |   Création ou mise à jour d’un réseau virtuel  |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 8eb8075454dc3a49e9525d566c34c64bab8be5a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083443"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530100"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Déployer IBM DB2 pureScale sur Azure
 
@@ -27,7 +27,7 @@ Cet article décrit comment déployer un [exemple d’architecture](ibm-db2-pure
 
 Pour suivre les étapes de la migration, consultez les scripts d’installation dans le dépôt [DB2onAzure](https://aka.ms/db2onazure) sur GitHub. Ces scripts reposent sur l’architecture d’une charge de travail de traitement transactionnel en ligne (OLTP) classique de taille moyenne.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Pour déployer cette architecture, téléchargez et exécutez le script deploy.sh qui se trouve dans le dépôt [DB2onAzure](https://aka.ms/db2onazure) sur GitHub.
 
@@ -40,33 +40,35 @@ Le dépôt comporte également des scripts pour la configuration d’un tableau 
 
 Le script deploy.sh crée et configure les ressources Azure pour cette architecture. Le script vous invite à indiquer l’abonnement Azure et les machines virtuelles utilisées dans l’environnement cible, puis :
 
--   Il configure le groupe de ressources, le réseau virtuel et les sous-réseaux sur Azure pour l’installation.
+-   Configure le groupe de ressources, le réseau virtuel et les sous-réseaux sur Azure pour l’installation.
 
--   Il configure les groupes de sécurité réseau et SSH pour l’environnement.
+-   Configure les groupes de sécurité réseau et SSH pour l'environnement.
 
--   Il configure des cartes réseau sur les machines virtuelles GlusterFS et DB2 pureScale.
+-   Configure plusieurs cartes réseau sur les machines virtuelles de stockage partagé et DB2 pureScale.
 
--   Il crée les machines virtuelles de stockage GlusterFS.
+-   Crée les machines virtuelles de stockage partagé. Si vous utilisez des espaces de stockage direct ou une autre solution de stockage, consultez [Vue d'ensemble des espaces de stockage direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview).
 
--   Il crée la machine virtuelle de rebond.
+-   Crée la machine virtuelle jumpbox.
 
--   Il crée les machines virtuelles DB2 pureScale.
+-   Crée les machines virtuelles DB2 pureScale.
 
--   Il crée la machine virtuelle témoin sur laquelle DB2 pureScale effectue un test ping.
+-   Crée la machine virtuelle témoin sur laquelle DB2 pureScale effectue un test ping. Ignorez cette partie du déploiement si votre version de DB2 pureScale ne requiert aucun témoin.
 
--   Il crée une machine virtuelle Windows à utiliser pour le test, mais n’installe rien dessus.
+-   Crée une machine virtuelle Windows à utiliser pour le test, mais n'installe rien sur celle-ci.
 
-Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte à GlusterFS. Cette solution vous donne également la possibilité d’installer les cibles iSCSI sous la forme d’un nœud Windows unique. iSCSI fournit une interface de stockage de bloc partagé sur TCP/IP qui permet à la procédure d’installation deDB2 pureScale d’utiliser une interface d’appareil pour se connecter à un stockage partagé. Pour vous familiariser avec GlusterFS, consultez la rubrique [Architecture : types de volumes](https://docs.gluster.org/en/latest/Quick-Start-Guide/Architecture/) dans la documentation Gluster Docs.
+Ensuite, les scripts de déploiement configurent un réseau de zone de stockage virtuel (vSAN) iSCSI pour le stockage partagé sur Azure. Dans cet exemple, iSCSI se connecte au cluster de stockage partagé. Dans la solution client d'origine, GlusterFS était utilisé. Toutefois, IBM ne prend plus en charge cette approche. Pour continuer à bénéficier de la prise en charge d'IBM, vous devez utiliser un système de fichiers compatible iSCSI pris en charge. Les espaces de stockage direct sont proposés en option par Microsoft.
+
+Cette solution vous donne également la possibilité d’installer les cibles iSCSI sous la forme d’un nœud Windows unique. iSCSI fournit une interface de stockage de bloc partagé sur TCP/IP qui permet à la procédure d’installation deDB2 pureScale d’utiliser une interface d’appareil pour se connecter à un stockage partagé.
 
 Les scripts de déploiement exécutent les étapes générales suivantes :
 
-1.  Utiliser GlusterFS pour configurer un cluster de stockage partagé sur Azure. Cette étape implique au moins deux nœuds Linux. Pour plus d’informations sur la configuration, consultez [Setting up Red Hat Gluster Storage in Microsoft Azure](https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html/deployment_guide_for_public_cloud/chap-documentation-deployment_guide_for_public_cloud-azure-setting_up_rhgs_azure) dans la documentation de Red Hat Gluster.
+1.  Configurer un cluster de stockage partagé sur Azure. Cette étape implique au moins deux nœuds Linux.
 
-2.  Configurer une interface iSCSI Direct sur des serveurs Linux cibles pour GlusterFS. Pour plus d’informations sur la configuration, consultez [iSCSI GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/) dans le Guide d’administration GlusterFS.
+2.  Configurer une interface iSCSI Direct sur des serveurs Linux cibles pour le cluster de stockage partagé.
 
-3.  Configurer l’initiateur iSCSI sur les machines virtuelles Linux. L’initiateur accède au cluster GlusterFS en utilisant une cible iSCSI. Pour plus d’informations sur l’installation, consultez [Guide pratique pour configurer une cible et un initiateur iSCSI dans Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) dans la documentation RootUsers.
+3.  Configurer l’initiateur iSCSI sur les machines virtuelles Linux. L'initiateur accède au cluster de stockage partagé en utilisant une cible iSCSI. Pour plus d’informations sur l’installation, consultez [Guide pratique pour configurer une cible et un initiateur iSCSI dans Linux](https://www.rootusers.com/how-to-configure-an-iscsi-target-and-initiator-in-linux/) dans la documentation RootUsers.
 
-4.  Installer GlusterFS comme couche de stockage pour l’interface iSCSI.
+4.  Installez la couche de stockage partagé pour l'interface iSCSI.
 
 Une fois que les scripts ont créé l’appareil iSCSI, l’étape finale consiste à installer DB2 pureScale. Dans le cadre de la configuration de DB2 purescale, [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0057167.html) (anciennement nommé GPFS) est compilé et installé sur le cluster GlusterFS. Ce système de fichiers en cluster permet à DB2 pureScale de partager des données avec les machines virtuelles qui exécutent le moteur DB2 pureScale. Pour plus d’informations, consultez la documentation relative à [IBM Spectrum Scale](https://www.ibm.com/support/knowledgecenter/en/STXKQY_4.2.0/ibmspectrumscale42_welcome.html) sur le site web d’IBM.
 
@@ -140,8 +142,6 @@ Le dépôt GitHub inclut une Base de connaissances gérée par les auteurs. Cell
 Pour plus d’informations sur ces problèmes connus et d’autres, consultez le fichier kb.md dans le dépôt [DB2onAzure](https://aka.ms/DB2onAzure).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
--   [iSCSI GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
 
 -   [Création des utilisateurs nécessaires à l’installation d’une fonctionnalité DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 

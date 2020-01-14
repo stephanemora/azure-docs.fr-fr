@@ -5,16 +5,16 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532899"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75561952"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
-Le plan Azure Functions Premium est une option d’hébergement pour les applications de fonction. Il présente des avantages tels que la connectivité réseau virtuel, l’absence de démarrage à froid et du matériel de pointe.  Plusieurs applications de fonction peuvent être déployées sur le même plan Premium, et celui-ci vous permet de configurer la taille d’instance de calcul, la taille du plan de base et taille maximale de plan.  Pour une comparaison entre le plan Premium et d’autres types de plans et d’hébergements, voir [options de mise à l’échelle et d’hébergement de fonction](functions-scale.md).
+Le plan Azure Functions Premium (parfois appelé plan Elastic Premium) est une option d'hébergement destinée aux applications de fonction. Il présente des avantages tels que la connectivité réseau virtuel, l’absence de démarrage à froid et du matériel de pointe.  Plusieurs applications de fonction peuvent être déployées sur le même plan Premium, et celui-ci vous permet de configurer la taille d’instance de calcul, la taille du plan de base et taille maximale de plan.  Pour une comparaison entre le plan Premium et d’autres types de plans et d’hébergements, voir [options de mise à l’échelle et d’hébergement de fonction](functions-scale.md).
 
 ## <a name="create-a-premium-plan"></a>Créer un plan Premium
 
@@ -31,7 +31,7 @@ Dans cet exemple, remplacez `<RESOURCE_GROUP>` par votre groupe de ressources `<
 
 Une fois le plan créé, vous pouvez utiliser [az functionapp create](/cli/azure/functionapp#az-functionapp-create) pour créer votre application de fonction. Dans le portail, le plan et l’application sont créés en même temps. Pour obtenir un exemple de script Azure CLI complet, consultez [Créer une application de fonction sur le plan Premium](scripts/functions-cli-create-premium-plan.md).
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Les fonctionnalités suivantes sont disponibles pour les applications de fonction déployées sur un plan Premium.
 
@@ -45,7 +45,7 @@ Vous pouvez configurer le nombre d’instances chauffées au préalable sur le p
 
 ![Paramètres de mise à l’échelle élastique](./media/functions-premium-plan/scale-out.png)
 
-Vous pouvez également configurer des instances chauffées au préalable pour une application avec Azure CLI
+Vous pouvez également configurer des instances chauffées au préalable pour une application avec Azure CLI.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
@@ -76,7 +76,7 @@ Lorsque vous créez le plan, vous configurez deux paramètres : le nombre minim
 
 Si votre application nécessite un nombre d’instances supérieur à la taille de votre plan, elle peut continuer à monter en charge jusqu’à ce que le nombre d’instances atteigne la limite maximale en rafale.  Vous êtes facturé pour des instances dépassant la taille de votre plan uniquement quand elles sont en cours d’exécution et louées pour vous.  Nous nous efforçons d’augmenter l’échelle votre application jusqu’à la limite maximale définie, tandis que les instances minimales du plan sont garanties pour votre application.
 
-Vous pouvez configurer la taille et les nombres maximaux d’instances du plan via le portail Azure en sélectionnant les options **Scale Out** du plan ou une Function App déployée sur celui-ci (sous **Fonctionnalités de la plateforme**).
+Vous pouvez configurer la taille et les nombres maximums d'instances du plan via le portail Azure en sélectionnant les options **Scale Out** du plan ou une application de fonction déployée dans le cadre de celui-ci (sous **Fonctionnalités de la plateforme**).
 
 Vous pouvez également augmenter la limite maximale en rafale à partir d’Azure CLI :
 
@@ -103,27 +103,28 @@ Vous trouverez ci-dessous les régions prises en charge actuellement pour chaque
 |Centre de l’Australie| ✔<sup>1</sup> | |
 |Centre de l’Australie 2| ✔<sup>1</sup> | |
 |Australie Est| ✔ | |
-|Sud-Australie Est | ✔ | ✔ |
+|Sud-Australie Est | ✔ | ✔<sup>1</sup> |
 |Brésil Sud| ✔<sup>2</sup> |  |
 |Centre du Canada| ✔ |  |
 |USA Centre| ✔ |  |
 |Asie Est| ✔ |  |
-|USA Est | ✔ | ✔ |
+|USA Est | ✔ | ✔<sup>1</sup> |
 |USA Est 2| ✔ |  |
 |France Centre| ✔ |  |
-|Japon Est| ✔ | ✔ |
+|Allemagne Centre-Ouest| ✔ | |
+|Japon Est| ✔ | ✔<sup>1</sup> |
 |OuJapon Est| ✔ | |
 |Centre de la Corée| ✔ |  |
 |Centre-Nord des États-Unis| ✔ |  |
-|Europe Nord| ✔ | ✔ |
-|États-Unis - partie centrale méridionale| ✔ |  |
+|Europe Nord| ✔ | ✔<sup>1</sup> |
+|États-Unis - partie centrale méridionale| ✔ | ✔<sup>1</sup> |
 |Inde Sud | ✔ | |
-|Asie Sud-Est| ✔ | ✔ |
+|Asie Sud-Est| ✔ | ✔<sup>1</sup> |
 |Sud du Royaume-Uni| ✔ | |
 |Ouest du Royaume-Uni| ✔ |  |
-|Europe Ouest| ✔ | ✔ |
+|Europe Ouest| ✔ | ✔<sup>1</sup> |
 |Inde Ouest| ✔ |  |
-|USA Ouest| ✔ | ✔ |
+|USA Ouest| ✔ | ✔<sup>1</sup> |
 |USA Ouest 2| ✔ |  |
 
 <sup>1</sup> Montée en charge (scale out) maximale limitée à 20 instances.  

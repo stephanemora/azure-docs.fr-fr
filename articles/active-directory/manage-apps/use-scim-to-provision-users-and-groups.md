@@ -1,6 +1,6 @@
 ---
-title: Automatiser l’approvisionnement des applications avec SCIM dans Azure AD
-description: Apprenez à créer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser l'approvisionnement d’utilisateurs et de groupes dans vos applications.
+title: Créer un point de terminaison SCIM pour l'approvisionnement des utilisateurs dans des applications à partir d'Azure AD
+description: Apprenez à créer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser l'approvisionnement des utilisateurs et des groupes dans vos applications cloud.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: e43eae8b7308f71886d855bbc53f341bd674e6c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433809"
 ---
-# <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Approvisionnement d’utilisateurs SCIM avec Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Créer un point de terminaison SCIM et configurer l'approvisionnement des utilisateurs avec Azure Active Directory (Azure AD)
 
-Cet article explique comment utiliser System for Cross-Domain Identity Management ([SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)) pour automatiser l’approvisionnement et le déprovisionnement d'utilisateurs et de groupes dans une application. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
+En tant que développeur d'applications, vous pouvez utiliser l'API de gestion des utilisateurs SCIM (System for Cross-Domain Identity Management) pour activer l'approvisionnement automatique des utilisateurs et des groupes entre votre application et Azure AD. Cet article explique comment créer un point de terminaison SCIM et l'intégrer au service d'approvisionnement Azure AD. La spécification SCIM fournit un schéma utilisateur commun pour l’approvisionnement. Utilisée conjointement avec des normes de fédération comme SAML ou OpenID Connect, la spécification SCIM offre aux administrateurs une solution de bout en bout basée sur des normes pour la gestion des accès.
 
 La spécification SCIM est une définition normalisée de deux points de terminaison : un point de terminaison/Users et un point de terminaison/Groups. Elle utilise des verbes REST communs pour créer, mettre à jour et supprimer des objets, ainsi qu’un schéma prédéfini pour les attributs courants tels que le nom de groupe, le nom d’utilisateur, le prénom, le nom et l'adresse e-mail. Les applications proposant une API REST SCIM 2.0 peuvent réduire ou éliminer les difficultés liées à l’utilisation d’une API de gestion des utilisateurs propriétaires. Par exemple, tout client SCIM conforme sait comment effectuer une requête HTTP POST d'objet JSON sur le point de terminaison/Users afin de créer une nouvelle entrée d’utilisateur. Sans devoir utiliser une API légèrement différente pour les mêmes actions de base, les applications conformes à la norme SCIM peuvent instantanément tirer parti des clients, des outils et du code existants. 
 
@@ -47,7 +47,7 @@ Automatiser et approvisionner une application implique de créer et d'intégrer 
 
 ![Procédure d’intégration d’un point de terminaison SCIM à Azure AD](media/use-scim-to-provision-users-and-groups/process.png)
 
-## <a name="step-1-design-your-user-and-group-schema"></a>Étape 1 : Concevoir votre schéma d'utilisateurs et de groupes
+## <a name="step-1-design-your-user-and-group-schema"></a>Étape 1 : Concevoir votre schéma d'utilisateurs et de groupes
 
 Chaque application requiert des attributs différents pour créer un utilisateur ou un groupe. Commencez votre intégration en identifiant les objets (utilisateurs, groupes) et attributs (nom, responsable, fonction, etc.) nécessaires à votre application. Vous pouvez ensuite utiliser le tableau ci-dessous pour comprendre comment les attributs requis par votre application peuvent être mappés à un attribut dans Azure AD et la RFC SCIM. Notez qu'il vous est possible de [personnaliser](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) la manière dont les attributs sont mappés entre Azure AD et votre point de terminaison SCIM. 
 
@@ -57,7 +57,7 @@ Les ressources du groupe sont identifiées par l’identificateur de schéma, `u
 
 Notez que vous n'êtes pas tenu de prendre en charge les utilisateurs et groupes, ou tous les attributs affichés ci-dessous. Ils sont fournis à des fins de référence sur la façon dont les attributs d'Azure AD sont souvent mappés à des propriétés dans le protocole SCIM.  
 
-### <a name="table-1-default-user-attribute-mapping"></a>Tableau 1 : Mappage d’attributs utilisateur par défaut
+### <a name="table-1-default-user-attribute-mapping"></a>Tableau 1 : Mappage d’attributs utilisateur par défaut
 
 | Utilisateur Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -90,7 +90,7 @@ Notez que vous n'êtes pas tenu de prendre en charge les utilisateurs et groupes
 | objectId |id |
 | proxyAddresses |emails[type eq "other"].Value |
 
-## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Étape 2 : Comprendre l'implémentation de SCIM Azure AD
+## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>Étape 2 : Comprendre l'implémentation de SCIM Azure AD
 > [!IMPORTANT]
 > La dernière mise à jour du comportement de l’implémentation SCIM d’Azure AD a été effectuée le 18 décembre 2018. Pour plus d’informations sur ce qui a changé, consultez [Conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD](application-provisioning-config-problem-scim-compatibility.md).
 
@@ -140,7 +140,7 @@ L’approvisionnement et le déprovisionnement de groupes sont facultatifs. L’
 Cette section fournit des exemples de requêtes SCIM émises par le client SCIM Azure AD et des exemples de réponses attendues. Pour de meilleurs résultats, vous devez coder votre application pour gérer ces demandes dans ce format et émettre les réponses attendues.
 
 > [!IMPORTANT]
-> Pour comprendre comment et quand le service d’approvisionnement d’utilisateur Azure AD émet les opérations décrites ci-dessous, consultez [Que se passe-t-il pendant l’approvisionnement ?](user-provisioning.md#what-happens-during-provisioning).
+> Pour comprendre comment et quand le service d'approvisionnement d'utilisateurs d'Azure AD émet les opérations décrites ci-dessous, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](how-provisioning-works.md).
 
 [Opérations utilisateur](#user-operations)
   - [Create User](#create-user) ([Request](#request) / [Response](#response))
@@ -1256,7 +1256,7 @@ Azure AD peut être configuré pour attribuer automatiquement des utilisateurs e
 Vérifiez avec votre fournisseur d’application ou dans la documentation du fournisseur de votre application la conformité à ces exigences.
 
 > [!IMPORTANT]
-> L’implémentation de SCIM d’Azure AD repose sur le service d’approvisionnement d’utilisateur Azure AD, conçu pour conserver constamment les utilisateurs synchronisés avec Azure AD et l’application cible, et implémente un ensemble très spécifique d’opérations standard. Il est important de comprendre ces comportements afin de cerner le comportement du client SCIM d’Azure AD. Pour plus d’informations, consultez [Que se passe-t-il pendant l’approvisionnement d’utilisateurs ?](user-provisioning.md#what-happens-during-provisioning).
+> L’implémentation de SCIM d’Azure AD repose sur le service d’approvisionnement d’utilisateur Azure AD, conçu pour conserver constamment les utilisateurs synchronisés avec Azure AD et l’application cible, et implémente un ensemble très spécifique d’opérations standard. Il est important de comprendre ces comportements afin de cerner le comportement du client SCIM d’Azure AD. Pour plus d'informations, consultez la section [Cycles d'approvisionnement : cycle initial et cycle incrémentiel](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) de l'article [Fonctionnement de l'approvisionnement](how-provisioning-works.md).
 
 ### <a name="getting-started"></a>Prise en main
 
@@ -1331,10 +1331,10 @@ Certaines applications autorisent le trafic entrant vers leur application. Pour 
 
 ## <a name="related-articles"></a>Articles connexes
 
-* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
-* [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
+* [Automatisation de l'approvisionnement et de l'annulation de l'approvisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
+* [Personnaliser les mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
 * [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
-* [Filtres d’étendue pour l’approvisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Filtres d’étendue pour le provisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notifications d’approvisionnement de comptes](user-provisioning.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
 

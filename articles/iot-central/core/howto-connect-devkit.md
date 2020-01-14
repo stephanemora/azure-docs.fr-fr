@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 270f92365823fb0f9378a9daae77dbbe08b53b14
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582982"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435080"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -25,12 +25,12 @@ Cet article vous explique comment, en tant que développeur d’appareils, vous 
 
 Pour effectuer les étapes de cet article, vous avez besoin des ressources suivantes :
 
-1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
+1. Une application Azure IoT Central créée à partir du modèle d’application **Application héritée**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
 
-## <a name="sample-devkits-application"></a>Exemple d'application Devkits
+## <a name="add-a-device-template"></a>Ajouter un modèle d’appareil
 
-Une application créée à partir du modèle d’application **Exemples de Devkits** comprend un modèle d’appareil **MXChip** qui définit les caractéristiques d’appareil suivantes :
+Dans votre application Azure IoT Central, ajoutez un nouveau modèle d’appareil **MXChip** qui définit les caractéristiques d’appareil suivantes :
 
 - données de télémétrie **d’humidité**, de **température**, de **pression**, du **magnétomètre** (mesurées le long des axes X, Y et Z), de **l’accéléromètre** (mesurées le long des axes X, Y et Z) et du **gyroscope** (mesurées le long des axes X, Y et Z) ;
 - mesure de **l’état de l’appareil** ;
@@ -40,6 +40,11 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 - propriété cloud **Fabriqué dans** ;
 - commandes **Écho** et **Compte à rebours**. Quand un appareil réel reçoit une commande **Écho**, la valeur envoyée est affichée sur l’écran de l’appareil. Quand un appareil réel reçoit une commande **Compte à rebours**, la LED parcourt un modèle, puis l’appareil renvoie les valeurs de compte à rebours à IoT Central.
 
+1. Sélectionnez **+ Nouveau** à partir du ![Modèle d’appareil](media/howto-connect-devkit/adddevicetemplate.png) des modèles d’appareil
+   
+
+2. Sélectionnez **MXChip** et créez le modèle d’appareil MXChip ![Ajouter un modèle d’appareil](media/howto-connect-devkit/newtemplate.png)
+
 Pour plus d’informations sur la configuration, consultez [Détails du modèle d’appareil MXChip](#mxchip-device-template-details).
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
@@ -48,7 +53,7 @@ Pour plus d’informations sur la configuration, consultez [Détails du modèle 
 
 Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **MXChip** et notez les détails de la connexion de l’appareil : **ID de portée, ID d’appareil et Clé primaire** :
 
-1. Ajoutez un **appareil réel** à partir de l’Explorateur d’appareils, puis sélectionnez **+ Nouveau > Réel** pour ajouter un appareil réel.
+1. Ajoutez un **appareil réel** à partir d’Appareils, puis sélectionnez **+ Nouveau > Réel** pour ajouter un appareil réel.
 
     * Entrez un **ID d’appareil** en minuscules ou utilisez **l’ID d’appareil** suggéré.
     * Entrez un **Nom de l’appareil** ou utilisez le nom suggéré.
@@ -194,7 +199,7 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 
 #### <a name="telemetry"></a>Télémétrie
 
-| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
+| Nom du champ     | Units  | Minimum | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -210,12 +215,12 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
 
 #### <a name="states"></a>États 
-| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| Name          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
 
 #### <a name="events"></a>Événements 
-| Nom             | Nom complet      | 
+| Name             | Nom complet      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Bouton B enfoncé  | 
 
@@ -223,7 +228,7 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| Nom complet | Nom du champ | Units | Nombre de décimales | Minimum | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
@@ -233,13 +238,13 @@ Paramètres de bascule
 
 | Nom complet | Nom du champ | Texte pour Activé | Texte pour Désactivé | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ACTIVÉ      | ÉTEINT      | Off     |
+| IR           | activateIR | ACTIVÉ      | OFF      | Off     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
 | Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
-| Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
+| Propriété d’appareil | Numéro gravé   | dieNumber  | nombre    |
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
 | Texte            | Fabriqué dans     | manufacturedIn   | N/A       |
 
@@ -248,7 +253,7 @@ Paramètres de bascule
 | Nom complet | Nom du champ | Type de retour | Nom d’affichage du champ d’entrée | Nom du champ d’entrée | Type de champ d’entrée |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
 | Écho         | echo       | text        | Valeur à afficher         | displayedValue   | text             |
-| Compte à rebours    | countdown  | number      | Compter à partir de               | countFrom        | number           |
+| Compte à rebours    | countdown  | nombre      | Compter à partir de               | countFrom        | nombre           |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

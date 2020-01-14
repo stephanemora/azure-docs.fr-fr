@@ -1,26 +1,26 @@
 ---
 title: Vue d’ensemble du portail Azure | Microsoft Docs
-description: Utilisez l’expérience guidée du Centre de démarrage rapide Azure pour commencer à utiliser Azure
+description: Utilisez l’expérience guidée du Centre de démarrage rapide Azure pour commencer à utiliser Azure. Apprenez à configurer, migrer et innover.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
+author: mblythe
+ms.author: mblythe
 ms.date: 09/13/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 5086198a4e4efafe3ac05f1f182f7f09d867a709
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: fee28313d5b3d5e9b8eed73bed92020508b36e3e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076730"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640123"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Bien démarrer avec le Centre de démarrage rapide Azure
 
 Le Centre de démarrage rapide Azure est une expérience guidée du portail Azure disponible pour toute personne souhaitant améliorer sa connaissance d’Azure. Pour les organisations qui débutent dans Azure, il s’agit de la méthode la plus rapide pour intégrer et configurer votre environnement cloud.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le Centre de démarrage rapide Azure propose trois options pour la mise en route :
 
@@ -32,7 +32,7 @@ Le Centre de démarrage rapide Azure propose trois options pour la mise en route
 
 ## <a name="how-to-use-azure-quickstart-center"></a>Utilisation du Centre de démarrage rapide Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans la section supérieure de la barre latérale.
 1. Sélectionnez **Général** > **Centre de démarrage rapide**. Sélectionnez l’icône représentant une étoile pour l’enregistrement dans vos **favoris**.
 

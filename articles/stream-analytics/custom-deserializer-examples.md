@@ -1,25 +1,24 @@
 ---
-title: Utiliser des désérialiseurs .NET pour les travaux Azure Stream Analytics
+title: Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés dans Azure Stream Analytics
 description: Cet article explique le format de sérialisation et les interfaces qui définissent les désérialiseurs .NET personnalisés pour les tâches Azure Stream Analytics cloud et Edge.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 12/30/2019
+ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024937"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75553016"
 ---
-# <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Utiliser des désérialiseurs .NET pour les travaux Azure Stream Analytics
+# <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés
 
 Les désérialiseurs .NET personnalisés permettent à votre travail Azure Stream Analytics de lire des données à partir de formats en dehors des trois [formats de données intégrés](stream-analytics-parsing-json.md). Cet article explique le format de sérialisation et les interfaces qui définissent les désérialiseurs .NET personnalisés pour les tâches Azure Stream Analytics cloud et Edge. Il existe également des exemples de désérialiseurs pour la mémoire tampon de protocole et le format CSV.
 
-## <a name="custom-net-deserializer"></a>Désérialiseur .NET personnalisé
+## <a name="net-custom-deserializer"></a>Désérialiseur .NET personnalisé
 
 Les exemples de code suivants sont les interfaces qui définissent le désérialiseur personnalisé et implémentent `StreamDeserializer<T>`.
 
@@ -226,20 +225,20 @@ La classe `serializationClassName` doit implémenter `StreamDeserializer<T>`. Ce
 
 Cette fonctionnalité est disponible dans les régions suivantes :
 
-* USA Centre-Ouest (disponible)
-* Europe Nord (disponible)
-* USA Est (disponible)
-* USA Ouest (déploiement à venir)
-* USA Est 2 (déploiement à venir)
-* Europe Ouest (déploiement à venir)
+* Centre-USA Ouest
+* Europe Nord
+* USA Est
+* USA Ouest
+* USA Est 2
+* Europe Ouest
 
 Vous pouvez faire une [demande de prise en charge](https://aka.ms/ccodereqregion) pour des régions supplémentaires.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="when-will-this-feature-be-available-in-all-azure-regions"></a>Quand cette fonctionnalité sera-t-elle disponible dans toutes les régions Azure ?
 
-Cette fonctionnalité est disponible dans 6 régions (#region-support). Si vous êtes intéressé par l’utilisation de cette fonctionnalité dans une autre région, vous pouvez [envoyer une demande](https://aka.ms/ccodereqregion). La prise en charge de toutes les régions Azure fait partie de la feuille de route.
+Cette fonctionnalité est disponible dans [6 régions](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples#region-support). Si vous êtes intéressé par l’utilisation de cette fonctionnalité dans une autre région, vous pouvez [envoyer une demande](https://aka.ms/ccodereqregion). La prise en charge de toutes les régions Azure fait partie de la feuille de route.
 
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>Puis-je accéder à MetadataPropertyValue à partir de mes entrées similaires à la fonction GetMetadataPropertyValue ?
 
@@ -251,4 +250,4 @@ Une fois que vous avez implémenté votre désérialiseur, vous pouvez aider d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Désérialiseurs .NET personnalisés pour les tâches travaux cloud d’Azure Stream Analytics](custom-deserializer.md)
+* [Désérialiseurs .NET personnalisés pour les travaux cloud Azure Stream Analytics](custom-deserializer.md)

@@ -1,25 +1,18 @@
 ---
-title: Créer des clusters Azure Service Fabric sur Windows Server et Linux | Microsoft Docs
+title: Créer des clusters sur Windows Server et Linux
 description: Les clusters Service Fabric peuvent être exécutés sous Windows Server et Linux, ce qui vous permet de déployer et d’héberger des applications Service Fabric partout où vous pouvez exécuter Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: edb6a84762ce65e65ff33492f3a7bcebbce60777
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b6942c2a0647401df0d88b83e1b144ca3207a6db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390376"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614670"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Vue d’ensemble des clusters Service Fabric sur Azure
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
@@ -68,14 +61,14 @@ Un cluster Service Fabric est une ressource que vous possédez.  Il vous incombe
 ### <a name="node-to-node-security"></a>Sécurité nœud à nœud
 La sécurité nœud à nœud sécurise la communication entre les machines virtuelles ou les ordinateurs d’un cluster. Ce scénario de sécurité garantit que seuls les ordinateurs qui sont autorisés à rejoindre le cluster peuvent participer à l’hébergement des applications et des services du cluster. Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications.  Un certificat de cluster est nécessaire pour sécuriser le trafic de cluster et fournir une authentification de cluster et de serveur.  Les certificats auto-signés peuvent être utilisés pour les clusters de test, mais un certificat émis par une autorité de certification approuvée doit être utilisé pour sécuriser les clusters de production.
 
-Pour plus d’informations, consultez [Sécurité nœud à nœud](service-fabric-cluster-security.md#node-to-node-security).
+Pour plus d’informations, consultez [Sécurité nœud à nœud](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Sécurité client à nœud
 La sécurité client à nœud authentifie les clients et sécurise la communication entre un client et les nœuds du cluster. Ce type de sécurité aide à garantir que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées sur le cluster. Les clients sont identifiés de manière unique grâce à leurs informations d’identification de sécurité de certificat X.509. Il est possible d’utiliser un nombre quelconque de certificats clients facultatifs pour authentifier les clients d’administration ou d’utilisateur auprès du cluster.
 
 En plus des certificats clients, Azure Active Directory peut également être configuré pour authentifier des clients auprès du cluster.
 
-Pour plus d’informations, consultez [Sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security).
+Pour plus d’informations, consultez [Sécurité client à nœud](service-fabric-cluster-security.md#client-to-node-security)
 
 ### <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 Le contrôle d’accès en fonction du rôle (RBAC) vous permet d’affecter des contrôles d’accès affinés sur des ressources Azure.  Vous pouvez affecter des règles d’accès différentes à des abonnements, des groupes de ressources et des ressources.  Les règles RBAC sont héritées le long de la hiérarchie des ressources, sauf si elles sont remplacées à un niveau inférieur.  Vous pouvez affecter n’importe quel utilisateur ou n’importe quels groupes d’utilisateurs sur votre instance AAD avec des règles RBAC afin que les utilisateurs et les groupes désignés puissent modifier votre cluster.  Pour plus d’informations, lisez la [vue d’ensemble des rôles RBAC Azure](/azure/role-based-access-control/overview).
@@ -108,7 +101,7 @@ Vous pouvez créer des clusters sur des machines virtuelles qui exécutent ces s
 | Windows Server 2012 R2 | Toutes les versions |
 | Windows Server 2016 | Toutes les versions |
 | Windows Server 1709 | 6.0 |
-| Windows Server 1803 | 6.4. |
+| Windows Server 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
 | Linux Ubuntu 16.04 | 6.0 |

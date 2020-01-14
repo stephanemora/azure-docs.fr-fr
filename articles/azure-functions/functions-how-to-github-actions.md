@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 18ba99077592a7d03e19fda86bc61e5839b82b5e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226911"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433158"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Livraison continue à l’aide de GitHub Actions
 
@@ -64,18 +64,11 @@ GitHub peut à présent s’authentifier auprès de votre application de fonctio
 
 ## <a name="set-up-the-environment"></a>Configurer l’environnement 
 
-La configuration de l’environnement peut être effectuée à l’aide de l’une des actions de configuration de publication.
+La configuration de l’environnement s’effectue à l’aide d’une action de configuration de publication spécifique à une langue.
 
-|Langage | Action de configuration |
-|---------|---------|
-|**.NET**     | `actions/setup-dotnet` |
-|**Java**    | `actions/setup-java` |
-|**JavaScript**     | `actions/setup-node` |
-|**Python**   | `actions/setup-python` |
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Les exemples suivants illustrent la partie du workflow qui configure l’environnement pour les différents langages pris en charge :
-
-**JavaScript**
+L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-node` pour configurer l’environnement :
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -88,7 +81,9 @@ Les exemples suivants illustrent la partie du workflow qui configure l’environ
         node-version: '10.x'
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-python` pour configurer l’environnement :
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -101,7 +96,9 @@ Les exemples suivants illustrent la partie du workflow qui configure l’environ
         python-version: 3.6
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-dotnet` pour configurer l’environnement :
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -114,7 +111,9 @@ Les exemples suivants illustrent la partie du workflow qui configure l’environ
         dotnet-version: '2.2.300'
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’exemple suivant illustre la partie du flux de travail qui utilise l’action `actions/setup-java` pour configurer l’environnement :
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -128,14 +127,15 @@ Les exemples suivants illustrent la partie du workflow qui configure l’environ
         # Please change the Java version to match the version in pom.xml <maven.compiler.source>
         java-version: '1.8.x'
 ```
+---
 
 ## <a name="build-the-function-app"></a>Générer l’application de fonction
 
 Cela dépend du langage et pour les langages pris en charge par Azure Functions, cette section doit correspondre aux étapes de génération standard de chaque langage.
 
-Les exemples suivants illustrent la partie du workflow qui génère l’application de fonction, dans les différents langages pris en charge :
+L’exemple suivant illustre la partie du flux de travail qui génère l’application de fonction, qui est propre à la langue :
 
-**JavaScript**
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -150,7 +150,7 @@ Les exemples suivants illustrent la partie du workflow qui génère l’applicat
         popd
 ```
 
-**Python**
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -164,7 +164,7 @@ Les exemples suivants illustrent la partie du workflow qui génère l’applicat
         popd
 ```
 
-**.NET**
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -177,7 +177,7 @@ Les exemples suivants illustrent la partie du workflow qui génère l’applicat
         popd
 ```
 
-**Java**
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'
@@ -190,6 +190,7 @@ Les exemples suivants illustrent la partie du workflow qui génère l’applicat
         mvn azure-functions:package
         popd
 ```
+---
 
 ## <a name="deploy-the-function-app"></a>Déployer l’application de fonction
 

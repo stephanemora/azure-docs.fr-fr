@@ -1,5 +1,5 @@
 ---
-title: Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+title: Demander un package d’accès dans la gestion des droits d’utilisation Azure AD
 description: Découvrez comment utiliser le portail Mon Accès pour demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5a49c69b0f96add61501d9e2c5fc00ba564eba2a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554089"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422541"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -124,4 +124,4 @@ Si vous envoyez une demande d’accès et que l’état de la demande est toujou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Approuver ou refuser les demandes d’accès](entitlement-management-request-approve.md)
-- [Processus de demande et notifications par e-mail](entitlement-management-process.md)
+- [Processus de requête et notifications par e-mail](entitlement-management-process.md)

@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.custom: seo-lt-2019
-ms.date: 12/06/2019
-ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443948"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>Résoudre les problèmes de flux de données Azure Data Factory
 
@@ -92,8 +92,18 @@ Cet article présente des méthodes couramment employées pour résoudre les pro
 
 - **Cause** : Les flux joints portent des noms de colonnes communs
 
-- **Résolution** : Ajoutez un transformation Select après la jointure et sélectionnez « Supprimer les colonnes dupliquées » pour l’entrée et la sortie.
+- **Résolution** : Ajoutez une transformation Select après la jointure et sélectionnez « Supprimer les colonnes dupliquées » pour l’entrée et la sortie.
 
+### <a name="error-message-possible-cartesian-product"></a>Message d’erreur : Produit cartésien possible
+
+- **Symptômes** : La transformation de jointure ou de recherche a détecté un produit cartésien possible lors de l’exécution de votre flux de données
+
+- **Cause** : Si vous n’avez pas explicitement demandé à ADF d’utilise une jointure croisée, le flux de données peut échouer
+
+- **Résolution** : Modifiez votre transformation de recherche ou de jointure en jointure utilisant une jointure croisée personnalisée et entrez votre condition de recherche ou de jointure dans l’éditeur d’expressions. Si vous souhaitez générer explicitement un produit cartésien complet, utilisez la transformation de colonne dérivée dans chacun des deux flux indépendants avant la jointure pour créer une clé synthétique à faire correspondre. Par exemple, créez une colonne dans la colonne dérivée de chaque flux nommé ```SyntheticKey``` et affectez-lui la valeur ```1```. Utilisez ensuite ```a.SyntheticKey == b.SyntheticKey``` comme expression de jointure personnalisée.
+
+> [!NOTE]
+> Veillez à inclure au moins une colonne de chaque côté de votre relation (gauche et droite) dans une jointure croisée personnalisée. L’exécution de jointures croisées avec des valeurs statiques plutôt que des colonnes de chaque côté entraîne des analyses complètes de l’ensemble du jeu de données, provoquant un fonctionnement médiocre du flux de données.
 
 ## <a name="general-troubleshooting-guidance"></a>Instructions générales pour la résolution des problèmes
 

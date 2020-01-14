@@ -1,5 +1,6 @@
 ---
-title: Impossible d’ajouter un domaine personnalisé à l’aide d’un certificat Key Vault dans Gestion des API Azure | Microsoft Docs
+title: Impossible d’ajouter un domaine personnalisé à l’aide du certificat Key Vault
+titleSuffix: Azure API Management
 description: Découvrez comment résoudre le problème qui empêche d’ajouter un domaine personnalisé dans Gestion des API Azure à l’aide d’un certificat de coffre de clés.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
-ms.openlocfilehash: 5d31ec21e341c46c2f2d0ab49fdb2d4302c29dc6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a09c15466a4a9f62b2696b087cb7ab23cc767379
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430576"
 ---
 # <a name="failed-to-update-api-management-service-hostnames"></a>Échec de la mise à jour des noms d’hôte du service Gestion des API
 
@@ -43,11 +44,11 @@ Pour résoudre ce problème, effectuez les étapes suivantes :
 1. Sélectionnez **Stratégies d’accès**, puis vérifiez qu’il existe un principal de service dont le nom correspond à celui de l’instance du service Gestion des API. Si c’est le cas, sélectionnez le principal de service, et vérifiez que l’autorisation **GET** figure bien sous **Autorisations du secret**.  
     ![Ajout d’une stratégie d’accès pour le principal de service](./media/api-management-troubleshoot-cannot-add-custom-domain/access-policy.png)
 1. Si le service Gestion des API ne figure pas dans la liste, sélectionnez **Ajouter une stratégie d’accès**, puis créez la stratégie d’accès suivante :
-    - **Configurer à partir du modèle** : Aucun
+    - **Configurer à partir du modèle** : None
     - **Sélectionner le principal** : recherchez le nom du service Gestion des API, puis sélectionnez-le dans la liste.
-    - **Autorisations de clé** : Aucun
+    - **Autorisations de clé** : None
     - **Autorisations du secret** : Obtenir
-    - **Autorisations de certificat** : Aucun
+    - **Autorisations de certificat** : None
 1. Sélectionnez **OK** pour créer la stratégie d’accès.
 1. Sélectionnez **Enregistrer** pour enregistrer les modifications.
 
