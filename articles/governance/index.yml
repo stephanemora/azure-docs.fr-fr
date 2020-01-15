@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: 04a7d8a791b716b446101afe9b32ab83759c7a49
-  ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+  ms.openlocfilehash: b88d17578156aa391690efa214b46d23a100a4b8
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/20/2019
-  ms.locfileid: "74210155"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75982521"
 highlightedContent:
   items:
   - title: Vue d’ensemble de la gouvernance
@@ -38,14 +38,14 @@ productDirectory:
     imageSrc: ./media/management-groups.svg
     links:
     - url: ./management-groups/overview.md
-      text: Vue d'ensemble
+      text: Vue d’ensemble
     - url: ./management-groups/index.yml
-      text: En savoir plus >
+      text: En savoir plus >
   - title: Azure Policy
     imageSrc: ./media/azure-policy.svg
     links:
     - url: ./policy/overview.md
-      text: Vue d'ensemble
+      text: Vue d’ensemble
     - url: ./policy/how-to/get-compliance-data.md
       text: Évaluer la conformité
     - url: ./policy/concepts/rego-for-aks.md
@@ -58,7 +58,7 @@ productDirectory:
     imageSrc: ./media/azure-blueprints.svg
     links:
     - url: ./blueprints/overview.md
-      text: Vue d'ensemble
+      text: Vue d’ensemble
     - url: ./blueprints/tutorials/protect-new-resources.md
       text: Protéger les ressources
     - url: ./blueprints/index.yml
@@ -67,21 +67,21 @@ productDirectory:
     imageSrc: ./media/azure-resource-graph.svg
     links:
     - url: ./resource-graph/overview.md
-      text: Vue d'ensemble
+      text: Vue d’ensemble
     - url: ./resource-graph/concepts/explore-resources.md
       text: Explorer vos ressources Azure
     - url: ./resource-graph/how-to/get-resource-changes.md
-      text: Suivi des modifications
+      text: Suivre les modifications
     - url: ./resource-graph/index.yml
       text: En savoir plus >
   - title: Cost Management
     imageSrc: ./media/cost-management.svg
     links:
-    - url: ../cost-management/overview-cost-mgt.md
-      text: Vue d'ensemble
-    - url: ../cost-management/aws-integration-manage.md
+    - url: ../cost-management-billing/cost-management-billing-overview.md
+      text: Vue d’ensemble
+    - url: ../cost-management-billing/costs/aws-integration-manage.md
       text: Gérer le coût et l’utilisation d’AWS
-    - url: ../cost-management/index.yml
+    - url: ../cost-management-billing/index.yml
       text: En savoir plus >
 tools:
   title: Exemples
@@ -105,7 +105,7 @@ additionalContent:
     items:
     - title: Groupes d'administration
       links:
-      - text: D’Azure CLI
+      - text: Azure CLI
         url: /cli/azure/ext/managementgroups/?view=azure-cli-latest
       - text: Azure PowerShell
         url: /powershell/module/az.resources/#resources
@@ -115,7 +115,7 @@ additionalContent:
         url: /javascript/api/@azure/arm-managementgroups/managementgroups
     - title: Azure Policy
       links:
-      - text: D’Azure CLI
+      - text: Azure CLI
         url: /cli/azure/policy
       - text: Azure PowerShell
         url: /powershell/module/az.resources/#policies
@@ -164,7 +164,7 @@ additionalContent:
         url: /rest/api/blueprints/
     - title: Azure Resource Graph
       links:
-      - text: D’Azure CLI
+      - text: Azure CLI
         url: /cli/azure/ext/resource-graph/graph
       - text: Azure PowerShell
         url: /powershell/module/az.resourcegraph/

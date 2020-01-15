@@ -1,6 +1,6 @@
 - name: Documentation Media Services
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Media Services
       href: media-services-overview.md
@@ -44,7 +44,7 @@
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Concepts
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: concepts-overview.md
     - name: Comptes
       items:
@@ -68,7 +68,7 @@
           href: job-error-codes.md
     - name: Encodage du contenu
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: encoding-concept.md
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Formats d’encodeur standard
@@ -77,10 +77,10 @@
         - name: Autogen échelle de débit adaptatif
           href: autogen-bitrate-ladder.md
         - name: Encodage sensible au contenu
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: Analyse du contenu (Video Indexer)
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyzing, presets, jobs'
         - name: Transformations et travaux
@@ -128,7 +128,7 @@
           href: content-key-policy-concept.md
     - name: Vidéo en flux continu
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: live-streaming-overview.md
         - name: Événements en direct et Sorties en direct
           href: live-events-outputs-concept.md
@@ -162,7 +162,7 @@
           href: use-azure-media-player.md
     - name: Développement avec les API v3
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: media-services-apis-overview.md
           displayName: 'accessing, long-running, sdk, invalid character, name, naming, file name'
         - name: 'Paginer, filtrer et classer des entités'
@@ -180,7 +180,7 @@
       displayName: naming
 - name: Guides pratiques
   items:
-    - name: Prise en main
+    - name: Bien démarrer
       items:
         - name: Créer un compte - CLI
           href: create-account-cli-how-to.md
@@ -301,7 +301,7 @@
       displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: Kits SDK
       items:
@@ -338,7 +338,7 @@
       href: 'https://aka.ms/ams-v3-rest-sdk'
     - name: Kits de développement logiciel/outils
       items:
-        - name: D’Azure CLI
+        - name: Azure CLI
           href: 'https://aka.ms/ams-v3-cli'
         - name: .NET
           href: 'https://aka.ms/ams-v3-dotnet-sdk'
@@ -356,7 +356,7 @@
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Quotas et limitations
       href: limits-quotas-constraints.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: frequently-asked-questions.md
     - name: Clouds et régions Azure
       href: azure-clouds-regions.md
