@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 32ab81d618cb0a6ee40814b644ad934008ee7719
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927957"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438826"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -42,7 +42,7 @@ La procédure suivante fournit des instructions pas à pas pour créer une activ
 > - Il n’est pas possible d’utiliser une passerelle de gestion des données à partir d’une activité personnalisée pour accéder à des sources de données locales. Actuellement, la [passerelle de gestion des données](data-factory-data-management-gateway.md) prend en charge uniquement l’activité de copie et l’activité de procédure stockée dans Data Factory.
 
 ## <a name="walkthrough-create-a-custom-activity"></a>Procédure pas à pas : création d’une activité personnalisée
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 * Visual Studio 2012/2013/2015/2017
 * Téléchargez et installez le [Kit de développement logiciel (SDK) Azure .NET](https://azure.microsoft.com/downloads/)
 
@@ -414,7 +414,7 @@ Voici les étapes que vous effectuez dans cette section :
 > [!NOTE]
 > Créez le fichier **file.txt** et chargez-le dans un conteneur d’objets blob, si vous ne l’avez pas déjà fait. Consultez les instructions fournies dans la section précédente.
 
-### <a name="step-1-create-the-data-factory"></a>Étape 1 : Création de la fabrique de données
+### <a name="step-1-create-the-data-factory"></a>Étape 1 : Création de la fabrique de données
 1. Une fois connecté au portail Azure, procédez comme suit :
    1. Dans le menu de gauche, sélectionnez **Créer une ressource**.
    2. Dans le panneau **Nouveau**, cliquez sur **Données et analyses**.
@@ -432,7 +432,7 @@ Voici les étapes que vous effectuez dans cette section :
 
     ![Panneau Data Factory](media/data-factory-use-custom-activities/data-factory-blade.png)
 
-### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
+### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
 Les services liés se chargent de lier des magasins de données ou des services de calcul à une fabrique de données Azure. Dans cette étape, vous allez lier vos comptes Stockage Azure et Azure Batch à votre fabrique de données.
 
 #### <a name="create-azure-storage-linked-service"></a>Créer le service lié Stockage Azure
@@ -440,7 +440,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Stockage Microsoft Azure doit apparaître dans l’éditeur.
 
     ![Nouveau magasin de données - Stockage Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
+3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
     ![Service lié Stockage Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.
@@ -553,7 +553,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
    | 3 |2016-11-16T02:00:00 |2016-11-16-02.txt |
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
-   | 5\. |2016-11-16T04:00:00 |2016-11-16-04.txt |
+   | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
     N’oubliez pas que tous les fichiers d’un dossier d’entrée font partie d’une tranche associée aux heures de début indiquées ci-dessus. Lorsque cette tranche est traitée, l’activité personnalisée parcourt chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme de recherche (« Microsoft »). Si le dossier d’entrée comporte trois fichiers, trois lignes apparaissent dans le fichier de sortie pour chaque tranche horaire : 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, et ainsi de suite.
 3. Cliquez sur **Déployer** dans la barre de commandes pour déployer le **jeu de données de sortie**.

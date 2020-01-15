@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: e29041942157e720cce3414f7b6e6904667c1894
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 86b9230dbdca82c5599c1839fd64bd3df4725051
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435573"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Ajouter des comptes de stockage supplémentaires à HDInsight
 
@@ -21,10 +21,10 @@ Découvrez comment utiliser des actions de script pour ajouter des *comptes* de 
 > [!IMPORTANT]  
 > Les informations contenues dans ce document portent sur l’ajout d’un ou de plusieurs comptes de stockage supplémentaires à un cluster après sa création. Pour plus d’informations sur l’ajout de comptes de stockage lors de la création du cluster, consultez [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc](hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
-* Nom et clé du compte de stockage. Consultez [Gérer les paramètres de compte de stockage dans le portail Azure](../storage/common/storage-account-manage.md).
+* Nom et clé du compte de stockage. Consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md).
 * [Utilisez la bonne casse pour le nom du cluster](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name).
 * Si vous utilisez PowerShell, vous avez besoin du module AZ.  Consultez [Vue d’ensemble d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 * Si vous n’avez pas installé Azure CLI, consultez [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
@@ -34,9 +34,9 @@ Découvrez comment utiliser des actions de script pour ajouter des *comptes* de 
 
 Le script utilise les paramètres suivants :
 
-* __Nom du compte de stockage Azure__ : nom du compte de stockage à ajouter au cluster HDInsight. Une fois le script exécuté, HDInsight est en mesure de lire et d’écrire des données stockées dans ce compte de stockage.
+* __Nom du compte de Stockage Azure__ : nom du compte de stockage à ajouter au cluster HDInsight. Une fois le script exécuté, HDInsight est en mesure de lire et d’écrire des données stockées dans ce compte de stockage.
 
-* __Clé du compte de stockage Azure__ : clé qui donne accès au compte de stockage.
+* __Clé du compte de Stockage Azure__ : clé qui donne accès au compte de stockage.
 
 * __-p__ (facultatif) : si ce paramètre est spécifié, la clé n’est pas chiffrée et est stockée en texte brut dans le fichier core-site.xml.
 
@@ -59,7 +59,7 @@ Pendant le traitement, le script effectue les opérations suivantes :
 
 __Emplacement du script__ : [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
-__Conditions requises__ :  Le script doit être appliqué sur les __nœuds principaux__. Il n’est pas nécessaire de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari du cluster.
+__Exigences__ :  Le script doit être appliqué sur les __nœuds principaux__. Il n’est pas nécessaire de marquer ce script comme __Persistant__, car il met directement à jour la configuration Ambari du cluster.
 
 ## <a name="to-use-the-script"></a>Pour utiliser le script
 
@@ -86,7 +86,7 @@ Submit-AzHDInsightScriptAction `
     -Parameters $parameters
 ```
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 En utilisant [Submit-AzHDInsightScriptAction](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).  Remplacez `CLUSTERNAME`, `RESOURCEGROUP`, `ACCOUNTNAME`, et `ACCOUNTKEY` par les valeurs appropriées.
 

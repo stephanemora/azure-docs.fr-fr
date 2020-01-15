@@ -1,29 +1,22 @@
 ---
-title: Variables d’environnement Azure Service Fabric | Microsoft Docs
-description: Documentation de référence pour les variables d’environnement Service Fabric
-documentationcenter: .net
+title: Variables d’environnement d’Azure Service Fabric
+description: Découvrir les variables d’environnement dans Azure Service Fabric. Contient une référence à une liste complète de variables et à leurs utilisations.
 author: mikkelhegn
-manager: msfussell
-editor: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13522b1d9f2acd2aa3f7923c1b623fab696056d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946720"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645682"
 ---
 # <a name="service-fabric-environment-variables"></a>Variables d’environnement de Service Fabric
 
 Des variables d’environnement définies pour chaque instance de service sont intégrées à Service Fabric. Voici la liste complète des variables d’environnement :
 
-| Variable d’environnement                         | Description                                                            | Exemples                                                              |
+| Variable d’environnement                         | Description                                                            | Exemple                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nom de l’URI Fabric de l'application                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nom du package de code auquel appartient le processus              | Code                                                                 |

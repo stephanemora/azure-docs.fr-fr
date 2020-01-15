@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cac92da744b3d5b7aeaa325c7cc564a3d7e2abdd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 342ec46aabafec975d780aa03fe75d7e3cf50497
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380809"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424973"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
 Avec l’[accès conditionnel Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud. Dans une stratégie d’accès conditionnel, vous définissez la réponse (« faire ») sur la raison du déclenchement de votre stratégie (« quand cela se produit »).
 
-![Contrôle](./media/controls/10.png)
+![Control](./media/controls/10.png)
 
 Dans le contexte de l’accès conditionnel :
 
@@ -31,7 +31,7 @@ Dans le contexte de l’accès conditionnel :
 
 Une stratégie d’accès conditionnel combine une instruction de condition à des contrôles.
 
-![Contrôle](./media/controls/61.png)
+![Control](./media/controls/61.png)
 
 Chaque contrôle est soit une exigence qui doit être remplie par la personne ou le système qui se connecte, soit une restriction sur ce que l’utilisateur peut faire après la connexion.
 
@@ -49,7 +49,7 @@ Avec les contrôles d’octroi, vous pouvez bloquer l’accès complètement ou 
 - Tous les contrôles sélectionnés doivent être satisfaits (*AND*).
 - Un seul contrôle sélectionné doit être satisfait (*OR*).
 
-![Contrôle](./media/controls/18.png)
+![Control](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Authentification multifacteur
 
@@ -76,7 +76,7 @@ Pour plus d’informations, consultez le [guide pratique pour exiger des apparei
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Appareil joint Azure AD hybride
 
-Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint Azure AD hybride. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et postes de travail Windows joints à une instance sur site d’Active Directory. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Active Directory local et votre Azure Active Directory.  
+Pour configurer des stratégies d’accès conditionnel au niveau de l’appareil, vous pouvez également exiger un appareil joint Azure AD hybride. Cette exigence fait référence aux tablettes professionnelles, ordinateurs portables et postes de travail Windows joints à une instance sur site d’Active Directory. Si cette option est sélectionnée, votre stratégie d’accès conditionnel accorde l’accès aux tentatives avec des appareils joints à votre Active Directory local et votre Azure Active Directory. Les appareils Mac ne prennent pas en charge la jointure d’Azure AD hybride.
 
 Pour plus d’informations, consultez [Configurer des stratégies d’accès conditionnel au niveau de l’appareil Azure Active Directory](require-managed-devices.md).
 
@@ -114,7 +114,7 @@ Les fournisseurs suivants offrent un service compatible :
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [GSMA](https://mobileconnect.io/azure/)
 - [Identité Ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
-- RSA
+- [RSA](https://community.rsa.com/docs/DOC-81278)
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
@@ -133,11 +133,11 @@ Copiez les données JSON et collez-les dans la zone de texte correspondante. Ne 
 
 L’option permettant de créer un contrôle personnalisé se trouve dans la section **Gérer** de la page **Accès conditionnel**.
 
-![Contrôle](./media/controls/82.png)
+![Control](./media/controls/82.png)
 
 Cliquez sur **Nouveau contrôle personnalisé** pour ouvrir un panneau contenant une zone de texte réservée aux données JSON de votre contrôle.  
 
-![Contrôle](./media/controls/81.png)
+![Control](./media/controls/81.png)
 
 ### <a name="deleting-custom-controls"></a>Suppression de contrôles personnalisés
 
@@ -155,7 +155,7 @@ Pour modifier un contrôle personnalisé, vous devez supprimer le contrôle exis
 
 Les contrôles de session permettent de limiter l’expérience dans une application cloud. Les contrôles de session sont appliqués par les applications cloud et s’appuient sur des informations supplémentaires fournies par Azure AD à l’application concernant la session.
 
-![Contrôle](./media/controls/31.png)
+![Control](./media/controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Utiliser les restrictions appliquées par l’application
 

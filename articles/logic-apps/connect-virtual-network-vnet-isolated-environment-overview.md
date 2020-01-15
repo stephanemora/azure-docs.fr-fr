@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 9c4dca6dc5def1b1c458f28aa2d3ab992bd705d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792733"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527856"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
 Parfois, vos applications logiques et vos comptes d’intégration doivent accéder à des ressources sécurisées, comme des machines virtuelles et d’autres systèmes ou services à l’intérieur d’un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Pour configurer cet accès, vous pouvez [créer un *environnement de service d’intégration* (ISE, integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) dans lequel vous pouvez exécuter vos applications logiques et créer vos comptes d’intégration.
 
-Lorsque vous créez un environnement ISE, Azure *l'injecte* dans votre réseau virtuel Azure, qui déploie ensuite une instance privée et isolée du service Logic Apps dans votre réseau virtuel Azure. Cette instance privée utilise des ressources dédiées, comme du stockage, et s’exécute séparément à partir du service Logic Apps « mondial » public. La séparation entre votre instance privée isolée et l’instance globale publique permet également de réduire l’impact que les autres locataires Azure peuvent avoir sur les performances de vos applications, ce que l’on appelle également [l’effet « voisins bruyants »](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Lorsque vous créez un environnement ISE, Azure *l'injecte* dans votre réseau virtuel Azure, qui déploie ensuite une instance privée et isolée du service Logic Apps dans votre réseau virtuel Azure. Cette instance privée utilise des ressources dédiées, comme du stockage, et s’exécute séparément du service Logic Apps « mondial » multilocataire public. La séparation entre votre instance privée isolée et l’instance globale publique permet également de réduire l’impact que les autres locataires Azure peuvent avoir sur les performances de vos applications, ce que l’on appelle également [l’effet « voisins bruyants »](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). Un environnement ISE vous fournit également vos propres adresses IP statiques. Ces adresses IP sont séparées des adresses IP statiques qui sont partagées par les applications logiques dans le service multilocataire public.
 
 Après avoir créé votre ISE, lorsque vous vous apprêtez à créer votre application logique ou votre compte d’intégration, vous pouvez sélectionner votre ISE en tant qu’emplacement de l’application logique ou du compte d’intégration :
 
@@ -32,7 +32,7 @@ Votre application logique peut désormais accéder directement aux systèmes se 
 Cette vue d’ensemble explique de façon plus détaillée comment un environnement de service d’intégration permet aux applications logiques et aux comptes d’intégration d’accéder directement aux ressources à votre réseau virtuel Azure, et compare un environnement de service d’intégration au service Logic Apps mondial.
 
 > [!IMPORTANT]
-> Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez [Modèle de tarification Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification de Logic Apps](../logic-apps/logic-apps-pricing.md).
+> Les applications logiques, les déclencheurs et actions intégrés et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan de tarification que celui basé sur la consommation. Pour plus d’informations sur la tarification et la facturation des environnements de service d’intégration, consultez le [modèle de tarif pour Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](../logic-apps/logic-apps-pricing.md).
 >
 > Votre ISE a également augmenté les limites de durée d’exécution, de rétention du stockage, de débit, de délai d’attente des requêtes et réponses HTTP, de taille des messages et de requêtes de connecteur personnalisé. 
 > Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](logic-apps-limits-and-config.md).
@@ -47,7 +47,7 @@ Les applications logiques d’un ISE fournissent les mêmes expériences d’uti
 
 * Stockage Fichier, stockage Table et stockage Blob Azure
 * Files d’attente Azure, Azure Service Bus, Azure Event Hubs et IBM MQ
-* Système de fichiers, FTP et SFTP-SSH
+* FTP et SFTP-SSH
 * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 et EDIFACT
 
@@ -86,11 +86,13 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 
 ## <a name="ise-endpoint-access"></a>Point de terminaison d’accès ISE
 
-Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Ces points de terminaison déterminent si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel. Ces points de terminaison affectent également l’accès aux entrées et aux sorties dans l’historique d’exécution des applications logiques.
+Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Votre sélection détermine si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel.
 
-* **Interne** : Les points de terminaison privés qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *uniquement à partir de votre réseau virtuel*
+Ces points de terminaison influencent également la manière dont vous pouvez accéder aux entrées et aux sorties dans l’historique des exécutions de votre application logique.
 
-* **Externe** : Les points de terminaison publics qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *hors de votre réseau virtuel*
+* **Interne** : Les points de terminaison privés qui autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir des entrées et des sorties dans l’historique des exécutions et y accéder *uniquement de l’intérieur de votre réseau virtuel*
+
+* **Externe** : Les points de terminaison publics qui autorisent les appels à des applications logiques dans votre ISE, où vous pouvez voir des entrées et des sorties dans l’historique des exécutions et y accéder *de l’extérieur de votre réseau virtuel*. Si vous utilisez des groupes de sécurité réseau (NSG), assurez-vous qu’ils sont configurés avec des règles de trafic entrant pour autoriser l’accès aux entrées et sorties de l’historique des exécutions. Pour plus d'informations, consultez [Activer l’accès à ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
 
 > [!IMPORTANT]
 > L’option de point de terminaison d’accès est disponible uniquement lors de la création de votre ISE et ne peut pas être modifiée ultérieurement.
@@ -120,7 +122,7 @@ Dans le cas de systèmes locaux non connectés à un réseau virtuel ou sans con
 
 ## <a name="integration-accounts-with-ise"></a>Comptes d’intégration et environnement de service d’intégration
 
-Vous pouvez utiliser des comptes d’intégration avec des applications logiques à l’intérieur d’un environnement de service d’intégration. Cependant, ces comptes d’intégration doivent utiliser le *même ISE* que les applications logiques liées. Les applications logiques d’un ISE ne peuvent faire référence qu’aux comptes d’intégration se trouvant dans le même ISE. Lorsque vous créez un compte d’intégration, vous pouvez sélectionner votre ISE en tant qu’emplacement pour votre compte d’intégration. Pour plus d’informations sur la tarification et la facturation des comptes d’intégration avec un ISE, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
+Vous pouvez utiliser des comptes d’intégration avec des applications logiques à l’intérieur d’un environnement de service d’intégration. Cependant, ces comptes d’intégration doivent utiliser le *même ISE* que les applications logiques liées. Les applications logiques d’un ISE ne peuvent faire référence qu’aux comptes d’intégration se trouvant dans le même ISE. Lorsque vous créez un compte d’intégration, vous pouvez sélectionner votre ISE en tant qu’emplacement pour votre compte d’intégration. Pour plus d’informations sur la tarification et la facturation des comptes d’intégration avec un ISE, consultez [Modèle de tarification Logic apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pour connaître la tarification, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

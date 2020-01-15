@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c43f3021009c0c8a5a414b18bb9f0ff7d7a4a4bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837640"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427651"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio (classique)
 
@@ -27,7 +27,7 @@ Cet article explique comment utiliser le module Exécuter le script Python pour 
 
 L’interface principale de Python dans Studio (classique) est accessible via le module [Exécuter le script Python][execute-python-script]. Il accepte jusqu’à trois entrées et génère jusqu’à deux sorties, comme le module [Exécuter le script R][execute-r-script]. Le code Python est saisi dans la boîte de paramètres à l’aide d’une fonction de point d’entrée spécialement nommée, appelée `azureml_main`.
 
-![Module Exécuter le script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
+![Module Exécuter un script Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
 ![Exemple de code Python dans la zone des paramètres du module](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
 
@@ -53,7 +53,7 @@ La fonction `azureml_main` doit renvoyer une seule image de données Pandas empa
 
 ## <a name="translation-of-input-and-output-data-types"></a>Conversion des types de données d’entrée et de sortie
 
-Les jeux de données Studio sont différents des trames de données Pandas. Par conséquent, les jeux de données d’entrée dans la version classique de Studio sont convertis en trames de données Pandas, et les trames de données en sortie sont reconverties en jeux de données Studio (classique). Pendant ce processus de conversion, les conversions suivantes sont également effectuées :
+Les jeux de données Studio sont différents des trames de données Pandas. Par conséquent, les jeux de données d’entrée dans Studio (classique) sont convertis en trames de données Pandas, et les trames de données en sortie sont reconverties en jeux de données Studio (classique). Pendant ce processus de conversion, les conversions suivantes sont également effectuées :
 
  **Type de données Python** | **Procédure de traduction Studio** |
 | --- | --- |
@@ -67,9 +67,9 @@ Les jeux de données Studio sont différents des trames de données Pandas. Par 
 
 ## <a id="import-modules"></a>Importation des modules de script Python existants
 
-Le serveur principal utilisé pour exécuter Python est basé sur [Anaconda](https://www.anaconda.com/distribution/), une distribution scientifique Python largement utilisée. Il est fourni avec près de 200 des packages Python les plus couramment utilisés dans des charges de travail centrées sur les données. Actuellement, la version classique de Studio ne prend pas en charge l’utilisation de systèmes de gestion de paquets comme Pip ou Conda pour installer et gérer des bibliothèques externes.  Si vous jugez nécessaire d'incorporer d’autres bibliothèques, utilisez le scénario suivant comme guide.
+Le serveur principal utilisé pour exécuter Python est basé sur [Anaconda](https://www.anaconda.com/distribution/), une distribution scientifique Python largement utilisée. Il est fourni avec près de 200 des packages Python les plus couramment utilisés dans des charges de travail centrées sur les données. Actuellement, Studio (classique) ne prend pas en charge l’utilisation de systèmes de gestion de paquets comme Pip ou Conda pour installer et gérer des bibliothèques externes.  Si vous jugez nécessaire d'incorporer d’autres bibliothèques, utilisez le scénario suivant comme guide.
 
-Un cas typique consiste à incorporer des scripts Python existants dans des expériences de la version classique de Studio. Le module [Exécuter le script Python][execute-python-script] accepte un fichier zip contenant des modules Python au troisième port d’entrée. Le fichier est décompressé par l’infrastructure d’exécution lors de l’exécution, et le contenu est ajouté au chemin de bibliothèque de l’interpréteur Python. La fonction du point d'entrée `azureml_main` peut ensuite importer ces modules directement. 
+Un cas typique consiste à incorporer des scripts Python existants dans des expériences Studio (classique). Le module [Exécuter le script Python][execute-python-script] accepte un fichier zip contenant des modules Python au troisième port d’entrée. Le fichier est décompressé par l’infrastructure d’exécution lors de l’exécution, et le contenu est ajouté au chemin de bibliothèque de l’interpréteur Python. La fonction du point d'entrée `azureml_main` peut ensuite importer ces modules directement. 
 
 Prenez pour exemple le fichier Hello.py contenant une fonction simple « Hello, World ».
 
@@ -79,7 +79,7 @@ Ensuite, nous créons un fichier Hello.zip contenant Hello.py :
 
 ![Fichier zip contenant le code Python défini par l'utilisateur](./media/execute-python-scripts/figure5.png)
 
-Chargez fichier zip en tant que jeu de données dans la version classique de Studio. Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python**, comme illustré dans l’image suivante.
+Chargez le fichier zip en tant que jeu de données dans Studio (classique). Créez et exécutez ensuite une expérience qui utilise le code Python dans le fichier Hello.zip en le joignant au troisième port d’entrée du module **Exécuter le script Python**, comme illustré dans l’image suivante.
 
 ![Exemple d’expérience avec Hello.zip comme entrée d’un module Exécuter le script Python](./media/execute-python-scripts/figure6a.png)
 
@@ -141,11 +141,11 @@ Ce processus est mentionné dans les images ci-dessous, qui créent une matrice 
 
 ![Visualisation des graphiques pour un exemple d’expérience utilisant du code Python](./media/execute-python-scripts/figure-v2-9b.png)
 
-Il est possible de renvoyer plusieurs figures en les enregistrant dans différentes images. Le runtime de la version classique de Studio récupère toutes les images et les concatène pour la visualisation.
+Il est possible de renvoyer plusieurs figures en les enregistrant dans différentes images. Le runtime Studio (classique) récupère toutes les images et les concatène pour la visualisation.
 
 ## <a name="advanced-examples"></a>Exemples avancés
 
-L’environnement Anaconda installé dans la version classique de Studio contient les packages courants tels que NumPy, SciPy et Scikits-Learn. Ces packages peuvent être utilisés efficacement pour le traitement des données dans un pipeline d’apprentissage automatique.
+L’environnement Anaconda installé dans Studio (classique) contient les packages courants tels que NumPy, SciPy et Scikits-Learn. Ces packages peuvent être utilisés efficacement pour le traitement des données dans un pipeline d’apprentissage automatique.
 
 Par exemple, les expériences et le script suivants illustrent l’utilisation des apprenants d’ensemble dans Scikits-Learn pour calculer les notations d’importance des fonctionnalités d’un jeu de données. Les notations peuvent servir à réaliser une sélection de fonctionnalités supervisée avant d’être alimentées dans un autre modèle.
 
@@ -153,7 +153,7 @@ Voici la fonction Python permettant de calculer les notations d’importance et 
 
 ![Fonction permettant de classer les fonctionnalités par notations](./media/execute-python-scripts/figure8.png)
 
-L’expérience suivante calcule, puis renvoie les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les indiens Pima » dans la version classique d’Azure Machine Learning Studio :
+L’expérience suivante calcule, puis renvoie les notations d’importance des fonctionnalités dans le jeu de données « Diabète chez les indiens Pima » dans Azure Machine Learning Studio (classique) :
 
 ![Expérience permettant de classer des fonctionnalités dans l'ensemble de données du diabète chez les indiens Pima, en utilisant Python](./media/execute-python-scripts/figure9a.png)
 

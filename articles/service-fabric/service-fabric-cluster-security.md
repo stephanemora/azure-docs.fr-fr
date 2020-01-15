@@ -1,25 +1,14 @@
 ---
-title: Sécuriser un cluster Azure Service Fabric | Microsoft Docs
+title: Sécuriser un cluster Azure Service Fabric
 description: Découvrez des scénarios de sécurité relatifs aux clusters Azure Service Fabric, ainsi que les différentes technologies que vous pouvez utiliser pour les implémenter.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/14/2018
-ms.author: atsenthi
-ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f00a356a948a6bb76d12b39a03cd156fcb975d4d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819440"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451883"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Il est possible de créer des clusters non sécurisés ; cependant, ils permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 

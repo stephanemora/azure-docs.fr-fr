@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355644"
 ---
-# <a name="alert-confidence-score"></a>Score de confiance de l’alerte 
+# <a name="alert-confidence-score-preview"></a>Score de confiance des alertes (préversion)
 
 Azure Security Center vous donne une visibilité sur les ressources que vous exécutez dans Azure et vous avertit quand il détecte des problèmes potentiels. Le volume d’alertes peut être difficile à traiter pour l’équipe en charge des opérations de sécurité. Il devient alors nécessaire de hiérarchiser les alertes devant faire l’objet d’une enquête. L’examen des alertes peut être complexe et nécessiter beaucoup de temps. C’est pourquoi certaines alertes sont ignorées.
 
-Le score de confiance dans Security Center peut aider votre équipe à mieux trier et hiérarchiser les alertes. Security Center applique automatiquement les meilleures pratiques du secteur, les algorithmes intelligents et les processus utilisés par les analystes pour déterminer si une menace est légitime. Il fournit des informations pertinentes sous la forme d’un score de confiance.
+Le score de confiance (actuellement en préversion) dans Security Center peut aider votre équipe à trier et à hiérarchiser les alertes. Security Center applique automatiquement les meilleures pratiques du secteur, les algorithmes intelligents et les processus utilisés par les analystes pour déterminer si une menace est légitime. Il fournit des informations pertinentes sous la forme d’un score de confiance.
 
 ## <a name="how-the-confidence-score-is-triggered"></a>Déclenchement du score de confiance
 

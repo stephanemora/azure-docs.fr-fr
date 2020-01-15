@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 3b498911999e224003710eced8e0c34989672800
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d0643adc56a3dcdeef163708c26f2425ab8af43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429257"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importer et exporter des identités d’appareil IoT Hub en bloc
 
@@ -91,7 +91,7 @@ Seul un travail d’importation ou d’exportation d’appareil actif est autori
 
 ## <a name="export-devices"></a>Exporter des appareils
 
-Utilisez la méthode **ExportDevicesAsync** pour exporter l’intégralité d’un registre des identités IoT Hub vers un conteneur d’objets blob [Azure Storage](../storage/index.yml) à l’aide d’une [signature d’accès partagé](../storage/common/storage-security-guide.md#authorization).
+Utilisez la méthode **ExportDevicesAsync** pour exporter l’intégralité d’un registre des identités IoT Hub vers un conteneur Blob Stockage Azure à l’aide d’une signature d’accès partagé (SAS). Pour plus d’informations sur les signatures d’accès partagé, consultez [Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)](../storage/common/storage-sas-overview.md).
 
 Cette méthode vous permet de créer des sauvegardes fiables de vos informations d’appareil dans un conteneur d’objets blob que vous contrôlez.
 

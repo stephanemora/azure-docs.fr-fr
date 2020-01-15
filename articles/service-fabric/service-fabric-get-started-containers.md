@@ -1,25 +1,14 @@
 ---
-title: Créer une application de conteneur Microsoft Azure Service Fabric | Microsoft Docs
+title: Créer une application de conteneur Azure Service Fabric
 description: Créez votre première application de conteneur Windows sur Microsoft Azure Service Fabric. Concevez une image Docker avec une application Python, envoyez l’image vers un registre de conteneurs, créez et déployez une application de conteneur Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: vturecek
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458010"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 
@@ -35,7 +24,7 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2019.

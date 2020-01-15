@@ -1,6 +1,7 @@
 ---
-title: Migrer SQL Server vers Azure SQL Database avec Database Migration Service et PowerShell | Microsoft Docs
-description: Apprenez à migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell.
+title: 'PowerShell : Migrer SQL Server vers SQL Database'
+titleSuffix: Azure Database Migration Service
+description: Apprenez à migrer une instance locale de SQL Server vers Azure SQL Database à l’aide d’Azure PowerShell avec le service Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 599fc7e1eb021e3c519047a14145c292623d7508
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d0c62cff3539ea28bcabae4da322043f018a6b5a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533840"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437904"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrer SQL Server local vers Azure SQL Database à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2016 ou ultérieur ou Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Azure SQL Database, à l’aide du module `Az.DataMigration`, dans Microsoft Azure PowerShell.
@@ -28,7 +29,7 @@ Dans cet article, vous apprendrez comment :
 > * Créer un projet de migration dans une instance Azure Database Migration Service.
 > * Exécuter la migration.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour effectuer cette procédure, vous avez besoin de :
 
 - [SQL Server 2016 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition)
@@ -180,6 +181,9 @@ Utilisez la cmdlet `New-AzDataMigrationTask` pour créer et démarrer une tâche
 - *SourceCred*. Objet [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) pour la connexion au serveur source.
 - *TargetCred*. Objet [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) pour la connexion au serveur cible.
 - *SelectedDatabase*. Objet AzDataMigrationSelectedDB représentant le mappage entre les bases de données source et cible.
+- *SchemaValidation*. (facultatif, paramètre de commutateur) Effectue une comparaison des informations de schéma de la source et de la cible après la migration.
+- *DataIntegrityValidation*. (facultatif, paramètre de commutateur) Effectue une validation de l’intégrité des données basée sur une somme de contrôle entre la source et la cible après la migration.
+- *QueryAnalysisValidation*. (facultatif, paramètre de commutateur) Effectue une analyse rapide et intelligente des requêtes en extrayant des requêtes de la base de données source et les exécute dans la cible après la migration.
 
 L’exemple suivant crée et démarre une tâche de migration nommée myDMSTask :
 
@@ -194,6 +198,24 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
   -TargetConnection $targetConnInfo `
   -TargetCred $targetCred `
   -SelectedDatabase  $selectedDbs `
+```
+
+L’exemple suivant crée et démarre la même tâche de migration que ci-dessus, mais effectue également les trois validations suivantes :
+
+```powershell
+$migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDb `
+  -ResourceGroupName myResourceGroup `
+  -ServiceName $service.Name `
+  -ProjectName $project.Name `
+  -TaskName myDMSTask `
+  -SourceConnection $sourceConnInfo `
+  -SourceCred $sourceCred `
+  -TargetConnection $targetConnInfo `
+  -TargetCred $targetCred `
+  -SelectedDatabase  $selectedDbs `
+  -SchemaValidation `
+  -DataIntegrityValidation `
+  -QueryAnalysisValidation `
 ```
 
 ## <a name="monitor-the-migration"></a>Surveiller la migration

@@ -17,12 +17,12 @@ ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429760"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cet article présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 
@@ -57,9 +57,15 @@ Le rapport de connexions des utilisateurs permet de répondre aux questions suiv
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
-Commencez avec le [portail Azure](https://portal.azure.com). Pour accéder au rapport de connexions, sélectionnez **Connexions**, puis rendez-vous sur **Supervision**. Il peut s’écouler jusqu’à deux heures avant que certains enregistrements de connexion s’affichent dans le portail.
+Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
 
-![Activité de connexion](./media/concept-sign-ins/reporting-azure-sign-in-screen.png "Activité de connexion")
+![Sélectionner Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
+
+Sous **Surveillance**, sélectionnez **Connexions** pour ouvrir le [Rapport de connexions](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+
+![Activité de connexion](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Activité de connexion")
+
+Il peut s’écouler jusqu’à deux heures avant que certains enregistrements de connexion s’affichent dans le portail.
 
 > [!IMPORTANT]
 > Le rapport des connexions montre seulement les connexions **interactives**, c’est-à-dire les connexions où un utilisateur se connecte manuellement avec son nom d’utilisateur et son mot de passe. Les connexions non interactives, comme l’authentification de service à service, n’apparaissent pas dans le rapport des connexions. 
@@ -79,7 +85,7 @@ Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la ba
 
 ![Activité de connexion](./media/concept-sign-ins/19.png "Activité de connexion")
 
-La boîte de dialogue **Colonnes** vous permet d’accéder aux attributs sélectionnables. Dans un rapport de connexion, vous ne pouvez avoir que des attributs qui n’ont pas de relation un-à-plusieurs avec d’autres attributs sous forme de colonne.
+La boîte de dialogue **Colonnes** vous permet d’accéder aux attributs sélectionnables. Dans un rapport de connexion, vous ne pouvez pas avoir de champs qui contiennent plusieurs valeurs pour une demande de connexion donnée sous forme de colonne. C’est par exemple le cas pour les détails d’authentification, les données d’accès conditionnel et l’emplacement réseau.   
 
 ![Activité de connexion](./media/concept-sign-ins/columns.png "Activité de connexion")
 
@@ -222,7 +228,7 @@ Les graphiques d’utilisation des applications affiche les agrégations hebdoma
 
 Si vous le souhaitez, vous pouvez définir la focalisation sur une application spécifique.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Création de rapports](./media/concept-sign-ins/single-app-usage-graph.png "Signalement")
 
 Lorsque vous cliquez sur un jour dans le graphique d’utilisation des applications, vous obtenez une liste détaillée des activités de connexion.
 

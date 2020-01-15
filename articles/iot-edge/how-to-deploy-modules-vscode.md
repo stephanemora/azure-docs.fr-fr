@@ -1,6 +1,6 @@
 ---
-title: Déployer des modules à partir de Visual Studio Code - Azure IoT Edge | Microsoft Docs
-description: Utiliser Visual Studio Code pour déployer des modules sur un appareil IoT Edge
+title: Déployer des modules à partir de Visual Studio Code – Azure IoT Edge
+description: Utilisez Visual Studio Code avec Azure IoT Tools pour envoyer un module IoT Edge de votre IoT Hub à votre appareil IoT Edge, comme configuré par un manifeste de déploiement.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 415494fed0870a855a20314816bcebbe22680a98
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457421"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434286"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Déployer des modules Azure IoT Edge à partir de Visual Studio Code
 
@@ -22,12 +22,12 @@ Une fois que vous avez créé des modules IoT Edge avec votre logique métier, v
 
 Cet article explique comment créer un manifeste de déploiement JSON, puis utiliser ce fichier pour étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
 * Un [appareil IoT Edge](how-to-register-device.md#register-with-visual-studio-code) avec le runtime IoT Edge installé.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) pour Visual Studio Code.
+* [Outils Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) pour Visual Studio Code.
 
 ## <a name="configure-a-deployment-manifest"></a>Configurer un manifeste de déploiement
 

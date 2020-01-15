@@ -1,17 +1,17 @@
 ---
-title: Créer ou joindre des branches parallèles
-description: Comment créer ou joindre des branches parallèles pour les workflows dans Azure Logic Apps
+title: Créer ou joindre des branches parallèles pour des actions dans des flux de travail
+description: Découvrez comment créer ou fusionner des branches en cours d’exécution parallèle pour des actions de flux de travail indépendantes dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: bb1c615852fb2bf810abec97e3faeb5775c4a57a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453431"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Créer ou joindre des branches parallèles pour des actions de workflow dans Azure Logic Apps
 
@@ -20,7 +20,7 @@ Par défaut, vos actions dans les workflows d’application logique s’exécute
 > [!TIP] 
 > Si vous disposez d’un déclencheur qui reçoit un tableau et souhaite exécuter un workflow pour chaque élément du tableau, vous pouvez *dégrouper* ce tableau avec le déclencheur de propriété [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/). 
 
@@ -189,6 +189,6 @@ Si vous travaillez en mode Code, vous pouvez définir la structure de jointure d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Instructions conditionnelles : Exécuter des étapes en fonction d’une condition dans des applications logiques](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Switch statements: Run different steps based on specific values in logic apps](../logic-apps/logic-apps-control-flow-switch-statement.md) (Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques dans des applications logiques)
+* [Instructions switch : Exécuter différentes étapes en fonction de valeurs spécifiques](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Loops: Process arrays or repeat actions until a condition is met](../logic-apps/logic-apps-control-flow-loops.md) (Boucles : Traiter des tableaux ou répéter des actions jusqu’à ce qu’une condition soit remplie)
-* [Scopes: Run steps based on group status in logic apps](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md) (Étendues : Exécuter des étapes en fonction de l’état d’un groupe dans des applications logiques)
+* [Étendues : Exécuter des étapes en fonction de l’état d’un groupe](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

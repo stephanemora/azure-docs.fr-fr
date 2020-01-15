@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: 76ff8a63c2fbda3ddbaed794d24f7adb66a4dd95
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 01/03/2020
+ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930361"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660305"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -44,7 +44,7 @@ Les détecteurs définissent un ensemble de conditions qui évaluent les actions
 - Avoir un port qui comprend `01`
 - qui appartient aux appareils dont la clé de propriété étendue **Fabricant** a la valeur de chaîne avec séquence d’échappement `\"Contoso\"`
 - qui appartiennent aux espaces du type spécifié par la chaîne avec séquence d’échappement `\"Venue\"`
-- Qui sont descendants du parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Qui sont descendants du parent **SpaceId**`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {

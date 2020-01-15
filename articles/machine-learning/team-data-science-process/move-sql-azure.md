@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d1634552522a3d1056f9af29386b6ae32754cae0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79ef5a6e4af3e0becc5dbeed9ea377e8ef0eb3d2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432156"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning
 
@@ -29,13 +29,13 @@ Le tableau suivant récapitule les options de déplacement de données vers une 
 | <b>SOURCE</b> | <b>DESTINATION : Azure SQL Database</b> |
 | --- | --- |
 | <b>Fichier plat (mise en forme CSV ou TSV)</b> |[Requête SQL Bulk Insert](#bulk-insert-sql-query) |
-| <b>Serveur SQL Server local</b> |1.[Exporter dans un fichier plat](#export-flat-file)<br> 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)<br> 3. [Sauvegarde et restauration de base de données](#db-migration)<br> 4. [Azure Data Factory](#adf) |
+| <b>Serveur SQL Server local</b> |1.[Exporter dans un fichier plat](#export-flat-file)<br> 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)<br> 3. [Sauvegarde et restauration de base de données](#db-migration)<br> 4. [Azure Data Factory](#adf). |
 
 ## <a name="prereqs"></a>Configuration requise
 Les procédures décrites ici nécessitent :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
+* Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 * Un accès à une **base de données Azure SQL Database**. Si vous devez configurer une base de données Azure SQL Database, l’article [Bien démarrer avec Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fournit des informations sur la configuration d’une nouvelle instance de base de données Azure SQL Database.
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 
@@ -55,7 +55,7 @@ Si la source de données est stockée dans un serveur SQL Server local, il exis
 1. [Exporter dans un fichier plat](#export-flat-file)
 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)
 3. [Sauvegarde et restauration de base de données](#db-migration)
-4. [Azure Data Factory](#adf)
+4. [Azure Data Factory](#adf).
 
 Les étapes des trois premières options sont très similaires à celles décrites dans les sections de [Déplacer des données vers un serveur SQL Server sur une machine virtuelle Azure](move-sql-server-virtual-machine.md) qui traitent des mêmes procédures. Vous trouverez dans les instructions ci-dessous des liens vers les sections appropriées de cette rubrique.
 

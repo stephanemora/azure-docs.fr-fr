@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 08/13/2018
+ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5652c5035c2e4cd35ac6943ef90c8bcc02b95dba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012981"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442889"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -79,7 +79,7 @@ Cette erreur se produit quand des clusters basculent dans un état d’échec po
 
 1. Tant que le cluster n’aura pas quitté l’état `failed`, les opérations `upgrade` et `scale` n’aboutiront pas. Voici quelques-unes des causes courantes à l’origine du problème ainsi que des solutions :
     * Mise à l’échelle avec un **quota de calcul (CRP) insuffisant**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de calcul](../azure-supportability/resource-manager-core-quotas-request.md) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
-    * Mise à jour d’un cluster avec des fonctionnalités réseau avancées et des **ressources (réseau) de sous-réseau insuffisantes**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de ressources](../azure-resource-manager/resource-manager-quota-errors.md#solution) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
+    * Mise à jour d’un cluster avec des fonctionnalités réseau avancées et des **ressources (réseau) de sous-réseau insuffisantes**. Pour résoudre ce problème, remettez votre cluster dans un état stable dans les limites du quota. Suivez ensuite ces [étapes pour demander une augmentation du quota de ressources](../azure-resource-manager/templates/error-resource-quota.md#solution) avant de tenter à nouveau un scale-up au-delà des limites du quota initial.
 2. Une fois que la cause sous-jacente de l’échec de mise à niveau est résolue, votre cluster doit être dans un état de réussite. Une fois que l’état de réussite a été vérifié, tentez à nouveau l’opération d’origine.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Je reçois des erreurs lors de la mise à niveau ou de la mise à l’échelle qui indiquent que mon cluster fait actuellement l’objet d’une mise à niveau ou que l’opération a échoué
@@ -482,3 +482,17 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 ```
 
 Après quelques minutes, le nœud de l’agent réessaie le montage du fichier Azure avec la clé de stockage mise à jour.
+
+### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Échec de la mise à l’échelle automatique du cluster en cas d’échec de la résolution des tailles des groupes de nœuds
+
+Si votre dispositif de mise à l’échelle automatique ne monte pas/ne descend pas en puissance et que vous voyez une erreur comme celle ci-dessous sur les [journaux d'activité du dispositif de mise à l’échelle automatique du cluster][view-master-logs].
+
+```console
+E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
+```
+
+Cette erreur est due à une condition de concurrence du dispositif de mise à l’échelle automatique du cluster en amont, où le dispositif de mise à l’échelle automatique du cluster se termine par une valeur différente de la valeur effective du cluster. Pour sortir de cet état, il vous suffit de désactiver et de réactiver le [dispositif de mise à l’échelle automatique du cluster][cluster-autoscaler].
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

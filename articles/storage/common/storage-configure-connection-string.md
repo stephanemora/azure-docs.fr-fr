@@ -1,20 +1,21 @@
 ---
-title: Configurer une chaîne de connexion pour le stockage Azure
+title: Configurer une chaîne de connexion
+titleSuffix: Azure Storage
 description: Configurez une chaîne de connexion pour un compte de stockage Azure. Une chaîne de connexion inclut les informations nécessaires pour autoriser l’accès à un compte de stockage, depuis votre application et pendant l’exécution, au moyen de l’autorisation Clé partagée.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d1106865b3a2ea3164090896c5b90ab08f996f3d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: f617beec8a53570ede7755040cfbb92a7d1712b7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640503"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460548"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
@@ -23,8 +24,6 @@ Une chaîne de connexion inclut les informations d’authentification nécessair
 * Connexion à l’émulateur de stockage Azure
 * Accès à un compte de stockage dans Azure
 * Accès aux ressources spécifiées dans Azure via une signature d’accès partagé (SAS).
-
-[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 

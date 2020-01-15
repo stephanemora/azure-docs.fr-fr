@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f446f1549b3efcd5f27752fac972dfd80c8650d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425402"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -72,7 +72,7 @@ Lorsque l’extension NPS pour Azure est intégrée au serveur NPS, un flux d’
 7. Après l’authentification et l’autorisation de la tentative de connexion, le serveur NPS où l’extension est installée envoie un message RADIUS *d’acceptation d’accès* au serveur VPN (client RADIUS).
 8. L’utilisateur a accès au port virtuel sur le serveur VPN et établit un tunnel VPN chiffré.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette section détaille les prérequis à respecter avant de pouvoir intégrer MFA au VPN. Avant de commencer, les éléments suivants doivent être en place :
 
@@ -326,13 +326,13 @@ Dans le cadre de la configuration de l’extension de serveur NPS, vous devez fo
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général du client Azure.
 
-2. Dans le volet de gauche, sélectionnez le bouton **Azure Active Directory**.
+2. Dans le menu du portail Azure, sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
 
 3. Sélectionner **Propriétés**.
 
 4. Pour copier votre ID Azure AD, sélectionnez le bouton **Copier**.
 
-    ![ID Azure AD Directory dans le portail Azure](./media/howto-mfa-nps-extension-vpn/image35.png)
+    ![ID Azure AD Directory dans le portail Azure](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installer l’extension NPS
 

@@ -2,18 +2,18 @@
 title: Présentation et résolution des erreurs WebHCat sur HDInsight - Azure
 description: Découvrez quelles sont les erreurs courantes renvoyées par WebHCat sur HDInsight et comment les résoudre.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: hrasheed
-ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555010"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638848"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Compréhension et résolution des erreurs reçues à partir de WebHCat sur HDInsight
 
@@ -25,13 +25,7 @@ Découvrez les erreurs reçues lors de l’utilisation de WebHCat avec HDInsight
 
 ## <a name="modifying-configuration"></a>Modification de la configuration
 
-> [!IMPORTANT]  
-> Plusieurs des erreurs répertoriées dans ce document se produisent car une limite maximale configurée a été dépassée. Lorsque l’étape de résolution mentionne que vous pouvez modifier une valeur, vous devez utiliser l’une des méthodes suivantes pour effectuer cette modification :
-
-* Pour les clusters **Windows** : Utilisez une action de script pour configurer la valeur lors de la création du cluster. Pour en savoir plus, consultez la rubrique [Développement d’actions de script avec HDInsight](hdinsight-hadoop-script-actions-linux.md).
-
-* Pour les clusters **Linux** : utilisez Apache Ambari (API REST ou web) pour modifier la valeur. Pour plus d’informations, consultez [Gestion des clusters HDInsight à l’aide d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-
+Plusieurs des erreurs répertoriées dans ce document se produisent car une limite maximale configurée a été dépassée. Lorsque l’étape de résolution mentionne que vous pouvez modifier une valeur, utilisez Apache Ambari (web ou API REST) pour modifier la valeur. Pour plus d’informations, consultez [Gestion des clusters HDInsight à l’aide d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
 ### <a name="default-configuration"></a>Configuration par défaut
 
@@ -47,7 +41,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 **Code d’état HTTP** : 429
 
-| Cause : | Résolution : |
+| Cause : | Résolution |
 | --- | --- |
 | Vous avez dépassé le nombre maximal de demandes simultanées prises en charge par WebHCat par minute (20 par défaut) |Réduisez votre charge de travail pour vérifier que vous n’avez pas dépassé le nombre maximal de demandes simultanées ou pour augmenter la limite de demandes simultanées en modifiant `templeton.exec.max-procs`. Pour en savoir plus, consultez la section [Modification de la configuration](#modifying-configuration) |
 
@@ -55,7 +49,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 **Code d’état HTTP** : 503
 
-| Cause : | Résolution : |
+| Cause : | Résolution |
 | --- | --- |
 | Ce code d’état se produit généralement lors du basculement entre le HeadNode principal et secondaire du cluster. |Veuillez patienter deux minutes, puis recommencez l’opération. |
 
@@ -63,7 +57,7 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 **Code d’état HTTP** : 400
 
-| Cause : | Résolution : |
+| Cause : | Résolution |
 | --- | --- |
 | Les informations détaillées de la tâche ont été nettoyées par la tâche de nettoyage de l’historique |La période de conservation par défaut de l’historique des tâches est de 7 jours. La période de rétention par défaut peut être changée en modifiant `mapreduce.jobhistory.max-age-ms`. Pour en savoir plus, consultez la section [Modification de la configuration](#modifying-configuration) |
 | La tâche a été arrêtée en raison d’un basculement |Veuillez patienter deux minutes avant de renvoyer la tâche |
@@ -73,11 +67,11 @@ Le dépassement des valeurs par défaut suivantes peut entraîner une baisse des
 
 **Code d’état HTTP** : 502
 
-| Cause : | Résolution : |
+| Cause : | Résolution |
 | --- | --- |
 | Le nettoyage de la mémoire interne coïncide avec le processus de WebHCat |Veuillez attendre que le nettoyage de la mémoire se termine ou redémarrez le service WebHCat |
 | Le délai d’attente d’une réponse du service ResourceManager a expiré. Cette erreur peut se produire lorsque le nombre d’applications actives dépasse le nombre maximal configuré (10 000 par défaut) |Veuillez attendre que les tâches en cours d’exécution se terminent ou augmentez la limite de tâches simultanées en modifiant `yarn.scheduler.capacity.maximum-applications`. Pour en savoir plus, consultez la section [Modification de la configuration](#modifying-configuration). |
-| Tentative de récupération de toutes les tâches par le biais de l’appel [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) lorsque `Fields` est défini sur `*` |Ne récupérez pas *tous* les détails des tâches. Utilisez plutôt `jobid` pour récupérer uniquement les détails des tâches dont l’ID a une valeur supérieure à un ID de tâche particulier. Ou n’utilisez pas `Fields` |
+| Tentative de récupération de toutes les tâches par le biais de l’appel [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) lorsque `Fields` est défini sur `*` |Ne récupérez pas *tous* les détails des tâches. Utilisez plutôt `jobid` pour récupérer uniquement les détails des tâches dont l’ID a une valeur supérieure à un ID de tâche particulier. Ou, n’utilisez pas `Fields` |
 | Le service WebHCat est arrêté pendant le basculement du HeadNode |Veuillez patienter deux minutes, puis recommencez l’opération |
 | Plus de 500 tâches en attente ont été envoyées via WebHCat |Veuillez patienter le temps que les tâches en attente se terminent avant d’envoyer d’autres tâches |
 

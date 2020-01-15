@@ -1,25 +1,14 @@
 ---
-title: Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric | Microsoft Docs
+title: Présentation de Reliable Collections
 description: Les services avec état de Service Fabric fournissent des collections fiables qui vous permettent d’écrire des applications cloud hautement disponibles, évolutives et à faible latence.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak,zhol
-ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 1/3/2019
-ms.author: atsenthi
-ms.openlocfilehash: a7b30003fd02f8ab2e367311cdb3f56c80dbb4b2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 48fa682f4c017f66911729e1f581f3aa91cdc28d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599266"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609721"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Introduction aux Collections fiables dans les services avec état d’Azure Service Fabric
 

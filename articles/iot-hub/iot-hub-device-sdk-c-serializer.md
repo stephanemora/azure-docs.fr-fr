@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
-ms.openlocfilehash: a18f52f0d0979477ff8d6de6745694676f4b4d0e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: dfea53e62383409411925f2fe2f18d61a6855ec1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883162"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429381"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
@@ -67,13 +67,13 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | Type | Description |
 | --- | --- |
 | double |nombre à virgule flottante double précision |
-| int |entier 32 bits |
+| int |Entier de 32 bits |
 | float |nombre à virgule flottante simple précision |
 | long |entier long |
-| int8\_t |entier 8 bits |
-| int16\_t |entier 16 bits |
-| int32\_t |entier 32 bits |
-| int64\_t |entier 64 bits |
+| int8\_t |Entier de 8 bits |
+| int16\_t |Entier de 16 bits |
+| int32\_t |Entier de 32 bits |
+| int64\_t |Entier de 64 bits |
 | bool |boolean |
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
@@ -278,7 +278,7 @@ Lorsque nous exécutons le code précédent pour envoyer l’événement de temp
 {"Temperature":75, "Time":"2015-09-17T18:45:56Z"}
 ```
 
-Nous allons envoyer une température de type **TemperatureEvent** et cette structure contient un membre **Temperature** et **Time**. Ceci est reflété directement dans les données sérialisées.
+Nous envoyons une température de type **TemperatureEvent** et ce struct contient un membre **Temperature** et **Time**. Ceci est reflété directement dans les données sérialisées.
 
 De même, nous pouvons envoyer un événement d’humidité avec ce code :
 
@@ -408,7 +408,7 @@ WITH_DATA(EDM_DATE_TIME_OFFSET, Time)
 );
 ```
 
-Pensez à ce modèle en tant que modèle orienté objets. Dans ce cas, nous allons modéliser un appareil physique (un thermostat) et cet appareil comprend des attributs tels que **Temperature** et **Humidity**.
+Pensez à ce modèle en tant que modèle orienté objets. Dans ce cas, nous modélisons un appareil physique (un thermostat) et cet appareil comprend des attributs tels que **Temperature** et **Humidity**.
 
 Nous pouvons envoyer l’état complet de notre modèle avec un code ressemblant à ce qui suit :
 
@@ -435,7 +435,7 @@ Cela génère exactement le même événement sérialisé que si nous avions dé
 
 Ici, le point important est que si vous transmettez plusieurs événements de données à **SERIALIZE** , cela suppose que chaque événement est une propriété dans un objet JSON unique.
 
-La meilleure façon de faire dépend de vous et de la façon dont vous pensez votre modèle. Si vous envoyez des « événements » dans le cloud et que chaque événement contient un ensemble défini de propriétés, la première approche est judicieuse. Dans ce cas, vous utiliseriez **DECLARE\_STRUCT** pour définir la structure de chaque événement et l’inclure dans votre modèle avec la macro **WITH\_DATA**. Vous envoyez ensuite chaque événement, comme nous l’avons fait dans le premier exemple ci-dessus. Dans cette approche, vous transmettez uniquement un événement de données à **SERIALIZER**.
+La meilleure façon de faire dépend de vous et de la façon dont vous pensez votre modèle. Si vous envoyez des « événements » dans le cloud et que chaque événement contient un ensemble défini de propriétés, la première approche est judicieuse. Dans ce cas, vous utiliseriez **DECLARE\_STRUCT** pour définir la structure de chaque événement et l’inclure dans votre modèle avec la macro **WITH\_DATA**. Vous envoyez ensuite chaque événement, comme nous l’avons fait dans le premier exemple ci-dessus. Dans cette approche, vous transmettez un seul événement de données à **SERIALIZER**.
 
 Si vous envisagez votre modèle comme un modèle orienté objet, la seconde approche peut vous correspondre. Dans ce cas, les éléments définis à l’aide de **WITH\_DATA** sont les « propriétés » de votre objet. Vous transmettez à **SERIALIZE** n’importe quel sous-ensemble d’événements de votre choix, selon la quantité de votre « objet » à envoyer dans le cloud.
 
@@ -537,7 +537,7 @@ Cette section décrit tout ce que vous devez savoir au moment de l’envoi d’�
 
 Si vous utilisez la bibliothèque **Serializer** , il convient de connaître une partie importante du Kit de développement logiciel (SDK), accessible dans la bibliothèque azure-c-shared-utility.
 
-Si vous avez cloné le référentiel Azure-iot-sdk-c à partir de GitHub à l’aide de l’option récursive, vous trouverez cette bibliothèque d’utilitaire partagé ici :
+Si vous avez cloné le référentiel Azure-iot-sdk-c à partir de GitHub et avez émis la commande `git submodule update --init`, vous trouverez cette bibliothèque de l’utilitaire partagé ici :
 
 ```C
 .\\c-utility
@@ -667,6 +667,6 @@ Cet article décrit en détail les aspects uniques de la bibliothèque **seriali
 
 Ceci conclut également la série en trois parties sur le développement d’applications avec le **Kit de développement logiciel (SDK) d’appareil Azure IoT (Azure IoT device SDK) pour C**. Ces informations devraient suffire pour vous aider à commencer et à bien comprendre le fonctionnement des API. Pour plus d’informations, il existe quelques exemples du kit de développement logiciel non couverts ici. Sinon, la [documentation du Kit de développement logiciel Azure IoT](https://github.com/Azure/azure-iot-sdk-c) est une ressource précieuse pour obtenir des informations supplémentaires.
 
-Pour en savoir plus sur le développement pour le hub IoT, consultez les [Kits de développement logiciel Azure IoT](iot-hub-devguide-sdks.md).
+Pour en savoir plus sur le développement pour IoT Hub, consultez les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).
 
 Pour explorer davantage les capacités d’IoT Hub, consultez l’article [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

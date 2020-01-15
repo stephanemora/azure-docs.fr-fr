@@ -1,230 +1,51 @@
 ---
-title: Exclure des disques de la réplication dans la récupération d’urgence avec Azure Site Recovery
-description: Décrit comment exclure des disques de machine virtuelle de la réplication pendant la récupération d’urgence sur Azure.
+title: Exclure des disques de machines virtuelles Hyper-V de la récupération d’urgence sur Azure avec Azure Site Recovery
+description: Comme exclure des disques de machines virtuelles Hyper-V de la réplication sur Azure avec Azure Site Recovery.
 author: mayurigupta13
 manager: rochakm
-ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
 ms.author: mayg
-ms.openlocfilehash: 12304067e1a92559c2313fd7382f271249a8c784
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.date: 11/12/2019
+ms.openlocfilehash: 50fb6da2905b2ae27547f25cce3d7a76ca7976b7
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961454"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498140"
 ---
 # <a name="exclude-disks-from-replication"></a>Exclure les disques de la réplication
-Cet article décrit comment exclure des disques de la réplication. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent.
 
-## <a name="supported-scenarios"></a>Scénarios pris en charge
+Cet article explique comment exclure des disques pendant la réplication de machines virtuelles Hyper-V dans Azure. Vous pouvez exclure des disques de la réplication pour plusieurs raisons :
 
-**Fonctionnalité** | **VMware vers Azure** | **Hyper-V vers Azure** | **Azure vers Azure**| **Hyper-V vers Hyper-V** 
---|--|--|--|--
-Exclure le disque | OUI | OUI | Non | Non
+- Assurez-vous que les données sans importance perdues sur le disque exclu ne sont pas répliquées.
+- Optimiser la bande passante utilisée pour la réplication ou les ressources côté cible en excluant les disques que vous n’avez pas besoin de répliquer.
+- Économisez des ressources de stockage et réseau en ne répliquant pas les données dont vous n’avez pas besoin.
 
-## <a name="why-exclude-disks-from-replication"></a>Pourquoi exclure des disques de la réplication ?
-L’exclusion de disques de la réplication se révèle souvent nécessaire pour les raisons suivantes :
+Avant d’exclure des disques de la réplication :
 
-- Les données hautement évolutives sur le disque exclu ne sont pas importantes ou n’ont pas besoin d’être répliquées.
+- [Apprenez-en davantage](exclude-disks-replication.md) sur l’exclusion de disques.
+- Passez en revue les [scénarios d’exclusion typiques](exclude-disks-replication.md#typical-scenarios) et les [exemples](exclude-disks-replication.md#example-1-exclude-the-sql-server-tempdb-disk) qui montrent comment l’exclusion d’un disque affecte la réplication, le basculement et la restauration automatique.
 
-- Vous voulez économiser des ressources de stockage et réseau en ne répliquant pas ces données.
+## <a name="before-you-start"></a>Avant de commencer
 
-## <a name="what-are-the-typical-scenarios"></a>Quels sont les scénarios classiques ?
-Vous pouvez identifier des exemples précis de données qui sont d’excellents candidats pour l’exclusion. Parmi les exemples figurent les écritures dans un fichier d’échange (pagefile.sys) et les écritures dans le fichier tempdb Microsoft SQL Server. Selon la charge de travail et le sous-système de stockage, le fichier d’échange peut enregistrer une quantité significative de données à fort taux d’évolution. Toutefois, la réplication de ces données du site principal vers Azure nécessiterait de nombreuses ressources. Par conséquent, vous pouvez procéder comme suit pour optimiser la réplication d’une machine virtuelle avec un seul disque virtuel qui contient le système d’exploitation et le fichier d’échange :
+Avant de commencer, prenez note que :
 
-1. Fractionnez le disque virtuel unique en deux disques virtuels. Un disque virtuel comporte le système d’exploitation, et l’autre le fichier d’échange.
-2. Excluez le disque de fichier d’échange de la réplication.
+- **Réplication** : Par défaut, tous les disques d’une machine sont répliqués.
+- **Type de disque** :
+    - Les disques de base peuvent être exclus de la réplication.
+    - Vous ne pouvez pas exclure les disques de système d’exploitation.
+    - Nous vous recommandons de ne pas exclure de disques dynamiques. Site Recovery ne peut pas identifier le disque VHD qui est de type de base ou dynamique dans la machine virtuelle invitée.  Si vous n’excluez pas tous les disques de volume dynamique dépendants, le disque dynamique protégé devient un disque défectueux sur une machine virtuelle de basculement, et les données de ce disque ne sont pas accessibles.
+- **Ajouter/supprimer/exclure des disques** : Une fois la réplication activée, vous ne pouvez pas ajouter/supprimer/exclure de disques pour la réplication. Si vous voulez ajouter/supprimer ou exclure un disque, vous devez désactiver la protection de la machine virtuelle, puis la réactiver.
+- **Basculement** : Après le basculement, si les applications ayant basculé ont besoin d’exclure des disques pour fonctionner, vous devez créer ces disques manuellement. Vous pouvez également intégrer Azure Automation dans un plan de récupération afin de créer le disque pendant le basculement de la machine.
+- **Restauration automatique** : Lorsque vous effectuez une restauration automatique sur votre site local après le basculement, les disques que vous créez manuellement dans Azure ne sont pas restaurés. Par exemple, si vous basculez trois disques et que vous en créez deux directement sur une machine virtuelle Azure, seuls trois disques qui ont été basculés sont restaurés automatiquement. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique ou de réplication inverse de machines virtuelles.
 
-De même, vous pouvez procéder comme suit pour optimiser un disque qui contient à la fois le fichier tempdb Microsoft SQL Server et le fichier de base de données système :
+## <a name="exclude-disks"></a>Exclure des disques
 
-1. Stockez la base de données système et la base de données tempdb sur deux disques différents.
-2. Excluez le disque de base de données tempdb de la réplication.
+1. Pour exclure des disques lorsque vous [activez la réplication](site-recovery-hyper-v-site-to-azure.md) pour une machine virtuelle Hyper-V, après avoir sélectionné les machines virtuelles que vous souhaitez répliquer, dans la page **Activer la réplication** >  **Propriétés** > **Configurer les propriétés**, consultez la colonne **Disques à répliquer**. Par défaut, tous les disques sont sélectionnés pour la réplication.
+2. Si vous ne souhaitez pas répliquer un disque spécifique, dans **Disques à répliquer** désactivez la sélection pour tous les disques que vous souhaitez exclure. 
 
-## <a name="how-to-exclude-disks"></a>Comment exclure des disques
-Pour protéger une machine virtuelle du portail Azure Site Recovery, suivez le workflow [Activer la réplication](site-recovery-hyper-v-site-to-azure.md). Dans la quatrième étape du workflow, utilisez la colonne **DISQUE À RÉPLIQUER** pour exclure des disques de la réplication. Par défaut, tous les disques sont sélectionnés pour la réplication. Décochez les cases correspondant aux disques que vous souhaitez exclure de la réplication, puis exécutez la procédure d’activation de la réplication.
+    ![Exclure les disques de la réplication](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
 
-![Exclure les disques de la réplication et activer la réplication de la restauration automatique de Hyper-V vers Azure](./media/hyper-v-exclude-disk/enable-replication6-with-exclude-disk.png)
-
->[!NOTE]
->
-> * Seuls les disques de base peuvent être exclus de la réplication. Vous ne pouvez pas exclure les disques de système d’exploitation. Nous vous recommandons de ne pas exclure de disques dynamiques. Azure Site Recovery ne peut pas identifier si les disques durs virtuels (VHD) sont de base ou dynamiques sur les machines virtuelles invitées.  Si tous les disques de volume dynamique dépendants ne sont pas exclus, le disque dynamique protégé devient un disque défectueux sur la machine virtuelle de basculement, et les données de ce disque ne sont pas accessibles.
-> * Une fois la réplication activée, vous ne pouvez pas ajouter ni supprimer de disques pour la réplication. Si vous voulez ajouter ou exclure un disque, vous devez désactiver la protection de la machine virtuelle, puis la réactiver.
-> * Si vous excluez un disque requis pour le bon fonctionnement d’une application, après le basculement vers Azure, vous devez créer manuellement le disque dans Azure afin que l’application répliquée puisse s’exécuter. Vous pouvez également intégrer Azure Automation dans un plan de récupération afin de créer le disque pendant le basculement de la machine.
-> * Les disques que vous créez manuellement dans Azure ne seront pas restaurés automatiquement. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés seront restaurés automatiquement à partir d’Azure sur Hyper-V. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique ou de réplication inverse d’Hyper-V vers Azure.
-
-## <a name="end-to-end-scenarios-of-exclude-disks"></a>Scénarios d’exclusion de disques de bout en bout
-Pour vous aider à bien comprendre la fonctionnalité d’exclusion de disques, considérons deux scénarios :
-
-- Disque de base de données tempdb SQL Server
-- Disque de fichier d’échange (pagefile.sys)
-
-## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exemple 1 : Exclure le disque de base de données tempdb SQL Server
-Considérons l’exemple d’une machine virtuelle SQL Server dotée d’un disque de base de données tempdb pouvant être exclu.
-
-Le nom du disque virtuel est SalesDB.
-
-Les disques sur la machine virtuelle source sont les suivants :
-
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1| Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
-DB-Disk2 (disque exclu de la protection) | Disk2 | E:\ | Fichiers temporaires
-DB-Disk3 (disque exclu de la protection) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\) <br /> <br />Notez le chemin du dossier avant le basculement.
-DB-Disk4 | Disk4 |G:\ |Base de données utilisateur 2
-
-Étant donné que l’évolution des données sur deux disques de la machine virtuelle est temporaire, lorsque vous protégez la machine virtuelle SalesDB, excluez les disques Disk2 et Disk3 de la réplication. Azure Site Recovery ne répliquera pas ces disques. Lors du basculement, ces disques ne seront pas présents sur la machine virtuelle de basculement sur Azure.
-
-Les disques sur la machine virtuelle Azure après le basculement sont les suivants :
-
-**Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | ---
-DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
-Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
-Disk3 | G:\ | Base de données utilisateur 2
-
-Étant donné que les disques Disk2 et Disk3 ont été exclus de la machine virtuelle SalesDB, E: est la première lettre de lecteur disponible dans la liste. Azure attribue donc la lettre E: au volume de stockage temporaire. Pour tous les disques répliqués, la lettre de lecteur reste la même.
-
-Le disque Disk3, qui était le disque tempdb SQL (chemin d’accès du dossier tempdb F:\MSSQL\Data\), a été exclu de la réplication. Le disque n’est pas disponible sur la machine virtuelle de basculement. Par conséquent, le service SQL présente l’état arrêté et a besoin du chemin F:\MSSQL\Data.
-
-Il existe deux façons de créer ce chemin :
-
-- Ajoutez un nouveau disque et attribuez-lui le chemin du dossier de tempdb.
-- Utilisez un disque de stockage temporaire existant pour le chemin du dossier de tempdb.
-
-### <a name="add-a-new-disk"></a>Ajouter un nouveau disque :
-
-1. Notez le chemin des fichiers SQL tempdb.mdf et tempdb.ldf avant de procéder au basculement.
-2. À partir du portail Azure, ajoutez à la machine virtuelle de basculement un nouveau disque présentant une taille identique ou supérieure à celle du disque de base de données tempdb SQL source (Disk3).
-3. Connectez-vous à la machine virtuelle Azure. À partir de la console de gestion des disques (diskmgmt.msc), initialisez et formatez le disque que vous venez d’ajouter.
-4. Attribuez-lui la lettre de lecteur qui était utilisée par le disque de base de données tempdb SQL (F:).
-5. Créez un dossier de tempdb sur le volume F: (F:\MSSQL\Data).
-6. Démarrez le service SQL à partir de la console de service.
-
-### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>Utilisez un disque de stockage temporaire existant pour le chemin du dossier de tempdb :
-
-1. Ouvrez une invite de commandes.
-2. Exécutez SQL Server en mode de récupération à partir de l’invite de commande.
-
-        Net start MSSQLSERVER /f / T3608
-
-3. Exécutez la commande sqlcmd suivante pour remplacer le chemin de la base de données tempdb par un nouveau chemin.
-
-        sqlcmd -A -S SalesDB        **Use your SQL DBname**
-        USE master;     
-        GO      
-        ALTER DATABASE tempdb       
-        MODIFY FILE (NAME = tempdev, FILENAME = 'E:\MSSQL\tempdata\tempdb.mdf');
-        GO      
-        ALTER DATABASE tempdb       
-        MODIFY FILE (NAME = templog, FILENAME = 'E:\MSSQL\tempdata\templog.ldf');       
-        GO
-
-
-4. Arrêtez le service Microsoft SQL Server.
-
-        Net stop MSSQLSERVER
-5. Démarrez le service Microsoft SQL Server.
-
-        Net start MSSQLSERVER
-
-Consultez les recommandations Azure ci-après concernant le disque de stockage temporaire :
-
-* [Utilisation des disques SSD dans les machines virtuelles Azure pour stocker TempDB et les extensions des pools de mémoires tampons de SQL Server](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
-* [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
-
-## <a name="failback-from-azure-to-an-on-premises-host"></a>Restauration automatique (d’Azure vers un hôte local)
-À présent, découvrons les disques qui sont répliqués lorsque vous procédez à un basculement d’Azure vers votre hôte Hyper-V local. Les disques que vous créez manuellement dans Azure ne seront pas répliqués. Par exemple, si vous basculez trois disques et que vous en créez deux directement dans Azure Virtual Machines, seuls les trois disques qui ont été basculés seront restaurés automatiquement. Vous ne pouvez pas inclure de disques créés manuellement dans le processus de restauration automatique à partir de l’hôte local vers Azure. En outre, le disque de stockage temporaire n’est pas répliqué vers les hôtes locaux.
-
-### <a name="failback-to-original-location-recovery"></a>Restauration automatique pour la récupération à l’emplacement d’origine
-
-Dans l’exemple précédent, les disques de la machine virtuelle Azure sont configurés comme suit :
-
-**Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | ---
-DISK0 | C:\ | Disque de système d’exploitation
-Disk1 | E:\ | Stockage temporaire<br /> <br />Azure ajoute ce disque et lui attribue la première lettre de lecteur disponible.
-Disk2 | D:\ | Base de données système SQL et base de données utilisateur 1
-Disk3 | G:\ | Base de données utilisateur 2
-
-Lorsque la restauration automatique est effectuée à l’emplacement d’origine, la configuration des disques de la machine virtuelle de restauration automatique reste la même que celle des disques de la machine virtuelle d’origine pour Hyper-V. Les disques qui étaient exclus de Hyper-V vers Azure sont disponibles sur la machine virtuelle de restauration automatique.
-
-Après le basculement planifié d’Azure vers l’hôte Hyper-V local, les disques sur la machine virtuelle Hyper-V (emplacement d’origine) se présentent comme suit :
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 |   C:\ | Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Base de données système SQL et base de données utilisateur 1
-DB-Disk2 (disque exclu) | Disk2 | E:\ | Fichiers temporaires
-DB-Disk3 (disque exclu) | Disk3 | F:\ | Base de données tempdb SQL (chemin du dossier (F:\MSSQL\Data\)
-DB-Disk4 | Disk4 | G:\ | Base de données utilisateur 2
-
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>Exemple 2 : Exclure le disque de fichier d’échange (pagefile.sys)
-
-Considérons l’exemple d’une machine virtuelle dotée d’un disque de fichier d’échange pouvant être exclu.
-Il existe deux cas.
-
-### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Cas 1 : le fichier d’échange est configuré sur le lecteur D:
-Voici la configuration des disques :
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1 (disque exclu de la protection) | Disk1 | D:\ | pagefile.sys
-DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
-DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
-
-Voici les paramètres du fichier d’échange sur la machine virtuelle source :
-
-![Paramètres du fichier d’échange sur la machine virtuelle source](./media/hyper-v-exclude-disk/pagefile-on-d-drive-sourceVM.png)
-
-Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Stockage temporaire<br /> <br />pagefile.sys
-DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
-DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
-
-Étant donné que le disque Disk1 (D:) a été exclu, D: est la première lettre de lecteur disponible. Azure attribue donc la lettre D: au volume de stockage temporaire. Étant donné que D: est disponible sur la machine virtuelle Azure, les paramètres du fichier d’échange de la machine virtuelle restent inchangés.
-
-Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
-
-![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
-
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Cas 2 : le fichier d’échange est configuré sur un autre lecteur (autre que le lecteur D:)
-
-Voici la configuration des disques de la machine virtuelle source :
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Disque de système d’exploitation
-DB-Disk1 (disque exclu de la protection) | Disk1 | G:\ | pagefile.sys
-DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
-DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
-
-Voici les paramètres du fichier d’échange sur la machine virtuelle locale :
-
-![Paramètres du fichier d’échange sur la machine virtuelle locale](./media/hyper-v-exclude-disk/pagefile-on-g-drive-sourceVM.png)
-
-Après le basculement de la machine virtuelle Hyper-V vers Azure, les disques sur la machine virtuelle Azure se présentent comme suit :
-
-**Nom du disque** | **Numéro du disque du système d’exploitation invité** | **Lettre de lecteur** | **Type de données sur le disque**
---- | --- | --- | ---
-DB-Disk0-OS | DISK0  |C:\ |Disque de système d’exploitation
-DB-Disk1 | Disk1 | D:\ | Stockage temporaire<br /> <br />pagefile.sys
-DB-Disk2 | Disk2 | E:\ | Données utilisateur 1
-DB-Disk3 | Disk3 | F:\ | Données utilisateur 2
-
-Étant donné que D: est la première lettre de lecteur disponible dans la liste, Azure attribue la lettre D: au volume de stockage temporaire. Pour tous les disques répliqués, la lettre de lecteur reste la même. Étant donné que le lecteur G: n’est pas disponible, le système utilisera le lecteur C: pour le fichier d’échange.
-
-Voici les paramètres du fichier d’échange sur la machine virtuelle Azure :
-
-![Paramètres du fichier d’échange sur la machine virtuelle Azure](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](site-recovery-failover.md) .
+Une fois votre déploiement configuré et effectué, pour en savoir plus sur les différents types de basculement, [cliquez ici](failover-failback-overview.md) .

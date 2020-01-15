@@ -1,5 +1,6 @@
 ---
-title: Modifier le contenu d’une page dans le portail des développeurs dans Gestion des API Azure | Microsoft Docs
+title: Modifier le contenu d’une page dans le portail des développeurs dans Gestion des API
+titleSuffix: Azure API Management
 description: Découvrez comment modifier le contenu d’une page dans le portail des développeurs dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
-ms.openlocfilehash: 0a333b1fac78889b61829b869c23efea5e312adf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072259"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430629"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modifier le contenu et la disposition des pages dans le portail des développeurs dans Gestion des API Azure
 Il existe trois manières principales pour personnaliser le portail des développeurs dans Gestion des API Azure :
@@ -29,7 +30,7 @@ Il existe trois manières principales pour personnaliser le portail des dévelop
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="page-structure"></a>Structure des pages du portail des développeurs
+## <a name="page-structure"> </a>Structure des pages du portail des développeurs
 
 Le portail des développeurs s’appuie sur un système de gestion de contenu. La disposition de chaque page s’appuie sur un ensemble d’éléments de petite page appelés widgets :
 
@@ -41,7 +42,7 @@ Tous les widgets sont modifiables.
 
 Dans la modification de page standard, un utilisateur ne modifie en général que le widget Contenu qui contient un contenu différent pour chaque page.
 
-## <a name="modify-layout-widget"></a>Modification du contenu d’un widget de mise en page
+## <a name="modify-layout-widget"> </a>Modification du contenu d’un widget de mise en page
 
 La portail des développeurs est accessible depuis le portail Azure.
 

@@ -1,19 +1,21 @@
 ---
-title: Activer l’authentification Azure Active Directory sur SMB pour Azure Files - Stockage Azure
+title: Utiliser Azure AD Domain Services pour autoriser l’accès aux données de fichiers via SMB
 description: Découvrez comment activer l’authentification basée sur l’identité sur SMB (Server Message Block) pour Azure Files avec Azure Active Directory Domain Services. Vos machines virtuelles Windows jointes à un domaine peuvent alors accéder aux partages de fichiers Azure en utilisant des informations d’identification Azure AD.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 886cacc5e90136380a183f6b9ddd1123d726dcf3
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.subservice: files
+ms.openlocfilehash: fd42a6ffa6ea46d49df673cde617c70ce7425d91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129223"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460372"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Activer l’authentification Azure Active Directory Domain Services sur SMB pour Azure Files
+
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Pour obtenir une vue d’ensemble de l’authentification Azure AD sur SMB pour Azure Files, consultez [Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files](storage-files-active-directory-overview.md).
@@ -21,6 +23,7 @@ Pour obtenir une vue d’ensemble de l’authentification Azure AD sur SMB pour 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>Vue d’ensemble du workflow
+
 Avant d’activer l’authentification Azure AD Domain Services sur SMB pour Azure Files, vérifiez que vos environnements Azure AD et Stockage Azure sont correctement configurés. Nous vous recommandons d’examiner les [conditions préalables](#prerequisites) pour vous assurer que vous avez parcouru toutes les étapes requises.
 
 Ensuite, accordez l’accès aux ressources Azure Files avec les informations d’identification Azure AD en suivant ces étapes : 
@@ -30,11 +33,11 @@ Ensuite, accordez l’accès aux ressources Azure Files avec les informations d�
 3. Configurez les autorisations NTFS sur SMB pour les fichiers et les répertoires.
 4. Montez un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine.
 
-Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation de l’authentification Azure AD Domain Services sur SMB pour Azure Files. 
+Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation de l’authentification Azure AD Domain Services sur SMB pour Azure Files.
 
 ![Diagramme montrant le workflow AD Azure sur SMB pour Azure Files](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’activer Azure AD sur SMB pour Azure Files, assurez-vous de remplir les conditions préalables suivantes :
 
@@ -110,7 +113,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour activer l’authentification Azure AD sur SMB avec Azure CLI, installez la dernière version de l’interface CLI (version 2.0.70 ou ultérieure). Pour plus d’informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 

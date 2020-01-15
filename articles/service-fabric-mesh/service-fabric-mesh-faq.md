@@ -1,20 +1,15 @@
 ---
-title: Questions courantes sur Azure Service Fabric mesh | Microsoft Docs
+title: Questions courantes sur Azure Service Fabric Mesh
 description: Découvrez les questions et réponses fréquentes concernant Azure Service Fabric mesh.
-services: service-fabric-mesh
-keywords: ''
-author: chackdan
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: edd30dc8799ae9e5410ebc862574d632d09b9483
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168677"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462000"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -34,10 +29,10 @@ Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n�
 
 Oui. Les quotas pour chaque abonnement sont les suivants :
 
-- Nombre d’applications : 5.
+- Nombre d’applications : 5
 - Cœurs par application : 12
 - RAM totale par application : 48 Go
-- Points de terminaison réseau et d’entrée : 5.
+- Points de terminaison réseau et d’entrée : 5
 - Volumes Azure que vous pouvez attacher : 10
 - Nombre de réplicas de service : 3
 - Le plus grand conteneur que vous pouvez déployer est limité à 4 cœurs et 16 Go de RAM.
@@ -86,7 +81,6 @@ Si vous réalisez votre développement sur un ordinateur doté de Windows Fall C
 Si vous réalisez votre développement sur un ordinateur doté de la mise à jour d'avril 2018 de Windows 10 (version 1803), vous pouvez utiliser des images Docker de la version 1709 de Windows et de la version 1803 de Windows.
 
 Lors du déploiement des services, vous pouvez utiliser les images de système d’exploitation du conteneur suivantes :
-
 - Windows : windowsservercore et nanoserver
     - Windows Server 1709
     - Windows Server 1803

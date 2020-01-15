@@ -1,25 +1,14 @@
 ---
-title: Rubriques de mise à niveau d’application avancée | Microsoft Docs
+title: Rubriques avancées sur la mise à niveau d’application
 description: Cet article traite de sujets avancés se rapportant à la mise à niveau d’une application Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: c37ee8177ba31ac8a5da90fef175a6fbd63a6d75
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167601"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457527"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Mise à niveau d’une application Service Fabric : rubriques avancées
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Ajout ou suppression de types de services pendant la mise à niveau d’une application

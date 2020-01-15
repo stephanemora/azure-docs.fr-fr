@@ -1,25 +1,16 @@
 ---
-title: Utilisation des rapports d’intégrité du système pour la résolution des problèmes | Microsoft Docs
+title: Résoudre les problèmes avec les rapports d’intégrité du système
 description: Décrit les rapports d’intégrité envoyés par les composants Azure Service Fabric et leur utilisation pour la résolution des problèmes de cluster ou d’application.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: b190db401b8ae31582ea31cf59d30f20baccf8c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a76ae803b1283ce50d2f4e259943ce5ffcf0274c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060365"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370373"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -57,7 +48,7 @@ Le rapport spécifie le délai d’expiration du bail global comme durée de vie
 * **Property** : commence par **Neighborhood** et inclut des informations sur le nœud.
 * **Étapes suivantes** : examinez la raison de la perte du voisinage. Par exemple, vérifiez la communication entre les nœuds des clusters.
 
-### <a name="rebuild"></a>Reconstruction
+### <a name="rebuild"></a>Reconstruire
 
 Le service Failover Manager (FM) gère les informations sur les nœuds des clusters. Lorsque FM perd ses données et passe en perte de données, il ne peut pas être sûr qu’il dispose des informations les plus récentes concernant les nœuds du cluster. Dans ce cas, le système passe par une regénération, et System.FM recueille les données de tous les nœuds du cluster afin de rétablir son état. Parfois, en raison de problèmes liés au réseau ou aux nœuds, il peut arriver que la regénération soit bloquée. Cela peut également se produire avec le service Failover Manager Master (FMM). Le service FMM est un service système sans état qui assure le suivi de toutes les instances du service FM qui se trouvent dans le cluster. Le nœud principal du service FMM est toujours le nœud dont l’ID est le plus proche de 0. Si ce nœud est supprimé, une regénération est déclenchée.
 Lorsque l’une des conditions précédentes se produit, **System.FM** ou **System.FMM** la signalent via un rapport d’erreurs. La regénération peut se bloquer lors de l’une des deux phases suivantes :
@@ -148,11 +139,11 @@ System.Hosting transmet un avertissement si les capacités de nœud définies da
 ## <a name="application-system-health-reports"></a>Rapports d’intégrité du système sur les applications
 System.CM, qui représente le service Cluster Manager, est l’autorité qui gère les informations sur une application.
 
-### <a name="state"></a>État
+### <a name="state"></a>State
 System.CM consigne la valeur OK lorsque l’application a été créée ou mise à jour. Il informe le magasin d’intégrité lorsque l’application est supprimée afin qu’elle puisse en être retirée.
 
 * **SourceId** : System.CM
-* **Property** : État.
+* **Property** : State (État).
 * **Étapes suivantes** : si l’application a été créée ou mise à jour, elle doit inclure le rapport d’intégrité du gestionnaire du cluster. Sinon, vérifiez l’état de l’application en effectuant une requête. Par exemple, utilisez la cmdlet PowerShell **Get-ServiceFabricApplication -ApplicationName** *applicationName*.
 
 L’exemple suivant représente l’événement d’état sur l’application **fabric:/WordCount** :
@@ -181,7 +172,7 @@ HealthEvents                    :
 ## <a name="service-system-health-reports"></a>Rapports d’intégrité du système sur les services
 System.FM, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les services.
 
-### <a name="state"></a>État
+### <a name="state"></a>State
 System.FM consigne la valeur OK lorsque le service a été créé. Il supprime l’entité du magasin d’intégrité lorsque le service est supprimé.
 
 * **SourceId** : System.FM
@@ -223,7 +214,7 @@ HealthEvents          :
 ## <a name="partition-system-health-reports"></a>Rapports d’intégrité du système sur les partitions
 System.FM, qui représente le service Failover Manager, est l’autorité qui gère les informations sur les partitions de service.
 
-### <a name="state"></a>État
+### <a name="state"></a>State
 System.FM consigne la valeur OK lorsque la partition créée est intègre. Il élimine l’entité du magasin d’intégrité lorsque la partition est supprimée.
 
 Si la partition présente une valeur inférieure au nombre minimal de réplicas, une erreur est signalée. Si la partition présente une valeur supérieure au nombre minimum de réplicas, mais inférieure au nombre cible de réplicas, un avertissement est signalé. Si la partition subit une perte de quorum, System.FM indique une erreur.
@@ -400,7 +391,7 @@ Pour notre exemple, d’autres examens sont nécessaires. Examinez l’intégrit
 ## <a name="replica-system-health-reports"></a>Rapports d’intégrité du système sur les réplicas
 **System.RA**, qui représente le composant Reconfiguration Agent, est l’autorité de l’état des réplicas.
 
-### <a name="state"></a>État
+### <a name="state"></a>State
 System.RA indique la valeur OK lorsque le réplica a été créé.
 
 * **SourceId** : System.RA

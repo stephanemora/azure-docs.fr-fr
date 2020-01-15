@@ -1,27 +1,19 @@
 ---
-title: Tutoriel - Mettre à niveau une application Azure Service Fabric Mesh | Microsoft Docs
+title: Tutoriel - Mettre à niveau une application Azure Service Fabric Mesh
 description: Ce tutoriel est la quatrième partie d’une série et vous montre comment mettre à niveau une application Azure Service Fabric Mesh directement depuis Visual Studio.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351713"
 ---
-# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Didacticiel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
+# <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutoriel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
 
 Ce tutoriel est la quatrième partie d’une série et vous montre comment mettre à niveau une application Azure Service Fabric Mesh directement depuis Visual Studio. La mise à niveau inclut une mise à jour du code et une mise à jour de la configuration. Vous verrez que les étapes de la mise à niveau et de la publication dans Visual Studio sont les mêmes.
 
@@ -39,7 +31,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce tutoriel :
 

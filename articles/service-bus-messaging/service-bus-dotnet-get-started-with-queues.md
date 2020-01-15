@@ -14,18 +14,18 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/27/2019
 ms.author: aschhab
-ms.openlocfilehash: c1f9c8a03a503444c7c45d5374b67e5b453a8931
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561620"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563392"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 Dans ce tutoriel, vous créez des applications console .NET Core afin d’échanger des messages avec une file d’attente Service Bus.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
@@ -74,7 +74,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)** 
 
     Entrez votre chaîne de connexion pour l’espace de noms en tant que variable `ServiceBusConnectionString`. Entrez le nom de votre file d’attente.
 
-1. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. Elle appelle la méthode SendMessagesAsync que vous ajouterez à l’étape suivante pour envoyer des messages à la file d’attente. 
+1. Remplacez la méthode `Main()` par la méthode **asynchrone** `Main` suivante. Elle appelle la méthode `SendMessagesAsync()` que vous ajouterez à l’étape suivante pour envoyer des messages à la file d’attente. 
 
     ```csharp
     public static async Task Main(string[] args)

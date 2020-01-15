@@ -1,5 +1,5 @@
 ---
-title: Restreindre les utilisateurs d’une application inscrite dans Azure Active Directory | Azure
+title: Limiter l’application Azure AD à un ensemble d’utilisateurs | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrez comment limiter l’accès à vos applications inscrites dans Azure AD à un ensemble d’utilisateurs sélectionné.
 services: active-directory
@@ -14,14 +14,14 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cd52a62d5ab8185e18c849f6009e4632c96ede
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ff6e9d101159af33a05a2dc50e227bc97970b12d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917622"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424463"
 ---
-# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Activation Limiter votre application Azure AD à un ensemble d’utilisateurs
+# <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users"></a>Procédure : Limiter votre application Azure AD à un ensemble d’utilisateurs
 
 Les applications inscrites dans un locataire Azure Active Directory (Azure AD) sont, par défaut, disponibles pour tous les utilisateurs du locataire qui parviennent à s’authentifier.
 
@@ -46,7 +46,7 @@ La possibilité de limiter une application à un ensemble spécifique d’utilis
 
 Il existe deux façons de créer une application avec l’affectation d’utilisateurs activée. L’une requiert le rôle d’**administrateur général**, mais pas le second.
 
-### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>Applications d’entreprise (nécessite le rôle d’administrateur général)
+### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Applications d’entreprise (nécessite le rôle d’administrateur général)
 
 1. Accédez au [**Portail Azure**](https://portal.azure.com/) et connectez-vous tant **qu’administrateur général**.
 1. Dans la barre supérieure, sélectionnez le compte connecté. 

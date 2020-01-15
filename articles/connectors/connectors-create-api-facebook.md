@@ -1,18 +1,18 @@
 ---
 title: Se connecter à Facebook
-description: Gérer votre chronologie et la page avec les API REST de Facebook et Azure Logic Apps
+description: Automatiser les tâches et les flux de travail qui gèrent votre page et votre chronologie Facebook à l’aide d'Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 1aa936f902dc17c9a401959c19824f6c581547b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 803453291b5cab2c51fec6641f8b096f62336325
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789853"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75665800"
 ---
 # <a name="manage-your-facebook-timeline-and-page-by-using-azure-logic-apps"></a>Gérer votre page et votre chronologie Facebook à l’aide d'Azure Logic Apps
 
@@ -37,7 +37,7 @@ Quand vous ajoutez ce connecteur à vos applications logiques, vous devez autori
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/facebook/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/facebook/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

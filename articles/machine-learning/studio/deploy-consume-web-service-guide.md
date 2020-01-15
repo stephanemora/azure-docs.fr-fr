@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 1c97fd4f4d5646b6654f5261abd99372c521c389
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 564126ab262306f2b01948e29baf239b725083e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228249"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427605"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Services web Azure Machine Learning Studio (classique) : Déploiement et consommation
 
@@ -36,18 +36,18 @@ Les liens suivants fournissent des informations générales sur le processus de 
 * Pour une présentation complète de la création et du déploiement d'un service web, consultez [Tutoriel 1 : Prédire le risque de crédit](tutorial-part1-credit-risk.md).
 * Pour des exemples spécifiques de déploiement d’un service web, consultez :
 
-  * [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
+  * [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
   * [Comment déployer un service web dans plusieurs régions](deploy-a-machine-learning-web-service.md#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Avec les API du fournisseur de ressources des services web (API Azure Resource Manager)
 
-La version classique du fournisseur de ressources Azure Machine Learning Studio pour les services web permet le déploiement et la gestion des services web au moyen d'appels d'API REST. Pour plus d'informations, consultez la référence [Service web Machine Learning (REST)](/rest/api/machinelearning/index).
+Le fournisseur de ressources Azure Machine Learning Studio (classique) pour les services web permet le déploiement et la gestion des services web au moyen d’appels de l’API REST. Pour plus d'informations, consultez la référence [Service web Machine Learning (REST)](/rest/api/machinelearning/index).
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Avec des applets de commande PowerShell
 
-La version classique du fournisseur de ressources Azure Machine Learning Studio pour les services web permet le déploiement et la gestion des services web au moyen de cmdlets PowerShell.
+Le fournisseur de ressources Azure Machine Learning Studio (classique) pour les services web permet le déploiement et la gestion des services web au moyen de cmdlets PowerShell.
 
 Pour utiliser les cmdlets, vous devez d’abord vous connecter à votre compte Azure à partir de l’environnement PowerShell à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Si vous ne savez pas comment appeler les commandes PowerShell basées sur Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
@@ -89,7 +89,7 @@ Vous pouvez tester votre service web sur le portail de services web Azure Machin
 
 * [Déployer comme un nouveau service web](deploy-a-machine-learning-web-service.md)
 * [Déploiement d’un service web Azure Machine Learning](deploy-a-machine-learning-web-service.md)
-* [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
+* [Tutoriel 3 : Déployer un modèle de risque de crédit](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>À partir d’Excel
 

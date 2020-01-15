@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/13/2019
-ms.openlocfilehash: ad802521fe4202b8c5e27a82e0adf142dfa69228
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/13/2019
+ms.openlocfilehash: 7ef28933dc7d10817982690aa3c7bc866c33eb03
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929641"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440685"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -38,7 +38,7 @@ Ce connecteur Azure SQL Database est pris en charge pour les activités suivante
 Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge les fonctions suivantes :
 
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
-- En tant que source, la récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
+- En tant que source, la récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
 - En tant que récepteur, l’ajout de données à une table de destination ou l’appel d’une procédure stockée avec une logique personnalisée pendant la copie.
 
 >[!NOTE]
@@ -48,7 +48,7 @@ Pour l’activité de copie, ce connecteur Azure SQL Database prend en charge le
 > Si vous copiez des données via le runtime d’intégration Azure Data Factory, configurez un [pare-feu Azure SQL Server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce que les services Azure puissent accéder au serveur.
 > Si vous copiez des données à l’aide d’un runtime d’intégration auto-hébergé, configurez le pare-feu Azure SQL Server pour qu’il autorise la plage IP appropriée. Cette plage inclut l’adresse IP de l’ordinateur utilisé pour se connecter à Azure SQL Database.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -60,12 +60,12 @@ Les propriétés prises en charge pour un service lié Azure SQL Database sont l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | OUI |
-| connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété **connectionString**. <br/>Marquez ce champ en tant que **SecureString** pour le stocker en toute sécurité dans Azure Data Factory. Vous pouvez également placer un mot de passe ou une clé de principal de service dans Azure Key Vault. En cas d’authentification SQL, vous pouvez extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété **type** doit être définie sur **AzureSqlDatabase**. | Oui |
+| connectionString | Spécifiez les informations requises pour la connexion à l’instance Azure SQL Database pour la propriété **connectionString**. <br/>Vous pouvez également placer un mot de passe ou une clé de principal de service dans Azure Key Vault. En cas d’authentification SQL, extrayez la configuration `password` de la chaîne de connexion. Pour plus d’informations, consultez l’exemple JSON figurant après le tableau et l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Azure Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
 | tenant | Spécifiez les informations de locataire, comme le nom de domaine ou l’ID de locataire, dans lequel votre application se trouve. Récupérez-les en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui, quand vous utilisez l’authentification Azure AD avec le principal de service. |
-| connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, le runtime d’intégration par défaut est utilisé. | Non |
+| connectVia | Ce [runtime d'intégration](concepts-integration-runtime.md) permet de se connecter au magasin de données. Vous pouvez utiliser le runtime d’intégration Azure ou un runtime d’intégration auto-hébergé si votre banque de données se trouve sur un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. | Non |
 
 Pour en savoir plus sur les autres types d’authentification, consultez les sections suivantes sur les prérequis et les exemples JSON, respectivement :
 
@@ -74,7 +74,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 - [Authentification par jeton d’application Azure AD : Identités managées pour les ressources Azure](#managed-identity)
 
 >[!TIP]
->Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
+>Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session de la base de données XXX a été atteinte », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
@@ -86,10 +86,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -107,10 +104,7 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
@@ -140,7 +134,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 2. [Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) pour votre serveur Azure SQL Server sur le Portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD doit être un utilisateur Azure AD ou un groupe Azure AD, mais il ne doit pas s’agir d’un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité Azure AD pour créer un utilisateur de base de données autonome pour le principal de service.
 
-3. [Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour le principal de service. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SQL Server Management Studio, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
+3. [Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour le principal de service. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SQL Server Management Studio, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez la commande T-SQL suivante : 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
@@ -163,10 +157,7 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            },
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -184,13 +175,13 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 
 ### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité managée pour l’authentification Azure SQL Database. La fabrique désignée peut accéder et copier des données vers ou à partir de votre base de données à l’aide de cette identité.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser cette identité managée pour l’authentification Azure SQL Database. La fabrique en question peut accéder à votre base de données et copier des données depuis ou vers celle-ci à l’aide de cette identité.
 
 Pour utiliser l’authentification par identité managée, effectuez les étapes suivantes.
 
 1. [Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) pour votre serveur Azure SQL Server sur le Portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec identité managée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur dispose d’un accès complet à la base de données.
 
-2. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SQL Server Management Studio, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
+2. [Créer des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) pour l’identité managée d’Azure Data Factory. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SQL Server Management Studio, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez la commande T-SQL suivante : 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
@@ -212,10 +203,7 @@ Pour utiliser l’authentification par identité managée, effectuez les étapes
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
-            }
+            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -233,8 +221,8 @@ Les propriétés prises en charge pour le jeu de données Azure SQL Database son
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | OUI |
-| schema | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
+| type | La propriété **type** du jeu de données doit être définie sur **AzureSqlTable**. | Oui |
+| schéma | Nom du schéma. |Non pour Source, Oui pour Récepteur  |
 | table | Nom de la table/vue. |Non pour Source, Oui pour Récepteur  |
 | tableName | Nom de la table/vue avec schéma. Cette propriété est prise en charge pour la compatibilité descendante. Pour les nouvelles charges de travail, utilisez `schema` et `table`. | Non pour Source, Oui pour Récepteur |
 
@@ -269,15 +257,15 @@ Pour copier des données à partir d’Azure SQL Database, les propriétés suiv
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de **type** de la source d’activité de copie doit être définie sur **AzureSqlSource**. Le type « SqlSource » est toujours pris en charge à des fins de compatibilité descendante. | OUI |
-| sqlReaderQuery | Cette propriété utilise la requête SQL personnalisée pour lire les données. Par exemple `select * from MyTable`. | Non |
+| type | La propriété de **type** de la source d’activité de copie doit être définie sur **AzureSqlSource**. Le type « SqlSource » est toujours pris en charge à des fins de compatibilité descendante. | Oui |
+| sqlReaderQuery | Cette propriété utilise la requête SQL personnalisée pour lire les données. par exemple `select * from MyTable`. | Non |
 | sqlReaderStoredProcedureName | Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. | Non |
 | storedProcedureParameters | Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms ou de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de procédure stockée. | Non |
 
 **Points à noter :**
 
 - Si **sqlReaderQuery** est spécifié pour **AzureSqlSource**, l’activité de copie exécute cette requête sur la source Azure SQL Database pour obtenir les données. Vous pouvez également spécifier une procédure stockée en spécifiant **sqlReaderStoredProcedureName** et **storedProcedureParameters** si la procédure stockée accepte des paramètres.
-- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section « structure » du JSON de jeu de données sont utilisées pour créer une requête. La requête `select column1, column2 from mytable` est exécutée sur Azure SQL Database. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
+- Si vous ne spécifiez pas **sqlReaderQuery** ou **sqlReaderStoredProcedureName**, les colonnes définies dans la section « structure » du jeu de données JSON sont utilisées pour créer une requête. La requête `select column1, column2 from mytable` est exécutée sur Azure SQL Database. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
 
 #### <a name="sql-query-example"></a>Exemple de requête SQL
 
@@ -375,8 +363,8 @@ Pour copier des données vers Azure SQL Database, les propriétés suivantes son
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de **type** du récepteur d’activité de copie doit être définie sur **AzureSqlSink**. Le type « SqlSink » est toujours pris en charge à des fins de compatibilité descendante. | OUI |
-| writeBatchSize | Nombre de lignes à insérer dans le tableau SQL *par lot*.<br/> La valeur autorisée est **integer** (nombre de lignes). Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée selon la taille de ligne. | Non |
+| type | La propriété de **type** du récepteur d’activité de copie doit être définie sur **AzureSqlSink**. Le type « SqlSink » est toujours pris en charge à des fins de compatibilité descendante. | Oui |
+| writeBatchSize | Nombre de lignes à insérer dans la table SQL *par lot*.<br/> La valeur autorisée est **integer** (nombre de lignes). Par défaut, Azure Data Factory détermine de façon dynamique la taille de lot appropriée en fonction de la taille de ligne. | Non |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/> La valeur autorisée est **timespan**. Par exemple : « 00:30:00 » (30 minutes). | Non |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Azure SQL Database. Elle n'est appelée qu'une seule fois par copie. Utilisez cette propriété pour nettoyer les données préchargées. | Non |
 | sqlWriterStoredProcedureName | Nom de la procédure stockée qui définit comment appliquer des données sources dans une table cible. <br/>Cette procédure stockée est *appelée par lot*. Pour les opérations qui ne s’exécutent qu’une seule fois et qui n’ont rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. | Non |
@@ -384,7 +372,7 @@ Pour copier des données vers Azure SQL Database, les propriétés suivantes son
 | sqlWriterTableType |Nom du type de table à utiliser dans la procédure stockée. L'activité de copie rend les données déplacées disponibles dans une table temporaire avec ce type de table. Le code de procédure stockée peut ensuite fusionner les données copiées avec les données existantes. |Non |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Les valeurs autorisées sont des paires de noms et de valeurs. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. | Non |
 | tableOption | Spécifie si la table du récepteur doit être créée automatiquement si elle n’existe pas en fonction du schéma source. La création automatique de la table n’est pas prise en charge quand le récepteur spécifie une procédure stockée ou quand une copie intermédiaire est configurée dans l’activité de copie. Les valeurs autorisées sont `none` (par défaut) et `autoCreate`. |Non |
-| disableMetricsCollection | Data Factory collecte des métriques telles que les DTU Azure SQL Database pour effectuer des suggestions et l’optimisation des performances de copie. Si vous vous inquiétez de ce comportement, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
+| disableMetricsCollection | Data Factory collecte des métriques telles que les DTU Azure SQL Database pour effectuer des suggestions et l’optimisation des performances de copie. Si ce comportement vous préoccupe, spécifiez `true` pour le désactiver. | Non (la valeur par défaut est `false`) |
 
 **Exemple 1 : Ajout de données**
 
@@ -463,10 +451,10 @@ Pour en savoir plus, consultez [Appel d'une procédure stockée à partir d'un r
 
 Lors de la copie de données dans Azure SQL Database, vous pourriez avoir besoin d’un comportement d’écriture différent :
 
-- [Ajouter](#append-data) : Mes données sources contiennent uniquement de nouveaux enregistrements.
+- [Append](#append-data): Mes données sources contiennent uniquement de nouveaux enregistrements.
 - [Upsert](#upsert-data) : Mes données sources contiennent à la fois des insertions et des mises à jour.
-- [Remplacer](#overwrite-the-entire-table) : Je veux recharger une table de dimension entière à chaque fois.
-- [Écrire avec une logique personnalisée](#write-data-with-custom-logic) : J’ai besoin d’un traitement supplémentaire avant l’insertion finale dans la table de destination.
+- [Remplacer](#overwrite-the-entire-table) : Je veux recharger une table de dimension entière à chaque fois.
+- [Écrire avec une logique personnalisée](#write-data-with-custom-logic) : J’ai besoin d’un traitement supplémentaire avant l’insertion finale dans la table de destination.
 
 Reportez-vous aux sections correspondantes pour savoir comment configurer cela dans Azure Data Factory et pour connaître les meilleures pratiques associées.
 
@@ -476,12 +464,12 @@ L’ajout de données est le comportement par défaut de ce connecteur de récep
 
 ### <a name="upsert-data"></a>Effectuer un upsert de données
 
-**Option 1 :** Quand vous avez une grande quantité de données à copier, utiliser l’approche suivante pour effectuer un upsert : 
+**Option 1 :** Quand vous avez une grande quantité de données à copier, utilisez l’approche suivante pour effectuer un upsert : 
 
 - Tout d’abord, utilisez une [table temporaire de niveau base de données](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) pour le chargement en bloc de tous les enregistrements via l’activité de copie. Étant donné que les opérations sur des tables temporaires de niveau base de données ne sont pas journalisées, vous pouvez charger des millions d’enregistrements en quelques secondes.
 - Exécutez une activité de procédure stockée dans Azure Data Factory pour appliquer une instruction [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) ou INSERT/UPDATE. Utilisez la table temporaire comme source pour exécuter toutes les mises à jour ou insertions en tant que transaction unique. De cette façon, le nombre d’allers-retours et d’opérations de journalisation est réduit. À la fin de l’activité de procédure stockée, la table temporaire peut être tronquée pour être prête pour le prochain cycle d’upsert.
 
-Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée**. La première activité copie des données à partir de votre banque source dans une table temporaire Azure SQL Database, par exemple **##UpsertTempTable**, comme nom de table dans le jeu de données. La seconde activité appelle une procédure stockée pour fusionner les données sources de la table temporaire dans la table cible et nettoyer la table temporaire.
+Par exemple, dans Azure Data Factory, vous pouvez créer un pipeline avec une **activité de copie** chaînée avec une **activité de procédure stockée**. La première activité copie des données à partir de votre banque source dans une table temporaire Azure SQL Database, par exemple **##UpsertTempTable**, comme nom de table dans le jeu de données. La seconde activité appelle ensuite une procédure stockée pour fusionner les données sources de la table temporaire dans la table cible et nettoyer la table temporaire.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -506,13 +494,13 @@ END
 
 **Option 2 :** Vous pouvez également choisir d’[appeler une procédure stockée dans l’activité de copie](#invoke-a-stored-procedure-from-a-sql-sink). Cette approche exécute chaque ligne de la table source au lieu d’utiliser l’insertion en bloc comme approche par défaut dans l’activité de copie, ce qui n’est pas approprié pour les opérations d’upsert à grande échelle.
 
-### <a name="overwrite-the-entire-table"></a>Remplacer la table entière
+### <a name="overwrite-the-entire-table"></a>Remplacer l’intégralité de la table
 
-Vous pouvez configurer la propriété **preCopyScript** dans le récepteur de l’activité de copie. Dans ce cas, pour chaque activité de copie qui s’exécute, Azure Data Factory exécute d’abord le script. Il exécute ensuite la copie pour insérer les données. Par exemple, pour remplacer l’intégralité de la table par les données les plus récentes, spécifiez un script pour d’abord supprimer tous les enregistrements avant de charger en bloc les nouvelles données à partir de la source.
+Vous pouvez configurer la propriété **preCopyScript** dans le récepteur de l’activité de copie. Dans le cas présent, pour chaque activité de copie qui s’exécute, Azure Data Factory exécute d’abord le script. Il exécute ensuite la copie pour insérer les données. Par exemple, pour remplacer l’intégralité de la table par les données les plus récentes, spécifiez un script pour d’abord supprimer tous les enregistrements avant de charger en bloc les nouvelles données à partir de la source.
 
 ### <a name="write-data-with-custom-logic"></a>Écrire des données avec une logique personnalisée
 
-Les étapes permettant d’écrire des données à l’aide d’une logique personnalisée sont semblables à celles décrites dans la section [Effectuer un upsert de données](#upsert-data). Lorsque vous devez appliquer un traitement supplémentaire avant l’insertion finale des données sources dans la table de destination, à grande échelle, vous pouvez effectuer l’une de ces deux actions :
+Les étapes permettant d’écrire des données à l’aide d’une logique personnalisée sont semblables à celles décrites dans la section [Effectuer un upsert de données](#upsert-data). Quand vous devez appliquer un traitement supplémentaire avant l’insertion finale des données sources dans la table de destination, à grande échelle, vous pouvez effectuer l’une de ces deux actions :
 
 - Charger les données dans une table temporaire de niveau base de données, puis appeler une procédure stockée. 
 - Appeler une procédure stockée pendant la copie.
@@ -524,9 +512,9 @@ Quand vous copiez des données dans Azure SQL Database, vous pouvez également c
 > [!TIP]
 > Appeler une procédure stockée traite les données ligne par ligne, et non pas en bloc, ce qui n’est pas recommandé pour la copie à grande échelle. Pour en savoir plus, consultez l’article [Meilleures pratiques de chargement de données dans Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
-Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Par exemple, lorsque vous souhaitez appliquer un traitement supplémentaire avant l’insertion finale des données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
+Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Par exemple, quand vous souhaitez appliquer un traitement supplémentaire avant l’insertion finale de données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table Azure SQL Database. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique appelée « ProductA ».
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table Azure SQL Database. Supposons que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique appelée « ProductA ».
 
 1. Dans votre base de données, définissez le type de table avec le même nom que **sqlWriterTableType**. Le schéma du type de table doit être identique au schéma retourné par vos données d'entrée.
 
@@ -573,7 +561,45 @@ L’exemple suivant montre comment utiliser une procédure stockée pour effectu
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
+Lors de la transformation de données dans le flux de données de mappage, vous pouvez lire et écrire dans des tables à partir d’Azure SQL Database. Pour plus d’informations, consultez la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans le flux de données de mappage.
+
+### <a name="source-transformation"></a>Transformation de la source
+
+Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’onglet **Options de la source** de la transformation de la source. 
+
+**Entrée :** Indiquez si votre source pointe vers une table (ce qui correspond à ```Select * from <table-name>```) ou si vous souhaitez entrer une requête SQL personnalisée.
+
+**Requête** : Si vous sélectionnez Requête dans le champ Entrée, entrez une requête SQL pour votre source. Ce paramètre remplace toute table que vous avez choisie dans le jeu de données. Les clauses **Order By** ne sont pas prises en charge ici, mais vous pouvez définir une instruction SELECT FROM complète. Vous pouvez également utiliser des fonctions de table définies par l’utilisateur. **select * from udfGetData()** est une fonction UDF dans SQL qui retourne une table. Cette requête génère une table source que vous pouvez utiliser dans votre flux de données. L’utilisation de requêtes est également un excellent moyen de réduire les lignes pour les tests ou les recherches. 
+
+* Exemple SQL : ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+
+**Taille du lot** : entrez la taille de lot que doivent avoir les lectures créées à partir d’un large volume de données.
+
+**Niveaux d’isolement** : La valeur par défaut pour les sources SQL dans le flux de données de mappage est Lecture non validée. Vous pouvez remplacer ici le niveau d’isolement par l’une des valeurs suivantes :
+* Lecture validée
+* Lecture non validée
+* Lecture renouvelée
+* Sérialisable
+* Aucun (ignorer le niveau d’isolement)
+
+![Niveaux d’isolement](media/data-flow/isolationlevel.png "Niveau d’isolation")
+
+### <a name="sink-transformation"></a>Transformation du récepteur
+
+Les paramètres spécifiques à Azure SQL Database sont disponibles dans l’onglet **Paramètres** de la transformation du récepteur.
+
+**Méthode de mise à jour** : Détermine les opérations autorisées sur la destination de votre base de données. Par défaut, seules les insertions sont autorisées. Pour mettre à jour, effectuer un upsert ou supprimer des lignes, une transformation alter-row est requise afin de baliser les lignes pour ces actions. Pour les mises à jour, les opérations upsert et les suppressions, une ou plusieurs colonnes clés doivent être définies pour déterminer la ligne à modifier.
+
+**Action table :** Détermine si toutes les lignes de la table de destination doivent être recréées ou supprimées avant l’écriture.
+* Aucune : Aucune action ne sera effectuée sur la table.
+* Recréer : La table sera supprimée et recréée. Obligatoire en cas de création dynamique d’une nouvelle table.
+* Tronquer : Toutes les lignes de la table cible seront supprimées.
+
+**Taille du lot** : Contrôle le nombre de lignes écrites dans chaque compartiment. Les plus grandes tailles de lot améliorent la compression et l’optimisation de la mémoire, mais risquent de lever des exceptions de type mémoire insuffisante lors de la mise en cache des données.
+
+**Pré et post-scripts SQL** : Entrez des scripts SQL multilignes qui s’exécutent avant (prétraitement) et après (post-traitement) l’écriture de données dans votre base de données de réception.
+
+![Pré et post-scripts de traitement SQL](media/data-flow/prepost1.png "Scripts de traitement SQL")
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mappage de type de données pour Azure SQL Database
 
@@ -585,9 +611,9 @@ Quand des données sont copiées vers ou à partir d’Azure SQL Database, les m
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| Date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -595,21 +621,21 @@ Quand des données sont copiées vers ou à partir d’Azure SQL Database, les m
 | image |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| nchar |String, Char[] |
+| NCHAR |String, Char[] |
 | ntext |String, Char[] |
 | numeric |Decimal |
-| nvarchar |String, Char[] |
+| NVARCHAR |String, Char[] |
 | real |Unique |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
-| smallint |Int16 |
-| smallmoney |Decimal |
+| smalldatetime |DateTime |
+| SMALLINT |Int16 |
+| SMALLMONEY |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| tinyint |Byte |
-| uniqueidentifier |Guid |
+| TINYINT |Byte |
+| UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
 | Xml |Xml |

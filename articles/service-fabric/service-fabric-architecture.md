@@ -1,31 +1,23 @@
 ---
-title: Architecture d’Azure Service Fabric | Microsoft Docs
+title: Architecture d’Azure Service Fabric
 description: Service Fabric est une plateforme de systèmes distribués qui permet de créer des applications évolutives, fiables et faciles à gérer pour le cloud. Cet article illustre l'architecture de Service Fabric.
 services: service-fabric
-documentationcenter: .net
 author: rishirsinha
-manager: chackdan
-editor: rishirsinha
-ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 862332d31808c7ba372b93accb8f2b9a3524ba79
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097842"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75377886"
 ---
 # <a name="service-fabric-architecture"></a>Architecture de Service Fabric
 Service Fabric est constitué de sous-systèmes en couches. Ces sous-systèmes permettent d’écrire des applications qui présentent les caractéristiques suivantes :
 
 * Haute disponibilité
-* Extensibilité
+* Évolutif
 * Facilité de gestion
 * Testable
 

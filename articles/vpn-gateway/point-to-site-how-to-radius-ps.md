@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f55b8963ad9f940202816704c5818c6853ffcde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75353698"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurer une connexion point à site à un réseau virtuel à l’aide d’une authentification RADIUS : PowerShell
 
@@ -29,9 +29,11 @@ Cet article vous aide à configurer une configuration P2S avec authentification 
 
 ![Diagramme de connexions - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
-Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. La connexion P2S crée la connexion VPN via SSTP (Secure Socket Tunneling Protocol) ou IKEv2.
+Les connexions de point à site ne nécessitent pas de périphérique VPN ou d’adresse IP publique. La connexion P2S crée la connexion VPN via SSTP (Secure Socket Tunneling Protocol), OpenVPN ou IKEv2.
 
 * SSTP est un tunnel VPN basé sur le protocole SSL qui n’est pris en charge que sur les plateformes clientes Windows. Il peut pénétrer des pare-feux, ce qui en fait une option idéale pour se connecter à Azure à partir de n’importe quel endroit. Côté serveur, nous prenons en charge SSTP, versions 1.0, 1.1 et 1.2. Le client détermine la version à utiliser. Pour Windows 8.1 et supérieur, SSTP utilise la version 1.2 par défaut.
+
+* Protocole OpenVPN®, un protocole VPN basé sur SSL/TLS. Une solution VPN SSL peut pénétrer des pare-feu puisque la plupart des pare-feu ouvrent le port de sortie TCP 443 utilisé par le protocole SSL. Vous pouvez utiliser OpenVPN pour vous connecter à partir d’appareils Android, iOS (versions 11.0 et versions ultérieures), Windows, Linux et Mac (OSX 10.13 et versions ultérieures).
 
 * Un VPN IKEv2 est une solution VPN IPsec basée sur des normes. Un VPN IKEv2 peut être utilisé pour se connecter à partir d’appareils Mac (OSX 10.11 et versions ultérieures).
 
@@ -196,6 +198,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
+
+   Pour les configurations OpenVPN® :
+
+    ```azurepowershell-interactive
+    $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway -VpnClientRootCertificates @()
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "OpenVPN" `
+    -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
+    ```
+
 
    Pour configurer IKEv2 :
 

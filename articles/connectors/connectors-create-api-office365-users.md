@@ -1,20 +1,21 @@
 ---
 title: Se connecter à des utilisateurs Office 365
-description: Gérer les profils utilisateur avec les API REST Office 365 Users et Azure Logic Apps
+description: Automatiser des tâches et des flux de travail qui obtiennent et gèrent des profils dans les profils Office 365 Users à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
 tags: connectors
-ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 179c7538d8072f0e1a4f7d049cf521971efd7a21
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789515"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666854"
 ---
-# <a name="get-started-with-the-office-365-users-connector"></a>Prise en main du connecteur Office 365 Users
+# <a name="get-and-manage-profiles-in-office-365-users-by-using-azure-logic-apps"></a>Obtenir et gérer des profils dans Office 365 Users à l’aide d’Azure Logic Apps
+
 Connexion à Office 365 Users pour obtenir des profils, rechercher des utilisateurs, et plus encore. Avec Office 365 Users, vous pouvez :
 
 * Créer votre flux d’activité en fonction des données que vous obtenez d’Office 365 Users. 
@@ -23,7 +24,8 @@ Connexion à Office 365 Users pour obtenir des profils, rechercher des utilisate
 Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="create-a-connection-to-office-365-users"></a>Créer une connexion à Office 365 Users
-Quand vous ajoutez ce connecteur à vos applications logiques, vous devez vous connecter à votre compte Office 365 Users et autoriser les applications logiques à se connecter à votre compte.
+
+Quand vous ajoutez ce connecteur à vos applications logiques, vous devez vous connecter à votre compte Office 365 Users afin qu’Azure Logic Apps puisse se connecter à votre compte.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
@@ -33,7 +35,8 @@ Après avoir créé la connexion, vous entrez les propriétés Office 365 Users,
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/officeusers/).
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/officeusers/).
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](apis-list.md)

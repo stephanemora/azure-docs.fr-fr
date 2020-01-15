@@ -1,20 +1,20 @@
 ---
 title: Traiter par lots les messages EDI en tant que groupe
-description: Envoyez et recevez des messages EDI sous forme de lots, de groupes ou de collections dans Azure Logic Apps
+description: Envoyer et recevoir des messages EDI sous forme de lots, de groupes ou de collections à l’aide du traitement par lots dans Azure Logic Apps
 services: logic-apps
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 1c4b32bfec667620101d588974e0411a9c7438d2
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6fc0833f70e3e9cd98100f193b52e5a1bfa4d651
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793002"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666667"
 ---
-# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envoyer des messages EDI par lots aux partenaires commerciaux avec Azure Logic Apps
+# <a name="exchange-edi-messages-as-batches-or-groups-between-trading-partners-in-azure-logic-apps"></a>Échanger des messages EDI sous forme de lots ou de groupes entre partenaires commerciaux dans Azure Logic Apps
 
 Dans les scénarios d’entreprise à entreprise (B2B), les partenaires échangent souvent des messages par groupes ou par *lots*. Lorsque vous générez une solution de traitement par lot avec Logic Apps, vous pouvez envoyer des messages aux partenaires commerciaux et traiter ces messages par lot. Cet article explique comment traiter des messages EDI par lot (sur la base de l’exemple X12) en créant des applications logiques d’envoi et de réception par lot. 
 
@@ -24,13 +24,13 @@ Dans cet article, vous allez concevoir une solution de traitement par lots en cr
 
 * Une application logique [« réceptrice de lots »](#receiver), qui accepte et collecte les messages dans un lot jusqu’à ce que vos critères précisés soient remplis pour mettre en production et traiter ces messages. Dans ce scénario, le récepteur de lots encode également les messages dans le lot au moyen de l’accord X12 spécifié ou des identités partenaires.
 
-  Assurez-vous de commencer par la création du récepteur de lots, afin de pouvoir sélectionner ensuite la destination des lots lors de la création de l’expéditeur de lots.
+  Veillez à commencer par la création du récepteur de lots, afin de pouvoir sélectionner ensuite la destination des lots lors de la création de l’expéditeur de lots.
 
 * Une application logique [« expéditrice de lots »](#sender), qui envoie les messages au récepteur de lots précédemment créé. 
 
 Assurez-vous que votre récepteur et votre expéditeur de lots partagent le même abonnement *et* la même région Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 

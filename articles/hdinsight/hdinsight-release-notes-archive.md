@@ -1,19 +1,19 @@
 ---
 title: Notes de publication archivées pour Azure HDInsight
-description: Dernières notes de publication pour Azure HDInsight. Obtenez des conseils et détails concernant le développement pour Hadoop, Spark, R Server, Hive et bien plus.
+description: Notes de publication archivées pour Azure HDInsight. Obtenez des conseils et détails concernant le développement pour Hadoop, Spark, R Server, Hive et bien plus.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 217a1160595bfcbd33fe260613289951370cf409
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 419f5a8c6ba7f128cdeca8557b6ce6b7463ff91e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184322"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435504"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -23,6 +23,72 @@ ms.locfileid: "74184322"
 ## <a name="summary"></a>Résumé
 
 Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure.
+
+## <a name="release-date-11072019"></a>Date de publication : 07/11/2019
+
+Cette version s’applique à la fois à HDInsight 3.6 et 4.0.
+
+### <a name="new-features"></a>Nouvelles fonctionnalités
+
+#### <a name="hdinsight-identity-broker-hib-preview"></a>HDInsight Identity Broker (HIB) (préversion)
+
+HDInsight Identity Broker (HIB) permet aux utilisateurs de se connecter à Apache Ambari à l’aide de l’authentification multifacteur (MFA) et d’accéder aux tickets Kerberos requis sans avoir besoin de hachages de mot de passe dans Azure Active Directory Domain Services (AAD-DS). Actuellement, HIB est disponible uniquement pour les clusters déployés via un modèle Azure Resource Management (ARM).
+
+#### <a name="kafka-rest-api-proxy-preview"></a>Proxy d’API REST Kafka (préversion)
+
+Le proxy d’API REST Kafka fournit un déploiement en un clic d’un proxy REST hautement disponible avec un cluster Kafka via une autorisation AAD sécurisée et un protocole OAuth. 
+
+#### <a name="auto-scale"></a>Mise à l’échelle automatique
+
+La mise à l’échelle automatique pour Azure HDInsight est désormais généralement disponible dans toutes les régions pour les types de cluster Apache Spark et Hadoop. Cette fonctionnalité permet de gérer les charges de travail d’analytique de Big Data Analytics de manière plus rentable et productive. Vous pouvez désormais optimiser l’utilisation de vos clusters HDInsight et payer uniquement ce dont vous avez besoin.
+
+Selon vos besoins, vous pouvez choisir entre une mise à l’échelle automatique basée sur la charge et une mise à l’échelle automatique basée sur la planification. La mise à l’échelle automatique basée sur la charge permet d’augmenter ou de réduire la taille du cluster en fonction des besoins actuels en ressources, tandis que la mise à l’échelle automatique basée sur la planification permet de modifier la taille du cluster en fonction d’une planification prédéfinie. 
+
+La prise en charge de la mise à l’échelle automatique pour charge de travail HBase et LLAP est également disponible en préversion publique. Pour plus d’informations, consultez [Mettre à l’échelle automatiquement les clusters Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
+
+#### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans HDInsight 
+
+La fonctionnalité Écritures accélérées utilise des disques managés SSD Premium Azure pour améliorer les performances du journal WAL (write-ahead log) Apache HBase. Pour plus d’informations, consultez [Écritures accélérées pour Apache HBase dans Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
+
+#### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
+
+HDInsight offre désormais une nouvelle capacité pour permettre aux clients d’utiliser leur propre base de données SQL pour Ambari. À présent, les clients peuvent choisir la base de données SQL appropriée pour Ambari et facilement la mettre à niveau en fonction de leurs propres besoins en croissance commerciale. Le déploiement est effectué avec un modèle Azure Resource Manager. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+
+#### <a name="f-series-virtual-machines-are-now-available-with-hdinsight"></a>Les machines virtuelles de la série F sont désormais disponibles avec HDInsight
+
+Les machines virtuelles de la série F peuvent être un bon choix pour prendre en main HDInsight avec des exigences de traitement légères. Affichant le coût le plus bas par heure, la série F offre le meilleur rapport prix-performances de la gamme Azure si l’on considère les unités de calcul Azure (ACU) par processeur virtuel. Pour plus d’informations, consultez [Sélection de la taille de machine virtuelle adaptée à votre cluster Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+
+### <a name="deprecation"></a>Dépréciation
+
+#### <a name="g-series-virtual-machine-deprecation"></a>Dépréciation des machines virtuelles de la série G
+À partir de cette version, les machines virtuelles de la série G ne sont plus proposées dans HDInsight.
+
+#### <a name="dv1-virtual-machine-deprecation"></a>Dépréciation des machines virtuelles Dv1
+À partir de cette version, l’utilisation de machines virtuelles Dv1 avec HDInsight est déconseillée. Toute demande client concernant Dv1 sera traitée automatiquement avec Dv2. Il n’existe pas de différence de prix entre les machines virtuelles Dv1 et Dv2.
+
+### <a name="behavior-changes"></a>Changements de comportement
+
+#### <a name="cluster-managed-disk-size-change"></a>Modification de la taille du disque managé par le cluster
+HDInsight fournit un espace disque managé avec le cluster. À partir de cette version, la taille du disque managé de chaque nœud dans le nouveau cluster créé est modifiée à 128 Go.
+
+### <a name="upcoming-changes"></a>Changements à venir
+Les changements suivants se produiront dans les prochaines versions. 
+
+#### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de décembre, HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+
+#### <a name="hbase-20-to-21"></a>HBase 2.0 à 2.1
+Dans la prochaine version de HDInsight 4.0, la version de HBase sera mise à niveau de la version 2.0 à 2.1.
+
+#### <a name="a-series-virtual-machine-deprecation-for-esp-cluster"></a>Dépréciation des machines virtuelles de la série A pour le cluster ESP
+Les machines virtuelles de la série A peuvent provoquer des problèmes liés au cluster ESP en raison d’une capacité de mémoire et de l’UC relativement faible. Dans la prochaine version, l’utilisation des machines virtuelles de la série A sera déconseillée pour la création de nouveaux clusters ESP.
+
+### <a name="bug-fixes"></a>Résolution des bogues
+HDInsight continue à améliorer la fiabilité et les performances des clusters. 
+
+### <a name="component-version-change"></a>Changement de la version des composants
+Il n’y a aucune modification de la version des composants pour cette version. Vous pouvez trouver les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+
 
 ## <a name="release-date-08072019"></a>Date de publication : 07/08/2019
 
@@ -109,7 +175,7 @@ Pour HDInsight 3.6, procédez comme suit :
 
 #### <a name="phoenix-sqlline-stops-working-after-migrating-hbase-cluster-to-hdinsight-40"></a>Phoenix Sqlline cesse de fonctionner après la migration du cluster HBase vers HDInsight 4.0
 
-Effectuez également les étapes suivantes :
+Procédez comme suit :
 
 1. Supprimez les tables Phoenix suivantes :
     1. `SYSTEM.FUNCTION`
@@ -123,7 +189,7 @@ Effectuez également les étapes suivantes :
 
 #### <a name="phoenix-sqlline-stops-working-after-replicating-hbase-phoenix-metadata-from-hdinsight-36-to-40"></a>Phoenix Sqlline cesse de fonctionner après la réplication des métadonnées HBase Phoenix de HDInsight 3.6 à 4.0
 
-Effectuez également les étapes suivantes :
+Procédez comme suit :
 
 1. Avant de procéder à la réplication, accédez au cluster de destination 4.0 et exécutez `sqlline.py`. Cette commande génère des tables Phoenix telles que `SYSTEM.MUTEX` et `SYSTEM.LOG` qui existent uniquement dans 4.0.
 1. Supprimez les tables suivantes :
@@ -137,7 +203,6 @@ Effectuez également les étapes suivantes :
 
 Apache Storm et les services ML ne sont pas disponibles dans HDInsight 4.0.
 
-
 ## <a name="release-date-04142019"></a>Date de publication : 14/04/2019
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
@@ -150,7 +215,7 @@ Les nouvelles mises à jour et fonctionnalités appartiennent aux catégories su
 
     b.  [**Nouvelles fonctionnalités dans Apache Kafka 1.0**](https://kafka.apache.org/downloads#1.0.0)
 
-*  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3*** : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnalisation, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
+*  ***Mise à jour de R Server 9.1 vers Machine Learning Services 9.3*** : avec cette version, nous offrons aux scientifiques des données et aux ingénieurs le meilleur de l’open source qui bénéficie d’innovations algorithmiques et d’une grande facilité d’opérationnisme, le tout disponible dans leur langage préféré avec la vitesse d’Apache Spark. Cette version étend les fonctionnalités offertes par R Server avec l’ajout de la prise en charge de Python, entraînant le remplacement du nom du cluster R Server par ML Services. 
 
 *  ***Prise en charge d’Azure Data Lake Storage Gen2*** : HDInsight prendra en charge la préversion d’Azure Data Lake Storage Gen2. Dans les régions disponibles, les clients pourront choisir un compte ADLS Gen2 comme magasin principal ou secondaire pour leurs clusters HDInsight.
 
@@ -220,7 +285,7 @@ Cette version fournit Hadoop Common 2.7.3 et les correctifs Apache suivants :
 
 -   [HADOOP-15265](https://issues.apache.org/jira/browse/HADOOP-15265) : Exclusion explicite de json-smart de hadoop-auth pom.xml.
 
--   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922) : ShortCircuitCache\# ne libère pas ScheduledThreadPoolExecutors.
+-   [HDFS-7922](https://issues.apache.org/jira/browse/HDFS-7922) : ShortCircuitCache\#la fermeture ne libère pas ScheduledThreadPoolExecutors.
 
 -   [HDFS-8496](https://issues.apache.org/jira/browse/HDFS-8496) : L’appel de stopWriter() avec maintien du verrou FSDatasetImpl peut bloquer d’autres threads (cmccabe).
 
@@ -606,7 +671,7 @@ Cette version fournit Hive 1.2.1 et Hive 2.1.0 en plus des correctifs suivants :
 
 -   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879) : L’interdiction de l’élément incorporé dans UDFXPathUtil doit fonctionner si xercesImpl.jar figure dans le classpath.
 
--   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944) : La fonction GroupPing a défini une position de façon incorrecte pendant DPP.
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944) : La position des jeux de regroupement est définie de façon incorrecte pendant DPP.
 
 #### <a name="kafka"></a>Kafka
 
@@ -1211,7 +1276,7 @@ Les problèmes résolus représentent des problèmes sélectionnés qui ont ét�
 | BUG-93512              | [PHOENIX-4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | java.lang.RuntimeException : code de réponse 500. Exécution d’un travail Spark pour se connecter à Phoenix Query Server et charger des données                         |
 | BUG-93550              | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r ne fonctionne pas avec spark1 en raison d’une incompatibilité de version de scala                                                                      |
 | BUG-93910              | [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive ne parvient pas à compacter les tables contenues dans un dossier qui n’appartient pas à l’identité exécutant HiveMetaStore                                |
-| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Les blocs-notes et interpréteurs ne sont pas enregistrés dans zeppelin après des tests de stress &gt;1d                                                       |
+| BUG-93926              | [ZEPPELIN-3114](https://issues.apache.org/jira/browse/ZEPPELIN-3114)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Les notebooks et interpréteurs ne sont pas enregistrés dans zeppelin après &gt;des tests de stress 1d                                                       |
 | BUG-93932              | [ATLAS-2320](https://issues.apache.org/jira/browse/ATLAS-2320)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | La classification « \* » avec la requête lève l’exception de serveur interne 500.                                                                           |
 | BUG-93948              | [YARN-7697](https://issues.apache.org/jira/browse/YARN-7697)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NM rencontre un problème de mémoire insuffisante en raison d’une fuite dans l’agrégation de journaux (partie\#1)                                                                                 |
 | BUG-93965              | [ATLAS-2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Recherche DSL : Un attribut qui n’est pas une chaîne orderby lève une exception                                                                                     |
@@ -1438,7 +1503,7 @@ Les problèmes résolus représentent des problèmes sélectionnés qui ont ét�
 
   -   \[[*SPARK-23406*](https://issues.apache.org/jira/browse/SPARK-23406)\] Bogues dans les jointures réflexives entre flux
 
-  -   Les exemples de blocs-notes Spark ne sont pas disponibles quand Azure Data Lake Storage (Gen2) est le stockage par défaut du cluster.
+  -   Les exemples de notebooks Spark ne sont pas disponibles quand Azure Data Lake Storage (Gen2) est le stockage par défaut du cluster.
 
 - **Pack Sécurité Entreprise**
 

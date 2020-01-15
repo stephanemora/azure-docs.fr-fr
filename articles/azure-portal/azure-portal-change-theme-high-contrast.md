@@ -1,21 +1,21 @@
 ---
 title: Activer le contraste élevé dans le portail Azure | Documents Microsoft
-description: Découvrez comment activer le contraste élevé ou modifier le thème du portail Azure.
+description: Modifiez le thème du portail Azure pour choisir les couleurs d’arrière-plan et de police affichées. Activez le contraste élevé pour rendre le portail Azure plus rapide et plus facile à lire.
 services: azure-portal
 keywords: ''
-author: kfollis
-ms.author: kfollis
-ms.date: 04/08/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: accessibility
 manager: mtillman
-ms.openlocfilehash: 59824c4a10c50265ea0a15be69755748b87d4a3f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: db0b010d1adcf4f5178390913bedf773580dbb80
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60690390"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640378"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Activer le contraste élevé ou modifier le thème dans le portail Azure
 
@@ -25,7 +25,7 @@ Si vous avez besoin de plus de contraste ou si vous souhaitez modifier le jeu de
 
 ## <a name="turn-on-high-contrast"></a>Activer le contraste élevé
 
-1. Dans l’en-tête du portail Azure, [sélectionnez](https://portal.azure.com) **Paramètres**.
+1. Dans l’en-tête du portail Azure, [sélectionnez](https://portal.azure.com)**Paramètres**.
 
     ![Capture d’écran qui affiche que l’icône d’engrenage des paramètres du portail dans le portail Azure](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 1. Choisissez **Blanc** ou **Noir**.
@@ -40,7 +40,7 @@ Si vous avez besoin de plus de contraste ou si vous souhaitez modifier le jeu de
 
 ## <a name="change-theme"></a>Modifier le thème
 
-1. Dans l’en-tête du portail Azure, [sélectionnez](https://portal.azure.com) **Paramètres**.
+1. Dans l’en-tête du portail Azure, [sélectionnez](https://portal.azure.com)**Paramètres**.
 
     ![Capture d’écran qui affiche que l’icône d’engrenage des paramètres du portail dans le portail Azure](./media/azure-portal-change-theme-high-contrast/azure-portal-settings-icon.png)
 

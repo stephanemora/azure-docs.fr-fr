@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0900dd1809ecb1e93906b57483f334d0f12f6582
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b48ccede9ca3330d356fa75d4df34789e31eb916
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102078"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350746"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Mise à jour corrective automatisée pour SQL Server dans Azure Virtual Machines (Resource Manager)
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.locfileid: "70102078"
 La mise à jour corrective automatisée établit une fenêtre de maintenance pour une machine virtuelle Azure exécutant SQL Server. Les mises à jour automatisées ne peuvent être installées qu’au cours de cette fenêtre de maintenance. Pour SQL Server, cette restriction garantit que les mises à jour système et les redémarrages associés ont lieu au meilleur moment possible pour la base de données. 
 
 > [!IMPORTANT]
-> Seules les mises à jour Windows marquées **Important** sont installées. Les autres mises à jour de SQL Server, telles que les mises à jour cumulatives, doivent être installées manuellement. 
+> Seules les mises à jour Windows et SQL Server marquées **Important** sont installées. Les autres mises à jour de SQL Server, telles que les mises à jour cumulatives, doivent être installées manuellement. 
 
 La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -46,11 +46,11 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 
 **Version de SQL Server**:
 
-* SQL Server 2008 R2
-* SQL Server 2012
+* SQL Server 2008 R2
+* SQL Server 2012
 * SQL Server 2014
-* SQL Server 2016
-* SQL Server 2017
+* SQL Server 2016
+* SQL Server 2017
 
 **Azure PowerShell**:
 

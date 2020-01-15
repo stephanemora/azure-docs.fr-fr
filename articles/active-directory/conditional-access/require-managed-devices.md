@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452398"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424817"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procédure : Exiger des appareils gérés pour accéder aux applications cloud avec l’accès conditionnel
 
@@ -24,7 +24,7 @@ Dans un monde où la mobilité et le cloud occupent le premier plan, Azure Activ
 
 Cet article explique comment vous pouvez configurer des stratégies d’accès conditionnel qui exigent des appareils gérés pour accéder à certaines applications cloud de votre environnement. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le fait d’exiger des appareils gérés pour accéder aux applications cloud associe **l’accès conditionnel Azure AD** et la **gestion des appareils Azure AD**. Si l’un de ces aspects vous est inconnu, consultez d’abord les rubriques suivantes :
 
@@ -91,8 +91,9 @@ Pour un appareil marqué comme conforme, vous pouvez partir du principe que :
 - Les informations de votre entreprise sont protégées grâce au contrôle de la manière dont votre personnel y accède et les partage.
 - L’appareil et ses applications sont conformes aux exigences de sécurité de l’entreprise.
 
-> [!NOTE]
-> Si vous configurez une stratégie pour exiger des appareils conformes, les utilisateurs peuvent être invités sur Mac, iOS et Android à sélectionner un certificat d’appareil lors de l’évaluation de la stratégie. Il s'agit d'un comportement connu.
+### <a name="known-behavior"></a>Comportement connu
+
+Sur des systèmes Windows 7, iOS, Android, macOS, et dans certains navigateurs web tiers, Azure AD identifie l’appareil à l’aide d’un certificat client, qui est provisionné lorsque l’appareil est inscrit auprès d’Azure AD. Lorsqu’un utilisateur se connecte pour la première fois via le navigateur, l’utilisateur est invité à sélectionner le certificat. L’utilisateur final doit sélectionner ce certificat pour pouvoir continuer à utiliser le navigateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

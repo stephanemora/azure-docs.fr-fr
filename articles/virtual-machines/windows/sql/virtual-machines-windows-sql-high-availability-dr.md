@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 5f5fc4ecc0949f2f224c1d6a05742900a751ef45
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357981"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
@@ -38,7 +38,7 @@ Les technologies HADR SQL Server prises en charge dans Azure incluent :
 * [Groupes de disponibilité AlwaysOn](https://technet.microsoft.com/library/hh510230.aspx)
 * [Instances de cluster de basculement AlwaysOn](https://technet.microsoft.com/library/ms189134.aspx)
 * [Copie des journaux de transaction](https://technet.microsoft.com/library/ms187103.aspx)
-* [Sauvegarde et restauration SQL Server avec le service de stockage d’objets blob Azure](https://msdn.microsoft.com/library/jj919148.aspx)
+* [Sauvegarde et restauration SQL Server avec le service Stockage Blob Microsoft Azure](https://msdn.microsoft.com/library/jj919148.aspx)
 * [Mise en miroir de base de données](https://technet.microsoft.com/library/ms189852.aspx) - Déconseillée dans SQL Server 2016
 
 Il est possible de combiner les technologies pour implémenter une solution SQL Server qui a des fonctions de haute disponibilité et de récupération d’urgence. Selon la technologie que vous utilisez, un déploiement hybride peut nécessiter un tunnel VPN avec le réseau virtuel Azure. Les sections ci-dessous illustrent certains exemples d’architectures de déploiement.
@@ -70,9 +70,25 @@ Vous pouvez disposer d’une solution de récupération d’urgence pour vos bas
 | --- | --- |
 | **Groupes de disponibilité** |Certains réplicas de disponibilité s’exécutant dans les machines virtuelles Azure et d’autres réplicas s’exécutant sur site pour la récupération d’urgence entre sites. Le site de production peut être local ou situé dans un centre de données Azure.<br/>![Groupes de disponibilité](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-alwayson.png)<br/>Étant donné que tous les réplicas de disponibilité doivent être dans le même cluster de basculement, ce dernier doit couvrir les deux réseaux (un cluster de basculement de plusieurs sous-réseaux). Cette configuration nécessite une connexion VPN entre Azure et le réseau local.<br/><br/>Pour une récupération d’urgence réussie de vos bases de données, vous devez également installer un contrôleur de domaine de réplica sur le site de récupération d’urgence.<br/><br/>Il est possible d’utiliser l’Assistant Ajouter un réplica dans SSMS pour ajouter un réplica Azure à un groupe de disponibilité AlwaysOn existant. Pour plus d’informations, consultez le Didacticiel : Groupe de disponibilité Always On sur Azure. |
 | **Mise en miroir de bases de données** |Un serveur partenaire exécuté sur une machine virtuelle Azure et l’autre exécuté sur site pour la récupération d’urgence entre sites utilisant des certificats de serveur. Les serveurs partenaires n’ont pas besoin d’être dans le même domaine Active Directory, et aucune connexion VPN n’est requise.<br/>![Mise en miroir de bases de données](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-dbmirroring.png)<br/>Un autre scénario de mise en miroir de bases de données implique un serveur partenaire exécuté sur une machine virtuelle Azure et l’autre exécuté localement dans le même domaine Active Directory pour la récupération d’urgence entre sites. Une [connexion VPN entre le réseau virtuel Azure et le réseau local](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) est requise.<br/><br/>Pour une récupération d’urgence réussie de vos bases de données, vous devez également installer un contrôleur de domaine de réplica sur le site de récupération d’urgence. La mise en miroir de base de données SQL Server n’est pas prise en charge pour SQL Server 2008 ni SQL Server 2008 R2 sur une machine virtuelle Azure. |
-| **Copie des journaux de transaction** |Un serveur exécuté sur une machine virtuelle Azure et l’autre exécuté localement pour la récupération d’urgence entre sites. La copie des journaux de transaction dépendant du partage de fichiers Windows, une connexion VPN entre le réseau virtuel Azure et le réseau local est requise.<br/>![Copie des journaux de transaction](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>Pour une récupération d’urgence réussie de vos bases de données, vous devez également installer un contrôleur de domaine de réplica sur le site de récupération d’urgence. |
+| **Copie des journaux de transaction** |Un serveur exécuté sur une machine virtuelle Azure et l’autre exécuté localement pour la récupération d’urgence entre sites. La copie des journaux de transaction dépendant du partage de fichiers Windows, une connexion VPN entre le réseau virtuel Azure et le réseau local est requise.<br/>![Copie des journaux de transactions](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-log-shipping.png)<br/>Pour une récupération d’urgence réussie de vos bases de données, vous devez également installer un contrôleur de domaine de réplica sur le site de récupération d’urgence. |
 | **Sauvegarde et restauration avec le service de stockage d’objets blob Azure** |Bases de données de production locales sauvegardées directement dans le stockage d’objets blob Azure pour la récupération d’urgence.<br/>![Sauvegarde et restauration](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-backup-restore.png)<br/>Pour plus d’informations, voir [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-backup-recovery.md). |
 | **Réplication et basculement de SQL Server vers Azure avec Azure Site Recovery** |Instance SQL Server de production locale répliquée directement dans Stockage Azure pour la récupération d’urgence.<br/>![Réplication à l’aide d’Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/hybrid-dr-standalone-sqlserver-asr.png)<br/>Pour plus d’informations, consultez l’article [Protéger SQL Server à l’aide de la récupération d’urgence SQL Server et d’Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
+
+
+## <a name="free-dr-replica-in-azure"></a>Réplica de récupération d’urgence gratuit dans Azure
+
+Si vous avez [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), vous pouvez implémenter des plans de récupération d’urgence hybride avec SQL Server à l’aide de groupes de disponibilité Always On ou d’instances de cluster de basculement sans entraîner des coûts de licence supplémentaires pour l’instance de récupération d’urgence passive.
+
+Dans l’image ci-dessous, la configuration utilise SQL Server s’exécutant sur une machine virtuelle Azure utilisant 12 cœurs comme réplica de récupération d’urgence pour un déploiement SQL Server local avec 12 cœurs. Avant, vous deviez attribuer une licence à 12 cœurs SQL Server pour le déploiement local et le déploiement de machines virtuelles Azure. La nouvelle option offre des avantages de réplica passif s’exécutant sur une machine virtuelle Azure. À présent, il vous suffit simplement d’attribuer une licence à 12 cœurs SQL Server s’exécutant localement tant que les critères de récupération d’urgence pour le réplica passif sur la machine virtuelle Azure sont satisfaits.
+
+![Réplica de récupération d’urgence gratuit dans Azure](media/virtual-machines-windows-sql-high-availability-dr/free-dr-replica-azure.png)
+
+Pour plus d’informations, consultez [Conditions de licence du produit](https://www.microsoft.com/licensing/product-licensing/products). 
+
+Pour activer cet avantage, accédez à votre [ressource de machine virtuelle SQL Server](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource), sélectionnez **Configurer** sous Paramètres, puis choisissez l’option **Récupération d’urgence** sous **Licence SQL Server**. Cochez la case pour confirmer que cette machine virtuelle SQL Server sera utilisée comme réplica passif, puis sélectionnez **Appliquer** pour enregistrer vos paramètres. 
+
+![Configurer le réplica de récupération d’urgence dans Azure](media/virtual-machines-windows-sql-high-availability-dr/dr-replica-in-portal.png)
+
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Considérations importantes pour HADR SQL Server dans Azure
 Les machines virtuelles Azure, le stockage et le réseau ont des caractéristiques opérationnelles différentes par rapport à celles d’une infrastructure informatique non virtualisée sur site. Pour une implémentation réussie d’une solution HADR SQL Server dans Azure, vous devez comprendre ces différences et concevoir votre solution de façon à les gérer.

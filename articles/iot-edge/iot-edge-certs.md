@@ -4,18 +4,18 @@ description: Azure IoT Edge utilise un certificat pour valider les appareils, le
 author: stevebus
 manager: philmea
 ms.author: stevebus
-ms.date: 09/13/2018
+ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0aa70e591c7aac977fe13ed638f8ee56b88e4bd1
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982907"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457279"
 ---
-# <a name="azure-iot-edge-certificate-usage-detail"></a>Utilisation détaillée des certificats Azure IoT Edge
+# <a name="understand-how-azure-iot-edge-uses-certificates"></a>Comprendre Azure IoT Edge utilise les certificats
 
 Les certificats IoT Edge sont utilisés pour les modules et les appareils IoT en aval afin de vérifier l’identité et la légitimité du module d’exécution du [hub IoT Edge](iot-edge-runtime.md#iot-edge-hub) auquel ils se connectent. Ces vérifications permettent une connexion sécurisée TLS entre le runtime, les modules et les appareils IoT. Tout comme IoT Hub, IoT Edge nécessite une connexion sécurisée et chiffrée à partir d’appareils IoT en aval (ou feuilles) et de modules IoT Edge. Pour établir une connexion TLS sécurisée, le module du hub IoT Edge présente une chaîne d’approbation de serveur aux clients qui se connectent pour que ces derniers puissent vérifier son identité.
 
@@ -51,7 +51,7 @@ Dans tous les cas, le fabricant utilise un certificat d’autorité de certifica
 
 ### <a name="device-ca-certificate"></a>Certificat d’autorité de certification d’appareil
 
-Le certificat d’autorité de certification de l’appareil est généré à partir du certificat d’autorité de certification intermédiaire final (et signé par celui-ci) dans le processus. Ce certificat est installé sur l’appareil IoT Edge, de préférence dans un stockage sécurisé, tel qu’un module de sécurité matériel (HSM). En outre, un certificat d’autorité de certification d’appareil identifie de façon unique un appareil IoT Edge. Pour IoT Edge, le certificat d’autorité de certification d’appareil peut émettre d’autres certificats. Par exemple, le certificat d’autorité de certification d’appareil émet des certificats d’appareil de nœud terminal servant à authentifier les appareils auprès d’[Azure IoT Device Provisioning Service](../iot-dps/about-iot-dps.md).
+Le certificat d’autorité de certification de l’appareil est généré à partir du certificat d’autorité de certification intermédiaire final (et signé par celui-ci) dans le processus. Ce certificat est installé sur l’appareil IoT Edge, de préférence dans un stockage sécurisé, tel qu’un module de sécurité matériel (HSM). En outre, un certificat d’autorité de certification d’appareil identifie de façon unique un appareil IoT Edge. Le certificat d’autorité de certification d’appareil peut signer d’autres certificats. 
 
 ### <a name="iot-edge-workload-ca"></a>Autorité de certification pour la charge de travail IoT Edge
 
@@ -78,29 +78,7 @@ On peut raisonnablement se demander pourquoi IoT Edge a besoin d’un certifica
 
 ## <a name="devtest-implications"></a>Implications en matière de développement/test
 
-Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente. Pour obtenir des exemples de fonctionnement des scripts, voir [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
-
-Ces scripts génèrent des certificats qui suivent la structure de chaîne d’approbation expliquée dans cet article. Les commandes suivantes génèrent le « certificat d’autorité de certification racine » et un seul « certificat d’autorité de certification intermédiaire ».
-
-```bash
-./certGen.sh create_root_and_intermediate 
-```
-
-```Powershell
-New-CACertsCertChain rsa 
-```
-
-De même, ces commandes génèrent le « certificat d’autorité de certification d’appareil ».
-
-```bash
-./certGen.sh create_edge_device_ca_certificate "<gateway device name>"
-```
-
-```Powershell
-New-CACertsEdgeDeviceCA "<gateway device name>"
-```
-
-* Le **\<nom d’appareil de passerelle\>** transmis dans ces scripts ne doit pas être le même que le paramètre « hostname » du fichier config.yaml. Les scripts permettent d’éviter les problèmes en ajoutant une chaîne « .ca » au **\<nom d’appareil de passerelle\>** afin d’éviter le conflit de noms dans le cas où un utilisateur a configuré IoT Edge à l’aide du même nom aux deux emplacements. Toutefois, il est déconseillé d’utiliser le même nom.
+Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente. Pour obtenir des exemples de fonctionnement des scripts, consultez [Créer des certificats de démonstration pour tester les fonctionnalités des appareils IoT Edge](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Pour connecter vos appareils IoT feuille et applications utilisant notre Kit de développement logiciel (SDK) d’appareil IoT via IoT Edge, vous devez ajouter le paramètre GatewayHostName facultatif à la fin de la chaîne de connexion de l’appareil. Lorsque le certificat de serveur Edge Hub est généré, il est basé sur une version en minuscules du nom d’hôte indiqué dans le fichier config.yaml. Par conséquent, pour que les noms correspondent et que la vérification du certificat TLS réussisse, vous devez saisir le paramètre GatewayHostName en minuscules.

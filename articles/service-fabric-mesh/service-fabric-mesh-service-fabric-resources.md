@@ -1,26 +1,17 @@
 ---
-title: Présentation du modèle de ressource Azure Service Fabric | Microsoft Docs
+title: Introduction au modèle de ressource Azure Service Fabric
 description: Découvrez le modèle de ressource Service Fabric, une approche simplifiée de la définition d’applications Service Fabric mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: vturecek
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cee0ada75c4ea265c7e9c598408eb6b01477d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352454"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Présentation du modèle de ressource Azure Service Fabric
 

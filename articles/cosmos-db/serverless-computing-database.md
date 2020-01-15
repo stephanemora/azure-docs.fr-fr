@@ -1,17 +1,17 @@
 ---
-title: Traitement de base de données serverless - Azure Functions et Azure Cosmos DB
+title: Traitement de base de données serverless avec Azure Cosmos DB et Azure Functions
 description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: e1014c710d892e45f09999db22b1f59c0bb36300
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69614586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444874"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -19,7 +19,7 @@ L’informatique sans serveur permet de se concentrer sur des éléments de logi
 
 Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) et Azure Functions, vous pouvez créer des déclencheurs de base de données, des liaisons d’entrée et des liaisons de sortie directement à partir de votre compte Azure Cosmos DB. À l’aide d’Azure Functions et d’Azure Cosmos DB, vous pouvez créer et déployer des applications sans serveur basées sur les événements avec un accès à faible latence aux données enrichies pour une base d’utilisateurs globale.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 

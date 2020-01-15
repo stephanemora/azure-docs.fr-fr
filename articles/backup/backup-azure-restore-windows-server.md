@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment restaurer des données stocké
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e12596b496483b872f76ccd610fd70710327b586
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172781"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450028"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurer les fichiers dans Windows à l’aide du modèle de déploiement Resource Manager
 
@@ -21,7 +21,7 @@ Cet article explique comment restaurer des données depuis un coffre de sauvegar
 Utilisez la fonctionnalité de restauration instantanée afin de monter une capture instantanée de point de récupération inscriptible comme volume de récupération. Vous pouvez ensuite explorer le volume de récupération, copier les fichiers sur un ordinateur local et sélectionner les fichiers à restaurer.
 
 > [!NOTE]
-> La [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528?preview) est nécessaire si vous souhaitez utiliser la restauration instantanée pour restaurer des données. De plus, les données de sauvegarde doivent être protégées dans des coffres pour les pays listés dans l’article relatif au support. Consultez la [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528?preview) pour obtenir la liste la plus récente des pays qui prennent en charge la restauration instantanée.
+> La [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) est nécessaire si vous souhaitez utiliser la restauration instantanée pour restaurer des données. De plus, les données de sauvegarde doivent être protégées dans des coffres pour les pays listés dans l’article relatif au support. Consultez la [Mise à jour de la Sauvegarde Azure de janvier 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) pour obtenir la liste la plus récente des pays qui prennent en charge la restauration instantanée.
 >
 
 Utilisez la restauration instantanée avec les coffres Recovery Services dans le portail Azure. Si vous avez stocké des données dans des coffres de sauvegarde, ces derniers ont été convertis en coffres Recovery Services. Si vous souhaitez utiliser la restauration instantanée, téléchargez la mise à jour MARS et suivez les procédures mentionnant cette opération.
@@ -44,7 +44,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
 
     ![Capture d’écran de la page Mise en route de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Dans la page **Sélectionnez le mode de récupération**, choisissez **Fichiers et dossiers individuels** > **Suivant**.
+4. Dans la page **Sélectionner le mode de récupération**, choisissez **Fichiers et dossiers individuels** > **Suivant**.
 
     ![Capture d’écran de la page Mode de récupération de l’Assistant Récupérer des données](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]

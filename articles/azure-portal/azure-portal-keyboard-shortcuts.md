@@ -1,6 +1,6 @@
 ---
 title: Raccourcis clavier du portail Azure | Microsoft Docs
-description: En savoir plus sur les raccourcis clavier qui fonctionnent dans le portail Azure.
+description: Le portail Azure prend en charge les raccourcis clavier généraux pour vous aider à effectuer des actions, naviguer et atteindre des emplacements dans le portail Azure.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: kfollis
+ms.date: 12/20/2019
+ms.author: mblythe
 ms.custom: accessibility
-ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e42dfc82fa0db028894dd77225621e867d79dac6
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551428"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75641331"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Raccourcis clavier du portail Azure
 

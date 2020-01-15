@@ -1,25 +1,16 @@
 ---
-title: Affichage de l’état d’intégrité agrégé des entités Azure Service Fabric | Microsoft Docs
+title: Affichage de l’intégrité agrégée des entités Azure Service Fabric
 description: Explique comment interroger, afficher et évaluer l’état d’intégrité agrégé des entités Azure Service Fabric, via des requêtes d’intégrité et des requêtes générales.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d02d8f717801bf51e43c9dafa5eb9379d0737674
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464132"
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
 Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) avec des entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils surveillent. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
@@ -1032,25 +1023,25 @@ Les requêtes contenant le paramètre **HealthState** pour les entités sont les
 
 * Liste des nœuds : Retourne la liste des nœuds dans le cluster (paginée).
   * API : [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
-  * PowerShell : Get-ServiceFabricNode
+  * PowerShell : Get-ServiceFabricNode
 * Liste des applications : Retourne la liste des applications du cluster (paginée).
   * API : [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
-  * PowerShell : Get-ServiceFabricApplication
+  * PowerShell : Get-ServiceFabricApplication
 * Liste des services : Retourne la liste des services d’une application (paginée).
   * API : [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell : Get-ServiceFabricService
+  * PowerShell : Get-ServiceFabricService
 * Liste des partitions : Retourne la liste des partitions d’un service (paginée).
   * API : [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
-  * PowerShell : Get-ServiceFabricPartition
+  * PowerShell : Get-ServiceFabricPartition
 * Liste des réplicas : Retourne la liste des réplicas d’une partition (paginée).
   * API : [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
-  * PowerShell : Get-ServiceFabricReplica
+  * PowerShell : Get-ServiceFabricReplica
 * Liste des applications déployées : Retourne la liste des applications déployées sur un nœud.
   * API : [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
-  * PowerShell : Get-ServiceFabricDeployedApplication
+  * PowerShell : Get-ServiceFabricDeployedApplication
 * Liste des packages de service déployés : Retourne la liste des packages de service d’une application déployée.
   * API : [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
-  * PowerShell : Get-ServiceFabricDeployedApplication
+  * PowerShell : Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
 > Certaines des requêtes renvoient des résultats paginés. Ces requêtes retournent une liste dérivée de [PagedList\<T>](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1). Si les résultats ne tiennent pas dans un message, une seule page est renvoyée. Un élément ContinuationToken effectue un suivi de l’emplacement de l’arrêt de l’énumération. Continuez à appeler la même requête et transmettez le jeton de continuation de la requête précédente pour obtenir les résultats suivants.

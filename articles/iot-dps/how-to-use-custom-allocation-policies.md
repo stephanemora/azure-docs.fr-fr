@@ -7,12 +7,12 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b6b7d4614d3c63fe93e213fb830b85d0b7f9c474
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87ffca1957d4ec449753f1966ed05cf3948f5ca2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974868"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453939"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
 
@@ -39,9 +39,12 @@ Dans cet article, vous allez effectuer les étapes suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou version ultérieure avec la charge de travail [« Développement Desktop en C++ »](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) activée.
+Les prérequis suivants s’appliquent à un environnement de développement Windows. Pour Linux ou macOS, consultez la section appropriée de [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) dans la documentation du kit de développement logiciel (SDK).
+
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2019 avec la charge de travail [« Développement Desktop en C++ »](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) activée. Visual Studio 2015 et Visual Studio 2017 sont également pris en charge.
+
 * Dernière version de [Git](https://git-scm.com/download/) installée.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -96,7 +99,7 @@ Dans cette section, vous utilisez Azure Cloud Shell pour créer un service d’a
 
 Dans cette section, vous allez créer une fonction Azure qui implémente votre stratégie d’allocation personnalisée. Cette fonction détermine le hub IoT des divisions sur lequel un appareil doit être inscrit, selon que son ID d’inscription contient la chaîne **-contoso-tstrsd-007** ou **-contoso-hpsd-088**. Elle définit également l’état initial du jumeau d’appareil selon que l’appareil est un toaster ou une pompe à chaleur.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Dans votre page d’accueil, sélectionnez **+ Créer une ressource**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Dans votre page d’accueil, sélectionnez **+ Créer une ressource**.
 
 2. Dans la zone de recherche *Rechercher dans la Place de marché*, tapez « Application de fonction ». Dans la liste déroulante, sélectionnez **Application de fonction**, puis sélectionnez **Créer**.
 
@@ -406,25 +409,28 @@ Cette section s’applique à une station de travail Windows. Pour obtenir un ex
 
 1. Téléchargez le [système de génération CMake](https://cmake.org/download/).
 
-    Il est important que les composants requis pour Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine **avant** de commencer l’installation de `CMake`. Une fois les composants requis en place et le téléchargement vérifié, installez le système de génération CMake.
+    Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le dépôt GitHub du SDK Azure IoT pour C :
+2. Recherchez le nom d’étiquette de la [version la plus récente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) du kit de développement logiciel (SDK).
+
+3. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez les commandes suivantes pour cloner la dernière version du référentiel GitHub du [kit de développement logiciel (SDK) Azure IoT C](https://github.com/Azure/azure-iot-sdk-c). Utilisez l’étiquette obtenue à l’étape précédente comme valeur pour le paramètre `-b` :
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
-3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
+4. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. Exécutez les commandes suivantes à partir du répertoire `azure-iot-sdk-c` :
 
     ```cmd/sh
-    cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     ```
 
-4. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
+5. Exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. Une solution Visual Studio pour l’appareil simulé est générée dans le répertoire `cmake`. 
 
     ```cmd
     cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -561,7 +567,7 @@ Le tableau suivant présente les scénarios attendus et les codes d’erreur de 
 | Le webhook retourne le code d’erreur >= 429 | L’orchestration de DPS va effectuer plusieurs nouvelles tentatives. La stratégie de nouvelles tentatives est actuellement la suivante :<br><br>&nbsp;&nbsp;- Nombre de nouvelles tentatives : 10<br>&nbsp;&nbsp;- Intervalle initial : 1 s<br>&nbsp;&nbsp;- Incrément : 9 s | Le SDK ignore l’erreur et envoie un autre message d’état get dans le délai spécifié |
 | Le webhook retourne un autre code d’état | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationFailed (400207) | Le SDK retourne PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de continuer à utiliser les ressources créées dans cet article, vous pouvez les conserver. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources qui ont été créées dans le cadre de cet article, et ainsi éviter des frais inutiles.
 

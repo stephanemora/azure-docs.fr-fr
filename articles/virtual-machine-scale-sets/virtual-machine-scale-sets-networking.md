@@ -1,6 +1,6 @@
 ---
-title: Mise en réseau pour les groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: Propriétés de mise en réseau de configuration pour des groupes de machines virtuelles identiques Azure.
+title: Mise en réseau pour des groupes de machines virtuelles identiques Azure
+description: Procédure de configuration de certaines propriétés de mise en réseau avancées pour des groupes de machines virtuelles identiques Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 390da9179280a1ab8898d1ccea4df81e3b98805a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244841"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647575"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -238,7 +238,7 @@ Exemple de sortie provenant d’[Azure Resource Explorer](https://resources.azur
 ```
 
 ## <a name="multiple-ip-addresses-per-nic"></a>Plusieurs adresses IP par carte réseau
-Une ou plusieurs configurations IP peuvent être associées à chaque carte réseau attachée à une machine virtuelle, dans un groupe identique. Une adresse IP privée est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Pour comprendre combien d’adresses IP peuvent être attribuées à une carte réseau et combien d’adresses IP publiques vous pouvez utiliser dans un abonnement Azure, consultez [Limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Une ou plusieurs configurations IP peuvent être associées à chaque carte réseau attachée à une machine virtuelle, dans un groupe identique. Une adresse IP privée est affectée à chaque configuration. Une ressource d’adresse IP publique peut également être associée à chaque configuration. Pour comprendre combien d’adresses IP peuvent être attribuées à une carte réseau et combien d’adresses IP publiques vous pouvez utiliser dans un abonnement Azure, consultez [Limites Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="multiple-nics-per-virtual-machine"></a>Plusieurs cartes réseau par machine virtuelle
 Chaque machine virtuelle peut compter jusqu’à 8 cartes réseau, en fonction de la taille de la machine. Le nombre maximal de cartes réseau par machine est indiqué dans l’[article sur la taille des machines virtuelles](../virtual-machines/windows/sizes.md). Toutes les cartes réseau connectées à une instance de machine virtuelle doivent se connecter au même réseau virtuel. Les cartes réseau peuvent se connecter à différents sous-réseaux, mais tous les sous-réseaux doivent faire partie du même réseau virtuel.

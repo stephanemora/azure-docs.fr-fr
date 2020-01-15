@@ -4,15 +4,15 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/18/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927873"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665261"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -35,7 +35,7 @@ L’objet serveur inscrit représente une relation d’approbation entre votre s
 
 ### <a name="azure-file-sync-agent"></a>Agent Azure File Sync
 L’agent Azure File Sync est un package téléchargeable qui permet à Windows Server de rester synchronisé avec un partage de fichiers Azure. L’agent Azure File Sync a trois composants principaux : 
-- **FileSyncSvc.exe** : Service Windows en arrière-plan qui gère la supervision des changements sur les points de terminaison de serveur, ainsi que le démarrage des sessions de synchronisation dans Azure.
+- **FileSyncSvc.exe** : Service en arrière-plan qui gère la supervision des changements sur les points de terminaison de serveur, ainsi que le démarrage des sessions de synchronisation dans Azure.
 - **StorageSync.sys** : Filtre du système de fichiers Azure File Sync qui gère la hiérarchisation des fichiers dans Azure Files (quand la hiérarchisation cloud est activée).
 - **Applets de commande de gestion PowerShell** : Applets de commande PowerShell qui vous permettent d’interagir avec le fournisseur de ressources Azure Microsoft.StorageSync. Ces composants se trouvent aux emplacements (par défaut) suivants :
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
@@ -69,7 +69,7 @@ La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Syn
 Cette section traite de la configuration requise et de l’interopérabilité de l’agent Azure File Sync avec les fonctionnalités et rôles Windows Server, ainsi qu’avec des solutions tierces.
 
 ### <a name="evaluation-cmdlet"></a>Applet de commande d’évaluation
-Avant de déployer Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’applet de commande d’évaluation d’Azure File Sync. Cette cmdlet recherche les problèmes potentiels liés au système de fichiers et au jeu de données, comme des caractères ou une version de système d’exploitation non pris en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
+Avant de déployer Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’applet de commande d’évaluation d’Azure File Sync. Cette cmdlet recherche les problèmes potentiels liés au système de fichiers et au jeu de données, comme des caractères ou une version de système d’exploitation non pris en charge. Ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
 
 Vous pouvez installer l’applet de commande d’évaluation en installant le module Az PowerShell en suivant ces instructions : [Installez et configurez Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -124,14 +124,14 @@ Pour afficher les résultats au format CSV :
 
 | Fonctionnalité | État de la prise en charge | Notes |
 |---------|----------------|-------|
-| Listes ACL | Entièrement pris en charge | Les listes ACL Windows sont conservées par Azure File Sync et appliquées par Windows Server sur les points de terminaison de serveur. Les listes ACL Windows ne sont pas (encore) prises en charge par Azure Files si les fichiers sont accessibles directement dans le cloud. |
+| Listes ACL | entièrement prise en charge | Les listes ACL Windows sont conservées par Azure File Sync et appliquées par Windows Server sur les points de terminaison de serveur. Les listes ACL Windows ne sont pas (encore) prises en charge par Azure Files si les fichiers sont accessibles directement dans le cloud. |
 | Liens physiques | Ignoré | |
 | Liens symboliques | Ignoré | |
 | Points de montage | Partiellement pris en charge | Les points de montage peuvent être la racine d’un point de terminaison de serveur, mais ils sont ignorés s’ils se trouvent dans un espace de noms du point de terminaison de serveur. |
 | Jonctions | Ignoré | Par exemple, les dossiers DfrsrPrivate de système de fichiers DFS et DFSRoots. |
 | Points d’analyse | Ignoré | |
-| Compression NTFS | Entièrement pris en charge | |
-| Fichiers partiellement alloués | Entièrement pris en charge | Les fichiers partiellement alloués sont synchronisés (ils ne sont pas bloqués), mais ils sont synchronisés dans le cloud sous forme de fichiers complets. Si le contenu d’un fichier change dans le cloud (ou sur un autre serveur), le fichier n’est plus partiellement alloué quand le changement est téléchargé. |
+| Compression NTFS | entièrement prise en charge | |
+| Fichiers partiellement alloués | entièrement prise en charge | Les fichiers partiellement alloués sont synchronisés (ils ne sont pas bloqués), mais ils sont synchronisés dans le cloud sous forme de fichiers complets. Si le contenu d’un fichier change dans le cloud (ou sur un autre serveur), le fichier n’est plus partiellement alloué quand le changement est téléchargé. |
 | Autres flux de données | Conservés, mais pas synchronisés | Par exemple, les balises de classification créées par l’infrastructure de classification des fichiers ne sont pas synchronisées. Les balises de classification qui existent sur des fichiers à chacun des points de terminaison du serveur ne sont pas affectées. |
 
 > [!Note]  
@@ -141,8 +141,10 @@ Pour afficher les résultats au format CSV :
 
 | Fichier/Dossier | Remarque |
 |-|-|
+| pagefile.sys | Fichier spécifique au système |
 | Desktop.ini | Fichier spécifique au système |
-| ethumbs.db$ | Fichier temporaire pour les miniatures |
+| thumbs.db | Fichier temporaire pour les miniatures |
+| ehthumbs.db | Fichier temporaire pour les miniatures multimédia |
 | ~$\*.\* | Fichier temporaire Office |
 | \*.tmp | Fichier temporaire |
 | \*.laccdb | Accès au fichier de verrouillage de base de données|
@@ -177,7 +179,7 @@ Azure File Sync ne prend pas en charge la déduplication des données et la hié
     - La stratégie d’espace disponible continuera à hiérarchiser les fichiers en fonction de l’espace disponible sur le volume à l’aide de la carte thermique.
     - La stratégie de date ignorera la hiérarchisation des fichiers qui ont été éligibles pour la hiérarchisation en raison de l’accès de la tâche d’optimisation de la déduplication aux fichiers.
 - En ce qui concerne les tâches d’optimisation de la déduplication en cours, la hiérarchisation cloud avec la stratégie de date sera retardée par le paramètre [MinimumFileAgeDays](https://docs.microsoft.com/powershell/module/deduplication/set-dedupvolume?view=win10-ps) de déduplication des données, si le fichier n’est pas déjà hiérarchisé. 
-    - Exemple : Si la valeur du paramètre MinimumFileAgeDays est de 7 jours et la valeur de la stratégie de date de la hiérarchisation cloud est de 30 jours, la stratégie de date hiérarchisera les fichiers après 37 jours.
+    - Exemple : Si la valeur du paramètre MinimumFileAgeDays est de sept jours et la valeur de la stratégie de date de la hiérarchisation cloud est de 30 jours, la stratégie de date hiérarchisera les fichiers après 37 jours.
     - Remarque : Une fois un fichier hiérarchisé par Azure File Sync, la tâche d’optimisation de la déduplication ignorera le fichier.
 - Si un serveur exécutant Windows Server 2012 R2 avec l’agent Azure File Sync installé est mis à niveau vers Windows Server 2016 ou Windows Server 2019, les étapes suivantes doivent être effectuées pour prendre en charge la déduplication des données et la hiérarchisation cloud sur le même volume :  
     - Désinstallez l’agent Azure File Sync pour Windows Server 2012 R2 et redémarrez le serveur.
@@ -272,7 +274,7 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | États-Unis - partie centrale méridionale | Texas |
 | Inde Sud | Chennai |
 | Asie Sud-Est | Singapour |
-| Sud du Royaume-Uni | Londres |
+| Sud du Royaume-Uni | London |
 | Ouest du Royaume-Uni | Cardiff |
 | Gouvernement des États-Unis – Arizona | Arizona |
 | Gouvernement des États-Unis – Texas | Texas |
@@ -292,7 +294,7 @@ Pour les régions marquées d’un astérisque, vous devez contacter le support 
 Pour une protection contre la perte d’une région Azure, Azure File Sync s’intègre à l’option de [redondance du stockage géoredondant](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) (GRS). Le stockage GRS fonctionne en utilisant la réplication de blocs asynchrone entre le stockage dans la région primaire, avec laquelle vous interagissez normalement, et le stockage dans la région secondaire associée. En cas de sinistre entraînant la mise hors connexion temporaire ou définitive d'une région Azure, Microsoft bascule le stockage vers la région associée. 
 
 > [!Warning]  
-> Si vous utilisez votre partage de fichiers Azure comme point de terminaison cloud sur un compte de stockage GRS, vous ne devez pas initier de basculement de compte de stockage. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés. En cas de perte d'une région Azure, Microsoft déclenchera le basculement du compte de stockage en employant une méthode compatible avec Azure File Sync.
+> Si vous utilisez votre partage de fichiers Azure comme point de terminaison cloud sur un compte de stockage GRS, vous ne devez pas initier de basculement de compte de stockage. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés. En cas de perte d’une région Azure, Microsoft déclenchera le basculement du compte de stockage en employant une méthode compatible avec Azure File Sync.
 
 Pour prendre en charge l’intégration du basculement entre le stockage géoredondant et Azure File Sync, toutes les régions Azure File Sync sont associées à une région secondaire qui correspond à la région secondaire utilisée par le stockage. Ces associations sont les suivantes :
 
@@ -333,6 +335,30 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="recommended-azure-file-sync-machine-configuration"></a>Configuration d’ordinateur Azure File Sync recommandée
+
+La configuration d’ordinateur Azure File Sync requise est déterminée par le nombre d’objets dans l’espace de noms et l’évolution du jeu de données. Un serveur unique peut être attaché à plusieurs groupes de synchronisation et le nombre d’objets figurant dans le tableau suivant constitue l’espace de noms complet auquel un serveur est attaché. Par exemple, le point de terminaison de serveur A avec 10 millions d’objets + le point de terminaison de serveur B avec 10 millions d’objets = 20 millions d’objets. Pour cet exemple de déploiement, nous recommandons 8 UC, 16 Gio de mémoire pour l’état stable et (si possible) 48 Gio de mémoire pour la migration initiale.
+ 
+Les données d’espace de noms sont stockées en mémoire pour des raisons de performance. Pour cette raison, les espaces de noms plus grands nécessitent davantage de mémoire pour maintenir de bonnes performances, et une évolution plus importante requiert davantage d’UC pour le traitement. 
+ 
+Dans le tableau suivant, nous avons fourni la taille de l’espace de noms, ainsi qu’une conversion en capacité pour les partages de fichiers à usage général standard, où la taille de fichier moyenne est 512 Kio. Si les tailles de vos fichiers sont plus petites, envisagez d’ajouter de la mémoire supplémentaire pour obtenir la même capacité. Basez la configuration de votre mémoire sur la taille de l’espace de noms.
+
+| Taille de l’espace de noms - fichiers et répertoires (millions)  | Capacité type (Tio)  | Cœurs de processeur  | Mémoire recommandée (Gio) |
+|---------|---------|---------|---------|
+| 3        | 1.4     | 2        | 8 (synchronisation initiale)/2 (évolution classique)      |
+| 5        | 2.3     | 2        | 16 (synchronisation initiale)/4 (évolution classique)    |
+| 10       | 4,7     | 4        | 32 (synchronisation initiale)/8 (évolution classique)   |
+| 30       | 14,0    | 8        | 48 (synchronisation initiale)/16 (évolution classique)   |
+| 50       | 23,3    | 16       | 64 (synchronisation initiale)/32 (évolution classique)  |
+| 100*     | 46,6    | 32       | 128 (synchronisation initiale)/32 (évolution classique)  |
+
+\*Actuellement, la limite de prise en charge est de 100 millions de fichiers et répertoires. Il s’agit d’une limite non stricte.
+
+> [!TIP]
+> La synchronisation initiale d’un espace de noms est une opération intensive et nous vous recommandons d’allouer davantage de mémoire jusqu’à ce que la synchronisation initiale soit terminée. Cela n’est pas obligatoire, mais peut accélérer la synchronisation initiale. 
+> 
+> L’évolution standard est que 0,5 % de l’espace de noms change chaque jour. Pour des niveaux d’évolution plus élevés, envisagez d’ajouter davantage d’UC. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prenez en compte les paramètres de pare-feu et de proxy](storage-sync-files-firewall-and-proxy.md)

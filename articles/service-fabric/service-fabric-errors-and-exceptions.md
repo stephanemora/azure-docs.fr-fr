@@ -1,25 +1,16 @@
 ---
-title: Exceptions FabricClient fréquemment levées | Microsoft Docs
+title: Exceptions FabricClient fréquemment levées
 description: Décrit les exceptions et les erreurs courantes qui peuvent être générées par les API FabricClient lors des opérations de gestion des applications et des clusters.
-services: service-fabric
-documentationcenter: .net
 author: oanapl
-manager: chackdan
-editor: ''
-ms.assetid: bb821313-b221-479f-b08e-36cf07e60a07
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/20/2018
 ms.author: oanapl
-ms.openlocfilehash: 5bf17f4ced6bb01d8b62b6fa40ed1aeffe6f712f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ad3097a490d4728e05ea90652c17c24b79cac2c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60946530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457922"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Exceptions et erreurs courantes lorsque vous travaillez avec les API FabricClient
 Les API [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) permettent aux administrateurs de clusters et d’applications d’effectuer des tâches administratives au niveau d’une application, d’un service ou d’un cluster Service Fabric. Par exemple : déploiement d’une application, mise à niveau, suppression, vérification de l'intégrité d’un cluster, ou test d’un service. Les développeurs d'applications et les administrateurs de clusters peuvent utiliser les API FabricClient pour développer des outils permettant de gérer le cluster et les applications Service Fabric.

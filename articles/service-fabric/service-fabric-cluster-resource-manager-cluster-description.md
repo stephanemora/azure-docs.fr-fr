@@ -1,25 +1,16 @@
 ---
-title: Décrire un cluster à l’aide de Cluster Resource Manager | Microsoft Docs
+title: Décrire un cluster à l’aide du Gestionnaire des ressources clusters
 description: Décrivez un cluster Service Fabric en spécifiant des domaines d’erreur, des domaines de mise à niveau, les propriétés des nœuds et les capacités des nœuds pour Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 22ccb21a208bbe8e825bff9f7602bfca05990816
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67271646"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452124"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 La fonctionnalité Cluster Resource Manager d’Azure Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster :
@@ -43,7 +34,7 @@ Il est important que les domaines d’erreur soient configurés correctement, ca
 Dans l’environnement Azure, Service Fabric utilise les informations de domaine d’erreur fournies par l’environnement pour configurer correctement les nœuds du cluster en votre nom. Pour les instances autonomes de Service Fabric, les domaines d’erreur sont définis au moment où le cluster est configuré. 
 
 > [!WARNING]
-> Il est important que les informations de domaine d’erreur fournies à Service Fabric soient précises. Par exemple, supposez que les nœuds de votre cluster Service Fabric s’exécutent à l’intérieur de 10 machines virtuelles, s’exécutant sur cinq hôtes physiques. Dans ce cas, même s’il y a 10 ordinateurs virtuels, il y a seulement cinq domaines d’erreur (de niveau supérieur) différents. Le partage d’un même hôte physique amène les machines virtuelles à partager le même domaine d’erreur racine, car les machines virtuelles subissent une défaillance coordonnée si leur hôte physique subit une défaillance.  
+> Il est important que les informations de domaine d’erreur fournies à Service Fabric soient précises. Par exemple, supposez que les nœuds de votre cluster Service Fabric s’exécutent à l’intérieur de 10 machines virtuelles, s’exécutant sur cinq hôtes physiques. Dans ce cas, même s’il y a 10 ordinateurs virtuels, il y a seulement 5 domaines d’erreur (de niveau supérieur) différents. Le partage d’un même hôte physique amène les machines virtuelles à partager le même domaine d’erreur racine, car les machines virtuelles subissent une défaillance coordonnée si leur hôte physique subit une défaillance.  
 >
 > Service Fabric s’attend à ce que le domaine d’erreur d’un nœud ne change pas. D’autres mécanismes visant à garantir la haute disponibilité des machines virtuelles, tels que [HA-VM](https://technet.microsoft.com/library/cc967323.aspx), peuvent provoquer des conflits avec Service Fabric. Ces mécanismes utilisent une migration transparente des machines virtuelles d’un hôte vers un autre. Ils ne reconfigurent ni ne notifient le code s’exécutant dans la machine virtuelle. À ce titre, ils ne sont *pas pris en charge* en tant qu’environnements d’exécution de clusters Service Fabric. 
 >
@@ -384,7 +375,7 @@ La valeur spécifiée dans la propriété de nœud peut être une chaîne, une v
 
 * Des vérifications conditionnelles pour la création d’instructions particulières :
 
-  | Instruction | Syntaxe |
+  | . | Syntaxe |
   | --- |:---:|
   | "égal à" | "==" |
   | "non égal à" | "!=" |
@@ -395,7 +386,7 @@ La valeur spécifiée dans la propriété de nœud peut être une chaîne, une v
 
 * Des instructions booléennes pour les opérations logiques et de groupage :
 
-  | Instruction | Syntaxe |
+  | . | Syntaxe |
   | --- |:---:|
   | "et" | "&&" |
   | "ou" | "&#124;&#124;" |
@@ -485,7 +476,7 @@ Service Fabric représente les ressources en tant que *métriques*. Les métriqu
 
 Les métriques sont différentes des contraintes de placement et des propriétés de nœud. Les propriétés de nœud sont des descripteurs statiques des nœuds proprement dits. Les métriques décrivent les ressources à la disposition des nœuds et que les services consomment quand ils s’exécutent sur un nœud. La propriété d’un nœud pourrait être **HasSSD** et avoir la valeur true ou false. La quantité d’espace disponible sur ce disque SSD et la quantité consommée par les services pourrait correspondre à une métrique nommée « DriveSpaceInMb ». 
 
-Comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des métriques. Les noms des métriques ne sont que des chaînes. Nous vous recommandons de déclarer les unités dans le cadre des noms des métriques que vous créez quand elles peuvent être ambiguës.
+Comme pour les contraintes de placement et les propriétés de nœud, Service Fabric Cluster Resource Manager ne comprend pas ce que signifient les noms des métriques. Les noms des mesures ne sont que des chaînes. Nous vous recommandons de déclarer les unités dans le cadre des noms des métriques que vous créez quand elles peuvent être ambiguës.
 
 ## <a name="capacity"></a>Capacité
 Si vous désactiviez toutes les fonctions d’*équilibrage* des ressources, Service Fabric Cluster Resource Manager serait tout de même en mesure de garantir qu’aucun nœud ne dépasse sa capacité. Il est possible de gérer les dépassements de capacité, sauf si le cluster est saturé ou si la charge de travail dépasse la capacité d’un nœud. La capacité est une autre *contrainte* que Cluster Resource Manager utilise pour comprendre la quantité d’une ressource dont un nœud dispose. La capacité restante est également suivie pour le cluster dans son ensemble. 

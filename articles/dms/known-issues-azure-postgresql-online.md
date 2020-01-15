@@ -1,6 +1,7 @@
 ---
-title: Article sur les problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL - Serveur unique | Microsoft Docs
-description: Apprenez-en davantage sur les problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL.
+title: 'Problèmes connus : Migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL'
+titleSuffix: Azure Database Migration Service
+description: Découvrez les problèmes connus et les limitations de migration avec les migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL – serveur unique – à l’aide d’Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom:
+- seo-lt-2019
+- seo-dt-2019
 ms.topic: article
 ms.date: 10/27/2019
-ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c5c0015c5034dd3b30b716264fd97e9881b3fe67
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043206"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437872"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure DB pour PostgreSQL - Serveur unique
 

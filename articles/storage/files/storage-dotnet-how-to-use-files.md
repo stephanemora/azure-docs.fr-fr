@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: dfb1d71a02ae3bf06a5f2d8a93bcb3ac83433a86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460365"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Développer pour Azure Files avec .NET
 
@@ -23,7 +23,7 @@ Ce didacticiel décrit les principes fondamentaux de l’utilisation de .NET pou
 
 * Obtenir le contenu d’un fichier
 * Définir la taille maximale ou *quota* pour le partage de fichiers
-* Créer une signature d’accès partagé pour un fichier qui utilise une stratégie d’accès partagé définie sur le partage
+* Créez une signature d’accès partagé (clé SAS) pour un fichier qui utilise une stratégie d’accès stockée définie sur le partage.
 * Copier un fichier dans un autre fichier au sein du même compte de stockage
 * Copier un fichier dans un objet blob au sein du même compte de stockage.
 * Utiliser Azure Storage Metrics pour la résolution des problèmes
@@ -36,10 +36,10 @@ Pour en savoir plus sur Azure Files, consultez [Qu’est-ce qu’Azure Files ?]
 
 Azure Files fournit deux approches globales pour les applications clientes : SMB et REST. Dans .NET, l’abstraction de ces approches est fournie par les API `System.IO` et `WindowsAzure.Storage`.
 
-API | Quand utiliser | Notes
+API | Quand l’utiliser | Notes
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Votre application : <ul><li>Doit lire/écrire des fichiers à l’aide de SMB.</li><li>Est en cours d’exécution sur un périphérique qui a accès via le port 445 à votre compte Azure Files.</li><li>N’a pas besoin de gérer les paramètres d’administration du partage de fichiers.</li></ul> | Les E/S de fichiers implémentées avec Azure Files sur SMB sont généralement similaires aux E/S avec un partage de fichiers réseau ou un périphérique de stockage local. Pour découvrir une présentation de certaines fonctionnalités de .NET, notamment des E/S de fichiers, consultez le tutoriel [Application console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Votre application : <ul><li>Ne peut pas accéder à Azure Files à l’aide de SMB sur le port 445 en raison des contraintes de pare-feu ou d’ISP.</li><li>Nécessite une fonctionnalité d’administration, telle que la capacité de définir le quota d’un partage de fichier ou de créer une signature d’accès partagé.</li></ul> | Cet article décrit l’utilisation de `Microsoft.Azure.Storage.File` pour les E/S de fichiers utilisant REST plutôt que SMB et la gestion du partage de fichiers.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Votre application : <ul><li>Doit lire/écrire des fichiers à l’aide de SMB.</li><li>Est en cours d’exécution sur un périphérique qui a accès via le port 445 à votre compte Azure Files</li><li>N’a pas besoin de gérer les paramètres d’administration du partage de fichiers</li></ul> | Les E/S de fichiers implémentées avec Azure Files sur SMB sont généralement similaires aux E/S avec un partage de fichiers réseau ou un périphérique de stockage local. Pour découvrir une présentation de certaines fonctionnalités de .NET, notamment des E/S de fichiers, consultez le tutoriel [Application console](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter).
+[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Votre application : <ul><li>Ne peut pas accéder à Azure Files à l’aide de SMB sur le port 445 en raison des contraintes de pare-feu ou d’ISP.</li><li>Nécessite une fonctionnalité d’administration, telle que la capacité de définir le quota d’un partage de fichier ou de créer une signature d’accès partagé</li></ul> | Cet article décrit l’utilisation de `Microsoft.Azure.Storage.File` pour les E/S de fichiers utilisant REST plutôt que SMB et la gestion du partage de fichiers.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Création de l’application console et obtention de l’assembly
 
@@ -59,7 +59,7 @@ Reportez-vous à ces packages dans votre projet pour suivre ce tutoriel :
 
 * [Bibliothèque Microsoft Azure Storage Common pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
   
-  Ce package fournit un accès programmatique aux ressources communes de votre compte de stockage.
+  ce package fournit un accès programmatique aux ressources communes de votre compte de stockage.
 * [Bibliothèque Microsoft Azure Storage Blob pour .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
   Ce package fournit un accès par programmation aux ressources d’objets blob de votre compte de stockage.
@@ -192,9 +192,9 @@ if (share.Exists())
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Génération d’une signature d’accès partagé pour un fichier ou partage de fichiers
 
-Depuis la version 5.x de la bibliothèque cliente Azure Storage, vous pouvez générer une signature d’accès partagé (SAP) pour un partage de fichiers ou un fichier individuel. Vous pouvez également créer une stratégie d’accès partagé sur un partage de fichiers pour gérer les signatures d’accès partagé. Nous vous recommandons de créer une stratégie d’accès partagé, car elle vous permet de révoquer la SAP si elle est compromise.
+Depuis la version 5.x de la bibliothèque cliente Azure Storage, vous pouvez générer une signature d’accès partagé (SAP) pour un partage de fichiers ou un fichier individuel. Vous pouvez également créer une stratégie d’accès stockée sur un partage de fichiers pour gérer les signatures d’accès partagé. Nous vous recommandons de créer une stratégie d’accès stockée, car elle vous permet de révoquer la SAS si elle est compromise.
 
-L’exemple suivant crée une stratégie d’accès partagé sur un partage. Il utilise cette stratégie pour fournir les contraintes pour une SAP sur un fichier du partage.
+L’exemple suivant crée une stratégie d’accès stockée sur un partage. Il utilise cette stratégie pour fournir les contraintes pour une SAP sur un fichier du partage.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -212,7 +212,7 @@ if (share.Exists())
 {
     string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
 
-    // Create a new shared access policy and define its constraints.
+    // Create a new stored access policy and define its constraints.
     SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
         {
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
@@ -222,7 +222,7 @@ if (share.Exists())
     // Get existing permissions for the share.
     FileSharePermissions permissions = share.GetPermissions();
 
-    // Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+    // Add the stored access policy to the share's policies. Note that each policy must have a unique name.
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
@@ -426,7 +426,7 @@ Azure Storage Analytics prend à présent en charge les métriques pour Azure F
 
 Vous pouvez activer les métriques pour Azure Files par le biais du [Portail Azure](https://portal.azure.com). Vous pouvez également activer les métriques par programmation en appelant l’opération de définition des propriétés du service de fichiers avec l’API REST ou l’un de ses analogues dans la bibliothèque de client de stockage.
 
-L’exemple de code suivant explique comment utiliser la bibliothèque de client de stockage pour .NET afin d’activer les métriques pour Azure Files.
+L’exemple de code suivant explique comment utiliser la bibliothèque cliente de stockage pour .NET afin d’activer les métriques pour Azure Files.
 
 Commencez par ajouter les directives `using` suivantes à votre fichier `Program.cs`, en plus de celles que vous avez ajoutées ci-dessus :
 

@@ -1,24 +1,24 @@
 ---
 title: Se connecter à Azure Event Hubs
-description: Gérer et surveiller les événements à l’aide d’Azure Event Hubs et d’Azure Logic Apps
+description: Créer des tâches et des flux de travail automatisés qui surveillent et gèrent les événements à l’aide d’Azure Event Hubs et d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 77ff24f3af77e012b9ae9bc702d6a5a2639a5b11
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a0ba747fcc3015df961aa40de794071828d73a33
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446163"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Surveillez, recevez et envoyez des événements avec Azure Event Hubs et Azure Logic Apps
 
 Cet article explique comment vous pouvez surveiller et gérer les événements envoyés à [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) depuis une application logique à l’aide du connecteur Azure Event Hubs. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour vérifier, envoyer et recevoir des événements à partir de votre hub d’événements. Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [documentation de référence du connecteur Azure Event Hubs](https://docs.microsoft.com/connectors/eventhubs/)</a>.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
@@ -33,7 +33,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 Pour vous assurer que votre application logique peut accéder à votre hub d’événements, vérifiez vos autorisations et obtenez la chaîne de connexion pour votre espace de noms Event Hubs.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Accédez à votre *espace de noms* Event Hubs, et non à un hub d’événements spécifique. 
 
@@ -76,12 +76,12 @@ Cet exemple montre comment vous pouvez démarrer un flux de travail d’applicat
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’Event Hub** | OUI | Nom du hub Event Hubs que vous souhaitez surveiller |
+   | **Nom de l’Event Hub** | Oui | Nom du hub Event Hubs que vous souhaitez surveiller |
    | **Type de contenu** | Non | Type de contenu de l’événement. Par défaut, il s’agit de `application/octet-stream`. |
    | **Nom du groupe de consommateurs** | Non | [Nom du groupe de consommateurs Event Hub](../event-hubs/event-hubs-features.md#consumer-groups) pour la lecture d’événements. Si ce champ n’est pas spécifié, le groupe de consommateurs par défaut est utilisé. |
    | **Nombre d’événements maximum** | Non | Nombre maximal d’événements. Le déclencheur retourne entre 1 et le nombre d’événements spécifié par cette propriété. |
-   | **Intervalle** | OUI | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence |
-   | **Fréquence** | OUI | Unité de temps à utiliser pour la récurrence |
+   | **Intervalle** | Oui | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence |
+   | **Fréquence** | Oui | Unité de temps à utiliser pour la récurrence |
    ||||
 
    **Propriétés supplémentaires**
@@ -132,7 +132,7 @@ Dans la liste des actions, sélectionnez cette action : **Envoyer un événemen
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de l’Event Hub** | OUI | Event Hub où vous voulez envoyer l’événement |
+   | **Nom de l’Event Hub** | Oui | Event Hub où vous voulez envoyer l’événement |
    | **Contenu** | Non | Le contenu pour l’événement que vous souhaitez envoyer |
    | **Propriétés** | Non | Les valeurs et les propriétés de l’application à envoyer |
    | **Clé de partition** | Non | ID [partition](../event-hubs/event-hubs-features.md#partitions) auquel envoyer l’événement |
@@ -152,10 +152,10 @@ Dans la liste des actions, sélectionnez cette action : **Envoyer un événemen
 
 1. Lorsque vous êtes invité à entrer des informations de connexion, fournissez les précisions suivantes :
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom de connexion** | OUI | <*connection-name*> | Nom à créer pour votre connexion |
-   | **Espace de noms Event Hubs** | OUI | <*event-hubs-namespace*> | Sélectionnez l’espace de noms Event Hubs que vous souhaitez utiliser. |
+   | **Nom de connexion** | Oui | <*connection-name*> | Nom à créer pour votre connexion |
+   | **Espace de noms Event Hubs** | Oui | <*event-hubs-namespace*> | Sélectionnez l’espace de noms Event Hubs que vous souhaitez utiliser. |
    |||||  
 
    Par exemple :
@@ -173,7 +173,7 @@ Dans la liste des actions, sélectionnez cette action : **Envoyer un événemen
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/eventhubs/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/eventhubs/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

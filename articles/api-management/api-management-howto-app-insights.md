@@ -1,5 +1,6 @@
 ---
-title: Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights | Microsoft Docs
+title: Intégrer la Gestion des API Azure avec Azure Application Insights
+titleSuffix: Azure API Management
 description: Découvrez comment consigner et afficher des événements de la Gestion des API Azure dans Azure Application Insights.
 services: api-management
 documentationcenter: ''
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: ae467e3def65d446a8c331c4f15033b4c01886ae
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 12aeea8393a00d7d2662c826f847265bdbdc0119
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219492"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442711"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
 La Gestion des API Azure est parfaitement compatible avec Azure Application Insights, un service extensible permettant aux développeurs web de créer et de gérer des applications sur de multiples plateformes. Ce guide décrit la marche à suivre pour effectuer cette intégration, ainsi que des stratégies visant à réduire l’impact sur le fonctionnement de l’instance de service Gestion des API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide, vous devrez disposer d’une instance de Gestion des API Azure. Si vous n’en avez pas, suivez d’abord le [tutoriel](get-started-create-service-instance.md).
 
@@ -75,10 +76,10 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Activer                              | boolean                           | Indique si la journalisation de cette API est activée.                                                                                                                                                                                                                                                                                                |
 | Destination                         | Enregistreur d'événements Azure Application Insights | Indique l’enregistreur d'événements Azure Application Insights utilisé.                                                                                                                                                                                                                                                                                           |
-| Échantillonnage (%)                        | décimal                           | Valeurs comprises entre 0 et 100 (%). <br/> Indique le pourcentage de demandes qui seront consignées dans Azure Application Insights. Un échantillonnage à 0 % signifie qu’aucune demande ne sera consignée, tandis qu’un échantillonnage à 100 % indique qu’elles le seront toutes. <br/> Ce paramètre permet de réduire les conséquences des demandes de journalisation sur les performances d’Azure Application Insights (voir la section ci-dessous). |
+| Échantillonnage (%)                        | Décimal                           | Valeurs comprises entre 0 et 100 (%). <br/> Indique le pourcentage de demandes qui seront consignées dans Azure Application Insights. Un échantillonnage à 0 % signifie qu’aucune demande ne sera consignée, tandis qu’un échantillonnage à 100 % indique qu’elles le seront toutes. <br/> Ce paramètre permet de réduire les conséquences des demandes de journalisation sur les performances d’Azure Application Insights (voir la section ci-dessous). |
 | Toujours consigner les erreurs                   | boolean                           | Si ce paramètre est sélectionné, toutes les défaillances seront consignées dans Azure Application Insights, quel que soit le paramètre **Échantillonnage**.                                                                                                                                                                                                                  |
 | Options de base : headers              | list                              | Précise quels en-têtes seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, aucun en-tête n’est consigné.                                                                                                                                                                                                             |
-| Options de base : Premiers octets du corps  | integer                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                                    |
+| Options de base : Premiers octets du corps  | entier                           | Indique combien de premiers octets du corps seront consignés dans Azure Application Insights pour les demandes et les réponses.  Par défaut, le corps n’est pas consigné.                                                                                                                                                                                                    |
 | Options avancées : Commentaires         |                                   | Spécifie le niveau de verbosité. Seules les traces personnalisées avec un niveau de gravité supérieur sont journalisées. Valeur par défaut : Information.                                                                                                                                                                                                                               |
 | Options avancées : Demande du serveur frontal  |                                   | Précise si des *demandes frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *demande frontale* est une demande entrante dans le service Gestion des API Azure.                                                                                                                                                                        |
 | Options avancées : Réponse du serveur frontal |                                   | Précise si des *réponses frontales* seront consignées dans Azure Application Insights et, si oui, comment. Une *réponse frontale* est une réponse sortante du service Gestion des API Azure.                                                                                                                                                                   |

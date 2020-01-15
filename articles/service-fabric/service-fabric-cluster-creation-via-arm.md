@@ -1,30 +1,19 @@
 ---
-title: Créer un cluster Azure Service Fabric | Microsoft Docs
+title: Créer un cluster Azure Service Fabric
 description: Découvrez comment configurer un cluster Service Fabric sécurisé dans Azure à l’aide d’Azure Resource Manager.  Vous pouvez créer un cluster à l’aide d’un modèle par défaut ou à l’aide de votre propre modèle de cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 241349724929845afa2fd2a4bacabf9b5017cc7c
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 935f67c25f4a2aee7d06be7591dbe7576c87806e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901564"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349867"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portail Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -37,7 +26,7 @@ Si vous créez un cluster de production pour exécuter des charges de travail de
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Dans cet article, utilisez les modules de gestionnaire de ressources Service Fabric Powershell ou Azure CLI pour déployer un cluster :
 
 * [Azure PowerShell 4.1 et versions ultérieures][azure-powershell]

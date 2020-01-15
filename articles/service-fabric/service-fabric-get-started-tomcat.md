@@ -1,32 +1,23 @@
 ---
-title: Créer un conteneur Azure Service Fabric pour un serveur Apache Tomcat sur Linux | Microsoft Docs
+title: Créer un conteneur pour Apache Tomcat sur Linux
 description: Créez un conteneur Linux pour exposer une application s’exécutant sur un serveur Apache Tomcat sur Azure Service Fabric. Générez une image Docker avec votre application et un serveur Apache Tomcat, envoyez l’image à un registre de conteneurs, créez et déployez une application conteneur Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: JimacoMS2
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/08/2018
 ms.author: pepogors
-ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1a699f3b35970270a9800162a6d8717682a168ae
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170597"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614415"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Créer un conteneur Service Fabric exécutant un serveur Apache Tomcat sur Linux
 Apache Tomcat est une implémentation open source populaire des technologies Java Servlet et Java Server. Cet article montre comment créer un conteneur avec Apache Tomcat et une application web simple, déployer le conteneur sur un cluster Service Fabric exécutant Linux, et se connecter à l’application web.  
 
 Pour en savoir plus sur Apache Tomcat, voir la [page d’accueil Apache Tomcat](https://tomcat.apache.org/). 
 
-## <a name="prerequisites"></a>Prérequis
-* Un ordinateur de développement exécutant :
+## <a name="prerequisites"></a>Conditions préalables requises
+* Un ordinateur de développement exécutant :
   * [Outils et SDK Service Fabric](service-fabric-get-started-linux.md).
   * [Docker CE pour Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Interface de ligne de commande de Service Fabric](service-fabric-cli.md)
@@ -110,7 +101,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Envoyer l’image Tomcat à votre registre de conteneurs
 À présent que vous avez vérifié que l’image de Tomcat s’exécute dans un conteneur sur votre ordinateur de développement, envoyez-la à un référentiel dans un registre de conteneurs. Cet article utilise Azure Container Registry pour stocker l’image mais, en apportant quelques modifications aux étapes, vous pouvez utiliser le registre de conteneur de votre choix. Dans cet article, le nom de registre est supposé être *myregistry*, et le nom de registre complet est myregistry.azurecr.io. Modifiez ces noms de façon appropriée pour votre scénario. 
 
-1. Exécutez `docker login` pour vous connecter à votre registre de conteneurs à l’aide de vos [informations d’identification du Registre](../container-registry/container-registry-authentication.md).
+1. Exécutez `docker login` pour vous connecter à votre registre de conteneurs à l’aide des [informations d’identification de votre registre](../container-registry/container-registry-authentication.md).
 
    L’exemple suivant transmet l’ID et le mot de passe d’un [principal du service](../active-directory/develop/app-objects-and-service-principals.md) Azure Active Directory . Par exemple, vous pouvez avoir affecté un principal du service à votre Registre pour un scénario d’automatisation. Vous pouvez aussi vous connecter à l’aide de votre nom d’utilisateur du registre et votre mot de passe.
 

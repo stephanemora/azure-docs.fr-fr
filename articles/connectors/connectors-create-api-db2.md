@@ -1,22 +1,22 @@
 ---
-title: Se connecter à IBM DB2
-description: Gérer les ressources avec les API REST IBM DB2 et Azure Logic Apps
+title: Accéder à des ressources IBM DB2 et les gérer
+description: Lire, modifier, mettre à jour et gérer des ressources IBM DB2 en créant des flux de travail automatisés à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: plarsen, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 3c2bb01254b19c42fdd704544a6812177fecf4ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0f6e32056783a816d847db191de4fcdae2616ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789901"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446177"
 ---
-# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gérer les ressources IBM DB2 avec Azure Logic Apps
+# <a name="access-and-manage-ibm-db2-resources-by-using-azure-logic-apps"></a>Accéder à des ressources IBM DB2 et les gérer à l’aide d’Azure Logic Apps
 
-Avec Azure Logic Apps et le connecteur IBM DB2, vous pouvez créer des flux de travail et des tâches automatisés basés sur les ressources stockées dans votre base de données DB2. Vos flux de travail peuvent se connecter aux ressources dans votre base de données, lire et lister vos tables de base de données, ajouter des lignes, changer des lignes, supprimer des lignes, et bien plus encore. Vous pouvez inclure des actions dans vos applications logiques qui obtiennent des réponses de votre base de données et mettent la sortie à la disposition d’autres actions.
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur IBM DB2](/connectors/db2/), vous pouvez créer des flux de travail et des tâches automatisés basés sur les ressources stockées dans votre base de données DB2. Vos flux de travail peuvent se connecter aux ressources dans votre base de données, lire et lister vos tables de base de données, ajouter des lignes, changer des lignes, supprimer des lignes, et bien plus encore. Vous pouvez inclure des actions dans vos applications logiques qui obtiennent des réponses de votre base de données et mettent la sortie à la disposition d’autres actions.
 
 Cet article explique comment vous pouvez créer une application logique qui effectue différentes opérations de base de données. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
@@ -47,7 +47,7 @@ Le connecteur IBM DB2 prend en charge les opérations de base de données ci-apr
 | suppression d’une ligne à l’aide de l’instruction DELETE. | Supprimer la ligne |
 |||
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -83,11 +83,11 @@ Pour configurer votre connexion, indiquez les détails de connexion ci-après qu
 | Propriété | Obligatoire | Description |
 |----------|----------|-------------|
 | **Se connecter via une passerelle locale** | Non | Ne concerne que les connexions locales. |
-| **Nom de connexion** | OUI | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » |
-| **Serveur** | OUI | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server.cloudapp.net:50000 » <p><p>**Remarque**: Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
-| **Base de données** | OUI | Nom de votre base de données <p><p>**Remarque**: Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
-| **Nom d’utilisateur** | OUI | Votre nom d’utilisateur pour la base de données <p><p>**Remarque**: Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
-| **Mot de passe** | OUI | Votre mot de passe pour la base de données |
+| **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » |
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server.cloudapp.net:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
+| **Sauvegarde de la base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
+| **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
+| **Mot de passe** | Oui | Votre mot de passe pour la base de données |
 ||||
 
 Par exemple :
@@ -102,14 +102,14 @@ Avant de créer votre connexion, vous devez disposer de votre passerelle de donn
 
 | Propriété | Obligatoire | Description |
 |----------|----------|-------------|
-| **Se connecter via une passerelle locale** | OUI | S’applique quand vous souhaitez une connexion locale et affiche les propriétés de cette dernière. |
-| **Nom de connexion** | OUI | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » | 
-| **Serveur** | OUI | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque**: Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
-| **Base de données** | OUI | Nom de votre base de données <p><p>**Remarque**: Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
-| **Authentification** | OUI | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque**: Sélectionnez cette valeur dans la liste, qui comprend De base ou Windows (Kerberos). |
-| **Nom d’utilisateur** | OUI | Votre nom d’utilisateur pour la base de données <p><p>**Remarque**: Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
-| **Mot de passe** | OUI | Votre mot de passe pour la base de données |
-| **Passerelle** | OUI | Nom de votre passerelle de données locale installée <p><p>**Remarque**: Sélectionnez cette valeur dans la liste, qui comprend toutes les passerelles de données installées dans votre abonnement Azure et votre groupe de ressources. |
+| **Se connecter via une passerelle locale** | Oui | S’applique quand vous souhaitez une connexion locale et affiche les propriétés de cette dernière. |
+| **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » | 
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse TCP/IP ou un alias, au format IPv4 ou IPv6, suivi de deux-points et d'un numéro de port TCP/IP. |
+| **Sauvegarde de la base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
+| **Authentification** | Oui | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui comprend De base ou Windows (Kerberos). |
+| **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. |
+| **Mot de passe** | Oui | Votre mot de passe pour la base de données |
+| **Passerelle** | Oui | Nom de votre passerelle de données locale installée <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui comprend toutes les passerelles de données installées dans votre abonnement Azure et votre groupe de ressources. |
 ||||
 
 Par exemple :
@@ -153,8 +153,8 @@ Pour extraire un seul enregistrement d’une table de base de données DB2, util
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de la table** | OUI | Table qui contient l’enregistrement souhaité, par exemple, « AREA » (Zone) ici |
-   | **ID de zone** | OUI | ID de l’enregistrement souhaité, par exemple, « 99999 » ici |
+   | **Nom de la table** | Oui | Table qui contient l’enregistrement souhaité, par exemple, « AREA » (Zone) ici |
+   | **ID de zone** | Oui | ID de l’enregistrement souhaité, par exemple, « 99999 » ici |
    ||||
 
    ![Sélectionner une table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
@@ -233,10 +233,10 @@ Pour ajouter un seul enregistrement à une table de base de données DB2, utilis
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de la table** | OUI | Table à laquelle ajouter l’enregistrement, telle que « AREA » (Zone) |
-   | **ID de zone** | OUI | ID de la zone à ajouter, tel que « 99999 » |
-   | **Description de la zone** | OUI | Description de la zone à ajouter, par exemple « Area 99999 » (Zone 99999) |
-   | **ID de région** | OUI | ID de la région à ajouter, tel que « 102 » |
+   | **Nom de la table** | Oui | Table à laquelle ajouter l’enregistrement, telle que « AREA » (Zone) |
+   | **ID de zone** | Oui | ID de la zone à ajouter, tel que « 99999 » |
+   | **Description de la zone** | Oui | Description de la zone à ajouter, par exemple « Area 99999 » (Zone 99999) |
+   | **ID de région** | Oui | ID de la région à ajouter, tel que « 102 » |
    |||| 
 
    Par exemple :
@@ -280,11 +280,11 @@ Pour mettre à jour un seul enregistrement dans une table de base de données DB
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de la table** | OUI | Table dans laquelle mettre à jour l’enregistrement, telle que « AREA » (Zone) |
-   | **ID de ligne** | OUI | ID de l’enregistrement à mettre à jour, tel que « 99999 » |
-   | **ID de zone** | OUI | Nouvel ID de zone, tel que « 99999 » |
-   | **Description de la zone** | OUI | Nouvelle description de la zone, telle que « Updated 99999 » (99999 mise à jour) |
-   | **ID de région** | OUI | Nouvel ID de région, tel que « 102 » |
+   | **Nom de la table** | Oui | Table dans laquelle mettre à jour l’enregistrement, telle que « AREA » (Zone) |
+   | **ID de ligne** | Oui | ID de l’enregistrement à mettre à jour, tel que « 99999 » |
+   | **ID de zone** | Oui | Nouvel ID de zone, tel que « 99999 » |
+   | **Description de la zone** | Oui | Nouvelle description de la zone, telle que « Updated 99999 » (99999 mise à jour) |
+   | **ID de région** | Oui | Nouvel ID de région, tel que « 102 » |
    ||||
 
    Par exemple :
@@ -328,8 +328,8 @@ Pour supprimer un seul enregistrement d’une table de base de données DB2, uti
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Nom de la table** | OUI | Table de laquelle supprimer l’enregistrement, telle que « AREA » (Zone) |
-   | **ID de ligne** | OUI | ID de l’enregistrement à supprimer, tel que « 99999 » |
+   | **Nom de la table** | Oui | Table de laquelle supprimer l’enregistrement, telle que « AREA » (Zone) |
+   | **ID de ligne** | Oui | ID de l’enregistrement à supprimer, tel que « 99999 » |
    ||||
 
    Par exemple :
@@ -359,7 +359,7 @@ Développez l’action **Supprimer la ligne**.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, consultez la [page de référence du connecteur](/connectors/db2/).
+Pour plus d’informations techniques, notamment sur les déclencheurs, les actions et les limites, comme décrit dans le fichier OpenAPI (anciennement Swagger) du connecteur, voir la [page de référence du connecteur](/connectors/db2/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,15 +8,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, bonova
-ms.date: 11/04/2019
+ms.reviewer: sstein, carlrab, bonova, danil
+ms.date: 12/30/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: e517b6030aa1c9549e33c00425851afae90aac42
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 7319bb680e449a27fbe6f48c831d87d9c7b5ba4f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707641"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552744"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -48,7 +48,7 @@ La [haute disponibilité](sql-database-high-availability.md) étant intégrée �
 - [DROP AVAILABILITY GROUP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - La clause [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) de l’instruction [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Sauvegarde
+### <a name="backup"></a>Backup
 
 Les instances managées étant dotées de sauvegardes automatiques, les utilisateurs peuvent créer des sauvegardes complètes `COPY_ONLY` de bases de données. Les sauvegardes différentielles de fichiers journaux et de captures instantanées de fichiers ne sont pas prises en charge.
 
@@ -65,7 +65,7 @@ Limites :
 
 - Une instance managée permet de sauvegarder une base de données d’instance vers une sauvegarde comprenant jusqu’à 32 bandes, ce qui est suffisant pour des bases de données allant jusqu’à 4 To si la compression de sauvegarde est utilisée.
 - Vous ne pouvez pas exécuter `BACKUP DATABASE ... WITH COPY_ONLY` sur une base de données qui est chiffrée avec Transparent Data Encryption (TDE) managé par le service. TDE managé par le service oblige le chiffrement des sauvegardes à l’aide d’une clé de chiffrement TDE interne. La clé ne pouvant pas être exportée, vous ne pouvez pas restaurer la sauvegarde. utilisez des sauvegardes automatiques et la restauration dans le temps, ou utilisez [TDE managé par le client (BYOK)](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) à la place. Vous pouvez également désactiver le chiffrement sur la base de données.
-- La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance managée est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes dans la commande de sauvegarde pour réduire la taille de bande individuelle et ne pas dépasser cette limite.
+- La taille maximale de la bande de sauvegarde en utilisant la commande `BACKUP` dans une instance managée est de 195 Go, ce qui représente la taille maximale des objets blob. Augmentez le nombre de bandes défini dans la commande de sauvegarde pour réduire la taille de chaque bande et ainsi ne pas dépasser cette limite.
 
     > [!TIP]
     > Pour contourner cette limitation, lorsque vous sauvegardez une base de données, soit à partir de SQL Server dans un environnement local, soit sur une machine virtuelle, vous pouvez :
@@ -191,7 +191,7 @@ Une instance managée ne pouvant pas accéder aux fichiers, vous ne pouvez pas c
 - L’[extension du pool de mémoires tampons](/sql/database-engine/configure-windows/buffer-pool-extension) n’est pas prise en charge.
 - `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` n’est pas pris en charge. Consultez [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
-### <a name="collation"></a>Collation
+### <a name="collation"></a>Classement
 
 Le classement d’instance par défaut est `SQL_Latin1_General_CP1_CI_AS` et peut être spécifié comme paramètre de création. Consultez [Classements](/sql/t-sql/statements/collations).
 
@@ -220,7 +220,7 @@ Pour plus d’informations, consultez [ALTER DATABASE SET PARTNER AND SET WITNES
 - La base de données ne peut pas contenir de groupes de fichiers qui contiennent des données flux de fichier. La restauration échoue si le fichier.bak contient des données `FILESTREAM`. 
 - Chaque fichier est placé dans Stockage Blob Azure. L’E/S et le débit par fichier dépendent de la taille de chaque fichier.
 
-#### <a name="create-database-statement"></a>Instruction CREATE DATABASE
+#### <a name="create-database-statement"></a>CREATE DATABASE, instruction
 
 Les limites suivantes s’appliquent à `CREATE DATABASE` :
 
@@ -235,7 +235,7 @@ Les limites suivantes s’appliquent à `CREATE DATABASE` :
 
 Pour plus d’informations, consultez [CREATE DATABASE](/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
-#### <a name="alter-database-statement"></a>Instruction ALTER DATABASE
+#### <a name="alter-database-statement"></a>ALTER DATABASE, instruction
 
 Certaines propriétés de fichiers ne peuvent pas être définies ou modifiées :
 
@@ -272,11 +272,11 @@ Les options suivantes ne peuvent pas être modifiées :
 
 Pour en savoir plus, consultez [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options).
 
-### <a name="sql-server-agent"></a>Agent SQL Server
+### <a name="sql-server-agent"></a>SQL Server Agent
 
-- L’activation et la désactivation de SQL Server Agent ne sont actuellement pas prises en charge dans Managed Instance. SQL Agent est toujours en cours d’exécution.
+- L’activation et la désactivation de SQL Server Agent ne sont actuellement pas prises en charge dans Managed Instance. L’Agent SQL est toujours en cours d’exécution.
 - Les paramètres de SQL Server Agent sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance. 
-- Tâches
+- travaux
   - Les étapes de travail T-SQL sont prises en charge.
   - Les travaux de réplication suivants sont pris en charge :
     - Lecteur de journaux de transactions
@@ -381,7 +381,7 @@ Pour plus d’informations, consultez [FILESTREAM](/sql/relational-databases/blo
 
 La [recherche sémantique](/sql/relational-databases/search/semantic-search-sql-server) n’est pas prise en charge.
 
-### <a name="linked-servers"></a>Services liés
+### <a name="linked-servers"></a>Serveurs liés
 
 Les serveurs liés dans des instances gérées prennent en charge un nombre limité de cibles :
 
@@ -394,7 +394,7 @@ Opérations
 - Les transactions d’écriture entre instances ne sont pas prises en charge.
 - `sp_dropserver` est pris en charge pour supprimer un serveur lié. Consultez [sp_dropserver](/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - La fonction `OPENROWSET` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Consultez [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql).
-- La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. Par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
+- La fonction `OPENDATASOURCE` peut être utilisée pour exécuter des requêtes uniquement sur des instances SQL Server. Elles peuvent être managées, locales ou dans des machines virtuelles. Seules les valeurs `SQLNCLI`, `SQLNCLI11` et `SQLOLEDB` sont prises en charge en tant que fournisseur. par exemple `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Consultez [OPENDATASOURCE](/sql/t-sql/functions/opendatasource-transact-sql).
 - Les serveurs liés ne peuvent pas être utilisés pour lire des fichiers (Excel, CSV) à partir des partages réseau. Essayez d’utiliser [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) ou [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) qui lit les fichiers CSV à partir de Stockage Blob Azure. Suivez ces requêtes sur l’[élément de commentaires de Managed Instance](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
@@ -406,41 +406,12 @@ Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob
 - Les types de réplication d’instantané et bidirectionnelle sont pris en charge. La réplication de fusion, la réplication d’égal à égal et les abonnements modifiables ne sont pas pris en charge.
 - La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est disponible en préversion publique dans Managed Instance sous certaines contraintes :
     - Tous les types de participants à la réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur des instances gérées, mais le serveur de publication et le serveur de distribution doivent être tous deux dans le cloud ou locaux.
-    - Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez les versions prises en charge [ici](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez la [matrice des versions prises en charge](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems) pour plus d’informations.
     - La réplication transactionnelle présente des [exigences de mise en réseau supplémentaires](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Pour plus d’informations sur la configuration de la réplication, consultez le [didacticiel de réplication](replication-with-sql-database-managed-instance.md).
-
-
-Si la réplication est activée sur une base de données dans un [groupe de basculement](sql-database-auto-failover-group.md), l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
-
-1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
-2. Supprimez les métadonnées d’abonnement du serveur de publication en exécutant le script suivant sur la base de données du serveur de publication :
-
-   ```sql
-   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
-   ```             
- 
-1. Supprimez les métadonnées d’abonnement de l’abonné. Exécutez le script suivant dans la base de données d’abonnement sur l’instance de l’abonné :
-
-   ```sql
-   EXEC sp_subscription_cleanup
-      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-      @publisher_db = N'<publisher database>', 
-      @publication = N'<name of publication>'; 
-   ```                
-
-1. Supprimez définitivement tous les objets de réplication du serveur de publication en exécutant le script suivant dans la base de données publiée :
-
-   ```sql
-   EXEC sp_removedbreplication
-   ```
-
-1. Supprimez définitivement l’ancien serveur de distribution à partir de l’instance principale d’origine (en cas de basculement vers un ancien principal qui utilisait un serveur de distribution). Exécutez le script suivant sur la base de données de référence dans l’ancienne instance gérée du serveur de distribution :
-
-   ```sql
-   EXEC sp_dropdistributor 1,1
-   ```
+Pour plus d’informations sur la configuration de la réplication transactionnelle, consultez les tutoriels suivants :
+- [Réplication entre un éditeur d’instance gérée et un abonné](replication-with-sql-database-managed-instance.md)
+- [Réplication entre un éditeur d’instance gérée, un distributeur d’instance gérée et un abonné SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
 
 ### <a name="restore-statement"></a>L’instruction RESTORE 
 
@@ -483,13 +454,13 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
  > [!IMPORTANT]
  > Les mêmes limitations s’appliquent à une opération de restauration dans le temps intégrée. À titre d’exemple, une base de données à usage général dont la taille est supérieure à 4 To ne peut pas être restaurée sur une instance critique pour l’entreprise. Une base de données critique pour l’entreprise comprenant des fichiers OLTP en mémoire ou plus 280 fichiers ne peut pas être restaurée sur une instance à usage général.
 
-### <a name="service-broker"></a>Service broker
+### <a name="service-broker"></a>Service Broker
 
 Le Service Broker entre instances n’est pas pris en charge :
 
-- `sys.routes`: Comme prérequis, vous devez sélectionner l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Consultez [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Consultez [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `sys.routes`: Comme prérequis, vous devez sélectionner l’adresse à partir de sys.routes. L’adresse doit être LOCAL sur tous les itinéraires. Voir [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
+- `CREATE ROUTE`: vous ne pouvez pas utiliser `CREATE ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Voir [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: vous ne pouvez pas utiliser `ALTER ROUTE` avec `ADDRESS` si la valeur de celle-ci est différente de `LOCAL`. Voir [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Procédures stockées, fonctions et déclencheurs
 
@@ -535,11 +506,55 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur le niveau Usage général. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 
-### <a name="error-logs"></a>Des journaux d’activité d’erreurs
+### <a name="msdb"></a>MSDB
+
+Les schémas MSDB suivants dans l’instance gérée doivent être détenus par leurs rôles prédéfinis respectifs :
+
+- Rôles généraux
+  - TargetServersRole
+- [Rôles de base de données fixes](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+  - SQLAgentUserRole
+  - SQLAgentReaderRole
+  - SQLAgentOperatorRole
+- [Rôles DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile) :
+  - DatabaseMailUserRole
+- [Rôles de service d'intégration](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15) :
+  - db_ssisadmin
+  - db_ssisltduser
+  - db_ssisoperator
+  
+> [!IMPORTANT]
+> La modification des noms de rôles prédéfinis, des noms de schéma et des propriétaires de schéma prédéfinis par les clients aura un impact sur le fonctionnement normal du service. Toutes les modifications apportées à ces valeurs seront restaurées aux valeurs prédéfinies dès qu’elles seront détectées, ou au plus tard lors de la prochaine mise à jour du service et ce, pour garantir un fonctionnement normal de ce dernier.
+
+### <a name="error-logs"></a>Journaux des erreurs
 
 Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Instance managée – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [Extension d’instance managée (préversion)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) pour Azure Data Studio.
 
 ## <a name="Issues"></a> Problèmes connus
+
+### <a name="sql-agent-roles-need-explicit-execute-permissions-for-non-sysadmin-logins"></a>Les rôles d’agent SQL requièrent des autorisations d’exécution explicites pour les connexions non-sysadmin
+
+**Date :** Décembre 2019
+
+Si des connexions non-sysadmin sont ajoutées à un [rôle de base de données fixe de l’agent SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles) , il y a un problème du fait que des autorisations EXECUTE explicites doivent être accordées aux procédures stockées principales pour que ces connexions fonctionnent. Si ce problème survient, le message d’erreur « L’autorisation EXECUTE a été refusée sur l’objet <object_name> (Microsoft SQL Server, erreur : 229) » s’affiche.
+
+**Solution de contournement** : Une fois que vous ajoutez des connexions à l’un des rôles de base de données fixes de l’agent SQL : SQLAgentUserRole, SQLAgentReaderRole ou SQLAgentOperatorRole, pour chacune des connexions ajoutées à ces rôles, le script T-SQL ci-dessous est exécuté pour accorder explicitement des autorisations EXECUTE aux procédures stockées mentionnées.
+
+```tsql
+USE [master]
+GO
+CREATE USER [login_name] FOR LOGIN [login_name]
+GO
+GRANT EXECUTE ON master.dbo.xp_sqlagent_enum_jobs TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_is_starting TO [login_name]
+GRANT EXECUTE ON master.dbo.xp_sqlagent_notify TO [login_name]
+```
+
+### <a name="sql-agent-jobs-can-be-interrupted-by-agent-process-restart"></a>Les travaux de l’agent SQL peuvent être interrompus par le redémarrage du processus de l’agent
+
+**Date :** Décembre 2019
+
+L’agent SQL crée une nouvelle session chaque fois que le travail est démarré, ce qui augmente progressivement la consommation de mémoire. Pour éviter d’atteindre la limite de mémoire interne qui bloquerait l’exécution de tâches planifiées, le processus de l’agent sera redémarré une fois que la consommation de mémoire aura atteint le seuil. Cela peut entraîner l’interruption de l’exécution des tâches en cours au moment du redémarrage.
 
 ### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Les limites de mémoire OLTP en mémoire ne sont pas appliquées
 

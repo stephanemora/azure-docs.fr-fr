@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172537"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449980"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -27,8 +27,8 @@ Sauvegarde Azure peut sauvegarder et restaurer des machines virtuelles Azure à 
 
 **Type de disque de machine virtuelle** | **ADE (BEK/dm-crypt)** | **ADE et clé KEK**
 --- | --- | ---
-**Non managé** | OUI | OUI
-**Managé**  | OUI | OUI
+**Non managé** | Oui | Oui
+**Managé**  | Oui | Oui
 
 - Découvrez-en plus sur [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md) et les clés [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/).
 - Consultez les [Questions fréquentes (FAQ)](../security/azure-security-disk-encryption-faq.md) sur le chiffrement des disques de machines virtuelles Azure.
@@ -99,7 +99,7 @@ La sauvegarde initiale s’exécutera conformément à la planification, mais vo
 2. Sur **Éléments de sauvegarde**, cliquez sur **Machine virtuelle Azure**.
 3. Dans la liste **Éléments de sauvegarde**, cliquez sur le bouton de sélection (...).
 4. Cliquez sur **Sauvegarder maintenant**.
-5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour où le point de récupération doit être conservé. Cliquez ensuite sur **OK**.
+5. Dans **Sauvegarder maintenant**, utilisez le contrôle de calendrier pour sélectionner le dernier jour de rétention du point de récupération. Cliquez ensuite sur **OK**.
 6. Surveiller les notifications du portail. Vous pouvez surveiller la progression du travail dans le tableau de bord du coffre > **Travaux de sauvegarde** > **En cours d’exécution**. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
 
 ## <a name="provide-permissions"></a>Fournir des autorisations
@@ -136,10 +136,10 @@ Pour définir des autorisations :
 Vous restaurez des machines virtuelles chiffrées comme suit :
 
 1. [Restaurez le disque de la machine virtuelle](backup-azure-arm-restore-vms.md#restore-disks).
-2. Ensuite, effectuez l’une des actions suivantes :
-    - Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
-    - Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
-    - Pour les machines virtuelles Linux, réinitialisez l’extension ADE pour que les disques de données soient ouverts et montés.
+2. Recréez l’instance de machine virtuelle en procédant de l’une des manières suivantes :
+    1. Utilisez le modèle généré durant l’opération de restauration pour personnaliser les paramètres de la machine virtuelle et déclencher le déploiement de celle-ci. [Plus d’informations](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)
+    2. Créez une machine virtuelle à partir des disques restaurés à l’aide de PowerShell. [Plus d’informations](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)
+3. Pour les machines virtuelles Linux, réinstallez l’extension ADE pour que les disques de données soient ouverts et montés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

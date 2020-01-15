@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 59f8b8b253fc914e5723a9c41475ec78bc3f376e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b95fb8d5a0c05d2d66744a91f4200d58a71470d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427362"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
 
-Cet article montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
+Cet article explique comment déplacer des données à partir d’une base de données SQL Server locale vers une base de données SQL Azure via le Stockage Blob Azure à l’aide d’Azure Data Factory (ADF) : cette méthode est une approche héritée prise en charge qui présente les avantages d’une copie intermédiaire répliquée, même si [nous vous suggérons de consulter notre page Datamigration pour connaître les options les plus récentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
@@ -51,7 +51,7 @@ Nous allons configurer un pipeline ADF qui se compose de deux activités de migr
 Ce didacticiel part du principe que vous disposez de :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
+* Un **compte de stockage Azure**. Dans ce didacticiel, vous utilisez un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 * Un accès à une **base de données Azure SQL Database**. Si vous devez configurer une base de données Azure SQL, l’article [Bien démarrer avec Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) fournit des informations sur le provisionnement d’une nouvelle instance Azure SQL Database.
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 
@@ -77,7 +77,7 @@ Pour le configurer, [suivez les instructions de création d’un pipeline](https
 Un service lié définit les informations nécessaires à Azure Data Factory pour se connecter à des ressources de données. Dans ce scénario, nous avons trois ressources pour lesquelles les services liés sont nécessaires :
 
 1. SQL Server local
-2. un stockage Azure Blob
+2. Stockage Blob Azure
 3. Base de données Azure SQL
 
 La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).

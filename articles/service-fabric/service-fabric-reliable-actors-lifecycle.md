@@ -1,25 +1,16 @@
 ---
-title: Vue d’ensemble du cycle de vie d’intervenant Azure Service Fabric | Microsoft Docs
+title: Vue d’ensemble du cycle de vie des acteurs Azure Service Fabric
 description: Explique le cycle de vie Service Fabric Reliable Actor, le Garbage Collection et la suppression manuelle des acteurs et de leur état
-services: service-fabric
-documentationcenter: .net
 author: amanbha
-manager: chackdan
-editor: vturecek
-ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 1a8e95c634a1d30b7c566fcd907cb06f34043fa9
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b05da78091260297d94062c06cba100d01ce7e2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75349345"
 ---
 # <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Cycle de vie des acteurs, Garbage Collection automatique et suppression manuelle
 Un acteur est activé la première fois qu’un appel est effectué à l’une de ses méthodes. Un acteur est désactivé (fait l’objet d’un Garbage Collection par le runtime Actors) s’il n’est pas utilisé pendant une durée configurable. Un acteur et son état peuvent également être supprimés manuellement, à tout moment.
@@ -39,7 +30,7 @@ Quand un acteur est désactivé, les événements suivants se produisent :
 * La méthode `OnDeactivateAsync` (C#) ou `onDeactivateAsync` (Java), qui peut être remplacée dans l’implémentation de l’acteur, est appelée. Cette opération efface toutes les minuteries applicables à l'acteur. Les opérations de l’acteur, comme la modification de l’état, ne doivent pas être appelées avec cette méthode.
 
 > [!TIP]
-> Le runtime Fabric Actors émet des [événements liés à l’activation et la désactivation des acteurs](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Ces derniers sont utiles dans les diagnostics et la surveillance des performances.
+> Le runtime Fabric Actors émet des [événements liés à l’activation et la désactivation des acteurs](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Ces événements sont utiles dans les diagnostics et la surveillance des performances.
 >
 >
 

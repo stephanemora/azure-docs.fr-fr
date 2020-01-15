@@ -1,18 +1,18 @@
 ---
-title: Restreindre l’accès pour les adresses IP
-description: Découvrez comment sécuriser votre application dans Azure App Service en mettant explicitement en liste verte des adresses IP clientes ou des plages d’adresses.
+title: Restrictions d’accès dans Azure App Service
+description: Apprenez à sécuriser votre application dans Azure App Service en spécifiant des restrictions d’accès.
 author: ccompy
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 64ce74c84f8f69e72510be76a1309e1a5ea42f2f
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 42f25c1b66261ac644f015290bed2c7473acbdaa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422235"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès dans Azure App Service #
 
@@ -24,7 +24,7 @@ Lorsqu’une demande est envoyée à votre application, l’adresse dont provien
 
 La fonctionnalité de restriction des accès est implémentée dans les rôles frontend App Service, qui sont en amont des hôtes de travail où votre code s’exécute. C’est pourquoi les restrictions d’accès sont comparables à des listes de contrôle d’accès (ACL) réseau.
 
-La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Les points de terminaison de service vous permettent de restreindre l’accès à un service multilocataire à partir de sous-réseaux sélectionnés. Le point de terminaison de service doit être activé côté réseau et côté service avec lequel il est activé. Il n’est pas destiné à limiter le trafic vers les applications hébergées dans un environnement App Service Environment.  Si vous êtes dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
+La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Les points de terminaison de service vous permettent de restreindre l’accès à un service multilocataire à partir de sous-réseaux sélectionnés. Le point de terminaison de service doit être activé côté réseau et côté service avec lequel il est activé. Il n’est pas destiné à limiter le trafic vers les applications hébergées dans un environnement App Service Environment. Si vous êtes dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
 
 ![flux de restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -58,7 +58,7 @@ Les points de terminaison de service vous permettent de restreindre l’accès �
 
 Les points de terminaison de service ne peuvent pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service Environment. Si votre application se trouve dans un environnement App Service Environment, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
 
-Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’application ou d’autres appareils WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec des serveurs principaux sécurisés. Pour plus d’informations sur certaines possibilités, consultez [Fonctionnalités de mise en réseau et App Service](networking-features.md).
+Avec les points de terminaison de service, vous pouvez configurer votre application avec les passerelles d’application ou d’autres appareils WAF. Vous pouvez également configurer des applications à plusieurs niveaux avec des serveurs principaux sécurisés. Pour plus d’informations sur certaines des possibilités, consultez [Fonctionnalités de mise en réseau et App Service](networking-features.md) et [Intégration d’Application Gateway avec les points de terminaison de service](networking/app-gateway-with-service-endpoints.md).
 
 ## <a name="managing-access-restriction-rules"></a>Gestion des règles de restriction d’accès
 
@@ -90,34 +90,49 @@ Outre la possibilité de contrôler l’accès à votre application, vous pouvez
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulation par programmation des règles de restriction d’accès ##
 
-Il n’existe aucune interface CLI ou PowerShell pour la nouvelle fonctionnalité Restrictions d’accès. Vous pouvez cependant définir les valeurs manuellement à l’aide d’une opération PUT d’[API REST Azure](https://docs.microsoft.com/rest/api/azure/) dans la configuration d’application dans le Gestionnaire des ressources. Par exemple, vous pouvez utiliser resources.azure.com et modifier le bloc ipSecurityRestrictions pour ajouter le code JSON nécessaire.
+[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) et [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) prennent en charge la modification des restrictions d’accès. Exemple d’ajout d’une restriction d’accès à l’aide d’Azure CLI :
+
+```azurecli-interactive
+az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
+    --rule-name 'IP example rule' --action Allow --ip-address 122.133.144.0/24 --priority 100
+```
+Exemple d’ajout d’une restriction d’accès à l’aide d’Azure PowerShell :
+
+```azurepowershell-interactive
+Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName "AppName"
+    -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
+```
+
+Vous pouvez également définir manuellement les valeurs à l’aide d’une opération PUT de [l’API REST Azure](https://docs.microsoft.com/rest/api/azure/) sur la configuration de l’application dans Resource Manager ou à l’aide d’un modèle Azure Resource Manager. Par exemple, vous pouvez utiliser resources.azure.com et modifier le bloc ipSecurityRestrictions pour ajouter le code JSON nécessaire.
 
 Dans Resource Manager, ces informations se trouvent à l’emplacement suivant :
 
 management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 La syntaxe JSON de l’exemple précédent est la suivante :
-
-    {
-      "properties": {
-        "ipSecurityRestrictions": [
-          {
-            "ipAddress": "122.133.144.0/24",
-            "action": "Allow",
-            "tag": "Default",
-            "priority": 100,
-            "name": "IP example rule"
-          }
-        ]
+```json
+{
+  "properties": {
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "122.133.144.0/24",
+        "action": "Allow",
+        "priority": 100,
+        "name": "IP example rule"
       }
-    }
+    ]
+  }
+}
+```
 
-## <a name="function-app-ip-restrictions"></a>Restrictions d’adresse IP Function App
+## <a name="azure-function-app-access-restrictions"></a>Restrictions d’accès dans Azure Function App
 
-Les restrictions d’adresse IP sont disponibles pour les deux applications de fonctions avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’adresse IP désactive l’éditeur de code du portail pour les adresses IP non autorisées.
+Les restrictions d’accès sont disponibles pour les deux Function Apps avec la même fonctionnalité que les plans App Service. L’activation des restrictions d’accès désactive l’éditeur de code du portail pour les adresses IP non autorisées.
 
-[En savoir plus ici](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+## <a name="next-steps"></a>Étapes suivantes
+[Restrictions d’accès pour Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
+[Intégration d’Application Gateway par des points de terminaison de service](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
 [serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview

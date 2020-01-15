@@ -2,31 +2,31 @@
 title: Spark Structured Streaming dans Azure HDInsight
 description: Comment utiliser les applications Spark Structured Streaming sur des clusters HDInsight Spark
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0aaca127fec82d35da0ba943e97221834c2e42ed
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.custom: hdinsightactive
+ms.date: 12/24/2019
+ms.openlocfilehash: 19cfd5d8ed4100048c270fb41e5e54a920c61516
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441907"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548834"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Présentation d’Apache Spark Structured Streaming
 
 [Apache Spark](https://spark.apache.org/) Structured Streaming vous permet d’implémenter des applications évolutives, à haut débit et à tolérance de panne pour le traitement de flux de données. Structured Streaming repose sur le moteur Spark SQL et offre des améliorations par rapport aux constructions des trames de données et jeux de données Spark SQL afin de vous permettre d’écrire des requêtes de diffusion en continu selon la même procédure que pour les requêtes par lot.  
 
-Les applications Structured Streaming s’exécutent sur les clusters HDInsight Spark et se connectent aux données de streaming provenant d’[Apache Kafka](https://kafka.apache.org/), d’un socket TCP (pour le débogage), du stockage Azure ou d’Azure Data Lake Storage. Les deux dernières options, qui reposent sur des services de stockage externes, permettent de surveiller les nouveaux fichiers qui ont été ajoutés dans le stockage et de traiter leur contenu comme s’ils avaient été diffusés en continu. 
+Les applications Structured Streaming s’exécutent sur les clusters HDInsight Spark et se connectent aux données de streaming provenant d’[Apache Kafka](https://kafka.apache.org/), d’un socket TCP (pour le débogage), du stockage Azure ou d’Azure Data Lake Storage. Les deux dernières options, qui reposent sur des services de stockage externes, permettent de surveiller les nouveaux fichiers qui ont été ajoutés dans le stockage et de traiter leur contenu comme s’ils avaient été diffusés en continu.
 
-Structured Streaming crée une longue requête au cours de laquelle vous appliquez des opérations sur les données d’entrée, par exemple des opérations de sélection, de projection, d’agrégation, de fenêtrage et de jointure de la trame de données de diffusion en continu avec les trames de données de référence. Les résultats sont ensuite transférés au stockage de fichiers (objets Blob du stockage Azure ou instance de Data Lake Storage), ou à n’importe quel magasin de données par le biais d’un code personnalisé (par exemple, SQL Database ou Power BI). Structured Streaming transmet également des données de sortie à la console à des fins de débogage en local, ainsi qu’à une table en mémoire afin que vous puissiez afficher les données générées pour le débogage dans HDInsight. 
+Structured Streaming crée une longue requête au cours de laquelle vous appliquez des opérations sur les données d’entrée, par exemple des opérations de sélection, de projection, d’agrégation, de fenêtrage et de jointure de la trame de données de diffusion en continu avec les trames de données de référence. Les résultats sont ensuite transférés au stockage de fichiers (objets Blob du stockage Azure ou instance de Data Lake Storage), ou à n’importe quel magasin de données par le biais d’un code personnalisé (par exemple, SQL Database ou Power BI). Structured Streaming transmet également des données de sortie à la console à des fins de débogage en local, ainsi qu’à une table en mémoire afin que vous puissiez afficher les données générées pour le débogage dans HDInsight.
 
 ![Traitement de flux de données avec HDInsight et Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
-> Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Streaming bénéficiera d’améliorations et fera l’objet d’une maintenance, contrairement à DStreams qui sera proposé uniquement en mode maintenance. Structured Streaming n’intègre pas pour le moment autant de fonctionnalités que DStreams pour les sources et les récepteurs immédiatement pris en charge. Veillez donc à bien évaluer vos besoins pour choisir l’option de traitement de flux de données Spark qui vous convient le mieux. 
+> Spark Structured Streaming remplace Spark Streaming (DStreams). Structured Streaming bénéficiera d’améliorations et fera l’objet d’une maintenance, contrairement à DStreams qui sera proposé uniquement en mode maintenance. Structured Streaming n’intègre pas pour le moment autant de fonctionnalités que DStreams pour les sources et les récepteurs immédiatement pris en charge. Veillez donc à bien évaluer vos besoins pour choisir l’option de traitement de flux de données Spark qui vous convient le mieux.
 
 ## <a name="streams-as-tables"></a>Flux de données sous forme de tables
 
@@ -34,13 +34,13 @@ Spark Structured Streaming représente un flux de données sous la forme d’une
 
 ![Concept de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-concept.png)
 
-Dans Structured Streaming, les données arrivent au système et sont ingérées immédiatement dans une table d’entrée. Vous écrivez des requêtes (à l’aide des API DataFrame et DataSet)qui effectuent des opérations sur cette table d’entrée. La sortie de la requête génère une autre table : la *table de résultats*. La table de résultats contient les résultats de votre requête, à partir desquels vous récupérez des données destinées à un magasin de données externe tel qu’une base de données relationnelle. Le moment où les données de la table d’entrée sont traitées est contrôlé par *l’intervalle de déclenchement*. Par défaut, l’intervalle de déclencheur est défini sur zéro, ce qui signifie que Structured Streaming tente de traiter les données dès qu’elles arrivent. Concrètement, dès que Structured Streaming a fini l’exécution de la requête précédente, il démarre un autre flux de traitement sur toutes les nouvelles données reçues. Vous pouvez configurer le déclencheur pour qu’il s’exécute à un intervalle défini, afin que les données de diffusion en continu soient traitées dans des lots basés sur le temps. 
+Dans Structured Streaming, les données arrivent au système et sont ingérées immédiatement dans une table d’entrée. Vous écrivez des requêtes (à l’aide des API DataFrame et DataSet)qui effectuent des opérations sur cette table d’entrée. La sortie de la requête génère une autre table : la *table de résultats*. La table de résultats contient les résultats de votre requête, à partir desquels vous récupérez des données destinées à un magasin de données externe tel qu’une base de données relationnelle. Le moment où les données de la table d’entrée sont traitées est contrôlé par *l’intervalle de déclenchement*. Par défaut, l’intervalle de déclencheur est défini sur zéro, ce qui signifie que Structured Streaming tente de traiter les données dès qu’elles arrivent. Concrètement, dès que Structured Streaming a fini l’exécution de la requête précédente, il démarre un autre flux de traitement sur toutes les nouvelles données reçues. Vous pouvez configurer le déclencheur pour qu’il s’exécute à un intervalle défini, afin que les données de diffusion en continu soient traitées dans des lots basés sur le temps.
 
-Les données des tables de résultats peuvent contenir uniquement les nouvelles données reçues depuis le traitement de la requête (*mode Append*), ou la table peut être actualisée complètement chaque fois qu’il existe de nouvelles données, afin que la table contienne toutes les données de sortie depuis le début de la requête de streaming (*mode Complet*).
+Les données des tables de résultats peuvent contenir uniquement les nouvelles données reçues depuis le traitement de la requête (*mode Append*), ou la table peut être actualisée chaque fois qu’il existe de nouvelles données, afin que la table contienne toutes les données de sortie depuis le début de la requête de streaming (*mode Complet*).
 
 ### <a name="append-mode"></a>Mode Append
 
-En mode Append, seules les lignes ajoutées à la table de résultats depuis la dernière exécution de la requête sont présentes dans la table de résultats et écrites dans un stockage externe. Par exemple, la requête la plus simple copie simplement toutes les données de la table d’entrée dans la table de résultats non modifié. Chaque fois qu’un intervalle de déclencheur est écoulé, les nouvelles données sont traitées et les lignes qui représentent des nouvelles données apparaissent dans la table de résultats. 
+En mode Append, seules les lignes ajoutées à la table de résultats depuis la dernière exécution de la requête sont présentes dans la table de résultats et écrites dans un stockage externe. Par exemple, la requête la plus simple copie simplement toutes les données de la table d’entrée dans la table de résultats non modifié. Chaque fois qu’un intervalle de déclencheur est écoulé, les nouvelles données sont traitées et les lignes qui représentent des nouvelles données apparaissent dans la table de résultats.
 
 Imaginez un scénario où vous traitez des données de télémétrie provenant de capteurs de température, par exemple un thermostat. Supposons que le premier déclencheur ait traité un événement à 00:01 pour l’appareil 1 affichant une température de 95 degrés. Dans le premier déclencheur de la requête, seule la ligne associée à l’heure 00:01 apparaît dans la table de résultats. À l’heure 00:02, lorsqu’un autre événement arrive, la seule nouvelle ligne est la ligne associée à l’heure 00:02 et, par conséquent, la table de résultats contiendra uniquement cette ligne.
 
@@ -50,13 +50,13 @@ Lorsque vous utilisez le mode Append, votre requête applique des projections (e
 
 ### <a name="complete-mode"></a>Mode Complet
 
-Considérez le même scénario, cette fois en utilisant le mode Complet. En mode Complet, l’intégralité de la table de sortie est actualisée à chaque déclencheur. Autrement dit, la table inclut non seulement les données issues de l’exécution du dernier déclencheur, mais également les données de toutes les autres exécutions. Vous pouvez utiliser le mode Complet pour copier les données non modifiées de la table d’entrée vers la table de résultats. À chaque exécution déclenchée, les nouvelles lignes de résultats s’affichent en même temps que toutes les lignes précédentes. Le tableau de résultats finit par stocker toutes les données collectées depuis le début de la requête, au risque de manquer de mémoire. Le mode Complet est destiné à des requêtes d’agrégation qui, d’une certaine façon, synthétisent les données entrantes. À chaque déclencheur, la table de résultats est donc mise à jour avec un nouveau résumé. 
+Considérez le même scénario, cette fois en utilisant le mode Complet. En mode Complet, l’intégralité de la table de sortie est actualisée à chaque déclencheur. Autrement dit, la table inclut non seulement les données issues de l’exécution du dernier déclencheur, mais également les données de toutes les autres exécutions. Vous pouvez utiliser le mode Complet pour copier les données non modifiées de la table d’entrée vers la table de résultats. À chaque exécution déclenchée, les nouvelles lignes de résultats s’affichent en même temps que toutes les lignes précédentes. Le tableau de résultats finit par stocker toutes les données collectées depuis le début de la requête, au risque de manquer de mémoire. Le mode Complet est destiné à des requêtes d’agrégation qui, d’une certaine façon, synthétisent les données entrantes. À chaque déclencheur, la table de résultats est donc mise à jour avec un nouveau résumé.
 
-Supposons que nous avons déjà traité l’équivalent de cinq secondes de données, et qu’il nous faille maintenant traiter les données correspondant à la sixième seconde. La table d’entrée contient des événements pour l’heure 00:01 et l’heure 00:03. L’objectif de cet exemple de requête est de donner la température moyenne de l’appareil toutes les cinq secondes. L’implémentation de cette requête applique un agrégat qui accepte toutes les valeurs qui se trouvent dans chaque fenêtre de 5 secondes, calcule la moyenne de la température et génère une ligne correspondant à la température moyenne sur cet intervalle. À la fin de la première fenêtre de 5 secondes, il existe deux tuples : (00:01, 1, 95) et (00:03, 1, 98). Pour la fenêtre 00:00-00:05, l’agrégation génère donc un tuple avec la température moyenne de 96,5 degrés. Pour la prochaine fenêtre de 5 secondes, on obtient uniquement un point de données à l’heure 00:06, ce qui donne une température moyenne de 98 degrés. À l’heure 00:10, à l’aide du mode Complet, la table de résultats intègre les lignes correspondant aux deux fenêtres (00:00-00:05 et 00:05:00:10), car la requête renvoie toutes les lignes agrégées, et pas seulement les nouvelles. Par conséquent, la table des résultats continue de croître à mesure que de nouvelles fenêtres sont ajoutées.    
+Supposons que nous avons déjà traité l’équivalent de cinq secondes de données, et qu’il nous faille maintenant traiter les données correspondant à la sixième seconde. La table d’entrée contient des événements pour l’heure 00:01 et l’heure 00:03. L’objectif de cet exemple de requête est de donner la température moyenne de l’appareil toutes les cinq secondes. L’implémentation de cette requête applique un agrégat qui accepte toutes les valeurs qui se trouvent dans chaque fenêtre de 5 secondes, calcule la moyenne de la température et génère une ligne correspondant à la température moyenne sur cet intervalle. À la fin de la première fenêtre de 5 secondes, il existe deux tuples : (00:01, 1, 95) et (00:03, 1, 98). Pour la fenêtre 00:00-00:05, l’agrégation génère donc un tuple avec la température moyenne de 96,5 degrés. Dans la fenêtre de 5 secondes suivante, on obtient uniquement un point de données à l’heure 00:06, ce qui donne une température moyenne de 98 degrés. À l’heure 00:10, à l’aide du mode Complet, la table de résultats intègre les lignes correspondant aux deux fenêtres (00:00-00:05 et 00:05:00:10), car la requête renvoie toutes les lignes agrégées, et pas seulement les nouvelles. Par conséquent, la table des résultats continue de croître à mesure que de nouvelles fenêtres sont ajoutées.
 
 ![Mode Complet de Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming-complete-mode.png)
 
-Toutes les requêtes qui utilisent le mode Complet n’entraînent pas une croissance illimitée de la table.  Imaginez, en reprenant l’exemple précédent, qu’au lieu de calculer la moyenne de température par fenêtre de temps, la requête calcule la moyenne par ID d’appareil. La table de résultats contient un nombre fixe de lignes (une par appareil) avec la température moyenne obtenue pour l’appareil sur tous les points de données reçus à partir de cet appareil. À mesure que de nouvelles températures sont reçues, la table de résultats est mise à jour de sorte que les moyennes de la table soient toujours actualisées. 
+Toutes les requêtes qui utilisent le mode Complet n’entraînent pas une croissance illimitée de la table.  Imaginez, en reprenant l’exemple précédent, qu’au lieu de calculer la moyenne de température par fenêtre de temps, la requête calcule la moyenne par ID d’appareil. La table de résultats contient un nombre fixe de lignes (une par appareil) avec la température moyenne obtenue pour l’appareil sur tous les points de données reçus à partir de cet appareil. À mesure que de nouvelles températures sont reçues, la table de résultats est mise à jour de sorte que les moyennes de la table soient toujours actualisées.
 
 ## <a name="components-of-a-spark-structured-streaming-application"></a>Composants d’une application Spark Structured Streaming
 
@@ -68,7 +68,7 @@ Un exemple de simple requête peut synthétiser les relevés de température sur
     {"time":1469501219,"temp":"95"}
     {"time":1469501225,"temp":"95"}
 
-Ces fichiers JSON sont stockés dans le sous-dossier `temps`, sous le conteneur du cluster HDInsight. 
+Ces fichiers JSON sont stockés dans le sous-dossier `temps`, sous le conteneur du cluster HDInsight.
 
 ### <a name="define-the-input-source"></a>Définir la source d’entrée
 
@@ -100,18 +100,17 @@ Définissez ensuite la destination des lignes qui sont ajoutées à la table de 
 
 ### <a name="start-the-query"></a>Démarrer la requête
 
-Démarrez la requête de diffusion en continu et exécutez-la jusqu’à la réception d’un signal d’arrêt. 
+Démarrez la requête de diffusion en continu et exécutez-la jusqu’à la réception d’un signal d’arrêt.
 
     val query = streamingOutDF.start()  
 
 ### <a name="view-the-results"></a>View the results
 
-Pendant l’exécution de la requête, dans la même session Spark, vous pouvez exécuter une requête SparkSQL sur la table `temps` où sont stockés les résultats de la requête. 
+Pendant l’exécution de la requête, dans la même session Spark, vous pouvez exécuter une requête SparkSQL sur la table `temps` où sont stockés les résultats de la requête.
 
     select * from temps
 
 Cette requête génère des résultats similaires à ce qui suit :
-
 
 | window |  min(temp) | avg(temp) | max(temp) |
 | --- | --- | --- | --- |

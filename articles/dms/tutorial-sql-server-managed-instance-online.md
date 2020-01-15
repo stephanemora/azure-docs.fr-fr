@@ -1,5 +1,6 @@
 ---
-title: 'Didacticiel : Utiliser Azure Database Migration Service pour effectuer une migration en ligne de SQL Server vers une instance managée d’Azure SQL Database | Microsoft Docs'
+title: 'Tutoriel : Migrer SQL Server en ligne vers une instance gérée SQL'
+titleSuffix: Azure Database Migration Service
 description: Découvrez comment effectuer une migration en ligne d’une instance locale de SQL Server vers une instance managée d’Azure SQL Database à l’aide d’Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,23 +9,23 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 12/04/2019
-ms.openlocfilehash: 53c0601be29c5cac9bddc37158d705f07349323d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/27/2019
+ms.openlocfilehash: 05cf7f1c69c6118d39efb72185443e1fad072209
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975021"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531460"
 ---
-# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Didacticiel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
+# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
 Vous pouvez utiliser le service Azure Database Migration Service pour effectuer la migration des bases de données d’une instance locale de SQL Server vers une [instance managée d’Azure SQL Database](../sql-database/sql-database-managed-instance.md), pour un temps d’arrêt minimal. Pour connaître des méthodes supplémentaires pouvant nécessiter un effort manuel, consultez l’article [Migration d’une instance SQL Server vers une instance managée d’Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
 
 Dans ce tutoriel, vous migrez la base de données **Adventureworks2012** entre une instance locale de SQL Server et une instance managée SQL Database, avec un temps d’arrêt minimal en utilisant Azure Database Migration Service.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 >
 > * Créer une instance Azure Database Migration Service.
@@ -42,11 +43,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft recommande de créer une instance d’Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
+> [!IMPORTANT]
+> Il est important de réduire autant que possible la durée du processus de migration en ligne afin de réduire le risque d’interruption due à la reconfiguration d’une instance ou à une maintenance planifiée. Dans le cas d’un tel événement, le processus de migration reprend dès le début. En cas de maintenance planifiée, il existe une période de grâce de 36 heures avant le redémarrage du processus de migration.
+
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
 Cet article décrit une migration en ligne de SQL Server vers une instance managée SQL Database. Pour une migration hors connexion, consultez [Migrer une instance de SQL Server vers une instance gérée de SQL Database hors connexion à l'aide de DMS](tutorial-sql-server-to-managed-instance.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 

@@ -1,20 +1,14 @@
 ---
-title: Pilote de volume Azure Files pour Service Fabric (disponibilité générale) | Microsoft Docs
+title: Pilote de volume Azure Files pour Service Fabric (disponibilité générale)
 description: Service Fabric prend en charge l’utilisation d’Azure Files pour sauvegarder des volumes à partir de votre conteneur.
-services: service-fabric
-author: athinanthny
-manager: chackdan
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.author: atsenthi
-ms.openlocfilehash: 1287df567c60b7ad851c94a8ba787270255d0f35
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422785"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464792"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Pilote de volume Azure Files pour Service Fabric
 Le plug-in de volume Azure Files, un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker, est désormais en **disponibilité générale**.
@@ -25,7 +19,7 @@ Ce plug-in de volume Docker est fourni sous la forme d’une application Service
 > La version 6.5.661.9590 du plug-in de volume Azure Files est une version en disponibilité générale. 
 >
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * La version Windows du plug-in de volume Azure Files fonctionne sur [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) ou des systèmes d’exploitation plus récents uniquement.
 
 * La version Linux du plug-in de volume Azure Files fonctionne sur toutes les versions de système d’exploitation prises en charge par Service Fabric.

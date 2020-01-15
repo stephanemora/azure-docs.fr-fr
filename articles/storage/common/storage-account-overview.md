@@ -1,21 +1,22 @@
 ---
-title: Vue d’ensemble des comptes de stockage Azure | Microsoft Doc
+title: Vue d’ensemble du compte de stockage
+titleSuffix: Azure Storage
 description: Découvrez les options de création et d’utilisation des comptes de stockage Azure.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: dc5869acffe9a42d154bca61b9de7821121c85ec
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460616"
 ---
-# <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
+# <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
 Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit pour vos données de stockage Azure un espace de noms unique, accessible de n’importe où dans le monde via HTTP ou HTTPS. Les données dans votre compte de stockage Azure sont durables et hautement disponibles, sécurisées et massivement évolutives.
 
@@ -27,7 +28,7 @@ Pour plus d’informations sur la création d’un compte de stockage Azure, con
 
 ### <a name="general-purpose-v2-accounts"></a>Les comptes de stockage à usage général v2
 
-Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Pour le stockage Azure, ce sont les comptes universels v2 qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes de stockage universels v2 prennent en charge les services de stockage Azure suivants :
+Les comptes de stockage v2 à usage général prennent en charge les dernières fonctionnalités du Stockage Azure, et intègrent toutes les fonctionnalités des comptes de stockage v1 à usage général et des comptes de stockage d’objets blob. Pour le Stockage Azure, ce sont les comptes v2 à usage général qui offrent les tarifs de capacité par gigaoctet les plus bas. En outre, le prix des transactions est l’un des plus compétitifs du secteur. Les comptes de stockage universels v2 prennent en charge les services de stockage Azure suivants :
 
 - Objets blob (tous les types : Block, Append, Page)
 - Data Lake Gen2
@@ -55,11 +56,11 @@ Les comptes de stockage universels v1 offrent un accès à tous les services des
 
 Dans la plupart des cas, vous devez utiliser des comptes v2 universels. Vous pouvez utiliser des comptes v1 universels pour les scénarios suivants :
 
-* Si vos applications nécessitent le modèle de déploiement Azure Classic. Les comptes universels v2 et les comptes de stockage d’objets blob prennent uniquement en charge le modèle de déploiement Azure Resource Manager.
+- Si vos applications nécessitent le modèle de déploiement Azure Classic. Les comptes universels v2 et les comptes de stockage d’objets blob prennent uniquement en charge le modèle de déploiement Azure Resource Manager.
 
-* Vos applications sont gourmandes en transactions ou utilisent beaucoup de bande passante de géoréplication, mais ne nécessitent pas une capacité importante. Dans ce cas, le compte universel v1 constitue le choix le plus économique.
+- Vos applications sont gourmandes en transactions ou utilisent beaucoup de bande passante de géoréplication, mais ne nécessitent pas une capacité importante. Dans ce cas, le compte universel v1 constitue le choix le plus économique.
 
-* Vous utilisez une version de l’[API REST du service Stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque de client avec une version inférieure à 4.x. Vous ne pouvez pas mettre à niveau votre application.
+- Vous utilisez une version de l’[API REST du service Stockage](https://msdn.microsoft.com/library/azure/dd894041.aspx) antérieure à celle du 14/02/2014 ou une bibliothèque de client avec une version inférieure à 4.x. Vous ne pouvez pas mettre à niveau votre application.
 
 ### <a name="blockblobstorage-accounts"></a>Comptes BlockBlobStorage
 
@@ -86,12 +87,12 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 
 Les comptes de stockage universels peuvent être configurés avec l’un des niveaux de performances suivants :
 
-* Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure
-* Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement
+- Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure Pour plus d’informations sur les objectifs d’évolutivité pour les comptes de stockage standard, consultez [Objectifs d’extensibilité pour les comptes de stockage standard](scalability-targets-standard-account.md).
+- Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement Microsoft recommande d’utiliser des disques gérés avec des machines virtuelles Azure au lieu de disques non gérés. Pour plus d’informations sur les objectifs d’extensibilité pour le niveau de performance Premium, consultez [Objectifs d’évolutivité pour les comptes de stockage d’objets blob de pages Premium](../blobs/scalability-targets-premium-page-blobs.md).
 
-Les comptes de stockage BlockBlobStorage fournissent un niveau de performances Premium pour stocker des objets blob de blocs et d’ajout.
+Les comptes de stockage BlockBlobStorage fournissent un niveau de performances Premium pour stocker des objets blob de blocs et d’ajout. Pour plus d’informations, consultez [Objectifs de scalabilité pour les comptes de stockage d’objets blob de blocs Premium](../blobs/scalability-targets-premium-block-blobs.md).
 
-Les comptes de stockage FileStorage fournissent un niveau de performances premium pour les partages de fichiers Azure.
+Les comptes de stockage FileStorage fournissent un niveau de performances premium pour les partages de fichiers Azure. Pour plus d’informations, voir [Objectifs de performance et d’extensibilité d’Azure Files](../files/storage-files-scale-targets.md).
 
 ## <a name="access-tiers-for-block-blob-data"></a>Niveaux d’accès pour les données d’objets blob de blocs
 
@@ -99,9 +100,9 @@ Le stockage Azure propose différentes options permettant d’accéder aux donn�
 
 Les niveaux d’accès disponibles sont les suivants :
 
-* Niveau d’accès **chaud**. Le niveau est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
-* Niveau d’accès **froid**. Le niveau est optimisé pour le stockage de grandes quantités de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être plus onéreux que celui du niveau chaud.
-* Niveau d’accès **archive**. Le niveau est disponible uniquement pour chaque objet blob de blocs. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
+- Niveau d’accès **chaud**. Le niveau est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
+- Niveau d’accès **froid**. Le niveau est optimisé pour le stockage de grandes quantités de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être plus onéreux que celui du niveau chaud.
+- Niveau d’accès **archive**. Le niveau est disponible uniquement pour chaque objet blob de blocs. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
 
 En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 
@@ -124,13 +125,13 @@ Un compte de stockage fournit un espace de noms unique dans Azure pour vos donn�
 
 Par exemple, si le nom de votre compte de stockage universel est *mystorageaccount*, les points de terminaison par défaut de votre compte sont les suivants :
 
-* Stockage d’objets blob : http://*mystorageaccount*.blob.core.windows.net
-* Stockage de tables : http://*mystorageaccount*.table.core.windows.net
-* Stockage de files d’attente : http://*mystorageaccount*.queue.core.windows.net
-* Azure Files : http://*mystorageaccount*.file.core.windows.net
+- Stockage d’objets Blob : `https://*mystorageaccount*.blob.core.windows.net`
+- Stockage Table : `https://*mystorageaccount*.table.core.windows.net`
+- Stockage File d’attente : `https://*mystorageaccount*.queue.core.windows.net`
+- Azure Files : `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
-> Les comptes d’objets blob de blocs et de stockage d’objets blob exposent uniquement le point de terminaison de service blob.
+> Les comptes d’objets blob de blocs et de stockage d’objets blob exposent uniquement le point de terminaison de service BLOB.
 
 Construisez l’URL permettant d’accéder à un objet dans un compte de stockage en ajoutant l’emplacement de l’objet dans le compte de stockage au point de terminaison. Par exemple, une adresse d’objet blob peut avoir ce format : http://*moncomptedestockage*.blob.core.windows.net/*monconteneur*/*monobjetblob*.
 
@@ -171,7 +172,7 @@ La bibliothèque de déplacement de données Stockage Azure pour .NET est basée
 
 Vous pouvez créer une application personnalisée pour migrer vos données d’un compte de stockage v1 universel vers un compte de stockage d’objets blob. Utilisez l’une des bibliothèques de client Azure ou l’API REST des services de stockage Azure. Azure Storage offre des bibliothèques clientes enrichies pour une diversité de langages et plateformes, par exemple .NET, Java, C++, Node.JS, PHP, Ruby et Python. Les bibliothèques clientes offrent des fonctionnalités avancées telles que la logique de nouvelle tentative, la journalisation et les téléchargements parallèles. Vous pouvez également développer votre application directement avec l’API REST, qui peut être appelée à l’aide de n’importe quel langage permettant de créer des requêtes HTTP/HTTPS.
 
-Pour plus d’informations sur l’API REST du stockage Azure, consultez [Référence de l’API REST des services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/). 
+Pour plus d’informations sur l’API REST du stockage Azure, consultez [Référence de l’API REST des services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/).
 
 > [!IMPORTANT]
 > Les objets blob chiffrés utilisant le chiffrement côté client stockent les métadonnées relatives au chiffrement avec l’objet blob. Si vous copiez un objet blob chiffré avec le chiffrement côté client, assurez-vous que l’opération de copie conserve les métadonnées de l’objet blob, et en particulier les métadonnées relatives au chiffrement. Si vous copiez un objet blob sans ces métadonnées de chiffrement, le contenu de l’objet blob ne peut plus être récupéré. Pour plus d’informations concernant les métadonnées liées au chiffrement, consultez l’article [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
@@ -182,6 +183,5 @@ Pour plus d’informations sur l’API REST du stockage Azure, consultez [Réfé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créez un compte de stockage](storage-quickstart-create-account.md)
-* [Créer un compte de stockage d’objet blob de blocs](../blobs/storage-blob-create-account-block-blob.md)
-* [Gérer des comptes de stockage Azure](storage-account-manage.md)
+- [Créez un compte de stockage](storage-quickstart-create-account.md)
+- [Créer un compte de stockage d’objet blob de blocs](../blobs/storage-blob-create-account-block-blob.md)

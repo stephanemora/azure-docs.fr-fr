@@ -1,25 +1,14 @@
 ---
-title: Découvrir la sécurité des applications Azure Service Fabric | Microsoft Docs
+title: Découvrir la sécurité des applications Azure Service Fabric
 description: Explique comment exécuter des applications de microservices de manière sécurisée dans Service Fabric. Découvrez comment exécuter des services et un script de démarrage sous différents comptes de sécurité, authentifier et autoriser des utilisateurs, gérer les secrets des applications, sécuriser les communications avec les services, utiliser une passerelle API et sécuriser des données d’application au repos.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/16/2018
-ms.author: atsenthi
-ms.openlocfilehash: 75a82a0915414d24ab9c58ea15d3fdc9c1922c63
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6c40bf66d1068310790d1440174eeb5b2a571154
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452255"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Sécurité des applications et des services Service Fabric
 Une architecture de microservices peut présenter de [nombreux avantages](service-fabric-overview-microservices.md). Cependant, la gestion de la sécurité des microservices représente un défi autrement plus complexe que celui constitué par la gestion de la sécurité des applications monolithiques traditionnelles. 
@@ -38,7 +27,7 @@ Si les services sont accessibles directement, un service d’authentification, c
 
 Pour ASP.NET Core, le mécanisme principal [d’authentification des utilisateurs](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/) est le système d’appartenance ASP.NET Core Identity. ASP.NET Core Identity stocke les informations utilisateur (notamment les revendications, les rôles et les informations de connexion) dans un magasin de données configuré par le développeur. ASP.NET Core Identity prend en charge l’authentification à 2 facteurs.  Les fournisseurs d’authentification externes sont également pris en charge, ce qui permet aux utilisateurs de se connecter à l’aide de processus d’authentification existants, comme ceux de Microsoft, Google, Facebook ou Twitter.
 
-### <a name="authorization"></a>Authorization
+### <a name="authorization"></a>Autorisation
 Après l’authentification, les services doivent autoriser l’accès utilisateur ou déterminer ce qu’un utilisateur est autorisé à faire. Ce processus permet à un service d’autoriser uniquement les utilisateurs authentifiés à accéder aux API. L’autorisation est orthogonale et indépendante de l’authentification, qui est le processus permettant d’identifier un utilisateur. L’authentification peut créer une ou plusieurs identités pour l’utilisateur actuel.
 
 [L’autorisation ASP.NET Core](/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) peut être basée sur les rôles d’utilisateurs ou sur une stratégie personnalisée pouvant inclure l’inspection de revendications ou autres méthodes heuristiques.

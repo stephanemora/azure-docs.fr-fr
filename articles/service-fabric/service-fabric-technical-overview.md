@@ -1,25 +1,16 @@
 ---
-title: Découvrir la terminologie de Service Fabric | Microsoft Docs
+title: Découvrir la terminologie d’Azure Service Fabric
 description: Présentation de la terminologie de Service Fabric. Décrit les concepts et termes principaux utilisés dans le reste de la documentation.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: chackdan;subramar
-ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: 82672114722db843fcb5d0bdff28cf14cddb1aef
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: cf2cfdad10d93bb4f28345d75a86fdcd94587410
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68811913"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465614"
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Vous pouvez [héberger des clusters Service Fabric n'importe où](service-fabric-deploy-anywhere.md) : dans Azure, dans un centre de données local ou auprès de n'importe quel fournisseur de services cloud.  Service Fabric est l’orchestrateur qui alimente [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement. Cet article décrit en détail la terminologie utilisée dans Service Fabric pour que vous compreniez les termes utilisés dans la documentation.
@@ -163,15 +154,15 @@ Les différents environnements ont différents niveaux de prise en charge pour l
 
 | Type d’Application | Décrit par | Azure Service Fabric mesh | Clusters Azure Service Fabric (tout système d’exploitation)| Cluster local | Cluster autonome |
 |---|---|---|---|---|---|
-| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Pris en charge |Non pris en charge | Windows : pris en charge, Linux et Mac : non pris en charge | Windows : non pris en charge |
-|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Pris en charge|Pris en charge|Windows : pris en charge|
+| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Prise en charge |Non pris en charge | Windows : pris en charge, Linux et Mac : non pris en charge | Windows : non pris en charge |
+|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Prise en charge|Prise en charge|Windows : pris en charge|
 
 Le tableau suivant décrit les différents modèles d’application et les outils existants pour ceux-ci par rapport à Service Fabric.
 
 | Type d’Application | Décrit par | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|
 | Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | VS 2017 |Non pris en charge |Non pris en charge | Pris en charge : environnement Mesh uniquement | Non pris en charge|
-|Applications natives Service Fabric | Modèle d’application native (XML) | VS 2017 et VS 2015| Pris en charge|Pris en charge|Pris en charge|Pris en charge|
+|Applications natives Service Fabric | Modèle d’application native (XML) | VS 2017 et VS 2015| Prise en charge|Prise en charge|Prise en charge|Prise en charge|
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes

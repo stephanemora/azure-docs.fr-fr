@@ -10,12 +10,12 @@ ms.date: 12/18/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 0d8418d846d26d4104718df6d0fc66d264ef4a54
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: acc7284eb607d20ca1d62b478d802be56048bc6c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440090"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 
@@ -34,7 +34,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 À ce stade, le paramétrage de service lié est pris en charge dans l’interface utilisateur de Data Factory dans le portail Azure pour les magasins de données suivants. Pour tous les autres magasins de données, vous pouvez paramétrer le service lié en sélectionnant l'icône **Code** dans l'onglet **Connexions** et à l'aide de l'éditeur JSON.
 - Azure SQL Database
-- Azure SQL Data Warehouse
+- Azure SQL Data Warehouse.
 - SQL Server
 - Oracle
 - Cosmos DB
@@ -56,10 +56,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": {
-                "value": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
-                "type": "SecureString"
-            }
+            "connectionString": "Server=tcp:myserver.database.windows.net,1433;Database=@{linkedService().DBName};User ID=user;Password=fake;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": null,
         "parameters": {

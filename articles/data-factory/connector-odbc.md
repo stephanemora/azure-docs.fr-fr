@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: b94dbb81b2ab5b7e4421357ee81d6c3ea8e8d3c0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 816009bb7481d93fd53011d067ab56cecbe8e3ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912487"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440418"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copier des données depuis/vers des banques de données ODBC à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -36,7 +36,7 @@ Vous pouvez copier des données d’une source ODBC vers toute banque de donnée
 
 Plus précisément, ce connecteur ODBC prend en charge la copie de données depuis/vers **toute banque de données compatible ODBC** à l’aide d’une authentification **De base** ou **Anonyme**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser ce connecteur ODBC, vous devez :
 
@@ -55,13 +55,13 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Odbc** | OUI |
-| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).| OUI |
-| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | OUI |
+| type | La propriété type doit être définie sur : **Odbc** | Oui |
+| connectionString | Chaîne de connexion sans la partie contenant les informations d’identification. Vous pouvez spécifier la chaîne de connexion avec un modèle comme `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou utiliser le nom de source de données (DSN) du système que vous avez configuré sur la machine de l’Integration Runtime avec `"DSN=<name of the DSN on IR machine>;"` (vous devez toujours spécifier la partie informations d’identification dans le service lié en conséquence).<br>Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la `password` configuration de la chaîne de connexion. Pour plus d’informations, consultez la section  [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) .| Oui |
+| authenticationType | Type d’authentification utilisé pour se connecter au magasin de données ODBC.<br/>Les valeurs autorisées sont les suivantes : **De base** et **Anonyme**. | Oui |
 | userName | Spécifiez le nom d’utilisateur si vous utilisez l’authentification de base. | Non |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non |
 | credential | Partie de la chaîne de connexion contenant les informations d’accès, spécifiée dans un format de valeurs de propriété spécifique au pilote. Exemple : `"RefreshToken=<secret refresh token>;"`. Marquez ce champ comme SecureString. | Non |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |OUI |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
 
 **Exemple 1 : utilisation d’une authentification de base**
 
@@ -71,10 +71,7 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
+            "connectionString": "<connection string>",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
@@ -98,10 +95,7 @@ Les propriétés prises en charge pour le service lié ODBC sont les suivantes 
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "<connection string>"
-            },
+            "connectionString": "<connection string>",
             "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
@@ -124,7 +118,7 @@ Pour copier des données à partir/vers d’une banque de données compatible av
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **OdbcTable** | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **OdbcTable** | Oui |
 | tableName | Nom de la table dans le magasin de données ODBC. | Non pour la source (si « query » est spécifié dans la source de l’activité) ;<br/>Oui pour le récepteur |
 
 **Exemple**
@@ -158,7 +152,7 @@ Pour copier des données à partir d’une banque de données compatible avec OD
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **OdbcSource** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **OdbcSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -201,8 +195,8 @@ Pour copier des données vers une banque de données compatible ODBC, définisse
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du récepteur d’activité de copie doit être définie sur : **OdbcSink** | OUI |
-| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur : **OdbcSink** | Oui |
+| writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (la valeur par défaut est 0, détectée automatiquement) |
 | preCopyScript |Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans la banque de données à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non |
 
@@ -261,10 +255,7 @@ Créez un service lié ODBC pour lier une banque de données SAP HANA à une fab
     "properties": {
         "type": "Odbc",
         "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
-            },
+            "connectionString": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015",
             "authenticationType": "Basic",
             "userName": "<username>",
             "password": {

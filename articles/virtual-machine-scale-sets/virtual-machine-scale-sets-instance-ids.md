@@ -1,6 +1,6 @@
 ---
-title: Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure | Microsoft Docs
-description: Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
+title: Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
+description: Comprendre les ID d’instance pour les machines virtuelles de groupes identiques et les différentes façons dont elles s’exposent.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: 6aeba722a0661979664f8d61efdb9b2bf47ad801
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eb0cf1de3b0ebffac8810e19d69515224147bc7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356000"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Présentation des ID d’instance des machines virtuelles d’un groupe identique de machines virtuelles Azure
 Cet article décrit les ID d’instance des groupes identiques ainsi que les différents modes de surface.

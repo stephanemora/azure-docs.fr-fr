@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: ef2db7f13ea5192634855b69a0d355e0f1e11ecb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6d1dd8f749f6c3e991413628bd1e08baf76a02f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035075"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458678"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
 
@@ -81,7 +81,7 @@ az vm create --resource-group myResourceGroup --location westus \
 
 Le compte de stockage de destination doit être celui sur lequel vous avez chargé votre disque virtuel. Vous devez également spécifier tous les paramètres supplémentaires nécessaires à la commande **az vm create**, ou répondre aux invites correspondantes, notamment le réseau virtuel, l’adresse IP publique, le nom d’utilisateur et les clés SSH. Vous pouvez en savoir plus sur les [paramètres de l’interface de ligne de commande Resource Manager](../azure-cli-arm-commands.md#azure-vm-commands-to-manage-your-azure-virtual-machines).
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants :
 
 * **Un système d’exploitation Linux installé dans un fichier .vhd** : installez une [distribution Linux approuvée par Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (ou consultez les [informations relatives aux distributions non approuvées](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) sur un disque virtuel au format VHD. Plusieurs outils permettent de créer une machine virtuelle et un disque dur virtuel :
@@ -101,7 +101,7 @@ Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azur
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
-<a id="prepimage"></a>
+<a id="prepimage"> </a>
 
 ## <a name="prepare-the-disk-to-be-uploaded"></a>Préparation du disque pour le chargement
 Azure prend en charge diverses distributions de Linux (voir [Distributions Linux approuvées](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Les articles suivants indiquent comment préparer les diverses distributions de Linux prises en charge dans Azure :
@@ -122,7 +122,7 @@ Consultez également les **[notes d’installation Linux](create-upload-generic.
 > 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
-Les groupes de ressources regroupent de manière logique l’ensemble des ressources Azure afin d’assurer la prise en charge de vos machines virtuelles, par exemple le stockage et la mise en réseau virtuel. Pour plus d’informations sur les groupes de ressources, consultez [Présentation des groupes de ressources](../../azure-resource-manager/resource-group-overview.md). Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group).
+Les groupes de ressources regroupent de manière logique l’ensemble des ressources Azure afin d’assurer la prise en charge de vos machines virtuelles, par exemple le stockage et la mise en réseau virtuel. Pour plus d’informations sur les groupes de ressources, consultez [Présentation des groupes de ressources](../../azure-resource-manager/management/overview.md). Avant de charger votre disque personnalisé et de créer des machines virtuelles, vous devez créer un groupe de ressources avec la commande [az group create](/cli/azure/group).
 
 L’exemple suivant crée un groupe de ressources nommé `myResourceGroup` à l’emplacement `westus` :
 
@@ -142,7 +142,7 @@ az storage account create --resource-group myResourceGroup --location westus \
 ```
 
 ## <a name="list-storage-account-keys"></a>Répertorier les clés de compte de stockage
-Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Découvrez plus d’informations sur la [gestion de l’accès au stockage ici](../../storage/common/storage-account-manage.md#access-keys). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys).
+Azure génère deux clés d’accès de 512 bits pour chaque compte de stockage. Ces clés d’accès sont utilisées lors de l’authentification auprès du compte de stockage, par exemple pour effectuer des opérations d’écriture. Pour plus d’informations sur les clés d’accès au compte de stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md). Vous affichez les clés d’accès avec [az storage account keys list](/cli/azure/storage/account/keys).
 
 Affichez les clés d’accès au compte de stockage que vous avez créé :
 
@@ -204,7 +204,7 @@ Vous devez encore spécifier tous les paramètres supplémentaires nécessaires 
 
 
 ## <a name="resource-manager-template"></a>Modèle Resource Manager
-Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Objet Notation) qui définissent l’environnement que vous souhaitez générer. Les modèles sont répartis parmi différents fournisseurs de ressources, tels que les fournisseurs de calcul ou réseau. Vous pouvez utiliser les modèles existants ou écrire les vôtres. Découvrez plus d’informations sur [l’utilisation des modèles et de Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Les modèles Azure Resource Manager sont des fichiers JSON (JavaScript Objet Notation) qui définissent l’environnement que vous souhaitez générer. Les modèles sont répartis parmi différents fournisseurs de ressources, tels que les fournisseurs de calcul ou réseau. Vous pouvez utiliser les modèles existants ou écrire les vôtres. Découvrez plus d’informations sur [l’utilisation des modèles et de Resource Manager](../../azure-resource-manager/management/overview.md).
 
 Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous disposez d’un nœud `storageProfile` qui contient les détails de configuration de votre machine virtuelle. Les deux principaux paramètres à modifier sont les URI `image` et `vhd` qui pointent vers votre disque personnalisé et le disque virtuel de votre nouvelle machine virtuelle. Voici un exemple de JSON pour l’utilisation d’un disque personnalisé :
 
@@ -224,7 +224,7 @@ Dans le fournisseur `Microsoft.Compute/virtualMachines` de votre modèle, vous d
           }
 ```
 
-Vous pouvez utiliser [ce modèle existant pour créer une machine virtuelle à partir d’une image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou obtenir plus d’informations sur [la création de vos propres modèles Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 
+Vous pouvez utiliser [ce modèle existant pour créer une machine virtuelle à partir d’une image personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image) ou obtenir plus d’informations sur [la création de vos propres modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md). 
 
 Une fois que vous disposez d’un modèle configuré, utilisez [az group deployment create](/cli/azure/group/deployment) pour créer vos machines virtuelles. Spécifiez l’URI de votre modèle JSON avec le paramètre `--template-uri` :
 
@@ -242,5 +242,5 @@ az group deployment create --resource-group myNewResourceGroup \
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/resource-group-overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Après avoir préparé et chargé votre disque virtuel personnalisé, vous pouvez découvrir plus d’informations sur [l’utilisation de Resource Manager et des modèles](../../azure-resource-manager/management/overview.md). Vous pouvez également [ajouter un disque de données](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à vos nouvelles machines virtuelles. Si vous avez besoin d’accéder à des applications qui s’exécutent sur vos machines virtuelles, veillez à [ouvrir les ports et points de terminaison](nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

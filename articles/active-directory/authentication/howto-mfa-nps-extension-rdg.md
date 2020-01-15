@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c22efe84826684e37abee65d64df13d63081aa79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 71d9b2332d6d78e7bde63d0fa3f5b64b588e576b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848338"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425445"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Intégrez votre infrastructure de passerelle des services Bureau à distance à l’aide de l’extension du serveur NPS (Network Policy Server) et Azure AD
 
@@ -43,7 +43,7 @@ Avant la disponibilité de l’extension de serveur NPS pour Azure, les clients 
 
 La disponibilité de l’extension de serveur NPS pour Azure permet désormais aux entreprises de choisir de déployer une solution d’authentification multifacteur locale ou une solution de l’authentification multifacteur basée sur le cloud pour l’authentification client RADIUS sécurisée.
 
-## <a name="authentication-flow"></a>Flux d’authentification
+## <a name="authentication-flow"></a>Flux d'authentification
 
 Pour que les utilisateurs puissent obtenir l’accès aux ressources réseau via une passerelle des services Bureau à distance, il leur faut remplir les conditions spécifiées dans une stratégie d'autorisation des connexions aux services Bureau à distance (RD CAP) et une stratégie d'autorisation d'accès aux ressources via les services Bureau à distance (RD RAP). Les stratégies RD CAP spécifient qui est autorisé à se connecter à des passerelles des services Bureau à distance. Les stratégies RD CAP indiquent les ressources réseau, notamment les bureaux à distance ou les applications à distance, auxquelles l’utilisateur est autorisé à se connecter via la passerelle des services Bureau à distance.
 
@@ -59,7 +59,7 @@ Lorsque l’extension de serveur NPS pour Azure est intégrée au serveur NPS et
 1. Le serveur NPS, où est installée l’extension, envoie un message RADIUS d’acceptation d’accès pour la stratégie d’autorisation des connexions aux services Bureau à distance sur le serveur de passerelle Bureau à distance.
 1. L’utilisateur a accès à la ressource réseau demandée via la passerelle des services Bureau à distance.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette section détaille les conditions préalables nécessaires avant d’intégrer Azure MFA à la passerelle des services Bureau à distance. Avant de commencer, vous devez disposer des conditions requises en place suivantes.  
 
@@ -120,11 +120,11 @@ Cette section fournit des instructions pour la configuration de l’infrastructu
 Dans le cadre de la configuration de l’extension de serveur NPS, vous devez fournir les informations d’identification d’administrateur et l’ID Azure AD pour votre client Azure AD. Les étapes suivantes vous expliquent comment obtenir l’ID client.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général du client Azure.
-1. Dans la barre de navigation de gauche, sélectionnez l’icône**Azure Active Directory**.
+1. Dans le menu du portail Azure, sélectionnez **Azure Active Directory** ou recherchez et sélectionnez **Azure Active Directory** dans n’importe quelle page.
 1. Sélectionner **Propriétés**.
 1. Dans le panneau Propriétés, en regard de l’ID de répertoire, cliquez sur l’icône **Copier**, comme illustré ci-dessous, pour copier l’ID dans le presse-papiers.
 
-   ![Obtention de l’ID de répertoire à partir du portail Azure](./media/howto-mfa-nps-extension-rdg/image1.png)
+   ![Obtention de l’ID de répertoire à partir du portail Azure](./media/howto-mfa-nps-extension-rdg/azure-active-directory-id-in-azure-portal.png)
 
 ### <a name="install-the-nps-extension"></a>Installer l’extension NPS
 

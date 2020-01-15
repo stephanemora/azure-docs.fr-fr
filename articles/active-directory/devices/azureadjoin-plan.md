@@ -11,20 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d70e87a9a0c7fb9b28f2a025db15ce4ba666255
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 69086ee8d8d64ada7379bdb6af24c8d604e00aed
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379614"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665107"
 ---
-# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
+# <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
 La jonction Azure AD vous permet de joindre des appareils directement à Azure AD sans qu’il soit nécessaire de se joindre à Active Directory local, tout en conservant vos utilisateurs productifs et sécurisés. La jonction Azure AD est prête à l’emploi par les entreprises pour les déploiements à grande échelle et les déploiements limités.   
 
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -75,7 +75,7 @@ Lorsque vous utilisez AD FS, vous devez activer les points de terminaison WS-Tru
  `/adfs/services/trust/2005/certificatemixed`
  `/adfs/services/trust/13/certificatemixed`
 
-Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. À compter de Windows 10 1809, vos utilisateurs peuvent se connecter à un appareil joint à Azure AD avec un fournisseur d’identité SAML via la [connexion web sur Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actuellement, la connexion web est une fonctionnalité d’évaluation et n’est pas recommandée pour les déploiements de production.
+Si votre fournisseur d’identité ne prend pas en charge ces protocoles, la jonction Azure AD ne fonctionne pas en mode natif. À compter de Windows 10 1809, vos utilisateurs peuvent se connecter à un appareil joint à Azure AD avec un fournisseur d’identité SAML via la [connexion web sur Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Actuellement, la connexion web est une fonctionnalité d’évaluation et n’est pas destinée aux déploiements de production.
 
 >[!NOTE]
 > Actuellement, la jointure Azure AD ne fonctionne pas avec [AD FS 2019 configuré avec des fournisseurs d’authentification externes comme méthode d’authentification principale](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). La jointure Azure AD est par défaut l’authentification par mot de passe comme méthode principale, ce qui entraîne des échecs d’authentification dans ce scénario
@@ -197,11 +197,11 @@ Voici une comparaison de ces trois approches
  
 |   | Configuration en libre-service | Windows Autopilot | Inscription en bloc |
 | --- | --- | --- | --- |
-| Nécessite une interaction utilisateur pour la configuration | OUI | OUI | Non |
-| Nécessite du travail de la part du département informatique | Non | OUI | OUI |
+| Nécessite une interaction utilisateur pour la configuration | Oui | Oui | Non |
+| Nécessite du travail de la part du département informatique | Non | Oui | Oui |
 | Flux applicables | OOBE et Paramètres | OOBE uniquement | OOBE uniquement |
 | Droits d’administrateur local pour l’utilisateur principal | Oui, par défaut | Configurable | Non |
-| Nécessite une prise en charge OEM | Non | OUI | Non |
+| Nécessite une prise en charge OEM | Non | Oui | Non |
 | Versions prises en charge | 1511+ | 1709+ | 1703+ |
  
 Choisissez votre ou vos approches de déploiement en consultant le tableau ci-dessus, et en examinant les points suivants pour l’adoption de l’une ou l’autre approche :  

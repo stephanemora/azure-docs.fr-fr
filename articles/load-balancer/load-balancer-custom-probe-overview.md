@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077070"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690402"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
-Quand vous utilisez des règles d’équilibrage de charge avec Azure Load Balancer, vous devez spécifier une sonde d’intégrité pour permettre à Load Balancer de détecter l’état du point de terminaison back-end.  La configuration de la sonde d’intégrité et les réponses de la sonde déterminent quelles instances de pool de back-ends recevront de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur un point de terminaison back-end. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors de l’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre concernée.
+Quand vous utilisez des règles d’équilibrage de charge avec Azure Load Balancer, vous devez spécifier une sonde d’intégrité pour permettre à Load Balancer de détecter l’état du point de terminaison back-end.  La configuration de la sonde d’intégrité et les réponses de la sonde déterminent quelles instances de pool de back-ends recevront de nouveaux flux. Vous pouvez utiliser des sondes d’intégrité pour détecter la défaillance d’une application sur un point de terminaison back-end. Vous pouvez également générer une réponse personnalisée pour une sonde d’intégrité, et utiliser celle-ci pour contrôler le flux de façon à gérer la charge ou les temps d’arrêt planifiés. Lors de l’échec d’une sonde d’intégrité, Load Balancer cesse d’envoyer de nouveaux flux à l’instance non intègre concernée. La connectivité sortante n’est pas affectée, seule la connectivité entrante l’est.
 
 Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibilité d’un type spécifique de sonde d’intégrité varie en fonction de la référence SKU de Load Balancer.  De plus, le comportement du service varie en fonction de la référence SKU de Load Balancer tel qu’indiqué dans le tableau suivant :
 
@@ -49,8 +49,8 @@ La configuration de la sonde d’intégrité se compose des éléments suivants�
 - Port de la sonde
 - Chemin HTTP à utiliser pour HTTP GET lors de l’utilisation de sondes HTTP(S)
 
-> [!NOTE]
-> La présence d’une définition de sonde n’est ni obligatoire ni vérifiée en cas d’utilisation d’Azure PowerShell, d’Azure CLI, de modèles ou d’une API. Les tests de validation de la sonde ne sont effectués que si vous utilisez le Portail Azure.
+>[!NOTE]
+>La présence d’une définition de sonde n’est ni obligatoire ni vérifiée en cas d’utilisation d’Azure PowerShell, d’Azure CLI, de modèles ou d’une API. Les tests de validation de la sonde ne sont effectués que si vous utilisez le Portail Azure.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Description du signal d’application, de la détection du signal et de la réaction de la plateforme
 
@@ -120,6 +120,9 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
 Les sondes HTTP et HTTPS sont basées sur la sonde TCP, et émettent un HTTP GET avec le chemin spécifié. Les deux sondes prennent en charge les chemins d’accès relatifs pour le HTTP GET. Les sondes HTTPS sont identiques aux sondes HTTP avec un wrapper Transport Layer Security (TLS, anciennement appelé SSL) supplémentaire. La sonde d’intégrité est marquée comme étant en fonctionnement lorsque l’instance répond avec un statut HTTP de 200 dans la période d’expiration.  Par défaut, la sonde d’intégrité tente de vérifier le port de sonde d’intégrité configuré toutes les 15 secondes. L’intervalle d’analyse de sonde minimal est de 5 secondes. La durée totale de tous les intervalles ne peut pas dépasser 120 secondes.
 
 Les sondes HTTP / HTTPS peuvent également être pratiques pour implémenter votre propre logique afin de supprimer des instances de la rotation de l’équilibreur de charge si le port de la sonde est également l’écouteur pour le service lui-même. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne dans un état HTTP différent de 200. 
+
+> [!NOTE] 
+> La sonde HTTPS nécessite l’utilisation de certificats basés sur un hachage de signature minimal de SHA256 dans la chaîne entière.
 
 Si vous utilisez Cloud Services et que vos rôles web utilisent w3wp.exe, vous bénéficiez aussi d’une surveillance automatique de votre site web. Les défaillances de votre code de site web renvoient un état autre que 200 pour la sonde de l’équilibreur de charge.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a1fb3b1260beb6bd85363f4611dae23cd3d321f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427348"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -29,7 +29,7 @@ Le tableau suivant récapitule les options de déplacement de données vers SQL�
 | <b>SOURCE</b> | <b>DESTINATION : SQL Server sur les machines virtuelles Azure</b> |
 | --- | --- |
 | <b>Fichier plat</b> |1. <a href="#insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Requête SQL Bulk Insert</a><br> 3. <a href="#sql-builtin-utilities">Utilitaires graphiques intégrés dans SQL Server</a> |
-| <b>Serveur SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportation dans un fichier plat</a><br> 3. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br> 4. <a href="#sql-backup">Sauvegarde et restauration de base de données</a><br> |
+| <b>Serveur SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportation dans un fichier plat</a><br> 3. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br> 4. <a href="#sql-backup">Sauvegarde et restauration de base de données</a><br> |
 
 Notez que ce document suppose que les commandes SQL sont exécutées à partir de SQL Server Management Studio ou Visual Studio Database Explorer.
 
@@ -42,7 +42,7 @@ Notez que ce document suppose que les commandes SQL sont exécutées à partir 
 Ce didacticiel part du principe que vous disposez de :
 
 * Un **abonnement Azure**. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
-* Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Voir [Gérer vos clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
+* Un **compte de stockage Azure**. Dans ce didacticiel, vous allez utiliser un compte de stockage Azure pour stocker des données. Si vous ne possédez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) . Après avoir créé le compte de stockage, vous devrez obtenir la clé du compte utilisée pour accéder au stockage. Consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 * Approvisionnement d’un **serveur SQL Server sur une machine virtuelle Azure**. Pour obtenir des instructions, consultez [Configurer une machine virtuelle Azure SQL Server comme serveur IPython Notebook pour des analyses avancées](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * **Azure PowerShell** installé et configuré localement. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](/powershell/azure/overview).
 

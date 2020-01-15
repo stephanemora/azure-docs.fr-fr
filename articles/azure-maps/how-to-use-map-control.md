@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ff183261f67ff76f56fc034d8102e3aa3a4838a8
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432910"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 
@@ -36,7 +36,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
 
     b. Vous pouvez également charger le code source du SDK Web d’Azure Maps localement en utilisant le package NPM [azure-maps-control](https://www.npmjs.com/package/azure-maps-control) et hébergez-le avec votre application. Ce package inclut aussi des définitions de TypeScript.
 
-    > npm install azure-maps-control
+    > **npm install azure-maps-control**
 
     Ajoutez ensuite les références à la feuille de styles Azure Maps et les références de la source du script à l’élément `<head>` du fichier :
 
@@ -66,7 +66,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </style>
     ```
 
-4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id` **myMap**.
+4. Dans le corps de la page, ajoutez un élément `<div>` et attribuez-lui l’`id`**myMap**.
 
     ```HTML
     <body>
@@ -74,7 +74,7 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </body>
     ```
 
-5. Pour initialiser le contrôle de carte, définissez une nouvelle section dans le corps HTML et créez un script. Transmettez `id` dans la carte `<div>` ou un `HTMLElement` (par exemple, `document.getElementById('myMap')`) comme premier paramètre lors de la création d’une instance de classe `Map`. Utilisez votre propre clé de compte Azure Maps ou vos identifiants Azure Active Directory (AAD) pour authentifier la carte à l’aide des [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si vous devez créer un compte ou rechercher votre clé, consultez la section [Guide de gestion de votre compte et de vos clés Azure Maps](how-to-manage-account-keys.md). L’option **language** spécifie la langue à utiliser pour les étiquettes de carte et les contrôles. Pour plus d’informations sur les langues prises en charge, consultez [Langues prises en charge](supported-languages.md). En cas d’utilisation d’une clé d’abonnement pour l’authentification.
+5. Pour initialiser le contrôle de carte, définissez une nouvelle section dans le corps HTML et créez un script. Transmettez `id` dans la carte `<div>` ou un `HTMLElement` (par exemple, `document.getElementById('myMap')`) comme premier paramètre lors de la création d’une instance de classe `Map`. Utilisez votre propre clé de compte Azure Maps ou vos identifiants Azure Active Directory (AAD) pour authentifier la carte à l’aide des [options d’authentification](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si vous devez créer un compte ou trouver votre clé, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps et effectuez les étapes dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. L’option **language** spécifie la langue à utiliser pour les étiquettes de carte et les contrôles. Pour plus d’informations sur les langues prises en charge, consultez [Langues prises en charge](supported-languages.md). En cas d’utilisation d’une clé d’abonnement pour l’authentification.
 
     ```HTML
     <script type="text/javascript">
@@ -211,6 +211,26 @@ Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR »
 
 La liste complète des langues et des affichages régionaux pris en charge est disponible [ici](supported-languages.md).
 
+## <a name="azure-government-cloud-support"></a>Prise en charge du cloud Azure Government
+
+Le SDK web d’Azure Maps prend en charge le cloud Azure Government. Toutes les URL JavaScript et CSS utilisées pour accéder au SDK web d’Azure Maps restent les mêmes. Toutefois, les tâches suivantes doivent être effectuées pour se connecter à la version du cloud Azure Government de la plateforme Azure Maps.
+
+Quand vous utilisez le contrôle de carte interactif, ajoutez la ligne de code suivante avant de créer une instance de la classe `Map`. 
+
+```javascript
+atlas.setDomain('atlas.azure.us');
+```
+
+Veillez à utiliser les détails d’une authentification Azure Maps à partir de la plateforme du cloud Azure Government lors de l’authentification de la carte et des services.
+
+Quand vous utilisez le module de services, le domaine des services doit être défini lors de la création d’une instance d’un point de terminaison d’URL d’API. Par exemple, le code suivant crée une instance de la classe `SearchURL` et pointe le domaine vers le cloud Azure Government.
+
+```javascript
+var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
+```
+
+Si vous accédez directement aux services REST d’Azure Maps, définissez le domaine de l’URL sur `atlas.azure.us`. Par exemple, si vous utilisez le service API de recherche, remplacez le domaine URL `https://atlas.microsoft.com/search/` par `https://atlas.azure.us/search/`.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment créer une carte et interagir avec elle :
@@ -223,7 +243,7 @@ Découvrez comment appliquer un style à un mappage :
 > [!div class="nextstepaction"]
 > [Choisir un style de carte](choose-map-style.md)
 
-Pour ajouter des données à votre carte :
+Pour ajouter des données à votre carte :
 
 > [!div class="nextstepaction"]
 > [Créer une carte](map-create.md)

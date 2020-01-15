@@ -1,6 +1,7 @@
 ---
-title: Migrer SQL Server vers Azure SQL Database Managed Instance avec Database Migration Service et PowerShell | Microsoft Docs
-description: Apprenez à migrer à partir d’un serveur SQL Server local vers Azure SQL DB Managed Instance à l’aide d’Azure PowerShell.
+title: 'PowerShell : Migrer SQL Server vers une instance gérée SQL'
+titleSuffix: Azure Database Migration Service
+description: Apprenez à migrer une instance locale de SQL Server vers une instance gérée d’Azure SQL Database à l’aide d’Azure PowerShell et du service Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,17 +9,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 426285340a9401aa6c84a7ee07f172eee6791d9e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 227ef72b53b7334cffcb485e23c3e4227613b344
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163954"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437910"
 ---
-# <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrer une instance locale SQL Server vers une instance managée Azure SQL Database à l’aide d’Azure PowerShell
+# <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>Migrer SQL Server vers une instance gérée SQL Database Managed Instance avec PowerShell et Azure Database Migration Service
 Dans cet article, vous allez migrer la base de données **AdventureWorks2016** restaurée vers une instance locale de SQL Server 2005 ou ultérieure vers une instance managée Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers une instance managée Azure SQL Database, à l’aide du module `Az.DataMigration` dans Microsoft Azure PowerShell.
 
 Dans cet article, vous apprendrez comment :
@@ -33,7 +34,7 @@ Dans cet article, vous apprendrez comment :
 
 Cet article contient des détails sur la manière d’effectuer des migrations en ligne et hors connexion.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette procédure, vous avez besoin de :
 
@@ -274,7 +275,7 @@ Pour les migrations en ligne uniquement, effectuez les tâches de configuration 
 
 Utilisez la cmdlet `New-AzDataMigrationTask` pour créer et démarrer une tâche de migration.
 
-#### <a name="specify-parameters"></a>Spécifier les paramètres
+#### <a name="specify-parameters"></a>Spécifier des paramètres
 
 ##### <a name="common-parameters"></a>Paramètres communs
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6db0f6c5f65967dd42d6ed9a8a1e50364ced094d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672474"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461131"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -78,6 +78,10 @@ Dans cette commande, remplacez la valeur de `-Path` par le chemin du disque dur 
 Si vous disposez d’une image de machine virtuelle Windows au [format de fichier VMDK](https://en.wikipedia.org/wiki/VMDK), utilisez [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) pour le convertir au format de disque dur virtuel. Pour plus d'informations, consultez [How to convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (en anglais).
 
 ## <a name="set-windows-configurations-for-azure"></a>Définir les configurations Windows pour Azure
+
+> [!NOTE]
+> La plateforme Azure monte un fichier ISO sur le DVD-ROM lorsqu’une machine virtuelle Windows est créée à partir d’une image généralisée.
+> C’est la raison pour laquelle le DVD-ROM doit être activé dans le système d’exploitation de l’image généralisée. S’il est désactivé, la machine virtuelle Windows est bloquée sur OOBE.
 
 Sur la machine virtuelle que vous souhaitez charger dans Azure, exécutez les commandes suivantes dans une [fenêtre d’invite de commandes avec élévation de privilèges](https://technet.microsoft.com/library/cc947813.aspx) :
 
@@ -148,7 +152,6 @@ Get-Service -Name TermService | Where-Object { $_.StartType -ne 'Manual' } | Set
 Get-Service -Name MpsSvc | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' } | Set-Service -StartupType 'Automatic'
 ```
-
 ## <a name="update-remote-desktop-registry-settings"></a>Mettez à jour les paramètres de registre du Bureau à distance
 Assurez-vous que les paramètres suivants sont configurés correctement pour un accès à distance :
 

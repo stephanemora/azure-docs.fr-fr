@@ -1,6 +1,6 @@
 ---
-title: Disques de données associés de groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques
+title: Groupes de machines virtuelles identiques Azure - Disques de données associés
+description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques grâce à la présentation de cas d’utilisation spécifiques.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 5482e082e3e37d279c4374a8642f2cb6db588dd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465013"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
 
 > [!NOTE]
-> Lorsque vous créez un groupe identique avec des disques de données associés, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique pour effectuer ce processus consiste à utiliser une extension de script personnalisé qui appelle un script pour partitionner et formater tous les disques de données sur une machine virtuelle. Pour obtenir des exemples, consultez les procédures relatives à [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) et [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
+> Lorsque vous créez un groupe identique avec des disques de données associés, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser (comme pour les machines virtuelles Azure autonomes). Une méthode pratique pour effectuer ce processus consiste à utiliser une extension de script personnalisé qui appelle un script pour partitionner et formater tous les disques de données sur une machine virtuelle. Pour obtenir des exemples, consultez [Azure CLI](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
 
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Créer et gérer des disques dans un groupe identique
 Pour plus d’informations sur la création d’un groupe identique avec des disques de données associés, préparer et formater ou ajouter et supprimer des disques de données, consultez l’un des didacticiels suivants :
 
-- [Interface de ligne de commande Azure](tutorial-use-disks-cli.md)
+- [Azure CLI](tutorial-use-disks-cli.md)
 - [Azure PowerShell](tutorial-use-disks-powershell.md)
 
 Le reste de cet article décrit les cas d’usage spécifiques tels que les clusters Service Fabric qui nécessitent des disques de données, ou l’association de disques de données existants à du contenu pour un groupe identique.

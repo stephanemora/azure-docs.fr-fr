@@ -6,23 +6,34 @@ ms.service: site-recovery
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 1cc1ee82b45ecab17e4bcfb3a909fc90b33a1545
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 10b3e572ec61d1eff342f24a6a5a7bcba6276983
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954448"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495370"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
 Cet article explique comment activer la réplication des machines virtuelles VMware locales dans Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="resolve-common-issues"></a>Résoudre les problèmes courants
+
+* Chaque disque doit être inférieur à 4 To.
+* Le disque du système d’exploitation doit être un disque de base, et non un disque dynamique.
+* Pour les machines virtuelles de génération 2/compatibles UEFI, le système d’exploitation doit être de la famille Windows, et la taille du disque de démarrage doit être inférieure à 300 Go.
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article suppose que vous avez :
 
 - [configuré votre environnement source local](vmware-azure-set-up-source.md) ;
 - [configuré votre environnement cible dans Azure](vmware-azure-set-up-target.md).
+- [Vérifiez la configuration requise et les conditions préalables](vmware-physical-azure-support-matrix.md) avant de commencer. Voici quelques points importants à prendre en considération :
+    - [Systèmes d’exploitation pris en charge](vmware-physical-azure-support-matrix.md#replicated-machines) pour les machines répliquées.
+    - Prise en charge [du stockage/des disques](vmware-physical-azure-support-matrix.md#storage).
+    - [Exigences Azure](vmware-physical-azure-support-matrix.md#azure-vm-requirements) auxquelles les machines locales doivent satisfaire.
+
 
 ## <a name="before-you-start"></a>Avant de commencer
 Lorsque vous répliquez des machines virtuelles VMware, gardez les informations ci-après à l’esprit :
@@ -123,11 +134,7 @@ Les clients Microsoft Software Assurance peuvent utiliser Azure Hybrid Benefit a
 
 En savoir plus sur [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing).
 
-## <a name="resolve-common-issues"></a>Résoudre les problèmes courants
 
-* Chaque disque doit être inférieur à 4 To.
-* Le disque du système d’exploitation doit être un disque de base, et non un disque dynamique.
-* Pour les machines virtuelles de génération 2/compatibles UEFI, le système d’exploitation doit être de la famille Windows, et la taille du disque de démarrage doit être inférieure à 300 Go.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

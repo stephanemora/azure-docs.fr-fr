@@ -1,25 +1,16 @@
 ---
-title: Créer des tests chaos et de basculement pour Azure Service Fabric | Microsoft Docs
+title: Créer des tests de chaos et de basculement pour Azure Service Fabric
 description: Utilisation des scénarios de test chaos et de test de basculement Service Fabric pour induire des erreurs et vérifier la fiabilité de vos services.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: rsinha
-editor: toddabel
-ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/1/2019
 ms.author: motanv
-ms.openlocfilehash: 2ea30b59e3195a0229c2584212e2897aaff4ee31
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 206b02024ad052a12e87cfdf1773815027e8aec4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718231"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465536"
 ---
 # <a name="testability-scenarios"></a>Scénarios de testabilité
 Les grands systèmes distribués, comme les infrastructures cloud, sont par définition peu fiables. Grâce à Azure Service Fabric, les développeurs sont en mesure d’écrire des services s’exécutant sur ces infrastructures. Pour écrire des services de haute qualité, les développeurs doivent pouvoir introduire de tels défauts de fiabilité, et ainsi tester la fiabilité des solutions qu’ils conçoivent.

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/07/2017
-ms.openlocfilehash: 1652febf6c3eb906990b2405590274911a45348e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 91ba4d1f7d32071cce0de1de528abf02982ce7be
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427619"
 ---
 # <a name="create-and-share-an-azure-machine-learning-studio-classic-workspace"></a>Créer et partager un espace de travail Azure Machine Learning Studio (classique)
 
@@ -47,7 +47,7 @@ Pour utiliser Azure Machine Learning Studio (classique), vous devez disposer d�
 > Machine Learning Studio (classique) s’appuie sur un compte de stockage Azure fourni par vous pour enregistrer les données intermédiaires au moment de l’exécution du flux de travail. Une fois l'espace de travail créé, si le compte de stockage est supprimé ou si les clés d'accès sont modifiées, l'espace de travail cesse de fonctionner et toutes ses expériences échouent.
 Si vous supprimez accidentellement le compte de stockage, recréez-le avec le même nom dans la même région que celui que vous avez supprimé et resynchronisez la clé d'accès. Si vous avez modifié les clés d’accès du compte de stockage, resynchronisez-les dans l’espace de travail à l’aide du portail Azure.
 
-Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans la version classique de Machine Learning Studio.
+Une fois l’espace de travail déployé, vous pouvez l’ouvrir dans Machine Learning Studio (classique).
 
 1. Accédez à Machine Learning Studio (classique) à l’adresse [https://studio.azureml.net/](https://studio.azureml.net/).
 
@@ -76,7 +76,7 @@ Une fois l’espace de travail Machine Learning Studio (classique) créé, vous 
 
 ### <a name="to-share-a-studio-classic-workspace"></a>Pour partager un espace de travail Studio (classique)
 
-1. Connectez-vous à la version classique de Machine Learning Studio à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
+1. Connectez-vous à Machine Learning Studio (classique) à l’adresse [https://studio.azureml.net/Home](https://studio.azureml.net/Home)
 
 2. Dans le panneau gauche, cliquez sur **SETTINGS (PARAMÈTRES)** .
 

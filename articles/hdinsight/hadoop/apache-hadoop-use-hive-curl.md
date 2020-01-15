@@ -2,18 +2,18 @@
 title: Utiliser Apache Hadoop Hive avec Curl dans HDInsight - Azure
 description: Découvrez comment transmettre à distance des tâches Apache Pig vers Azure HDInsight à l’aide de Curl.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: e1fbeb48acdfd9d09cad2616aed9793e2ff513ad
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.custom: hdinsightactive
+ms.date: 01/06/2020
+ms.openlocfilehash: 3bb09f1958685a3474b49d2d194e89fe81a80076
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736082"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690489"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Exécuter des requêtes Apache Hive avec Apache Hadoop dans HDInsight à l’aide de REST
 
@@ -21,7 +21,7 @@ ms.locfileid: "70736082"
 
 Découvrez comment utiliser l’API REST WebHCat pour exécuter des requêtes Apache Hive avec Apache Hadoop sur un cluster Azure HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -38,6 +38,7 @@ L’URI (Uniform Resource Identifier) de base pour l’API REST sur HDInsight es
 Lorsque vous utilisez cURL ou toute autre communication REST avec WebHCat, vous devez authentifier les requêtes en fournissant le nom d’utilisateur et le mot de passe de l’administrateur du cluster HDInsight. L’API REST est sécurisée à l’aide de l’ [authentification de base](https://en.wikipedia.org/wiki/Basic_access_authentication). Pour aider à vous assurer que vos informations d’identification sont envoyées en toute sécurité sur le serveur, procédez toujours aux requêtes via le protocole HTTP sécurisé (HTTPS).
 
 ### <a name="setup-preserve-credentials"></a>Programme d’installation (conservez vos informations d’identification)
+
 Conservez vos informations d’identification pour éviter de devoir les entrer pour chaque exemple.  Le nom du cluster est conservé lors d’une étape distincte.
 
 **A. Bash**  
@@ -54,9 +55,10 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ```
 
 ### <a name="identify-correctly-cased-cluster-name"></a>Identifier le nom de cluster présentant la bonne casse
+
 La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé.  Les étapes suivantes indiquent la casse réelle, avant de la stocker dans une variable pour tous les exemples suivants.
 
-Modifiez les scripts ci-dessous, en remplaçant `CLUSTERNAME` par le nom de votre cluster. Ensuite, entrez la commande. (Le nom du cluster pour le nom de domaine complet ne respecte pas la casse).
+Modifiez les scripts ci-dessous, en remplaçant `CLUSTERNAME` par le nom de votre cluster. Ensuite, entrez la commande. (Le nom du cluster pour le nom de domaine complet ne respecte pas la casse.)
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -73,7 +75,7 @@ $clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
 $clusterName
 ```
 
-## <a id="curl"></a>Exécuter une requête Hive
+## <a name="run-a-hive-query"></a>Exécution d'une tâche Hive
 
 1. Pour vérifier que vous pouvez vous connecter à votre cluster HDInsight, utilisez l’une des commandes suivantes :
 
@@ -185,15 +187,11 @@ $clusterName
 
     Vous pouvez répertorier et télécharger ces fichiers à l’aide de l' [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Pour plus d’informations sur l’utilisation d’Azure CLI avec Stockage Azure, consultez le document [Utiliser Azure CLI avec Stockage Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
-## <a id="nextsteps"></a>Étapes suivantes
-
-Pour obtenir des informations générales sur Hive avec HDInsight :
-
-* [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur d’autres méthodes de travail avec Hadoop sur HDInsight :
 
-* [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
+* [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)
 
 Pour plus d’informations sur l’API REST utilisée dans ce document, consultez le document [Référence WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

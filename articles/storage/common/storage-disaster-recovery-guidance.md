@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e0ae05ff8c32a70991769171cb29b229c2b0be1
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895351"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526360"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Reprise d’activité après sinistre et basculement de compte (préversion)
 
@@ -51,7 +51,7 @@ Il est important de concevoir votre application à des fins de haute disponibili
 * [Conception d’applications résilientes pour Azure](/azure/architecture/checklist/resiliency-per-service) : vue d’ensemble des concepts clés de l’architecture des applications hautement disponibles dans Azure.
 * [Liste de contrôle de disponibilité](/azure/architecture/checklist/resiliency-per-service) : liste de contrôle pour vérifier que votre application implémente les bonnes pratiques de conception pour la haute disponibilité.
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md) : guide de conception pour créer des applications tirant parti de RA-GRS.
-* [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations. 
+* [Tutoriel : Générer une application hautement disponible avec le stockage d’objets Blob](../blobs/storage-create-geo-redundant-storage.md) : tutoriel qui montre comment créer une application hautement disponible qui bascule automatiquement entre des points de terminaison lors de la simulation de pannes et de récupérations. 
 
 Gardez également à l’esprit ces bonnes pratiques pour maintenir une haute disponibilité pour vos données de Stockage Azure :
 
@@ -177,7 +177,8 @@ Les fonctionnalités et services suivants ne sont pas pris en charge pour le bas
 - Azure File Sync ne prend pas en charge le basculement de compte de stockage. Les comptes de stockage contenant des partages de fichiers Azure utilisés en tant que points de terminaison cloud dans Azure File Sync ne doivent pas être basculés. Cela provoquera en effet un arrêt de la synchronisation et pourra entraîner une perte inattendue de données dans le cas de fichiers nouvellement hiérarchisés.  
 - Un compte de stockage contenant des objets blob archivés ne peut pas être basculé. Conservez les objets blob archivés dans un compte de stockage distinct que vous ne prévoyez pas de basculer.
 - Un compte de stockage contenant des objets blob de blocs premium ne peut pas être basculé. Les comptes de stockage qui prennent en charge les objets blob de blocs premium ne prennent pas en charge la géoredondance.
-- Une fois le basculement terminé, les fonctionnalités suivantes cessent de fonctionner si elles étaient activées : [abonnements aux événements](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [stratégies de cycle de vie](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts), [journalisation Storage Analytics ](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Un compte de stockage incluant des conteneurs avec une [stratégie d’immuabilité WORM](../blobs/storage-blob-immutable-storage.md) ne peut pas être basculé. Les stratégies de rétention temporelles ou les stratégies de conservation légale déverrouillées/verrouillées empêchent le basculement afin de maintenir la conformité.
+- Une fois le basculement terminé, les fonctionnalités suivantes peuvent cesser de fonctionner si elles étaient activées : [abonnements aux événements](../blobs/storage-blob-event-overview.md), [flux des modifications](../blobs/storage-blob-change-feed.md), [stratégies de cycle de vie](../blobs/storage-lifecycle-management-concepts.md) et [journalisation Storage Analytics](storage-analytics-logging.md).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copie de données comme alternative au basculement
 
@@ -191,4 +192,4 @@ Dans des circonstances extrêmes où une région est perdue suite à un sinistre
 
 * [Lancer un basculement de compte (préversion)](storage-initiate-account-failover.md)
 * [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 
+* [Tutoriel : Générer une application hautement disponible avec le stockage Blob](../blobs/storage-create-geo-redundant-storage.md) 

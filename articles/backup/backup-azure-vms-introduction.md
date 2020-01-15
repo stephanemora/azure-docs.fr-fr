@@ -3,12 +3,12 @@ title: À propos de la sauvegarde de machine virtuelle Azure
 description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806437"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391896"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -77,8 +77,8 @@ Le tableau suivant explique les différents types de cohérence de capture insta
 
 **Instantané** | **Détails** | **Récupération** | **Considération**
 --- | --- | --- | ---
-**Cohérence des applications** | Les sauvegardes cohérentes dans les applications capturent le contenu et les opérations d’E/S en attente de la mémoire. Les instantanés de cohérence d’application utilisent l’enregistreur VSS (ou un pré/post-script pour Linux) pour vérifier la cohérence des données d’application avant une sauvegarde. | Lors de la récupération d’une machine virtuelle avec un instantané de cohérence d’application, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications démarrent dans un état cohérent. | Windows : Tous les enregistreurs VSS ont réussi<br/><br/> Linux : Les pré/post-scripts sont configurés et ont réussi
-**Cohérence du système de fichiers** | Les sauvegardes cohérentes de système de fichiers assurent la cohérence en prenant une capture instantanée de tous les fichiers au même moment.<br/><br/> | Lorsque vous récupérez une machine virtuelle avec un instantané cohérent du système de fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes. | Windows : Certains enregistreurs VSS ont échoué <br/><br/> Linux : Par défaut (si les pré/post-scripts ne sont pas configurés ou ont échoué)
+**Cohérence des applications** | Les sauvegardes cohérentes dans les applications capturent le contenu et les opérations d’E/S en attente de la mémoire. Les instantanés de cohérence d’application utilisent l’enregistreur VSS (ou un pré/post-script pour Linux) pour vérifier la cohérence des données d’application avant une sauvegarde. | Lors de la récupération d’une machine virtuelle avec un instantané de cohérence d’application, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications démarrent dans un état cohérent. | Windows : Tous les enregistreurs VSS ont réussi<br/><br/> Linux : Les pré/post-scripts sont configurés et ont réussi
+**Cohérence du système de fichiers** | Les sauvegardes cohérentes de système de fichiers assurent la cohérence en prenant une capture instantanée de tous les fichiers au même moment.<br/><br/> | Lorsque vous récupérez une machine virtuelle avec un instantané cohérent du système de fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes. | Windows : Certains enregistreurs VSS ont échoué <br/><br/> Linux : Par défaut (si les pré/post-scripts ne sont pas configurés ou ont échoué)
 **Cohérence en cas d’incident** | Des instantanés de cohérence des incidents sont pris généralement si une machine virtuelle Azure s’arrête au moment de la sauvegarde. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées. | Le mécanisme commence par le processus de démarrage de la machine virtuelle suivi d’une vérification du disque afin de corriger les erreurs dues à une altération. Toutes les données en mémoire ou opérations d’écriture qui n’ont pas été transférées sur disque avant l’incident sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, une application de base de données peut utiliser son journal des transactions pour la vérification. Si le journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données effectue alors une restauration des transactions jusqu’à ce que les données soient cohérentes. | La machine virtuelle est à l’état d’arrêt (stoppée/désallouée).
 
 ## <a name="backup-and-restore-considerations"></a>Considérations relatives à la sauvegarde et à la restauration
@@ -102,14 +102,13 @@ Les scénarios courants ci-dessous peuvent affecter la durée de sauvegarde tota
 - **Évolution du disque :** si l’évolution quotidienne des disques protégés faisant l’objet d’une sauvegarde incrémentielle dépasse les 200 Go, la sauvegarde peut prendre du temps (plus de huit heures).
 - **Versions de Sauvegarde :** la dernière version de Sauvegarde, appelée Restauration instantanée, utilise un processus optimisé par rapport à la comparaison de la somme de contrôle pour identifier les changements. En revanche, si vous utilisez la Restauration instantanée et avez supprimé un instantané de sauvegarde, la sauvegarde bascule vers une comparaison de somme de contrôle. Dans ce cas, l’opération de sauvegarde prend plus de 24 heures (ou échoue).
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Lors de la configuration des sauvegardes de machines virtuelles, nous vous suggérons de suivre les pratiques suivantes :
 
 - Modifiez les heures de planification par défaut définies dans une stratégie. Par exemple, si l’heure par défaut d’une stratégie est minuit, incrémentez-la de quelques minutes pour optimiser l’utilisation des ressources.
 - Si vous restaurez des machines virtuelles à partir d’un seul coffre, nous vous recommandons vivement d’utiliser différents [comptes de stockage v2 à usage général](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) pour être certain que le compte de stockage cible ne soit pas limité. Par exemple, chaque machine virtuelle doit avoir un compte de stockage distinct. Par exemple, si 10 machines virtuelles sont restaurées, utilisez 10 comptes de stockage distincts.
 - Pour la sauvegarde de machines virtuelles qui utilisent le stockage Premium, avec la restauration instantanée, nous vous recommandons d’allouer *50 %* de l’espace de stockage alloué total disponible, qui est nécessaire **uniquement** pour la première sauvegarde. Le fait de n’utiliser que 50 % de l’espace disponible n’est plus une obligation une fois la première sauvegarde terminée
-- Les restaurations à partir d’une couche de stockage v1 à usage général (instantané) s’effectuent en quelques minutes, car l’instantané figure dans le même compte de stockage. Les restaurations à partir de la couche de stockage v2 à usage général (coffre) peuvent prendre des heures. Dans les cas où les données sont disponibles dans un stockage v1 à usage général, nous vous recommandons d’utiliser la fonctionnalité [Restauration instantanée](backup-instant-restore-capability.md) pour accélérer les restaurations (si les données doivent être restaurées à partir d’un coffre, cela prendra plus de temps).
 - La limite du nombre de disques par compte de stockage dépend de la lourdeur des disques auxquels accèdent les applications s’exécutant sur une machine virtuelle IaaS. En règle générale, si plus de 5 disques sont présents sur un compte de stockage, équilibrez la charge en déplaçant certains disques vers des comptes de stockage distincts.
 
 ## <a name="backup-costs"></a>Coûts de sauvegarde
@@ -124,14 +123,14 @@ Le calcul de la taille d’instance protégée est basé sur la taille *réelle*
 
 De même, la facture du stockage de sauvegarde est basée sur la quantité de données stockées sur le service Sauvegarde Azure, qui est la somme des données réelles contenues dans chaque point de récupération.
 
-Prenons l’exemple d’une machine virtuelle de taille standard A2 avec deux disques de données supplémentaires, d’une taille maximale de 4 To chacun. Le tableau suivant montre les données réelles stockées sur chacun de ces disques :
+Prenons l’exemple d’une machine virtuelle de taille standard A2 avec deux disques de données supplémentaires, d’une taille maximale de 32 To chacun. Le tableau suivant montre les données réelles stockées sur chacun de ces disques :
 
 **Disque** | **Taille maximale** | **Données réelles présentes**
 --- | --- | ---
-Disque de système d’exploitation | 4095 Go | 17 Go
+Disque de système d’exploitation | 32 To | 17 Go
 Disque local/temporaire | 135 Go | 5 Go (non inclus pour la sauvegarde)
-Disque de données 1 | 4095 Go | 30 Go
-Disque de données 2 | 4095 Go | 0 Go
+Disque de données 1 | 32 To| 30 Go
+Disque de données 2 | 32 To | 0 Go
 
 La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0 Go= 47 Go. Cette taille d’instance protégée (47 Go) devient la base de la facture mensuelle. La taille de l’instance protégée utilisée pour la facturation augmente proportionnellement à la quantité de données dans la machine virtuelle.
 

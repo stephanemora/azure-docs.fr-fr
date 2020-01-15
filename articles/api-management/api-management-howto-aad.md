@@ -1,5 +1,6 @@
 ---
-title: Autoriser des comptes de développeurs à l’aide d’Azure Active Directory - Gestion des API Azure | Microsoft Docs
+title: Autoriser des comptes de développeurs avec Azure Active Directory
+titleSuffix: Azure API Management
 description: Découvrez comment autoriser des utilisateurs à l’aide d’Azure Active Directory dans Gestion des API.
 services: api-management
 documentationcenter: API Management
@@ -12,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 067d4488b064ede572a4b3ad94c94fb1552c827d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74454458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442794"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
 Cet article explique comment activer l’accès au portail des développeurs pour les utilisateurs à partir d’Azure Active Directory (Azure AD). Il montre également comment gérer des groupes d’utilisateurs Azure AD en ajoutant des groupes externes qui contiennent les utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 - Importez et publiez une instance Gestion des API Azure. Pour plus d’informations, consultez [Importer et publier](import-and-publish.md).
@@ -32,7 +33,7 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoriser des comptes de développeurs à l’aide d’Azure AD
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Sélectionnez ![flèche](./media/api-management-howto-aad/arrow.png).
 3. Dans la zone de recherche, tapez **api**.
 4. Sélectionnez **Services Gestion des API**.

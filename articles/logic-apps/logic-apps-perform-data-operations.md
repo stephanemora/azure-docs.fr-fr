@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: baa6e5732221d120ff71217a3a86a942794c53f4
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793118"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666735"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Effectuer des opérations sur les données dans Azure Logic Apps
 
@@ -50,7 +50,7 @@ Ces actions vous permettent d’utiliser des données au format JavaScript Objet
 
 Pour créer des transformations JSON plus complexes, consultez [Effectuer des transformations JSON avancées avec des modèles Liquid](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -443,6 +443,9 @@ Pour créer un tableau plus petit qui contient les éléments correspondant à d
 > Le texte que vous utilisez comme filtre dans votre condition respecte la casse. En outre, cette action ne permet pas de modifier le format ou les composants des éléments du tableau. 
 > 
 > Pour que les actions utilisent la sortie du tableau générée par l’action **Filtrer le tableau**, ces actions doivent accepter des tableaux en tant qu’entrée, ou vous devrez éventuellement convertir le tableau de sortie dans un autre format compatible.
+> 
+> Si vous appelez un point de terminaison HTTP et recevez une réponse JSON, utilisez l’action **Analyser JSON** pour traiter la réponse JSON. 
+> Sinon, l’action **Filtrer le tableau** ne peut lire que le corps de la réponse et non la structure de la charge utile JSON.
 
 Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier les exemples des définitions d’actions **Filtrer le tableau** et **Initialiser la variable** de cet article dans la définition de workflow sous-jacente de votre propre application logique : [Exemples de code pour des opérations de données - Filtrer le tableau](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 

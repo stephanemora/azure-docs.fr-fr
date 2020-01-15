@@ -1,25 +1,16 @@
 ---
-title: Agrégation d’événements Azure Service Fabric à l’aide de Diagnostics Azure pour Windows | Microsoft Docs
+title: Agrégation d’événements avec Diagnostics Windows Azure
 description: Découvrez comment agréger et collecter des événements à l’aide des diagnostics Windows Azure pour la surveillance et le diagnostic de clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 555a8a823526a51b045b4a0314ef7610bf728e5b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 104fc212dc590c1366b8dd2cd276f70bdadee5db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242977"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614534"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows
 > [!div class="op_single_selector"]
@@ -30,15 +21,15 @@ ms.locfileid: "73242977"
 
 Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être intéressant de collecter les journaux d’activité de tous les nœuds pour les regrouper dans un emplacement central. La centralisation des journaux d’activité vous permet d’analyser et résoudre les problèmes que vous pourriez rencontrer dans votre cluster ou dans les applications et services exécutés dans ce cluster.
 
-Pour charger et collecter des journaux, vous pouvez utiliser l’extension Diagnostics Azure pour Windows, qui télécharge les journaux dans Stockage Azure, ou envoyer les journaux à Azure Application Insights ou à des hubs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse comme les journaux d’activité [Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d’analyse des journaux.
+Pour charger et collecter des journaux, vous pouvez utiliser l’extension Diagnostics Azure pour Windows, qui télécharge les journaux dans Stockage Azure, ou envoyer les journaux à Azure Application Insights ou à des hubs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d'analyse comme les [journaux Azure Monitor](../log-analytics/log-analytics-service-fabric.md) ou une autre solution d'analyse des journaux.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article fait référence aux outils suivants :
 
-* [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
+* [Azure Resource Manager](../azure-resource-manager/management/overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

@@ -1,6 +1,6 @@
 ---
-title: Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
-description: Cet article présente une étude technique approfondie de la migration de ressources prise en charge par la plateforme de l’environnement Classic vers Azure Resource Manager.
+title: Étude technique approfondie de la migration de Classic à Azure Resource Manager
+description: Étude technique approfondie de la migration prise en charge par la plateforme de ressources du modèle de déploiement Classic vers Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a2ef3aa10cac4cd198debb2dfa86fa97edf685b9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b94d835926ced33b8872ecf68f073f4dade9de27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374256"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Étude technique approfondie de la migration prise en charge par la plateforme de ressources Classic vers Azure Resource Manager
 Examinons en détail la migration à partir du modèle de déploiement Azure classique vers le modèle de déploiement Azure Resource Manager. Nous examinons les ressources au niveau des fonctionnalités et des ressources pour vous aider à comprendre comment la plateforme Azure migre les ressources entre les deux modèles de déploiement. Pour plus d’informations, lisez l’article annonçant le service : [Migration prise en charge par la plateforme de ressources IaaS Classic vers Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

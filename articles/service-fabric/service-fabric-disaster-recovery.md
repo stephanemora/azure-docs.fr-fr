@@ -1,25 +1,16 @@
 ---
-title: Récupération d’urgence Azure Service Fabric | Microsoft Docs
+title: Récupération d’urgence Azure Service Fabric
 description: Azure Service Fabric offre les fonctionnalités nécessaires pour gérer tous les types d’incidents. Cet article décrit les types d’incidents qui peuvent se produire et comment les gérer.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1be891d38eb918d65cd8efda86e9a81fa629cf38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f23624dd0be1e700731e3f5a63c8cd7a00ec4e16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883991"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458064"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Récupération d’urgence dans Azure Service Fabric
 Pour fournir une haute disponibilité, il est essentiel que les services puissent survivre à tous les types d’échecs. Ceci est particulièrement important pour les échecs inattendus et hors de votre contrôle. Cet article décrit certains modes d’échec courants qui peuvent aboutir à une situation critique s’ils ne sont pas modélisés et gérés correctement. Il traite également des atténuations de risques et des actions à entreprendre si un incident se produit. L’objectif est de limiter ou d’éliminer le risque de temps d’arrêt ou de perte de données en cas de défaillances, planifiées ou non.

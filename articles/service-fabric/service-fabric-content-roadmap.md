@@ -1,25 +1,14 @@
 ---
-title: En savoir plus sur Azure Service Fabric | Microsoft Docs
+title: En savoir plus sur Azure Service Fabric
 description: Découvrez les concepts fondamentaux et les principales zones d’Azure Service Fabric. Fournit une vue d’ensemble étendue de Service Fabric et explique comment créer des microservices.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/08/2017
-ms.author: atsenthi
-ms.openlocfilehash: 1227871f2003ded7b9cb92eaf32bd9a984958f9f
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458152"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Service Fabric dispose d’une grande surface d’exposition et il y a beaucoup d’informations à découvrir.  Cet article fournit une synthèse de Service Fabric et décrit les concepts fondamentaux, les modèles de programmation, le cycle de vie d’application, les tests, les clusters et la surveillance de l’intégrité. Consultez [Vue d’ensemble](service-fabric-overview.md) et [Que sont les microservices ?](service-fabric-overview-microservices.md) pour obtenir une présentation et savoir comment utiliser Service Fabric pour créer des microservices. Cet article ne donne pas la liste complète du contenu, mais fournit un lien vers des articles de présentation et de prise en main pour chaque zone de Service Fabric. 

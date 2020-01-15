@@ -1,5 +1,6 @@
 ---
-title: Autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API Azure | Microsoft Docs
+title: Autoriser des comptes de développeurs à l’aide d’OAuth 2.0 dans Gestion des API
+titleSuffix: Azure API Management
 description: Apprenez à autoriser les utilisateurs à l'aide d'OAuth 2.0 dans Gestion des API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 90c890925378c30ce5688d2713990b4b2cdd20c5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430689"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Comment autoriser des comptes de développeurs à l'aide de OAuth 2.0 dans Gestion des API Azure
 
@@ -35,7 +36,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="step1"></a>Configuration du serveur d’autorisation OAuth 2.0 dans Gestion des API
+## <a name="step1"> </a>Configurer un serveur d’autorisation OAuth 2.0 dans Gestion des API
 
 > [!NOTE]
 > Si vous n’avez pas encore créé d’instance de service Gestion des API, consultez la page [Création d’une instance de service Gestion des API][Create an API Management service instance].
@@ -81,7 +82,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     Une fois le formulaire complété, cliquez sur **Créer** pour enregistrer la configuration du serveur d’autorisation OAuth 2.0 de Gestion des API. Après l'enregistrement de la configuration du serveur, vous pouvez configurer les API pour utiliser cette configuration, tel qu'expliqué dans la section suivante.
 
-## <a name="step2"></a>Configuration d’une API pour utiliser l’autorisation utilisateur OAuth 2.0
+## <a name="step2"> </a>Configurer une API pour utiliser l’autorisation utilisateur OAuth 2.0
 
 1. Cliquez sur **API** dans le menu **Gestion des API** à gauche.
 
@@ -95,7 +96,7 @@ Ce guide explique comment configurer votre instance de service Gestion des API p
 
     ![Paramètres OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>Portail de développement hérité - tests de l’autorisation utilisateur OAuth 2.0
+## <a name="step3"> </a>Portail de développement hérité - test de l’autorisation utilisateur OAuth 2.0
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 

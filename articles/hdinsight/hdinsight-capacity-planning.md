@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9080a0f327aae50a87b5e69ec157a46181a38a65
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682260"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640939"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -47,7 +47,7 @@ Si vous avez déjà un compte de stockage ou un Data Lake Storage contenant vos 
 
 Après avoir déployé un cluster HDInsight, vous pouvez joindre d’autres comptes Stockage Azure ou accéder à d’autres Data Lake Storage. Tous vos comptes de stockage doivent résider au même emplacement que votre cluster. Un Data Lake Storage peut être à un emplacement différent, mais cela risque d’entraîner une latence des données en lecture/écriture.
 
-Le service Stockage Azure présente certaines [limites de capacité](../azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Storage Gen 1 est quasiment illimité.
+Le service Stockage Azure présente certaines [limites de capacité](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits), tandis que Data Lake Storage Gen 1 est quasiment illimité.
 
 Un cluster peut accéder à une combinaison de différents comptes de stockage. Voici quelques exemples classiques :
 
@@ -92,9 +92,19 @@ Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèl
 
 ## <a name="quotas"></a>Quotas
 
-Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou de faire monter en puissance des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. Si vous avez besoin d’une augmentation de quota, effectuez les étapes suivantes :
+Après avoir déterminé la taille, l’échelle et le type de la machine virtuelle de votre cluster cible, vérifiez les limites de capacité de quota actuelles de votre abonnement. Quand vous atteignez une limite de quota, vous risquez de ne pas pouvoir déployer de nouveaux clusters ou de faire monter en puissance des clusters existants en ajoutant des nœuds worker. La seule limite de quota est le quota de cœurs de processeur qui existe au niveau régional pour chaque abonnement. Par exemple, votre abonnement peut avoir une limite de 30 cœurs dans la région USA Est. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Pour vérifier vos cœurs disponibles, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Accédez à la page **Vue d’ensemble** pour le cluster HDInsight. 
+3. Dans le menu de gauche, cliquez sur **Limites de quotas**.
+
+   La page affiche le nombre de cœurs en cours d’utilisation, le nombre de cœurs disponibles et le nombre total de cœurs.
+
+Si vous avez besoin d’une augmentation de quota, effectuez les étapes suivantes :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Sélectionnez **Aide + support** en bas à gauche de la page.
 1. Sélectionnez **Nouvelle demande de support**.
 1. Dans la page **Nouvelle demande de support**, sous l’onglet **De base**, sélectionnez les options suivantes :
@@ -115,7 +125,7 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 
 Vous pouvez [contacter le support technique pour demander une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
+Toutefois, il existe certaines limites de quota fixes. Par exemple, un abonnement Azure peut avoir au maximum 10 000 cœurs. Pour plus d’informations sur ces limites, consultez [Abonnement Azure et limites, quotas et contraintes du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

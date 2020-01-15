@@ -1,5 +1,6 @@
 ---
-title: Protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API | Microsoft Docs
+title: Protéger une API à l’aide d’OAuth 2.0 avec AAD et Gestion des API
+titleSuffix: Azure API Management
 description: Découvrez comment protéger un serveur principal d’API web avec Azure Active Directory et Gestion des API.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 653089042c87b3223b3de048b6f12056d04b0f3c
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 82341f29ffda03c5f047d7566ff64884c6698b07
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442515"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -26,13 +27,13 @@ Ce guide montre comment configurer votre instance de Gestion des API pour proté
 > [!NOTE]
 > Cette fonctionnalité est disponible dans les niveaux **Développeur**, **Standard** et **Premium** de Gestion des API.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une instance Gestion des API
 * Une API publiée qui utilise l’instance Gestion des API
 * un locataire Azure AD ;
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Voici un petit aperçu des étapes :
 
@@ -60,9 +61,7 @@ Pour protéger une API avec Azure AD, la première étape consiste à inscrire d
 
 1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la.
 
-Une fois l’application créée, prenez note de l’**ID d’application** ; vous en aurez besoin lors d’une étape ultérieure. 
-
-1. Sélectionnez **Exposer une API** , puis cliquez sur **Enregistrer et continuer**pour créer un URI d’ID d’application.
+1. Sélectionnez **Exposer une API** et définissez **l’URI d’ID d’application** sur la valeur par défaut. Enregistrez cette valeur pour une utilisation ultérieure.
 
 1. Dans la page **Ajouter une étendue**, créez une étendue prise en charge par l’API. (par exemple, Lire), puis cliquez sur *Ajouter une étendue* pour créer l’étendue. Répétez cette étape pour ajouter toutes les étendues prises en charge par votre API.
 
@@ -150,9 +149,9 @@ Dans cet exemple, la console de développeur est l’application cliente. Les é
 
 1. Sélectionnez **Create** (Créer).
 
-1. Revenez à la page **Paramètres** de votre client-app.
+1. Revenez à votre application cliente et sélectionnez **Authentification**.
 
-1. Sélectionnez l’**URL de réponse** et collez la valeur **redirect_url** sur la première ligne. Dans cet exemple, vous avez remplacé `https://localhost` par l’URL sur la première ligne.  
+1. Sous **URI de redirection**, sélectionnez le type **Web**, collez **redirect_url** sous **URI de redirection**, puis enregistrez.
 
 Maintenant que vous avez configuré un serveur d’autorisation OAuth 2.0, la console de développeur peut obtenir des jetons d’accès à partir d’Azure AD. 
 
@@ -203,7 +202,7 @@ Vous pouvez utiliser la stratégie [Validate JWT](api-management-access-restrict
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>{Application ID of backend-app}</value>
+            <value>{Application ID URI of backend-app}</value>
         </claim>
     </required-claims>
 </validate-jwt>

@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b3f3727fe3705d686f25faedf1871e5aacb74352
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8aedb57f6fee68c4d11a123033d34bb58314eb8f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367618"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu�
 
 Lorsque votre application web a besoin d’authentifier l’utilisateur et d’exécuter un flux utilisateur, elle peut diriger l’utilisateur vers le point de terminaison `/authorize`. L’utilisateur prend des mesures en fonction du flux utilisateur.
 
-Dans cette demande, le client indique les autorisations qu’il a besoin d’acquérir de l’utilisateur dans le paramètre `scope` et spécifie le flux utilisateur à exécuter. Pour avoir une idée du fonctionnement de la demande, essayez de coller la demande dans un navigateur et exécutez-la. Remplacez `{tenant}` par le nom de votre locataire. Remplacez `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` par l’ID de l’application que vous avez précédemment inscrite dans votre locataire. De même, remplacez le nom de la stratégie (`{policy}`) par le nom de stratégie présent dans votre locataire, par exemple `b2c_1_sign_in`.
+Dans cette demande, le client indique les autorisations qu’il a besoin d’acquérir de l’utilisateur dans le paramètre `scope` et spécifie le flux utilisateur à exécuter. Pour avoir une idée du fonctionnement de la requête, collez-la dans un navigateur et exécutez-la. Remplacez `{tenant}` par le nom de votre locataire. Remplacez `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` par l'ID de l'application que vous avez précédemment inscrite dans votre locataire. De même, remplacez le nom de la stratégie (`{policy}`) par le nom de stratégie présent dans votre locataire, par exemple `b2c_1_sign_in`.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -47,12 +47,12 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| {tenant} | OUI | Nom de votre locataire Azure AD B2C |
-| {policy} | OUI | Flux utilisateur à exécuter. Spécifiez le nom d'un flux utilisateur créé dans votre locataire Azure AD B2C. Par exemple : `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
-| client_id | OUI | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
-| nonce | OUI | Valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
-| response_type | OUI | Doit inclure un jeton d’ID pour OpenID Connect. Si votre application web a également besoin de jetons pour appeler une API web, vous pouvez utiliser `code+id_token`. |
-| scope | OUI | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. L’étendue `offline_access` est facultative pour les applications web. Elle indique que votre application a besoin d’un *jeton d’actualisation* pour un accès étendu aux ressources. |
+| {tenant} | Oui | Nom de votre locataire Azure AD B2C |
+| {policy} | Oui | Flux utilisateur à exécuter. Spécifiez le nom d'un flux utilisateur créé dans votre locataire Azure AD B2C. Par exemple : `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
+| client_id | Oui | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| nonce | Oui | Valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
+| response_type | Oui | Doit inclure un jeton d’ID pour OpenID Connect. Si votre application web a également besoin de jetons pour appeler une API web, vous pouvez utiliser `code+id_token`. |
+| scope | Oui | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. L’étendue `offline_access` est facultative pour les applications web. Elle indique que votre application a besoin d’un *jeton d’actualisation* pour un accès étendu aux ressources. |
 | prompt | Non | Type d’interaction utilisateur demandée. La seule valeur valide pour l’instant est `login`, qui oblige l’utilisateur à saisir ses informations d’identification sur cette demande. |
 | redirect_uri | Non | Paramètre `redirect_uri` de votre application, où les réponses d’authentification peuvent être envoyées et reçues par votre application. Il doit correspondre exactement à un des paramètres `redirect_uri` que vous avez inscrits dans le portail Azure, si ce n’est qu’il doit être codé dans une URL. |
 | response_mode | Non | Méthode utilisée pour renvoyer le code d’autorisation résultant à votre application. Il peut s’agir de `query`, `form_post` ou `fragment`.  Le mode de réponse `form_post` est recommandé pour une sécurité optimale. |
@@ -146,13 +146,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| {tenant} | OUI | Nom de votre locataire Azure AD B2C |
-| {policy} | OUI | Le flux utilisateur qui a été utilisé pour obtenir le code d’autorisation. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non pas au corps POST. |
-| client_id | OUI | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| {tenant} | Oui | Nom de votre locataire Azure AD B2C |
+| {policy} | Oui | Le flux utilisateur qui a été utilisé pour obtenir le code d’autorisation. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non pas au corps POST. |
+| client_id | Oui | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
 | client_secret | Oui, dans Web Apps | Secret d'application qui a été généré dans le [portail Azure](https://portal.azure.com/). Les clés secrètes client sont utilisées dans ce flux pour les scénarios de type application web, dans lesquels le client peut les stocker de manière sécurisée. Dans les scénarios de type application native (client public), il n’est pas possible de stocker les clés secrètes client de manière sécurisée ; elles ne sont donc pas utilisées sur ce flux. Si vous utilisez une clé secrète client, modifiez-la régulièrement. |
-| code | OUI | Code d’autorisation que vous avez acquis au début du flux utilisateur. |
-| grant_type | OUI | Le type d’octroi, qui doit être `authorization_code` pour le flux de code d’autorisation. |
-| redirect_uri | OUI | Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
+| code | Oui | Code d’autorisation que vous avez acquis au début du flux utilisateur. |
+| grant_type | Oui | Le type d’octroi, qui doit être `authorization_code` pour le flux de code d’autorisation. |
+| redirect_uri | Oui | Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
 | scope | Non | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de paramètres id_token. Elle peut être utilisée afin d’obtenir des jetons pour l’API web de back-end de votre application, qui est représentée par le même ID d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour l’accès étendu aux ressources. |
 
 Un jeton de réponse de réussite se présente ainsi :
@@ -215,12 +215,12 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| {tenant} | OUI | Nom de votre locataire Azure AD B2C |
-| {policy} | OUI | Flux utilisateur utilisé pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non pas au corps POST. |
-| client_id | OUI | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
+| {tenant} | Oui | Nom de votre locataire Azure AD B2C |
+| {policy} | Oui | Flux utilisateur utilisé pour obtenir le jeton d’actualisation d’origine. Vous ne pouvez pas utiliser un autre flux utilisateur dans cette demande. Ajoutez ce paramètre à la chaîne de requête, et non pas au corps POST. |
+| client_id | Oui | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
 | client_secret | Oui, dans Web Apps | Secret d'application qui a été généré dans le [portail Azure](https://portal.azure.com/). Les clés secrètes client sont utilisées dans ce flux pour les scénarios de type application web, dans lesquels le client peut les stocker de manière sécurisée. Dans les scénarios de type application native (client public), les clés secrètes client ne peuvent pas être stockées en toute sécurité et ne sont donc pas utilisées sur cet appel. Si vous utilisez une clé secrète client, modifiez-la régulièrement. |
-| grant_type | OUI | Type d’octroi, qui doit être un jeton d’actualisation pour cette partie du flux de code d’autorisation. |
-| refresh_token | OUI | Jeton d’actualisation d’origine qui a été acquis dans la seconde partie du flux. L’étendue `offline_access` doit être utilisée dans les demandes d’autorisation et de jeton pour recevoir un jeton d’actualisation. |
+| grant_type | Oui | Type d’octroi, qui doit être un jeton d’actualisation pour cette partie du flux de code d’autorisation. |
+| refresh_token | Oui | Jeton d’actualisation d’origine qui a été acquis dans la seconde partie du flux. L’étendue `offline_access` doit être utilisée dans les demandes d’autorisation et de jeton pour recevoir un jeton d’actualisation. |
 | redirect_uri | Non | Le paramètre `redirect_uri` de l’application où vous avez reçu le code d’autorisation. |
 | scope | Non | Une liste d’étendues séparées par des espaces. L’étendue `openid` indique une autorisation pour connecter l’utilisateur et obtenir des données relatives à l’utilisateur sous la forme de jetons d’ID. Elle peut être utilisée afin d’envoyer des jetons à l’API web de back-end de votre application, qui est représentée par le même ID d’application que le client. L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour l’accès étendu aux ressources. |
 
@@ -272,9 +272,10 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| {tenant} | OUI | Nom de votre locataire Azure AD B2C |
-| {policy} | OUI | Flux utilisateur que vous voulez utiliser pour déconnecter l’utilisateur de votre application. |
+| {tenant} | Oui | Nom de votre locataire Azure AD B2C |
+| {policy} | Oui | Flux utilisateur que vous voulez utiliser pour déconnecter l’utilisateur de votre application. |
 | id_token_hint| Non | Jeton d’ID émis précédemment à transmettre au point de terminaison de déconnexion en tant qu’indicateur de la session authentifiée active de l’utilisateur final avec le client. `id_token_hint` vérifie que `post_logout_redirect_uri` est une URL de réponse inscrite dans les paramètres de votre application Azure AD B2C. |
+| client_id | Non* | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application.<br><br>\**Cela est nécessaire lors de l’utilisation de la configuration de l’authentification unique de l’isolation `Application` et _Demander le jeton d’ID_ dans la demande de déconnexion est défini sur `No`.* |
 | post_logout_redirect_uri | Non | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Si elle n’est pas incluse, Azure AD B2C affiche un message générique à l’utilisateur. À moins de fournir un `id_token_hint`, vous ne devez pas inscrire cette URL en tant qu’URL de réponse dans les paramètres de votre application Azure AD B2C. |
 | state | Non | Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
 

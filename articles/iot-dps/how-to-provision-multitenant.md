@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5703db90307f679ff4728386dc24647437f9f9ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434752"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
@@ -36,7 +36,7 @@ Cet article utilise un exemple d’appareil simulé du [SDK Azure IoT pour C](ht
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Avoir effectué les étapes décrites dans le guide de démarrage rapide [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md).
 
@@ -191,20 +191,21 @@ Pour faciliter la suppression des ressources à la fin de l’article, nous ajou
 
 Dans cette section, vous allez cloner le SDK Azure IoT pour C sur chaque machine virtuelle. Le SDK contient un exemple qui simule le provisionnement d’appareils locataires dans chaque région.
 
-
-1. Sur chaque machine virtuelle, installez **Cmake**, **g++** , **gcc** et [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) à l’aide des commandes suivantes :
+1. Sur chaque machine virtuelle, installez **CMake**, **g++** , **gcc** et [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) à l’aide des commandes suivantes :
 
     ```bash
     sudo apt-get update
     sudo apt-get install cmake build-essential libssl-dev libcurl4-openssl-dev uuid-dev git-all
     ```
 
+1. Recherchez le nom d’étiquette de la [version la plus récente](https://github.com/Azure/azure-iot-sdk-c/releases/latest) du kit de développement logiciel (SDK).
 
-1. Clonez le [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) sur les deux machines virtuelles.
+1. Clonez le [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) sur les deux machines virtuelles.  Utilisez l’étiquette obtenue à l’étape précédente comme valeur pour le paramètre `-b` :
 
     ```bash
-    cd ~/
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
+    cd azure-iot-sdk-c
+    git submodule update --init
     ```
 
     Attendez-vous à ce que cette opération prenne plusieurs minutes.
@@ -397,7 +398,7 @@ L’exemple de code simule une séquence de démarrage d’un appareil qui envoi
 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de continuer à utiliser les ressources créées dans cet article, vous pouvez les conserver. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources qui ont été créées dans le cadre de cet article, et ainsi éviter des frais inutiles.
 
