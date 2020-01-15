@@ -869,6 +869,9 @@
         - name: Rechercher des frais d’unités de requête
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Mettre à l’échelle avec le minuteur Azure Functions
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: Utiliser des conteneurs et des éléments
       items:
         - name: Utiliser des données Cosmos DB

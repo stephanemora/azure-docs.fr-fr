@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 08/29/2019
-  ms.openlocfilehash: 50185a0bbfc3a9677ebc90f326b0c43ab2a2eb13
-  ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+  ms.openlocfilehash: 1d246396e8d6a5595cff6100ac0cae1032ce2af4
+  ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/29/2019
-  ms.locfileid: "70164493"
+  ms.lasthandoff: 01/14/2020
+  ms.locfileid: "75945520"
 landingContent:
 - title: À propos du lecteur immersif
   linkLists:
@@ -25,31 +25,37 @@ landingContent:
     links:
     - text: Qu’est-ce que le lecteur immersif ?
       url: overview.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
     - text: ASP.NET Core
       url: quickstart.md
+    - text: Node.js
+      url: quickstart-nodejs.md
     - text: Swift (iOS)
       url: ios-quickstart.md
   - linkListType: tutorial
     links:
-    - text: Node.js
-      url: tutorial-nodejs.md
     - text: Python
       url: tutorial-python.md
-    - text: Swift (iOS)
-      url: tutorial-ios-picture-immersive-reader.md
 - title: Explorer le lecteur immersif
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: S’authentifier à l’aide d’Azure Active Directory
-      url: azure-active-directory-authentication.md
+    - text: Créer une ressource de Lecteur immersif
+      url: how-to-create-immersive-reader.md
+    - text: Définir la stratégie de cookie
+      url: how-to/set-cookie-policy.md
+    - text: Afficher les opérations de calcul
+      url: how-to/display-math.md
+    - text: Lancer le Lecteur immersif avec du contenu HTML
+      url: how-to-launch-with-html.md
+    - text: Bouton Personnaliser le Lecteur immersif
+      url: how-to-customize-launch-button.md
+    - text: Mettre en cache le jeton d’authentification
+      url: how-to-cache-token.md
   - linkListType: reference
     links:
     - text: Kit de développement logiciel (SDK) JavaScript
       url: reference.md
-    - text: Kit de développement logiciel (SDK) iOS
-      url: ios-reference.md

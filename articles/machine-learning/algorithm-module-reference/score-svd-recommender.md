@@ -1,7 +1,7 @@
 ---
 title: 'Noter le générateur de recommandations SVD : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Noter le générateur de recommandations SVD dans le service Azure Machine Learning pour noter les prédictions de recommandation pour un jeu de données.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Noter le générateur de recommandations SVD dans Azure Machine Learning pour noter les prédictions de recommandation pour un jeu de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: be590ba04de5c8ee671e7e865d04b4ea6c638c00
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 554101ac70f01f1dd92337a8cf424f8b26ca0fc9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456333"
 ---
 # <a name="score-svd-recommender"></a>Noter le générateur de recommandations SVD
 
@@ -123,4 +123,4 @@ Lorsque vous faites fonctionner le modèle, vous modifiez généralement le mode
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

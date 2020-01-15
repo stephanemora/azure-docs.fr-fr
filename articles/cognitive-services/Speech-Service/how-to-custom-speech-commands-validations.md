@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)
+title: 'Procédure : ajouter des validations aux paramètres de commande personnalisée (préversion)'
 titleSuffix: Azure Cognitive Services
-description: Dans cet article, ajoutez des validations aux paramètres de commande personnalisée.
+description: Dans cet article, nous expliquons comment ajouter des validations à un paramètre dans les commandes personnalisées.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 64e092405686caca7baeaf58f19d577a3f80e169
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c89c388f919ca95a331d1d406f5b1776c127ebad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506476"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446916"
 ---
-# <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)
+# <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Procédure : ajouter des validations aux paramètres de commande personnalisée (préversion)
 
 Dans cet article, vous allez apprendre à ajouter des validations aux paramètres et à demander une correction.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez avoir effectué les étapes décrites dans les articles suivants :
 
-- [Démarrage rapide : Créer une commande personnalisée (préversion)](./quickstart-custom-speech-commands-create-new.md)
-- [Démarrage rapide : Créer une commande personnalisée avec des paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Démarrage rapide : Créer une commande personnalisée (préversion)](./quickstart-custom-speech-commands-create-new.md)
+- [Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## <a name="create-a-settemperature-command"></a>Créer une commande SetTemperature
 
@@ -41,12 +41,12 @@ Pour illustrer les validations, commençons par créer une commande permettant �
 
    | Paramètre           | Valeur suggérée                                          | Description                                                                                      |
    | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Nom              | Température                                              | Nom descriptif de votre paramètre de commande                                                    |
-   | Obligatoire          | true                                                     | Case à cocher indiquant si une valeur de ce paramètre est nécessaire avant de terminer la commande |
-   | Modèle de réponse | « Quelle température aimeriez-vous ? »                       | Invite permettant de demander la valeur de ce paramètre quand il n’est pas connu                              |
-   | Type              | Number                                                   | Type de paramètre, tel que Nombre, Chaîne ou Date Heure                                      |
-   | Validation        | Valeur minimale : 60, Valeur maximale : 80                             | Pour les paramètres de type Nombre, plage de valeurs autorisée pour le paramètre                              |
-   | Modèle de réponse | « Désolé, je peux uniquement régler une température comprise entre 60 et 80 degrés. »        | Demander d’indiquer une valeur mise à jour en cas d’échec de la validation                                       |
+   | Name              | Température                                              | Nom descriptif de votre paramètre de commande                                                    |
+   | Obligatoire          | true                                                     | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande |
+   | Modèle de réponse | « - Quelle température aimeriez-vous ? »                     | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                              |
+   | Type              | Number                                                   | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                      |
+   | Validation        | Valeur minimale : 60, Valeur maximale : 80                             | Pour les paramètres de type Nombre, plage de valeurs autorisée pour le paramètre                             |
+   | Modèle de réponse | « - Désolé, je peux uniquement régler une température comprise entre 60 et 80 degrés. »      | Demander d’indiquer une valeur mise à jour en cas d’échec de la validation                                       |
 
 1. Ajouter des exemples de phrases
 
@@ -59,11 +59,11 @@ Pour illustrer les validations, commençons par créer une commande permettant �
 
 1. Ajouter une règle de complétion pour confirmer le résultat
 
-   | Paramètre    | Valeur suggérée                                         | Description                                        |
-   | ---------- | ------------------------------------------------------- | -------------------------------------------------- |
-   | Nom de la règle  | Message de confirmation                                    | Nom décrivant l’objectif de la règle          |
-   | Conditions | Paramètre obligatoire - Température                        | Conditions déterminant le moment où la règle peut s’exécuter    |
-   | Actions    | SpeechResponse - « OK, réglage sur {temperature} degrés » | Action à exécuter lorsque la condition de règle est remplie |
+   | Paramètre    | Valeur suggérée                                           | Description                                        |
+   | ---------- | --------------------------------------------------------- | -------------------------------------------------- |
+   | Nom de la règle  | Message de confirmation                                      | Nom décrivant l’objectif de la règle          |
+   | Conditions | Paramètre obligatoire - Température                          | Conditions déterminant le moment où la règle peut s’exécuter    |
+   | Actions    | SpeechResponse - « - OK, réglage sur {temperature} degrés » | Action à exécuter lorsque la condition de la règle est remplie |
 
 > [!TIP]
 > Cet exemple utilise une réponse vocale pour confirmer le résultat. Pour obtenir des exemples de complétion de la commande avec une action client, consultez : [Guide pratique pour effectuer des commandes sur le client avec le SDK Speech (préversion)](./how-to-custom-speech-commands-fulfill-sdk.md)
@@ -79,3 +79,8 @@ Sélectionnez le panneau de test pour essayer quelques interactions.
 - Sortie : « Désolé, je peux uniquement régler une température comprise entre 60 et 80 degrés. »
 - Entrée : Régler plutôt sur 72 degrés
 - Sortie : « OK, réglage sur 72 degrés »
+
+## <a name="next-steps"></a>Étapes suivantes
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour Ajouter une confirmation à une commande personnalisée (préversion)](./how-to-custom-speech-commands-confirmations.md)

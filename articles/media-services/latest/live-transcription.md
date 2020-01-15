@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: a85f9f8b9d98f77cf673778f031d8f47f132fbe1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327345"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431932"
 ---
 # <a name="live-transcription-preview"></a>Transcription en direct (préversion)
 
@@ -102,7 +102,7 @@ En préversion, voici les problèmes connus liés à la transcription en direct
 
 * La fonctionnalité est disponible uniquement dans la région USA Ouest 2.
 * Les applications doivent utiliser les API de préversion, décrites dans la documentation [Spécification OpenAPI de Media Services v3](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2019-05-01-preview/streamingservice.json).
-* L’anglais est la seule langue prise en charge.
+* L’anglais est la seule langue prise en charge (en-us).
 * En ce qui concerne la protection du contenu, seul le chiffrement de l’enveloppe AES est pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

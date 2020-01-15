@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454616"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice de prise en charge pour l’évaluation et la migration de serveurs physiques
 
@@ -50,7 +50,7 @@ Le tableau récapitule les scénarios pris en charge pour les serveurs physiques
   Inde | Inde Centre ou Inde Sud
   Japon |  Japon Est ou Japon Ouest
   Corée du Sud | Corée Centre ou Corée Sud
-  Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
+  United Kingdom | Royaume-Uni Sud ou Royaume-Uni Ouest
   États-Unis | USA Centre ou USA Ouest 2
 
 
@@ -73,7 +73,7 @@ Pour l’évaluation, Azure Migrate exécute une appliance légère pour découv
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
-| **Étapes de déploiement d’appliance**   |  Vous déployez l’appliance sur un serveur physique ou une machine virtuelle.<br/>  La machine hôte doit exécuter Windows Server 2012 R2 ou une version ultérieure.<br/> L’hôte a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
+| **Étapes de déploiement d’appliance**   |  Le script du programme d'installation de l'appliance peut être téléchargé depuis le portail (dans un dossier compressé). <br/> Vous pouvez décompresser le dossier et lancer le script PowerShell (AzureMigrateInstaller.ps1) soit sur un serveur physique dédié soit sur une machine virtuelle pour configurer l'appliance.<br/>  La machine choisie pour installer l'appliance doit exécuter Windows Server 2016.<br/> La machine a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
 | **Projet Azure Migrate**  |  Une appliance peut être associée à un seul projet.<br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines par projet.
 | **Découverte**              | Une seule appliance peut découvrir jusqu’à 250 serveurs.
 | **Groupe d’évaluation**       | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.
@@ -109,7 +109,7 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 **Appareil** | **Connection**
 --- | ---
 **Appliance** | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ``` https://<appliance-ip-or-name>:44368 ```<br/> Connexions sortantes sur les ports 443, 5671 et 5672 pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
-**Serveurs physiques** | **Windows :** Connexions entrantes sur les ports 443 et 5989 pour extraire les métadonnées de configuration et de performance des serveurs Windows. <br/> **Linux :**  Connexions entrantes sur le port 22 (UDP) pour extraire les métadonnées de configuration et de performance des serveurs Linux. |
+**Serveurs physiques** | **Windows :** Connexions entrantes sur le port 443, les ports WinRM 5985 (HTTP) et 5986 (HTTPS) pour extraire les métadonnées de configuration et de performance des serveurs Windows. <br/> **Linux :**  Connexions entrantes sur le port 22 (UDP) pour extraire les métadonnées de configuration et de performance des serveurs Linux. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

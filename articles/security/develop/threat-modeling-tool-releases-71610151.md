@@ -1,25 +1,17 @@
 ---
-title: Versions de Threat Modeling Tool - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Disponibilité générale de Microsoft Threat Modeling Tool version 16/10/2019 - Azure
 description: Compilation des notes de publication pour l’outil de modélisation des menaces
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: jegeib
-ms.openlocfilehash: ba18989b72f0c3f44099031a6949acc54ce41db0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 452b44653775a1bcb9456b62e1587b5ff2dff874
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74234462"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552047"
 ---
 # <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Version mise à jour de Threat Modeling Tool 7.1.61015.1 - 16 octobre 2019
 
@@ -55,13 +47,13 @@ Certains clients ont signalé la réception du message d’erreur suivant lors d
 
 Ce problème est en cours de résolution
 
-## <a name="system-requirements"></a>Conditions requises pour le système
+## <a name="system-requirements"></a>Configuration système requise
 
-- Systèmes d'exploitation pris en charge
+- Systèmes d’exploitation pris en charge
   - [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou version ultérieure
 - Version .NET obligatoire
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
-- Conditions supplémentaires
+- Autres conditions requises
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires

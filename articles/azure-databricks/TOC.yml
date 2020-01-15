@@ -730,6 +730,9 @@
                 - name: Hyperopt avec HorovodRunner
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml
                   maintainContext: true
+                - name: Bonnes pratiques pour Hyperopt
+                  href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-best-practices
+                  maintainContext: true
                 - name: Recherche de modèle à l’aide de Hyperopt distribué
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
@@ -993,6 +996,12 @@
             - name: Exemple de workflow de secrets
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
+        - name: Chiffrer le trafic entre les nœuds worker de cluster
+          href: /azure/databricks/security/encrypt-otw
+        - name: Activer des clés gérées par le client pour les notebooks
+          href: /azure/databricks/security/customer-managed-key-notebook
+        - name: Activer des clés gérées par le client pour DBFS
+          href: /azure/databricks/security/customer-managed-keys-dbfs
     - name: Administration
       items:
         - name: Vue d’ensemble de l’administration

@@ -10,24 +10,29 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 056dd4331d30335078ea68350f711e37a7b42070
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446872"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Démarrage rapide : Créer une commande personnalisée (préversion)
 
 Cet article décrit comment créer et tester une application de commandes personnalisées hébergée.
 L’application reconnaît un énoncé tel que « Allume la télévision » et répond avec un simple message « D’accord, j’allume la télévision ».
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Abonnement Speech. [Essayez le service Speech gratuitement](~/articles/cognitive-services/speech-service/get-started.md).
+- Abonnement Speech. 
+
+Si vous n’avez pas d’abonnement Speech, vous pouvez en créer un en accédant à [Speech Studio](https://speech.microsoft.com/), puis en sélectionnant **Créer une ressource Speech**.
+
+  > [!div class="mx-imgBorder"]
+  > [ ![Créer un projet](media/custom-speech-commands/create-new-subscription.png) ](media/custom-speech-commands/create-new-subscription.png#lightbox)
 
   > [!NOTE]
-  > Pendant la période de préversion, seule la région WestUS2 est prise en charge pour les clés d’abonnement.
+  > Pendant la période de préversion, seule la région westus2 est prise en charge.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Accédez à Speech Studio pour les commandes personnalisées
 
@@ -66,6 +71,20 @@ L’affichage par défaut présente liste des applications Commandes personnalis
 
 Votre affichage devrait à présent présenter une vue d’ensemble de votre application Commandes personnalisées.
 
+## <a name="update-luis-resources-optional"></a>Mettre à jour les ressources LUIS (facultatif)
+
+Vous pouvez mettre à jour le jeu de ressources de création dans la fenêtre du nouveau projet, puis définir une ressource de prédiction utilisée pour reconnaître les entrées pendant l’exécution. 
+
+> [!NOTE]
+> Vous devrez définir une ressource de prédiction avant que votre application ne demande des prédictions au-delà des 1 000 requêtes fournies par la ressource de création.
+
+> [!div class="mx-imgBorder"]
+> ![Définir les ressources LUIS](media/custom-speech-commands/set-luis-resources.png)
+
+1. Accédez au volet Ressources LUIS en sélectionnant **Paramètres** dans le volet gauche, puis **Ressources LUIS** dans le volet central.
+1. Sélectionnez une ressource de prédiction, ou créez-en une en sélectionnant **Créer une ressource**
+1. Sélectionnez **Enregistrer**.
+
 ## <a name="create-a-new-command"></a>Créer une commande
 
 Vous pouvez maintenant créer une commande. Nous allons utiliser un exemple qui prendra un seul énoncé, `turn on the tv`, puis répondra avec le message `Ok, turning on the TV`.
@@ -81,7 +100,7 @@ Une commande comprend les éléments suivants :
 | Groupe            | Description                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | Exemples de phrases | Exemples d’énoncés que l’utilisateur peut prononcer pour déclencher la commande                                                                 |
-| parameters       | Informations requises pour exécuter la commande                                                                                |
+| Paramètres       | Informations requises pour exécuter la commande                                                                                |
 | Règles d’exécution | Actions à effectuer pour exécuter la commande. Par exemple, répondre à l’utilisateur ou communiquer avec un autre service web |
 | Règles avancées   | Règles supplémentaires pour gérer des situations plus spécifiques ou complexes                                                              |
 
@@ -116,11 +135,10 @@ Ajoutez maintenant une règle d’exécution pour répondre à l’utilisateur e
 > [!div class="mx-imgBorder"]
 > ![Créer une règle d’exécution](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
-
-| Paramètre    | Valeur suggérée                        | Description                                        |
-| ---------- | -------------------------------------- | -------------------------------------------------- |
-| Nom de la règle  | « RéponseConfirmation »                 | Nom décrivant l’objectif de la règle          |
-| Conditions | Aucun                                   | Conditions déterminant le moment où la règle peut s’exécuter    |
+| Paramètre    | Valeur suggérée                          | Description                                        |
+| ---------- | ---------------------------------------- | -------------------------------------------------- |
+| Nom de la règle  | « RéponseConfirmation »                   | Nom décrivant l’objectif de la règle          |
+| Conditions | None                                     | Conditions déterminant le moment où la règle peut s’exécuter    |
 | Actions    | SpeechResponse : « D’accord, j’allume la télévision » | Action à exécuter lorsque la condition de la règle est remplie |
 
 ## <a name="try-it-out"></a>Faites un essai
@@ -136,4 +154,4 @@ Testez le comportement à l’aide du volet de conversation Tester.
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
+> [Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)

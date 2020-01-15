@@ -1,6 +1,6 @@
 - name: Documentation du lecteur immersif
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que le lecteur immersif\_?"
       href: Overview.md
@@ -9,26 +9,32 @@
   items:
     - name: 'Utilisation de C#'
       href: Quickstart.md
+    - name: Utilisation de Node.js
+      href: quickstart-nodejs.md
     - name: Utilisation de Swift (iOS)
       href: ios-quickstart.md
 - name: Tutoriels
   items:
-    - name: Lancer le lecteur immersif (Node.js)
-      href: tutorial-nodejs.md
     - name: Lancer le lecteur immersif (Python)
       href: tutorial-python.md
-    - name: Photo avec le lecteur immersif (Swift)
-      href: tutorial-ios-picture-immersive-reader.md
 - name: Procédure
   items:
-    - name: Authentification Azure Active Directory
-      href: azure-active-directory-authentication.md
+    - name: Créer une ressource de Lecteur immersif
+      href: how-to-create-immersive-reader.md
+    - name: Définir la stratégie de cookie
+      href: how-to/set-cookie-policy.md
+    - name: Afficher les opérations de calcul
+      href: how-to/display-math.md
+    - name: Lancer le Lecteur immersif avec du contenu HTML
+      href: how-to-launch-with-html.md
+    - name: Bouton Personnaliser le Lecteur immersif
+      href: how-to-customize-launch-button.md
+    - name: Mettre en cache le jeton d’authentification
+      href: how-to-cache-token.md
 - name: Informations de référence
   items:
     - name: Informations de référence sur le SDK
       href: reference.md
-    - name: Informations de référence sur le SDK iOS
-      href: ios-reference.md
 - name: Ressources
   items:
     - name: Feuille de route Azure

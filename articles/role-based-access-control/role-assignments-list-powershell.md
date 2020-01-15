@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c30f1246dccbe14445b0f7db8584e37c0f4be6ab
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f728338284c755116414a03cbc586915e1cc9325
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74709885"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462220"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "74709885"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [PowerShell dans Azure Cloud Shell](/azure/cloud-shell/overview) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 
@@ -146,6 +146,22 @@ Pour lister les attributions de rôle des administrateurs et des coadministrateu
 ```azurepowershell
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
+
+## <a name="list-role-assignments-for-a-managed-identity"></a>Lister les attributions de rôles pour une identité managée
+
+1. Obtenez l’ID d’objet de l’identité managée attribuée par le système ou par l’utilisateur. 
+
+    Pour obtenir l'ID d’objet d'une identité managée attribuée par l'utilisateur, vous pouvez utiliser [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
+
+    ```azurepowershell
+    Get-AzADServicePrincipal -DisplayNameBeginsWith "<name> or <vmname>"
+    ```
+
+1. Pour lister les attributions de rôles, utilisez [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
+
+    ```azurepowershell
+    Get-AzRoleAssignment -ObjectId <objectid>
+    ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
