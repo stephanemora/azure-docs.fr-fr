@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2251725597e44a15e421f33cc315be3fb1c7846f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485548"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459164"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -30,7 +30,7 @@ L’utilisation d’une taille isolée garantit que votre machine virtuelle sera
 Pour plus d’informations sur chaque taille isolée disponible, [cliquez ici](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Retrait de l’isolation D15_v2/DS15_v2 le 15 février 2020
-Nous avons récemment annoncé la préversion d’Azure Dedicated Host, qui vous permet d’exécuter les machines virtuelles Linux et Windows de votre organisation sur des serveurs physiques monolocataires. Nous prévoyons de remplacer entièrement les machines virtuelles Azure isolées par Azure Dedicated Host. Après le **15 février 2020**, les machines virtuelles Azure D15_v2/DS15_v2 peuvent ne plus être isolées du matériel.
+L’hôte dédié Azure est désormais GA, ce qui vous permet d’exécuter les machines virtuelles Linux et Windows de votre organisation sur des serveurs physiques à locataire unique. Nous prévoyons de remplacer entièrement les machines virtuelles Azure isolées par Azure Dedicated Host. Après le **15 février 2020**, les machines virtuelles Azure D15_v2/DS15_v2 peuvent ne plus être isolées du matériel.
 
 ## <a name="how-does-this-affect-me"></a>Dans quelle mesure cela m’affecte-t-il ?
 Après le 15 février 2020, nous ne fournirons plus de garantie d’isolation pour vos machines virtuelles Azure D15_v2/DS15_v2. 
@@ -40,7 +40,7 @@ Si vous n’avez pas besoin d’isolation matérielle, aucune action n’est né
 
 Si vous avez besoin d’isolation, avant le 15 février 2020, vous devez au choix :
 
-•   [Migrer](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) votre charge de travail vers la préversion d’Azure Dedicated Host.
+•   [Migrer](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) votre charge de travail vers Azure Dedicated Host.
 
 •   [Demander l’accès](https://aka.ms/D15iRequestAccess) à une machine virtuelle Azure D15i_v2 et DS15i_v2, pour obtenir les mêmes performances de prix. Cette option est disponible uniquement pour les scénarios de paiement à l’utilisation et d’instance réservée 1 an.    
 
@@ -57,7 +57,7 @@ Pour plus d’informations, voir ci-dessous :
 | 15 mai 2021  | Mise hors service de D/DS15i_v2 (tous les clients, sauf ceux qui ont acheté une instance réservée 3 ans de D/DS15_v2 avant le 18 novembre 2019)| 
 | 17 novembre 2022   | Mise hors service de D/DS15i_v2 quand les instances réservées 3 ans arrivent à leur terme (pour les clients qui ont acheté une instance réservée 3 ans de D/DS15_v2 avant le 18 novembre 2019) | 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 ### <a name="q-why-am-i-not-seeing-the-new-dds15i_v2-sizes-in-the-portal"></a>Q : Pourquoi je ne vois pas les nouvelles tailles D/DS15i_v2 dans le portail ?
 **R** : Si vous êtes un client D/DS15_v2 actif et que vous souhaitez utiliser les nouvelles tailles D/DS15i_v2, remplissez ce [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
@@ -103,4 +103,4 @@ La flexibilité de la taille d’instance ne peut pas être appliquée à d’au
 **R** : Cela n’est pas nécessaire, car l’avantage s’applique aux tailles isolées et non isolées. Toutefois, Azure prendra en charge le remplacement des instances réservées D15_v2/DS15_v2 existantes par D15i_v2/DS15i_v2. Pour toutes les autres instances réservées Dv2/Dsv2, utilisez l’instance réservée existante ou achetez de nouvelles instances réservées pour les tailles isolées.
 
 ### <a name="q-im-a-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>Q : Je suis un client Azure Service Fabric qui s’appuie sur les niveaux de durabilité Argent ou Or. Ce changement a-t-il un impact sur moi ?
-**R** :  Non. Les garanties fournies par les [niveaux de durabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) de Service Fabric continuent de fonctionner même après ce changement. Si vous avez besoin d’une isolation matérielle physique pour d’autres raisons, vous devrez peut-être effectuer l’une des actions décrites ci-dessus. 
+**R** : Non. Les garanties fournies par les [niveaux de durabilité](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) de Service Fabric continuent de fonctionner même après ce changement. Si vous avez besoin d’une isolation matérielle physique pour d’autres raisons, vous devrez peut-être effectuer l’une des actions décrites ci-dessus. 

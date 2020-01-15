@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: f802c2d1f986f5da62f4ffd3205523423f04e49c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664061"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367890"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "74664061"
 
 Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont des fichiers de configuration qui définissent le comportement de votre locataire Azure Active Directory B2C (Azure AD B2C). Dans cet article, vous allez créer une stratégie personnalisée qui prend en charge l’inscription ou la connexion de comptes locaux à l’aide d’une adresse e-mail et d’un mot de passe. Vous préparerez également votre environnement pour l’ajout de fournisseurs d’identité.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Si vous n’en avez pas, [créez un locataire Azure AD B2C](tutorial-create-tenant.md) qui est lié à votre abonnement Azure.
 - [Inscrivez votre application](tutorial-register-applications.md) dans le locataire que vous avez créé afin qu’il puisse communiquer avec Azure AD B2C.
@@ -31,10 +31,10 @@ Les [stratégies personnalisées](active-directory-b2c-overview-custom.md) sont 
 
 ## <a name="add-signing-and-encryption-keys"></a>Ajouter des clés de signature et de chiffrement
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com)
-1. Utilisez le filtre **Annuaire + abonnement** dans le menu du haut pour sélectionner l’annuaire qui contient votre locataire Azure AD B2C.
-1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Dans la page Vue d’ensemble, sélectionnez **Identity Experience Framework** dans le volet **Stratégies**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Dans la page de vue d’ensemble, sous **Stratégies**, sélectionnez **Identity Experience Framework**.
 
 ### <a name="create-the-signing-key"></a>Créer la clé de signature
 
@@ -77,10 +77,9 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
-1. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure.
-1. Dans la zone de recherche, entrez `Azure Active Directory`.
-1. Dans la liste des résultats, sélectionnez sur **Azure Active Directory**.
-1. Sous **Gérer** dans le menu de gauche, sélectionnez **Inscriptions d’applications (hérité)** .
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
+1. Dans le menu de vue d’ensemble d’**Azure Active Directory**, sous **Gérer**, sélectionnez **Inscriptions d’applications (héritée)** .
 1. Sélectionnez **Nouvelle inscription d’application**.
 1. Pour **Nom**, entrez `IdentityExperienceFramework`.
 1. Pour **Type d’application**, choisissez **Application/API web**.
@@ -148,7 +147,7 @@ Maintenant, accordez des autorisations à l’étendue de l’API que vous avez 
 1. Sélectionnez l’onglet **Mes API**, puis sélectionnez l’application **IdentityExperienceFramework**.
 1. Sous **Autorisation**, sélectionnez l’étendue **user_impersonation** que vous avez définie précédemment.
 1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
-1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre locataire)** .
+1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
 1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
 1. Sélectionnez **Accepter**.
 1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **État** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.
@@ -166,9 +165,9 @@ Les stratégies personnalisées sont un ensemble de fichiers XML que vous télé
 
 Chaque pack de démarrage contient :
 
-- **Ficher de base** : il n’y a que peu de modifications à apporter à la base. Exemple : *TrustFrameworkBase.xml*
-- **Fichier d’extension** : c’est sur ce fichier que portent la plupart des modifications de la configuration. Exemple : *TrustFrameworkExtensions.xml*
-- **Fichiers de partie de confiance** : sont des fichiers propres à chaque tâche, appelés par l’application. Exemples : *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
+- **Ficher de base** : il n’y a que peu de modifications à apporter à la base. Exemple : *TrustFrameworkBase.xml*
+- **Fichier d’extension** : c’est sur ce fichier que portent la plupart des modifications de la configuration. Exemple : *TrustFrameworkExtensions.xml*
+- **Fichiers de partie de confiance** : sont des fichiers propres à chaque tâche, appelés par l’application. Exemples : *SignUpOrSignin.xml*, *ProfileEdit.xml*, *PasswordReset.xml*
 
 Dans cet article, vous allez modifier les fichiers de stratégie personnalisée XML dans le pack de démarrage **SocialAndLocalAccounts**. Si vous avez besoin d’un éditeur XML, essayez [Visual Studio Code](https://code.visualstudio.com/download), un éditeur multiplateforme léger.
 

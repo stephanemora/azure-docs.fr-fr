@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435790"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -37,7 +37,7 @@ Apache Oozie est un système de coordination de flux de travail qui gère les t�
 
 Pour plus d’informations, consultez la section [Utiliser Apache Oozie avec Apache Hadoop pour définir et exécuter un workflow sur HDInsight](../hdinsight-use-oozie-linux-mac.md). Pour savoir en détail comment utiliser Oozie pour piloter un pipeline de bout en bout, consultez la page [Opérationnaliser le pipeline de données](../hdinsight-operationalize-data-pipeline.md).
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory fournit des capacités d’orchestration sous la forme d’une plateforme en tant que service. Il s’agit d’un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données.
 
@@ -51,11 +51,11 @@ Pour plus d’informations sur Azure Data Factory, consultez la [documentation](
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Ingérer le stockage de fichiers et le stockage des résultats
 
-Les fichiers de données sources sont généralement chargés dans un emplacement dans Stockage Azure ou Azure Data Lake Storage. Les fichiers peuvent être dans n’importe quel format, mais en général, il s’agit de fichiers plats tels que des fichiers CSV. 
+Les fichiers de données sources sont généralement chargés dans un emplacement dans Stockage Azure ou Azure Data Lake Storage. Les fichiers peuvent être dans n’importe quel format, mais en général, il s’agit de fichiers plats tels que des fichiers CSV.
 
-### <a name="azure-storage"></a>Stockage Azure 
+### <a name="azure-storage"></a>Stockage Azure
 
-[Stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des [objectifs de scalabilité spécifiques](../../storage/common/storage-scalability-targets.md).  Pour la plupart des nœuds d’analytique, Stockage Azure propose une meilleure mise à l’échelle avec de nombreux petits fichiers.  Stockage Azure garantit des performances identiques, quel que soit le nombre de fichiers ou la taille des fichiers (tant que vous êtes dans les limites que vous avez définies).  Cela signifie que vous pouvez stocker des téraoctets de données et que vous obtenez toujours des performances cohérentes, que vous utilisiez un sous-ensemble des données ou toutes les données.
+Le [stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des objectifs d’extensibilité spécifiques. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](../../storage/blobs/scalability-targets.md). Pour la plupart des nœuds d’analytique, Stockage Azure propose une meilleure mise à l’échelle avec de nombreux petits fichiers.  Stockage Azure garantit des performances identiques, quel que soit le nombre de fichiers ou la taille des fichiers (tant que vous êtes dans les limites que vous avez définies).  Cela signifie que vous pouvez stocker des téraoctets de données et que vous obtenez toujours des performances cohérentes, que vous utilisiez un sous-ensemble des données ou toutes les données.
 
 Stockage Azure a plusieurs types d’objets blob.  Un *blob d’ajout* est idéal pour le stockage de fichiers journaux d’activité web ou de données de capteur.  
 
@@ -77,11 +77,11 @@ ADLS est également optimisé pour l’ingestion d’événements à l’aide d�
 
 Pour le chargement de jeux de données représentant plusieurs téraoctets, la latence du réseau peut être un problème majeur, particulièrement si les données proviennent d’un emplacement local.  Dans ce cas, vous pouvez utiliser les options ci-dessous :
 
-* Azure ExpressRoute :  Azure ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et votre infrastructure locale. Ces connexions constituent une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute :  Azure ExpressRoute vous permet de créer des connexions privées entre les centres de données Azure et votre infrastructure locale. Ces connexions constituent une option fiable pour le transfert de grandes quantités de données. Pour plus d’informations, consultez la [Documentation Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 * Chargement « hors connexion » des données. Vous pouvez utiliser le [service Azure Import/Export](../../storage/common/storage-import-export-service.md) pour expédier des disques durs contenant vos données à un centre de données Azure. Vos données sont alors téléchargées vers des objets blob Azure Storage. Vous pouvez ensuite utiliser [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) ou [l’outil AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) pour copier des données des objets blob du stockage Azure vers Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
 
 Azure SQL DW est un choix idéal pour stocker les résultats nettoyés et préparés pour de futures analytiques.  Azure HDInsight peut servir à exécuter ces services pour Azure SQL DW.
 

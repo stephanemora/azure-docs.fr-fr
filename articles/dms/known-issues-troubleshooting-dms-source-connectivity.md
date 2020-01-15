@@ -1,5 +1,6 @@
 ---
-title: Article sur la résolution de problèmes/d’erreurs connus associés à la connexion d’Azure Database Migration Service à des bases de données sources | Microsoft Docs
+title: Problèmes de connexion aux bases de données sources
+titleSuffix: Azure Database Migration Service
 description: Découvrez comment résoudre des problèmes/erreurs connus associés à la connexion d’Azure Database Migration Service à des bases de données sources.
 services: database-migration
 author: HJToland3
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: a4ebd1d4c85631cc6ebc1f5787e7545b78d62b5e
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437791"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>Résoudre les erreurs DMS lors de la connexion aux bases de données sources
 
@@ -70,10 +71,10 @@ Le tableau suivant indique les éventuels problèmes liés à la connexion à un
 
 | Error         | Cause du problème et informations pour sa résolution |
 | ------------- | ------------- |
-| **Erreur 53** - La connexion SQL a échoué. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : Fournisseur de canaux nommés, erreur : 40 - Impossible d'ouvrir une connexion à SQL Server | Cette erreur se produit si le service ne peut pas se connecter au serveur source. Pour résoudre le problème, consultez les documents de résolution des problèmes listés dans la note sous ce tableau, puis retentez l’opération. |
+| **Erreur 53** - La connexion SQL a échoué. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : Fournisseur de canaux nommés, erreur : 40 - Impossible d'ouvrir une connexion à SQL Server | Cette erreur se produit si le service ne peut pas se connecter au serveur source. Pour résoudre le problème, consultez les documents de résolution des problèmes listés dans la note sous ce tableau, puis retentez l’opération. |
 | **Erreur 18456** - La connexion a échoué. Échec de la connexion pour l’utilisateur « {user} » | Cette erreur se produit si le service ne peut pas se connecter à la base de données source avec les informations d’identification T-SQL fournies. Pour résoudre le problème, vérifiez les informations d’identification entrées. Vous pouvez également vous reporter à [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) ou aux documents de résolution des problèmes listés dans la note sous ce tableau, puis retenter l’opération. |
-| **Erreur 87**- Chaîne de connexion non valide. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : interfaces réseau SQL, erreur : 25 - Chaîne de connexion non valide) | Cette erreur se produit si le service ne peut pas se connecter au serveur source en raison d’une chaîne de connexion non valide. Pour résoudre ce problème, vérifiez la chaîne de connexion fournie. Si le problème persiste, consultez les documents de résolution des problèmes listés dans la note sous ce tableau, puis retentez l’opération. |
-| **Erreur - Certificat de serveur non approuvé.** Une connexion a été établie avec le serveur, mais une erreur s’est ensuite produite pendant le processus de connexion. (fournisseur : Fournisseur SSL, erreur : 0 - La chaîne de certificats a été fournie par une autorité qui n’est pas approuvée.) | Cette erreur se produit si le certificat utilisé n’est pas approuvé. Pour résoudre ce problème, vous devez trouver un certificat qui peut être approuvé, puis l’activer sur le serveur. Vous pouvez également sélectionner l’option Approuver le certificat lors de la connexion. Effectuez cette action uniquement si vous connaissez le certificat utilisé et que vous l’approuvez. <br> Les connexions SSL chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Ne vous appuyez pas sur SSL à l’aide de certificats auto-signés dans un environnement de production ou sur des serveurs connectés à Internet. <br> Pour plus d’informations, consultez [Utilisation de SSL avec une instance de base de données Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou le [Tutoriel : Migrer RDS SQL Server vers Azure à l’aide de DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
+| **Erreur 87**- Chaîne de connexion non valide. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : interfaces réseau SQL, erreur : 25 - Chaîne de connexion non valide) | Cette erreur se produit si le service ne peut pas se connecter au serveur source en raison d’une chaîne de connexion non valide. Pour résoudre ce problème, vérifiez la chaîne de connexion fournie. Si le problème persiste, consultez les documents de résolution des problèmes listés dans la note sous ce tableau, puis retentez l’opération. |
+| **Erreur - Certificat de serveur non approuvé.** Une connexion a été établie avec le serveur, mais une erreur s’est ensuite produite pendant le processus de connexion. (fournisseur : Fournisseur SSL, erreur : 0 - La chaîne de certificats a été fournie par une autorité qui n’est pas approuvée.) | Cette erreur se produit si le certificat utilisé n’est pas approuvé. Pour résoudre ce problème, vous devez trouver un certificat qui peut être approuvé, puis l’activer sur le serveur. Vous pouvez également sélectionner l’option Approuver le certificat lors de la connexion. Effectuez cette action uniquement si vous connaissez le certificat utilisé et que vous l’approuvez. <br> Les connexions SSL chiffrées à l’aide d’un certificat auto-signé n’offrent pas de sécurité renforcée. Elles sont vulnérables aux attaques de l’intercepteur. Ne vous appuyez pas sur SSL à l’aide de certificats auto-signés dans un environnement de production ou sur des serveurs connectés à Internet. <br> Pour plus d’informations, consultez [Utilisation de SSL avec une instance de base de données Microsoft SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) ou le [Tutoriel : Migrer RDS SQL Server vers Azure à l’aide de DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites). |
 | **Erreur 300** - L’utilisateur n’a pas les autorisations nécessaires. L’autorisation VIEW SERVER STATE a été refusée sur l’objet « {server} », base de données « {database} » | Cette erreur se produit si l’utilisateur n’est pas autorisé à effectuer la migration. Pour résoudre ce problème, reportez-vous à [GRANT - Octroi d'autorisations de serveur (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) ou au [Tutoriel : Migrer RDS SQL Server vers Azure à l’aide de DMS](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites) pour plus d’informations. |
 
 > [!NOTE]

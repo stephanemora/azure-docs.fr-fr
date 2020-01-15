@@ -10,39 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 3301c43aa71f041de1c53fb4083de73b6d2e4450
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976755"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75381101"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)
 
 Après avoir créé une application Commandes personnalisées hébergée, vous pouvez commencer à lui parler à partir d’un appareil client.
 
-Dans cet article, vous allez :
+Dans cet article, vous allez :
 
 - Publier une application Commandes personnalisées et obtenir un identificateur d’application (ID d’application)
 - Créer une application cliente à l’aide du kit de développement logiciel (SDK) Speech pour vous permettre de parler avec votre application Commandes personnalisées
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer d’une application Commandes personnalisées pour poursuivre cet article. Si vous n’avez pas encore créé d’application Commandes personnalisée, vous pouvez le faire dans les démarrages rapides suivants :
 
-- [Démarrage rapide : Créer une commande personnalisée (préversion)](./quickstart-custom-speech-commands-create-new.md)
-- [Démarrage rapide : Créer une commande personnalisée avec des paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
+- [Démarrage rapide : Créer une commande personnalisée (préversion)](./quickstart-custom-speech-commands-create-new.md)
+- [Démarrage rapide : Créer une commande personnalisée avec Paramètres (préversion)](./quickstart-custom-speech-commands-create-parameters.md)
 
 Vous aurez également besoin de ce qui suit :
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- Clé d’abonnement Azure pour le service Speech. [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
+- Clé d’abonnement Azure pour les services Speech. [Obtenez-en une gratuitement](get-started.md) ou créez-la sur le [portail Azure](https://portal.azure.com)
 
 ## <a name="optional-get-started-fast"></a>Facultatif : Démarrer rapidement
 
 Ce guide de démarrage rapide explique, étape par étape, comment créer une application cliente pour vous connecter à votre application Commandes personnalisées. Si vous préférez vous y plonger dès maintenant, le code source complet et prêt à compiler utilisé dans ce guide de démarrage rapide est disponible dans les [exemples du SDK Speech](https://aka.ms/csspeech/samples) sous le dossier `quickstart`.
 
-## <a name="step-1-publish-custom-commands-application"></a>Étape 1 : Publier une application Commandes personnalisées
+## <a name="step-1-publish-custom-commands-application"></a>Étape 1 : Publier une application Commandes personnalisées
 
 1. Ouvrez votre [application Commandes personnalisées précédemment créée](./quickstart-custom-speech-commands-create-new.md), puis sélectionnez **Publier**
 
@@ -51,7 +51,7 @@ Ce guide de démarrage rapide explique, étape par étape, comment créer une ap
 
 1. Copiez l’ID d’application à partir de la notification de publication pour utilisation ultérieure
 
-## <a name="step-2-create-a-visual-studio-project"></a>Étape 2 : Créer un projet Visual Studio
+## <a name="step-2-create-a-visual-studio-project"></a>Étape 2 : Créer un projet Visual Studio
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
@@ -309,7 +309,7 @@ Ajoutez la source du code-behind en procédant comme suit :
    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
-   var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
+   var speechCommandsConfig = CustomCommandsConfig.FromSubscription(speechCommandsApplicationId, speechSubscriptionKey, region);
    speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
@@ -417,5 +417,5 @@ Ajoutez la source du code-behind en procédant comme suit :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour effectuer les commandes sur le client avec le SDK Speech (préversion)](./how-to-custom-speech-commands-fulfill-sdk.md)
+> [Procédure : effectuer les commandes sur le client avec le SDK Speech (préversion)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [Guide pratique pour ajouter des validations aux paramètres de commande personnalisée (préversion)](./how-to-custom-speech-commands-validations.md)

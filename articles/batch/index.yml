@@ -7,15 +7,15 @@ metadata:
   services: batch
   ms.service: batch
   ms.topic: landing-page
-  author: laurenhughes
-  ms.author: lahugh
+  author: ju-shim
+  ms.author: jushiman
   ms.date: 09/23/2019
-  ms.openlocfilehash: 6d994673332d9dc4a5ebc77e7468e0a200d8e271
-  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.openlocfilehash: f62b432b7a17e618fbc68335ad3655fb1bfc209d
+  ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74786076"
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "76026136"
 landingContent:
 - title: À propos d’Azure Batch
   linkLists:
@@ -27,11 +27,11 @@ landingContent:
     links:
     - text: Formation vidéo gratuite Pluralsight
       url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
-    - text: D’Azure CLI
+    - text: Azure CLI
       url: quick-create-cli.md
     - text: Portail Azure
       url: quick-create-portal.md
@@ -77,13 +77,13 @@ landingContent:
       url: batch-pool-vm-sizes.md
     - text: Quotas et limites
       url: batch-quota-limit.md
-    - text: Bonnes pratiques
+    - text: Meilleures pratiques
       url: best-practices.md
 - title: Informations de référence sur l'API
   linkLists:
   - linkListType: reference
     links:
-    - text: D’Azure CLI
+    - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/batch?view=azure-cli-latest
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.batch/?view=azps-2.6.0

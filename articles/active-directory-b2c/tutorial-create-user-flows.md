@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3633ffb09d71bd166cb7366f860662d9b91c7f07
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: cc492b29fd6bc4a820543740e9d1962fc74f2cfc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063399"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425503"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutoriel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
 Vos applications comportent peut-être des [flux utilisateur](active-directory-b2c-reference-policies.md) qui permettent aux utilisateurs de s’inscrire, de se connecter ou de gérer leur profil. Vous pouvez créer plusieurs flux d’utilisateurs de types différents dans votre locataire Azure Active Directory B2C (Azure AD B2C) et les utiliser dans vos applications selon les besoins. Les flux d’utilisateurs peuvent être réutilisés entre les différentes applications.
 
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment créer des flux d’utilisateur recommandés à 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [Inscrivez vos applications](tutorial-register-applications.md) qui font partie des flux d’utilisateur à créer.
 
@@ -40,13 +40,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Le flux d’utilisateur Inscription et connexion gère les expériences d’inscription et de connexion avec une seule configuration. Les utilisateurs de votre application sont dirigés vers le chemin approprié en fonction du contexte.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
 
-    ![Filtre Répertoire et abonnement avec locataire B2C sélectionné](./media/tutorial-create-user-flows/switch-directories.PNG)
+    ![Volet client B2C, répertoire et abonnement, Portail Azure](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Dans le menu de gauche, sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
 
     ![Page Flux d'utilisateur du portail avec bouton Nouveau flux d'utilisateur en surbrillance](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
@@ -82,8 +82,8 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 
 Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre application, vous utilisez un flux d’utilisateur de modification de profil.
 
-1. Dans le menu de gauche de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux utilisateur (stratégies)** , puis sélectionnez **Nouveau flux d’utilisateur**.
-1. Sélectionnez le flux d’utilisateur **Modification de profil** sous l’onglet Recommandé.
+1. Dans le menu de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux utilisateur (stratégies)** , puis sélectionnez **Nouveau flux d’utilisateur**.
+1. Sélectionnez le flux d’utilisateur **Modification de profil** sous l’onglet **Recommandé**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *profileediting1*.
 1. Sous **Fournisseurs d’identité**, sélectionnez **Connexion du compte local**.
 1. Sous **Attributs utilisateur**, choisissez les attributs que le client peut modifier dans son profil. Par exemple, sélectionnez **Afficher plus**, puis choisissez des attributs et des revendications pour **Nom d’affichage** et **Poste**. Cliquez sur **OK**.
@@ -100,8 +100,8 @@ Si vous voulez autoriser les utilisateurs à modifier leur profil dans votre app
 
 Pour permettre aux utilisateurs de votre application de réinitialiser leur mot de passe, utilisez un flux utilisateur de réinitialisation de mot de passe.
 
-1. Dans le menu de gauche, sélectionnez **Flux utilisateur (stratégies)** , puis **Nouveau flux d’utilisateur**.
-1. Sélectionnez le flux d’utilisateur **Réinitialisation de mot de passe** sous l’onglet Recommandé.
+1. Dans le menu de la page de vue d’ensemble du locataire Azure AD B2C, sélectionnez **Flux utilisateur (stratégies)** , puis sélectionnez **Nouveau flux d’utilisateur**.
+1. Sélectionnez le flux d’utilisateur **Réinitialisation de mot de passe** sous l’onglet **Recommandé**.
 1. Entrez un **Nom** pour le flux d’utilisateur. Par exemple, *passwordreset1*.
 1. Sous **Fournisseurs d’identité**, activez **Réinitialiser le mot de passe à l’aide de l’adresse e-mail**.
 1. Sous Revendications d’application, cliquez sur **Afficher plus** et choisissez les revendications à renvoyer à votre application dans les jetons d’autorisation. Par exemple, sélectionnez **ID d’objet de l’utilisateur**.

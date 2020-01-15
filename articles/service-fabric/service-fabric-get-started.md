@@ -1,25 +1,15 @@
 ---
-title: Configurer un environnement de développement Windows pour les microservices Azure | Microsoft Docs
+title: Configurer un environnement de développement Windows
 description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Windows.
-services: service-fabric
-documentationcenter: .net
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 1eb8e5893d93ef0261d68df4629b072876096711
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 9e055a0674804a15d307a879fd8cb609e3c2631d
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185677"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614381"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -31,15 +21,15 @@ ms.locfileid: "74185677"
 
 Pour générer et exécuter des [applications Azure Service Fabric][1] sur votre machine de développement Windows, installez le runtime, le Kit de développement logiciel (SDK) et les outils Service Fabric. Vous devez également [activer l’exécution des scripts Windows PowerShell](#enable-powershell-script-execution) inclus dans le Kit de développement logiciel (SDK).
 
-## <a name="prerequisites"></a>Prérequis
-### <a name="supported-operating-system-versions"></a>Versions du système d’exploitation prises en charge
+## <a name="prerequisites"></a>Conditions préalables requises
+### <a name="supported-operating-system-versions"></a>Versions du système d'exploitation prises en charge
 Les versions de système d’exploitation prises en charge pour le développement sont les suivantes :
 
 * Windows 7
 * Windows 8 et Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows 10
+* Windows 10
 
 > [!NOTE]
 > Windows 7 prend en charge :

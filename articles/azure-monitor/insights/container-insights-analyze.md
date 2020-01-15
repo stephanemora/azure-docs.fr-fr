@@ -1,18 +1,14 @@
 ---
 title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: mgoedtel
-ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 1cd0223a16a6308e777e4a0167154e975202df7b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3fc8d8d1f8c214c3bebe7af2cf670732b20529d3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872976"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690039"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -28,13 +24,14 @@ Les principales différences entre la surveillance d’un cluster Windows Server
 
 - La métrique Mémoire RSS n’est pas disponible pour le nœud et les conteneurs Windows.
 - Les informations de capacité de stockage des disques ne sont pas disponibles pour les nœuds Windows.
+- Les journaux de conteneur ne sont pas disponibles pour les conteneurs s’exécutant dans les nœuds Windows.
 - La prise en charge des journaux d’activité dynamiques est disponible à l’exception des fichiers journaux de conteneurs Windows.
 - Seuls les environnements de pod sont surveillés, pas les environnements Docker.
 - Avec la préversion, un maximum de 30 conteneurs Windows Server sont pris en charge. Cette limitation ne s’applique pas aux conteneurs Linux. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com). 
+Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vue multicluster à partir d’Azure Monitor
 
@@ -88,9 +85,9 @@ Le tableau suivant fournit une répartition du calcul pour le contrôle des éta
 | |Avertissement |N/A |
 | |Critique |< 100 % |
 | |Unknown |Si non signalé dans les 30 dernières minutes |
-|**Node** | | |
+|**Nœud** | | |
 | |Healthy |> 85 % |
-| |Avertissement |60 - 84 % |
+| |Avertissement |60 - 84 % |
 | |Critique |< 60 % |
 | |Unknown |Si non signalé dans les 30 dernières minutes |
 
@@ -142,7 +139,7 @@ Dans Metrics Explorer, vous pouvez afficher les métriques agrégées d’utilis
 
 Vous pouvez [fractionner](../platform/metrics-charts.md#apply-splitting-to-a-chart) une métrique pour l’afficher par dimension et comparer différents segments de celui-ci. Pour un nœud, vous pouvez segmenter le graphique par la dimension *hôte*. À partir d’un pod, vous pouvez le segmenter par les dimensions suivantes :
 
-* Controller
+* Contrôleur
 * Espace de noms Kubernetes
 * Nœud
 * Phase
@@ -201,13 +198,13 @@ Les informations qui sont affichées dans l’onglet **Nœuds** sont décrites d
 
 | Colonne | Description | 
 |--------|-------------|
-| NOM | Nom de l’hôte. |
+| Name | Nom de l’hôte. |
 | Statut | Vue Kubernetes de l’état du nœud. |
 | Min&nbsp;%, Avg&nbsp;% (Moy %), 50th&nbsp;% (50e %), 90th&nbsp;% (90e %), 95th&nbsp;% (95e %), Max&nbsp;%  | Pourcentage moyen du nœud basé sur le centile durant la période spécifiée. |
 | Min, Avg (Moy), 50th (50e), 90th (90e), 95th (95e), Max | Valeur réelle moyenne des nœuds basée sur le centile durant la période spécifiée. La valeur moyenne est mesurée à partir de la limite de processeur/mémoire définie pour un nœud. Pour les pods et les conteneurs, il s’agit de la valeur moyenne indiquée par l’hôte. |
 | Containers | Nombre de conteneurs. |
 | Uptime | Indique le temps écoulé depuis le démarrage ou le redémarrage d’un nœud. |
-| Controller | Uniquement pour les conteneurs et les pods. Indique le contrôleur dans lequel l’élément réside. Les pods ne figurent pas tous dans un contrôleur, certains peuvent donc afficher la mention **N/A** (non applicable). | 
+| Contrôleur | Uniquement pour les conteneurs et les pods. Indique le contrôleur dans lequel l’élément réside. Les pods ne figurent pas tous dans un contrôleur, certains peuvent donc afficher la mention **N/A** (non applicable). | 
 | Tendance Min&nbsp;%, Avg&nbsp;% (Moy %), 50th&nbsp;% (50e %), 90th&nbsp;% (90e %), 95th&nbsp;% (95e %), Max&nbsp;% | La tendance du graphique à barres indique la métrique de centile en pourcentage du contrôleur. |
 
 Dans le sélecteur, sélectionnez **Controllers** (Contrôleurs).
@@ -230,7 +227,7 @@ Les informations qui sont affichées dans les contrôleurs sont décrites dans l
 
 | Colonne | Description | 
 |--------|-------------|
-| NOM | Nom du contrôleur.|
+| Name | Nom du contrôleur.|
 | Statut | Statut du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournis dans le tableau suivant.|
 | Min&nbsp;%, Avg&nbsp;% (Moy %), 50th&nbsp;% (50e %), 90th&nbsp;% (90e %), 95th&nbsp;% (95e %), Max&nbsp;%| Moyenne cumulée du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
 | Min, Avg (Moy), 50th (50e), 90th (90e), 95th (95e), Max  | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |
@@ -267,7 +264,7 @@ Les informations qui sont affichées dans les conteneurs sont décrites dans le 
 
 | Colonne | Description | 
 |--------|-------------|
-| NOM | Nom du contrôleur.|
+| Name | Nom du contrôleur.|
 | Statut | Statut des conteneurs, le cas échéant. Des détails supplémentaires sur l’icône d’état sont fournis dans le tableau ci-dessous.|
 | Min&nbsp;%, Avg&nbsp;% (Moy %), 50th&nbsp;% (50e %), 90th&nbsp;% (90e %), 95th&nbsp;% (95e %), Max&nbsp;% | Cumul du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
 | Min, Avg (Moy), 50th (50e), 90th (90e), 95th (95e), Max | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |

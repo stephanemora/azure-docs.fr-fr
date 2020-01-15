@@ -1,25 +1,14 @@
 ---
-title: Afficher des journaux d’activité de conteneurs dans Azure Service Fabric | Microsoft Docs
+title: Afficher des journaux d’activité de conteneurs dans Azure Service Fabric
 description: Décrit comment afficher des fichiers journaux d’activité de conteneurs de services Service Fabric en cours d’exécution à l’aide de Service Fabric Explorer.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/15/2018
-ms.author: atsenthi
-ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c47a408b272f95dbfcf3d791c644bfeb52254a72
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832621"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458186"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Afficher les fichiers journaux d’activité d’un service de conteneurs Service Fabric
 Azure Service Fabric, qui est un orchestrateur de conteneurs, prend en charge les [conteneurs Linux et Windows](service-fabric-containers-overview.md).  Cet article décrit comment afficher les fichiers journaux d’activité de conteneurs d’un service de conteneurs en cours d’exécution ou d’un conteneur mort, de manière à pouvoir diagnostiquer et résoudre les problèmes.
@@ -44,7 +33,7 @@ Pour aider à diagnostiquer les échecs de démarrage du conteneur, Service Fabr
 
 Le paramètre **ContainersRetentionCount** spécifie le nombre de conteneurs à conserver en cas d’échec. Si une valeur négative est spécifiée, tous les conteneurs en échec sont conservés. Quand l’attribut **ContainersRetentionCount** n’est pas spécifié, aucun conteneur n’est conservé. L’attribut **ContainersRetentionCount** prend également en charge les paramètres de l’application. Les utilisateurs peuvent ainsi spécifier des valeurs différentes pour les clusters de test et de production. Utilisez des contraintes de placement pour cibler le service conteneur sur un nœud particulier lors de l’utilisation de cette fonctionnalité pour empêcher le service conteneur de se déplacer vers d’autres nœuds. Tous les conteneurs conservés à l’aide de cette fonctionnalité doivent être supprimés manuellement.
 
-Le paramètre **RunInteractive** correspond aux [indicateurs](https://docs.docker.com/engine/reference/commandline/run/#options) `--interactive` et `tty` de Docker. Quand ce paramètre a la valeur true dans le fichier manifeste, ces indicateurs sont utilisés pour démarrer le conteneur.  
+Le paramètre **RunInteractive** correspond aux [indicateurs](https://docs.docker.com/engine/reference/commandline/run/#options)`--interactive` et `tty` de Docker. Quand ce paramètre a la valeur true dans le fichier manifeste, ces indicateurs sont utilisés pour démarrer le conteneur.  
 
 ### <a name="rest"></a>REST
 Utilisez l’opération [Obtenir les journaux d’activité de conteneur déployés sur le nœud](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) afin d’obtenir les journaux d’activité pour un conteneur planté. Spécifiez le nom du nœud sur lequel le conteneur s’exécutait, le nom de l’application, le nom du manifeste de service et le nom du package de code.  Spécifiez `&Previous=true`. La réponse contiendra les journaux d’activité du conteneur mort de l’instance de package de code.

@@ -11,12 +11,12 @@ ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 28d239d47b46a5aafdf65c72ef826a0efb79f52b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 76a77c1833ae1827f2a6a9b577b3cca51b35a344
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974631"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351424"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Importance de la charge de travail dans Azure SQL Data Warehouse
 
@@ -38,13 +38,13 @@ Au-delà du scénario avec importance de base décrit ci-dessus et portant sur d
 
 ### <a name="locking"></a>Verrouillage
 
-L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requièrent des verrous avec élévation de privilèges.  Sans importance des charges de travail, SQL Data Warehouse optimise le débit.  Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt.  Une fois l’importance de la charge de travail appliquée aux requêtes avec des besoins de verrouillage plus élevés, les requêtes avec une importance plus élevée sont exécutées avant celles ayant une importance moindre.
+L'accès aux verrous des activités de lecture et d’écriture est un point de contention naturelle. Des activités telles que le [basculement des partitions](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql?view=azure-sqldw-latest) requièrent des verrous avec élévation de privilèges.  Sans importance des charges de travail, SQL Data Warehouse optimise le débit. Il y a optimisation du débit lorsque les requêtes en cours d'exécution et en file d'attente présentent les mêmes besoins de verrouillage en présence de ressources disponibles, et que les requêtes en file d'attente peuvent contourner les requêtes présentant des besoins de verrouillage plus élevés que celles arrivées dans la file d'attente plus tôt. L'importance des charges de travail est appliquée aux requêtes présentant des besoins de verrouillage plus élevés. Les requêtes présentant une importance plus élevée sont exécutées avant les requêtes présentant une plus faible importance.
 
-Considérez l'exemple suivant :
+Prenons l’exemple suivant :
 
-Q1 est en cours d’exécution et sélectionne des données dans SalesFact.
-Q2 est en file d’attente en attendant que Q1 se termine.  Cette requête a été soumise à 9h00 et tente de procéder au basculement des partitions de nouvelles données dans SalesFact.
-Q3 est soumise à 9h01 et souhaite sélectionner des données dans SalesFact.
+- Q1 est en cours d’exécution et sélectionne des données dans SalesFact.
+- Q2 est en file d’attente en attendant que Q1 se termine.  Cette requête a été soumise à 9h00 et tente de procéder au basculement des partitions de nouvelles données dans SalesFact.
+- Q3 est soumise à 9h01 et souhaite sélectionner des données dans SalesFact.
 
 Si Q2 et Q3 présentent la même importance, Q1 continue de s'exécuter et Q3 va commencer à s'exécuter. Q2 continue d'attendre un verrou exclusif sur SalesFact.  Si Q2 présente une importance plus élevée que Q3, Q3 attend que Q2 ait terminé avant de commencer à s'exécuter.
 
@@ -54,9 +54,9 @@ Les requêtes soumises avec différentes classes de ressources sont un autre exe
   
 Considérez l'exemple suivant sur DW500c :
 
-Q1, Q2, Q3 et Q4 exécutent des requêtes smallrc.
-Q5 est soumise avec la classe de ressources mediumrc à 9h00.
-Q6 est soumise avec la classe de ressources smallrc à 9h01.
+- Q1, Q2, Q3 et Q4 exécutent des requêtes smallrc.
+- Q5 est soumise avec la classe de ressources mediumrc à 9h00.
+- Q6 est soumise avec la classe de ressources smallrc à 9h01.
 
 La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements de concurrence. Q5 doit attendre la fin de deux requêtes.  Cela étant, lorsqu’une des requêtes en cours d’exécution (Q1 à Q4) se termine, Q6 est immédiatement planifiée, car les ressources permettent son exécution.  Si Q5 présente une importance plus élevée que Q6, Q6 attend la fin de Q5 pour commencer à s'exécuter.
 
@@ -64,6 +64,6 @@ La classe de ressources de Q5 étant mediumrc, elle nécessite deux emplacements
 
 - Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Pour plus d’informations sur la classification de la charge de travail Azure SQL Data Warehouse, consultez [Classification de la charge de travail](sql-data-warehouse-workload-classification.md).  
-- Pour savoir comment créer un classifieur de charge de travail, consultez le démarrage rapide [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md).
+- Pour savoir comment créer un classifieur de charge de travail, consultez le démarrage rapide [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md). 
 - Consultez les articles qui expliquent comment [Configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [Gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) pour voir les requêtes et l’importance attribuée.

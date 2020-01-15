@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: enewman
-ms.openlocfilehash: b69abf098ba7646ebc98d126c7c0d949205d6275
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 5bf54b6975475810650aeaee4b477e60255757bf
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383974"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530678"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Configurer un laboratoire pour enseigner la science des données avec Python et Jupyter Notebooks
 
@@ -46,13 +46,13 @@ Utilisez les paramètres du tableau ci-dessous lors de la configuration d’un l
 | Paramètres du labo | Valeur/instructions |
 | ------------ | ------------------ |
 |Taille de la machine virtuelle| GPU de petite taille (calcul). Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l’intelligence artificielle et le deep learning. |
-|Image de machine virtuelle| SQL Server 2019 Standard sur Windows Server 2019|
+|Image de machine virtuelle| Data Science Virtual Machine – Windows 2016|
 
 ## <a name="template-machine"></a>Machine modèle
 
 L’image [Data Science Virtual Machine - Windows 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) fournit les outils et infrastructures de Deep Learning nécessaires pour ce type de cours.  L’image comprend Jupyter Notebooks et Visual Studio Code.  [Jupyter Notebooks](http://jupyter-notebook.readthedocs.io) est une application web qui permet aux scientifiques des données de prendre des données brutes, d’exécuter des calculs et de voir les résultats dans le même environnement.  Pour notre machine modèle, l’application web s’exécutera localement.  [Visual Studio Code](https://code.visualstudio.com/) est un IDE qui offre une expérience interactive riche lors de l’écriture et du test d’un notebook.  Pour plus d’informations, consultez [Utilisation de Jupyter Notebooks dans Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support).
 
-La tâche restante pour configurer la classe consiste à fournir des notebooks locaux.  Pour obtenir des instructions sur l’utilisation des exemples Azure Machine Learning, consultez [Comment configurer un environnement avec Jupyter Notebooks](../../machine-learning/service/how-to-configure-environment.md#jupyter).  Vous pouvez également fournir vos propres notebooks sur la machine modèle.  Les notebooks seront copiés sur tous les ordinateurs des étudiants lors de la publication du modèle.
+La tâche restante pour configurer la classe consiste à fournir des notebooks locaux.  Pour obtenir des instructions sur l’utilisation des exemples Azure Machine Learning, consultez [Comment configurer un environnement avec Jupyter Notebooks](../../machine-learning/how-to-configure-environment.md#jupyter).  Vous pouvez également fournir vos propres notebooks sur la machine modèle.  Les notebooks seront copiés sur tous les ordinateurs des étudiants lors de la publication du modèle.
 
 ## <a name="cost-estimate"></a>Estimation du coût
 

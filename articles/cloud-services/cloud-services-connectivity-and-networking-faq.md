@@ -1,5 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) concernant les problèmes de connectivité et de mise en réseau pour Microsoft Azure Cloud Services | Microsoft Docs
+title: Problèmes de connectivité et de mise en réseau
+titleSuffix: Azure Cloud Services
 description: Cet article répertorie les questions fréquentes sur la connectivité et la mise en réseau pour Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: c6d470b9c14f53558d09e6876701cb25ddc15183
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386746"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -109,7 +110,7 @@ Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL e
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Comment utiliser des réseaux virtuels Azure Resource Manager avec des services cloud ?
 
-Des services cloud ne peuvent pas être placés dans des réseaux virtuels Azure Resource Manager. Des réseaux virtuels Resource Manager et réseaux virtuels de déploiement classiques peuvent être connectés par le biais d’une homologation. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+Des services cloud ne peuvent pas être placés dans des réseaux virtuels Azure Resource Manager. Des réseaux virtuels Resource Manager et réseaux virtuels de déploiement classiques peuvent être connectés par le biais d’un peering. Pour en savoir plus, consultez [Peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
 
 
 ## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Comment puis-je obtenir la liste des adresses IP publiques utilisées par mes services cloud ?

@@ -1,20 +1,22 @@
 ---
-title: Installer des packages dans un bloc-notes Jupyter sur Azure
-description: Guide pratique pour installer des packages Python, R et F# à partir d’un bloc-notes Jupyter en cours d’exécution sur Azure.
-ms.topic: article
+title: Installer des packages dans des blocs-notes Jupyter – Version préliminaire d’Azure Notebooks
+description: Découvrez comment installer des packages Python, R et F# à partir d’un bloc-notes Jupyter en cours d’exécution sur Azure.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 5d85c8e936ce7c8bf38ec7bc9c27d9066cc8b155
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277545"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646226"
 ---
-# <a name="install-packages-from-within-a-notebook"></a>Installer des packages à partir d’un bloc-notes
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installer des packages à partir de la version préliminaire d’Azure Notebooks
 
 Bien qu’il soit possible de configurer [l’environnement pour un notebook au niveau du projet](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), il peut se révéler intéressant d’installer directement des packages dans un bloc-notes en particulier.
 
 Les packages installés à partir du bloc-notes s’appliquent uniquement à la session de serveur active. Les installations de packages ne sont pas conservées une fois le serveur arrêté.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
@@ -66,12 +68,12 @@ Chargez ensuite le générateur Paket :
 #load "Paket.Generated.Refs.fsx"
 ```
 
-Ouvrez la bibliothèque :
+Ouvrez la bibliothèque :
 ```fsharp
 open MathNet.Numerics
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
-- [Guide pratique : Présenter un diaporama](present-jupyter-notebooks-slideshow.md)
+- [Procédure : configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
+- [Procédure : présenter un diaporama](present-jupyter-notebooks-slideshow.md)

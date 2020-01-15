@@ -3,18 +3,18 @@ title: Communication pour les rôles dans les services cloud | Microsoft Docs
 description: Dans Cloud Services, des points de terminaison (http, https, tcp, udp) peuvent être associés aux instances de rôle pour faciliter la communication avec l’extérieur ou entre instances de rôle.
 services: cloud-services
 documentationcenter: ''
-author: georgewallace
+author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.topic: article
 ms.date: 12/14/2016
-ms.author: gwallace
-ms.openlocfilehash: 74ef5567becee27b4af837a6977119d7cf0f3e4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.author: tagore
+ms.openlocfilehash: 094e08becf4f3a60c98d89bfae7e7c3a69b677f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359085"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386338"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.
@@ -215,7 +215,7 @@ namespace WorkerRole1
 ## <a name="network-traffic-rules-to-control-role-communication"></a>Règles de trafic réseau pour contrôler la communication entre les rôles
 Après avoir défini les points de terminaison internes, vous pouvez ajouter des règles de trafic réseau (basées sur les points de terminaison que vous avez créés) pour contrôler la façon dont les instances de rôle peuvent communiquer entre elles. Le diagramme suivant montre quelques scénarios courants relatifs au contrôle de la communication entre les rôles :
 
-![Scénarios et règles de trafic du réseau](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scénarios et règles de trafic du réseau")
+![Scénarios de règles de trafic réseau](./media/cloud-services-enable-communication-role-instances/scenarios.png "Scénarios de règles de trafic réseau")
 
 L’exemple de code suivant montre des définitions de rôles pour les rôles illustrés dans le diagramme précédent. Chaque définition de rôle inclut au moins un point de terminaison interne défini :
 
@@ -274,7 +274,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### <a name="scenario-2"></a>Scénario 2
+### <a name="scenario-2"></a>Scénario 2
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et **WorkerRole2**.
 
 ```xml
@@ -322,7 +322,7 @@ Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1** et de 
 </ServiceDefinition>
 ```
 
-### <a name="scenario-4"></a>Scénario 4
+### <a name="scenario-4"></a>Scénario 4
 Autoriser uniquement le trafic réseau de **WebRole1** à **WorkerRole1**, de **WebRole1** à **WorkerRole2** et de **WorkerRole1** à **WorkerRole2**.
 
 ```xml
@@ -367,4 +367,7 @@ Vous trouverez une référence de schéma XML pour les éléments ci-dessus [ici
 
 ## <a name="next-steps"></a>Étapes suivantes
 En savoir plus sur le [modèle](cloud-services-model-and-package.md)de service cloud.
+
+
+
 

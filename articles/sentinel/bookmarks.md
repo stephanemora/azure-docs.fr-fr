@@ -1,27 +1,21 @@
 ---
-title: Suivi des données lors du repérage dans Azure Sentinel à l’aide de signets de repérage | Microsoft Docs
+title: Utiliser des signets de repérage pour les investigations de données dans Azure Sentinel
 description: Cet article décrit comment utiliser les signets de repérage d’Azure Sentinel pour effectuer le suivi des données.
-services: sentinel
-documentationcenter: na
 author: cabailey
+ms.author: cabailey
 manager: rkarlin
-editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/24/2019
-ms.author: cabailey
-ms.openlocfilehash: f4714dd09ada01f1adaa9081819e836601599a53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 457898e257aa7a347ff99d0987c5ad594637b5f4
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935332"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563732"
 ---
 # <a name="keep-track-of-data-during-hunting-with-azure-sentinel"></a>Suivi des données lors du repérage avec Azure Sentinel
 
@@ -158,5 +152,5 @@ La suppression du signet supprime le signet de la liste dans l’onglet **Signet
 Dans cet article, vous avez appris à exécuter un examen de repérage à l’aide de signets dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 
-- [Proactively hunt for threats](hunting.md) (Rechercher des menaces de façon proactive)
-- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des blocs-notes pour exécuter des campagnes de repérage automatisées)
+- [Hunt for threats with in Azure Sentinel Preview](hunting.md) (Rechercher des menaces dans Azure Sentinel en préversion)
+- [Use notebooks to run automated hunting campaigns](notebooks.md) (Utiliser des notebooks pour exécuter des campagnes de repérage automatisées)
