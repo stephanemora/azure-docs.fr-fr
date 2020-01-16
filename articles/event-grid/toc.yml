@@ -2,7 +2,7 @@
   href: index.yml
 - name: Basculer vers la documentation Event Grid sur IoT Edge
   href: edge/pub-sub-events-webhook-local.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Event Grid\_?"
       href: overview.md
@@ -19,6 +19,9 @@
           href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Portail
           href: blob-event-quickstart-portal.md
+        - name: Modèle
+          displayName: 'arm, resource manager template'
+          href: blob-event-quickstart-template.md
     - name: Événements personnalisés
       items:
         - name: Azure CLI
