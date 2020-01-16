@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: 9f7d3fb5363a5eb2d79287bc9a9398bfdcbc4aec
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087822"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895381"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problèmes de pulsations Apache Ambari dans Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
-## <a name="scenario-high-cpu-utilization"></a>Scénario : Utilisation élevée du processeur
+## <a name="scenario-high-cpu-utilization"></a>Scénario : Utilisation élevée du processeur
 
 ### <a name="issue"></a>Problème
 
@@ -28,7 +28,7 @@ L’agent Ambari a une utilisation élevée du processeur, ce qui génère dans 
 
 En raison de divers bogues, dans de rares cas, votre agent Ambari peut avoir un pourcentage élevé (proche de 100) d’utilisation du processeur.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Identifiez l’ID de processus (PID) de l’agent Ambari :
 
@@ -57,7 +57,7 @@ En raison de divers bogues, dans de rares cas, votre agent Ambari peut avoir un 
 
 ---
 
-## <a name="scenario-ambari-agent-not-started"></a>Scénario : Agent Ambari non démarré
+## <a name="scenario-ambari-agent-not-started"></a>Scénario : Agent Ambari non démarré
 
 ### <a name="issue"></a>Problème
 
@@ -67,7 +67,7 @@ L’agent Ambari n’a pas démarré, ce qui génère dans l’interface utilisa
 
 Les alertes sont provoquées par l’agent Ambari qui n’est pas en cours d’exécution.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Confirmez l’état de l’agent Ambari :
 
@@ -93,4 +93,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

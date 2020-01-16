@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint Services partagés ISO 27001
 description: Étapes de déploiement pour l’exemple de blueprint Services partagés ISO 27001 et informations détaillées sur les paramètres d’artefact de blueprint.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 1ef96a3ccffa705290a90caf436fe1857d9442a7
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a9dabc99469321445006e449757a10fbc51aba87
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546706"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920693"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de blueprint Services partagés ISO 27001
 
@@ -111,12 +111,12 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Références SKU de compte de stockage autorisées|Affectation de rôle|Références SKU de stockage autorisées|Liste des références SKU de compte de stockage de journaux de diagnostic autorisées. La valeur par défaut est _["Standard_LRS"]_ .|
 |Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste des références SKU de machine virtuelle autorisées à être déployées. La valeur par défaut est _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
 |Initiative de blueprint pour ISO 27001|Affectation de rôle|Types de ressources utilisés pour auditer les journaux de diagnostic|Liste des types de ressources utilisés pour déterminer si le paramètre de journal de diagnostic n’est pas activé. Les valeurs acceptables sont listées dans les [schémas de journaux de diagnostic Azure Monitor](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|Groupe de ressources Log Analytics|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvsc-log-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Log Analytics|Resource group|Name|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvsc-log-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Log Analytics|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Log Analytics|Modèle Resource Manager|Niveau de service|Définit le niveau de l’espace de travail Log Analytics. La valeur par défaut est _PerNode_.|
 |Modèle Log Analytics|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Log Analytics|Modèle Resource Manager|Location|Région utilisée pour créer l’espace de travail Log Analytics. La valeur par défaut est _USA Ouest 2_.|
-|Groupe de ressources réseau|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-net-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources réseau|Resource group|Name|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-net-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources réseau|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Pare-feu Azure|Modèle Resource Manager|Adresse IP privée de pare-feu Azure|Configure l’adresse IP privée du [pare-feu Azure](../../../../firewall/overview.md). Cette valeur est également utilisée comme table de routage par défaut sur le sous-réseau des services partagés. Doit faire partie de la notation CIDR définie dans **Préfixe d’adresse de sous-réseau de Pare-feu Azure**. La valeur par défaut est _10.0.4.4_.|
 |Modèle Pare-feu Azure|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
@@ -128,7 +128,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau Application Gateway|Notation CIDR du sous-réseau de la passerelle d’application. La valeur par défaut est _10.0.2.0/24_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau de passerelle de réseau virtuel|Notation CIDR du sous-réseau de la passerelle de réseau virtuel. La valeur par défaut est _10.0.3.0/24_.|
 |Modèle Réseau virtuel et table de routage|Modèle Resource Manager|Préfixe d’adresse de sous-réseau de Pare-feu Azure|Notation CIDR du sous-réseau du [pare-feu Azure](../../../../firewall/overview.md). Doit inclure le paramètre **Adresse IP privée de pare-feu Azure**.|
-|Groupe de ressources Key Vault|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-kv-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Key Vault|Resource group|Name|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-kv-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Key Vault|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Key Vault|Modèle Resource Manager|Nom d’utilisateur de l’administrateur Jumpbox|Nom d’utilisateur de Jumpbox. Doit correspondre à la valeur de propriété du **modèle Jumpbox**. La valeur par défaut est _jb-admin-user_.|
 |Modèle Key Vault|Modèle Resource Manager|Mot de passe ou clé SSH de l’administrateur Jumpbox|Clé ou mot de passe du compte sur Jumpbox. Doit correspondre à la valeur de propriété du **modèle Jumpbox**. N’a pas de valeur par défaut et ne peut pas être vide.|
@@ -137,13 +137,13 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Modèle Key Vault|Modèle Resource Manager|ID d’objet AAD|Identificateur d’objet AAD du compte qui nécessite l’accès à l’instance Key Vault. N’a pas de valeur par défaut et ne peut pas être vide. Pour localiser cette valeur à partir du portail Azure, recherchez et sélectionnez « Utilisateurs » sous _Services_. Utilisez la zone _Nom_ pour filtrer le nom du compte, puis sélectionnez ce compte. Dans la page _Profil utilisateur_, sélectionnez l’icône « Cliquez pour copier » à côté de l’_ID d’objet_.  |
 |Modèle Key Vault|Modèle Resource Manager|Conservation du journal en jours|Conservation des données en jours. La valeur par défaut est _365_.|
 |Modèle Key Vault|Modèle Resource Manager|Référence SKU du coffre de clés|Spécifie la référence SKU du coffre de clés créé. La valeur par défaut est _Premium_.|
-|Groupe de ressources Jumpbox|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-jb-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Jumpbox|Resource group|Name|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-jb-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Jumpbox|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Jumpbox|Modèle Resource Manager|Nom d’utilisateur de l’administrateur Jumpbox|Nom d’utilisateur utilisé pour accéder aux machines virtuelles Jumpbox. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _jb-admin-user_.|
 |Modèle Jumpbox|Modèle Resource Manager|Mot de passe d’administrateur Jumpbox (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|
 |Modèle Jumpbox|Modèle Resource Manager|Mot de passe d’administrateur Jumpbox (Nom du secret Key Vault)|Nom d’utilisateur de l’administrateur Jumpbox. Doit correspondre à la valeur de la propriété **Modèle Key Vault** **Nom d’utilisateur de l’administrateur Jumpbox**.|
 |Modèle Jumpbox|Modèle Resource Manager|Système d’exploitation de Jumpbox|Détermine le système d’exploitation de la machine virtuelle Jumpbox. La valeur par défaut est _Windows_.|
-|Groupe de ressources Active Directory Domain Services|Resource group|Nom|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-adds-rg` pour rendre le groupe de ressources unique.|
+|Groupe de ressources Active Directory Domain Services|Resource group|Name|**Verrouillé** : concatène le **nom de l’organisation** et `-sharedsvcs-adds-rg` pour rendre le groupe de ressources unique.|
 |Groupe de ressources Active Directory Domain Services|Resource group|Location|**Verrouillé** : utilise le paramètre du blueprint.|
 |Modèle Active Directory Domain Services|Modèle Resource Manager|Nom d’utilisateur de l’administrateur de domaine|Nom d’utilisateur de Jumpbox ADDS. Doit correspondre à la valeur de propriété du **modèle Key Vault**. La valeur par défaut est _adds-admin-user_.|
 |Modèle Active Directory Domain Services|Modèle Resource Manager|Mot de passe d’administrateur de domaine (ID de ressource Key Vault)|ID de ressource du coffre de clés. Utilisez « /subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv » et remplacez `{subscriptionId}` par votre ID d’abonnement et `{orgName}` par le paramètre de blueprint **Nom de l’organisation**.|

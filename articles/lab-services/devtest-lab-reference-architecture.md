@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647898"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982115"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Architecture de référence Azure DevTest Labs pour les entreprises
 Cet article décrit l’architecture de référence vous permettant de déployer une solution basée sur Azure DevTest Labs dans une entreprise. Les éléments suivants sont abordés :
@@ -56,7 +56,7 @@ Bien que DevTest Labs n’intègre pas de quotas ou de limites, les autres resso
 - **Ressources par groupe de ressources par type de ressource** : le nombre maximal par défaut des [ressources par groupe de ressources et par type de ressources est fixé à 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Lorsque vous utilisez la configuration *Toutes les machines virtuelles de la même taille et de la même région sont regroupées dans le même groupe de ressources*, les utilisateurs atteignent cette limite d’abonnement d’autant plus vite que les machines virtuelles possèdent un grand nombre de disques supplémentaires.
 - **Comptes de stockage** : un labo de DevTest Labs est livré avec un compte de stockage. Le quota Azure pour le [nombre de comptes de stockage par région par abonnement est de 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). Le nombre maximum de DevTest Labs dans la même région s’élève également à 250.
 - **Affectations de rôles** : un attribution de rôle est la façon dont vous donnez l’accès à une ressource (niveau propriétaire, ressource, autorisation) à un utilisateur ou un principal. Azure prend en charge jusqu’à [2 000 attributions de rôle par abonnement](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits). Par défaut, le service DevTest Labs crée un groupe de ressources pour chaque machine virtuelle. Le propriétaire reçoit l’autorisation *propriétaire* pour la machine virtuelle DevTest Labs, et l’autorisation *lecteur* pour le groupe de ressources. De cette façon, chaque nouvelle machine virtuelle que vous créez utilise deux affectations de rôle en plus de celles qui sont utilisées lorsque vous donnez aux utilisateurs l’autorisation d’accès au labo.
-- **Lectures/écritures d’API** : il existe plusieurs façons d’automatiser Azure et DevTest Labs, notamment les API REST, PowerShell, Azure CLI et le SDK Azure. Grâce à l’automatisation, vous pourriez atteindre une autre limite sur les requêtes d’API : chaque abonnement autorise jusqu’à [12 000 demandes de lecture et 1 200 demandes d’écriture par heure](../azure-resource-manager/resource-manager-request-limits.md). Soyez conscient de cette limite lorsque vous automatisez DevTest Labs.
+- **Lectures/écritures d’API** : il existe plusieurs façons d’automatiser Azure et DevTest Labs, notamment les API REST, PowerShell, Azure CLI et le SDK Azure. Grâce à l’automatisation, vous pourriez atteindre une autre limite sur les requêtes d’API : chaque abonnement autorise jusqu’à [12 000 demandes de lecture et 1 200 demandes d’écriture par heure](../azure-resource-manager/management/request-limits-and-throttling.md). Soyez conscient de cette limite lorsque vous automatisez DevTest Labs.
 
 ## <a name="manageability-considerations"></a>Considérations relatives à la facilité de gestion
 DevTest Labs dispose d’une excellente interface utilisateur d’administration pour travailler avec un seul labo. Cependant, dans une entreprise, vous avez probablement plusieurs abonnements Azure et de nombreux labos. Un script/un processus d’automatisation est nécessaire pour apporter des modifications à tous vos labos de manière cohérente. Voici quelques exemples et meilleures pratiques de gestion pour un déploiement DevTest Labs :

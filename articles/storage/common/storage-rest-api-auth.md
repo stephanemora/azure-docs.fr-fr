@@ -10,26 +10,26 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895174"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965716"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Appeler des opérations de l’API REST avec l’autorisation de clé partagée
 
 Cet article explique comment appeler les API REST Stockage Azure, et comment former l'en-tête d'autorisation. Il est écrit du point de vue d’un développeur qui n’a aucune connaissance sur REST et sur la manière de passer un appel REST. Après avoir appris à appeler une opération REST, vous pouvez tirer parti de vos connaissances pour utiliser n'importe quelle autre opération REST Stockage Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-L'exemple d'application dresse la liste des conteneurs d'objets blob d'un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants : 
+L'exemple d'application dresse la liste des conteneurs d'objets blob d'un compte de stockage. Pour tester le code de cet article, vous avez besoin des éléments suivants :
 
 - Installez [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) avec la charge de travail **Développement Azure**.
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Un compte de stockage à usage général. Si vous ne possédez pas encore de compte de stockage, consultez [Création d’un compte de stockage](storage-quickstart-create-account.md).
+- Un compte de stockage à usage général. Si vous ne possédez pas encore de compte de stockage, consultez [Création d’un compte de stockage](storage-account-create.md).
 
 - L’exemple dans cet article illustre comment répertorier les conteneurs dans un compte de stockage. Pour voir la sortie, ajoutez des conteneurs au Stockage Blob dans le compte de stockage avant de commencer.
 
@@ -43,7 +43,7 @@ Utilisez [git](https://git-scm.com/) pour télécharger une copie de l’applica
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la solution Visual Studio, recherchez le dossier storage-dotnet-rest-api-with-auth, ouvrez-le et double-cliquez sur StorageRestApiAuth.sln. 
+Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir la solution Visual Studio, recherchez le dossier storage-dotnet-rest-api-with-auth, ouvrez-le et double-cliquez sur StorageRestApiAuth.sln.
 
 ## <a name="about-rest"></a>À propos de REST
 
@@ -93,16 +93,16 @@ Pour utiliser d’autres paramètres, ajoutez-les à la chaîne de ressource ave
 
 Dans notre exemple de projet, le code pour créer l’en-tête d’autorisation se trouve dans une autre classe. L’idée est que vous pourriez prendre l’ensemble de la classe, l’ajouter à votre propre solution et l’utiliser « tel quel ». Le code d’en-tête Autorisation fonctionne pour la plupart des appels d’API REST au Stockage Azure.
 
-Pour générer la requête, qui est un objet HttpRequestMessage, accédez à ListContainersAsyncREST dans Program.cs. Les étapes de génération de la requête sont les suivantes : 
+Pour générer la requête, qui est un objet HttpRequestMessage, accédez à ListContainersAsyncREST dans Program.cs. Les étapes de génération de la requête sont les suivantes :
 
-- Créez l’URI à utiliser pour appeler le service. 
+- Créez l’URI à utiliser pour appeler le service.
 - Créez l’objet HttpRequestMessage et définissez la charge utile. La charge utile a la valeur null pour ListContainersAsyncREST car nous ne transmettons rien.
 - Ajoutez les en-têtes de la requête pour x-ms-date et x-ms-version.
 - Obtenez l’en-tête d’autorisation et ajoutez-le.
 
-Informations de base dont vous avez besoin : 
+Informations de base dont vous avez besoin :
 
-- Pour ListContainers, la **méthode** est `GET`. Cette valeur est définie lorsque la requête est instanciée. 
+- Pour ListContainers, la **méthode** est `GET`. Cette valeur est définie lorsque la requête est instanciée.
 - La **ressource** est la partie de requête de l’URI qui indique quelle API est appelée, donc la valeur est `/?comp=list`. Comme indiqué précédemment, la ressource se trouve sur la page de documentation de référence qui affiche les informations sur [l’API ListContainers](/rest/api/storageservices/List-Containers2).
 - L’URI est construit en créant le point de terminaison du service Blob pour ce compte de stockage et en concaténant la ressource. La valeur de **l’URI de requête** devient `http://contosorest.blob.core.windows.net/?comp=list`.
 - Pour ListContainers, **requestBody** a la valeur null et il n’y a aucun **en-tête** supplémentaire.
@@ -160,7 +160,7 @@ Maintenant que vous avez construit la demande, vous pouvez appeler la méthode S
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ Commençons par ces deux champs rendus canoniques, car ils sont obligatoires pou
 
 ### <a name="canonicalized-headers"></a>En-têtes rendus canoniques
 
-Pour créer cette valeur, récupérez les en-têtes qui commencent par « x-ms- » et triez-les, puis mettez-les en forme de chaîne d’instances `[key:value\n]`, concaténées en une seule chaîne. Pour cet exemple, les en-têtes rendus canoniques ressemblent à ce qui suit : 
+Pour créer cette valeur, récupérez les en-têtes qui commencent par « x-ms- » et triez-les, puis mettez-les en forme de chaîne d’instances `[key:value\n]`, concaténées en une seule chaîne. Pour cet exemple, les en-têtes rendus canoniques ressemblent à ce qui suit :
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 Voici le code utilisé pour créer cette sortie :
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -431,7 +431,7 @@ AuthorizationHeader est le dernier en-tête placé dans les en-têtes de la requ
 
 Ceci conclut tout ce que vous devez savoir pour créer une classe grâce à laquelle vous pouvez créer une requête pour appeler les API REST des services Stockage.
 
-## <a name="example-list-blobs"></a>Exemple : Liste des objets blob
+## <a name="example-list-blobs"></a>Exemple : Liste des objets blob
 
 Voyons comment modifier le code afin d'appeler l'opération List Blobs pour le conteneur *container-1*. Ce code est presque identique au code utilisé pour lister les conteneurs, les seules différences étant l’URI et la façon d’analyser la réponse.
 
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 Dans ListContainersAsyncREST, changez le code qui définit l’URI sur l’API pour ListBlobs. Le nom du conteneur est **container-1**.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Corps de la réponse (XML) :** Cette réponse XML affiche la liste des objets Blob et leurs propriétés. 
+**Corps de la réponse (XML) :** Cette réponse XML affiche la liste des objets Blob et leurs propriétés.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

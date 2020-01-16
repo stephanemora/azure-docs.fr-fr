@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931406"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930727"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modèle de facturation pour Azure Active Directory B2C
 
@@ -82,7 +82,7 @@ Le lien de l’abonnement est obtenu en créant une *ressource* Azure AD B2C dan
 
 Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la facturation de l’utilisation d’Azure AD B2C ou d’autres ressources Azure, y compris des ressources Azure AD B2C supplémentaires. Il ne peut pas être utilisé pour ajouter d’autres services Azure basés sur une licence ou des licences Office 365 au sein du locataire Azure AD B2C.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * [Abonnement Azure](https://azure.microsoft.com/free/)
 * [Locataire Azure AD B2C](active-directory-b2c-get-started.md) que vous souhaitez lier à un abonnement
@@ -91,7 +91,7 @@ Un abonnement lié à un locataire Azure AD B2C peut être utilisé pour la fact
 
 ### <a name="create-the-link"></a>Créer le lien
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient l’abonnement Azure que vous souhaitez utiliser (et *non* votre locataire Azure AD B2C).
 1. Sélectionnez **Créer une ressource**, entrez `Active Directory B2C` dans le champ **Rechercher sur la Place de marché**, puis sélectionnez **Azure Active Directory B2C**.
 1. Sélectionnez **Créer**
@@ -134,7 +134,7 @@ La gestion d’Azure AD B2C à l’aide du contrôle d’accès en fonction du r
 
 Les locataires Azure AD B2C peuvent être déplacés vers un autre abonnement si les abonnements source et de destination existent au sein du même locataire Azure Active Directory.
 
-Pour savoir comment déplacer des ressources Azure telles que votre locataire Azure AD B2C vers un autre abonnement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
+Pour savoir comment déplacer des ressources Azure telles que votre locataire Azure AD B2C vers un autre abonnement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Avant de lancer le déplacement, veillez à lire la totalité de l’article pour bien comprendre les limitations et les exigences liées à un déplacement de ce type. En plus des instructions pour déplacer les ressources, il inclut des informations critiques, comme une check-list à consulter avant le déplacement et la validation de l’opération de déplacement.
 

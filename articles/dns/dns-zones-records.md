@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210997"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980530"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -115,7 +115,7 @@ Les chaînes multiples dans un enregistrement DNS ne doivent pas être confondue
 
 ### <a name="tags"></a>Balises
 
-Les balises sont une liste de paires nom-valeur. Azure Resource Manager les utilise pour étiqueter des ressources.  Azure Resource Manager utilise des balises pour vous permettre de générer des vues filtrées de votre facture Azure, et de définir une stratégie pour laquelle des balises sont requises. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../azure-resource-manager/resource-group-using-tags.md).
+Les balises sont une liste de paires nom-valeur. Azure Resource Manager les utilise pour étiqueter des ressources.  Azure Resource Manager utilise des balises pour vous permettre de générer des vues filtrées de votre facture Azure, et de définir une stratégie pour laquelle des balises sont requises. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](../azure-resource-manager/management/tag-resources.md).
 
 Le DNS Azure prend en charge l’utilisation de balises Azure Resource Manager sur des ressources de zone DNS.  Il ne prend pas en charge les balises sur les jeux d’enregistrements DNS, bien que l’alternative « métadonnées » soit prise en charge sur les jeux d’enregistrements DNS comme expliqué ci-dessous.
 
@@ -135,7 +135,7 @@ Au niveau de l’API REST Azure DNS, les Etags sont spécifiés à l’aide d’
 
 | En-tête | Comportement |
 | --- | --- |
-| Aucun |PUT réussit toujours (aucune vérification Etag) |
+| None |PUT réussit toujours (aucune vérification Etag) |
 | If-match \<etag> |PUT ne réussit que si la ressource existe et que l’Etag correspond |
 | If-match * |PUT réussit seulement si la ressource existe |
 | If-none-match * |PUT réussit seulement si la ressource n’existe pas |

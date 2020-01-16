@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 01/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300529"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867436"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Créer un volume SMB pour Azure NetApp Files
 
@@ -40,7 +40,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
 * Les ports appropriés doivent être ouverts sur le serveur Windows Active Directory (AD) applicable.  
     Les ports requis sont les suivants : 
 
-    |     de diffusion en continu           |     Port     |     Protocol     |
+    |     Service           |     Port     |     Protocol     |
     |-----------------------|--------------|------------------|
     |    Services web AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -56,8 +56,6 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     |    Nom NetBIOS       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    LDAP sécurisé        |    636       |    TCP           |
-    |    LDAP sécurisé        |    3269      |    TCP           |
     |    w32time            |    123       |    UDP           |
 
 * La topologie de site pour les services de domaine Active Directory ciblés doit respecter les meilleures pratiques, en particulier le réseau virtuel Azure où Azure NetApp Files est déployé.  
@@ -100,7 +98,7 @@ Un sous-réseau doit être délégué à Azure NetApp Files.
     * **Chemin d’accès de l’unité d’organisation**  
         Chemin d’accès de l’unité d’organisation (UO) où les comptes de machine du serveur SMB sont créés. Autrement dit, OU=second level, OU=first level. 
 
-        Si vous utilisez Azure NetApp files avec Azure Active Directory Domain Services, le chemin d’accès de l’unité d’organisation est `OU=AADDC Computers` lorsque vous configurez Active Directory pour votre compte NetApp.
+        Si vous utilisez Azure NetApp Files avec Azure Active Directory Domain Services, le chemin d’accès de l’unité d’organisation est `OU=AADDC Computers` lorsque vous configurez Active Directory pour votre compte NetApp.
         
     * Informations d’identification, y compris votre **nom d’utilisateur** et **mot de passe**
 

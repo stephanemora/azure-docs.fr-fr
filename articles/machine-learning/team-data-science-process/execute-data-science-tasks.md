@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0bb928fe23fcfc3580b0c3951c48f2636ab86c81
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526700"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772276"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -30,7 +30,7 @@ Les tâches courantes de science des données incluent l’exploration, la modé
 
 Un scientifique des données peut effectuer les tâches d’exploration et de création de rapports de plusieurs façons : à l’aide de bibliothèques et de packages disponibles pour Python (matplotlib, par exemple) ou de R (ggplot ou lattice, par exemple). Il peut personnaliser ce code en fonction des besoins d’exploration de données pour des scénarios spécifiques. Les contraintes liées aux données structurées diffèrent de celles liées aux données non structurées, telles que le texte ou les images. 
 
-En outre, des produits tels qu’Azure Machine Learning fournissent une [préparation avancée des données](../service/how-to-transform-data.md) pour l’exploration des données et le data wrangling, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
+En outre, des produits tels qu’Azure Machine Learning fournissent une [préparation avancée des données](../how-to-create-register-datasets.md) pour l’exploration des données et le data wrangling, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
 
 Le livrable à la fin de cette phase est un rapport d’exploration de données. Ce rapport doit fournir une vue très complète des données à utiliser pour la modélisation et une évaluation indiquant si les données sont appropriées pour passer à l’étape de modélisation. Les utilitaires TDSP (Team Data Science Process) indiqués dans les sections suivantes pour l’exploration, la modélisation et la création de rapports semi-automatiques fournissent également des rapports de modélisation et d’exploration de données standard. 
 

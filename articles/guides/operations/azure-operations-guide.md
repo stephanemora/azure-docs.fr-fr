@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693448"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970862"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -178,7 +178,7 @@ Les administrateurs peuvent accéder à Azure PowerShell et Azure CLI par l’in
 
 ## <a name="azure-subscriptions"></a>Abonnements Azure
 
-Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement et d’un Administrateur de service ayant le contrôle sur tous les services de l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../billing/billing-add-change-azure-subscription-administrator.md). En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md).
+Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement et d’un Administrateur de service ayant le contrôle sur tous les services de l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md). En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Sélectionner et activer un abonnement Azure
 
@@ -206,7 +206,7 @@ Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et 
 
 Un aspect essentiel de l’utilisation d’Azure est la possibilité d’afficher les informations de facturation. Le portail Azure fournit un aperçu détaillé des informations de facturation Azure.
 
-Pour plus d’informations, consultez [Comment télécharger votre facture Azure et vos données d’utilisation quotidienne](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Pour plus d’informations, consultez [Comment télécharger votre facture Azure et vos données d’utilisation quotidienne](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Obtenir des informations de facturation à partir des API de facturation
 
@@ -216,7 +216,7 @@ En plus de l’affichage de la facturation dans le portail, vous pouvez accéder
 
 - Vous pouvez utiliser l’API de carte de tarifs Azure pour lister toutes les ressources disponibles, ainsi que les métadonnées et les informations tarifaires de chacune de ces ressources.
 
-Pour plus d’informations, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Pour plus d’informations, consultez [Obtenir une vue d’ensemble de votre consommation des ressources Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prévoir le coût à l’aide de la calculatrice de prix
 
@@ -294,11 +294,11 @@ Pour accorder l’accès, vous assignez un rôle à l’utilisateur ou au groupe
 
 Voici quelques exemples de [rôles intégrés dans Azure](../../role-based-access-control/built-in-roles.md) :
 
-- **Propriétaire** : Un utilisateur avec ce rôle peut tout gérer, y compris l’accès.
+- **Propriétaire** : Un utilisateur avec ce rôle peut tout gérer, y compris l’accès.
 
-- **Lecteur** : Un utilisateur avec ce rôle peut lire les ressources de tous les types (à l’exception des secrets), mais ne peut pas faire de changements.
+- **Lecteur** : Un utilisateur avec ce rôle peut lire les ressources de tous les types (à l’exception des secrets), mais ne peut pas faire de changements.
 
-- **Contributeur de machine virtuelle** : Un utilisateur avec ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel auxquelles elle sont connectées, ni le compte de stockage où réside le fichier VHD.
+- **Contributeur de machine virtuelle** : Un utilisateur avec ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel auxquelles elle sont connectées, ni le compte de stockage où réside le fichier VHD.
 
 - **Contributeur de base de données SQL** : Un utilisateur avec ce rôle peut gérer des bases de données SQL, mais pas leurs stratégies de sécurité.
 
@@ -328,19 +328,19 @@ Vous pouvez déployer Machines virtuelles Azure par l’intermédiaire du portai
 
 Pour déployer une machine virtuelle en utilisant le portail Azure, vous avez besoin uniquement d’un abonnement Azure actif et d’un accès à un navigateur web. Vous pouvez sélectionner de nombreuses images de systèmes d’exploitation avec des configurations différentes. Toutes les exigences au niveau du stockage et de la mise en réseau sont configurées au cours du déploiement. Pour plus d’informations, consultez « Créer une machine virtuelle dans le portail Azure » pour [Windows](../../virtual-machines/windows/quick-create-portal.md) et [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-En plus de déployer une machine virtuelle à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources, telles que définies dans le modèle, sont alors déployées et configurées. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+En plus de déployer une machine virtuelle à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources, telles que définies dans le modèle, sont alors déployées et configurées. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Le déploiement d’une machine virtuelle Azure à l’aide de PowerShell permet l’automatisation du déploiement complet de toutes les ressources de machine virtuelle associées, notamment le stockage et la mise en réseau. Pour plus d’informations, consultez [Créer une machine virtuelle Windows à l’aide de Resource Manager et de PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-En plus du déploiement individuel des ressources de calcul Azure, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+En plus du déploiement individuel des ressources de calcul Azure, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interface de ligne de commande (CLI)
 
 À l’instar du module PowerShell, l’interface de ligne de commande Azure assure l’automatisation du déploiement et s’utilise sur les systèmes Windows, OS X ou Linux. Lorsque vous utilisez la commande **vm quick-create** de l’interface de ligne de commande Azure, toutes les ressources de machine virtuelle associées (notamment le stockage et la mise en réseau), et la machine virtuelle elle-même, sont déployées. Pour plus d’informations, consultez [Créer une machine virtuelle Linux dans Azure à l’aide de l’interface de ligne de commande](../../virtual-machines/linux/quick-create-cli.md).
 
-De même, vous pouvez utiliser l’interface de ligne de commande Azure pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+De même, vous pouvez utiliser l’interface de ligne de commande Azure pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Accès et sécurité des machines virtuelles
 
@@ -408,15 +408,15 @@ Il existe plusieurs options de déploiement pour un compte de stockage.
 
 #### <a name="portal"></a>Portail
 
-Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/common/storage-quickstart-create-account.md) .
+Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/common/storage-account-create.md) .
 
-En plus du déploiement d’un compte de stockage à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources sont alors déployées et configurées, comme défini dans le modèle, notamment les comptes de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+En plus du déploiement d’un compte de stockage à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources sont alors déployées et configurées, comme défini dans le modèle, notamment les comptes de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Le déploiement d’un compte de stockage Azure à l’aide de PowerShell permet l’automatisation du déploiement complet du compte de stockage. Pour plus d’informations, consultez [Utilisation d’Azure PowerShell avec Stockage Azure](../../storage/common/storage-powershell-guide-full.md).
 
-En plus de déployer des ressources Azure individuellement, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+En plus de déployer des ressources Azure individuellement, vous pouvez utiliser le module Azure PowerShell pour déployer un modèle Azure Resource Manager. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Interface de ligne de commande (CLI)
 
@@ -465,7 +465,7 @@ Vous pouvez connecter le réseau local à un réseau virtuel Azure par le biais 
 Le réseau virtuel Azure étant connecté à votre réseau local, les réseaux virtuels entre locaux ne doivent utiliser qu’une partie de l’espace d’adressage utilisé par votre organisation. De la même façon que les différents locaux de l’entreprise se voient affecter un sous-réseau IP spécifique, Azure devient un emplacement supplémentaire lorsque vous étendez votre réseau.
 Il existe plusieurs options pour déployer un réseau virtuel.
 
-- [Portal](../..//virtual-network/quick-create-portal.md)
+- [Portail](../..//virtual-network/quick-create-portal.md)
 
 - [PowerShell](../../virtual-network/quick-create-powershell.md)
 
@@ -474,7 +474,7 @@ Il existe plusieurs options pour déployer un réseau virtuel.
 - Modèles Azure Resource Manager
 
 > **Quand les utiliser** : Chaque fois que vous utilisez des machines virtuelles dans Azure, vous utilisez des réseaux virtuels. Ainsi, vous pouvez segmenter vos machines virtuelles en sous-réseaux publics et privés, à l’image des centres de données locaux.
-> 
+>
 > **Prise en main** : Le déploiement d’un réseau virtuel Azure à l’aide du portail Azure ne demande qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau réseau virtuel dans un groupe de ressources existant ou nouveau. Lorsque vous créez une machine virtuelle à partir du portail, vous pouvez sélectionner un réseau virtuel existant ou en créer un. Pour commencer, [créez un réseau virtuel à l’aide du portail Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accès et sécurité des réseaux virtuels

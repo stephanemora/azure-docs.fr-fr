@@ -3,12 +3,12 @@ title: Utiliser un serveur de sauvegarde Azure pour sauvegarder des charges de t
 description: Dans cet article, découvrez comment préparer votre environnement à la protection et à la sauvegarde des charges de travail avec le serveur de sauvegarde Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172989"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979886"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installer et mettre à niveau Azure Backup Server
 
@@ -19,7 +19,7 @@ ms.locfileid: "74172989"
 >
 >
 
-> S’applique à : MABS v3. (MABS v2 n’est plus pris en charge. Si vous utilisez une version antérieure à MABS v3, effectuez une mise à niveau vers la version la plus récente.)
+> S’applique à : MABS v3. (MABS v2 n’est plus pris en charge. Si vous utilisez une version antérieure à MABS v3, effectuez une mise à niveau vers la version la plus récente.)
 
 Cet article décrit la préparation de votre environnement à la sauvegarde des charges de travail avec Microsoft Azure Backup Server (MABS). Le serveur de sauvegarde Azure vous permet de protéger des charges de travail d’application telles que des machines virtuelles Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange et des clients Windows à partir d’une console unique.
 
@@ -31,7 +31,7 @@ Cet article décrit la préparation de votre environnement à la sauvegarde des 
 Les serveurs MABS (Microsoft Azure Backup Server) déployés dans une machine virtuelle Azure peuvent sauvegarder des machines virtuelles dans Azure, mais ils doivent se trouver dans le même domaine pour que l’opération de sauvegarde puisse s’effectuer. Le processus de sauvegarde d’une machine virtuelle Azure reste identique à la sauvegarde d’une machine virtuelle en local, mais le déploiement de Microsoft Azure Backup Server dans Azure présente certaines limitations. Pour plus d’informations sur ces limitations, consultez [DPM en tant que machine virtuelle Azure](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
+> Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../azure-resource-manager/management/deployment-models.md). Cet article fournit les informations et les procédures relatives à la restauration des machines virtuelles déployées à l’aide du modèle Resource Manager.
 >
 >
 
@@ -90,7 +90,7 @@ Pour modifier le paramètre de réplication du stockage :
 
 ### <a name="downloading-the-software-package"></a>Téléchargement du package logiciel
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Si vous avez un coffre Recovery Services ouvert, passez à l’étape 3. Si vous n’avez aucun coffre Recovery Services ouvert, mais que vous vous trouvez dans le portail Azure, cliquez sur **Parcourir**dans le menu principal.
 
    * Dans la liste des ressources, tapez **Recovery Services**.
@@ -341,7 +341,7 @@ Procédez comme suit pour mettre à niveau MABS :
 4. Les sauvegardes doivent continuer sans qu’il soit nécessaire de redémarrer vos serveurs de production.
 5. Vous pouvez commencer à protéger vos données dès maintenant. Si vous mettez à niveau vers le stockage de sauvegarde moderne, tout en protégeant les données, vous pouvez également choisir les volumes dans lesquels vous souhaitez stocker les sauvegardes et vérifier s'il n'y a pas d'espace sous-approvisionné. [Plus d’informations](backup-mabs-add-storage.md)
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si le serveur de sauvegarde Microsoft Azure échoue avec des erreurs pendant la phase d’installation (ou de sauvegarde ou restauration), reportez-vous à ce [document de codes d’erreur](https://support.microsoft.com/kb/3041338) pour plus d’informations.
 Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](backup-azure-backup-faq.md)

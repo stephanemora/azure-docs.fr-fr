@@ -3,7 +3,7 @@ title: Qu’est-ce que le Gestionnaire d’instantanés StorSimple ? | Microsof
 description: Décrit le Gestionnaire d’instantanés StorSimple, son architecture et ses fonctionnalités.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789596"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933633"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Présentation de StorSimple Snapshot Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple présentes dans le centre de données et dans le cloud comme avec une solution de stockage intégrée unique, ce qui simplifie les processus de sauvegarde et contribue à réduire les coûts.
 
 Cette vue d'ensemble présente le Gestionnaire d'instantanés StorSimple, décrit ses caractéristiques et explique son rôle dans Microsoft Azure StorSimple. 
@@ -38,7 +38,7 @@ Pour avoir une vue d’ensemble de l’ensemble du système de Microsoft Azure S
 > 
 
 ## <a name="storsimple-snapshot-manager-purpose-and-architecture"></a>Architecture et objectif du gestionnaire d’instantanés StorSimple
-Le gestionnaire d’instantanés StorSimple met à votre disposition une console de gestion centralisée que vous pouvez utiliser pour créer des copies de sauvegarde de données locales et cloud ponctuelles. Par exemple, vous pouvez utiliser la console pour :
+Le gestionnaire d’instantanés StorSimple met à votre disposition une console de gestion centralisée que vous pouvez utiliser pour créer des copies de sauvegarde de données locales et cloud ponctuelles. Par exemple, vous pouvez utiliser la console pour :
 
 * Configurer, sauvegarder et supprimer des volumes.
 * Configurer des groupes de volumes pour garantir que les données sauvegardées sont cohérentes pour l’application.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8070e209910425f9baa0ae81aca349a067c70f76
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658540"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889521"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -87,9 +87,9 @@ Au cours de la migration de clusters, vous avez peut-être attaché des services
 
 ## <a name="ensure-valid-quotas"></a>Garantie de la validité des quotas
 
-Étant donné que des machines virtuelles supplémentaires seront déployées dans votre abonnement pendant la migration, vous devez vérifier que vos quotas et vos limites sont définis sur des valeurs suffisantes pour ces ressources. Vous pouvez être amené à demander une augmentation du [quota de processeurs virtuels](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+Étant donné que des machines virtuelles supplémentaires seront déployées dans votre abonnement pendant la migration, vous devez vérifier que vos quotas et vos limites sont définis sur des valeurs suffisantes pour ces ressources. Vous pouvez être amené à demander une augmentation du [quota de processeurs virtuels](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
 
-Vous devrez peut-être demander une augmentation des [quotas réseau](https://docs.microsoft.com/azure/azure-supportability/networking-quota-requests) pour vous assurer de ne pas épuiser les adresses IP. Pour plus d’informations, consultez [Réseau et plages d’adresses IP pour AKS](https://docs.microsoft.com/azure/aks/configure-kubenet).
+Vous devrez peut-être demander une augmentation des [quotas réseau](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) pour vous assurer de ne pas épuiser les adresses IP. Pour plus d’informations, consultez [Réseau et plages d’adresses IP pour AKS](https://docs.microsoft.com/azure/aks/configure-kubenet).
 
 Pour plus d’informations, consultez [Azure subscription and service limits (Limites de service et d’abonnement Azure)](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Pour vérifier vos quotas actuels, dans le Portail Azure, accédez au [panneau Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), sélectionnez votre abonnement, puis sélectionnez **Utilisation + quotas**.
 

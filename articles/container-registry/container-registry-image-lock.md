@@ -3,12 +3,12 @@ title: Verrouiller des images
 description: Définissez des attributs pour une image conteneur ou un référentiel afin qu’il ne puisse pas être supprimé ou remplacé dans un registre de conteneurs Azure.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442218"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972932"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
@@ -17,7 +17,7 @@ Dans un registre de conteneurs Azure, vous pouvez verrouiller une version d’im
 Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
 > [!IMPORTANT]
-> Cet article ne s’applique pas au verrouillage d’un registre entier, par exemple à l’aide de **Paramètres > Verrous** dans le Portail Azure, ou des commandes `az lock` dans l’interface de ligne de commande Azure. Le verrouillage d’une ressource du registre ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans des référentiels. Le verrouillage d’un registre affecte uniquement les opérations de gestion telles que l’ajout ou la suppression de réplications, ou la suppression du registre lui-même. Vous trouverez plus d’informations dans [Verrouiller les ressources pour empêcher les modifications inattendues](../azure-resource-manager/resource-group-lock-resources.md).
+> Cet article ne s’applique pas au verrouillage d’un registre entier, par exemple à l’aide de **Paramètres > Verrous** dans le Portail Azure, ou des commandes `az lock` dans l’interface de ligne de commande Azure. Le verrouillage d’une ressource du registre ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans des référentiels. Le verrouillage d’un registre affecte uniquement les opérations de gestion telles que l’ajout ou la suppression de réplications, ou la suppression du registre lui-même. Vous trouverez plus d’informations dans [Verrouiller les ressources pour empêcher les modifications inattendues](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Scénarios
 

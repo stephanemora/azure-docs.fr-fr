@@ -15,16 +15,16 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100290"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978082"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)
 > [!div class="op_single_selector"]
-> * [Gestionnaire de ressources](../sql/virtual-machines-windows-sql-automated-patching.md)
+> * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
 > * [Classique](../classic/sql-automated-patching.md)
 > 
 > 
@@ -37,9 +37,9 @@ La mise à jour corrective automatisée établit une fenêtre de maintenance pou
 La mise à jour corrective automatisée utilise l’ [extension de l’agent IaaS de SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](../sql/virtual-machines-windows-sql-automated-patching.md).
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Pour afficher la version Resource Manager de cet article, consultez [Mise à jour corrective automatisée pour SQL Server dans les machines virtuelles Azure (classiques)](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour utiliser la mise à jour corrective automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -50,9 +50,9 @@ Pour utiliser la mise à jour corrective automatisée, prenez en compte les cond
 
 **Version de SQL Server**:
 
-* SQL Server 2012
+* SQL Server 2012
 * SQL Server 2014
-* SQL Server 2016
+* SQL Server 2016
 
 **Azure PowerShell**:
 

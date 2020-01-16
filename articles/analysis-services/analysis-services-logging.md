@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572788"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749751"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurer la journalisation des diagnostics
 
-Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/resource-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
+Une des fonctions importantes d’une solution Analysis Services est d’analyser les performances de vos serveurs. Avec les [journaux de diagnostic des ressources Azure](../azure-monitor/platform/platform-logs-overview.md), vous pouvez analyser et envoyer des journaux d’activité au [Stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) et les exporter vers les [journaux d’activité Azure Monitor](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Journalisation des diagnostics dans le Stockage, Event Hubs ou les journaux d’activité Azure Monitor](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -26,11 +26,11 @@ Une des fonctions importantes d’une solution Analysis Services est d’analyse
 
 Vous pouvez sélectionner les catégories **Moteur**, **Service** et **Métriques**.
 
-### <a name="engine"></a>Engine (Moteur)
+### <a name="engine"></a>Moteur
 
 L’option **Moteur** enregistre toutes les événements [xEvent](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Vous ne pouvez pas sélectionner des événements individuels. 
 
-|Catégories de XEvent |Nom de l'événement  |
+|Catégories de XEvent |Nom d'événement  |
 |---------|---------|
 |Audit de la sécurité    |   Audit Login      |
 |Audit de la sécurité    |   Audit Logout      |
@@ -215,7 +215,7 @@ Il existe des centaines de requêtes que vous pouvez utiliser. Pour plus d’inf
 
 Dans ce bref didacticiel, vous créez un compte de stockage dans le même abonnement et le même groupe de ressources que votre serveur Analysis Services. Ensuite, vous utilisez la requête Set-AzDiagnosticSetting pour activer la journalisation des diagnostics et envoyer la sortie au nouveau compte de stockage.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Pour suivre ce didacticiel, vous avez besoin des ressources suivantes :
 
 * Un serveur Azure Analysis Services. Pour plus d’informations sur la création d’une ressource du serveur, consultez [Création d’un serveur Azure Analysis Services dans le portail Azure](analysis-services-create-server.md) ou [Créer un serveur Azure Analysis Services à l’aide de PowerShell](analysis-services-create-powershell.md).
@@ -326,6 +326,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
+En savoir plus sur la [journalisation des diagnostics de ressources Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Consultez la section [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) dans l’aide de PowerShell.

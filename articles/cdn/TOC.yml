@@ -1,6 +1,6 @@
 - name: Documentation Content Delivery Network
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Content Delivery Network (Azure CDN)\_?"
       href: cdn-overview.md
@@ -40,7 +40,7 @@
       href: cdn-china-delivery.md
     - name: Assistance HTTP/2
       href: cdn-http2.md
-    - name: Extraire une liste des POP Verizon
+    - name: Récupérer les adresses IP POP
       href: cdn-pop-list-api.md
     - name: Passer de Standard Verizon à Premium Verizon
       href: cdn-migrate.md
@@ -57,9 +57,9 @@
           href: cdn-media-streaming-optimization.md
         - name: Accélération de site dynamique
           href: cdn-dynamic-site-acceleration.md
-    - name: gérer
+    - name: Gérer
       items:
-        - name: Création d’un point de terminaison
+        - name: Créer un point de terminaison
           href: cdn-create-endpoint-how-to.md
         - name: Gérer en utilisant Azure PowerShell
           href: cdn-manage-powershell.md
@@ -85,7 +85,7 @@
           items:
             - name: Contenu web Azure
               href: cdn-manage-expiration-of-cloud-service-content.md
-            - name: Stockage d'objets blob Azure
+            - name: Stockage Blob Azure
               href: cdn-manage-expiration-of-blob-content.md
         - name: Jeton d’authentification
           href: cdn-token-auth.md
@@ -120,13 +120,13 @@
               href: cdn-edge-performance.md
             - name: Obtenir des alertes en temps réel
               href: cdn-real-time-alerts.md
-    - name: Développement
+    - name: Développer
       items:
         - name: .NET
           href: cdn-app-dev-net.md
         - name: Node.js
           href: cdn-app-dev-node.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Statut 404
           href: cdn-troubleshoot-endpoint.md
