@@ -1,5 +1,5 @@
 ---
-title: Déployer des hôtes dédiés Azure à l’aide du Portail Azure
+title: Déployer des hôtes dédiés Azure à l’aide du portail Azure
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide du Portail Azure.
 services: virtual-machines-windows
 author: cynthn
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 7abfa00b01f2e5e32b2486d69f36ac62f844c5ad
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aa19c343e003bf1cd55e3d12b18e595113a7189e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033832"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833946"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Aperçu : Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
 
 Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
@@ -43,8 +43,8 @@ Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez la page de présentation [Hôtes dédiés](dedicated-hosts.md). 
+- Pour en savoir plus, voir la page de présentation [Hôtes dédiés](dedicated-hosts.md). 
 
-- Un exemple de modèle, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également déployer un hôte dédié à l’aide d’[Azure PowerShell](dedicated-hosts-powershell.md).

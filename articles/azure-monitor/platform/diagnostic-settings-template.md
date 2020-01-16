@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531001"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977553"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager
-Dans Azure Monitor, les [paramètres de diagnostic](diagnostic-settings.md) indiquent où envoyer les [journaux de plateforme](platform-logs-overview.md) collectés par les ressources et la plateforme Azure dont ils dépendent. Cet article fournit des détails et des exemples sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) dans le cadre de la création et de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations. 
+Dans Azure Monitor, les [paramètres de diagnostic](diagnostic-settings.md) indiquent où envoyer les [journaux de plateforme](platform-logs-overview.md) collectés par les ressources et la plateforme Azure dont ils dépendent. Cet article fournit des détails et des exemples sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) dans le cadre de la création et de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations.
 
 > [!NOTE]
 > Étant donné que vous ne pouvez pas [créer de paramètre de diagnostic](diagnostic-settings.md) pour le journal d’activité Azure avec PowerShell ou CLI comme les paramètres de diagnostic pour les autres ressources Azure, créez un modèle Resource Manager pour le journal d’activité à l’aide des informations contenues dans cet article et déployez ce modèle avec PowerShell ou CLI.
 
 ## <a name="deployment-methods"></a>Méthodes de déploiement
-Vous pouvez déployer des modèles Resource Manager à l’aide de n’importe quelle méthode valide, y compris PowerShell et CLI. Les paramètres de diagnostic du journal d’activité doivent être déployés sur un abonnement avec `az deployment create` pour CLI ou `New-AzDeployment` pour PowerShell. Les paramètres de diagnostic des journaux de ressources doivent être déployés sur un groupe de ressources avec `az group deployment create` pour CLI ou `New-AzResourceGroupDeployment` pour PowerShell. 
+Vous pouvez déployer des modèles Resource Manager à l’aide de n’importe quelle méthode valide, y compris PowerShell et CLI. Les paramètres de diagnostic du journal d’activité doivent être déployés sur un abonnement avec `az deployment create` pour CLI ou `New-AzDeployment` pour PowerShell. Les paramètres de diagnostic des journaux de ressources doivent être déployés sur un groupe de ressources avec `az group deployment create` pour CLI ou `New-AzResourceGroupDeployment` pour PowerShell.
 
-Pour plus d'informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) et [Déployer des ressources à l’aide de modèles Resource Manager et d'Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md). 
+Pour plus d'informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) et [Déployer des ressources à l’aide de modèles Resource Manager et d'Azure CLI](../../azure-resource-manager/templates/deploy-cli.md). 
 
 
 
@@ -33,7 +33,7 @@ Pour plus d'informations, consultez [Déployer des ressources à l’aide de mod
 ## <a name="resource-logs"></a>Journaux d’activité de ressources
 Pour les journaux de ressources, ajoutez une ressource de type `<resource namespace>/providers/diagnosticSettings` au modèle. La section Propriétés obéit au format décrit dans [Paramètres de diagnostic - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Fournissez un `category` dans la section `logs` pour chacune des catégories valides correspondant à la ressource que vous souhaitez collecter. Ajoutez la propriété `metrics` pour collecter des mesures de ressources sur les mêmes destinations si la [ressource prend en charge les métriques](metrics-supported.md).
 
-Voici un modèle collectant une catégorie de journal de ressources pour une ressource donnée vers un espace de travail Log Analytics, un compte de stockage et un Event Hub. 
+Voici un modèle collectant une catégorie de journal de ressources pour une ressource donnée vers un espace de travail Log Analytics, un compte de stockage et un Event Hub.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ Voici un modèle collectant une catégorie de journal de ressources pour une res
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

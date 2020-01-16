@@ -3,23 +3,20 @@ title: Déployer des hôtes dédiés Azure à l’aide du portail Azure
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide du Portail Azure.
 services: virtual-machines-linux
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/25/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 296c43c7c1345c67cc5b83749272e56c122ee535
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c8e2ac929b3285b0ba122928485b423e34dc8f4f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036422"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835132"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-portal"></a>Aperçu : Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
+# <a name="deploy-vms-to-dedicated-hosts-using-the-portal"></a>Déployer des machines virtuelles sur des hôtes dédiés à l’aide du Portail
 
 Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
@@ -47,9 +44,9 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez la page de présentation [Hôtes dédiés](dedicated-hosts.md).
+- Pour en savoir plus, voir la page de présentation [Hôtes dédiés](dedicated-hosts.md).
 
-- Un exemple de modèle, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Vous pouvez également déployer un hôte dédié à l’aide de l’[interface de ligne de commande Azure](dedicated-hosts-cli.md).
 

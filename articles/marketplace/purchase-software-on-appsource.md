@@ -1,25 +1,25 @@
 ---
 title: Comment acheter des logiciels sur AppSource | Place de marché Azure
 description: Étapes pour acheter des logiciels sur AppSource | Place de marché Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827745"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933494"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Comment acheter des logiciels sur Microsoft AppSource
 
 Microsoft [AppSource](https://appsource.microsoft.com/) permet désormais aux clients de s’abonner à des applications SaaS proposées par les partenaires Microsoft. Les clients peuvent trouver des applications web certifiées dans le magasin et gérer les frais, les mises à niveau, les rétrogradations et les annulations dans un emplacement unique à l’aide du Centre d’administration Microsoft. Cet article explique comment acheter une application à partir du magasin.
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Pour acheter des offres SaaS, vous devez avoir :
 

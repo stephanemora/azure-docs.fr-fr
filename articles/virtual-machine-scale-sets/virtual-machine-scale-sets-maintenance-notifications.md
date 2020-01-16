@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 413301fd8b6b4b2a3b60501378cf6da23cc38d81
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 07580c8b8ea00039b48bd1f8765735ec5a5082ee
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70018841"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746652"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notifications de maintenance planifiées pour les groupes de machines virtuelles identiques
 
@@ -28,12 +28,12 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 
 - Lorsque la maintenance ne nécessite pas de redémarrage, Azure utilise une migration sur place pour mettre en pause la machine virtuelle pendant la mise à jour de l’hôte. Les opérations de maintenance qui ne nécessitent pas de redémarrage sont appliquées domaine d’erreur par domaine d’erreur. Elles sont arrêtées si des signaux d’avertissement sont reçus.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ce cas, vous disposez d'un délai généralement fixé à 35 jours pour entamer vous-même la maintenance, au moment qui vous convient.
+- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Dans ces cas, vous disposez d’une période qui s’étend généralement sur 35 jours pour commencer la maintenance vous-même, au moment qui vous convient.
 
 
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions) :
 
-- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/activity-logs-overview.md) Azure.  
+- Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des options de messagerie (par exemple, e-mails, SMS et Webhooks) aux notifications à l’aide des [alertes de journal d’activité](../azure-monitor/platform/platform-logs-overview.md) Azure.  
 - La notification vous propose une *fenêtre de libre-service*. Pendant cet intervalle, qui est généralement de 35 jours, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague. Vous pouvez alors démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
@@ -77,7 +77,7 @@ Il est conseillé d’utiliser la maintenance en libre-service dans les cas suiv
 
 Lorsqu’une vague d’opérations de maintenance est planifiée, vous pouvez afficher la liste des groupes de machines virtuelles identiques affectés par la maintenance à venir à l’aide du portail Azure. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Tous les services**, puis **Groupes de machines virtuelles identiques**.
 3. Sous **Groupes de machines virtuelles identiques**, sélectionnez **Modifier les colonnes** pour ouvrir la liste des colonnes disponibles.
 4. Dans la section **Colonnes disponibles**, sélectionnez l’élément **Maintenance en libre-service**, puis déplacez-le dans la liste **Colonnes sélectionnées**. Sélectionnez **Appliquer**.  
@@ -88,15 +88,15 @@ La colonne **Maintenance en libre-service** s’affiche désormais dans la liste
 
 | Valeur | Description |
 |-------|-------------|
-| OUI | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
+| Oui | Au moins une machine virtuelle dans votre groupe de machines virtuelles identiques est dans une fenêtre de libre-service. Vous pouvez démarrer la maintenance à tout moment pendant cette fenêtre de libre-service. | 
 | Non | Il n’y a aucune machine virtuelle définie dans une fenêtre de libre-service dans le groupe de machines virtuelles identiques affecté. | 
 | - | Vos groupes de machines virtuelles identiques ne font pas partie d’un cycle de maintenance planifiée.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Surveiller**. 
 3. Dans le volet **Surveiller - Alertes (classique)** , sélectionnez **+ Ajouter une alerte de journal d’activité**.
 4. Sur la page **Ajouter une alerte de journal d’activité**, sélectionnez ou saisissez les informations requises. Sous **Critères**, renseignez les valeurs suivantes :
@@ -176,42 +176,42 @@ L’appel suivant lance la maintenance sur une instance de machine virtuelle si 
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
-**Q : Pourquoi devez-vous redémarrer mes machines virtuelles maintenant ?**
+**Q : Pourquoi devez-vous redémarrer mes machines virtuelles maintenant ?**
 
 **R :** Bien que la plupart des mises à jour et des mises à niveau de la plateforme Azure n’affectent pas la disponibilité des machines virtuelles, nous sommes contraints, dans certains cas, de redémarrer les machines virtuelles hébergées dans Azure. Nous avons accumulé plusieurs modifications qui nous obligent à redémarrer nos serveurs, ce qui entraînera le redémarrage des machines virtuelles.
 
-**Q : Si je suis vos recommandations concernant la haute disponibilité en utilisant un groupe à haute disponibilité, mon environnement est-il sécurisé ?**
+**Q : Si je suis vos recommandations concernant la haute disponibilité en utilisant un groupe à haute disponibilité, mon environnement est-il sécurisé ?**
 
 **R :** Les machines virtuelles déployées dans un groupe à haute disponibilité ou dans des groupes de machines virtuelles identiques utilisent des domaines de mise à jour. Lors des opérations de maintenance, Azure respecte la contrainte de domaine de mise à jour et ne redémarre pas les machines virtuelles à partir d’un domaine de mise à jour distinct (dans le même groupe à haute disponibilité). Azure attend également au moins 30 minutes avant de passer au groupe de machines virtuelles suivant. 
 
 Pour plus d’informations sur la haute disponibilité, consultez [Régions et disponibilité des machines virtuelles dans Azure](../virtual-machines/windows/availability.md).
 
-**Q : Comment puis-je être averti d’une maintenance planifiée ?**
+**Q : Comment puis-je être averti d’une maintenance planifiée ?**
 
 **R :** Une vague d’opérations de maintenance planifiée commence par une planification sur une ou plusieurs régions Azure. Peu après, une notification par e-mail est envoyée aux propriétaires d’abonnement (un e-mail par abonnement). Vous pouvez ajouter des canaux et des destinataires pour cette notification à l’aide de la fonctionnalité Alertes de journal d’activité. Si vous déployez une machine virtuelle dans une région dans laquelle une maintenance est déjà planifiée, vous ne recevrez pas de notification. Vous devrez dans ce cas consulter l’état de maintenance de la machine virtuelle.
 
-**Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. Est-ce normal ?**
+**Q : Je ne vois aucune indication de maintenance planifiée dans le portail, dans PowerShell ou dans l’interface CLI. Est-ce normal ?**
 
 **R :** Les informations relatives à la maintenance planifiée ne sont disponibles pendant une vague d’opérations de maintenance planifiée que pour les machines virtuelles concernées par la maintenance planifiée. Si aucune information ne s’affiche, il est possible que la vague de maintenance soit déjà terminée (ou non démarrée), ou que votre machine virtuelle soit déjà hébergée sur un serveur mis à jour.
 
-**Q : Est-il possible de savoir exactement quand ma machine virtuelle sera affectée ?**
+**Q : Est-il possible de savoir exactement quand ma machine virtuelle sera affectée ?**
 
 **R :** Lors de la planification, nous définissons une fenêtre de temps de plusieurs jours. Le séquencement exact des serveurs (et des machines virtuelles) au sein de cette fenêtre est inconnu. Si vous souhaitez connaître la date exacte à laquelle vos machines virtuelles seront mises à jour, vous pouvez utiliser les [événements planifiés](../virtual-machines/windows/scheduled-events.md). Avec les événements planifiés, vous pouvez envoyer des requêtes à partir de la machine virtuelle et recevoir une notification 15 minutes avant un redémarrage de la machine virtuelle.
 
-**Q : Combien de temps vous faudra-t-il pour redémarrer ma machine virtuelle ?**
+**Q : Combien de temps vous faudra-t-il pour redémarrer ma machine virtuelle ?**
 
 **R :**  En fonction de la taille de votre machine virtuelle, le redémarrage peut prendre plusieurs minutes pendant la fenêtre de maintenance en libre-service. Tout redémarrage lancé par Azure pendant la fenêtre de maintenance planifiée dure habituellement 25 minutes environ. Si vous utilisez des services cloud (rôle de travail/web), des groupes de machines virtuelles identiques ou des groupes à haute disponibilité, vous disposez de 30 minutes entre chaque groupe de machines virtuelles (domaine de mise à jour) pendant la fenêtre de maintenance planifiée. 
 
-**Q : Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
+**Q : Je ne vois aucune information de maintenance sur mes machines virtuelles. Quelle est la cause du problème ?**
 
 **R :** Plusieurs raisons peuvent expliquer pourquoi vous ne voyez aucune information de maintenance sur vos machines virtuelles :
    - Vous utilisez un abonnement marqué comme *interne à Microsoft*.
    - Vos machines virtuelles ne sont pas planifiées pour la maintenance. Il est possible que la vague d’opérations de maintenance soit terminée, annulée ou modifiée, de sorte que celle-ci n’impacte plus vos machines virtuelles.
    - La colonne **Maintenance** n’a pas été ajoutée à l’affichage de liste de votre machine virtuelle. Bien que nous ayons ajouté cette colonne à la vue par défaut, si vous avez configuré votre vue pour afficher des colonnes non définies par défaut, vous devez ajouter manuellement la colonne **Maintenance** à la vue liste de vos machines virtuelles.
 
-**Q : La maintenance de ma machine virtuelle est planifiée pour la deuxième fois. Pourquoi ?**
+**Q : La maintenance de ma machine virtuelle est planifiée pour la deuxième fois. Pourquoi ?**
 
 **R :** Dans plusieurs cas, votre machine virtuelle apparaît comme planifiée pour la maintenance alors que vous avez déjà effectué votre maintenance-redéploiement :
    - Nous avons annulé la vague d’opérations de maintenance et l’avons redémarrée avec une charge utile différente. Nous avons peut-être détecté une charge utile ayant généré une erreur et voulons simplement déployer une charge utile supplémentaire.

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
-ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835284"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976549"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Déployer des modèles Azure Resource Manager imbriqués pour les environnements de test
-Un déploiement imbriqué vous permet d’exécuter d’autres modèles Azure Resource Manager à partir d’un modèle Resource Manager principal. Il vous permet de décomposer votre déploiement en un ensemble de modèles ciblés et spécifiques. Il offre des avantages en termes de test, de réutilisation et de lisibilité. L’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../azure-resource-manager/resource-group-linked-templates.md) fournit une bonne vue d’ensemble de cette solution avec plusieurs exemples de code. Cet article fournit un exemple spécifique d’Azure DevTest Labs. 
+Un déploiement imbriqué vous permet d’exécuter d’autres modèles Azure Resource Manager à partir d’un modèle Resource Manager principal. Il vous permet de décomposer votre déploiement en un ensemble de modèles ciblés et spécifiques. Il offre des avantages en termes de test, de réutilisation et de lisibilité. L’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../azure-resource-manager/templates/linked-templates.md) fournit une bonne vue d’ensemble de cette solution avec plusieurs exemples de code. Cet article fournit un exemple spécifique d’Azure DevTest Labs. 
 
 ## <a name="key-parameters"></a>Paramètres clés
-Lorsque vous créez votre propre modèle Resource Manager à partir de zéro, nous vous recommandons d’utiliser le [projet Groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) dans Visual Studio, ce qui facilite le développement et le débogage des modèles. Lorsque vous ajoutez une ressource de déploiement imbriquée dans azuredeploy.json, Visual Studio ajoute plusieurs éléments pour rendre le modèle plus flexible. Ces éléments incluent le sous-dossier avec le modèle secondaire et le fichier de paramètres, des noms de variables dans le fichier de modèle principal, et deux paramètres pour l’emplacement de stockage des nouveaux fichiers. Les paramètres **_artifactsLocation** et **_artifactsLocationSasToken** sont les paramètres clés utilisés par DevTest Labs. 
+Lorsque vous créez votre propre modèle Resource Manager à partir de zéro, nous vous recommandons d’utiliser le [projet Groupe de ressources Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) dans Visual Studio, ce qui facilite le développement et le débogage des modèles. Lorsque vous ajoutez une ressource de déploiement imbriquée dans azuredeploy.json, Visual Studio ajoute plusieurs éléments pour rendre le modèle plus flexible. Ces éléments incluent le sous-dossier avec le modèle secondaire et le fichier de paramètres, des noms de variables dans le fichier de modèle principal, et deux paramètres pour l’emplacement de stockage des nouveaux fichiers. Les paramètres **_artifactsLocation** et **_artifactsLocationSasToken** sont les paramètres clés utilisés par DevTest Labs. 
 
 Si vous ne savez pas comment DevTest Labs fonctionne avec les environnements, consultez [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md). Vos modèles sont stockés dans le référentiel lié au laboratoire dans DevTest Labs. Lorsque vous créez un environnement avec ces modèles, les fichiers sont déplacés dans un conteneur Stockage Azure dans le laboratoire. Pour être en mesure d’identifier et de copier les fichiers imbriqués, DevTest Labs identifie les paramètres _artifactsLocation et _artifactsLocationSasToken et copie les sous-dossiers dans le conteneur de stockage. Ensuite, il insère automatiquement l’emplacement et le jeton de signature d’accès partagé (SAP) dans les paramètres. 
 
@@ -75,7 +75,7 @@ Voici l’image de la même structure de projet dans Visual Studio :
 Vous pouvez ajouter des dossiers dans le dossier principal, mais à un seul niveau maximum. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des instructions détaillées sur les environnements, consultez les articles suivants : 
+Pour plus d'informations sur les environnements, consultez les articles suivants : 
 
 - [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configurer et utiliser des environnements publics dans Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)

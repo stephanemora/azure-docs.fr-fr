@@ -8,26 +8,26 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977691"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans Azure qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
 
-Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../../azure-resource-manager/templates/template-syntax.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
+Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../../azure-resource-manager/templates/template-syntax.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
 
 
 ## <a name="tools"></a>Outils
 
 Vous pouvez utiliser n’importe quel éditeur de texte pour travailler avec les fichiers de solution, mais nous vous recommandons d’exploiter les fonctionnalités fournies par Visual Studio et Visual Studio Code, comme décrit dans les articles suivants.
 
-- [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -159,7 +159,7 @@ Les [ressources](../../azure-resource-manager/templates/template-syntax.md#resou
 
 
 ### <a name="dependencies"></a>Les dépendances
-L’élément **dependsOn** spécifie une [dépendance](../../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
+L’élément **dependsOn** spécifie une [dépendance](../../azure-resource-manager/templates/define-resource-dependency.md) vis-à-vis d’une autre ressource.  Lorsque la solution est installée, aucune ressource n’est créée tant que toutes ses dépendances n’ont pas été créées.  Par exemple, votre solution peut [démarrer un runbook](solutions-resources-automation.md#runbooks) lorsqu’il est installé à l’aide d’une [ressource de tâche](solutions-resources-automation.md#automation-jobs).  La ressource de tâche dépend de la ressource de runbook pour garantir que le runbook est créé avant la tâche.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Espace de travail Log Analytics et compte Automation
 Les solutions de gestion nécessitent un [espace de travail Log Analytics](../../azure-monitor/platform/manage-access.md) qui contient des vues et un [compte Automation](../../automation/automation-security-overview.md#automation-account-overview) qui contient les Runbooks et les ressources associées.  Ces éléments doivent être disponibles avant que les ressources de la solution soient créées et ne doivent pas être définis dans la solution elle-même.  L’utilisateur [spécifiera un espace de travail et un compte](solutions.md#log-analytics-workspace-and-automation-account) lors du déploiement de la solution, mais l’auteur doit tenir compte des points suivants.
@@ -200,7 +200,7 @@ Chaque solution nécessite une entrée de ressource dans l’élément **resourc
 
 
 ### <a name="dependencies"></a>Les dépendances
-La ressource de la solution doit avoir une [dépendance](../../azure-resource-manager/resource-group-define-dependencies.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
+La ressource de la solution doit avoir une [dépendance](../../azure-resource-manager/templates/define-resource-dependency.md) vis-à-vis de toute autre ressource de la solution, car ces ressources doivent exister avant que la solution ne puisse être créée.  Pour cela, ajoutez une entrée pour chaque ressource dans l’élément **dependsOn**.
 
 ### <a name="properties"></a>Propriétés
 La ressource de solution possède les propriétés indiquées dans le tableau suivant.  Cela inclut les ressources référencées et contenues dans la solution qui définit la manière dont la ressource est gérée après l’installation de la solution.  Chaque ressource de la solution doit être répertoriée dans la propriété **referencedResources** ou **containedResources**.

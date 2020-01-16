@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660594"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980627"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour les services cloud Azure : Forum Aux Questions (FAQ)
 
@@ -56,7 +56,7 @@ Le déploiement d’un service cloud peut échouer si les ressources qui doivent
 
 Vous pouvez aussi suivre l’utilisation et/ou le quota actuel de votre abonnement sur le portail : Portail Azure = > Abonnements = > \<abonnement approprié > = > « Utilisation + quota ».
 
-Vous pouvez aussi obtenir des informations sur l’utilisation/consommation de ressources via les API de facturation Azure. Consultez [API Azure Resource Usage (version préliminaire)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Vous pouvez aussi obtenir des informations sur l’utilisation/consommation de ressources via les API de facturation Azure. Consultez [API Azure Resource Usage (version préliminaire)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Comment modifier la taille de machine virtuelle d’un service cloud déployé sans le redéployer ?
 Vous ne pouvez pas modifier la taille de machine virtuelle d’un service cloud déployé sans le redéployer. La taille de machine virtuelle est intégrée au fichier CSDEF, dont la mise à jour n’est possible que moyennant un redéploiement.
@@ -66,17 +66,17 @@ Pour plus d’informations, consultez [Comment mettre à jour un service clou](c
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
 
 Étant donné que le service cloud est une ressource Classic qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
- 
+
 - Déploiement via l’API REST.
 
     Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Déploiement via le [portail Azure](https://portal.azure.com).
 
     Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et Classic. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Pourquoi le portail Azure me demande-t-il de fournir un compte de stockage pour le déploiement ? 
 
-Dans le portail classique, le package a été chargé directement sur la couche API de gestion, après quoi la couche API place temporairement le package dans un compte de stockage interne.  Ce processus entraîne des problèmes de performances et d’extensibilité, car la couche API n’a pas été conçue pour être utilisée comme un service de téléchargement de fichiers.  Dans le portail Azure (modèle de déploiement Resource Manager), nous avons contourné l’étape intermédiaire de téléchargement préalable sur la couche API, ce qui permet des déploiements plus rapides et plus fiables. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Pourquoi le portail Azure me demande-t-il de fournir un compte de stockage pour le déploiement ?
 
-En ce qui concerne le coût, celui-ci est très faible et vous pouvez réutiliser le même compte de stockage pour tous les déploiements. Vous pouvez utiliser la [calculatrice de prix pour le stockage](https://azure.microsoft.com/pricing/calculator/#storage1) pour déterminer le coût pour charger le package de services (CSPKG), le télécharger, puis le supprimer. 
+Dans le portail classique, le package a été chargé directement sur la couche API de gestion, après quoi la couche API place temporairement le package dans un compte de stockage interne.  Ce processus entraîne des problèmes de performances et d’extensibilité, car la couche API n’a pas été conçue pour être utilisée comme un service de téléchargement de fichiers.  Dans le portail Azure (modèle de déploiement Resource Manager), nous avons contourné l’étape intermédiaire de téléchargement préalable sur la couche API, ce qui permet des déploiements plus rapides et plus fiables.
+
+En ce qui concerne le coût, celui-ci est très faible et vous pouvez réutiliser le même compte de stockage pour tous les déploiements. Vous pouvez utiliser la [calculatrice de prix pour le stockage](https://azure.microsoft.com/pricing/calculator/#storage1) pour déterminer le coût pour charger le package de services (CSPKG), le télécharger, puis le supprimer.

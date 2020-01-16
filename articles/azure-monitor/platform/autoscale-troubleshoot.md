@@ -4,12 +4,12 @@ description: Le suivi des problèmes de mise à l’échelle automatique Azure u
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: effef22bea0b4224f67737fe1c34c9758749c093
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364439"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751335"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Résolution des problèmes de mise à l’échelle automatique Azure
  
@@ -97,7 +97,7 @@ Dans l’écran de paramètres de mise à l’échelle automatique, accédez à 
 
 ## <a name="autoscale-resource-logs"></a>Journaux de ressources de mise à l’échelle automatique
 
-Comme pour toute autre ressource Azure, le service de mise à l’échelle automatique fournit des [journaux de ressources](resource-logs-overview.md). Il existe deux catégories de journaux.
+Comme pour toute autre ressource Azure, le service de mise à l’échelle automatique fournit des [journaux de ressources](platform-logs-overview.md). Il existe deux catégories de journaux.
 
 - **Évaluations de mise à l’échelle automatique** : le moteur de mise à l’échelle automatique enregistre des entrées de journal pour chaque évaluation de condition unique chaque fois qu’il effectue une vérification.  L’entrée comprend des détails sur les valeurs observées des métriques, les règles évaluées et si l’évaluation a entraîné une action de mise à l’échelle.
 

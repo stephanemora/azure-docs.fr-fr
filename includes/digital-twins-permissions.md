@@ -9,19 +9,19 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 01/06/2020
 ms.custom: include file
-ms.openlocfilehash: 6f8eaa1d13e7a8c4ea69118cdea4286f2dd90860
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: a6adbe095b3ed486be8eb2e2611db5a40162d5dd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692571"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895466"
 ---
 >[!NOTE]
 >Cette section fournit les instructions sur [l’inscription de l'application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
 1. Dans le [Portail Azure](https://portal.azure.com), ouvrez **Azure Active Directory** dans le menu de gauche développable, puis ouvrez le volet **Inscriptions d’applications**. 
 
-    [![Sélectionnez le volet Azure Active Directory](./media/digital-twins-permissions/select-aad-pane.png)](./media/digital-twins-permissions/select-aad-pane.png#lightbox)
+    [![Sélectionnez le volet Azure Active Directory](./media/digital-twins-permissions/azure-portal-select-aad-pane.png)](./media/digital-twins-permissions/azure-portal-select-aad-pane.png#lightbox)
 
 1. Sélectionnez le bouton **+ Nouvelle inscription**.
 
@@ -35,7 +35,7 @@ ms.locfileid: "75692571"
 
     Activez la case à cocher **Jetons d’accès** pour activer le paramètre **oauth2AllowImplicitFlow** dans votre fichier Manifest.json.
 
-    [![Paramètres de configuration du client public](./media/digital-twins-permissions/aad-public-client.png)](./media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Paramètres de configuration du client public](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Ouvrez le volet **Vue d’ensemble** de votre application inscrite, et copiez les valeurs des entités suivantes dans un fichier temporaire. Ces valeurs vous permettront de configurer votre exemple d’application dans les sections suivantes.
 

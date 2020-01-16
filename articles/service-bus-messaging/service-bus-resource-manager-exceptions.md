@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0f328651ac4422226071d2de12e9cbc787ef64be
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585205"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978268"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceptions Service Bus dans Azure Resource Manager
 
@@ -30,7 +30,7 @@ Cet article répertorie les exceptions générées lors de l’interaction avec 
 
 Vous trouverez ci-dessous les différentes exceptions/erreurs signalées par Azure Resource Manager.
 
-## <a name="error-bad-request"></a>Error: Demande incorrecte
+## <a name="error-bad-request"></a>Erreur : Demande incorrecte
 
 « Demande incorrecte » signifie que la validation de la demande reçue par Resource Manager a échoué.
 
@@ -54,12 +54,12 @@ Comme en HTTP, le « code d’erreur 429 » signifie « Trop de demandes ».
 
 | Code d'erreur | Sous-code d’erreur | Message d’erreur | Description | Recommandation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | SubCode=50004. La demande a été arrêtée parce que l’espace de noms *votre espace de noms* est limité. | Cette condition d’erreur est atteinte lorsque le nombre de demandes entrantes dépasse la limitation de la ressource. | Patientez quelques secondes, puis réessayez. <br/> <br/> En savoir plus sur les [quotas](service-bus-quotas.md) et les [limites de demandes d’Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md).|
+| 429 | 50004 | SubCode=50004. La demande a été arrêtée parce que l’espace de noms *votre espace de noms* est limité. | Cette condition d’erreur est atteinte lorsque le nombre de demandes entrantes dépasse la limitation de la ressource. | Patientez quelques secondes, puis réessayez. <br/> <br/> En savoir plus sur les [quotas](service-bus-quotas.md) et les [limites de demandes d’Azure Resource Manager](../azure-resource-manager/management/request-limits-and-throttling.md).|
 | 429 | 40901 | SubCode=40901. Une autre opération conflictuelle est en cours. | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération en cours avant de réessayer. |
 | 429 | 40900 | SubCode=40900. Conflit. Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. | Cette condition peut être atteinte lorsque plusieurs demandes sont faites pour effectuer les opérations sur la même entité (file d’attente, rubrique, abonnement ou règle) en même temps. | Patientez quelques secondes, puis réessayez |
 | 429 | 40901 | Une demande sur l’entité *'nom de l’entité'* est en conflit avec une autre demande | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
 | 429 | 40901 | Une autre demande de mise à jour est en cours pour l’entité *'nom de l’entité'* . | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
-| 429 | Aucun | Un conflit de ressources s’est produit. Une autre opération conflictuelle est peut-être en cours. S’il s’agit d’une nouvelle tentative d’exécution d’une opération qui a échoué, cela signifie qu’un nettoyage en arrière-plan est en attente. Réessayez ultérieurement. | Cette condition peut être atteinte quand il existe une opération en attente sur la même entité. | Attendez la fin de l’opération précédente avant de réessayer. |
+| 429 | Aucun | Un conflit de ressources s’est produit. Une autre opération conflictuelle est peut-être en cours. S’il s’agit d’une nouvelle tentative d’exécution d’une opération qui a échoué, cela signifie qu’un nettoyage en arrière-plan est en attente. Réessayez plus tard. | Cette condition peut être atteinte quand il existe une opération en attente sur la même entité. | Attendez la fin de l’opération précédente avant de réessayer. |
 
 
 ## <a name="error-code-not-found"></a>Code d’erreur : Introuvable

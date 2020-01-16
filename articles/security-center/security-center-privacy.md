@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 20d269c1614c82c8783d0e65149961c118c16a95
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 6edea1d0de53e2dc9f764de26209dc1f3110556e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559231"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978615"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder aux données client dans l’outil. Pour en savoir plus sur le rôle Administrateur de compte, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md) pour en savoir plus sur les rôles Lecteur, Propriétaire et Contributeur. Consultez [Administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder aux données client dans l’outil. Pour en savoir plus sur le rôle Administrateur de compte, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md) pour en savoir plus sur les rôles Lecteur, Propriétaire et Contributeur. Consultez [Administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Recherche et identification des données personnelles
 Un utilisateur de Security Center peut afficher ses données personnelles via le Portail Azure. Security Center ne stocke que les informations de contact de sécurité telles que les adresses e-mail et les numéros de téléphone. Pour plus d’informations, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md).
@@ -97,7 +97,7 @@ Les [données juste-à-temps](security-center-just-in-time.md) sont considérée
 Les [données d’alerte](security-center-managing-and-responding-alerts.md) sont considérées comme des données de sécurité et sont conservées pendant deux ans.
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
-Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la gestion des données utilisateur, consultez [Gérer les données utilisateur trouvées dans une enquête Azure Security Center](security-center-investigation-user-data.md).

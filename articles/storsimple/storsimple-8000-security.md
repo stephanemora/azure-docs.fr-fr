@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 31c432b884ce92c508dd7f893c12ba13acff28e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4598f71f9b611e68f8eb00676138784833c39f32
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963514"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891514"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La sécurité est une préoccupation majeure pour toute personne adoptant une nouvelle technologie, surtout lorsque cette technologie est utilisée avec des données confidentielles ou propriétaires. Lorsque vous évaluez différentes technologies, vous devez tenir compte des risques et des coûts relatifs à la protection des données. Microsoft Azure StorSimple fournit une solution de sécurité et de confidentialité pour la protection des données, afin de garantir :
 
@@ -198,7 +198,7 @@ Nous vous recommandons de suivre ces méthodes recommandées pour la rotation de
 
 StorSimple utilise les algorithmes de chiffrement suivants pour protéger les données stockées sur les composants ou en transit dans votre solution StorSimple.
 
-| Algorithme | Longueur de clé | Protocoles/applications/commentaires |
+| Algorithm | Longueur de clé | Protocoles/applications/commentaires |
 | --- | --- | --- |
 | RSA |2 048 |RSA PKCS 1 v1.5 est utilisé par le portail Azure pour chiffrer les données de configuration envoyées à l’appareil : par exemple, les informations d’identification du compte de stockage, la configuration de l’appareil StorSimple et les clés de chiffrement du stockage cloud. |
 | AES |256 |AES avec CBC est utilisé pour chiffrer la partie publique de la clé de chiffrement des données du service avant son envoi au portail Azure à partir de l’appareil StorSimple. Il est également utilisé par l’appareil StorSimple pour chiffrer les données avant qu’elles ne soient envoyées au compte de stockage cloud. |
@@ -234,7 +234,7 @@ Voici quelques questions et réponses relatives à la sécurité et à Microsoft
 
 **R :** Cette clé a été créée quand vous avez créé le service StorSimple Device Manager. Si vous utilisez le service StorSimple Device Manager pour vous connecter à l’appareil, vous pouvez utiliser la page de démarrage rapide du service pour afficher ou régénérer la clé d’inscription. La génération d’une nouvelle clé d’inscription n’affecte pas les appareils déjà inscrits. Pour obtenir des instructions, consultez :
 
-* [Affichage ou régénération de la clé d’inscription au service](storsimple-8000-manage-service.md##regenerate-the-service-registration-key)
+* [Affichage ou régénération de la clé d’inscription au service](storsimple-8000-manage-service.md#regenerate-the-service-registration-key)
 
 **Q :** J’ai perdu ma clé de chiffrement des données du service. Que faire ?
 

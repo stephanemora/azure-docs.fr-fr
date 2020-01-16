@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: c9f59eb8c299eb9319694d392c2b5d1d814ed9b8
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4aa45cc1e8b79186d3ddd5d2b2964addb3929b1a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997324"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978571"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -41,7 +41,7 @@ Les [règles de réseau virtuel](sql-database-vnet-service-endpoint-rule-overvie
 > [!NOTE]
 > Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à une **instance gérée**. Pour plus d’informations sur la configuration de la mise en réseau requise, consultez [Connexion à une instance gérée](sql-database-managed-instance-connect-app.md).
 
-## <a name="access-management"></a>gestion de l’accès
+## <a name="access-management"></a>Gestion de l’accès
 
 > [!IMPORTANT]
 > La gestion des bases de données et des serveurs de bases de données dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).
@@ -65,7 +65,7 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
 > [!IMPORTANT]
 > La gestion des bases de données et des serveurs dans Azure est contrôlée par les attributions de rôle de votre compte d’utilisateur du portail. Pour en savoir plus à ce sujet, consultez [Contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md). Le contrôle d’accès avec des règles de pare-feu ne s’applique *pas* à une **instance gérée**. Consultez l’article suivant sur la [connexion à une instance gérée](sql-database-managed-instance-connect-app.md) pour en savoir plus sur la configuration réseau nécessaire.
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>Autorisation
 
 L'autorisation fait référence aux autorisations accordées à un utilisateur au sein d’une base de données Azure SQL Database, et détermine ce que l’utilisateur est autorisé à faire. Les autorisations sont contrôlées en ajoutant des comptes d’utilisateurs aux [rôles de base de données](/sql/relational-databases/security/authentication-access/database-level-roles) et en attribuant des autorisations au niveau de la base de données à ces rôles ou en octroyant aux utilisateurs certaines [autorisations au niveau des objets](/sql/relational-databases/security/permissions-database-engine). Pour plus d’informations, consultez [Connexions et utilisateurs](sql-database-manage-logins.md).
 
@@ -73,7 +73,7 @@ Il est recommandé de créer des rôles personnalisés si nécessaire. Ajoutez d
 
 ### <a name="row-level-security"></a>Sécurité au niveau des lignes
 
-La sécurité au niveau des lignes permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes permet également d’implémenter des concepts de sécurité personnalisés en fonction d’une étiquette. Pour plus d’informations, consultez [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security).
+La sécurité au niveau des lignes permet aux clients de contrôler l'accès aux lignes d'une table de base de données en fonction des caractéristiques de l'utilisateur exécutant une requête (appartenance à un groupe ou contexte d'exécution, par exemple). La sécurité au niveau des lignes permet également d’implémenter des concepts de sécurité personnalisés en fonction d’une étiquette. Pour plus d’informations, consultez [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security).
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -104,7 +104,7 @@ Dans la chaîne de connexion de votre application, nous vous recommandons de sp�
 Par exemple, lorsque vous utilisez le pilote ADO.NET, cette opération s’effectue via **Encrypt=True** et **TrustServerCertificate=False**. Si vous obtenez votre chaîne de connexion à partir du portail Azure, elle présentera les paramètres appropriés.
 
 > [!IMPORTANT]
-> Notez que certains pilotes autres que Microsoft peuvent ne pas utiliser le protocole TLS par défaut ou en utiliser une ancienne version (< 1.2) pour fonctionner. Dans ce cas, SQL Server vous permet toujours de vous connecter à votre base de données. Toutefois, nous vous recommandons d’évaluer les risques de sécurité si vous autorisez ces pilotes et cette application à se connecter à SQL Database, en particulier si vous stockez des données sensibles. 
+> Notez que certains pilotes autres que Microsoft peuvent ne pas utiliser le protocole TLS par défaut ou en utiliser une ancienne version (< 1.2) pour fonctionner. Dans ce cas, SQL Server vous permet toujours de vous connecter à votre base de données. Toutefois, nous vous recommandons d’évaluer les risques de sécurité si vous autorisez ces pilotes et cette application à se connecter à SQL Database, en particulier si vous stockez des données sensibles.
 >
 > Pour plus d’informations sur le protocole TLS et la connectivité, consultez [Considérations relatives au protocole TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
@@ -124,7 +124,7 @@ Dans Azure, toutes les bases de données SQL créées sont chiffrées par défau
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement.  La clé de chiffrement n’est jamais exposée dans SQL et peut être stockée dans le [magasin de certificats Windows](sql-database-always-encrypted.md) ou dans [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="dynamic-data-masking"></a>Masquage des données dynamiques
+### <a name="dynamic-data-masking"></a>Masquage dynamique des données
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 

@@ -1,23 +1,23 @@
 ---
 title: Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
 description: Apprendre à créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1975125dd3bcd327ae7520e4cc413718e48d6ba9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326750"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978335"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Créer un cluster et une base de données Azure Data Explorer à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portail](create-cluster-database-portal.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -26,7 +26,7 @@ ms.locfileid: "71326750"
 
 Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Dans cet article, vous créez un cluster et une base de données en utilisant Powershell. Vous pouvez exécuter des scripts et des applets de commande PowerShell sur Windows, sur Linux ou dans [Azure Cloud Shell](../cloud-shell/overview.md) avec [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) pour créer et configurer des clusters et des bases de données Azure Data Explorer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -52,9 +52,9 @@ Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes d
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. Quand vous exécutez Azure CLI localement ou dans Azure Cloud Shell, vous devez installer le module Az.Kusto sur votre appareil :
-    
+
     ```azurepowershell-interactive
-     Install-Module -Name Az.Kusto  
+     Install-Module -Name Az.Kusto
     ```
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Créer le cluster Azure Data Explorer
@@ -67,7 +67,7 @@ Les étapes suivantes ne sont pas obligatoires si vous exécutez des commandes d
 
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
-   | Nom | *mykustocluster* | Nom souhaité de votre cluster.|
+   | Name | *mykustocluster* | Nom souhaité de votre cluster.|
    | Sku | *D13_v2* | Référence SKU utilisée pour votre cluster. |
    | ResourceGroupName | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
 
@@ -92,7 +92,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
    |**Paramètre** | **Valeur suggérée** | **Description du champ**|
    |---|---|---|
    | ClusterName | *mykustocluster* | Nom du cluster dans lequel la base de données est créée.|
-   | Nom | *mykustodatabase* | Nom de votre base de données.|
+   | Name | *mykustodatabase* | Nom de votre base de données.|
    | ResourceGroupName | *testrg* | Nom du groupe de ressources dans lequel sera créé le cluster. |
    | SoftDeletePeriod | *3650:00:00:00* | Durée pendant laquelle les données restent disponibles pour les requêtes. |
    | HotCachePeriod | *3650:00:00:00* | Durée pendant laquelle les données sont conservées dans le cache. |
@@ -105,7 +105,7 @@ Si le résultat contient `provisioningState` avec la valeur `Succeeded`, alors l
 
 Vous disposez maintenant d’un cluster et d’une base de données.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 * Si vous envisagez de suivre nos autres articles, conservez les ressources que vous avez créées.
 * Pour nettoyer les ressources, supprimez le cluster. Lorsque vous supprimez un cluster, cela supprime également toutes les bases de données qu’il contient. Utilisez la commande suivante pour supprimer votre cluster :

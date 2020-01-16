@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893584"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747023"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -93,7 +93,7 @@ Vous pouvez obtenir des informations sur les règles d’alerte et leur configur
 * Configurer les [alertes métriques classiques PowerShell](alerts-classic-portal.md)
 * Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](alerts-classic-portal.md)
 * Configurer les [l’API REST Azure Monitor des alertes métriques](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* En savoir plus sur les [journaux d’activité](activity-logs-overview.md)
+* En savoir plus sur les [journaux d’activité](platform-logs-overview.md)
 * Configurer les [alertes de journal d’activité par le biais du portail Azure](activity-log-alerts.md)
 * Configurer les [alertes de journal d’activité au moyen de Resource Manager](alerts-activity-log.md)
 * Consulter le [schéma de webhook d’alerte de journal d’activité](activity-log-alerts-webhook.md)

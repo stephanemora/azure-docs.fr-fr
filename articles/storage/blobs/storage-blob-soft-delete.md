@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978115"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972728"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
 
@@ -68,7 +68,7 @@ Lors de l’appel de la commande **Delete Blob** sur un objet blob de base (tout
 > [!NOTE]  
 > Quand un objet blob supprimé de manière réversible est remplacé, un instantané d’objet blob supprimé de manière réversible reflétant l’état de l’objet blob avant l’opération d’écriture est généré automatiquement. Le nouvel objet blob hérite le niveau de l’objet blob remplacé.
 
-La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement de métadonnées et propriétés d’objet blob. Pour protéger un compte de stockage contre une suppression malencontreuse, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour en savoir plus, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
+La fonctionnalité de suppression réversible n’enregistre pas vos données en cas de suppression de conteneur ou de compte, ou en cas de remplacement de métadonnées et propriétés d’objet blob. Pour protéger un compte de stockage contre une suppression malencontreuse, vous pouvez configurer un verrou à l’aide d’Azure Resource Manager. Pour en savoir plus, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 Le tableau suivant indique le comportement attendu quand la suppression réversible est activée :
 
@@ -100,7 +100,7 @@ Pour restaurer un objet blob en capture instantanée supprimée de manière rév
 
 Pour afficher les objets blob et instantanés d’objets blob supprimés de manière réversible, vous pouvez inclure des données supprimées dans la commande **List Blobs**. Vous pouvez afficher uniquement les objets blob de base supprimés de manière réversible ou inclure les instantanés d’objets blob supprimés. Pour toutes les données supprimées de manière réversible, vous pouvez afficher l’heure de leur suppression, ainsi que le nombre de jours avant leur expiration définitive.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Voici la sortie de console d’un script .NET qui charge, remplace, crée un instantané, supprime et restaure un objet blob nommé *HelloWorld* quand la suppression réversible est activée :
 
@@ -146,11 +146,11 @@ Pour plus de détails sur les prix du Stockage Blob Azure en général, voir la 
 
 Lorsque vous activez initialement la suppression réversible, nous vous recommandons d’utiliser une courte période de rétention pour mieux comprendre l’impact de cette fonctionnalité sur votre facture.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Les étapes suivantes montrent comment prendre en main la suppression réversible.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Activez la suppression réversible pour blob sur votre compte de stockage à l’aide du Portail Azure :
 
@@ -190,7 +190,7 @@ Après avoir annulé la suppression d’instantanés d’un objet blob, vous pou
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -307,7 +307,7 @@ blockBlob.StartCopy(copySource);
 
 S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez réduire ce coût et cette latence supplémentaires en stockant les données fréquemment remplacées dans un compte de stockage distinct où la suppression réversible est désactivée. 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 ### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Pour quels services de stockage puis-je utiliser la suppression réversible ?
 
@@ -335,7 +335,7 @@ Oui, la suppression réversible est configurable pour des comptes de stockage ta
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Si je supprime un compte ou un conteneur entier alors que la suppression réversible est activée, les objets blob associés sont-ils tous enregistrés ?
 
-Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour plus d’informations sur la protection d’un compte de stockage contre les suppressions accidentelles, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
+Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour plus d’informations sur la protection d’un compte de stockage contre les suppressions accidentelles, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Puis-je afficher les métriques de capacité de données supprimées ?
 

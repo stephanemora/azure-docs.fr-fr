@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 1c742daf29cbbef5e6f51af5363be7fd949aaebf
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304783"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971187"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
 
@@ -23,13 +23,13 @@ Avec [l’extension Diagnostics](diagnostics-extension-overview.md) d’Azure Mo
 
 Cet article décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
-En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc.  Avant, l’extension Diagnostics écrivait les données dans Stockage Azure, et non dans le magasin de données Azure Monitor.  
+En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc.  Avant, l’extension Diagnostics écrivait les données dans le stockage Azure, et non dans le magasin de données d’Azure Monitor.  
 
 Le processus décrit dans cet article fonctionne uniquement pour les compteurs de performances des services cloud Azure. Il ne fonctionne pas pour les autres métriques personnalisées. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Vous devez être [administrateur ou coadministrateur de services fédérés](~/articles/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
+- Vous devez être [administrateur ou coadministrateur de services fédérés](../../cost-management-billing/manage/add-change-subscription-administrator.md) dans votre abonnement Azure. 
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -51,7 +51,7 @@ Créez un principal de service dans votre locataire Azure Active Directory à l�
 
 - Vous pouvez indiquer n’importe quelle URL pour l’URL de connexion.  
 - Créez un secret client pour cette application.  
-- Enregistrez la clé et l’ID client pour une utilisation ultérieure.  
+- Enregistrez la clé et l’ID client pour les utiliser ultérieurement.  
 
 Attribuez à l’application créée à l’étape précédente des autorisations *Surveillance de l’éditeur de métriques* afin qu’elle puisse accéder à la ressource à partir de laquelle vous souhaitez générer des métriques. Si vous envisagez d’utiliser l’application pour émettre des métriques personnalisées concernant de nombreuses ressources, vous pouvez accorder ces autorisations au niveau du groupe de ressources ou de l’abonnement.  
 
@@ -182,7 +182,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 4. Dans la liste déroulante des ressources, sélectionnez votre service cloud classique.
 
-5. Dans la liste déroulante d’espaces de noms, sélectionnez **azure.vm.windows.guest**. 
+5. Dans le menu déroulant des espaces de noms, sélectionnez **azure.vm.windows.guest**. 
 
 6. Dans la liste déroulante des métriques, sélectionnez **Mémoire\Octets validés en cours d’utilisation**. 
 

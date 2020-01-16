@@ -3,12 +3,12 @@ title: Comprendre le fonctionnement des effets
 description: Les définitions Azure Policy ont différents effets qui déterminent la manière dont la conformité est gérée et rapportée.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436359"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972811"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -367,7 +367,7 @@ La propriété **details** de l’effet DeployIfNotExists comprend toutes les so
   - Cette propriété doit inclure un tableau de chaînes qui correspondent aux ID de rôle de contrôle de l’accès en fonction du rôle accessibles par l’abonnement. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (facultatif)
   - Les valeurs autorisées sont _Subscription_ et _ResourceGroup_.
-  - Définit le type de déploiement à déclencher. _Subscription_ indique un [déploiement au niveau de l’abonnement](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indique un déploiement dans un groupe de ressources.
+  - Définit le type de déploiement à déclencher. _Subscription_ indique un [déploiement au niveau de l’abonnement](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ indique un déploiement dans un groupe de ressources.
   - Une propriété _location_ doit être spécifiée dans _Deployment_ pour les déploiements au niveau de l’abonnement.
   - La valeur par défaut est _ResourceGroup_.
 - **Deployment** [obligatoire]

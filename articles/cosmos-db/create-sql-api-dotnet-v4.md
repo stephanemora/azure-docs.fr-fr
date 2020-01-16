@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: 362662cb6ac9b0535a0e762e5c484b31dcc009a6
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.date: 01/10/2020
+ms.openlocfilehash: b69d67a5c4fc1d907f676cf4e400f9fa7df2653b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796109"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867263"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Démarrage rapide : Générer une application console à l’aide du Kit de développement logiciel (SDK) .NET V4 pour gérer les ressources du compte de l’API SQL Azure Cosmos DB.
 
@@ -36,10 +36,10 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 [Code source de la bibliothèque](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/v4) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Cosmos)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure – [Vous pouvez en créer un gratuitement](https://azure.microsoft.com/free/) ou [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, sans frais et sans engagement. 
-* [SDK .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core). Vous pouvez vérifier quelle version est disponible dans votre environnement en exécutant `dotnet --version`.
+* [Kit de développement logiciel (SDK) .NET Core 3](https://dotnet.microsoft.com/download/dotnet-core) Pour connaître la version disponible dans votre environnement, exécutez `dotnet --version`.
 
 ## <a name="setting-up"></a>Configuration
 
@@ -115,14 +115,14 @@ Time Elapsed 00:00:34.17
 Tout en restant dans le répertoire de l’application, installez la bibliothèque de client Azure Cosmos DB pour .NET Core à l’aide de la commande dotnet add Package.
 
    ```bash
-   dotnet add package Azure.Cosmos --version 4.0.0-preview
+   dotnet add package Azure.Cosmos --version 4.0.0-preview3
    ```
 
 ### <a name="copy-your-azure-cosmos-account-credentials-from-the-azure-portal"></a>Copiez les informations d’identification de votre compte Azure Cosmos à partir du portail Azure
 
 L’exemple d’application doit s’authentifier auprès de votre compte Azure Cosmos. Pour vous authentifier, vous devez transmettre les informations d’identification du compte Azure Cosmos à l’application. Pour obtenir les informations d’identification de votre compte Azure Cosmos, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Accédez à votre compte Azure Cosmos.
 
@@ -168,9 +168,9 @@ Pour finir, remplacez la méthode `Main` :
 
 [!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=Main)]
 
-### <a name="create-a-database"></a>Créer une base de données 
+### <a name="create-a-database"></a>Création d'une base de données 
 
-Définissez la méthode `CreateDatabaseAsync` dans la classe `program.cs`. Cette méthode crée la `FamilyDatabase` si elle n’existe pas.
+Définissez la méthode `CreateDatabaseAsync` dans la classe `program.cs`. Cette méthode crée le `FamilyDatabase` s’il n’existe pas.
 
 [!code-csharp[Main](~/cosmos-dotnet-v4-getting-started/src/Program.cs?name=CreateDatabaseAsync)]
 
@@ -245,7 +245,7 @@ La sortie suivante est générée lorsque vous exécutez l’application. Vous p
 
 Vous pouvez vérifier que les données ont été créées en vous connectant au portail Azure et en affichant les éléments requis dans votre compte Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du compte Azure Cosmos, vous pouvez utiliser Azure CLI ou Azure PowerShell pour le supprimer ainsi que le groupe de ressources correspondant. La commande suivante montre comment supprimer le groupe de ressources à l’aide d’Azure CLI :
 

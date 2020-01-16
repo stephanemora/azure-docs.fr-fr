@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659557"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978755"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : Dictionnaire de la terminologie cloud sur la plateforme Azure
 
@@ -31,7 +31,7 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 
 ## <a name="account"></a>account
 Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant, ou encore d’un nom d’utilisateur et d’un mot de passe Office 365. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
-Consultez les pages [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
+Consultez les pages [Sign up for an Azure subscription with your Office 365 account](cost-management-billing/manage/office-365-account-for-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
 
 ## <a name="api-app"></a>application API
 Autre nom pour [application App Service](#app-service-app).
@@ -96,11 +96,11 @@ Voir [Régions Azure](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
 Un élément qui fait partie de votre solution Azure. Chaque service Azure vous permet de déployer différents types de ressources, comme des bases de données ou des machines virtuelles.   
-Voir [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Voir [Présentation d’Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>resource group
 Un conteneur dans Azure Resource Manager réunissant les ressources associées d’une application. Le groupe de ressources peut inclure toutes les ressources d’une application, ou uniquement celles qui sont regroupées de façon logique. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation.  
-Voir [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Voir [Présentation d’Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>modèle Azure Resource Manager
 Un fichier JSON qui définit de façon déclarative une ou plusieurs ressources Azure ainsi que les dépendances entre les ressources déployées. Le modèle peut être utilisé pour déployer les ressources de manière cohérente et répétée.  
@@ -108,7 +108,7 @@ Voir [Création de modèles Azure Resource Manager](resource-group-authoring-tem
 
 ## <a name="resource-provider"></a>fournisseur de ressources
 Un service qui fournit les ressources que vous pouvez déployer et gérer via Azure Resource Manager. Chaque fournisseur de ressources propose des opérations pour travailler avec les ressources déployées. Les fournisseurs de ressources sont accessibles via le portail Azure, Azure PowerShell et plusieurs Kits de développement logiciel (SDK) de programmation.  
-Voir [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md)
+Voir [Présentation d’Azure Resource Manager](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>rôle
 Un moyen de contrôler l’accès qui peut être affecté aux utilisateurs ainsi qu’aux groupes et services. Les rôles rendent possibles des actions telles que la création, la gestion et la lecture sur les ressources Azure.  

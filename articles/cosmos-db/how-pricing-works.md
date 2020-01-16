@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756871"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977535"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modèle de tarification dans Azure Cosmos DB 
 
@@ -43,7 +43,7 @@ Comme indiqué dans le tableau précédent, le débit minimal dans Azure Cosmos 
 
 Azure Cosmos DB offre plusieurs possibilités d’essai gratuit pour les développeurs. Ces options sont les suivantes :
 
-* **Compte gratuit Azure** : Azure propose un [niveau gratuit](https://azure.microsoft.com/free/) avec 200 $ de crédit Azure pendant les 30 premiers jours et une quantité limitée de services gratuits pendant 12 mois. Pour plus d’informations, consultez la page [Compte Azure gratuit](../billing/billing-avoid-charges-free-account.md). L’essai d’Azure Cosmos DB fait partie du compte gratuit Azure. Spécialement pour Azure Cosmos DB, ce compte gratuit offre 5 Go de stockage et 400 RU/s de débit approvisionné pour toute l’année. 
+* **Compte gratuit Azure** : Azure propose un [niveau gratuit](https://azure.microsoft.com/free/) avec 200 $ de crédit Azure pendant les 30 premiers jours et une quantité limitée de services gratuits pendant 12 mois. Pour plus d’informations, consultez la page [Compte Azure gratuit](../cost-management-billing/manage/avoid-charges-free-account.md). L’essai d’Azure Cosmos DB fait partie du compte gratuit Azure. Spécialement pour Azure Cosmos DB, ce compte gratuit offre 5 Go de stockage et 400 RU/s de débit approvisionné pour toute l’année. 
 
 * **Essayez gratuitement Azure Cosmos DB** : Azure Cosmos DB propose une expérience à durée limitée pour essayer Azure Cosmos DB pour les comptes gratuits. Vous pouvez créer un compte Azure Cosmos DB, créer une base de données et des collections et exécuter un exemple d’application en utilisant les didacticiels et guides de démarrage rapide. Vous pouvez exécuter l’exemple d’application sans abonnement à un compte Azure ou avec votre carte de crédit. [Essai gratuit d'Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) offre Azure Cosmos DB pendant un mois, avec la possibilité de renouveler votre compte autant de fois que vous le souhaitez.
 

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 384b79037bb30656934c5e4b596dac2b776593b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791875"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754122"
 ---
 # <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
@@ -252,4 +252,4 @@ Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md) (Comment utiliser les types complexes)
 + [Base de connaissances (préversion)](knowledge-store-concept-intro.md)
-+ [Prise en main de la Base de connaissances](knowledge-store-howto.md)
++ [Créer une base de connaissances avec REST](knowledge-store-create-rest.md)

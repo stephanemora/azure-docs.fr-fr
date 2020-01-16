@@ -12,30 +12,29 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: ef44931cc3b36bcab64a2de840d9264c1b8fdedb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c5b0556554d280e57b2df51875e1b057b5fb4a8
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058019"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749895"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Impossible d’établir une connexion RDP à des machines virtuelles Azure car le service client DHCP est désactivé
 
 Cet article décrit un problème qui vous empêche de vous connecter à distance à des machines virtuelles (VM) Windows Azure une fois que le service client DHCP est désactivé sur la machine virtuelle.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Symptômes
 Vous ne pouvez pas établir une connexion RDP à une machine virtuelle dans Azure, car le service client DHCP est désactivé sur la machine virtuelle. Lorsque vous vérifiez la capture d’écran dans les [diagnostics de démarrage](../troubleshooting/boot-diagnostics.md) du portail Azure, vous voyez la machine virtuelle démarrer normalement et attendre les identifiants dans l’écran de connexion. Vous consultez à distance les journaux des événements dans la machine virtuelle avec l’observateur d’événements. Vous voyez que le service client DHCP n’est pas démarré ou ne parvient pas à démarrer. Voici un exemple de journal :
 
-**Nom du journal** : System </br>
+**Nom du journal** : Système </br>
 **Source** : Gestionnaire de contrôle des services </br>
 **Date** : 12/16/2015 11:19:36 AM </br>
 **ID d’événement** : 7022 </br>
-**Catégorie de tâche** : Aucun </br>
-**Niveau** : Error </br>
+**Catégorie de tâche** : None </br>
+**Niveau** : Error </br>
 **Mots clés** : Classique</br>
-**Utilisateur** : N/A </br>
+**Utilisateur** : N/A </br>
 **Ordinateur** : myvm.cosotos.com</br>
 **Description** : Le service client DHCP se bloque au démarrage.</br>
 
@@ -61,7 +60,7 @@ Pour résoudre ce problème, utilisez le contrôle série pour activer DHCP ou [
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 
 1. Connectez-vous à la [console série et ouvrez une instance CMD](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
-Sinon, une erreur d’incompatibilité du microprogramme s’affiche : la réinitialisation aux paramètres d’usine ne peut pas se poursuivre en raison d’une incohérence dans les versions du microprogramme. Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
+). Si la console série n’est pas activée sur votre machine virtuelle, consultez [Réinitialiser l’interface réseau](reset-network-interface.md).
 2. Vérifiez si le protocole DHCP est désactivé sur l’interface réseau :
 
         sc query DHCP

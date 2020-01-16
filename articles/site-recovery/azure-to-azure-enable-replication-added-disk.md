@@ -1,19 +1,16 @@
 ---
 title: Activer la réplication pour un disque de machine virtuelle Azure ajouté dans Azure Site Recovery
 description: Cet article explique comment activer la réplication d'un disque ajouté à une machine virtuelle Azure activée pour la récupération d'urgence avec Azure Site Recovery.
-services: site-recovery
-author: asgang
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2019
-ms.author: asgang
-ms.openlocfilehash: 6cbe71d67417ce817d317b65f27d0e6ceabec983
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6cbbe63d7968816de78256f5a8408517bb8da278
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084985"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973793"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Activer la réplication d'un disque ajouté à une machine virtuelle
 
@@ -34,9 +31,9 @@ Lorsque vous ajoutez un nouveau disque à une machine virtuelle Azure qui est r�
 
 ## <a name="before-you-start"></a>Avant de commencer
 
-Cet article suppose que vous avez déjà configuré la récupération d'urgence sur la machine virtuelle à laquelle vous ajoutez le disque. Si ce n'est pas le cas, suivez le [didacticiel Récupération d'urgence Azure vers Azure](azure-to-azure-tutorial-enable-replication.md). 
+Cet article suppose que vous avez déjà configuré la récupération d'urgence sur la machine virtuelle à laquelle vous ajoutez le disque. Si ce n'est pas le cas, suivez le [didacticiel Récupération d'urgence Azure vers Azure](azure-to-azure-tutorial-enable-replication.md).
 
-## <a name="enable-replication-for-an-added-disk"></a>Activer la réplication pour un disque ajouté 
+## <a name="enable-replication-for-an-added-disk"></a>Activer la réplication pour un disque ajouté
 
 Pour activer la réplication d'un disque ajouté, procédez comme suit :
 

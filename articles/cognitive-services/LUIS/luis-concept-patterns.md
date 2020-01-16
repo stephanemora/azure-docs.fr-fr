@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6c1b548de25369c162b4a08dfa20fce62c17f99f
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280855"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890284"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
@@ -61,7 +61,7 @@ Un modèle est d’abord mis en correspondance selon la détection des entités 
 ## <a name="pattern-only-apps"></a>Applications comportant uniquement des modèles
 Il est possible de créer des applications dont les intentions ne comportent aucun exemple d’énoncé, car il existe un modèle pour chaque intention. Le modèle en question ne doit pas contenir d’entités apprises automatiquement, pour lesquelles des exemples d’énoncés sont nécessaires. 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 Découvrir les [meilleures pratiques](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Syntaxe du modèle
@@ -73,7 +73,7 @@ Découvrez la syntaxe du modèle à partir des [informations de référence corr
 Découvrez-en plus sur les modèles :
 
 * [Comment ajouter des modèles](luis-how-to-model-intent-pattern.md)
-* [Comment ajouter une entité pattern.any](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Comment ajouter une entité pattern.any](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Syntaxe des modèles](reference-pattern-syntax.md)
 
 > [!div class="nextstepaction"]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe0eb6c2305dd01d8ff3df5be7056cbeae92fff2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762715"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771289"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
 
@@ -32,7 +32,7 @@ Connecteurs Azure Logic Apps : <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
-Les journaux d’audit Azure Sentinel sont conservés dans les [journaux d'activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+Les journaux d’audit Azure Sentinel sont conservés dans les [journaux d'activité Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Parmi les opérations prises en charge, voici celles qui peuvent faire l’objet d’un audit.
 
@@ -44,8 +44,6 @@ Parmi les opérations prises en charge, voici celles qui peuvent faire l’objet
 |Supprimer un workflow    |Microsoft.Logic/workflows|
 |Créer une recherche enregistrée    |Microsoft.OperationalInsights/workspaces/savedSearches|
 |Supprimer une recherche enregistrée    |Microsoft.OperationalInsights/workspaces/savedSearches|
-|Définir un tableau de bord  |Microsoft.Portal/dashboards|
-|Supprimer un tableau de bord   |Microsoft.Portal/dashboards|
 |Mettre à jour des règles d’alerte |Microsoft.SecurityInsights/alertRules|
 |Supprimer des règles d’alerte |Microsoft.SecurityInsights/alertRules|
 |Mettre à jour des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules|

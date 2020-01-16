@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d26eb0160316737c9ad31d98c8cf23bdcad42d32
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206500"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045732"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Choisir une solution d'équilibrage de charge pour les clouds privés CloudSimple
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur la configuration de cette solution, reportez-vous au gui
 
 Si vous choisissez d'exécuter votre application dans un déploiement hybride où l’analyse frontale Web est exécutée dans un vNet Azure de votre abonnement Azure et que le niveau de base de données de l'application est exécuté dans des machines virtuelles VMware d’un cloud privé CloudSimple, vous pouvez utiliser l’équilibreur de charge interne Azure (équilibreur de charge L4) en amont de vos machines virtuelles de niveau base de données afin de gérer le trafic.
 
-Pour en savoir plus, voir la documentation Azure [Équilibreur de charge interne](../load-balancer/load-balancer-overview.md#internalloadbalancer).
+Pour en savoir plus, voir la documentation Azure [Équilibreur de charge interne](../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 ## <a name="global-server-load-balancer"></a>Équilibreur de charge du serveur global
 

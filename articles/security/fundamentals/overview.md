@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: ed345fdf564c62e2d323b33013da784344c7a461
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595388"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045873"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation de la sécurité Azure
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Microsoft Azure assure la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
 
 Cet article fournit une vue d’ensemble complète au niveau de la sécurité disponible avec Azure.
@@ -69,7 +69,7 @@ La [solution Security and Audit](../../security-center/security-center-intro.md)
 En outre, vous pouvez configurer Security & Compliance pour [effectuer automatiquement des actions spécifiques](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) lorsqu’un événement particulier est détecté.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-[Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un [modèle Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) de déploiement pouvant fonctionner dans différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
+[Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) vous permet de travailler avec les ressources de votre solution en tant que groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un [modèle Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) de déploiement pouvant fonctionner dans différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
 
 Les déploiements basés sur un modèle Azure Resource Manager contribuent à améliorer la sécurité des solutions déployées dans Azure, car des paramètres de contrôle de sécurité standard peuvent être intégrés aux déploiements basés sur un modèle standardisé. De cette façon, le risque d’erreurs de configuration de sécurité, qui peuvent se produire au cours des déploiements manuels, est réduit.
 
@@ -81,7 +81,7 @@ Application Insights crée des graphiques et tableaux présentant, par exemple, 
 En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez effectuer une recherche dans les données de télémétrie pour diagnostiquer la cause en détail. Et le service vous envoie des messages électroniques si des modifications sont apportées à la disponibilité et à la performance de votre application. Application Insights devient donc un outil de sécurité précieux, car il apporte la « disponibilité » dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/platform/activity-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](../../azure-monitor/platform/platform-logs-overview.md)) et pour chaque ressource Azure ([journaux de diagnostic](../../azure-monitor/platform/platform-logs-overview.md)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux d’activité Azure.
 
 ### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
 [Journaux Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) fournit une solution de gestion informatique aussi bien pour les infrastructures en local que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données issues d’Azure Monitor peuvent être acheminées directement dans Journaux Azure Monitor, afin que vous puissiez voir les métriques et les journaux pour l’ensemble de votre environnement en un seul endroit.
@@ -95,7 +95,7 @@ La solution Journaux Azure Monitor peut se révéler un outil utile dans l’ana
 [Security Center](../../security-center/security-center-intro.md) vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 En outre, Security Center aide aux opérations de sécurité en vous fournissant un tableau de bord unique qui présente les alertes et les suggestions qui peuvent être traitées immédiatement. Dans la plupart des cas, vous pourrez corriger les problèmes d’un simple clic dans la console Azure Security Center.
-## <a name="applications"></a>APPLICATIONS
+## <a name="applications"></a>Applications
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité des applications et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="web-application-vulnerability-scanning"></a>Analyse de la vulnérabilité des applications web
@@ -142,23 +142,23 @@ Dans Diagnostic d’application, vous pouvez afficher les événements regroupé
 Cette section contient des informations supplémentaires sur les fonctionnalités clés de la sécurité du stockage Azure et des informations de synthèse sur ces fonctionnalités.
 
 ### <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
-Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](../../role-based-access-control/built-in-roles.md), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/common/storage-security-guide.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
+Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC). Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](../../role-based-access-control/built-in-roles.md), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs. L’accès aux clés de stockage pour un compte de stockage avec le modèle [Azure Resource Manager](../../storage/blobs/security-recommendations.md) peut être contrôlé via le contrôle d’accès en fonction du rôle (RBAC).
 
 ### <a name="shared-access-signature"></a>Signature d’accès partagé
 Une [signature d’accès partagé (SAP)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
 
 ### <a name="encryption-in-transit"></a>Chiffrement en transit
 Le chiffrement en transit est un mécanisme de protection des données transmises sur des réseaux. Le stockage Azure vous permet de sécuriser les données à l’aide des éléments suivants :
--   Le [chiffrement au niveau du transport](../../storage/common/storage-security-guide.md) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
+-   Le [chiffrement au niveau du transport](../../storage/blobs/security-recommendations.md) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
 
--   Le [chiffrement câblé](../../storage/common/storage-security-guide.md), par exemple le [chiffrement SMB 3.0](../../storage/common/storage-security-guide.md) pour les [partages de fichiers Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
+-   Le [chiffrement câblé](../../storage/blobs/security-recommendations.md), par exemple le [chiffrement SMB 3.0](../../storage/blobs/security-recommendations.md) pour les [partages de fichiers Azure](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   Le chiffrement côté client, pour chiffrer les données avant leur transfert dans le stockage et les déchiffrer après leur transfert à partir du stockage.
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 Pour de nombreuses organisations, le chiffrement des données au repos est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités de la sécurité du stockage Azure fournissent un chiffrement des données « au repos ».
 
--   [Storage Service Encryption](../../storage/common/storage-service-encryption.md) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Stockage Azure.
+-   [Storage Service Encryption](../../storage/common/storage-service-encryption.md) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
 
 -   [Client-side Encryption](../../storage/common/storage-client-side-encryption.md) fournit également la fonctionnalité de chiffrement au repos.
 
@@ -266,9 +266,9 @@ Traffic Manager fournit un large éventail de méthodes de routage du trafic pou
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) offre une haute disponibilité et des performances réseau élevées pour vos applications. Il s’agit d’un équilibreur de charge Layer-4 (TCP, UDP) qui distribue le trafic entrant parmi des instances saines de services définis dans un jeu à charge équilibrée. Azure Load Balancer peut être configuré pour :
 
--   équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Cette configuration est appelée [équilibrage de charge avec accès par Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-   équilibrer la charge du trafic Internet entrant sur les machines virtuelles. Cette configuration est appelée [équilibrage de charge avec accès par Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--   équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Cette configuration est appelée [équilibrage de charge interne](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-   équilibrer le trafic entre des machines virtuelles dans un réseau virtuel, entre des machines virtuelles dans les services cloud ou entre des ordinateurs locaux et des machines virtuelles dans un réseau virtuel entre différents locaux. Cette configuration est appelée [équilibrage de charge interne](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Transférer du trafic externe vers une instance spécifique de machine virtuelle
 

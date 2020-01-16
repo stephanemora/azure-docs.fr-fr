@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
-ms.openlocfilehash: 0165ace1d373d267658c78e020356816fb9cc02f
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286471"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887918"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(DÉPRÉCIÉ) Questions fréquentes (FAQ) sur Container Service
 
@@ -64,7 +64,7 @@ Si vous utilisez des [commandes Azure CLI](../../container-service/dcos-swarm/co
 Vous pouvez créer un cluster incluant 1, 3 ou 5 nœuds principaux. Vous pouvez choisir jusqu’à 100 nœuds agents.
 
 > [!IMPORTANT]
-> Pour les clusters de grande taille, en fonction de la taille de machine virtuelle que vous choisissez pour vos nœuds, vous devrez peut-être augmenter le quota de cœurs dans votre abonnement. Pour demander une augmentation de ce quota, [ouvrez gratuitement une demande de support en ligne](../../azure-supportability/how-to-create-azure-support-request.md). Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
+> Pour les clusters de grande taille, en fonction de la taille de machine virtuelle que vous choisissez pour vos nœuds, vous devrez peut-être augmenter le quota de cœurs dans votre abonnement. Pour demander une augmentation de ce quota, [ouvrez gratuitement une demande de support en ligne](../../azure-portal/supportability/how-to-create-azure-support-request.md). Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 > 
 
 ### <a name="how-do-i-increase-the-number-of-masters-after-a-cluster-is-created"></a>Comment augmenter le nombre de maîtres après la création d’un cluster ? 

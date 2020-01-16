@@ -1,19 +1,19 @@
 ---
 title: Codes d’état de la co-vente | Place de marché Azure
 description: Utilisez ces codes d'état/de province lorsque vous fournissez des coordonnées sur la page de co-vente de votre offre.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812858"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934363"
 ---
 # <a name="co-sell-state-codes"></a>Codes d'état de co-vente
 

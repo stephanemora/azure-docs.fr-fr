@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 075af43796d3ca3dfef4b48f8f98f20903af3308
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 33e6ecca0eb4ca05b1f6bf53cdb3bd4ac8c8d8a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978966"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978435"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Vérification de l’état des travaux Azure Import/Export avec les copies des fichiers journaux
 Lorsque le service Microsoft Azure Import/Export traite des lecteurs associés à un travail d’importation ou d’exportation, il écrit les fichiers journaux de copie dans le compte de stockage dans ou à partir duquel vous importez ou exportez des objets blob. Le fichier journal contient l’état détaillé de chaque fichier importé ou exporté. L’URL de chaque fichier journal de copie est renvoyée lorsque vous interrogez l’état d’un travail effectué ; consultez la page [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) pour plus d’informations.  
@@ -21,15 +21,15 @@ Lorsque le service Microsoft Azure Import/Export traite des lecteurs associés �
 ## <a name="example-urls"></a>Exemples d’URL
 
 Voici des exemples d’URL de fichiers journaux de copie pour un travail d’importation avec deux lecteurs :  
-  
+
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM35C2V_20130921-034307-902_error.xml`  
-  
+
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
-  
+
  Consultez la page [Format des fichiers journaux d’activité du Service Import-Export](../storage-import-export-file-format-log.md) pour connaître le format des journaux d’activité de copie et la liste complète des codes d’état.  
-  
+
 ## <a name="next-steps"></a>Étapes suivantes
- 
+
  * [Configuration de l’outil Azure Import/Export](storage-import-export-tool-setup-v1.md)   
  * [Préparation des disques durs pour un travail d’importation](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
  * [Réparation d’un travail d’importation](../storage-import-export-tool-repairing-an-import-job-v1.md)   

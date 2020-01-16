@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 7b511ab0c3093747d6e713754c04533e5f25b6ad
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 21269f7d5a9ec832a49a613351702dd24be156af
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087394"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894161"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Impossible d’accéder aux fichiers de stockage Data Lake dans Azure HDInsight
 
@@ -30,9 +30,9 @@ LISTSTATUS failed with error 0x83090aa2 (Forbidden. ACL verification failed. Eit
 
 L’utilisateur peut avoir révoqué les autorisations de principal du service (SP) sur les fichiers/dossiers.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
-1. Vérifiez que le SP dispose d’autorisations « x » pour parcourir le chemin d’accès. Pour plus d’informations, consultez la page [Autorisations](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exemple de commande DFS pour vérifier l’accès aux fichiers/dossiers dans le compte de stockage Data Lake :
+1. Vérifiez que le SP dispose d’autorisations « x » pour parcourir le chemin d’accès. Pour plus d’informations, consultez [Autorisations](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html). Exemple de commande DFS pour vérifier l’accès aux fichiers/dossiers dans le compte de stockage Data Lake :
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -99,7 +99,7 @@ Le certificat fourni pour l’accès du principal du service a peut-être expir�
     Error: java.lang.IllegalArgumentException: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://clustername.hmssomerandomstringc.cx.internal.cloudapp.net:909/api/oauthtoken}
     ```
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Créez un nouveau certificat ou attribuez un certificat existant à l’aide du script PowerShell suivant :
 
@@ -173,4 +173,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

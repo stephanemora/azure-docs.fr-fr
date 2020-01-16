@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 50054379a3032a368a10932e15396373a3817cff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059009"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978910"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
 > [!IMPORTANT]
-> Azure offre deux [modèles de déploiement différents](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour créer et utiliser des ressources : Resource Manager et classique. Cet article traite du modèle de déploiement classique. Microsoft recommande de créer la plupart des réseaux virtuels via le modèle de déploiement [Resource Manager](quick-create-portal.md).
+> Azure offre deux [modèles de déploiement différents](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour créer et utiliser des ressources : Resource Manager et le déploiement classique. Cet article traite du modèle de déploiement classique. Microsoft recommande de créer la plupart des réseaux virtuels via le modèle de déploiement [Resource Manager](quick-create-portal.md).
 
 Ce didacticiel explique comment créer un réseau virtuel Azure (Classic) de base comprenant des sous-réseaux publics et privés distincts. Vous pouvez créer des ressources Azure, telles que des machines virtuelles et des services cloud, dans un sous-réseau. Les ressources créées dans des réseaux virtuels (Classic) peuvent communiquer entre elles, ainsi qu’avec des ressources d’autres réseaux connectés à un réseau virtuel.
 
 Apprenez-en davantage sur tous les paramètres de [réseau virtuel](manage-virtual-network.md) et de [sous-réseau](virtual-network-manage-subnet.md).
 
 > [!WARNING]
-> Azure supprime immédiatement les réseaux virtuels (Classic) quand un [abonnement est désactivé](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Les réseaux virtuels (Classic) sont supprimés, qu’il existe ou non des ressources dans le réseau virtuel. Si vous réactivez l’abonnement par la suite, les ressources précédemment présentes dans le réseau virtuel doivent être recréées.
+> Azure supprime immédiatement les réseaux virtuels (Classic) quand un [abonnement est désactivé](../cost-management-billing/manage/subscription-disabled.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Les réseaux virtuels (Classic) sont supprimés, qu’il existe ou non des ressources dans le réseau virtuel. Si vous réactivez l’abonnement par la suite, les ressources précédemment présentes dans le réseau virtuel doivent être recréées.
 
 Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#portal), de l’[interface de ligne de commande Azure (CLI) 1.0](#azure-cli) ou de [PowerShell](#powershell).
 
@@ -47,7 +47,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVnet|
+    |Name|myVnet|
     |Espace d’adressage|10.0.0.0/16|
     |Nom du sous-réseau|Public|
     |Plage d’adresses de sous-réseau|10.0.0.0/24|
@@ -65,7 +65,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     - Dans le volet **myVnet**, cliquez sur l’icône **Supprimer**.
     - Pour confirmer la suppression, cliquez sur **Oui** dans la zone **Supprimer le réseau virtuel**.
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 
 1. Vous pouvez soit [installer et configurer Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json), soit utiliser l’interface de ligne de commande au sein d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Pour obtenir de l’aide sur les commandes CLI, entrez `azure <command> --help`. 
 2. Dans une session d’interface de ligne de commande, connectez-vous à Azure avec la commande suivante. Si vous cliquez sur **Essayez-la** dans la zone ci-dessous, Cloud Shell s’ouvre. Vous pouvez vous connecter à votre abonnement Azure sans entrer la commande suivante :
@@ -145,7 +145,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
     ```
 
     > [!WARNING]
-    > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (Classic) figurant dans votre abonnement. Assurez-vous de n’ajouter que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
+    > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (classiques) existants dans votre abonnement. Assurez-vous de n’ajouter que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
 
 7. Vérifiez le réseau virtuel et les sous-réseaux :
 

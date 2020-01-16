@@ -8,12 +8,12 @@ ms.topic: include
 author: nibaccam
 ms.author: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 31ce37089b5f2b64ca467c67783cbbe13fb0b507
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e526a0ceeb20ec3a1d05db800e6d936b9d33de30
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492609"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75865129"
 ---
 > [!TIP]
-> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (Classic) sont encouragés à essayer [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) (préversion), qui fournit des modules ML en glisser-déposer __plus__ l’extensibilité, le contrôle de version et la sécurité de l’entreprise.
+> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) (préversion), qui fournit des modules ML par glisser-déposer __plus__ la scalabilité, la gestion de versions et la sécurité de l’entreprise.

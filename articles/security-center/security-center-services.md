@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 6325af9f577fbee1ab1621acbf10497fab2b78df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689161"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754228"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -40,7 +40,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 ||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|standard|
 |[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔|✔|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-filelessattackdetect)|✔|✔|✔|standard|
+|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|✔|✔|✔|standard|
 |[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|
@@ -66,7 +66,7 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 ||**Machines virtuelles Azure**|**Groupes de machines virtuelles identiques Azure**|**Machines non-Azure**|**Tarification**
 |[Intégration de Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|standard|
 |[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](security-center-alerts-iaas.md)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-filelessattackdetect)|-|-|-|standard|
+|[Alertes de détection des menaces sans fichier](alerts-reference.md#alerts-windows)|-|-|-|standard|
 |[Alertes de détection des menaces réseau](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|standard|
 |[Accès juste-à-temps aux machines virtuelles](security-center-just-in-time.md)|✔|-|-|standard|
 |[Évaluation native des vulnérabilités](built-in-vulnerability-assessment.md)|✔|-|-|standard|

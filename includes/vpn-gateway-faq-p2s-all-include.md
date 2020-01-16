@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/23/2019
+ms.date: 12/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9b106ea43e6a11d616ed2212636975bbbbf65631
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67056479"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75751490"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?
 
@@ -29,7 +29,7 @@ Les systèmes d’exploitation clients pris en charge sont les suivants :
 * Windows Server 2012 (64 bits uniquement)
 * Windows Server 2012 R2 (64 bits uniquement)
 * Windows Server 2016 (64 bits uniquement)
-* Windows 10
+* Windows 10
 * Mac OS X version 10.11 ou ultérieure
 * Linux (StrongSwan)
 * iOS

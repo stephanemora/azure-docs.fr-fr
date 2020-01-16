@@ -3,14 +3,14 @@ title: 'Tutoriel : Stocker l’état de Terraform dans le stockage Azure'
 description: Introduction au stockage de l’état Terraform dans le stockage Azure.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: d1b622a372be48bf044b512f3c964a5720fc3c5b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 1cc475e5070b21a7ea96585f2183c07d258acdc5
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159342"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708422"
 ---
-# <a name="tutorial-store-terraform-state-in-azure-storage"></a>Didacticiel : Stocker l’état de Terraform dans le stockage Azure
+# <a name="tutorial-store-terraform-state-in-azure-storage"></a>Tutoriel : Stocker l’état de Terraform dans le stockage Azure
 
 L’état Terraform est utilisé pour rapprocher des ressources déployées avec les configurations de Terraform. L’état permet à Terraform de connaître les ressources Azure à ajouter, mettre à jour ou supprimer. Par défaut, l’état Terraform est stocké localement lors de l’exécution de la commande `terraform apply`. Cette configuration n’est pas idéale pour les raisons suivantes :
 
@@ -84,6 +84,7 @@ L’exemple suivant configure un back-end Terraform et crée un groupe de ressou
 ```hcl
 terraform {
   backend "azurerm" {
+    resource_group_name   = "tstate"
     storage_account_name  = "tstate09762"
     container_name        = "tstate"
     key                   = "terraform.tfstate"

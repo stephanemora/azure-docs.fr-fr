@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2b2ea9d878db8284aa44cdbdacb92c8cd4fabe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7ff9e2015b4621c89b6a831cf7000aa32db5ea6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424001"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888944"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliothèques d’authentification de plateforme d’identité Microsoft
 
@@ -108,7 +108,7 @@ Pour toute bibliothèque conforme aux normes, vous pouvez utiliser le point de t
 * Pour tout problème ou demande de nouvelle fonctionnalité au niveau du code de la bibliothèque, adressez-vous au propriétaire de la bibliothèque.
 * Pour tout problème ou demande de nouvelle fonctionnalité au niveau de l’implémentation du protocole côté service, adressez-vous à Microsoft.
 * [Envoyez une demande de nouvelle fonctionnalité](https://feedback.azure.com/forums/169401-azure-active-directory) pour les fonctionnalités supplémentaires que vous aimeriez voir dans le protocole.
-* [Créez une demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) si vous détectez un problème pour lequel le point de terminaison de plateforme d’identité Microsoft n’est pas compatible avec OAuth 2.0 ni OpenID Connect 1.0.
+* [Créez une demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) si vous détectez un problème pour lequel le point de terminaison de plateforme d’identité Microsoft n’est pas compatible avec OAuth 2.0 ni OpenID Connect 1.0.
 
 ## <a name="related-content"></a>Contenu connexe
 

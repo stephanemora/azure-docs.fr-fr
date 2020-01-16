@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Équilibrer la charge des machines virtuelles dans les zones de disponibilité - Portail Azure'
+title: 'Tutoriel : Équilibrer la charge des machines virtuelles dans les zones de disponibilité - Portail Azure'
 titleSuffix: Azure Load Balancer
 description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend redondant interzone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure.
 services: load-balancer
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 6f9368dfa230817e985de09b1ee398c55693e425
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 99ba530d4857520693060d83ad78a7f127003a3d
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214814"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732318"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge des machines virtuelles sur les zones de disponibilité avec un équilibreur de charge standard à l’aide du portail Azure
 
@@ -50,13 +50,13 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence standard et est également automatiquement redondante interzone.
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
-2. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
+2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
 
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer** et tapez *MyResourceGroupLBAZ* dans la zone de texte.|
-    | Nom                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |
@@ -216,6 +216,7 @@ Une règle d’équilibrage de charge est utilisée pour définir la distributio
     - *myHealthProbe* : pour le nom de la sonde d’intégrité.
 4. Cliquez sur **OK**.
     
+    
     ![Ajout d’une règle d’équilibrage de charge](./media/load-balancer-standard-public-availability-zones-portal/load-balancing-rule.png)
 
 ## <a name="test-the-load-balancer"></a>Tester l’équilibreur de charge
@@ -227,10 +228,10 @@ Une règle d’équilibrage de charge est utilisée pour définir la distributio
 
 Pour visualiser la distribution du trafic par l’équilibreur de charge entre les machines virtuelles des différentes zones, vous pouvez forcer l’actualisation de votre navigateur web.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [l’équilibreur de charge standard](load-balancer-standard-overview.md).
+En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).

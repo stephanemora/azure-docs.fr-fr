@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: e70144bc71c182a6ec1668ee81f458a236289331
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2293618b0685fe71ae553a95797fe8bfe1fe968c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384194"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749937"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -395,11 +395,11 @@ En savoir plus :
 
 La journalisation au niveau du réseau est un élément clé de tout scénario de sécurité réseau. Dans Azure, vous pouvez consigner les informations obtenues pour les NSG afin de collecter les données de journalisation au niveau du réseau. La journalisation des groupes de sécurité réseau vous permet de consigner les données des journaux suivants :
 
-* [Journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md). Utilisez ces journaux d’activité pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux d’activité sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’activité d’audit » ou « Journaux d’activité des opérations ».
+* [Journaux d’activité](../../azure-monitor/platform/platform-logs-overview.md). Utilisez ces journaux d’activité pour consulter toutes les opérations envoyées à vos abonnements Azure. Ces journaux d’activité sont activés par défaut et peuvent être affichés dans le portail Azure. Ils étaient auparavant nommés « Journaux d’activité d’audit » ou « Journaux d’activité des opérations ».
 * Journaux d’événements. Ces journaux d’activité permettent de savoir quelles règles de groupe de sécurité réseau (NSG) ont été appliquées.
 * Journaux d’activité des compteurs. Ces journaux d’activité affichent le nombre de fois où chaque règle NSG a été appliquée pour refuser ou autoriser le trafic.
 
 Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), un puissant outil de visualisation de données, pour afficher et analyser ces journaux d’activité.
 En savoir plus :
 
-* [Journaux d’activité Azure Monitor pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md)
+* [Journaux Azure Monitor pour les groupes de sécurité réseau (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md)

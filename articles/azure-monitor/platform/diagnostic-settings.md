@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 034ad7a074f60f1e2e9a0e6190f405972250c95d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529892"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751084"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Créer un paramètre de diagnostic pour collecter des journaux et métriques de plateforme dans Azure
-[Les journaux de plateforme](resource-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme vers différentes destinations.
+[Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur la création et la configuration de paramètres de diagnostic pour envoyer les journaux de plateforme vers différentes destinations.
 
 > [!IMPORTANT]
 > Avant de créer un paramètre de diagnostic pour collecter le journal d’activité, vous devez désactiver toute configuration héritée. Pour plus d’informations, voir [Collecter le journal d’activité Azure avec des paramètres hérités](diagnostic-settings-legacy.md).
@@ -136,4 +136,4 @@ Pour créer ou mettre à jour des paramètres de diagnostic à l’aide d’un m
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur les journaux de la plateforme Azure](resource-logs-overview.md)
+* [En savoir plus sur les journaux de la plateforme Azure](platform-logs-overview.md)

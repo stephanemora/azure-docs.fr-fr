@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 3201edd3b90d6db1393286db688b24065ea8dc6b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3ba620d66b84e6724751b2024059e8ecd66888cd
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273539"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902497"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -50,7 +50,7 @@ Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à un
 </check-header>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <check-header name="Authorization" failed-check-httpcode="401" failed-check-error-message="Not authorized" ignore-case="false">
@@ -60,19 +60,19 @@ Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à un
 
 ### <a name="elements"></a>Éléments
 
-| Nom         | Description                                                                                                                                   | Obligatoire |
+| Name         | Description                                                                                                                                   | Obligatoire |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| check-header | Élément racine.                                                                                                                                 | OUI      |
+| check-header | Élément racine.                                                                                                                                 | Oui      |
 | value        | Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                       | Description                                                                                                                                                            | Obligatoire | Default |
+| Name                       | Description                                                                                                                                                            | Obligatoire | Default |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| failed-check-error-message | Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement. | OUI      | N/A     |
-| failed-check-httpcode      | Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.                                                                                        | OUI      | N/A     |
-| header-name                | Nom de l’en-tête HTTP à vérifier.                                                                                                                                  | OUI      | N/A     |
-| ignore-case                | Peut avoir la valeur True ou False. S’il a la valeur True, la casse est ignorée lors de la comparaison de la valeur de l’en-tête à l’ensemble des valeurs acceptables.                                    | OUI      | N/A     |
+| failed-check-error-message | Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement. | Oui      | N/A     |
+| failed-check-httpcode      | Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.                                                                                        | Oui      | N/A     |
+| header-name                | Nom de l’en-tête HTTP à vérifier.                                                                                                                                  | Oui      | N/A     |
+| ignore-case                | Peut avoir la valeur True ou False. S’il a la valeur True, la casse est ignorée lors de la comparaison de la valeur de l’en-tête à l’ensemble des valeurs acceptables.                                    | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -104,7 +104,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 </rate-limit>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -120,19 +120,19 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| rate-limit | Élément racine.                                                                                                                                                                                                                                                                                            | OUI      |
-| api       | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
-| operation | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
+| Name       | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| rate-limit | Élément racine.                                                                                                                                                                                                                                                                                            | Oui      |
+| api        | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
+| opération  | Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom           | Description                                                                                           | Obligatoire | Default |
+| Name           | Description                                                                                           | Obligatoire | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| Nom           | Nom de l’API à laquelle la limite de débit s’applique.                                                | OUI      | N/A     |
-| calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | OUI      | N/A     |
-| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                              | OUI      | N/A     |
+| name           | Nom de l’API à laquelle la limite de débit s’applique.                                                | Oui      | N/A     |
+| calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
+| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                              | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -164,7 +164,7 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez la pa
 
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de l’appelant.
 
@@ -185,18 +185,18 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
 
 ### <a name="elements"></a>Éléments
 
-| Nom              | Description   | Obligatoire |
+| Name              | Description   | Obligatoire |
 | ----------------- | ------------- | -------- |
-| rate-limit-by-key | Élément racine. | OUI      |
+| rate-limit-by-key | Élément racine. | Oui      |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                | Description                                                                                           | Obligatoire | Default |
+| Name                | Description                                                                                           | Obligatoire | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | OUI      | N/A     |
-| counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | OUI      | N/A     |
+| calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Oui      | N/A     |
+| counter-key         | Clé à utiliser pour la stratégie de limite de débit.                                                             | Oui      | N/A     |
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).        | Non       | N/A     |
-| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                              | OUI      | N/A     |
+| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                              | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -219,7 +219,7 @@ La stratégie `ip-filter` filtre (autorise/rejette) les appels de certaines adre
 </ip-filter>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans l’exemple suivant, la stratégie autorise uniquement les requêtes entrantes à partir de l’adresse IP unique ou de la plage d’adresses IP spécifiée
 
@@ -232,18 +232,18 @@ Dans l’exemple suivant, la stratégie autorise uniquement les requêtes entran
 
 ### <a name="elements"></a>Éléments
 
-| Nom                                      | Description                                         | Obligatoire                                                       |
+| Name                                      | Description                                         | Obligatoire                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
-| ip-filter                                 | Élément racine.                                       | OUI                                                            |
+| ip-filter                                 | Élément racine.                                       | Oui                                                            |
 | address                                   | Spécifie une adresse IP unique à filtrer.   | Au moins un élément `address` ou `address-range` est requis. |
 | address-range from="address" to="address" | Spécifie une plage d’adresses IP à filtrer. | Au moins un élément `address` ou `address-range` est requis. |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                                      | Description                                                                                 | Obligatoire                                           | Default |
+| Name                                      | Description                                                                                 | Obligatoire                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.                                        | Obligatoire lorsque l’élément `address-range` est utilisé. | N/A     |
-| ip-filter action="allow &#124; forbid"    | Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées. | OUI                                                | N/A     |
+| ip-filter action="allow &#124; forbid"    | Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées. | Oui                                                | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -271,7 +271,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 </quota>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```xml
 <policies>
@@ -287,20 +287,20 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description                                                                                                                                                                                                                                                                                  | Obligatoire |
+| Name      | Description                                                                                                                                                                                                                                                                                  | Obligatoire |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| quota     | Élément racine.                                                                                                                                                                                                                                                                                | OUI      |
+| quota     | Élément racine.                                                                                                                                                                                                                                                                                | Oui      |
 | api       | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
-| operation | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
+| opération | Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré. | Non       |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom           | Description                                                                                               | Obligatoire                                                         | Default |
+| Name           | Description                                                                                               | Obligatoire                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| Nom           | Nom de l’API ou de l’opération à laquelle s’applique le quota.                                             | OUI                                                              | N/A     |
+| name           | Nom de l’API ou de l’opération à laquelle s’applique le quota.                                             | Oui                                                              | N/A     |
 | bandwidth      | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
 | calls          | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.     | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
-| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                                  | OUI                                                              | N/A     |
+| renewal-period | Période en secondes après laquelle le quota se réinitialise.                                                  | Oui                                                              | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -329,7 +329,7 @@ Pour plus d’informations et d’exemples sur cette stratégie, consultez la pa
 
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelant.
 
@@ -349,19 +349,19 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 
 ### <a name="elements"></a>Éléments
 
-| Nom  | Description   | Obligatoire |
+| Name  | Description   | Obligatoire |
 | ----- | ------------- | -------- |
-| quota | Élément racine. | OUI      |
+| quota | Élément racine. | Oui      |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                | Description                                                                                               | Obligatoire                                                         | Default |
+| Name                | Description                                                                                               | Obligatoire                                                         | Default |
 | ------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | bandwidth           | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
 | calls               | Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.     | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
-| counter-key         | Clé à utiliser pour la stratégie de quota.                                                                      | OUI                                                              | N/A     |
+| counter-key         | Clé à utiliser pour la stratégie de quota.                                                                      | Oui                                                              | N/A     |
 | increment-condition | Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).             | Non                                                               | N/A     |
-| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                                  | OUI                                                              | N/A     |
+| renewal-period      | Période en secondes après laquelle le quota se réinitialise.                                                  | Oui                                                              | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -392,6 +392,7 @@ La stratégie `validate-jwt` applique l’existence et la validité d’un JWT e
     require-signed-tokens="true|false"
     clock-skew="allowed clock skew in seconds"
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
+  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
   <issuer-signing-keys>
     <key>base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
@@ -415,8 +416,6 @@ La stratégie `validate-jwt` applique l’existence et la validité d’un JWT e
     </claim>
     <!-- if there are multiple possible allowed values, then add additional value elements -->
   </required-claims>
-  <openid-config url="full URL of the configuration endpoint, e.g. https://login.constoso.com/openid-configuration" />
-  <zumo-master-key id="key identifier">key value</zumo-master-key>
 </validate-jwt>
 
 ```
@@ -502,38 +501,21 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 </choose>
 ```
 
-#### <a name="azure-mobile-services-token-validation"></a>Validation d’un jeton Azure Mobile Services
-
-```xml
-<validate-jwt header-name="x-zumo-auth" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Supplied access token is invalid.">
-    <issuers>
-        <issuer>urn:microsoft:windows-azure:zumo</issuer>
-    </issuers>
-    <audiences>
-        <audience>Facebook</audience>
-    </audiences>
-    <issuer-signing-keys>
-        <zumo-master-key id="0">insert key here</zumo-master-key>
-    </issuer-signing-keys>
-</validate-jwt>
-```
-
 ### <a name="elements"></a>Éléments
 
 | Élément             | Description                                                                                                                                                                                                                                                                                                                                           | Obligatoire |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| validate-jwt        | Élément racine.                                                                                                                                                                                                                                                                                                                                         | OUI      |
+| validate-jwt        | Élément racine.                                                                                                                                                                                                                                                                                                                                         | Oui      |
 | audiences           | Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.                                                                     | Non       |
 | issuer-signing-keys | Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.               | Non       |
 | decryption-keys     | Liste de clés codée en Base64 utilisée pour déchiffrer les jetons. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.                                                 | Non       |
 | issuers             | Liste des services principaux acceptables qui ont émis le jeton. Si plusieurs valeurs d’émetteur sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse.                                                                                                                                         | Non       |
 | openid-config       | Élément utilisé pour spécifier un point de terminaison de configuration Open ID conforme à partir duquel l’émetteur et les clés de signature peuvent être obtenus.                                                                                                                                                                                                                        | Non       |
 | required-claims     | Contient une liste de revendications censées être présentes sur le jeton pour qu’il soit considéré comme valide. Si l’attribut `match` a la valeur `all`, toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Si l’attribut `match` a la valeur `any`, au moins une revendication doit être présente dans le jeton pour que la validation réussisse. | Non       |
-| zumo-master-key     | Clé principale pour les jetons émis par Azure Mobile Services.                                                                                                                                                                                                                                                                                                 | Non       |
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoire                                                                         | Default                                                                           |
+| Name                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatoire                                                                         | Default                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | clock-skew                      | Intervalle de temps. Permet de spécifier l’écart maximal de durée estimée entre les horloges système de l’émetteur du jeton et l’instance de gestion des API.                                                                                                                                                                                                                                                                                                               | Non                                                                               | 0 seconde                                                                         |
 | failed-validation-error-message | Message d’erreur à renvoyer dans le corps de la réponse HTTP si le JWT n’est pas validé. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.                                                                                                                                                                                                                                                                                                 | Non                                                                               | Le message d’erreur par défaut dépend du problème de validation, par exemple « JWT absent ». |
@@ -542,13 +524,13 @@ Cet exemple montre comment utiliser la stratégie [Validate JWT](api-management-
 | query-parameter-name            | Nom du paramètre de la requête contenant le jeton.                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
 | token-value                     | Expression renvoyant une chaîne contenant le jeton JWT                                                                                                                                                                                                                                                                                                                                                                                                     | `header-name`, `query-parameter-name` ou `token-value` doit être spécifié. | N/A                                                                               |
 | id                              | L’attribut `id` sur l’élément `key` vous permet de spécifier la chaîne qui sera comparée à la revendication `kid` dans le jeton (le cas échéant) pour déterminer la clé appropriée à utiliser pour la validation de la signature.                                                                                                                                                                                                                                           | Non                                                                               | N/A                                                                               |
-| match                           | L’attribut `match` sur l’élément `claim` spécifie si toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Les valeurs possibles sont les suivantes :<br /><br /> - `all` : toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse.<br /><br /> - `any` : au moins une valeur de revendication doit être présente dans le jeton pour que la validation réussisse.                                                       | Non                                                                               | tout                                                                               |
-| require-expiration-time         | Booléen. Spécifie si une revendication d’expiration est requise dans le jeton.                                                                                                                                                                                                                                                                                                                                                                               | Non                                                                               | true                                                                              |
+| match                           | L’attribut `match` sur l’élément `claim` spécifie si toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse. Les valeurs possibles sont les suivantes :<br /><br /> - `all` : toutes les valeurs de revendication de la stratégie doivent être présentes dans le jeton pour que la validation réussisse.<br /><br /> - `any` : au moins une valeur de revendication doit être présente dans le jeton pour que la validation réussisse.                                                       | Non                                                                               | all                                                                               |
+| require-expiration-time         | Propriété booléenne. Spécifie si une revendication d’expiration est requise dans le jeton.                                                                                                                                                                                                                                                                                                                                                                               | Non                                                                               | true                                                                              |
 | require-scheme                  | Le nom du schéma de jeton, par ex. « Support ». Lorsque cet attribut est défini, la stratégie garantit que le schéma spécifié est présent dans la valeur d’en-tête d’autorisation.                                                                                                                                                                                                                                                                                    | Non                                                                               | N/A                                                                               |
-| require-signed-tokens           | Booléen. Spécifie si un jeton doit être signé.                                                                                                                                                                                                                                                                                                                                                                                           | Non                                                                               | true                                                                              |
-| séparateur                       | Chaîne. Spécifie un séparateur (par exemple, « , ») à utiliser pour extraire un ensemble de valeurs à partir d’une revendication à valeurs multiples.                                                                                                                                                                                                                                                                                                                                          | Non                                                                               | N/A                                                                               |
-| url                             | URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`. | OUI                                                                              | N/A                                                                               |
-output-token-variable-name|Chaîne. Nom de variable de contexte qui reçoit la valeur du jeton en tant qu’objet de type [`Jwt`](api-management-policy-expressions.md) à la validation du jeton|Non|N/A
+| require-signed-tokens           | Propriété booléenne. Spécifie si un jeton doit être signé.                                                                                                                                                                                                                                                                                                                                                                                           | Non                                                                               | true                                                                              |
+| separator                       | Chaîne. Spécifie un séparateur (par exemple, « , ») à utiliser pour extraire un ensemble de valeurs à partir d’une revendication à valeurs multiples.                                                                                                                                                                                                                                                                                                                                          | Non                                                                               | N/A                                                                               |
+| url                             | URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`. Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`. | Oui                                                                              | N/A                                                                               |
+| output-token-variable-name      | Chaîne. Nom de variable de contexte qui reçoit la valeur du jeton en tant qu’objet de type [`Jwt`](api-management-policy-expressions.md) à la validation du jeton                                                                                                                                                                                                                                                                                     | Non                                                                               | N/A                                                                               |
 
 ### <a name="usage"></a>Usage
 
@@ -564,4 +546,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 -   [Stratégies dans Gestion des API](api-management-howto-policies.md)
 -   [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 -   [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
--   [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)
+-   [Exemples de stratégie](policy-samples.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 4927a26b78c8f68f1752abc76c30f143a361a912
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: fcf7051a631e74f2f6db918c7c861e32295ae9e8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611115"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732635"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
@@ -31,7 +31,7 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analyse des sentiments, extraction de phrases clés et reconnaissance d’entité nommée
 
-Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires. Dans la reconnaissance d’entité nommée v2, la prise en charge de l’ensemble complet de [types d’entité](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) est actuellement limitée aux langues suivantes : 
+Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires. Dans la reconnaissance d’entité nommée v2, la prise en charge de l’ensemble complet de [types d’entité](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) est actuellement limitée aux langues suivantes : 
 * Anglais
 * Chinois simplifié
 * Français
@@ -75,7 +75,7 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 
 \* Prise en charge linguistique disponible en préversion
 
-\** Également disponible dans les préversions publiques [Analyse des sentiments v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) et/ou [Reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
+\** Également disponible dans les préversions publiques [Analyse des sentiments v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-versions-and-features) et/ou [Reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
 
 ## <a name="see-also"></a>Voir aussi
 

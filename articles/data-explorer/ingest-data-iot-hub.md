@@ -1,30 +1,30 @@
 ---
 title: Ingérer les données d’un hub IoT dans Azure Data Explorer
 description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis un hub IoT.
-author: oflipman
-ms.author: oflipman
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: 1052ef799949550ddaf492b8aa5b77ab9526d092
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667420"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780281"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingérer les données d’un hub IoT dans Azure Data Explorer (préversion)
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [Portail](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Modèle Azure Resource Manager](data-connection-iot-hub-resource-manager.md)
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer propose l’ingestion (chargement de données) à partir d’un hub IoT, plateforme de streaming de big data et service d’ingestion IoT.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Créez [un cluster de test et une base de données](create-cluster-database-portal.md) avec le nom de base de données *testdb*.
@@ -95,7 +95,7 @@ Connectez-vous maintenant au hub IoT depuis Azure Data Explorer. Une fois cette 
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Table | *TestTable* | Table que vous avez créée dans **testdb**. |
+    | Table de charge de travail | *TestTable* | Table que vous avez créée dans **testdb**. |
     | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE et TXT. |
     | Mappage de colonnes | *TestMapping* | [Mappage](/azure/kusto/management/mappings) que vous avez créé dans **testdb**, qui mappe les données JSON entrantes aux noms de colonnes et aux types de données de **testdb**. Obligatoire pour les formats JSON, MULTILINE JSON et AVRO, et facultatif pour les autres formats.|
     | | |
@@ -103,6 +103,8 @@ Connectez-vous maintenant au hub IoT depuis Azure Data Explorer. Une fois cette 
     > [!NOTE]
     > * Sélectionnez **My data includes routing info** pour utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires comme indiqué dans les commentaires de l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si à la fois des propriétés statiques et des propriétés dynamiques sont définies, les propriétés dynamiques remplacent les propriétés statiques. 
     > * Seuls les événements mis en file d’attente après que vous avez créé la connexion de données sont ingérés.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="generate-sample-data-for-testing"></a>Générer des exemples de données pour les tests
 
@@ -161,7 +163,7 @@ L’application générant des données, vous pouvez maintenant voir le flux de 
     > * Azure Data Explorer est associé à une stratégie d’agrégation (traitement par lot) conçue pour optimiser le processus d’ingestion des données. La stratégie est configurée sur 5 minutes ou 500 Mo de données, ce qui peut entraîner une certaine latence. Consultez la [stratégie de traitement par lot](/azure/kusto/concepts/batchingpolicy) pour les options d’agrégation. 
     > * Configurez votre tableau pour prendre en charge la diffusion en continu et supprimez le décalage dans le temps de réponse. Consultez la [stratégie de diffusion en continu](/azure/kusto/concepts/streamingingestionpolicy). 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne prévoyez pas de réutiliser votre hub IoT, nettoyez **test-hub-rg** pour éviter des frais.
 

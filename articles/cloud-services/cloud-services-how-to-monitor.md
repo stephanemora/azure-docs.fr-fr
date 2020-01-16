@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386066"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972940"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
@@ -52,7 +52,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Diagnost
 
 ## <a name="setup-diagnostics-extension"></a>Configurer l’extension de diagnostic
 
-Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-quickstart-create-account.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
+Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-account-create.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
 
 Ensuite, accédez à la ressource **Compte de stockage (classique)** . Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
 

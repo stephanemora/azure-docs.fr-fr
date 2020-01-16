@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f65c93ac06da6512255a3380d5484c6285798098
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 227bf490d1ac264bb54ff3d1ecf0ccc2b3ef2e0e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659977"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763543"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser une sélection de fonctionnalités afin de prédire des revenus avec le concepteur Azure Machine Learning
 
@@ -79,7 +79,7 @@ Explorez les autres échantillons disponibles pour le concepteur :
 
 - [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : Prédire l’évolution](service/how-to-designer-sample-classification-churn.md)
-- [Exemple 6 - Classification : Prédire les retards de vols](service/how-to-designer-sample-classification-flight-delay.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemple 5 - Classification : Prédire l’évolution](how-to-designer-sample-classification-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)
 - [Exemple 7 - Classification de texte : Jeu de données Wikipédia SP 500](how-to-designer-sample-text-classification.md)

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5525f2f8ab4ef83ba9c3aeeff945bc9d875600d5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014311"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748668"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor
 
@@ -147,7 +147,7 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 |------------|-------------|
 | Temps | Date et heure UTC. |
 | ResourceId | Valeur non mappée, vous pouvez ignorer ce champ.  |
-| OperationName | Pour les connexions, cette valeur est toujours *Activité de connexion*. |
+| NomOpération | Pour les connexions, cette valeur est toujours *Activité de connexion*. |
 | operationVersion | Version d’API REST demandée par le client. |
 | Category | Pour les connexions, cette valeur est toujours *SignIn*. | 
 | TenantId | GUID de locataire associé aux journaux d’activité. |
@@ -163,11 +163,11 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
 | CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux d’activité couvrant plusieurs services. |
 | Identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
-| Niveau | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
+| Level | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
 | Location | Indique l’emplacement de l’activité de connexion. |
-| properties | Répertorie toutes les propriétés associées aux connexions. Pour plus d’informations, voir la [documentation de référence sur l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Ce schéma utilise les mêmes noms d’attribut que la ressource de connexion pour une meilleure lisibilité.
+| Propriétés | Répertorie toutes les propriétés associées aux connexions. Pour plus d’informations, voir la [documentation de référence sur l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Ce schéma utilise les mêmes noms d’attribut que la ressource de connexion pour une meilleure lisibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [En savoir plus sur les journaux de diagnostic Azure](../../azure-monitor/platform/resource-logs-overview.md)
+* [En savoir plus sur les journaux de diagnostic Azure](../../azure-monitor/platform/platform-logs-overview.md)

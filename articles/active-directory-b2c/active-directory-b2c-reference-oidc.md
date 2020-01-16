@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8aedb57f6fee68c4d11a123033d34bb58314eb8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 355bd75f865e821fa19fba0715cf5eca90a9a2d3
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367618"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829559"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ OpenID Connect est un protocole d’authentification basé sur OAuth 2.0, qui pe
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*. Ce protocole d’authentification vous permet d’effectuer une authentification unique. Il introduit le concept de *jeton d’ID*, qui permet au client de vérifier l’identité de l’utilisateur et d’obtenir des informations de base sur son profil.
 
-Comme il étend OAuth 2.0, il permet aux applications d’acquérir de façon sécurisée des *jetons d’accès*. Vous pouvez utiliser des jetons d’accès pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md). OpenID Connect est recommandé si vous créez une application web hébergée sur un serveur et accessible via un navigateur. Si vous souhaitez ajouter la gestion des identités à votre application mobile ou à votre application de bureau à l’aide d’Azure AD B2C, vous devez utiliser [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) à la place d’OpenID Connect. Pour plus d’informations sur les jetons, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
+Comme il étend OAuth 2.0, il permet aux applications d’acquérir de façon sécurisée des *jetons d’accès*. Vous pouvez utiliser des jetons d’accès pour accéder aux ressources qui sont sécurisées par un [serveur d’autorisation](active-directory-b2c-reference-protocols.md). OpenID Connect est recommandé si vous créez une application web hébergée sur un serveur et accessible via un navigateur. Pour plus d’informations sur les jetons, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md)
 
 Azure AD B2C étend le protocole OpenID Connect standard pour proposer plus qu’une simple authentification et une simple autorisation. Il introduit le [paramètre de flux utilisateur](active-directory-b2c-reference-policies.md), grâce auquel vous pouvez utiliser OpenID Connect pour ajouter des expériences utilisateur à votre application, telles que l’inscription, la connexion et la gestion des profils.
 

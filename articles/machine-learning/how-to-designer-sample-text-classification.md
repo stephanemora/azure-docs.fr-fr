@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 3116b88cd50fa9f348b418cfc90fe21986944b74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535157"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771425"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Générez un classifieur pour prédire la catégorie d’entreprise à l’aide du concepteur Azure Machine Learning.
 
@@ -110,9 +110,9 @@ Pour vérifier le résultat, sélectionnez le port de sortie du module **Noter l
 ## <a name="next-steps"></a>Étapes suivantes
 
 Explorez les autres échantillons disponibles pour le concepteur :
-- [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](service/how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Exemple 3 - Classification avec sélection des caractéristiques : Prédiction des revenus](service/how-to-designer-sample-classification-predict-income.md)
-- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : Prédire l’évolution](service/how-to-designer-sample-classification-churn.md)
-- [Exemple 6 - Classification : Prédire les retards de vols](service/how-to-designer-sample-classification-flight-delay.md)
+- [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemple 2 - Régression : comparer des algorithmes pour prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Exemple 3 - Classification avec sélection des caractéristiques : Prédiction des revenus](how-to-designer-sample-classification-predict-income.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemple 5 - Classification : Prédire l’évolution](how-to-designer-sample-classification-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)

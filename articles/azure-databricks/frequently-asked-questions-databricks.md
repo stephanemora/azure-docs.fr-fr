@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129325"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971494"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -92,7 +92,7 @@ Si vous n’avez pas créé l’espace de travail et que vous êtes ajouté en t
 
 #### <a name="solution"></a>Solution
 
-Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
+Les clusters Databricks utilisent une adresse IP publique par nœud. Si votre abonnement a déjà utilisé toutes ses adresses IP publiques, vous devez [demander à augmenter le quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request). Sélectionnez **Quota** en tant que **Type de problème** et **Réseau : ARM** en tant que **Type de quota**. Dans **Détails**, demandez une augmentation du quota d’adresses IP publiques. Par exemple, si votre limite est actuellement de 60 et que vous souhaitez créer un cluster de 100 nœuds, demandez une augmentation de cette limite à 160.
 
 ### <a name="issue-a-second-type-of-cloud-provider-launch-failure-while-setting-up-the-cluster-missingsubscriptionregistration"></a>Problème : Un second type d’échec du lancement du fournisseur de cloud lors de la configuration du cluster (MissingSubscriptionRegistration)
 
@@ -107,7 +107,7 @@ Code d’erreur Azure : MissingSubscriptionRegistration Message d’erreur Azur
 1. Sélectionnez **Abonnements**, l’abonnement que vous utilisez, puis **Fournisseurs de ressources**. 
 1. Dans la liste des fournisseurs de ressources, en regard de **Microsoft.Compute**, cliquez sur **S’inscrire**. Vous devez disposer du rôle de Collaborateur ou Propriétaire sur l’abonnement pour inscrire le fournisseur de ressources.
 
-Pour obtenir des instructions plus détaillées, consultez [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md).
+Pour obtenir des instructions plus détaillées, consultez [Fournisseurs et types de ressources](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problème : Pour accéder aux ressources de votre organisation, Azure Databricks a besoin d’autorisations que seul un administrateur peut accorder.
 
@@ -121,6 +121,6 @@ Connectez-vous au portail Azure en tant qu’administrateur. Pour Azure Active D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : Bien démarrer avec Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+- [Démarrage rapide : Bien démarrer avec Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 - [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 

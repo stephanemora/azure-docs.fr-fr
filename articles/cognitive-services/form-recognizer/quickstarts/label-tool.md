@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 2abbf06fee8189bc6ca678e546c8e88504409a51
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660390"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770286"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Entraîner un modèle Form Recognizer avec des étiquettes à l’aide de l’outil d’étiquetage des exemples
 
@@ -33,9 +33,11 @@ Pour suivre cette procédure de démarrage rapide, vous avez besoin des élémen
 
 Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage des exemples. Procédez comme suit pour configurer le conteneur Docker. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).
 1. Tout d’abord, installez Docker sur un ordinateur hôte. L’ordinateur hôte peut être votre ordinateur local ([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) ou [Linux](https://docs.docker.com/install/)). Vous pouvez aussi utiliser un service d’hébergement Docker dans Azure, comme [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) ou un cluster Kubernetes [déployé sur une pile Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910). L’ordinateur hôte doit satisfaire à la configuration matérielle suivante :
+
     | Conteneur | Minimum | Recommandé|
     |:--|:--|:--|
-    |Outil d’étiquetage des exemples|2 cœurs, 4 Go de mémoire|4 cœurs, 8 Go de mémoire
+    |Outil d’étiquetage des exemples|2 cœurs, 4 Go de mémoire|4 cœurs, 8 Go de mémoire|
+    
 1. Ensuite, vous aurez besoin de l’[interface de ligne de commande Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Installez-la sur votre machine si ce n’est déjà fait.
 1. Entrez alors la commande suivante depuis l’invite de commandes. Les valeurs de `<username>` et `<password>` sont dans votre e-mail de bienvenue à Form Recognizer.
     ```
@@ -49,7 +51,8 @@ Vous allez utiliser le moteur Docker pour exécuter l’outil d’étiquetage de
     ```
     docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
     ```
-    Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Accédez à [http://localhost:3000](http://localhost:3000).
+
+   Cette commande rend l’outil d’étiquetage des exemples disponible par le biais d’un navigateur web. Accédez à [http://localhost:3000](http://localhost:3000).
 
 > [!NOTE]
 > Vous pouvez également étiqueter des documents et entraîner des modèles à l’aide de l’API REST Form Recognizer. Pour effectuer un entraînement et une analyse avec l’API REST, consultez [Entraîner avec des étiquettes en utilisant l’API REST et Python](./python-labeled-data.md).

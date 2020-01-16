@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212026"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974543"
 ---
 # <a name="azure-dns-faq"></a>FAQ Azure DNS
 
@@ -110,7 +110,7 @@ Consultez la section des scénarios dans la [Vue d’ensemble des enregistrement
 
 Les jeux d’enregistrements d’alias sont pris en charge pour les types d’enregistrements suivants dans une zone Azure DNS :
  
-- A 
+- Un 
 - AAAA
 - CNAME 
 
@@ -167,7 +167,7 @@ Oui. Les zones DNS peuvent être déplacées entre des groupes de ressources ou 
 
 Le déplacement d’une zone DNS n’a aucun effet sur une requête DNS. Les serveurs de noms attribués à la zone restent les mêmes. Les requêtes DNS sont traitées, dans l’ensemble, comme d’habitude.
 
-Pour plus d’informations et pour obtenir des instructions sur le déplacement des zones DNS, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou abonnement](../azure-resource-manager/resource-group-move-resources.md).
+Pour plus d’informations et pour obtenir des instructions sur le déplacement des zones DNS, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Combien de temps faut-il pour que les modifications DNS s’appliquent ?
 
@@ -187,7 +187,7 @@ Pour plus d’informations, consultez [Protéger des enregistrements et zones DN
 
 ### <a name="do-azure-dns-name-servers-resolve-over-ipv6"></a>Les serveurs de noms Azure DNS effectuent-ils des résolutions sur IPv6 ? 
 
-Oui. Les serveurs de noms DNS Azure sont à double pile. Cela signifie qu’ils disposent d’adresses IPv4 et IPv6. Pour rechercher l’adresse IPv6 des serveurs de noms Azure DNS affectée à votre zone DNS, utilisez un outil tel que nslookup. Par exemple `nslookup -q=aaaa <Azure DNS Nameserver>`.
+Oui. Les serveurs de noms DNS Azure sont à double pile. Cela signifie qu’ils disposent d’adresses IPv4 et IPv6. Pour rechercher l’adresse IPv6 des serveurs de noms Azure DNS affectée à votre zone DNS, utilisez un outil tel que nslookup. par exemple `nslookup -q=aaaa <Azure DNS Nameserver>`.
 
 ### <a name="how-do-i-set-up-an-idn-in-azure-dns"></a>Comment configurer un IDN dans Azure DNS ?
 

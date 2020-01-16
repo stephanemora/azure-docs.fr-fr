@@ -4,12 +4,12 @@ description: Découvrez le service Azure Migrate.
 ms.topic: overview
 ms.date: 12/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 983ba420067bf2e4b6416287d8898943142c90c0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c336b2f95a17896edcc7eaad2b2586c6859804f9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563562"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772191"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -39,7 +39,7 @@ Le Hub Azure Migrate fournit les outils suivants.
 **Database Migration Service (DMS)** | Migrez des bases de données locales vers des machines virtuelles Azure exécutant SQL, Azure SQL DB et Azure SQL Managed instances. | [Découvrez-en plus](https://docs.microsoft.com/azure/dms/dms-overview) sur DMS.
 **Movere** | Évaluer des serveurs | [En savoir plus](#movere) sur Movere.
 **Assistant Migration d’applications web** | Évaluez et migrez des applications web locales vers Azure. |  Utilisez l’Assistant Migration Azure App Service pour évaluer les sites web locaux en vue de leur migration vers Azure App Service.<br/><br/> migrez des applications web .NET et PHP vers Azure à l’aide de l’Assistant Migration Azure App Service. [En savoir plus](https://appmigration.microsoft.com/) sur l’Assistant.
-**Azure Data Box** | Migration de données hors connexion. | Pour déplacer de grandes quantités de données hors connexion vers Azure, utilisez la gamme de produits Azure Data Box. [Plus d’informations](https:/docs.microsoft.com/azure/databox/)
+**Azure Data Box** | Migration de données hors connexion. | Pour déplacer de grandes quantités de données hors connexion vers Azure, utilisez la gamme de produits Azure Data Box. [Plus d’informations](https://docs.microsoft.com/azure/databox/)
 
 ## <a name="isv-integration"></a>Intégration d’éditeurs de logiciels indépendants
 
@@ -57,9 +57,9 @@ Azure Migrate s’intègre à un certain nombre d’offres d’éditeurs de logi
 [UnifyCloud](https://www.cloudatlasinc.com/cloudrecon/) | Évaluer des serveurs et des bases de données
 
 
-## <a name="azure-migrate-server-assessment-tool"></a>Outil Azure Migrate : Server Assessment
+## <a name="azure-migrate-server-assessment-tool"></a>Azure Migrate : Server Assessment
 
-L’outil Azure Migrate : Server Assessment découvre et évalue des machines virtuelles VMware et Hyper-V ainsi que des serveurs physiques locaux en vue de leur migration vers Azure. Il vous aide à identifier les aspects suivants :
+L’outil Azure Migrate : L’outil Évaluation de serveur découvre et évalue des machines virtuelles VMware et Hyper-V ainsi que des serveurs physiques locaux en vue de leur migration vers Azure. Il vous aide à identifier les aspects suivants :
 
 - **État de préparation pour Azure :** évaluez si les machines locales sont prêtes pour la migration vers Azure.
 - **Dimensionnement d’Azure :** taille estimée des machines virtuelles Azure après la migration.
@@ -76,7 +76,7 @@ L’outil Évaluation de serveur utilise une appliance légère que vous déploy
 
 ## <a name="azure-migrate-server-migration-tool"></a>Azure Migrate : Outil Server Migration
 
-L’outil Azure Migrate : Server Migration vous aide à migrer des machines virtuelles VMware et Hyper-V ainsi que des serveurs physiques locaux, d’autres machines virtualisées et des machines virtuelles de cloud public vers Azure. Vous pouvez migrer des machines après les avoir évaluées ou les migrer sans les avoir évaluées.
+L’outil Azure Migrate : L’outil Migration de serveur vous aide à migrer des machines virtuelles VMware et Hyper-V ainsi que des serveurs physiques locaux, d’autres machines virtualisées et des machines virtuelles de cloud public vers Azure. Vous pouvez migrer des machines après les avoir évaluées ou les migrer sans les avoir évaluées.
 
 
 ## <a name="select-a-tool"></a>Sélectionner un outil

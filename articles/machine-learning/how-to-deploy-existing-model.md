@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: d783751137510febf9fb2e31d9d44728a049d88d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d8f0f6c63c584cacfa5c996bd541ce4dfc4bd289
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611814"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763927"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning"></a>Utiliser un modèle existant avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Si vous avez un modèle Machine Learning qui a été entraîné en dehors d’Az
 >
 > Pour plus d’informations sur les concepts et termes utilisés ici, consultez [Gérer, déployer et superviser des modèles d’apprentissage automatique](concept-model-management-and-deployment.md).
 >
-> Pour obtenir des informations générales sur le processus de déploiement, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Pour obtenir des informations générales sur le processus de déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -138,7 +138,7 @@ dependencies:
     - keras
 ```
 
-Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ### <a name="entry-script"></a>Script d’entrée
 
@@ -223,7 +223,7 @@ def predict(text, include_neutral=True):
        "elapsed_time": time.time()-start_at}  
 ```
 
-Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="define-deployment"></a>Définir le déploiement
 
@@ -250,7 +250,7 @@ L’interface CLI charge la configuration de déploiement à partir d’un fichi
 }
 ```
 
-Le déploiement sur une autre cible de calcul, par exemple Azure Kubernetes Service dans le cloud Azure, est aussi simple que la modification de la configuration de déploiement. Pour plus d’informations, consultez [Comment et où déployer des modèles ?](service/how-to-deploy-and-where.md).
+Le déploiement sur une autre cible de calcul, par exemple Azure Kubernetes Service dans le cloud Azure, est aussi simple que la modification de la configuration de déploiement. Pour plus d’informations, consultez [Comment et où déployer des modèles ?](how-to-deploy-and-where.md).
 
 ## <a name="deploy-the-model"></a>Déployer le modèle
 
@@ -277,7 +277,7 @@ az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc de
 
 Pour plus d’informations, consultez les informations de référence sur [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
-Pour plus d’informations sur le déploiement, consultez [Comment et où déployer des modèles ?](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur le déploiement, consultez [Comment et où déployer des modèles ?](how-to-deploy-and-where.md).
 
 ## <a name="request-response-consumption"></a>Consommation de requête-réponse
 
@@ -304,5 +304,5 @@ Pour plus d’informations sur le mode d’utilisation du service déployé, con
 
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
-* [Comment et où déployer des modèles ?](service/how-to-deploy-and-where.md)
+* [Comment et où déployer des modèles ?](how-to-deploy-and-where.md)
 * [Guide pratique pour créer un client pour un modèle déployé](how-to-consume-web-service.md)

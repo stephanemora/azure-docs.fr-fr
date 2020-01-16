@@ -13,26 +13,26 @@ ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ec391db0e18128ad85d3bacb79fa51770aa70ea1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c49df689ae859c93046c19af043aa2001dbb5481
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298884"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979627"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le stockage de tables Azure vous permet de stocker de grandes quantités de données structurées. Il s'agit d'une banque de données NoSQL qui accepte les appels authentifiés provenant de l'intérieur et de l'extérieur du cloud Azure. Les tables Azure sont idéales pour le stockage des données structurées non relationnelles.
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de table Azure. Ces scénarios incluent la création d’une table ainsi que l'ajout, l'interrogation et la suppression d’entités de table. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Compte Azure Storage](../storage/common/storage-quickstart-create-account.md)
+* [Compte Azure Storage](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -54,7 +54,7 @@ Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios coura
 
     ![Nommer le contrôleur MVC](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. Ajoutez les directives *using* suivantes au fichier `TablesController.cs` :
+1. Ajoutez les directives *using* suivantes au fichier `TablesController.cs` :
 
     ```csharp
     using Microsoft.Azure;
@@ -94,7 +94,7 @@ La plupart des exemples de cet article utilisent une classe dérivée de **Table
     }
     ```
 
-## <a name="create-a-table"></a>Création d’une table
+## <a name="create-a-table"></a>Créer une table
 
 Les étapes suivantes montrent comment créer une table :
 

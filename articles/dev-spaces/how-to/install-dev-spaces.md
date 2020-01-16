@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Découvrez comment installer Azure Dev Spaces sur un cluster AKS et installer les outils côté client.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
-ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325780"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770626"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Installer Azure Dev Spaces sur AKS et les outils côté client
 
@@ -58,7 +58,7 @@ Avant de pouvoir installer Dev Spaces à l’aide du portail Azure, vous avez be
 * [Un cluster AKS][create-aks-portal] dans une [région prise en charge][supported-regions]
 
 Pour installer Azure Dev Spaces à l’aide du portail Azure
-1. Connectez-vous au [Portail Azure][az-portal].
+1. Connectez-vous au [portail Azure][az-portal].
 1. Accédez à votre cluster AKS.
 1. Cliquez sur *Dev Spaces*.
 1. Changez *Activer Dev Spaces* en *Oui* et cliquez sur *Enregistrer*.
@@ -86,7 +86,7 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 [create-aks-cli]: ../../aks/kubernetes-walkthrough.md#create-a-resource-group
 [create-aks-portal]: ../../aks/kubernetes-walkthrough-portal.md#create-an-aks-cluster
 [install-cli]: /cli/azure/install-azure-cli?view=azure-cli-latest
-[supported-regions]: ../about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
 [team-development-qs]: ../quickstart-team-development.md
 
 [az-portal]: https://portal.azure.com

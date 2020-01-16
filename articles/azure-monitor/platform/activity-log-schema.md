@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: df2594165909c55de2de562c9717299d189a20d3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531018"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749470"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
-Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit le schéma d’événements pour chaque catégorie. 
+Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans Azure. Cet article décrit le schéma d’événements pour chaque catégorie. 
 
 Les exemples ci-dessous montrent le schéma lorsque vous accédez au journal d'activité depuis le portail, PowerShell, l’interface CLI et l’API REST. Le schéma est différent lorsque vous [diffusez le journal d’activité vers le stockage ou Event Hubs](resource-logs-stream-event-hubs.md). Un mappage de ces propriétés vers le [schéma des journaux de la ressource](diagnostic-logs-schema.md) est fourni à la fin de cet article.
 
@@ -865,6 +865,6 @@ Voici un exemple d’événement utilisant ce schéma.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur le journal d’activité](activity-logs-overview.md)
+* [En savoir plus sur le journal d’activité](platform-logs-overview.md)
 * [Créer un paramètre de diagnostic pour envoyer le journal d’activité à l’espace de travail Log Analytics, au stockage Azure ou à Event Hub](diagnostic-settings.md)
 

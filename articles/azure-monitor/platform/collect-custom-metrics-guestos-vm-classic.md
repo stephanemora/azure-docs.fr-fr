@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: d911a6b65ba0d63bca09437f6451019addcbc0b3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286145"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977618"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envoyer les mesures du système d’exploitation invité à une base de données de mesures Azure Monitor d’une machine virtuelle Windows (classique)
 
@@ -23,13 +23,13 @@ ms.locfileid: "74286145"
 
 Cet article décrit le processus permettant d’envoyer les mesures de performances du système d’exploitation invité d’une machine virtuelle Windows (classique) à la base de données des mesures Azure Monitor. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
-En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc. Avant, l’extension Diagnostics écrivait les données dans Stockage Azure, et non dans le magasin de données Azure Monitor. 
+En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc. Avant, l’extension Diagnostics écrivait les données dans le stockage Azure, et non dans le magasin de données d’Azure Monitor. 
 
 La procédure décrite dans cet article fonctionne uniquement avec les machines virtuelles classiques qui exécutent un système d’exploitation Windows.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Vous devez être [administrateur ou coadministrateur de services fédérés](../../billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
+- Vous devez être [administrateur ou coadministrateur de services fédérés](../../cost-management-billing/manage/add-change-subscription-administrator.md) dans votre abonnement Azure. 
 
 - Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
@@ -197,7 +197,7 @@ Donnez à l’application créée dans « Surveillance de l’éditeur de métri
 
 1. Dans la liste déroulante des ressources, sélectionnez votre machine virtuelle classique.
 
-1. Dans la liste déroulante d’espaces de noms, sélectionnez **azure.vm.windows.guest**.
+1. Dans le menu déroulant des espaces de noms, sélectionnez **azure.vm.windows.guest**.
 
 1. Dans la liste déroulante des métriques, sélectionnez **Mémoire\Octets validés en cours d’utilisation**.
    ![Tracer des métriques](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)

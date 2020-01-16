@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: ca78a9d7eeeeccb71fea75f6ab429e76f2344bbe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f9d7fa5df1f7568aa357abf8b5864344d768cf75
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895454"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891766"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>Démarrage rapide : Lancer votre application Spring Cloud à partir du code source
 
@@ -28,10 +28,10 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 > * Déployer chaque microservice
 > * Affecter un point de terminaison public pour votre application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 Avant de commencer, vérifiez que votre abonnement Azure a les dépendances requises :
 
@@ -76,6 +76,9 @@ Définissez le nom du groupe de ressources et le nom du cluster par défaut en e
 az configure --defaults group=<service group name>
 az configure --defaults spring-cloud=<service instance name>
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=provision)
 
 ## <a name="create-the-spring-cloud-application"></a>Créer l’application Spring Cloud
 
@@ -137,12 +140,18 @@ az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 > [!NOTE]
 > Les journaux kpack affichent uniquement le dernier déploiement si celui-ci a été généré à partir de la source à l’aide de kpack.
 
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=deploy)
+
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Affecter un point de terminaison public à la passerelle
 
 1. Ouvrez la page **Tableau de bord de l’application**.
 2. Sélectionnez l’application `gateway` pour afficher la page **Détails de l’application**.
 3. Sélectionnez **Affecter un domaine** pour affecter un point de terminaison public à la passerelle. Cette opération peut prendre quelques minutes. 
 4. Entrez l’adresse IP publique affectée dans votre navigateur pour voir votre application en cours d’exécution.
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-source-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

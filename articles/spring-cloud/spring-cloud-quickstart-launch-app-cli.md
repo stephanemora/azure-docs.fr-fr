@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c00749191b83423e771535525afcbdd7892da88e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 41801fce41cd79898e9ebd12f9ca970f17b017bb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895440"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891713"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>Démarrage rapide : Lancer une application Java Spring en utilisant Azure CLI
 
@@ -28,13 +28,13 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 > * Déployer chaque microservice
 > * Affecter un point de terminaison public pour votre application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 >[!TIP]
-> Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus, [lisez notre documentation sur Azure Cloud Shell](../cloud-shell/overview.md).
+> Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus sur Azure Cloud Shell, consultez [notre documentation](../cloud-shell/overview.md).
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -44,9 +44,9 @@ Pour suivre ce guide de démarrage rapide :
 4. [Installez Azure CLI 2.0.67 ou version ultérieure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
 
-## <a name="install-the-azure-cli-extension"></a>Installez l’extension Azure CLI
+## <a name="install-the-azure-cli-extension"></a>Installer l’extension Azure CLI
 
-Installez l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante
+Installer l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante
 
 ```azurecli
 az extension add --name spring-cloud
@@ -54,7 +54,7 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-on-the-azure-cli"></a>Provisionnez une instance de service sur Azure CLI
 
-1. Connectez-vous à Azure CLI et choisissez votre abonnement actif. Veillez à choisir l’abonnement actif qui est dans la liste verte pour Azure Spring Cloud
+1. Connectez-vous à Azure CLI et choisissez votre abonnement actif. Veillez à choisir l’abonnement actif qui est dans la liste verte pour Azure Spring Cloud.
 
     ```azurecli
         az login
@@ -69,7 +69,7 @@ az extension add --name spring-cloud
     ```azurecli
         az group create --location eastus --name <resource group name>
     ```
-    Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).
+    Obtenez plus d’informations sur les [groupes de ressources Azure](../azure-resource-manager/management/overview.md).
 
 4. Ouvrez une fenêtre Azure CLI et exécutez les commandes suivantes pour provisionner une instance d’Azure Spring Cloud.
 
@@ -79,12 +79,15 @@ az extension add --name spring-cloud
 
     Le déploiement de l’instance de service prend environ cinq minutes.
 
-5. Définissez le nom du groupe de ressources et le nom du cluster par défaut en utilisant les commandes suivantes :
+5. Définissez le nom du groupe de ressources et le nom du cluster par défaut en exécutant les commandes suivantes :
 
     ```azurecli
         az configure --defaults group=<service group name>
         az configure --defaults spring-cloud=<service instance name>
     ```
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=provision)
 
 ## <a name="setup-your-configuration-server"></a>Configurer votre serveur de configuration
 
@@ -93,6 +96,9 @@ Mettez à jour votre serveur de configuration avec l’emplacement du dépôt Gi
 ```git
 az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=config-server)
 
 ## <a name="build-the-microservices-applications-locally"></a>Générer localement les applications de microservices
 
@@ -132,6 +138,9 @@ az spring-cloud app deploy -n account-service --jar-path ./account-service/targe
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=deploy)
+
 ## <a name="assign-public-endpoint-to-gateway"></a>Affecter un point de terminaison public à la passerelle
 
 Nous avons besoin d’un moyen d’accéder à l’application via un navigateur web. Notre application de passerelle a besoin d’un point de terminaison public, qui peut être affecté avec la commande suivante :
@@ -155,7 +164,10 @@ Vous pouvez également accéder au Portail Azure pour trouver l’URL.
 1. Sélectionner **passerelle**
 
     ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. Recherchez l’URL sur la page **Vue d’ensemble de la passerelle**  ![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+1. Recherchez l’URL sur la page **Vue d’ensemble de la passerelle**![Capture d’écran de PiggyMetrics en cours d’exécution](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

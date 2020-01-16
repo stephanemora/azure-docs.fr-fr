@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/24/2019
+ms.date: 01/03/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b49b10acb7f2deaed217bb28478d2c98a033eab9
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914070"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768676"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -86,11 +86,9 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
     - Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 > [!NOTE]
-> Lors de la première configuration de l’expiration, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 35 jours avant expiration, à moins qu’ils soient renouvelés automatiquement ou renouvelés par le propriétaire.
->
-> Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un nouveau groupe et complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
->
-> Les avis d’expiration pour les groupes utilisés dans Teams s’affichent dans le flux Propriétaires Teams.
+> - Lors de la première configuration de l’expiration, les groupes plus anciens que l’intervalle d’expiration bénéficient d’un délai de 35 jours avant expiration, à moins qu’ils soient renouvelés automatiquement ou renouvelés par le propriétaire.
+> - Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un nouveau groupe et complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
+> - Les avis d’expiration pour les groupes utilisés dans Teams s’affichent dans le flux Propriétaires Teams.
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 
