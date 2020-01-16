@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 0ca7bfb276f49da720264305a92d31e81857cfd5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4cc88e7c04d10907a9a6386b1266eb8031d60926
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229315"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552676"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Intégration d’Azure Container Registry à Security Center (préversion)
 
 Azure Container Registry (ACR) est un service de registre Docker privé et géré qui stocke et gère vos images conteneurs pour les déploiements Azure dans un registre central. Il est basé sur le registre Docker open source 2.0.
 
-Pour une meilleure visibilité des vulnérabilités du registre et des images, les utilisateurs du niveau de service Standard d’Azure Security Center peuvent activer l’offre groupée facultative de registres de conteneurs. Pour plus d’informations, voir la [tarification](security-center-pricing.md). Lorsque l’offre groupée est activée, Security Center analyse automatiquement les images dans votre registre chaque fois qu’une image est envoyée (push) au registre.
+Pour une meilleure visibilité des vulnérabilités du registre et des images, les utilisateurs du niveau de service Standard d’Azure Security Center peuvent activer l’offre groupée facultative de registres de conteneurs. Le coût d’utilisation de cette fonctionnalité est facturé par image et non par analyse. Pour plus d’informations, voir la [tarification](security-center-pricing.md). Lorsque l’offre groupée est activée, Security Center analyse automatiquement les images dans votre registre chaque fois qu’une image est envoyée (push) au registre.
 
 > [!NOTE]
 > La première analyse de Security Center d’un registre ne se produit qu’une fois que l’offre groupée de registres de conteneurs est activée et qu’une image est envoyée (push) au registre.

@@ -8,90 +8,99 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: f66925c20f6767286eb98a7f5fab180845da4c33
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1f75e7112a8fc90c6c49ede7cd0ac726401fc1a9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014794"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452664"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Approvisionner et gérer la préversion d’Azure Time Series Insights
 
 Cet article explique comment créer et gérer un environnement Azure Time Series Insights en préversion via le [portail Azure](https://portal.azure.com/).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Les environnements Azure Time Series Insights en préversion sont des environnements payants à l’utilisation.
+Les environnements Azure Time Series Insights en préversion sont des environnements avec *paiement à l’utilisation* (PAYG).
 
 Lorsque vous provisionnez un environnement Azure Time Series Insights en préversion, vous créez ces ressources Azure :
 
 * Un environnement Azure Time Series Insights en préversion  
 * Un compte Stockage Azure à usage général v1
 * Un magasin chaud facultatif pour des requêtes plus rapides et illimitées
-  
-Découvrez [comment planifier votre environnement](./time-series-insights-update-plan.md).
 
-Associez chaque environnement Azure Time Series Insights en préversion à une source d’événement. Pour plus d’informations, voir [Ajouter une source de hub d’événements](./time-series-insights-how-to-add-an-event-source-eventhub.md) et [Ajouter une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Pendant cette étape, vous fournissez une propriété d’ID d’horodatage et un groupe de consommateurs unique. Cela garantit l’accès de l’environnement aux événements appropriés.
+> [!TIP]
+> * Découvrez [comment planifier votre environnement](./time-series-insights-update-plan.md).
+> * Lisez les articles expliquant comment [Ajouter une source de hub d’événements](./time-series-insights-how-to-add-an-event-source-eventhub.md) et comment [Ajouter une source de hub IoT](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
-> [!NOTE]
-> L’étape précédente est facultative dans le workflow de provisionnement quand vous créez l’environnement Time Series en préversion. Toutefois, vous devez attacher une source d’événement à l’environnement afin que les données puissent commencer à circuler dans cet environnement.
+Vous apprendrez à :
 
-Une fois l’approvisionnement terminé, vous pouvez modifier vos stratégies d’accès et d’autres attributs de l’environnement pour qu’ils correspondent à vos besoins.
+1. **(Facultatif)**  Associez chaque environnement Azure Time Series Insights en préversion à une source d’événement. Vous devez également fournir une propriété ID d’horodatage et un groupe de consommateurs unique pour garantir que l’environnement a accès aux événements appropriés.
+
+   > [!NOTE]
+   > L’étape précédente est facultative lors du provisionnement d’un environnement. Si vous ignorez cette étape, vous devez attacher une source d’événement à l’environnement ultérieurement afin que les données puissent être accessibles dans l’environnement.
+
+1. Une fois l’approvisionnement terminé, vous pouvez modifier vos stratégies d’accès et d’autres attributs de l’environnement pour qu’ils correspondent à vos besoins.
 
 ## <a name="create-the-environment"></a>Créer l’environnement
 
 Pour créer un environnement Azure Time Series Insights en préversion :
 
-1. Sélectionnez le bouton **PAYG** dans le menu **SKU**. Fournissez un nom d’environnement et choisissez le groupe d’abonnements et le groupe de ressources à utiliser. Sélectionnez ensuite un emplacement pris en charge pour héberger l’environnement.
+1. Sélectionnez **PAYG** comme **Niveau**. Fournissez un nom d’environnement et choisissez le groupe d’abonnements et le groupe de ressources à utiliser. Sélectionnez ensuite un emplacement pris en charge pour héberger l’environnement.
 
-   [![Créez une instance Azure Time Series Insights.](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+   [![Créez une instance Azure Time Series Insights.](media/v2-update-manage/create-and-manage-configuration.png)](media/v2-update-manage/create-and-manage-configuration.png#lightbox)
 
 1. Entrez un ID Time Series.
 
-    >[!NOTE]
-    > * L’ID Time Series respecte la casse et est immuable (il ne peut pas être modifié une fois défini).
-    > * Les ID Time Series peuvent comprendre jusqu’à trois clés.
-    > * Pour plus d’informations sur la sélection d’un ID Time Series, voir [Choisir un ID Time Series](./time-series-insights-update-how-to-id.md).
+    > [!NOTE]
+    > * L’ID de série chronologique *respecte la casse* et est *immuable*. (il ne peut pas être modifié une fois défini).
+    > * Les ID de série chronologique peuvent comprendre jusqu’à *trois* clés.
+    > * En savoir plus sur la façon de [choisir un ID de série chronologique](time-series-insights-update-how-to-id.md)
 
-1. Créez un compte de stockage Azure en sélectionnant un nom de compte de stockage et en spécifiant un choix de réplication. Un compte Stockage Azure à usage général v1 est alors automatiquement créé. Ce compte est créé dans la même région que l’environnement Azure Time Series Insights en préversion que vous avez sélectionné précédemment.
+1. Créez un compte de Stockage Azure en sélectionnant un nom de compte de stockage et en spécifiant un choix de réplication. Un compte Stockage Azure à usage général v1 est alors automatiquement créé. Ce compte est créé dans la même région que l’environnement Azure Time Series Insights en préversion que vous avez sélectionné précédemment.
 
-    [![Créer un compte de stockage Azure pour votre instance](media/v2-update-manage/manage-five.png)](media/v2-update-manage/manage-five.png#lightbox)
+    [![Configuration d’un stockage froid](media/v2-update-manage/create-and-manage-cold-store.png)](media/v2-update-manage/create-and-manage-cold-store.png#lightbox)
 
 1. **(Facultatif)** Activez le magasin chaud pour votre environnement si vous voulez des requêtes plus rapides et illimitées sur les données les plus récentes de votre environnement. Vous pouvez également créer ou supprimer un magasin chaud par le biais de l’option **Configuration du stockage** dans le volet de navigation gauche, après avoir créé un environnement Time Series Insights en préversion.
 
+    [![Configuration d’un stockage chaud](media/v2-update-manage/create-and-manage-warm-storage.png)](media/v2-update-manage/create-and-manage-warm-storage.png#lightbox)
+
 1. **(Facultatif)** Vous pouvez ajouter une source d’événement maintenant. Vous pouvez également attendre que l’instance soit provisionnée.
 
-   * Time Series Insights prend en charge [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) et [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) en tant que source d’événement. Si vous ne pouvez ajouter qu’une seule source d’événement lors de la création d’un environnement, vous pouvez en ajouter une autre ultérieurement. Vous pouvez sélectionner un groupe de consommateurs existant ou bien en créer un nouveau lors de l’ajout de la source d’événement. Il est préférable de créer un groupe de consommateurs unique pour vous assurer que tous les événements sont visibles par votre environnement Azure Time Series Insights en préversion.
+   * Time Series Insights prend en charge [Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md) et [Azure Event Hubs](./time-series-insights-how-to-add-an-event-source-eventhub.md) en tant que source d’événement. Si vous ne pouvez ajouter qu’une seule source d’événement lors de la création d’un environnement, vous pouvez en ajouter une autre ultérieurement. 
+   
+     Vous pouvez sélectionner un groupe de consommateurs existant ou bien en créer un nouveau lors de l’ajout de la source d’événement. Il est préférable de créer un groupe de consommateurs unique pour vous assurer que tous les événements sont visibles par votre environnement Azure Time Series Insights en préversion.
 
    * Choisissez la propriété Timestamp appropriée. Par défaut, Azure Time Series Insights utilise l’heure de placement du message dans la file d’attente pour chaque source d’événement.
 
      > [!TIP]
      > Il est possible que l’heure de placement du message dans la file d’attente ne soit pas le meilleur paramètre configuré à utiliser dans les scénarios de traitement par lots des événements ou de chargement des données historiques. Le cas échéant, veillez à vérifier votre choix d’utiliser ou non une propriété Timestamp.
 
-     [![Onglet Source de l’événement](media/v2-update-manage/manage-two.png)](media/v2-update-manage/manage-two.png#lightbox)
+     [![Onglet de configuration de la source d’événement](media/v2-update-manage/create-and-manage-event-source.png)](media/v2-update-manage/create-and-manage-event-source.png#lightbox)
 
-1. Vérifiez que votre environnement a été provisionné avec les paramètres souhaités.
+1. Vérifiez que votre environnement a été provisionné et configuré comme vous le souhaitez.
 
-    [![Onglet Vérifier + créer](media/v2-update-manage/manage-three.png)](media/v2-update-manage/manage-three.png#lightbox)
+    [![Onglet Vérifier + créer](media/v2-update-manage/create-and-manage-review-and-confirm.png)](media/v2-update-manage/create-and-manage-review-and-confirm.png#lightbox)
 
 ## <a name="manage-the-environment"></a>Gérer l’environnement
 
-Vous pouvez gérer votre environnement Azure Time Series Insights en préversion à l’aide du portail Azure. Quand vous effectuez la gestion par le biais du portail Azure, vous pouvez constater quelques différences clés entre un environnement Azure Time Series Insights en préversion de paiement à l’utilisation et les environnements S1 ou S2 en disponibilité générale :
+Vous pouvez gérer votre environnement Azure Time Series Insights en préversion à l’aide du portail Azure. Quand vous effectuez la gestion par le biais du portail Azure, vous pouvez constater quelques différences essentielles entre un environnement Azure Time Series Insights PAYG (paiement à l’utilisation) en préversion et les environnements S1 ou S2 en disponibilité générale :
 
-* Le panneau **Vue d’ensemble** du portail Azure est inchangé dans Azure Time Series Insights, à quelques exceptions près :
-  * La capacité est supprimée, car elle ne s’applique pas aux environnements de paiement à l’utilisation.
-  * La propriété ID de série chronologique est ajoutée. Elle détermine la façon dont vos données sont partitionnées.
+* Le panneau **Vue d’ensemble** de la préversion du portail Azure présente les changements suivants :
+
+  * La capacité est supprimée car elle ne s’applique pas aux environnements PAYG (paiement à l’utilisation).
+  * La propriété d’**ID de série chronologique** est ajoutée. Elle détermine la façon dont vos données sont partitionnées.
   * Les jeux de données de référence sont supprimés.
   * L’URL affichée vous dirige vers [l’Explorateur Azure Time Series Insights en préversion](./time-series-insights-update-explorer.md).
   * Le nom de votre compte de stockage Azure est répertorié.
 
 * Le panneau **Configurer** du portail Azure est supprimé dans Azure Time Series Insights en préversion parce que les environnements de paiement à l’utilisation ne sont pas configurables. Toutefois, vous pouvez utiliser **Configuration du stockage** pour configurer le magasin chaud récemment introduit.
 
-* Le panneau **Données de référence** du portail Azure est supprimé dans Azure Time Series Insights en préversion parce que les données de référence ne font pas partie des environnements de paiement à l’utilisation.
+* Le panneau **Données de référence** du portail Azure est supprimé dans Azure Time Series Insights en préversion parce que les données de référence ne font pas partie des environnements PAYG (paiement à l’utilisation).
 
-[![Environnement Time Series Insights en préversion dans le portail Azure](media/v2-update-manage/manage-four.png)](media/v2-update-manage/manage-four.png#lightbox)
+[![Environnement Time Series Insights en préversion dans le portail Azure](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

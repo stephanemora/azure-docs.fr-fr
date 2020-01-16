@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e7706fba1efad1bd0ce7110e129dcf113689af9a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bc8efe46453f76d353842b32bd52b41838979b49
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432821"
 ---
 # <a name="get-shape-data"></a>Obtenir des données de forme
 
@@ -41,6 +41,14 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet, dans leque
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment utiliser les fonctionnalités supplémentaires du module Outils de dessin :
+
+> [!div class="nextstepaction"]
+> [Réagir aux événements de dessin](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Types d’interaction et raccourcis clavier](drawing-tools-interactions-keyboard-shortcuts.md)
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 

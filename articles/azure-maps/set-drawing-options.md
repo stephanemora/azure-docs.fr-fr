@@ -1,5 +1,5 @@
 ---
-title: Définir les options de dessin dans Azure Maps | Microsoft Docs
+title: Utiliser le module Outils de dessin d’Azure Maps | Microsoft Docs
 description: Comment définir des options de dessin à l’aide du kit de développement logiciel (SDK) web Azure Maps
 author: walsehgal
 ms.author: v-musehg
@@ -8,19 +8,44 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d85525274db7818737b62ad4e9ea2026b8aef3b2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0ac9bc775798a14e6431718bc602d8ff41288c10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309719"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408147"
 ---
-# <a name="set-drawing-options"></a>Définir les options de dessin
+# <a name="use-the-drawing-tools-module"></a>Utiliser le module Outils de dessin
 
-Cet article explique comment différentes options du [gestionnaire de dessins](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) modifient l’expérience utilisateur. Vous pouvez spécifier des options pour le gestionnaire de dessins lors de l’instanciation ou utiliser la fonction **drawingManager.setOptions()** pour définir des options.
+Le SDK web Azure Maps fournit un *module Outils de dessin*. Ce module facilite le dessin et la modification des formes sur la carte à l’aide d’un périphérique d’entrée tel qu’un écran tactile ou une souris. La classe de base de ce module est le [gestionnaire de dessins](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) et fournit toutes les fonctionnalités nécessaires pour dessiner et modifier des formes sur la carte. Le gestionnaire de dessins peut être utilisé directement et intégré à une interface utilisateur de barre d’outils personnalisée, ou vous pouvez utiliser la classe de [barre d’outils de dessin](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) intégrée. 
 
+## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Chargement du module Outils de dessin dans une page web
 
-## <a name="set-drawing-mode"></a>Définir le mode dessin
+1. Créez un fichier HTML et [implémentez la carte comme d’habitude](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+2. Chargez le module Outils de dessin d’Azure Maps. Vous pouvez le faire de deux façons :
+    - Utiliser la version d’Azure Content Delivery Network du module des services Azure Maps hébergée globalement. Ajoutez une référence au code JavaScript et à la feuille de style CSS dans l’élément `<head>` du fichier :
+
+        ```html
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.css" type="text/css" />
+        <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
+        ```
+
+    - Vous pouvez également charger le module Outils de dessin pour le code source du kit SDK web d’Azure Maps localement à l’aide du package npm [azure-maps-drawing-tools](https://www.npmjs.com/package/azure-maps-drawing-tools), puis l’héberger avec votre application. Ce package inclut aussi des définitions de TypeScript. Utilisez la commande suivante :
+    
+        > **npm install azure-maps-drawing-tools**
+    
+        Ensuite, ajoutez une référence au code JavaScript et à la feuille de style CSS dans l’élément `<head>` du fichier :
+
+         ```html
+        <link rel="stylesheet" href="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.css" type="text/css" />
+        <script src="node_modules/azure-maps-drawing-tools/dist/atlas-drawing.min.js"></script>
+         ```
+
+## <a name="use-the-drawing-manager-directly"></a>Utiliser le gestionnaire de dessins directement
+
+Le module Outils de dessin étant chargé dans votre application, vous pouvez utiliser le [gestionnaire de dessins](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) pour activer les fonctionnalités de dessin et d’édition dans la carte. Vous pouvez spécifier des options pour le gestionnaire de dessins lors de l’instanciation ou utiliser la fonction `drawingManager.setOptions()`.
+
+### <a name="set-the-drawing-mode"></a>Définir le mode dessin
 
 Le code suivant crée une instance du gestionnaire de dessins et définit l’option de mode **dessin**. 
 
@@ -40,9 +65,15 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a p
 </iframe>
 
 
-## <a name="set-interaction-type"></a>Définir le type d’interaction
+### <a name="set-the-interaction-type"></a>Définir le type d’interaction
 
-Le code suivant définit le type d’interaction de dessin auquel le gestionnaire de dessins doit adhérer. 
+Pour tracer des formes, le gestionnaire de dessins prend en charge trois modes d’interaction avec la carte.
+
+* `click` - Les coordonnées sont ajoutées au moyen d’un clic (souris ou interaction tactile).
+* `freehand ` - Les coordonnées sont ajoutées au moyen d’un glisser-déplacer sur la carte (souris ou interaction tactile). 
+* `hybrid` - Les coordonnées sont ajoutées au moyen d’un clic ou d’un glisser-déplacer (souris ou interaction tactile).
+
+Le code suivant active le mode dessin de polygone et définit sur `freehand` le type d’interaction de dessin auquel le gestionnaire de dessins doit adhérer. 
 
 ```Javascript
 //Create an instance of the drawing manager and set drawing mode.
@@ -52,7 +83,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-Voici un exemple de code qui implémente la fonctionnalité qui vous permet de dessiner librement sur la carte, en maintenant le bouton gauche de la souris enfoncé et en faisant glisser. 
+Voici un exemple de code qui implémente la fonctionnalité qui vous permet de dessiner librement un polygone sur la carte, en maintenant le bouton gauche de la souris enfoncé et en faisant glisser. 
 
 <br/>
 
@@ -61,9 +92,9 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/ZEzKoaj/'>Free-han
 </iframe>
 
 
-## <a name="customizing-drawing-options"></a>Personnalisation des options de dessin
+### <a name="customizing-drawing-options"></a>Personnalisation des options de dessin
 
-Les exemples précédents ont montré comment personnaliser les options de dessin lors de l’instanciation du gestionnaire de dessins. Vous pouvez également définir les options du gestionnaire de dessins à l’aide de la fonction **drawingManager.setOptions()** . Vous trouverez ci-dessous un outil permettant de tester la personnalisation de toutes les options du gestionnaire de dessins à l’aide de la fonction setOptions.
+Les exemples précédents ont montré comment personnaliser les options de dessin lors de l’instanciation du gestionnaire de dessins. Vous pouvez également définir les options du gestionnaire de dessins à l’aide de la fonction `drawingManager.setOptions()`. Vous trouverez ci-dessous un outil permettant de tester la personnalisation de toutes les options du gestionnaire de dessins à l’aide de la fonction setOptions.
 
 <br/>
 
@@ -72,6 +103,20 @@ Les exemples précédents ont montré comment personnaliser les options de dessi
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment utiliser les fonctionnalités supplémentaires du module Outils de dessin :
+
+> [!div class="nextstepaction"]
+> [Ajouter une barre d’outils de dessin](map-add-drawing-toolbar.md)
+
+> [!div class="nextstepaction"]
+> [Récupérer les données de la forme](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [Réagir aux événements de dessin](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Types d’interaction et raccourcis clavier](drawing-tools-interactions-keyboard-shortcuts.md)
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 

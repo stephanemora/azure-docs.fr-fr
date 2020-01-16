@@ -1,18 +1,18 @@
 ---
-title: Détection intelligente - Dégradation du rapport entre les niveaux de gravité des suivis dans Azure Application Insights | Microsoft Docs
-description: Surveillez les suivis d’application avec Azure Application Insights afin de déterminer si les données de télémétrie du suivi présentent des anomalies.
+title: Dégradation du rapport entre les niveaux de gravité des suivis - Azure Application Insights
+description: Supervisez les suivis d’application avec Azure Application Insights afin de déterminer si les données de télémétrie du suivi présentent des anomalies à l’aide de la détection intelligente.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: 83c1296beabaaae78289a653c6b30f6665f725c2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820526"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432412"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Dégradation du rapport entre les niveaux de gravité des suivis (préversion)
 
@@ -28,7 +28,7 @@ Non, une notification ne signifie pas que votre application rencontre réellemen
 
 ## <a name="how-do-i-fix-it"></a>Comment la corriger ?
 Les notifications incluent des informations de diagnostic qui facilitent le processus de diagnostic :
-1. **Tri.** La notification vous indique le nombre d’opérations affectées. Ceci vous permet d’attribuer une priorité au problème.
+1. **Triage.** La notification vous indique le nombre d’opérations affectées. Ceci vous permet d’attribuer une priorité au problème.
 2. **Portée.** Le problème affecte-t-il tout le trafic ou une opération seulement ? Ces informations peuvent être obtenues dans la notification.
 3. **Diagnostic**. Pour mieux diagnostiquer le problème, vous pouvez utiliser les éléments liés et les rapports pointant vers des informations de prise en charge.
 

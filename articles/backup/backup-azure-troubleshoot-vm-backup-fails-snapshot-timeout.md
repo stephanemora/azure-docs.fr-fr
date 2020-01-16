@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 8331d74528703df1d7c56f25af7df0f53cd1f9be
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996270"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75391844"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Résoudre les problèmes d’une Sauvegarde Azure : Problèmes d’agent ou d’extension
 
@@ -28,6 +28,7 @@ L’agent de machine virtuelle Azure peut être arrêté, obsolète, dans un ét
 - **Ouvrez le panneau Portail Azure > Machine virtuelle > Paramètres > Propriétés** et assurez-vous que l’**État** de la machine virtuelle est **En cours d’exécution** et que l’**État de l’agent** est **Prêt**. Si l’agent de machine virtuelle est arrêté ou est dans un état incohérent, redémarrez l’agent<br>
   - Pour les machines virtuelles Windows, suivez ces [étapes](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) pour redémarrer l’agent invité.<br>
   - Pour les machines virtuelles Linux, suivez ces [étapes](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) pour redémarrer l’agent invité.
+- **Ouvrez Portail Azure > Machine virtuelle > Paramètres > Extensions** et vérifiez que toutes les extensions sont à l’état **Approvisionnement réussi**. Si ce n’est pas le cas, effectuez [ces étapes](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) pour résoudre le problème.
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError : Impossible de communiquer avec l’agent de machine virtuelle pour obtenir l’état de l’instantané
 
@@ -53,8 +54,8 @@ Après avoir enregistré et planifié une machine virtuelle pour le service Azur
 
 Cette erreur se produit lorsqu’un des échecs d’extension met la machine virtuelle en état d’échec d’approvisionnement.<br>**Ouvrez le Portail Azure > Machine virtuelle > Paramètres > Extensions > État de l’extension** et vérifiez si toutes les extensions sont dans un état d’**approvisionnement réussi**.
 
-- Si l’extension VMSnapshot est en état d’échec, cliquez avec le bouton droit sur l’extension qui a échoué, puis supprimez-la. Déclenchez une sauvegarde ad hoc : cette opération réinstalle les extensions et exécute le travail de sauvegarde.  <br>
-- Si une autre extension est en état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.  
+- Si l’extension VMSnapshot est à l’état d’échec, cliquez avec le bouton droit sur l’extension qui a échoué, puis supprimez-la. Déclenchez une sauvegarde à la demande : cette opération réinstalle les extensions et exécute le travail de sauvegarde.  <br>
+- Si une autre extension est à l’état d’échec, elle peut interférer avec la sauvegarde. Assurez-vous que ces problèmes d’extension sont résolus et recommencez l’opération de sauvegarde.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached : Limite maximale de la collection de points de restauration atteinte
 
@@ -70,7 +71,7 @@ Pour résoudre ce problème, supprimez le verrou du groupe de ressources de la m
 > Le service de sauvegarde crée un groupe de ressources distinct du groupe de ressources de la machine virtuelle afin de stocker la collection de points de restauration. Les clients sont invités à ne pas verrouiller le groupe de ressources créé pour une utilisation par le service de sauvegarde. Le format d’affectation des noms du groupe de ressources créé par le service de sauvegarde est : AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Étape 1 : [Supprimer le verrou du groupe de ressources des points de restauration](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
+**Étape 2 : [ Nettoyer la collection de points de restauration](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured : Sauvegarde Azure ne dispose pas des autorisations d’accès suffisantes au coffre de clés pour la sauvegarde de machines virtuelles chiffrées
 
@@ -229,8 +230,8 @@ Pour désinstaller l’extension :
 1. Sur le [Portail Azure](https://portal.azure.com/), accédez à la machine virtuelle qui rencontre des échecs de sauvegarde.
 2. Sélectionnez **Paramètres**.
 3. Sélectionnez **Extensions**.
-4. Sélectionnez **Extension VMSnapshot**.
-5. Sélectionnez **Désinstaller**.
+4. Sélectionnez **Extension d’instantané**.
+5. Sélectionner **Désinstaller**.
 
 Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/linux/update-agent.md), puis exécutez la sauvegarde.
 
@@ -238,7 +239,7 @@ Cette procédure réinstalle l’extension lors de la sauvegarde suivante.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Supprimer le verrou du groupe de ressources des points de récupération
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Sélectionnez l’option **Toutes les ressources**, puis le groupe de ressources de la collection de points de restauration au format suivant : AzureBackupRG_`<Geo>`_`<number>`.
 3. Dans la section **Paramètres**, sélectionnez **Verrous** pour afficher les verrous.
 4. Pour supprimer le verrou, sélectionnez les points de suspension, puis cliquez sur **Supprimer**.
@@ -267,7 +268,7 @@ Après avoir supprimé le verrou, déclenchez une sauvegarde sur demande. Ce fai
 
 Pour effacer manuellement la collection des points de restauration qui ne sont pas effacés en raison du verrou du groupe de ressources, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Dans le menu **Hub**, cliquez sur **Toutes les ressources**, sélectionnez le groupe de ressources au format suivant AzureBackupRG_`<Geo>`_`<number>` où se trouve votre machine virtuelle.
 
     ![Supprimer un verrou](./media/backup-azure-arm-vms-prepare/resource-group.png)

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1e11c5a570f899a5ac18673a71fe79db95de0f80
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461081"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -32,56 +32,56 @@ L’indexation des avertissements ne s’arrête pas, mais certaines conditions 
 
 À partir de la version d’API `2019-05-06`, les erreurs et les avertissements de l’indexeur au niveau de l’élément sont structurés de manière à fournir une clarté accrue sur les causes et la marche à suivre. Ils contiennent les propriétés suivantes :
 
-| Propriété | Description | Exemples |
+| Propriété | Description | Exemple |
 | --- | --- | --- |
 | key | ID du document concerné par l’erreur ou l’avertissement. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| Nom | Nom de l’opération décrivant l’emplacement où l’erreur ou l’avertissement s’est produit. Il est généré selon la structure suivante : [catégorie].[sous-catégorie].[ressourceType].[ressourceNom] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
+| name | Nom de l’opération décrivant l’emplacement où l’erreur ou l’avertissement s’est produit. Il est généré selon la structure suivante : [catégorie].[sous-catégorie].[ressourceType].[ressourceNom] | DocumentExtraction.azureblob.myBlobContainerName Enrichment.WebApiSkill.mySkillName Projection.SearchIndex.OutputFieldMapping.myOutputFieldName Projection.SearchIndex.MergeOrUpload.myIndexName Projection.KnowledgeStore.Table.myTableName |
 | message | Description de haut niveau de l’erreur ou de l’avertissement. | Impossible d’exécuter la compétence en raison de l’échec de la requête de l’API web. |
 | details | Tous les détails supplémentaires qui peuvent être utiles pour diagnostiquer le problème, tels que la réponse WebApi en cas d’échec de l’exécution d’une compétence personnalisée. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 source, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` …reste de l’arborescence des appels de procédure… |
 | documentationLink | Lien vers la documentation appropriée contenant des informations détaillées pour déboguer et résoudre le problème. Ce lien mène souvent sur cette page, à l’une des sections ci-dessous. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
 
-## <a name="error-could-not-read-document"></a>Error: Impossible de lire le document
+## <a name="error-could-not-read-document"></a>Erreur : Impossible de lire le document
 
 L'indexeur n'a pas pu lire le document à partir de la source de données. Cela peut se produire si :
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
 | types de champs incohérents dans différents documents | Le type de valeur ne correspond pas au type de colonne. Impossible de stocker `'{47.6,-122.1}'` dans la colonne des auteurs.  Le type attendu est JArray. | Assurez-vous que le type de chaque champ est identique dans les différents documents. Par exemple, si le champ `'startTime'` du premier document est un champ DateTime et une chaîne de caractères dans le second document, cette erreur s’affichera. |
 | erreurs provenant du service sous-jacent de la source de données | (de Cosmos DB) `{"Errors":["Request rate is large"]}` | Vérifiez l’intégrité de votre instance de stockage. Vous devrez peut-être ajuster votre mise à l'échelle/partitionnement. |
-| problèmes temporaires | Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
+| problèmes temporaires | Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
 <a name="could-not-extract-document-content"/>
 
-## <a name="error-could-not-extract-document-content"></a>Error: Impossible d'extraire le contenu du document
-L'indexeur avec une source de données Blob n'a pas pu extraire le contenu du document (par exemple, un fichier PDF). Cela peut se produire si :
+## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Erreur : Impossible d’extraire le contenu ou les métadonnées de votre document
+L’indexeur avec une source de données Blob n’a pas pu extraire le contenu ou les métadonnées du document (par exemple, un fichier PDF). Cela peut se produire si :
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
 | l’objet Blob dépasse la limite de taille | Le document affiche une taille de `'134217728'`, ce qui est supérieur à la taille maximale de `'150441598'` pour l’extraction de document correspondant à votre niveau de service actuel. | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | L’objet Blob a un type de contenu non pris en charge | Le document contient un type de contenu `'image/png'` non pris en charge | [Erreurs d’indexation des objets Blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | L’objet Blob est chiffré | Le document n'a pas pu être traité car il est peut-être chiffré ou protégé par un mot de passe. | Vous pouvez ignorer le blob grâce aux [paramètres de blob](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
-| problèmes temporaires | Erreur de traitement des objets Blob : La demande a été abandonnée : La demande a été annulée. | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
+| problèmes temporaires | « Erreur de traitement des objets blob : La demande a été abandonnée : La demande a été annulée. » « Le document a expiré pendant le traitement ». | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
 <a name="could-not-parse-document"/>
 
-## <a name="error-could-not-parse-document"></a>Error: Impossible d’analyser le document
+## <a name="error-could-not-parse-document"></a>Erreur : Impossible d’analyser le document
 L’indexeur a lu le document à partir de la source de données, mais un problème est survenu lors de la conversion du contenu du document au schéma de mappage de champs spécifié. Cela peut se produire si :
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
 | La clé du document est manquante | La clé du document ne peut pas être manquante ou vide | Vérifiez que tous les documents contiennent des clés de documents valides |
 | La clé du document n’est pas valide | La clé du document ne peut pas contenir plus de 1024 caractères | Modifiez la clé du document pour répondre aux exigences de validation. |
 | Impossible d'appliquer le mappage de champs à un champ | Impossible d'appliquer la fonction de mappage `'functionName'` au champ `'fieldName'`. Le tableau ne peut pas être null. Nom du paramètre : octets | Vérifiez soigneusement les [mappages de champs](search-indexer-field-mappings.md) définis sur l'indexeur, puis comparez ces valeurs avec les données du champ spécifié du document en échec. Il peut être nécessaire de modifier les mappages de champs ou les données du document. |
-| Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
+| Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 
 <a name="could-not-execute-skill"/>
 
-## <a name="error-could-not-execute-skill"></a>Error: Impossible d’exécuter une compétence
+## <a name="error-could-not-execute-skill"></a>Erreur : Impossible d’exécuter une compétence
 L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compétences.
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
 | Problèmes de connectivité temporaires | Une erreur temporaire s’est produite. Veuillez réessayer plus tard. | Certains problèmes de connectivité inattendus peuvent survenir. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
 | Bogue potentiel du produit | Une erreur inattendue s’est produite. | Cela indique une classe de défaillance inconnue et peut signifier qu’il existe un bogue de produit. Pour obtenir de l’aide, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support). |
@@ -89,17 +89,17 @@ L’indexeur n’a pas pu exécuter une compétence dans l’ensemble de compét
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"/>
 
-## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Error: Impossible d’exécuter la compétence en raison de l’échec de la requête de l’API web
+## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Erreur : Impossible d’exécuter la compétence en raison de l’échec de la requête de l’API web
 L’exécution de la compétence a échoué parce que l’appel de l’API web a échoué. En règle générale, cette classe de défaillance se produit lorsque des compétences personnalisées sont utilisées. Dans ce cas, vous devez déboguer votre code personnalisé pour résoudre le problème. Si au contraire l’échec provient d’une compétence intégrée, consultez le message d’erreur dans lequel vous trouverez peut-être de l’aide pour résoudre le problème.
 
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
 
-## <a name="error-could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>Error: Impossible d’exécuter la compétence parce que la réponse concernant la compétence de l’API web n’est pas valide
+## <a name="error-could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>Erreur : Impossible d’exécuter la compétence parce que la réponse concernant la compétence de l’API web n’est pas valide
 L’exécution de la compétence a échoué parce que l’API web a retourné une réponse non valide. En règle générale, cette classe de défaillance se produit lorsque des compétences personnalisées sont utilisées. Dans ce cas, vous devez déboguer votre code personnalisé pour résoudre le problème. Si au contraire l’échec est dû à une compétence intégrée, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) pour obtenir de l’aide.
 
 <a name="skill-did-not-execute-within-the-time-limit"/>
 
-## <a name="error-skill-did-not-execute-within-the-time-limit"></a>Error: La compétence n'a pas été exécutée dans le délai imparti
+## <a name="error-skill-did-not-execute-within-the-time-limit"></a>Erreur : La compétence n'a pas été exécutée dans le délai imparti
 Il existe deux cas dans lesquels vous pouvez rencontrer ce message d'erreur, chacun d'entre eux devant être traité différemment. Veuillez suivre les instructions ci-dessous en fonction de la compétence qui a retourné cette erreur.
 
 ### <a name="built-in-cognitive-service-skills"></a>Compétences de service cognitives intégrées
@@ -136,11 +136,11 @@ La valeur maximale que vous pouvez définir pour le paramètre `timeout` est de 
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Error: Impossible de « `MergeOrUpload` » | « `Delete` » le document dans l’index de recherche
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Erreur : Impossible de « `MergeOrUpload` » | « `Delete` » le document dans l’index de recherche
 
 Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à l’index de recherche. Cela peut se produire si :
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
 | Un champ contient un terme trop grand | Votre document contient un terme qui dépasse la [limite de 32 Ko](search-limits-quotas-capacity.md#api-request-limits) | Vous pouvez éviter cette restriction en vérifiant que le champ n’est pas configuré comme étant filtrable, à choix multiple ou triable.
 | Le document est trop volumineux pour être indexé | Un document est plus volumineux que la [taille maximale de demande d’API](search-limits-quotas-capacity.md#api-request-limits) | [Indexer les jeux de données volumineux](search-howto-large-index.md)
@@ -152,13 +152,13 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
 
-## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Error: Impossible d’indexer le document parce que les données de l’indexeur ne sont pas valides
+## <a name="error-could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Erreur : Impossible d’indexer le document parce que les données de l’indexeur ne sont pas valides
 
 Le document a été lu et traité mais, en raison d’une discordance dans la configuration des champs d’index et la nature des données extraites par l’indexeur, il n’a pas pu être ajouté à l’index de recherche. Cela peut se produire si :
 
 | Motif | Détails/Exemple
 | --- | ---
-| Le type de données du ou des champs extraits par l’indexeur est incompatible avec le modèle de données du champ d’index cible correspondant. | Le champ de données « _data_ » dans le document avec la clé « _data_ » a une valeur non valide de type « Edm.String ». Le type attendu était « collection (EDM. String) ». |
+| Le type de données du ou des champs extraits par l’indexeur est incompatible avec le modèle de données du champ d’index cible correspondant. | Le champ de données « _data_ » dans le document avec la clé « 888 » a une valeur non valide de type « Edm.String ». Le type attendu était « collection (EDM. String) ». |
 | Échec d’extraction d’une entité JSON à partir d’une valeur de chaîne. | Impossible d’analyser la valeur de type « Edm.String » du champ « _data_ » en tant qu’objet JSON. Erreur : « Après analyse d’une valeur, un caractère inattendu a été rencontré : «’. Chemin d’accès « _path_ », ligne 1, position 3162. » |
 | Échec d’extraction d’une collection d’entités JSON d’une valeur de chaîne.  | Impossible d’analyser la valeur de type « Edm.String » du champ « _data_ » sous la forme d’un tableau JSON. Erreur : « Après analyse d’une valeur, un caractère inattendu a été rencontré : «’. Chemin d’accès « [0] », ligne 1, position 27. » |
 | Un type inconnu a été découvert dans le document source. | Le type inconnu « _unknown_ » ne peut pas être indexé |
@@ -168,16 +168,24 @@ Dans tous ces cas, consultez les [types de données pris en charge ](https://doc
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
 
-## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Error: Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
+## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erreur : Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
 
 Cette erreur se produit lorsque l’indexeur ne peut pas terminer le traitement d’un document unique à partir de la source de données en respectant le temps d’exécution autorisé. [Le temps d’exécution maximal](search-limits-quotas-capacity.md#indexer-limits) est plus court quand des ensembles de compétences sont utilisés. Lorsque cette erreur se produit, si maxFailedItems est défini sur une valeur autre que 0, l’indexeur ignore le document pour les prochaines exécutions, de façon que l’indexation puisse progresser. Si vous ne pouvez pas vous permettre d’ignorer un document, ou si vous voyez cette erreur en permanence, pensez à diviser les documents en documents plus petits pour qu’une seule exécution de l’indexeur puisse traiter une partie de ces derniers.
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
-## <a name="warning-could-not-execute-skill-because-a-skill-input-was-invalid"></a>Avertissement : Impossible d’exécuter la compétence parce qu’une entrée de compétence n’est pas valide
-L’indexeur n’a pas été en mesure d’exécuter une compétence dans l’ensemble de compétences en raison d’une compétence manquante, d’un type incorrect ou d’un autre élément non valide dans l’entrée.
+## <a name="warning-skill-input-was-invalid"></a>Avertissement : Entrée de compétence non valide
+Il manque une entrée à la compétence, un type est incorrect ou non valide. Le message d’avertissement indique l’impact :
+1) Impossible d’exécuter une compétence
+2) Compétence exécutée mais susceptible d’engendrer des résultats inattendus
 
-Les compétences cognitives nécessitaient des entrées et des entrées facultatives. Par exemple, la [compétence d’extraction d’expression clé](cognitive-search-skill-keyphrases.md) a deux entrées obligatoires, `text` et `languageCode`, et aucune entrée facultative. Si l’une des entrées obligatoires ne sont pas valides, la compétence est ignorée et génère un avertissement. Les compétences ignorées ne génèrent aucun résultat. Par conséquent, si d’autres compétences utilisent des résultats de la compétence ignorée, elles peuvent générer des avertissements supplémentaires.
+Les compétences cognitives nécessitaient des entrées et des entrées facultatives. Par exemple, la [compétence d’extraction d’expression clé](cognitive-search-skill-keyphrases.md) a deux entrées obligatoires, `text` et `languageCode`, et aucune entrée facultative. Les entrées de compétences personnalisées sont toutes considérées comme des entrées facultatives.
+
+S’il manque des entrées obligatoires ou si une entrée n’est pas du bon type, la compétence est ignorée et génère un avertissement. Les compétences ignorées ne génèrent aucun résultat. Par conséquent, si d’autres compétences utilisent des résultats de la compétence ignorée, elles peuvent générer des avertissements supplémentaires.
+
+S’il manque une entrée facultative, la compétence est quand même exécutée, mais elle risque de produire une sortie inattendue en raison de l’entrée manquante.
+
+Dans les deux cas, cet avertissement peut être attendu en raison de la forme de vos données. Par exemple, si vous avez un document contenant des informations sur des personnes avec les champs `firstName`, `middleName` et `lastName`, certains documents n’ont peut-être pas d’entrée pour `middleName`. Si vous passez `middleName` en tant qu’entrée à une compétence dans le pipeline, alors il est attendu que cette entrée de compétence soit parfois manquante. Vous avez besoin d’évaluer vos données et votre scénario pour déterminer si une action est nécessaire suite à cet avertissement.
 
 Si vous souhaitez fournir une valeur par défaut en cas d’entrée manquante, vous pouvez utiliser la [compétence conditionnelle](cognitive-search-skill-conditional.md) pour générer une valeur par défaut, puis utiliser la sortie de la [compétence conditionnelle](cognitive-search-skill-conditional.md) en tant qu’entrée de compétence.
 
@@ -195,10 +203,10 @@ Si vous souhaitez fournir une valeur par défaut en cas d’entrée manquante, v
 }
 ```
 
-| Motif | Détails/Exemple | Résolution : |
+| Motif | Détails/Exemple | Résolution |
 | --- | --- | --- |
-| Le type de l’entrée de compétence est incorrect | L’entrée de compétence requise `X` n’est pas du type attendu `String`. L’entrée de compétence requise `X` n’est pas au format attendu. | Certaines compétences attendent des entrées de types particuliers. Par exemple, la [compétence Sentiment](cognitive-search-skill-sentiment.md) attend que `text` soit une chaîne. Si l’entrée spécifie une valeur autre qu’une chaîne, la compétence ne s’exécute pas et ne génère aucune sortie. Assurez-vous que le jeu de données contient des valeurs d’entrée de type uniforme, ou utilisez une [compétence d’API web personnalisée](cognitive-search-custom-skill-web-api.md) pour prétraiter l’entrée. Si vous répétez la compétence sur un tableau, vérifiez que le contexte et l’entrée de la compétence ont `*` aux bons emplacements. Généralement, le contexte et la source d’entrée doivent se terminer par `*` pour des tableaux. |
-| Une entrée de compétence est manquante | L’entrée de compétence requise `X` est manquante. | Si tous les documents reçoivent cet avertissement, il est hautement probable que les chemins d’entrée contiennent une faute de frappe et vous devriez vérifier attentivement la casse du nom de propriété, un signe `*` manquant ou en trop dans le chemin d’accès, et que les documents de la source de données définissent les entrées requises. |
+| Le type de l’entrée de compétence est incorrect | « L’entrée de compétence requise n’est pas du type attendu `String`. Nom : `text`, source : `/document/merged_content`. »  « L’entrée de compétence requise n’est pas au format attendu. Nom : `text`, source : `/document/merged_content`. »  « Impossible d’effectuer une itération sur le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ».  « Impossible de sélectionner `0` dans le non-tableau `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` » | Certaines compétences attendent des entrées de types particuliers. Par exemple, la [compétence Sentiment](cognitive-search-skill-sentiment.md) attend que `text` soit une chaîne. Si l’entrée spécifie une valeur autre qu’une chaîne, la compétence ne s’exécute pas et ne génère aucune sortie. Assurez-vous que le jeu de données contient des valeurs d’entrée de type uniforme, ou utilisez une [compétence d’API web personnalisée](cognitive-search-custom-skill-web-api.md) pour prétraiter l’entrée. Si vous répétez la compétence sur un tableau, vérifiez que le contexte et l’entrée de la compétence ont `*` aux bons emplacements. Généralement, le contexte et la source d’entrée doivent se terminer par `*` pour des tableaux. |
+| Une entrée de compétence est manquante | « L’entrée de compétence requise est manquante. Nom : `text`, source : `/document/merged_content` » « Valeur manquante `/document/normalized_images/0/imageTags`. »  « Impossible de sélectionner `0` dans un tableau `/document/pages` de longueur `0`. » | Si tous les documents reçoivent cet avertissement, il est hautement probable que les chemins d’entrée contiennent une faute de frappe et vous devriez vérifier attentivement la casse du nom de propriété, un signe `*` manquant ou en trop dans le chemin. Vérifiez aussi que les documents de la source de données définissent les entrées nécessaires. |
 | L’entré du code de la langue de la compétence n’est pas valide | L’entrée de compétence `languageCode` a les codes de langue suivants `X,Y,Z`, dont au moins un n’est pas valide. | Pour plus de détails, voir [ci-dessous](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>

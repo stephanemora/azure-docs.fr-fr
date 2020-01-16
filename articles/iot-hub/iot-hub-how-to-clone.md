@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976143"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429149"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Comment cloner un hub IoT Azure dans une autre région
 
@@ -29,7 +29,7 @@ Cet article explore les différentes façons de cloner un IoT Hub et fournit des
 Pour cloner un hub, vous avez besoin d’un abonnement avec un accès administratif au hub d’origine. Vous pouvez placer le nouveau hub dans un nouveau groupe de ressources et une nouvelle région, dans le même abonnement que le hub d’origine ou même dans un nouvel abonnement. Vous ne pouvez pas utiliser le même nom, car le nom du hub doit être globalement unique.
 
 > [!NOTE]
-> À ce stade, il n’existe pas de fonctionnalité de première classe pour le clonage d’un hub IoT. Il s’agit principalement d’un processus manuel, qui est donc souvent sujet aux erreurs. La complexité du clonage d’un hub est directement proportionnelle à la complexité du hub. Par exemple, le clonage d’un hub IoT sans routage de messages est relativement simple. Si vous ajoutez le routage des messages comme une seule complexité, le clonage du hub devient au moins un ordre de magnitude plus compliqué. Si vous déplacez également les ressources utilisées pour les points de terminaison de routage, il s’agit d’un autre ordre de magnitude plus compliqué. 
+> À l’heure actuelle, il n’existe pas de fonctionnalité permettant de cloner automatiquement un hub IoT. Il s’agit principalement d’un processus manuel, qui est donc souvent sujet aux erreurs. La complexité du clonage d’un hub est directement proportionnelle à la complexité du hub. Par exemple, le clonage d’un hub IoT sans routage de messages est relativement simple. Si vous ajoutez le routage des messages comme une seule complexité, le clonage du hub devient au moins un ordre de magnitude plus compliqué. Si vous déplacez également les ressources utilisées pour les points de terminaison de routage, il s’agit d’un autre ordre de magnitude plus compliqué. 
 
 ## <a name="things-to-consider"></a>Points importants à prendre en compte
 

@@ -1,20 +1,19 @@
 ---
 title: Plusieurs clusters HDInsight et un compte Azure Data Lake Storage
 description: Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Storage
-keywords: stockage hdinsight, hdfs, données structurées, données non structurées, data lake store
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: hrasheed
-ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/18/2019
+ms.openlocfilehash: cc67acca11e7e0f24dc0597dcd19672a38a7bf28
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498183"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495747"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Storage
 
@@ -23,16 +22,15 @@ Data Lake Storage prend en charge le stockage illimité, ce qui le rend idéal n
 
 Cet article fournit des recommandations à l’administrateur Data Lake Storage pour configurer un compte Data Lake Storage unique et partagé qui peut être utilisé sur plusieurs clusters HDInsight **actifs**. Ces recommandations s’appliquent à l’hébergement de plusieurs clusters Apache Hadoop sécurisés ou non sécurisés sur un compte Data Lake Storage partagé.
 
-
 ## <a name="data-lake-storage-file-and-folder-level-acls"></a>Listes ACL de niveau fichier et dossier Data Lake Storage
 
 Le reste de cet article part du principe que vous avez une bonne connaissance des listes ACL de niveau fichier et dossier dans l’application Azure Data Lake Storage, qui sont décrites en détail dans [Contrôle d’accès dans Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="data-lake-storage-setup-for-multiple-hdinsight-clusters"></a>Configuration de Data Lake Storage pour plusieurs clusters HDInsight
+
 Prenons une hiérarchie de dossiers sur deux niveaux pour expliquer les recommandations quant à l’utilisation de plusieurs clusters HDInsight avec un compte Data Lake Storage. Supposez que vous avez un compte Data Lake Storage avec la structure de dossiers **/clusters/finance**. Avec cette structure, tous les clusters requis par le service financier peuvent utiliser /clusters/finance comme emplacement de stockage. À l’avenir, si une autre organisation (par exemple le service marketing) souhaite créer des clusters HDInsight avec le même compte Data Lake Storage, elle pourrait créer /clusters/marketing. Pour l’instant, nous allons simplement utiliser **/clusters/finance**.
 
-Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Storage doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut. 
-
+Pour que cette structure de dossiers soit bien utilisée par les clusters HDInsight, l’administrateur Data Lake Storage doit attribuer les autorisations appropriées, comme décrit dans le tableau. Les autorisations indiquées dans le tableau correspondent aux ACL d’accès et non aux ACL par défaut.
 
 |Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
 |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -57,13 +55,11 @@ Quelques points importants à prendre en compte.
 
     |Dossier  |Autorisations  |Utilisateur propriétaire  |groupe propriétaire  | Utilisateur nommé | Autorisations de l’utilisateur nommé | Groupe nommé | Autorisations du groupe nommé |
     |---------|---------|---------|---------|---------|---------|---------|---------|
-    |/clusters/finance/fincluster01 | rwxr-x---  |Principal de service |FINGRP  |- |-  |-   |-  | 
-   
-
+    |/clusters/finance/fincluster01 | rwxr-x---  |Principal de service |FINGRP  |- |-  |-   |-  |
 
 ## <a name="recommendations-for-job-input-and-output-data"></a>Recommandations pour les données d’entrée et de sortie de tâche
 
-Nous vous recommandons de stocker les données d’entrée et données de sortie d’une tâche en dehors de **/clusters**. Ainsi, même si le dossier spécifique aux clusters est supprimé pour récupérer de l’espace de stockage, les données d’entrée et de sortie de la tâche sont toujours disponibles pour une utilisation ultérieure. Dans ce cas, assurez-vous que la hiérarchie des dossiers servant à stocker les données d’entrée et de sortie de la tâche permet un niveau d’accès approprié pour le principal de service.
+Nous vous recommandons de stocker les données d’entrée et données de sortie d’une tâche en dehors de **/clusters**. Ainsi, même si le dossier spécifique aux clusters est supprimé pour récupérer de l’espace de stockage, les données d’entrée et de sortie du travail restent disponibles pour une utilisation ultérieure. Dans ce cas, assurez-vous que la hiérarchie des dossiers servant à stocker les données d’entrée et de sortie de la tâche permet un niveau d’accès approprié pour le principal de service.
 
 ## <a name="limit-on-clusters-sharing-a-single-storage-account"></a>Limite sur les clusters partageant un même compte de stockage
 
@@ -71,7 +67,7 @@ La limite du nombre de clusters pouvant partager un même compte Data Lake Stora
 
 ## <a name="support-for-default-acls"></a>Prise en charge des ACL par défaut
 
-Lorsque vous créez un principal de service avec un accès utilisateur nommé (comme indiqué dans le tableau ci-dessus), nous vous recommandons de ne **pas** ajouter l’utilisateur nommé avec une ACL par défaut. La configuration d’un accès utilisateur nommé utilisant des ACL par défaut se traduit par l’attribution de 770 autorisations pour l’utilisateur propriétaire, le groupe propriétaire et les autres. Bien que la valeur par défaut de 770 ne retire pas les autorisations de l’utilisateur propriétaire (7) ou du groupe propriétaire (7), elle retire les autorisations des autres (0). Cela entraîne un problème connu avec un cas d’usage particulier qui est décrit en détail dans la section [Problèmes connus et solutions de contournement](#known-issues-and-workarounds).
+Lorsque vous créez un principal de service avec un accès utilisateur nommé (comme indiqué dans le tableau ci-dessus), nous vous recommandons de ne **pas** ajouter l’utilisateur nommé avec une ACL par défaut. La configuration d’un accès utilisateur nommé utilisant des ACL par défaut se traduit par l’attribution de 770 autorisations pour l’utilisateur propriétaire, le groupe propriétaire et les autres. La valeur par défaut de 770 ne retire pas les autorisations de l’utilisateur propriétaire (7) ni du groupe propriétaire (7), mais elle retire toutes les autorisations des autres (0). Cela entraîne un problème connu avec un cas d’usage particulier qui est décrit en détail dans la section [Problèmes connus et solutions de contournement](#known-issues-and-workarounds).
 
 ## <a name="known-issues-and-workarounds"></a>Problèmes connus et solutions de contournement
 
@@ -85,12 +81,13 @@ Ces paramètres sont connus pour affecter un cas d’usage HDInsight particulier
 
     Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
 
-Comme indiqué dans le YARN JIRA associé précédemment, lors de la localisation des ressources publiques, le localisateur valide le fait que toutes les ressources demandées sont bien publiques en vérifiant leurs autorisations sur le système de fichiers distant. Les éléments LocalResource qui ne correspondent pas à cette condition sont rejetés pour la localisation. La vérification des autorisations inclut l’accès en lecture au fichier pour les « autres ». Ce scénario ne marche pas instantanément lors de l’hébergement des clusters HDInsight sur Azure Data Lake, car Azure Data Lake refuse tout accès aux « autres » au niveau du dossier racine.
+Comme indiqué dans le YARN JIRA associé précédemment, lors de la localisation des ressources publiques, le localisateur valide le fait que toutes les ressources demandées sont bien publiques en vérifiant leurs autorisations sur le système de fichiers distant. Les éléments LocalResource qui ne correspondent pas à cette condition sont rejetés pour la localisation. La vérification des autorisations inclut l’accès en lecture au fichier pour les « autres ». Ce scénario ne fonctionne pas instantanément lors de l’hébergement de clusters HDInsight sur Azure Data Lake, car Azure Data Lake refuse tout accès aux « autres » au niveau du dossier racine.
 
 #### <a name="workaround"></a>Solution de contournement
+
 Définissez les autorisations d’exécution en lecture pour les **autres** dans la hiérarchie, par exemple, au niveau **/** , **/clusters** et **/clusters/finance** comme indiqué dans le tableau ci-dessus.
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-* [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)
+- [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+- [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

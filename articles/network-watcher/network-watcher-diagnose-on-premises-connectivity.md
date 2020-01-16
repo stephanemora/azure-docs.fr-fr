@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454291"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostiquer la connectivité locale par le biais de passerelles VPN
 
@@ -84,7 +84,7 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée. |OUI|
+| NoFault | Quand aucune erreur n’est détectée. |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
 | PlannedMaintenance |  Instance de passerelle en maintenance.  |Non|
 | UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement. | Non |
@@ -92,26 +92,26 @@ La fonctionnalité de résolution des problèmes d’Azure Network Watcher vous 
 | PlatformInActive | Il existe un problème avec la plateforme. | Non|
 | ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
 | NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Il s’agit simplement d’un avertissement.| Non|
-| ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| OUI|
-| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | OUI |
+| ConnectionsNotConnected | Aucune des connexions n’est connectée. Il s’agit simplement d’un avertissement.| Oui|
+| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
 ### <a name="connection"></a>Connexion
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée. |OUI|
+| NoFault | Quand aucune erreur n’est détectée. |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée. |Non|
 | PlannedMaintenance | Instance de passerelle en maintenance.  |Non|
 | UserDrivenUpdate | Quand une mise à jour utilisateur est en cours. Il peut s’agir d’une opération de redimensionnement.  | Non |
 | VipUnResponsive | Impossible d’atteindre l’instance principale de la passerelle. Cela se produit en cas d’échec de la sonde d’intégrité. | Non |
 | ConnectionEntityNotFound | La configuration de la connexion est manquante. | Non |
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée ». |Non|
-| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | OUI |
-| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| OUI|
-| Authentication | Non-concordance des clés prépartagées. | OUI|
-| PeerReachability | La passerelle homologue n’est pas accessible. | OUI|
-| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | OUI|
-| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |OUI|
+| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
+| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
+| Authentication | Non-concordance des clés prépartagées. | Oui|
+| PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
+| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
+| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,31 +1,33 @@
 ---
 title: Azure HDInsight SDK for Go
 description: Documentation de référence concernant l’utilisation du SDK Azure HDInsight pour les clusters Go et Apache Hadoop
-author: tylerfox
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/8/2019
-ms.author: tyfox
-ms.reviewer: jasonh
 ms.custom: seodec18
-ms.openlocfilehash: 60ac0509aed1fc83bc7f660783d4bdbd6cb7d976
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 01/03/2020
+ms.openlocfilehash: 065165ddb629f0629e9b895dbad5ee33605f8bc1
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077136"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658880"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK for Go (préversion)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 HDInsight SDK for Go fournit des classes et des fonctions qui vous permettent de gérer vos clusters HDInsight. Il inclut des opérations permettant de créer, supprimer, mettre à jour, répertorier, mettre à l’échelle, exécuter des actions de script, surveiller, obtenir des propriétés des clusters HDInsight, et bien plus encore.
 
 > [!NOTE]  
 >Une documentation de référence GoDoc pour ce kit SDK est également [disponible ici](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
-## <a name="prerequisites"></a>Prérequis
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-* Un compte Azure. Si vous n’en avez pas, inscrivez-vous pour un [essai gratuit](https://azure.microsoft.com/free/).
+## <a name="prerequisites"></a>Conditions préalables requises
+
+* [Outil `go get`](https://github.com/golang/go/wiki/GoGetTools).
 * [Go](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>Installation du kit SDK
@@ -41,7 +43,7 @@ Le kit de développement logiciel (SDK) doit d’abord être authentifié avec v
 
 ### <a name="authentication-example-using-a-service-principal"></a>Exemple d’authentification avec un principal de service
 
-Tout d’abord, connectez-vous à [Azure Cloud Shell](https://shell.azure.com/bash). Vérifiez que vous utilisez actuellement l’abonnement dans lequel vous souhaitez que le principal de service soit créé. 
+Tout d’abord, connectez-vous à [Azure Cloud Shell](https://shell.azure.com/bash). Vérifiez que vous utilisez actuellement l’abonnement dans lequel vous souhaitez que le principal de service soit créé.
 
 ```azurecli-interactive
 az account show
@@ -98,6 +100,7 @@ Les informations relatives au principal de service sont affichées en tant que J
   "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
+
 Copiez l’extrait de code ci-dessous et remplissez `TENANT_ID`, `CLIENT_ID`, `CLIENT_SECRET` et `SUBSCRIPTION_ID` avec les chaînes du JSON qui a été retourné après l’exécution de la commande pour créer le principal de service.
 
 ```golang
@@ -140,7 +143,7 @@ func main() {
 
 Un nouveau cluster peut être créé en appelant `client.Create()`. 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Cet exemple montre comment créer un cluster [Apache Spark](https://spark.apache.org/) avec deux nœuds principaux et un nœud Worker.
 
@@ -150,21 +153,27 @@ Cet exemple montre comment créer un cluster [Apache Spark](https://spark.apache
 ##### <a name="creating-a-resource-group"></a>Création d’un groupe de ressources
 
 Vous pouvez créer un groupe de ressources à l’aide d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant
+
 ```azurecli-interactive
 az group create -l <Region Name (i.e. eastus)> --n <Resource Group Name>
 ```
+
 ##### <a name="creating-a-storage-account"></a>Création d’un compte de stockage
 
 Vous pouvez créer un compte de stockage à l’aide d’[Azure Cloud Shell](https://shell.azure.com/bash) en exécutant :
+
 ```azurecli-interactive
 az storage account create -n <Storage Account Name> -g <Existing Resource Group Name> -l <Region Name (i.e. eastus)> --sku <SKU i.e. Standard_LRS>
 ```
-Ensuite, exécutez la commande suivante pour obtenir la clé de votre compte de stockage (vous en aurez besoin pour créer un cluster) :
+
+À présent, exécutez la commande suivante afin d’obtenir la clé pour votre compte de stockage (vous en aurez besoin pour créer un cluster) :
+
 ```azurecli-interactive
 az storage account keys list -n <Storage Account Name>
 ```
+
 ---
-L’extrait de code Go ci-dessous crée un cluster Spark avec 2 nœuds principaux et 1 nœud worker. Remplissez les variables vides comme expliqué dans les commentaires et n’hésitez pas à modifier d’autres paramètres en fonction de vos besoins.
+L’extrait de code Go ci-dessous crée un cluster Spark avec deux nœuds principaux et un nœud Worker. Remplissez les variables vides comme expliqué dans les commentaires et n’hésitez pas à modifier d’autres paramètres en fonction de vos besoins.
 
 ```golang
 // The name for the cluster you are creating
@@ -253,7 +262,7 @@ Pour obtenir les propriétés d’un cluster donné :
 client.Get(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Vous pouvez utiliser `get` pour confirmer que vous avez créé votre cluster avec succès.
 
@@ -273,13 +282,16 @@ La sortie doit ressembler à :
 /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/<Resource Group Name>/providers/Microsoft.HDInsight/clusters/<Cluster Name>
 ```
 
-### <a name="list-clusters"></a>Énumérer les clusters
+### <a name="list-clusters"></a>Lister les clusters
 
 #### <a name="list-clusters-under-the-subscription"></a>Lister les clusters dans l’abonnement
+
 ```golang
 client.List()
 ```
+
 #### <a name="list-clusters-by-resource-group"></a>Lister les clusters par groupe de ressources
+
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
@@ -287,7 +299,8 @@ client.ListByResourceGroup("<Resource Group Name>")
 > [!NOTE]  
 > À la fois `List()` et `ListByResourceGroup()` retournent un struct `ClusterListResultPage`. Pour obtenir la page suivante, vous pouvez appeler `Next()`. Vous pouvez répéter cette opération jusqu’à ce que `ClusterListResultPage.NotDone()` retourne `false`, comme illustré dans l’exemple ci-dessous.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
+
 L’exemple suivant imprime les propriétés de tous les clusters pour l’abonnement actuel :
 
 ```golang
@@ -321,7 +334,8 @@ Vous pouvez mettre à jour les balises d’un cluster donné comme suit :
 ```golang
 client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterPatchParameters{<map[string]*string} of Tags>)
 ```
-#### <a name="example"></a>Exemples
+
+#### <a name="example"></a>Exemple
 
 ```golang
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
@@ -420,7 +434,7 @@ Pour répertorier toutes les actions de script persistantes pour le cluster spé
 scriptActionsClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```golang
 page, err := scriptActionsClient.ListByCluster(context.Background(), resourceGroupName, clusterName)
@@ -456,7 +470,7 @@ Pour répertorier tout l’historique d’exécution des scripts pour le cluster
 scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Cet exemple imprime tous les détails de toutes les exécutions de script passées.
 
@@ -478,4 +492,4 @@ for (page.NotDone()) {
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Explorez les [documents de référence GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). Les GoDocs fournissent la documentation de référence de toutes les fonctions du kit SDK.
+Explorez les [documents de référence GoDoc](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight). Les GoDocs fournissent la documentation de référence de toutes les fonctions du kit SDK.

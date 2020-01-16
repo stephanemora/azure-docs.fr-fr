@@ -1,25 +1,16 @@
 ---
-title: Communication et connexion aux services dans Azure Service Fabric | Microsoft Docs
+title: Se connecter aux services et communiquer avec eux dans Azure Service Fabric
 description: Découvrez comment résoudre, vous connecter aux services et communiquer avec ces derniers dans Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: msfussell
-ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 55a0a1a8097ea46c7a3407b5f42824973edcf1a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e57d169decf482f8b8be1e3b31a07690bc222c5d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60882267"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458228"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Se connecter aux services et communiquer avec eux dans Service Fabric.
 Dans Service Fabric, un service s’exécute quelque part dans un cluster Service Fabric, généralement réparti sur plusieurs machines virtuelles. Il peut être déplacé d’un endroit à un autre, soit par le propriétaire du service, soit automatiquement par Service Fabric. Les services ne sont pas liés statiquement à une machine ou une adresse particulière.
@@ -172,7 +163,7 @@ Gardez à l’esprit que l’Azure Load Balancer (équilibrage de charge Azure) 
 L’infrastructure Reliable Services est livrée avec plusieurs options de communication intégrées. Le choix de l’API dépend du modèle de programmation utilisé, de la structure de communication et du langage de programmation dans lequel vos services sont écrits.
 
 * **Aucun protocole spécifique** :  Si vous pouvez choisir n’importe quelle infrastructure de communication, mais que vous souhaitez une solution rapidement opérationnelle, l’option idéale est le [service à distance](service-fabric-reliable-services-communication-remoting.md), qui rend possible des appels de procédure distante fortement typés pour Reliable Services et Reliable Actors. Il s'agit de la façon la plus simple et la plus rapide de prendre en main la communication avec les services. Le service à distance gère la résolution des adresses de service ainsi que la connexion, les nouvelles tentatives et la gestion des erreurs. Il est disponible pour les applications C# et Java.
-* **HTTP** : Pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](service-fabric-reliable-services-communication-webapi.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient` [pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
+* **HTTP** : Pour la communication sans langage spécifié, HTTP fournit un choix normalisé avec des outils et des serveurs HTTP disponibles dans plusieurs langues, le tout pris en charge par Service Fabric. Les services peuvent utiliser n’importe quelle pile HTTP, notamment l[’API web ASP.NET](service-fabric-reliable-services-communication-webapi.md) pour les applications C#. Les clients écrits en C# peuvent exploiter les classes `ICommunicationClient` et `ServicePartitionClient`. En revanche, pour ceux écrits en Java, utilisez les classes `CommunicationClient` et `FabricServicePartitionClient`[pour la résolution de service, les connexions HTTP et les boucles de nouvelle tentative](service-fabric-reliable-services-communication.md).
 * **WCF** : Si votre code existant utilise WCF comme infrastructure de communication, vous pouvez utiliser `WcfCommunicationListener` pour le côté serveur et les classes `WcfCommunicationClient` et `ServicePartitionClient` pour le client. Cela n’est possible que pour les applications C# sur des clusters basés sur Windows. Pour plus d’informations, consultez cet article sur l’ [implémentation WCF de la pile de communication](service-fabric-reliable-services-communication-wcf.md).
 
 ## <a name="using-custom-protocols-and-other-communication-frameworks"></a>Utilisation des protocoles personnalisés et d’autres infrastructures de communication

@@ -3,14 +3,14 @@ title: API HTTP dans Durable Functions - Azure Functions
 description: Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 09/07/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0390211e6fc42bd7183a770cac409b880310d317
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231401"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410146"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -385,7 +385,7 @@ La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présenta
 
 | Champ                  | Type de données | Description |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | Nombre d’instances supprimées. Dans le cas d’une instance unique, cette valeur doit toujours être `1`. |
+| **`instancesDeleted`** | entier   | Nombre d’instances supprimées. Dans le cas d’une instance unique, cette valeur doit toujours être `1`. |
 
 Voici un exemple de charge utile de réponse (mis en forme pour une meilleure lisibilité) :
 
@@ -447,7 +447,7 @@ La charge utile de réponse pour le cas **HTTP 200** est un objet JSON présenta
 
 | Champ                   | Type de données | Description |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | Nombre d’instances supprimées. |
+| **`instancesDeleted`**  | entier   | Nombre d’instances supprimées. |
 
 Voici un exemple de charge utile de réponse (mis en forme pour une meilleure lisibilité) :
 
@@ -620,7 +620,7 @@ Envoie un message d’opération unidirectionnel à une [entité durable](durabl
 La requête HTTP est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
-POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+POST /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -631,8 +631,8 @@ Les paramètres de requête pour cette API incluent l’ensemble par défaut men
 
 | Champ             | Type de paramètre  | Description |
 |-------------------|-----------------|-------------|
-| **`entityType`**  | URL             | Le type de l’entité. |
-| **`entityKey`**   | URL             | Nom unique de l’entité. |
+| **`entityName`**  | URL             | Nom (type) de l’entité. |
+| **`entityKey`**   | URL             | Clé (ID unique) de l’entité. |
 | **`op`**          | Chaîne de requête    | facultatif. Nom de l’opération définie par l’utilisateur à appeler. |
 | **`{content}`**   | Contenu de la demande | La charge utile de l’événement au format JSON. |
 
@@ -645,17 +645,20 @@ Content-Type: application/json
 5
 ```
 
+> [!NOTE]
+> Par défaut, avec des [entités basées sur une classe dans .NET](durable-functions-dotnet-entities.md#defining-entity-classes), la spécification de la valeur `op` de `delete` a pour effet de supprimer l’état d’une entité. Toutefois, si l’entité définit une opération nommée `delete`, cette opération définie par l’utilisateur sera appelée à la place.
+
 ### <a name="response"></a>response
 
 Cette opération a plusieurs réponses possibles :
 
 * **HTTP 202 (acceptée)** : L’opération de signal a été acceptée pour traitement asynchrone.
 * **HTTP 400 (requête incorrecte)** : Le contenu de la requête n’était pas de type `application/json` ou n’était pas un objet JSON valide ou bien sa valeur `entityKey` n’était pas valide.
-* **HTTP 404 (introuvable)** : Le `entityType` spécifié est introuvable.
+* **HTTP 404 (introuvable)** : Le `entityName` spécifié est introuvable.
 
 Une requête HTTP réussie ne contient pas de contenu dans la réponse. Une requête HTTP ayant échoué peut contenir des informations d’erreur au format JSON dans le contenu de la réponse.
 
-## <a name="query-entity"></a>Interroger l’entité
+## <a name="get-entity"></a>Obtenir l’entité
 
 Obtient l’état de l’entité spécifiée.
 
@@ -664,7 +667,7 @@ Obtient l’état de l’entité spécifiée.
 La requête HTTP est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
 
 ```http
-GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+GET /runtime/webhooks/durabletask/entities/{entityName}/{entityKey}
     ?taskHub={taskHub}
     &connection={connectionName}
     &code={systemKey}
@@ -679,7 +682,7 @@ Cette opération a deux réponses possibles :
 
 Une réponse réussie contient l’état sérialisé JSON de l’entité en tant que contenu.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 L’exemple suivant de requête HTTP obtient l’état d’une entité `Counter` existante nommée `steps` :
 
 ```http
@@ -692,6 +695,100 @@ Si l’entité `Counter` contenait simplement un nombre d’étapes enregistrée
 {
     "currentValue": 5
 }
+```
+
+## <a name="list-entities"></a>Lister les entités
+
+Vous pouvez interroger plusieurs entités à l’aide de leur nom ou de la date de la dernière opération.
+
+### <a name="request"></a>Requête
+
+La requête HTTP est mise en forme comme suit (plusieurs lignes sont affichées par souci de clarté) :
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityName}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &lastOperationTimeFrom={timestamp}
+    &lastOperationTimeTo={timestamp}
+    &fetchState=[true|false]
+    &top={integer}
+```
+
+Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
+
+| Champ                       | Type de paramètre  | Description |
+|-----------------------------|-----------------|-------------|
+| **`entityName`**            | URL             | facultatif. Lorsqu’elle est spécifiée, filtre la liste des entités retournées par nom (sans respect de la casse). |
+| **`fetchState`**            | Chaîne de requête    | Paramètre facultatif. Si la valeur est définie sur `true`, l’état de l’entité sera inclus dans la charge utile de réponse. |
+| **`lastOperationTimeFrom`** | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, il filtre la liste des entités retournées qui ont traité des opérations après l’horodatage ISO8601 donné. |
+| **`lastOperationTimeTo`**   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, il filtre la liste des entités retournées qui ont traité des opérations avant l’horodatage ISO8601 donné. |
+| **`top`**                   | Chaîne de requête    | Paramètre facultatif. Lorsqu’il est spécifié, il limite le nombre d’entités retournées par la requête. |
+
+
+### <a name="response"></a>response
+
+Une réponse HTTP 200 réussie contient un tableau d’entités sérialisé par du code JSON et, éventuellement, l’état de chaque entité.
+
+Par défaut, l’opération retourne les 100 premières entités qui correspondent aux critères de la requête. L’appelant peut spécifier une valeur de paramètre de chaîne de requête pour que `top` retourne un autre nombre maximal de résultats. Si tous les résultats ne sont pas retournés, un jeton de continuation est également retourné dans l’en-tête de réponse. Le nom de l’en-tête est `x-ms-continuation-token`.
+
+Si vous définissez la valeur du jeton de continuation dans l’en-tête de la demande suivante, vous pouvez obtenir la page de résultats suivante. Cet en-tête de demande est également nommé `x-ms-continuation-token`.
+
+### <a name="example---list-all-entities"></a>Exemple - Liste de toutes les entités
+
+L’exemple de requête HTTP suivant liste toutes les entités dans le hub de tâches :
+
+```http
+GET /runtime/webhooks/durabletask/entities
+```
+
+La réponse JSON peut se présenter de la façon suivante (elle a été mise en forme pour une meilleure lisibilité) :
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z"
+    },
+    {
+        "entityId": { "key": "mice", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:15.4626159Z"
+    },
+    {
+        "entityId": { "key": "radio", "name": "device" },
+        "lastOperationTime": "2019-12-18T21:46:18.2616154Z"
+    },
+]
+```
+
+### <a name="example---filtering-the-list-of-entities"></a>Exemple - Filtrage de la liste des entités
+
+L’exemple de requête HTTP suivant liste uniquement les deux premières entités de type `counter` et récupère également leur état :
+
+```http
+GET /runtime/webhooks/durabletask/entities/counter?top=2&fetchState=true
+```
+
+La réponse JSON peut se présenter de la façon suivante (elle a été mise en forme pour une meilleure lisibilité) :
+
+```json
+[
+    {
+        "entityId": { "key": "cats", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:45:44.6326361Z",
+        "state": { "value": 9 }
+    },
+    {
+        "entityId": { "key": "dogs", "name": "counter" },
+        "lastOperationTime": "2019-12-18T21:46:01.9477382Z",
+        "state": { "value": 10 }
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

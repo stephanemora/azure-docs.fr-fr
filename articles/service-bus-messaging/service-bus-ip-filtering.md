@@ -9,20 +9,20 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 02d6e150e638321e11a8dec9838e360faa00783e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 59afdb0e273511f3d8255a9c859b86f93e0b7269
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280937"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462414"
 ---
-# <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
+# <a name="azure-service-bus---use-firewall-rules"></a>Azure Service Bus - utiliser des règles de pare-feu
 
 Pour les scénarios où Azure Service Bus doit uniquement être accessible à partir de certains sites bien connus, les règles de pare-feu vous permettent de configurer des règles pour accepter le trafic en provenance d’adresses IPv4 spécifiques. Par exemple, ces adresses peuvent être celles d’une passerelle NAT d’entreprise.
 
-## <a name="when-to-use"></a>Quand utiliser
+## <a name="when-to-use"></a>Quand l’utiliser
 
 Si vous cherchez à configurer Service Bus de façon à ce qu’il reçoive le trafic uniquement à partir d’une plage spécifiée d’adresses IP et rejette tout le reste, vous pouvez exploiter un *pare-feu* pour bloquer les points de terminaison Service Bus d’autres adresses IP. Par exemple, vous utilisez Service Bus avec [Azure Express Route][express-route] pour créer des connexions privées à votre infrastructure locale. 
 
@@ -70,7 +70,7 @@ Paramètres du modèle :
 > Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
 > Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier ***defaultAction***
 > 
-> from
+> de
 > ```json
 > "defaultAction": "Allow"
 > ```

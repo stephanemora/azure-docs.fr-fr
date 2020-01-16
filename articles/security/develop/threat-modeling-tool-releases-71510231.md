@@ -1,26 +1,18 @@
 ---
-title: Versions de Threat Modeling Tool - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Disponibilité générale de Microsoft Threat Modeling Tool version du 01/11/2018 - Azure
 description: Compilation des notes de publication pour l’outil de modélisation des menaces
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: 2fb3756e153a52515e598bb31fea1e999144bb28
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a84d31df491a9cf455a21b9640df36ed29c83cbb
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934759"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552081"
 ---
 # <a name="threat-modeling-tool-update-release-71510231---1112018"></a>Mise à jour de Threat Modeling Tool version 7.1.51023.1 - 01/11/2018
 
@@ -32,15 +24,15 @@ ms.locfileid: "68934759"
 
 ## <a name="feature-changes"></a>Évolution des fonctionnalités
 
-- Aucun
+- None
 
-## <a name="system-requirements"></a>Conditions requises pour le système
+## <a name="system-requirements"></a>Configuration système requise
 
-- Systèmes d'exploitation pris en charge
+- Systèmes d’exploitation pris en charge
   - Microsoft Windows 10
 - Version .NET obligatoire
   - .Net 3.5.2
-- Conditions supplémentaires
+- Autres conditions requises
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires

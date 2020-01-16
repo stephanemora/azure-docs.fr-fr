@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406923"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 
@@ -55,7 +55,7 @@ Pour les applications qui s’exécutent dans .NET Core 3.0, les compteurs suiv
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
 > [!NOTE]
-> Les compteurs de la catégorie Microsoft.AspNetCore.Hosting sont uniquement ajoutés aux applications Asp.Net Core.
+> Les compteurs de la catégorie Microsoft.AspNetCore.Hosting sont uniquement ajoutés aux applications ASP.NET Core.
 
 ## <a name="customizing-counters-to-be-collected"></a>Personnalisation des compteurs à collecter
 
@@ -95,19 +95,19 @@ L’exemple suivant montre comment ajouter/supprimer des compteurs. Cette person
 
 ## <a name="event-counters-in-metric-explorer"></a>Compteurs d’événements dans Metric Explorer
 
-Pour voir les métriques de compteur d’événements dans [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous la catégorie Compteur de performances.
+Pour voir les métriques de compteur d’événements dans [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), sélectionnez une ressource Application Insights, puis choisissez des métriques basées sur un journal comme espace de noms de métrique. Ainsi, les métriques de compteur d’événements s’affichent sous Catégorie personnalisée.
 
 > [!div class="mx-imgBorder"]
 > ![Compteurs d’événements signalés dans Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Compteurs d’événements dans Analytics
 
-Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../../azure-monitor/app/analytics.md), dans la table **performanceCounters**.
+Vous pouvez également rechercher et afficher des rapports de compteurs d’événements dans [Analytics](../../azure-monitor/app/analytics.md), dans la table **customMetrics**.
 
 Par exemple, exécutez la requête suivante pour voir quels compteurs sont collectés et disponibles pour la requête :
 
 ```Kusto
-performanceCounters | summarize avg(value) by name
+customMetrics | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
@@ -116,7 +116,7 @@ performanceCounters | summarize avg(value) by name
 Pour obtenir un graphique d’un compteur spécifique (par exemple, `ThreadPool Completed Work Item Count`) sur la période récente, exécutez la requête suivante.
 
 ```Kusto
-performanceCounters 
+customMetrics 
 | where name contains "System.Runtime|ThreadPool Completed Work Item Count"
 | where timestamp >= ago(1h)
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
@@ -125,12 +125,12 @@ performanceCounters
 > [!div class="mx-imgBorder"]
 > ![Conversation d’un compteur unique dans Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
-Comme les autres données de télémétrie, **performanceCounters** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. La requête ci-dessus montre la valeur de compteur par instance et peut servir à comparer les performances des différentes instances de serveur.
+Comme les autres données de télémétrie, **customMetrics** possède également une colonne `cloud_RoleInstance` qui indique l’identité de l’instance de serveur hôte sur lequel votre application est en cours d’exécution. La requête ci-dessus montre la valeur de compteur par instance et peut servir à comparer les performances des différentes instances de serveur.
 
 ## <a name="alerts"></a>Alertes
 À l’instar d’autres métriques, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur d’événements dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="can-i-see-eventcounters-in-live-metrics"></a>Puis-je voir les compteurs d’événements dans les métriques temps réel ?
 

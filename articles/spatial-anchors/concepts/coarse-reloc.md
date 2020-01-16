@@ -8,20 +8,20 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3477bac051346e4b334ff3437085c402090b2c98
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356354"
 ---
 # <a name="coarse-relocalization"></a>Relocalisation grossière
 
-La relocalisation grossière est une fonctionnalité qui fournit une première réponse à la question : *Où se trouve mon appareil maintenant/Quel contenu dois-je observer ?* La réponse n’est pas précise, mais se présente au format suivant : *Vous êtes proche de ces ancres, essayez de localiser l’une d’entre elles*.
+La relocalisation grossière est une fonctionnalité qui fournit une première réponse à la question : *Où se trouve mon appareil maintenant/Quel contenu dois-je observer ?* La réponse n’est pas précise, mais se présente au format suivant : *Vous êtes proche de ces ancres ; essayez de localiser l’une d’entre elles*.
 
-La relocalisation grossière fonctionne en associant différents relevés de capteur sur l’appareil à la création et à l’interrogation des ancres. Pour les scénarios d’extérieur, les données de capteur sont généralement la position GPS (Global Positioning System) de l’appareil. Lorsque le GPS n’est pas disponible ou n’est pas fiable (par exemple, à l’intérieur), les données de capteur se trouvent dans les points d’accès Wi-Fi et les balises Bluetooth situées à portée. Toutes les données de capteur collectées contribuent au maintien d’un index spatial. L’index spatial est exploité par le service d’ancrage pour déterminer rapidement les ancres situées à environ 100 mètres de votre appareil.
+La relocalisation grossière fonctionne en associant différents relevés de capteur sur l’appareil à la création et à l’interrogation des ancres. Pour les scénarios d’extérieur, les données de capteur sont généralement la position GPS (Global Positioning System) de l’appareil. Lorsque le GPS n’est pas disponible ou n’est pas fiable (par exemple, à l’intérieur), les données de capteur se composent des points d’accès Wi-Fi et des balises Bluetooth situées à portée. Toutes les données de capteur collectées contribuent au maintien d’un index spatial qui est exploité par Azure Spatial Anchors pour déterminer rapidement les ancres situées à environ 100 mètres de votre appareil.
 
-La recherche rapide d’ancres permise par la relocalisation grossière simplifie le développement d’applications grâce aux collections d’ancres (millions d’ancres géodistribuées). La complexité de la gestion des ancres est cachée, ce qui vous permet de vous concentrer davantage sur votre logique d’application extraordinaire. Le gros du travail relatif aux ancres est effectué pour vous en arrière-plan par le service !
+La recherche rapide d’ancres permise par la relocalisation grossière simplifie le développement d’applications grâce aux collections d’ancres (millions d’ancres géodistribuées) à l’échelle mondiale. La complexité de la gestion des ancres est cachée, ce qui vous permet de vous concentrer davantage sur votre logique d’application extraordinaire. Le gros du travail relatif aux ancres est effectué pour vous en arrière-plan par Azure Spatial Anchors.
 
 ## <a name="collected-sensor-data"></a>Données de capteur collectées
 
@@ -118,7 +118,7 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 ```
 ---
 
-Ensuite, vous devez déterminer les capteurs que vous souhaitez utiliser pour la relocalisation grossière. Cette décision est, en général, propre à l’application que vous développez, mais les recommandations du tableau suivant doivent vous offrir un bon point de départ :
+Ensuite, vous devez déterminer les capteurs que vous souhaitez utiliser pour la relocalisation grossière. Cette décision est propre à l’application que vous développez, mais les recommandations du tableau suivant doivent vous offrir un bon point de départ :
 
 
 |             | Intérieur | Extérieur |
@@ -182,8 +182,9 @@ Lorsque vous utilisez le GPS dans votre application, gardez à l’esprit que le
 
 En général, le système d’exploitation de l’appareil et Azure Spatial Anchors effectuent des opérations de filtrage et d’extrapolation sur le signal GPS brut en vue d’atténuer ces problèmes. Ce traitement supplémentaire nécessite plus de temps pour la convergence. Par conséquent, pour obtenir les meilleurs résultats, vous devez essayer d’effectuer les opérations suivantes :
 
-* Créez le fournisseur d’empreintes digitales du capteur le plus tôt possible dans votre application.
-* Maintenez le fournisseur d’empreintes digitales actif et partagez-le entre plusieurs sessions.
+* Créez un fournisseur d’empreintes digitales du capteur le plus tôt possible dans votre application
+* Maintenez le fournisseur d’empreintes digitales du capteur actif entre plusieurs sessions
+* Partagez le fournisseur d’empreintes digitales du capteur entre plusieurs sessions
 
 Si vous envisagez d’utiliser le fournisseur d’empreintes digitales de capteur en dehors d’une session d’ancrage, veillez à le démarrer avant de demander des estimations de capteur. Par exemple, le code suivant s’occupe de la mise à jour de la position de l’appareil sur la carte en temps réel :
 
@@ -418,7 +419,7 @@ sensors.BluetoothEnabled(true);
 
 ---
 
-Les balises sont généralement des appareils polyvalents, où tout, y compris les UUID et les adresses MAC, peuvent être configurés. Cette flexibilité peut être problématique pour Azure Spatial Anchors qui considère les balises comme étant identifiées de manière unique par leur UUID. Le fait de ne pas garantir ce caractère unique se traduira probablement par des vortex. Pour obtenir les meilleurs résultats, vous devez tenter d’effectuer les opérations suivantes :
+Les balises sont généralement des appareils polyvalents, où tout, y compris les UUID et les adresses MAC, peuvent être configurés. Cette flexibilité peut être problématique pour Azure Spatial Anchors, car il considère les balises comme étant identifiées de manière unique par leur UUID. Le fait de ne pas garantir ce caractère unique entraînera probablement des vortex. Pour obtenir les meilleurs résultats, vous devez tenter d’effectuer les opérations suivantes :
 
 * Affectez des UUID uniques à vos balises.
 * Déployez-les, généralement selon un schéma normal, tel qu’une grille.
@@ -490,13 +491,13 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure Spatial Anchors effectue uniquement le suivi des balises Bluetooth qui figurent dans la liste. Toutefois, les balises malveillantes programmées pour avoir des UUID figurant sur une liste verte peuvent toujours avoir un impact négatif sur la qualité du service. Pour cette raison, vous devez utiliser des balises uniquement dans les espaces organisés dans lesquels vous pouvez contrôler leur déploiement.
+Azure Spatial Anchors effectue uniquement le suivi des balises Bluetooth qui figurent dans la liste des UUID de proximité des balises connues. Toutefois, les balises malveillantes programmées pour avoir des UUID figurant sur une liste verte peuvent toujours avoir un impact négatif sur la qualité du service. Pour cette raison, vous devez utiliser des balises uniquement dans les espaces organisés dans lesquels vous pouvez contrôler leur déploiement.
 
 ## <a name="querying-with-sensor-data"></a>Interrogation avec des données de capteur
 
-Une fois les ancres créées avec les données de capteur associées, vous pouvez commencer à les récupérer à l’aide des relevés de capteur signalés par votre appareil. Vous n’avez plus besoin de fournir au service une liste d’ancres connues que vous vous attendez à trouver. Au lieu de cela, vous informez simplement le service de l’emplacement de votre appareil comme indiqué par ses capteurs intégrés. Le service Spatial Anchors va ensuite déterminer l’ensemble des ancres proches de l’appareil et tenter de les faire correspondre visuellement.
+Une fois les ancres créées avec les données de capteur associées, vous pouvez commencer à les récupérer à l’aide des relevés de capteur signalés par votre appareil. Vous n’avez plus besoin de fournir au service une liste d’ancres connues que vous vous attendez à trouver. Au lieu de cela, vous informez simplement le service de l’emplacement de votre appareil comme indiqué par ses capteurs intégrés. Le service Azure Spatial Anchors va ensuite déterminer l’ensemble des ancres proches de l’appareil et tenter de les faire correspondre visuellement.
 
-Pour que les requêtes utilisent les données de capteur, commencez par créer un critère de localisation :
+Pour que les requêtes utilisent les données de capteur, commencez par créer un critère de proximité de l’appareil :
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -593,9 +594,9 @@ anchorLocateCriteria.NearDevice(nearDeviceCriteria);
 
 Le paramètre `DistanceInMeters` contrôle le degré d’exploration du graphique d’ancrage pour récupérer du contenu. Supposons par exemple que vous ayez rempli un espace avec des ancres à une densité constante de 2 par mètre. Ensuite, l’appareil photo de votre appareil observe une seule ancre et le service parvient à la localiser. Il est très probable que vous souhaitiez récupérer toutes les ancres que vous avez placées à proximité plutôt que l’ancre unique que vous observez actuellement. En supposant que les ancres que vous avez placées sont connectées dans un graphique, le service peut récupérer toutes les ancres voisines pour vous en suivant les extrémités du graphique. La taille de la traversée de graphique effectuée est contrôlée par `DistanceInMeters`. Vous disposez de toutes les ancres connectées à celle que vous avez localisée, qui sont situées à une proximité inférieure à `DistanceInMeters`.
 
-N’oubliez pas que des valeurs élevées pour `MaxResultCount` peuvent affecter de manière négative les performances. Essayez de définir une valeur raisonnable qui est logique pour votre application.
+N’oubliez pas que des valeurs élevées pour `MaxResultCount` peuvent affecter de manière négative les performances. Définissez une valeur raisonnable pour votre application.
 
-Enfin, vous devez indiquer à la session d’utiliser la recherche basée sur le capteur :
+Enfin, vous devez indiquer à la session d’utiliser la recherche basée sur le capteur :
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

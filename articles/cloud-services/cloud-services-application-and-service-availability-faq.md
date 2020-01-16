@@ -1,5 +1,6 @@
 ---
-title: Questions fréquentes (FAQ) concernant les problèmes de disponibilité des applications et des services pour Microsoft Azure Cloud Services | Microsoft Docs
+title: FAQ sur les problèmes de disponibilité des applications et des services
+titleSuffix: Azure Cloud Services
 description: Cet article répertorie les questions fréquentes sur la disponibilité des applications et des services pour Microsoft Azure Cloud Services.
 services: cloud-services
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d229291793334964569f6c35eaec68a94ca6b69f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c294d4583ba2690e1f4952441ffb43bff1459059
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154896"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75386916"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de disponibilité des applications et des services pour Azure Cloud Services : Forum Aux Questions (FAQ)
 

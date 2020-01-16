@@ -1,26 +1,26 @@
 ---
 title: Intégration des machines pour la gestion avec Azure Automation State Configuration
-description: Comment configurer des machines pour la gestion avec Azure Automation State Configuration
+description: Configurer des machines en vue d’une gestion avec Azure Automation State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 9ebe38b54c042a0c945200bc3d88076b16c2e6f9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951409"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75366377"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
 ## <a name="why-manage-machines-with-azure-automation-state-configuration"></a>Pourquoi gérer des machines avec Azure Automation State Configuration ?
 
-Azure Automation State Configuration est un service de gestion de la configuration pour les nœuds DSC dans n’importe quel cloud ou centre de données local.
+Azure Automation State Configuration est un service de gestion de la configuration pour les nœuds DSC dans n’importe quel cloud ou centre de données local.
 Il permet de faire évoluer des milliers d’ordinateurs rapidement et facilement à partir d’un emplacement central et sécurisé.
 Vous pouvez facilement intégrer des machines, leur affecter des configurations déclaratives et afficher des rapports montrant la conformité de chaque machine à l’état souhaité que vous avez spécifié.
 Le service Azure Automation State Configuration est au DSC ce que les runbooks Azure Automation sont aux scripts PowerShell.
@@ -39,9 +39,15 @@ En outre, si vous n’êtes pas prêt à gérer la configuration de la machine d
 Cela vous permet de définir des configurations (d’envois [push]) par l’intermédiaire de DSC et d’afficher les détails sur les rapports dans Azure Automation.
 
 > [!NOTE]
-> La gestion des machines virtuelles Azure avec State Configuration est fournie sans frais supplémentaires si l’extension DSC de la machine virtuelle installée est ultérieure à 2.70. Pour plus d’informations, reportez-vous à la [**page relative à la tarification d’Automation**](https://azure.microsoft.com/pricing/details/automation/).
+> La gestion des machines virtuelles Azure avec State Configuration est fournie sans frais supplémentaires si l’extension DSC de la machine virtuelle installée est ultérieure à 2.70. Pour plus d’informations, consultez la [**page des tarifs Automation**](https://azure.microsoft.com/pricing/details/automation/).
 
 Les sections suivantes décrivent la façon dont vous pouvez intégrer chaque type de machine à Azure Automation State Configuration.
+
+> [!NOTE]
+>Lors du déploiement de DSC sur un nœud Linux, le dossier `/tmp` est utilisé et les modules tels que **nxAutomation** sont téléchargés temporairement à des fins de vérification avant d’être installés à l’emplacement prévu. Pour garantir que les modules seront installés correctement, l’agent Log Analytics pour Linux a besoin d’une autorisation en lecture/écriture pour le dossier `/tmp`. L’agent Log Analytics pour Linux est exécuté avec le compte de l’utilisateur `omsagent`. 
+>
+>Pour accorder l’autorisation d’écriture à l’utilisateur `omsagent`, exécutez les commandes suivantes : `setfacl -m u:omsagent:rwx /tmp`
+>
 
 ## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
@@ -93,14 +99,14 @@ Les serveurs Windows en cours d’exécution en local ou dans d’autres environ
    ```
 
 1. Si vous ne pouvez pas appliquer les métaconfigurations DSC PowerShell à distance, copiez le dossier des métaconfigurations de l’étape 2 sur chaque machine à intégrer. Appelez ensuite **Set-DscLocalConfigurationManager** localement sur chaque machine à intégrer.
-1. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien comme nœuds State Configuration inscrits dans votre compte Azure Automation.
+1. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien comme des nœuds State Configuration inscrits dans votre compte Azure Automation.
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>Machines physiques/virtuelles Linux locales, dans Azure, ou dans un cloud autre qu’Azure
 
 Les serveurs Linux en cours d’exécution en local ou dans d’autres environnements de cloud peuvent également être intégrés dans Azure Automation State Configuration, tant qu’ils ont [un accès sortant à Azure](automation-dsc-overview.md#network-planning) :
 
 1. Vérifiez que la dernière version du service [Desired State Configuration de PowerShel pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) est installée sur les machines que vous souhaitez intégrer à Azure Automation State Configuration.
-1. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation State Configuration et qu’elles lui adressent des rapports :
+2. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation State Configuration et qu’elles lui adressent des rapports :
 
    - Sur chaque machine Linux à intégrer à Azure Automation State Configuration, utilisez `Register.py` pour effectuer l’intégration en utilisant les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell :
 
@@ -110,8 +116,8 @@ Les serveurs Linux en cours d’exécution en local ou dans d’autres environne
 
      Si les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell **ne correspondent pas** à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles n’envoient de rapports qu’à Azure Automation State Configuration, suivez les étapes 3 à 6. Sinon, passez directement à l’étape 6.
 
-1. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) suivante pour générer un dossier contenant les métaconfigurations DSC nécessaires.
-1. Appliquez à distance la métaconfiguration PowerShell DSC pour les machines que vous souhaitez intégrer :
+3. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) suivante pour générer un dossier contenant les métaconfigurations DSC nécessaires.
+4. Appliquez à distance la métaconfiguration PowerShell DSC pour les machines que vous souhaitez intégrer :
 
     ```powershell
     $SecurePass = ConvertTo-SecureString -String '<root password>' -AsPlainText -Force
@@ -130,7 +136,7 @@ La machine à partir de laquelle cette commande est exécutée doit disposer de 
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
-1. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien en tant que nœuds DSC enregistrés dans votre compte Azure Automation.
+2. À l’aide du portail Azure ou des applets de commande, vérifiez que les machines à intégrer s’affichent bien en tant que nœuds DSC enregistrés dans votre compte Azure Automation.
 
 ## <a name="generating-dsc-metaconfigurations"></a>Génération de métaconfigurations DSC
 

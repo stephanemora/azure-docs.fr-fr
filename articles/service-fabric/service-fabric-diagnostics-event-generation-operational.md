@@ -1,25 +1,16 @@
 ---
-title: Liste des événements Azure Service Fabric | Microsoft Docs
+title: Liste des événements Azure Service Fabric
 description: Liste complète des événements fournis par Azure Service Fabric pour faciliter la surveillance des clusters.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: e69b407bc7d58a83616daa44272ec008ccff9fad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65788593"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451760"
 ---
 # <a name="list-of-service-fabric-events"></a>Liste des événements Service Fabric 
 
@@ -40,101 +31,101 @@ Voici une liste de ces événements Service Fabric organisés par entité.
 
 Vous trouverez plus de détails sur les mises à niveau de cluster [ici](service-fabric-cluster-upgrade-windows-server.md).
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
+| EventId | Name | Category | Description |Source (tâche) | Level | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Mise à niveau | Une mise à niveau de cluster a commencé | CM | Informations |
-| 29628 | ClusterUpgradeCompleted | Mise à niveau | Une mise à niveau de cluster est terminée | CM | Informations | 
-| 29629 | ClusterUpgradeRollbackStarted | Mise à niveau | La restauration d’une mise à niveau de cluster a démarré  | CM | Avertissement | 
-| 29630 | ClusterUpgradeRollbackCompleted | Mise à niveau | La restauration d’une mise à niveau de cluster est terminée | CM | Avertissement | 
-| 29631 | ClusterUpgradeDomainCompleted | Mise à niveau | Un domaine de mise à niveau a terminé la mise à niveau pendant une mise à niveau de cluster | CM | Informations | 
+| 29627 | ClusterUpgradeStarted | Mettre à niveau | Une mise à niveau de cluster a commencé | CM | Informationnel |
+| 29628 | ClusterUpgradeCompleted | Mettre à niveau | Une mise à niveau de cluster est terminée | CM | Informationnel | 
+| 29629 | ClusterUpgradeRollbackStarted | Mettre à niveau | La restauration d’une mise à niveau de cluster a démarré  | CM | Avertissement | 
+| 29630 | ClusterUpgradeRollbackCompleted | Mettre à niveau | La restauration d’une mise à niveau de cluster est terminée | CM | Avertissement | 
+| 29631 | ClusterUpgradeDomainCompleted | Mettre à niveau | Un domaine de mise à niveau a terminé la mise à niveau pendant une mise à niveau de cluster | CM | Informationnel | 
 
 ## <a name="node-events"></a>Événements de nœud
 
 **Événements du cycle de vie des nœuds** 
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau |
+| EventId | Name | Category | Description |Source (tâche) | Level |
 | --- | --- | ---| --- | --- | --- | 
-| 18602 | NodeDeactivateCompleted | StateTransition | La désactivation d’un nœud est terminée | FM | Informations | 
-| 18603 | NodeUp | StateTransition | Le cluster a détecté qu’un nœud avait démarré | FM | Informations | 
+| 18602 | NodeDeactivateCompleted | StateTransition | La désactivation d’un nœud est terminée | FM | Informationnel | 
+| 18603 | NodeUp | StateTransition | Le cluster a détecté qu’un nœud avait démarré | FM | Informationnel | 
 | 18604 | NodeDown | StateTransition | Le cluster a détecté qu’un nœud s’est fermé. Lors du redémarrage du nœud, vous verrez un événement NodeDown suivi d’un événement NodeUp |  FM | Error | 
-| 18605 | NodeAddedToCluster | StateTransition |  Un nouveau nœud a été ajouté au cluster et Service Fabric peut déployer des applications sur ce nœud | FM | Informations | 
-| 18606 | NodeRemovedFromCluster | StateTransition |  Un nœud a été supprimé du cluster. Service Fabric ne déploie plus d’applications sur ce nœud | FM | Informations | 
-| 18607 | NodeDeactivateStarted | StateTransition |  La désactivation d’un nœud a commencé | FM | Informations | 
-| 25621 | NodeOpenSucceeded | StateTransition |  Un nœud a démarré correctement | FabricNode | Informations | 
+| 18605 | NodeAddedToCluster | StateTransition |  Un nouveau nœud a été ajouté au cluster et Service Fabric peut déployer des applications sur ce nœud | FM | Informationnel | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  Un nœud a été supprimé du cluster. Service Fabric ne déploie plus d’applications sur ce nœud | FM | Informationnel | 
+| 18607 | NodeDeactivateStarted | StateTransition |  La désactivation d’un nœud a commencé | FM | Informationnel | 
+| 25621 | NodeOpenSucceeded | StateTransition |  Un nœud a démarré correctement | FabricNode | Informationnel | 
 | 25622 | NodeOpenFailed | StateTransition |  Un nœud n’est pas arrivé à démarrer et à joindre l’anneau | FabricNode | Error | 
-| 25624 | NodeClosed | StateTransition |  Un nœud s’est fermé avec succès | FabricNode | Informations | 
+| 25624 | NodeClosed | StateTransition |  Un nœud s’est fermé avec succès | FabricNode | Informationnel | 
 | 25626 | NodeAborted | StateTransition |  Un nœud s’est arrêté de manière anormale | FabricNode | Error | 
 
 ## <a name="application-events"></a>Événements liés aux applications
 
 **Événements du cycle de vie des applications**
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
+| EventId | Name | Category | Description |Source (tâche) | Level | 
 | --- | --- | --- | --- | --- | --- | 
-| 29620 | ApplicationCreated | LifeCycle | Une application a été créée | CM | Informations | 
-| 29625 | ApplicationDeleted | LifeCycle | Une application existante a été supprimée | CM | Informations | 
-| 23083 | ApplicationProcessExited | LifeCycle | Un processus au sein d’une application s’est terminé | Hébergement | Informations | 
+| 29620 | ApplicationCreated | LifeCycle | Une application a été créée | CM | Informationnel | 
+| 29625 | ApplicationDeleted | LifeCycle | Une application existante a été supprimée | CM | Informationnel | 
+| 23083 | ApplicationProcessExited | LifeCycle | Un processus au sein d’une application s’est terminé | Hébergement | Informationnel | 
 
 **Événements de mise à niveau des applications**
 
 Vous trouverez plus de détails sur les mises à niveau d’application [ici](service-fabric-application-upgrade.md).
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
+| EventId | Name | Category | Description |Source (tâche) | Level | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Mise à niveau | Une mise à niveau d’application a commencé | CM | Informations | 
-| 29622 | ApplicationUpgradeCompleted | Mise à niveau | Une mise à niveau d’application s’est terminée | CM | Informations | 
-| 29623 | ApplicationUpgradeRollbackStarted | Mise à niveau | La restauration d’une mise à niveau d’application a démarré |CM | Avertissement | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Mise à niveau | La restauration d’une mise à niveau d’application s’est terminée | CM | Avertissement | 
-| 29626 | ApplicationUpgradeDomainCompleted | Mise à niveau | Un domaine de mise à niveau a terminé la mise à niveau pendant une mise à niveau d’application | CM | Informations | 
+| 29621 | ApplicationUpgradeStarted | Mettre à niveau | Une mise à niveau d’application a commencé | CM | Informationnel | 
+| 29622 | ApplicationUpgradeCompleted | Mettre à niveau | Une mise à niveau d’application s’est terminée | CM | Informationnel | 
+| 29623 | ApplicationUpgradeRollbackStarted | Mettre à niveau | La restauration d’une mise à niveau d’application a démarré |CM | Avertissement | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Mettre à niveau | La restauration d’une mise à niveau d’application s’est terminée | CM | Avertissement | 
+| 29626 | ApplicationUpgradeDomainCompleted | Mettre à niveau | Un domaine de mise à niveau a terminé la mise à niveau pendant une mise à niveau d’application | CM | Informationnel | 
 
 ## <a name="service-events"></a>Événements de service
 
 **Événements du cycle de vie du service**
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
+| EventId | Name | Category | Description |Source (tâche) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | LifeCycle | Un service a été créé | FM | Informations | 
-| 18658 | ServiceDeleted | LifeCycle | Un service existant a été supprimé | FM | Informations | 
+| 18657 | ServiceCreated | LifeCycle | Un service a été créé | FM | Informationnel | 
+| 18658 | ServiceDeleted | LifeCycle | Un service existant a été supprimé | FM | Informationnel | 
 
 ## <a name="partition-events"></a>Événements de partition
 
 **Événements de déplacement de partition**
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
+| EventId | Name | Category | Description |Source (tâche) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | LifeCycle | La reconfiguration d’une partition s’est terminée | RA | Informations | 
+| 18940 | PartitionReconfigured | LifeCycle | La reconfiguration d’une partition s’est terminée | RA | Informationnel | 
 
 ## <a name="replica-events"></a>Événements de réplica
 
 **Événements de cycle de vie du réplica**
 
-| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau |
+| EventId | Name | Category | Description |Source (tâche) | Level |
 | --- | --- | ---| --- | --- | --- |
-| 61701 | ReliableDictionaryOpened | LifeCycle | Le dictionnaire fiable s’est ouvert | DistributedDictionary | Informations |
-| 61702 | ReliableDictionaryClosed | LifeCycle | Le dictionnaire fiable s’est fermé | DistributedDictionary | Informations |
-| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Le dictionnaire fiable a récupéré son point de contrôle | DistributedDictionary | Informations |
-| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
-| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
-| 61963 | ReliableQueueOpened | LifeCycle | La file d’attente fiable s’est ouverte | DistributedQueue | Informations |
-| 61964 | ReliableQueueClosed | LifeCycle | La file d’attente fiable s’est fermée | DistributedQueue | Informations |
-| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | La file d’attente fiable a récupéré son point de contrôle | DistributedQueue | Informations |
-| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
-| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
-| 63648 | ReliableConcurrentQueueOpened | LifeCycle | La file d’attente simultanée fiable s’est ouverte | ReliableConcurrentQueue | Informations |
-| 63649 | ReliableConcurrentQueueClosed | LifeCycle | La file d’attente simultanée fiable s’est fermée | ReliableConcurrentQueue | Informations |
-| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | La file d’attente simultanée fiable a récupéré son point de contrôle | ReliableConcurrentQueue | Informations |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Le dictionnaire fiable s’est ouvert | DistributedDictionary | Informationnel |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Le dictionnaire fiable s’est fermé | DistributedDictionary | Informationnel |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Le dictionnaire fiable a récupéré son point de contrôle | DistributedDictionary | Informationnel |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informationnel |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informationnel |
+| 61963 | ReliableQueueOpened | LifeCycle | La file d’attente fiable s’est ouverte | DistributedQueue | Informationnel |
+| 61964 | ReliableQueueClosed | LifeCycle | La file d’attente fiable s’est fermée | DistributedQueue | Informationnel |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | La file d’attente fiable a récupéré son point de contrôle | DistributedQueue | Informationnel |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Le réplica a envoyé les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informationnel |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Le réplica a reçu les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informationnel |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | La file d’attente simultanée fiable s’est ouverte | ReliableConcurrentQueue | Informationnel |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | La file d’attente simultanée fiable s’est fermée | ReliableConcurrentQueue | Informationnel |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | La file d’attente simultanée fiable a récupéré son point de contrôle | ReliableConcurrentQueue | Informationnel |
 | 61687 | TStoreError | Échec | La collection fiable a reçu une erreur inattendue | TStore | Error |
-| 63831 | PrimaryFullCopyInitiated | LifeCycle | Le réplica principal a lancé une copie complète | TReplicator | Informations |
-| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Le réplica principal a lancé une copie partielle | TReplicator | Informations |
-| 16831 | BuildIdleReplicaStarted | LifeCycle | Le réplica principal a lancé la création d’un réplica inactif | Réplication | Informations |
-| 16832 | BuildIdleReplicaCompleted | LifeCycle | Le réplica principal a terminé la création d’un réplica inactif | Réplication | Informations |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Le réplica principal a lancé une copie complète | TReplicator | Informationnel |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Le réplica principal a lancé une copie partielle | TReplicator | Informationnel |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Le réplica principal a lancé la création d’un réplica inactif | Réplication | Informationnel |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Le réplica principal a terminé la création d’un réplica inactif | Réplication | Informationnel |
 | 16833 | BuildIdleReplicaFailed | LifeCycle | Le réplica principal n’a pas réussi à créer un réplica inactif | Réplication | Avertissement |
 | 16834 | PrimaryReplicationQueueFull | Intégrité | La file d’attente de réplication du réplica principal est pleine | Réplication | Avertissement |
 | 16835 | PrimaryReplicationQueueWarning | Intégrité | La file d’attente de réplication du réplica principal est presque pleine | Réplication | Avertissement |
-| 16836 | PrimaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica principal est correcte | Réplication | Informations |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica principal est correcte | Réplication | Informationnel |
 | 16837 | SecondaryReplicationQueueFull | Intégrité | La file d’attente de réplication du réplica secondaire est pleine | Réplication | Avertissement |
 | 16838 | SecondaryReplicationQueueWarning | Intégrité | La file d’attente de réplication du réplica secondaire est presque pleine | Réplication | Avertissement |
-| 16839 | SecondaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica secondaire est correcte | Réplication | Informations |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Intégrité | La file d’attente de réplication du réplica secondaire est correcte | Réplication | Informationnel |
 | 16840 | PrimaryFaultedSlowSecondary | Intégrité | Le réplica principal n’a pas réussi à créer un réplica secondaire lent | Réplication | Avertissement |
 | 16841 | ReplicatorFaulted | Intégrité | Le réplica a subi une défaillance | Réplication | Avertissement |
 
@@ -142,11 +133,11 @@ Vous trouverez plus de détails sur les mises à niveau d’application [ici](se
 
 **Événements du cycle de vie des conteneurs** 
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 23074 | ContainerActivated | Un conteneur a démarré | Hébergement | Informations | 1 |
-| 23075 | ContainerDeactivated | Un conteneur s’est arrêté | Hébergement | Informations | 1 |
-| 23082 | ContainerExited | Un conteneur s’est arrêté : vérifiez l’indicateur UnexpectedTermination | Hébergement | Informations | 1 |
+| 23074 | ContainerActivated | Un conteneur a démarré | Hébergement | Informationnel | 1 |
+| 23075 | ContainerDeactivated | Un conteneur s’est arrêté | Hébergement | Informationnel | 1 |
+| 23082 | ContainerExited | Un conteneur s’est arrêté : vérifiez l’indicateur UnexpectedTermination | Hébergement | Informationnel | 1 |
 
 ## <a name="health-reports"></a>Rapports d'intégrité
 
@@ -158,128 +149,128 @@ Le [modèle d’intégrité Service Fabric](service-fabric-health-introduction.m
 
 **Événements du rapport d’intégrité des clusters**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | --- | --- | --- | --- |
-| 54428 | ClusterNewHealthReport | Un nouveau rapport d’intégrité de cluster est disponible | HM | Informations | 1 |
-| 54437 | ClusterHealthReportExpired | Un rapport d’intégrité de cluster existant a expiré | HM | Informations | 1 |
+| 54428 | ClusterNewHealthReport | Un nouveau rapport d’intégrité de cluster est disponible | HM | Informationnel | 1 |
+| 54437 | ClusterHealthReportExpired | Un rapport d’intégrité de cluster existant a expiré | HM | Informationnel | 1 |
 
 **Événements du rapport d’intégrité des nœuds**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54423 | NodeNewHealthReport | Un nouveau rapport d’intégrité de nœud est disponible | HM | Informations | 1 |
-| 54432 | NodeHealthReportExpired | Un rapport d’intégrité de nœud existant a expiré | HM | Informations | 1 |
+| 54423 | NodeNewHealthReport | Un nouveau rapport d’intégrité de nœud est disponible | HM | Informationnel | 1 |
+| 54432 | NodeHealthReportExpired | Un rapport d’intégrité de nœud existant a expiré | HM | Informationnel | 1 |
 
 **Événements du rapport d’intégrité des applications**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54425 | ApplicationNewHealthReport | Un rapport d’intégrité d’application a été créé. Il concerne les applications non déployées. | HM | Informations | 1 |
-| 54426 | DeployedApplicationNewHealthReport | Un rapport d’intégrité d’application déployée a été créé | HM | Informations | 1 |
-| 54427 | DeployedServicePackageNewHealthReport | Un rapport d’intégrité de service déployée a été créé | HM | Informations | 1 |
-| 54434 | ApplicationHealthReportExpired | Un rapport d’intégrité d’application existant a expiré | HM | Informations | 1 |
-| 54435 | DeployedApplicationHealthReportExpired | Un rapport d’intégrité d’application déployée existant a expiré | HM | Informations | 1 |
-| 54436 | DeployedServicePackageHealthReportExpired | Un rapport d’intégrité de service déployé existant a expiré | HM | Informations | 1 |
+| 54425 | ApplicationNewHealthReport | Un rapport d’intégrité d’application a été créé. Il concerne les applications non déployées. | HM | Informationnel | 1 |
+| 54426 | DeployedApplicationNewHealthReport | Un rapport d’intégrité d’application déployée a été créé | HM | Informationnel | 1 |
+| 54427 | DeployedServicePackageNewHealthReport | Un rapport d’intégrité de service déployée a été créé | HM | Informationnel | 1 |
+| 54434 | ApplicationHealthReportExpired | Un rapport d’intégrité d’application existant a expiré | HM | Informationnel | 1 |
+| 54435 | DeployedApplicationHealthReportExpired | Un rapport d’intégrité d’application déployée existant a expiré | HM | Informationnel | 1 |
+| 54436 | DeployedServicePackageHealthReportExpired | Un rapport d’intégrité de service déployé existant a expiré | HM | Informationnel | 1 |
 
 **Événements du rapport d’intégrité du service**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54424 | ServiceNewHealthReport | Un rapport d’intégrité de service a été créé | HM | Informations | 1 |
-| 54433 | ServiceHealthReportExpired | Un rapport d’intégrité de service existant a expiré | HM | Informations | 1 |
+| 54424 | ServiceNewHealthReport | Un rapport d’intégrité de service a été créé | HM | Informationnel | 1 |
+| 54433 | ServiceHealthReportExpired | Un rapport d’intégrité de service existant a expiré | HM | Informationnel | 1 |
 
 **Événements du rapport d’intégrité des partitions**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54422 | PartitionNewHealthReport | Un rapport d’intégrité de partition a été créé | HM | Informations | 1 |
-| 54431 | PartitionHealthReportExpired | Un rapport d’intégrité de partition existant a expiré | HM | Informations | 1 |
+| 54422 | PartitionNewHealthReport | Un rapport d’intégrité de partition a été créé | HM | Informationnel | 1 |
+| 54431 | PartitionHealthReportExpired | Un rapport d’intégrité de partition existant a expiré | HM | Informationnel | 1 |
 
 **Événements du rapport d’intégrité de réplica**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 54429 | StatefulReplicaNewHealthReport | Un rapport d’intégrité de réplica avec état a été créé | HM | Informations | 1 |
-| 54430 | StatelessInstanceNewHealthReport | Un rapport d’intégrité d’instance sans état a été créé | HM | Informations | 1 |
-| 54438 | StatefulReplicaHealthReportExpired | Un rapport d’intégrité de réplica avec état existant a expiré | HM | Informations | 1 |
-| 54439 | StatelessInstanceHealthReportExpired | Un rapport d’intégrité d’instance sans état existant a expiré | HM | Informations | 1 |
+| 54429 | StatefulReplicaNewHealthReport | Un rapport d’intégrité de réplica avec état a été créé | HM | Informationnel | 1 |
+| 54430 | StatelessInstanceNewHealthReport | Un rapport d’intégrité d’instance sans état a été créé | HM | Informationnel | 1 |
+| 54438 | StatefulReplicaHealthReportExpired | Un rapport d’intégrité de réplica avec état existant a expiré | HM | Informationnel | 1 |
+| 54439 | StatelessInstanceHealthReportExpired | Un rapport d’intégrité d’instance sans état existant a expiré | HM | Informationnel | 1 |
 
 ## <a name="chaos-testing-events"></a>Événements de test par le chaos 
 
 **Événements de session de test par le chaos**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50021 | ChaosStarted | Une session de test par le chaos a démarré | Testabilité | Informations | 1 |
-| 50023 | ChaosStopped | Une session de test par le chaos s’est arrêtée | Testabilité | Informations | 1 |
+| 50021 | ChaosStarted | Une session de test par le chaos a démarré | Testabilité | Informationnel | 1 |
+| 50023 | ChaosStopped | Une session de test par le chaos s’est arrêtée | Testabilité | Informationnel | 1 |
 
 **Événements du nœud de chaos**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50033 | ChaosNodeRestartScheduled | Un nœud est planifié pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informations | 1 |
-| 50087 | ChaosNodeRestartCompleted | Un nœud a fini de redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informations | 1 |
+| 50033 | ChaosNodeRestartScheduled | Un nœud est planifié pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 50087 | ChaosNodeRestartCompleted | Un nœud a fini de redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informationnel | 1 |
 
 **Événements liés aux applications de chaos**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50053 | ChaosCodePackageRestartScheduled | Un redémarrage de package de code a été planifié pendant une session de test par le chaos | Testabilité | Informations | 1 |
-| 50101 | ChaosCodePackageRestartCompleted | Un redémarrage de package de code s’est terminé pendant une session de test par le chaos | Testabilité | Informations | 1 |
+| 50053 | ChaosCodePackageRestartScheduled | Un redémarrage de package de code a été planifié pendant une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 50101 | ChaosCodePackageRestartCompleted | Un redémarrage de package de code s’est terminé pendant une session de test par le chaos | Testabilité | Informationnel | 1 |
 
 **Événements de partition de chaos**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50069 | ChaosPartitionPrimaryMoveScheduled | Une partition principale est planifiée pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informations | 1 |
-| 50077 | ChaosPartitionSecondaryMoveScheduled | Une partition secondaire est planifiée pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informations | 1 |
-| 65003 | PartitionPrimaryMoveAnalysis | Une analyse plus approfondie du déplacement de la partition principale est disponible | Testabilité | Informations | 1 |
+| 50069 | ChaosPartitionPrimaryMoveScheduled | Une partition principale est planifiée pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 50077 | ChaosPartitionSecondaryMoveScheduled | Une partition secondaire est planifiée pour redémarrer dans le cadre d’une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 65003 | PartitionPrimaryMoveAnalysis | Une analyse plus approfondie du déplacement de la partition principale est disponible | Testabilité | Informationnel | 1 |
 
 **Événements de réplica de chaos**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 50047 | ChaosReplicaRestartScheduled | Un redémarrage de réplica a été planifié pendant une session de test par le chaos | Testabilité | Informations | 1 |
-| 50051 | ChaosReplicaRemovalScheduled | Une suppression de réplica a été planifiée pendant une session de test par le chaos | Testabilité | Informations | 1 |
-| 50093 | ChaosReplicaRemovalCompleted | Une suppression de réplica s’est terminée pendant une session de test par le chaos | Testabilité | Informations | 1 |
+| 50047 | ChaosReplicaRestartScheduled | Un redémarrage de réplica a été planifié pendant une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 50051 | ChaosReplicaRemovalScheduled | Une suppression de réplica a été planifiée pendant une session de test par le chaos | Testabilité | Informationnel | 1 |
+| 50093 | ChaosReplicaRemovalCompleted | Une suppression de réplica s’est terminée pendant une session de test par le chaos | Testabilité | Informationnel | 1 |
 
 ## <a name="other-events"></a>Autres événements
 
 **Événements de corrélation**
 
-| EventId | Nom | Description |Source (tâche) | Niveau | Version |
+| EventId | Name | Description |Source (tâche) | Level | Version |
 | --- | --- | ---| --- | --- | --- |
-| 65011 | CorrelationOperational | Une corrélation a été détectée | Testabilité | Informations | 1 |
+| 65011 | CorrelationOperational | Une corrélation a été détectée | Testabilité | Informationnel | 1 |
 
 ## <a name="events-prior-to-version-62"></a>Événements antérieurs à la version 6.2
 
 Voici la liste complète des événements fournis par Service Fabric avant la version 6.2.
 
-| EventId | Nom | Source (tâche) | Niveau |
+| EventId | Name | Source (tâche) | Level |
 | --- | --- | --- | --- |
-| 25620 | NodeOpening | FabricNode | Informations |
-| 25621 | NodeOpenedSuccess | FabricNode | Informations |
-| 25622 | NodeOpenedFailed | FabricNode | Informations |
-| 25623 | NodeClosing | FabricNode | Informations |
-| 25624 | NodeClosed | FabricNode | Informations |
-| 25625 | NodeAborting | FabricNode | Informations |
-| 25626 | NodeAborted | FabricNode | Informations |
-| 29627 | ClusterUpgradeStart | CM | Informations |
-| 29628 | ClusterUpgradeComplete | CM | Informations |
-| 29629 | ClusterUpgradeRollback | CM | Informations |
-| 29630 | ClusterUpgradeRollbackComplete | CM | Informations |
-| 29631 | ClusterUpgradeDomainComplete | CM | Informations |
-| 23074 | ContainerActivated | Hébergement | Informations |
-| 23075 | ContainerDeactivated | Hébergement | Informations |
-| 29620 | ApplicationCreated | CM | Informations |
-| 29621 | ApplicationUpgradeStart | CM | Informations |
-| 29622 | ApplicationUpgradeComplete | CM | Informations |
-| 29623 | ApplicationUpgradeRollback | CM | Informations |
-| 29624 | ApplicationUpgradeRollbackComplete | CM | Informations |
-| 29625 | ApplicationDeleted | CM | Informations |
-| 29626 | ApplicationUpgradeDomainComplete | CM | Informations |
-| 18566 | ServiceCreated | FM | Informations |
-| 18567 | ServiceDeleted | FM | Informations |
+| 25620 | NodeOpening | FabricNode | Informationnel |
+| 25621 | NodeOpenedSuccess | FabricNode | Informationnel |
+| 25622 | NodeOpenedFailed | FabricNode | Informationnel |
+| 25623 | NodeClosing | FabricNode | Informationnel |
+| 25624 | NodeClosed | FabricNode | Informationnel |
+| 25625 | NodeAborting | FabricNode | Informationnel |
+| 25626 | NodeAborted | FabricNode | Informationnel |
+| 29627 | ClusterUpgradeStart | CM | Informationnel |
+| 29628 | ClusterUpgradeComplete | CM | Informationnel |
+| 29629 | ClusterUpgradeRollback | CM | Informationnel |
+| 29630 | ClusterUpgradeRollbackComplete | CM | Informationnel |
+| 29631 | ClusterUpgradeDomainComplete | CM | Informationnel |
+| 23074 | ContainerActivated | Hébergement | Informationnel |
+| 23075 | ContainerDeactivated | Hébergement | Informationnel |
+| 29620 | ApplicationCreated | CM | Informationnel |
+| 29621 | ApplicationUpgradeStart | CM | Informationnel |
+| 29622 | ApplicationUpgradeComplete | CM | Informationnel |
+| 29623 | ApplicationUpgradeRollback | CM | Informationnel |
+| 29624 | ApplicationUpgradeRollbackComplete | CM | Informationnel |
+| 29625 | ApplicationDeleted | CM | Informationnel |
+| 29626 | ApplicationUpgradeDomainComplete | CM | Informationnel |
+| 18566 | ServiceCreated | FM | Informationnel |
+| 18567 | ServiceDeleted | FM | Informationnel |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

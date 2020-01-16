@@ -5,17 +5,17 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 9/17/2019
-ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 12/17/2019
+ms.openlocfilehash: bec2a40d8cf5fb178418ec6bb59a52a0bfe3eb8c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977554"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453052"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Mettre à l’échelle un groupe de serveurs Hyperscale (Citus)
 
-Azure Database pour PostgreSQL – Hyperscale (Citus) est capable d’effectuer une mise à l’échelle en libre-service pour gérer une charge accrue. Le Portail Azure facilite l’ajout de nouveaux nœuds Worker et l’augmentation de la capacité des nœuds existants.
+Azure Database pour PostgreSQL – Hyperscale (Citus) est capable d’effectuer une mise à l’échelle en libre-service pour gérer une charge accrue. Le portail Azure facilite l’ajout de nouveaux nœuds Worker et l’augmentation des vCores des nœuds existants.
 
 ## <a name="add-worker-nodes"></a>Ajouter des nœuds Worker
 
@@ -38,9 +38,9 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 La fonction `rebalance_table_shards` rééquilibre toutes les tables dans le groupe [colocation](concepts-hyperscale-colocation.md) de la table nommée dans son argument. Vous n’avez donc pas besoin d’appeler la fonction pour chaque table distribuée. Il vous suffit de l’appeler sur une table représentative à partir de chaque groupe de colocation.
 
-## <a name="increase-vcores-or-storage-space"></a>Augmenter l’espace de stockage ou le nombre de vCores
+## <a name="increase-vcores"></a>Augmenter les vCores
 
-Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. Accédez à l’onglet **Configurer** de votre groupe de serveurs Hyperscale (Citus), puis faites glisser le curseur pour **vCores** et **Stockage** afin de modifier ces valeurs pour tous les nœuds Worker. Veillez à cliquer sur **Enregistrer** pour appliquer les modifications.
+Outre l’ajout de nouveaux nœuds, vous pouvez augmenter les capacités des nœuds existants. Cette fonctionnalité est actuellement en préversion : pour demander une augmentation des vCores pour les nœuds de votre groupe de serveurs, [contactez le support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

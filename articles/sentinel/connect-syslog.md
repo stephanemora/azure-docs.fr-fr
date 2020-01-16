@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: b2be563efa3c09cffaf14dec2b871f3881af1a7a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240048"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610469"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Connectez votre solution externe à l’aide de Syslog
 
@@ -35,7 +35,11 @@ Syslog est un protocole de journalisation d’événements commun à Linux. Les 
 Pour en savoir plus, voir [Sources de données Syslog dans Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> L’agent peut collecter les journaux à partir de plusieurs sources, mais doit être installé sur une machine proxy dédiée.
+> - L’agent peut collecter les journaux à partir de plusieurs sources, mais doit être installé sur une machine proxy dédiée.
+> - Si vous souhaitez prendre en charge des connecteurs à la fois pour CEF et Syslog sur la même machine virtuelle, effectuez les étapes suivantes pour éviter de dupliquer des données :
+>    1. Suivez les instructions pour [connecter votre CEF](connect-common-event-format.md).
+>    2. Pour connecter les données Syslog, accédez à **Paramètres** > **Paramètres de l’espace de travail** > **Paramètres avancés** > **Données** > **Syslog** et définissez les fonctionnalités et leurs priorités afin qu’elles ne soient pas les mêmes que celles que vous avez utilisées dans votre configuration CEF. <br></br>Si vous sélectionnez **Appliquer la configuration ci-dessous à mes machines**, ces paramètres sont appliqués à toutes les machines virtuelles connectées à cet espace de travail.
+
 
 ## <a name="connect-your-syslog-appliance"></a>Connecter votre appliance Syslog
 
@@ -73,7 +77,7 @@ Pour en savoir plus, voir [Sources de données Syslog dans Azure Monitor](../azu
 
 > [!IMPORTANT]
 > La détection de connexion SSH anormale est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et n’est pas recommandée pour des charges de travail en production.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Sentinel peut appliquer du Machine Learning aux données Syslog pour identifier une activité de connexion SSH (Secure Shell) anormale. Il s’agit entre autres des scénarios suivants :
@@ -102,3 +106,5 @@ Cette détection nécessite une configuration spécifique du connecteur de donn�
 Dans ce document, vous avez appris à connecter les appliances locales Syslog à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+

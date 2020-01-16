@@ -1,6 +1,6 @@
 ---
-title: Serveur d’historique Spark étendu pour déboguer des applications - Azure HDInsight
-description: Utilisez le serveur d’historique Spark étendu pour déboguer et diagnostiquer des applications Spark – Azure HDInsight.
+title: Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer des applications – Azure HDInsight
+description: Utilisez les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark – Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,238 +8,244 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 7e9ab0e41086a4c9478f95c5a56754640feeab4e
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561834"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552727"
 ---
-# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Apache Spark
+# <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark
 
-Cet article aide à utiliser le serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Spark terminées et en cours d’exécution. L’extension comporte des onglets dédiés aux données, aux graphiques et aux diagnostics. Dans l’onglet **Données**, les utilisateurs peuvent vérifier les données d’entrée et de sortie du travail Spark. L’onglet **Graph** permet de consulter le flux de données et de lire à nouveau le graphique du travail. Sous l’onglet **Diagnostic**, les utilisateurs peuvent voir l’**asymétrie des données**, l’**asymétrie temporelle** et l’**analyse de l’utilisation de l’exécuteur**.
+Cet article vous montre comment utiliser les fonctionnalités étendues du serveur d’historique Apache Spark étendu pour déboguer et diagnostiquer des applications Spark terminées ou en cours d’exécution. L’extension comprend les onglets **Data**, **Graph** et **Diagnosis**. Sous l’onglet **Data**, vous pouvez vérifier les données d’entrée et de sortie du travail Spark. Sous l’onglet **Graph**, vous pouvez vérifier le flux de données et lire à nouveau le graphe des travaux. Sous l’onglet **Diagnosis**, vous pouvez voir les fonctionnalités d’**asymétrie des données**, d’**asymétrie temporelle** et d’**analyse de l’utilisation des exécuteurs**.
 
-## <a name="get-access-to-apache-spark-history-server"></a>Obtenir l’accès au serveur d’historique Apache Spark
+## <a name="get-access-to-the-spark-history-server"></a>Accéder au serveur d’historique Spark
 
-Le serveur d’historique Apache Spark est l’interface utilisateur web pour les applications Spark terminées et en cours d’exécution.
+Le serveur d’historique Spark est l’interface utilisateur web pour les applications Spark terminées et en cours d’exécution. Vous pouvez l’ouvrir à partir du portail Azure ou d’une URL.
 
-### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Ouvrir l’interface utilisateur web du serveur d’historique Apache Spark sur le Portail Azure
+### <a name="open-the-spark-history-server-web-ui-from-the-azure-portal"></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark à partir du portail Azure
 
 1. À partir du [portail Azure](https://portal.azure.com/), ouvrez le cluster Spark. Pour plus d’informations, voir [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Dans **Tableaux de bord du cluster**, sélectionnez **Serveur d’historique Spark**. Lorsque vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster Spark.
 
-    ![Serveur d’historique Spark du lancement du portail](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Serveur d’historique Spark")
+    ![Lancer le serveur d’historique Spark à partir du portail Azure](./media/apache-azure-spark-history-server/azure-portal-dashboard-spark-history.png "Serveur d’historique Spark")
 
-### <a name="open-the-spark-history-server-web-ui-by-url"></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark par URL
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Ouvrir l’interface utilisateur web du serveur d’historique Spark au moyen d’une URL
 
-Ouvrez le serveur d’historique Spark en accédant à `https://CLUSTERNAME.azurehdinsight.net/sparkhistory` où CLUSTERNAME est le nom de votre cluster Spark.
+Ouvrez le serveur d’historique Spark en accédant à `https://CLUSTERNAME.azurehdinsight.net/sparkhistory`, où **CLUSTERNAME** est le nom de votre cluster Spark.
 
-L’interface utilisateur web du serveur d’historique Spark peut se présenter comme suit :
+L’interface utilisateur web du serveur d’historique Spark peut être similaire à l’image suivante :
 
-![Serveur d’historique HDInsight Spark](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
+![Page du serveur d’historique Spark](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
-## <a name="data-tab-in-spark-history-server"></a>Onglet des données du serveur d’historique Spark
+## <a name="use-the-data-tab-in-the-spark-history-server"></a>Utiliser l’onglet Data du serveur d’historique Spark
 
-Sélectionnez l’ID tâche, puis **Données** dans le menu des outils pour ouvrir la vue de données.
+Sélectionnez l’ID du travail, puis sélectionnez **Data** dans le menu des outils pour afficher la vue des données.
 
-+ Examinez les **Entrées**, **Sorties** et **Opérations de table** en sélectionnant les onglets séparément.
++ Examinez les **entrées**, les **sorties** et les **opérations de table** en sélectionnant les onglets individuels.
 
-    ![Données pour l’application Spark - Onglets](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
+    ![Onglets de données dans la page Data for Spark Application](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
-+ Copiez toutes les lignes en sélectionnant le bouton **copier**.
++ Copiez toutes les lignes en sélectionnant le bouton **Copy**.
 
-    ![Données pour l’application Spark - Copier](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
+    ![Copier des données dans la page de l’application Spark](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
-+ Enregistrez toutes les données dans un fichier CSV en sélectionnant le bouton **csv**.
++ Enregistrez toutes les données sous la forme d’un fichier CSV en sélectionnant le bouton **csv**.
 
-    ![Données pour l’application Spark - Enregistrer](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
+    ![Enregistrer dans un fichier CSV les données de la page Data for Spark Application](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
-+ Entrez des mots clés dans le champ **Rechercher** : le résultat de la recherche s’affiche immédiatement.
++ Effectuez des recherches dans les données en entrant des mots clés dans le champ **Search**. Les résultats de recherche sont affichés immédiatement.
 
-    ![Données pour l’application Spark - Rechercher](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
+    ![Rechercher des données dans la page Data for Spark Application](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
-+ Sélectionnez l’en-tête de colonne pour trier la table, le signe plus pour développer une ligne et afficher plus de détails, ou le signe moins pour réduire une ligne.
++ Sélectionnez l’en-tête de colonne pour trier la table. Sélectionnez le signe plus (+) pour développer une ligne et afficher plus de détails. Sélectionnez le signe moins (-) pour réduire une ligne.
 
-    ![Données pour l’application Spark - Table](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
+    ![Table de données dans la page Data for Spark Application](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
-+ Téléchargez un seul fichier en sélectionnant le bouton **Téléchargement partiel** qui se trouve à droite. Le fichier sélectionné est téléchargé vers l’ordinateur local. Si le fichier n’existe plus, un nouvel onglet s’ouvre pour afficher les messages d’erreur.
++ Téléchargez un fichier unique en sélectionnant le bouton **Partial Download** (Téléchargement partiel) à droite. Le fichier sélectionné est téléchargé localement. Si le fichier n’existe plus, un nouvel onglet s’ouvre pour afficher les messages d’erreur.
 
-    ![Données pour l’application Spark - Télécharger](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
+    ![Ligne de téléchargement des données dans la page Data for Spark Application](./media/apache-azure-spark-history-server/sparkui-data-download-row.png)
 
-+ Copiez le chemin d’accès complet ou relatif en développant le menu de téléchargement pour sélectionner **Copier le chemin d’accès complet** ou **Copier le chemin d’accès relatif**. Pour les fichiers Azure Data Lake Storage, l’option **Ouvrir dans l’Explorateur Stockage Azure** lance l’Explorateur Stockage Azure et l’ouvre sur le dossier lors de la connexion.
++ Copiez un chemin complet ou un chemin relatif en sélectionnant l’option **Copy Full Path** (Copier le chemin complet) ou l’option **Copy Relative Path** (Copier le chemin relatif), qui étendent le menu de téléchargement. Pour les fichiers Azure Data Lake Storage, sélectionnez **Open in Azure Storage Explorer** (Ouvrir dans l’Explorateur Stockage Azure) pour lancer l’Explorateur Stockage Azure et localiser le dossier après la connexion.
 
-    ![Données pour l’application Spark - Copier le chemin](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
+    ![Options Copy Full Path (Copier le chemin complet) et Copy Relative Path (Copier le chemin relatif) dans la page Data for Spark Application](./media/apache-azure-spark-history-server/sparkui-data-copy-path.png)
 
-+ Sélectionnez le nombre sous le tableau pour parcourir les pages quand il y a trop de lignes pour les afficher sur une seule page.
++ Si le nombre de lignes à afficher sur une seule page est trop important, sélectionnez les numéros de page en bas de la table pour naviguer.
 
-    ![Données pour l’application Spark - Page](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
+    ![Numéros de page dans la page Data for Spark Application](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
-+ Placez le curseur sur le point d’interrogation sous Données pour afficher l’info-bulle, ou sélectionnez le point d’interrogation pour obtenir plus d’informations.
++ Pour plus d’informations, pointez sur le point d’interrogation en regard de **Data for Spark Application**, ou sélectionnez-le, pour afficher l’info-bulle.
 
-    ![Données pour l’application Spark - Plus d’informations](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
+    ![Obtenir plus d’informations dans la page Data for Spark Application (Données pour l’application Spark)](./media/apache-azure-spark-history-server/sparkui-data-more-info.png)
 
-+ Pour signaler des problèmes, envoyez des commentaires en cliquant sur **Envoyez-nous vos commentaires**.
++  Pour envoyer des commentaires sur les problèmes, sélectionnez **Provide us feedback** (Envoyez-nous vos commentaires).
 
-    ![Graphe Spark - Envoyez-nous vos commentaires](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+    ![Envoyer des commentaires à partir de la page Data for Spark Application](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-## <a name="graph-tab-in-apache-spark-history-server"></a>Onglet de graphique du serveur d’historique Apache Spark
+## <a name="use-the-graph-tab-in-the-spark-history-server"></a>Utiliser l’onglet Graph du serveur d’historique Spark
 
-Sélectionnez l’ID tâche, puis cliquez sur **Graphique** dans le menu Outil pour ouvrir la Vue de graphique du travail.
++ Sélectionnez l’ID de travail, puis sélectionnez **Graph** dans le menu des outils pour afficher le graphe de travail. Par défaut, le graphe affiche tous les travaux. Filtrez les résultats à l’aide du menu déroulant **Job ID** (ID de travail).
 
-+ Examinez la vue d’ensemble de votre travail dans le graphique ainsi généré.
+    ![Menu déroulant Job ID (ID de travail) dans la page Spark Application & Job Graph (Application Spark et graphe de travail)](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
-+ Par défaut, il affiche tous les travaux ; vous pouvez le filtrer par **ID tâche**.
++ L’option **Progress** est sélectionnée par défaut. Vérifiez le flux de données en sélectionnant **Read** (Données lues) ou **Written** (Données écrites) dans le menu déroulant **Display** (Affichage).
 
-    ![Application Spark - ID du travail - Graphe du travail](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
+    ![Vérifier le flux de données dans la page Spark Application & Job Graph (Application Spark et graphe de travail)](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
 
-+ Par défaut, **En cours** est sélectionné ; l’utilisateur peut consulter le flux de données en sélectionnant **Lu/Écrit** dans la liste déroulante **Affichage**.
++ La couleur d’arrière-plan de chaque tâche correspond à une carte thermique.
 
-    ![Application Spark - Graphe du travail - Affichage](./media/apache-azure-spark-history-server/sparkui-graph-display.png)
+   ![Carte thermique dans la page Spark Application & Job Graph (Application Spark et graphe de travail)](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
 
-    Le nœud du graphique est représenté en couleurs indiquant la carte thermique.
-
-    ![Application Spark - Graphe du travail - Carte thermique](./media/apache-azure-spark-history-server/sparkui-graph-heatmap.png)
-
-+ Lisez le travail en sélectionnant le bouton **Lecture**, et arrêtez à tout moment en sélectionnant le bouton Arrêter. La tâche s’affiche dans une couleur indiquant l’état lors de la lecture :
 
     |Couleur |Description |
     |---|---|
-    |Vert|Le travail s'est terminé avec succès.|
-    |Orange|Instances de tâches qui ont échoué sans que cela affecte le résultat final du travail. Ces tâches comportaient des doublons ou des instances de nouvelle tentative susceptibles de réussir par la suite.|
-    |Bleu|La tâche est en cours d'exécution.|
-    |Blanc|La tâche est en attente d'exécution ou la phase a été ignorée.|
-    |Rouge|La tâche a échoué.|
+    |Vert|le travail s’est correctement effectué.|
+    |Orange|La tâche a échoué, mais cela n’affecte pas le résultat final du travail. Ces tâches comportent des instances dupliquées ou renouvelées qui peuvent réussir ultérieurement.|
+    |Bleu|la tâche est en cours d’exécution.|
+    |White|la tâche est en attente d’exécution, ou la phase a été ignorée.|
+    |Rouge|la tâche a échoué.|
 
-    ![Application Spark - Exemple de couleur du graphe de travail - Exécution](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
+     ![Exécution d’une tâche dans la page Spark Application & Job Graph (Application Spark et graphe de travail)](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
-    La phase ignorée est affichée en blanc.
-    ![Application Spark - Exemple de couleur du graphe de travail - Travail ignoré](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+     Les phases ignorées s’affichent en blanc.
+    ![Tâche ignorée dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
-    ![Application Spark - Exemple de couleur du graphe de travail - Échec](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
+    ![Tâche ayant échoué dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
-    > [!NOTE]  
-    > La lecture de chaque travail est autorisée. La lecture n’est pas prise en charge pour un travail incomplet.
+     > [!NOTE]  
+     > La lecture est disponible pour les travaux terminés. Sélectionnez le bouton **Playback** (Lecture) pour relire le travail. Arrêtez le travail à tout moment en sélectionnant le bouton d’arrêt. Lorsqu’un travail est relu, chaque tâche affiche son état à l’aide d’une couleur. La lecture n’est pas prise en charge pour des travaux incomplets.
 
-+ Utilisez la roulette de défilement pour effectuer un zoom avant/arrière sur le graphique du travail, ou cliquez sur **Zoomer pour ajuster** afin de l’ajuster à l’écran.
++ Faites défiler pour effectuer un zoom avant/arrière du graphe de travail, ou sélectionnez **Zoom to fit** (Zoom d’ajustement) pour l’ajuster à l’écran.
 
-    ![Application Spark - Graphe de travail - Zoomer pour ajuster](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
+    ![Sélectionner Zoom to fit (Zoom d’ajustement) dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-zoom2fit.png)
 
-+ Placez le curseur sur le nœud du graphique pour afficher l’info-bulle au niveau des tâches ayant échoué, puis cliquez sur la phase pour ouvrir la page correspondante.
++ Lorsque des tâches échouent, pointez sur le nœud du graphe pour afficher l’info-bulle, puis sélectionnez la phase pour l’ouvrir dans une nouvelle page.
 
-    ![Application Spark - Graphe de travail - Info-bulle](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+    ![Afficher l’info-bulle dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
-+ Dans l’onglet du graphique du travail, une info-bulle et une petite icône sont affichées pour les phases si certaines de leurs tâches répondent aux critères ci-dessous :
-  + Asymétrie des données : taille des lectures de données > taille moyenne des lectures de données de toutes les tâches de cette phase * 2, et taille des lectures de données > 10 Mo.
-  + Asymétrie temporelle : durée d'exécution > durée moyenne d'exécution de toutes les tâches de cette phase * 2, et durée d'exécution > 2 minutes.
++ Dans la page Spark Application & Job Graph, les phases affichent des info-bulles et de petites icônes si les tâches remplissent les conditions suivantes :
+  + Asymétrie des données : Taille de lecture des données > taille moyenne de lecture des données de toutes les tâches à l’intérieur de cette phase * 2 *et* taille de lecture des données > 10 Mo.
+  + Asymétrie temporelle : Durée d’exécution > durée d’exécution moyenne de toutes les tâches à l’intérieur de cette phase * 2 *et* durée d’exécution > 2 minutes.
 
-    ![Application Spark - Graphe de travail - Icône de l’asymétrie](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
+    ![Icône de tâche asymétrique dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
-+ Le nœud de graphique du travail affiche les informations suivantes sur chaque phase :
-  + ID ;
-  + nom ou description ;
-  + nombre total de tâches ;
-  + lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire ;
-  + écriture de données : somme de la taille de sortie et de la taille d’écriture aléatoire ;
-  + durée d’exécution : délai entre l’heure de début de la première tentative et l’heure de fin de la dernière tentative ;
-  + nombre de lignes : somme des enregistrements d’entrée, des enregistrements de sortie, des enregistrements de lecture aléatoire et des enregistrements d’écriture aléatoire ;
-  + progression.
-
-    > [!NOTE]  
-    > Par défaut, le nœud de graphique du travail affiche les informations de la dernière tentative de chaque phase (à l’exception du délai d’exécution de la phase) ; pendant la lecture cependant, il présente les informations de chaque tentative.
++ Le nœud du graphe de travail affiche les informations suivantes sur chaque phase :
+  + id
+  + Nom ou description
+  + Nombre total de tâches
+  + Lecture de données : somme de la taille d’entrée et de la taille de lecture aléatoire
+  + Écriture de données : somme de la taille de sortie et de la taille d’écriture aléatoire
+  + Durée d’exécution : durée entre l’heure de début de la première tentative et l’heure de fin de la dernière tentative
+  + Nombre de lignes : somme des enregistrements d’entrée, des enregistrements de sortie, des enregistrements de lecture aléatoire et des enregistrements d’écriture aléatoire
+  + Progress
 
     > [!NOTE]  
-    > Pour la taille des données de lecture et d’écriture, nous appliquons 1 Mo = 1 000 Ko = 1 000 * 1 000 octets.
+    > Par défaut, le nœud de graphe de travail affiche les informations de la dernière tentative de chaque phase (à l’exception de la durée d’exécution de la phase). Toutefois, pendant la lecture, le nœud de graphe de travail affiche des informations sur chaque tentative.
 
-+ Pour signaler des problèmes, envoyez des commentaires en sélectionnant **Envoyez-nous vos commentaires**.
+    > [!NOTE]  
+    > Pour les tailles de lecture et d’écriture de données, nous utilisons 1 Mo = 1 000 Ko = 1 000 * 1 000 octets.
 
-    ![Application Spark - Graphe de travail - Commentaires](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
++ Envoyez des commentaires sur les problèmes en sélectionnant **Provide us feedback** (Envoyez-nous vos commentaires).
 
-## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Onglet de diagnostic du serveur d’historique Apache Spark
+    ![Option de commentaires dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-Sélectionnez l’ID de tâche, puis sélectionnez **Diagnostic** dans le menu des outils pour ouvrir la vue Diagnostic du travail. L’onglet de diagnostic comporte **l’asymétrie des données**, **l’asymétrie temporelle** et **l’analyse de l’utilisation des exécuteurs**.
+## <a name="use-the-diagnosis-tab-in-the-spark-history-server"></a>Utiliser l’onglet Diagnosis du serveur d’historique Spark
+
+Sélectionnez l’ID de travail, puis sélectionnez **Diagnosis** dans le menu des outils pour afficher la vue de diagnostic de travail. L’onglet **Diagnosis** comprend **Data Skew** (Asymétrie des données), **Time Skew** (Asymétrie temporelle) et **Executor Usage Analysis** (Analyse de l’utilisation des exécuteurs).
 
 + Examinez l’**Asymétrie des données**, l’**asymétrie temporelle** et l’**Analyse de l’utilisation de l’exécuteur** en sélectionnant respectivement chaque onglet.
 
-    ![Diagnostic SparkUI - Onglet Asymétrie des données](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+    ![Onglet Data Skew (Asymétrie des données) sous l’onglet Diagnosis.](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
 
 ### <a name="data-skew"></a>Asymétrie des données
 
-Sélectionnez l’onglet **Asymétrie des données** pour afficher les tâches asymétriques en fonction des paramètres spécifiés.
+Sélectionnez l’onglet **Data Skew** (Asymétrie des données). Les tâches asymétriques correspondantes s’affichent en fonction des paramètres spécifiés.
 
-+ **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. Par défaut, la règle est la suivante : Les données des tâches lues sont trois fois supérieures aux données des tâches lues en moyenne, et les données des tâches lues sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos propres paramètres, et les sections **Phase asymétrique** et **Graphique de l’asymétrie** sont actualisées en conséquence.
+#### <a name="specify-parameters"></a>Spécifier les paramètres
 
-+ **Phase asymétrique** : la seconde section affiche les phases comportant des tâches asymétriques qui répondent aux critères spécifiés ci-dessus. Si plusieurs tâches asymétriques cohabitent dans une phase, la table des phases asymétriques affiche uniquement la tâche la plus décalée (par exemple, le plus important volume de données pour l’asymétrie des données).
+La section **Specify Parameters** (Spécifier les paramètres) affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. La règle par défaut est : Les données lues de tâche sont supérieures au triple de la moyenne des données lues de tâche, et les données lues de tâche sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos paramètres. Les sections **Skewed Stage**(Phase asymétrique) et **Skew Chart** (Graphe d’asymétrie) sont mises à jour en conséquence.
 
-    ![Diagnostic SparkUI - Onglet Asymétrie des données](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+#### <a name="skewed-stage"></a>Phase asymétrique
 
-+ **Graphique de l’asymétrie** : lorsqu’une ligne de la table des phases asymétriques est sélectionnée, le graphique de l’asymétrie affiche les détails des distributions de tâche en fonction des données lues et de la durée d’exécution. Les tâches asymétriques sont en rouge et les tâches normales sont en bleu. En termes de performances, le graphique affiche jusqu’à 100 exemples de tâches. Les détails de la tâche sont affichés dans le panneau inférieur droit.
+La section **Skewed Stage** (Phase asymétrique) affiche les phases comportant des tâches asymétriques qui répondent aux critères spécifiés. Si plusieurs tâches asymétriques figurent dans une phase, la section **Skewed Stage** (Phase asymétrique) affiche uniquement la tâche la plus décalée (à savoir, le plus important volume de données pour l’asymétrie des données).
 
-    ![SparkUI - Graphique d’asymétrie pour l’étape 10](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+![Vue plus large de l’onglet Data Skew (Asymétrie des données) sous l’onglet Diagnosis](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
+##### <a name="skew-chart"></a>Graphique d’asymétrie
+
+Lorsque vous sélectionnez une ligne de la table **Skew Stage** (Phase asymétrique), le **graphique d’asymétrie** affiche plus de détails sur les distributions des tâches en fonction des données lues et de la durée d’exécution. Les tâches asymétriques sont marquées en rouge et les tâches normales sont marquées en bleu. Pour des considérations liées aux performances, le graphique affiche jusqu’à 100 exemples de tâches. Les détails des tâches s’affichent dans le volet inférieur droit.
+
+![Graphique d’asymétrie pour la phase 10 dans l’interface utilisateur Spark.](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
 
 ### <a name="time-skew"></a>Asymétrie temporelle
 
-L’onglet **Asymétrie temporelle** affiche les tâches asymétriques en fonction de la durée d’exécution des tâches.
+L’onglet **Time Skew** affiche les tâches asymétriques en fonction de la durée d’exécution des tâches.
 
-+ **Spécifier les paramètres** : la première section affiche les paramètres qui sont utilisés pour détecter l’asymétrie temporelle. Par défaut, les critères de détection de l’asymétrie temporelle sont les suivants : la durée d’exécution de la tâche est plus de trois fois supérieure à la durée d’exécution moyenne et supérieure à 30 secondes. Vous pouvez modifier ces paramètres selon vos besoins. Les onglets **Phase asymétrique** et **Graphique de l’asymétrie** affichent les phases correspondantes et les informations sur les tâches, tout comme l’onglet **Asymétrie des données** ci-dessus.
+#### <a name="specify-parameters"></a>Spécifier les paramètres
 
-+ Sélectionnez **Asymétrie temporelle** pour afficher les résultats filtrés dans la section **Phase asymétrique**, en fonction des paramètres définis dans la section **Spécifier les paramètres**. Sélectionnez un élément dans la section **Phase asymétrique**. Le graphique correspondant est alors illustré dans la section 3 et les détails de la tâche sont affichés dans le panneau inférieur droit.
+La section **Specify Parameters** (Spécifier les paramètres) affiche les paramètres qui sont utilisés pour détecter l’asymétrie temporelle. La règle par défaut est : La durée d’exécution des tâches est plus de trois fois supérieure à la durée d’exécution moyenne et supérieure à 30 secondes. Vous pouvez changer les paramètres en fonction de vos besoins. Les sections **Skewed Stage** (Phase asymétrique) et **Skew Chart** (Graphique d’asymétrie) affichent les phases correspondantes et les informations de tâche, tout comme dans l’onglet **Data Skew** (Asymétrie des données).
 
-    ![SparkUI - Diagnostic - Section Asymétrie temporelle](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+Lorsque vous sélectionnez **Time Skew** (Asymétrie temporelle), le résultat filtré s’affiche dans la section **Skewed Stage** (Phase asymétrique), en fonction des paramètres définis dans la section **Specify Parameters** (Spécifier les paramètres). Lorsque vous sélectionnez un élément dans la section **Skewed Stage** (Phase asymétrique), le graphique correspondant est illustré dans la troisième section et les détails des tâches sont affichés dans le volet inférieur droit.
 
-### <a name="executor-usage-analysis"></a>Analyse de l’utilisation des exécuteurs
+![Onglet Time skew (Asymétrie temporelle) sous l’onglet Diagnosis](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
 
-Le graphique portant sur l’utilisation des exécuteurs permet de visualiser l’état d’exécution et de répartition de l’exécuteur réel du travail Spark.  
+### <a name="executor-usage-analysis-graphs"></a>Graphes d’analyse de l’utilisation des exécuteurs
 
-+ Sélectionnez **Analyse de l’utilisation des exécuteurs** pour afficher quatre types de courbes portant sur l’utilisation des exécuteurs et connaître notamment **les exécuteurs alloués**, **les exécuteurs en cours d’exécution**, **les exécuteurs inactifs** et **les instances maximales d’exécuteur**. Pour les exécuteurs alloués, chaque événement d’ajout ou de suppression d’exécuteur augmente ou diminue le nombre d’exécuteurs alloués. Pour effectuer une comparaison, vous pouvez consulter la chronologie des événements dans l’onglet des travaux.
+Le **graphe de l’utilisation des exécuteurs** affiche l’allocation réelle des exécuteurs du travail et leur état d’exécution.  
 
-    ![SparkUI - Diagnostic - Onglet Exécuteurs](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+Lorsque vous sélectionnez **Executor Usage Analysis** (Analyse de l’utilisation des exécuteurs), quatre courbes différentes relatives à l’utilisation des exécuteurs sont tracées : **Allocated Executors** (Exécuteurs alloués), **Running Executors** (Exécuteurs en cours d’exécution), **Idle Executors** (Exécuteurs inactifs) et **Max Executor Instances** (Nombre maximal d’instances d’exécuteur). Chaque événement d’**ajout d’exécuteur** ou de **suppression d’exécuteur** augmente ou diminue le nombre d’exécuteurs alloués. Vous pouvez consulter la **chronologie des événements** dans l’onglet **Jobs** (Travaux) pour effectuer d’autres comparaisons.
 
-+ Sélectionnez l’icône de couleur pour sélectionner ou désélectionner le contenu correspondant dans tous les brouillons.
+![Onglet Executor Usage Analysis (Analyse de l’utilisation des exécuteurs) sous l’onglet Diagnosis](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
 
-    ![SparkUI - Diagnostic - Sélectionner le graphique](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
+Sélectionnez l’icône de couleur pour sélectionner ou désélectionner le contenu correspondant dans tous les brouillons.
 
-## <a name="faq"></a>Forum Aux Questions
+ ![Sélectionner le graphique sous l’onglet Executor Usage Analysis (Analyse de l’utilisation des exécuteurs)](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
-### <a name="1-revert-to-community-version"></a>1. Revenir à la version Communauté
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
-Pour revenir à la version Communauté, suivez les étapes ci-dessous :
+### <a name="how-do-i-revert-to-the-community-version"></a>Comment revenir à la version de la communauté ?
+
+Pour revenir à la version de la communauté, suivez les étapes ci-dessous :
 
 1. Ouvrez le cluster dans Ambari.
-1. Accédez à **Spark2** > **Configurations** > **Custom Spark2-defaults (Valeurs Spark2-defaults personnalisées)** .
-1. Sélectionnez **Ajouter une propriété**, ajoutez **spark.ui.enhancement.enabled=false** et enregistrez.
+1. Accédez à **Spark2** > **Configs**.
+1. Sélectionnez **Custom spark2-defaults** (Valeurs spark2-defaults personnalisées).
+1. Sélectionnez **Add Property ...** (Ajouter une propriété).
+1. Ajoutez **spark.ui.enhancement.enabled=false** et enregistrez-le.
 1. La propriété est maintenant définie sur **false**.
 1. Sélectionnez **Enregistrer** pour enregistrer la configuration.
 
-    ![Apache Ambari - Fonctionnalité désactivée](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
+    ![Désactiver une fonctionnalité dans Apache Ambari](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
-1. Sélectionnez **Spark2** dans le volet gauche sous l’onglet **Résumé**, puis sélectionnez **Serveur d’historique Spark2**.
+1. Sélectionnez **Spark2** dans le volet gauche. Ensuite, sous l’onglet **Summary** (Résumé), sélectionnez **Spark2 History Server** (Serveur d’historique Spark2).
 
-    ![Apache Ambari Spark2 - Récapitulatif](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
+    ![Vue de résumé dans Apache Ambari](./media/apache-azure-spark-history-server/apache-spark-restart1.png)
 
-1. Redémarrez le serveur d’historique en sélectionnant **Redémarrer** sur le **Serveur d’historique Spark2**.
+1. Pour redémarrer le serveur d’historique Spark, sélectionnez le bouton **Started** (Démarré) à droite de **Spark2 History Server** (Serveur d’historique Spark2), puis sélectionnez **Restart** (Redémarrer) dans le menu déroulant.
 
-    ![Apache Ambari Spark2 - Redémarrage de l’historique](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
-1. Actualisez l’interface utilisateur web du serveur d’historique Spark : il reviendra à la version Communauté.
+    ![Redémarrer le serveur d’historique Spark dans Apache Ambari](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
-### <a name="2-upload-history-server-event"></a>2. Charger un événement du serveur d’historique
+1. Actualisez l’interface utilisateur web du serveur d’historique Spark. Il revient à la version de la communauté.
 
-Si vous rencontrez une erreur de serveur d’historique, suivez ces étapes pour récupérer l’événement :
+### <a name="how-do-i-upload-a-spark-history-server-event-to-report-it-as-an-issue"></a>Comment charger un événement de serveur d’historique Spark pour le signaler en tant que problème ?
 
-1. Téléchargez l’événement en sélectionnant **Télécharger** dans l’interface utilisateur web du serveur d’historique.
+Si vous rencontrez une erreur au niveau du serveur d’historique Spark, procédez comme suit pour signaler l’événement.
 
-    ![Spark2 - Serveur d’historique - Téléchargement](./media/apache-azure-spark-history-server/sparkui-download-event.png)
+1. Téléchargez l’événement en sélectionnant **Download** dans l’interface utilisateur web du serveur d’historique Spark.
 
-2. Sélectionnez **Envoyez-nous vos commentaires** sous l’onglet Données/Graphique.
+    ![Télécharger l’événement dans l’interface utilisateur du serveur d’historique Spark](./media/apache-azure-spark-history-server/sparkui-download-event.png)
 
-    ![Graphe Spark - Envoyez-nous vos commentaires](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+2. Sélectionnez **Provide us feedback** (Envoyez-nous vos commentaires) à partir de la page **Spark Application & Job Graph** (Application Spark et graphe de travail).
 
-3. Indiquez le titre et la description de l’erreur, faites glisser le fichier zip dans le champ d’édition, puis cliquez sur **Soumettre un nouveau problème**.
+    ![Envoyer des commentaires dans la page Spark Application & Job Graph](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
-    ![Apache Spark - Exemple de problème de fichier](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
+3. Fournissez le titre et une description de l’erreur. Ensuite, faites glisser le fichier .zip vers le champ d’édition et sélectionnez **Submit new issue** (Envoyer nouveau problème).
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. Mettre à niveau un fichier jar dans un scénario de correctif logiciel
+    ![Charger et soumettre un nouveau problème](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utilisez le script ci-dessous, qui met à jour spark-enhancement.jar*.
+### <a name="how-do-i-upgrade-a-jar-file-in-a-hotfix-scenario"></a>Comment mettre à niveau un fichier .jar dans un scénario de correctif logiciel ?
+
+Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utilisez le script suivant pour mettre à niveau `spark-enhancement.jar*`.
 
 **upgrade_spark_enhancement.sh** :
 
@@ -288,40 +294,40 @@ Si vous souhaitez effectuer une mise à niveau avec un correctif logiciel, utili
     fi
    ```
 
-**Utilisation**:
+#### <a name="usage"></a>Usage
 
 `upgrade_spark_enhancement.sh https://${jar_path}`
 
-**Exemple**:
+#### <a name="example"></a>Exemple
 
 `upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`
 
-**Pour utiliser le fichier Bash sur le Portail Azure**
+#### <a name="use-the-bash-file-from-the-azure-portal"></a>Utiliser le fichier Bash à partir du Portail Azure
 
-1. Lancez le [portail Azure](https://ms.portal.azure.com), puis sélectionnez votre cluster.
-2. Exécutez une [action de script](../hdinsight-hadoop-customize-cluster-linux.md) avec les paramètres suivants :
+1. Lancez le [Portail Azure](https://ms.portal.azure.com), puis sélectionnez votre cluster.
+2. Exécutez une [action de script](../hdinsight-hadoop-customize-cluster-linux.md) avec les paramètres ci-dessous.
 
     |Propriété |Valeur |
     |---|---|
     |Type de script|- Personnalisé|
-    |Nom|UpgradeJar|
+    |Name|UpgradeJar|
     |URI de script bash|`https://hdinsighttoolingstorage.blob.core.windows.net/shsscriptactions/upgrade_spark_enhancement.sh`|
     |Type(s) de nœud|Head, Worker|
-    |parameters|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
+    |Paramètres|`https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar`|
 
      ![Portail Azure - Envoyer une action de script](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 ## <a name="known-issues"></a>Problèmes connus
 
-+ Pour le moment, cela ne fonctionne que pour les clusters Spark 2.3 et 2.4.
++ Actuellement, le serveur d’historique Spark fonctionne uniquement pour Spark 2.3 et 2.4.
 
-+ Les données d’entrée/de sortie avec RDD ne s’affichent pas sous l’onglet Données.
++ Les données d’entrée et de sortie qui utilisent RDD ne s’affichent pas sous l’onglet **Data**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 + [Gérer les ressources d’un cluster Apache Spark sur HDInsight](apache-spark-resource-manager.md)
 + [Configurer les paramètres d’Apache Spark](apache-spark-settings.md)
 
-## <a name="contact-us"></a>Nous contacter
+## <a name="feedback"></a>Commentaires
 
 Si vous avez des commentaires ou rencontrez des problèmes lors de l’utilisation de cet outil, envoyez un e-mail à ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com)).

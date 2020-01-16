@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/29/2019
-ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/23/2019
+ms.openlocfilehash: 43875b87d26f144b85454077fd3c044c820132bf
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494641"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494992"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache
 
@@ -22,7 +22,7 @@ La plupart des disques SSD fournissent plus de 1 Go par seconde de bande passant
 
 > [!Note]  
 > IO Cache utilise actuellement RubiX comme composant de mise en cache, mais cela pourrait changer dans les futures versions du service. Utilisez les interfaces IO Cache et n’utilisez aucune dépendance directement dans l’implémentation de RubiX.
->Le cache d’E/S est uniquement pris en charge avec le stockage blob Azure pour l’instant. 
+>Le cache d’E/S est uniquement pris en charge avec le stockage blob Azure pour l’instant.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Avantages d’Azure HDInsight IO Cache
 
@@ -32,24 +32,22 @@ Vous n’avez pas besoin d’apporter des modifications à vos travaux Spark pou
 
 ## <a name="getting-started"></a>Prise en main
 
-Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cache est disponible dans les clusters Spark Azure HDInsight 3.6 et +, qui exécutent Apache Spark 2.3.  Pour activer le service IO Cache, procédez comme suit :
+Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cache est disponible dans les clusters Spark Azure HDInsight 3.6 et +, qui exécutent Apache Spark 2.3.  Pour activer le cache d’E/S sur HDInsight 4.0, procédez comme suit :
 
-1. Sélectionnez votre cluster HDInsight dans le [portail Azure](https://portal.azure.com).
-
-1. Dans la page **Vue d’ensemble** (qui s’ouvre par défaut lorsque vous sélectionnez le cluster), sélectionnez **Accueil Ambari** sous **Tableaux de bord de cluster**.
+1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
 1. Sélectionnez le service **IO Cache** sur la gauche.
 
-1. Sélectionnez **Actions** et **Activer**.
+1. Sélectionnez **Actions** (**Actions de service** dans HDI 3.6) et **Activer**.
 
     ![Activation du service Cache d’E/S dans Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Activation du service Cache d’E/S dans Ambari")
 
 1. Confirmez le redémarrage de tous les services affectés sur le cluster.
 
->[!NOTE]  
+> [!NOTE]  
 > Même si la barre de progression indique que le service est activé, IO Cache n’est pas réellement activé jusqu’au redémarrage des autres services affectés.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
   
 Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des travaux Spark après l’activation du service IO Cache. Ces erreurs se produisent parce que Spark utilise également le stockage de disque local pour stocker des données pendant les opérations de lectures aléatoires. Spark peut manquer d’espace de disque SSD une fois IO Cache activé, et l’espace dédié au stockage Spark est réduit. La quantité d’espace utilisée par le service IO Cache s’élève par défaut à la moitié de l’espace de disque SSD total. L’utilisation de l’espace disque du service IO Cache peut être configurée dans Ambari. Si vous rencontrez des erreurs d’espace disque, réduisez la quantité d’espace de disque SSD utilisée pour le service IO Cache et redémarrez-le. Pour modifier l’espace défini pour IO Cache, procédez comme suit :
 
@@ -71,12 +69,12 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Sélectionnez **Redémarrer** > **Redémarrer tous les éléments affectés**.
 
-    ![Apache Ambari - Redémarrer tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
+    ![Apache Ambari redémarre tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
 
 1. Sélectionnez **Confirmer le redémarrage**.
 
-Si cela ne fonctionne pas, désactivez IO Cache.
+Si cela ne fonctionne pas, désactivez le cache d’E/S.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur le Cache d’E/S, notamment les tests de performances, consultez ce billet de blog : [Les tâches Apache Spark bénéficient d’une vitesse neuf fois plus rapide avec HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+Pour en savoir plus sur le Cache d’E/S, notamment les tests de performances, consultez ce billet de blog : [Les tâches Apache Spark bénéficient d’une vitesse neuf fois plus rapide avec HDInsight IO Cache](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

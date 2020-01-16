@@ -1,22 +1,22 @@
 ---
 title: Comprendre le fonctionnement de l’outil de migration volontaire pour les alertes Azure Monitor
 description: Découvrez comment l’outil de migration des alertes fonctionne et résolvez les problèmes.
-author: snehithm
+author: yalavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c3d5bb58989fe87ddf9a185dbae926a71edf1590
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061555"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680679"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendre le fonctionnement de l’outil de migration
 
-Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront mises hors service le 31 août 2019 (c’était initialement prévu pour le 30 juin 2019). Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques et qui souhaitent déclencher la migration eux-mêmes.
+Comme [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront mises hors service le 31 août 2019 (c’était initialement prévu pour le 30 juin 2019). Un outil de migration est disponible dans le Portail Azure pour les clients qui utilisent des règles d’alerte classiques et qui souhaitent déclencher la migration eux-mêmes.
 
 Cet article explique le fonctionnement de l’outil de migration volontaire. Il décrit également les solutions pour certains problèmes courants.
 
@@ -39,7 +39,7 @@ Bien que l’outil peut migrer presque toutes les [règles d’alerte classiques
 Si votre abonnement a des règles classiques de ce type, vous devez les migrer manuellement. Étant donné que nous ne pouvons pas fournir une migration automatique, les alertes de métrique classiques existantes de ces types continueront à fonctionner jusqu'à juin 2020. Cette extension vous donne le temps de passer aux nouvelles alertes. Vous pouvez également continuer à créer des alertes classiques sur les exceptions listées ci-dessus jusqu’en juin 2020. Toutefois, pour tout le reste, aucune nouvelle alerte classique ne peut être créée après août 2019.
 
 > [!NOTE]
-> Outre les exceptions répertoriées ci-dessus, si vos règles d’alerte classiques ne sont pas valides, par exemple si elles portent sur des [métriques déconseillées](#classic-alert-rules-on-deprecated-metrics) ou des ressources qui ont été supprimées, elles ne seront pas migrées pendant la migration volontaire. Les règles d’alerte classiques non valides de ce type seront supprimées lors de la migration automatique.
+> Outre les exceptions répertoriées ci-dessus, si vos règles d’alerte classiques ne sont pas valides, par exemple si elles portent sur des [métriques dépréciées](#classic-alert-rules-on-deprecated-metrics) ou des ressources qui ont été supprimées, elles ne seront pas migrées et ne seront pas disponibles une fois le service mis hors service.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métriques d’invité sur les machines virtuelles
 
@@ -194,7 +194,7 @@ Pour Application Insights, les métriques équivalentes sont indiquées ci-desso
 | performanceCounter.requests_in_application_queue.value | performanceCounters/requestsInQueue|   |
 | performanceCounter.requests_per_sec.value | performanceCounters/requestsPerSecond|   |
 | request.duration | requests/duration| Multipliez le seuil d’origine par 1000, car les unités de mesure classiques sont exprimées en secondes et les nouvelles en millisecondes.  |
-| request.rate | requests/rate|   |
+| request.rate | requests/taux|   |
 | requestFailed.count | requests/failed| Utilisez 'count' au lieu de 'sum' pour `aggregationType`.   |
 | view.count | pageViews/count| Utilisez 'count' au lieu de 'sum' pour `aggregationType`.   |
 
@@ -262,7 +262,7 @@ En raison des modifications apportées récemment aux règles d’alerte classiq
 
 ### <a name="scope-lock-preventing-us-from-migrating-your-rules"></a>Un verrou d’étendue nous empêche de migrer vos règles
 
-Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, un verrou d’étendue peut nous empêcher de créer ou de supprimer des ressources. En fonction du verrou d’étendue, certaines ou l’intégralité des règles n’ont pas pu être migrées. Vous pouvez résoudre ce problème en supprimant le verrou d’étendue pour l’abonnement, le groupe de ressources ou la ressource, lequel est listé dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), puis en redéclenchant la migration. Le verrou d’étendue ne peut pas être désactivé et doit être supprimé pendant la durée du processus de migration. [En savoir plus sur la gestion des verrous d’étendue](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+Dans le cadre de la migration, de nouvelles alertes de métrique et de nouveaux groupes d’actions seront créés, et les règles d’alerte classiques seront alors supprimées. Toutefois, un verrou d’étendue peut nous empêcher de créer ou de supprimer des ressources. En fonction du verrou d’étendue, certaines ou l’intégralité des règles n’ont pas pu être migrées. Vous pouvez résoudre ce problème en supprimant le verrou d’étendue pour l’abonnement, le groupe de ressources ou la ressource, lequel est listé dans l’[outil de migration](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), puis en redéclenchant la migration. Le verrou d’étendue ne peut pas être désactivé et doit être supprimé pendant la durée du processus de migration. [En savoir plus sur la gestion des verrous d’étendue](../../azure-resource-manager/management/lock-resources.md#portal).
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Une stratégie avec effet de refus nous empêche de migrer vos règles
 

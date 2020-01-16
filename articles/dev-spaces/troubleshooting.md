@@ -1,16 +1,16 @@
 ---
-title: Résolution de problèmes
+title: Dépannage
 services: azure-dev-spaces
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
+description: Découvrez comment résoudre les problèmes courants liés à l’activation et à l’utilisation d’Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 64b9cda61e5af3e8b9ea52477b5bf4fa879f48e6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483864"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438105"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Résolution des problèmes Azure Dev Spaces
 
@@ -288,7 +288,7 @@ Téléchargez et installez la dernière version de l’interface CLI Azure Dev S
 * [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
-### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>Error: « Impossible de trouver l’extension du débogueur pour le type: coreclr »
+### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erreur : « Impossible de trouver l’extension du débogueur pour le type: coreclr »
 
 Cette erreur peut s’afficher lors de l’exécution du débogueur Visual Studio Code. L’extension VS Code pour C# n’est probablement pas installée sur votre ordinateur de développement. L’extension C# inclut la prise en charge du débogage pour .NET Core (CoreCLR).
 
@@ -474,4 +474,4 @@ Pour activer Azure Dev Spaces sur un cluster AKS pour lequel le trafic de sortie
 | cloudflare.docker.com | HTTPS:443 | Pour extraire des images Linux Alpine et d’autres images Azure Dev Spaces |
 | gcr.io | HTTP:443 | Pour extraire des images Helm/Tiller|
 | storage.googleapis.com | HTTP:443 | Pour extraire des images Helm/Tiller|
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services de service principal Azure Dev Spaces de votre contrôleur. Le nom de domaine complet exact peut se trouver dans le « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json|
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json|

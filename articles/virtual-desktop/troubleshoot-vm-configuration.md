@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869525"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459432"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -30,7 +30,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 - Essayez d'envoyer une requête Ping au nom de domaine à partir de la ligne de commande de la machine virtuelle.
 - Passez en revue la liste des messages d’erreur de jonction de domaine dans [Résolution des problèmes de jonction de domaine](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
-### <a name="error-incorrect-credentials"></a>Error: Informations d’identification incorrectes
+### <a name="error-incorrect-credentials"></a>Erreur : Informations d’identification incorrectes
 
 **Cause :** Une faute de frappe a été commise lors de la saisie des informations d'identification dans les correctifs d'interface du modèle Azure Resource Manager.
 
@@ -40,7 +40,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 - Redéployez le modèle une fois les informations d’identification confirmées. Consultez [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 - Pour joindre des machines virtuelles à un domaine en utilisant un modèle, consultez [Joindre une machine virtuelle Windows existante au domaine AD](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
 
-### <a name="error-timeout-waiting-for-user-input"></a>Error: Le délai d'attente pour l’entrée utilisateur a expiré.
+### <a name="error-timeout-waiting-for-user-input"></a>Erreur : Le délai d'attente pour l’entrée utilisateur a expiré.
 
 **Cause :** Le compte utilisé pour joindre le domaine peut présenter une authentification multifacteur (MFA).
 
@@ -49,7 +49,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 - Supprimez temporairement l’authentification multifacteur du compte.
 - Utilisez un compte de service.
 
-### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Error: Le compte utilisé lors de l'approvisionnement ne dispose pas des autorisations requises pour mener à bien l'opération.
+### <a name="error-the-account-used-during-provisioning-doesnt-have-permissions-to-complete-the-operation"></a>Erreur : Le compte utilisé lors de l'approvisionnement ne dispose pas des autorisations requises pour mener à bien l'opération.
 
 **Cause :** Pour des raisons de réglementation et de conformité, le compte utilisé ne dispose pas des autorisations requises pour joindre des machines virtuelles au domaine.
 
@@ -58,7 +58,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 - Utilisez un compte appartenant au groupe d'administrateurs.
 - Accordez les autorisations nécessaires au compte utilisé.
 
-### <a name="error-domain-name-doesnt-resolve"></a>Error: Le nom de domaine est impossible à résoudre.
+### <a name="error-domain-name-doesnt-resolve"></a>Erreur : Le nom de domaine est impossible à résoudre.
 
 **Cause 1 :** Les machines virtuelles se trouvent dans un réseau virtuel qui n’est pas associé au réseau virtuel (VNET) où se trouve le domaine.
 
@@ -84,7 +84,7 @@ Suivez ces instructions pour vérifier que les composants sont installés et rec
 2. Ouvrez l’**Explorateur de fichiers** et accédez à **C:\Windows\Temp\ScriptLog.log**. Si le fichier n'y figure pas, cela signifie la DSC PowerShell qui a installé les deux composants n’a pas pu s’exécuter dans le contexte de sécurité fourni.
 3. Si le fichier **C:\Windows\Temp\ScriptLog.log** y figure, ouvrez-le et recherchez les messages d’erreur.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Error: L'agent Windows Virtual Desktop et le chargeur de démarrage de l'agent Windows Virtual Desktop sont manquants. C:\Windows\Temp\ScriptLog.log est également manquant.
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>Erreur : L'agent Windows Virtual Desktop et le chargeur de démarrage de l'agent Windows Virtual Desktop sont manquants. C:\Windows\Temp\ScriptLog.log est également manquant.
 
 **Cause 1 :** Les informations d’identification fournies pour le modèle Azure Resource Manager sont incorrectes ou les autorisations sont insuffisantes.
 
@@ -98,11 +98,11 @@ Suivez ces instructions pour vérifier que les composants sont installés et rec
 - Vérifiez que le nom du locataire est correct et que le locataire existe dans Windows Virtual Desktop.
 - Vérifiez que le compte dispose au minimum des autorisations Contributeur RDS.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Error: L’authentification a échoué, erreur dans C:\Windows\Temp\ScriptLog.log
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Erreur : L’authentification a échoué, erreur dans C:\Windows\Temp\ScriptLog.log
 
 **Cause :** La DSC PowerShell a réussi à s'exécuter, mais pas à se connecter à Windows Virtual Desktop.
 
-**Correctif :** Vérifiez les éléments dans la liste suivante.
+**Correctif :** Vérifiez les éléments dans la liste suivante.
 
 - Inscrivez manuellement les machines virtuelles auprès du service Windows Virtual Desktop.
 - Vérifiez que le compte utilisé pour se connecter à Windows Virtual Desktop dispose des autorisations requises par le locataire pour créer des pools d’hôtes.
@@ -112,13 +112,13 @@ Suivez ces instructions pour vérifier que les composants sont installés et rec
 
 Lorsque l’agent Windows Virtual Desktop est installé pour la première fois sur les machines virtuelles hôtes de session (manuellement ou via le modèle Azure Resource Manager et la DSC PowerShell), il fournit un jeton d’inscription. La section suivante traite de la résolution des problèmes ayant trait à l'agent Windows Virtual Desktop et au jeton.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Error: L’état consigné dans la cmdlet Get-RdsSessionHost indique Non disponible.
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erreur : L’état consigné dans la cmdlet Get-RdsSessionHost indique Non disponible.
 
 ![La cmdlet Get-RdsSessionHost indique un état Non disponible.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause :** L’agent n’est pas en mesure de se mettre à jour vers une nouvelle version.
 
-**Correctif :** Suivez ces instructions pour mettre à jour manuellement l’agent.
+**Correctif :** Suivez ces instructions pour mettre à jour manuellement l’agent.
 
 1. Téléchargez une nouvelle version de l’agent sur la machine virtuelle hôte de session.
 2. Lancez le Gestionnaire des tâches et dans l’onglet Service, arrêtez le service RDAgentBootLoader.
@@ -127,17 +127,17 @@ Lorsque l’agent Windows Virtual Desktop est installé pour la première fois s
 5. Terminez l’Assistant d'installation.
 6. Ouvrez le Gestionnaire des tâches et démarrez le service RDAgentBootLoader.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Error:  L'entrée de registre IsRegistered de l'agent Windows Virtual Desktop affiche une valeur nulle.
+## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Erreur :  L'entrée de registre IsRegistered de l'agent Windows Virtual Desktop affiche une valeur nulle.
 
 **Cause :** Le jeton d’inscription a expiré ou a été généré avec une valeur d’expiration de 999999.
 
-**Correctif :** Suivez ces instructions pour corriger l'erreur de registre de l'agent.
+**Correctif :** Suivez ces instructions pour corriger l'erreur de registre de l'agent.
 
 1. Si un jeton d’inscription existe déjà, supprimez-le avec Remove-RDSRegistrationInfo.
 2. Générez un nouveau jeton avec Rds-NewRegistrationInfo.
 3. Vérifiez que le paramètre -ExpriationHours est défini sur 72 (la valeur maximale est 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Error: L'agent Windows Virtual Desktop ne signale aucune pulsation lors de l'exécution de Get-RdsSessionHost.
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erreur : L'agent Windows Virtual Desktop ne signale aucune pulsation lors de l'exécution de Get-RdsSessionHost.
 
 **Cause 1 :** Le service RDAgentBootLoader a été arrêté.
 
@@ -199,13 +199,13 @@ Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leu
     Server\ClusterSettings\"SessionDirectoryListener":rdp-sxs
 ```
 
-### <a name="error-o_reverse_connect_stack_failure"></a>Error: O_REVERSE_CONNECT_STACK_FAILURE
+### <a name="error-o_reverse_connect_stack_failure"></a>Erreur : O_REVERSE_CONNECT_STACK_FAILURE
 
 ![Code d'erreur O_REVERSE_CONNECT_STACK_FAILURE.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause :** La pile côte à côte n'est pas installée sur la machine virtuelle hôte de session.
 
-**Correctif :** Suivez ces instructions pour installer la pile de côte à côte sur la machine virtuelle hôte de session.
+**Correctif :** Suivez ces instructions pour installer la pile de côte à côte sur la machine virtuelle hôte de session.
 
 1. Utilisez le protocole RDP (Remote Desktop Protocol) pour accéder directement à la machine virtuelle hôte de session en tant qu’administrateur local.
 2. Si ce n’est déjà fait, téléchargez et importez le [module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) pour l’utiliser dans votre session PowerShell, puis exécutez cette applet de commande pour vous connecter à votre compte :
@@ -338,11 +338,12 @@ Redéployez le système d’exploitation hôte avec la dernière version de l’
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour détecter les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
+- Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
+- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).

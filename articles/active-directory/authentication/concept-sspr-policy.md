@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b95ea51db4f0c6bcdbfa905ff8b57a5a330411e6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848542"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425320"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -54,7 +54,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
   * Administrateur d’authentification privilégié
 
 * Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
-* Un domaine personnel est présent, par exemple, contoso.com ; ou
+* Un domaine personnalisé a été configuré pour votre locataire Azure AD, par exemple *contoso.com* ; ou
 * Azure AD Connect synchronise les identités à partir de votre répertoire local
 
 ### <a name="exceptions"></a>Exceptions
@@ -62,7 +62,7 @@ La stratégie à deux verrous nécessite deux éléments de données d’authent
 Une stratégie à un verrou nécessite un élément de données d’authentification, par exemple une adresse de messagerie *ou* un numéro de téléphone. Une stratégie à un verrou s’applique dans les conditions suivantes :
 
 * Pendant les 30 premiers jours d’un abonnement d’essai ; ou
-* Un domaine personnel n’est pas présent (*.onmicrosoft.com) ; et
+* Un domaine personnalisé n’a pas été configuré pour votre locataire Azure AD. Celui-ci utilise donc le domaine par défaut * *.onmicrosoft.com*. Notez que l’utilisation du domaine par défaut * *.onmicrosoft.com* n’est pas recommandée dans un environnement de production ; et
 * Azure AD Connect ne synchronise pas les identités
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Stratégies UserPrincipalName s'appliquant à tous les comptes d'utilisateur
@@ -79,7 +79,7 @@ Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté 
 
 Le tableau suivant décrit les paramètres de stratégie de mot de passe appliqués aux comptes d'utilisateurs créés et gérés dans Azure AD :
 
-| Propriété | Configuration requise |
+| Propriété | Spécifications |
 | --- | --- |
 | Caractères autorisés |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espace vide</li></ul> |
 | Caractères non autorisés | Caractères Unicode. |

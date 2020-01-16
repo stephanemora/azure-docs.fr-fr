@@ -1,50 +1,69 @@
 ---
 title: Option Co-vente de l'Espace partenaires | Place de marché Azure
 description: Les informations que vous fournissez dans l'onglet Co-vente de votre offre sont utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/06/2019
+ms.openlocfilehash: 5f5f98b908ce54624a5d73a2ed74b2e9ea8966ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812720"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431955"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
 La saisie d'informations dans l'onglet Co-vente est entièrement facultative. Ces informations sont toutefois nécessaires pour devenir « Co-sell Ready » et « IP Co-sell Ready ». Les informations que vous fournissez seront utilisées par les équipes commerciales de Microsoft pour en savoir plus sur votre solution lors de l'évaluation de son adéquation avec les besoins des clients. Les clients n'y auront pas directement accès. Pour plus d'informations, consultez [Vendre via Microsoft](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer#sell-through-microsoft).
 
-## <a name="applicable-products"></a>Produits applicables
+L’option Co-vente dans l’Espace partenaires est disponible pour certains types d’offres. La prise en charge d’autres types d’offres se fera progressivement.
 
-Choisissez un produit Microsoft sur lequel votre offre repose ou avec lequel elle est conçue pour fonctionner.
+| **Type d’offre** | **Page Co-vente disponible dans l’Espace partenaires** |
+|    -----------------------    |    -----------------------------  |
+| SaaS (software as a service) |     Disponibilité générale autour de février 2020      |
+| Dynamics 365 for Customer Engagement & PowerApps      |     Déjà disponible      |
+| Dynamics 365 for Operations     |     Déjà disponible       |
+| Dynamics 365 Business Central      |  Disponibilité générale autour de février 2020     |
+| Azure Application     |     Disponibilité générale autour de février 2020     |
+| Machine virtuelle Azure      |     Annoncé prochainement       |
+| Conteneur Azure     |     Annoncé prochainement       |
+| Service de conseil      |     Annoncé prochainement       |
+| Module IoT Edge      |     Annoncé prochainement       |
+| Application de service Power BI     |     Annoncé prochainement       |
+|  |
 
-## <a name="customer-segments"></a>Segments de clientèle
+## <a name="listing"></a>Énumération
 
-Sélectionnez la taille d'entreprise ciblée par votre offre.
+Les référencements de Co-vente aident les équipes commerciales Microsoft à promouvoir votre solution auprès d’un public plus large.
 
-## <a name="offer-type"></a>Type d’offre
+- Choisissez les plateformes Microsoft pour lesquelles votre offre est conçue ou auxquelles elle s’étend ou s’intègre.
+- Sélectionnez les segments de marché que vous ciblez avec votre offre.
+- Sélectionnez un [type de solution](#solution-type) pour votre offre.
+- Choisissez jusqu’à trois [domaines fonctionnels](#solution-areas) et sous-domaines.
 
-Sélectionnez votre type d'offre :
+### <a name="solution-type"></a>Type de solution
 
-| **Type d’offre**    | **Description**  |
+Les types de solution permettent de définir les scénarios pour lesquels votre offre est conçue.
+
+| **Type de solution**    | **Description**  |
 | :------------------- | :-------------------|
-| Appareil | Offre impliquant la production ou la vente de matériel d'un fabricant d'appareils. |
-| IP | Applications ou autres matériaux protégés par une licence et destinés à être utilisés par le client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
+| Appareil (matériel) | Offre impliquant la production ou la vente de matériel d'un fabricant d'appareils. |
+| IP (application) | Applications ou autres matériaux protégés par une licence et destinés à être utilisés par le client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
 | Service | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
 | Service managé | Compétences pratiques pour un projet basé sur le cloud, généralement sur une base continue. Par exemple :  fournir une plateforme et des outils pour exécuter une base de données en ligne, la gestion en continu étant assurée par le fournisseur du service managé. |
 
-## <a name="solution-areas"></a>Domaines fonctionnels
+### <a name="solution-areas"></a>Domaines fonctionnels
 
-Vous pouvez ajouter trois domaines fonctionnels à votre offre.  Pour chacun d'eux, vous pouvez choisir deux sous-domaines fonctionnels. Pour sélectionner plusieurs sous-catégories, utilisez la touche `Ctrl` (sous Windows) ou la touche Commande (sous Mac OS).
+Les domaines fonctionnels permettent de définir plus précisément votre solution.
 
-Les domaines fonctionnels permettent de définir les scénarios pour lesquels votre offre est conçue.
+Vous pouvez ajouter trois domaines fonctionnels à votre offre. Pour chacun d'eux, vous pouvez choisir deux sous-domaines fonctionnels. Pour sélectionner plusieurs sous-catégories, utilisez la touche `Ctrl` (sous Windows) ou la touche Commande (sous Mac OS).
 
 ## <a name="documents"></a>Documents
+
+Vous pouvez fournir à Microsoft des documents à utiliser pour évaluer les besoins de vos clients.
 
 | **Documents**    | **Description**  |
 | :------------------- | :-------------------|
@@ -60,7 +79,7 @@ Les domaines fonctionnels permettent de définir les scénarios pour lesquels vo
 
 ## <a name="contacts"></a>Contacts
 
-Vos informations de contact permettent aux équipes commerciales de Microsoft et aux revendeurs partenaires de demander des informations supplémentaires à la ressource appropriée de votre organisation. Toutes les équipes commerciales de Microsoft ont accès à ces informations. Si vous souhaitez que votre offre soit disponible dans le cadre du programme Fournisseur de solutions cloud (CSP), ces informations de contact seront également accessibles aux revendeurs partenaires. 
+Vos informations de contact permettent aux équipes commerciales de Microsoft et aux revendeurs partenaires de demander des informations supplémentaires à la ressource appropriée de votre organisation. Toutes les équipes commerciales de Microsoft ont accès à ces informations. Si vous souhaitez que votre offre soit disponible dans le cadre du programme Fournisseur de solutions cloud (CSP), ces informations de contact seront également accessibles aux revendeurs partenaires.
 
 Ce document fournit des conseils sur les différents rôles des partenaires et sur la façon de faire un choix. Vous pouvez fournir vos informations de contact en téléchargeant le modèle CSV à partir de l'Espace partenaires, en renseignant chaque ligne avec des informations sur le contact et en important ce fichier CSV. L'importation d'un fichier CSV remplacera les contacts existants.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 87e1d94fe9f86f5916219feac732bf80af1f3121
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: a197f95963e5a4138136f5d336e276ec1c7f7af7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769028"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407627"
 ---
 # <a name="azure-maps-weather-coverage"></a>Couverture météo Azure Maps
 
-Cet article fournit des informations sur les [services météo](https://aka.ms/AzureMapsWeatherService) Azure Maps. Les services de données météorologiques Azure Maps peuvent renvoyer des détails tels que les vignettes radar, les conditions météorologiques actuelles, les prévisions météorologiques et la météo le long d’un itinéraire.
+Cet article fournit des informations sur les [services météo](https://aka.ms/AzureMapsWeatherService) Azure Maps. Les services de données météorologiques Azure Maps peuvent retourner des détails tels que les vignettes radar, les conditions météorologiques actuelles, les prévisions météorologiques et la météo le long d’un itinéraire.
 
 Azure Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions.
 
@@ -86,8 +86,8 @@ Le tableau suivant fournit des informations sur les types de données météorol
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinité-et-Tobago                      | ✓ |   |  ✓| 
 | Turques-et-Caïques (îles)                 | ✓ |   |  ✓| 
-| Données Îles éloignées                    | ✓ |   |  ✓| 
-| Données Îles Vierges                      | ✓ |   |  ✓| 
+| États-Unis Îles éloignées                    | ✓ |   |  ✓| 
+| États-Unis Îles Vierges                      | ✓ |   |  ✓| 
 | États-Unis                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -298,5 +298,5 @@ Le tableau suivant fournit des informations sur les types de données météorol
 | Suisse            | ✓ | ✓ |  ✓| 
 | Turquie                 | ✓ |   |  ✓| 
 | Ukraine                | ✓ |   |  ✓| 
-| Royaume-Uni         | ✓ | ✓ |  ✓| 
+| United Kingdom         | ✓ | ✓ |  ✓| 
 | État de la Cité du Vatican           | ✓ |   |  ✓| 

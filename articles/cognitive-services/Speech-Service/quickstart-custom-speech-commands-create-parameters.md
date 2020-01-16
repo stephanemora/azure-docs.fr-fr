@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 50132593ce3301094ea39546f5661df06a716503
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fc859625be0706dd130cf7714d0fabf196740e91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976585"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75380999"
 ---
 # <a name="quickstart-create-a-custom-command-with-parameters-preview"></a>Démarrage rapide : Créer une commande personnalisée avec paramètres (préversion)
 
@@ -34,28 +34,28 @@ Dans cet article, nous allons ajouter des paramètres à cette application afin 
    > [!div class="mx-imgBorder"]
    > ![Créer un paramètre](media/custom-speech-commands/create-on-off-parameter.png)
 
-   | Paramètre            | Valeur suggérée | Description                                                                                               |
-   | ------------------ | --------------- | --------------------------------------------------------------------------------------------------------- |
-   | Nom               | ActiverDésactiver           | Nom descriptif de votre paramètre                                                                     |
-   | Est global          | non cochée       | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
-   | Obligatoire           | cochée         | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
-   | Modèle de réponse  | Activé ou désactivé ?      | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
-   | Type               | Chaîne          | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                               |
-   | Configuration      | Liste de chaînes     | Pour les chaînes, une liste de chaînes limite les entrées à un ensemble de valeurs possibles                                      |
-   | Valeurs de la liste de chaînes | on, off         | Pour un paramètre Liste de chaînes, ensemble des valeurs possibles et leurs synonymes                                |
+   | Paramètre            | Valeur suggérée     | Description                                                                                               |
+   | ------------------ | ------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Name               | ActiverDésactiver               | Nom descriptif de votre paramètre                                                                     |
+   | Est global          | non cochée           | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
+   | Obligatoire           | cochée             | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
+   | Modèle de réponse  | « - Activé ou désactivé ? »      | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
+   | Type               | String              | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                               |
+   | Configuration      | Liste de chaînes         | Pour les chaînes, une liste de chaînes limite les entrées à un ensemble de valeurs possibles                                      |
+   | Valeurs de la liste de chaînes | on, off             | Pour un paramètre Liste de chaînes, ensemble des valeurs possibles et leurs synonymes                                |
 
    - Ensuite, sélectionnez à nouveau l'icône `+` pour ajouter un deuxième paramètre représentant le nom des appareils. Pour cet exemple, un téléviseur et un ventilateur
 
-   | Paramètre            | Valeur suggérée   | Description                                                                                               |
-   | ------------------ | ----------------- | --------------------------------------------------------------------------------------------------------- |
-   | Nom               | AppareilSujet     | Nom descriptif de votre paramètre                                                                     |
-   | Est global          | non cochée         | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
-   | Obligatoire           | cochée           | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
-   | Modèle de réponse  | Quel appareil ?     | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
-   | Type               | Chaîne            | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                               |
-   | Configuration      | Liste de chaînes       | Pour les chaînes, une liste de chaînes limite les entrées à un ensemble de valeurs possibles                                      |
-   | Valeurs de la liste de chaînes | télé, ventilateur           | Pour un paramètre Liste de chaînes, ensemble des valeurs possibles et leurs synonymes                                |
-   | Synonymes (télé)      | télévision, TV | Synonymes facultatifs pour chacune des valeurs possibles d'un paramètre Liste de chaînes                                      |
+   | Paramètre            | Valeur suggérée       | Description                                                                                               |
+   | ------------------ | --------------------- | --------------------------------------------------------------------------------------------------------- |
+   | Name               | AppareilSujet         | Nom descriptif de votre paramètre                                                                     |
+   | Est global          | non cochée             | Case à cocher indiquant si une valeur de ce paramètre est globalement appliquée à toutes les commandes du projet |
+   | Obligatoire           | cochée               | Case à cocher indiquant si une valeur de ce paramètre est requise avant d'exécuter la commande          |
+   | Modèle de réponse  | « - Quel appareil ? »     | Invite permettant de demander la valeur de ce paramètre lorsqu'elle n'est pas connue                                       |
+   | Type               | String                | Type du paramètre, par exemple Nombre, Chaîne ou Date/heure                                               |
+   | Configuration      | Liste de chaînes           | Pour les chaînes, une liste de chaînes limite les entrées à un ensemble de valeurs possibles                                      |
+   | Valeurs de la liste de chaînes | télé, ventilateur               | Pour un paramètre Liste de chaînes, ensemble des valeurs possibles et leurs synonymes                                |
+   | Synonymes (télé)      | télévision, TV     | Synonymes facultatifs pour chacune des valeurs possibles d'un paramètre Liste de chaînes                                      |
 
 ## <a name="add-sample-sentences"></a>Ajouter des exemples de phrases
 
@@ -111,5 +111,4 @@ Ouvrez le volet Conversation de test et essayez quelques interactions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)](./quickstart-custom-speech-commands-speech-sdk.md)
-
+> [Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)](./quickstart-custom-speech-commands-speech-sdk.md)

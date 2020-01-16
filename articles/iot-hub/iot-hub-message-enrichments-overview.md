@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: c3dbd01faf61c164c88f09b0da03c07be4abd187
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144862"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429119"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>Enrichissements de messages pour les messages IoT Hub appareil-à-cloud
 
@@ -54,7 +54,7 @@ Les messages peuvent provenir de n’importe quelle source de données prise en 
 
 Vous pouvez ajouter des enrichissements aux messages destinés au point de terminaison intégré d’un IoT Hub, ou aux messages acheminés vers des points de terminaison personnalisés comme le stockage d’objets blob Azure, une file d’attente Service Bus ou une rubrique Service Bus.
 
-Vous pouvez ajouter des enrichissements aux messages qui sont publiés dans Event Grid en sélectionnant Event Grid comme point de terminaison. Nous créons un itinéraire par défaut dans IoT Hub pour la télémétrie d’appareil, selon votre abonnement Event Grid. Cet itinéraire unique peut gérer tous vos abonnements Event Grid. Vous pouvez configurer des enrichissements pour la grille d’événements ent[point après avoir créé l’abonnement Event Grid pour la télémétrie d’appareil. Pour plus d’informations, consultez [React to IoT Hub events by using Event Grid to trigger actions](iot-hub-event-grid.md) (Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions).
+Vous pouvez ajouter des enrichissements aux messages qui sont publiés dans Event Grid en sélectionnant Event Grid comme point de terminaison. Nous créons un itinéraire par défaut dans IoT Hub pour la télémétrie d’appareil, selon votre abonnement Event Grid. Cet itinéraire unique peut gérer tous vos abonnements Event Grid. Vous pouvez configurer des enrichissements pour le point de terminaison de la grille d’événements après avoir créé l’abonnement Event Grid à la télémétrie d’appareil. Pour plus d’informations, consultez [React to IoT Hub events by using Event Grid to trigger actions](iot-hub-event-grid.md) (Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions).
 
 Les enrichissements sont appliqués par point de terminaison. Si vous spécifiez cinq enrichissements à horodater pour un point de terminaison spécifique, tous les messages acheminés vers ce point de terminaison sont horodatés avec les cinq mêmes enrichissements.
 
@@ -62,8 +62,8 @@ Des enrichissements peuvent être configurés à l’aide des méthodes suivante
 
 | **Méthode** | **Commande** |
 | ----- | -----| 
-| Portail | [Portail Azure](https://portal.azure.com) | Voir le [tutoriel sur les enrichissements de messages](tutorial-message-enrichments.md) | 
-| D’Azure CLI   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Portail | [Azure portal](https://portal.azure.com) | Voir le [tutoriel sur les enrichissements de messages](tutorial-message-enrichments.md) | 
+| Azure CLI   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
 | Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
 
 L’ajout d’enrichissements de message n’ajoute pas de latence au routage des messages.
@@ -100,4 +100,4 @@ Consultez les articles suivants pour plus d’informations sur le routage des me
 
 * [Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison](iot-hub-devguide-messages-d2c.md)
 
-* [Tutoriel : Routage d’IoT Hub](tutorial-routing.md)
+* [Tutoriel : Routage d’IoT Hub](tutorial-routing.md)

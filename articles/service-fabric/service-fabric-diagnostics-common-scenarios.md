@@ -1,25 +1,16 @@
 ---
-title: Diagnostiquer des scénarios courants avec Azure Service Fabric | Microsoft Docs
-description: Découvrez comment résoudre les problèmes de scénarios courants avec Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Diagnostiquer des scénarios courants avec Azure Service Fabric
+description: Découvrez comment résoudre les problèmes liés aux scénarios de supervision et de diagnostic courants au sein des applications Azure Service Fabric.
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 265aea1b8873d812859b39175c732c3e7118cbb5
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60394204"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645784"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -56,7 +47,7 @@ Les solutions de cet article utilisent les outils suivants. Nous vous recommando
 1. Dans la même ressource Application Insights, vous pouvez filtrer sur « demandes » au lieu des exceptions et voir ainsi toutes les demandes effectuées.
 2. Si vous utilisez le kit SDK Service Fabric Application Insights, vous pouvez voir une représentation visuelle de vos services connectés les uns aux autres et le nombre de demandes ayant réussi et échoué. Sur la gauche, cliquez sur « Cartographie d’application ».
 
-    ![Panneau de cartographie d’application AI](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![Cartographie d’application AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![Panneau de cartographie d’application IA](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png)![Cartographie d’application IA](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Pour plus d’informations sur la cartographie d’application, consultez la [documentation sur la cartographie d’application](../azure-monitor/app/app-map.md).
 
@@ -147,5 +138,5 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.
 * Pour les clusters locaux, les journaux Azure Monitor proposent une passerelle (proxy de transfert HTTP) qui peut être utilisée pour envoyer des données aux journaux Azure Monitor. Pour plus d’informations à ce sujet, consultez [Connexion d’ordinateurs aux journaux Azure Monitor sans accès Internet à l’aide de la passerelle Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor
+* Familiarisez-vous avec les fonctionnalités de [requête et de recherche dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par Journaux Azure Monitor
 * Pour obtenir une présentation plus détaillée des journaux Azure Monitor et de ce qu’ils proposent, lisez [Présentation des journaux Azure Monitor](../operations-management-suite/operations-management-suite-overview.md).

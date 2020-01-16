@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed35abd5b9bfb8b9a74d598f1fa93d8f1a985bfb
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 52d9f7a0b2a7cebefdb5ade8e16417043c5c83d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848270"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425289"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapports dans Azure Multi-Factor Authentication
 
@@ -32,7 +32,7 @@ Azure Multi-Factor Authentication fournit plusieurs rapports qui peuvent être u
 
 ## <a name="view-mfa-reports"></a>Afficher les rapports MFA
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Sécurité** > **MFA**.
 3. Sélectionnez le rapport que vous souhaitez afficher.
 
@@ -117,10 +117,10 @@ Les rapports d’activité de connexion pour l’authentification multifacteur v
 
 **Accès conditionnel :** permet de trouver des informations sur les stratégies d’accès conditionnel qui ont affecté la tentative de connexion, notamment :
 
-- Nom de la stratégie
+- Nom de stratégie
 - Contrôles d’octroi
 - Contrôles de session
-- Résultat
+- Résultats
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Création de rapports PowerShell sur les utilisateurs inscrits pour MFA
 
@@ -133,6 +133,16 @@ Identifiez les utilisateurs qui se sont inscrits auprès de MFA à l’aide du c
 Identifiez les utilisateurs qui ne se sont pas inscrits auprès de MFA à l’aide du code PowerShell qui suit.
 
 ```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+
+Identifiez les méthodes de sortie et les utilisateurs inscrits. 
+
+```PowerShell
+Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
+
+@{N='MFA Status';E={if ($_.StrongAuthenticationRequirements.State){$_.StrongAuthenticationRequirements.State} else {"Disabled"}}},
+
+@{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
+```
 
 ## <a name="possible-results-in-activity-reports"></a>Résultats possibles dans les rapports d’activité
 

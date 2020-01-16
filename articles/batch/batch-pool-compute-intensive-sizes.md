@@ -1,6 +1,6 @@
 ---
-title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch | Microsoft Docs
-description: Guide pratique pour tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch
+title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch
+description: Découvrez comment tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch Apprenez-en davantage sur les dépendances du système d’exploitation et découvrez plusieurs exemples de scénarios.
 documentationcenter: ''
 author: laurenhughes
 manager: gwallace
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 47d406eadbd3f5d608bfe0d13e82d0e32ae44ab1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390507"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 
@@ -74,7 +74,7 @@ Les fonctionnalités RDMA ou GPU des tailles nécessitant beaucoup de ressources
 
 Pour configurer une taille de machine virtuelle spécialisée pour votre pool Batch, plusieurs options s’offrent à vous pour installer les logiciels ou pilotes nécessaires :
 
-* Pour les pools inclus dans la configuration de machine virtuelle, choisissez une image de machine virtuelle [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) préconfigurée dotée de pilotes et logiciels préinstallés. Exemples : 
+* Pour les pools inclus dans la configuration de machine virtuelle, choisissez une image de machine virtuelle [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/) préconfigurée dotée de pilotes et logiciels préinstallés. Exemples : 
 
   * [HPC basé sur CentOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) (inclut des pilotes RDMA et Intel MPI 5.1)
 
@@ -97,7 +97,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) configure automatiquement les pilotes GPU et RDMA pour fonctionner de façon fluide avec les charges de travail en conteneur sur Azure Batch. Batch Shipyard est entièrement piloté par les fichiers de configuration. Il existe de nombreux exemples de recettes de configurations disponibles qui activent les charges de travail GPU et RDMA, comme la [recette CNTK GPU](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI) qui préconfigure les pilotes GPU sur les machines virtuelles de série N et charge le logiciel Microsoft Cognitive Toolkit en tant qu’image Docker.
 
 
-## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Windows
+## <a name="example-nvidia-gpu-drivers-on-windows-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Windows
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Windows, vous devez installer des pilotes NVDIA GPU. Les exemples d’étapes suivants utilisent un package d’application pour installer les pilotes NVIDIA GPU. Vous pouvez choisir cette option si votre charge de travail dépend d’une version de pilote GPU spécifique.
 
@@ -116,7 +116,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 | **Références du package d’application** | GPUDriver, version 411.82 |
 | **Tâche de démarrage activée** | True<br>**Ligne de commande** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identité de l’utilisateur** - Pool autouser, admin<br/>**Attente de la réussite** - True
 
-## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Linux
+## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemple : Pilotes NVIDIA GPU sur un pool de machines virtuelles de contrôleur de réseau Linux
 
 Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de réseau Linux, vous devez installer les pilotes NVIDIA Tesla GPU nécessaires à partir de CUDA Toolkit. Les exemples d’étapes suivants créent et déploient une image Ubuntu 16.04 LTS personnalisée avec les pilotes GPU :
 
@@ -134,7 +134,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds de contrôleur de ré
 | **Référence de l’agent de nœud** | batch.node.ubuntu 16.04 |
 | **Taille du nœud** | NC6 Standard |
 
-## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemple : Microsoft MPI sur un pool de machines virtuelles H16r Windows
+## <a name="example-microsoft-mpi-on-a-windows-h16r-vm-pool"></a>Exemple : Microsoft MPI sur un pool de machines virtuelles H16r Windows
 
 Pour exécuter des applications Windows MPI sur un pool de nœuds de machine virtuelle H16r Azure, vous devez configurer l’extension HpcVmDrivers et installer [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi). Voici des exemples d’étapes permettant de déployer une image Windows Server 2016 personnalisée avec les pilotes et logiciels nécessaires :
 
@@ -155,7 +155,7 @@ Pour exécuter des applications Windows MPI sur un pool de nœuds de machine vir
 | **Communication entre les nœuds activée** | True |
 | **Nombre maximal de tâches par nœud** | 1 |
 
-## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemple : Intel MPI sur un pool de machines virtuelles H16r Linux
+## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemple : Intel MPI sur un pool de machines virtuelles H16r Linux
 
 Pour exécuter des applications MPI sur un pool de nœuds de série H Linux, une option consiste à utiliser l’image [HPC basée sur CentOS 7.4 ](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) de la Place de marché Azure. Les pilotes RDMA et Intel MPI Linux sont préinstallés. Cette image prend également en charge les charges de travail de conteneur Docker.
 

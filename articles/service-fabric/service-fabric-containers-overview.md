@@ -1,25 +1,14 @@
 ---
-title: Vue d’ensemble de Service Fabric et des conteneurs | Microsoft Docs
+title: Vue d’ensemble de Service Fabric et des conteneurs
 description: Voici une vue d’ensemble de Service Fabric et de la méthode à suivre pour déployer des applications de microservices au moyen de conteneurs. Cet article fournit une vue d’ensemble de l’utilisation de conteneurs et des fonctionnalités disponibles dans Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: c98b3fcb-c992-4dd9-b67d-2598a9bf8aab
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/8/2018
-ms.author: atsenthi
-ms.openlocfilehash: 2ed3a9d4b1ec219d22a9e01e7acec5d7e950289b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 884cefa3d6a60f55269afac73c40b9f6b21518f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599761"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458220"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
@@ -35,8 +24,8 @@ Par défaut, Service Fabric déploie et active ces services en tant que processu
 
 Pour vous familiariser rapidement et essayer les conteneurs sur Service Fabric, suivez un guide de démarrage rapide, un tutoriel ou un exemple pratique :  
 
-[Démarrage rapide : Déployer une application conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Démarrage rapide : Déployer une application conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
+[Démarrage rapide : Déployer une application conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Démarrage rapide : Déployer une application conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
 [Mettre en conteneur une application .NET](service-fabric-host-app-in-a-container.md)  
 [Exemples de conteneurs Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 

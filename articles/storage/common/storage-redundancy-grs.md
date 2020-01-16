@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/02/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c44c13f268a561e3094ae76757504a86627e1f58
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6bb93c3fb6599a05978e11ef5fbc179ccfaa9ec2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895217"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614902"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Stockage géoredondant (GRS) : réplication interrégion pour Stockage Azure
 
@@ -31,7 +31,7 @@ Certaines considérations à prendre en compte lors de l’utilisation du stocka
 
 - Votre application doit gérer le point de terminaison avec lequel l’interaction se fait lors de l’utilisation du stockage RA-GRS.
 - Étant donné que la réplication asynchrone implique un délai, il est possible que les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues si des données ne peuvent pas être récupérées à partir de la région primaire.
-- Vous pouvez vérifier l’heure de dernière synchronisation de votre compte de stockage. La dernière heure de synchronisation correspond à une valeur de date/heure GMT. Toutes les écritures principales effectuées avant l’heure de la dernière synchronisation sont correctement écrites à l’emplacement secondaire, ce qui signifie qu’elles peuvent être lues à partir de l’emplacement secondaire. Les écritures principales effectuées après l’heure de la dernière synchronisation peuvent ou non être encore disponibles pour les lectures. Vous pouvez interroger cette valeur à l’aide du [portail Azure](https://portal.azure.com/), d’[Azure PowerShell](storage-powershell-guide-full.md) ou de l’une des bibliothèques clientes Stockage Azure.
+- Vous pouvez vérifier la propriété **Heure de la dernière synchronisation** de votre compte de stockage. L’**Heure de la dernière synchronisation** est une valeur de date/heure GMT. Toutes les écritures principales effectuées avant l’**Heure de la dernière synchronisation** sont correctement écrites dans l’emplacement secondaire, ce qui signifie qu’elles peuvent être lues à partir de cet emplacement. Les écritures principales effectuées après l’**Heure de la dernière synchronisation** peuvent, ou non, être déjà disponibles pour les lectures. Vous pouvez interroger cette valeur à l’aide de PowerShell, d’Azure CLI ou de l’une des bibliothèques clientes du Stockage Azure. Pour plus d’informations, consultez **Obtention de l’heure de la dernière synchronisation** dans [Conception d’applications à haute disponibilité à l’aide du stockage géoredondant avec accès en lecture](storage-designing-ha-apps-with-ragrs.md#getting-the-last-sync-time).
 - Si vous lancez un basculement de compte (préversion) d’un compte GRS ou RA-GRS vers la région secondaire, l’accès en écriture à ce compte est restauré une fois le basculement terminé. Pour plus d’informations, consultez [Récupération d’urgence et basculement de compte de stockage (préversion)](storage-disaster-recovery-guidance.md).
 - Le stockage RA-GRS est destiné à des fins de haute disponibilité. Pour obtenir des conseils sur l’évolutivité, consultez la [liste de vérification de performances](storage-performance-checklist.md).
 - Pour obtenir des suggestions de conception pour la haute disponibilité à l’aide du stockage géographiquement redondant avec accès en lecture, voir [Concevoir des applications hautement disponibles à l’aide du stockage géographiquement redondant avec accès en lecture](storage-designing-ha-apps-with-ragrs.md).

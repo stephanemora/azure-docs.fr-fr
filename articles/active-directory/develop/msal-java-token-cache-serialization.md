@@ -1,5 +1,5 @@
 ---
-title: Sérialisation personnalisée du cache de jetons dans MSAL.NET pour Java
+title: Sérialisation de cache de jeton personnalisée (MSAL4j)
 titleSuffix: Microsoft identity platform
 description: Découvrir comment sérialiser le cache de jetons pour MSAL pour Java
 services: active-directory
@@ -14,19 +14,19 @@ ms.author: sagonzal
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2166cda772c358ed060b0e52a7410c7039fedf5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d80011d3fbf8973ce913ac885a7841fe19760c4b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916534"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424299"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>Sérialisation personnalisée du cache de jetons dans MSAL.NET pour Java
 
 Pour faire persister le cache de jeton entre les instances de votre application, vous devez personnaliser la sérialisation. Les classes et interfaces Java concernées par la sérialisation du cache de jeton sont les suivantes :
 
 - [ITokenCache](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCache.html) :  interface représentant le cache du jeton de sécurité.
-- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html) : interface représentant l’opération d’exécution du code avant et après l’accès. Vous utiliseriez @Override *beforeCacheAccess* et *afterCacheAccess* avec la logique responsable de la sérialisation et de la désérialisation du cache.
+- [ITokenCacheAccessAspect](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessAspect.html) : interface représentant l’opération d’exécution du code avant et après l’accès. Vous devez remplacer (@Override) *beforeCacheAccess* et *afterCacheAccess* par la logique responsable de la sérialisation et de la désérialisation du cache.
 - [ITokenCacheContext](https://static.javadoc.io/com.microsoft.azure/msal4j/0.5.0-preview/com/microsoft/aad/msal4j/ITokenCacheAccessContext.html) : interface représentant le contexte dans lequel l’accès au cache de jeton est effectué. 
 
 Voici une implémentation naïve de la sérialisation personnalisée de la sérialisation/désérialisation du cache de jetons. Ne copiez pas et ne collez pas ceci dans un environnement de production.

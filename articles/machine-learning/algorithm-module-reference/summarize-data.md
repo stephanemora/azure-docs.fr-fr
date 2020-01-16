@@ -1,7 +1,7 @@
 ---
 title: Totaliser les données
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Synthétiser les données dans Azure Machine Learning Service afin de générer un rapport de statistiques descriptives de base pour les colonnes d’un jeu de données.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Synthétiser les données dans Azure Machine Learning afin de générer un rapport de statistiques descriptives de base pour les colonnes d’un jeu de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428455"
 ---
 # <a name="summarize-data"></a>Totaliser les données
 
@@ -73,4 +73,4 @@ Le rapport du module peut comprendre les statistiques suivantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service.  
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.  

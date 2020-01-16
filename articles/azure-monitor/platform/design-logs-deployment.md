@@ -4,15 +4,15 @@ description: Cet article décrit les considérations et les recommandations pour
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3d4fe7319e0af9c463bd64483f43a4e73ef8871d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75395758"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Conception de votre déploiement de journaux Azure Monitor
 
@@ -46,7 +46,7 @@ Aujourd’hui, les services informatiques sont modélisés à l’aide d’un mo
 * **Décentralisé** : chaque équipe a son propre espace de travail créé dans un groupe de ressources qu’elle possède et gère, et les données de journalisation sont séparées par ressource. Dans ce scénario, l’espace de travail peut rester sécurisé et le contrôle d’accès est cohérent avec l’accès aux ressources, mais il est difficile d’effectuer des corrélations entre les journaux. Les utilisateurs qui ont besoin d’une vue étendue de nombreuses ressources ne peuvent pas analyser les données de manière explicite.
 * **Hybride** : les exigences de conformité de l’audit de sécurité compliquent encore ce scénario, car de nombreuses organisations implémentent les deux modèles de déploiement en parallèle. Cela aboutit généralement à une configuration complexe, coûteuse et difficile à gérer, avec des lacunes dans la couverture des journaux.
 
-Lorsque vous utilisez les agents Log Analytics pour collecter des données, vous devez comprendre ce qui suit pour planifier le déploiement de votre agent :
+Quand vous utilisez les agents Log Analytics pour collecter des données, vous devez comprendre ce qui suit pour planifier le déploiement de votre agent :
 
 * Pour collecter des données à partir d’agents Windows, vous pouvez [configurer chaque agent pour qu’il rend compte à un ou plusieurs espaces de travail](../../azure-monitor/platform/agent-windows.md), même s’il rend compte à un groupe d’administration System Center Operations Manager. L’agent Windows peut rendre compte à quatre espaces de travail au maximum.
 * L’agent Linux ne prend pas en charge l’hébergement multiple et peut uniquement rendre compte à un seul espace de travail.
@@ -55,7 +55,7 @@ Si vous utilisez System Center Operations Manager 2012 R2 ou une version ultér
 
 * Chaque groupe d’administration Operations Manager peut être [connecté à un seul espace de travail](../platform/om-agents.md). 
 * Les ordinateurs Linux rendant compte à un groupe d’administration doivent être configurés pour rendre compte directement à un espace de travail Log Analytics. Si vos ordinateurs Linux rendent déjà compte directement à un espace de travail et que vous souhaitez les superviser avec Operations Manager, effectuez les étapes suivantes pour [qu’ils rendent compte à un groupe d’administration Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
-* Vous pouvez installer l’agent Windows Log Analytics sur l’ordinateur Windows et faire en sorte qu’il rende compte aux Operations Manager intégrés à un espace de travail et à un espace de travail différent.
+* Vous pouvez installer l’agent Windows Log Analytics sur l’ordinateur Windows et faire en sorte qu’il rende compte à la fois à Operations Manager intégré à un espace de travail et à un autre espace de travail.
 
 ## <a name="access-control-overview"></a>Présentation du contrôle d’accès
 
@@ -63,7 +63,7 @@ Avec le contrôle d’accès en fonction du rôle (RBAC), vous pouvez accorder a
 
 Les données auxquelles un utilisateur a accès sont déterminées par plusieurs facteurs, listés dans le tableau suivant. Chacun est décrit dans les sections ci-dessous.
 
-| Facteur | Description |
+| Factor | Description |
 |:---|:---|
 | [Mode d’accès](#access-mode) | Méthode utilisée par l’utilisateur pour accéder à l’espace de travail.  Définit l’étendue des données disponibles et le mode de contrôle d’accès qui est appliqué. |
 | [Mode de contrôle d’accès](#access-control-mode) | Paramètre de l’espace de travail qui détermine si des autorisations sont appliquées au niveau de la ressource ou de l’espace de travail. |
@@ -128,7 +128,9 @@ Pour savoir comment modifier le mode de contrôle d’accès dans le portail, av
 
 ## <a name="ingestion-volume-rate-limit"></a>Limite de débit du volume d’ingestion
 
-Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le seuil du débit d’ingestion a la valeur **500 Mo/min** par espace de travail. Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table *Operation* de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le seuil du débit d’ingestion a la valeur **6 Go/min** par espace de travail. Il s’agit d’une valeur approximative dans la mesure où la taille réelle peut varier d’un type de données à l’autre en fonction de la longueur du journal et de son taux de compression. Cette limite ne s’applique pas aux données envoyées à partir d’agents ou de l’[API de collecteur de données](data-collector-api.md).
+
+Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table *Operation* de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
  
 Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
 

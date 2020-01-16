@@ -1,20 +1,20 @@
 ---
 title: Se connecter à Google Drive
-description: Créer et gérer des fichiers avec les API REST de Google Drive et Azure Logic Apps
+description: Automatiser des workflows qui créent et gèrent des fichiers pour Google Drive à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/07/2016
 tags: connectors
-ms.openlocfilehash: 6310c3b7e5b84915fa336708bc702e94317ad04c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 155a579438747ca7de67eba6449b8a0191e86e2c
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789691"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666837"
 ---
-# <a name="get-started-with-the-google-drive-connector"></a>Prise en main du connecteur Google Drive
+# <a name="create-and-manage-files-for-google-drive-by-using-azure-logic-apps"></a>Créer et gérer des fichiers pour Google Drive à l’aide d’Azure Logic Apps
 
 Connectez-vous à Google Drive pour créer des fichiers, obtenir des lignes et plus encore. Avec Google Drive, vous pouvez effectuer les opérations suivantes : 
 
@@ -33,8 +33,8 @@ Après avoir créé la connexion, vous entrez les propriétés Google Drive, tel
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/googledrive/).
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont fournis par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/googledrive/).
 
-## <a name="more-connectors"></a>Autres connecteurs
+## <a name="next-steps"></a>Étapes suivantes
 
-Revenir à la [liste des API](apis-list.md).
+* En savoir plus sur les autres [connecteurs d’applications logiques](apis-list.md)

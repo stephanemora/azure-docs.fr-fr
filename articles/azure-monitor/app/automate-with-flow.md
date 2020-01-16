@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: ff0896498c0270b8eb43b762228916985f924def
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407540"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatiser les processus Azure Application Insights avec le connecteur pour Microsoft Flow
 
@@ -35,7 +35,7 @@ Dans ce tutoriel, vous allez apprendre à créer un flux qui utilise l’algorit
 
     ![Créer entièrement un flux planifié](./media/automate-with-flow/1-create.png)
 
-### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
+### <a name="step-2-create-a-trigger-for-your-flow"></a>Étape 2 : Créer un déclencheur pour votre flux
 
 1. Dans la fenêtre **Créer un flux planifié**, renseignez le nom de votre flux et la fréquence à laquelle vous souhaitez qu’il s’exécute.
 
@@ -88,7 +88,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
     
     ![Fenêtre de configuration de requête Analytics](./media/automate-with-flow/5-query.png)
 
-### <a name="step-6-configure-the-flow-to-send-email"></a>Étape 6 : Configurer le flux pour envoyer un e-mail
+### <a name="step-6-configure-the-flow-to-send-email"></a>Étape 6 : Configurer le flux pour envoyer un e-mail
 
 1. Recherchez **Office 365 Outlook**.
 2. Cliquez sur **Office 365 Outlook - Envoyer un message électronique**.

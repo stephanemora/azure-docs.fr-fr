@@ -4,15 +4,15 @@ description: Le pack de solution État de la réplication Active Directory surve
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 04112042c871f5268c64bda374f040f1bba92969
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31e6d0c8b374bd494ae8fda36f4f38aabb1ac96b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931351"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406091"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Surveiller l’état de la réplication Active Directory avec Azure Monitor
 
@@ -20,12 +20,19 @@ ms.locfileid: "72931351"
 
 Active Directory est un composant clé de l’environnement informatique d’une entreprise. Pour garantir une haute disponibilité et des performances élevées, chaque contrôleur de domaine a sa propre copie de la base de données Active Directory. Les contrôleurs de domaine se répliquent entre eux pour propager les modifications dans l’entreprise. L’échec de ce processus de réplication peut entraîner divers problèmes au sein de l’entreprise.
 
-Le pack de solution AD Replication Status surveille régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent.
+La solution AD Replication Status supervise régulièrement votre environnement Active Directory pour déterminer si des échecs de réplication se produisent.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand-solution.md)]
 
 ## <a name="installing-and-configuring-the-solution"></a>Installation et configuration de la solution
 Utilisez les informations suivantes pour installer et configurer la solution.
+
+### <a name="prerequisites"></a>Conditions préalables requises
+
+* La solution AD Replication Status nécessite l’installation d’une version prise en charge du .NET Framework (version 4.6.2 ou ultérieure) sur chaque ordinateur sur lequel est installé l’agent Log Analytics pour Windows (également appelé Microsoft Monitoring Agent (MMA)).  Cet agent est utilisé par System Center 2016 Operations Manager, Operations Manager 2012 R2 et Azure Monitor.
+* La solution prend en charge les contrôleurs de domaine exécutant Windows Server 2008 et 2008 R2, Windows Server 2012 et 2012 R2 et Windows Server 2016.
+* Un espace de travail Log Analytics pour ajouter la solution Active Directory Health Check à partir de la Place de marché Azure dans le portail Azure. Aucune configuration supplémentaire n'est requise.
+
 
 ### <a name="install-agents-on-domain-controllers"></a>Installer des agents sur les contrôleurs de domaine
 Vous devez installer des agents sur les contrôleurs de domaine qui sont membres du domaine à évaluer. Sinon, vous devez installer des agents sur les serveurs membres et les configurer de façon à envoyer des données de réplication AD à Azure Monitor. Pour comprendre comment connecter des ordinateurs Windows directement à Azure Monitor, consultez [Connecter des ordinateurs Windows à Azure Monitor](../../azure-monitor/platform/agent-windows.md). Si votre contrôleur de domaine fait déjà partie d’un environnement System Center Operations Manager existant que vous souhaitez connecter à Azure Monitor, consultez la page [Connecter Operations Manager à Azure Monitor](../../azure-monitor/platform/om-agents.md).
@@ -113,33 +120,33 @@ Vous pouvez également cliquer sur **Exporter** pour exporter les résultats ver
 ![Erreurs de l’état de réplication AD exportées dans Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>FAQ sur l’état de la réplication AD
-**Q : Quelle est la fréquence de la mise à jour de l’état de la réplication AD ?**
-R : Les informations sont mises à jour tous les cinq jours.
+**Q : Quelle est la fréquence de la mise à jour de l’état de la réplication AD ?**
+A : Les informations sont mises à jour tous les cinq jours.
 
-**Q : Est-il possible de configurer la fréquence de la mise à jour de ces données ?**
-R : Pas pour l'instant.
+**Q : Est-il possible de configurer la fréquence de la mise à jour de ces données ?**
+A : Pas pour l'instant.
 
-**Q : Dois-je ajouter tous mes contrôleurs de domaine à mon espace de travail Log Analytics pour afficher l’état de réplication ?**
-R : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail Log Analytics, toutes leurs données sont envoyées à Azure Monitor.
+**Q : Dois-je ajouter tous mes contrôleurs de domaine à mon espace de travail Log Analytics pour afficher l’état de réplication ?**
+A : Non, un seul contrôleur de domaine doit être ajouté. Si vous avez plusieurs contrôleurs de domaine dans votre espace de travail Log Analytics, toutes leurs données sont envoyées à Azure Monitor.
 
 **Q : Je ne veux pas ajouter de contrôleurs de domaine à mon espace de travail Log Analytics. Puis-je néanmoins utiliser la solution État de la réplication AD ?**
 
-R : Oui. Vous pouvez définir la valeur d’une clé de Registre pour l’activer. Consultez [Activer un contrôleur autre qu’un contrôleur de domaine](#enable-non-domain-controller).
+A : Oui. Vous pouvez définir la valeur d’une clé de Registre pour l’activer. Consultez [Activer un contrôleur autre qu’un contrôleur de domaine](#enable-non-domain-controller).
 
 **Q : Quel est le nom du processus qui effectue la collecte de données ?**
-R : AdvisorAssessment.exe
+A : AdvisorAssessment.exe
 
-**Q : Combien de temps la collecte de données prend-elle ?**
-R : La durée de la collecte de données dépend de la taille de l’environnement Active Directory, mais elle est généralement inférieure à 15 minutes.
+**Q : Combien de temps la collecte de données prend-elle ?**
+A : La durée de la collecte de données dépend de la taille de l’environnement Active Directory, mais elle est généralement inférieure à 15 minutes.
 
-**Q : Quels types de données sont collectés ?**
-R : Les informations de réplication sont recueillies par le biais de LDAP.
+**Q : Quels types de données sont collectés ?**
+A : Les informations de réplication sont recueillies par le biais de LDAP.
 
-**Q : Est-il possible de configurer les périodes de collecte de données ?**
-R : Pas pour l'instant.
+**Q : Est-il possible de configurer les périodes de collecte de données ?**
+A : Pas pour l'instant.
 
-**Q : Quelles autorisations dois-je avoir pour collecter les données ?**
-R : Les autorisations utilisateur normales sur Active Directory sont suffisantes.
+**Q : Quelles autorisations dois-je avoir pour collecter les données ?**
+A : Les autorisations utilisateur normales sur Active Directory sont suffisantes.
 
 ## <a name="troubleshoot-data-collection-problems"></a>Résoudre les problèmes de collecte de données
 Pour que le pack de solution AD Replication Status puisse collecter des données, vous devez connecter au moins un contrôleur de domaine à votre espace de travail Log Analytics. Un message indiquant que **les données sont toujours en cours de collecte** s’affiche tant que vous n’avez pas connecté de contrôleur de domaine.

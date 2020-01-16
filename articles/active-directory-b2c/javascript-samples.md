@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92ac1e6a85023d49ceb8242b93651a60da3d2166
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064180"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659523"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Exemples JavaScript pour une utilisation dans Active Directory B2C
 
@@ -26,9 +26,13 @@ Vous pouvez ajouter votre propre code JavaScript côté client à vos applicatio
 > [!NOTE]
 > Si vous voulez activer JavaScript pour les flux utilisateur, consultez [Versions des mises en page et JavaScript dans Azure Active Directory B2C](user-flow-javascript-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Sélectionnez une mise en page pour les éléments d’interface utilisateur de votre application. Si vous prévoyez d’utiliser JavaScript, vous devez définir une version de mise en page pour l’ensemble de vos définitions de contenu dans votre stratégie personnalisée.
+### <a name="select-a-page-layout"></a>Sélectionner une mise en page
+
+* [Sélectionnez une mise en page](page-layout.md) pour les éléments d’interface utilisateur de votre application.
+
+    Si vous prévoyez d’utiliser JavaScript, vous devez [définir une version de mise en page](page-layout.md#replace-datauri-values) pour *toutes* les définitions de contenu de votre stratégie personnalisée.
 
 ## <a name="add-the-scriptexecution-element"></a>Ajouter l’élément ScriptExecution
 

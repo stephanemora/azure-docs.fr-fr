@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793347"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689146"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -50,19 +50,21 @@ Les disques de machine virtuelle non gérés ne sont pas pris en charge dans les
 
 ## <a name="filesystem-support-in-sdks"></a>Prise en charge des systèmes de fichiers dans les SDK
 
-- .NET, Java et Python sont en préversion publique. D’autres SDK ne sont actuellement pas pris en charge.
-- Les opérations d’extraction et de définition de listes de contrôle d’accès ne sont pas récursives.
+- La prise en charge de [.NET](data-lake-storage-directory-file-acl-dotnet.md), de [Java](data-lake-storage-directory-file-acl-java.md) et de [Python](data-lake-storage-directory-file-acl-python.md) sont en préversion publique. D’autres SDK ne sont actuellement pas pris en charge.
+- Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
 
 ## <a name="filesystem-support-in-powershell-and-azure-cli"></a>Prise en charge des systèmes de fichiers dans PowerShell et Azure CLI
 
-Les opérations d’extraction et de définition de listes de contrôle d’accès ne sont pas récursives.
+- La prise en charge de [PowerShell](data-lake-storage-directory-file-acl-powershell.md) et d’[Azure CLI](data-lake-storage-directory-file-acl-cli.md) sont en préversion publique.
+- Actuellement, les opérations d’obtention et de définition de listes de contrôle d’accès ne sont pas récursives.
 
 ## <a name="support-for-other-blob-storage-features"></a>Prise en charge d’autres fonctionnalités de Stockage Blob
 
 Le tableau suivant liste tous les autres outils et fonctionnalités qui ne sont pas encore pris en charge ou qui sont partiellement pris en charge avec les comptes de stockage ayant un espace de noms hiérarchique (Azure Data Lake Storage Gen2).
 
-| Fonctionnalité / outil    | Plus d’informations    |
+| Fonctionnalité / outil    | Informations complémentaires    |
 |--------|-----------|
+| **Basculement de compte** |Pas encore pris en charge|
 | **AZCopy** | Prise en charge propre à la version <br><br>Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy, telles qu’AzCopy v8.1, ne sont pas prises en charge.|
 | **Stratégies de gestion du cycle de vie de Stockage Blob Azure** | Les stratégies de gestion du cycle de vie sont prises en charge (préversion).  Tous les niveaux d’accès sont pris en charge. Le niveau d’accès archive est actuellement en préversion. La suppression des instantanés d’objets BLOB n’est pas encore prise en charge. <br><br> Il existe actuellement des bogues affectant les stratégies de gestion du cycle de vie et le niveau d’accès à l’archive.  Inscrivez-vous à la préversion des stratégies de gestion du cycle de vie et du niveau d’accès archive [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
 | **Azure Content Delivery Network (CDN)** | Pas encore pris en charge|

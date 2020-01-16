@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1c8f56810edb39db66cbb83750e5cff02e22662a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232872"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433282"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -32,7 +32,8 @@ Les API HTTP intégrées suivantes sont prises en charge.
 * [Envoyer un événement externe à une orchestration](durable-functions-http-api.md#raise-event)
 * [Vider l’historique d’orchestration](durable-functions-http-api.md#purge-single-instance-history)
 * [Envoyer un événement d’opération à une entité](durable-functions-http-api.md#signal-entity)
-* [Interroger l’état d’une entité](durable-functions-http-api.md#query-entity)
+* [Obtenir l’état d’une entité](durable-functions-http-api.md#get-entity)
+* [Interroger la liste des entités](durable-functions-http-api.md#list-entities)
 
 Consultez l’[article sur les API HTTP](durable-functions-http-api.md) pour obtenir une description complète de toutes les API HTTP intégrées exposées par l’extension Durable Functions.
 
@@ -178,7 +179,7 @@ public static async Task RunOrchestrator(
 }
 ```
 
-Dans l’exemple précédent, le paramètre `tokenSource` est configuré pour acquérir des jetons Azure AD pour [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). Les jetons sont identifiés par l’URI de ressource `https://management.core.windows.net`. Cet exemple part du principe que l’application de fonction actuelle s’exécute localement ou a été déployée en tant qu’application de fonction avec une identité managée. L’identité locale ou l’identité managée est supposée avoir l’autorisation de gérer des machines virtuelles dans le groupe de ressources spécifié `myRG`.
+Dans l’exemple précédent, le paramètre `tokenSource` est configuré pour acquérir des jetons Azure AD pour [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Les jetons sont identifiés par l’URI de ressource `https://management.core.windows.net`. Cet exemple part du principe que l’application de fonction actuelle s’exécute localement ou a été déployée en tant qu’application de fonction avec une identité managée. L’identité locale ou l’identité managée est supposée avoir l’autorisation de gérer des machines virtuelles dans le groupe de ressources spécifié `myRG`.
 
 Lors de l’exécution, la source de jeton configurée retourne automatiquement un jeton d’accès OAuth 2.0. La source ajoute ensuite le jeton en tant que jeton du porteur à l’en-tête Authorization de la demande sortante. Ce modèle constitue une amélioration par rapport à l’ajout manuel d’en-têtes d’autorisation aux requêtes HTTP pour les raisons suivantes :
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/30/2019
 ms.author: alsin
-ms.openlocfilehash: 2ae1f3769254575e33eaa5b4e3a24c47b9eb1aff
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194163"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451239"
 ---
 # <a name="azure-serial-console"></a>Console série Azure
 
@@ -28,7 +28,7 @@ La console série du portail Azure permet aux machines virtuelles et aux instanc
 La console série fonctionne de la même manière pour les machines virtuelles et les instances de groupe de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles incluent implicitement les instances de groupe de machines virtuelles identiques, sauf indication contraire.
 
 > [!NOTE]
-> La console série est généralement disponible dans les régions Azure mondiales. Elle n’est pas encore disponible dans les clouds Azure Government, ni dans les clouds Azure - Chine.
+> La console série est en disponibilité générale dans les régions Azure mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 ## <a name="prerequisites-to-access-the-azure-serial-console"></a>Prérequis pour l’accès à la console série Azure
 Pour accéder à la console série sur votre machine virtuelle ou instance de groupe de machines virtuelles identiques, vous devez disposer des éléments suivants :
@@ -41,7 +41,7 @@ Pour accéder à la console série sur votre machine virtuelle ou instance de gr
 > - Les déploiements classiques ne sont pas pris en charge. Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Azure Resource Manager.
 
 ## <a name="get-started-with-the-serial-console"></a>Bien démarrer avec la console série
-Pour les machines virtuelles et les groupes de machines virtuelles identiques, la console série est accessible uniquement sur le Portail Azure :
+Pour les machines virtuelles et les groupes de machines virtuelles identiques, la console série est accessible uniquement sur le portail Azure :
 
 ### <a name="serial-console-for-virtual-machines"></a>Console série pour machines virtuelles
 La console série pour machines virtuelles est accessible en cliquant simplement sur **Console série** dans la section **Support + dépannage** dans le portail Azure.

@@ -1,17 +1,17 @@
 ---
-title: Ajouter et appeler des fonctions Azure à partir d’Azure Logic Apps
-description: Ajouter et exécuter des fonctions Azure à partir d’applications logiques
+title: Ajouter et appeler Azure Functions à partir d’Azure Logic Apps
+description: Appelez et exécutez du code personnalisé dans Azure Functions à partir de tâches et de flux de travail automatisés dans Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 8e72cda1965280e0694493e533f49f71c746ebc6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2525ca681d805a3b6f086335531a4beaeb9c4e51
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453467"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Appeler des fonctions Azure à partir d’Azure Logic Apps
 
@@ -26,7 +26,7 @@ Pour exécuter des extraits de code sans créer de fonctions Azure, découvrez c
 > [!NOTE]
 > L’intégration entre Logic Apps et Azure Functions ne fonctionne actuellement pas avec l’option Emplacements activée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 

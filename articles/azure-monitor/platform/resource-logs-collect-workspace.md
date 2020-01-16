@@ -5,35 +5,39 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894528"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530848"
 ---
-# <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux d’activité de ressources Azure dans l’espace de travail Log Analytics dans Azure Monitor
-Dans Azure, les [journaux de ressources](resource-logs-overview.md) fournissent des informations complètes et fréquentes sur le fonctionnement interne d’une ressource Azure. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
+# <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de plateforme Azure dans l’espace de travail Log Analytics dans Azure Monitor
+[Les journaux de plateforme](resource-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
 
 
-## <a name="what-you-can-do-with-resource-logs-in-a-workspace"></a>Comment utiliser les journaux de ressources dans un espace de travail
-La collecte de journaux de ressources dans un espace de travail Log Analytics vous permet d’analyser les journaux de toutes vos ressources Azure et d'utiliser toutes les fonctionnalités disponibles pour les [Journaux d'activité Azure Monitor](data-platform-logs.md), notamment :
+## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Comment utiliser les journaux de plateforme dans un espace de travail
+La collecte de journaux de plateforme dans un espace de travail Log Analytics vous permet d’analyser les journaux de toutes vos ressources Azure et d’utiliser toutes les fonctionnalités disponibles pour les [Journaux Azure Monitor](data-platform-logs.md), notamment :
 
 * **Requêtes de journal** - Créez des [requêtes de journal](../log-query/log-query-overview.md) à l’aide d’un puissant langage de requête pour analyser et obtenir rapidement des informations sur vos données de diagnostic et les analyser avec les données issues d’autres sources dans Azure Monitor.
 * **Génération d'alertes** - Recevez une notification proactive des conditions et modèles critiques identifiés dans vos journaux de ressources à l’aide des [alertes de journal dans Azure Monitor](alerts-log.md).
 * **Visualisations** - Épinglez les résultats d’une requête de journal dans un tableau de bord Azure ou incluez-les dans un classeur en tant que rapport interactif.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Si vous n’en avez pas déjà, vous devez [créer un espace de travail](../learn/quick-create-workspace.md). Cet espace de travail ne doit pas nécessairement se trouver dans le même abonnement que la ressource qui envoie des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 ## <a name="create-a-diagnostic-setting"></a>Créer un paramètre de diagnostic
-Par défaut, les journaux de ressources ne sont pas collectés. Collectez-les dans un espace de travail Log Analytics et dans d’autres destinations en créant un paramètre de diagnostic pour une ressource Azure. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter des journaux et des métriques dans Azure](diagnostic-settings.md).
+Envoyez les journaux de plateforme à un espace de travail Log Analytics et à d’autres destinations en créant un paramètre de diagnostic pour une ressource Azure. Pour plus d’informations, consultez [Créer un paramètre de diagnostic pour collecter des journaux et des métriques dans Azure](diagnostic-settings.md).
 
-## <a name="collection-mode"></a>Mode de collecte
-Les données collectées dans un espace de travail Log Analytics sont stockées dans des tables, comme décrit dans [Structure des journaux Azure Monitor](../log-query/logs-structure.md). Les tables utilisées par les journaux de ressources dépendent du type de collection que la ressource utilise :
+
+## <a name="activity-log-collection"></a>Collecte des journaux d’activité
+Vous pouvez envoyer le journal d’activité d’un abonnement unique vers un maximum de cinq espaces de travail Log Analytics. Les données des journaux de ressources collectées dans un espace de travail Log Analytics sont stockées dans la table **AzureActivity**. 
+
+## <a name="resource-log-collection-mode"></a>Mode de collecte des journaux de ressources
+Les données des journaux de ressources collectées dans un espace de travail Log Analytics sont stockées dans des tables, comme décrit dans [Structure des journaux Azure Monitor](../log-query/logs-structure.md). Les tables utilisées par les journaux de ressources dépendent du type de collection que la ressource utilise :
 
 - Diagnostics Azure - Toutes les données sont écrites dans la table _AzureDiagnostics_.
 - Spécifique à la ressource - Les données sont écrites dans une table individuelle pour chaque catégorie de la ressource.
@@ -51,7 +55,7 @@ Prenons l’exemple suivant dans lequel les paramètres de diagnostic sont colle
 
 La table AzureDiagnostics se présente comme suit :  
 
-| ResourceProvider    | Category     | A  | b  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Category     | Un  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
 | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
@@ -68,7 +72,7 @@ L’exemple ci-dessus se traduirait par la création de trois tables :
  
 - Table *Service1AuditLogs* comme suit :
 
-    | Fournisseur de ressources | Category | A | b | C |
+    | Fournisseur de ressources | Category | Un | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -112,7 +116,7 @@ Dans les journaux d'activité Azure Monitor, les propriétés sont limitées à 
 
 Si vous collectez des journaux de ressources à partir de plusieurs services, _AzureDiagnostics_ peut dépasser cette limite et certaines données n’y seront pas consignées. En attendant que tous les services Azure prennent en charge le mode Spécifique à la ressources, il vous est conseillé de configurer les ressources de manière à ce qu'elles écrivent dans plusieurs espaces de travail afin d'éviter d’atteindre la limite de 500 colonnes.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Azure Data Factory
 En raison d’un ensemble très détaillé de journaux, Azure Data Factory est connu pour écrire un grand nombre de colonnes et, peut amener _AzureDiagnostics_ à dépasser sa limite. Pour tous les paramètres de diagnostic configurés avant l’activation du mode Spécifique à la ressource, une colonne est créée pour chaque paramètre utilisateur portant un nom unique par rapport à une activité. D’autres colonnes sont créées en raison de la nature détaillée des entrées et des sorties d’activité.
  
 Vous devez migrer vos journaux pour utiliser le mode Spécifique à la ressource dans les meilleurs délais. Si vous ne pouvez pas le faire immédiatement, une alternative temporaire consiste à isoler les journaux Azure Data Factory dans leur propre espace de travail afin de minimiser les risques d'impact de ceux-ci sur d'autres types de journaux collectés dans vos espaces de travail.
@@ -120,5 +124,5 @@ Vous devez migrer vos journaux pour utiliser le mode Spécifique à la ressource
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les journaux de ressources Azure, consultez [Vue d'ensemble des journaux de ressources Azure](resource-logs-overview.md).
-* Pour créer un paramètre de diagnostic afin de collecter les journaux de ressources dans un espace de travail Log Analytics, consultez [Créer un paramètre de diagnostic pour collecter des journaux et métriques dans Azure](diagnostic-settings.md).
+* [Découvrez plus d’informations sur les journaux de ressource](resource-logs-overview.md)
+* [Créer un paramètre de diagnostic pour collecter les journaux et les mesures dans Azure](diagnostic-settings.md).

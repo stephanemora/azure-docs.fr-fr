@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d5f5da4811a9551f687fed6ab317bb3d33041622
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438842"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -51,7 +51,7 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 * Créez un jeu de données faisant référence au service lié Stockage. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite. 
 * Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight que vous avez créé. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md).
 
 1. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
@@ -63,14 +63,14 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 ### <a name="create-a-data-factory"></a>Créer une fabrique de données
 Pour créer une fabrique de données, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Sélectionnez **Nouveau** > **Données + Analytique** > **Data Factory**.
 
 1. Dans le panneau **Nouvelle fabrique de données**, entrez **SparkDF** dans le champ **Nom**.
 
    > [!IMPORTANT]
-   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : Règles d’affectation des noms](data-factory-naming-rules.md).
+   > Le nom de la fabrique de données Azure doit être un nom global unique. Si l’erreur « Data factory name SparkDF is not available » (Le nom de fabrique de données SparkDF n’est pas disponible) s’affiche, changez le nom de la fabrique de données. Par exemple, utilisez votrenomSparkDF et recréez la fabrique de données. Pour plus d’informations sur les règles de nommage, consultez [Data Factory : règles de nommage](data-factory-naming-rules.md).
 
 1. Sous **Abonnement**, sélectionnez l’abonnement Azure dans lequel vous souhaitez créer la fabrique de données.
 
@@ -105,7 +105,7 @@ Dans cette étape, vous liez votre compte de stockage à votre fabrique de donn�
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Remplacez **account name** et **account key** par le nom et la clé d’accès de votre compte de stockage. Pour savoir comment obtenir votre clé d’accès de stockage, reportez-vous aux informations sur l’affichage, la copie et la régénération de clés d’accès de stockage dans [Gérer votre compte de stockage](../../storage/common/storage-account-manage.md#access-keys).
+1. Remplacez **account name** et **account key** par le nom et la clé d’accès de votre compte de stockage. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
 1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. Une fois le service lié déployé, la fenêtre Draft-1 disparaît. **AzureStorageLinkedService** apparaît dans l’arborescence à gauche.
 
@@ -267,13 +267,13 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
 Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
 
 Pour résoudre des problèmes, procédez comme suit :
 
 
-1. Accédez à `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`
+1. Atteindre `https://<CLUSTERNAME>.azurehdinsight.net/yarnui/hn/cluster`.
 
     ![Application d’interface utilisateur YARN](media/data-factory-spark/yarnui-application.png)
 
@@ -326,13 +326,13 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| name | Nom de l'activité dans le pipeline. | OUI |
+| name | Nom de l'activité dans le pipeline. | Oui |
 | description | Texte qui décrit l’activité. | Non |
-| type | Cette propriété doit être définie sur HDInsightSpark. | OUI |
-| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | OUI |
-| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | OUI |
-| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | OUI |
-| className | Classe principale Java/Spark de l’application. | Non |
+| type | Cette propriété doit être définie sur HDInsightSpark. | Oui |
+| linkedServiceName | Nom d’un service lié HDInsight sur lequel s’exécute le programme Spark. | Oui |
+| rootPath | Conteneur d’objets Blob et dossier contenant le fichier Spark. Le nom de fichier est sensible à la casse. | Oui |
+| entryFilePath | Chemin d’accès relatif au dossier racine du code/package Spark. | Oui |
+| ClassName | Classe principale Java/Spark de l’application. | Non |
 | arguments | Liste d’arguments de ligne de commande du programme Spark. | Non |
 | proxyUser | Compte d’utilisateur à emprunter pour exécuter le programme Spark. | Non |
 | sparkConfig | Spécifiez les valeurs des propriétés de configuration de Spark lisétes dans la rubrique [Configuration Spark : Propriétés de l’application](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Non |
@@ -344,10 +344,10 @@ L’activité Spark ne prend pas en charge un script en ligne, contrairement aux
 
 Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
 
-| Path | Description | Obligatoire | type |
+| Path | Description | Obligatoire | Type |
 | ---- | ----------- | -------- | ---- |
-| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | OUI | Dossier |
-| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | OUI | Fichier |
+| . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
+| &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |
 | ./jars | Tous les fichiers dans ce dossier sont chargés et placés dans le classpath Java du cluster. | Non | Dossier |
 | ./pyFiles | Tous les fichiers dans ce dossier sont chargés et placés dans le PYTHONPATH du cluster. | Non | Dossier |
 | ./files | Tous les fichiers dans ce dossier sont chargés et placés dans le répertoire de travail de l’exécuteur. | Non | Dossier |

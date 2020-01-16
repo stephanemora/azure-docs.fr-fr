@@ -4,15 +4,15 @@ description: Décrit les symptômes, les causes et les solutions aux problèmes 
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 486c68cb32b5f4c8c8a18b21d1aee139ffda45bf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305362"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75397454"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -34,11 +34,11 @@ Si l’agent communique via un serveur proxy ou un pare-feu, des restrictions pe
 
 Vérifiez que le pare-feu et le proxy sont configurés pour autoriser les URL et les ports suivants, indiqués dans le tableau ci-dessous. Confirmez également que l’inspection HTTP n’est pas activée pour le trafic web, car cela peut empêcher un canal TLS sécurisé entre l’agent et Azure Monitor.  
 
-|Ressource de l'agent|Ports |Direction |Ignorer l’inspection HTTPS|
+|Ressource de l'agent|Ports |Sens |Ignorer l’inspection HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
-|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|OUI |  
-|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|OUI |  
+|*.ods.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.oms.opinsights.azure.com |Port 443 |Règle de trafic sortant|Oui |  
+|*.blob.core.windows.net |Port 443 |Règle de trafic sortant|Oui |  
 
 Pour obtenir les informations relatives au pare-feu nécessaires pour Azure Government, consultez [Azure Government Monitoring + Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser des runbooks et des solutions de gestion dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
@@ -62,7 +62,7 @@ Plusieurs méthodes vous permettent de vérifier si l’agent communique correct
 
 - Filtrez le journal des événements *Operations Manager* par **Sources d’événements** - *Modules du service de contrôle d’intégrité*, *HealthService* et *Connecteur de service*, et filtrez par **Niveau d’événement** *Avertissement* et *Erreur* pour vérifier s’il contient des événements écrits, issus du tableau suivant. Si tel est le cas, passez en revue les étapes de résolution incluses pour chaque événement possible.
 
-    |ID de l’événement |Source |Description |Résolution : |
+    |ID de l’événement |Source |Description |Résolution |
     |---------|-------|------------|-----------|
     |2133 & 2129 |Service de contrôle d’intégrité |Échec de la connexion de l’agent au service |Cette erreur peut se produire lorsque l’agent ne peut pas communiquer directement ou via un pare-feu/serveur proxy avec le service Azure Monitor. Vérifiez les paramètres de proxy de l’agent ou que le pare-feu/proxy réseau autorise le trafic TCP de l’ordinateur au service.|
     |2138 |Modules du service de contrôle d’intégrité |Le proxy requiert une authentification |Configurez les paramètres de proxy de l’agent et spécifiez le nom d’utilisateur/mot de passe requis pour s’authentifier auprès du serveur proxy. |
@@ -94,13 +94,13 @@ Heartbeat
 Si la requête retourne des résultats, vous devez déterminer si un type de données particulier n’est pas collecté et transféré au service. Cela peut être dû à l’agent qui ne reçoit pas la configuration mise à jour du service ou à certains autres symptôme empêchant l’agent de fonctionner normalement. Procédez comme suit pour poursuivre le dépannage.
 
 1. Ouvrez une invite de commandes avec élévation de privilèges sur l’ordinateur et redémarrez le service de l’agent en tapant `net stop healthservice && net start healthservice`.
-2. Ouvrez le journal des événements *Operations Manager* et recherchez les **ID d’événements** *7023, 7024, 7025, 7028* et *1210* à partir de **Source d'événement** *HealthService*.  Ces événements indiquent que l’agent reçoit correctement la configuration d’Azure Monitor et surveillent activement l’ordinateur. La description de l’événement d’ID 1210 spécifie également sur sa dernière ligne toutes les solutions et les informations qui sont incluses dans l’étendue de la supervision sur l’agent.  
+2. Ouvrez le journal des événements *Operations Manager* et recherchez les **ID d’événements** *7023, 7024, 7025, 7028* et *1210* à partir de **Source d’événement** *HealthService*.  Ces événements indiquent que l’agent reçoit correctement la configuration d’Azure Monitor et surveillent activement l’ordinateur. La description de l’événement d’ID 1210 spécifie également sur sa dernière ligne toutes les solutions et les informations qui sont incluses dans l’étendue de la supervision sur l’agent.  
 
     ![Description de l’événement d’ID 1210](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
 3. Si après quelques minutes, vous ne voyez pas les données attendues dans les résultats de la requête ou la visualisation, selon que vous affichez les données à partir d’une solution ou d’Insight, à partir du journal des événements *Operations Manager*, recherchez **Sources d’événement** *HealthService* et *Modules de service de contrôle d’intégrité*, et filtrez par **Niveau d’événement** *Avertissement* et *Erreur* pour vérifier s’il contient des événements écrits, issus du tableau suivant.
 
-    |ID de l’événement |Source |Description |Résolution : |
+    |ID de l’événement |Source |Description |Résolution |
     |---------|-------|------------|
     |8000 |HealthService |Cet événement spécifie si un flux de travail lié aux performances, à un événement ou à un autre type de données collectées est dans l’incapacité de transférer au service pour ingestion à l’espace de travail. | L’événement d’ID 2136 issu de la source HealthService est écrit avec cet événement et peut indiquer que l’agent ne peut pas communiquer avec le service, probablement en raison d’une configuration incorrecte des paramètres de proxy et d’authentification, d’une panne de réseau ou du fait que le pare-feu/proxy du réseau n’autorise pas le trafic TCP de l’ordinateur au service.| 
     |10102 et 10103 |Modules du service de contrôle d’intégrité |Le flux de travail n’a pas pu résoudre la source de données. |Cela peut se produire si l’instance ou le compteur de performances spécifié n’existe pas sur l’ordinateur ou est incorrectement défini dans les paramètres de données de l’espace de travail. S’il s’agit d’un [compteur de performances](data-sources-performance-counters.md#configuring-performance-counters) spécifié par l’utilisateur, vérifiez que les informations spécifiées suivent le format correct et existent sur les ordinateurs cibles. |

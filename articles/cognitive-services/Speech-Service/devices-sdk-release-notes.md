@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: wellsi
-ms.openlocfilehash: 3a74f3eb9aece3535f5505d69833a074c2dd0ed2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4d5d3cc6159a4601f0a398e87b89eea9b8d3aba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091193"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75446946"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notes de publication : Kit de développement logiciel (SDK) Speech Devices
 
@@ -23,14 +23,14 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 
 ## <a name="speech-devices-sdk-170"></a>SDK Speech Devices 1.7.0 :
 
-*   Linux ARM est maintenant pris en charge.
-*   Les binaires initiaux pour Roobov2 sont fournis (Linux ARM64).
-*   Les utilisateurs Windows peuvent utiliser AudioConfig.fromDefaultMicrophoneInput() ou AudioConfig.fromMicrophoneInput(deviceName) pour spécifier le microphone à utiliser.
-*   La taille de la bibliothèque a été optimisée.
-*   La reconnaissance multitours à l’aide du même objet de module de reconnaissance vocale/d’intention est prise en charge.
-*   Correction des blocages occasionnels qui se produisent pendant l’arrêt de la reconnaissance.
-*   Les exemples d’applications contiennent maintenant un exemple de fichier participants.properties pour illustrer le format du fichier.
-*   Mise à jour du composant [SDK Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.7.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
+- Linux ARM est maintenant pris en charge.
+- Les fichiers binaires initiaux pour Rooboo v2 sont fournis (Linux ARM64).
+- Les utilisateurs Windows peuvent utiliser `AudioConfig.fromDefaultMicrophoneInput()` ou `AudioConfig.fromMicrophoneInput(deviceName)` pour spécifier le microphone à utiliser.
+- La taille de la bibliothèque a été optimisée.
+- La reconnaissance multitours à l’aide du même objet de module de reconnaissance vocale/d’intention est prise en charge.
+- Correction des blocages occasionnels qui se produisent pendant l’arrêt de la reconnaissance.
+- Les exemples d’applications contiennent maintenant un exemple de fichier participants.properties pour illustrer le format du fichier.
+- Mise à jour du composant [SDK Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.7.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-160"></a>Kit de développement logiciel (SDK) Speech Devices 1.6.0 :
 
@@ -68,8 +68,8 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 
 - [L’installation d’un mot clé](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) a été simplifiée. Elle fait désormais partie de l’application et n’a pas besoin d’une installation distincte sur l’appareil.
 - La reconnaissance des mots clés a changé, et deux événements sont pris en charge.
-  - RecognizingKeyword indique que le résultat de la reconnaissance vocale contient un mot-clé (non vérifié).
-  - RecognizedKeyword indique que cette reconnaissance du mot-clé a terminé la reconnaissance du mot-clé donné.
+  - `RecognizingKeyword,` indique que le résultat de la reconnaissance vocale contient un mot clé (non vérifié).
+  - `RecognizedKeyword` indique que la reconnaissance de mots clés a effectué la reconnaissance du mot clé donné.
 
 ## <a name="speech-devices-sdk-110-2018-nov-release"></a>SDK Speech Devices 1.1.0 : version de novembre 2018
 

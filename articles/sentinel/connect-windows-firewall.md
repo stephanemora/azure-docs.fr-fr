@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 840e8b3bc86281a8c42689b1cb68917741ef2bd9
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: feb7fa0b3f820c3f918fc8a5c817e7fe5fb15fc9
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240622"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610401"
 ---
 # <a name="connect-windows-firewall"></a>Connecter le Pare-feu Windows
 
@@ -30,7 +30,8 @@ Le connecteur de pare-feu Windows vous permet de connecter facilement les journa
 
 
 > [!NOTE]
-> Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> - Les données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
+> - Si Azure Sentinel et Azure Security Center sont collectés dans le même espace de travail, il n’est pas nécessaire d’activer la solution du Pare-feu Windows par le biais de ce connecteur. Si vous l’avez activée malgré tout, cela n’entraîne pas de duplication de données. 
 
 ## <a name="enable-the-connector"></a>Activer le connecteur 
 

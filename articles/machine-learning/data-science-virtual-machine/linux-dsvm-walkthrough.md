@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428386"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 
@@ -24,7 +24,7 @@ Les tâches de science des données décrites dans cette procédure pas à pas s
 
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase). Spambase est un ensemble d’e-mails marqués comme courrier indésirable ou normal (n’est pas considéré comme courrier indésirable). Spambase contient également des statistiques sur le contenu des e-mails. Nous parlerons des statistiques plus loin dans la procédure pas à pas.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants requis suivants :
 
@@ -174,17 +174,17 @@ Essayons également un modèle de forêts aléatoires. Les forêts aléatoires e
 
 ## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Déployer un modèle sur Azure Machine Learning Studio (classique)
 
-[Azure Machine Learning Studio (classique)](https://studio.azureml.net/) est un service cloud qui facilite la création et le déploiement des modèles d’analyse prédictive. Une fonctionnalité intéressante de la version classique d’Azure Machine Learning Studio est sa capacité à publier toute fonction R comme un service web. Le package Azure Machine Learning Studio rend le déploiement facile à réaliser à partir de notre session R sur la Data Science Virtual Machine.
+[Azure Machine Learning Studio (classique)](https://studio.azureml.net/) est un service cloud qui facilite la création et le déploiement des modèles d’analyse prédictive. Une fonctionnalité intéressante d’Azure Machine Learning Studio (classique) est sa capacité à publier toute fonction R comme un service web. Le package R Azure Machine Learning Studio (classique) rend le déploiement facile à réaliser à partir de votre session R sur la Data Science Virtual Machine.
 
 Pour déployer le code de l’arbre de décision à partir de la section précédente, connectez-vous à Azure Machine Learning Studio (classique). Vous avez besoin de votre ID d’espace de travail et d’un jeton d’autorisation pour vous connecter. Pour rechercher ces valeurs et initialiser les variables Azure Machine Learning avec celles-ci, effectuez ces étapes :
 
 1. Dans le menu de gauche, sélectionnez **Paramètres**. Notez la valeur de **l’ID d’espace de travail**.
 
-   ![L’ID d’espace de travail Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-id.png)
+   ![ID de l’espace de travail Azure Machine Learning Studio (classique)](./media/linux-dsvm-walkthrough/workspace-id.png)
 
 1. Sélectionnez l’onglet **Jetons d’autorisation**. Notez la valeur **du jeton d’autorisation principal**.
 
-   ![Le jeton d’autorisation principal d’Azure Machine Learning Studio](./media/linux-dsvm-walkthrough/workspace-token.png)
+   ![Le jeton d’autorisation principal d’Azure Machine Learning Studio (classique)](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. Chargez le package **AzureML** , puis définissez les valeurs des variables avec votre jeton et votre ID d’espace de travail dans votre session R sur la machine virtuelle de science des données :
 
         if(!require("AzureML")) install.packages("AzureML")
@@ -352,7 +352,7 @@ Plusieurs exemples de notebooks sont déjà installés sur la DSVM :
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) est un outil R graphique pour l’exploration de données. Rattle possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles. [Rattle : une interface utilisateur graphique pour l’exploration de données pour R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fournit une procédure pas à pas présentant les fonctionnalités de Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (l’*o*util d’*analyse* *R* *p*our *a*pprendre plus *f*acilement) est un outil R graphique pour l’exploration de données. Rattle possède une interface intuitive qui facilite la charge, l’exploration et la transformation des données, ainsi que la création et l’évaluation des modèles. [Rattle : une interface utilisateur graphique pour l’exploration de données pour R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fournit une procédure pas à pas présentant les fonctionnalités de Rattle.
 
 Installez et démarrez Rattle en exécutant les commandes suivantes :
 

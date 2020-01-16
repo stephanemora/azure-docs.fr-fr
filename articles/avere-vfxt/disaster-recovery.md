@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 4a8dbe9d1c66955e585f7b2cbf842193c965252e
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74998731"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75414222"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guide pour la reprise d’activité pour Avere vFXT pour Azure
 
@@ -104,7 +104,7 @@ Pour accéder au conteneur de sauvegarde à partir d’un cluster Avere vFXT pou
 1. Si nécessaire, créez un cluster Avere vFXT pour Azure dans une région non affectée.
 
    > [!TIP]
-   > Quand vous créez un cluster Avere vFXT pour Azure, vous pouvez enregistrer une copie de son modèle et de ses paramètres de création. Si vous enregistrez ces informations lors de la création de votre cluster principal, vous pouvez les utiliser pour créer un cluster de remplacement avec les mêmes propriétés. Dans la page [Validation et résumé](avere-vfxt-deploy.md#validation-and-purchase), cliquez sur le lien **Télécharger le modèle et les paramètres**. Enregistrez les informations dans un fichier avant de cliquer sur le bouton **OK** pour créer le cluster.
+   > Quand vous créez un cluster Avere vFXT pour Azure, vous pouvez enregistrer une copie de son modèle et de ses paramètres de création. Si vous enregistrez ces informations lors de la création de votre cluster principal, vous pouvez les utiliser pour créer un cluster de remplacement avec les mêmes propriétés. Dans la page [Récapitulatif](avere-vfxt-deploy.md#validation-and-purchase), cliquez sur le lien **Télécharger le modèle et les paramètres**. Enregistrez les informations dans un fichier avant de créer le cluster.
 
 1. Ajoutez un nouveau serveur de fichiers principal cloud qui pointe vers le conteneur d’objets blob dupliqué.
 

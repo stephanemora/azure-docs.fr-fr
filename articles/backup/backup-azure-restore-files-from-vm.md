@@ -3,12 +3,12 @@ title: Récupérer des fichiers et des dossiers à partir d’une sauvegarde de 
 description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4fd5de0c199bfe104b8bb4f5b33b9ed8a86924f6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172858"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392563"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -168,7 +168,7 @@ mount [RAID Disk Path] [/mountpath]
 
 Si le disque RAID contient un autre gestionnaire de volume logique configuré, utilisez la procédure précédente pour les partitions LVM, mais utilisez le nom de volume à la place du nom de disque RAID
 
-## <a name="system-requirements"></a>Conditions requises pour le système
+## <a name="system-requirements"></a>Configuration système requise
 
 ### <a name="for-windows-os"></a>Pour système d’exploitation Windows
 
@@ -176,8 +176,8 @@ Le tableau suivant indique la compatibilité entre les systèmes d’exploitatio
 
 |Système d’exploitation serveur | Système d’exploitation client compatible  |
 | --------------- | ---- |
-| Windows Server 2019    | Windows 10 |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2019    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -194,7 +194,7 @@ Sur Linux, le système d’exploitation de l’ordinateur utilisé pour restaure
 | Debian | 7 et versions ultérieures |
 | Oracle Linux | 6.4 et versions ultérieures |
 | SLES | 12 et versions ultérieures |
-| openSUSE | 42.2 et versions ultérieures |
+| OpenSUSE | 42.2 et versions ultérieures |
 
 > [!Note]
 > Nous avons détecté certains problèmes lors de l’exécution du script de récupération de fichier sur des ordinateurs équipés du système d’exploitation SLES 12 SP4. L’équipe SLES est en train d’étudier le problème.
@@ -211,9 +211,9 @@ Le script requiert également les composants Python et bash pour exécuter et é
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Récupération de fichiers à partir de sauvegardes de machines virtuelles avec des disques de grande taille
 
-Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure dont le nombre de disques est > 16 et où chaque taille de disque est > 4 To.
+Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure dont le nombre de disques est > 16 et où chaque taille de disque est > 32 To.
 
-Étant donné que le processus de récupération de fichier joint tous les disques de la sauvegarde, lorsqu’un grand nombre de disques (> 16) ou des disques de grande taille (> 4 To chacun) sont utilisés, les points d’action suivants sont recommandés :
+Étant donné que le processus de récupération de fichier joint tous les disques de la sauvegarde, quand un grand nombre de disques (> 16) ou des disques de grande taille (> 32 To chacun) sont utilisés, les points d’action suivants sont recommandés :
 
 - Conservez un serveur de restauration distinct (machines virtuelles D2v3 machine virtuelle Azure) pour la récupération de fichiers. Vous pouvez utiliser cette récupération de fichier, puis l’arrêter si elle n’est pas nécessaire. La restauration sur l’ordinateur d’origine n’est pas recommandée, car elle aura un impact significatif sur la machine virtuelle elle-même.
 - Exécutez ensuite une fois le script afin de vérifier si l’opération de récupération de fichiers a été effectuée correctement.
@@ -238,7 +238,7 @@ Cette section explique comment effectuer une récupération de fichiers à parti
 - Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
 - Après la récupération de fichiers, veillez à revenir au portail pour cliquer sur « Démonter les disques » pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez des problèmes lors de la récupération de fichiers à partir de machines virtuelles, consultez le tableau suivant pour plus d’informations.
 

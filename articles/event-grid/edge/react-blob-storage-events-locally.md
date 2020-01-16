@@ -2,21 +2,21 @@
 title: Réagir aux événements du module Stockage Blob – Azure Event Grid sur IoT Edge | Microsoft Docs
 description: Réagir aux événements du module Stockage Blob
 author: arduppal
-manager: mchad
+manager: brymat
 ms.author: arduppal
 ms.reviewer: spelluru
-ms.date: 10/02/2019
+ms.date: 12/13/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 2f52d72a1f2e3c3d1f3495c4b7f6f633db30778e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437282"
 ---
-# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Didacticiel : Réagir aux événements du module Stockage Blob sur IoT Edge (préversion)
+# <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutoriel : Réagir aux événements du module Stockage Blob sur IoT Edge (préversion)
 Cet article explique comment déployer le Stockage Blob Azure sur le module IoT, qui agirait en tant que serveur de publication Event Grid pour envoyer des événements lors de la création et de la suppression d’objets Blob à Event Grid.  
 
 Pour obtenir une vue d’ensemble du Stockage Blob Azure sur IoT Edge, voir [Stockage d’objets Blob Azure sur IoT Edge](../../iot-edge/how-to-store-data-blob.md) et ses fonctionnalités.
@@ -63,8 +63,8 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
         {
           "Env": [
            "inbound:serverAuth:tlsPolicy=enabled",
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+           "inbound:clientAuth:clientCert:enabled=false",
+           "outbound:webhook:httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -77,11 +77,12 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
           }
         }
     ```    
+
  1. Cliquez sur **Enregistrer**.
  1. Passez à la section suivante pour ajouter le module Azure Functions
 
     >[!IMPORTANT]
-    > Dans ce didacticiel, vous allez déployer le module Event Grid pour autoriser des demandes HTTP/HTTPS avec l’authentification du client désactivée, et autoriser les abonnés HTTP. Dans le cas de charges de travail de production, nous vous recommandons d’autoriser uniquement les requêtes HTTPs et les abonnés pour lesquels l’authentification client est activée. Pour savoir comment configurer le module Event Grid de manière sécurisée, voir [Sécurité et authentification](security-authentication.md).
+    > Dans ce tutoriel, vous apprendrez à déployer le module Event Grid pour autoriser des requêtes HTTP/HTTPS avec l’authentification du client désactivée, et autoriser les abonnés HTTP. Dans le cas de charges de travail de production, nous vous recommandons d’autoriser uniquement les requêtes HTTPs et les abonnés pour lesquels l’authentification client est activée. Pour savoir comment configurer le module Event Grid de manière sécurisée, voir [Sécurité et authentification](security-authentication.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Déploiement du module Azure Functions IoT Edge
@@ -98,7 +99,7 @@ Cette section vous montre comment déployer le module Azure Functions IoT, qui a
 1. Fournissez le nom, l’image et les options de création du conteneur :
 
    * **Nom** : abonné
-   * **URI d’image** : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
+   * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
    * **Options de création de conteneur** :
 
        ```json
@@ -118,9 +119,6 @@ Cette section vous montre comment déployer le module Azure Functions IoT, qui a
 1. Cliquez sur **Enregistrer**.
 1. Passez à la section suivante pour ajouter le module Stockage Blob Azure
 
-> [!NOTE]
-> Le module Stockage Blob publie des événements à l’aide du protocole HTTP. Vérifiez que le module Event Grid autorise les requêtes HTTP et HTTPs avec la configuration suivante : `inbound:serverAuth:tlsPolicy=enabled`.
-
 ## <a name="deploy-azure-blob-storage-module"></a>Déployer le module Stockage Blob Azure
 
 Cette section vous montre comment déployer le module Stockage Blob Azure qui agira comme un serveur de publication Event Grid qui publie des événements de création et de suppression d’objets blob.
@@ -132,7 +130,7 @@ Cette section vous montre comment déployer le module Stockage Blob Azure qui ag
 3. Fournissez le nom, l’image et les options de création du conteneur :
 
    * **Nom** : azureblobstorageoniotedge
-   * **URI de l’image** : mcr.microsoft.com/azure-blob-storage:1.2.2-preview
+   * **URI de l’image** : mcr.microsoft.com/azure-blob-storage:latest
    * **Options de création de conteneur** :
 
 ```json
@@ -152,6 +150,12 @@ Cette section vous montre comment déployer le module Stockage Blob Azure qui ag
          }
        }
 ```
+> [!IMPORTANT]
+> - Le module de stockage d’objets blob peut publier des événements à l’aide des protocoles HTTPS et HTTP. 
+> - Si vous avez activé l’authentification basée sur le client pour EventGrid, veillez à mettre à jour la valeur de EVENTGRID_ENDPOINT pour autoriser https comme suit : `EVENTGRID_ENDPOINT=https://<event grid module name>:4438` 
+> - Ajoutez aussi une autre variable d’environnement `AllowUnknownCertificateAuthority=true` au code JSON ci-dessus. Lorsque vous parlez à EventGrid via HTTPS, **AllowUnknownCertificateAuthority** permet au module de stockage d’approuver les certificats de serveur EventGrid auto-signés.
+
+
 
 4. Mettez à jour JSON que vous avez copié avec les informations suivantes :
 
@@ -194,7 +198,7 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
     ```json
         [
@@ -209,6 +213,10 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
           }
         ]
     ```
+
+    > [!IMPORTANT]
+    > - Pour le flux HTTPS, si l’authentification client est activée via la clé SAS, la clé SAS spécifiée précédemment doit être ajoutée en tant qu’en-tête. Par conséquent, la demande curl sera : `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
+    > - Pour le flux HTTPS, si l’authentification client est activée via un certificat, la demande curl sera : `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview`
 
 2. Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, vous devez créer un abonnement Event Grid pour la rubrique **MicrosoftStorage**.
     1. Créez blobsubscription.json avec le contenu suivant. Pour plus d’informations sur la charge utile, consultez notre [documentation sur l’API](api.md)
@@ -235,13 +243,18 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
     curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
+    > [!IMPORTANT]
+    > - Pour le flux HTTPS, si l’authentification client est activée via la clé SAS, la clé SAS spécifiée précédemment doit être ajoutée en tant qu’en-tête. Par conséquent, la demande curl sera : `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview` 
+    > - Pour le flux HTTPS, si l’authentification client est activée via un certificat, la demande curl sera : `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+
+
     3. Exécutez la commande suivante pour vérifier la bonne création de l’abonnement. Le code d’état HTTP 200 OK doit être retourné.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
     ```json
         {
@@ -260,6 +273,10 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
         }
     ```
 
+    > [!IMPORTANT]
+    > - Pour le flux HTTPS, si l’authentification client est activée via la clé SAS, la clé SAS spécifiée précédemment doit être ajoutée en tant qu’en-tête. Par conséquent, la demande curl sera : `curl -k -H "Content-Type: application/json" -H "aeg-sas-key: <your SAS key>" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+    > - Pour le flux HTTPS, si l’authentification client est activée via un certificat, la demande curl sera : `curl -k -H "Content-Type: application/json" --cert <certificate file> --key <certificate private key file> -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview`
+
 2. Téléchargez l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) et [Connectez-le à votre stockage local](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## <a name="verify-event-delivery"></a>Vérifier la livraison de l’événement
@@ -269,7 +286,7 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
 1. Chargez les fichiers en tant qu’objets blob de blocs dans le stockage local à partir de Explorateur Stockage Azure. Le module publiera automatiquement les événements de création. 
 2. Consultez les journaux d’abonnés pour l’événement de création. Suivez les étapes pour [vérifier la livraison d’événement](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-    Exemple de sortie :
+    Exemple de sortie :
 
     ```json
             Received event data [
@@ -300,7 +317,7 @@ Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour pass
 1. Supprimez les objets blob du stockage local à l’aide de l’Explorateur Stockage Azure, et le module publiera automatiquement les événements de suppression. 
 2. Consultez les journaux d’abonnés pour l’événement de suppression. Suivez les étapes pour [vérifier la livraison d’événement](pub-sub-events-webhook-local.md#verify-event-delivery)
 
-    Exemple de sortie :
+    Exemple de sortie :
     
     ```json
             Received event data [
@@ -352,7 +369,7 @@ L’objet de données comporte les propriétés suivantes :
 | requestId | string | L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
 | contentType | string | Type de contenu spécifié pour l’objet blob. |
-| contentLength | integer | Taille de l’objet blob en octets. |
+| contentLength | entier | Taille de l’objet blob en octets. |
 | blobType | string | Type d’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ». |
 | url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST d’objet blob, l’URL présente la structure suivante : *\<nom-compte-stockage\>.blob.core.windows.net/\<nom-conteneur\>/\<nom-fichier\>* . <br>Si le client utilise une API REST Data Lake Storage, l’URL présente la structure suivante : *\<nom-compte-stockage\>.dfs.core.windows.net/\<nom-système-fichiers\>/\<nom-fichier\>* . |
 

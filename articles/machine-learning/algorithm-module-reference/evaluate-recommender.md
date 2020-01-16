@@ -1,7 +1,7 @@
 ---
 title: 'Évaluer le générateur de recommandations : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Évaluer le générateur de recommandations dans le service Azure Machine Learning pour évaluer la précision de prédictions du modèle de générateur de recommandations.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Évaluer le générateur de recommandations dans Azure Machine Learning pour évaluer la précision de prédictions du modèle de générateur de recommandations.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9a80fce04aa939895d1dc9572714046d9203bad7
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 38144d5df04427a82989b78843466ecd55386196
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717178"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428533"
 ---
 # <a name="evaluate-recommender"></a>Évaluer le générateur de recommandations
 
@@ -35,7 +35,7 @@ Le module applique également les métriques de performances appropriées, en fo
 
 Le module Évaluer le générateur de recommandations compare les résultats de prédiction en utilisant un modèle de recommandation avec les données correspondantes de la « réalité du terrain ». Par exemple, le module [Noter le générateur de recommandations SVD](score-svd-recommender.md) produit des jeux de données notés que vous pouvez analyser à l’aide du module Évaluer le générateur de recommandations.
 
-### <a name="requirements"></a>Configuration requise
+### <a name="requirements"></a>Spécifications
 
 Le module Évaluer le générateur de recommandations requiert les jeux de données suivants en entrée. 
   
@@ -90,4 +90,4 @@ Comme il est impossible de connaître la « réalité du terrain » pour les �
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

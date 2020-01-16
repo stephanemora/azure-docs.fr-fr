@@ -1,6 +1,6 @@
 ---
-title: Événement d’échec de tâche Azure Batch | Microsoft Docs
-description: Référence pour l’événement d’échec de tâche Batch.
+title: Événement d’échec de tâche Azure Batch
+description: Référence pour l’événement d’échec de tâche Batch. Cet événement est émis en plus d’un événement de fin de tâche, et peut être utilisé pour détecter si une tâche a échoué.
 services: batch
 author: laurenhughes
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
 ms.author: lahugh
-ms.openlocfilehash: ea33153c1d231444205a30a09b338f1922641424
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: afdbd0a8dc7b48ed8bbf90ad5ce2168d7847cba8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258196"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75449647"
 ---
 # <a name="task-fail-event"></a>Événement d’échec de tâche
 
@@ -53,9 +53,9 @@ ms.locfileid: "70258196"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|`jobId`|Chaîne|ID du travail contenant la tâche.|
-|`id`|Chaîne|ID de la tâche.|
-|`taskType`|Chaîne|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
+|`jobId`|String|ID du travail contenant la tâche.|
+|`id`|String|ID de la tâche.|
+|`taskType`|String|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
 |`systemTaskVersion`|Int32|Compteur de tentatives internes d’exécution d’une tâche. En interne, le service Batch peut recommencer une tâche pour prendre en compte des problèmes temporaires. Ces problèmes peuvent être des erreurs de planification internes ou des tentatives de récupération à partir de nœuds de calcul en mauvais état.|
 |[`nodeInfo`](#nodeInfo)|Type complexe|Contient des informations sur le nœud de calcul sur lequel la tâche a été exécutée.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Consultez [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) pour plus de détails.|
@@ -66,8 +66,8 @@ ms.locfileid: "70258196"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|`poolId`|Chaîne|ID du pool sur lequel la tâche a été exécutée.|
-|`nodeId`|Chaîne|ID du nœud sur lequel la tâche a été exécutée.|
+|`poolId`|String|ID du pool sur lequel la tâche a été exécutée.|
+|`nodeId`|String|ID du nœud sur lequel la tâche a été exécutée.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 

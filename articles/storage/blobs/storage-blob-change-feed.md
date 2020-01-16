@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 19a65e688d66738db0b6e4dcca383c6e4abed262
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b26e54c7130469eee87a9237f4847f46cb3b7698
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974397"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691040"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Prise en charge du flux de modification dans Stockage Blob Azure (préversion)
 
@@ -55,17 +55,17 @@ Voici quelques éléments à prendre en compte lorsque vous activez le flux de m
 > [!IMPORTANT]
 > Le flux de modification est en préversion publique et est disponible dans les régions **westcentralus** et **westus2**. Consultez la section [Conditions](#conditions) de cet article. Pour vous inscrire à la préversion, consultez la section [Inscrire votre abonnement](#register) de cet article. Vous devez inscrire votre abonnement avant de pouvoir activer le flux de modification sur vos comptes de stockage.
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Activez le flux de modification sur votre compte de stockage à l’aide du portail Azure :
 
-1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre compte de stockage. 
 
-2. Accédez à l’option **Protection des données** sous **Service Blob**.
+2. Accédez à l’option **Protection des données** sous **Service blob**.
 
 3. Cliquez sur **Activé** sous **Flux de modification d’objet blob**
 
-4. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de protection des données.
+4. Choisissez le bouton **Enregistrer** pour confirmer vos paramètres de protection des données
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
 
@@ -96,7 +96,7 @@ Activez le flux de modification à l’aide de PowerShell :
 5. Activez le flux de modification pour votre compte de stockage.
 
    ```powershell
-   Update-AzStorageBlobServiceProperty -ResourceGroupName -StorageAccountName -EnableChangeFeed $true
+   Update-AzStorageBlobServiceProperty -EnableChangeFeed $true
    ```
 
 ### <a name="templatetabtemplate"></a>[Modèle](#tab/template)
@@ -150,7 +150,7 @@ Consultez [Traiter les journaux de flux de modification dans Stockage Blob Azure
 
 ### <a name="segments"></a>Segments
 
-Le flux de modification est un journal de modifications qui sont organisées en *segments* **horaires**, mais ajoutées et mises à jour à intervalles réguliers de quelques minutes. Ces segments sont créés uniquement quand des événements de modification d’objet blob se produisent dans l’heure. Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier. Pour en savoir plus, consultez [Spécifications](#specifications).
+Le flux de changements est un journal de changements qui sont organisés en *segments* **horaires**, mais ajoutés et mis à jour à intervalles réguliers de quelques minutes. Ces segments sont créés uniquement quand des événements de modification d’objet blob se produisent dans l’heure. Cela permet à votre application cliente de consommer des modifications qui se produisent dans des plages de temps spécifiques sans avoir à effectuer une recherche dans le journal entier. Pour en savoir plus, consultez [Spécifications](#specifications).
 
 Un segment horaire disponible du flux de modification est décrit dans un fichier manifeste qui spécifie les chemins d’accès aux fichiers de flux de modification pour ce segment. La liste du répertoire virtuel `$blobchangefeed/idx/segments/` montre ces segments dans l’ordre chronologique. Le chemin d’accès du segment décrit le début de l’intervalle horaire représenté par le segment. Vous pouvez utiliser cette liste pour filtrer les segments de journaux qui vous intéressent.
 
@@ -317,7 +317,7 @@ Cette section décrit les problèmes connus et les conditions de la préversion 
 - Actuellement, vous ne pouvez pas voir le conteneur **$blobchangefeed** quand vous appelez l’API ListContainers, et le conteneur n’apparaît pas dans le portail Azure ou l’Explorateur Stockage
 - Les comptes de stockage qui ont lancé précédemment un [basculement de compte](../common/storage-disaster-recovery-guidance.md) peuvent rencontrer des problèmes de non-affichage du fichier journal. Tout basculement de compte ultérieur peut également avoir un impact sur le fichier journal pendant la préversion.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 ### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>Quelle est la différence entre le flux de modification et la journalisation Storage Analytics ?
 Les journaux d’analytique contiennent des enregistrements sur toutes les opérations de lecture, d’écriture, d’énumération et de suppression, avec une indication de réussite ou d’échec de requête pour toutes les opérations. Les journaux d’analytique sont régis par le principe du « meilleur effort », et aucun classement n’est garanti.

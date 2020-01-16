@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: c3b4fabb319a3ea76ee62c8c699d4613184a4e76
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374078"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -53,7 +53,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Oui, en utilisant PowerShell. Pour plus d’informations sur le déploiement de machines virtuelles SQL Server à l’aide de PowerShell, consultez [Guide pratique pour provisionner des machines virtuelles SQL Server à l’aide d’Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
-1. **Puis-je créer une image de Place de marché Azure SQL Server généralisée de ma machine virtuelle SQL Server et l’utiliser pour déployer des machines virtuelles ?**
+1. **Puis-je créer une image de Place de marché Azure SQL Server généralisée de ma machine virtuelle SQL Server et l’utiliser pour déployer des machines virtuelles ?**
 
    Oui, mais vous devez ensuite [inscrire chaque machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL Server](virtual-machines-windows-sql-register-with-resource-provider.md) pour gérer votre machine virtuelle SQL Server dans le portail, et utiliser des fonctionnalités telles que la mise à jour corrective automatisée et les sauvegardes automatiques. Lorsque vous vous inscrivez auprès du fournisseur de ressources, vous devez également spécifier le type de licence pour chaque machine virtuelle SQL Server. 
 
@@ -76,7 +76,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Créez tout d’abord une machine virtuelle Azure avec une instance SQL Server. Puis migrez vos bases de données locales vers cette instance. Pour les stratégies de migration de données, consultez la rubrique [Migrer une base de données SQL Server vers SQL Server dans une machine virtuelle Azure](virtual-machines-windows-migrate-sql.md).
 
-## <a name="licensing"></a>Gestion des licences
+## <a name="licensing"></a>Licence
 
 1. **Comment installer ma copie sous licence de SQL Server sur une machine virtuelle Azure ?**
 
@@ -84,12 +84,12 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Dois-je payer une licence SQL Server sur une machine virtuelle Azure si elle est utilisée uniquement pour le mode veille ou le basculement ?**
 
-   Pour disposer d’une licence passive gratuite pour un groupe de disponibilité secondaire de secours ou une instance mise en cluster de basculement, vous devez respecter tous les critères suivants, comme indiquer dans le [fichier PDF du guide de gestion des licences](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf) :
+   Pour disposer d’une licence passive gratuite pour un groupe de disponibilité secondaire de secours ou une instance en cluster de basculement, vous devez respecter tous les critères suivants, comme décrit dans les [Termes des contrats de licence](https://www.microsoft.com/licensing/product-licensing/products) :
 
-   1. Vous disposez de [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) via [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, telles que des rapports, à des clients exécutant des charges de travail SQL Server actives ou effectuant n’importe quel « travail », comme des sauvegardes supplémentaires à partir du serveur secondaire, il doit s’agir d’une instance SQL Server sous licence payante. 
+   1. Vous disposez de la [mobilité de licence](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) à travers la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue n’importe quels travaux autres que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours. 
    1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’**une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
-   1. La machine virtuelle SQL Server secondaire utilise le [modèle de licence](virtual-machines-windows-sql-ahb.md) BYOL (apportez votre propre licence) ou Azure Hybrid Benefit (AHB). 
+   1. La machine virtuelle SQL Server secondaire utilise la licence [Reprise d’activité](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) dans le portail Azure.
 
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
@@ -163,8 +163,8 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Où puis-je obtenir le support d’installation pour modifier l’édition ou la version de SQL Server ?**
 
-  Les clients disposant de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients ne disposant pas de Software Assurance peuvent utiliser le support d’installation à partir d’une image de machine virtuelle SQL Server de Place de marché proposant l'édition souhaitée.
-
+   Les clients disposant de la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) peuvent obtenir leur support d’installation à partir du [Centre de gestion des licences en volume](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Les clients ne disposant pas de Software Assurance peuvent utiliser le support d’installation à partir d’une image de machine virtuelle SQL Server de la Place de marché proposant l’édition souhaitée.
+   
 1. **Comment les mises à jour et les service packs sont-ils appliqués sur une machine virtuelle SQL Server ?**
 
    Les machines virtuelles vous permettent de contrôler la machine hôte, y compris quand et comment appliquer les mises à jour. Pour le système d’exploitation, vous pouvez appliquer manuellement les mises à jour Windows, ou activer un service de planification appelé [Mise à jour corrective automatisée](virtual-machines-windows-sql-automated-patching.md). La mise à jour corrective automatisée installe toutes les mises à jour importantes, y compris les mises à jour de SQL Server de cette catégorie. Les autres mises à jour SQL Server facultatives doivent être installées manuellement.
@@ -173,14 +173,20 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Oui. Vous pouvez utiliser n’importe quel support d’installation pour mettre à niveau la version et l’édition de SQL Server. Vous pouvez ensuite mettre à niveau votre [mode d’extension SQL IaaS](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de _aucun agent_ vers _complet_. Vous pouvez ainsi tirer profit de tous les avantages de l’extension SQL IaaS tels que la facilité de gestion du portail, les sauvegardes automatisées et la mise à jour corrective automatisée. 
 
-## <a name="general"></a>Généralités
+1. **Comment obtenir des mises à jour de sécurité étendue gratuites pour mes instances SQL Server 2008 et SQL Server 2008 R2 qui sont en fin de support ?**
+
+   Vous pouvez vous procurer les [mises à jour de sécurité étendue gratuites](virtual-machines-windows-sql-server-2008-eos-extend-support.md) en déplaçant votre serveur SQL Server en l’état sur une machine virtuelle Azure SQL. Pour plus d’informations, consultez [Options de fin du support](/sql/sql-server/end-of-support/sql-server-end-of-life-overview). 
+  
+   
+
+## <a name="general"></a>Général
 
 1. **Les instances de cluster de basculement (FCI) SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
 
    Oui. Vous pouvez [créer un cluster de basculement Windows sur Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) et utiliser les espaces de stockage direct (S2D) pour le stockage du cluster. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > À ce stade, l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) _complète_ n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension _complète_ des machines virtuelles qui participent à l’ICF, puis d’installer l’extension en mode _léger_ à la place. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL Server. Ces fonctionnalités ne s’opèrent pas pour les machines virtuelles SQL Server une fois l’agent _complet_ désinstallé.
+   > À ce stade, l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md)_complète_ n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension _complète_ des machines virtuelles qui participent à l’ICF, puis d’installer l’extension en mode _léger_ à la place. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL Server. Ces fonctionnalités ne s’opèrent pas pour les machines virtuelles SQL Server une fois l’agent _complet_ désinstallé.
 
 1. **Quelle est la différence entre les machines virtuelles SQL Server et le service SQL Database ?**
 
@@ -202,7 +208,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 * [Approvisionner une machine virtuelle Windows SQL Server](virtual-machines-windows-portal-sql-server-provision.md)
 * [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md)
 * [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md)
-* [Meilleures pratiques relatives aux performances de SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-performance.md)
+* [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](virtual-machines-windows-sql-performance.md)
 * [Modèles d'application et stratégies de développement pour SQL Server dans Azure Virtual Machines](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 **Machines virtuelles Linux** :

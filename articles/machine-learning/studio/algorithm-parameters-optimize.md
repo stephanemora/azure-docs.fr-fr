@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ac3aa0dc619ec05dcd79a4f8740026b1eabc19aa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838432"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427713"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio (classique)
 
@@ -23,7 +23,7 @@ Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pou
 
 
 
-Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans la version classique d’Azure Machine Learning Studio. Comme les langages R et Python sont pris en charge par la version classique d’Azure Machine Learning Studio, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
+Il existe différentes manières d’effectuer une sélection de modèle. En machine learning, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Azure Machine Learning Studio (classique). Comme les langages R et Python sont pris en charge par Azure Machine Learning Studio (classique), vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle dans l’un ou l’autre de ces langages.
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes :
 
@@ -32,7 +32,7 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 3. **Définir la métrique** : Déterminez la métrique à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
 4. **Apprentissage, évaluation et comparaison** : Pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la métrique d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
-L’image ci-dessous illustre cette opération dans la version classique d’Azure Machine Learning Studio.
+L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio (classique).
 
 ![Trouver l’ensemble de paramètres idéal](./media/algorithm-parameters-optimize/fig1.png)
 

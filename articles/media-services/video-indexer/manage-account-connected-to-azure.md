@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 12/16/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f3825f6c9186c5e04807dd3890a14fcc6d370989
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892768"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454677"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gérer un compte Video Indexer connecté à Azure
 
@@ -24,7 +24,7 @@ Cet article explique comment gérer un compte Video Indexer connecté à votre 
 > [!NOTE]
 > Vous devez être le propriétaire du compte Video Indexer pour pouvoir effectuer les ajustements de configuration de compte décrits dans cette rubrique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Connectez votre compte Video Indexer à Azure, comme indiqué dans [Connecté à Azure](connect-to-azure.md). 
 
@@ -49,6 +49,17 @@ Si votre compte Video Indexer est connecté à Azure, voici ce que vous voyez 
 * Le nombre d’unités réservées allouées et leur type.
 
 Si votre compte a besoin de quelques ajustements, les erreurs et les avertissements importants sur la configuration de votre compte figurent dans la page **Paramètres**. Les messages contiennent des liens vers les emplacements exacts dans le Portail Microsoft Azure où vous devez apporter les modifications. Pour plus d’informations, consultez la section [Erreurs et avertissements](#errors-and-warnings) ci-après.
+
+## <a name="repair-the-connection-to-azure"></a>Corriger le problème de connexion à Azure
+
+Dans la boîte de dialogue **Update connection to Azure Media Services** (Mettre à jour la connexion à Azure Media Services) de la page [Video Indexer](https://www.videoindexer.ai/), vous êtes invité à fournir des valeurs pour les paramètres suivants : 
+
+|Paramètre|Description|
+|---|---|
+|ID d’abonnement Azure|L’ID d’abonnement peut être récupéré à partir du portail Azure. Cliquez sur **Tous les services** dans le panneau gauche, puis recherchez « abonnements ». Sélectionnez **Abonnements** et choisissez l’ID voulu dans la liste de vos abonnements.|
+|Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel vous avez créé le compte Media Services.|
+|ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé pour ce compte Video Indexer. <br/><br/>Pour obtenir l’ID d’application, accédez au portail Azure. Sous le compte Media Services, choisissez votre compte et accédez à **Accès aux API**. Cliquez sur **Se connecter à l’API Media Services avec le principal de service** -> **Azure AD App**. Copiez les paramètres appropriés.|
+|Clé de l'application|Clé d’application Azure AD associée au compte Media Services que vous avez spécifié précédemment. <br/><br/>Pour obtenir la clé d’application, accédez au portail Azure. Sous le compte Media Services, choisissez votre compte et accédez à **Accès aux API**. Cliquez sur **Se connecter à l’API Media Services avec le principal de service** -> **Gérer l’application** -> **Certificats et secrets**. Copiez les paramètres appropriés.|
 
 ## <a name="auto-scale-reserved-units"></a>Mettre automatiquement à l’échelle les unités réservées
 

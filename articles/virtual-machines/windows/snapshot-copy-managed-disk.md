@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bc74a3eea1f99de6080788d6f3fddcac823092dc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075339"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75370899"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané
 
@@ -29,11 +29,12 @@ Si vous prévoyez d’utiliser la capture instantanée pour créer une machine v
 
 ## <a name="use-the-azure-portal"></a>Utilisation du portail Azure 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Créer une ressource**, puis recherchez et sélectionnez une **capture instantanée**.
+Pour créer une capture instantanée, effectuez les étapes suivantes : 
+1.  Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
+2. Recherchez et sélectionnez **Capture instantanée**.
 3. Dans la fenêtre **Capture instantanée**, sélectionnez **Créer**. La fenêtre **Créer une capture instantanée** s’affiche.
 4. Entrez un **nom** pour la capture instantanée.
-5. Sélectionnez un [groupe de ressources](../../azure-resource-manager/resource-group-overview.md#resource-groups) existant ou entrez le nom d’un nouveau. 
+5. Sélectionnez un [groupe de ressources](../../azure-resource-manager/management/overview.md#resource-groups) existant ou entrez le nom d’un nouveau. 
 6. Sélectionnez un **Emplacement** de centre de données Azure.  
 7. Dans **Disque source**, sélectionnez le disque managé dont vous souhaitez obtenir une capture instantanée.
 8. Sélectionnez le **type de compte** à utiliser pour stocker la capture instantanée. Sélectionnez **Standard_HDD**, sauf si vous avez besoin que la capture soit stockée sur un disque hautes performances.
@@ -41,7 +42,7 @@ Si vous prévoyez d’utiliser la capture instantanée pour créer une machine v
 
 ## <a name="use-powershell"></a>Utiliser PowerShell
 
-Les étapes suivantes expliquent comment copier le disque dur virtuel, créer la configuration de capture instantanée et prendre une capture instantanée du disque avec la cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+Les étapes suivantes montrent comment copier le disque dur virtuel et créer la configuration de capture instantanée. Vous pouvez ensuite prendre une capture instantanée du disque en utilisant l’applet de commande [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
 
  
 

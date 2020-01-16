@@ -1,25 +1,16 @@
 ---
-title: Vue d’ensemble de Service Fabric Reliable Actors | Microsoft Docs
-description: Présentation du modèle de programmation Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
+title: Présentation de Service Fabric Reliable Actors
+description: Présentation du modèle de programmation Service Fabric Reliable Actors, basé sur le modèle Virtual Actor.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aafa2a3372c431f8afa7fad41051c26c3fe5fcd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60727175"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645563"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Présentation des Acteurs fiables Service Fabric
 Reliable Actors est une infrastructure d’application Service Fabric reposant sur le modèle [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/). L’API Reliable Actors fournit un modèle de programmation monothread qui tire parti des garanties de fiabilité et d’évolutivité fournies par Service Fabric.
@@ -48,7 +39,7 @@ Cette abstraction de la durée de vie de l’acteur virtuel comporte certains in
 
 * Un acteur est automatiquement activé (ce qui entraîne la construction d’un objet d’acteur) la première fois qu’un message est envoyé à son ID d’acteur. Après un certain temps, l’objet d’acteur est nettoyé. Si vous réutilisez ensuite ce même ID d’acteur, un nouvel objet d’acteur sera construit. L’état d’un acteur survit à la durée de vie de l’objet lorsqu’il est stocké dans le gestionnaire d’état.
 * Le déclenchement d’une méthode d’acteur pour un ID d’acteur donné aura pour effet d’activer cet acteur. Pour cette raison, le constructeur des types d’acteur est implicitement appelé par le runtime. Par conséquent, le code client ne peut pas transmettre les paramètres au constructeur du type d’acteur, bien que des paramètres puissent être transférés au constructeur de l’acteur par le service lui-même. Autrement dit, les acteurs peuvent être construits à un état partiellement initialisé au moment où d’autres méthodes sont appelées si l’acteur nécessite l’envoi de paramètres d’initialisation par le client. Il n’existe aucun point d’entrée unique pour l’activation d’un acteur à partir du client.
-* Bien que Reliable Actors crée implicitement des objets d’acteur, vous n’avez pas la possibilité de supprimer explicitement un acteur et son état.
+* Bien que Reliable Actors crée implicitement des objets d’acteur, vous avez la possibilité de supprimer explicitement un acteur et son état.
 
 ## <a name="distribution-and-failover"></a>Distribution et basculement
 Dans un souci de fiabilité et d’évolutivité, Service Fabric distribue les acteurs dans l’ensemble du cluster et les migre automatiquement à partir des nœuds ayant échoué vers des nœuds sains selon les besoins. Il s’agit ici d’une abstraction sur une instance [Reliable Service partitionnée avec état](service-fabric-concepts-partitioning.md). L’exécution des acteurs dans une instance Reliable Service avec état appelée *Actor Service*garantit la distribution, l’évolutivité, la fiabilité et le basculement automatique du service.

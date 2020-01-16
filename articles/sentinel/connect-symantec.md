@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 12/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0250780c85041c07fabf7d5ed268d1f3cdb63e18
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 111bc7cd0439eee2026a6a980e9e126b63ac58c6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240645"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610486"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Connecter votre appliance Symantec ICDx 
 
@@ -42,7 +42,7 @@ Symantec ICDx peut intégrer et exporter des journaux d'activité directement da
 4. Sous **Redirecteurs**, en regard de Microsoft Azure Sentinel (Log Analytics), cliquez sur **Ajouter**. 
 4. Dans la fenêtre **Microsoft Azure Sentinel (Log Analytics)** , cliquez sur **Afficher les options avancées**. 
 5. En haut de la fenêtre développée Microsoft Azure Sentinel (Log Analytics), procédez comme suit :
-    -   **Nom** : Entrez un nom pour le redirecteur ne dépassant pas 30 caractères. Choisissez un nom unique et explicite. Ce nom apparaît dans la liste des redirecteurs de l'écran **Configuration**, ainsi que dans les tableaux de bord de l'écran **Tableau de bord**. Par exemple :  Microsoft Azure Log Analytics Est. Ce champ est obligatoire.
+    -   **Name** : Entrez un nom pour le redirecteur ne dépassant pas 30 caractères. Choisissez un nom unique et explicite. Ce nom apparaît dans la liste des redirecteurs de l'écran **Configuration**, ainsi que dans les tableaux de bord de l'écran **Tableau de bord**. Par exemple :  Microsoft Azure Log Analytics Est. Ce champ est obligatoire.
     -   **Description** : Entrez une description pour le redirecteur. Cette description apparaît également dans la liste des redirecteurs de l'écran **Configuration**. Incluez des détails tels que le type d’événement transféré et le groupe chargé d'inspecter les données.
     -   **Type de démarrage** : Sélectionnez la méthode de démarrage pour la configuration du redirecteur. Les options dont vous disposez sont Manuel et Automatique.<br>L'option Automatique est sélectionnée par défaut. 
 6. Sous **Événements**, procédez comme suit : 
@@ -57,7 +57,7 @@ Symantec ICDx peut intégrer et exporter des journaux d'activité directement da
         - Vous pouvez également cliquer sur Requêtes enregistrées pour appliquer une requête enregistrée.
     - **Attributs inclus** : Entrez la liste des attributs séparés par des virgules à inclure dans les données transférées. Les attributs inclus sont prioritaires sur les attributs exclus.
     - **Attributs exclus** : Entrez la liste des attributs séparés par des virgules à exclure des données transférées.
-    - **Taille du lot** : Sélectionnez le nombre d’événements à envoyer par lot. Les options disponibles sont 10, 50, 100, 500 et 1 000.<br>La valeur par défaut est 100. 
+    - **Taille du lot** : Sélectionnez le nombre d’événements à envoyer par lot. Les options disponibles sont 10, 50, 100, 500 et 1 000.<br>La valeur par défaut est 100. 
     - **Débit maximal** : Sélectionnez le débit de transfert des événements, exprimé en événements par seconde. Les options disponibles sont Illimité, 500 et 1000, 5 000 et 10 000. <br> L'option par défaut est 5 000. 
 7. Sous **Destination Azure**, procédez comme suit : 
     - **ID de l'espace de travail** : Collez l’ID de l’espace de travail ci-dessous. Ce champ est obligatoire.
@@ -78,4 +78,6 @@ Plus de 20 minutes peuvent être nécessaires avant que vos journaux ne commenc
 Dans ce document, vous avez appris à connecter Symantec ICDx à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+
 

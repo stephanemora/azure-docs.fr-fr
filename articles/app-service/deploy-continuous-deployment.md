@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/23/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 692b07c82c329a93d79ad3a87beec5dbe1c595d3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: d58eb333c930d2ffac4eb57340ea776338325181
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669981"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680973"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 
@@ -27,7 +27,13 @@ Pour utiliser Azure Repos, assurez-vous que votre organisation Azure DevOps est 
 
 Pour Bitbucket ou GitHub, autorisez Azure App Service à se connecter à votre référentiel. Un service de contrôle de source ne nécessite qu'une seule autorisation. 
 
-1. Sélectionnez **App Services** dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), puis sélectionnez l'application web que vous souhaitez déployer. 
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **App Services**. 
+
+   ![Recherchez App Services.](media/app-service-continuous-deployment/search-for-app-services.png)
+
+1. Sélectionnez l’application web à déployer.
+
+   ![Sélectionnez votre application.](media/app-service-continuous-deployment/select-your-app.png)
    
 1. Sur la page de l'application, sélectionnez **Centre de déploiement** dans le menu de gauche.
    
@@ -41,11 +47,11 @@ Pour Bitbucket ou GitHub, autorisez Azure App Service à se connecter à votre r
 
 Après avoir autorisé un service de contrôle de code source, configurez votre application pour un déploiement continu via le [serveur de builds Kudu App Service](#option-1-use-the-app-service-build-service) intégré, ou via [Azure Pipelines](#option-2-use-azure-pipelines). 
 
-### <a name="option-1-use-the-app-service-build-service"></a>Option 1 : utiliser le service de builds App Service
+### <a name="option-1-use-the-app-service-build-service"></a>Option 1 : utiliser le service de builds App Service
 
 Vous pouvez utiliser le serveur de builds Kudu App Service intégré pour procéder à des déploiements continus à partir de GitHub, Bitbucket ou Azure Repos. 
 
-1. Sélectionnez **App Services** dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), puis sélectionnez l'application web que vous souhaitez déployer. 
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **App Services**, puis sélectionnez l’application web que vous souhaitez déployer. 
    
 1. Sur la page de l'application, sélectionnez **Centre de déploiement** dans le menu de gauche.
    
@@ -63,7 +69,7 @@ Vous pouvez utiliser le serveur de builds Kudu App Service intégré pour procé
    - Pour GitHub, sélectionnez l'**Organisation**, le **Référentiel** et la **Branche** que vous souhaitez déployer en continu.
      
      > [!NOTE]
-     > En l'absence de référentiel, il peut être nécessaire d'autoriser Azure App Service dans GitHub. Accédez à votre référentiel GitHub, puis sélectionnez **Paramètres** > **Applications** > **Applications OAuth autorisées**. Sélectionnez **Azure App Service**, puis **Octroyer**.
+     > En l'absence de référentiel, il peut être nécessaire d'autoriser Azure App Service dans GitHub. Accédez à votre référentiel GitHub, puis sélectionnez **Paramètres** > **Applications** > **Applications OAuth autorisées**. Sélectionnez **Azure App Service**, puis **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
      
    - Pour Bitbucket, sélectionnez l'**Équipe**, le **Référentiel** et la **Branche** que vous souhaitez déployer en continu.
      
@@ -82,7 +88,7 @@ Vous pouvez utiliser le serveur de builds Kudu App Service intégré pour procé
    
    ![Suivre les validations et les déploiements dans le Centre de déploiement](media/app-service-continuous-deployment/github-finished.png)
 
-### <a name="option-2-use-azure-pipelines"></a>Option 2 : utiliser Azure Pipelines 
+### <a name="option-2-use-azure-pipelines"></a>Option n°2 : utiliser Azure Pipelines 
 
 Si votre compte dispose des autorisations nécessaires, vous pouvez configurer Azure Pipelines pour un déploiement continu à partir de référentiels GitHub ou Azure Repos. Pour plus d'informations sur le déploiement via Azure Pipelines, consultez [Déployer une application web dans Azure App Services](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps).
 
@@ -96,7 +102,7 @@ Pour permettre à Azure App Service de créer des pipelines Azure à diffusion c
 
 Pour configurer Azure Pipelines (préversion) :
 
-1. Sélectionnez **App Services** dans le volet de navigation gauche du [Portail Azure](https://portal.azure.com), puis sélectionnez l'application web que vous souhaitez déployer. 
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **App Services**, puis sélectionnez l’application web que vous souhaitez déployer. 
    
 1. Sur la page de l'application, sélectionnez **Centre de déploiement** dans le menu de gauche.
    
@@ -107,7 +113,7 @@ Pour configurer Azure Pipelines (préversion) :
    - Pour GitHub, sélectionnez l'**Organisation**, le **Référentiel** et la **Branche** que vous souhaitez déployer en continu.
      
      > [!NOTE]
-     > En l'absence de référentiel, il peut être nécessaire d'autoriser Azure App Service dans GitHub. Accédez à votre référentiel GitHub, puis sélectionnez **Paramètres** > **Applications** > **Applications OAuth autorisées**. Sélectionnez **Azure App Service**, puis **Octroyer**.
+     > En l'absence de référentiel, il peut être nécessaire d'autoriser Azure App Service dans GitHub. Accédez à votre référentiel GitHub, puis sélectionnez **Paramètres** > **Applications** > **Applications OAuth autorisées**. Sélectionnez **Azure App Service**, puis **Octroyer**. Pour les dépôts de l’organisation, vous devez être propriétaire de l’organisation pour accorder des autorisations.
      
    - Pour Azure Repos, sélectionnez l'**Organisation Azure DevOps**, le **Projet**, le **Référentiel** et la **Branche** que vous souhaitez déployer en continu, ou configurez une nouvelle Organisation Azure DevOps.
      
@@ -141,13 +147,13 @@ Pour désactiver le déploiement continu, sélectionnez **Déconnecter** en haut
 
 ## <a name="use-unsupported-repos"></a>Utiliser des dépôts non pris en charge
 
-Pour les applications Windows, vous pouvez configurer manuellement le déploiement continu à partir d’un dépôt Git ou Mecurial sur le cloud que le portail ne prend pas directement en charge, comme [GitLab](https://gitlab.com/). Pour cela, choisissez la case Externe dans la page **Centre de déploiement**. Pour plus d’informations, consultez [Configurer le déploiement continu avec des étapes manuelles](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+Pour les applications Windows, vous pouvez configurer manuellement le déploiement continu à partir d’un dépôt Git ou Mercurial dans le cloud que le portail ne prend pas directement en charge, comme [GitLab](https://gitlab.com/). Pour cela, choisissez la case Externe dans la page **Centre de déploiement**. Pour plus d’informations, consultez [Configurer le déploiement continu avec des étapes manuelles](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Examiner les problèmes courants liés au déploiement continu](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [Utilisation d'Azure PowerShell](/powershell/azureps-cmdlets-docs)
-* [Documentation Git](https://git-scm.com/documentation)
+* [Documentation de Git](https://git-scm.com/documentation)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 [Création d’un dépôt (GitHub)]: https://help.github.com/articles/create-a-repo

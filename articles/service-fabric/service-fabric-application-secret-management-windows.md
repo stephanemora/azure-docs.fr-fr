@@ -1,33 +1,24 @@
 ---
-title: Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Windows Azure Service Fabric | Microsoft Docs
+title: Configurer un certificat de chiffrement sur des clusters Windows
 description: Découvrez comment configurer un certificat de chiffrement et chiffrer des secrets sur clusters Windows.
-services: service-fabric
-documentationcenter: .net
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 3d324c54d10433520a73f2bd836c26bd79f1b3bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d9413a37be221adc375836719dc1f467a5571fa0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615268"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610180"
 ---
 # <a name="set-up-an-encryption-certificate-and-encrypt-secrets-on-windows-clusters"></a>Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Windows
-Dans cet article, découvrez comment configurer un certificat de chiffrement et l’utiliser pour chiffrer des secrets sur clusters Windows. Pour les clusters Linux, consultez [Configurer un certificat de chiffrement et chiffrer des secrets sur clusters Linux.][secret-management-linux-specific-link]
+Dans cet article, découvrez comment configurer un certificat de chiffrement et l’utiliser pour chiffrer des secrets sur clusters Windows. Pour les clusters Linux, consultez [Configurer un certificat de chiffrement et chiffrer des secrets sur des clusters Linux][secret-management-linux-specific-link].
 
 [Azure Key Vault][key-vault-get-started] est utilisé ici comme un emplacement de stockage sécurisé pour des certificats et comme un moyen d’installer des certificats sur des clusters Service Fabric dans Azure. Si vous ne déployez pas dans Azure, il est inutile d’utiliser le coffre de clés pour gérer les secrets dans des applications Service Fabric. Toutefois, *l’utilisation de* secrets dans une application cloud est indépendante de la plateforme et permet ainsi un déploiement d’applications dans un cluster hébergé à n’importe quel endroit. 
 
 ## <a name="obtain-a-data-encipherment-certificate"></a>Obtenir un certificat de chiffrement de données
-Un certificat de chiffrement de données est utilisé exclusivement pour le chiffrement et le déchiffrement des [paramètres][parameters-link] du fichier Settings.xml d’un service et des [variables d'environnement][environment-variables-link] du fichier ServiceManifest.xml d’un service. Il n’est pas utilisé pour l’authentification ou la signature du texte chiffré. Le certificat doit répondre aux exigences suivantes :
+Un certificat de chiffrement de données est utilisé exclusivement pour le chiffrement et le déchiffrement des [paramètres][parameters-link] du fichier Settings.xml d’un service et des [variables d’environnement][environment-variables-link] du fichier ServiceManifest.xml d’un service. Il n’est pas utilisé pour l’authentification ou la signature du texte chiffré. Le certificat doit répondre aux exigences suivantes :
 
 * Le certificat doit contenir une clé privée.
 * Le certificat doit être créé pour l'échange de clés et pouvoir faire l'objet d'un export au format Personal Information Exchange (.pfx).
@@ -52,7 +43,7 @@ Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text 
 La chaîne encodée en base 64 qui en résulte contient à la fois le texte chiffré secret et plus d’informations sur le certificat qui a été utilisé pour le chiffrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment [Spécifier des secrets chiffrés dans une application.][secret-management-specify-encrypted-secrets-link]
+Découvrez comment [Spécifier des secrets chiffrés dans une application][secret-management-specify-encrypted-secrets-link].
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-overview.md

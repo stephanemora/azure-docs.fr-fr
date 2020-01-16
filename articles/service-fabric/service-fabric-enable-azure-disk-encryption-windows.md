@@ -1,24 +1,14 @@
 ---
-title: Activer le chiffrement de disque pour les clusters Windows Azure Service Fabric | Microsoft Docs
+title: Activer le chiffrement de disque pour des clusters Windows
 description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric en utilisant Azure Key Vault dans Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599550"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614449"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Windows 
 > [!div class="op_single_selector"]
@@ -37,11 +27,11 @@ Le guide aborde les thèmes suivants :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 **Inscription automatique** 
 
-La préversion du chiffrement de disque des groupes de machines virtuelles identiques nécessite une inscription automatique. Procédez comme suit : 
+La préversion du chiffrement de disque des groupes de machines virtuelles identiques nécessite une inscription automatique. Utiliser les étapes suivantes : 
 
 1. Tout d’abord, exécutez la commande ci-dessous :
     ```powershell

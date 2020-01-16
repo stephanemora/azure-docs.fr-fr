@@ -1,30 +1,19 @@
 ---
-title: Création d’un cluster Service Fabric dans le portail Azure | Microsoft Docs
+title: Créer un cluster Service Fabric dans le portail Azure
 description: Apprenez à configurer un cluster Service Fabric sécurisé dans Azure à l’aide du portail Azure et d’Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-ms.assetid: 426c3d13-127a-49eb-a54c-6bde7c87a83b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
-ms.author: atsenthi
-ms.openlocfilehash: ca050e19ed37e2895507507338ebf4b4217851b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452281"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Création d’un cluster Service Fabric dans Azure à partir du portail Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portail Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -79,7 +68,7 @@ La création d’un cluster de production pour répondre aux besoins de votre ap
 
 ### <a name="search-for-the-service-fabric-cluster-resource"></a>Rechercher la ressource de cluster Service Fabric
 
-Connectez-vous au [Portail Azure][azure-portal].
+Connectez-vous au [portail Azure][azure-portal].
 Cliquez sur **Créer une ressource** pour ajouter un nouveau modèle de ressource. Recherchez le modèle de cluster Service Fabric dans **Marketplace** sous **Tout**.
 Sélectionnez **Cluster Service Fabric** dans la liste.
 

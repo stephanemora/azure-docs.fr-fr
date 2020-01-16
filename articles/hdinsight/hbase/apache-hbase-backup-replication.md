@@ -1,19 +1,19 @@
 ---
 title: Sauvegarde et réplication pour Apache HBase – Phoenix – Azure HDInsight
-description: Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur Azure HDInsight
+description: Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix dans Azure HDInsight
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.author: ashishth
-ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: hdinsightactive
+ms.date: 12/19/2019
+ms.openlocfilehash: c6d33158b581bf4394a0d1bac2b277830328e110
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044691"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495938"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurer la sauvegarde et la réplication pour Apache HBase et Apache Phoenix sur HDInsight
 
@@ -44,7 +44,7 @@ HBase dans HDInsight a recours au stockage par défaut sélectionné lors de la 
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* Dans Azure Data Lake Storage, le dossier `hbase` est hébergé sous le chemin racine spécifié lors du provisionnement du cluster. Ce chemin d’accès racine comporte généralement un dossier `clusters`, avec un sous-dossier portant le nom de votre cluster HDInsight :
+* Dans Azure Data Lake Storage, le dossier `hbase` est hébergé sous le chemin racine spécifié lors du provisionnement d’un cluster. Ce chemin d’accès racine comporte généralement un dossier `clusters`, avec un sous-dossier portant le nom de votre cluster HDInsight :
 
     ```
     /clusters/<clusterName>/hbase
@@ -60,15 +60,19 @@ Une fois que vous avez supprimé le cluster, vous pouvez laisser les données te
 
 ## <a name="export-then-import"></a>Exporter puis importer
 
-Sur le cluster HDInsight source, utilisez l’utilitaire d’exportation (inclus avec HBase) pour exporter les données d’une table source vers le stockage joint par défaut. Vous pouvez ensuite copier le dossier exporté vers l’emplacement de stockage de destination, puis exécuter l’utilitaire d’importation sur le cluster HDInsight de destination.
+Sur le cluster HDInsight source, utilisez l’[utilitaire d’exportation](https://hbase.apache.org/book.html#export) (inclus avec HBase) pour exporter les données d’une table source vers le stockage joint par défaut. Vous pouvez ensuite copier le dossier exporté vers l’emplacement de stockage de destination et exécuter l’[utilitaire d’importation](https://hbase.apache.org/book.html#import) sur le cluster HDInsight de destination.
 
-Pour exporter une table, utilisez tout d’abord SSH dans le nœud principal de votre cluster HDInsight source, puis exécutez la commande `hbase` suivante :
+Pour exporter les données de table, utilisez tout d’abord SSH dans le nœud principal de votre cluster HDInsight source, puis exécutez la commande `hbase` suivante :
 
     hbase org.apache.hadoop.hbase.mapreduce.Export "<tableName>" "/<path>/<to>/<export>"
 
-Pour importer une table, utilisez SSH dans le nœud principal de votre cluster HDInsight de destination, puis exécutez la commande `hbase` suivante :
+Le répertoire d’exportation ne doit pas déjà exister. Le nom de la table respecte la casse.
+
+Pour importer les données de table, utilisez SSH dans le nœud principal de votre cluster HDInsight de destination, puis exécutez la commande `hbase` suivante :
 
     hbase org.apache.hadoop.hbase.mapreduce.Import "<tableName>" "/<path>/<to>/<export>"
+
+La table doit déjà exister.
 
 Spécifiez le chemin d’accès complet d’exportation sur le stockage par défaut ou sur l’une des options de stockage jointes. Par exemple, dans Stockage Azure :
 
@@ -90,11 +94,12 @@ Notez que vous devez spécifier le nombre de versions de chaque ligne à exporte
 
 ## <a name="copy-tables"></a>Copier des tables
 
-L’utilitaire de copie de table copie les données d’une table source, ligne par ligne, vers une table de destination existante présentant un schéma identique à celui de la source. La table des destination peut être sur le même cluster, ou sur un clustr HBase différent.
+L’[utilitaire de copie de table](https://hbase.apache.org/book.html#copy.table) copie les données d’une table source, ligne par ligne, vers une table de destination existante présentant un schéma identique à celui de la source. La table des destination peut être sur le même cluster, ou sur un clustr HBase différent. Les noms de table sont sensibles à la casse.
 
 Pour utiliser l’utilitaire dans un cluster, exécutez SSH dans le nœud principal de votre cluster HDInsight source, puis exécutez cette commande `hbase` :
 
     hbase org.apache.hadoop.hbase.mapreduce.CopyTable --new.name=<destTableName> <srcTableName>
+
 
 Pour valoriser l’utilitaire afin de copier vers une table d’un cluster différent, ajoutez le commutateur `peer` avec l’adresse du cluster de destination :
 
@@ -125,7 +130,7 @@ L’utilitaire analyse l’intégralité du contenu de la table source à copier
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Collecter manuellement la liste du quorum Apache ZooKeeper
 
-Lorsque les deux clusters HDInsight se trouvent dans le même réseau virtuel, tel que décrit auparavant, la résolution de nom d’hôte interne est automatique. Pour exécuter l’utilitaire de copie de table pour des clusters HDInsight de deux réseaux virtuels distincts connectés par une passerelle VPN, il vous faudra fournir les adresses IP des hôtes des nœuds ZooKeeper du quorum.
+Lorsque les deux clusters HDInsight se trouvent dans le même réseau virtuel, tel que décrit auparavant, la résolution de nom d’hôte interne est automatique. Pour exécuter l’utilitaire de copie de table pour des clusters HDInsight de deux réseaux virtuels distincts connectés par une passerelle VPN, vous devez fournir les adresses IP des hôtes des nœuds ZooKeeper du quorum.
 
 Pour acquérir les noms d’hôtes du quorum, exécutez la commande curl suivante :
 
@@ -155,7 +160,7 @@ Dans notre exemple :
 
 ## <a name="snapshots"></a>Instantanés
 
-Les instantanés vous permettent d’exécuter une sauvegarde à un point dans le temps des données de votre banque de données HBase. Les instantanés présentent une charge minimale et s’exécutent en quelques secondes, dans la mesure où l’opération associée correspond en réalité à une opération de métadonnées consistant à capturer les noms de tous les fichiers stockés à cet instant. Au moment de la prise d’un instantané, aucune donnée réelle n’est copiée. Les instantanés s’appuient sur la nature immuable des données stockées dans HDFS, où les mises à jour, les suppressions et les insertions sont toutes représentées en tant que nouvelles données. Vous pouvez restaurer (*cloner*) un instantané sur le même cluster, ou exporter un instantané vers un cluster différent.
+Les [instantanés](https://hbase.apache.org/book.html#ops.snapshots) vous permettent d’exécuter une sauvegarde à un point dans le temps des données de votre magasin de données HBase. Les instantanés présentent une charge minimale et s’exécutent en quelques secondes, dans la mesure où l’opération associée correspond en réalité à une opération de métadonnées consistant à capturer les noms de tous les fichiers stockés à cet instant. Au moment de la prise d’un instantané, aucune donnée réelle n’est copiée. Les instantanés s’appuient sur la nature immuable des données stockées dans HDFS, où les mises à jour, les suppressions et les insertions sont toutes représentées en tant que nouvelles données. Vous pouvez restaurer (*cloner*) un instantané sur le même cluster, ou exporter un instantané vers un cluster différent.
 
 Pour créer un instantané, exécutez SSH dans le nœud principal de votre cluster HBase, puis démarrez le shell `hbase` :
 
@@ -189,7 +194,7 @@ Les instantanés offrent une sauvegarde complète de la table au moment de l’e
 
 ## <a name="replication"></a>Réplication
 
-La réplication HBase transfère automatiquement les transactions d’un cluster source vers un cluster de destination, au moyen d’un mécanisme asynchrone présentant une charge minimale sur le cluster source. Dans HDInsight, vous pouvez configurer la réplication entre les clusters où :
+La [réplication HBase](https://hbase.apache.org/book.html#_cluster_replication) transfère automatiquement les transactions d’un cluster source vers un cluster de destination, au moyen d’un mécanisme asynchrone présentant une charge minimale sur le cluster source. Dans HDInsight, vous pouvez configurer la réplication entre les clusters où :
 
 * Les clusters source et de destination se trouvent dans le même réseau virtuel.
 * Les clusters source et de destination se trouvent dans des réseaux virtuels différents connectés par une passerelle VPN, mais ils sont hébergés au même emplacement géographique.
@@ -209,3 +214,4 @@ Pour activer la réplication sur HDInsight, appliquez une action de script sur v
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Configurer la réplication Apache HBase](apache-hbase-replication.md)
+* [Utilisation de l’utilitaire d’importation et d’exportation HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)

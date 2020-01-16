@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 9fe52fc16b763a03738442bb49a4969244a1d3c6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427556"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
@@ -24,7 +24,7 @@ La galerie contient diverses ressources que vous pouvez utiliser pour développe
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Que puis-je trouver dans la galerie ?
 
-Azure AI Gallery contient un certain nombre de ressources différentes qui ont été fournies par Microsoft et des membres de la communauté de science des données. Il s’agit des actions suivantes :
+Azure AI Gallery contient un certain nombre de ressources différentes qui ont été fournies par Microsoft et des membres de la communauté de science des données. notamment :
 
 * **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 * **Tutoriels** : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
@@ -59,15 +59,15 @@ Pour télécharger une ressource à partir de AI Gallery :
 
 ![Ouvrez un élément à partir d’AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Pour télécharger une ressource à partir de la version classique de Studio :
+Pour télécharger une ressource à partir de Studio (classique) :
 
-1. Dans la version classique de Studio, sélectionnez **Nouveau**.
+1. Dans Studio (classique), sélectionnez **NOUVEAU**.
 1. Sélectionnez **Module**, **Expérience** ou **Bloc-notes**.
 1. Parcourez ou recherchez une ressource dans la galerie.
 1. Pointez votre souris sur la ressource, puis sélectionnez **Ouvrir dans Studio**.
     ![Ouvrir une expérience de la galerie dans Machine Learning Studio (classique)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Une fois que la ressource se trouve dans votre espace de travail, vous pouvez la personnaliser et l’utiliser comme vous le feriez pour tout ce que vous créez dans la version classique de Studio.
+Une fois que la ressource se trouve dans votre espace de travail, vous pouvez la personnaliser et l’utiliser comme vous le feriez pour tout ce que vous créez dans Studio (classique).
 
 Pour utiliser un module personnalisé importé :
 
@@ -77,12 +77,12 @@ Pour utiliser un module personnalisé importé :
 
 ## <a name="contribute-experiments"></a>Apportez votre contribution en partageant vos expériences
 
-Pour illustrer les techniques d’analytique, ou pour aider d’autres utilisateurs à démarrer rapidement avec leurs solutions, vous pouvez partager des **expériences** que vous avez développées dans la version classique de Studio.
+Pour illustrer les techniques d’analytique, ou pour aider d’autres utilisateurs à démarrer rapidement avec leurs solutions, vous pouvez partager des **expériences** que vous avez développées dans Studio (classique).
 Quand d’autres personnes découvrent votre contribution dans la galerie, vous pouvez suivre le nombre de vues et de téléchargements de votre contribution.
 Les utilisateurs peuvent également ajouter des commentaires et partager vos contributions avec d’autres membres de la communauté de science des données.
 De plus, vous pouvez vous connecter avec un outil de discussion comme Disqus pour recevoir des notifications pour les commentaires sur vos contributions.
 
-1. Ouvrez votre expérience dans la version classique de Studio.
+1. Ouvrez votre expérience dans Studio (classique).
 
 1. Dans la liste des actions sous le canevas de l’expérience, sélectionnez **Publier dans la galerie**.
 
@@ -177,7 +177,7 @@ Vous pouvez modifier les éléments présents dans votre collection en sélectio
 * Pour ajouter des notes aux éléments de votre collection, sélectionnez le coin supérieur droit d’un élément, puis sélectionnez **Ajouter/modifier une note**.
 * Pour supprimer un élément de votre collection, sélectionnez l’angle supérieur droit de l’élément, puis sélectionnez **Supprimer**.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Quelles sont les exigences spécifiques à l’envoi ou à la modification d’une image ?**
 

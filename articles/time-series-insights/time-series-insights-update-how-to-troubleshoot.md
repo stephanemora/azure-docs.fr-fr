@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452502"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostiquer et dépanner un environnement d’évaluation
 
@@ -25,7 +25,7 @@ Cet article résume plusieurs problèmes courants que vous pourriez rencontrer l
 
 Ce problème peut se produire si vous n’êtes pas autorisé à accéder à l’environnement Time Series Insights. Les utilisateurs ont besoin d’un rôle d’accès de niveau lecteur pour visualiser leur environnement Time Series Insights. Pour vérifier les niveaux d’accès actuels et accorder un accès supplémentaire, accédez à la section **Stratégies d’accès aux données** sur la ressource Insights Time Series du [Portail Azure](https://portal.azure.com/).
 
-  [![Environnement](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
+  [![Vérifiez les stratégies d’accès aux données.](media/preview-troubleshoot/verify-data-access-policies.png)](media/preview-troubleshoot/verify-data-access-policies.png#lightbox)
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problème : aucune donnée n’apparaît dans l’explorateur en préversion
 
@@ -35,7 +35,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
     Vérifiez que votre source d’événement, qui est un event Hub ou un hub IoT, reçoit des données de vos balises ou instances. Pour ce faire, rendez-vous sur la page d’aperçu de votre ressource dans le portail Azure.
 
-    [![Dashboard-insights](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
+    [![Vue d’ensemble des métriques du tableau de bord des évaluations.](media/preview-troubleshoot/verify-dashboard-metrics.png)](media/preview-troubleshoot/verify-dashboard-metrics.png#lightbox)
 
 - Vos données sources d’événements ne sont pas au format JSON.
 
@@ -45,14 +45,15 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
   * Pour IoTHub, vous devez fournir la clé avec l’autorisation **Connexion de service**.
 
-    [![Configuration](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
+    [![Vérifiez les autorisations IoT Hub.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-  * Comme indiqué dans l’illustration précédente, les stratégies **iothubowner** et **service** sont acceptées, car elles disposent de l’autorisation **Connexion de service**.
+    * Les stratégies **iothubowner** et **service** fonctionnent toutes les deux car elles disposent de l’autorisation **Connexion de service**.
+
   * Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
   
-    [![Autorisations](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
+    [![Passez en revue les autorisations du hub d’événements.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-  * Comme indiqué dans l’illustration précédente, les stratégies **read** et **manage** sont acceptées, car elles disposent de l’autorisation **Listen**.
+    * Les stratégies **Read** et **Manage** fonctionnent toutes les deux car elles disposent de l’autorisation **Écouter**.
 
 - Votre groupe de consommateurs fourni n’est pas exclusif à Time Series Insights.
 
@@ -98,7 +99,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
    Les modèles de séries chronologiques ne sont pris en charge que dans les environnements de paiement à l’utilisation. Pour plus d’informations sur la façon d’accéder à votre environnement S1 ou S2 à partir de l’explorateur Time Series Insights en préversion, consultez [Visualiser les données dans l’Explorateur](./time-series-insights-update-explorer.md).
 
-   [![Accès](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![Aucun événement dans l’environnement.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
 - Il se peut que vous n’ayez pas les autorisations nécessaires pour afficher et modifier le modèle.
 
@@ -108,10 +109,12 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
 Ce problème peut se produire si votre environnement n’a pas de hiérarchie Time Series Model définie. Pour plus d’informations, consultez [Utiliser des modèles de série chronologique](./time-series-insights-update-how-to-tsm.md).
 
-  [![Modèles de série chronologique](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
+  [![Les instances non apparentées affichent un avertissement.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Utiliser des modèles de série chronologique](./time-series-insights-update-how-to-tsm.md).
+
 - En savoir plus sur les [formes JSON prises en charge](./how-to-shape-query-json.md).
+
 - Passez en revue [la planification et les limites](./time-series-insights-update-plan.md) dans Azure Time Series Insights version préliminaire.

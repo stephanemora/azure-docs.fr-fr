@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74284827"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385554"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Conserver des fichiers dans Azure Cloud Shell
 Cloud Shell utilise le stockage de fichiers Azure pour conserver les fichiers entre les sessions. Lors du premier démarrage, Cloud Shell vous invite à associer un partage de fichiers nouveau ou existant afin de conserver les fichiers entre les sessions.
 
 > [!NOTE]
 > Bash et PowerShell utilisent le même partage de fichiers. Un seul partage de fichiers peut être associé à un montage automatique dans Cloud Shell.
+
+> [!NOTE]
+> Le pare-feu de stockage Azure n’est pas pris en charge pour les comptes de stockage Cloud Shell.
 
 ## <a name="create-new-storage"></a>Créer un stockage
 
@@ -89,7 +92,7 @@ Dans Cloud Shell, vous pouvez exécuter une commande appelée `clouddrive`, qui 
 ### <a name="list-clouddrive"></a>Liste `clouddrive`
 Pour détecter le partage de fichiers monté comme `clouddrive`, exécutez la commande `df`. 
 
-Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple, `//storageaccountname.file.core.windows.net/filesharename`
+Le chemin de fichier vers clouddrive affiche le nom de votre compte de stockage et le partage de fichiers dans l’URL. Par exemple : `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df

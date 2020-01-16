@@ -1,6 +1,6 @@
 ---
 title: Planifier votre environnement de préversion – Azure Time Series Insights | Microsoft Docs
-description: Découvrez comment planifier votre environnement Azure Time Series Insights (préversion).
+description: Bonnes pratiques pour configurer, gérer, planifier et déployer votre environnement de préversion Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9fb2dcf2c05b709340f8e9ae549bab5756e6abf2
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420311"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452438"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planifier votre environnement Azure Time Series Insights (préversion)
 
@@ -48,7 +48,7 @@ Dans le cadre du processus de provisionnement, vous spécifiez si vous souhaitez
 Les requêtes sur le stockage chaud sont gratuites, contrairement aux requêtes sur le stockage froid qui sont facturées. Il est important de bien comprendre vos modèles de requête et de planifier la configuration de votre stockage chaud en conséquence. Nous vous recommandons de placer l’analytique interactive sur les données les plus récentes dans votre stockage chaud, et de placer l’analyse des modèles et les tendances à long terme dans le stockage froid.
 
 > [!NOTE]
-> Nous prenons actuellement en charge un maximum de 1 000 propriétés avec le stockage chaud.
+> Pour en savoir plus sur l’interrogation de vos données chaudes, [consultez cet article](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Pour commencer, vous avez besoin de trois autres éléments :
 

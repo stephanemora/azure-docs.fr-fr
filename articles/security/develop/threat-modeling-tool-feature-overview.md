@@ -1,26 +1,18 @@
 ---
-title: Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
+title: Vue d’ensemble des fonctionnalités de Microsoft Threat Modeling Tool - Azure
 description: En savoir plus sur les fonctionnalités disponibles dans l’Outil de modélisation des menaces
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: e3c6769cc832a897cfbab5548de5328d743884b2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 88eea0eb2bceb0f6322381a94d4339cbdfa662c0
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728511"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552115"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Vue d’ensemble de la fonctionnalité Outil de modélisation des menaces
 
@@ -150,7 +142,7 @@ Vous pouvez connecter des éléments de deux manières :
 - **Glisser-déplacer** : faites glisser le flux de données de votre choix vers la grille et connectez les deux extrémités aux éléments appropriés.
 - **Cliquer + Maj** : cliquez sur le premier élément (envoi de données), appuyez et maintenez la pression sur la touche Maj, puis sélectionnez le deuxième élément (réception de données). Cliquez avec le bouton droit et sélectionnez **Connect** (Se connecter). Si vous utilisez un flux de données bidirectionnel, l’ordre n’est pas aussi important.
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 
  Pour afficher les propriétés pouvant être modifiées dans les gabarits, sélectionnez le gabarit ; les informations apparaissent alors. L’exemple ci-dessous présente un gabarit de **Database** (Base de données) avant et après être glissé vers le diagramme :
 
@@ -158,9 +150,9 @@ Vous pouvez connecter des éléments de deux manières :
 
 ![Avant](./media/threat-modeling-tool-feature-overview/properties1.png)
 
-#### <a name="after"></a>Après
+#### <a name="after"></a>After
 
-![Après](./media/threat-modeling-tool-feature-overview/properties2.png)
+![After](./media/threat-modeling-tool-feature-overview/properties2.png)
 
 ### <a name="messages"></a>Messages
 

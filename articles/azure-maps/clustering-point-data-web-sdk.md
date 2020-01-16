@@ -7,14 +7,14 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendleton
+manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 4a583f77aac036028fd75d3c05af805031f08ebd
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480561"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433029"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 
@@ -88,12 +88,12 @@ Consultez le rendu <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Carte ther
 
 Lorsque des événements de souris se produisent sur une couche contenant des points de données en cluster, ces derniers sont retournés à l’événement en tant qu’objet de fonctionnalité de point GeoJSON. Cette fonctionnalité de point possède les propriétés suivantes :
 
-| Nom de la propriété | type | Description |
-|---------------|------|-------------|
-| cluster | boolean | Indique si la fonctionnalité représente un cluster. |
-| cluster_id | string | Un ID unique pour le cluster qui peut être utilisé avec les méthodes `getClusterExpansionZoom`, `getClusterChildren` et `getClusterLeaves` de DataSource. |
-| point_count | number | Le nombre de points que contient le cluster. |
-| point_count_abbreviated | string | Une chaîne qui abrège la valeur `point_count` si elle est trop longue. (par exemple, 4 000 devient 4K) |
+| Nom de la propriété             | Type    | Description   |
+|---------------------------|---------|---------------|
+| `cluster`                 | boolean | Indique si la fonctionnalité représente un cluster. |
+| `cluster_id`              | string  | Un ID unique pour le cluster qui peut être utilisé avec les méthodes `getClusterExpansionZoom`, `getClusterChildren` et `getClusterLeaves` de DataSource. |
+| `point_count`             | nombre  | Le nombre de points que contient le cluster.  |
+| `point_count_abbreviated` | string  | Une chaîne qui abrège la valeur `point_count` si elle est trop longue. (par exemple, 4 000 devient 4K)  |
 
 Cet exemple utilise une couche de bulles qui affiche des points de cluster et ajoute un événement basé sur un clic. Lorsqu’il est déclenché, il calcule et effectue un zoom sur la carte jusqu’au prochain niveau de zoom provoquant une décomposition du cluster à l’aide de la méthode `getClusterExpansionZoom` de la classe `DataSource` et de la propriété `cluster_id` du point de données en cluster sur lequel l’utilisateur a cliqué. 
 

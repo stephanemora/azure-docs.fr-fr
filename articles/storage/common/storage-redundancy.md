@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8025228275afeb3f23268db759eb7659b9887132
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670780"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75560366"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -34,23 +34,25 @@ Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la dur
 
 | Scénario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (préversion)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Indisponibilité des nœuds dans un centre de données                                                                 | OUI                             | OUI                              | OUI                                  | OUI                                  |
-| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                              | OUI                              | OUI                                  | OUI                                  |
-| Panne à l’échelle d’une région                                                                                     | Non                              | Non                               | OUI                                  | OUI                                  |
+| Indisponibilité des nœuds dans un centre de données                                                                 | Oui                             | Oui                              | Oui                                  | Oui                                  |
+| Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                              | Oui                              | Oui                                  | Oui                                  |
+| Panne à l’échelle d’une région                                                                                     | Non                              | Non                               | Oui                                  | Oui                                  |
 | Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                              | Non                               | Oui (avec RA-GRS)                                   | Oui (avec RA-GZRS)                                 |
-| Conçu pour assurer une durabilité des objets \_\_ sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
-| Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2                     |
-| Contrat SLA de disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GRS | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GZRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GZRS |
-| Contrat SLA de disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
+| Conçu pour assurer une durabilité \_\_ des objets sur une année donnée<sup>1</sup>                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
+| Types de comptes de stockage pris en charge<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
+| Contrat SLA de disponibilité pour les demandes de lecture<sup>1</sup>  | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GRS | Au moins 99,9 % (99 % pour le niveau d’accès froid) pour GZRS<br /><br />Au moins 99,99 % (99,9 % pour le niveau d’accès froid) pour RA-GZRS |
+| Contrat SLA de disponibilité pour les demandes d’écriture<sup>1</sup>  | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
 
-Toutes les données de votre compte de stockage sont répliquées, à savoir, les objets blob de blocs, les objets blob d’ajout, les objets blob de pages, les files d’attente, les tables et les fichiers. Tous les types de comptes de stockage sont répliqués, bien que la stockage redondant interzone requière un compte de stockage v2 universel.
+<sup>1</sup> Pour obtenir des informations sur les garanties du Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service (SLA) du Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).   
 
-Pour obtenir des informations sur les prix des différentes options de redondance, consultez [Prix de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). 
+<sup>2</sup> Pour plus d’informations sur les types de comptes de stockage, consultez [Vue d’ensemble des comptes de stockage](storage-account-overview.md).
 
-Pour obtenir des informations sur les garanties de Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service de Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).
+Toutes les données pour tous les types de comptes de stockage sont répliquées, notamment les objets blob de blocs, les objets blob d’ajout, les objets blob de pages, les files d’attente, les tables et les fichiers.
+
+Pour obtenir des informations sur les prix des différentes options de redondance, consultez [Prix de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 > [!NOTE]
-> Actuellement, le Stockage Premium Azure prend en charge uniquement le stockage localement redondant (LRS).
+> Actuellement, le stockage sur disque Azure Premium prend en charge uniquement le stockage localement redondant (LRS). Le stockage d’objet blob de blocs Azure Premium prend en charge le stockage localement redondant (LRS) et le stockage redondant interzone (ZRS) dans certaines régions.
 
 ## <a name="changing-replication-strategy"></a>Modification de la stratégie de réplication
 
@@ -69,6 +71,7 @@ Si vous migrez votre compte de stockage géographiquement redondant avec accès 
 
 ## <a name="see-also"></a>Voir aussi
 
+- [Vue d’ensemble des comptes de stockage](storage-account-overview.md)
 - [Stockage localement redondant (LRS) : redondance des données à faible coût pour Stockage Azure](storage-redundancy-lrs.md)
 - [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md)
 - [Stockage géo-redondant (GRS) : réplication interrégion pour Stockage Azure](storage-redundancy-grs.md)

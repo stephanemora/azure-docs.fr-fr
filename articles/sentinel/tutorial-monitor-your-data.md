@@ -1,6 +1,6 @@
 ---
-title: Superviser vos données à l’aide de tableaux de bord basés sur les classeurs Azure Monitor dans Azure Sentinel | Microsoft Docs
-description: Effectuez ce tutoriel pour apprendre à superviser vos données à l’aide de tableaux de bord basés sur des classeurs dans Azure Sentinel.
+title: Visualiser vos données à l’aide de tableaux de bord basés sur les classeurs Azure Monitor dans Azure Sentinel | Microsoft Docs
+description: Suivez ce tutoriel pour apprendre à visualiser vos données à l’aide de tableaux de bord basés sur des classeurs dans Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2019
+ms.date: 01/01/2020
 ms.author: rkarlin
-ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158852"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610452"
 ---
-# <a name="tutorial-monitor-your-data"></a>Didacticiel : Superviser vos données
+# <a name="tutorial-visualize-and-monitor-your-data"></a>Tutoriel : Visualiser et superviser vos données
 
 
 
-Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez superviser les données grâce à l’intégration d’Azure Sentinel avec les classeurs Azure Monitor. Vous bénéficiez ainsi d’une solution d’une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
+Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez visualiser et superviser les données grâce à l’adoption par Azure Sentinel de classeurs Azure Monitor. Vous bénéficiez ainsi d’une solution d’une grande souplesse pour créer des tableaux de bord personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de savoir [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
 
 
-Ce tutoriel vous aide à superviser vos données dans Azure Sentinel.
+Ce tutoriel vous aide à visualiser vos données dans Azure Sentinel.
 > [!div class="checklist"]
 > * Utiliser des classeurs intégrés
 > * Créer des classeurs
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vous devez avoir au minimum les autorisations de lecteur ou de contributeur de classeurs sur le groupe de ressources de l’espace de travail Azure Sentinel.
 
@@ -72,7 +72,7 @@ Ce tutoriel vous aide à superviser vos données dans Azure Sentinel.
 
 1. Si vous voulez autoriser d’autres personnes de votre organisation à utiliser le classeur, sous **Enregistrer dans**, sélectionnez **Rapports partagés**. Si vous souhaitez restreindre l’usage de ce classeur à vous-seul, sélectionnez **Mes rapports**.
 
-1. Pour passer d’un classeur à un autre dans votre espace de travail, sélectionnez **Ouvrir** ![Basculer vers le classeur](./media/tutorial-monitor-data/switch.png) dans le volet supérieur d’un classeur. Dans la fenêtre qui s’ouvre sur la droite, accédez au classeur souhaité.
+1. Pour passer d’un classeur à un autre dans votre espace de travail, vous pouvez sélectionner **Ouvrir** ![Basculer vers le classeur](./media/tutorial-monitor-data/switch.png) dans le volet supérieur d’un classeur. Dans la fenêtre qui s’ouvre sur la droite, accédez au classeur souhaité.
 
    ![Basculer vers le classeur](./media/tutorial-monitor-data/switch-workbooks.png)
 

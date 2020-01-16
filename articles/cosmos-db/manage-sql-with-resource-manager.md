@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer Azure Cosmos DB avec des modèles Azure Resource Manager
+title: Créer et gérer Azure Cosmos DB avec des modèles Resource Manager
 description: Utiliser des modèles Azure Resource Manager pour créer et configurer l’API Azure Cosmos DB pour l’API SQL (Core)
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 62c04fed03ad2346d0f548a4a8028f2d7d6b3486
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 95301efce4b2abe143ec8c8ea5e5ccc445191d3e
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850463"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75643795"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Gérer les ressources de l’API SQL (Core) Azure Cosmos DB avec des modèles Azure Resource Manager
 
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Vous pouvez choisir de déployer le modèle à l’aide d’une version installée localement de PowerShell au lieu d’Azure Cloud Shell. Vous devez alors [installer le module Azure PowerShell](/powershell/azure/install-az-ps). Exécutez `Get-Module -ListAvailable Az` pour trouver la version requise.
+Vous pouvez choisir de déployer le modèle avec une version installée localement de PowerShell au lieu d’Azure Cloud Shell. Vous devez alors [installer le module Azure PowerShell](/powershell/azure/install-az-ps). Exécutez `Get-Module -ListAvailable Az` pour trouver la version requise.
 
 ### <a name="deploy-via-azure-cli"></a>Déployer avec Azure CLI
 
@@ -204,5 +204,5 @@ Voici quelques ressources supplémentaires :
 
 * [Documentation Azure Resource Manager](/azure/azure-resource-manager/)
 * [Schéma de fournisseurs de ressources Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions)
-* [Modèles Démarrage rapide Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+* [Modèles Démarrage rapide Azure Cosmos DB](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)

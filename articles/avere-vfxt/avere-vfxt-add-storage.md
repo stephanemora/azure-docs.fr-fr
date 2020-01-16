@@ -4,27 +4,27 @@ description: Comment ajouter un système de stockage back-end à votre cluster A
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 86b63e6d9799387347093e469015fbd3019069d1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255049"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75416486"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
 Cette étape configure un système de stockage back-end pour votre cluster vFXT.
 
 > [!TIP]
-> Si vous avez créé un conteneur d’objets blob, ainsi que le cluster Avere vFXT, ce conteneur est opérationnel et vous n’avez pas besoin d’ajouter de stockage.
+> Si vous avez créé un conteneur d’objets blob Azure et le cluster Avere vFXT, le conteneur sera préconfiguré et prêt à l’emploi.
 
 Suivez ces instructions si vous n'avez pas créé de nouveau conteneur d'objets blob avec votre cluster, ou si vous souhaitez ajouter du matériel ou un système de stockage basé sur le cloud.
 
 Il existe deux tâches principales :
 
-1. [Créer un système de stockage principal (core filer)](#create-a-core-filer), qui connecte votre cluster vFXT à un système de stockage existant ou à un compte Stockage Azure.
+1. [Créer un système de stockage principal (core filer)](#create-a-core-filer), qui connecte votre cluster vFXT à un système de stockage existant ou à un conteneur de compte de stockage Azure.
 
 1. [Créer une jonction d’espace de noms](#create-a-junction), qui définit le chemin emprunté par les clients.
 
@@ -36,14 +36,14 @@ Vous effectuez ces étapes à l’aide du panneau de configuration Avere. Lisez 
 
 Pour ajouter un système de stockage principal, choisissez l’un des deux types de système de stockage principal suivants :
 
-  * [Système de stockage principal NAS](#nas-core-filer) : explique comment ajouter un système de stockage principal NAS 
-  * [Système de stockage principal cloud avec stockage Azure](#azure-storage-cloud-core-filer) : explique comment ajouter un compte de stockage Azure en tant que système de stockage principal cloud
+* [Système de stockage principal NAS](#nas-core-filer) : explique comment ajouter un système de stockage principal NAS
+* [Système de stockage principal cloud avec stockage Azure](#azure-blob-storage-cloud-core-filer) : explique comment ajouter un conteneur de stockage Blob Azure en tant que système de stockage principal cloud
 
 ### <a name="nas-core-filer"></a>Système de stockage principal NAS
 
-Un système de stockage principal NAS peut être un dispositif NetApp ou Isilon local ou un point de terminaison NAS dans le cloud. Le système de stockage doit disposer d’une connexion fiable à grande vitesse au cluster Avere vFXT - par exemple, une connexion ExpressRoute 1 Gbit/s (pas un VPN) - et doit donner au cluster un accès root aux exportations NAS utilisées.
+Un système de stockage principal NAS peut être une appliance NetApp ou Isilon locale, ou un point de terminaison NAS dans le cloud. Le système de stockage doit disposer d’une connexion fiable à grande vitesse au cluster Avere vFXT - par exemple, une connexion ExpressRoute 1 Gbit/s (pas un VPN) - et doit donner au cluster un accès root aux exportations NAS utilisées.
 
-Effectuez les étapes suivantes pour ajouter un système de stockage principal NAS :
+Pour ajouter un système de stockage principal NAS, effectuez les étapes suivantes :
 
 1. À partir du panneau de configuration Avere, cliquez sur l’onglet **Settings** (Paramètres) en haut.
 
@@ -53,7 +53,7 @@ Effectuez les étapes suivantes pour ajouter un système de stockage principal N
 
    ![Capture d’écran de la page Add new core filer (Ajouter un nouveau système de stockage principal) avec le curseur sur le bouton Create (Créer)](media/avere-vfxt-add-core-filer-start.png)
 
-1. Remplissez les informations nécessaires dans l’Assistant : 
+1. Remplissez les informations nécessaires dans l’Assistant :
 
    * Nommez votre système de stockage principal.
    * Le cas échéant, fournissez un nom de domaine complet (FQDN). Sinon, fournissez une adresse IP ou un nom d’hôte qui correspond à votre système de stockage principal.
@@ -61,18 +61,15 @@ Effectuez les étapes suivantes pour ajouter un système de stockage principal N
 
      ![Capture d’écran de la page d’ajout d’un nouveau système de stockage principal avec le nom du système de stockage principal et son nom de domaine complet](media/avere-vfxt-add-core-filer.png)
   
-   * Cliquez sur **Next** (Suivant) et choisissez une stratégie de cache. 
+   * Cliquez sur **Next** (Suivant) et choisissez une stratégie de cache.
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
    * Pour plus d’informations, reportez-vous à [Adding a new NAS core filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) (Ajout d’un nouveau système de stockage principal NAS) dans le guide des paramètres de cluster Avere.
 
 Ensuite, passez à la section [Créer une jonction](#create-a-junction).  
 
-### <a name="azure-storage-cloud-core-filer"></a>Système de stockage principal cloud avec Stockage Azure
+### <a name="azure-blob-storage-cloud-core-filer"></a>Système de stockage principal cloud avec le stockage Blob Azure
 
 Pour utiliser le stockage Blob Azure en tant que stockage back-end de votre cluster vFXT, vous devez ajouter un conteneur vide en tant que système de stockage principal.
-
-> [!TIP] 
-> Si vous choisissez de créer un conteneur d’objets blob en même temps que le cluster Avere vFXT, le modèle de déploiement ou le script crée un conteneur de stockage, le définit comme système de stockage principal, et crée la jonction d'espace de noms dans le cadre de la création du cluster vFXT. Le modèle crée également un point de terminaison de service de stockage sur le réseau virtuel du cluster. 
 
 Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer les tâches suivantes :
 
@@ -82,7 +79,17 @@ Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer 
 * Ajouter le conteneur d’objets blob en tant que système de stockage principal pour le cluster vFXT (étapes 7 à 9)
 * Créer une jonction d’espace de noms que les clients utilisent pour monter le système de stockage principal ([Créer une jonction](#create-a-junction), même procédure pour le stockage matériel et cloud)
 
-Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectuez les étapes ci-après. 
+> [!TIP]
+> Si vous créez un conteneur d’objets blob lorsque vous créez un cluster Avere vFXT pour Azure, le modèle de déploiement configure automatiquement le conteneur comme un système de stockage principal (ceci est également vrai si vous utilisez le script de création, qui est disponible à la demande). Vous n’aurez pas besoin de configurer le système de stockage principal.
+>
+> L’outil de création de cluster se charge des tâches de configuration suivantes :
+>
+> * Il crée un conteneur d’objets blob dans le compte de stockage fourni
+> * Il définit le conteneur comme un système de stockage principal
+> * Il crée une jonction d’espace de noms avec le conteneur
+> * Il crée un point de terminaison de service de stockage sur le réseau virtuel du cluster
+
+Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectuez les étapes ci-après.
 
 1. Créez un compte de stockage V2 universel avec ces paramètres :
 
@@ -104,52 +111,52 @@ Pour ajouter le stockage d’objets blob après avoir créé le cluster, effectu
 
    ![Nouveau compte de stockage dans le portail Azure](media/avere-vfxt-new-storage-acct.png)
 
-1. Créez un conteneur d’objets blob en cliquant sur **Objets blob** dans la page Vue d’ensemble, puis cliquez sur **+Conteneur**. Utilisez n’importe quel nom de conteneur et assurez-vous que l’accès est défini sur **Privé**.
+1. Créez un conteneur d’objets blob : Dans la page Vue d’ensemble, cliquez sur **Conteneurs**, puis cliquez sur **+ Conteneur**. Utilisez n’importe quel nom de conteneur et assurez-vous que l’accès est défini sur **Privé**.
 
-   ![Page d’objets blob de stockage sans conteneur](media/avere-vfxt-blob-no-container.png)
+   ![Page des objets blob de stockage où le bouton +Conteneur est entouré, et où un nouveau conteneur est créé dans une page contextuelle](media/avere-vfxt-new-blob.png)
 
-1. Obtenez la clé du compte de stockage Azure en cliquant sur **Clés d’accès** sous **Paramètres** :
+1. Obtenez la clé du compte de stockage Azure en cliquant sur **Clés d’accès** sous **Paramètres**. Copiez l’une des clés fournies.
 
-   ![Interface utilisateur du portail Azure pour la copie de la clé](media/avere-vfxt-copy-storage-key.png) 
+   ![Interface utilisateur du portail Azure pour la copie de la clé](media/avere-vfxt-copy-storage-key.png)
 
 1. Ouvrez le panneau de configuration Avere associé à votre cluster. Cliquez sur **Settings** (Paramètres), puis ouvrez **Cluster** > **Cloud Credentials** (Informations d’identification cloud) dans le volet de navigation de gauche. Dans la page Cloud Credentials (Informations d’identification cloud), cliquez sur **Add Credential** (Ajouter des informations d’identification).
 
    ![Cliquer sur le bouton Add Credential (Ajouter des informations d’identification) dans la page de configuration des informations d’identification cloud](media/avere-vfxt-new-credential-button.png)
 
-1. Renseignez les informations suivantes afin de créer des informations d’identification pour le système de stockage principal cloud : 
+1. Renseignez les informations suivantes afin de créer des informations d’identification pour le système de stockage principal cloud :
 
    | Champ | Valeur |
    | --- | --- |
    | Credential name (Nom des informations d’identification) | Tout nom descriptif |
-   | Type de service | (Sélectionnez la clé d’accès du stockage Azure) |
+   | Type de service | (sélectionnez la clé d’accès du stockage Azure) |
    | Locataire | nom du compte de stockage |
    | Subscription | ID d’abonnement |
-   | Storage Access Key (Clé d’accès de stockage) | Clé du compte de stockage Azure (copiée à l’étape précédente) | 
+   | Storage Access Key (Clé d’accès de stockage) | Clé du compte de stockage Azure (copiée à l’étape précédente) |
 
    Cliquez sur **Envoyer**.
 
    ![Formulaire des informations d’identification cloud rempli dans le panneau de configuration Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Ensuite, créez le système de stockage principal. Dans la partie gauche du panneau de configuration Avere, cliquez sur **Core Filer** (Système de stockage principal) >  **Manage Core Filers** (Gérer les systèmes de stockage principaux). 
+1. Ensuite, créez le système de stockage principal. Dans la partie gauche du panneau de configuration Avere, cliquez sur **Core Filer** (Système de stockage principal) >  **Manage Core Filers** (Gérer les systèmes de stockage principaux).
 
 1. Cliquez sur le bouton **Create** dans la page de paramètres **Manage Core Filers** (Gérer les systèmes de stockage principaux).
 
 1. Renseignez l’Assistant :
 
-   * Sélectionnez le type de système de stockage **Cloud**. 
+   * Sélectionnez le type de système de stockage **Cloud**.
    * Nommez le nouveau système de stockage principal et cliquez sur **Next** (Suivant).
    * Acceptez la stratégie de cache par défaut et passez à la troisième page.
-   * Dans **Service type** (Type de service), choisissez **Azure storage** (Stockage Azure). 
+   * Dans **Service type** (Type de service), choisissez **Azure storage** (Stockage Azure).
    * Choisissez les informations d’identification créées précédemment.
    * Définissez **Bucket contents** (Contenu du compartiment) sur **Empty** (Vide).
    * Définissez **Certificate verification** (Vérification du certificat) sur **Disabled** (Désactivé).
-   * Définissez **Compression mode** (Mode de compression) sur **None** (Aucun).  
+   * Définissez **Compression mode** (Mode de compression) sur **None** (Aucun).
    * Cliquez sur **Suivant**.
    * Dans la quatrième page, entrez le nom du conteneur dans **Bucket name** (nom du compartiment) sous la forme *nom_compte_de_stockage*/*nom_conteneur*.
    * Si vous le souhaitez, définissez **Encryption type** (Type de chiffrement) sur **None** (Aucun).  Stockage Azure est chiffré par défaut.
    * Cliquez sur **Add Filer** (Ajouter le système de stockage).
 
-   Pour plus d’informations, consultez [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere. 
+   Pour plus d’informations, consultez [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Ajout d’un nouveau système de stockage principal cloud) dans le guide de configuration des clusters Avere.
 
 La page est actualisée, ou vous pouvez l’actualiser vous-même : votre nouveau système de stockage principal apparaît alors.
 
@@ -159,14 +166,14 @@ Ensuite, vous devez [créer une jonction](#create-a-junction).
 
 Une jonction est un chemin que vous créez pour les clients. Les clients empruntent le chemin pour gagner la destination choisie par vos soins.
 
-Par exemple, vous pouvez créer `/avere/files` pour établir une correspondance avec l’exportation `/vol0/data` de votre système de stockage principal NetApp et le sous-répertoire `/project/resources`.
+Par exemple, vous pouvez créer `/vfxt/files` pour établir une correspondance avec l’exportation `/vol0/data` de votre système de stockage principal NetApp et le sous-répertoire `/project/resources`.
 
 Vous trouverez plus d’informations sur les jonctions dans la [section consacrée aux espaces de noms du guide de configuration de clusters Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Suivez ces étapes dans l’interface des paramètres du Panneau de configuration Avere :
+Suivez ces étapes dans l’interface du Panneau de configuration Avere :
 
 * Cliquez sur **VServer** > **Namespace** (Espace de noms) dans le coin supérieur gauche.
-* Fournissez un chemin d’espace de noms commençant par / (barre oblique), comme ``/avere/data``.
+* Fournissez un chemin d’espace de noms commençant par / (barre oblique), comme ``/vfxt/data``.
 * Choisissez votre système de stockage principal.
 * Choisissez l’exportation du système de stockage principal.
 * Cliquez sur **Suivant**.
@@ -175,4 +182,9 @@ Suivez ces étapes dans l’interface des paramètres du Panneau de configuratio
 
 La jonction s’affiche après quelques secondes. Si nécessaire, créez d’autres jonctions.
 
-Une fois la jonction créée, les clients peuvent [monter le cluster Avere vFXT](avere-vfxt-mount-clients.md) pour accéder au système de fichiers.
+Une fois la jonction créée, les clients utilisent le chemin de l’espace de noms pour accéder aux fichiers à partir du système de stockage.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* [Monter le cluster Avere vFXT](avere-vfxt-mount-clients.md)
+* Découvrez comment [déplacer des données vers un nouveau conteneur d’objets blob](avere-vfxt-data-ingest.md) de manière efficace

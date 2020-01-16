@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226763"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612970"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
@@ -23,14 +23,16 @@ Ce document est destiné à résoudre les problèmes liés à l’affichage de l
 ### <a name="summary"></a>Résumé
 Ce problème se produit lorsque le Runtime d’Azure Functions ne peut pas démarrer. Cette erreur se produit le plus souvent lorsque l’application de fonction perd l’accès à son compte de stockage. [En savoir plus sur les exigences concernant les comptes de stockage ici](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 Nous allons étudier les quatre cas d’erreur les plus courants, et découvrir comment les identifier et les résoudre.
 
 1. Compte de stockage supprimé
 1. Paramètres d’application du compte de stockage supprimés
 1. Informations d’identification du compte de stockage invalides
 1. Compte de stockage inaccessible
-1. Limite d’exécution quotidienne atteinte
+1. Quota d’exécution quotidienne atteint
+1. Application située derrière un pare-feu
+
 
 ## <a name="storage-account-deleted"></a>Compte de stockage supprimé
 
@@ -80,6 +82,12 @@ Si vous avez configuré un quota d’exécution quotidien, votre Function App se
 * Pour vérifier, accédez à Ouvrir les fonctionnalités de la plateforme > Paramètres de Function App dans le portail. Le message suivant s’affiche si vous avez dépassé votre quota
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Supprimer le quota et redémarrez votre application pour résoudre le problème.
+
+## <a name="app-is-behind-a-firewall"></a>Application située derrière un pare-feu
+
+Le runtime de votre fonction sera inaccessible si votre application de fonction est hébergée dans un [environnement ASE de charge équilibrée en interne](../app-service/environment/create-ilb-ase.md) et si elle est configurée pour bloquer le trafic Internet entrant, ou si des [restrictions d’adresse IP entrantes](functions-networking-options.md#inbound-ip-restrictions) sont configurées pour bloquer l’accès à Internet. Le portail Azure appelle directement l’application en cours d’exécution pour extraire la liste des fonctions, et il effectue un appel HTTP vers le point de terminaison KUDU. Les paramètres définis au niveau de la plateforme sous l’onglet `Platform Features` seront toujours disponibles.
+
+* Pour vérifier votre configuration ASE, accédez au groupe de sécurité réseau du sous-réseau où se trouve l’environnement ASE, puis validez les règles de trafic entrant pour autoriser le trafic provenant de l’adresse IP publique de l’ordinateur sur lequel vous accédez à l’application. Vous pouvez également utiliser le portail à partir d’un ordinateur connecté au réseau virtuel où est exécutée votre application, ou à partir d’une machine virtuelle exécutée sur votre réseau virtuel. [En savoir plus sur la configuration des règles de trafic entrant](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

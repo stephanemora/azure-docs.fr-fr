@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: fbe3b9ada556f26bd559f040bf2ba5b22367abd0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 12/23/2019
+ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112210"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495057"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>Tutoriel C# : Combiner des données provenant de plusieurs sources de données dans un index Recherche cognitive Azure
 
@@ -30,7 +30,7 @@ Ce tutoriel utilise le langage C#, le SDK .NET pour la Recherche cognitive Azure
 > * Indexer les données d’hôtels issues d’Azure Cosmos DB
 > * Fusionner les données des chambres d’hôtel provenant du stockage d’objets blob
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les services, outils et données utilisés dans ce guide de démarrage rapide. 
 
@@ -38,15 +38,15 @@ Voici les services, outils et données utilisés dans ce guide de démarrage rap
 
 - [Créez un compte Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) pour stocker les exemples de données d’hôtels.
 
-- [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données blob JSON.
+- [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données de chambres.
 
-- [Installez Visual Studio](https://visualstudio.microsoft.com/) à utiliser comme IDE.
+- [Installez Visual Studio 2019](https://visualstudio.microsoft.com/) pour l’utiliser comme IDE.
 
 ### <a name="install-the-project-from-github"></a>Installer le projet à partir de GitHub
 
 1. Recherchez l’exemple de dépôt sur GitHub : [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 1. Sélectionnez **Clone or download** (Cloner ou télécharger) et créez votre copie privée locale du dépôt.
-1. Ouvrez Visual Studio et installez le package NuGet de la Recherche cognitive Microsoft Azure, s’il n’est pas déjà installé. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Gérer les packages NuGet pour la solution...** . Sous l’onglet **Parcourir**, recherchez et installez **Microsoft.Azure.Search** (version 9.0.1 ou ultérieure). Vous devrez valider une série de boîtes de dialogue supplémentaires pour terminer l’installation.
+1. Ouvrez Visual Studio 2019 et installez le package NuGet de la Recherche cognitive Microsoft Azure, s’il n’est pas déjà installé. Dans le menu **Outils**, sélectionnez **Gestionnaire de package NuGet**, puis **Gérer les packages NuGet pour la solution...** . Sous l’onglet **Parcourir**, recherchez et installez **Microsoft.Azure.Search** (version 9.0.1 ou ultérieure). Vous devrez valider une série de boîtes de dialogue supplémentaires pour terminer l’installation.
 
     ![Utilisation de NuGet pour ajouter des bibliothèques Azure](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -54,13 +54,13 @@ Voici les services, outils et données utilisés dans ce guide de démarrage rap
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer de l’URL du service et d’une clé d’accès. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, procédez comme suit pour obtenir les informations nécessaires :
+Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer de l’URL du service et d’une clé d’accès. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -68,35 +68,35 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 
 Cet exemple utilise deux petits ensembles de données qui décrivent sept hôtels fictifs. Un ensemble décrit les hôtels eux-mêmes et est chargé dans une base de données Azure Cosmos DB. L’autre ensemble contient les détails des chambres d’hôtel et est fourni sous la forme de sept fichiers JSON distincts à charger dans Stockage Blob Azure.
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com), puis accédez à la page Vue d’ensemble de votre compte Azure Cosmos DB.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez à la page Vue d’ensemble de votre compte Azure Cosmos DB.
 
-1. Dans la barre de menus, cliquez sur Ajouter un conteneur. Spécifiez « Créer une base de données » et utilisez le nom **hotel-rooms-db**. Entrez **hotels** comme nom de collection et **/HotelId** comme clé de partition. Cliquez sur **OK** pour créer la base de données et le conteneur.
+1. Sélectionnez **Explorateur de données**, puis sélectionnez **Nouvelle base de données**.
 
-   ![Ajouter un conteneur Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-add-container.png "Ajouter un conteneur Azure Cosmos DB")
+   ![Créer une base de données](media/tutorial-multiple-data-sources/cosmos-newdb.png "Créer une base de données")
 
-1. Accédez à l’Explorateur de données Cosmos DB et sélectionnez l’élément **Items** sous le conteneur **hotels** au sein de la base de données **hotel-rooms-db**. Ensuite, cliquez sur **Upload Item** dans la barre de commandes.
+1. Entrez le nom **hotel-rooms-db**. Acceptez les valeurs par défaut pour les autres paramètres.
+
+   ![Configurer la base de données](media/tutorial-multiple-data-sources/cosmos-dbname.png "Configurer la base de données")
+
+1. Créez un conteneur. Utilisez la base de données existante que vous venez de créer. Entrez **hotels** comme nom de conteneur et utilisez **/HotelId** comme clé de partition.
+
+   ![Ajouter un conteneur](media/tutorial-multiple-data-sources/cosmos-add-container.png "Ajouter un conteneur")
+
+1. Sélectionnez **Éléments** sous **Hôtels**, puis cliquez sur **Charger un élément** dans la barre de commandes. Accédez au fichier **cosmosdb/HotelsDataSubset_CosmosDb.json** dans le dossier du projet, puis sélectionnez-le.
 
    ![Charger dans la collection Azure Cosmos DB](media/tutorial-multiple-data-sources/cosmos-upload.png "Charger dans la collection Azure Cosmos DB")
-
-1. Dans le panneau de chargement, cliquez sur le bouton en forme de dossier, puis accédez au fichier **cosmosdb/HotelsDataSubset_CosmosDb.json** dans le dossier du projet. Cliquez sur **OK** pour démarrer le chargement.
-
-   ![Sélectionner un fichier à charger](media/tutorial-multiple-data-sources/cosmos-upload2.png "Sélectionner un fichier à charger")
 
 1. Utilisez le bouton Actualiser pour actualiser l’affichage des éléments dans la collection hotels. Sept nouveaux documents doivent être listés.
 
 ## <a name="prepare-sample-blob-data"></a>Préparer les exemples de données blob
 
-1. [Connectez-vous au portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com), accédez à votre compte de stockage Azure, cliquez sur **Objets blob**, puis sur **+ Conteneur**.
 
 1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) nommé **hotel-rooms** pour stocker les exemples de fichiers JSON des chambres d’hôtel. Vous pouvez définir le niveau d’accès public sur l’une de ses valeurs valides.
 
    Créer un ![conteneur d’objets blob](media/tutorial-multiple-data-sources/blob-add-container.png "Création d’un conteneur d’objets blob")
 
-1. Une fois le conteneur créé, ouvrez-le et sélectionnez **Charger** dans la barre de commandes.
-
-   ![Charger dans la barre de commandes](media/search-semi-structured-data/upload-command-bar.png "Charger dans la barre de commandes")
-
-1. Accédez au dossier contenant les exemples de fichiers. Sélectionnez-les tous, puis cliquez sur **Charger**.
+1. Une fois le conteneur créé, ouvrez-le et sélectionnez **Charger** dans la barre de commandes. Accédez au dossier contenant les exemples de fichiers. Sélectionnez-les tous, puis cliquez sur **Charger**.
 
    ![Charger des fichiers](media/tutorial-multiple-data-sources/blob-upload.png "Charger des fichiers")
 
@@ -129,11 +129,11 @@ Les entrées suivantes spécifient les noms de compte et les informations de cha
 
 Dans la Recherche cognitive Azure, le champ de clé identifie de façon unique chaque document dans l’index. Chaque index de recherche doit comporter exactement un champ de clé de type `Edm.String`. Ce champ de clé doit être présent pour chaque document d’une source de données qui est ajouté à l’index. (il constitue en fait le seul champ obligatoire).
 
-Lors de l’indexation des données à partir de plusieurs sources de données, chaque valeur de clé de source de données doit correspondre au même champ de clé dans l’index combiné. Il est souvent nécessaire de passer par une planification préalable pour identifier une clé de document significative pour votre index et vous assurer qu’elle existe dans chaque source de données.
+Lorsque vous indexez des données issues de plusieurs sources de données, utilisez une clé de document commune pour les fusionner depuis deux documents sources physiquement distincts dans un nouveau document de recherche situé dans l’index combiné. Il est souvent nécessaire de passer par une planification préalable pour identifier une clé de document significative pour votre index et vous assurer qu’elle existe dans les deux sources de données. Dans cette démonstration, la clé HotelId de chaque hôtel dans Cosmos DB est également présente dans les objets blob JSON des chambres dans le stockage d’objets blob.
 
 Les indexeurs de la Recherche cognitive Azure peuvent utiliser des mappages de champs pour renommer, voire remettre en forme, les champs de données pendant le processus d’indexation, afin que les données sources puissent être redirigées vers le champ de l’index approprié.
 
-Ainsi, dans notre exemple de données Azure Cosmos DB, l’identificateur d’hôtel est appelé **HotelId**. Mais dans les fichiers d’objets blob JSON pour les chambres d’hôtel, l’identificateur d’hôtel est nommé **Id**. Le programme gère cette situation en mappant le champ **Id** des objets blob au champ de clé **HotelId** de l’index.
+Ainsi, dans notre exemple de données Azure Cosmos DB, l’identificateur d’hôtel est appelé **`HotelId`** . Mais dans les fichiers d’objets blob JSON pour les chambres d’hôtel, l’identificateur d’hôtel est nommé **`Id`** . Le programme gère cette situation en mappant le champ **`Id`** des objets blob au champ de clé **`HotelId`** de l’index.
 
 > [!NOTE]
 > Dans la plupart des cas, les clés de document générées automatiquement, telles que celles créées par défaut par certains indexeurs, ne constituent pas des clés de document appropriées pour les index combinés. En général, il est préférable d’utiliser une valeur de clé unique explicite qui existe déjà dans vos sources de données ou qui peut y être facilement ajoutée.
@@ -143,11 +143,11 @@ Ainsi, dans notre exemple de données Azure Cosmos DB, l’identificateur d’h�
 Une fois que les données et les paramètres de configuration sont en place, l’exemple de programme dans **AzureSearchMultipleDataSources.sln** doit être opérationnel.
 
 Cette application console C#/.NET simple effectue les tâches suivantes :
-* Elle crée un index de Recherche cognitive Azure basé sur la structure de données de la classe Hotel C# (qui référence également les classes Address et Room).
-* Elle crée une source de données Azure Cosmos DB et un indexeur qui mappe les données Azure Cosmos DB aux champs d’index.
-* Elle exécute l’indexeur Azure Cosmos DB pour charger les données des hôtels.
-* Elle crée une source de données Stockage Blob Azure et un indexeur qui mappe les données blob JSON aux champs d’index.
-* Elle exécute l’indexeur Stockage Blob Azure pour charger les données des chambres d’hôtel.
+* Elle crée un index basé sur la structure de données de la classe Hotel C# (qui référence également les classes Address et Room).
+* Elle crée une source de données et un indexeur qui mappe les données Azure Cosmos DB aux champs d’index. Il s’agit de deux objets dans le service Recherche cognitive Azure.
+* Elle exécute l’indexeur pour charger les données des hôtels à partir de Cosmos DB.
+* Elle crée une seconde source de données et un indexeur qui mappe les données blob JSON aux champs d’index.
+* Elle exécute le second indexeur pour charger des données des chambres à partir du stockage d’objets blob.
 
  Avant d’exécuter le programme, prenez une minute pour étudier le code et les définitions d’index et d’indexeur de cet exemple. Le code qui convient se trouve dans deux fichiers :
 
@@ -300,7 +300,7 @@ Une fois la source de données créée, le programme configure un indexeur d’o
     await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
 ```
 
-Les objets blob JSON contiennent un champ de clé nommé **Id** au lieu de **HotelId**. Le code utilise la classe `FieldMapping` pour indiquer à l’indexeur de rediriger la valeur du champ **Id** vers la clé de document **HotelId** dans l’index.
+Les objets blob JSON contiennent un champ de clé nommé **`Id`** au lieu de **`HotelId`** . Le code utilise la classe `FieldMapping` pour indiquer à l’indexeur de rediriger la valeur du champ **`Id`** vers la clé de document **`HotelId`** dans l’index.
 
 Les indexeurs de stockage d’objets blob peuvent utiliser des paramètres qui identifient le mode d’analyse à utiliser. Le mode d’analyse diffère selon que les objets blob représentent un document unique ou plusieurs documents au sein du même objet blob. Dans cet exemple, comme chaque objet blob représente un document d’index unique, le code utilise le paramètre `IndexingParameters.ParseJson()`.
 
@@ -340,7 +340,7 @@ Dans le portail Azure, ouvrez la page **Vue d’ensemble** du service de recherc
 
 Cliquez sur l’index hotel-rooms-sample dans la liste. Vous verrez une interface de l’Explorateur de recherche pour l’index. Entrez une requête portant sur un terme, par exemple « Luxury » (Luxe). Vous devriez voir au moins un document dans les résultats, et ce document doit afficher une liste d’objets de chambre dans son tableau de chambres.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Le moyen le plus rapide de procéder à un nettoyage à la fin d’un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche cognitive Azure.
 
@@ -350,8 +350,3 @@ Il existe plusieurs approches et plusieurs options pour l’indexation d’objet
 
 > [!div class="nextstepaction"]
 > [Guide pratique pour indexer des objets blob JSON avec l’indexeur d’objets blob de la Recherche cognitive Azure](search-howto-index-json-blobs.md)
-
-Vous souhaiterez peut-être compléter des données d’index structurées issues d’une source de données avec des données cognitivement enrichies provenant d’un contenu texte complet ou d’objets blob non structurés. Le tutoriel suivant montre comment utiliser Cognitive Services avec la Recherche cognitive Azure, à l’aide du SDK .NET.
-
-> [!div class="nextstepaction"]
-> [Appeler des API Cognitive Services dans un pipeline d’indexation de la Recherche cognitive Azure](cognitive-search-tutorial-blob-dotnet.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 5d6b8ce557cb794b3a56ecb3a938a2fe184156ab
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677802"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680747"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Changer de préférence d'API pour les alertes de journal
 
@@ -46,10 +46,13 @@ Les conséquences du passage à l'API scheduleQueryRules sont compilées ci-dess
 - Toute nouvelle règle d'alerte de journal créée sur le portail Azure devra utiliser l'API [scheduleQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Les utilisateurs auront également la possibilité d'utiliser la [fonctionnalité supplémentaire de la nouvelle API](#benefits-of-switching-to-new-azure-api) via le portail Azure.
 - La gravité pour les règles d’alerte de journal augmentera de : *critique, avertissement ou information* à *Valeurs de gravité de 0, 1 et 2*. Avec la possibilité de créer/mettre à jour les règles d’alerte également avec la gravité 3 et 4.
 
-Le processus de déplacement des règles d'alerte depuis l'[API Alerte héritée de Log Analytics](api-alerts.md) n'implique aucune modification, de quelque nature que ce soit, de la définition, de la requête ou de la configuration de votre alerte. Vos règles d’alerte et votre surveillance ne sont pas affectées et les alertes ne s’arrêteront pas et ne seront pas bloquées, pendant ou après le basculement. La seule modification est une modification de la préférence d’API et de l’accès à vos règles via une nouvelle API.
+Le processus de déplacement des règles d'alerte depuis l'[API Alerte héritée de Log Analytics](api-alerts.md) n'implique aucune modification, de quelque nature que ce soit, de la définition, de la requête ou de la configuration de votre alerte. Vos règles d’alerte et votre surveillance ne sont pas affectées et les alertes ne s’arrêteront pas et ne seront pas bloquées, pendant ou après le basculement. Les seules modifications sont les suivantes :
+
+- Une modification de la préférence d’API et de l’accès à vos règles via une nouvelle API.
+- Un URI de ressource de règle d’alerte modifié contenant les ID utilisés dans l’[API Alerte héritée de Log Analytics](api-alerts.md) au lieu du nom de la règle d’alerte dans cette structure `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`. Le nom d’affichage de la règle d’alerte reste inchangé.
 
 > [!NOTE]
-> Une fois qu’un utilisateur choisit de changer la préférence pour la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), il ne peut plus revenir à l’utilisation de l’ancienne [API Alerte héritée de Log Analytics](api-alerts.md).
+> Une fois qu’un utilisateur choisit de changer la préférence pour la nouvelle [API scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules), il est impossible de revenir à l’utilisation de l’ancienne [API Alerte héritée de Log Analytics](api-alerts.md).
 
 Tout client souhaitant passer volontairement à la nouvelle API [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) et bloquer l’utilisation de l’[API Alerte héritée de Log Analytics](api-alerts.md) peut le faire via un appel PUT sur l’API ci-dessous afin de modifier toutes les règles d’alerte associées à l’espace de travail Log Analytics spécifique.
 

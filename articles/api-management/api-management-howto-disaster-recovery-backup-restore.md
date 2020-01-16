@@ -1,5 +1,6 @@
 ---
-title: Implémenter une récupération d’urgence à l’aide d’une sauvegarde et d’une restauration dans Gestion des API Azure | Microsoft Docs
+title: Implémenter une reprise d’activité à l’aide d’une sauvegarde et d’une restauration dans Gestion des API
+titleSuffix: Azure API Management
 description: Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d'urgence dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fccb9dfe88d39849fb87bdce4b81ac9ee22fada5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958528"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430693"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -54,7 +55,7 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 
 ### <a name="create-an-azure-active-directory-application"></a>Créer une application Azure Active Directory
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. En utilisant l’abonnement qui contient votre instance du service Gestion des API, accédez à l’onglet **Inscriptions des applications** dans **Azure Active Directory** (Azure Active Directory > Gérer/Inscriptions des applications).
 
     > [!NOTE]
@@ -75,7 +76,7 @@ Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure R
 2. Cliquez sur **Autorisations requises**.
 3. Cliquez sur **+Ajouter**.
 4. Appuyez sur **Sélectionner une API**.
-5. Choisissez **API de gestion des services Microsoft** **Azure**.
+5. Choisissez **API Gestion des services** **Microsoft Azure**.
 6. Appuyez sur **Sélectionner**.
 
     ![Ajout d’autorisations](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
@@ -139,7 +140,7 @@ Avant d’appeler les opérations de « sauvegarde et de restauration » décrit
 request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ```
 
-### <a name="step1"></a>Sauvegarde d’un service Gestion des API
+### <a name="step1"> </a>Sauvegarde d’un service Gestion des API
 
 Pour sauvegarder un service Gestion des API, envoyez la demande HTTP suivante :
 
@@ -147,7 +148,7 @@ Pour sauvegarder un service Gestion des API, envoyez la demande HTTP suivante :
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
 ```
 
-où :
+où :
 
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API que vous tentez de sauvegarder
 -   `resourceGroupName` : nom du groupe de ressources de votre service Gestion des API Azure
@@ -180,7 +181,7 @@ Tenez compte des contraintes suivantes quand vous faites une demande de sauvegar
 -   Les **changements** de configuration du service (par exemple, les API, les stratégies et l’apparence du portail des développeurs) pendant une opération de sauvegarde **peuvent être exclus de la sauvegarde et être perdus**.
 -   **Autorisez** l’accès depuis le plan de contrôle vers le compte de stockage Azure. Le client doit ouvrir l’ensemble suivant d’adresses IP entrantes sur son compte de stockage pour la sauvegarde. 
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
-### <a name="step2"></a>Récupération d’un service Gestion des API
+### <a name="step2"> </a>Restauration d’un service Gestion des API
 
 Pour restaurer un service Gestion des API à partir d’une sauvegarde créée précédemment, envoyez la demande HTTP suivante :
 
@@ -188,7 +189,7 @@ Pour restaurer un service Gestion des API à partir d’une sauvegarde créée p
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
 ```
 
-où :
+où :
 
 -   `subscriptionId` : ID de l’abonnement qui contient le service Gestion des API dans lequel vous restaurez une sauvegarde
 -   `resourceGroupName` : Nom du groupe de ressources qui contient le service Gestion des API Azure dans lequel vous restaurez une sauvegarde

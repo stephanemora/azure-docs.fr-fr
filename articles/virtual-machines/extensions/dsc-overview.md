@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176647"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75497281"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -36,7 +36,7 @@ La fonction de création de rapports en continu est uniquement disponible locale
 
 Cet article fournit des informations sur deux scénarios : l’utilisation de l’extension DSC pour l’intégration d’Automation et l’utilisation de l’extension DSC en tant qu’outil permettant d’attribuer des configurations à des machines virtuelles à l’aide du Kit de développement logiciel (SDK) Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Ordinateur local** : pour pouvoir interagir avec l'extension de machine virtuelle Azure, vous devez utiliser le portail Azure ou le Kit de développement logiciel (SDK) Azure PowerShell.
 - **Agent invité** : la machine virtuelle Azure définie par la configuration DSC doit inclure un système d'exploitation prenant en charge Windows Management Framework (WMF) version 4.0 ou ultérieure. Pour la liste complète des versions de système d’exploitation prises en charge, voir [l’historique des versions de l’extension DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
@@ -115,7 +115,7 @@ Informations importantes sur les applets de commande de l’extension DSC de Res
 
 L’extension DSC Azure peut utiliser des documents de configuration DSC pour configurer directement des machines virtuelles Azure pendant le déploiement. Cette étape n’enregistre pas le nœud auprès d’Automation. Le nœud n’est *pas* géré de manière centralisée.
 
-L’exemple suivant illustre un exemple simple de configuration. Enregistrez la configuration en local en tant que IisInstall.ps1.
+L’exemple suivant illustre un exemple simple de configuration. Enregistrez la configuration en local en tant que iisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -131,7 +131,7 @@ configuration IISInstall
 }
 ```
 
-Les commandes suivantes placent le script IisInstall.ps1 sur la machine virtuelle spécifiée. Les commandes exécutent également la configuration, puis génèrent un rapport d’état.
+Les commandes suivantes placent le script iisInstall.ps1 sur la machine virtuelle spécifiée. Les commandes exécutent également la configuration, puis génèrent un rapport d’état.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -207,4 +207,4 @@ Les journaux d’activité de l’extension sont stockés à l’emplacement sui
 - Pour plus informations sur DSC PowerShell, reportez-vous au [centre de documentation PowerShell](/powershell/scripting/dsc/overview/overview).
 - Examinez le [modèle Resource Manager pour l’extension DSC](dsc-template.md).
 - Pour obtenir plus de fonctionnalités gérables avec DSC PowerShell ainsi que plus de ressources DSC, parcourez la [galerie PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Pour en savoir plus sur l’intégration de paramètres sensibles dans des configurations, voir [Gérer les informations d’identification en toute sécurité avec le gestionnaire d’extensions DSC](dsc-credentials.md).
+- Pour plus d’informations sur le passage de paramètres sensibles dans des configurations, consultez [Gérer les informations d’identification de façon sécurisée avec le gestionnaire d’extensions DSC](dsc-credentials.md).

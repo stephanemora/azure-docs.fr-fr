@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: a57d1c85384204c26e75f7138b9514f2b3297bef
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 41dd336bdb74fbe745ab48ebd3c168af0492ae2c
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823311"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75691015"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -29,7 +29,7 @@ La réplication transactionnelle est utile dans les scénarios suivants :
 - Maintenir plusieurs bases de données distribuées dans un état synchronisé.
 - Migrer des bases de données d’un serveur SQL Server ou d’une instance managée vers une autre base de données en publiant les modifications en continu.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les composants clés de la réplication transactionnelle sont présentés dans l’image suivante :  
 
@@ -37,7 +37,7 @@ Les composants clés de la réplication transactionnelle sont présentés dans l
 
 Le **serveur de publication** est une instance ou un serveur qui publie les changements apportés à des tables (articles) en envoyant les mises à jour au serveur de distribution. La publication dans une base de données Azure SQL à partir d'une instance locale de SQL Server est prise en charge sur les versions suivantes de SQL Server :
 
-- SQL Server 2019 (préversion)
+- SQL Server 2019 (préversion)
 - SQL Server 2016 à SQL 2017
 - SQL Server 2014 SP1 CU3 ou ultérieur (12.00.4427)
 - SQL Server 2014 RTM CU10 (12.00.2556)
@@ -51,10 +51,10 @@ L’**Abonné** est une instance ou un serveur qui reçoit les changements appor
 
 | Role | Bases de données uniques et mises en pool | Bases de données d’instance |
 | :----| :------------- | :--------------- |
-| **Publisher** | Non | OUI | 
-| **Serveur de distribution** | Non | OUI|
-| **Abonné de type pull** | Non | OUI|
-| **Abonné de type push**| OUI | OUI|
+| **Publisher** | Non | Oui | 
+| **Serveur de distribution** | Non | Oui|
+| **Abonné de type pull** | Non | Oui|
+| **Abonné de type push**| Oui | Oui|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
@@ -65,11 +65,11 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 | Réplication | Bases de données uniques et mises en pool | Bases de données d’instance|
 | :----| :------------- | :--------------- |
-| [**Transactionnelle standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | OUI | 
-| [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | OUI|
+| [**Transactionnelle standard**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | Oui | 
+| [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | Oui|
 | [**Réplication de fusion**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Non | Non|
 | [**Pair à pair**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Non | Non|
-| [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | OUI|
+| [**Bidirectionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Non | Oui|
 | [**Abonnements pouvant être mis à jour**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Non | Non|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -80,26 +80,29 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
   ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice de prise en charge pour les systèmes d’instance de bases de données et en local
   La matrice de prise en charge de réplication pour les bases de données d’instance est identique à celle de SQL Server en local. 
   
-  | **Publisher**   | **Serveur de distribution** | **Abonné** |
+| **Publisher**   | **Serveur de distribution** | **Abonné** |
 | :------------   | :-------------- | :------------- |
-| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
-| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
-| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
-| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
-| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| SQL Server 2019 | SQL Server 2019 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/>  |
+| SQL Server 2017 | SQL Server 2019 <br/>SQL Server 2017 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2019 <br/>SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2019 <br/> SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2019 <br/> SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |  SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication. 
 - Un partage de compte de stockage Azure pour le répertoire de travail utilisé par la réplication. 
 - Le port 445 (TCP sortant) doit être ouvert dans les règles de sécurité du sous-réseau de l’instance managée pour accéder au partage de fichiers Azure. 
 - Le port 1433 (TCP sortant) doit être ouvert si les serveurs de publication/distribution se trouvent sur une instance managée et que l’Abonné est local.
+- Tous les types de participants à la réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur des instances gérées, mais le serveur de publication et le serveur de distribution doivent être tous deux dans le cloud ou locaux.
+- Si l’éditeur, le distributeur et/ou l’abonné existent dans différents réseaux virtuels, le peering VPN doit être établi entre chaque entité, de telle sorte qu’il existe un peering VPN entre l’éditeur et le distributeur et/ou entre le distributeur et l’abonné. 
 
 
 >[!NOTE]
 > - Vous pouvez rencontrer l’erreur 53 lors de la connexion à un fichier de stockage Azure si le port 445 du groupe de sécurité réseau sortant (NSG) est bloqué lorsque le distributeur est une base de données d’instances et que l’abonné est en local. Pour résoudre ce problème, [mettez à jour le NSG vNet](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
-> - Si les bases de données du serveur de publication et du serveur de distribution sur des instances managées utilisent des [groupes de basculement automatique](sql-database-auto-failover-group.md), l’administrateur de l’instance managée doit [supprimer toutes les publications de l’ancienne base de données primaire et les reconfigurer sur la nouvelle après un basculement](sql-database-managed-instance-transact-sql-information.md#replication).
+
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Comparaison entre synchronisation des données et réplication transactionnelle
 
@@ -137,13 +140,53 @@ Le serveur de publication et le serveur de distribution sont configurés sur deu
  
 Dans cette configuration, une Azure SQL Database (base de données unique, mise en pool et d’instance) est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Si un abonné se trouve sur une base de données unique ou mise en pool, il doit être en mode transmission de type push.  
 
+## <a name="with-failover-groups"></a>Avec les groupes de basculement
+
+Si la géoréplication est activée sur une instance de l’**éditeur** ou du **distributeur** dans un [groupe de basculement](sql-database-auto-failover-group.md), l’administrateur de l’instance managée doit nettoyer toutes les publications de l’ancien principal et les reconfigurer sur le nouveau principal après un basculement. Les activités suivantes sont nécessaires dans ce scénario :
+
+1. Arrêtez tous les travaux de réplication en cours d’exécution sur la base de données, le cas échéant.
+2. Supprimez les métadonnées d’abonnement du serveur de publication en exécutant le script suivant sur la base de données du serveur de publication :
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Supprimez les métadonnées d’abonnement de l’abonné. Exécutez le script suivant sur la base de données d’abonnement sur l’instance de l’abonné :
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Supprimez définitivement tous les objets de réplication du serveur de publication en exécutant le script suivant dans la base de données publiée :
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Supprimez définitivement l’ancien serveur de distribution à partir de l’instance principale d’origine (en cas de basculement vers un ancien principal qui utilisait un serveur de distribution). Exécutez le script suivant sur la base de données de référence dans l’ancienne instance gérée du serveur de distribution :
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
+
+Si la géoréplication est activée sur une instance de l’**abonné** dans un groupe de basculement, la publication doit être configurée pour se connecter au point de terminaison de l’écouteur de groupe de basculement pour l’instance managée de l’abonné. En cas de basculement, l’action suivante de l’administrateur de l’instance managée dépend du type de basculement qui s’est produit : 
+
+- Pour un basculement sans perte de données, la réplication continue de fonctionner après le basculement. 
+- Pour un basculement avec perte de données, la réplication fonctionne également. Elle répliquera à nouveau les modifications perdues. 
+- Pour un basculement avec perte de données, mais la perte de données est en dehors de la période de rétention de la base de données de distribution, l’administrateur de l’instance managée doit réinitialiser la base de données d’abonnement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. [Configurer la réplication entre deux instances gérées](replication-with-sql-database-managed-instance.md). 
-1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
-1. Découvrir les [Limitations de la réplication transactionnelle pour une instance managée](sql-database-managed-instance-transact-sql-information.md#replication)
+- [Configurer la réplication entre un éditeur d’instance managée et un abonné](replication-with-sql-database-managed-instance.md)
+- [Configurer la réplication entre un éditeur d’instance managée, un distributeur d’instance managée et un abonné SQL Server](sql-database-managed-instance-configure-replication-tutorial.md)
+- [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
+- [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
+
+
+Pour plus d’informations sur la configuration de la réplication transactionnelle, consultez les tutoriels suivants :
 
 
 

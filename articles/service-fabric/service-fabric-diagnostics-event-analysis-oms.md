@@ -1,25 +1,16 @@
 ---
-title: Analyse d’événements Azure Service Fabric avec les journaux Azure Monitor | Microsoft Docs
+title: Analyse d’événements Azure Service Fabric avec les journaux Azure Monitor
 description: Découvrez l’analyse et la visualisation d’événements à l’aide des journaux Azure Monitor pour la surveillance et le diagnostic de clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40dd930aa21e3056d5ecc908359215d6874ed8ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393406"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464744"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analyse et visualisation d’événements avec les journaux Azure Monitor
  Les journaux Azure Monitor collectent et analysent les données de télémétrie des applications et services hébergés dans le cloud, et fournissent des outils d’analyse pour vous aider à maximiser leur disponibilité et leurs performances. Cet article explique comment exécuter des requêtes dans les journaux Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes qui surviennent dans votre cluster. Les questions courantes suivantes sont traitées :

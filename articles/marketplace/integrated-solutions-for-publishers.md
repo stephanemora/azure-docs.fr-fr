@@ -1,23 +1,23 @@
 ---
-title: Solutions intégrées | Azure
+title: Solutions intégrées – Place de marché Azure
 description: Solutions intégrées dans la Place de marché Azure et Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 12/16/2019
 ms.author: v-qiwe
-ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b00cc2917ac15797ed98af9793533d9bc12eeaaf
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818557"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427202"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 
-Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services liste l’offre dans la Place de marché Azure ou Microsoft AppSource en tant que [service de conseil](https://docs.microsoft.com/azure/marketplace/consulting-services).
+Dans une offre groupée, une solution intégrée combine des technologies de solutions de pointe de fournisseurs de logiciels au déploiement et à la prise en charge d’un partenaire de services. Le partenaire de services référence l’offre dans Microsoft AppSource ou la Place de marché Azure en tant que [service de conseil](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
 Les solutions intégrées visent à répondre à un scénario ou à un besoin spécifique du client. Les fournisseurs commencent par comprendre les points faibles du secteur ou le défi auquel il est confronté. Ils intègrent ensuite au moins deux technologies de pointe afin de créer une expérience de déploiement unifiée et reproductible pour les clients. Les fournisseurs permettent aux clients d’être rapidement opérationnels. Ils offrent un point de contact unique au client, en fournissant une personnalisation, des conseils et une prise en charge de solutions pertinents. Le résultat est une solution intégrée, incluant de la technologie et des services.
 
@@ -37,8 +37,8 @@ Pour obtenir une vue d’ensemble du [programme Solutions intégrées](https://a
 * Les fournisseurs de logiciels participants doivent être prêts pour la co-vente PI. 
 * Au moins un des partenaires participants doit avoir une compétence Gold dans l’un des domaines suivants :
 
-    * Développement d’applications
-    * Intégration d’application
+    * Développement d'applications
+    * Intégration des applications
     * Gestion du cycle de vie des applications
     * Plateforme cloud
     * Analytique des données
@@ -49,7 +49,7 @@ Pour obtenir une vue d’ensemble du [programme Solutions intégrées](https://a
 * La solution doit inclure au moins deux organisations partenaires, rassemblant l’ensemble la PI et les services pour une solution et une expérience client complètes.
 * La PI du partenaire doit être basée sur Azure, Dynamics 365 ou Power Platform.
 * La PI de la solution intégrée doit représenter autre chose que simplement la PI de l’éditeur de logiciels et les offres de fournisseurs de services de base.
-* Tous les partenaires partagent l’objectif de créer une offre reproductible qui peut être proposée et faire l’objet d’une transaction par le biais de la Place de marché Azure et/ou de Microsoft AppSource.
+* Tous les partenaires partagent l’objectif de créer une offre reproductible qui peut être proposée et faire l’objet d’une transaction par le biais de Microsoft AppSource, de la Place de marché Azure ou des deux.
 
 ## <a name="submit-a-nomination"></a>Soumettre une nomination
 
@@ -66,7 +66,7 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
     * Clients cibles
     * Proposition de valeur
     * Tarifs
-    * Gestion des licences
+    * Licence
     * Conditions générales
     * Approche de support
     * Activités marketing
@@ -93,9 +93,9 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
 1. Développez l’intégration technique complète de la solution.
 
-1. Déterminez les tarifs de la solution et un prix unique pour la Place de marché Azure ou Microsoft AppSource.
+1. Déterminez les tarifs de la solution et un niveau de prix unique à afficher sur Microsoft AppSource ou la Place de marché Azure.
 
-1. Établissez la documentation marketing pour le référencement sur la Place de marché Azure ou Microsoft AppSource, avec notamment :
+1. Fournissez les supports marketing pour le référencement sur Microsoft AppSource ou la Place de marché Azure, avec notamment :
 
     * Un nom de solution combinée.
     * Une description du référencement de la solution intégrée. Suivez les [bonnes pratiques sur les référencements des offres](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
@@ -105,13 +105,13 @@ Une fois votre nomination approuvée, utilisez les ressources du programme pour 
 
 ## <a name="publish-your-integrated-solution"></a>Publier votre solution intégrée 
 
-Une fois que vous avez terminé l’intégration technique et la documentation marketing, reportez-vous au guide de l’éditeur pour les [Services de conseil dans la Place de marché Azure et Microsoft AppSource](https://docs.microsoft.com/azure/marketplace/consulting-services). Utilisez cette ressource pour déterminer si votre solution sera publiée sur la Place de marché Azure ou Microsoft AppSource. Utilisez également le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
+Une fois que vous avez terminé l’intégration technique et fourni les supports marketing, reportez-vous au guide de l’éditeur pour les [Services de conseil dans Microsoft AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/consulting-services). Utilisez cette ressource pour déterminer si votre solution sera publiée dans Microsoft AppSource ou la Place de marché Azure. Utilisez également le guide pour préparer vos artefacts de publication et effectuer le processus de publication.
 
 Bien que cinq types de services existent pour les offres de services de conseil, les solutions intégrées doivent être soit une preuve de concept, soit une implémentation complète.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>Commercialiser votre solution intégrée 
 
-Quand votre solution active sur la Place de marché Azure ou sur AppSource est active, vous souhaiterez peut-être la faire connaître via des activités de marketing. Passez en revue les activités listées dans la documentation sur [le plan de projet et la chronologie](https://aka.ms/AA5qiuc). Cette ressource comprend des activités que les partenaires peuvent appliquer au sein de leurs propres équipes et entre eux. Accédez ensuite aux [avantages de la mise sur le marché](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) pour les partenaires qui publient leur solution sur la marketplace. Toutes les offres de solutions intégrées peuvent bénéficier des avantages des offres d’essai.
+Une fois votre solution référencée dans Microsoft AppSource ou la Place de marché Azure, vous devez en faire la promotion par le biais d’activités marketing. Passez en revue les activités listées dans la documentation sur [le plan de projet et la chronologie](https://aka.ms/AA5qiuc). Cette ressource comprend des activités que les partenaires peuvent appliquer au sein de leurs propres équipes et entre eux. Accédez ensuite aux [avantages de la mise sur le marché](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) pour les partenaires qui publient leur solution sur la marketplace. Toutes les offres de solutions intégrées peuvent bénéficier des avantages des offres d’essai.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

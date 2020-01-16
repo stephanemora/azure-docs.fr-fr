@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/01/2019
-ms.author: kfollis
-ms.openlocfilehash: 8dd1349ca9ab62484eb6693291e3b869ff079dc1
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.author: mblythe
+ms.openlocfilehash: a3b4d7cb33bf0da0c4431d76a54644208ea6468f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537204"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640454"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Créer et partager des tableaux de bord dans le portail Azure
 
@@ -29,7 +29,7 @@ Avec les tableaux de bord du portail Azure, vous pouvez créer une vue ciblée e
 
 Dans cet exemple, nous créons un tableau de bord privé auquel nous donnons un nom. Effectuez d’abord ces étapes :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Tableau de bord** dans la section supérieure de la barre latérale gauche. Votre vue par défaut peut déjà être définie sur le tableau de bord.
 1. Sélectionnez **+ Nouveau tableau de bord**.
 

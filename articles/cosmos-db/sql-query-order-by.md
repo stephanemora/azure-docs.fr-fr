@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326847"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444794"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clause ORDER BY dans Azure Cosmos DB
 
@@ -45,11 +45,14 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Spécifie que les valeurs dans la colonne spécifiée doivent être triées dans l’ordre croissant ou décroissant. ASC effectue le tri de la valeur la plus basse à la valeur la plus élevée. DESC effectue le tri de la valeur la plus élevée à la valeur la plus basse. ASC est l’ordre de tri par défaut. Les valeurs NULL sont traitées comme les valeurs les plus basses possible.  
+   Spécifie que les valeurs dans la colonne spécifiée doivent être triées par ordre croissant ou décroissant. ASC effectue le tri de la valeur la plus faible à la valeur la plus élevée. DESC effectue le tri de la valeur la plus élevée à la valeur la plus faible. ASC correspond à l'ordre de tri par défaut. Les valeurs NULL sont traitées comme les plus petites valeurs possibles.  
   
-## <a name="remarks"></a>Remarques  
+## <a name="remarks"></a>Notes  
   
    La clause ORDER BY nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés ORDER BY. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
+   
+> [!Note] 
+> Si vous utilisez le kit SDK .NET 3.4.0 ou ultérieur, si les propriétés en cours de tri peuvent ne pas être définies pour certains documents, vous devez créer explicitement un index sur ces propriétés. La stratégie d’indexation par défaut n’autorise pas la récupération des documents où la propriété de tri n’est pas définie.
 
 ## <a name="examples"></a>Exemples
 
@@ -99,7 +102,7 @@ Les résultats sont :
     ]
 ```
 
-De plus, vous pouvez trier par plusieurs propriétés. Une requête qui trie par plusieurs propriétés requiert un [index composite](index-policy.md#composite-indexes). Examinez la requête suivante :
+De plus, vous pouvez trier par plusieurs propriétés. Une requête qui trie par plusieurs propriétés requiert un [index composite](index-policy.md#composite-indexes). Considérez la requête suivante :
 
 ```sql
     SELECT f.id, f.creationDate
@@ -111,6 +114,6 @@ Cette requête récupère les `id` de famille dans l’ordre croissant du nom de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
+- [Bien démarrer](sql-query-getting-started.md)
 - [Clause SELECT](sql-query-select.md)
-- [Clause OFFSET LIMIT](sql-query-offset-limit.md)
+- [Clause OFFSET LIMIT](sql-query-offset-limit.md)

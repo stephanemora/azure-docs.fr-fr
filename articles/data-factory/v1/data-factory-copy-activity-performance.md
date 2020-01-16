@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 88094e7ade688505bb971dd85505ddfacb1d8859
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca44b1917cfaed5d01c31f8f06d98e5e4b611a8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438920"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -205,7 +205,7 @@ Actuellement, vous ne pouvez pas copier de données entre deux banques de donné
 ### <a name="configuration"></a>Configuration
 Configurez le paramètre **enableStaging** sur l’activité de copie pour spécifier si vous souhaitez que les données soient placées dans un stockage blob intermédiaire avant d’être chargées dans une banque de données de destination. Lorsque vous définissez **enableStaging** sur TRUE, spécifiez les propriétés supplémentaires répertoriées dans le tableau suivant. Si vous n’en avez pas, vous devez créer un stockage Azure ou un service lié à la signature d’accès partagé du stockage pour le stockage intermédiaire.
 
-| Propriété | Description | Valeur par défaut | Requis |
+| Propriété | Description | Valeur par défaut | Obligatoire |
 | --- | --- | --- | --- |
 | **enableStaging** |Indiquez si vous souhaitez copier les données via un magasin de données intermédiaire. |False |Non |
 | **linkedServiceName** |Spécifiez le nom d’un service lié [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) faisant référence à l’instance de stockage que vous utilisez comme banque de données intermédiaire. <br/><br/> Vous ne pouvez pas utiliser le stockage avec une signature d’accès partagé pour charger les données dans SQL Data Warehouse via PolyBase. Vous pouvez l’utiliser dans tous les autres scénarios. |N/A |Oui, quand **enableStaging** est défini sur TRUE |
@@ -277,7 +277,7 @@ Nous vous recommandons d’effectuer cette procédure pour régler les performan
 **Supervision de la passerelle et scale-up/out** : une seule passerelle logique comportant un ou plusieurs nœuds de passerelle peut traiter simultanément plusieurs exécutions de l’activité de copie. Vous pouvez afficher un instantané en temps quasi réel de l’utilisation des ressources (processeur, mémoire, réseau (entrant/sortant), etc.) sur un ordinateur de passerelle, et voir le nombre de travaux simultanés en cours d’exécution par rapport à la limite dans le portail Azure. Voir [Surveillance de la passerelle dans le portail](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Si vous avez besoin de déplacer des données hybrides avec de nombreuses exécutions d’activité de copie simultanées ou avec un gros volume de données à copier, vous devriez envisager [d’augmenter la taille des instances de passerelle](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) afin de mieux utiliser vos ressources ou de configurer plus de ressources pour répondre à vos besoins de copie.
 
 ## <a name="considerations-for-the-source"></a>Considérations relatives à la source
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 Vérifiez que la banque de données sous-jacente n’est pas submergée par d’autres charges de travail s’exécutant dessus ou s’y rapportant.
 
 Pour les banques de données Microsoft, consultez les [rubriques relatives à la surveillance et au réglage](#performance-reference) spécifiques aux banques de données, qui peuvent vous aider à comprendre les caractéristiques de performances de celles-ci, à réduire les temps de réponse et à maximiser le débit.
@@ -299,7 +299,7 @@ Si vous copiez des données depuis le stockage Blob vers SQL Data Warehouse, env
 * Pour des **bases de données relationnelles locales**, telles que SQL Server et Oracle, qui requièrent l’utilisation d’une **passerelle de gestion des données**, voir la section Considérations relatives à la passerelle de gestion des données.
 
 ## <a name="considerations-for-the-sink"></a>Considérations relatives au récepteur
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 Vérifiez que la banque de données sous-jacente n’est pas submergée par d’autres charges de travail s’exécutant dessus ou s’y rapportant.
 
 Pour les banques de données Microsoft, voir les [rubriques relatives à la surveillance et au réglage](#performance-reference) qui sont spécifiques aux banques de données. Ces rubriques peuvent vous aider à comprendre les caractéristiques des performances des banques de données et à déterminer comment réduire les temps de réponse et optimiser le débit.
@@ -332,7 +332,7 @@ Si vous copiez des données depuis le **stockage Blob** vers **SQL Data Warehous
 * Pour le **Stockage Table**:
   * **Partition** : l’écriture de données en partitions entrelacées dégrade considérablement les performances. Classez vos données sources par clé de partition afin qu’elles soient insérées efficacement partition après partition, ou ajustez la logique pour écrire les données dans une seule partition.
 * Pour **Azure Cosmos DB** :
-  * **Taille de lot** : la propriété **writeBatchSize** définit le nombre de requêtes parallèles adressées au service Azure Cosmos DB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à Azure Cosmos DB. Toutefois, regardez la limitation lorsque vous écrivez sur Azure Cosmos DB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
+  * **Taille du lot** : la propriété **writeBatchSize** définit le nombre de requêtes parallèles adressées au service Azure Cosmos DB pour la création de documents. Vous pouvez vous attendre à de meilleures performances lorsque vous augmentez la valeur **writeBatchSize** , car davantage de demandes parallèles sont envoyées à Azure Cosmos DB. Toutefois, regardez la limitation lorsque vous écrivez sur Azure Cosmos DB (le message d’erreur est « Le taux de demandes est élevé »). Différents facteurs peuvent entraîner la limitation, notamment la taille des documents, le nombre de termes dans les documents et la stratégie d’indexation de la collection cible. Pour obtenir un débit de copie plus élevé, songez à utiliser une meilleure collection, par exemple, S3.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Considérations relatives à la sérialisation et à la désérialisation
 Une sérialisation et une désérialisation peuvent survenir quand le jeu de données d’entrée ou de sortie est un fichier. Consultez la page [Formats de fichier et de compression pris en charge](data-factory-supported-file-and-compression-formats.md) qui présente des détails sur les formats de fichier pris en charge par activité de copie.
@@ -352,7 +352,7 @@ Lorsque votre jeu de données d’entrée ou de sortie est un fichier, vous pouv
 
 **Codec** : l’activité de copie prend en charge les types de compression gzip, bzip2 et Deflate. Azure HDInsight peut utiliser les trois types de traitement. Chaque codec de compression présente des avantages. Par exemple, bzip2 a le plus faible débit de copie, mais vous obtenez les meilleures performances de requêtes Hive avec bzip2, car vous pouvez le fractionner pour traitement. Gzip est l’option la plus équilibrée, et la plus souvent utilisée. Choisissez le codec le plus approprié pour votre scénario de bout en bout.
 
-**Niveau** : vous avec le choix entre deux options pour chaque codec de compression, la compression la plus rapide et la compression optimale. L’option de compression la plus rapide compresse les données aussi rapidement que possible, même si le fichier résultant de l’opération n’est pas compressé de façon optimale. L’option de compression optimale nécessite plus de temps, et produit une quantité de données minimale. Vous pouvez tester les deux options pour voir celle qui offre les meilleures performances globales dans votre cas.
+**Niveau** : vous avec le choix entre deux options pour chaque codec de compression, la compression la plus rapide et la compression optimale. L’option de compression la plus rapide compresse les données aussi rapidement que possible, même si le fichier résultant de l’opération n’est pas compressé de façon optimale. L’option de compression optimale nécessite plus de temps, et produit une quantité de données minimale. Vous pouvez tester les deux options pour voir celle qui offre les meilleures performances globales dans votre cas.
 
 **Élément à prendre en compte** : pour copier une grande quantité de données entre une banque locale et le cloud, utilisez le stockage Blob intermédiaire avec compression. L’utilisation du stockage intermédiaire est utile lorsque la bande passante de votre réseau d’entreprise et de vos services Azure est le facteur limitant et que vous souhaitez que le jeu de données d’entrée et le jeu de données de sortie soient sous forme non compressée. Plus spécifiquement, vous pouvez scinder une activité de copie unique en deux activités de copie. La première activité de copie copie à partir de la source vers un blob intermédiaire sous forme compressée. La deuxième activité de copie copie les données compressées de l’environnement intermédiaire, puis les décompresse tandis qu’elle écrit dans le récepteur.
 
@@ -361,7 +361,7 @@ Vous pouvez définir la propriété **columnMappings** dans l’activité de cop
 
 Si votre banque de données source peut faire l’objet de requêtes, par exemple, s’il s’agit d’une banque de données relationnelle telle que SQL Database ou SQL Server ou s’il ne s’agit pas d’une banque NoSQL comme le Stockage Table ou Azure Cosmos DB, envisagez d’envoyer le filtrage de colonnes et la logique de réorganisation à la propriété **query** , au lieu d’utiliser le mappage de colonnes. Ainsi, la projection survient alors que le service de déplacement de données lit les données à partir de la banque de données source, la où elle est beaucoup plus efficace.
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 Si la taille des données à copier est importante, vous pouvez ajuster votre logique métier pour partitionner davantage les données à l’aide du mécanisme de découpage dans Data Factory. Ensuite, planifiez l’activité de copie pour qu’elle s’exécute plus fréquemment pour réduire la taille des données pour chaque exécution d’activité de copie.
 
 Faites attention au nombre de jeux de données et d’activités de copie nécessitant que Data Factory se connecte à la même banque de données en même temps. De nombreux travaux de copie simultanés peuvent limiter une banque de données, et entraîner une dégradation des performances, une multiplication des tentatives internes de travail de copie et, dans certains cas, des échecs d’exécution.
@@ -405,7 +405,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 
 **Analyse des performances et réglage** : dans ce scénario, Data Factory copie les données du Stockage Blob vers Data Lake Store en utilisant des unités de déplacement de données à copie unique (valeur **parallelCopies** définie sur 1) et à cloud unique. Le débit que vous constatez est proche de la description figurant dans la [section relative aux performances de référence](#performance-reference).
 
-![Scénario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
+![Scénario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
 **Scénario III** : la taille des fichiers est supérieure à des dizaines de mégaoctets et le volume total est important.
 
@@ -416,7 +416,8 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 ## <a name="reference"></a>Informations de référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
-* Stockage Azure (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité du Stockage Azure](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../../storage/common/storage-performance-checklist.md)
+* Stockage Blob Azure : [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../../storage/blobs/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage d’objets blob](../../storage/blobs/storage-performance-checklist.md).
+* Stockage Table Azure : [Objectifs de performance et de scalabilité pour le stockage Table](../../storage/tables/scalability-targets.md) et [Liste de contrôle des performances et de la scalabilité pour le stockage Table](../../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database : vous pouvez [surveiller les performances](../../sql-database/sql-database-single-database-monitor.md) et vérifier le pourcentage de l’unité de transaction de base de données (DTU)
 * Azure SQL Data Warehouse : sa capacité est mesurée en Data Warehouse Units (DWU) ; voir [Gestion de la puissance de calcul dans Azure SQL Data Warehouse (Vue d’ensemble)](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB : [Niveaux de performances dans Azure Cosmos DB](../../cosmos-db/performance-levels.md)

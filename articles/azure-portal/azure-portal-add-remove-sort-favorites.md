@@ -1,23 +1,23 @@
 ---
-title: Ajouter, supprimer et trier des favoris dans le portail Azure | Microsoft Docs
-description: Découvrez comment ajouter ou supprimer des éléments dans la liste des favoris et trier les éléments
+title: Ajouter, supprimer et organiser des favoris dans le portail Azure | Microsoft Docs
+description: Découvrez comment ajouter ou supprimer des éléments dans la liste des favoris et réorganiser les éléments
 services: azure-portal
-keywords: favoris
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+keywords: favoris,portail
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: mtillman
-ms.openlocfilehash: 51228f4a28b5c6e19bf341b5576540d36bcaae64
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 57ce053f268558886dad33d450d48f9a0889a10a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579537"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640565"
 ---
-# <a name="add-remove-and-sort-favorites"></a>Ajouter, supprimer et trier des favoris
+# <a name="add-remove-and-rearrange-favorites"></a>Ajouter, supprimer et réorganiser des favoris
 
 Ajoutez ou supprimez des éléments dans votre liste **Favoris** afin de pouvoir rapidement accéder aux services que vous utilisez le plus souvent. Nous avons déjà ajouté certains services courants à votre liste **Favoris**, mais vous aurez probablement envie de la personnaliser. Vous êtes la seule personne qui peut voir les modifications que vous apportez aux **Favoris**.
 
@@ -51,7 +51,7 @@ Vous pouvez maintenant supprimer un élément directement à partir de la liste 
 
 2. Sur la carte d’informations, sélectionnez l’étoile afin qu’elle passe de remplie à non remplie. Le service est supprimé de la liste des **Favoris**.
 
-## <a name="sort-favorites"></a>Trier les favoris
+## <a name="rearrange-favorites"></a>Réorganiser les favoris
 
 Vous pouvez modifier l’ordre dans lequel vos services favoris sont listés. Faites simplement glisser l’élément de menu vers un autre emplacement sous **favoris**.
 

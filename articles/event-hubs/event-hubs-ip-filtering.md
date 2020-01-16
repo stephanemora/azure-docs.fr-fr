@@ -9,20 +9,20 @@ ms.service: event-hubs
 ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 12/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 2350586501fae84726aa2aa2438ea676b90c1dbb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a988fbb089bd94456e0b91b377574ab27a67617f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279688"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437207"
 ---
-# <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
+# <a name="azure-event-hubs---use-firewall-rules"></a>Azure Event Hubs – utiliser des règles de pare-feu
 
 Pour les scénarios où Azure Event Hubs doit uniquement être accessible à partir de certains sites bien connus, les règles de pare-feu vous permettent de configurer des règles pour accepter le trafic en provenance d’adresses IPv4 spécifiques. Par exemple, ces adresses peuvent être celles d’une passerelle NAT d’entreprise.
 
-## <a name="when-to-use"></a>Quand utiliser
+## <a name="when-to-use"></a>Quand l’utiliser
 
 Si vous cherchez à configurer votre espace de noms Event Hubs de façon à ce qu’il reçoive le trafic uniquement à partir d’une plage spécifiée d’adresses IP et rejette tout le reste, vous pouvez exploiter une *règle de pare-feu* pour bloquer les points de terminaison Event Hub d’autres adresses IP. Par exemple, si vous utilisez Event Hubs avec [Azure Express Route][express-route], vous pouvez créer une *règle de pare-feu* pour restreindre le trafic des adresses IP de votre infrastructure sur site.
 
@@ -70,7 +70,7 @@ Paramètres du modèle :
 > Bien qu’il n’existe aucune règle de refus possible, l’action par défaut du modèle Azure Resource Manager est **Autoriser**, ce qui ne restreint pas les connexions.
 > Lorsque vous élaborez des règles de réseau virtuel ou de pare-feu, vous devez modifier ***defaultAction***
 > 
-> from
+> de
 > ```json
 > "defaultAction": "Allow"
 > ```

@@ -1,17 +1,17 @@
 ---
-title: Ajouter l’authentification à des API personnalisées
-description: Configurer l’authentification pour des appels à des API personnalisées à partir d’Azure Logic Apps
+title: Ajouter l’authentification pour sécuriser les appels aux API personnalisées
+description: Guide pratique pour configurer l’authentification afin de sécuriser les appels aux API personnalisées à partir d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: f6dfa98550dcfb092ca1fb52a5cf0bed32e697ad
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2f8b1cc002fe3f340ff6d5329329507316577885
+ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793145"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75666888"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -40,7 +40,7 @@ Voici les étapes générales de cette méthode :
 
 3. Incluez les ID d’application dans votre définition d’application logique.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Partie 1 : Créer une identité d’application Azure AD pour votre application logique
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Première partie : Créer une identité d’application Azure AD pour votre application logique
 
 Votre application logique utilise cette identité d’application Azure AD pour s’authentifier auprès d’Azure AD. Vous n’avez besoin de configurer cette identité qu’une seule fois pour votre répertoire. Par exemple, vous pouvez choisir d’utiliser la même identité pour toutes vos applications logiques, même si vous pouvez créer des identités uniques pour chaque application logique. Vous pouvez configurer ces identités dans le portail Azure ou à l’aide de [PowerShell](#powershell).
 
@@ -76,7 +76,7 @@ Votre application logique utilise cette identité d’application Azure AD pour 
 
 7. Sous **Accès d’API**, choisissez **Clés**. Sous **Description**, indiquez le nom de votre clé. Sous **Date d’expiration**, sélectionnez la durée de votre clé.
 
-   La clé que vous créez joue le rôle de clé secrète ou de mot de passe de l’identité de l’application pour votre application logique.
+   La clé que vous créez joue le rôle de clé secrète ou de mot de passe de l’identité d’application pour votre application logique.
 
    ![Création d’une clé pour l’identité de l’application logique](./media/logic-apps-custom-api-authentication/create-logic-app-identity-key-secret-password.png)
 
@@ -107,7 +107,7 @@ Vous pouvez effectuer cette tâche par le biais d’Azure Resource Manager avec 
 
 Pour plus d’informations, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Partie 2 : Créer une identité d’application Azure AD pour votre application web ou votre application API
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Deuxième partie : Créer une identité d’application Azure AD pour votre application web ou votre application API
 
 Si votre application web ou votre application API est déjà déployée, vous pouvez activer l’authentification et créer l’identité de l’application dans le Portail Azure. Sinon, vous pouvez [activer l’authentification lorsque vous effectuez un déploiement avec un modèle Azure Resource Manager](#authen-deploy). 
 
@@ -181,7 +181,7 @@ Pour déployer automatiquement une application web et une application logique vi
 
 [![Déployer sur Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Partie 3 : Remplir la section Autorisation dans votre application logique
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Troisième partie : Remplir la section Autorisation dans votre application logique
 
 Cette section d’autorisation est déjà configurée dans le modèle précédent, mais si vous créez l’application logique directement, vous devez inclure la section d’autorisation complète.
 
@@ -199,11 +199,11 @@ Ouvrez votre définition d’application logique en mode code, accédez à la d�
 
 | Propriété | Obligatoire | Description | 
 | -------- | -------- | ----------- | 
-| tenant | OUI | GUID du locataire Azure AD | 
-| audience | OUI | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
-| clientId | OUI | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
-| secret | OUI | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
-| type | OUI | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
+| tenant | Oui | GUID du locataire Azure AD | 
+| audience | Oui | GUID de la ressource cible à laquelle vous souhaitez accéder, c’est-à-dire l’ID client de l’identité de votre application web ou de votre application API | 
+| clientId | Oui | GUID du client demandant l’accès, c’est-à-dire l’ID client de l’identité de votre application logique | 
+| secret | Oui | Clé ou mot de passe de l’identité d’application pour le client qui demande le jeton d’accès | 
+| type | Oui | Type d’authentification. Pour l’authentification ActiveDirectoryOAuth, la valeur est `ActiveDirectoryOAuth`. | 
 |||| 
 
 Par exemple :
@@ -250,9 +250,9 @@ Dans la section **Autorisation**, ajoutez ces propriétés :
 
 | Propriété | Obligatoire | Description |
 | -------- | -------- | ----------- |
-| `type` | OUI | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. |
+| `type` | Oui | Type d’authentification. Pour les certificats client SSL, la valeur doit être `ClientCertificate`. |
 | `password` | Non | Mot de passe pour l’accès au certificat client (fichier PFX) |
-| `pfx` | OUI | Contenu codé base 64 du certificat client (fichier PFX) |
+| `pfx` | Oui | Contenu codé base 64 du certificat client (fichier PFX) |
 ||||
 
 <a name="basic"></a>
@@ -271,11 +271,11 @@ Dans la section **Autorisation**, ajoutez ces propriétés :
 }
 ```
 
-| Propriété | Obligatoire | description | 
+| Propriété | Obligatoire | Description | 
 | -------- | -------- | ----------- | 
-| type | OUI | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
-| username | OUI | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
-| password | OUI | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
+| type | Oui | Le type d’authentification que vous souhaitez utiliser. Pour l’authentification de base, la valeur doit être `Basic`. | 
+| username | Oui | Le nom d’utilisateur que vous souhaitez utiliser pour l’authentification. | 
+| password | Oui | Le mot de passe que vous souhaitez utiliser pour l’authentification. | 
 |||| 
 
 <a name="azure-ad-code"></a>

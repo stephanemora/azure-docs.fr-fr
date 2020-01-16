@@ -1,25 +1,16 @@
 ---
-title: Gérer la charge d’application Azure Service Fabric à l’aide de métriques | Microsoft Docs
+title: Gérer la charge d’application Azure Service Fabric à l’aide de métriques
 description: Découvrez comment configurer et utiliser des mesures dans Service Fabric pour gérer la consommation des ressources de service.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 1a61de6b0b6f73e112dd69108272ded3a67497e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ea21502cdab35b261e20af7f23b7b522f77c6667
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60516773"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451997"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Gestion de la consommation des ressources et des charges dans Service Fabric à l’aide de mesures
 Les *mesures* sont les ressources qui intéressent vos services et qui sont fournies par les nœuds dans le cluster. Une mesure représente ce que vous souhaitez gérer afin d’améliorer ou de surveiller les performances de vos services. Par exemple, vous pourrez surveiller la consommation de mémoire pour savoir si votre service est surchargé. Vous pouvez également déterminer si le service peut être déplacé vers un autre emplacement où la mémoire est moins contrainte afin d’obtenir de meilleures performances.
@@ -37,7 +28,7 @@ Supposons que vous souhaitez commencer à écrire et à déployer votre service.
 | --- | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |Élevé |
 | ReplicaCount |0 |1 |1 |Moyenne |
-| Nombre |1 |1 |1 |Faible |
+| Count |1 |1 |1 |Faible |
 
 
 Pour les charges de travail de base, les mesures par défaut fournissent une distribution acceptable du travail dans le cluster. Dans l’exemple suivant, examinons ce qui se passe lorsque nous créons deux services et que nous utilisons les mesures par défaut pour l’équilibrage. Le premier est un service avec état présentant trois partitions et une taille de jeu de réplicas cible de trois. Le second est un service sans état présentant une partition et un nombre d’instances de trois.
@@ -49,7 +40,7 @@ Voici ce que vous obtenez :
 ![Disposition du cluster avec les métriques par défaut][Image1]
 </center>
 
-Quelques points à noter :
+Quelques éléments à prendre en compte :
   - Les réplicas principaux du service avec état sont répartis dans plusieurs nœuds
   - Les réplicas pour la même partition sont sur des nœuds différents
   - L’ensemble des réplicas principaux et secondaires sont répartis dans le cluster
@@ -143,7 +134,7 @@ Rappel : si vous voulez simplement utiliser les mesures par défaut, vous n’a
 
 À présent, passons en revue chacun de ces paramètres plus en détail et examinons leur impact sur le comportement.
 
-## <a name="load"></a>charger
+## <a name="load"></a>Load
 La définition de mesures a pour but de représenter certaines charges. Une *charge* correspond à la quantité d’une mesure spécifique qui est consommée par une instance ou un réplica de service sur un nœud donné. La charge peut être configurée en presque n’importe quel point. Par exemple :
 
   - La charge peut être définie lors de la création d’un service. Il s’agit d’une _charge par défaut_.
@@ -272,7 +263,7 @@ Dans l’exemple du bas, Cluster Resource Manager a réparti les réplicas en fo
 - La définition des mesures de défragmentation est une façon de consolider la charge sur les nœuds au lieu de la répartir. Pour savoir comment configurer la défragmentation, reportez-vous à [cet article](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 - Pour en savoir plus sur la façon dont Cluster Resource Manager gère et équilibre la charge du cluster, consultez l’article sur [l’équilibrage de la charge](service-fabric-cluster-resource-manager-balancing.md)
 - Commencez au début pour [obtenir une présentation de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Le coût du déplacement est une façon de signaler à Cluster Resource Manager que certains services sont plus coûteux à déplacer que d’autres. Pour en savoir plus sur le coût du déplacement, reportez-vous à [cet article](service-fabric-cluster-resource-manager-movement-cost.md)
+- Le coût du mouvement est une façon de signaler à Cluster Resource Manager que certains services sont plus coûteux à déplacer que d’autres. Pour en savoir plus sur le coût du déplacement, reportez-vous à [cet article](service-fabric-cluster-resource-manager-movement-cost.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-cluster-layout-with-default-metrics.png
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png

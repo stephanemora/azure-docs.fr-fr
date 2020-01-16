@@ -1,25 +1,16 @@
 ---
-title: Débogage de votre application Azure Service Fabric dans Eclipse | Microsoft Docs
+title: Déboguer votre application dans Eclipse
 description: Améliorez la fiabilité et les performances de vos services en les développant et en procédant à leur débogage dans Eclipse sur un cluster de développement local.
-services: service-fabric
-documentationcenter: .net
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: cb888532-bcdb-4e47-95e4-bfbb1f644da4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15448a9bd8998a99e8fce578b05130694ecd5fd0
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393586"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614483"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Débogage de votre application Java Service Fabric avec Eclipse
 > [!div class="op_single_selector"]
@@ -29,12 +20,12 @@ ms.locfileid: "60393586"
 
 1. Démarrez un cluster de développement local en suivant les étapes de la section [Configuration de votre environnement de développement Service Fabric](service-fabric-get-started-linux.md).
 
-2. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus java avec les paramètres de débogage à distance. Ce fichier se trouve à l’emplacement suivant : `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Le port 8001 est défini pour le débogage dans cet exemple.
+2. Mettez à jour entryPoint.sh du service que vous souhaitez déboguer, afin qu’il démarre le processus java avec les paramètres de débogage à distance. Ce fichier se trouve à l’emplacement suivant : `ApplicationName\ServiceNamePkg\Code\entrypoint.sh`. Le port 8001 est défini pour le débogage dans cet exemple.
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. Mettez à jour le manifeste de l’application en définissant le nombre d’instances ou le nombre de réplicas pour le service en cours de débogage sur 1. Ce paramètre évite les conflits pour le port utilisé pour le débogage. Par exemple, pour les services sans état, définissez `InstanceCount="1"` et pour les services avec état, définissez les tailles cible et de jeu de réplicas minimales sur 1 comme suit : `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
+3. Mettez à jour le manifeste de l’application en définissant le nombre d’instances ou le nombre de réplicas pour le service en cours de débogage sur 1. Ce paramètre évite les conflits pour le port utilisé pour le débogage. Par exemple, pour les services sans état, définissez `InstanceCount="1"` et pour les services avec état, définissez les tailles cible et de jeu de réplicas minimales sur 1 comme suit : `TargetReplicaSetSize="1" MinReplicaSetSize="1"`.
 
 4. Déployez l’application.
 

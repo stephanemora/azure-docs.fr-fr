@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 108d86e35422e1dc1d10aeb6b2c9488f5067232e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389681"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425657"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Sélectionner une mise en page dans Azure Active Directory B2C à l’aide de stratégies personnalisées
 
@@ -46,9 +46,9 @@ Dans vos stratégies personnalisées, [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-Pour sélectionner une mise en page, modifiez les valeurs **DataUri** dans l’élément [ContentDefinitions](contentdefinitions.md) au sein de vos stratégies. En passant des anciennes valeurs **DataUri** aux nouvelles valeurs, vous sélectionnez un package immuable. Ce package présente l’avantage de ne jamais changer ni provoquer de comportement inattendu sur votre page.
+Pour sélectionner une mise en page, modifiez les valeurs **DataUri** dans l’élément [ContentDefinitions](contentdefinitions.md) au sein de vos stratégies. En passant des anciennes valeurs **DataUri** aux nouvelles valeurs, vous sélectionnez un package immuable. Ce package présente l’avantage de ne jamais changer ni provoquer de comportement inattendu dans votre page.
 
-Pour définir une mise en page, utilisez le tableau suivant afin de prendre connaissance des valeurs **DataUri**.
+Pour spécifier une mise en page dans vos stratégies personnalisées si celles-ci utilisent une ancienne valeur **DataUri**, insérez `contract` entre `elements` et le type de page (par exemple, `selfasserted`), puis spécifiez le numéro de version. Par exemple :
 
 | Ancienne valeur DataUri | Nouvelle valeur DataUri |
 | ----------------- | ----------------- |
@@ -68,17 +68,23 @@ Pour définir une mise en page, utilisez le tableau suivant afin de prendre conn
 
 Les packages de mise en page sont régulièrement mis à jour afin d’ajouter des correctifs et des améliorations à leurs éléments de page. Le journal des modifications suivant indique les modifications introduites dans chaque version.
 
-### <a name="120"></a>1.2.0 
+### <a name="200"></a>2.0.0
+
+- Page autodéclarée (`selfasserted`)
+  - Ajout de la prise en charge des [contrôles d’affichage](display-controls.md) dans les stratégies personnalisées.
+
+### <a name="120"></a>1.2.0
+
 - Toutes les pages
   - Correctifs de l’accessibilité
   - Vous pouvez maintenant ajouter l’attribut `data-preload="true"` dans les balises HTML pour contrôler l’ordre de chargement des fichiers CSS et JavaScript. Il s’agit entre autres des scénarios suivants :
-      - Utilisez l’attribut sur votre lien CSS pour charger le fichier CSS en même temps que votre fichier HTML. Cela évite l’effet de « scintillement » entre le chargement des fichiers
-      - Cet attribut vous permet de contrôler l’ordre dans lequel les balises de script sont récupérées (fetch) et exécutées avant le chargement de la page
+    - Utilisez l’attribut sur votre lien CSS pour charger le fichier CSS en même temps que votre fichier HTML. Cela évite l’effet de « scintillement » entre le chargement des fichiers
+    - Cet attribut vous permet de contrôler l’ordre dans lequel les balises de script sont récupérées (fetch) et exécutées avant le chargement de la page
   - Le champ d’e-mail est désormais `type=email`, et les claviers mobiles fournissent les suggestions appropriées
   - Prise en charge de Chrome Translate
 - Page unifiée et autodéclarée
   - Les champs de nom d’utilisateur/e-mail et de mot de passe utilisent désormais l’élément de formulaire HTML.  Edge et Internet Explorer peuvent ainsi enregistrer correctement ces informations
-  
+
 ### <a name="110"></a>1.1.0
 
 - Page d’exception (globalexception)

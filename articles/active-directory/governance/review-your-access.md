@@ -1,5 +1,5 @@
 ---
-title: Réviser votre accès à des groupes ou des applications dans les révisions d’accès - Azure Active Directory | Microsoft Docs
+title: Réviser votre accès aux groupes et aux applications dans les révisions d’accès - Azure AD
 description: Découvrez comment réviser votre propre accès à des groupes ou applications dans les révisions d’accès Azure Active Directory.
 services: active-directory
 author: msaburnley
@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 0d75d7ffe28fa126ee5e359cba19e66e3c0f36e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958565"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422401"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser votre accès à des groupes ou applications dans Azure AD
 
@@ -38,7 +38,7 @@ La première étape pour effectuer une révision d’accès consiste à recherch
 
 1. Cliquez sur le lien **Réviser l’accès** pour ouvrir la révision d’accès.
 
-Si vous n’avez pas reçu l’e-mail, vous pouvez trouver vos révisions d’accès en attente en procédant comme suit.
+Si vous n’avez pas reçu l’e-mail, vous trouverez les révisions d’accès en attente en procédant comme suit.
 
 1. Connectez-vous au portail MyApps sur [https://myapps.microsoft.com](https://myapps.microsoft.com).
 

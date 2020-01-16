@@ -1,17 +1,17 @@
 ---
 title: Résoudre les problèmes de perte de données dans Azure Cache pour Redis
-description: Découvrez comment résoudre les problèmes de perte de données avec Azure Cache pour Redis
+description: Découvrez comment résoudre les problèmes de perte de données avec Azure Cache for Redis, tels que la perte partielle de clés, l’expiration des clés ou la perte complète des clés.
 author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: yegu
-ms.openlocfilehash: 77493675de0a654d3bb510f7cda22a2abbca0aa2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121495"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530899"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Résoudre les problèmes de perte de données dans Azure Cache pour Redis
 
@@ -36,9 +36,9 @@ Si vous constatez que des clés ont disparu de votre cache, passez en revue les 
 
 ### <a name="key-expiration"></a>Expiration des clés
 
-Le cache Azure Cache pour Redis supprime automatiquement une clé si un délai d’attente est affecté à la clé et que la période est passée. Pour en savoir plus sur l’expiration des clés Redis, consultez la documentation relative à la commande [EXPIRE](http://redis.io/commands/expire). Vous pouvez également définir des valeurs de délai d’expiration à l’aide des commandes [SET](http://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) et [GETSET](https://redis.io/commands/getset), et d’autres commandes **\*STORE**.
+Le cache Azure Cache pour Redis supprime automatiquement une clé si un délai d’attente est affecté à la clé et que la période est passée. Pour en savoir plus sur l’expiration des clés Redis, consultez la documentation relative à la commande [EXPIRE](https://redis.io/commands/expire). Vous pouvez également définir des valeurs de délai d’expiration à l’aide des commandes [SET](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex) et [GETSET](https://redis.io/commands/getset), et d’autres commandes **\*STORE**.
 
-Vous pouvez utiliser la commande [INFO](http://redis.io/commands/info) pour obtenir des statistiques sur le nombre de clés arrivées à expiration. La section `Stats` montre le nombre total de clés arrivées à expiration. La section `Keyspace` fournit des informations supplémentaires sur le nombre de clés avec des délais d’expiration, et la valeur moyenne du délai d’expiration.
+Vous pouvez utiliser la commande [INFO](https://redis.io/commands/info) pour obtenir des statistiques sur le nombre de clés arrivées à expiration. La section `Stats` montre le nombre total de clés arrivées à expiration. La section `Keyspace` fournit des informations supplémentaires sur le nombre de clés avec des délais d’expiration, et la valeur moyenne du délai d’expiration.
 
 ```
 # Stats
@@ -54,9 +54,9 @@ Vous pouvez également examiner les indicateurs de performance de diagnostic de 
 
 ### <a name="key-eviction"></a>Éviction des clés
 
-Azure Cache pour Redis a besoin d’espace mémoire pour stocker les données. Il vide donc des clés pour libérer de la mémoire, si nécessaire. Lorsque les valeurs **used_memory** ou **used_memory_rss** dans la commande [INFO](http://redis.io/commands/info) s’approchent du paramètre **maxmemory** configuré, Azure Cache pour Redis commence à supprimer des clés de la mémoire en fonction de la [stratégie de cache](http://redis.io/topics/lru-cache).
+Azure Cache pour Redis a besoin d’espace mémoire pour stocker les données. Il vide donc des clés pour libérer de la mémoire, si nécessaire. Lorsque les valeurs **used_memory** ou **used_memory_rss** dans la commande [INFO](https://redis.io/commands/info) s’approchent du paramètre **maxmemory** configuré, Azure Cache pour Redis commence à supprimer des clés de la mémoire en fonction de la [stratégie de cache](https://redis.io/topics/lru-cache).
 
-Utilisez la commande [INFO](http://redis.io/commands/info) pour surveiller le nombre de clés supprimées :
+Utilisez la commande [INFO](https://redis.io/commands/info) pour surveiller le nombre de clés supprimées :
 
 ```
 # Stats
@@ -68,7 +68,7 @@ Vous pouvez également examiner les indicateurs de performance de diagnostic de 
 
 ### <a name="key-deletion"></a>Suppression des clés
 
-Les clients Redis peuvent émettre la commande [DEL](http://redis.io/commands/del) ou [HDEL](http://redis.io/commands/hdel) pour supprimer explicitement des clés d’Azure Cache pour Redis. Utilisez la commande [INFO](http://redis.io/commands/info) pour effectuer le suivi du nombre d’opérations de suppression. Si des commandes **DEL** ou **HDEL** ont été appelées, elles sont répertoriées dans la section `Commandstats`.
+Les clients Redis peuvent émettre la commande [DEL](https://redis.io/commands/del) ou [HDEL](https://redis.io/commands/hdel) pour supprimer explicitement des clés d’Azure Cache pour Redis. Utilisez la commande [INFO](https://redis.io/commands/info) pour effectuer le suivi du nombre d’opérations de suppression. Si des commandes **DEL** ou **HDEL** ont été appelées, elles sont répertoriées dans la section `Commandstats`.
 
 ```
 # Commandstats
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Réplication asynchrone
 
-Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud maître et au moins un réplica. Un processus en arrière-plan permet de copier les données de façon asynchrone du maître vers un réplica. Le site web [redis.io](http://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car cette réplication est garantie instantanée. Par exemple, si le maître tombe en panne *après* qu’un client y a écrit une clé, mais *avant* que le processus en arrière-plan n’envoie cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau maître.
+Toute instance Azure Cache pour Redis de niveau Standard ou Premium est configurée avec un nœud maître et au moins un réplica. Un processus en arrière-plan permet de copier les données de façon asynchrone du maître vers un réplica. Le site web [redis.io](https://redis.io/topics/replication) décrit le fonctionnement général de la réplication des données dans Redis. Dans les scénarios où les clients écrivent fréquemment dans Redis, vous pouvez subir une perte partielle de données, car cette réplication est garantie instantanée. Par exemple, si le maître tombe en panne *après* qu’un client y a écrit une clé, mais *avant* que le processus en arrière-plan n’envoie cette clé au réplica, cette clé est perdue quand le réplica prend le relais en tant que nouveau maître.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Perte majeure ou totale des clés
 
@@ -94,7 +94,7 @@ Si vous constatez que tout ou partie des clés ont disparu de votre cache, passe
 
 ### <a name="key-flushing"></a>Vidage des clés
 
-Les clients peuvent appeler la commande [FLUSHDB](http://redis.io/commands/flushdb) pour supprimer toutes les clés d’une base de données *unique* ou [FLUSHALL](http://redis.io/commands/flushall) pour supprimer toutes les clés de *toutes* les bases de données dans un cache Redis. Utilisez la commande [INFO](http://redis.io/commands/info) pour déterminer si les clés ont été vidées. La section `Commandstats` indique si la commande **FLUSH** a été appelée :
+Les clients peuvent appeler la commande [FLUSHDB](https://redis.io/commands/flushdb) pour supprimer toutes les clés d’une base de données *unique* ou [FLUSHALL](https://redis.io/commands/flushall) pour supprimer toutes les clés de *toutes* les bases de données dans un cache Redis. Utilisez la commande [INFO](https://redis.io/commands/info) pour déterminer si les clés ont été vidées. La section `Commandstats` indique si la commande **FLUSH** a été appelée :
 
 ```
 # Commandstats
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Sélection incorrecte de la base de données
 
-Azure Cache pour Redis utilise la base de données **db0** par défaut. Si vous basculez vers une autre base de données (par exemple, **db1**) et essayez de lire des clés à partir de celle-ci, Azure Cache pour Redis ne les trouve pas à cet emplacement. Chaque base de données est une unité logiquement distincte et contient un jeu de données différent. Utilisez la commande [SELECT](http://redis.io/commands/select) pour utiliser d’autres bases de données disponibles et rechercher des clés dans chacune d’elles.
+Azure Cache pour Redis utilise la base de données **db0** par défaut. Si vous basculez vers une autre base de données (par exemple, **db1**) et essayez de lire des clés à partir de celle-ci, Azure Cache pour Redis ne les trouve pas à cet emplacement. Chaque base de données est une unité logiquement distincte et contient un jeu de données différent. Utilisez la commande [SELECT](https://redis.io/commands/select) pour utiliser d’autres bases de données disponibles et rechercher des clés dans chacune d’elles.
 
 ### <a name="redis-instance-failure"></a>Échec de l’instance de Redis
 
@@ -114,7 +114,7 @@ Redis est un magasin de données en mémoire. Les données sont conservées sur 
 
 Les caches de niveau Standard ou Premium utilisent deux machines virtuelles dans une configuration répliquée, offrant ainsi plus de résilience contre la perte de données. Lorsque le nœud maître d’un tel cache échoue, le nœud réplica prend le relais pour traiter automatiquement les données. Ces machines virtuelles se trouvent sur des domaines d’erreur et de mise à jour distincts, afin de réduire le risque qu’elles ne soient pas disponibles en même temps. Toutefois, en cas de défaillance majeure du centre de données, il se peut que les machines virtuelles tombent en panne simultanément. Dans ces rares cas, vos données sont perdues.
 
-Songez à utiliser la [persistance des données Redis](http://redis.io/topics/persistence) et la [géoréplication](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) pour renforcer la protection de vos données contre ces défaillances d’infrastructure.
+Songez à utiliser la [persistance des données Redis](https://redis.io/topics/persistence) et la [géoréplication](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) pour renforcer la protection de vos données contre ces défaillances d’infrastructure.
 
 ## <a name="additional-information"></a>Informations supplémentaires
 

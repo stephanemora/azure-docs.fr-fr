@@ -8,27 +8,27 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ce6459dd65c75c6fcff5591d4e4667e4b0c75fa
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 56194bcfb9531def87a9918ad442a2927413c964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928496"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432958"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
 Le service Azure Maps Search est un ensemble d’API RESTful destinées aux développeurs souhaitant rechercher des adresses, des lieux, des points d’intérêt, des listes d’entreprises et d’autres informations d’ordre géographique. Le service affecte une combinaison latitude/longitude à une adresse, intersection, caractéristique géographique ou point d’intérêt spécifique. Les valeurs de latitude et de longitude renvoyées par le service peuvent être utilisées comme paramètres dans d’autres services Azure Maps, tels que les itinéraires et les flux de trafic.
 
-Dans cet article, vous allez apprendre à effectuer les opérations suivantes :
+Dans cet article, vous allez apprendre à :
 
 * Rechercher une adresse à l’aide de l’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * Rechercher une adresse avec des propriétés et des coordonnées
 * Effectuer une [recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour rechercher une adresse postale
 * Rechercher une intersection à l’aide d’une [API de recherche d’intersection d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte, suivez les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
+Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 Cet article utilise [l’application Postman](https://www.getpostman.com/apps) pour générer des appels REST. Vous pouvez utiliser l’environnement de développement d’API que vous préférez.
 
@@ -50,7 +50,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
-    | Authorization | No Auth (Pas d’autorisation) |
+    | Autorisation | No Auth (Pas d’autorisation) |
 
     L’attribut **json** dans le chemin de l’URL détermine le format de la réponse. Vous utilisez json tout au long de cet article pour des raisons de facilité d’utilisation et de lisibilité. Les formats de réponse sont disponibles dans la définition **Get Search Fuzzy** (Obtenir Fuzzy Search) des [informations de référence sur l’API fonctionnelle Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 
@@ -102,7 +102,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Authorization | No Auth (Pas d’autorisation) |
+    | Autorisation | No Auth (Pas d’autorisation) |
 
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
   
@@ -143,7 +143,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
-    | Authorization | No Auth (Pas d’autorisation) |
+    | Autorisation | No Auth (Pas d’autorisation) |
   
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
   
@@ -163,7 +163,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
     | Clé | Valeur |
     |-----|------------|
-    | number | true |
+    | nombre | true |
 
     Si la requête comporte le paramètre [number](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), la réponse peut inclure le côté de la rue (gauche/droite) et également une position de décalage par rapport à ce numéro.
   
@@ -203,7 +203,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
     |---------------|------------------------------------------------|
     | HTTP method | GET |
     | URL de la demande | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
-    | Authorization | No Auth (Pas d’autorisation) |
+    | Autorisation | No Auth (Pas d’autorisation) |
   
 3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête :
   

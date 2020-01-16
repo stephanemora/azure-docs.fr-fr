@@ -1,30 +1,22 @@
 ---
-title: Versions de Threat Modeling Tool - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Disponibilité générale de Microsoft Threat Modeling Tool version du 12/09/2018 - Azure
 description: Compilation des notes de publication pour l’outil de modélisation des menaces
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2019
-ms.author: jegeib
-ms.openlocfilehash: ce5f2b5541da3b3a3db046ba0dc768e3fbe2431e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ad489d6de222380e85a962c7b50c63a5c2122c72
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68928113"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548800"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Version en disponibilité générale de Threat Modeling Tool v 7.1.50911.2 - 12/09/2018
 
-Nous sommes heureux d’annoncer que Microsoft Threat Modeling Tool est maintenant disponible au téléchargement en tant que version en disponibilité générale (GA) prise en charge. Cette version contient des mises à jour importantes relatives à la confidentialité et à la sécurité, ainsi que des correctifs de bogues, des mises à jour de fonctionnalités et des améliorations de la stabilité. Les utilisateurs existants de la version Preview 2017 seront invités à se mettre à jour avec la version la plus récente via la technologie ClickOnce à l’ouverture du client. Pour les nouveaux utilisateurs de l’outil, [cliquez ici pour télécharger le client](https://aka.ms/threatmodelingtool).
+Nous sommes heureux d’annoncer que Microsoft Threat Modeling Tool est maintenant disponible au téléchargement en tant que version en disponibilité générale (GA) prise en charge. Cette version contient des mises à jour importantes relatives à la confidentialité et à la sécurité, ainsi que des correctifs de bogues, des mises à jour de fonctionnalités et des améliorations de la stabilité. Les utilisateurs existants de la version Preview 2017 seront invités à se mettre à jour avec la version la plus récente via la technologie ClickOnce à l’ouverture du client. Pour les nouveaux utilisateurs de l’outil, vous pouvez [télécharger le client](https://aka.ms/threatmodelingtool).
 
 Avec cette version, nous mettons fin au support de la version Preview 2017 et recommandons à tous les utilisateurs de la préversion de procéder à la mise à jour vers la version en disponibilité générale. À compter du 15 octobre 2018, nous allons définir la version minimale requise de ClickOnce pour Threat Modeling Tool ; tous les clients de la préversion devront se mettre à niveau.
 
@@ -82,17 +74,17 @@ Nous conseillons aux utilisateurs de OneDrive de se servir du client [OneDrive p
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>Mon organisation utilise la version 2016 de l’outil, puis-je utiliser le jeu de stencils Azure ?
 
-Oui, vous pouvez ! L’[ensemble de stencils Azure est disponible sur github](https://github.com/Microsoft/threat-modeling-templates/) et peut être chargé dans la version 2016 de l’outil. Pour créer un modèle avec le jeu de stencils Azure, utilisez la boîte de dialogue « Template For New Models » (Modèle pour les nouveaux modèles) dans l’écran du menu principal. TMT 2016 ne peut pas restituer les liens trouvés dans les champs « Possible Mitigations » (Atténuations des risques possibles) du jeu de stencils Azure, par conséquent vous pouvez voir des liens s’afficher sous forme de balises HTML.
+Oui, vous pouvez ! L’[ensemble de stencils Azure est disponible sur GitHub](https://github.com/Microsoft/threat-modeling-templates/) et peut être chargé dans la version 2016 de l’outil. Pour créer un modèle avec le jeu de stencils Azure, utilisez la boîte de dialogue « Template For New Models » (Modèle pour les nouveaux modèles) dans l’écran du menu principal. TMT 2016 ne peut pas restituer les liens trouvés dans les champs « Possible Mitigations » (Atténuations des risques possibles) du jeu de stencils Azure, par conséquent vous pouvez voir des liens s’afficher sous forme de balises HTML.
 
 ![Mises à jour des stencils Azure dans le client 2016](./media/threat-modeling-tool-releases-71509112/tmt_azure_stencils-300x212.png)
 
-## <a name="system-requirements"></a>Conditions requises pour le système
+## <a name="system-requirements"></a>Configuration système requise
 
-- Systèmes d'exploitation pris en charge
+- Systèmes d’exploitation pris en charge
   - Microsoft Windows 10
 - Version .NET obligatoire
   - .Net 3.5.2
-- Conditions supplémentaires
+- Autres conditions requises
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires

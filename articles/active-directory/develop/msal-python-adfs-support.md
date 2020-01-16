@@ -1,5 +1,5 @@
 ---
-title: Prise en charge d’Azure AD FS dans la bibliothèque d’authentification Microsoft pour Python
+title: Prise en charge d’Azure AD FS (MSAL Python)
 titleSuffix: Microsoft identity platform
 description: Découvrir la prise en charge des services de fédération Active Directory (AD FS) dans la bibliothèque d’authentification Microsoft pour Python
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: abpati
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d83148f6bfff038f7310ff6fa1f3e1f5a4f8f066
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9a5cbc64883dca66809cfa06dc28a312ce9fedd4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921430"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424131"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Prise en charge des services de fédération Active Directory (AD FS) dans MSAL pour Python
 
@@ -46,7 +46,7 @@ Les versions AD FS prises en charge dans ce scénario fédéré sont :
 - Services de fédération Active Directory (AD FS) v3 (Windows Server 2012 R2)
 - Services de fédération Active Directory (AD FS) v4 (AD FS 2016)
 
-### <a name="acquire-a-token-via-username-and-password"></a>Acquérir un jeton via un nom d’utilisateur et un mot de passe
+### <a name="acquire-a-token-via-username-and-password"></a>Obtenir un jeton via un nom d'utilisateur et un mot de passe
 
 Ce qui suit s’applique si vous vous connectez directement aux services de fédération Active Directory (AD FS) ou via Active Directory.
 

@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 5d13e944cbc083b314c71936d181101ec13037b4
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 98001ba01c5dd29375a9af3af43a06f760e4f55f
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997137"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552914"
 ---
 # <a name="protect-your-network-resources"></a>Protéger vos ressources réseau
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
 
-Cet article explique la page **Mise en réseau** de la section de sécurité des ressources d’Azure Security Center et certaines des recommandations qui y figurent.
+Cet article décrit la page **Mise en réseau** de la section sur la sécurité des ressources dans Security Center.
 
-Pour obtenir la liste complète des recommandations relatives à la mise en réseau, consultez [Recommandations relatives à la mise en réseau](recommendations-network.md).
+Pour obtenir la liste complète des recommandations relatives à la mise en réseau, consultez [Recommandations relatives à la mise en réseau](recommendations-reference.md#recs-network).
 
 Cet article traite des suggestions relatives à la sécurité réseau qui s’appliquent à vos ressources Azure. Les suggestions relatives aux réseaux concernent les pare-feux nouvelle génération, les groupes de sécurité réseau, les règles de trafic entrant trop permissives concernant l’accès juste-à-temps aux machines virtuelles et plus encore. Pour obtenir la liste des suggestions relatives à la mise en réseau et des actions de correction, consultez [Gestion des suggestions de sécurité dans Azure Security Center.](security-center-recommendations.md)
 
@@ -40,7 +40,7 @@ La page **Mise en réseau** page fournit une vue d’ensemble des sections que v
 - Suggestions en matière de sécurité réseau.
 - Panneau **Mise en réseau** héritée (panneau de mise en réseau précédent) 
  
-![Volet Mise en réseau](./media/security-center-network-recommendations/networking-pane.png)
+[![Volet Mise en réseau](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
 
 ## <a name="network-map"></a>Mappage réseau
 Le mappage réseau interactif fournit un affichage graphique avec des superpositions de sécurité qui vous proposent des suggestions et des aperçus pour renforcer vos ressources réseau. À l’aide du mappage, vous pouvez voir la topologie du réseau de vos charges de travail Azure et des connexions entre vos machines virtuelles et sous-réseaux. Vous pouvez voir la capacité à examiner au niveau du détail certaines ressources ainsi que leurs suggestions à partir du mappage.
@@ -59,11 +59,11 @@ La valeur par défaut du mappage de la topologie affiche :
 - Ressources accessibles sur Internet
 - Le mappage est optimisé pour les abonnements que vous avez sélectionnés dans Azure. Si vous modifiez votre sélection, le mappage est recalculé et ré-optimisé en fonction de vos nouveaux paramètres.  
 
-![Mappage de la topologie de mise en réseau](./media/security-center-network-recommendations/network-map-info.png)
+[![Mappage de la topologie de mise en réseau](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
 ## <a name="understanding-the-network-map"></a>Compréhension du mappage réseau
 
-Le mappage réseau peut afficher vos ressources Azure dans un affichage **Topologie** et un affichage **Trafic**.
+Le mappage réseau peut afficher vos ressources Azure dans un affichage **Topologie** et un affichage **Trafic**. 
 
 ### <a name="the-topology-view"></a>Affichage Topologie
 
@@ -111,7 +111,8 @@ Pour explorer une ressource au niveau du détail :
 
 **Ces données sont basées sur les analyses de groupes de sécurité réseau, ainsi que sur des algorithmes de Machine Learning avancés qui analysent plusieurs règles pour en comprendre les croisements et les interactions.** 
 
-![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)
+[![Mappage de trafic réseau](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
+
 
 ## Mise en réseau héritée <a name ="legacy-networking"></a>
 
@@ -119,7 +120,7 @@ Si vous n’avez pas le niveau Standard de Security Center, cette section expliq
 
 Pour accéder à ces informations, dans le panneau Mise en réseau, cliquez sur **Afficher la mise en réseau héritée**. 
 
-![Mise en réseau héritée](./media/security-center-network-recommendations/legacy-networking.png)
+[![Mise en réseau héritée](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
 
 ### <a name="internet-facing-endpoints-section"></a>Section des points de terminaison accessibles sur Internet
 La section **Points de terminaison accessibles sur Internet** présente les machines virtuelles qui sont actuellement configurées avec un point de terminaison accessible sur Internet, ainsi que leur état actuel.
@@ -135,7 +136,8 @@ Dans cet affichage topologique, le premier niveau affiche les réseaux virtuels.
 
 Le troisième niveau affiche les machines virtuelles, ce qui est similaire à ce qui est décrit précédemment. Vous pouvez cliquer sur une ressource pour en savoir plus ou appliquer la configuration ou le contrôle de sécurité nécessaire.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
+
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
 * [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)

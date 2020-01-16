@@ -1,25 +1,16 @@
 ---
-title: Sauvegarde et restauration de Service Fabric | Microsoft Docs
-description: Documentation conceptuelle relative à la sauvegarde et à la restauration de Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Sauvegarder et restaurer Service Fabric
+description: Documentation conceptuelle relative à la sauvegarde et à la restauration de Service Fabric, un service permettant de configurer la sauvegarde des services Reliable Stateful et Reliable Actors.
 author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: cd40f59cfa7846911c68206c3bc1e85a770b0fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 712069a34b6bc5d8aa4bcbab3fdbf9fc9cd8958b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723844"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645546"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Sauvegarder et restaurer Reliable Services et Reliable Actors
 Azure Service Fabric est une plateforme haute disponibilité qui réplique l’état sur plusieurs nœuds afin de conserver cette haute disponibilité.  Ainsi, même si un nœud du cluster échoue, les services continuent à être disponibles. Bien que cette redondance intégrée fournie par la plateforme suffise pour certains, dans d’autres cas, il est souhaitable que le service sauvegarde les données (dans un magasin externe).
@@ -246,12 +237,12 @@ Il est important de s’assurer que les données critiques soient sauvegardées 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Sous le capot : détails supplémentaires sur la sauvegarde et la restauration
 Voici des détails supplémentaires sur la sauvegarde et la restauration.
 
-### <a name="backup"></a>Sauvegarde
+### <a name="backup"></a>Backup
 Le gestionnaire d’état fiable offre la possibilité de créer des sauvegardes cohérentes sans bloquer les opérations de lecture ou d’écriture. Pour ce faire, il utilise un point de contrôle et un mécanisme de persistance de journal.  Le gestionnaire d’état fiable prend des points de contrôle (légers) approximatifs à certains points pour soulager la pression dans le journal des transactions et améliorer les temps de récupération.  Lorsque `BackupAsync` est appelé, le gestionnaire d’état fiable demande à tous les objets fiables de copier leurs derniers fichiers de point de contrôle dans un dossier de sauvegarde local.  Ensuite, le gestionnaire d’état fiable copie tous les enregistrements de journal à partir du pointeur de démarrage vers le dernier enregistrement de journal dans le dossier de sauvegarde.  Comme tous les enregistrements sont inclus dans la sauvegarde et que le gestionnaire d’état fiable conserve les journaux WAL (write-ahead log), toutes les transactions validées (`CommitAsync` a réussi) sont incluses dans la sauvegarde.
 
 Une transaction validée après l’appel de `BackupAsync` peut figurer ou non dans la sauvegarde.  Une fois que le dossier de sauvegarde local a été rempli par la plateforme (c’est-à-dire que la sauvegarde locale est effectuée par le runtime), le rappel de sauvegarde du service est appelé.  Ce rappel est chargé de déplacer le dossier de sauvegarde vers un emplacement externe comme Azure Storage.
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restaurer
 Le gestionnaire d’état fiable permet de restaurer une sauvegarde à l’aide de l’API `RestoreAsync`.  
 La méthode `RestoreAsync` sur `RestoreContext` ne peut être appelée qu’au sein de la méthode `OnDataLossAsync`.
 Le booléen retourné par `OnDataLossAsync` indique si le service a été restauré à cet état à partir d’une source externe.

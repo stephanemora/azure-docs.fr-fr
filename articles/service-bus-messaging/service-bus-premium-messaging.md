@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble des niveaux tarifaires de messagerie Azure Service Bus Premium et Standard | Microsoft Docs
+title: Niveaux Premium et Standard d’Azure Service Bus | Microsoft Docs
 description: Couches messagerie Service Bus Premium et Standard
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: cc783dc4b2bf49724f4a2c7ab9cd9904ded2c703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752133"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75352858"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -29,7 +29,7 @@ La couche *Premium* de la messagerie Service Bus répond aux demandes couramment
 
 Les principales différences sont répertoriées dans le tableau suivant.
 
-| Premium | Standard |
+| Premium | standard |
 | --- | --- |
 | Débit élevé |Débit variable |
 | Performances prévisibles |Latence variable |

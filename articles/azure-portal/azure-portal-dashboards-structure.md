@@ -1,24 +1,24 @@
 ---
 title: Structure des tableaux de bord Azure | Microsoft Docs
-description: Cet article explique la structure JSON d’un tableau de bord Azure.
+description: Parcourez la structure JSON d’un tableau de bord Azure à l’aide d’un exemple de tableau de bord. Comprend une référence aux propriétés de ressource.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
-manager: dougeby
+manager: mtillman
 editor: tysonn
 ms.service: azure-portal
 ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
-ms.author: kfollis
-ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 12/20/2019
+ms.author: mblythe
+ms.openlocfilehash: 18125e119e7ffdd2f8fa8ca3c5c1b12c8c9a94e0
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832789"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75640361"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :
@@ -293,9 +293,9 @@ Ce document décrit la structure d’un tableau de bord Azure, en utilisant le t
 
 Analysons les sections appropriées du document JSON.  Les propriétés de niveau supérieur, __id__, __name__, __type__, __location__ et __tags__ sont des propriétés partagées par tous les types de ressources Azure. Autrement dit, elles n’ont pas grand-chose à voir avec le contenu du tableau de bord.
 
-### <a name="the-id-property"></a>Propriété id
+### <a name="the-id-property"></a>Propriété ID
 
-ID de ressource Azure, soumis aux [conventions d’affectation de noms des ressources Azure](/azure/architecture/best-practices/resource-naming). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
+ID de ressource Azure, soumis aux [conventions de nommage des ressources Azure](/azure/architecture/best-practices/resource-naming). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
 
 ### <a name="the-name-property"></a>Propriété name
 Le nom est le segment de l’ID de ressource qui n’inclut pas l’abonnement, le type de ressource ou les informations du groupe de ressources. En gros, il s’agit du dernier segment de l’ID de ressource.
@@ -312,13 +312,13 @@ Les étiquettes (tags) sont une fonctionnalité commune des ressources Azure qui
 `"tags": { "hidden-title": "Created via API" }`
 
 ### <a name="the-properties-object"></a>Objet properties
-L’objet properties contient deux propriétés, __lenses__ et __metadata__. La propriété __lenses__ contient des informations sur les parties de contrôle (également appelées parties) présentes sur le tableau de bord.  La propriété __metadata__ est là pour d’éventuelles futures fonctionnalités.
+L’objet properties contient deux propriétés, __lenses__ et __metadata__. La propriété __lenses__ contient des informations sur les vignettes dans le tableau de bord.  La propriété __metadata__ est là pour d’éventuelles futures fonctionnalités.
 
 ### <a name="the-lenses-property"></a>Propriété lenses
 La propriété __lenses__ contient le tableau de bord. Notez que l’objet lenses de cet exemple contient une propriété unique appelée “0”. Les filtres (lenses) sont un concept de regroupement qui n’est actuellement pas implémenté dans les tableaux de bord. Pour l’instant, tous vos tableaux de bord ont cette propriété unique sur l’objet lenses, là encore appelée “0”.
 
 ### <a name="the-lens-object"></a>Objet lenses
-L’objet situé sous “0” contient deux propriétés, __order__ et __parts__.  Dans la version actuelle des tableaux de bord, __order__ correspond toujours à 0. La propriété __parts__ contient un objet qui définit les parties individuelles (également appelées parties de contrôle) présentes sur le tableau de bord.
+L’objet situé sous “0” contient deux propriétés, __order__ et __parts__.  Dans la version actuelle des tableaux de bord, __order__ correspond toujours à 0. La propriété __parts__ contient un objet qui définit les parties individuelles (également appelées vignettes) sur le tableau de bord.
 
 L’objet __parts__ une propriété pour chaque partie, où le nom de la propriété est un nombre. Ce nombre n’est pas significatif. 
 

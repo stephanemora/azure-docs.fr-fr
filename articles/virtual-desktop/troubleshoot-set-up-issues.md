@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 12/17/2019
 ms.author: helohr
-ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607433"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459447"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -32,7 +32,7 @@ Pour utiliser l’image multisession Windows 10 Entreprise, accédez à la Plac
 
 Cette section décrit les problèmes potentiels lors de la création du locataire Windows Virtual Desktop.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: L’utilisateur n’est pas autorisé à interroger le service de gestion
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 
 ![Capture d’écran PowerShell indiquant qu’un utilisateur n’est pas autorisé à interroger le service de gestion](media/UserNotAuthorizedNewTenant.png)
 
@@ -59,23 +59,23 @@ Exemple d’erreur brute :
 
 ## <a name="creating-windows-virtual-desktop-session-host-vms"></a>Création de machines virtuelles hôtes de la session Windows Virtual Desktop
 
-Vous pouvez créer des machines virtuelles hôtes de la session de plusieurs manières, mais les équipes Services Bureau à distance/Windows Virtual Desktop aident uniquement à résoudre les problèmes d’approvisionnement de machines virtuelles associés au modèle Azure Resource Manager. Le modèle Azure Resource Manager est disponible sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/) et sur [GitHub](https://github.com/).
+Vous pouvez créer des machines virtuelles hôtes de la session de plusieurs manières, mais l’équipe Windows Virtual Desktop aide uniquement à résoudre les problèmes de provisionnement de machines virtuelles liés à l’offre de la [Place de marché Azure](https://azuremarketplace.microsoft.com/). Pour plus d’informations, consultez [Problèmes d’utilisation de Windows Virtual Desktop - Provisionner un pool d’hôtes - Offre de la Place de marché Azure](#issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering).
 
 ## <a name="issues-using-windows-virtual-desktop--provision-a-host-pool-azure-marketplace-offering"></a>Problèmes d’utilisation de l’offre Windows Virtual Desktop - Provision a host pool de la Place de marché Azure
 
 Le modèle Windows Virtual Desktop - Provision a host pool est accessible à partir de la Place de marché Azure.
 
-### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Error: Lors de l’utilisation du lien disponible sur GitHub, le message « Créer un compte gratuit » apparaît
+### <a name="error-when-using-the-link-from-github-the-message-create-a-free-account-appears"></a>Erreur : Lors de l’utilisation du lien disponible sur GitHub, le message « Créer un compte gratuit » apparaît
 
 ![Capture d’écran de création d’un compte gratuit](media/be615904ace9832754f0669de28abd94.png)
 
 **Cause 1 :** Aucun abonnement n’est actif dans le compte utilisé pour la connexion à Azure, ou le compte utilisé n’est pas autorisé à visualiser les abonnements.
 
-**Correctif 1 :** Connectez-vous avec un compte disposant d’un accès Contributeur (au minimum) à l’abonnement dans lequel les machines virtuelles hôtes de la session doivent être déployées.
+**Correctif 1 :** Connectez-vous avec un compte disposant d’un accès Contributeur (au minimum) à l’abonnement dans lequel les machines virtuelles hôtes de la session doivent être déployées.
 
 **Cause 2 :** L’abonnement utilisé fait partie d’un locataire fournisseur de services cloud (CSP) Microsoft.
 
-**Correctif 2 :** Accédez à l’emplacement GitHub de l’étape **Créer et approvisionner un nouveau pool d’hôtes Windows Virtual Desktop**, puis suivez les instructions ci-après :
+**Correctif 2 :** Accédez à l’emplacement GitHub de l’étape **Créer et approvisionner un nouveau pool d’hôtes Windows Virtual Desktop**, puis suivez les instructions ci-après :
 
 1. Cliquez avec le bouton droit sur **Déployer sur Azure**, puis sélectionnez **Copier l’adresse du lien**.
 2. Ouvrez le **Bloc-notes** et collez-y le lien.
@@ -88,6 +88,27 @@ Le modèle Windows Virtual Desktop - Provision a host pool est accessible à par
     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
     ```
 
+### <a name="error-you-receive-template-deployment-is-not-valid-error"></a>Erreur : Vous recevez une erreur « Le déploiement du modèle n’est pas valide »
+
+![Capture d’écran de l’erreur « Le déploiement du modèle ... n’est pas valide »](media/troubleshooting-marketplace-validation-error-generic.png)
+
+Avant d’effectuer une action spécifique, vous devez vérifier le journal d’activité pour voir l’erreur détaillée concernant la validation du déploiement qui a échoué.
+
+Pour voir l’erreur dans le journal d’activité :
+
+1. Quittez l’offre de déploiement actuelle de la Place de marché Azure.
+2. Dans la barre de recherche du haut, recherchez et sélectionnez **Journal d’activité**.
+3. Recherchez une activité nommée **Valider le déploiement** dont l’état est **Échec** et sélectionnez l’activité.
+   ![Capture d’écran de l’activité **Valider le déploiement** avec un état **Échec**](media/troubleshooting-marketplace-validation-error-activity-summary.png)
+
+4. Sélectionnez JSON, puis faites défiler jusqu’au bas de l’écran jusqu’à ce que le champ « statusMessage » apparaisse.
+   ![Capture d’écran de l’activité en échec, avec un encadré rouge autour de la propriété statusMessage du texte JSON.](media/troubleshooting-marketplace-validation-error-json-boxed.png)
+
+Si votre modèle d’opération dépasse la limite de quota, vous pouvez effectuer une des actions suivantes pour résoudre cela :
+
+ - Exécutez la Place de marché Azure avec les paramètres que vous avez utilisés la première fois, mais utilisez cette fois moins de machines virtuelles et de cœurs de machines virtuelles.
+ - Ouvrez dans un navigateur le lien que vous voyez dans le champ **statusMessage** pour envoyer une demande d’augmentation du quota de votre abonnement Azure pour la référence (SKU) de machine virtuelle spécifiée.
+
 ## <a name="azure-resource-manager-template-and-powershell-desired-state-configuration-dsc-errors"></a>Erreurs de modèle Azure Resource Manager et Desired State Configuration (DSC) PowerShell
 
 Suivez les instructions ci-après pour détecter les problèmes d’échecs de déploiements de modèles Azure Resource Manager et DSC PowerShell.
@@ -97,7 +118,7 @@ Suivez les instructions ci-après pour détecter les problèmes d’échecs de d
 3. Une fois l’erreur identifiée, utilisez le message d’erreur et les ressources figurant dans l’article [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) pour résoudre le problème.
 4. Supprimez toutes les ressources créées lors du déploiement précédent, puis essayez de redéployer le modèle.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Error: Votre déploiement a échoué….\<hostname>/joindomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Erreur : Votre déploiement a échoué….\<hostname>/joindomain
 
 ![Capture d’écran du message d’échec du déploiement](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
@@ -113,14 +134,14 @@ Exemple d’erreur brute :
 
 **Cause 1 :** Les informations d’identification fournies pour la jonction des machines virtuelles au domaine sont incorrectes.
 
-**Correctif 1 :** Consultez la section « Error: Incorrect credentials » (Erreur : Informations d’identification incorrectes) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+**Correctif 1 :** Consultez la section « Error: Incorrect credentials » (Erreur : Informations d’identification incorrectes) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 
 **Cause 2 :** Le nom de domaine est impossible à résoudre.
 
-**Correctif 2 :** Consultez la section « Error: Domain name doesn't resolve » (Erreur : Impossible de résoudre le nom de domaine) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+**Correctif 2 :** Consultez la section « Error: Domain name doesn't resolve » (Erreur : Impossible de résoudre le nom de domaine) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 
 
-### <a name="error-your-deployment-failedunauthorized"></a>Error: Votre déploiement a échoué...\Non autorisé
+### <a name="error-your-deployment-failedunauthorized"></a>Erreur : Votre déploiement a échoué...\Non autorisé
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -130,7 +151,7 @@ Exemple d’erreur brute :
 
 **Correctif :** Modifiez votre type d’abonnement ou votre région pour pouvoir accéder aux fonctionnalités requises.
 
-### <a name="error-vmextensionprovisioningerror"></a>Error: VMExtensionProvisioningError
+### <a name="error-vmextensionprovisioningerror"></a>Erreur : VMExtensionProvisioningError
 
 ![Capture d’écran du message d’échec du déploiement indiquant l’échec de l’approvisionnement du terminal](media/7aaf15615309c18a984673be73ac969a.png)
 
@@ -140,7 +161,7 @@ Exemple d’erreur brute :
 
 **Correctif :** Vérifiez que l’environnement Windows Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Error: Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
 ![Capture d’écran du message d’échec du déploiement dans lequel un nom d’administrateur spécifié n’est pas autorisé](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
@@ -159,7 +180,7 @@ Exemple d’erreur brute :
 
 **Correctif :** Modifiez le nom d’utilisateur ou utilisez différents utilisateurs.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Error: La machine virtuelle a signalé un échec lors du traitement de l’extension
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Erreur : La machine virtuelle a signalé un échec lors du traitement de l’extension
 
 ![Capture d’écran du message d’échec du déploiement indiquant que l’opération de ressource s’est terminée avec l’échec de l’approvisionnement du terminal](media/49c4a1836a55d91cd65125cf227f411f.png)
 
@@ -185,7 +206,7 @@ Exemple d’erreur brute :
 
 **Correctif :** Vérifiez que le nom d’utilisateur et le mot de passe disposent d’un accès administrateur sur la machine virtuelle, puis réexécutez le modèle Azure Resource Manager.
 
-### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Error: DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
+### <a name="error-deploymentfailed--powershell-dsc-configuration-firstsessionhost-completed-with-errors"></a>Erreur : DeploymentFailed - La configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs
 
 ![Capture d’écran du message d’échec du déploiement indiquant que la configuration DSC PowerShell de « FirstSessionHost » s’est terminée avec des erreurs](media/64870370bcbe1286906f34cf0a8646ab.png)
 
@@ -217,7 +238,7 @@ Exemple d’erreur brute :
 
 **Correctif :** Vérifiez que le nom d’utilisateur et le mot de passe fournis disposent d’un accès administrateur sur la machine virtuelle, puis réexécutez le modèle Azure Resource Manager.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Error: DeploymentFailed - InvalidResourceReference
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Erreur : DeploymentFailed - InvalidResourceReference
 
 Exemple d’erreur brute :
 
@@ -244,7 +265,7 @@ region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r
 
 **Correctif :** Lorsque vous exécutez le modèle Azure Resource Manager pour déployer des machines virtuelles hôtes de la session, faites en sorte que les deux premiers caractères du nom du groupe de ressources d’abonnement soient uniques.
 
-### <a name="error-deploymentfailed--invalidresourcereference"></a>Error: DeploymentFailed - InvalidResourceReference
+### <a name="error-deploymentfailed--invalidresourcereference"></a>Erreur : DeploymentFailed - InvalidResourceReference
 
 Exemple d’erreur brute :
 
@@ -271,7 +292,7 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 
 **Correctif :** Utilisez un autre préfixe d’hôte.
 
-### <a name="error-deploymentfailed--error-downloading"></a>Error: DeploymentFailed - Erreur de téléchargement
+### <a name="error-deploymentfailed--error-downloading"></a>Erreur : DeploymentFailed - Erreur de téléchargement
 
 Exemple d’erreur brute :
 
@@ -290,7 +311,7 @@ the VM.\\\"
 
 **Correctif :** Supprimez la route statique, la règle de pare-feu ou le NSG qui bloquent le téléchargement. Si vous le souhaitez, ouvrez le fichier json du modèle Azure Resource Manager dans un éditeur de texte, recherchez le lien d’accès au fichier zip, puis téléchargez la ressource à un emplacement autorisé.
 
-### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Error: L’utilisateur n’est pas autorisé à interroger le service de gestion
+### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Erreur : L’utilisateur n’est pas autorisé à interroger le service de gestion
 
 Exemple d’erreur brute :
 
@@ -314,7 +335,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
-### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Error: L’utilisateur nécessite une authentification multifacteur (MFA)
+### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Erreur : L’utilisateur nécessite une authentification multifacteur (MFA)
 
 ![Capture d’écran du message d’échec du déploiement en raison d’une absence d’authentification multifacteur](media/MFARequiredError.png)
 
@@ -331,7 +352,7 @@ Exemple d’erreur brute :
 Si vous exécutez l’offre de la Place de marché Azure, renseignez les paramètres ci-après pour vous authentifier correctement auprès de Windows Virtual Desktop :
 
 - Propriétaire des Services Bureau à distance du locataire Windows Virtual Desktop : Principal du service
-- ID d’application : identification de l’application du principal de service que vous avez créé
+- ID d’application : identification d’application du principal de service que vous avez créé
 - Mot de passe/Confirmer le mot de passe : secret de mot de passe que vous avez généré pour le principal du service
 - ID de locataire Azure AD : ID de locataire Azure AD du principal de service que vous avez créé
 
@@ -345,10 +366,11 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour découvrir une vue d’ensemble de la résolution des problèmes Windows Virtual Desktop et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](troubleshoot-set-up-overview.md).
-- Pour détecter les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
+- Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).

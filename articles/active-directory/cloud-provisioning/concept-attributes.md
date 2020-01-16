@@ -1,6 +1,6 @@
 ---
-title: Présentation du schéma Azure AD et les expressions personnalisées
-description: Cette rubrique décrit le schéma Azure AD, les attributs que l’agent de provisionnement transmet et les expressions personnalisées.
+title: Comprendre le schéma Azure AD et les expressions personnalisées
+description: Cet article décrit le schéma Azure AD, les attributs que l’agent de provisionnement transmet et les expressions personnalisées.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,65 +15,65 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eae594bcc20e3c4ed1c6fbd0333699de8c9f4452
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795528"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75549378"
 ---
-# <a name="understanding-the-azure-ad-schema"></a>Présentation du schéma Azure AD
-Un objet dans Azure AD, comme un annuaire, est une construction de données globale programmatique qui représente des éléments, tels que des utilisateurs, des groupes et des contacts.  Lorsque vous créez un utilisateur ou un contact dans Azure AD, vous créez une instance de cet objet.  Ces instances peuvent être différenciées en fonction de leurs propriétés.
+# <a name="understand-the-azure-ad-schema"></a>Comprendre le schéma Azure AD
+Dans Azure Active Directory (Azure AD), un objet (par exemple, un annuaire) est une construction de données globale programmatique qui représente des éléments, tels que des utilisateurs, des groupes et des contacts. Lorsque vous créez un utilisateur ou un contact dans Azure AD, vous créez une instance de cet objet. Ces instances peuvent être différenciées en fonction de leurs propriétés.
 
-Dans Azure AD, les propriétés sont les éléments chargés de stocker les informations sur une instance d’un objet dans Azure AD.  
+Dans Azure AD, les propriétés sont les éléments chargés de stocker les informations sur une instance d’un objet dans Azure AD.
 
-Le schéma Azure AD définit les règles pour lesquelles des propriétés peuvent être utilisées dans une entrée, les types de valeurs que ces propriétés peuvent avoir, et la manière dont les utilisateurs peuvent interagir avec ces valeurs. 
+Le schéma Azure AD définit les règles pour lesquelles des propriétés peuvent être utilisées dans une entrée, les types de valeurs que ces propriétés peuvent avoir, et la manière dont les utilisateurs peuvent interagir avec ces valeurs. 
 
-Azure AD comprend deux types de propriétés.  Les propriétés sont les suivantes :
-- **Propriétés intégrées** – Propriétés prédéfinies par le schéma Azure AD.  Ces propriétés fournissent différentes utilisations et peuvent être accessibles ou non.
-- **Extensions d’annuaire** – Propriétés fournies afin de vous permettre de personnaliser Azure AD pour votre usage personnel.  Par exemple, si vous avez étendu votre instance Active Directory locale avec un certain attribut et que vous souhaitez transmettre cet attribut, vous pouvez utiliser l’une des propriétés personnalisées qui sont fournies. 
+Azure AD comprend deux types de propriétés :
+- **Propriétés intégrées** : propriétés prédéfinies par le schéma Azure AD. Ces propriétés permettent différentes utilisations et peuvent être accessibles ou non.
+- **Extensions d’annuaire** : propriétés fournies afin de vous permettre de personnaliser Azure AD pour votre usage personnel. Par exemple, si vous avez étendu votre instance Active Directory locale avec un certain attribut et que vous souhaitez transmettre cet attribut, vous pouvez utiliser l’une des propriétés personnalisées qui sont fournies. 
 
 ## <a name="attributes-and-expressions"></a>Attributs et expressions
-Lorsqu’un objet, tel qu’un utilisateur, est provisionné dans Azure AD, une nouvelle instance de l’objet utilisateur est créée.  Cette création comprend les propriétés de cet objet, qui sont également appelées « attributs ».  Au départ, les attributs de l’objet nouvellement créé sont définis sur des valeurs déterminées par les règles de synchronisation.  Ces attributs sont ensuite tenus à jour par le biais de l’agent de provisionnement cloud.
+Lorsqu’un objet, tel qu’un utilisateur, est provisionné dans Azure AD, une nouvelle instance de l’objet utilisateur est créée. Cette création comprend les propriétés de cet objet, qui sont également appelées « attributs ». Au départ, les attributs de l’objet nouvellement créé sont définis sur des valeurs déterminées par les règles de synchronisation. Ces attributs sont ensuite tenus à jour par le biais de l’agent de provisionnement cloud.
 
-![](media/concept-attributes/attribute1.png)
+![Provisionnement d’objets](media/concept-attributes/attribute1.png)
 
-Par exemple, si un utilisateur fait partie de l’équipe du département marketing, son attribut « département » Azure AD est créé au départ lors de son provisionnement, et la valeur est définie sur « Marketing ».  Voilà que, six mois plus tard, il passe au département Ventes.  Son attribut de département Active Directory local est remplacé par « Ventes ».  Ce changement est alors synchronisé sur Azure AD et apparaît sur son objet utilisateur Azure AD.
+Par exemple, un utilisateur peut faire partie d’un service marketing. Son attribut de service Azure AD est initialement créé lors de son provisionnement, et sa valeur est définie sur Marketing. Six mois plus tard, s’il fait désormais partie du service des Ventes, son attribut de service Active Directory local est remplacé par l’attribut Ventes. Ce changement est synchronisé avec Azure AD et apparaît sur son objet utilisateur Azure AD.
 
-La synchronisation d’attributs peut être directe : la valeur dans Azure AD est directement définie sur la valeur de l’attribut local.  Ou, il peut exister une expression programmatique qui gère cette synchronisation.  Une expression programmatique s’avère nécessaire lorsqu’une logique ou une détermination doit être appliquée pour remplir la valeur.
+La synchronisation d’attributs peut être directe, c’est-à-dire que la valeur dans Azure AD est directement définie sur la valeur de l’attribut local. Sinon, une expression programmatique peut aussi gérer la synchronisation. Une expression programmatique s’avère nécessaire lorsqu’une logique ou une détermination doit être appliquée pour remplir la valeur.
 
-Par exemple, s’il existait un attribut e-mail ("john.smith@contoso.com") et que la partie"@contoso.com" devait être supprimée pour transmettre uniquement la valeur « john.smith », voici ce qu’il faudrait utiliser :
+Par exemple, s’il existait un attribut e-mail "john.smith@contoso.com" et que la partie"@contoso.com" devait être supprimée pour transmettre uniquement la valeur « john.smith », voici ce qu’il faudrait utiliser :
 
 `Replace([mail], "@contoso.com", , ,"", ,)`  
 
-**Exemple d’entrée/sortie :** <br>
+**Exemple d’entrée/sortie :** <br>
 
 * **ENTRÉE** (e-mail) : "john.smith@contoso.com"
 * **SORTIE** : "john.smith"
 
-Pour plus d’informations sur l’écriture d’expressions personnalisées et la syntaxe, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Pour plus d’informations sur l’écriture d’expressions personnalisées et sur la syntaxe, consultez [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
 
-La liste suivante regroupe les attributs courants et la façon dont ils sont synchronisés dans Azure AD.
+Le tableau suivant liste certains attributs courants et la façon dont ils sont synchronisés avec Azure AD.
 
 
 |Active Directory local|Type de mappage|Azure AD|
 |-----|-----|-----|
-|cn|Directement|commonName
-|countryCode|Directement|countryCode|
-|displayName|Directement|displayName|
+|cn|Direct|commonName
+|countryCode|Direct|countryCode|
+|displayName|Direct|displayName|
 |givenName|Expression|givenName|
-|objectGUID|Directement|sourceAnchorBinary|  
-|userprincipalName|Directement|userPrincipalName|
-|ProxyAdress|Directement|ProxyAddress|
+|objectGUID|Direct|sourceAnchorBinary|  
+|userprincipalName|Direct|userPrincipalName|
+|ProxyAdress|Direct|ProxyAddress|
 
-## <a name="viewing-the-schema"></a>Affichage du schéma
-Pour voir le schéma et le vérifier, effectuez les étapes suivantes :
+## <a name="view-the-schema"></a>Afficher le schéma
+Pour afficher le schéma et le vérifier, effectuez les étapes suivantes.
 
-1.  Accédez à l’[Afficheur Graph](https://developer.microsoft.com/graph/graph-explorer).
-2.  Connectez-vous avec votre compte d’administrateur général.
-3.  Sur la gauche, cliquez sur **modifier les autorisations** et vérifiez que l’autorisation **Directory.ReadWrite.All** est acceptée.
-4.  Exécutez la requête suivante : https://graph.microsoft.com/beta/serviceprincipals/.  Cette requête retourne une liste de principaux de service.
-5.  Recherchez "appDisplayName" : "Active Directory to Azure Active Directory Provisioning" et notez la valeur de "id :".
+1.  Accédez à l’[Explorateur Graph](https://developer.microsoft.com/graph/graph-explorer).
+1.  Connectez-vous avec votre compte d’administrateur général.
+1.  Sur la gauche, sélectionnez **Modifier les autorisations** et vérifiez que l’autorisation **Directory.ReadWrite.All** est *Acceptée*.
+1.  Exécutez la requête https://graph.microsoft.com/beta/serviceprincipals/. Cette requête retourne une liste de principaux de service.
+1.  Recherchez `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` et notez la valeur pour `"id"`.
     ```
     "value": [
             {
@@ -146,8 +146,8 @@ Pour voir le schéma et le vérifier, effectuez les étapes suivantes :
                 "passwordCredentials": []
             },
     ```
-6. Remplacez l’{ID principal de service} par votre valeur et exécutez la requête suivante : `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`
-7. Recherchez la section "id" : "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976" et notez l’"id :".
+1. Remplacez `{Service Principal id}` par votre valeur, puis exécutez la requête `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal id}/synchronization/jobs/`.
+1. Recherchez `"id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976"` et notez la valeur pour `"id"`.
     ```
     {
                 "id": "AD2AADProvisioning.fd1c9b9e8077402c8bc03a7186c8f976",
@@ -238,16 +238,17 @@ Pour voir le schéma et le vérifier, effectuez les étapes suivantes :
                 ]
             }
     ```
-8. À présent, exécutez la requête suivante : `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
+1. À présent, exécutez la requête `https://graph.microsoft.com/beta/serviceprincipals/{Service Principal Id}/synchronization/jobs/{AD2AAD Provisioning id}/schema`.
  
-    Exemple : https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
+    Exemple : https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
- Remplacez {ID principal de service} et {ID de provisionnement ADversADD} par vos valeurs.
+   Remplacez `{Service Principal Id}` et `{AD2ADD Provisioning Id}` par vos valeurs.
 
-9. Cette requête retourne le schéma.
-  ![](media/concept-attributes/schema1.png)
+1. Cette requête retourne le schéma.
+
+   ![Schéma retourné](media/concept-attributes/schema1.png)
  
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Présentation du provisionnement](what-is-provisioning.md)
 - [Présentation du provisionnement cloud Azure AD Connect](what-is-cloud-provisioning.md)

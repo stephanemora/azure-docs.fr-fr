@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74146400"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425667"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurer un tunnel de périphérique VPN Always On
 
@@ -37,7 +37,7 @@ Configurez la passerelle VPN pour utiliser IKEv2 et l’authentification basée 
 
 Les conditions suivantes doivent être remplies afin d’établir un tunnel d’appareil :
 
-* L’appareil doit être un ordinateur joint au domaine exécutant Windows 10 Entreprise ou Éducation version 1709 ou ultérieure.
+* L’appareil doit être un ordinateur joint au domaine exécutant Windows 10 Entreprise ou Éducation version 1809 ou ultérieure.
 * Le tunnel est configurable uniquement pour la solution VPN intégrée Windows et est établi à l’aide d’IKEv2 avec authentification par certificat d’ordinateur. 
 * Un seul tunnel d’appareil peut être configuré par appareil.
 
@@ -139,15 +139,15 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
 1. À partir d’une invite de commandes d’administration, lancez PowerShell en exécutant :
 
    ```
-   C:\PsTools\PsExec.exe Powershell for 32-bit Windows
-   C:\PsTools\PsExec64.exe Powershell for 64-bit Windows
+   PsExec.exe Powershell for 32-bit Windows
+   PsExec64.exe Powershell for 64-bit Windows
    ```
 
    ![powershell](./media/vpn-gateway-howto-always-on-device-tunnel/powershell.png)
 1. Dans PowerShell, accédez au dossier où **devicecert.ps1** et **VPNProfile.xml** se trouvent, et exécutez la commande suivante :
 
    ```powershell
-   C:\> .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
+   .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-device-tunnel/machinecerttest.png)
@@ -156,7 +156,7 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    ![rasphone](./media/vpn-gateway-howto-always-on-device-tunnel/rasphone.png)
 1. Recherchez l’entrée **MachineCertTest**, puis cliquez sur **Se connecter**.
 
-   ![Connecter](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
+   ![Se connecter](./media/vpn-gateway-howto-always-on-device-tunnel/connect.png)
 1. Si la connexion réussit, redémarrez l’ordinateur. Le tunnel se connectera automatiquement.
 
 ## <a name="cleanup"></a>Nettoyage

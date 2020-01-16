@@ -1,18 +1,18 @@
 ---
 title: Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
-description: Cet article explique comment une société de vente au détail peut utiliser le flux de modification pour comprendre les modèles utilisateur, pour effectuer l’Analytique données en temps réel et pour visualiser ces données.
+description: Cet article explique comment une société de distribution peut utiliser le flux de modification pour comprendre les modèles utilisateur, effectuer une analyse des données en temps réel et les visualiser.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 86d4dd706b097891db155214e4edb7e85e054858
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442066"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -53,7 +53,7 @@ Le diagramme ci-après illustre le flux de données et les composants impliqués
 
 7. **Power BI :** Power BI permet de visualiser les données envoyées par Azure Stream Analytics. Vous pouvez générer un tableau de bord afin de visualiser l’évolution des métriques en temps réel.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Microsoft .NET Framework 4.7.1 ou une version ultérieure
 

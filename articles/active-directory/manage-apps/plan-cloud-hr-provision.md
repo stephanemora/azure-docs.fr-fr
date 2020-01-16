@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 5d55aafc29b3b022d1023077d2d8f459b0608ae7
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 6f72371077aab813cc22c9bbbe755fdfaa9ac00a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433836"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planifier une application RH cloud pour l’approvisionnement d’utilisateurs Azure Active Directory
 
@@ -74,13 +74,13 @@ Cette fonctionnalité d’approvisionnement informatique axé sur les ressources
 - **Conformité et gouvernance des adresses** : Azure AD prend en charge les journaux d’audit natifs pour les demandes d’approvisionnement d’utilisateurs effectuées par les applications des systèmes source et cible. L’audit vous permet ainsi d’effectuer le suivi des personnes qui ont accès aux applications à partir d’un seul écran.
 - **Gérer les coûts** : l’approvisionnement automatique réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’approvisionnement manuel. Cela réduit le besoin de solutions d’approvisionnement d’utilisateurs personnalisées créées au fil du temps à l’aide de plateformes héritées et obsolètes.
 
-### <a name="licensing"></a>Gestion des licences
+### <a name="licensing"></a>Licence
 
 Pour configurer l’application RH cloud à l’intégration de l’approvisionnement d’utilisateurs Azure AD, vous devez disposer d’une [licence Premium Azure AD](https://azure.microsoft.com/pricing/details/active-directory/) valide et d’une licence pour l’application RH cloud telle que Workday ou SuccessFactors.
 
 Vous avez également besoin d’une licence valide à un abonnement Azure AD Premium P1 ou supérieur pour chaque utilisateur provenant de l’application RH cloud et approvisionné dans AD ou Azure AD. Tout nombre incorrect de licences détenues dans l’application RH cloud peut entraîner des erreurs pendant l’approvisionnement d’utilisateurs.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - Accès administrateur général Azure AD pour configurer l’agent d’approvisionnement Azure AD Connect.
 - Une instance de test et de production de l’application RH cloud.
@@ -95,8 +95,8 @@ Vous avez également besoin d’une licence valide à un abonnement Azure AD Pre
 | Videos | [Présentation de l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/_ZjARPpI6NI) |
 | | [Comment déployer l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/pKzyts6kfrw) |
 | Tutoriels | Consultez la [liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
-| | [Tutoriel : Configurer Workday pour le provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| Forum Aux Questions | [Approvisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#frequently-asked-questions) |
+| | [Tutoriel : Configurer Workday pour le provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
+| Questions fréquentes (FAQ) | [Approvisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Approvisionnement de Workday vers Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Architecture de solution
@@ -178,7 +178,7 @@ En fonction de votre décision, choisissez l’un des scénarios de déploiement
 
 Nous vous recommandons la configuration de production suivante :
 
-|Prérequis|Recommandation|
+|Condition requise|Recommandation|
 |:-|:-|
 |Nombre d’agents d’approvisionnement Azure AD Connect à déployer|2 (pour la haute disponibilité et le basculement)
 |Nombre d’applications du connecteur d’approvisionnement à configurer|Une application par sous-domaine|
@@ -192,7 +192,7 @@ Ce scénario implique l’approvisionnement d’utilisateurs de l’application 
 
 Nous vous recommandons la configuration de production suivante :
 
-|Prérequis|Recommandation|
+|Condition requise|Recommandation|
 |:-|:-|
 |Nombre d’agents d’approvisionnement Azure AD Connect à déployer localement|2 par forêt AD disjointe|
 |Nombre d’applications du connecteur d’approvisionnement à configurer|Une application par sous-domaine|
@@ -257,7 +257,7 @@ Par défaut, l’application du connecteur d’approvisionnement mappe l’**ét
 
 Lorsque vous lancez le processus Entrants/Sortants, rassemblez les spécifications suivantes :
 
-| Process | Configuration requise |
+| Process | Spécifications |
 | - | - |
 | **Entrants** | Du point de vue du cycle de vie des identités, comment gérez-vous les employés réembauchés ? Les employés réembauchés conservent-ils leur ancien ID d’employé ? |
 | | Traitez-vous les embauches futures et créez-vous pour eux des comptes AD à l’avance ? Ces comptes sont-ils créés dans un état activé/désactivé ? |
@@ -276,7 +276,7 @@ Chaque application de ressources humaines cloud est fournie avec des mappages pa
 
 Lorsque vous lancez le processus Entrants/Changements de poste/Sortants, rassemblez les spécifications suivantes :
 
-| Process | Configuration requise |
+| Process | Spécifications |
 | - | - |
 | **Entrants** | Le processus de création de compte AD est-il manuel, automatisé ou partiellement automatisé ? |
 | | Envisagez-vous de propager des attributs personnalisés de l’application RH cloud vers AD ? |
@@ -319,14 +319,14 @@ La SSPR est un moyen simple pour les administrateurs informatiques de permettre 
 
 ## <a name="plan-for-initial-cycle"></a>Planifier le cycle initial
 
-Lorsque le service d’approvisionnement Azure AD s’exécute pour la première fois, il effectue un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) sur l’application RH cloud pour créer un instantané de tous les objets utilisateur se trouvant dans l’application RH cloud. Le temps nécessaire pour les cycles initiaux dépend directement du nombre d’utilisateurs présents dans le système source. Le cycle initial pour certains locataires de l’application RH cloud ayant plus de 100 000 utilisateurs peut prendre beaucoup de temps.
+Lorsque le service d’approvisionnement Azure AD s’exécute pour la première fois, il effectue un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) sur l’application RH cloud pour créer un instantané de tous les objets utilisateur se trouvant dans l’application RH cloud. Le temps nécessaire pour les cycles initiaux dépend directement du nombre d’utilisateurs présents dans le système source. Le cycle initial pour certains locataires de l’application RH cloud ayant plus de 100 000 utilisateurs peut prendre beaucoup de temps.
 
 **Pour les locataires de l’application RH cloud volumineux (> 30 000 utilisateurs), nous vous recommandons** d’exécuter le cycle initial en étapes progressives et de lancer les mises à jour incrémentielles uniquement après avoir vérifié que les attributs appropriés sont définis dans AD pour différents scénarios d’approvisionnement d’utilisateurs. Suivez l’ordre ci-dessous :
 
 1. Exécutez le cycle initial uniquement pour un ensemble limité d’utilisateurs en paramétrant le [filtre d’étendue](#plan-scoping-filters-and-attribute-mapping).
 2. Vérifiez que les valeurs d’attribut et d’approvisionnement du compte AD sont définies pour les utilisateurs sélectionnés pour la première exécution. Si le résultat répond à vos attentes, développez le filtre d’étendue pour inclure progressivement plus d’utilisateurs et vérifier les résultats de la deuxième exécution.
 
-Une fois que vous êtes satisfait des résultats du cycle initial pour les utilisateurs de test, vous pouvez lancer les [mises à jour incrémentielles](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#incremental-cycles).
+Une fois que vous êtes satisfait des résultats du cycle initial pour les utilisateurs de test, vous pouvez lancer les [mises à jour incrémentielles](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles).
 
 ## <a name="plan-testing-and-security"></a>Planifier les tests et la sécurité
 
@@ -358,7 +358,7 @@ Il est fréquent qu’une révision de sécurité soit nécessaire dans le cadre
 
 Si l’implémentation de l’approvisionnement d’utilisateurs dans l’application RH cloud ne fonctionne pas comme vous le souhaitez dans l’environnement de production, les étapes de restauration ci-dessous peuvent vous aider à revenir à un état précédent connu pour être correct :
 
-1. Consultez le [rapport de synthèse sur l’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#getting-provisioning-reports-from-the-azure-management-portal) et les [journaux d’approvisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting#provisioning-audit-logs) (voir [Gérer l’approvisionnement d’utilisateurs pour l’application RH cloud](#manage-your-configuration)) pour déterminer les opérations incorrectes qui ont été effectuées sur les utilisateurs et/ou les groupes concernés.
+1. Consultez le [rapport de synthèse sur l’approvisionnement](check-status-user-account-provisioning.md#getting-provisioning-reports-from-the-azure-portal) et les [journaux d’approvisionnement](check-status-user-account-provisioning.md#provisioning-logs-preview) (voir [Gérer l’approvisionnement d’utilisateurs pour l’application RH cloud](#manage-your-configuration)) pour déterminer les opérations incorrectes qui ont été effectuées sur les utilisateurs et/ou les groupes concernés.
 2. Le dernier état correct connu des utilisateurs et/ou des groupes concernés peut être déterminé par l’intermédiaire des journaux d’audit de l’approvisionnement ou en examinant les systèmes cibles (Azure AD ou AD).
 3. Collaborez avec le propriétaire de l’application pour mettre à jour les utilisateurs et/ou groupes concernés directement dans l’application, à l’aide des dernières valeurs d’état connues pour être correctes.
 
@@ -374,7 +374,7 @@ Azure AD peut fournir des insights supplémentaires sur l’attribution d’uti
 
 ### <a name="gain-insights-from-reports-and-logs"></a>Obtenir des informations à partir des rapports et des journaux
 
-Après l’exécution d’un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-happens-during-provisioning) réussi, le service d’approvisionnement Azure AD continue d’exécuter indéfiniment des mises à jour incrémentielles dos à dos, à des intervalles définis dans les tutoriels propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
+Après l’exécution d’un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) réussi, le service d’approvisionnement Azure AD continue d’exécuter indéfiniment des mises à jour incrémentielles dos à dos, à des intervalles définis dans les tutoriels propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
 
 - Le service est arrêté manuellement, et un nouveau cycle initial est déclenché à l’aide du [Portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriée.
 - Un nouveau cycle initial est déclenché en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue.
@@ -396,7 +396,7 @@ L’agent d’approvisionnement Azure AD Connect installé sur le serveur Window
 
 Le service d’approvisionnement Azure AD Connect ne génère pas de rapports, n’effectue pas d’analyses et ne fournit pas d’insights au-delà de 30 jours. Par conséquent, le service d'approvisionnement Azure AD ne stocke pas, ne traite pas et ne conserve pas de données au-delà de 30 jours. 
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de survenir au cours du provisionnement :
 

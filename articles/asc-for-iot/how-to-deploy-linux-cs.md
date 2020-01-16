@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: b675198756ff7bc0791d49fee3649717e3e4da7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596305"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367414"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Déployer l’agent de sécurité Azure Security Center pour IoT basé sur C# sur Linux
 
@@ -32,9 +32,9 @@ Dans ce guide, vous apprendrez comment :
 > * Installer
 > * Vérifier le déploiement
 > * Désinstaller l’agent
-> * Résolution des problèmes 
+> * Dépanner 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour d’autres plateformes et versions de l’agent, consultez [Choisir l’agent de sécurité adéquat](how-to-deploy-agent.md).
 
@@ -52,7 +52,7 @@ Pour déployer l’agent de sécurité, procédez comme suit :
 
 1. Ajoutez des autorisations en cours d’exécution au script **InstallSecurityAgent** en exécutant `chmod +x InstallSecurityAgent.sh`. 
 
-1. Ensuite, exécutez la commande suivante : 
+1. Ensuite, exécutez la commande suivante avec des **privilèges racine** : 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
@@ -82,7 +82,7 @@ Pour désinstaller l’agent, exécutez le script avec le paramètre –u : `./
 > [!NOTE]
 > La désinstallation ne supprime pas les prérequis manquants qui ont été installés pendant l’installation.
 
-## <a name="troubleshooting"></a>Résolution de problèmes  
+## <a name="troubleshooting"></a>Dépannage  
 
 1. Vérifiez l’état du déploiement en exécutant la commande suivante :
 
@@ -123,7 +123,7 @@ Pour désinstaller l’agent, exécutez le script avec le paramètre –u : `./
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
-- En savoir plus sur [l’architecture](architecture.md) d’Azure Security Center pour IoT
+- En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md)
 - Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
 - Comprendre les [alertes](concept-security-alerts.md)

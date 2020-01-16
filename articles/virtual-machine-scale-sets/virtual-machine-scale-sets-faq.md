@@ -1,6 +1,6 @@
 ---
-title: Forum Aux Questions (FAQ) sur les groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: Obtenez des réponses aux questions fréquemment posées sur les groupes de machines virtuelles identiques.
+title: FAQ sur les groupes de machines virtuelles identiques Azure
+description: Obtenez des réponses aux questions les plus fréquemment posées sur les groupes de machines virtuelles identiques dans Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 47ea23f3018e9d28c0ccfd6640b3d365103ab9ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75356217"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -72,7 +72,7 @@ Un groupe identique régional (non zonal) utilise des *groupes de placement*, qu
 Oui. Pour plus d’informations, consultez le [document relatif aux zones des groupes identiques](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
-## <a name="autoscale"></a>Autoscale
+## <a name="autoscale"></a>Mise à l’échelle automatique
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quelles sont les meilleures pratiques pour la mise à l’échelle automatique d’Azure ?
 
@@ -232,8 +232,8 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 nom d’élément linuxConfiguration | Obligatoire | Type | Description
 --- | --- | --- | ---
 ssh | Non | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | OUI | Chaîne | Spécifie une clé publique SSH encodée en base64
+path | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -343,6 +343,13 @@ Pour plus d’informations, consultez le [Centre de gestion de la confidentialit
 
 Oui. Vous pouvez voir des exemples de modèles MSI dans les modèles de démarrage rapide Azure pour [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) et [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
+## <a name="deleting"></a>En cours de suppression 
+
+### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Les verrous que j’ai mis en place sur des instances de groupe de machines virtuelles identiques seront-ils respectés lors de la suppression des instances ?
+
+Dans le portail Azure, vous avez la possibilité de supprimer une instance individuelle ou de supprimer en bloc en sélectionnant plusieurs instances. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer l’instance. Cependant, si vous sélectionnez en bloc plusieurs instances et que l’une de ces instances a un verrou en place, le ou les verrous ne seront pas respectés et toutes les instances sélectionnées seront supprimées. 
+ 
+Dans Azure CLI, vous avez la possibilité de supprimer une instance individuelle. Si vous essayez de supprimer une instance individuelle avec un verrou en place, le verrou est respecté et vous ne pourrez pas supprimer cette instance. 
 
 ## <a name="extensions"></a>Extensions
 
@@ -436,7 +443,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 Pour exécuter un script personnalisé qui est hébergé dans un compte de stockage privé, configurez les paramètres protégés avec le nom et la clé du compte de stockage. Pour plus d’informations, voir [Custom Script Extension](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings) (Extension de script personnalisé).
 
-## <a name="passwords"></a>Mot de passe
+## <a name="passwords"></a>Mots de passe
 
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Comment réinitialiser le mot de passe des machines virtuelles dans mon groupe de machines virtuelles identiques ?
 
@@ -467,7 +474,7 @@ Il existe deux principales façons de changer le mot de passe pour les machines 
 
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Est-il possible d’affecter un groupe de sécurité réseau (NSG) à un groupe identique, afin de l’appliquer à toutes les cartes réseau de machines virtuelles du groupe ?
 
-Oui. Un groupe de sécurité réseau peut être appliqué directement à un groupe identique en le référençant dans la section networkInterfaceConfigurations du profil de réseau. Exemple :
+Oui. Un groupe de sécurité réseau peut être appliqué directement à un groupe identique en le référençant dans la section networkInterfaceConfigurations du profil de réseau. Exemple :
 
 ```json
 "networkProfile": {
@@ -521,7 +528,7 @@ Pour déployer un groupe de machines virtuelles identiques sur un réseau virtue
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Puis-je me servir de groupes identiques lors d’une mise en réseau accélérée ?
 
-Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple :
+Oui. Pour utiliser la mise en réseau accélérée, définissez enableAcceleratedNetworking sur True dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -540,7 +547,7 @@ Oui. Pour utiliser la mise en réseau accélérée, définissez enableAccelerate
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Comment puis-je configurer les serveurs DNS utilisés par un groupe identique ?
 
-Pour créer un groupe de machines virtuelles identiques avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings à la section networkInterfaceConfigurations du groupe identique. Exemple :
+Pour créer un groupe de machines virtuelles identiques avec une configuration DNS personnalisée, ajoutez un paquet JSON dnsSettings à la section networkInterfaceConfigurations du groupe identique. Exemple :
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -549,7 +556,7 @@ Pour créer un groupe de machines virtuelles identiques avec une configuration D
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Comment puis-je configurer un groupe identique afin qu’il attribue une adresse IP publique à chaque machine virtuelle ?
 
-Pour créer un groupe de machines virtuelles identiques qui attribue une adresse IP publique à chaque machine virtuelle, vérifiez que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets est datée du 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ à la section ipConfigurations du groupe identique. Exemple :
+Pour créer un groupe de machines virtuelles identiques qui attribue une adresse IP publique à chaque machine virtuelle, vérifiez que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets est datée du 30/03/2017, puis ajoutez un paquet JSON _publicipaddressconfiguration_ à la section ipConfigurations du groupe identique. Exemple :
 
 ```json
     "publicipaddressconfiguration": {
@@ -650,7 +657,7 @@ Vous trouverez les éléments workspaceId et workspaceKey requis dans l’espace
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="how-do-i-turn-on-boot-diagnostics"></a>Comment activer les diagnostics de démarrage ?
 

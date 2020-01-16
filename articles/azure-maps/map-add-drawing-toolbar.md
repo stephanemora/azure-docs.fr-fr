@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6bc754c9a4f333da85e57c5ad9780da8df93e895
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ed16d8797e541ee474b4f52f3d4379721922a734
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432882"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Ajouter une barre d’outils de dessin à une carte
 
@@ -99,6 +99,17 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/OJLWpyj/'>Modifier l
 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment utiliser les fonctionnalités supplémentaires du module Outils de dessin :
+
+> [!div class="nextstepaction"]
+> [Obtenir des données de forme](map-get-shape-data.md)
+
+> [!div class="nextstepaction"]
+> [Réagir aux événements de dessin](drawing-tools-events.md)
+
+> [!div class="nextstepaction"]
+> [Types d’interaction et raccourcis clavier](drawing-tools-interactions-keyboard-shortcuts.md)
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article :
 

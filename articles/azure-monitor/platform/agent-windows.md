@@ -4,15 +4,15 @@ description: Cet article décrit la connexion d’ordinateurs Windows hébergés
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: MGoedtel
-ms.author: magoedte
+author: bwren
+ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 42183ca7b02ba75b241ee1a83b5a0dc936a8c1c8
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 8918c18c9356c583b9ea23138f0d0a0fb4dcd845
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420420"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689991"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connecter des ordinateurs Windows à Azure Monitor
 
@@ -38,7 +38,7 @@ Pour comprendre la configuration prise en charge, consultez les pages [Prise en 
 ## <a name="obtain-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
 Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de l’ID et de la clé de votre espace de travail Log Analytics.  Quelle que soit la méthode d’installation utilisée, ces informations sont nécessaires pendant l’installation afin que l’agent soit configuré correctement et qu’il puisse communiquer avec Azure Monitor dans le cloud Azure Commercial et le cloud du gouvernement des États-Unis. 
 
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
+1. Dans le portail Azure, recherchez et sélectionnez **Espaces de travail Log Analytics**.
 2. Dans la liste des espaces de travail Log Analytics, sélectionnez celui auquel vous envisagez que l’agent rende compte.
 3. Sélectionnez **Paramètres avancés**.<br><br> ![Paramètres avancés de Log Analytics](media/agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. Sélectionnez **Sources connectées**, puis **Serveurs Windows**.   
@@ -188,9 +188,9 @@ Pour récupérer le code de produit du package d’installation de l’agent dir
 
 Vous pouvez également effectuer une recherche simple dans les journaux dans le portail Azure.  
 
-1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste des ressources, tapez **Azure Monitor**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Azure Monitor**.  
-2. Sélectionnez **Journaux** dans le menu. 
-2. Dans le volet Journaux, dans le champ de requête, tapez :  
+1. Dans le portail Azure, recherchez et sélectionnez **Monitor**.
+1. Sélectionnez **Journaux** dans le menu.
+1. Dans le volet **Journaux**, dans le champ de requête, tapez :  
 
     ```
     Heartbeat 

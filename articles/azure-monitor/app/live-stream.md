@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927220"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406745"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -33,9 +33,9 @@ Avec les flux de métriques temps réel, vous pouvez :
 
 Les métriques temps réel sont actuellement prises en charge pour les applications ASP.NET, ASP.NET Core, Azure Functions, Java et Node.js.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
-1. Si vous n’avez pas encore [installé Application Insights](../../azure-monitor/azure-monitor-app-hub.md) dans votre application web, faites-le maintenant.
+1. Si vous n’avez pas encore [installé Application Insights](../../azure-monitor/azure-monitor-app-hub.yml) dans votre application web, faites-le maintenant.
 2. En plus des packages Application Insights standard, [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) est nécessaire pour activer le flux de métriques temps réel.
 3. **Mettez à jour vers la dernière version** du package Application Insights. Dans Visual Studio, cliquez avec le bouton droit sur votre projet et choisissez **Gérer les packages NuGet**. Ouvrez l’onglet **Mises à jour** et sélectionnez tous les packages Microsoft.ApplicationInsights.*.
 
@@ -157,7 +157,7 @@ Pour les applications de fonction Azure (v2), la sécurisation du canal avec un
 
 Créez une clé API à partir de votre ressource Application Insights et accédez à **Paramètres d’application** pour votre application de fonction. Sélectionnez **Ajouter un nouveau paramètre** et entrez le nom `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` et une valeur qui correspond à votre clé API.
 
-### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-beta-or-greater"></a>ASP.NET Core (nécessite Application Insights ASP.NET Core SDK 2.3.0-beta ou version ultérieure)
+### <a name="aspnet-core-requires-application-insights-aspnet-core-sdk-230-or-greater"></a>ASP.NET Core (nécessite Application Insights ASP.NET Core SDK 2.3.0 ou version ultérieure)
 
 Modifiez votre fichier startup.cs comme suit :
 
@@ -188,7 +188,7 @@ Toutefois, si vous connaissez et faites confiance à tous les serveurs connecté
 | .NET                             | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures) | Pris en charge (V2.7.2 et versions ultérieures)  |
 | .NET Core (cible=. NET Framework)| Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures)  |
 | .NET Core (cible=. NET Core)     | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge*          | Pris en charge (V2.4.1 et versions ultérieures) | Pris en charge (V2.4.1 et versions ultérieures) | **Non pris en charge**    |
-| Azure Functions v2               | Pris en charge           | Pris en charge           | Pris en charge           | Pris en charge           | **Non pris en charge**    |
+| Azure Functions v2               | Prise en charge           | Prise en charge           | Prise en charge           | Prise en charge           | **Non pris en charge**    |
 | Java                             | Pris en charge (V2.0.0 et versions ultérieures) | Pris en charge (V2.0.0 et versions ultérieures) | **Non pris en charge**   | **Non pris en charge**   | **Non pris en charge**    |
 | Node.js                          | Pris en charge (V1.3.0 et versions ultérieures) | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**   | Pris en charge (V1.3.0 et versions ultérieures) | **Non pris en charge**    |
 
@@ -202,12 +202,12 @@ Les métriques de base incluent les requêtes, les dépendances et le taux d’e
 
 Les métriques temps réel sont désactivées par défaut dans le Kit de développement logiciel (SDK) Node.js. Pour activer les métriques temps réel, ajoutez `setSendLiveMetrics(true)` à vos [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) lorsque vous initialisez le Kit de développement logiciel (SDK).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Pas de données ? Si votre application est dans un réseau protégé : Le Flux de métriques temps réel utilise des adresses IP différentes de celles des autres données de télémétrie Application Insights. Assurez-vous que [ces adresses IP](../../azure-monitor/app/ip-addresses.md) sont ouvertes dans votre pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Surveillance de l’utilisation avec Application Insights](../../azure-monitor/app/usage-overview.md)
 * [Utilisation de Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Profileur](../../azure-monitor/app/profiler.md)
+* [Profiler](../../azure-monitor/app/profiler.md)
 * [Débogueur de capture instantanée](../../azure-monitor/app/snapshot-debugger.md)

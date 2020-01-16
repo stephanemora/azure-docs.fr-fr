@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c2700c8241905f6e219b566a10e3378dd6c7251d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839403"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427443"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio (classique)
 [top]: #machine-learning-sample-datasets
@@ -169,7 +169,7 @@ Collection de profils d'énergie simulés, basée sur 12 formes différentes de
   <td>
 Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).
 <p></p>
-Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Le jeu de données couvre la période d’avril à octobre 2013. Avant son chargement dans Azure Machine Learning Studio (classique), le jeu de données a été traité comme suit :
 <ul>
   <li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li>
   <li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes</li>
@@ -329,7 +329,7 @@ Notez également que le nombre d’événements de bruit de fond (h, pour douche
   <td>
 Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">données fusionnées, de 201304 à 201310</a>).
 <p></p>
-Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son chargement dans Azure Machine Learning Studio (classique), le jeu de données a été traité comme suit :
 <ul>
   <li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li>
   <li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li>
@@ -344,7 +344,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
   <td>
 Les données sont extraites de Wikipédia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500 et sont stockées sous forme de données XML.
 <p></p>
-Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Avant son chargement dans Azure Machine Learning Studio (classique), le jeu de données a été traité comme suit :
 <ul>
   <li>Extraction du contenu textuel de chaque société particulière</li>
   <li>Suppression de la mise en forme wiki</li>
@@ -390,7 +390,7 @@ Le jeu de données a été téléchargé et stocké dans le stockage d’objets 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-Affectation de rubriques aux articles de presse contenus dans le jeu de données de presse Reuters RCV1-V2. Un article de presse peut être affecté à plusieurs rubriques. Le format de chaque ligne est « &lt;nom de rubrique&gt; &lt;ID de document&gt; 1 ». Le jeu de données contient 2,6 millions d’affectations de rubrique. Ce jeu de données est fourni par David. D. Lewis.
+Affectation de rubriques aux articles de presse contenus dans le jeu de données de presse Reuters RCV1-V2. Un article de presse peut être affecté à plusieurs rubriques. Le format de chaque ligne est « &lt;nom de rubrique&gt; &lt;ID de document&gt; 1 ». Le jeu de données contient 2,6 millions d’affectations de rubrique. Ce jeu de données est fourni par David. D. Lewis.
   </td>
 </tr>
 

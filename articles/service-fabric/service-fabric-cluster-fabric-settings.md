@@ -1,25 +1,14 @@
 ---
-title: Modifier les paramètres de cluster Azure Service Fabric | Microsoft Docs
+title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: reference
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/30/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf070e91d6f15e80f51242722a59918d1bc70696
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458345"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -132,8 +121,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ApplicationLogsFormatVersion |Entier (valeur par défaut : 0) | Dynamique |Version du format des journaux d’activité de l’application. Valeurs prises en charge : 0 et 1. La version 1 comprend davantage de champs de l’enregistrement d’événement ETW que la version 0. |
 |AuditHttpRequests |Valeur booléenne (valeur par défaut : false) | Dynamique | Activez ou désactivez l’audit HTTP. L’objectif de l’audit est de voir les activités qui ont été effectuées sur le cluster, notamment l’utilisateur qui a lancé la requête. Notez qu’il s’agit d’un enregistrement de meilleure tentative ; une perte de trace peut se produire. Les requêtes HTTP avec l’authentification « Utilisateur » ne sont pas enregistrées. |
 |CaptureHttpTelemetry|Valeur booléenne (valeur par défaut : true) | Dynamique | Activez ou désactivez la télémétrie HTTP. L’objectif de la télémétrie pour Service Fabric est d’être en mesure de capturer des données de télémétrie pour mieux planifier les travaux futurs et identifier les aspects problématiques. La télémétrie n’enregistre aucune donnée personnelle ni le corps de la requête. La télémétrie capture toutes les requêtes HTTP, sauf si elle est configurée d’une autre manière. |
-|ClusterId |Chaîne | Dynamique |ID unique du cluster. Valeur générée lors de la création du cluster. |
-|ConsumerInstances |Chaîne | Dynamique |Liste des instances de consommateur DCA. |
+|ClusterId |String | Dynamique |ID unique du cluster. Valeur générée lors de la création du cluster. |
+|ConsumerInstances |String | Dynamique |Liste des instances de consommateur DCA. |
 |DiskFullSafetySpaceInMB |Entier (valeur par défaut : 1024) | Dynamique |Espace disque restant (en Mo) à protéger contre toute utilisation par DCA. |
 |EnableCircularTraceSession |Valeur booléenne (valeur par défaut : false) | statique |Indicateur spécifiant si les sessions de trace circulaire doivent être utilisées. |
 |EnablePlatformEventsFileSink |Valeur booléenne (valeur par défaut : false) | statique |Activer/désactiver les événements de plateforme écrits sur le disque |
@@ -141,7 +130,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |FailuresOnlyHttpTelemetry | Valeur booléenne (valeur par défaut : false) | Dynamique | Si la capture de télémétrie HTTP est activée, capturez uniquement les requêtes ayant échoué. Cela a pour but de réduire le nombre d’événements générés pour la télémétrie. |
 |HttpTelemetryCapturePercentage | Entier, valeur par défaut : 50 | Dynamique | Si la capture de télémétrie HTTP est activée, capturez uniquement un pourcentage aléatoire de requêtes. Cela a pour but de réduire le nombre d’événements générés pour la télémétrie. |
 |MaxDiskQuotaInMB |Entier (valeur par défaut : 65536) | Dynamique |Quota de disque (en Mo) pour les fichiers journaux de Windows Fabric. |
-|ProducerInstances |Chaîne | Dynamique |Liste des instances de producteur DCA. |
+|ProducerInstances |String | Dynamique |Liste des instances de producteur DCA. |
 
 ## <a name="dnsservice"></a>DnsService
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
@@ -425,7 +414,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | --- | --- | --- | --- |
 |IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Indicateur contrôlant la présence et l’état du Service de jetons des identités managées dans le cluster. Il s’agit d’une condition préalable à l’utilisation des fonctionnalités d’identité managée des applications Service Fabric.|
 
-## <a name="management"></a>gestion
+## <a name="management"></a>Gestion
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
@@ -515,7 +504,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|Counters |Chaîne | Dynamique |Liste séparée par des virgules, des compteurs de performance à collecter. |
+|Counters |String | Dynamique |Liste séparée par des virgules, des compteurs de performance à collecter. |
 |IsEnabled |Valeur booléenne (valeur par défaut : true) | Dynamique |Indicateur spécifiant si la collection de compteurs de performance sur le nœud local est activée. |
 |MaxCounterBinaryFileSizeInMB |Entier (valeur par défaut : 1) | Dynamique |Taille maximale (en Mo) de chaque fichier binaire de compteur de performances. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Entier (valeur par défaut : 10) | Dynamique |Durée maximale (en secondes) après lequel un fichier binaire de compteur de performances est créé. |
@@ -525,8 +514,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte d’affinité : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer |
-|ApplicationCapacityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; valeur négative : Ignorer |
+|AffinityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte d’affinité : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
+|ApplicationCapacityConstraintPriority | Entier (valeur par défaut : 0) | Dynamique|Détermine la priorité de la contrainte de capacité : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |AutoDetectAvailableResources|Valeur booléenne, valeur par défaut : TRUE|statique|Cette configuration déclenchera la détection automatique des ressources disponibles sur le nœud (processeur et mémoire). Si cette configuration est définie sur true, nous lirons les capacités réelles et les corrigerons si l’utilisateur a spécifié des capacités de nœud incorrectes ou ne les a pas définies du tout. Si cette configuration est définie sur false, nous enverrons un avertissement que l’utilisateur a spécifié des capacités de nœud incorrectes, mais nous ne les corrigerons pas. Ce qui signifie que cet utilisateur souhaite que les capacités spécifiées soient > à celles du nœud ou si les capacités n’ont pas été définies ; cette valeur suppose une capacité illimitée |
 |BalancingDelayAfterNewNode | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après l’ajout d’un nouveau nœud. |
 |BalancingDelayAfterNodeDown | Durée en secondes (valeur par défaut : 120) |Dynamique|Spécifiez la durée en secondes. Ne démarrez pas l’équilibrage des activités pendant cette période après un événement d’arrêt de nœud. |
@@ -712,7 +701,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |CreateVolume|Chaîne (valeur par défault : "Admin")|Dynamique|Crée un volume. |
 |DeactivateNode |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour désactiver un nœud. |
 |DeactivateNodesBatch |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour désactiver plusieurs nœuds. |
-|Supprimer |Chaîne (valeur par défault : "Admin") |Dynamique| Configurations de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
+|DELETE |Chaîne (valeur par défault : "Admin") |Dynamique| Configurations de la sécurité pour l’opération de suppression de clients du magasin d’images (interne). |
 |DeleteApplication |Chaîne (valeur par défault : "Admin") |Dynamique| Configuration de la sécurité pour la suppression d’applications. |
 |DeleteComposeDeployment|Chaîne (valeur par défault : "Admin")| Dynamique|Supprime le déploiement compose |
 |DeleteGatewayResource|Chaîne (valeur par défault : "Admin")| Dynamique|Supprime une ressource de passerelle |
@@ -834,16 +823,16 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, valeur par défaut : None|Dynamique|Il s’agit d’une liste de paire de « Nom » et « Valeur ». Chaque « Nom » a pour objet un nom commun ou un nom DNS de certificats X509 autorisés pour les opérations de serveur. Pour un « Nom » donné, une « Valeur » est une liste séparée par des virgules d’empreintes de certificat pour l’épinglage d’émetteur. Si non vide, l’émetteur direct de certificats de serveur doit être dans la liste.|
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|Chaîne (valeur par défaut : "")| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
 |ContainerNetworkSetup|valeur booléenne, valeur par défaut : FALSE| statique |Spécifie si un réseau de conteneur doit être configuré.|
-|FabricDataRoot |Chaîne | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
-|FabricDataRoot |Chaîne | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux d’activité et des traces de SF. |
+|FabricDataRoot |String | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
+|FabricDataRoot |String | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux d’activité et des traces de SF. |
 |NodesToBeRemoved|Chaîne (valeur par défaut : "")| Dynamique |Les nœuds qui doivent être supprimés dans le cadre de la mise à niveau de la configuration. (Uniquement pour les déploiements autonomes)|
-|ServiceRunAsAccountName |Chaîne | Non autorisée |Nom du compte sous lequel exécuter le service hôte Fabric. |
+|ServiceRunAsAccountName |String | Non autorisée |Nom du compte sous lequel exécuter le service hôte Fabric. |
 |SkipContainerNetworkResetOnReboot|valeur booléenne, valeur par défaut : FALSE|Non autorisé|Indique s’il faut ou non ignorer la réinitialisation du réseau de conteneur au redémarrage.|
 |SkipFirewallConfiguration |Valeur booléenne (valeur par défaut : false) | Non autorisée |Indique si les paramètres de pare-feu doivent être définis par le système ou non. Cela s’applique uniquement si vous utilisez le pare-feu Windows. Si vous utilisez des pare-feu tiers, vous devez alors ouvrir les ports que le système et les applications doivent utiliser |
 
@@ -857,7 +846,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|Niveau |Entier (valeur par défaut : 4) | Dynamique |Le niveau etw de la trace accepte les valeurs 1, 2, 3, 4. Pour assurer la prise en charge, vous devez conserver le niveau de trace sur 4 |
+|Level |Entier (valeur par défaut : 4) | Dynamique |Le niveau etw de la trace accepte les valeurs 1, 2, 3, 4. Pour assurer la prise en charge, vous devez conserver le niveau de trace sur 4 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 

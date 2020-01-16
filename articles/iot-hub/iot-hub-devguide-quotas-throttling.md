@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228265"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457067"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -38,7 +38,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 
 | Limitation | Gratuit, B1 et S1 | B2 et S2 | B3 et S3 | 
 | -------- | ------- | ------- | ------- |
-| [Opérations de registre des identités](#identity-registry-operations-throttle) (création, récupération, création de listes, mise à jour, suppression) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
+| [Opérations de registre des identités](#identity-registry-operations-throttle) (création, récupération, création de listes, mise à jour, suppression) | 1,67/s/unité (100/min/unité) | 1,67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
 | _Nouvelles connexions d’appareil_ (cette limite s’applique à la fréquence des [nouvelles connexions](#device-connections-throttle) et non au nombre total de connexions) | Plus de 100/s ou 12/s/unité <br/> Par exemple, deux unités S1 sont 2\*12 = 24 nouvelles connexions/s, mais vous avez au moins 100 nouvelles connexions/s dans toutes vos unités. Avec neuf unités S1, vous avez 108 nouvelles connexion/s (9\*12) dans toutes vos unités. | 120 nouvelles connexions/s/unité | 6 000 nouvelles connexions/s/unité |
 | Envois appareil-à-cloud | Plus de 100 opérations d’envoi/s ou 12 opérations d’envoi/s/unité <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100 opérations d’envoi/s sur vos unités. Avec neuf unités S1, vous avez 108 opérations d’envoi/s (9\*12) sur vos unités. | 120 opérations d’envoi/s/unité | 6 000 opérations d’envoi/s/unité |
 | Envois de cloud-à-appareil<sup>1</sup> | 1,67 opération d’envoi/s/unité (100 messages/min/unité) | 1,67 opération d’envoi/s/unité (100 opérations d’envoi/min/unité) | 83,33 opérations d’envoi/s/unité (5 000 opérations d’envoi/min/unité) |
@@ -48,7 +48,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Requêtes | 20/min/unité | 20/min/unité | 1 000/min/unité |
 | Lectures de jumeaux (appareil et module)<sup>1</sup> | 100/s | Plus de 100/s ou 10/s/unité | 500/s/unité |
 | Mises à jour de jumeaux (appareil et module)<sup>1</sup> | 50/s | Plus de 50/s ou 5/s/unité | 250/s/unité |
-| Opérations de travaux<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 1.67/s/unité (100/min/unité) | 1.67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
+| Opérations de travaux<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 1,67/s/unité (100/min/unité) | 1,67/s/unité (100/min/unité) | 83,33/s/unité (5 000/min/unité) |
 | Opérations de l’appareil de travaux<sup>1</sup> <br/> (mettre à jour le jumeau, appeler la méthode directe) | 10/s | Plus de 10/s ou 1/s/unité | 50/s/unité |
 | Configurations et déploiements de périphérie<sup>1</sup> <br/> (créer, mettre à jour, répertorier, supprimer) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) | 0,33/s/unité (20/min/unité) |
 | Fréquence d’émission de flux d’appareil<sup>1</sup> | 5 nouveaux flux/s | 5 nouveaux flux/s | 5 nouveaux flux/s |
@@ -104,8 +104,8 @@ IoT Hub impose d’autres limites opérationnelles :
 | Messages d’appareil-à-cloud | Taille maximale des messages 256 Ko |
 | Messages de cloud-à-appareil<sup>1</sup> | Taille maximale des messages 64 Ko. Le nombre maximal de messages en attente est de 50 par appareil. |
 | Méthode directe<sup>1</sup> | La taille maximale de charge utile de la méthode directe est de 128 Ko. |
-| Configuration automatique des appareils<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
-| Déploiement automatique IoT Edge<sup>1</sup> | 20 modules par déploiement. 100 déploiements par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
+| Configurations automatiques d’appareils et de modules<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
+| Déploiement automatique IoT Edge<sup>1</sup> | 20 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
 | Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
 
 <sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md).

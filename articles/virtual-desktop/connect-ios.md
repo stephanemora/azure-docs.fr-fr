@@ -5,31 +5,24 @@ services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 472b8800a09cb12bc3e703ef53d0aab2b578e0d3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605832"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460223"
 ---
 # <a name="connect-with-the-ios-client"></a>Se connecter avec le client iOS
 
-> S’applique à : iOS 8.0 ou version ultérieure. Compatible avec iPhone, iPad et iPod touch.
-
->[!NOTE]
-> Le client iOS est en préversion.
+> S’applique à : iOS 13.0 ou ultérieur. Compatible avec iPhone, iPad et iPod touch.
 
 Vous pouvez accéder aux ressources Windows Virtual Desktop à partir de votre appareil iOS avec notre client téléchargeable. Ce guide vous explique comment configurer le client iOS.
 
-## <a name="install-the-ios-beta-client"></a>Installer la version bêta du client iOS
-Pour installer la version bêta du client iOS :
+## <a name="install-the-ios-client"></a>Installer le client iOS
 
-1. Installez l’application [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) sur votre appareil iOS.
-2. Sur votre appareil iOS, ouvrez un navigateur et accédez à [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta).
-3. Sous l’étiquette **Step 2: Join the Beta** (Étape 2 - Participer à la version bêta), sélectionnez **Start Testing** (Commencer à tester).
-4. Une fois que vous êtes redirigé vers l’application TestFlight, sélectionnez **Accept** (Accepter), puis **Install** (Installer).
+Pour commencer, [téléchargez](https://aka.ms/rdios) et installez le client sur votre appareil iOS.
 
 ## <a name="subscribe-to-a-feed"></a>S’abonner à un flux
 

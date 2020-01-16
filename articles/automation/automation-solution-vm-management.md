@@ -2,19 +2,15 @@
 title: Solution Start/Stop VMs during off-hours
 description: Cette solution de gestion de machines virtuelles assure le démarrage et l’arrêt de vos machines virtuelles Azure Resource Manager selon une planification, ainsi qu’une surveillance proactive à partir de journaux Azure Monitor.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75420807"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -41,7 +37,7 @@ Les limitations de la solution actuelle sont les suivantes :
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les runbooks de cette solution fonctionnent avec un [compte d’identification Azure](automation-create-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
@@ -81,7 +77,7 @@ Pour déployer la solution Start/Stop VMs during off-hours sur un compte Automat
 Pour déployer la solution Start/Stop VMs during off-hours sur un nouveau compte Automation et espace de travail Log Analytics, l’utilisateur qui déploie la solution doit disposer des autorisations définies dans la section précédente, ainsi que les autorisations suivantes :
 
 - Coadministrateur pour l’abonnement – Cela n’est nécessaire que pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles Classic. Les [comptes d’identification Classic](automation-create-standalone-account.md#classic-run-as-accounts) ne sont plus créés par défaut.
-- Un membre du rôle [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Développeur d’applications**. Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](manage-runas-account.md#permissions).
+- Un membre du rôle **Développeur d’applications** [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](manage-runas-account.md#permissions).
 - Contributeur sur l’abonnement ou les autorisations suivantes.
 
 | Autorisation |Étendue|
@@ -247,18 +243,18 @@ Le tableau suivant répertorie les runbooks déployés sur votre compte Automati
 
 Tous les runbooks parents incluent le paramètre _WhatIf_. Une fois configuré sur **True**, _WhatIf_ prend en charge la description du comportement exact du runbook lors de l’exécution sans le paramètre _WhatIf_ et valide les machines virtuelles correctes ciblées. Un runbook effectue uniquement ses actions définies quand le paramètre _WhatIf_ est défini sur **False**.
 
-|Runbook | parameters | Description|
+|Runbook | Paramètres | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Appelé par le runbook parent. Ce runbook crée des alertes en fonction des ressources pour le scénario d’AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf : True ou False  | Crée ou met à jour des règles d’alerte Azure sur des machines virtuelles dans l’abonnement ou les groupes de ressource ciblées. <br> VMList : liste des machines virtuelles séparée par des virgules. Par exemple, _vm1, vm2, vm3_.<br> *WhatIf* valide la logique du runbook sans l’exécuter.|
 |AutoStop_Disable | Aucun | Désactive les alertes et la planification par défaut d’AutoStop.|
 |AutoStop_StopVM_Child | WebHookData | Appelé par le runbook parent. Les règles d’alerte appellent ce runbook pour arrêter la machine virtuelle.|
 |Bootstrap_Main | Aucun | Utilisé une seule fois pour établir les configurations Bootstrap, telles que webhookURI, qui ne sont généralement pas accessibles à partir d’Azure Resource Manager. Ce runbook est automatiquement supprimé après un déploiement réussi.|
-|ScheduledStartStop_Child | VMName <br> Action : Start ou Stop <br> ResourceGroupName | Appelé par le runbook parent. Exécute une action de démarrage ou d’arrêt pour l’arrêt planifié.|
-|ScheduledStartStop_Parent | Action : Start ou Stop <br>VMList <br> WhatIf : True ou False | Ce paramètre s’applique à toutes les machines virtuelles de l’abonnement. Modifiez les variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupNames** pour exécuter le runbook uniquement sur les groupes de ressources ciblés. Vous pouvez également exclure des machines virtuelles spécifiques en mettant à jour la variable **External_ExcludeVMNames**.<br> VMList : liste des machines virtuelles séparée par des virgules. Par exemple, _vm1, vm2, vm3_.<br> _WhatIf_ valide la logique du runbook sans l’exécuter.|
-|SequencedStartStop_Parent | Action : Start ou Stop <br> WhatIf : True ou False<br>VMList| Créez des balises nommées **sequencestart** et **sequencestop** sur chaque machine virtuelle pour laquelle vous souhaitez séquencer l’activité de démarrage et d’arrêt. Ces noms de balises respectent la casse. La valeur de la balise doit être un entier positif (1, 2, 3) correspondant à l’ordre du démarrage ou d’arrêt. <br> VMList : liste des machines virtuelles séparée par des virgules. Par exemple, _vm1, vm2, vm3_. <br> _WhatIf_ valide la logique du runbook sans l’exécuter. <br> **Remarque**: les machines virtuelles doivent se trouver dans des groupes de ressources définis External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames et External_ExcludeVMNames dans des variables d’Azure Automation. Elles doivent disposer des étiquettes appropriées pour que les actions puissent prendre effet.|
+|ScheduledStartStop_Child | VMName <br> Action : Démarrer ou arrêter <br> ResourceGroupName | Appelé par le runbook parent. Exécute une action de démarrage ou d’arrêt pour l’arrêt planifié.|
+|ScheduledStartStop_Parent | Action : Démarrer ou arrêter <br>VMList <br> WhatIf : True ou False | Ce paramètre s’applique à toutes les machines virtuelles de l’abonnement. Modifiez les variables **External_Start_ResourceGroupNames** et **External_Stop_ResourceGroupNames** pour exécuter le runbook uniquement sur les groupes de ressources ciblés. Vous pouvez également exclure des machines virtuelles spécifiques en mettant à jour la variable **External_ExcludeVMNames**.<br> VMList : liste des machines virtuelles séparée par des virgules. Par exemple, _vm1, vm2, vm3_.<br> _WhatIf_ valide la logique du runbook sans l’exécuter.|
+|SequencedStartStop_Parent | Action : Démarrer ou arrêter <br> WhatIf : True ou False<br>VMList| Créez des balises nommées **sequencestart** et **sequencestop** sur chaque machine virtuelle pour laquelle vous souhaitez séquencer l’activité de démarrage et d’arrêt. Ces noms de balises respectent la casse. La valeur de la balise doit être un entier positif (1, 2, 3) correspondant à l’ordre du démarrage ou d’arrêt. <br> VMList : liste des machines virtuelles séparée par des virgules. Par exemple, _vm1, vm2, vm3_. <br> _WhatIf_ valide la logique du runbook sans l’exécuter. <br> **Remarque** : les machines virtuelles doivent se trouver dans des groupes de ressources définis External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames et External_ExcludeVMNames dans des variables d’Azure Automation. Elles doivent disposer des étiquettes appropriées pour que les actions puissent prendre effet.|
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variables
 
 Le tableau suivant répertorie les variables créées dans votre compte Automation. Modifiez uniquement les variables ayant le préfixe **External**. La modification de variables avec le préfixe **Internal** risque d’avoir un impact indésirable.
 
@@ -316,7 +312,7 @@ Automation crée deux types d’enregistrements dans l’espace de travail Log A
 |resultDescription | Décrit l’état résultant du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed|
 |RunbookName | Spécifie le nom du runbook.|
 |SourceSystem | Spécifie le système source pour les données soumises. Pour Automation, la valeur est OpsManager.|
-|StreamType | Spécifie le type d’événement. Les valeurs possibles sont les suivantes :<br>- Verbose<br>Sortie<br>Error<br>Avertissement|
+|StreamType | Spécifie le type d’événement. Les valeurs possibles sont les suivantes :<br>- Verbose<br>Sortie<br>error<br>Avertissement|
 |SubscriptionId | Spécifie l’ID d’abonnement de la tâche.
 |Temps | Date et heure d’exécution du travail du runbook.|
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851092"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454785"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Déployer un service web Azure Machine Learning Studio (classique)
 
@@ -23,22 +23,22 @@ Azure Machine Learning Studio (classique) vous permet de générer et de tester 
 
 Les services web Machine Learning Studio (classique) fournissent une interface entre une application et un modèle de scoring du workflow Machine Learning Studio (classique). Une application externe peut communiquer en temps réel avec un modèle de scoring du workflow Machine Learning Studio (classique). Un appel à un service web Machine Learning Studio (classique) retourne les résultats d’une prédiction à une application externe. Pour générer cet appel, vous transmettez une clé API créée au moment du déploiement du service web. Un service web Machine Learning Studio (classique) s’appuie sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
-La version classique d’Azure Machine Learning Studio propose deux types de services web :
+Azure Machine Learning Studio (classique) propose deux types de services web :
 
-* Service de requête-réponse (RRS, Request-Response Service) : Un service hautement évolutif à faible latence qui effectue la notation d’un seul enregistrement de données.
+* Service de requête-réponse (RRS, Request-Response Service) : Un service hautement scalable à faible latence qui effectue la notation d’un seul enregistrement de données.
 * Service d'exécution de lots (BES, Batch Execution Service) : Un service asynchrone qui effectue la notation d’un lot d’enregistrements de données.
 
 La saisie pour BES ressemble à la saisie de données utilisée par RRS. La principale différence réside dans le fait que BES lit un bloc d’enregistrements à partir de différentes sources, par exemple le stockage Blob Azure, le stockage Table Azure, Azure SQL Database, HDInsight (requêtes Hive) et les sources HTTP.
 
 D'un point de vue très général, vous déployez votre modèle en trois étapes :
 
-* **[Créez une expérience d'apprentissage]**  : dans la version classique de Studio, vous pouvez entraîner et tester un modèle d’analytique prédictive à l’aide de données d’entraînement que vous fournissez, en utilisant un grand ensemble d’algorithmes de machine learning intégrés.
+* **[Créez une expérience d'apprentissage]**  : dans Studio (classique), vous pouvez entraîner et tester un modèle d’analytique prédictive à l’aide de données d’entraînement que vous fournissez, en utilisant un grand ensemble d’algorithmes Machine Learning intégrés.
 * **[Convertissez-la en une expérience prédictive]** : lorsque votre modèle a été formé avec des données existantes et que vous êtes prêt à l’utiliser pour la notation de nouvelles données, vous préparez et simplifiez votre expérience prédictive.
 * **Déployez** en tant que **[Nouveau service web]** ou **[service web classique]** : lorsque vous déployez votre expérience prédictive en tant que service web Azure, les utilisateurs peuvent envoyer des données à votre modèle et recevoir les prédictions de ce dernier.
 
 ## <a name="create-a-training-experiment"></a>Créez une expérience d'apprentissage
 
-Pour entraîner un modèle d’analytique prédictive, vous utilisez la version classique d’Azure Machine Learning Studio afin de créer une expérience d’entraînement dans laquelle vous incluez plusieurs modules destinés à charger des données d’entraînement, préparer les données en fonction de vos besoins, appliquer des algorithmes de machine learning et évaluer les résultats. Vous pouvez effectuer une itération sur une expérience et essayer des algorithmes d'apprentissage automatique différents pour comparer et évaluer les résultats.
+Pour entraîner un modèle d’analytique prédictive, vous utilisez Azure Machine Learning Studio (classique) afin de créer une expérience d’entraînement dans laquelle vous incluez plusieurs modules destinés à charger des données d’entraînement, préparer les données nécessaires, appliquer des algorithmes de machine learning et évaluer les résultats. Vous pouvez effectuer une itération sur une expérience et essayer des algorithmes d'apprentissage automatique différents pour comparer et évaluer les résultats.
 
 Le processus de création et gestion d’expériences d’apprentissage est traité de manière plus approfondie dans d’autres sections. Pour plus d’informations, voir les articles suivants :
 
@@ -95,9 +95,9 @@ Pour tester le service en tant que Service de requête-réponse (RRS), en mode d
 
 ![Entrer les valeurs appropriées pour tester votre service web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
-Pour tester votre service d’exécution de lots (BES), cliquez sur **Lot**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de la version classique de Machine Learning Studio, vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
+Pour tester votre service d’exécution de lots (BES), cliquez sur **Lot**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de Machine Learning Studio (classique), vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
 
-Pour télécharger le jeu de données, ouvrez la version classique de Machine Learning Studio. Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données**, puis **Télécharger**.
+Pour télécharger le jeu de données, ouvrez Machine Learning Studio (classique). Ouvrez votre expérience prédictive et cliquez avec le bouton droit sur l’entrée correspondant à votre expérience. Dans le menu contextuel, sélectionnez **Jeu de données**, puis **Télécharger**.
 
 ![Télécharger votre jeu de données à partir du canevas Studio (classique)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -113,7 +113,7 @@ Dans la page **CONFIGURATION**, vous pouvez modifier la description et le titre,
 
 ### <a name="access-your-new-web-service"></a>Accès à votre nouveau service web
 
-Une fois que vous avez déployé votre service web à partir de la version classique de Machine Learning Studio, vous pouvez envoyer des données au service et recevoir des réponses programmatiquement.
+Une fois que vous avez déployé votre service web à partir de Machine Learning Studio (classique), vous pouvez envoyer des données au service et recevoir des réponses programmatiquement.
 
 La page **Utiliser** fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Elle contient notamment la clé API pour activer l’accès autorisé au service.
 
@@ -136,7 +136,7 @@ La tarification est spécifique à chaque région et vous devez donc définir un
 3. Sur la page de présentation des abonnements, cliquez sur **nouveau**.
 4. Dans la liste déroulante **Abonnement** , sélectionnez l’abonnement dans lequel résidera le nouveau plan.
 5. Dans la liste déroulante **Région** , sélectionnez une région pour le nouveau plan. Les options du plan de la région sélectionnée apparaissent dans la section **Plan Options** (Option du plan) de la page.
-6. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le plan. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+6. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le plan. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. Dans **Plan Name** (Nom du plan), tapez le nom du plan.
 8. Sous **Plan Options**(Options du plan), cliquez sur le niveau de facturation du nouveau plan.
 9. Cliquez sur **Créer**.
@@ -145,15 +145,15 @@ La tarification est spécifique à chaque région et vous devez donc définir un
 
 1. Sur la page des services web Microsoft Azure Machine Learning, cliquez sur l’option de menu **Services web**.
 2. Sélectionnez le service web que vous déployez dans une nouvelle région.
-3. Cliquez sur **Copy**.
+3. Cliquez sur **Copier**.
 4. Dans **Nom du service web**, tapez le nouveau nom du service web.
 5. Dans **Description du service web**, tapez une description du service web.
 6. Dans la liste déroulante **Abonnement** , sélectionnez l’abonnement dans lequel résidera le nouveau service web.
-7. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le service web. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+7. Dans la liste déroulante **Groupe de ressources** , sélectionnez un groupe de ressources pour le service web. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Dans la liste déroulante **Région** , sélectionnez la région dans laquelle vous voulez déployer le service web.
 9. Dans la liste déroulante **Compte de stockage** , sélectionnez un compte de stockage où stocker le service web.
 10. Dans la liste déroulante **Plan de tarification** , sélectionnez un plan dans la région que vous avez sélectionnée à l’étape 8.
-11. Cliquez sur **Copy**.
+11. Cliquez sur **Copier**.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>Déployer en tant que service web classique
 
@@ -169,9 +169,9 @@ Vous pouvez tester le service web dans le portail des services web Machine Learn
 
 Pour tester le service web de requête-réponse, cliquez sur le bouton **Test** dans le tableau de bord du service web. Une boîte de dialogue s'affiche pour vous demander les données d'entrée du service. Il s'agit des colonnes attendues par l'expérience de notation. Entrez un jeu de données, puis cliquez sur **OK**. Les résultats générés par le service web sont affichés au bas du tableau de bord.
 
-Vous pouvez cliquer sur le lien d’aperçu **Test** pour tester votre service dans la version classique du portail des services web Azure Machine Learning Studio, comme indiqué précédemment dans la section relative au nouveau service web.
+Vous pouvez cliquer sur le lien d’aperçu **Test** pour tester votre service dans le portail des services web d’Azure Machine Learning Studio (classique), comme indiqué précédemment dans la section relative au nouveau service web.
 
-Pour tester le service d’exécution de lots, cliquez sur le lien d’aperçu **Test**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de la version classique de Machine Learning Studio, vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
+Pour tester le service d’exécution de lots, cliquez sur le lien d’aperçu **Test**. Sur la page de test BES, cliquez sur Parcourir en dessous de votre entrée et sélectionnez un fichier CSV contenant les exemples de valeurs appropriés. Si vous n’avez pas de fichier CSV et que vous avez créé votre expérience prédictive à l’aide de Machine Learning Studio (classique), vous pouvez télécharger le jeu de données à utiliser pour votre expérience prédictive.
 
 ![Test du service web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
@@ -187,7 +187,7 @@ Vous pouvez également configurer les points de terminaison pour le service web 
 
 ### <a name="access-your-classic-web-service"></a>Accès à votre service web classique
 
-Une fois que vous avez déployé votre service web à partir de la version classique de Machine Learning Studio, vous pouvez envoyer des données au service et recevoir des réponses programmatiquement.
+Une fois que vous avez déployé votre service web à partir d’Azure Machine Learning Studio (classique), vous pouvez envoyer des données au service et recevoir des réponses programmatiquement.
 
 Le tableau de bord fournit toutes les informations dont vous avez besoin pour accéder à votre service web. Par exemple, la clé API est fournie afin de permettre un accès autorisé au service et des pages d'aide API sont fournies pour vous aider à commencer à écrire votre code.
 

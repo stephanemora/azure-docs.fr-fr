@@ -1,25 +1,16 @@
 ---
-title: Créer un cluster Azure Service Fabric autonome | Microsoft Docs
+title: Créer un cluster Azure Service Fabric autonome
 description: Créez un cluster Azure Service Fabric sur n’importe quel ordinateur (physique ou virtuel) exécutant Windows Server, qu’il soit local ou dans un cloud.
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 6fce1957101050c6ff3a2c3aba2b4b87d4f66f1d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: fbaea9324d82e22a1ab3c6c03a9ebec045bea64b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554653"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463237"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Créer un cluster autonome s’exécutant sur Windows Server
 Vous pouvez utiliser Azure Service Fabric pour créer des clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement contenant un ensemble d’ordinateurs Windows Server interconnectés, que ce soit en local ou avec un fournisseur cloud. Service Fabric fournit un package d’installation pour créer des clusters Service Fabric, appelé package Windows Server autonome. Les clusters Service Fabric traditionnels sur Azure sont disponibles en tant que service managé, tandis que les clusters Service Fabric autonomes sont en libre-service.
@@ -56,12 +47,12 @@ Recherchez des exemples de configuration de cluster autonome sous : <br>
 
 <a id="createcluster"></a>
 
-## <a name="create-the-cluster"></a>Création du cluster
+## <a name="create-the-cluster"></a>Créer le cluster
 Plusieurs fichiers d’exemples de configuration de cluster sont installés avec le package d’installation. *ClusterConfig.Unsecure.DevCluster.json* correspond à la configuration de cluster la plus simple : un cluster à trois nœuds non sécurisé, s’exécutant sur un seul ordinateur.  Les autres fichiers de configuration décrivent des clusters uniques ou de plusieurs ordinateurs, sécurisés à l’aide de certificats X.509 ou de la sécurité Windows.  Vous n’avez pas besoin de modifier les paramètres de configuration par défaut pour ce didacticiel, mais parcourez le fichier de configuration et familiarisez-vous avec les paramètres.  La section **Nœuds** décrit les trois nœuds du cluster : nom, adresse IP, [type de nœud, domaine d’erreur et domaine de mise à niveau](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  La section **Propriétés** définit la [sécurité, le niveau de fiabilité, la collecte des diagnostics et les types de nœuds](service-fabric-cluster-manifest.md#cluster-properties) pour le cluster.
 
 Le cluster créé dans cet article n’est pas sécurisé.  N’importe qui peut se connecter anonymement et effectuer des opérations de gestion. Les clusters de production doivent donc toujours être sécurisés à l’aide de certificats X.509 ou via la sécurité Windows.  La sécurité peut uniquement être configurée au moment de la création du cluster et il n’est pas possible d’activer la sécurité une fois le cluster créé. La mise à jour du fichier de configuration active la [sécurité par certificat](service-fabric-windows-cluster-x509-security.md) ou la [sécurité Windows](service-fabric-windows-cluster-windows-security.md). Lisez [Sécuriser un cluster](service-fabric-cluster-security.md) pour en savoir plus sur la sécurité du cluster Service Fabric.
 
-### <a name="step-1-create-the-cluster"></a>Étape 1 : Création du cluster
+### <a name="step-1-create-the-cluster"></a>Étape 1 : Créer le cluster
 
 #### <a name="scenario-a-create-an-unsecured-local-development-cluster"></a>Scénario A : Créer un cluster de développement local non sécurisé
 Service Fabric peut être déployé vers un cluster de développement avec un ordinateur à l’aide du fichier *ClusterConfig.Unsecure.DevCluster.json* inclus dans les [exemples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
@@ -126,7 +117,7 @@ Le package de runtime peut être téléchargé séparément, à partir d’un au
 
 *.\ClusterConfig.json* et *.\MicrosoftAzureServiceFabric.cab* sont, respectivement, les chemins de la configuration du cluster et du fichier .cab de runtime.
 
-### <a name="step-2-connect-to-the-cluster"></a>Étape 2 : Connexion au cluster
+### <a name="step-2-connect-to-the-cluster"></a>Étape 2 : Se connecter au cluster
 Connectez-vous au cluster pour vérifier que le cluster est en cours d’exécution et disponible. Le module Service Fabric PowerShell est installé avec le runtime.  Vous pouvez vous connecter au cluster à partir de l’un des nœuds de cluster ou d’un ordinateur distant avec le runtime Service Fabric.  L’applet de commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) établit une connexion au cluster.
 
 Exécutez la commande PowerShell suivante pour vous connecter à un cluster non sécurisé :
@@ -212,7 +203,7 @@ Pour désactiver les données de télémétrie, ajoutez ce qui suit à *properti
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
 ## <a name="preview-features-included-in-this-package"></a>Fonctionnalités préliminaires incluses dans ce package
-Aucune.
+Aucun.
 
 
 > [!NOTE]
@@ -225,7 +216,7 @@ Aucune.
 * [Paramètres de configuration pour un cluster Windows autonome](service-fabric-cluster-manifest.md)
 * [Ajouter ou supprimer des nœuds à/d’un cluster Service Fabric autonome](service-fabric-cluster-windows-server-add-remove-nodes.md)
 * [Mettre à niveau une version autonome du cluster Service Fabric](service-fabric-cluster-upgrade-windows-server.md)
-* [Créer un cluster Service Fabric autonome avec des machines virtuelles Azure Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Créer un cluster Service Fabric autonome avec des machines virtuelles Azure sous Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 * [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md)
 * [Sécuriser un cluster autonome sur Windows à l’aide de certificats X509](service-fabric-windows-cluster-x509-security.md)
 

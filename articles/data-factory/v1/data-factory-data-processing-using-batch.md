@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 699aab617e56ab87eb0bd6d6c4ceabf9aac4c4fa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682667"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438886"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -86,7 +86,7 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 
 **Durée :** si vous maîtrisez les notions de base d’Azure, d’Azure Data Factory et d’Azure Batch et que vous disposez des éléments requis ci-dessous, cette solution est opérationnelle en 1 à 2 heures.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 #### <a name="azure-subscription"></a>Abonnement Azure
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -190,7 +190,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 
    f. Sélectionnez **C:\\ADF** comme **emplacement**. Créez le dossier **ADF**, s’il n’existe pas.
 
-   g. Cliquez sur **OK** pour créer le projet.
+   g. Sélectionnez **OK** pour créer le projet.
 
 1. Cliquez sur **Outils** > **Gestionnaire de package NuGet** > **Console du Gestionnaire de package**.
 
@@ -523,7 +523,7 @@ Une tâche est créée pour chaque exécution d’activité. Dans cet exemple, l
 
 La procédure pas à pas suivante fournit des détails supplémentaires.
 
-#### <a name="step-1-create-the-data-factory"></a>Étape 1 : Création de la fabrique de données
+#### <a name="step-1-create-the-data-factory"></a>Étape 1 : Création de la fabrique de données
 1. Une fois connecté au [portail Azure](https://portal.azure.com/), procédez comme suit :
 
    a. Cliquez sur **NOUVEAU** dans le menu de gauche.
@@ -546,7 +546,7 @@ La procédure pas à pas suivante fournit des détails supplémentaires.
 
    ![Page de la fabrique de données](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
+#### <a name="step-2-create-linked-services"></a>Étape 2 : Créez des services liés
 Les services liés relient des magasins de données ou des services de calcul à une fabrique de données. À cette étape, vous liez votre compte de stockage et votre compte Azure Batch à votre fabrique de données.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Créer un service lié Stockage Azure
@@ -556,7 +556,7 @@ Les services liés relient des magasins de données ou des services de calcul à
 
    ![Nouveau magasin de données](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Remplacez **nom de compte** par le nom de votre compte de stockage. Remplacez **clé de compte** par la clé d’accès du compte de stockage. Pour savoir comment obtenir la clé d’accès à votre stockage, consultez [Affichage, copie et régénération de clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
+1. Remplacez **nom de compte** par le nom de votre compte de stockage. Remplacez **clé de compte** par la clé d’accès du compte de stockage. Pour découvrir comment obtenir votre clé d’accès au stockage, consultez [Gérer les clés d’accès au compte de stockage](../../storage/common/storage-account-keys-manage.md).
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le service lié.
 
@@ -578,7 +578,7 @@ Les services liés relient des magasins de données ou des services de calcul à
    d. Entrez l’URI du lot pour la propriété JSON **batchUri** .
 
       > [!IMPORTANT]
-      > L’URL figurant dans le panneau **Compte Batch** est au format suivant : \<nom_du_compte\>.\<région\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez supprimer a88"nom_compte."** de l’URL. Par exemple `"batchUri": "https://eastus.batch.azure.com"`.
+      > L’URL figurant dans le panneau **Compte Batch** est au format suivant : \<nom_du_compte\>.\<région\>.batch.azure.com. Pour la propriété **batchUri** dans le fichier JSON, vous devez supprimer a88"nom_compte."** de l’URL. par exemple `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,7 +659,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     }
     ```
 
-    Plus loin dans cette procédure pas à pas, vous allez créer un pipeline avec l’heure de début 2015-11-16T00:00:00Z et l’heure de fin 2015-11-16T05:00:00Z. Il est programmé pour produire des données toutes les heures, ce qui signifie que l’on obtient cinq tranches d’entrée/sortie (entre **00**:00:00 et \> **05**:00:00).
+    Plus loin dans cette procédure pas à pas, vous allez créer un pipeline avec l’heure de début 2015-11-16T00:00:00Z et l’heure de fin 2015-11-16T05:00:00Z. Il est planifié pour produire des données toutes les heures, si bien que cinq tranches d’entrée/sortie sont obtenues (entre **00**:00:00 -\> **05**:00:00).
 
     Les paramètres **frequency** et **interval** du jeu de données d’entrée sont respectivement définis sur **Hour** et sur **1**, ce qui signifie que la tranche d’entrée est disponible toutes les heures.
 
@@ -671,7 +671,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 |
     | 3         | 2015-11-16T**02**:00:00 |
     | 4         | 2015-11-16T**03**:00:00 |
-    | 5\.         | 2015-11-16T**04**:00:00 |
+    | 5         | 2015-11-16T**04**:00:00 |
 
     La valeur **folderPath** est calculée à l’aide de la partie année, mois, jour et heure de l’heure de début de la tranche (**SliceStart**). Voici comment un dossier d’entrée est mappé à une tranche.
 
@@ -681,11 +681,11 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03** |
-    | 5\.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04** |
 
 1. Sélectionnez **Déployer** dans la barre d’outils pour créer et déployer la table **InputDataset**.
 
-#### <a name="create-the-output-dataset"></a>Création du jeu de données de sortie
+#### <a name="create-the-output-dataset"></a>Créer le jeu de données de sortie
 À cette étape, vous créez un autre jeu de données de type AzureBlob pour représenter les données de sortie.
 
 1. Dans Data Factory Editor, sélectionnez le bouton **Nouveau jeu de données** dans la barre d’outils. Sélectionnez **Stockage Blob Azure** dans la liste déroulante.
@@ -728,7 +728,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
     | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
     | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5\.         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
     N’oubliez pas que tous les fichiers figurant dans un dossier d’entrée (par exemple, 2015-11-16-00) font partie d’une tranche associée à l’heure de début 2015-11-16-00. Lorsque cette tranche est traitée, l’activité personnalisée lit chaque fichier et génère une ligne dans le fichier de sortie avec le nombre d’occurrences du terme recherché (Microsoft). Si le dossier 2015-11-16-00 contient trois fichiers, le fichier de sortie 2015-11-16-00.txt contient trois lignes.
 
@@ -805,7 +805,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 1. Sélectionnez **Déployer** dans la barre de commandes pour déployer le pipeline.
 
-#### <a name="step-5-test-the-pipeline"></a>Étape 5 : Tester le pipeline
+#### <a name="step-5-test-the-pipeline"></a>Étape 5 : Tester le pipeline
 Au cours de cette étape, vous testez le pipeline en déposant des fichiers dans les dossiers d’entrée. Commençons par tester le pipeline avec un fichier pour chaque dossier d’entrée.
 
 1. Dans le panneau **Fabrique de données** du portail Azure, sélectionnez **Diagramme**.
@@ -964,8 +964,8 @@ Après avoir traité des données, vous pouvez les consommer avec des outils en 
 * [Actualisation des données dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure et Power BI : vue d’ensemble](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Références
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+## <a name="references"></a>References
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
   * [Introduction to the Data Factory service (Présentation du service Azure Data Factory)](data-factory-introduction.md)
   * [Get started with Data Factory (Prise en main de Data Factory)](data-factory-build-your-first-pipeline.md)

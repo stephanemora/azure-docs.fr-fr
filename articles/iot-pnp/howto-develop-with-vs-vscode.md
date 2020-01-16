@@ -3,23 +3,23 @@ title: Utiliser Visual Studio et Visual Studio Code pour générer des appareils
 description: Utilisez Visual Studio et Visual Studio Code pour accélérer la création de modèles d’appareil IoT Plug-and-Play et l’implémentation du code d’appareil.
 author: liydu
 ms.author: liydu
-ms.date: 10/29/2019
+ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b4325aa6f379dc0b281d06cb593c28448698c71b
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748036"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531324"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Utiliser Visual Studio et Visual Studio Code pour générer des appareils IoT Plug-and-Play
 
 Azure IoT Tools pour Visual Studio Code fournit un environnement intégré pour créer des interfaces et des modèles de capacité d’appareil (DCM, device capability model), publier dans des référentiels de modèles et générer le code de squelette en C pour implémenter l’application d’appareil.
 
-Cet article vous montre comment procéder.
+Cet article vous montre comment :
 
 - Générer le code d’appareil et le projet d’application
 - Utiliser le code généré dans votre projet d’appareil
@@ -27,7 +27,7 @@ Cet article vous montre comment procéder.
 
 Pour en savoir plus sur l’utilisation de VS Code pour développer des appareils IoT, consultez [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Installez [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -57,7 +57,7 @@ Dans VS Code, appuyez sur **Ctrl+Maj+P** pour ouvrir la palette de commandes, en
     - **Projet CMake sur Linux** : pour un projet d’appareil qui utilise [CMake](https://cmake.org/) comme système de génération sur Linux. Cette option génère `CMakeLists.txt` avec les configurations du kit de développement logiciel (SDK) de l’appareil dans le même dossier que le code C.
     - **Projet DevKit IoT MXChip** : pour un projet d’appareil exécuté sur un appareil [DevKit IoT MXChip](https://aka.ms/iot-devkit). Cette option génère un projet Arduino que vous pouvez [utiliser dans VS Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) ou dans l’IDE Arduino pour générer et exécuter le projet sur un appareil DevKit IoT.
 
-- **Type de SDK d’appareil**. Si vous sélectionnez CMake comme type de projet, cette étape permet de configurer la façon dont le code généré inclut le kit de développement logiciel (SDK) C de l’appareil Azure IoT dans `CMakeLists.txt` :
+- **Type de SDK d’appareil**. Si vous sélectionnez CMake comme type de projet, cette étape permet de configurer la façon dont le code généré inclut Azure IoT C device SDK dans `CMakeLists.txt` :
 
     - **Via le code source** : le code généré s’appuie sur le [code source du kit de développement logiciel (SDK) de l’appareil](https://github.com/Azure/azure-iot-sdk-c) pour l’inclure et le créer conjointement. Cette option est recommandée lorsque vous avez personnalisé le code source du kit de développement logiciel (SDK) de l’appareil.
     - **Via le Vcpkg** : le code généré s’appuie sur le [Vcpkg du kit de développement logiciel (SDK) de l’appareil](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) pour l’inclure et le créer conjointement. Il s’agit de la méthode recommandée pour les appareils exécutant Windows, Linux ou macOS.
@@ -121,7 +121,7 @@ Pour compiler le code d’appareil avec le SDK C Vcpkg de l’appareil en utilis
     ./vcpkg integrate install
     ```
 
-1. Installez le Vcpkg du kit de développement logiciel (SDK) C de l’appareil Azure IoT :
+1. Installez le Vcpkg du kit de développement logiciel (SDK) C de l’appareil Azure IoT :
 
     ```bash
     ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
@@ -150,13 +150,13 @@ Pour compiler le code d’appareil avec le SDK C Vcpkg de l’appareil en utilis
 
 ### <a name="windows"></a>Windows
 
-Pour compiler le code d’appareil avec le SDK C de l’appareil sous Windows en utilisant CMake et les compilateurs Visual Studio C/C++ au niveau de la ligne de commande, consultez le [guide de démarrage rapide sur IoT Plug-and-Play](./quickstart-create-pnp-device.md). Les étapes suivantes vous montrent comment compiler le code d’appareil avec le SDK C Vcpkg de l’appareil en tant que projet CMake dans Visual Studio.
+Pour compiler le code d’appareil avec le SDK C de l’appareil sous Windows en utilisant CMake et les compilateurs Visual Studio C/C++ au niveau de la ligne de commande, consultez le [guide de démarrage rapide sur IoT Plug-and-Play](./quickstart-create-pnp-device-windows.md). Les étapes suivantes vous montrent comment compiler le code d’appareil avec le SDK C Vcpkg de l’appareil en tant que projet CMake dans Visual Studio.
 
-1. Suivez les étapes décrites dans le [démarrage rapide](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device#prepare-the-development-environment) pour installer l’Azure IoT device SDK pour C via Vcpkg.
+1. Suivez les étapes décrites dans le [démarrage rapide](https://docs.microsoft.com/azure/iot-pnp/quickstart-create-pnp-device-windows#prepare-the-development-environment) pour installer l’Azure IoT device SDK pour C via Vcpkg.
 
 1. Installez [Visual Studio 2019 (Community, Professional ou Enterprise)](https://visualstudio.microsoft.com/downloads/). Veillez à inclure le composant **Gestionnaire de package NuGet** et la charge de travail **Développement Desktop en C++** .
 
-1. Ouvrez Visual Studio, puis choisissez **Fichier > Ouvrir > CMake...** pour ouvrir `CMakeLists.txt` dans le dossier qui contient le code généré.
+1. Ouvrez Visual Studio, choisissez **Fichier > Ouvrir > CMake...** pour ouvrir le fichier `CMakeLists.txt` dans le dossier qui contient le code généré.
 
 1. Dans la barre d’outils **Général**, recherchez la liste déroulante **Configurations**. Sélectionnez **Gérer les configurations** pour ajouter le paramètre CMake pour votre projet.
 

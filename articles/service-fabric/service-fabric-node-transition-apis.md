@@ -1,31 +1,22 @@
 ---
-title: Démarrer et arrêter des nœuds de cluster pour tester des applications Azure Service Fabric | Microsoft Docs
+title: Démarrer et arrêter des nœuds de cluster
 description: Découvrez comment utiliser l’injection d’erreurs pour tester une application Service Fabric en démarrant et en arrêtant des nœuds de cluster.
-services: service-fabric
-documentationcenter: .net
 author: LMWF
-manager: rsinha
-editor: ''
-ms.assetid: f4e70f6f-cad9-4a3e-9655-009b4db09c6d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: df0e53736c08fd2c26c467def7328e85f2989f26
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f2eefec94ad4763a054ee089b17232c41e642dd
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718136"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609789"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Remplacement des API de démarrage et d’arrêt de nœud par l’API de transition de nœud
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>À quoi servent les API de démarrage et d’arrêt de nœud ?
 
-L’API Stop Node (managée : [StopNodeAsync()][stopnode], PowerShell : [Stop-ServiceFabricNode][stopnodeps]) arrête un nœud Service Fabric.  Un nœud Service Fabric est un processus, pas une machine virtuelle ou un ordinateur. La machine virtuelle ou l’ordinateur continuera à fonctionner.  Dans le reste du document, « nœud » désigne le nœud Service Fabric.  L’arrêt d’un nœud le fait passer à l’état *arrêté*, dans lequel il n’est pas membre du cluster et ne peut pas héberger de services, fonctionnant ainsi comme un nœud *en panne*.  Cet état est utile pour créer des erreurs dans le système afin de tester votre application.  L’API Start Node (managée : [StartNodeAsync()][startnode], PowerShell : [Start-ServiceFabricNode][startnodeps]]) inverse l’effet de l’API Stop Node et ramène le nœud à un état normal.
+L’API Stop Node (managée : [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) arrête un nœud Service Fabric.  Un nœud Service Fabric est un processus, pas une machine virtuelle ou un ordinateur. La machine virtuelle ou l’ordinateur continuera à fonctionner.  Dans le reste du document, « nœud » désigne le nœud Service Fabric.  L’arrêt d’un nœud le fait passer à l’état *arrêté*, dans lequel il n’est pas membre du cluster et ne peut pas héberger de services, fonctionnant ainsi comme un nœud *en panne*.  Cet état est utile pour créer des erreurs dans le système afin de tester votre application.  L’API Start Node (managée : [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) inverse l’effet de l’API d’arrêt de nœud, qui rétablit le nœud à un état normal.
 
 ## <a name="why-are-we-replacing-these"></a>Pourquoi remplaçons-nous ces API ?
 
@@ -38,14 +29,14 @@ La durée pendant laquelle un nœud est arrêté est « infinie » jusqu'à ce q
 
 ## <a name="introducing-the-node-transition-apis"></a>Présentation des API de transition de nœud
 
-Nous avons résolu les problèmes ci-dessus dans un nouvel ensemble d’API.  La nouvelle API Node Transition (managée : [StartNodeTransitionAsync()][snt]) peut être utilisée pour passer un nœud Service Fabric à l’état arrêté (*stopped*) ou pour le faire passer de l’état *stopped* à un état normal.  Veuillez noter que le mot « Start » dans le nom de l’API ne fait pas référence au démarrage d’un nœud.  Il fait référence au début d’une opération asynchrone que le système exécute pour faire passer le nœud à l’état *arrêté* ou à l’état démarré.
+Nous avons résolu les problèmes ci-dessus dans un nouvel ensemble d’API.  La nouvelle API Node Transition (managée : [StartNodeTransitionAsync()][snt]) peut être utilisée pour passer un nœud Service Fabric à l’état *arrêté* ou pour le faire passer de l’état *arrêté* à un état normal.  Veuillez noter que le mot « Start » dans le nom de l’API ne fait pas référence au démarrage d’un nœud.  Il fait référence au début d’une opération asynchrone que le système exécute pour faire passer le nœud à l’état *arrêté* ou à l’état démarré.
 
 **Utilisation**
 
-Si l’API de transition de nœud ne renvoie pas d’exception lorsqu’elle est appelée, cela signifie que le système a accepté l’opération asynchrone et autorise son exécution.  Un appel réussi n’implique pas que l’opération est terminée.  Pour obtenir des informations sur l’état actuel de l’opération, appelez l’API Node Transition Progress (managée : [GetNodeTransitionProgressAsync()][gntp]) avec le GUID utilisé lors de l’appel d’API Node Transition pour cette opération.  L’API de progression de transition de nœud renvoie un objet NodeTransitionProgress.  La propriété State de cet objet indique l’état actuel de l’opération.  Si l’état est « Running », cela signifie que l’opération est en cours d’exécution.  Si l’état est « Completed », l’opération s’est terminée sans erreur.  Si l’état est « Faulted », un problème est survenu pendant l’exécution de l’opération.  La propriété Exception de la propriété Result indique quel était le problème.  Pour plus d’informations sur la propriété State, consultez https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate. Pour obtenir des exemples de code, consultez la section « Exemple d’utilisation » ci-dessous.
+Si l’API de transition de nœud ne renvoie pas d’exception lorsqu’elle est appelée, cela signifie que le système a accepté l’opération asynchrone et autorise son exécution.  Un appel réussi n’implique pas que l’opération est terminée.  Pour obtenir des informations sur l’état actuel de l’opération, appelez l’API Node Transition Progress (managée : [GetNodeTransitionProgressAsync()][gntp]) avec le GUID utilisé lors de l’appel de l’API de transition de nœud pour cette opération.  L’API de progression de transition de nœud renvoie un objet NodeTransitionProgress.  La propriété State de cet objet indique l’état actuel de l’opération.  Si l’état est « Running », cela signifie que l’opération est en cours d’exécution.  Si l’état est « Completed », l’opération s’est terminée sans erreur.  Si l’état est « Faulted », un problème est survenu pendant l’exécution de l’opération.  La propriété Exception de la propriété Result indique quel était le problème.  Pour plus d’informations sur la propriété State, consultez https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate. Pour obtenir des exemples de code, consultez la section « Exemple d’utilisation » ci-dessous.
 
 
-**Distinction entre un nœud arrêté et un nœud en panne** Si un nœud est arrêté (*stopped*) à l’aide de l’API Node Transition, la sortie d’une requête de nœud (managée : [GetNodeListAsync()][nodequery], PowerShell : [Get-ServiceFabricNode][nodequeryps]) indiquera que ce nœud a une propriété *IsStopped* dont la valeur est true.  Cela est différent de la valeur de la propriété *NodeStatus*, qui indiquera *Down*.  Si la valeur de la propriété *NodeStatus* est *Down*, mais celle de *IsStopped* est false, cela signifie que le nœud n’a pas été arrêté à l’aide de l’API de transition de nœud et est *en panne* pour une autre raison.  Si la valeur de la propriété *IsStopped* est true et celle de la propriété *NodeStatus* est *Down*, cela signifie que le nœud a été arrêté à l’aide de l’API de transition de nœud.
+**Distinction entre un nœud arrêté et un nœud en panne** Si un nœud est arrêté (*stopped*) à l’aide de l’API Node Transition, la sortie d’une requête de nœud (managée : [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indiquera que ce nœud a une propriété *IsStopped* dont la valeur est true.  Cela est différent de la valeur de la propriété *NodeStatus*, qui indiquera *Down*.  Si la valeur de la propriété *NodeStatus* est *Down*, mais celle de *IsStopped* est false, cela signifie que le nœud n’a pas été arrêté à l’aide de l’API de transition de nœud et est *en panne* pour une autre raison.  Si la valeur de la propriété *IsStopped* est true et celle de la propriété *NodeStatus* est *Down*, cela signifie que le nœud a été arrêté à l’aide de l’API de transition de nœud.
 
 Démarrer un nœud *arrêté* à l’aide de l’API de transition de nœud le fait de nouveau fonctionner en tant que membre normal du cluster.  La sortie de l’API de requête de nœud indiquera *IsStopped* comme false, et *NodeStatus* comme un élément qui n’est pas en panne (mais plutôt en fonctionnement).
 

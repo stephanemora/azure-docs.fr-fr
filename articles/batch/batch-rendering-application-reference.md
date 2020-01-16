@@ -1,18 +1,18 @@
 ---
 title: Utiliser des applications de rendu – Azure Batch
-description: Comment utiliser des applications de rendu avec Azure Batch
+description: Découvrez comment utiliser des applications de rendu avec Azure Batch. Cet article décrit brièvement comment exécuter chaque application de rendu.
 services: batch
 ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc0ce23c90a4ba6575ba26b37d97f94ba8fa1f63
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775387"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390482"
 ---
 # <a name="rendering-applications"></a>Applications de rendu
 

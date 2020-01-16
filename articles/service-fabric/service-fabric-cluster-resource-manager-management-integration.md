@@ -1,25 +1,16 @@
 ---
-title: Intégration de Service Fabric Cluster Resource Manager et de Service Fabric Management | Microsoft Docs
+title: Cluster Resource Manager - Intégration de la gestion
 description: Vue d’ensemble des points d’intégration entre Cluster Resource Manager et Service Fabric Management.
-services: service-fabric
-documentationcenter: .net
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 2b3ccf16aca04ebd398e2f97007b817cc0a6ef8d
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 50751c7d23797a597dc5e2d209c1e3eecf6f7a40
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196498"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614619"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
 Service Fabric Cluster Resource Manager n’actionne pas les mises à niveau dans Service Fabric, mais il y participe. La première manière dont Cluster Resource Manager aide à la gestion consiste à suivre l’état souhaité du cluster et des services qu’il contient. Cluster Resource Manager envoie des rapports d’intégrité lorsqu’il ne peut pas placer le cluster dans la configuration souhaitée. Par exemple, si la capacité est insuffisante, Cluster Resource Manager envoie des avertissements d’intégrité et des erreurs indiquant le problème. Le fonctionnement des mises à niveau est un autre composant de l’intégration. Cluster Resource Manager modifie légèrement son comportement pendant les mises à niveau.  
@@ -77,7 +68,7 @@ Voici ce que nous apprend ce message d’intégrité :
 2. La contrainte de distribution de domaine de mise à niveau n’est actuellement pas respectée. Cela signifie qu’un domaine de mise à niveau particulier compte plus de réplicas que prévu pour cette partition.
 3. L’identité du nœud qui contient le réplica à l’origine de la violation. Dans ce cas, il s’agit du nœud nommé « Node.8 ».
 4. Si cette partition fait actuellement l’objet d’une mise à niveau (« Currently Upgrading -- false »).
-5. La stratégie de distribution pour ce service : « Distribution Policy -- Packing ». Ceci est régi par la `RequireDomainDistribution` [stratégie de positionnement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). « Packing » indique que dans ce cas, la distribution de domaine n’était _pas_ obligatoire. Nous savons donc que la stratégie de positionnement n’a pas été spécifiée pour ce service. 
+5. La stratégie de distribution pour ce service : « Distribution Policy -- Packing ». Ceci est régi par la [stratégie de positionnement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. « Packing » indique que dans ce cas, la distribution de domaine n’était _pas_ obligatoire. Nous savons donc que la stratégie de positionnement n’a pas été spécifiée pour ce service. 
 6. La date et l’heure du rapport (10/08/2015 19:13:02)
 
 Ces informations alimentent les alertes qui se déclenchent en production pour vous informer qu’un problème est survenu. Elles servent aussi à détecter et à mettre un terme aux mises à niveau incorrectes. Dans ce cas, nous aimerions savoir pourquoi Resource Manager a décidé de placer les réplicas dans le domaine de mise à niveau. En règle générale, l’empaquetage est temporaire et peut résulter, par exemple, de l’arrêt des nœuds dans les autres domaines de mise à niveau.
@@ -183,7 +174,7 @@ via ClusterConfig.json pour les déploiements autonomes ou Template.json pour le
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Contraintes de domaine d’erreur et de domaine de mise à niveau
 Cluster Resource Manager vise à maintenir une répartition harmonieuse des services entre les domaines d’erreur et de mise à niveau. Pour cela, une contrainte est intégrée dans le moteur de Cluster Resource Manager. Pour plus d’informations sur leur utilisation et leur comportement spécifique, consultez l’article relatif à la [configuration de cluster](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Cluster Resource Manager peut être amené à empaqueter deux réplicas dans un domaine de mise à niveau pour gérer les mises à niveau, les défaillances ou d’autres violations de contraintes. Normalement, l’empaquetage dans des domaines d’erreur ou de mise à niveau intervient uniquement quand plusieurs défaillances ou évolutions se produisent dans le système et empêchent un positionnement correct. Si vous voulez empêcher l’empaquetage même dans ces situations, vous pouvez utiliser la `RequireDomainDistribution` [stratégie de positionnement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Notez que cela peut avoir des effets secondaires et nuire à la disponibilité et à la fiabilité du service. Pensez-y avant toute décision dans ce sens.
+Cluster Resource Manager peut être amené à empaqueter deux réplicas dans un domaine de mise à niveau pour gérer les mises à niveau, les défaillances ou d’autres violations de contraintes. Normalement, l’empaquetage dans des domaines d’erreur ou de mise à niveau intervient uniquement quand plusieurs défaillances ou évolutions se produisent dans le système et empêchent un positionnement correct. Si vous voulez empêcher l’empaquetage même dans ces situations, vous pouvez utiliser la [stratégie de positionnement](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. Notez que cela peut avoir des effets secondaires et nuire à la disponibilité et à la fiabilité du service. Pensez-y avant toute décision dans ce sens.
 
 Si l’environnement est correctement configuré, toutes les contraintes sont entièrement respectées, même pendant les mises à niveau. L’essentiel est que Cluster Resource Manager surveille vos contraintes. Quand il détecte une violation, il le signale immédiatement et essaie de corriger le problème.
 

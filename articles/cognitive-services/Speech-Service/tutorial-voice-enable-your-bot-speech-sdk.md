@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech - Service Speech'
+title: 'Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer un bot d’écho à l’aide de Microsoft Bot Framework, le déployer dans Azure, puis l’inscrire auprès du canal Bot Framework Direct Line Speech. Ensuite, vous allez configurer un exemple d’application cliente pour Windows qui vous permet de parler à votre bot et d’entendre ses réponses vocales.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: dcohen
-ms.openlocfilehash: b42314d1c8c1bd734181f02c36ae3f43507e9b79
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 0c26f94d0a51b7912d3f964e3cc96ec392fec69b
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815208"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495178"
 ---
-# <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Didacticiel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
+# <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutoriel : Activer les fonctions vocales dans votre bot à l’aide du SDK Speech
 
 Vous pouvez désormais utiliser la puissance du service Speech pour activer les fonctions vocales dans un bot conversationnel en toute simplicité.
 
@@ -50,7 +50,7 @@ Voici ce qui est couvert par ce tutoriel :
 > * Ajouter l’activation du mot clé personnalisée
 > * Découvrir comment modifier la langue du texte reconnu et prononcé
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici ce dont vous aurez besoin pour suivre ce tutoriel :
 
@@ -65,7 +65,7 @@ Voici ce dont vous aurez besoin pour suivre ce tutoriel :
 
 L’application cliente que vous allez créer dans ce tutoriel utilise un petit nombre de services Azure. Pour réduire la durée d’aller-retour des réponses envoyées par votre bot, vous devez placer ces services dans la même région Azure. Dans cette section, vous allez créer un groupe de ressources dans la région **USA Ouest**. Ce groupe de ressources sera utilisé lors de la création de ressources pour Bot Framework, le canal Direct Line Speech et le service Speech.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**. Cliquez sur **Ajouter** pour ajouter un nouveau groupe de ressources.
 1. Vous serez invité à fournir certaines informations :
    * Configurez **Abonnement** sur **Essai gratuit** (vous pouvez également utiliser un abonnement existant).
@@ -107,7 +107,7 @@ Pour créer une ressource Speech, suivez ces instructions :
 
 À ce stade, vérifiez que votre groupe de ressources (**SpeechEchoBotTutorial-ResourceGroup**) comprend une ressource Speech :
 
-| NOM | TYPE  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-Speech | Cognitive Services | USA Ouest |
 
@@ -130,7 +130,7 @@ L’étape suivante consiste à créer un plan App Service. Un plan App Service 
 
 À ce stade, vérifiez que votre groupe de ressources (**SpeechEchoBotTutorial-ResourceGroup**) comprend les deux ressources suivantes :
 
-| NOM | TYPE  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Plan App Service | USA Ouest |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | USA Ouest |
@@ -187,7 +187,7 @@ L’étape suivante consiste à déployer le bot d’écho dans Azure. Il existe
    samples\csharp_dotnetcore\02.echo-bot\EchoBot.sln
    ```
 
-1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution **EchoBot**, puis sélectionnez **Publier...** .
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **EchoBot**, puis sélectionnez **Publier...** .
 1. Une nouvelle fenêtre intitulée **Choisir une cible de publication** s’ouvre.
 1. Sélectionnez **App service** dans le volet de navigation de gauche, sélectionnez **Créer**, puis cliquez sur **Publier**.
 1. Lorsque la fenêtre **Créer App Service** s’affiche :
@@ -207,7 +207,7 @@ L’étape suivante consiste à déployer le bot d’écho dans Azure. Il existe
 1. Votre navigateur par défaut doit s’ouvrir sur une page indiquant ceci : « Votre bot est prêt ! ».
 1. Dans le portail Azure, vérifiez que les trois ressources suivantes se trouvent dans votre groupe de ressources **SpeechEchoBotTutorial-ResourceGroup** :
 
-| NOM | TYPE  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA Ouest |
 | SpeechEchoBotTutorial-AppServicePlan | Plan App Service | USA Ouest |
@@ -237,7 +237,7 @@ Maintenant que vous avez créé une instance Azure App Service pour héberger vo
 2. Dans la barre de recherche, tapez **bot**. Une fois les résultats affichés, sélectionnez **Bot Channels Registration** (Inscription de canal de bot).
 3. Cliquez sur **Créer**.
 4. Vous serez invité à fournir certaines informations :
-   * Pour **Nom du bot**, entrez **SpeechEchoBotTutorial-BotRegistration**.
+   * Pour **Descripteur du bot**, entrez **SpeechEchoBotTutorial-BotRegistration**.
    * Pour **Abonnement**, sélectionnez **Essai gratuit**.
    * Pour **Groupe de ressources**, sélectionnez **SpeechEchoBotTutorial-ResourceGroup**.
    * Pour **Emplacement**, sélectionnez **USA Ouest**.
@@ -245,15 +245,15 @@ Maintenant que vous avez créé une instance Azure App Service pour héberger vo
      * Pour **Point de terminaison de messagerie**, entrez l’URL de votre application web, à la fin de laquelle vous ajoutez le chemin `/api/messages`. Par exemple, si votre nom d’application global unique est **EchoBot20190805125647**, votre point de terminaison de messagerie sera : `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
      * Pour **Application Insights**, vous pouvez sélectionner la valeur **Désactivé**. Pour plus d’informations, consultez [Analytique des bots](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignorez **Création automatique de l’ID d’application et du mot de passe**.
-5. Revenez à **Bot Channels Registration** (Inscription de canal de bot), puis cliquez sur **Créer**.
+5. Dans le bas du panneau **Inscription de chaînes de bot**, cliquez sur **Canaux**.
 
 À ce stade, accédez à votre groupe de ressources **SpeechEchoBotTutorial-ResourceGroup** dans le portail Azure. Il doit maintenant comprendre quatre ressources :
 
-| NOM | TYPE  | LOCATION |
+| NAME | TYPE  | LOCATION |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | USA Ouest |
 | SpeechEchoBotTutorial-AppServicePlan | Plan App Service | USA Ouest |
-| SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Globale |
+| SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Global |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | USA Ouest |
 
 > [!IMPORTANT]
@@ -383,31 +383,52 @@ Dans le code source du client Direct Line Speech, examinez les fichiers suivants
 1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) comprend un appel à la méthode [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-)du SDK Speech, qui est utilisé pour instancier le modèle à partir d’un fichier local situé sur le disque.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) comprend un appel à la méthode [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync)du SDK Speech, qui active la détection continue du mot clé.
 
-## <a name="optional-change-the-language-and-redeploy-your-bot"></a>(Facultatif) Changer la langue et redéployer le bot
+## <a name="optional-change-the-language-and-bot-voice"></a>(Facultatif) Changer la langue et la voix du bot
 
-Le bot que vous avez créé écoute et répond en anglais. Toutefois, vous n’êtes pas obligé d’utiliser l’anglais. Dans cette section, vous allez voir comment changer la langue utilisée par votre bot pour écouter et répondre, puis vous verrez comment redéployer le bot.
+Le bot que vous avez créé est à l’écoute et répond en anglais, avec par défaut une voix de synthèse vocale en anglais américain. Vous n’êtes cependant pas limité à l’utilisation de l’anglais ni à une voix par défaut. Dans cette section, vous allez découvrir comment changer la langue utilisée par votre bot pour écouter et répondre. Vous allez aussi découvrir comment sélectionner une autre voix pour cette langue.
 
 ### <a name="change-the-language"></a>Changer la langue
 
-1. Commençons par ouvrir `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
-2. Ensuite, nous allons accéder au code SSML. Il est facile à trouver, car il est compris entre les balises `<speak></speak>`.
-3. Dans la chaîne SSML, trouvez la balise `<voice name>`, remplacez-la par `<voice name='de-DE-Stefan-Apollo'>`, puis enregistrez. Cette chaîne mise en forme indique au service de conversion de texte par synthèse vocale de retourner une réponse vocale synthétisée à l’aide de la voix `de-DE-Stefan-Apollo`, qui est optimisée pour l’allemand.
+Vous pouvez choisir une des langues mentionnées dans le tableau [reconnaissance vocale](language-support.md#speech-to-text). Dans l’exemple ci-dessous, nous allons changer la langue et choisir l’allemand.
 
->[!NOTE]
-> Vous n’êtes pas obligé d’utiliser l’allemand et pouvez choisir n’importe quelle voix parmi celles disponibles dans la liste [Speech service](language-support.md#text-to-speech).
+1. Ouvrez l’application cliente Direct Line Speech, cliquez sur le bouton des paramètres (l’icône en forme de roue dentée en haut à droite), puis entrez `de-de` dans le champ Langue (il s’agit de la valeur de Paramètres régionaux mentionnée dans le tableau [reconnaissance vocale](language-support.md#speech-to-text)). Cela définit la langue qui doit être reconnue, et remplace donc la valeur par défaut (`en-us`). Cela indique également au canal Direct Line Speech d’utiliser une voix allemande par défaut pour la réponse du bot.
+2. Fermez la page des paramètres, puis cliquez sur le bouton Reconnecter pour établir une nouvelle connexion à votre bot d’écho.
+3. Cliquez sur le bouton du microphone et prononcez une phrase en allemand. Vous verrez le texte reconnu et le bot d’écho répondant à la voix allemande par défaut.
+
+
+### <a name="change-the-default-bot-voice"></a>Changer la voix par défaut du bot
+
+La sélection de la voix de synthèse vocale et le contrôle de la prononciation sont possibles si le bot spécifie la réponse sous forme de [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) au lieu d’un texte simple. Le bot d’écho n’utilise pas SSML, mais nous pouvons facilement modifier le code pour que ce soit le cas. Dans l’exemple ci-dessous, nous ajoutons SSML à la réponse du bot d’écho, de sorte que la voix allemande de Stephan Apollo (une voix d’homme) sera utilisée à la place de la voix de femme par défaut. Consultez la liste des [voix standard](language-support.md#standard-voices) et des [voix neuronales](language-support.md#neural-voices) prises en charge pour votre langue.
+
+1. Commençons par ouvrir `samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs`.
+2. Recherchez ces deux lignes :
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replyText), cancellationToken);
+    ```
+3. Remplacez-les par :
+    ```csharp
+    var replyText = $"Echo: {turnContext.Activity.Text}";
+    var replySpeak = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis' xml:lang='de-DE'>
+                    <voice name='Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)'>" +
+                    $"{replyText}" + "</voice></speak>";
+    await turnContext.SendActivityAsync(MessageFactory.Text(replyText, replySpeak), cancellationToken);
+    ```
+4. Générez votre solution dans Visual Studio et corrigez les éventuelles erreurs de build.
+
+Le deuxième argument de la méthode « MessageFactory.Text » définit le [champ speak d’activité](https://github.com/Microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) dans la réponse du bot. Avec la modification ci-dessus, il a été remplacé et changé de texte simple en SSML afin de spécifier une voix allemande non définie par défaut.
 
 ### <a name="redeploy-your-bot"></a>Redéployer le bot
 
 Maintenant que vous avez apporté les modifications nécessaires au bot, l’étape suivante consiste à le republier dans Azure App Service et à le tester :
 
-1. Générez votre solution dans Visual Studio et corrigez les éventuelles erreurs de build.
-2. Dans la fenêtre de l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **EchoBot**, puis sélectionnez **Publier**.
-3. Votre configuration de déploiement précédente a déjà été chargée comme configuration par défaut. Cliquez sur **Publier** à côté de **EchoBot20190805125647 - Web Deploy**.
-4. Le message **Publication réussie** s’affiche dans la fenêtre sortie de Visual Studio, et une page web s’ouvre avec le message « Votre bot est prêt ! ».
-5. Ouvrez l’application cliente Direct Line Speech, cliquez sur le bouton des paramètres (l’icône en forme de roue dentée située en haut à droite), puis entrez `de-de` dans le champ Language. Cela définit la langue qui doit être reconnue, et remplace donc la valeur par défaut (`en-us`).
-6. Suivez les instructions fournies dans la section [Créer le client Direct Line Speech](#build-the-direct-line-speech-client) pour vous reconnecter au bot nouvellement déployé, prononcez des mots dans la nouvelle langue et attendez la réponse du bot dans la langue et la voix définies.
+1. Dans la fenêtre de l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **EchoBot**, puis sélectionnez **Publier**.
+2. Votre configuration de déploiement précédente a déjà été chargée comme configuration par défaut. Cliquez sur **Publier** à côté de **EchoBot20190805125647 - Web Deploy**.
+3. Le message **Publication réussie** s’affiche dans la fenêtre sortie de Visual Studio, et une page web s’ouvre avec le message « Votre bot est prêt ! ».
+4. Ouvrez l’application cliente Direct Line Speech, cliquez sur le bouton des paramètres (l’icône en forme de roue dentée en haut à droite), puis entrez `de-de` dans le champ Langue.
+5. Suivez les instructions fournies dans la section [Créer le client Direct Line Speech](#build-the-direct-line-speech-client) pour vous reconnecter au bot nouvellement déployé, prononcez des mots dans la nouvelle langue et attendez la réponse du bot dans la langue et la voix définies.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne souhaitez pas continuer à utiliser le bot d’écho déployé dans ce tutoriel, vous pouvez le supprimer, ainsi que toutes les ressources Azure associées, en supprimant le groupe de ressources Azure **SpeechEchoBotTutorial-ResourceGroup**.
 

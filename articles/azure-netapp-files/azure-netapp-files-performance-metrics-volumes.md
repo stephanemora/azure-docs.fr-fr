@@ -1,31 +1,24 @@
 ---
-title: Recommandations sur les tests de performances pour Azure NetApp Files | Microsoft Docs
-description: Fournit des informations sur les tests de référence pour les mesures et les performances de volume avec Azure NetApp Files.
-services: azure-netapp-files
-documentationcenter: ''
+title: Tests de performances recommandés - Azure NetApp Files
+description: Découvrez des recommandations sur les tests de référence pour les métriques et les performances de volume avec Azure NetApp Files.
 author: b-juche
-manager: ''
-editor: ''
-ms.assetid: ''
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.author: b-juche
-ms.openlocfilehash: 1969b3c237a4133df6f53bd6426ca4d50581cbcb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 8f354152c23dd7ad0413f27585d724f8070ca003
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881731"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551520"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recommandations sur les tests de performances pour Azure NetApp Files
 
 Cet article fournit des informations sur les tests de référence pour les mesures et les performances de volume avec Azure NetApp Files.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour comprendre les caractéristiques en matière de performances d’un volume Azure NetApp Files, vous pouvez utiliser l’outil open source [FIO](https://github.com/axboe/fio), qui exécute une série de tests pour simuler diverses charges de travail. L’outil FIO peut être installé sur des systèmes d’exploitation Windows et Linux.  Il s’agit d’un excellent outil, qui propose un aperçu rapide des IOPS et du débit d’un volume.
 

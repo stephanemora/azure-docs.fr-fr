@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2bd3f61ffc07881ed8e502788b11fc0f435735b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 25c64d9e959b1d68de23e83e26d3495bd3939986
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847352"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425197"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer l’inscription d’informations de sécurité combinée (préversion)
 
@@ -39,10 +39,10 @@ Avant d’activer la nouvelle expérience, consultez l’article [Inscription d�
 Procédez comme suit pour activer l’inscription combinée :
 
 1. Connectez-vous au portail Azure en tant qu’administrateur d’utilisateurs.
-2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Gérer les paramètres des fonctionnalités préliminaires du volet d’accès**.
-3. Sous **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité - actualisation**, vous pouvez choisir d’autoriser un groupe **sélectionné** d’utilisateurs ou **Tous** les utilisateurs.
+2. Accédez à **Azure Active Directory** > **Paramètres utilisateur** > **Gérer les paramètres de préversion de la fonctionnalité utilisateur**.
+3. Sous **Les utilisateurs peuvent utiliser les fonctionnalités en préversion pour inscrire et gérer les informations de sécurité**, choisissez d’autoriser un groupe **sélectionné** d’utilisateurs ou **Tous** les utilisateurs.
 
-   ![Activer l’expérience en préversion des informations de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Activer l’expérience en préversion des informations de sécurité combinée pour tous les utilisateurs](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!IMPORTANT]
 > Depuis mars 2019, les options d’appel téléphonique ne sont plus disponibles pour les utilisateurs MFA et SSPR dans des locataires Azure AD gratuits ou à l’essai. Cette modification n’affecte pas les messages SMS. Les options d’appels téléphoniques resteront disponibles pour les utilisateurs de locataires Azure AD payants.
@@ -64,9 +64,9 @@ La sécurisation de l’inscription des utilisateurs pour l’authentification m
 
 La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui tentent de s’inscrire à l’aide de l’expérience d’inscription combinée et bloque l’accès, sauf si ces derniers se connectent à partir d’un emplacement réseau approuvé.
 
-![Créer une stratégie d’accès conditionnel pour contrôler l’inscription d’informations de sécurité](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Créer une stratégie d’accès conditionnel pour contrôler l’inscription d’informations de sécurité](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. Dans le **portail Azure**, accédez à **Azure Active Directory** > **Accès conditionnel**
+1. Dans le portail **Azure**, accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel**.
 1. Sélectionnez **Nouvelle stratégie**.
 1. Sous Nom, entrez un nom pour cette stratégie. Par exemple, **Inscription d’informations de sécurité combinée sur les réseaux approuvés**
 1. Sous **Affectations**, cliquez sur **Utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie
@@ -95,7 +95,7 @@ La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui
 
 [Configurer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
 
-[Configuration d’Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurer Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
 [Résoudre les problèmes d’inscription d’informations de sécurité combinée](howto-registration-mfa-sspr-combined-troubleshoot.md)
 

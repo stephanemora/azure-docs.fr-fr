@@ -2,18 +2,18 @@
 title: Activer des dumps de tas pour les services Apache Hadoop sur HDInsight – Azure
 description: Activez les services Apache Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: 9134eb6922b0ed37bbe6051b138da2c7c082b175
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494859"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658795"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "73494859"
 
 Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution.
 
-## <a name="whichServices"></a>Services
+## <a name="services"></a>Services
 
 Vous pouvez activer des dumps de tas pour les services suivants :
 
@@ -33,7 +33,7 @@ Vous pouvez activer des dumps de tas pour les services suivants :
 
 Vous pouvez également activer les dumps de tas du mappage et réduire les processus exécutés par HDInsight.
 
-## <a name="configuration"></a>Présentation de la configuration du dump du tas
+## <a name="understanding-heap-dump-configuration"></a>Présentation de la configuration des dumps de tas
 
 Les dumps de tas sont activés par la transmission d’options (parfois appelées options ou paramètres) à la machine virtuelle Java au démarrage d’un service. Pour la plupart des services [Apache Hadoop](https://hadoop.apache.org/), vous pouvez modifier le script shell utilisé pour démarrer le service afin de passer ces options.
 
@@ -81,12 +81,7 @@ Vous pouvez également déclencher un script quand **OutOfMemoryError** se produ
 
 Pour modifier la configuration d’un service, procédez comme suit :
 
-1. Ouvrez l’interface utilisateur web Ambari de votre cluster. L’URL est https://YOURCLUSTERNAME.azurehdinsight.net.
-
-    Quand vous y êtes invité, authentifiez-vous auprès du site en utilisant le nom du compte HTTP (par défaut : admin) et le mot de passe de votre cluster.
-
-   > [!NOTE]  
-   > Vous pouvez être invité une deuxième fois par Ambari à entrer le nom d’utilisateur et le mot de passe. Dans ce cas, entrez simplement les mêmes nom de compte et mot de passe.
+1. Dans un navigateur web, accédez à `https://CLUSTERNAME.azurehdinsight.net`, où `CLUSTERNAME` est le nom de votre cluster.
 
 2. Dans la liste de gauche, sélectionnez la zone de service que vous souhaitez modifier. Par exemple, **HDFS**. Dans la zone centrale, sélectionnez l’onglet **Configurations** .
 
@@ -121,4 +116,3 @@ Pour modifier la configuration d’un service, procédez comme suit :
    > Les entrées du bouton **Redémarrer** peuvent être différentes pour d’autres services.
 
 8. Une fois que les services ont été redémarrés, utilisez le bouton **Actions de service** pour **Désactiver le mode de maintenance**. Ambari reprend la surveillance des alertes du service.
-

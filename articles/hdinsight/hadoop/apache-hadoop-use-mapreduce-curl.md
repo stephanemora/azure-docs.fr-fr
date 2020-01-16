@@ -2,18 +2,18 @@
 title: Utiliser MapReduce et Curl avec Apache Hadoop dans HDInsight - Azure
 description: Découvrez comment exécuter à distance des tâches MapReduce avec Apache Hadoop sur HDInsight à l’aide de Curl.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
+ms.custom: hdinsightactive
 ms.date: 02/27/2018
-ms.author: hrasheed
-ms.openlocfilehash: e4968310459097fc6a00f7c453846fe61726c3d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716122"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645002"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Exécuter des tâches MapReduce avec Apache Hadoop sur HDInsight avec REST
 
@@ -74,10 +74,10 @@ Découvrez comment utiliser l’API REST WebHCat Apache Hive pour exécuter des 
 
     Les paramètres utilisés dans cette commande sont les suivants :
 
-   * **-u** : Indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
-   * **-G** : Indique que cette opération est une requête GET
+   * **-u** : Indique le nom d’utilisateur et le mot de passe utilisés pour authentifier la demande
+   * **-G** : Indique que cette opération est une requête GET
 
-   Le début de l’URI, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** , est le même pour toutes les requêtes.
+   Le début de l’URI, `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, est le même pour toutes les demandes.
 
 4. Pour envoyer une tâche MapReduce, utilisez la commande suivante :
 
@@ -106,7 +106,7 @@ Découvrez comment utiliser l’API REST WebHCat Apache Hive pour exécuter des 
     La fin de l’URI (/mapreduce/jar) indique à WebHCat que cette demande lance une tâche MapReduce à partir d’une classe dans un fichier jar. Les paramètres utilisés dans cette commande sont les suivants :
 
    * **-d** : étant donné que `-G` n’est pas utilisé, la demande passe par défaut à la méthode POST. `-d` spécifie les valeurs de données envoyées avec la demande.
-     * **user.name** : L’utilisateur qui exécute la commande
+     * **user.name** : Utilisateur qui exécute la commande
      * **jar** : L’emplacement du fichier jar contenant la classe à exécuter
      * **class** : La classe contenant la logique MapReduce
      * **arg** : Les arguments à transmettre à la tâche MapReduce. Dans le cas présent, le fichier texte d’entrée et le répertoire utilisés pour la sortie

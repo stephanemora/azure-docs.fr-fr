@@ -1,5 +1,5 @@
 ---
-title: Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
+title: Stockage transactionnel et analytique distribué à l’échelle mondiale (en préversion privée) pour les conteneurs Azure Cosmos
 description: Apprenez-en davantage sur le stockage transactionnel et analytique et ses options de configuration pour les conteneurs Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601230"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445405"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
 
-Un conteneur Azure Cosmos s’appuie sur deux moteurs de stockage en interne : un moteur de stockage transactionnel et un moteur de stockage analytique qui peut être mis à jour. Ces deux moteurs de stockage sont structurés autour de journaux et optimisés en écriture, ce qui accélère les mises à jour. Toutefois, ils sont encodés différemment :
+Un conteneur Azure Cosmos s’appuie sur deux moteurs de stockage en interne : un moteur de stockage transactionnel et un moteur de stockage analytique qui peut être mis à jour (en préversion privée). Ces deux moteurs de stockage sont structurés autour de journaux et optimisés en écriture, ce qui accélère les mises à jour. Toutefois, ils sont encodés différemment :
 
 * **Moteur de stockage transactionnel** : il est encodé dans un format orienté lignes assurant des requêtes et lectures transactionnelles rapides.
 

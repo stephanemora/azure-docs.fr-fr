@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/10/2019
+ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460719"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analyseurs pour le traitement de texte dans la Recherche cognitive Azure
 
@@ -54,6 +54,9 @@ Certains analyseurs prédéfinis, comme **Pattern** ou **Stop**, prennent en cha
 2. Dans une [définition de champ](https://docs.microsoft.com/rest/api/searchservice/create-index) de l’index, attribuez à la propriété **analyzer** du champ le nom d’un analyseur cible, par exemple, `"analyzer" = "keyword"`. Les valeurs valides sont les suivantes : le nom d’un analyseur prédéfini, d’un analyseur linguistique ou d’un analyseur personnalisé qui a également été défini dans le schéma de l’index. Envisagez d’affecter un analyseur pendant la phase de définition de l’index avant que celui-ci soit créé dans le service.
 
 3. Au lieu de définir une seule propriété **analyzer**, vous pouvez éventuellement définir des analyseurs différents pour l’indexation et l’interrogation à l’aide des paramètres de champ **indexAnalyzer** et **searchAnalyzer**. Vous utiliserez ainsi l’un ou l’autre de ces analyseurs pour la préparation et la récupération des données si l’une de ces activités nécessite une transformation spécifique et l’autre non.
+
+> [!NOTE]
+> Il n’est pas possible d’utiliser un autre [analyseur de langage](index-add-language-analyzers.md) au moment de l’indexation qu’au moment de la requête pour un champ. Cette fonctionnalité est réservée aux [analyseurs personnalisés](index-add-custom-analyzers.md). C’est la raison pour laquelle, si vous tentez de définir les propriétés **searchAnalyzer** ou **indexAnalyzer** sur le nom d’un analyseur de langage, l’API REST renvoie une réponse d’erreur. Vous devez utiliser la propriété **analyzer** à la place.
 
 L’affectation de la propriété **analyzer** ou **indexAnalyzer** à un champ qui a déjà été créé physiquement n’est pas autorisée. Si cela n’est pas clair, vous trouverez dans le tableau suivant des détails sur les actions qui nécessitent une regénération et pourquoi.
  

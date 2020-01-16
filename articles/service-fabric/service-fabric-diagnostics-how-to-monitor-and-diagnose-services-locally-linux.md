@@ -1,27 +1,16 @@
 ---
-title: Déboguer des applications Azure Service Fabric dans Linux | Microsoft Docs
+title: Déboguer des applications Azure Service Fabric dans Linux
 description: Découvrez comment analyser et diagnostiquer vos services Service Fabric sur un ordinateur de développement Linux local.
-services: service-fabric
-documentationcenter: .net
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 4eebe937-ab42-4429-93db-f35c26424321
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 017b359f4c6da438f5179813fa3ed1ad2c536834
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d8b5ec2f2190586f5eced5eee112b190a82504c3
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168872"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526292"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Surveillance et diagnostic des services dans une configuration de développement d’ordinateur local
+# <a name="monitor-and-diagnose-services-in-a-local-linux-machine-development-setup"></a>Superviser et diagnostiquer des services dans une configuration de développement d’ordinateur Linux local
 
 
 > [!div class="op_single_selector"]

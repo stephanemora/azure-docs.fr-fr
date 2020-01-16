@@ -3,16 +3,16 @@ title: Informations détaillées sur la structure d’attribution des stratégie
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9301004fe05afa77f3e73c6ec97335a17c237ce9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436374"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
-Les attributions de stratégie sont utilisées par Azure Policy pour définir quelles stratégies ou initiatives sont attribuées aux ressources. L’attribution de stratégie peut déterminer les valeurs des paramètres de ce groupe de ressources au moment de l’attribution, ce qui permet de réutiliser les définitions de stratégie pour des mêmes propriétés de ressource qui auraient des exigences de conformité différentes.
+Les attributions de stratégies sont utilisées par Azure Policy pour définir quelles stratégies ou initiatives sont attribuées aux ressources. L’attribution de stratégie peut déterminer les valeurs des paramètres de ce groupe de ressources au moment de l’attribution, ce qui permet de réutiliser les définitions de stratégie pour des mêmes propriétés de ressource qui auraient des exigences de conformité différentes.
 
 Vous devez utiliser du code JSON pour créer une attribution de stratégie. L’attribution de stratégie contient des éléments pour :
 
@@ -61,8 +61,8 @@ Cette propriété a les valeurs suivantes :
 
 |Mode |Valeur JSON |Type |Corriger manuellement |Entrée du journal d’activité |Description |
 |-|-|-|-|-|-|
-|activé |Default |string |OUI |OUI |L’effet de stratégie est appliqué pendant la création ou la mise à jour d’une ressource. |
-|Désactivé |DoNotEnforce |string |OUI |Non | L’effet de stratégie n’est pas appliqué pendant la création ou la mise à jour d’une ressource. |
+|activé |Default |string |Oui |Oui |L’effet de stratégie est appliqué pendant la création ou la mise à jour d’une ressource. |
+|Désactivé |DoNotEnforce |string |Oui |Non | L’effet de stratégie n’est pas appliqué pendant la création ou la mise à jour d’une ressource. |
 
 Si **enforcementMode** n’est pas spécifié dans la définition d’une stratégie ou d’une initiative, la valeur _Default_ est utilisée. Les [tâches de correction](../how-to/remediate-resources.md) peuvent être démarrées pour les stratégies [deployIfNotExists](./effects.md#deployifnotexists), même lorsque **enforcementMode** est défini sur _DoNotEnforce_.
 
@@ -71,7 +71,7 @@ Si **enforcementMode** n’est pas spécifié dans la définition d’une strat�
 Ce champ correspond au nom du chemin complet d’une définition de stratégie ou d’une définition d’initiative.
 `policyDefinitionId` est une chaîne et non un tableau. Si plusieurs stratégies sont souvent attribuées ensemble, il est recommandé d’utiliser une [initiative](./definition-structure.md#initiatives).
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Ce segment de l’attribution de stratégie fournit les valeurs des paramètres définis dans la [définition de stratégie ou d’initiative](./definition-structure.md#parameters).
 Grâce à cette conception, il est possible de réutiliser une définition de stratégie ou d’initiative avec différentes ressources. Toutefois, vous devez chercher à connaître les valeurs métiers et les résultats pour chaque option.

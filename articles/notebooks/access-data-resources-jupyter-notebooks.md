@@ -1,14 +1,14 @@
 ---
-title: Accéder aux ressources de données à partir des notebooks Jupyter sur Azure
-description: Comment accéder aux fichiers, API REST, bases de données et différentes ressources de stockage Azure à partir d’un notebook Jupyter.
-ms.topic: article
+title: Accéder à des données dans des notebooks Jupyter - Azure Notebooks (préversion)
+description: Découvrez comment accéder à des fichiers, API REST, bases de données et différentes ressources de stockage Azure à partir d’un notebook Jupyter.
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 47d2f869021851c1451a66a84b1a70ec4ff4998f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277701"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646345"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Accéder aux données de cloud dans un notebook
 
@@ -17,6 +17,8 @@ Pour que votre travail dans un notebook Jupyter soit intéressant, vous devez av
 Vous pouvez certainement [importer des fichiers de données dans un projet](work-with-project-data-files.md), même à l’aide des commandes telles que `curl` à partir d’un notebook pour télécharger un fichier directement. Toutefois, vous devrez probablement utiliser des données beaucoup plus complètes disponibles dans des sources autres que des fichiers, telles que des API REST, des bases de données relationnelles et le stockage cloud comme les tables Azure.
 
 Cet article décrit brièvement ces différentes options. Étant donné que l’accès aux données est mieux compris en pratique, vous pouvez trouver le code exécutable dans [Exemples Azure Notebooks - Accéder à vos données](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb).
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="rest-apis"></a>API REST
 
@@ -73,9 +75,9 @@ Azure fournit plusieurs autres types de bases de données que vous pouvez utilis
 - [Azure Database pour PostgreSQL : Utiliser Python pour se connecter et interroger des données](https://docs.microsoft.com/azure/postgresql/connect-python)
 - [Démarrage rapide : Utiliser le cache Azure pour Redis avec Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [Azure Database pour MySQL : Utiliser Python pour se connecter et interroger des données](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
   - [Assistant de copie pour Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Guide pratique pour utiliser des fichiers de données de projets](work-with-project-data-files.md)
+- [Procédure : utiliser des fichiers de données de projets](work-with-project-data-files.md)

@@ -1,25 +1,14 @@
 ---
-title: Empaqueter une application Azure Service Fabric | Microsoft Docs
-description: Découvrez comment empaqueter une application Service Fabric avant son déploiement dans un cluster.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Packager une application Azure Service Fabric
+description: Découvrez la mise en package d’une application Azure Service Fabric et sa préparation au déploiement sur un cluster.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: b8e66a9d5bba0c48f15b1ccd3f2d47e5405db792
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16bd48963040a8e30ff81f40c01134014eaccf48
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718364"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639681"
 ---
 # <a name="package-an-application"></a>Empaqueter une application
 
@@ -63,7 +52,7 @@ Pour plus d’informations sur la configuration de **SetupEntryPoint**, consulte
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configuration
+## <a name="configure"></a>Configurer
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Création d'un package à l'aide de Visual Studio
 
@@ -237,7 +226,7 @@ Pour provisionner le package, utilisez un provisionnement externe, ce qui néces
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application
+[Déployer et supprimer des applications][10] décrit comment utiliser PowerShell pour gérer des instances d’application.
 
 [Gestion des paramètres d’application pour plusieurs environnements][11] décrit comment configurer les paramètres et les variables d’environnement pour différentes instances d’application.
 

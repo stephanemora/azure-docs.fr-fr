@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 11/09/2019
+ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904895"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459577"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
 
@@ -38,21 +38,22 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 | Création d’une machine virtuelle de pool d’hôtes quand les modèles Azure Resource Manager fournis avec Windows Virtual Desktop ne sont pas utilisés | Contactez **Support Azure (Calcul)** . <br> <br> Pour les problèmes avec les modèles Azure Resource Manager qui sont fournis avec Windows Virtual Desktop, consultez la section « Création d’un locataire Windows Virtual Desktop » de [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md). |
 | Gestion des environnements d’hôtes de session Windows Virtual Desktop à partir du portail Azure    | Contactez **Support Azure**. <br> <br> Pour les problèmes de gestion lors de l'utilisation de Services Bureau à distance/Windows Virtual Desktop PowerShell, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) ou **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** . |
 | Gestion de la configuration de Windows Virtual Desktop liée à des pools d’hôtes et à des groupes d’applications      | Consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md), ou **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** . <br> <br> Si les problèmes sont liés à l’exemple d’interface graphique, contactez la communauté Yammer.|
-| Dysfonctionnement des clients Bureau à distance au démarrage                                                 | Consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md) et, si cela ne résout pas le problème, **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** .  <br> <br> S’il s’agit d’un problème réseau, vos utilisateurs doivent contacter leur administrateur réseau. |
-| Connecté mais pas de flux                                                                 | Résolvez les problèmes en utilisant la section « Lorsqu’un utilisateur se connecte, rien ne s’affiche (aucun flux) » de [Connexions au client Bureau à distance](troubleshoot-client-connection.md). <br> <br> Si vos utilisateurs ont été attribués à un groupe d'applications, **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** . |
+| Dysfonctionnement des clients Bureau à distance au démarrage                                                 | Consultez [Résoudre les problèmes du client Bureau à distance](troubleshoot-client.md) et, si cela ne résout pas le problème, **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** .  <br> <br> S’il s’agit d’un problème réseau, vos utilisateurs doivent contacter leur administrateur réseau. |
+| Connecté mais pas de flux                                                                 | Résolvez les problèmes en utilisant la section « L’utilisateur se connecte, mais rien ne s’affiche (pas de flux) » de [Résoudre les problèmes du client Bureau à distance](troubleshoot-client.md). <br> <br> Si vos utilisateurs ont été attribués à un groupe d'applications, **ouvrez une demande de support pour Windows Virtual Desktop (Compute)** . |
 | Problèmes de découverte de flux en raison du réseau                                            | Vos utilisateurs doivent contacter leur administrateur réseau. |
-| Connexion des clients                                                                    | Consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md) et, si cela ne résout pas votre problème, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md). |
+| Connexion des clients                                                                    | Consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md) et, si cela ne résout pas votre problème, consultez [Configuration d’une machine virtuelle hôte de sessions](troubleshoot-vm-configuration.md). |
 | Réactivité des applications ou du Bureau à distance                                      | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
 | Messages ou erreurs concernant les licences                                                          | Si les problèmes sont liés à une application ou un produit spécifique, contactez l’équipe responsable de ce produit. |
-| Problèmes liés à l’utilisation des outils Windows Virtual Desktop sur GitHub (modèles Azure Resource Manager, outil de diagnostic, outil de gestion) | Pour signaler des problèmes, consultez [Modèles ARM pour Services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md). |
+| Problèmes liés à l’utilisation des outils Windows Virtual Desktop sur GitHub (modèles Azure Resource Manager, outil de diagnostic, outil de gestion) | Pour signaler des problèmes, consultez [Modèles Azure Resource Manager pour Services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md). |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour résoudre les problèmes de création d’un pool de locataires et d’hôtes dans un environnement Windows Virtual Desktop, consultez [Création d’un pool de locataires et d’hôtes](troubleshoot-set-up-issues.md).
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
-- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
+- Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au service Windows Virtual Desktop](troubleshoot-service-connection.md).
+- Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).

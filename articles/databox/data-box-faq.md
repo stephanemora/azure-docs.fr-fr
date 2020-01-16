@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 8dbdbe39f613bb8895be6ae21d8aa29b766781cd
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098799"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75438625"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum Aux Questions (FAQ)
 
@@ -89,7 +89,7 @@ R. Vous pouvez cloner votre commande précédente. Ainsi, vous créez une comman
 ## <a name="configure-and-connect"></a>Configuration et connexion
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>Q. Comment faire pour déverrouiller la Data Box ? 
-R.  Dans le portail Azure, affichez votre commande Data Box, puis accédez à **Informations sur l’appareil**. Copiez le mot de passe de déverrouillage. Utilisez ce mot de passe pour vous connecter à l’interface utilisateur web locale sur votre Data Box. Pour plus d’informations, consultez [Tutoriel : Déballer, brancher et connecter votre Azure Data Box](data-box-deploy-set-up.md).
+R.  Dans le portail Azure, affichez votre commande Data Box, puis accédez à **Informations sur l’appareil**. Copiez le mot de passe de déverrouillage. Utilisez ce mot de passe pour vous connecter à l’interface utilisateur web locale sur votre Data Box. Pour plus d'informations, consultez [Tutoriel : Déballer, brancher et connecter votre Azure Data Box](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>Q. Puis-je utiliser un ordinateur hôte Linux pour me connecter et copier les données sur Data Box ?
 R.  Oui. Vous pouvez utiliser Data Box pour vous connecter à des clients SMB et NFS. Pour plus d’informations, accédez à la liste des [systèmes d’exploitation pris en charge](data-box-system-requirements.md) pour votre ordinateur hôte.
@@ -98,7 +98,7 @@ R.  Oui. Vous pouvez utiliser Data Box pour vous connecter à des clients SMB et
 R.  Vous pouvez annuler votre commande Data Box uniquement si celle-ci n’a pas encore été traitée. Une fois la commande Data Box traitée, vous ne pouvez plus l’annuler. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>Q. Puis-je connecter une Data Box à plusieurs ordinateurs hôtes simultanément pour transférer des données ?
-R. Oui. Plusieurs ordinateurs hôtes peuvent se connecter à Data Box pour transférer des données, et plusieurs travaux de copie peuvent être exécutés en parallèle. Pour plus d’informations, consultez [Tutoriel : Copier des données sur Azure Data Box](data-box-deploy-copy-data.md).
+R. Oui. Plusieurs ordinateurs hôtes peuvent se connecter à Data Box pour transférer des données, et plusieurs travaux de copie peuvent être exécutés en parallèle. Pour plus d'informations, consultez [Tutoriel : Copier des données sur Azure Data Box](data-box-deploy-copy-data.md).
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>Q. Puis-je me connecter aux deux interfaces 10 GbE sur la Data Box pour transférer des données ?
 R. Oui. Il est possible de connecter les deux interfaces 10 GbE sur la Data Box pour copier des données en même temps. Pour plus d’informations sur la copie de données, accédez au [Tutoriel : Copier des données sur Azure Data Box](data-box-deploy-copy-data.md).
@@ -141,7 +141,7 @@ R. Vous pouvez accéder à votre commande Data Box dans la **vue d’ensemble** 
 R.  Data Box a une capacité de stockage utile de 80 To. Vous pouvez utiliser un seul appareil Data Box pour les données dont la taille est comprise entre 40 To et 80 To. Pour les tailles de données supérieures à 500 To, vous pouvez commander plusieurs appareils Data Box. Pour les tailles de données supérieures à 500 To, optez pour Data Box Heavy.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>Q. Quelle est la taille maximale des objets blob de blocs et des objets blob de pages prise en charge par Data Box ? 
-R.  Les tailles maximales dépendent des limites du Stockage Azure. La taille maximale pour un objet blob de blocs est d’environ 4,768 Tio et la taille maximale pour un objet blob de page est de 8 Tio. Pour plus d’informations, consultez la page [Objectifs de performance et évolutivité d'Azure Storage](../storage/common/storage-scalability-targets.md). 
+R.  Les tailles maximales dépendent des limites du Stockage Azure. La taille maximale pour un objet blob de blocs est d’environ 4,768 Tio et la taille maximale pour un objet blob de page est de 8 Tio. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le stockage d’objets blob](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>Q. Comment faire pour savoir si mes données sont sécurisées pendant le transfert ? 
 R. Plusieurs fonctionnalités de sécurité ont été implémentées pour garantir la sécurité de votre Data Box pendant le transit. Certaines d'entre elles incluent des scellés inviolables, une protection contre la falsification du matériel et des logiciels, ainsi qu’un mot de passe de déverrouillage de l’appareil. Pour plus d’informations, accédez à [Azure Data Box security and data protection](data-box-security.md) (Protection des données et sécurité Azure Data Box).
@@ -151,7 +151,7 @@ R.  Si vous utilisez un client SMB, vous pouvez exploiter un outil de copie SMN 
 
 Si vous utilisez un client NFS, vous pouvez utiliser [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) ou [Ultracopier](https://ultracopier.first-world.info/). 
 
-Pour plus d’informations, consultez [Tutoriel : Copier des données sur Azure Data Box](data-box-deploy-copy-data.md).
+Pour plus d'informations, consultez [Tutoriel : Copier des données sur Azure Data Box](data-box-deploy-copy-data.md).
 
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>Q. Y a-t-il des astuces permettant d’accélérer la copie des données ?
 R.  Pour accélérer le processus de copie :

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 35eff70c12e6f98fa74a4180bf82a369c1ecfaa4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c4c26ba163f83483b3eb48e51d91f9a919a887c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75439845"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Copier des fichiers issus de plusieurs conteneurs avec Azure Data Factory
 
@@ -34,9 +34,11 @@ Le modèle comporte trois activités :
 - **ForEach** obtient la liste des conteneurs auprès de l’activité **GetMetadata**, puis itère au sein de la liste et transmet chaque conteneur à l’activité Copy.
 - **Copy** copie chaque conteneur du magasin de stockage source vers le magasin de destination.
 
-Le modèle définit deux paramètres :
-- *SourceFilePath* est le chemin du magasin de données source, qui permet d’obtenir une liste des conteneurs. Dans la plupart des cas, il s’agit du répertoire racine, qui comporte plusieurs dossiers de conteneur. La valeur par défaut de ce paramètre est `/`.
-- *DestinationFilePath* est le chemin où les fichiers seront copiés dans la magasin de destination. La valeur par défaut de ce paramètre est `/`.
+Le modèle définit les paramètres suivants :
+- *SourceFileFolder* est le chemin de dossier de votre magasin de source de données, où vous pouvez obtenir la liste des conteneurs. Il s’agit du répertoire racine, qui comporte plusieurs dossiers de conteneur. La valeur par défaut de ce paramètre est `sourcefolder`.
+- *SourceFileDirectory* est le chemin de sous-dossier sous le répertoire racine de votre magasin de source de données. La valeur par défaut de ce paramètre est `subfolder`.
+- *DestinationFileFolder* est le chemin de dossier où les fichiers seront copiés dans votre magasin de destination. La valeur par défaut de ce paramètre est `destinationfolder`.
+- *DestinationFileDirectory* est le chemin de sous-dossier où les fichiers seront copiés dans votre magasin de destination. La valeur par défaut de ce paramètre est `subfolder`.
 
 ## <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
 

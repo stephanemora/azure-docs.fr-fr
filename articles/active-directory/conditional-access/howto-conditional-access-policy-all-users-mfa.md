@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 12/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0d22e2e6478c265ba9219ae4df5d5ddb34d481
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 52faa2b6167606a46bf189d514a1eb314b443783
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803884"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424934"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Accès conditionnel : Exiger MFA pour tous les utilisateurs
 
@@ -57,8 +57,24 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 1. Confirmez vos paramètres et réglez **Activer la stratégie** sur **Activé**.
 1. Sélectionnez **Créer** pour créer votre stratégie.
 
+### <a name="named-locations"></a>Emplacements nommés
+
+Les organisations peuvent choisir d’intégrer des emplacements réseau connus (appelés **emplacements nommés**) à leurs stratégies d’accès conditionnel. Ces emplacements nommés peuvent inclure des réseaux IPv4 approuvés, comme ceux qui sont utilisés dans un siège social. Pour plus d’informations sur la configuration des emplacements nommés, consultez l’article [Qu’est-ce que la condition d’emplacement de l’accès conditionnel Azure Active Directory ?](location-condition.md).
+
+Dans l’exemple de stratégie ci-dessus, une organisation peut choisir de ne pas exiger l’authentification multifacteur en cas d’accès à une application cloud à partir de son réseau d’entreprise. Dans un tel cas, elle peut ajouter la configuration suivante à la stratégie :
+
+1. Sous **Attributions**, sélectionnez **Conditions** > **Emplacements**.
+   1. Configurez **Oui**.
+   1. Incluez **N’importe quel emplacement**.
+   1. Excluez **Tous les emplacements approuvés**.
+   1. Sélectionnez **Terminé**.
+1. Sélectionnez **Terminé**.
+1. **Enregistrez** les modifications apportées à votre stratégie.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
+
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1afca920a8146ce5501900bcc9e36bdebcccca09
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b7eed4089a65f62056027c70f08902f531567c17
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706071"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445263"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrer des conteneurs non partitionnés vers des conteneurs partitionnés
 
@@ -117,6 +117,14 @@ Pour obtenir l’exemple complet sur la manière de repartitionner les documents
 Les anciennes versions de SDK Azure Cosmos DB, comme V2.x.x et V1.x.x, ne prennent pas en charge la clé de propriété de partition définie par le système. Par conséquent, lorsque vous lisez la définition de conteneur à partir d’un SDK plus ancien, il n’y a pas de définition de clé de partition et ces conteneurs se comportent exactement comme avant. Les applications générées avec une ancienne version de SDK continuent de fonctionner avec des conteneurs non partitionnés comme si aucune modification n’avait été effectuée. 
 
 Si un conteneur migré est utilisé par la version V3/dernière version du SDK et si vous commencez à remplir la clé de partition définie par le système dans les nouveaux documents, vous ne pouvez plus accéder (lecture, écriture, suppression, requête) à ces documents à partir de SDK plus anciens.
+
+## <a name="known-issues"></a>Problèmes connus
+
+**L’interrogation du nombre d’éléments insérés sans clé de partition à l’aide du SDK V3 peut impliquer une consommation de débit supérieure**
+
+Si vous effectuez une requête à partir du kit SDK V3 pour les éléments insérés à l’aide du SDK V2 ou les éléments insérés à l’aide du SDK V3 avec le paramètre `PartitionKey.None`, la requête Count peut consommer plus de RU/s si le paramètre `PartitionKey.None` est fourni dans FeedOptions. Nous vous recommandons de ne pas spécifier le paramètre `PartitionKey.None` si aucun autre élément n’est inséré avec une clé de partition.
+
+Si de nouveaux éléments sont insérés avec des valeurs différentes pour la clé de partition, l’interrogation de ce nombre d’éléments en passant la clé appropriée dans `FeedOptions` ne posera aucun problème. Après l’insertion de nouveaux documents avec la clé de partition, si vous devez interroger uniquement le nombre de documents sans la valeur de clé de partition, cette requête peut à nouveau entraîner une plus grande quantité de RU/s, de manière similaire aux collections partitionnées régulières.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 12/30/2019
 ms.author: cabailey
-ms.openlocfilehash: af4095b41da4d7f5fca5d1f7ed72a0c0dbc5b1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ba5b560f068d453f07e2dbbfdf5140ca1f4ac2b8
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521039"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610435"
 ---
 # <a name="connect-trend-micro-deep-security"></a>Connecter Trend Micro Deep Security
 
 Le connecteur Trend Micro Deep Security vous permet de connecter facilement vos journaux Deep Security à Azure Sentinel afin de consulter des tableaux de bord, de créer des alertes personnalisées et d’améliorer l’investigation. Cela vous donne plus d’informations sur les réseaux et systèmes de votre organisation et améliore vos capacités d’opération de sécurité.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Lire et écrire des autorisations dans l’espace de travail Azure Sentinel.
 
@@ -42,4 +42,6 @@ Le connecteur Trend Micro Deep Security vous permet de connecter facilement vos 
 Dans ce document, vous avez appris à connecter Trend Micro Deep Security à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Utilisez des classeurs](tutorial-monitor-your-data.md) pour superviser vos données.
+
 

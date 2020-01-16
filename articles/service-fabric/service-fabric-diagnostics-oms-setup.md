@@ -1,25 +1,16 @@
 ---
-title: Azure Service Fabric - Configurer la surveillance avec les journaux Azure Monitor | Microsoft Docs
+title: Configurer la supervision avec les journaux Azure Monitor
 description: Découvrez comment configurer des journaux Azure Monitor pour visualiser et analyser des événements afin de surveiller vos clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: c8f7198b59a0fe7ed6775736f8b97f5b5a262640
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0fab9942dcbb7ee09e554f2c9ba8738f208009
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306860"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609925"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurer les journaux Azure Monitor pour un cluster
 
@@ -41,7 +32,7 @@ Si vous voulez ajouter un espace de travail Log Analytics après avoir déployé
 
 2. Recherchez **Service Fabric Analytics**. Sélectionnez la ressource qui s’affiche.
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
     ![Service Fabric Analytics sur la Place de marché](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 

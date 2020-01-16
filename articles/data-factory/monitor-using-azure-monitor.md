@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 67709ef96ffb8190812d625c04cd9749c0ebb900
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684619"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645189"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -114,13 +114,13 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 | Propriété | Type | Description |
 | --- | --- | --- |
-| **storageAccountId** |Chaîne | ID de ressource du compte de stockage auquel vous voulez envoyer les journaux de diagnostic. |
-| **serviceBusRuleId** |Chaîne | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que les Event Hubs soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format `{service bus resource ID}/authorizationrules/{key name}`.|
+| **storageAccountId** |String | ID de ressource du compte de stockage auquel vous voulez envoyer les journaux de diagnostic. |
+| **serviceBusRuleId** |String | ID de règle Service Bus de l’espace de noms Service Bus dans lequel vous voulez que les Event Hubs soient créés pour la diffusion en continu des journaux de diagnostic. L’ID de règle a le format `{service bus resource ID}/authorizationrules/{key name}`.|
 | **workspaceId** | Type complexe | Tableau de fragments de temps de métrique et leurs stratégies de rétention. La valeur de cette propriété est vide. |
 |**metrics**| Valeurs de paramètre de l’exécution de pipeline à passer au pipeline appelé| Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments. |
 | **logs**| Type complexe| Nom d’une catégorie de journal de diagnostic pour un type de ressource. Pour obtenir la liste des catégories de journal de diagnostic pour une ressource, effectuez une opération d’obtention (GET) des paramètres de diagnostic. |
-| **category**| Chaîne| Tableau de catégories de journal et leurs stratégies de rétention. |
-| **timeGrain** | Chaîne | Granularité des métriques capturées au format de durée ISO 8601. La valeur de la propriété doit être `PT1M`, qui spécifie une minute. |
+| **category**| String| Tableau de catégories de journal et leurs stratégies de rétention. |
+| **timeGrain** | String | Granularité des métriques capturées au format de durée ISO 8601. La valeur de la propriété doit être `PT1M`, qui spécifie une minute. |
 | **activé**| Boolean | Indique si la collection de la métrique ou catégorie de journal est activée pour cette ressource. |
 | **retentionPolicy**| Type complexe| Décrit la stratégie de rétention pour une métrique ou une catégorie de journal. Cette propriété est utilisée uniquement pour les comptes de stockage. |
 |**days**| Int| Nombre de jours durant lesquels les métriques ou journaux sont conservés. Si la valeur de la propriété est 0, les journaux sont conservés indéfiniment. Cette propriété est utilisée uniquement pour les comptes de stockage. |
@@ -287,21 +287,21 @@ Pour plus d’informations, voir [Paramètres de diagnostic](https://docs.micros
 }
 ```
 
-| Propriété | Type | Description | Exemples |
+| Propriété | Type | Description | Exemple |
 | --- | --- | --- | --- |
-| **Niveau** |Chaîne | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
-| **correlationId** |Chaîne | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Chaîne | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**activityRunId**| Chaîne| ID de l’exécution d’activité. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
-|**pipelineRunId**| Chaîne| ID de l’exécution de pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Chaîne | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Chaîne | Catégorie des journaux de diagnostic. Affectez la valeur `ActivityRuns` à la propriété. | `ActivityRuns` |
-|**level**| Chaîne | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
-|**operationName**| Chaîne | Nom de l’activité avec cet état. Si l’activité est la pulsation de début, la valeur de la propriété est `MyActivity -`. Si l’activité est la pulsation de fin, la valeur de la propriété est `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
-|**pipelineName**| Chaîne | Nom du pipeline. | `MyPipeline` |
-|**activityName**| Chaîne | Nom de l’activité. | `MyActivity` |
-|**start**| Chaîne | Heure de début des exécutions d’activité au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`|
-|**end**| Chaîne | Heure de fin des exécutions d’activité au format UTC d’intervalle de temps. Si le journal de diagnostic indique qu’une activité a démarré mais qu’elle n’est pas encore terminée, la valeur de la propriété est `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
+| **Niveau** |String | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
+| **correlationId** |String | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**activityRunId**| String| ID de l’exécution d’activité. | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
+|**pipelineRunId**| String| ID de l’exécution de pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | Catégorie des journaux de diagnostic. Affectez la valeur `ActivityRuns` à la propriété. | `ActivityRuns` |
+|**level**| String | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
+|**operationName**| String | Nom de l’activité avec cet état. Si l’activité est la pulsation de début, la valeur de la propriété est `MyActivity -`. Si l’activité est la pulsation de fin, la valeur de la propriété est `MyActivity - Succeeded`. | `MyActivity - Succeeded` |
+|**pipelineName**| String | Nom du pipeline. | `MyPipeline` |
+|**activityName**| String | Nom de l’activité. | `MyActivity` |
+|**start**| String | Heure de début des exécutions d’activité au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`|
+|**end**| String | Heure de fin des exécutions d’activité au format UTC d’intervalle de temps. Si le journal de diagnostic indique qu’une activité a démarré mais qu’elle n’est pas encore terminée, la valeur de la propriété est `1601-01-01T00:00:00Z`. | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Attributs du journal d’exécution de pipeline
 
@@ -333,20 +333,20 @@ Pour plus d’informations, voir [Paramètres de diagnostic](https://docs.micros
 }
 ```
 
-| Propriété | Type | Description | Exemples |
+| Propriété | Type | Description | Exemple |
 | --- | --- | --- | --- |
-| **Niveau** |Chaîne | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
-| **correlationId** |Chaîne | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Chaîne | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**runId**| Chaîne| ID de l’exécution de pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
-|**resourceId**| Chaîne | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Chaîne | Catégorie des journaux de diagnostic. Affectez la valeur `PipelineRuns` à la propriété. | `PipelineRuns` |
-|**level**| Chaîne | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
-|**operationName**| Chaîne | Nom du pipeline, ainsi que son état. Une fois l’exécution du pipeline terminée, la valeur de la propriété est `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
-|**pipelineName**| Chaîne | Nom du pipeline. | `MyPipeline` |
-|**start**| Chaîne | Heure de début des exécutions d’activité au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`. |
-|**end**| Chaîne | Heure de fin des exécutions d’activité au format UTC d’intervalle de temps. Si le journal de diagnostic indique qu’une activité a démarré mais qu’elle n’est pas encore terminée, la valeur de la propriété est `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-|**statut**| Chaîne | État final de l’exécution de pipeline. Les valeurs possibles de la propriété sont `Succeeded` et `Failed`. | `Succeeded`|
+| **Niveau** |String | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
+| **correlationId** |String | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**runId**| String| ID de l’exécution de pipeline. | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
+|**resourceId**| String | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | Catégorie des journaux de diagnostic. Affectez la valeur `PipelineRuns` à la propriété. | `PipelineRuns` |
+|**level**| String | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
+|**operationName**| String | Nom du pipeline, ainsi que son état. Une fois l’exécution du pipeline terminée, la valeur de la propriété est `Pipeline - Succeeded`. | `MyPipeline - Succeeded`. |
+|**pipelineName**| String | Nom du pipeline. | `MyPipeline` |
+|**start**| String | Heure de début des exécutions d’activité au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`. |
+|**end**| String | Heure de fin des exécutions d’activité au format UTC d’intervalle de temps. Si le journal de diagnostic indique qu’une activité a démarré mais qu’elle n’est pas encore terminée, la valeur de la propriété est `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
+|**statut**| String | État final de l’exécution de pipeline. Les valeurs possibles de la propriété sont `Succeeded` et `Failed`. | `Succeeded`|
 
 #### <a name="trigger-run-log-attributes"></a>Attributs du journal d’exécution de déclencheur
 
@@ -377,21 +377,21 @@ Pour plus d’informations, voir [Paramètres de diagnostic](https://docs.micros
 
 ```
 
-| Propriété | Type | Description | Exemples |
+| Propriété | Type | Description | Exemple |
 | --- | --- | --- | --- |
-| **Niveau** |Chaîne | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
-| **correlationId** |Chaîne | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| **time** | Chaîne | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
-|**triggerId**| Chaîne| ID de l’exécution du déclencheur. | `08587023010602533858661257311` |
-|**resourceId**| Chaîne | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
-|**category**| Chaîne | Catégorie des journaux de diagnostic. Affectez la valeur `PipelineRuns` à la propriété. | `PipelineRuns` |
-|**level**| Chaîne | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
-|**operationName**| Chaîne | Nom du déclencheur avec son état final, qui indique si le déclencheur a fonctionné correctement. Si la pulsation a réussi, la valeur de la propriété est `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
-|**triggerName**| Chaîne | Nom du déclencheur. | `MyTrigger` |
-|**triggerType**| Chaîne | Type du déclencheur. Les valeurs possibles de la propriété sont `Manual Trigger` et `Schedule Trigger`. | `ScheduleTrigger` |
-|**triggerEvent**| Chaîne | Événement du déclencheur. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**start**| Chaîne | Heure de début de l’action du défenseur au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`|
-|**statut**| Chaîne | État final indiquant si le déclencheur a fonctionné correctement. Les valeurs possibles de la propriété sont `Succeeded` et `Failed`. | `Succeeded`|
+| **Niveau** |String | Niveau des journaux de diagnostic. Pour les journaux d’exécution d’activité, affectez la valeur 4 à la propriété. | `4` |
+| **correlationId** |String | ID unique pour le suivi d’une demande particulière. | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
+| **time** | String | Heure de l’événement au format UTC d’intervalle de temps `YYYY-MM-DDTHH:MM:SS.00000Z`. | `2017-06-28T21:00:27.3534352Z` |
+|**triggerId**| String| ID de l’exécution du déclencheur. | `08587023010602533858661257311` |
+|**resourceId**| String | ID associé à la ressource de fabrique de données. | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
+|**category**| String | Catégorie des journaux de diagnostic. Affectez la valeur `PipelineRuns` à la propriété. | `PipelineRuns` |
+|**level**| String | Niveau des journaux de diagnostic. Affectez la valeur `Informational` à la propriété. | `Informational` |
+|**operationName**| String | Nom du déclencheur avec son état final, qui indique si le déclencheur a fonctionné correctement. Si la pulsation a réussi, la valeur de la propriété est `MyTrigger - Succeeded`. | `MyTrigger - Succeeded` |
+|**triggerName**| String | Nom du déclencheur. | `MyTrigger` |
+|**triggerType**| String | Type du déclencheur. Les valeurs possibles de la propriété sont `Manual Trigger` et `Schedule Trigger`. | `ScheduleTrigger` |
+|**triggerEvent**| String | Événement du déclencheur. | `ScheduleTime - 2017-07-06T01:50:25Z` |
+|**start**| String | Heure de début de l’action du défenseur au format UTC d’intervalle de temps. | `2017-06-26T20:55:29.5007959Z`|
+|**statut**| String | État final indiquant si le déclencheur a fonctionné correctement. Les valeurs possibles de la propriété sont `Succeeded` et `Failed`. | `Succeeded`|
 
 ### <a name="log-analytics-schema"></a>Schéma Log Analytics
 
@@ -404,14 +404,14 @@ Log Analytics hérite du schéma d’Azure Monitor avec les exceptions suivantes
     | Colonne Azure Monitor | Colonne Log Analytics | Type |
     | --- | --- | --- |
     | $.properties.UserProperties | UserProperties | Dynamique |
-    | $.properties.Annotations | annotations | Dynamique |
+    | $.properties.Annotations | Annotations | Dynamique |
     | $.properties.Input | Entrée | Dynamique |
     | $.properties.Output | Output | Dynamique |
     | $.properties.Error.errorCode | ErrorCode | int |
     | $.properties.Error.message | ErrorMessage | string |
     | $.properties.Error | Error | Dynamique |
     | $.properties.Predecessors | Predecessors | Dynamique |
-    | $.properties.Parameters | parameters | Dynamique |
+    | $.properties.Parameters | Paramètres | Dynamique |
     | $.properties.SystemParameters | SystemParameters | Dynamique |
     | $.properties.Tags | Balises | Dynamique |
     
@@ -431,6 +431,9 @@ Azure Data Factory version 2 émet les métriques suivantes.
 | TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué dans une fenêtre d’une minute.      |
 
 Pour accéder aux métriques, suivez les instructions fournies dans [Plateforme de données Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
+
+> [!NOTE]
+> Seuls les événements d’exécution de pipeline et d’activité déclenchés et finis sont émis. Les exécutions en cours et de bac à sable (sandbox)/débogage **ne sont pas** émises. 
 
 ## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Superviser les métriques de Data Factory avec Azure Monitor
 

@@ -1,17 +1,14 @@
 ---
-title: Configurer les alertes Azure Resource Health à l’aide de modèles Resource Manager | Microsoft Docs
+title: Créer des alertes Azure Resource Health - Modèles Resource Manager
 description: Créez des alertes par programmation qui vous informent de l’indisponibilité de vos ressources Azure.
-author: stephbaron
-ms.author: stbaron
 ms.topic: conceptual
-ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 10a940e43b2ab4dff1b7c90aa7d6d274ddef82d9
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 34367c89666fd486f233136ce7968c7f3bf61912
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023916"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551714"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
 
@@ -24,7 +21,7 @@ Azure Resource Health vous tient informé de l’état d’intégrité actuel et
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les instructions de cette page, vous devez effectuer ces étapes préalables :
 
@@ -164,7 +161,7 @@ Pour une étendue au niveau d’une ressource, la section scopes doit se présen
 ],
 ```
 
-Par exemple : `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Par exemple : `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Pour obtenir cette chaîne, accédez au portail Azure et recherchez l’URL dans la page de votre ressource Azure.
 

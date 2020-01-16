@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c776a32b4a35c72fc40a16afb87db9896a763cf
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664382"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75611064"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
 Vous pouvez définir et personnaliser une stratégie de protection des informations SQL pour tout votre locataire Azure dans Azure Security Center.
 
-La protection des informations est une fonctionnalité de sécurité avancée pour la découverte, la classification, l’étiquetage et la protection des données sensibles dans vos ressources de données Azure. La découverte et la classification de vos données les plus sensibles (professionnelles, financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
-- Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes
+La protection des informations est une fonctionnalité de sécurité avancée pour la découverte, la classification, l’étiquetage et la création de rapports de données sensibles dans vos ressources de données Azure. La découverte et la classification de vos données les plus sensibles (professionnelles, financières, soins de santé, données personnelles, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
+- Aider à répondre aux standards de confidentialité des données et aux exigences de conformité réglementaires
 - Des scénarios de sécurité comme la supervision (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles
 - Contrôler l’accès et renforcer la sécurité des bases des magasins de données contenant des données sensibles
  

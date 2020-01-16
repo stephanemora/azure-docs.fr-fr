@@ -1,5 +1,6 @@
 ---
-title: Exemple de stratégie de gestion des API Azure - Router la requête en fonction de la taille de son corps | Microsoft Docs
+title: Exemple de stratégie de gestion des API - Router les requêtes en fonction de la taille du corps du message
+titleSuffix: Azure API Management
 description: Exemple de stratégie de Gestion des API Azure - Montre comment router les requêtes en fonction de la taille de leurs corps.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: f8f282597004dc73d9fe0f49bf4a41e6a80fc37f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8cee2c13386a076f0321619754468cfc1e9fb31c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072008"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442427"
 ---
 # <a name="route-the-request-based-on-the-size-of-its-body"></a>Router la requête en fonction de la taille de son corps
 

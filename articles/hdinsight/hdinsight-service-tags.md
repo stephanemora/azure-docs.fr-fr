@@ -4,15 +4,15 @@ description: Utilisez les balises de service HDInsight pour autoriser le trafic 
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/19/2019
-ms.openlocfilehash: 7e3ce33bdf0773ababe5eb190877a9288c094c5c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.custom: hdinsightactive
+ms.date: 12/05/2019
+ms.openlocfilehash: 24ecf90c2ffc88415afbf84f54af3efa7d5f4a39
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186805"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435440"
 ---
 # <a name="network-security-group-nsg-service-tags-for-azure-hdinsight"></a>Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight
 
@@ -30,9 +30,19 @@ Vous avez le choix entre deux options pour utiliser les balises de service dans 
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Utiliser une balise de service HDInsight globale unique
 
-Le moyen le plus simple de commencer à utiliser les balises de service avec votre cluster HDInsight consiste à ajouter la balise globale `HDInsight` à une règle de groupe de sécurité réseau. Pour obtenir des instructions sur l’ajout de balises de service à votre groupe de sécurité réseau, consultez [Groupes de sécurité : balises de service](../virtual-network/security-overview.md#service-tags).
+Le moyen le plus simple de commencer à utiliser les balises de service avec votre cluster HDInsight consiste à ajouter la balise globale `HDInsight` à une règle de groupe de sécurité réseau.
 
-Cette balise contient les adresses IP des services d’intégrité et de gestion pour toutes les régions où HDInsight est disponible, et garantit que votre cluster peut communiquer avec les services d’intégrité et de gestion, quel que soit l’endroit où il est créé.
+1. Dans le [Portail Azure](https://portal.azure.com/), sélectionnez votre groupe de sécurité réseau.
+
+1. Sous **Paramètres**, sélectionnez **Règles de sécurité de trafic entrant**, puis sélectionnez **+ Ajouter**.
+
+1. Dans la liste déroulante **Source**, sélectionnez **Étiquette de service**.
+
+1. Dans la liste déroulante **Étiquette du service source**, sélectionnez **HDInsight**.
+
+    ![Portail Azure – Ajouter une balise de service](./media/hdinisght-service-tags/azure-portal-add-service-tag.png)
+
+Cette balise contient les adresses IP des services d’intégrité et de gestion pour toutes les régions où HDInsight est disponible, et garantit que votre cluster peut communiquer avec les services d’intégrité et de gestion requis, où qu’il soit créé.
 
 ## <a name="use-regional-hdinsight-service-tags"></a>Utiliser les balises de service régional HDInsight
 
@@ -63,13 +73,13 @@ Si vous préférez l’option de balise de service deux et que votre cluster se 
 | Japon | OuJapon Est | HDInsight.JapanWest |
 | France | France Centre| HDInsight.FranceCentral |
 | Royaume-Uni | Sud du Royaume-Uni | HDInsight.UKSouth |
-| Azure Government (Fairfax) | US DoD - Centre   | HDInsight.USDoDCentral |
+| Azure Government | US DoD - Centre   | HDInsight.USDoDCentral |
 | &nbsp; | Gouvernement des États-Unis - Texas | HDInsight.USGovTexas |
 | &nbsp; | US DoD - Est | HDInsight.USDoDEast |
 
 ### <a name="use-multiple-regional-service-tags"></a>Utiliser plusieurs balises de service régional
 
-Si vous préférez l’option de balise de service deux et que la région dans laquelle votre cluster est créé n’était pas indiquée ci-dessus, vous devez autoriser les balises de service régional multiples. La nécessité d’en utiliser plusieurs est due à des différences de disposition des fournisseurs de ressources pour les différentes régions.
+Si vous préférez l’option de balise de service deux et que la région dans laquelle votre cluster est créé n’est pas indiquée ci-dessus, vous devez autoriser plusieurs balises de service régional. La nécessité d’en utiliser plusieurs est due à des différences de disposition des fournisseurs de ressources pour les différentes régions.
 
 Les régions restantes sont divisées en groupes en fonction des balises de service régional qu’elles utilisent.
 
@@ -77,7 +87,7 @@ Les régions restantes sont divisées en groupes en fonction des balises de serv
 
 Si votre cluster est créé dans une des régions du tableau ci-dessous, autorisez les balises de service `HDInsight.WestUS` et `HDInsight.EastUS` en plus de la balise de service régional indiquée. Les régions de cette section nécessitent trois balises de service.
 
-Par exemple, si votre cluster est créé dans la région `East US 2`, vous devrez ajouter les balises de service suivantes à votre groupe de sécurité réseau :
+Par exemple, si votre cluster est créé dans la région `East US 2`, vous devez ajouter les balises de service suivantes à votre groupe de sécurité réseau :
 
 - `HDInsight.EastUS2`
 - `HDInsight.WestUS`
@@ -94,7 +104,7 @@ Par exemple, si votre cluster est créé dans la région `East US 2`, vous devre
 | Japon | Japon Est | HDInsight.JapanEast |
 | Europe | Europe Nord | HDInsight.NorthEurope |
 | &nbsp; | Europe Ouest| HDInsight.WestEurope |
-| Asie | Asie Est | HDInsight.EastAsia |
+| Asia | Asie Est | HDInsight.EastAsia |
 | &nbsp; | Asie Sud-Est | HDInsight.SoutheastAsia |
 | Australie | Australie Est | HDInsight.AustraliaEast |
 
@@ -112,5 +122,5 @@ Les clusters dans les régions **Allemagne Centre** et **Allemagne Nord-Est** do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Groupes de sécurité réseau - Balises de service](../virtual-network/security-overview.md#security-rules)
-* [Créer des réseaux virtuels pour les clusters Azure HDInsight](hdinsight-create-virtual-network.md)
+- [Groupes de sécurité réseau - Balises de service](../virtual-network/security-overview.md#security-rules)
+- [Créer des réseaux virtuels pour les clusters Azure HDInsight](hdinsight-create-virtual-network.md)

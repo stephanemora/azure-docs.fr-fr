@@ -2,19 +2,15 @@
 title: Paramètres d’entrée de Runbook
 description: Les paramètres d’entrée de Runbook augmentent la flexibilité des Runbooks en vous permettant de transmettre des données à un Runbook lors de son démarrage. Cet article décrit différents cas où des paramètres d’entrée sont utilisés dans des Runbooks.
 services: automation
-ms.service: automation
 ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b16219c34ea30b4229195c8f019dfa8e1f147d8b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75417587"
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
@@ -30,8 +26,8 @@ Les Runbooks PowerShell et PowerShell Workflow d'Azure Automation prennent en ch
 
 | **Propriété** | **Description** |
 |:--- |:--- |
-| `Type` |Requis. Type de données attendu pour la valeur du paramètre. Tout type .NET est valide. |
-| `Name` |Requis. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
+| `Type` |Obligatoire. Type de données attendu pour la valeur du paramètre. Tout type .NET est valide. |
+| `Name` |Obligatoire. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
 | `Mandatory` |facultatif. Spécifie si une valeur doit être fournie pour le paramètre. Si vous définissez ce paramètre sur **\$true**, une valeur doit être fournie au démarrage du Runbook. Si vous définissez ce paramètre sur **\$false**, la valeur est facultative. |
 | `Default value` |facultatif. Spécifie une valeur à utiliser pour le paramètre si aucune valeur n’est transmise lors du démarrage du runbook. Une valeur par défaut peut être définie pour tout paramètre, qui rend automatiquement le paramètre facultatif, indépendamment du paramètre Mandatory. |
 
@@ -94,7 +90,7 @@ Vous pouvez utiliser l’activité [**Write-Output**](/powershell/module/microso
 
    | **Propriété** | **Description** |
    |:--- |:--- |
-   | `Name` |Requis. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
+   | `Name` |Obligatoire. Le nom du paramètre. Il doit être unique dans un Runbook, ne peut contenir que des lettres, des chiffres ou des caractères de soulignement, et doit commencer par une lettre. |
    | `Description` |facultatif. Description de l’objectif du paramètre d’entrée. |
    | `Type` |facultatif. Type de données attendu pour la valeur du paramètre. Les types de paramètres pris en charge sont **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** et **Object**. Si un type de données n’est pas sélectionné, le type par défaut est **String**. |
    | `Mandatory` |facultatif. Spécifie si une valeur doit être fournie pour le paramètre. Si vous choisissez **yes**, une valeur doit être fournie lors du démarrage du Runbook. Si vous choisissez **no**, aucune valeur n’est requise lors du démarrage du Runbook, et une valeur par défaut peut être définie. |
@@ -238,7 +234,7 @@ Dans l’URI de demande, remplacez les paramètres suivants :
 
 Pour transmettre des paramètres à la tâche du Runbook, utilisez le corps de la demande. Il accepte les deux propriétés suivantes, fournies au format JSON :
 
-* **Runbook name** : Requis. Nom du Runbook pour le démarrage de la tâche.  
+* **Runbook name** : Obligatoire. Nom du Runbook pour le démarrage de la tâche.  
 * **Runbook parameters** : facultatif. Dictionnaire de la liste de paramètres au format (name, value) où name doit être un nom de type String, et valeur peut être toute valeur JSON valide.
 
 Si vous souhaitez démarrer le Runbook **Get-AzureVMTextual** créé précédemment avec **VMName** et **resourceGroupName** en tant que paramètres, utilisez le format JSON suivant pour le corps de la demande.

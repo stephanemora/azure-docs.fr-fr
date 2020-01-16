@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Database Migration Service pour surveiller l’activité de migration | Microsoft Docs
+title: Surveiller l’activité de migration – Azure Database Migration Service
 description: Apprenez à utiliser Azure Database Migration Service pour surveiller l’activité de migration.
 services: database-migration
 author: HJToland3
@@ -8,17 +8,17 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 325bbee3f3d5ad5097f710cb56fe03baff97388a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60532814"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437928"
 ---
-# <a name="monitor-migration-activity"></a>Surveiller l’activité de migration
+# <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Surveiller l’activité de migration avec Azure Database Migration Service
 Dans cet article, vous allez apprendre à surveiller la progression d’une migration aux niveaux de la base de données et de la table.
 
 ## <a name="monitor-at-the-database-level"></a>Surveiller au niveau de la base de données
@@ -42,11 +42,11 @@ La table suivante répertorie les champs sur le panneau au niveau de la base de 
   <tbody>
     <tr>
       <td rowspan="3" class="ActivityStatus"><strong>État de l’activité</strong></td>
-      <td>Exécution</td>
+      <td>Exécution en cours</td>
       <td>L’activité de migration est en cours.</td>
     </tr>
     <tr>
-      <td>Succeeded</td>
+      <td>Opération réussie</td>
       <td>L’activité de migration a réussi sans problème.</td>
     </tr>
     <tr>
@@ -59,11 +59,11 @@ La table suivante répertorie les champs sur le panneau au niveau de la base de 
       <td>DMS configure le pipeline de migration.</td>
     </tr>
     <tr>
-      <td>Exécution</td>
+      <td>Exécution en cours</td>
       <td>Le pipeline DMS est en cours d’exécution et en train d’effectuer la migration.</td>
     </tr>
     <tr>
-      <td>Complete</td>
+      <td>Terminé</td>
       <td>La migration est terminée.</td>
     </tr>
     <tr>

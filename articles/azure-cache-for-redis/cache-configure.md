@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7c0642377e75e621e1774936262ffddd166ff06d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433534"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -62,7 +62,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Nouvelle demande de support](#new-support-request)
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La **Vue d’ensemble** fournit des informations de base sur votre cache, notamment le nom, les ports, le niveau tarifaire et des mesures de cache sélectionnées.
 
@@ -104,7 +104,7 @@ La section **Paramètres** vous permet d’accéder aux paramètres suivants et 
 
 
 
-### <a name="access-keys"></a>Clés d’accès
+### <a name="access-keys"></a>Clés d'accès
 Cliquez sur **Clés d’accès** pour afficher ou régénérer les clés d’accès de votre cache. Ces clés sont utilisées par les clients qui se connectent à votre cache.
 
 ![Clés d’accès du cache Azure pour Redis](./media/cache-configure/redis-cache-manage-keys.png)
@@ -120,7 +120,7 @@ Vous pouvez configurer les paramètres suivants dans le panneau **Paramètres av
 Par défaut, l’accès non SSL est désactivé pour les nouveaux caches. Pour activer le port non SSL, cliquez sur **Non** pour **Autoriser l’accès uniquement via SSL** dans le **panneau Paramètres avancés**, puis cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> L’accès SSL au cache Azure pour Redis prend en charge TLS 1.0 par défaut. Si vous le souhaitez, vous pouvez augmenter la version TLS minimale prise en charge jusqu'à TLS 1.2. Pour ce faire, utilisez la liste déroulante **Version TLS minimale** du panneau **Paramètres avancés**, puis cliquez sur **Enregistrer**.
+> L’accès SSL à Azure Cache for Redis prend en charge TLS 1.0, 1.1 et 1.2. Toutefois, les versions 1.0 et 1.1 vont bientôt être mises hors service.  Pour plus d’informations, lisez [Supprimer TLS 1.0 et 1.1](cache-remove-tls-10-11.md).
 
 ![Ports d’accès du cache Azure pour Redis](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -183,7 +183,7 @@ Vous pouvez surveiller ces mesures dans les sections [Graphiques de surveillance
 
 Chaque niveau tarifaire est associé à des limites spécifiques concernant les connexions clientes, la mémoire et la bande passante. Si votre cache est proche de la capacité maximale pour ces mesures pendant une période prolongée, une recommandation est créée. Pour plus d’informations sur les mesures et limites évaluées par l’outil **Recommandations**, consultez le tableau suivant :
 
-| Métrique du cache Azure pour Redis | Plus d’informations |
+| Métrique du cache Azure pour Redis | Informations complémentaires |
 | --- | --- |
 | Utilisation de la bande passante réseau |[Performances du cache - Bande passante disponible](cache-faq.md#cache-performance) |
 | Clients connectés |[Configuration du serveur Redis par défaut - maxclients](#maxclients) |
@@ -278,7 +278,7 @@ Vous pouvez spécifier des règles de pare-feu avec une des valeurs de début et
 > 
 > 
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>Propriétés
 Cliquez sur **Propriétés** pour afficher des informations sur le cache, y compris le point de terminaison et les ports du cache.
 
 ![Propriétés du cache Azure pour Redis](./media/cache-configure/redis-cache-properties.png)
@@ -300,12 +300,12 @@ Les paramètres de la section **Administration** vous permettent d’effectuer l
 * [Redémarrage](#reboot)
 
 
-### <a name="importexport"></a>Importation/Exportation
+### <a name="importexport"></a>Importer/Exporter
 L’importation/exportation est une opération de gestion de données de cache Azure pour Redis. Elle permet d’importer et d’exporter des données dans le cache en important ou en exportant un instantané de base de données du cache Azure pour Redis (RDB) depuis un cache Premium vers un objet blob de pages, dans un compte Azure Storage. L’Importation/Exportation vous permet de migrer entre différentes instances de cache Azure pour Redis ou de remplir le cache de données avant utilisation.
 
 L’importation peut servir à récupérer les fichiers RDB compatibles Redis depuis un serveur Redis en cours d’exécution dans un environnement ou dans un cloud, y compris si Redis est exécuté sur Linux, Windows ou n’importe quel fournisseur de cloud tel qu’Amazon Web Services. Importer des données est un moyen simple de créer un cache pré-rempli de données. Pendant le processus d’importation, le cache Azure pour Redis charge les fichiers RDB d’Azure Storage dans la mémoire, puis insère les clés dans le cache.
 
-L’exportation vous permet d’exporter les données stockées dans le cache Azure pour Redis vers des fichiers RDB compatibles. Vous pouvez utiliser cette fonctionnalité pour déplacer des données d’une instance de cache Azure pour Redis à une autre, ou vers un autre serveur Redis. Pendant le processus d’exportation, un fichier temporaire est créé sur la machine virtuelle qui héberge l’instance de serveur de cache Azure pour Redis, puis téléchargé vers le compte de stockage désigné. Lorsque l’opération d’exportation se termine avec un état de réussite ou d’échec, le fichier temporaire est supprimé.
+L’exportation vous permet d’exporter les données stockées dans le cache Azure pour Redis vers des fichiers RDB compatibles. Vous pouvez utiliser cette fonctionnalité pour déplacer des données d’une instance de Cache Azure pour Redis à une autre, ou vers un autre serveur Redis. Pendant le processus d’exportation, un fichier temporaire est créé sur la machine virtuelle qui héberge l’instance de serveur de cache Azure pour Redis, puis téléchargé vers le compte de stockage désigné. Lorsque l’opération d’exportation se termine avec un état de réussite ou d’échec, le fichier temporaire est supprimé.
 
 > [!IMPORTANT]
 > L’importation/exportation est uniquement disponible pour les caches de niveau Premium. Pour plus d’informations et pour obtenir des instructions, consultez la rubrique [Importer et exporter des données dans le cache Azure pour Redis](cache-how-to-import-export-data.md).
@@ -344,7 +344,7 @@ Cliquez sur **Mesures Redis** pour [affichage des mesures](cache-how-to-monitor.
 
 ### <a name="alert-rules"></a>Règles d'alerte
 
-Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des métriques du cache Azure pour Redis. Pour plus d'informations, consultez [Alertes](cache-how-to-monitor.md#alerts).
+Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des métriques du cache Azure pour Redis. Pour plus d’informations, consultez [Alertes](cache-how-to-monitor.md#alerts).
 
 ### <a name="diagnostics"></a>Diagnostics
 
@@ -458,7 +458,7 @@ Pour plus d’informations sur les bases de données, consultez [Quelles sont le
 > * CONFIG
 > * DEBUG
 > * MIGRATE
-> * Enregistrer
+> * SAVE
 > * SHUTDOWN
 > * SLAVEOF
 > * CLUSTER : les commandes d’écriture du cluster sont désactivées, mais celles de lecture seule sont autorisées.

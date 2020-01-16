@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 50d0ed644b5afa744e8bce478199079fd4fb7432
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8ca67d1ff3100aee02ed473c9cc2180de3973b8
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878946"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638933"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Supposons que vous disposez d’un dossier qui contient 100 000 objets enfant. E
 
 Lorsque vous utilisez une quantité importante de données dans Data Lake Storage Gen1, il est fort probable qu’un principal de service est utilisé pour permettre à des services tels qu’Azure HDInsight d’utiliser ces données. Toutefois, dans certains cas, il se peut que les utilisateurs individuels aient aussi besoin d’accéder aux données. Dans ces cas-là, vous devez utiliser les [groupes de sécurité](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) Azure Active Directory au lieu d’assigner des utilisateurs individuels à des dossiers et des fichiers.
 
-Une fois que vous avez assigné les autorisations à un groupe de sécurité, ajouter ou supprimer des utilisateurs de ce groupe ne nécessite aucune mise à jour de Data Lake Storage Gen1. Ceci contribue également à garantir que vous ne dépassez pas la limite de [32 ACL d’accès et par défaut](../azure-subscription-service-limits.md#data-lake-store-limits) (ceci inclut les quatre ACL de type POSIX qui sont toujours associées à chaque fichier et dossier : [l’utilisateur propriétaire](data-lake-store-access-control.md#the-owning-user), [le groupe propriétaire](data-lake-store-access-control.md#the-owning-group), [le masque](data-lake-store-access-control.md#the-mask) et autres).
+Une fois que vous avez assigné les autorisations à un groupe de sécurité, ajouter ou supprimer des utilisateurs de ce groupe ne nécessite aucune mise à jour de Data Lake Storage Gen1. Ceci contribue également à garantir que vous ne dépassez pas la limite de [32 ACL d’accès et par défaut](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits) (ceci inclut les quatre ACL de type POSIX qui sont toujours associées à chaque fichier et dossier : [l’utilisateur propriétaire](data-lake-store-access-control.md#the-owning-user), [le groupe propriétaire](data-lake-store-access-control.md#the-owning-group), [le masque](data-lake-store-access-control.md#the-mask) et autres).
 
 ### <a name="security-for-groups"></a>Sécurité liée aux groupes
 
@@ -98,13 +98,13 @@ En ce qui concernant la résilience des données avec Data Lake Storage Gen1, il
 
 Vous trouverez ci-dessous les trois options les plus recommandées pour orchestrer une réplication entre des comptes Data Lake Storage Gen1, et les différences clé entre chacune d’elles.
 
-|  |Distcp  |Azure Data Factory  |AdlCopy  |
+|  |Distcp  |Azure Data Factory  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limites de mise à l’échelle**     | Délimitée par des nœuds de travail        | Limitée par des unités de déplacement de données cloud max        | Délimitée par des unités Analytics        |
-|**Prend en charge la copie des valeurs delta**     |   OUI      | Non         | Non         |
-|**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | OUI        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
+|**Prend en charge la copie des valeurs delta**     |   Oui      | Non         | Non         |
+|**Orchestration intégrée**     |  NON (utiliser Oozie Airflow ou les tâches Cron)       | Oui        | NON (utiliser Azure Automation ou le Planificateur de tâches Windows)         |
 |**Systèmes de fichiers pris en charge**     | ADL, HDFS, WASB, S3, GS, CFS        |Nombreux, voir [Connecteurs](../data-factory/connector-azure-blob-storage.md).         | ADL vers ADL, WASB vers ADL (même région uniquement)        |
-|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | N/A          | Windows 10         |
+|**Système d’exploitation pris en charge**     |N’importe quel système d’exploitation prenant en charge Hadoop         | N/A          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Utiliser Distcp pour déplacer des données entre deux emplacements
 

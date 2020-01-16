@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666424"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351278"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
 Cet article répond aux questions courantes sur la migration de Stockage Azure. 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Comment créer un script pour copier des fichiers d'un conteneur à un autre ?**
 
@@ -171,7 +171,7 @@ Lorsque vous créez un compte de stockage, vous sélectionnez la région primair
 
 **Où puis-je obtenir plus d'informations sur le chiffrement du service de stockage Azure (SSE) ?**  
   
-Consultez les articles suivants :
+Voir les articles suivants :
 
 -  [Guide de sécurité du Stockage Azure](storage-security-guide.md)
 
@@ -259,7 +259,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource. 
 
--   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, voir [Gérer votre compte de stockage](storage-account-manage.md#access-keys).
+-   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
 
 -   Modifiez la stratégie d'accès pour autoriser un accès anonyme. Pour plus d'informations, voir [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
@@ -275,7 +275,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d'informations sur le processus de basculement, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
--   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
+-   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Appliquez l'une des méthodes suivantes :  
       
     - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
      

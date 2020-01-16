@@ -1,25 +1,16 @@
 ---
-title: Communication de service avec ASP.NET Core | Microsoft Docs
-description: Découvrez comment utiliser ASP.NET Core dans Reliable Services avec et sans état.
-services: service-fabric
-documentationcenter: .net
+title: Communication de service avec ASP.NET Core
+description: Découvrez comment utiliser ASP.NET Core dans des applications Azure Service Fabric Reliable Services avec état et sans état.
 author: vturecek
-manager: chackdan
-editor: ''
-ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: b2a1b1426af3e72756a7a85a173ef4a2a5671b02
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0d432bd19d0689ef508fca0bf24eed4406929f82
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900195"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639630"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Azure Reliable Services de Service Fabric
 
@@ -62,9 +53,9 @@ Une instance du service Reliable Service est représentée par votre classe de s
 Les implémentations `ICommunicationListener` pour Kestrel et HTTP.sys dans les packages NuGet `Microsoft.ServiceFabric.AspNetCore.*` ont des modèles d’utilisation similaires. Mais elles effectuent des actions légèrement différentes propres à chaque serveur web. 
 
 Les deux écouteurs de communications fournissent un constructeur qui accepte les arguments suivants :
- - **`ServiceContext serviceContext`** : il s’agit de l’objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
- - **`string endpointName`** : il s’agit du nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est là que se situe la principale différence entre les deux écouteurs de communication. HTTP.sys *nécessite* une configuration `Endpoint`, contrairement à Kestrel.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : il s’agit d’une expression lambda que vous implémentez dans laquelle vous créez et retournez un `IWebHost`. Vous pouvez ainsi configurer `IWebHost` comme vous le feriez normalement dans une application ASP.NET Core. L’expression lambda fournit une URL, qui est générée pour vous en fonction des options d’intégration de Service Fabric que vous utilisez et de la configuration `Endpoint` que vous fournissez. Vous pouvez ensuite modifier ou utiliser cette URL pour démarrer le serveur web.
+ - **`ServiceContext serviceContext`**  : il s’agit de l’objet `ServiceContext` qui contient des informations sur le service en cours d’exécution.
+ - **`string endpointName`**  : il s’agit du nom d’une configuration `Endpoint` dans le fichier ServiceManifest.xml. C’est là que se situe la principale différence entre les deux écouteurs de communication. HTTP.sys *nécessite* une configuration `Endpoint`, contrairement à Kestrel.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**  : il s’agit d’une expression lambda que vous implémentez dans laquelle vous créez et retournez un `IWebHost`. Vous pouvez ainsi configurer `IWebHost` comme vous le feriez normalement dans une application ASP.NET Core. L’expression lambda fournit une URL, qui est générée pour vous en fonction des options d’intégration de Service Fabric que vous utilisez et de la configuration `Endpoint` que vous fournissez. Vous pouvez ensuite modifier ou utiliser cette URL pour démarrer le serveur web.
 
 ## <a name="service-fabric-integration-middleware"></a>Intergiciel (middleware) d’intégration à Service Fabric
 Le paquet NuGet `Microsoft.ServiceFabric.AspNetCore` inclut la méthode d’extension `UseServiceFabricIntegration` sur `IWebHostBuilder` qui ajoute l’intergiciel (middleware) prenant en charge Service Fabric. Cet intergiciel (middleware) configure l’élément Kestrel ou HTTP.sys `ICommunicationListener` pour inscrire une URL de service unique auprès du service d’affectation de noms de Service Fabric. Ensuite, il valide les demandes des clients pour garantir le fait que les clients se connectent au service approprié. 
@@ -483,7 +474,7 @@ Lorsqu’il est exposé à Internet, un service sans état doit utiliser un poin
 | --- | --- | --- |
 | Serveur web | Kestrel | Kestrel est le serveur web par défaut, car il est pris en charge sur Windows et Linux. |
 | Configuration du port | statique | Un port statique connu doit être défini dans la configuration `Endpoints` du fichier ServiceManifest.xml, par exemple 80 pour HTTP et 443 pour HTTPS. |
-| ServiceFabricIntegrationOptions | Aucun | Utilisez l’option `ServiceFabricIntegrationOptions.None` lors de la configuration de l’intergiciel (middleware) d’intégration à Service Fabric afin que le service n’essaie pas de valider les demandes entrantes pour un identificateur unique. Les utilisateurs externes de votre application ne connaissent pas les informations d’identification uniques utilisées par l’intergiciel (middleware). |
+| ServiceFabricIntegrationOptions | None | Utilisez l’option `ServiceFabricIntegrationOptions.None` lors de la configuration de l’intergiciel (middleware) d’intégration à Service Fabric afin que le service n’essaie pas de valider les demandes entrantes pour un identificateur unique. Les utilisateurs externes de votre application ne connaissent pas les informations d’identification uniques utilisées par l’intergiciel (middleware). |
 | Nombre d'instances | -1 | Dans les scénarios d’utilisation classiques, le paramètre du nombre d’instances doit être défini sur *-1*. Cela est fait de sorte qu’une instance soit disponible sur tous les nœuds recevant le trafic provenant d’un équilibreur de charge. |
 
 Si plusieurs services exposés en externe partagent le même ensemble de nœuds, vous pouvez utiliser HTTP.sys avec un chemin URL unique, mais stable. Vous pouvez accomplir cela en modifiant l’URL fournie lors de la configuration d’IWebHost. Notez que cela s’applique uniquement à HTTP.sys.
@@ -509,7 +500,7 @@ Les services sans état qui sont appelés uniquement à partir du cluster doiven
 | Serveur web | Kestrel | Même si vous pouvez utiliser HTTP.sys pour les services sans état internes, Kestrel est le meilleur serveur pour permettre à plusieurs instances de service de partager un hôte.  |
 | Configuration du port | affecté de manière dynamique | Plusieurs réplicas d’un service avec état peuvent partager un processus hôte ou un système d’exploitation hôte, et nécessitent donc des ports uniques. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Avec l’affectation de port dynamique, ce paramètre empêche le problème d’erreur d’identité décrit précédemment. |
-| InstanceCount | any | Le paramètre du nombre d’instances peut être défini sur toute valeur nécessaire au bon fonctionnement du service. |
+| InstanceCount | n'importe laquelle | Le paramètre du nombre d’instances peut être défini sur toute valeur nécessaire au bon fonctionnement du service. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Service d’ASP.NET Core avec état interne uniquement
 Les services avec état qui sont appelés uniquement à partir du cluster doivent utiliser des ports affectés dynamiquement afin d’assurer une coopération entre plusieurs services. Nous vous recommandons la configuration suivante :

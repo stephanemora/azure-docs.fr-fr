@@ -4,18 +4,18 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172556"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680526"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
 Cet article fournit des réponses à des questions courantes sur la sauvegarde des machines virtuelles Azure avec le service [Sauvegarde Azure](backup-introduction-to-azure-backup.md).
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quelles images de machine virtuelle peuvent être activées pour la sauvegarde lorsque je les crée ?
 
@@ -93,7 +93,7 @@ La sauvegarde planifiée est déclenchée dans les 2 heures suivant l’heure de
 
 La stratégie de sauvegarde de la machine virtuelle Azure prend en charge une plage de rétention minimale allant de 7 à 9 999 jours. Toute modification apportée à une stratégie de sauvegarde de machine virtuelle existante avec une plage de rétention inférieure à sept jours nécessitera une mise à jour pour répondre à la durée de rétention minimale de sept jours.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurer
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Comment déterminer si je dois restaurer des disques uniquement ou une machine virtuelle complète ?
 
@@ -111,16 +111,9 @@ L’option de restauration de disque convient dans les cas suivants :
 
 Oui, vous pouvez utiliser des sauvegardes effectuées avant la migration des disques non managés vers des disques managés.
 
-- Par défaut, un travail de restauration de machine virtuelle crée une machine virtuelle non gérée.
-- Toutefois, vous pouvez restaurer des disques et les utiliser pour créer une machine virtuelle gérée.
-
 ### <a name="how-do-i-restore-a-vm-to-a-restore-point-before-the-vm-was-migrated-to-managed-disks"></a>Comment restaurer une machine virtuelle à un point de restauration antérieur à la migration de la machine virtuelle vers des disques managés ?
 
-Par défaut, un travail de restauration de machine virtuelle crée une machine virtuelle avec des disques non managés. Pour créer une machine virtuelle avec des disques managés :
-
-1. [Effectuez une restauration vers des disques non managés](tutorial-restore-disk.md#restore-a-vm-disk).
-2. [Convertissez les disques restaurés en disques managés](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk).
-3. [Créez une machine virtuelle avec des disques managés](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+Le processus de restauration ne change pas. Si le point de récupération est un point dans le temps où la machine virtuelle avait des disques non managés, vous pouvez [restaurer les disques en tant que disques non managés](tutorial-restore-disk.md#unmanaged-disks-restore). Si la machine virtuelle avait des disques managés, vous pouvez [restaurer les disques en tant que disques managés](tutorial-restore-disk.md#managed-disk-restore). Vous pouvez ensuite [créer une machine virtuelle à partir de ces disques](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
 [Découvrez](backup-azure-vms-automation.md#restore-an-azure-vm) comment effectuer ces opérations dans PowerShell.
 

@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: b9b0ba85aed4d63fe6bb939c9ed3b99d3e789397
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/11/2019
+ms.openlocfilehash: 53fd02856a805f8bb5d7261cc9e6e32861b2b4fd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75426989"
 ---
 # <a name="implement-search-traffic-analytics-in-azure-cognitive-search"></a>Implémenter la fonctionnalité d’analytique du trafic des recherches dans la Recherche cognitive Azure
 
@@ -76,7 +76,7 @@ Il s’agit de l’objet qui envoie les événements à la ressource Application
 
 Pour d’autres langages et plates-formes, consultez la [liste](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) complète.
 
-**Étape 2 : Demander un ID de recherche pour la corrélation**
+**Étape 2 : Demander un ID de recherche pour la corrélation**
 
 Pour mettre en corrélation les requêtes de recherche avec les clics, il est nécessaire de disposer d’un ID de corrélation qui lie ces deux événements distincts. La Recherche cognitive Azure vous fournit un ID de recherche avec un en-tête :
 
@@ -99,7 +99,7 @@ Pour mettre en corrélation les requêtes de recherche avec les clics, il est n�
     request.setRequestHeader("Access-Control-Expose-Headers", "x-ms-azs-searchid");
     var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
-**Étape 3 : Consigner les événements de recherche**
+**Étape 3 : Consigner les événements de recherche**
 
 Chaque fois qu’une requête de recherche est émise par un utilisateur, vous devez la consigner en tant qu’événement de recherche en respectant le schéma suivant sur un événement personnalisé Application Insights :
 
@@ -136,7 +136,7 @@ Chaque fois qu’une requête de recherche est émise par un utilisateur, vous d
     ScoringProfile: <scoring profile used>
     });
 
-**Étape 4 : Consigner les événements de clic**
+**Étape 4 : Consigner les événements de clic**
 
 Chaque fois qu’un utilisateur clique sur un document, vous obtenez un signal qui doit être consigné afin d’analyser la recherche. Utilisez les événements personnalisés d’Application Insights pour consigner ces événements avec le schéma suivant :
 
@@ -167,9 +167,7 @@ Chaque fois qu’un utilisateur clique sur un document, vous obtenez un signal q
 
 ## <a name="3---analyze-in-power-bi"></a>3 - Analyser dans Power BI
 
-Après avoir instrumenté votre application et vérifié que votre application est correctement connectée à Application Insights, vous pouvez utiliser un modèle prédéfini créé par la Recherche cognitive Azure pour Power BI Desktop. 
-
-La Recherche cognitive Azure fournit un [pack de contenu Power BI](https://app.powerbi.com/getdata/services/azure-search) de supervision pour vous permettre d’analyser les données de journal. Le pack de contenu ajoute des graphiques et des tableaux prédéfinis utiles pour analyser les données supplémentaires capturées pour l’analytique du trafic des recherches. Pour plus d’informations, consultez la [Page d’aide du pack de contenu](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-search/). 
+Après avoir instrumenté votre application et vérifié qu’elle est correctement connectée à Application Insights, vous pouvez télécharger un modèle de rapport prédéfini pour analyser les données dans Power BI Desktop. Le rapport contient des graphiques et des tableaux prédéfinis utiles pour analyser les données supplémentaires capturées pour l’analytique du trafic des recherches. 
 
 1. Dans le volet de navigation de gauche du tableau de bord de la Recherche cognitive Azure, sous **Paramètres**, cliquez sur **Analytique du trafic des recherches**.
 
@@ -179,7 +177,7 @@ La Recherche cognitive Azure fournit un [pack de contenu Power BI](https://app.
 
 2. Dans la même page, cliquez sur **Télécharger un rapport Power BI**.
 
-3. Le rapport s’ouvre dans Power BI Desktop et vous invite à vous connecter à Application Insights. Ces informations sont disponibles dans les pages du portail Azure relatives à votre ressource Application Insights.
+3. Le rapport s’ouvre dans Power BI Desktop et vous invite à vous connecter à Application Insights et à fournir des informations d’identification. Des informations de connexion sont disponibles dans les pages du portail Azure relatives à votre ressource Application Insights. Pour les informations d’identification, indiquez les mêmes nom d’utilisateur et mot de passe que vous utilisez pour vous connecter au portail.
 
    ![Se connecter à Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Se connecter à Application Insights")
 
@@ -189,11 +187,8 @@ Ce rapport contient des graphiques et des tableaux qui vous aident à prendre de
 
 Les métriques incluaient les éléments suivants :
 
-* Taux de clic (CTR) : rapport entre les utilisateurs qui cliquent sur un document spécifique et le nombre total de recherches.
+* Volume de recherche et paires terme-document les plus populaires : termes qui amènent l’utilisateur à cliquer sur le même document, classés par clics.
 * Recherches sans clic : termes renvoyant aux principales requêtes qui n’enregistrent aucun clic
-* Documents ayant reçu le plus de clics : documents les plus consultés, classés par ID, au cours des 24 dernières heures, des 7 derniers jours et des 30 derniers jours.
-* Paires terme-document populaires : termes qui amènent l’utilisateur à cliquer sur le même document, classés par clics.
-* Temps de clic : clics compartimentés en fonction du délai écoulé depuis la requête de recherche
 
 La capture d’écran suivante montre les rapports et graphiques intégrés permettant d’analyser l’analytique du trafic des recherches.
 

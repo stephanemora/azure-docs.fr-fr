@@ -1,19 +1,14 @@
 ---
-title: Améliorer l’excellence opérationnelle pour vos abonnements Azure avec Azure Advisor | Microsoft Docs
-description: Utilisez Advisor pour optimiser et faire mûrir l’excellence opérationnelle pour vos abonnements Azure.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
+title: Améliorer l’excellence opérationnelle pour vos abonnements Azure avec Azure Advisor
+description: Utiliser Advisor pour optimiser l’excellence opérationnelle de vos abonnements Azure
 ms.topic: article
 ms.date: 10/24/2019
-ms.author: sagupt
-ms.openlocfilehash: 7cf3d3b34d0921cd111f8111bc2008ef0eced962
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f34284ba62bd5dea98345ebe73365b332d38ee78
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033204"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443071"
 ---
 # <a name="achieve-operational-excellence-with-azure-advisor"></a>Atteindre l’excellence opérationnelle avec Azure Advisor
 
@@ -48,7 +43,7 @@ Azure Policy est un service d’Azure que vous utilisez pour créer, affecter et
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller](advisor-overview.md)
-* [Prise en main](advisor-get-started.md)
+* [Bien démarrer](advisor-get-started.md)
 * [Recommandations du conseiller en matière de coûts](advisor-cost-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)

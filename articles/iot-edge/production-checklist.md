@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1213ab4c623cb1d475dff1d71e65439b1d08f5c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665812"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75429448"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -39,7 +39,7 @@ Un certificat d’autorité de certification doit être installé sur chaque app
 
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
-Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, voir [Configurer un appareil IoT Edge comme passerelle transparente](how-to-create-transparent-gateway.md). Les étapes de configuration des certificats sont les mêmes que l’appareil soit ou non utilisé comme passerelle. Cet article fournit des scripts permettant de générer des exemples de certificats à des fins de test uniquement. N’utilisez pas ces exemples de certificats en production. 
+Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-create-transparent-gateway.md). 
 
 ### <a name="have-a-device-management-plan"></a>Élaborer un plan de gestion des appareils
 
@@ -251,7 +251,7 @@ Vous pouvez le faire dans **createOptions** au sein de chaque module. Par exempl
 
 **Options supplémentaires sur les systèmes Linux**
 
-* Configurez le moteur de conteneur pour envoyer des journaux au `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) en définissant `journald` en tant que pilote de journalisation par défaut. 
+* Configurez le moteur de conteneur pour envoyer des journaux au [journal](https://docs.docker.com/config/containers/logging/journald/) `systemd` en définissant `journald` comme pilote de journalisation par défaut. 
 
 * Supprimez régulièrement les anciens journaux d’activité de votre appareil en installant un outil logrotate. Utilisez la spécification de fichier suivante : 
 

@@ -3,14 +3,14 @@ title: Bonnes pratiques pour Azure Functions
 description: Découvrez les bonnes pratiques et les modèles pour Azure Functions.
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
-ms.date: 10/16/2017
+ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa85f636233a067713d127938d674b359bd03696
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227382"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433297"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -70,7 +70,11 @@ Il existe un certain nombre de facteurs qui ont un impact sur la façon dont les
 
 ### <a name="share-and-manage-connections"></a>Partager et gérer des connexions
 
-Réutilisez les connexions à des ressources externes chaque fois que possible.  Consultez [Guide pratique pour gérer les connexions dans Azure Functions](./manage-connections.md).
+Réutilisez les connexions à des ressources externes chaque fois que possible. Consultez [Guide pratique pour gérer les connexions dans Azure Functions](./manage-connections.md).
+
+### <a name="avoid-sharing-storage-accounts"></a>Éviter le partage des comptes de stockage
+
+Lorsque vous créez une application de fonction, vous devez l’associer à un compte de stockage. La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Pour optimiser les performances, utilisez un compte de stockage différent pour chaque application de fonction. Ceci est particulièrement important lorsque vous avez des fonctions Durable Functions ou des fonctions déclenchées par Event Hub, qui génèrent un volume élevé de transactions de stockage. Lorsque votre logique d’application interagit avec le stockage Azure, soit directement (à l’aide du SDK Stockage), soit via l’une des liaisons de stockage, vous devez utiliser un compte de stockage dédié. Par exemple, si vous avez une fonction déclenchée par Event Hub qui écrit des données dans le stockage d’objets blob, utilisez deux comptes de stockage : un pour l’application de fonction et un autre pour les objets blob stockés par la fonction.
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Ne pas mélanger code de test et code de production dans la même application de fonction
 
@@ -84,9 +88,17 @@ N’utilisez pas la journalisation détaillée dans le code de production, car c
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Utiliser du code asynchrone tout en évitant de bloquer les appels
 
-La programmation asynchrone est une pratique recommandée. Toutefois, évitez toujours de référencer la propriété `Result` ou d’appeler la méthode `Wait` sur une instance `Task`. Cette approche peut mener à un épuisement des threads.
+La programmation asynchrone est une pratique recommandée, en particulier lorsque des opérations d’E/S bloquantes sont impliquées.
+
+En C#, évitez toujours de référencer la propriété `Result` ou d’appeler la méthode `Wait` sur une instance `Task`. Cette approche peut mener à un épuisement des threads.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
+
+### <a name="use-multiple-worker-processes"></a>Utiliser plusieurs processus Worker
+
+Par défaut, les instances d’hôte des fonctions utilisent un seul processus Worker. Pour améliorer les performances, en particulier avec les runtimes à thread unique comme Python, utilisez [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) pour augmenter le nombre de processus Worker par hôte (10 maximum). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande. 
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Recevoir des messages par lots chaque fois que possible
 

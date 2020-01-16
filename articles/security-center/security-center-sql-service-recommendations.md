@@ -11,17 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/19/2019
+ms.date: 12/19/2019
 ms.author: memildin
-ms.openlocfilehash: 21da7c49b158345894ee7fdc164d205bcefe1640
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74ed55e1d460495bfa8d3d4c00bd37bb7f05260e
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663893"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552863"
 ---
-# <a name="protect-azure-data-and-storage-services-in-azure-security-center"></a>Protéger des services de données et de stockage Azure dans Azure Security Center
-Cette rubrique montre comment afficher et mettre en œuvre des recommandations en matière de sécurité pour les ressources de stockage et de données. Azure Security Center a trouvé ces recommandations lors de l’analyse de l’état de sécurité de vos ressources Azure.
+# <a name="protect-azure-data-and-storage-services"></a>Protéger les données et services de stockage Azure
+Quand Azure Security Center identifie des failles de sécurité potentielles, des suggestions sont émises pour vous guider tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
+
+Cet article décrit la page **Sécurité des données** de la section sur la sécurité des ressources dans Security Center.
+
+Pour obtenir la liste complète des recommandations que vous pouvez voir dans cette page, consultez [Recommandations relatives aux données et au stockage](recommendations-reference.md#recs-datastorage).
+
 
 ## <a name="view-your-data-security-information"></a>Afficher les informations sur la sécurité de vos données
 
@@ -31,7 +36,7 @@ Cette rubrique montre comment afficher et mettre en œuvre des recommandations e
 
     La page **Sécurité des données** s’ouvre avec des recommandations pour les ressources de données.
 
-    ![Ressources de données](./media/security-center-monitoring/sql-overview.png)
+    [![Ressources de données](./media/security-center-monitoring/sql-overview.png)](./media/security-center-monitoring/sql-overview.png#lightbox)
 
     À partir de cette page, vous pouvez :
 
@@ -58,29 +63,11 @@ Cette rubrique montre comment afficher et mettre en œuvre des recommandations e
 
 4. Effectuez les **Étapes de correction** et cliquez sur **Enregistrer**.
 
-## <a name="data-and-storage-recommendations"></a>Suggestions relatives aux données et au stockage
 
-|Type de ressource|Degré de sécurisation|Recommandation|Description|
-|----|----|----|----|
-|Compte de stockage|20|La sécurisation du transfert vers des comptes de stockage doit être activée|L’option de sécurisation du transfert oblige votre compte de stockage à accepter uniquement des requêtes provenant de connexions sécurisées (HTTPS). Le protocole HTTPS garantit l’authentification entre le serveur et le service, et protège les données en transit contre les attaques de la couche réseau (attaque de l’intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
-|Redis|20|Seules les connexions sécurisées à votre cache Redis doivent être activées|Activer les connexions établies uniquement par le biais de SSL au cache Azure pour Redis. L'utilisation de connexions sécurisées garantit l'authentification entre le serveur et le service et protège les données en transit contre les attaques de la couche réseau (attaque de l'intercepteur ou « man-in-the-middle », écoute clandestine, détournement de session).|
-|SQL|15|Transparent Data Encryption sur les bases de données SQL doit être activé|Activer le chiffrement transparent des données pour protéger les données au repos et respecter les exigences de conformité.|
-|SQL|15|L’audit des serveurs SQL doit être activé|Activez l’audit sur les serveurs Azure SQL. (Service Azure SQL uniquement. N’inclut pas SQL en cours d’exécution sur vos machines virtuelles.)|
-|Data Lake Analytics|5\.|Les journaux de diagnostic dans Data Lake Analytics doivent être activés|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d'activité à des fins d'investigation en cas d'incident de sécurité ou de compromission du réseau. |
-|Data Lake Store|5\.|Les journaux de diagnostic dans Azure Data Lake Store doivent être activés|Activez les journaux d’activité et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
-|SQL|30|Les vulnérabilités sur vos bases de données SQL doivent être éliminées|L’évaluation de la vulnérabilité SQL analyse les vulnérabilités de la sécurité dans votre base de données et expose tout manquement aux bonnes pratiques, comme les erreurs de configuration, les autorisations excessives et les données sensibles non protégées. La résolution des vulnérabilités détectées peut améliorer considérablement le niveau de sécurité de votre base de données.|
-|SQL|20|Provisionner un administrateur Azure AD pour SQL Server|Approvisionner un administrateur Azure AD pour votre serveur SQL afin d’activer l’authentification Azure AD. L’authentification Azure AD permet une gestion simplifiée des autorisations et une gestion centralisée des utilisateurs de bases de données et d’autres services Microsoft.|
-|Compte de stockage|15|L’accès aux comptes de stockage avec pare-feu et configurations de réseau virtuel doit être limité|Auditer l’accès illimité au réseau dans les paramètres de pare-feu de votre compte de stockage. Au lieu de cela, configurer les règles du réseau de telle manière que seules les applications des réseaux autorisés puissent accéder au compte de stockage. Pour autoriser les connexions de clients Internet ou locaux spécifiques, vous pouvez accorder l’accès au trafic à partir de réseaux virtuels Azure spécifiques ou vers des plages d’adresses IP Internet publiques.|
-|Compte de stockage|1|Les comptes de stockage doivent être migrés vers de nouvelles ressources Azure Resource Manager|Profitez des améliorations apportées à Azure Resource Manager v2 pour renforcer la sécurité de vos comptes de stockage : contrôle d’accès plus puissant, audit amélioré, déploiement et gouvernance basés sur Resource Manager, accès aux identités managées, accès au coffre de clés pour les secrets, authentification basée sur Azure AD, prise en charge des étiquettes et des groupes de ressources pour faciliter la gestion de la sécurité, et ainsi de suite.|
+## <a name="next-steps"></a>Étapes suivantes
 
-## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
+* [Liste complète des recommandations en matière de sécurité d’Azure Security Center](recommendations-reference.md)
 * [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
-
-Pour plus d’informations sur Security Center, consultez les rubriques suivantes :
-
-* [Définition des stratégies de sécurité dans Azure Security Center](tutorial-security-policy.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
-* [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 74375fdb5bf8d571cbdbc778c3c6e7b7b93f59ca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367998"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
 
@@ -30,10 +30,7 @@ Pour les locataires B2C, il existe deux modes principaux de communication avec l
 
 Dans cet article, vous découvrirez comment exécuter le cas d’usage automatisé. Vous allez créer un `B2CGraphClient` .NET 4.5 qui effectuera les opérations de création, de lecture, de mise à jour et de suppression (CRUD) d’utilisateurs. Le client aura une interface de ligne de commande (CLI) Windows permettant d’appeler des méthodes différentes. Toutefois, le code est écrit pour se comporter de façon non interactive et automatisée.
 
->[!IMPORTANT]
-> Vous **devez** utiliser l’[API Azure AD Graph](../active-directory/develop/active-directory-graph-api-quickstart.md) pour gérer les utilisateurs d’un annuaire Azure AD B2C. L’API Azure AD Graph est différente de l’API Microsoft Graph. Apprenez-en davantage dans ce billet de blog MSDN : [Microsoft Graph or Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de pouvoir créer des applications ou des utilisateurs, vous devez disposer d’un locataire Azure AD B2C. Si vous n’en avez pas, [Créez un locataire Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -63,8 +60,9 @@ L’autorisation *Accéder en lecture et en écriture aux données de l’annuai
 
 Si vous souhaitez donner à votre application la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe, vous devez lui accorder le rôle *Administrateur d’utilisateurs*.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et basculez vers le répertoire qui contient votre locataire Azure AD B2C.
-1. Sélectionnez **Azure AD B2C** dans le menu de gauche. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Rôles et administrateurs**.
 1. Sélectionnez le rôle **Administrateur d’utilisateurs**.
 1. Sélectionnez **Ajouter une attribution**.

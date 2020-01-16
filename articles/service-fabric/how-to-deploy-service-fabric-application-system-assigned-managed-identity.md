@@ -1,18 +1,14 @@
 ---
-title: Azure Service Fabric - Déployer une application Azure Service Fabric avec une identité managée attribuée par le système | Microsoft Docs
+title: Déployer une application Service Fabric avec une identité managée attribuée par le système
 description: Cet article explique comment attribuer une identité managée attribuée par le système à une application Azure Service Fabric
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
-ms.author: atsenthi
-ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5a14722363d642957904f9c7c699d3cf1d66c0f
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973420"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614823"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système (préversion)
 
@@ -97,5 +93,5 @@ Cette propriété déclare, pour Azure Resource Manager, et l’identité manag�
 * [Déployer un nouveau](./configure-new-azure-service-fabric-enable-managed-identity.md) cluster Azure Service Fabric avec une prise en charge d’identité managée 
 * [Activer une identité managée](./configure-existing-cluster-enable-managed-identity-token-service.md) dans un cluster Azure Service Fabric existant
 * Tirer parti de l’identité managée d’une [application Service fabric à partir du code source](./how-to-managed-identity-service-fabric-app-code.md)
-* [Déployer une application Azure Service Fabric avec une identité managée attribuée par un utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Déployer une application Azure Service Fabric avec une identité managée attribuée par l’utilisateur](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Accorder à une application Azure Service Fabric l’accès à d’autres ressources Azure](./how-to-grant-access-other-resources.md)

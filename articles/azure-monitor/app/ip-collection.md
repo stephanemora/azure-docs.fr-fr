@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432601"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Gestion de la géolocalisation et des adresses IP
 
@@ -73,7 +73,7 @@ Si vous devez uniquement modifier le comportement d’une seule ressource de App
 
 3. Sélectionnez **Modifier un modèle**. (Si votre modèle contient des propriétés ou des ressources supplémentaires qui n’apparaissent pas dans cet exemple de modèle, procédez avec prudence pour vous assurer que toutes les ressources accepteront le déploiement du modèle en tant que modification/mise à jour incrémentielle.)
 
-    ![Modifier un Modèle](media/ip-collection/edit-template.png)
+    ![Modifier le modèle](media/ip-collection/edit-template.png)
 
 4. Apportez les modifications suivantes au fichier JSON de votre ressource, puis cliquez sur **Enregistrer** :
 
@@ -84,7 +84,7 @@ Si vous devez uniquement modifier le comportement d’une seule ressource de App
 
 5. Sélectionnez **J’accepte** > **Achat**. 
 
-    ![Modifier un Modèle](media/ip-collection/purchase.png)
+    ![Modifier le modèle](media/ip-collection/purchase.png)
 
     Dans ce cas, aucun achat n’est effectué, nous mettons simplement à jour la configuration de la ressource Application Insights existante.
 
@@ -154,7 +154,7 @@ namespace MyWebApp
 > [!NOTE]
 > Si vous ne parvenez pas à accéder à `ISupportProperties`, assurez-vous d’exécuter la dernière version stable du kit de développement logiciel (SDK) Application Insights. Les `ISupportProperties` sont prévues pour des valeurs de cardinalité hautes, alors que les `GlobalProperties` sont plus adaptées à des valeurs de cardinalité basses telles que le nom de région, le nom de l’environnement, etc. 
 
-### <a name="enable-telemetry-initializer-for-aspnet"></a>Activez l’initialiseur de télémétrie pour. ASP.NET
+### <a name="enable-telemetry-initializer-for-aspnet"></a>Activer l’initialiseur de télémétrie pour. ASP.NET
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility;

@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de polygones d’extrusion dans Azure Maps | Microsoft Docs
-description: Comment ajouter une couche de polygones d’extrusion au kit SDK web Azure Maps.
+title: Ajouter une couche d’extrusion de polygone à Azure Maps | Microsoft Docs
+description: Guide pratique pour ajouter une couche d’extrusion de polygone au kit SDK web Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e6858359549f6a54513eda7bc692adcbc7d7e71b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: a357545bedde6a4e859a671005083a0fc665340d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432836"
 ---
-# <a name="add-an-extrusion-polygon-layer-to-the-map"></a>Ajouter une couche de polygones d’extrusion à la carte
+# <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Ajouter une couche d’extrusion de polygone à la carte
 
 Cet article explique comment utiliser la couche d’extrusion de polygone pour afficher des zones d’entités géométriques `Polygon` et `MultiPolygon` en tant que formes extrudées sur la carte. Le SDK web Azure Maps prend également en charge la création de géométries Circle comme défini dans le [schéma GeoJSON étendu](extend-geojson.md#circle). Ces cercles sont transformés en polygones une fois rendus sur la carte. Toutes les géométries de fonctionnalité peuvent aussi être facilement mises à jour si elles sont encapsulées avec la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 

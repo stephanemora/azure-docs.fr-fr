@@ -1,7 +1,7 @@
 ---
 title: 'Convertir en jeu de données : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Convertir en jeu de données dans le service Azure Machine Learning pour convertir une entrée de données au format de jeu de données interne utilisé par Microsoft Azure Machine Learning.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Convertir en jeu de données d’Azure Machine Learning pour convertir une entrée de données au format de jeu de données interne utilisé par Microsoft Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 81eb71da43623f6478e267f55d6576789d494f9b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717260"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428572"
 ---
 # <a name="convert-to-dataset"></a>Convertir en jeu de données
 
@@ -46,7 +46,7 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
     - **Remplacer des valeurs** : utilisez cette option pour spécifier une seule valeur exacte à remplacer par toute autre valeur exacte. Vous pouvez remplacer des valeurs manquantes ou des valeurs personnalisées en définissant la méthode **Remplacer** :
 
       - **Manquant** : choisissez cette option pour remplacer des valeurs manquantes dans le jeu de données d’entrée. Pour **Nouvelle valeur**, entrez la valeur qui remplacera les valeurs manquantes.
-      - **Personnalisé** : choisissez cette option pour remplacer des valeurs personnalisées dans le jeu de données d’entrée. Pour **Valeur personnalisée**, entrez la valeur que vous souhaitez rechercher. Par exemple, si vos données contiennent la chaîne `obs` en guise d’espace réservé pour les valeurs manquantes, vous entrez `obs`. Pour **Nouvelle valeur**, entrez la nouvelle valeur qui remplacera la chaîne d’origine.
+      - **Personnalisé** : choisissez cette option pour remplacer des valeurs personnalisées dans le jeu de données d’entrée. Pour **Valeur personnalisée**, entrez la valeur que vous souhaitez rechercher. Par exemple, si vos données contiennent la chaîne `obs` en guise d’espace réservé pour les valeurs manquantes, vous entrez `obs`. Pour **Nouvelle valeur**, entrez la nouvelle valeur qui remplacera la chaîne d’origine.
   
     Notez que l’opération **Remplacer des valeurs** s’applique uniquement aux correspondances exactes. Par exemple, ces chaînes ne sont pas affectées : `obs.`, `obsolete`.  
  
@@ -70,4 +70,4 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
   
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

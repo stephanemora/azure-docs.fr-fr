@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Ajouter une base de données unique à un groupe de basculement'
+title: 'Tutoriel : Ajouter une base de données unique à un groupe de basculement'
 description: Ajoutez une base de données unique Azure SQL Database à un groupe de basculement en utilisant le portail Azure, PowerShell ou Azure CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,25 +11,25 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 6e3b4be836699cc200d30168c14462f81136646b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8c4c346dd004e435846aff5592a20cd747c45df7
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821095"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552625"
 ---
-# <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Didacticiel : Ajouter une base de données unique Azure SQL Database à un groupe de basculement
+# <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Tutoriel : Ajouter une base de données unique Azure SQL Database à un groupe de basculement
 
-Configurez un groupe de basculement pour une base de données unique Azure SQL Database et testez le basculement en utilisant le portail Azure, PowerShell ou Azure CLI.  Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Configurez un groupe de basculement pour une base de données unique Azure SQL Database et testez le basculement en utilisant le portail Azure, PowerShell ou Azure CLI.  Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > - Créer une base de données unique Azure SQL Database.
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour une base de données unique entre deux serveurs SQL logiques.
 > - Tester le basculement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants : 
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
@@ -42,7 +42,7 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 
 - Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
@@ -57,10 +57,10 @@ Pour suivre le tutoriel, vérifiez que les prérequis ci-dessous sont remplis :
 ## <a name="2---create-the-failover-group"></a>2 - Créer le groupe de basculement 
 Dans de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ajoutez ensuite l’exemple de base de données au groupe de basculement. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Créez votre groupe de basculement et ajoutez-y votre base de données en utilisant le portail Azure. 
 
-1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez la base de données créée dans la section 1, comme `mySampleDatabase`. 
 1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
@@ -73,7 +73,7 @@ Créez votre groupe de basculement et ajoutez-y votre base de données en utilis
 1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
     - **Nom du groupe de basculement** : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`. 
     - **Serveur secondaire** : Sélectionnez l’option permettant de *configurer les paramètres requis*, puis choisissez de **Créer un serveur**. Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes, sélectionnez **Sélectionner**. 
-        - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
+        - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
         - **Connexion administrateur au serveur** : Tapez `azureuser`.
         - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
         - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `East US`. Cet emplacement ne peut pas être le même que celui de votre serveur principal.
@@ -166,7 +166,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtient une ou plusieurs bases de données SQL. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Ajoute une ou plusieurs bases de données Azure SQL à un groupe de basculement. |
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 Créez votre groupe de basculement et ajoutez-y votre base de données unique en utilisant Azure CLI. 
 
    > [!NOTE]
@@ -228,10 +228,10 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 ## <a name="3---test-failover"></a>3 - Tester le basculement 
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Testez le basculement en utilisant le portail Azure. 
 
-1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard **d’Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez la base de données unique créée dans la section 2, comme `mySampleDatbase`. 
 1. Sélectionnez le nom du serveur sous **Nom du serveur** pour ouvrir les paramètres du serveur.
 
@@ -313,7 +313,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 Testez le basculement en utilisant Azure CLI. 
 
 Vérifiez quel est le serveur secondaire :
@@ -373,10 +373,10 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 
 ---
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Nettoyez les ressources en supprimant le groupe de ressources. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Supprimez le groupe de ressources en utilisant le portail Azure. 
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
@@ -404,7 +404,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Supprimez le groupe de ressources en utilisant Azure CLI. 
 
@@ -429,6 +429,10 @@ Cette partie du tutoriel utilise les cmdlets CLI Az suivantes :
 ---
 
 
+> [!IMPORTANT]
+> Si vous souhaitez conserver le groupe de ressources tout en supprimant la base de données secondaire, retirez-la du groupe de basculement avant de la supprimer. La suppression d’une base de données secondaire avant son retrait du groupe de basculement peut entraîner un comportement imprévisible. 
+
+
 ## <a name="full-scripts"></a>Scripts complets
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -450,7 +454,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Exécute le basculement d’un groupe de basculement Azure SQL Database. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [!code-azurecli-interactive[main](../../cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh "Add single database to a failover group")]
 
@@ -468,7 +472,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Définit le principal du groupe de basculement en basculant toutes les bases de données à partir du serveur principal actuel. | 
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Aucun script n’est disponible pour le portail Azure. 
  
 ---
@@ -477,7 +481,7 @@ Vous trouverez d’autres scripts Azure SQL Database ici : [Azure PowerShell](s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté une base de données unique Azure SQL Database à un groupe de basculement et vous avez testé le basculement. Vous avez appris à effectuer les actions suivantes : 
+Dans ce tutoriel, vous avez ajouté une base de données unique Azure SQL Database à un groupe de basculement et vous avez testé le basculement. Vous avez appris à : 
 
 > [!div class="checklist"]
 > - Créer une base de données unique Azure SQL Database. 
@@ -487,4 +491,4 @@ Dans ce tutoriel, vous avez ajouté une base de données unique Azure SQL Databa
 Passez au didacticiel suivant pour découvrir comment ajouter votre pool élastique à un groupe de basculement. 
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement](sql-database-elastic-pool-failover-group-tutorial.md)
+> [Tutoriel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement](sql-database-elastic-pool-failover-group-tutorial.md)

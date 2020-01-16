@@ -1,6 +1,7 @@
 ---
-title: Migrer les packages SQL Server Integration Services vers une instance managée Azure SQL Database | Microsoft Docs
-description: Découvrez comment migrer les packages SQL Server Integration Services vers une instance managée Azure SQL Database.
+title: Migrer des packages SSIS vers une instance managée SQL
+titleSuffix: Azure Database Migration Service
+description: Découvrez comment migrer des packages et projets SQL Server Integration Services (SSIS) vers une instance managée Azure SQL Database à l’aide d’Azure Database Migration Service ou de l’Assistant Migration de données.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 06/08/2019
-ms.openlocfilehash: 82a047616c199e37bfa22f53e02f3f7b224b47c1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0ec3cb21c83c7b9f5ff0cec092ab210ea8894eb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082182"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437982"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Migrer les packages SQL Server Integration Services vers une instance managée Azure SQL Database
 Si vous utilisez SQL Server Integration Services (SSIS) et souhaitez migrer vos projets/packages SSIS de la source SSISDB hébergée par SQL Server vers la destination SSISDB hébergée par une instance managée Azure SQL Database, vous pouvez effectuer cette migration à l’aide d’Azure Database Migration Service.
@@ -32,7 +33,7 @@ Dans cet article, vous apprendrez comment :
 > * Évaluer des projets/packages SSIS sources.
 > * Migrer des projets/packages SSIS vers Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer cette procédure, vous avez besoin de :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 7df58c3f866ffd28348ecfa2e43bdccbd1d96001
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965693"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75647252"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -37,13 +37,13 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations relatives à l’interface réseau](virtual-network-network-interface.md#permissions).
 
 ## <a name="add-ip-addresses"></a>Ajouter des adresses IP
 
-Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#public) [IPv4](#ipv4) que nécessaire à une interface réseau, dans le respect des [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Vous pouvez ajouter une adresse IPv6 privée à une [configuration IP secondaire](#secondary) (à condition qu’il n’existe pas déjà de configuration IP secondaire) pour une interface réseau existante. Chaque interface réseau peut avoir une adresse IPv6 privée maximum. Vous pouvez si vous le souhaitez ajouter une adresse IPv6 publique à une configuration d’interface réseau IPv6. Consultez [IPv6](#ipv6) pour plus d’informations sur l’utilisation des adresses IPv6.
+Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#public) [IPv4](#ipv4) que nécessaire à une interface réseau, dans les limites listées dans l’article [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Vous pouvez ajouter une adresse IPv6 privée à une [configuration IP secondaire](#secondary) (à condition qu’il n’existe pas déjà de configuration IP secondaire) pour une interface réseau existante. Chaque interface réseau peut avoir une adresse IPv6 privée maximum. Vous pouvez si vous le souhaitez ajouter une adresse IPv6 publique à une configuration d’interface réseau IPv6. Consultez [IPv6](#ipv6) pour plus d’informations sur l’utilisation des adresses IPv6.
 
 1. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *interfaces réseau*. Lorsque la mention **interfaces réseau** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Sélectionnez dans la liste l’interface réseau pour laquelle vous souhaitez ajouter une adresse IPv4.
@@ -53,9 +53,9 @@ Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#pub
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
-   |Nom|OUI|Doit être unique pour l’interface réseau|
-   |Type|OUI|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
-   |Méthode d’affectation d’adresses IP privées|OUI|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
+   |Name|Oui|Doit être unique pour l’interface réseau|
+   |Type|Oui|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
+   |Méthode d’affectation d’adresses IP privées|Oui|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
    |Adresse IP publique|Non|**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Ajoutez manuellement des adresses IP privées secondaires au système d’exploitation de la machine virtuelle en suivant les instructions de l’article [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config). Consultez les adresses IP [privées](#private) pour connaître les considérations spécifiques avant d’ajouter manuellement des adresses IP à un système d’exploitation de machine virtuelle. N’ajoutez pas d’adresse IP publique au système d’exploitation de la machine virtuelle.
 
@@ -107,18 +107,18 @@ Vous pouvez supprimer des adresses IP [privées](#private) et [publiques](#publi
 
 Les adresses IP [privées](#private) et (éventuellement) [publiques](#public) sont assignées à une ou plusieurs configurations IP assignées à une interface réseau. Il existe deux types de configuration IP :
 
-### <a name="primary"></a>Primaire
+### <a name="primary"></a>Principal
 
 Une configuration IP principale est assignée à chaque interface réseau. Une configuration IP principale :
 
-- Dispose d’une adresse [privée](#private) [IPv4](#ipv4) qui lui est assignée. Vous ne pouvez pas assigner d’adresse [IPv6](#ipv6) privée à une configuration IP principale.
+- Dispose d’une adresse [privée](#private)[IPv4](#ipv4) qui lui est affectée. Vous ne pouvez pas assigner d’adresse [IPv6](#ipv6) privée à une configuration IP principale.
 - Une adresse IPv4 [publique](#public) peut également lui être assignée. On ne peut pas assigner une adresse IPv6 publique à une configuration IP (IPv4) principale. 
 
-### <a name="secondary"></a>Secondaire
+### <a name="secondary"></a>Secondary
 
 En plus d’une configuration IP principale, une interface réseau peut avoir zéro, une ou plusieurs configurations IP secondaires qui lui sont assignées. Une configuration IP secondaire :
 
-- Doit avoir une adresse IPv4 ou IPv6 privée qui lui est assignée. Si l’adresse est de type IPv6, l’interface réseau peut uniquement avoir une seule configuration IP secondaire. Si l’adresse est de type IPv4, plusieurs configurations IP secondaires peuvent être assignées à l’interface réseau. Pour plus d’informations sur le nombre d’adresses IPv4 privées et publiques qui peuvent être assignées à une interface réseau, consultez l’article [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- Doit avoir une adresse IPv4 ou IPv6 privée qui lui est assignée. Si l’adresse est de type IPv6, l’interface réseau peut uniquement avoir une seule configuration IP secondaire. Si l’adresse est de type IPv4, plusieurs configurations IP secondaires peuvent être assignées à l’interface réseau. Pour plus d’informations sur le nombre d’adresses IPv4 privées et publiques qui peuvent être assignées à une interface réseau, consultez l’article [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Une adresse IPv4 ou IPv6 publique peut également lui être assignée. Il est utile d’assigner plusieurs adresses IPv4 à une interface réseau dans différents scénarios :
   - D’héberger plusieurs sites web ou services avec des adresses IP différentes et des certificats SSL sur un serveur unique.
   - Une machine virtuelle joue le rôle d’appliance virtuelle réseau, comme un pare-feu ou un équilibreur de charge.
@@ -154,7 +154,7 @@ En plus de permettre à une machine virtuelle de communiquer avec d’autres res
 
 Les adresses IP publiques assignées via une ressource d’adresse IP publique permettent une connectivité entrante vers une machine virtuelle à partir d’Internet. Les connexions sortantes vers Internet utilisent une adresse IP prédictible. Pour en savoir plus, consultez [Comprendre les connexions sortantes dans Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez affecter une adresse IP publique à une configuration IP, mais ce n’est pas obligatoire. Si vous n’assignez pas d’adresse IP publique à une machine virtuelle par l’association d’une ressource d’adresse IP publique, cette dernière peut encore communiquer en sortie vers Internet. Dans ce cas l’adresse IP privée correspond à une adresse de réseau source convertie par Azure en adresse IP publique non prédictible. Pour en savoir plus sur les ressources d’adresses IP publiques, voir [Ressource d’adresse IP publique](virtual-network-public-ip-address.md).
 
-Le nombre d’adresses IP publiques et privées que vous pouvez assigner à une interface réseau est limité. Pour en savoir plus, consultez l’article [Limites d’Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Le nombre d’adresses IP publiques et privées que vous pouvez assigner à une interface réseau est limité. Pour en savoir plus, consultez l’article [Limites d’Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 > [!NOTE]
 > Azure convertit l’adresse IP privée d’une machine virtuelle en adresse IP publique. Par conséquent, le système d’exploitation de la machine virtuelle n’a pas connaissance d’adresses IP publiques qui lui sont assignées, et il est inutile d’assigner manuellement une adresse IP publique au sein du système d’exploitation.
@@ -183,7 +183,7 @@ Vous pouvez spécifier les versions suivantes lors de l’attribution d’adress
 
 ### <a name="ipv4"></a>IPv4
 
-Chaque interface réseau doit avoir une configuration IP [principale](#primary) avec une adresse [privée](#private) [IPv4](#ipv4) qui lui est assignée. Vous pouvez ajouter une ou plusieurs configurations IP [secondaires](#secondary) disposant chacune d’une adresse IPv4 privée et (éventuellement ) d’une adresse IPv4 [publique](#public).
+Chaque interface réseau doit avoir une configuration IP [principale](#primary) avec une adresse [privée](#private) [IPv4](#ipv4) qui lui est affectée. Vous pouvez ajouter une ou plusieurs configurations IP [secondaires](#secondary) disposant chacune d’une adresse IPv4 privée et (éventuellement ) d’une adresse IPv4 [publique](#public).
 
 ### <a name="ipv6"></a>IPv6
 

@@ -1,25 +1,16 @@
 ---
-title: Minuteries et rappels pour Reliable Actors | Microsoft Docs
-description: Présentation des minuteries et rappels pour Service Fabric Reliable Actors.
-services: service-fabric
-documentationcenter: .net
+title: Minuteurs et rappels dans Reliable Actors
+description: Présentation des minuteurs et rappels pour Service Fabric Reliable Actors, avec notamment des conseils sur l’utilisation de chacun d’eux.
 author: vturecek
-manager: chackdan
-editor: amanbha
-ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726806"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639613"
 ---
 # <a name="actor-timers-and-reminders"></a>Minuteries et rappels d’acteur
 Les acteurs peuvent planifier un travail régulier par eux-mêmes en inscrivant des minuteries ou des rappels. Cet article montre comment utiliser des minuteries et des rappels, puis explique les différences entre les deux.

@@ -1,25 +1,14 @@
 ---
-title: Cycle de vie des applications dans Service Fabric | Microsoft Docs
+title: Cycle de vie des applications dans Service Fabric
 description: Décrit le développement, le déploiement, le test, la mise à niveau, la maintenance et la suppression d’applications Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: 08837cca-5aa7-40da-b087-2b657224a097
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 1/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beeb1f1512cf94582dd561fa768f2e8e6649d686
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378002"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Cycle de vie des applications Service Fabric
 Comme pour les autres plateformes, une application sur Azure Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à différents rôles de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.
@@ -34,7 +23,7 @@ Les rôles de modèle de service sont les suivants :
 * **Administrateur d’application** : prend des décisions sur la configuration de l’application (indication des paramètres de modèle de configuration), le déploiement (mappage aux ressources disponibles) et la qualité de service. Par exemple, un administrateur d’application détermine la langue locale de l’application (anglais pour les États-Unis ou japonais pour le Japon, par exemple). Une application déployée différente peut avoir différents paramètres.
 * **Opérateur** : déploie des applications basées sur la configuration et les spécifications définies par l’administrateur d’application. Par exemple, un opérateur met en service et déploie l'application et s'assure qu'elle s'exécute dans Azure. Les opérateurs surveillent les informations d'intégrité et de performances des applications et gèrent l'infrastructure physique en fonction des besoins.
 
-## <a name="develop"></a>Développement
+## <a name="develop"></a>Développer
 1. Un *développeur de service* développe différents types de services à l’aide du modèle de programmation [Reliable Actors](service-fabric-reliable-actors-introduction.md) ou [Reliable Services](service-fabric-reliable-services-introduction.md).
 2. Un *développeur de service* décrit de manière déclarative les types de service développés dans un fichier de manifeste de service comprenant au moins un package de code, de configuration et de données.
 3. Un *développeur d'application* crée ensuite une application à l'aide de différents types de service.
@@ -59,7 +48,7 @@ Pour obtenir des exemples, consultez [Déployer une application](service-fabric-
 
 Consultez la rubrique [Introduction au service d’analyse des erreurs](service-fabric-testability-overview.md) pour plus d'informations.
 
-## <a name="upgrade"></a>Mise à niveau
+## <a name="upgrade"></a>Mettre à niveau
 1. Un *développeur de service* met à jour les services constitutifs de l’application instanciée et/ou corrige les bogues et fournit une nouvelle version du manifeste de service.
 2. Un *développeur d'application* substitue et ajuste les paramètres de configuration et de déploiement des services constitutifs et fournit une nouvelle version du manifeste d'application. Le développeur d'application intègre ensuite les nouvelles versions des manifestes de service à l'application et fournit une nouvelle version du type d'application dans un package d'application mis à jour.
 3. Un *administrateur d'application* incorpore la nouvelle version du type d'application dans l'application cible en mettant à jour les paramètres appropriés.

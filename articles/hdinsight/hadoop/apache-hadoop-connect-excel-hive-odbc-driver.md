@@ -1,20 +1,19 @@
 ---
 title: Excel et Apache Hadoop avec le Pilote ODBC – Azure HDInsight
 description: Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d’interroger des données dans des clusters HDInsight à partir de Microsoft Excel.
-keywords: hadoop excel,hive excel,hive odbc
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.openlocfilehash: 37cb05c4bf3822c9dc21b1fa9cd0ea4a2ba6d933
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/11/2019
+ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177333"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435809"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Apache Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
 
@@ -24,7 +23,7 @@ La solution de données volumineuses de Microsoft intègre des composants BI (Bu
 
 Il est également possible de connecter les données associées à un cluster HDInsight et d'autres sources de données, y compris d'autres clusters Hadoop (non HDInsight), à partir d'Excel au moyen du complément Microsoft Power Query pour Excel. Pour plus d’informations sur l’installation et l’utilisation de Power Query, consultez [Connexion d’Excel à HDInsight à l’aide de Power Query](../hdinsight-connect-excel-power-query.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
@@ -51,8 +50,8 @@ La procédure suivante explique comment créer une source de données ODBC Hive.
 
    | Propriété | Description |
    | --- | --- |
-   |  Data Source Name |Donnez un nom à votre source de données |
-   |  Host(s) (Hôte(s)) |Entrez `HDInsightClusterName.azurehdinsight.net`. Par exemple, `myHDICluster.azurehdinsight.net` |
+   |  Nom de la source de données |Donnez un nom à votre source de données |
+   |  Host(s) (Hôte(s)) |Entrez `HDInsightClusterName.azurehdinsight.net`. Par exemple : `myHDICluster.azurehdinsight.net`. Remarque : `HDInsightClusterName-int.azurehdinsight.net` est pris en charge tant que la machine virtuelle cliente est appairée au même réseau virtuel. |
    |  Port |Utilisez **443**. (ce port est passé de 563 à 443). |
    |  Base de données |Utilisez **Default**. |
    |  Mechanism |Sélectionnez **Windows Azure HDInsight Service**. |

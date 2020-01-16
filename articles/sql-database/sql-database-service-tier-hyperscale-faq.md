@@ -1,5 +1,5 @@
 ---
-title: FAQ - Hyperscale (Citus) - Azure Database pour PostgreSQL
+title: Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 description: Réponses aux questions fréquemment posées par les clients sur une base de données Azure SQL dans le niveau de service Hyperscale, communément appelée « base de données Hyperscale ».
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 377de93733d94d8cff5518eebb8ebba38154d10d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6a25d5197746e04ffa25ee397e6d8451e24ae176
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974017"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75615001"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 
@@ -157,7 +157,7 @@ Le journal des transactions avec Hyperscale est pratiquement infini. Vous n’av
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Ma `tempdb` évolue-t-elle au fil de la croissance de ma base de données ?
 
-Votre base de données `tempdb` se trouve sur un stockage SSD local et elle est configurée en fonction de la taille de calcul que vous provisionnez. Votre base de données `tempdb` est optimisée de façon à fournir des performances optimales. La taille de `tempdb` n’est pas configurable et elle est gérée pour vous.
+Votre base de données `tempdb` se trouve sur un stockage SSD local et elle est dimensionnée proportionnellement à la taille de calcul que vous provisionnez. Votre base de données `tempdb` est optimisée de façon à fournir des performances optimales. La taille de `tempdb` n’est pas configurable et elle est gérée pour vous.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>La taille de ma base de données augmente-t-elle automatiquement ou dois-je gérer la taille des fichiers de données ?
 
@@ -165,7 +165,7 @@ La taille de votre base de données croît automatiquement au fil de l’inserti
 
 ### <a name="what-is-the-smallest-database-size-that-hyperscale-supports-or-starts-with"></a>Quelle est la plus petite taille de base de données prise en charge par Hyperscale ou avec laquelle il peut démarrer ?
 
-10 Go.
+40 Go. Une base de données Hyperscale est créée avec une taille de départ de 10 Go. Ensuite, elle commence à croître de 10 Go toutes les 10 minutes, jusqu’à atteindre la taille de 40 Go. Chacun de ces blocs de 10 Go est alloué sur un serveur de pages différent afin de fournir un nombre d’IOPS plus élevé et un parallélisme d’E/S supérieur. En raison de cette optimisation, même si vous choisissez une taille de base de données initiale inférieure à 40 Go, la base de données passera automatiquement à au moins 40 Go.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>De quel incrément la taille de ma base de données augmente-t-elle ?
 
@@ -268,13 +268,13 @@ Oui.
 
 L’objectif de point de récupération est de 0 minute. L’objectif de délai de récupération est inférieur à 10 minutes, quelle que soit la taille de la base de données. 
 
-### <a name="do-backups-of-large-databases-affect-compute-performance-on-my-primary"></a>Les sauvegardes de grandes bases de données affectent-elles les performances de calcul sur mon nœud principal ?
+### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>La sauvegarde de base de données affecte-t-elle les performances de calcul sur mes réplicas principaux ou secondaires ?
 
-Non. Les sauvegardes sont gérées par le sous-système de stockage et tirent parti des captures instantanées de stockage. Elles n’affectent pas la charge de travail utilisateur sur le nœud principal.
+Non. Les sauvegardes sont gérées par le sous-système de stockage et tirent parti des captures instantanées de stockage. Elles n’affectent pas les charges de travail utilisateur.
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>Puis-je effectuer une géorestauration avec une base de données Hyperscale ?
 
-Oui.  La géo-restauration est entièrement prise en charge.
+Oui.  La géo-restauration est entièrement prise en charge. Contrairement à la limite de restauration dans le temps, la géorestauration peut nécessiter une opération à l’échelle des données de longue durée.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>Puis-je configurer la géoréplication avec une base de données Hyperscale ?
 
@@ -296,7 +296,7 @@ Non. PolyBase n’est pas pris en charge dans Azure SQL Database.
 
 ### <a name="does-hyperscale-have-support-for-r-and-python"></a>Hyperscale peut-il prendre en charge R et Python ?
 
-Non. R et Python ne sont pas pris en charge dans Azure SQL Database.
+Pas pour l'instant.
 
 ### <a name="are-compute-nodes-containerized"></a>Les nœuds de calcul sont-ils placés dans des conteneurs ?
 
@@ -306,11 +306,11 @@ Non. Les processus Hyperscale s’exécutent sur des nœuds [Service Fabric](htt
 
 ### <a name="how-much-write-throughput-can-i-push-in-a-hyperscale-database"></a>Quel débit d’écriture puis-je envoyer (push) dans une base de données Hyperscale ?
 
-La limite du débit du journal des transactions est définie sur 100 Mo/s pour toute taille de calcul Hyperscale. La capacité à atteindre ce taux dépend de plusieurs facteurs, notamment le type de charge de travail, la configuration du client et la capacité de calcul suffisante sur le réplica de calcul principal pour produire le journal à ce rythme.
+Le débit limite du journal des transactions est défini sur 100 Mo/s pour toute taille de calcul Hyperscale. La capacité à atteindre ce taux dépend de plusieurs facteurs, notamment le type de charge de travail, la configuration du client et la capacité de calcul suffisante sur le réplica de calcul principal pour produire le journal à ce rythme.
 
 ### <a name="how-many-iops-do-i-get-on-the-largest-compute"></a>Combien d’IOPS puis-je obteni sur le plus grand calcul ?
 
-Les IOPS et la latence d’E/S varient en fonction des modèles de charge de travail. Si les données faisant l’objet d’un accès sont mises en cache sur le réplica de calcul, vous verrez les mêmes performances d’E/S que celles du disque SSD local.
+Les IOPS et la latence d’E/S varient en fonction des modèles de charge de travail. Si les données faisant l’objet d’un accès sont mises en cache sur le réplica de calcul, vous verrez les mêmes performances d’E/S qu’avec le disque SSD local.
 
 ### <a name="does-my-throughput-get-affected-by-backups"></a>Mon débit est-il affecté par les sauvegardes ?
 
@@ -318,7 +318,11 @@ Non. La capacité de calcul est découplée de la couche de stockage. Cela élim
 
 ### <a name="does-my-throughput-get-affected-as-i-provision-additional-compute-replicas"></a>Mon débit est-il affecté quand je provisionne des réplicas de calcul supplémentaires ?
 
-Comme le stockage est partagé et qu’aucune réplication physique directe n’est faite entre les réplicas de calcul principaux et secondaires, techniquement, le débit sur le réplica principal n’est pas affecté par l’ajout de réplicas secondaires. Cependant, nous pouvons limiter la charge de travail agressive continue pour que le journal s’applique sur les réplicas secondaires et les serveurs de pages à rattraper, et éviter ainsi des performances de lecture médiocres sur les réplicas secondaires.
+Comme le stockage est partagé et qu’aucune réplication physique directe n’est effectuée entre les réplicas de calcul principaux et secondaires, le débit sur le réplica principal n’est pas affecté directement par l’ajout de réplicas secondaires. Cependant, nous pouvons limiter la charge de travail en écriture agressive continue sur le réplica principal pour que le journal s’applique sur les réplicas secondaires et les serveurs de pages à rattraper, et éviter ainsi des performances de lecture médiocres sur les réplicas secondaires.
+
+### <a name="how-do-i-diagnose-and-troubleshoot-performance-problems-in-a-hyperscale-database"></a>Comment faire pour diagnostiquer et résoudre les problèmes de performances dans une base de données Hyperscale ?
+
+Pour la plupart des problèmes de performances, en particulier ceux qui ne proviennent pas des performances de stockage, les étapes courantes de diagnostic et de dépannage SQL Server s’appliquent. Pour obtenir des diagnostics de stockage spécifiques à Hyperscale, consultez [Diagnostics de résolution des problèmes de performances Hyperscale SQL](sql-database-hyperscale-performance-diagnostics.md).
 
 ## <a name="scalability-questions"></a>Questions sur l’extensibilité
 
@@ -367,7 +371,7 @@ Non. Vous pouvez vous connecter au réplica avec une échelle horizontale en lec
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Est-ce que le système effectue un équilibrage de charge intelligent de la charge de travail de lecture ?
 
-Non. Une connexion avec intention de lecture seule est redirigée vers un réplica de lecture avec échelle horizontale en lecture arbitraire.
+Non. Une nouvelle connexion avec intention de lecture seule est redirigée vers un réplica de scale-out de lecture arbitraire.
 
 ### <a name="can-i-scale-updown-the-secondary-compute-replicas-independently-of-the-primary-replica"></a>Puis-je effectuer un scale-up/down des réplicas de calcul secondaires indépendamment du réplica principal ?
 
@@ -383,7 +387,7 @@ Non. Les bases de données Hyperscale ont un stockage partagé, ce qui signifie 
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Quel est le décalage entre le réplica de calcul principal et le réplica de calcul secondaire ?
 
-À partir du moment où une transaction est validée sur le réplica principal, en fonction du débit actuel de génération du journal, la synchronisation peut être instantanée ou ne prendre que quelques millisecondes.
+La latence des données entre le moment où une transaction est validée sur le réplica principal et le moment où elle est visible sur un réplica secondaire dépend du taux de génération de journal actuel. La latence des données ne prend généralement que quelques millisecondes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

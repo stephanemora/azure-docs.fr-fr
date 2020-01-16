@@ -1,25 +1,14 @@
 ---
-title: Sérialisation des objets Reliable Collections dans Azure Service Fabric | Microsoft Docs
-description: Sérialisation des objets Reliable Collections dans Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: masnider,rajak
-ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Sérialisation des objets Reliable Collection
+description: Découvrez-en plus sur la sérialisation des objets Reliable Collection dans Azure Service Fabric, notamment la stratégie par défaut et la définition de la sérialisation personnalisée.
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 5/8/2017
-ms.author: atsenthi
-ms.openlocfilehash: d5e7dfb84f6e8a8fbd029ccc0b15c17f68216c33
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 666e1bb45a9c75ee143f15a0d871d6ae1408eca9
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599312"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639545"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Sérialisation des objets Reliable Collections dans Azure Service Fabric
 Les objets Reliable Collections répliquent et conserver leurs éléments pour permettre à ces derniers de résister aux pannes d’ordinateur et de courant.
@@ -41,7 +30,7 @@ Reliable State Manager intègre un sérialiseur pour les types suivants :
 - byte[]
 - char
 - string
-- décimal
+- Décimal
 - double
 - float
 - int

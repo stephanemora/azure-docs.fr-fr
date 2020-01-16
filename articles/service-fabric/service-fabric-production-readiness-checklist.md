@@ -1,25 +1,14 @@
 ---
-title: Liste de contrôle de l’état préparation à la production d’Azure Service Fabric | Microsoft Docs
+title: Liste de contrôle de disponibilité de production Azure Service Fabric
 description: Préparez votre application Service Fabric et votre cluster de production en suivant les meilleures pratiques.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 6/05/2019
-ms.author: atsenthi
-ms.openlocfilehash: 9e86f7306ee70bee2e084b967867e2a9be5b66e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 90d600b01aa870f7b3a58e70ef32e774e7107524
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599357"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376798"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 

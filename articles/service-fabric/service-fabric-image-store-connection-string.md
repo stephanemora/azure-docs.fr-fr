@@ -1,29 +1,20 @@
 ---
-title: Chaîne de connexion du magasin d’images Azure Service Fabric | Microsoft Docs
-description: Comprendre la chaîne de connexion du magasin d’images
-services: service-fabric
-documentationcenter: .net
+title: Chaîne de connexion du magasin d’images Azure Service Fabric
+description: Découvrez la chaîne de connexion du magasin d’images, notamment ses utilisations et applications dans un cluster Service Fabric.
 author: alexwun
-manager: chackdan
-editor: ''
-ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 4a56b48c0041e963b89312c59335b45cabacc1bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3395248188c2a16736cfc8cea262fe163a6944b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720171"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645665"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Comprendre le paramètre ImageStoreConnectionString
 
-Dans une partie de notre documentation, nous mentionnons brièvement l’existence d’un paramètre « ImageStoreConnectionString », sans décrire ce qu’il signifie vraiment. Et, après avoir parcouru un article comme [Déployer et supprimer des applications à l’aide de PowerShell][10], il semble que vous vous contentez de copier/coller la valeur telle qu’elle apparaît dans le manifeste du cluster cible. Le paramètre doit donc être configurable par cluster, mais, lorsque vous créez un cluster avec le [Portail Azure][11], il n’y a pas d’option permettant de configurer ce paramètre, qui est toujours « fabric:ImageStore ». Dans ce cas, quelle est l’utilité de ce paramètre ?
+Dans une partie de notre documentation, nous mentionnons brièvement l’existence d’un paramètre « ImageStoreConnectionString », sans décrire ce qu’il signifie vraiment. Et, après avoir parcouru un article comme [Déployer et supprimer des applications à l’aide de PowerShell][10], il semble que vous vous contentez de copier/coller la valeur telle qu’elle apparaît dans le manifeste du cluster cible. Le paramètre doit donc être configurable par cluster, mais, lorsque vous créez un cluster avec le [portail Azure][11], il n’y a pas d’option permettant de configurer ce paramètre, qui est toujours « fabric:ImageStore ». Dans ce cas, quelle est l’utilité de ce paramètre ?
 
 ![Manifeste de cluster][img_cm]
 
@@ -45,7 +36,7 @@ Le fait d’héberger le magasin d’images dans un service système au sein mê
 
 Le fournisseur du système de fichiers est utilisé à la place du service de magasin d’images pour les clusters à boîtier unique locaux pendant le développement, de façon à démarrer le cluster un peu plus vite. La différence est généralement faible, mais c’est une optimisation utile à la plupart des gens lors du développement. Il est également possible de déployer un cluster à boîtier unique local avec les autres types de fournisseurs de stockage, mais il n’y a généralement aucune raison de le faire dans la mesure où le flux de travail de développement / test reste le même quel que soit le fournisseur. Le fournisseur de stockage Azure n’est disponible que pour la prise en charge héritée des anciens clusters ayant été déployés avant l’arrivée du fournisseur de service du magasin d’images.
 
-En outre, ni le fournisseur du système de fichiers, ni le fournisseur de stockage Azure ne doivent être utilisés pour partager un magasin d’images entre plusieurs clusters. En effet, cela endommagerait les données de configuration de cluster, puisque chaque cluster peut écrire des données conflictuelles dans le magasin d’images. Pour partager des packages d’applications provisionnées entre plusieurs clusters, utilisez des fichiers [sfpkg][12], que vous pouvez charger vers n’importe quel magasin externe ayant un URI de téléchargement.
+En outre, ni le fournisseur du système de fichiers, ni le fournisseur de stockage Azure ne doivent être utilisés pour partager un magasin d’images entre plusieurs clusters. En effet, cela endommagerait les données de configuration de cluster, puisque chaque cluster peut écrire des données conflictuelles dans le magasin d’images. Pour partager des packages d’applications provisionnées entre plusieurs clusters, utilisez des fichiers [sfpkg][12], que vous pouvez charger sur n’importe quel magasin externe ayant un URI de téléchargement.
 
 Par conséquent, si ImageStoreConnectionString est configurable, on utilise simplement le paramètre par défaut. En cas de publication sur Azure avec Visual Studio, le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
 

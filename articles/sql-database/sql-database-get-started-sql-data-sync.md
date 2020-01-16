@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 019ddbac1900856666b958d90b4395f25eb5ee84
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807530"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461554"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Tutoriel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 
 Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant à la fois des instances Azure SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
 
@@ -33,14 +33,20 @@ Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, 
 
 ## <a name="create-sync-group"></a>Créer un groupe de synchronisation
 
-1. Dans le navigateur, accédez au portail Azure. Localisez votre base de données SQL dans le tableau de bord. Vous pouvez également sélectionner l’icône **Bases de données SQL** dans la barre d’outils puis, dans la page **Bases de données SQL**, sélectionner la base de données à utiliser comme base de données Hub pour Data Sync.
+1. Accédez au [portail Azure](https://portal.azure.com) pour rechercher votre base de données SQL. Recherchez et sélectionnez **Base de données SQL**.
+
+    ![Rechercher des bases de données SQL, portail Microsoft Azure](media/sql-database-get-started-sql-data-sync/search-for-sql-databases.png)
+
+1. Sélectionnez la base de données que vous souhaitez utiliser comme base de données Hub pour la synchronisation des données.
+
+    ![Sélectionner dans la liste de bases de données SQL, portail Microsoft Azure](media/sql-database-get-started-sql-data-sync/select-sql-database.png)
 
     > [!NOTE]
     > La base de données Hub est le point de terminaison central d’une topologie de synchronisation, où un groupe de synchronisation a plusieurs points de terminaison de base de données. Toutes les autres bases de données membres avec des points de terminaison dans le groupe de synchronisation sont synchronisées avec la base de données Hub.
 
-1. Dans la page **Base de données SQL** de la base de données choisie, sélectionnez **Synchroniser avec les autres bases de données**.
+1. Dans le menu **Base de données SQL** de la base de données choisie, sélectionnez **Synchroniser avec les autres bases de données**.
 
-    ![Option Synchroniser avec les autres bases de données](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+    ![Synchroniser avec les autres bases de données, Base de données SQL, portail Microsoft Azure](media/sql-database-get-started-sql-data-sync/sync-to-other-databases.png)
 
 1. Dans la page **Synchroniser avec les autres bases de données**, sélectionnez **Nouveau groupe de synchronisation**. Dans la page **Nouveau groupe de synchronisation** qui s’ouvre, l’étape 1 **Créer un groupe de synchronisation** apparaît en surbrillance.
 
@@ -163,7 +169,7 @@ Une fois les nouveaux membres du groupe de synchronisation créés et déployés
 
     ![Synchronisation manuelle](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **À quelle fréquence Data Sync synchronise-t-il mes données ?**
 

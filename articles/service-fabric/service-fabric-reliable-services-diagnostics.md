@@ -1,25 +1,16 @@
 ---
-title: Diagnostic pour Reliable Services avec état dans Azure Service Fabric | Microsoft Docs
+title: Diagnostics pour Reliable Services avec état dans Azure Service Fabric
 description: Fonctionnalité de diagnostic pour Reliable Services avec état dans Azure Service Fabric
-services: service-fabric
-documentationcenter: .net
 author: dkkapur
-manager: chackdan
-editor: ''
-ms.assetid: ae0e8f99-69ab-4d45-896d-1fa80ed45659
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 50e3368aa8808307fa479a290eaf10ca3f22289d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 37162287e130b05dc41453c579b3a628ac878fca
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242878"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462916"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -30,13 +21,13 @@ Le nom EventSource de la classe StatefulServiceBase de Reliable Services avec é
 [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostics Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) et [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent) sont des exemples d’outils et de technologies permettant de collecter et/ou d’afficher des événements EventSource.
 
 ## <a name="events"></a>Événements
-| Nom de l'événement | ID de l’événement | Niveau | Description de l’événement |
+| Nom d'événement | ID de l’événement | Level | Description de l'événement |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Informations |Émis lorsque la tâche de service RunAsync est démarrée |
-| StatefulRunAsyncCancellation |2 |Informations |Émis lorsque la tâche de service RunAsync est annulée |
-| StatefulRunAsyncCompletion |3 |Informations |Émis lorsque la tâche de service RunAsync est terminée |
+| StatefulRunAsyncInvocation |1 |Informationnel |Émis lorsque la tâche de service RunAsync est démarrée |
+| StatefulRunAsyncCancellation |2 |Informationnel |Émis lorsque la tâche de service RunAsync est annulée |
+| StatefulRunAsyncCompletion |3 |Informationnel |Émis lorsque la tâche de service RunAsync est terminée |
 | StatefulRunAsyncSlowCancellation |4 |Avertissement |Émis lorsque la tâche de service RunAsync prend trop de temps pour terminer l'annulation |
-| StatefulRunAsyncFailure |5\. |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
+| StatefulRunAsyncFailure |5 |Error |Émis lorsque la tâche de service RunAsync renvoie une exception |
 
 ## <a name="interpret-events"></a>Interprétation des événements
 Les événements StatefulRunAsyncInvocation, StatefulRunAsyncCompletion et StatefulRunAsyncCancellation sont utiles à l’enregistreur du service pour comprendre le cycle de vie d’un service, ainsi que le minutage lorsqu’un service démarre, est annulé ou se termine. Cette information peut être utile lors du débogage de problèmes du service ou pour comprendre le cycle de vie du service.
@@ -47,7 +38,7 @@ StatefulRunAsyncFailure est émis à chaque fois que la tâche RunAsync() du ser
 
 StatefulRunAsyncSlowCancellation est émis à chaque fois qu’une requête d’annulation de la tâche RunAsync prend plus de quatre secondes. Lorsqu’un service prend trop de temps pour terminer l’annulation, cela a un impact sur la capacité du service à être redémarré rapidement sur un autre nœud. Ce scénario peut avoir un impact sur la disponibilité globale du service.
 
-## <a name="performance-counters"></a>Compteurs de performances
+## <a name="performance-counters"></a>Compteurs de performance
 Le runtime Reliable Services définit les catégories de compteurs de performances suivantes :
 
 | Category | Description |

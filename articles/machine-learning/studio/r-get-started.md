@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: f55b6e743ff82d4192cbdd91ba54c92efef432bc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838737"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427577"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Prise en main du langage de programmation R dans Azure Machine Learning Studio (classique)
 
@@ -23,9 +23,9 @@ ms.locfileid: "73838737"
 
 ## <a name="introduction"></a>Introduction
 
-Ce tutoriel vous aide à vous lancer dans l’extension d’Azure Machine Learning Studio (classique) à l’aide du langage de programmation R. Suivez ce tutoriel sur la programmation R pour créer, tester et exécuter du code R dans Studio (classique). Au cours de ce tutoriel de démarrage rapide, vous allez créer une solution de prévision complète à l’aide du langage R dans la version classique de Studio.  
+Ce tutoriel vous aide à vous lancer dans l’extension d’Azure Machine Learning Studio (classique) à l’aide du langage de programmation R. Suivez ce tutoriel sur la programmation R pour créer, tester et exécuter du code R dans Studio (classique). Au cours de ce tutoriel de démarrage rapide, vous allez créer une solution de prévision complète à l’aide du langage R dans Studio (classique).  
 
-La version classique de Microsoft Azure Machine Learning Studio intègre divers modules d’apprentissage automatique et de manipulation de données très efficaces. le puissant langage R a été décrit comme la lingua franca de l'analyse. Fort heureusement, l’analytique et la manipulation de données dans la version classique de Studio peuvent être étendues grâce au langage R, qui conjugue à la fois la grande facilité de déploiement de la version classique de Studio et la souplesse et la capacité d’analytique approfondie du langage R.
+Azure Machine Learning Studio (classique) intègre divers modules de machine learning et de manipulation de données très performants. le puissant langage R a été décrit comme la lingua franca de l'analyse. Fort heureusement, l’analytique et la manipulation de données dans Studio (classique) peuvent être étendues grâce au langage R, qui conjugue à la fois la grande facilité de déploiement de Studio (classique) et la souplesse et la capacité d’analytique approfondie du langage R.
 
 ### <a name="forecasting-and-the-dataset"></a>Prévision et jeu de données
 
@@ -37,25 +37,25 @@ Dans ce guide, nous allons utiliser les données de production et de tarificatio
 
 Les données utilisées dans cet article, ainsi que les scripts R, peuvent être téléchargées depuis [MachineLearningSamples-Notebooks/studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). À l’origine, les données du fichier `cadairydata.csv` ont été synthétisées à partir des informations disponibles sur le site de l’Université du Wisconsin à l’adresse [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organisation
+### <a name="organization"></a>Organization
 
-À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analytique et de manipulation de données dans la version classique de l’environnement Azure Machine Learning Studio.  
+À travers plusieurs étapes successives, vous allez apprendre à créer, tester et exécuter du code R d’analytique et de manipulation de données dans l’environnement Azure Machine Learning Studio (classique).  
 
-* Dans un premier temps, nous explorerons les bases de l’utilisation du langage R dans la version classique de l’environnement Azure Machine Learning Studio.
-* Après quoi, nous examinerons différents aspects de l’E/S de données, du code R et des graphiques dans la version classique de l’environnement Azure Machine Learning Studio.
+* Dans un premier temps, nous explorerons les bases de l’utilisation du langage R dans l’environnement Azure Machine Learning Studio (classique).
+* Après quoi, nous examinerons différents aspects de l’E/S de données, du code R et des graphiques dans l’environnement Azure Machine Learning Studio (classique).
 * Nous œuvrerons ensuite à l'élaboration de la première partie de notre solution de prévision en créant du code destiné à nettoyer et transformer les données.
 * Après avoir préparé nos données, nous procéderons à l’analyse des corrélations entre plusieurs variables figurant dans notre jeu de données.
 * Enfin, nous créerons un modèle de prévision chronologique saisonnier pour la production de lait.
 
 ## <a id="mlstudio"></a>Interaction avec le langage R dans Machine Learning Studio (classique)
 
-Cette section vous fait découvrir certains concepts de base de l’interaction avec le langage de programmation R dans l’environnement Machine Learning Studio (classique). Le langage R offre un outil efficace pour créer des modules personnalisés d’analytique et de manipulation de données au sein de la version classique de l’environnement Azure Machine Learning Studio.
+Cette section vous fait découvrir certains concepts de base de l’interaction avec le langage de programmation R dans l’environnement Machine Learning Studio (classique). Le langage R offre un outil efficace pour créer des modules personnalisés d’analytique et de manipulation de données dans l’environnement Azure Machine Learning Studio (classique).
 
-Nous utiliserons RStudio pour développer, tester et déboguer du code R à petite échelle. Ce code sera ensuite coupé et collé dans un module [d’exécution de script R][execute-r-script] prêt à être exécuté dans la version classique de Machine Learning Studio.  
+Nous utiliserons RStudio pour développer, tester et déboguer du code R à petite échelle. Ce code sera ensuite coupé et collé dans un module [Exécuter un script R][execute-r-script] prêt à être exécuté dans Azure Machine Learning Studio (classique).  
 
 ### <a name="the-execute-r-script-module"></a>Module d’exécution de script R
 
-Dans la version classique de Machine Learning Studio, les scripts R sont exécutés dans le module [d’exécution de script R][execute-r-script]. Un exemple du module [d’exécution de script R][execute-r-script] dans la version classique de Machine Learning Studio est illustré dans la figure 1.
+Dans Machine Learning Studio (classique), les scripts R sont exécutés dans le module [Exécuter un script R][execute-r-script]. Un exemple du module [Exécuter un script R][execute-r-script] de Machine Learning Studio (classique) est illustré à la figure 1.
 
  ![Langage de programmation R : module d’exécution de script R sélectionné dans Machine Learning Studio (classique)](./media/r-quickstart/fig1.png)
 
@@ -69,7 +69,7 @@ Dans la figure 1, examinons les principaux éléments de l’environnement Mach
 
 Bien entendu, nous reviendrons plus en détail sur le module [d’exécution de script R][execute-r-script] plus loin dans cet article.
 
-Lorsqu'il s'agit d'utiliser des fonctions R complexes, je vous recommande de modifier, tester et déboguer dans RStudio. Comme pour tout projet de développement logiciel, développez votre code graduellement et testez-le dans un petit cas de test simple. Ensuite, coupez vos fonctions et collez-les dans la fenêtre de script R du module [d’exécution de script R][execute-r-script]. Cette approche vous permet d’exploiter l’environnement de développement intégré (IDE) de RStudio et la puissance de la version classique d’Azure Machine Learning Studio.  
+Lorsqu'il s'agit d'utiliser des fonctions R complexes, je vous recommande de modifier, tester et déboguer dans RStudio. Comme pour tout projet de développement logiciel, développez votre code graduellement et testez-le dans un petit cas de test simple. Ensuite, coupez vos fonctions et collez-les dans la fenêtre de script R du module [d’exécution de script R][execute-r-script]. Cette approche vous permet d’exploiter l’environnement de développement intégré (IDE) de RStudio et la puissance d’Azure Machine Learning Studio (classique).  
 
 #### <a name="execute-r-code"></a>Exécution du code R
 
@@ -77,17 +77,17 @@ Pour exécuter du code R dans le module [d’exécution de script R][execute-r
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Codage R défensif pour Azure Machine Learning
 
-Si vous développez du code R pour, par exemple, un service web à l’aide de la version classique d’Azure Machine Learning Studio, vous devez absolument prévoir la façon dont votre code traitera une entrée de données inattendue et les exceptions. Dans un souci de clarté, j'ai évité de surcharger les exemples présentés dans ce document de code relevant de la vérification et de la gestion des exceptions. Cependant, je vous montrerai par la suite plusieurs exemples de fonctions qui font appel à la fonctionnalité de gestion des exceptions du langage R.  
+Si vous développez du code R, par exemple pour un service web, dans Azure Machine Learning Studio (classique), vous devez absolument prévoir la façon dont votre code traitera les entrées de données inattendues et les exceptions. Dans un souci de clarté, j'ai évité de surcharger les exemples présentés dans ce document de code relevant de la vérification et de la gestion des exceptions. Cependant, je vous montrerai par la suite plusieurs exemples de fonctions qui font appel à la fonctionnalité de gestion des exceptions du langage R.  
 
 Si vous avez besoin d’un exposé plus complet sur la gestion des exceptions R, je vous recommande de lire les sections appropriées du livre de Hadley Wickham cité en référence dans [Informations supplémentaires](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio-classic"></a>Débogage et test du langage R dans Machine Learning Studio (classique)
 
-Encore une fois, je vous recommande de tester et de déboguer votre code R à petite échelle dans RStudio. Cependant, dans certains cas, vous devrez analyser les problèmes de code R dans le module [d’exécution de script R][execute-r-script] lui-même. De plus, vous aurez tout intérêt à vérifier les résultats dans la version classique de Machine Learning Studio.
+Encore une fois, je vous recommande de tester et de déboguer votre code R à petite échelle dans RStudio. Cependant, dans certains cas, vous devrez analyser les problèmes de code R dans le module [d’exécution de script R][execute-r-script] lui-même. De plus, vous aurez tout intérêt à vérifier les résultats dans Machine Learning Studio (classique).
 
-La sortie résultant de l’exécution de votre code R sur la version classique de la plateforme Azure Machine Learning Studio se trouve principalement dans le fichier output.log. Vous pourrez trouver des informations complémentaires dans le fichier error.log.  
+La sortie résultant de l’exécution de votre code R sur la plateforme Azure Machine Learning Studio (classique) se trouve principalement dans le fichier output.log. Vous pourrez trouver des informations complémentaires dans le fichier error.log.  
 
-Si une erreur se produit dans la version classique de Machine Learning Studio pendant l’exécution de votre code R, vous devez dans un premier temps examiner le fichier error.log. Ce fichier peut contenir des messages d’erreur utiles susceptibles de vous aider à cerner l’erreur et à la corriger. Pour afficher le fichier error.log, cliquez sur **Afficher le journal des erreurs** dans le **volet des propriétés** du module [d’exécution de script R][execute-r-script] contenant l’erreur.
+Si une erreur se produit dans Machine Learning Studio (classique) durant l’exécution de votre code R, commencez par examiner le fichier error.log. Ce fichier peut contenir des messages d’erreur utiles susceptibles de vous aider à cerner l’erreur et à la corriger. Pour afficher le fichier error.log, cliquez sur **Afficher le journal des erreurs** dans le **volet des propriétés** du module [d’exécution de script R][execute-r-script] contenant l’erreur.
 
 Par exemple, j’ai exécuté le code R ci-dessous, avec une variable y non définie, dans un module [d’exécution de script R][execute-r-script] :
 
@@ -149,18 +149,18 @@ Le code complet pour cette section se trouve dans [MachineLearningSamples-Notebo
 
 #### <a id="loading"></a>Chargement du jeu de données
 
-Nous allons commencer par charger le fichier **csdairydata.csv** dans la version classique d’Azure Machine Learning Studio.
+Nous allons commencer par charger le fichier **csdairydata.csv** dans Azure Machine Learning Studio (classique).
 
-1. Démarrez la version classique de votre environnement Azure Machine Learning Studio.
+1. Démarrez votre environnement Azure Machine Learning Studio (classique).
 1. Cliquez sur **+ NOUVEAU** en bas à gauche de votre écran, puis sélectionnez **Jeu de données**.
 1. Sélectionnez **From Local File** (Depuis un fichier local), puis **Browse** (Parcourir) pour sélectionner le fichier.
 1. Veillez à sélectionner **Generic CSV file with header (.csv)** (Fichier CSV générique avec en-tête) comme type de jeu de données.
 1. Sélectionnez la coche.
 1. Une fois le jeu de données chargé, vous devez voir le nouveau jeu de données en sélectionnant l’onglet **Jeux de données**.  
 
-#### <a name="create-an-experiment"></a>Création d'une expérience
+#### <a name="create-an-experiment"></a>Créer une expérience
 
-Maintenant que la version classique de Machine Learning Studio contient des données, nous devons créer une expérience pour faire l’analyse.  
+Maintenant que Machine Learning Studio (classique) contient des données, nous devons créer une expérience pour faire l’analyse.  
 
 1. Cliquez sur **+ NOUVEAU** en bas à gauche, sélectionnez **Expérimentation**, puis **Expérimentation à blanc**.
 1. Vous pouvez nommer votre expérimentation en sélectionnant et en modifiant le titre **Experiment created on...** (Expérimentation créée sur) en haut de la page. Vous pouvez par exemple le modifier en **CA Dairy Analysis**.
@@ -185,11 +185,11 @@ Examinons les données que nous avons chargées dans l'expérimentation. Dans l�
 
 *Figure 4 : aperçu du jeu de données cadairydata.csv.*
 
-Cette vue contient de nombreuses informations utiles. Les premières lignes de ce jeu de données apparaissent également. Si nous sélectionnons une colonne, la section des statistiques affiche plus d'informations sur cette colonne. Par exemple, la ligne Feature Type indique les types de données qui sont affectés à la colonne par la version classique d’Azure Machine Learning Studio. Il est judicieux d'effectuer un contrôle rapide de ce type avant de se lancer dans un travail sérieux.
+Cette vue contient de nombreuses informations utiles. Les premières lignes de ce jeu de données apparaissent également. Si nous sélectionnons une colonne, la section des statistiques affiche plus d'informations sur cette colonne. Par exemple, la ligne Feature Type indique les types de données qui sont affectés à la colonne dans Azure Machine Learning Studio (classique). Il est judicieux d'effectuer un contrôle rapide de ce type avant de se lancer dans un travail sérieux.
 
 ### <a name="first-r-script"></a>Premier script R
 
-Créons un premier script R simple pour l’essayer dans la version classique d’Azure Machine Learning Studio. J’ai créé et testé le script suivant dans RStudio :  
+Créons un premier script R simple pour l’essayer dans Azure Machine Learning Studio (classique). J’ai créé et testé le script suivant dans RStudio :  
 
 ```R
 ## Only one of the following two lines should be used
@@ -204,7 +204,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = c
 maml.mapOutputPort('cadairydata')
 ```
 
-Je dois maintenant transférer ce script dans la version classique d’Azure Machine Learning Studio. Je pourrais simplement effectuer un couper-coller. Mais je vais ici transférer le script R via un fichier zip.
+Je dois maintenant transférer ce script vers Azure Machine Learning Studio (classique). Je pourrais simplement effectuer un couper-coller. Mais je vais ici transférer le script R via un fichier zip.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>Entrée de données dans le module d'exécution de script R
 
@@ -224,7 +224,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> La version classique d’Azure Machine Learning Studio traite les fichiers contenus dans le zip comme s’ils se trouvaient dans le répertoire src/. Il est donc nécessaire de faire précéder les noms des fichiers du nom de ce répertoire. Par exemple, si le fichier zip contient les fichiers `yourfile.R` et `yourData.rdata` à sa racine, vous devez les traiter en tant que `src/yourfile.R` et `src/yourData.rdata` quand vous utilisez `source` et `load`.
+> Azure Machine Learning Studio (classique) traite les fichiers contenus dans le zip comme s’ils se trouvaient dans le répertoire src/. Il est donc nécessaire de faire précéder les noms des fichiers du nom de ce répertoire. Par exemple, si le fichier zip contient les fichiers `yourfile.R` et `yourData.rdata` à sa racine, vous devez les traiter en tant que `src/yourfile.R` et `src/yourData.rdata` quand vous utilisez `source` et `load`.
 
 Nous avons déjà abordé la question du chargement des jeux de données dans la section [Chargement du jeu de données](#loading). Dès que vous avez créé et testé le script R présenté dans la section précédente, procédez comme suit :
 
@@ -245,7 +245,7 @@ Nous avons déjà abordé la question du chargement des jeux de données dans la
 
 1. Créez un fichier zip et copiez votre script dans ce fichier. Dans Windows, vous pouvez cliquer avec le bouton droit sur le fichier, sélectionner **Envoyer vers**, puis **Dossier compressé**. Vous créez ainsi un fichier zip contenant le fichier « simpleplot.R ».
 
-1. Ajoutez ce dernier aux **jeux de données** dans la version classique de Machine Learning Studio, en spécifiant le type **zip**. Le fichier zip doit dès lors figurer dans vos jeux de données.
+1. Ajoutez ce dernier aux **jeux de données** dans Azure Machine Learning Studio (classique), en spécifiant le type **zip**. Le fichier zip doit dès lors figurer dans vos jeux de données.
 
 1. Glissez-déposez le fichier zip des **jeux de données** vers le **canevas ML Studio (classique)** .
 
@@ -374,7 +374,7 @@ La syntaxe utilisée pour ces conversions est simple : `as.datatype()`. Ces fon
 
 En examinant les types des données affichées dans les colonnes que nous avons entrées à la section précédente, nous constatons que toutes les colonnes sont de type numérique, à l’exception de la colonne intitulée « Month », qui est de type caractère. Convertissons-la en facteur et vérifions les résultats.  
 
-J’ai supprimé la ligne qui a créé la matrice de nuage de points et ajouté une ligne convertissant la colonne « Month » en facteur. Dans mon expérience, je vais simplement couper et coller le code R dans la fenêtre de code du module [d’exécution de script R][execute-r-script]. Une autre possibilité aurait été de mettre à jour le fichier zip et de le télécharger dans la version classique d’Azure Machine Learning Studio, mais cette opération nécessite plusieurs étapes.  
+J’ai supprimé la ligne qui a créé la matrice de nuage de points et ajouté une ligne convertissant la colonne « Month » en facteur. Dans mon expérience, je vais simplement couper et coller le code R dans la fenêtre de code du module [d’exécution de script R][execute-r-script]. Une autre possibilité aurait été de mettre à jour le fichier zip et de le télécharger dans Azure Machine Learning Studio (classique), mais cette opération nécessite plusieurs étapes.  
 
 ```R
 ## Only one of the following two lines should be used
@@ -468,7 +468,7 @@ Les tableaux de données R prennent en charge des fonctionnalités de filtrage e
 Notre jeu de données a besoin d'être filtré. En effet, si l’on examine les colonnes du tableau de données cadiarydata, on constate qu’il y a deux colonnes inutiles. La première colonne contient seulement un numéro de ligne, ce qui n'est pas très utile. La deuxième colonne, Year.Month, contient des informations redondantes. Nous pouvons facilement exclure ces colonnes à l’aide du code R suivant.
 
 > [!NOTE]
-> À partir de maintenant, dans cette section, je ne vous montrerai que le code supplémentaire que j’ajoute dans le module [d’exécution de script R][execute-r-script]. Chaque nouvelle ligne sera ajoutée **avant** la fonction `str()`. J’utilise cette fonction pour vérifier les résultats dans la version classique d’Azure Machine Learning Studio.
+> À partir de maintenant, dans cette section, je ne vous montrerai que le code supplémentaire que j’ajoute dans le module [d’exécution de script R][execute-r-script]. Chaque nouvelle ligne sera ajoutée **avant** la fonction `str()`. J’utilise cette fonction pour vérifier les résultats dans Azure Machine Learning Studio (classique).
 
 J’ajoute la ligne suivante à mon code R dans le module [d’exécution de script R][execute-r-script].
 
@@ -657,7 +657,7 @@ La classe de série chronologique POSIXct est couramment utilisée et relativeme
 
 ### <a name="time-series-object-example"></a>Exemple d’objet de série chronologique
 
-Commençons notre exemple. Glissez-déposez un **nouveau** module [d’exécution de script R][execute-r-script] dans votre expérience. Reliez le port de sortie du jeu de données1 de résultat du module [d’exécution de script R][execute-r-script] existant au port d’entrée du jeu de données1 du nouveau module [d’exécution de script R][execute-r-script].
+Commençons notre exemple. Glissez-déposez un **nouveau** module [Exécuter un script R][execute-r-script] dans votre expérience. Reliez le port de sortie du jeu de données1 de résultat du module [d’exécution de script R][execute-r-script] existant au port d’entrée du jeu de données1 du nouveau module [d’exécution de script R][execute-r-script].
 
 Comme dans les premiers exemples, à mesure que nous avancerons dans l’exemple, je ne vous montrerai que les lignes de code R supplémentaires ajoutées à certains points de chaque étape.  
 
@@ -952,7 +952,7 @@ Le code R complet pour cette section se trouve dans [MachineLearningSamples-Note
 
 ### <a name="creating-the-dataframe-for-analysis"></a>Création du tableau de données pour l’analyse
 
-Commencez par ajouter un **nouveau** module [d’exécution de script R][execute-r-script] à votre expérience. Reliez la sortie du **jeu de données de résultat** du module [d’exécution de script R][execute-r-script] existant à l’entrée du **jeu de données1** du nouveau module. Le résultat doit être similaire à la figure 20.
+Commencez par ajouter un **nouveau** module [Exécuter un script R][execute-r-script] à votre expérience. Reliez la sortie du **jeu de données de résultat** du module [d’exécution de script R][execute-r-script] existant à l’entrée du **jeu de données1** du nouveau module. Le résultat doit être similaire à la figure 20.
 
 ![l’expérimentation après l’ajout du nouveau module d’exécution de script R](./media/r-quickstart/fig21.png)
 
@@ -1030,7 +1030,7 @@ L'exécution du code génère la série de graphiques chronologiques à partir d
 
 Après avoir créé un objet de série chronologique et examiné les données, lançons-nous dans l'élaboration d'un modèle de tendance pour les données de production de produits laitiers californiens. Pour cela, nous pouvons utiliser une régression chronologique. Toutefois, il apparaît évident au vu du graphique que nous aurons besoin de plusieurs pentes et intercepts pour modéliser avec précision la tendance observée dans les données d’apprentissage.
 
-Compte tenu de la petite échelle des données, je vais générer le modèle de tendance dans RStudio, puis couper et coller le modèle obtenu dans la version classique d’Azure Machine Learning Studio. RStudio offre un environnement interactif pour ce type d'analyse interactive.
+Compte tenu de la petite échelle des données, je vais générer le modèle de tendance dans RStudio, puis couper et coller le modèle obtenu dans Azure Machine Learning Studio (classique). RStudio offre un environnement interactif pour ce type d'analyse interactive.
 
 Dans un premier temps, je vais tenter une régression polynomiale avec des puissances maximales de 3. Il existe un risque réel de surapprentissage de ces types de modèles. Par conséquent, il est préférable d'éviter les termes d'ordre élevé. La fonction `I()` empêche l’interprétation des contenus (elle les interprète « tels quels ») et vous permet d’écrire une fonction interprétée littéralement dans une équation de régression.
 
@@ -1094,7 +1094,7 @@ Voici ce que cela génère :
 
 Cela semble mieux. Tous les termes sont significatifs. Cependant, la valeur 2e-16 est une valeur par défaut à laquelle il ne faut pas trop prêter attention.  
 
-En guise de test, créons un graphique chronologique à partir des données de production de produits laitiers californiens en affichant la courbe de tendance. J’ai ajouté le code suivant dans le modèle [d’exécution de script R][execute-r-script] (pas RStudio) de la version classique d’Azure Machine Learning Studio pour créer le modèle et définir un tracé. Ce schéma est illustré dans la Figure 23.
+En guise de test, créons un graphique chronologique à partir des données de production de produits laitiers californiens en affichant la courbe de tendance. J’ai ajouté le code suivant dans le modèle [Exécuter un script R][execute-r-script] (pas RStudio) d’Azure Machine Learning Studio (classique) pour créer le modèle et définir un tracé. Ce schéma est illustré dans la Figure 23.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1156,7 +1156,7 @@ Voici ce que cela génère :
 
 Nous constatons que le modèle n'a plus de terme intercept et qu'il comporte 12 facteurs mois significatifs. C'est exactement ce que nous voulions.
 
-Créons un autre graphique chronologique à partir des données de production laitière californienne pour voir si le modèle saisonnier fonctionne correctement. J’ai ajouté le code suivant dans le module [d’exécution de script R][execute-r-script] de la version classique d’Azure Machine Learning Studio pour créer le modèle et définir un tracé.
+Créons un autre graphique chronologique à partir des données de production laitière californienne pour voir si le modèle saisonnier fonctionne correctement. J’ai ajouté le code suivant dans le module [Exécuter un script R][execute-r-script] d’Azure Machine Learning Studio (classique) pour créer le modèle et définir un tracé.
 
 ```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1165,7 +1165,7 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-L’exécution de ce code dans la version classique d’Azure Machine Learning Studio génère le tracé présenté dans la figure 24.
+L’exécution de ce code dans Azure Machine Learning Studio (classique) génère le tracé illustré à la figure 24.
 
 ![production laitière californienne avec le modèle incluant les effets saisonniers](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1310,7 +1310,7 @@ RStudio est très bien documenté. Voici quelques liens vers les principales sec
 
 ## <a id="appendixb"></a>Pour aller plus loin
 
-Ce tutoriel sur la programmation R couvre les concepts de base de ce qu’il vous faut pour utiliser le langage R avec la version classique d’Azure Machine Learning Studio. Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
+Ce tutoriel sur la programmation en R couvre les concepts de base de ce qu’il vous faut pour utiliser le langage R avec Azure Machine Learning Studio (classique). Si vous ne connaissez pas le langage R, deux présentations sont disponibles sur le site CRAN :
 
 * [R pour les débutants](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) d’Emmanuel Paradis constitue un bon point de départ.  
 * [Une introduction à R](https://cran.r-project.org/doc/manuals/R-intro.html) par W. N. Venables, et al. approfondit un peu le sujet.

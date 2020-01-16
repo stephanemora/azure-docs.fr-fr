@@ -3,12 +3,12 @@ title: Gérer les bases de données SAP HANA sauvegardées sur des machines virt
 description: Dans cet article, découvrez les tâches courantes de gestion et de supervision des bases de données SAP HANA qui s’exécutent sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: f76054c7c78c55a9754975267ee4fa3caab968a3
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: a9462f8608fc5ae35255ac321a0742b3f1834fde
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75390617"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gérer et superviser des bases de données SAP HANA sauvegardées
 
@@ -22,7 +22,7 @@ Sauvegarde Azure affiche tous les travaux déclenchés manuellement dans la sect
 
 ![Section Travaux de sauvegarde](./media/sap-hana-db-manage/backup-jobs.png)
 
-Les travaux que vous voyez sur ce portail incluent les opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données. Les travaux planifiés, notamment les sauvegardes de fichiers journaux, n’apparaissent dans cette section. Les sauvegardes déclenchées manuellement à partir des clients natifs SAP HANA (Studio/Cockpit/DBA Cockpit) n’apparaissent pas non plus ici.
+Les travaux que vous voyez sur ce portail incluent les opérations de découverte, d’inscription, de sauvegarde et de restauration de base de données. Les travaux planifiés, notamment les sauvegardes de fichiers journaux, n’apparaissent pas dans cette section. Les sauvegardes déclenchées manuellement à partir des clients natifs SAP HANA (Studio/Cockpit/DBA Cockpit) n’apparaissent pas non plus ici.
 
 ![Liste des travaux de sauvegarde](./media/sap-hana-db-manage/backup-jobs-list.png)
 
@@ -32,7 +32,7 @@ Pour en savoir plus sur la supervision, consultez [Supervision dans le Portail A
 
 Les alertes sont un moyen simple de superviser les sauvegardes des bases de données SAP HANA. Elles vous aident à vous concentrer sur les événements qui vous intéressent le plus sans vous perdre dans la multitude d’événements qu'une sauvegarde génère. Sauvegarde Azure vous permet de définir des alertes, et ces dernières peuvent être supervisées comme suit :
 
-* Connectez-vous au [Portail Azure](https://portal.azure.com/).
+* Connectez-vous au [portail Azure](https://portal.azure.com/).
 * Dans le tableau de bord du coffre, sélectionnez **Alertes de sauvegarde**.
 
   ![Alertes de sauvegarde sur le tableau de bord du coffre](./media/sap-hana-db-manage/backup-alerts-dashboard.png)
@@ -75,25 +75,38 @@ Si vous souhaitez sauvegarder localement (à l’aide de HANA Studio/Cockpit) un
 3. Pour ce faire, double-cliquez sur **systemdb** > **Configuration (Configuration)**  > **Select Database (Sélectionner la base de données)**  > **Filter (Log) (Filtrer [journal])** .
 4. Définissez **enable_auto_log_backup** sur **No (Non)** .
 5. Définissez **log_backup_using_backint** sur **False (Faux)** .
-6. Effectuez une sauvegarde complète ad hoc de la base de données.
+6. Effectuez une sauvegarde complète à la demande de la base de données.
 7. Attendez la fin de la sauvegarde complète et de la sauvegarde du catalogue.
 8. Rétablissez les paramètres précédents sur les valeurs pour Azure :
    * Définissez **enable_auto_log_backup** sur **Yes (Oui)** .
    * Définissez **log_backup_using_backint** sur **True (Vrai)** .
 
-### <a name="edit-underlying-policy"></a>Modifier la stratégie sous-jacente
+### <a name="change-policy"></a>Changer la stratégie
 
-Dans la stratégie, modifiez la fréquence de sauvegarde ou la plage de rétention :
+Vous pouvez changer la stratégie sous-jacente d’un élément de sauvegarde SAP HANA.
 
-* Dans le tableau de bord du coffre, accédez à **Gérer** > **Stratégies de sauvegarde**
+* Dans le tableau de bord du coffre, accédez à **Éléments de sauvegarde** :
 
-  ![Stratégies de sauvegarde dans le tableau de bord du coffre](./media/sap-hana-db-manage/backup-policies-dashboard.png)
+  ![Sélectionner les éléments de sauvegarde](./media/sap-hana-db-manage/backup-items.png)
 
-* Choisissez la stratégie que vous souhaitez modifier :
+* Choisissez **SAP HANA dans les machines virtuelles Azure**
 
-  ![Liste des stratégies de sauvegarde](./media/sap-hana-db-manage/backup-policies-list.png)
+  ![Choisir SAP HANA dans les machines virtuelles Azure](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
-  ![Détails de la stratégie de sauvegarde](./media/sap-hana-db-manage/backup-policy-details.png)
+* Choisissez l’élément de sauvegarde dont vous souhaitez changer la stratégie sous-jacente.
+* Cliquez sur la stratégie de sauvegarde existante.
+
+  ![Sélectionnez une stratégie de sauvegarde existante.](./media/sap-hana-db-manage/existing-backup-policy.png)
+
+* Changez la stratégie en choisissant dans la liste. [Créez une nouvelle stratégie de sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) si nécessaire.
+
+  ![Choisir la stratégie dans la liste déroulante](./media/sap-hana-db-manage/choose-backup-policy.png)
+
+* Enregistrez les modifications
+
+  ![Enregistrez les modifications](./media/sap-hana-db-manage/save-changes.png)
+
+* La modification de la stratégie aura un impact sur tous les éléments de sauvegarde associés et déclenchera les tâches de **configuration de la protection** correspondantes.
 
 >[!NOTE]
 > Toute modification de la période de rétention sera appliquée rétroactivement à tous les anciens points de récupération ainsi qu’aux nouveaux.
@@ -175,4 +188,3 @@ Désinscrivez une instance SAP HANA après avoir désactivé la protection, mais
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez comment [résoudre les problèmes courants lors de la sauvegarde de bases de données SAP HANA](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot).
-

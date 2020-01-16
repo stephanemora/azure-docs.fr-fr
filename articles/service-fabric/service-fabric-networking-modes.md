@@ -1,25 +1,16 @@
 ---
-title: Configurer les modes de mise en réseau pour les services de conteneur Azure Service Fabric | Microsoft Docs
+title: Configurer des modes de mise en réseau pour des services conteneurs
 description: Découvrez comment configurer les différents modes de mise en réseau pris en charge par Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168807"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639800"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -30,7 +21,7 @@ Si vous avez un service de conteneur avec un point de terminaison statique dans 
 Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud du cluster, l’adresse IP change. Pour cette raison, nous ne recommandons pas l’utilisation de l’adresse IP attribuée de manière dynamique pour découvrir les services de conteneur. Seul le service d’affectation de noms de Service Fabric ou le service DNS doivent être utilisés pour la découverte de services. 
 
 >[!WARNING]
->Azure permet un total de 65 356 adresses IP par réseau virtuel. Par conséquent, la somme du nombre de nœuds et du nombre d’instances de service de conteneur (utilisant le mode Ouvert) ne peuvent pas dépasser 65 356 au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat. D’autres dépendances, telles que l’équilibreur de charge, devront également prendre en compte d’autres [limitations](https://docs.microsoft.com/azure/azure-subscription-service-limits). Jusqu’à 50 adresses IP par nœud ont été testées et prouvées stables. 
+>Azure permet un total de 65 356 adresses IP par réseau virtuel. Par conséquent, la somme du nombre de nœuds et du nombre d’instances de service de conteneur (utilisant le mode Ouvert) ne peuvent pas dépasser 65 356 au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat. D’autres dépendances, telles que l’équilibreur de charge, devront également prendre en compte d’autres [limitations](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Jusqu’à 50 adresses IP par nœud ont été testées et prouvées stables. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurer le mode de mise en réseau Ouvert
@@ -203,11 +194,11 @@ Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud d
    |Paramètre |Valeur | |
    | --- | --- | --- |
    |Priority |2000 | |
-   |Nom |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |Source |VirtualNetwork | |
    |Destination | VirtualNetwork | |
-   |de diffusion en continu | DNS (UDP/53) | |
-   |Action | AUTORISER  | |
+   |Service | DNS (UDP/53) | |
+   |Action | Allow  | |
    | | |
 
 4. Spécifiez le mode de mise en réseau dans le manifeste d’application pour chaque service : `<NetworkConfig NetworkType="Open">`. Le mode **Ouvrir** permet au service d’obtenir une adresse IP dédiée. Si un mode n’est pas spécifié, par défaut, le service est en mode **nat**. Dans l’exemple de manifeste suivant, les services `NodeContainerServicePackage1` et `NodeContainerServicePackage2` peuvent chacun être à l’écoute sur le même port (les deux services sont à l’écoute sur `Endpoint1`). Quand le mode de mise en réseau Ouvert est spécifié, les configurations `PortBinding` ne peuvent pas être spécifiées.

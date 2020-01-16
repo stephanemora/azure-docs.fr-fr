@@ -4,17 +4,17 @@ description: Le Stockage Azure protège vos données en les chiffrant automatiqu
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 12/05/2019
+ms.date: 01/03/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a09d2c0c2a393acd4882842dc023b0f5f682e813
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 35a5bfd582c9717b062d42d86e7581029861fd0c
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895127"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665434"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du Stockage Azure pour les données au repos
 
@@ -48,7 +48,7 @@ Le tableau suivant compare les options de gestion de clés pour le chiffrement d
 |    Opérations de chiffrement/déchiffrement    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Services de stockage Azure pris en charge    |    Tous                                                |    Stockage Blob, Azure Files                                                                                                               |    Stockage d'objets blob                                                                  |
 |    Stockage des clés                         |    Magasin de clés Microsoft    |    Azure Key Vault                                                                                                                              |    Azure Key Vault ou tout autre magasin de clés                                                                 |
-|    Responsabilité de la permutation des clés         |    Microsoft                                          |    Client                                                                                                                                     |    Client                                                                      |
+|    Responsabilité de la permutation des clés         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Utilisation de la clé                           |    Microsoft                                          |    Portail Azure, API REST de fournisseur de ressources de stockage, bibliothèques de gestion de Stockage Azure, PowerShell, CLI        |    API REST de Stockage Azure (stockage d’objets blob), bibliothèques de client Stockage Azure    |
 |    Accès aux clés                          |    Microsoft uniquement                                     |    Microsoft, client                                                                                                                    |    Client uniquement                                                                 |
 
@@ -62,7 +62,7 @@ Par défaut, votre compte de stockage utilise des clés de chiffrement managées
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Clés gérées par le client avec Azure Key Vault
 
-Vous pouvez gérer le chiffrement de Stockage Azure au niveau du compte de stockage avec vos propres clés. Quand vous spécifiez une clé gérée par le client au niveau du compte de stockage, cette clé est utilisée pour chiffrer et déchiffrer toutes les données de blob et de fichier dans le compte de stockage. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
+Vous pouvez gérer le chiffrement de Stockage Azure au niveau du compte de stockage avec vos propres clés. Quand vous spécifiez une clé gérée par le client au niveau du compte de stockage, cette clé est utilisée pour protéger la clé de chiffrement racine du compte de stockage et contrôler son accès. Cette dernière est à son tour utilisée pour chiffrer et déchiffrer toutes les données d’objet blob et de fichier. Les clés managées par le client offrent plus de flexibilité pour créer, permuter, désactiver et révoquer des contrôles d’accès. Vous pouvez également effectuer un audit sur les clés de chiffrement utilisées pour protéger vos données.
 
 Vous devez utiliser Azure Key Vault pour stocker vos clés managées par le client. Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés. Le compte de stockage et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour plus d’informations sur Azure Key Vault, consultez [Qu’est-ce qu’Azure Key Vault ?](../../key-vault/key-vault-overview.md).
 
@@ -80,9 +80,11 @@ La liste suivante décrit les étapes numérotées dans le diagramme :
 
 ### <a name="enable-customer-managed-keys-for-a-storage-account"></a>Activer des clés gérées par le client pour un compte de stockage
 
-Quand vous activez le chiffrement avec des clés gérées par le client pour un compte de stockage, Stockage Azure wrappe la clé de chiffrement du compte avec la clé du client dans le coffre de clés associé. L’activation des clés gérées par le client n’impacte pas les performances et le compte est immédiatement chiffré avec la nouvelle clé.
+Quand vous activez le chiffrement avec des clés gérées par le client pour un compte de stockage, le Stockage Azure wrappe la clé de chiffrement du compte avec la clé gérée par le client dans le coffre de clés associé. L’activation des clés gérées par le client n’impacte pas les performances et le compte est immédiatement chiffré avec la nouvelle clé.
 
 Un nouveau compte de stockage est toujours chiffré à l’aide de clés managées par Microsoft. Il est impossible d’activer des clés gérées par le client au moment de la création du compte. Les clés gérées par le client sont stockées dans Azure Key Vault, et le coffre de clés doit être provisionné avec des stratégies d’accès qui accordent des autorisations de clé à l’identité managée associée au compte de stockage. L’identité managée est disponible uniquement après la création du compte de stockage.
+
+Quand vous modifiez la clé utilisée pour le chiffrement du Storage Azure en activant ou en désactivant des clés gérées par le client, en mettant à jour la version de la clé ou en spécifiant une clé différente, le chiffrement de la clé racine change, mais les données de votre compte de Stockage Azure n’ont pas besoin d’être rechiffrées.
 
 Pour savoir comment utiliser des clés gérées par le client avec Azure Key Vault pour le chiffrement de Stockage Azure, consultez un de ces articles :
 
@@ -96,6 +98,8 @@ Pour savoir comment utiliser des clés gérées par le client avec Azure Key Vau
 ### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Stocker les clés gérées par le client dans Azure Key Vault
 
 Pour activer les clés gérées par le client sur un compte de stockage, vous devez utiliser un coffre de clés Azure pour stocker vos clés. Vous devez activer les propriétés **Suppression réversible** et **Ne pas vider** sur le coffre de clés.
+
+Seules les clés RSA de taille 2048 sont prises en charge avec le chiffrement du Stockage Azure. Pour plus d’informations sur les clés, consultez **Clés Key Vault** dans [À propos des clés, des secrets et des certificats Azure Key Vault](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
 
 Le coffre de clés doit se trouver dans le même abonnement que le compte de stockage. Stockage Azure utilise des identités managées afin que les ressources Azure s’authentifient auprès du coffre de clés pour les opérations de chiffrement et de déchiffrement. Les identités managées ne prennent actuellement pas en charge les scénarios entre annuaires.
 

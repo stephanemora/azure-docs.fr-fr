@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ceee257cd09589fc953c2b32e978a35433b0a49b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371817"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -25,7 +25,7 @@ Une signature d’accès partagé (SAP) fournit un accès délégué sécurisé 
 
 Le service Stockage Azure prend en charge trois types de signatures d’accès partagé :
 
-- **SAP de délégation d’utilisateur (préversion).** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets blob.
+- **SAS de délégation d’utilisateur.** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets blob.
 
     Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -122,9 +122,9 @@ Pour prendre en main les signatures d’accès partagé, consultez les articles 
 
 ### <a name="user-delegation-sas"></a>SAP de délégation d’utilisateur
 
-- [Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell (préversion)](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
-- [Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion)](../blobs/storage-blob-user-delegation-sas-create-cli.md)
-- [Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET (préversion)](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
+- [Créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob avec PowerShell](../blobs/storage-blob-user-delegation-sas-create-powershell.md)
+- [Créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob avec l’interface Azure CLI](../blobs/storage-blob-user-delegation-sas-create-cli.md)
+- [Créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET](../blobs/storage-blob-user-delegation-sas-create-dotnet.md)
 
 ### <a name="service-sas"></a>SAP de service
 

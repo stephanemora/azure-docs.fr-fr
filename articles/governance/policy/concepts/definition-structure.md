@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894300"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436408"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -19,7 +19,7 @@ Le schéma de la définition de stratégie se trouve ici : [https://schema.mana
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
-- le mode
+- mode
 - parameters
 - le nom d’affichage
 - description
@@ -90,7 +90,7 @@ Les modes Fournisseur de ressources suivants sont actuellement pris en charge pe
 > [!NOTE]
 > Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et ne prennent pas en charge les initiatives en préversion.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>Paramètres
 
 Les paramètres permettent de simplifier la gestion des stratégies en réduisant le nombre de définitions de stratégies. Considérez les paramètres comme les champs d’un formulaire : `name`, `address`, `city`, `state`. Ces paramètres restent toujours les mêmes ; toutefois, leurs valeurs changent en fonction de la personne qui remplit le formulaire.
 Les paramètres fonctionnent de manière identique durant la création de stratégies. En incluant des paramètres dans une définition de stratégie, vous pouvez réutiliser cette stratégie pour différents scénarios avec des valeurs différentes.
@@ -318,7 +318,7 @@ Les conditions peuvent également être formées à l’aide de **valeur**. **va
 
 #### <a name="value-examples"></a>Exemples de valeur
 
-Cet exemple de règle de stratégie utilise **valeur** pour comparer le résultat de la fonction `resourceGroup()` et la propriété **nom** renvoyée à une condition **like** de `*netrg`. La règle refuse toute ressource qui n’est pas du `Microsoft.Network/*` **type** dans tout groupe de ressources dont le nom se termine par `*netrg`.
+Cet exemple de règle de stratégie utilise **valeur** pour comparer le résultat de la fonction `resourceGroup()` et la propriété **nom** renvoyée à une condition **like** de `*netrg`. La règle refuse toute ressource qui n’est pas du **type** `Microsoft.Network/*` dans tout groupe de ressources dont le nom se termine par `*netrg`.
 
 ```json
 {
@@ -339,7 +339,7 @@ Cet exemple de règle de stratégie utilise **valeur** pour comparer le résulta
 }
 ```
 
-Cet exemple de règle de stratégie utilise **valeur** pour vérifier si le résultat de plusieurs fonctions imbriquées **est égal à** `true`. La règle refuse toute ressource qui n’a pas au moins trois balises.
+Cet exemple de règle de stratégie utilise **value** pour vérifier si le résultat de plusieurs fonctions imbriquées **est égal à** `true`. La règle refuse toute ressource qui n’a pas au moins trois balises.
 
 ```json
 {
@@ -374,9 +374,9 @@ L’utilisation de _fonctions de modèle_ dans **value** (valeur) autorise de no
 }
 ```
 
-L’exemple de règle de stratégie ci-dessus utilise [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) pour comparer les trois premiers caractères du **nom** avec **abc**. Si le **nom** a moins de 3 caractères, la fonction `substring()` génère une erreur. Cette erreur fait que la stratégie produit un effet **deny (refuser)** .
+L’exemple de règle de stratégie ci-dessus utilise [substring()](../../../azure-resource-manager/templates/template-functions-string.md#substring) pour comparer les trois premiers caractères du **nom** avec **abc**. Si le **nom** a moins de 3 caractères, la fonction `substring()` génère une erreur. Cette erreur fait que la stratégie produit un effet **deny (refuser)** .
 
-Au lieu de cela, utilisez la fonction [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) pour vérifier si les 3 premiers caractères du **nom** sont égaux à **abc** pour éviter qu’un **nom** contenant moins de  3caractères entraîne une erreur :
+Au lieu de cela, utilisez la fonction [if()](../../../azure-resource-manager/templates/template-functions-logical.md#if) pour vérifier si les 3 premiers caractères du **nom** sont égaux à **abc** pour éviter qu’un **nom** contenant moins de  3caractères entraîne une erreur :
 
 ```json
 {
@@ -415,13 +415,13 @@ La structure de l’expression **count** est :
 Les propriétés suivantes sont utilisées avec **count** :
 
 - **count.field** (obligatoire) : contient le chemin du tableau et doit être un alias de tableau. Si le tableau est manquant, l’expression est évaluée à _false_ sans tenir compte de l’expression de condition.
-- **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\] ](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
+- **count.where** (facultatif) : l’expression de condition pour évaluer individuellement chaque membre du tableau [alias \[\*\]](#understanding-the--alias) de **count.field**. Si cette propriété n’est pas fournie, tous les membres du tableau avec le chemin « field » sont évalués à _true_. Toute [condition](../concepts/definition-structure.md#conditions) peut être utilisée à l’intérieur de cette propriété.
   Il est possible d’utiliser des [opérateurs logiques](#logical-operators) à l’intérieur de cette propriété pour créer des exigences d’évaluation complexes.
 - **\<condition\>** (obligatoire) : la valeur est comparée au nombre d’éléments qui ont satisfait l’expression de condition **count.where**. Une [condition](../concepts/definition-structure.md#conditions) numérique doit être utilisée.
 
 #### <a name="count-examples"></a>Exemples de comptage
 
-Exemple 1 : Vérifier si un tableau est vide
+Exemple 1 : Vérifier si un tableau est vide
 
 ```json
 {
@@ -432,7 +432,7 @@ Exemple 1 : Vérifier si un tableau est vide
 }
 ```
 
-Exemple 2 : Rechercher un seul membre du tableau qui satisfait l’expression de condition
+Exemple 2 : Rechercher un seul membre du tableau qui satisfait l’expression de condition
 
 ```json
 {
@@ -447,7 +447,7 @@ Exemple 2 : Rechercher un seul membre du tableau qui satisfait l’expression d
 }
 ```
 
-Exemple 3 : Rechercher au moins un membre du tableau qui satisfait l’expression de condition
+Exemple 3 : Rechercher au moins un membre du tableau qui satisfait l’expression de condition
 
 ```json
 {
@@ -462,7 +462,7 @@ Exemple 3 : Rechercher au moins un membre du tableau qui satisfait l’express
 }
 ```
 
-Exemple 4 : Vérifier que tous les membres du tableau d’objets satisfont l’expression de condition
+Exemple 4 : Vérifier que tous les membres du tableau d’objets satisfont l’expression de condition
 
 ```json
 {
@@ -507,7 +507,7 @@ Exemple 6 : Utiliser **field** à l’intérieur de **value** pour vérifier qu
 }
 ```
 
-Exemple 7 : Vérifier qu’au moins un membre du tableau correspond à plusieurs propriétés dans l’expression de condition
+Exemple 7 : Vérifier qu’au moins un membre du tableau correspond à plusieurs propriétés dans l’expression de condition
 
 ```json
 {
@@ -635,7 +635,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
   (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
-- D’Azure CLI
+- Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell

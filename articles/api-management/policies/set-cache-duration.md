@@ -1,5 +1,6 @@
 ---
-title: Exemple de la stratégie de gestion des API Azure – Définir la durée du cache de réponse | Microsoft Docs
+title: Exemple de stratégie de gestion des API - Définir la durée du cache de réponse
+titleSuffix: Azure API Management
 description: Exemple de stratégie de gestion des API Azure – Comment définir la durée du cache de réponse à l’aide de la valeur maxAge dans l’en-tête Cache-Control envoyé par le serveur principal...
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 67d2f334e2088d96543fabd3b99cac71d95630eb
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071968"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442397"
 ---
 # <a name="set-response-cache-duration"></a>Définir la durée du cache de réponse
 

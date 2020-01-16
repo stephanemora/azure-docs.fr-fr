@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa58f63e70c09e17328b849e7728604a65cb7ae1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 811fc7a4fc5d8ffba894bad837e95d6b27ecc8c3
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964317"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689414"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plateforme d’identités Microsoft et flux On-Behalf-Of OAuth 2.0
 
@@ -35,12 +35,12 @@ Cet article explique comment programmer directement par rapport au protocole dan
 
 > [!NOTE]
 >
-> - Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md). Plus précisément, les applications clientes connues ne sont pas prises en charge pour les applications avec un compte Microsoft (MSA) et des audiences Azure AD. Par conséquent, un modèle de consentement commun pour OBO ne fonctionne pas pour les clients qui connectent à la fois des comptes personnels et professionnels ou scolaires. Pour en savoir plus sur la gestion de cette étape du flux, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
+> - Le point de terminaison de la plateforme d’identités Microsoft ne prend pas en charge l’intégralité des scénarios et fonctionnalités. Pour déterminer si vous devez utiliser le point de terminaison de la plateforme d’identités Microsoft, consultez les [limitations de la plateforme d’identités Microsoft](active-directory-v2-limitations.md). 
 > - Depuis mai 2018, il n’est pas possible d’utiliser un jeton `id_token` dérivé du flux implicite pour le flux OBO. Les applications à une seule page doivent passer un jeton d’**accès** à un client confidentiel de niveau intermédiaire pour effectuer des flux OBO à la place. Pour plus d’informations sur les clients pouvant effectuer des appels OBO, consultez [Limitations](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 
-Supposons que l’utilisateur a été authentifié sur une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md). À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
+Supposons que l’utilisateur ait été authentifié dans une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md) ou d’un autre flux de connexion. À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
 
 Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du diagramme suivant.
 
@@ -48,9 +48,9 @@ Les étapes qui suivent constituent le flux OBO et sont décrites à l’aide du
 
 1. L’application cliente adresse une demande à l’API A avec le jeton A (avec une revendication d’API A `aud`).
 1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton de la plateforme d’identités Microsoft et demande un jeton pour accéder à l’API B.
-1. Le point de terminaison d’émission de jeton de la plateforme d’identités Microsoft valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B).
-1. Le jeton B est défini dans l’en-tête d’autorisation de la demande adressée à l’API B.
-1. Les données de la ressource sécurisée sont retournées par l’API B.
+1. Le point de terminaison d’émission de jeton de la plateforme d’identités Microsoft valide les informations d’identification de l’API A avec le jeton A et envoie le jeton d’accès pour l’API B (jeton B) à l’API A.
+1. Le jeton B est défini par l’API A dans l’en-tête d’autorisation de la requête adressée à l’API B.
+1. Les données de la ressource sécurisée sont retournées par l’API B à l’API A, puis au client.
 
 > [!NOTE]
 > Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval est présentée au préalable lors de l’étape de consentement pendant l’authentification. Pour savoir comment effectuer cette configuration pour votre application, consultez [Obtention du consentement pour l’application de niveau intermédiaire](#gaining-consent-for-the-middle-tier-application).
@@ -74,11 +74,11 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatoire | L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `client_secret` | Obligatoire | La clé secrète client que vous avez générée pour votre application sur la page Inscriptions d’applications du portail Azure. |
-| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
+| `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande.  Ce jeton doit avoir l’audience de l’application qui effectue cette requête OBO (l’application indiquée par le champ `client-id`). |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 La requête HTTP POST suivante demande un jeton d’accès et un jeton d’actualisation avec l’étendue `user.read` pour l’API web https://graph.microsoft.com.
 
@@ -106,14 +106,14 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | `grant_type` | Obligatoire | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
 | `client_id` | Obligatoire |  L’ID (client) d’application attribué à votre application par la page [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `client_assertion_type` | Obligatoire | La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obligatoire | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
+| `client_assertion` | Obligatoire | Assertion (jeton Web JSON) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez [Informations d’identification de certificat](active-directory-certificate-credentials.md). |
 | `assertion` | Obligatoire | Valeur du jeton utilisé dans la demande. |
 | `requested_token_use` | Obligatoire | Spécifie comment la demande doit être traitée. Dans le flux OBO, la valeur doit être définie sur `on_behalf_of`. |
 | `scope` | Obligatoire | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour plus d’informations, consultez [Étendues](v2-permissions-and-consent.md).|
 
 Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre `client_secret` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 La requête HTTP POST suivante demande un jeton d’accès avec l’étendue `user.read` pour l’API web https://graph.microsoft.com avec un certificat.
 
@@ -161,7 +161,7 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 ```
 
 > [!NOTE]
-> Le jeton d’accès ci-dessus est un jeton au format v1.0. C’est le cas parce que ce jeton est fourni en fonction de la ressource sollicitée. Comme Microsoft Graph demande des jetons v1.0, la plateforme d’identités Microsoft génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. Seules les applications doivent examiner les jetons d’accès. Les clients n’ont pas besoin de les inspecter.
+> Le jeton d’accès ci-dessus est un jeton au format v1.0. C’est le cas parce que ce jeton est fourni en fonction de la **ressource** sollicitée. Comme Microsoft Graph est configuré pour accepter des jetons v1.0, la plateforme d’identités Microsoft génère des jetons d’accès v1.0 quand un client demande des jetons pour Microsoft Graph. Seules les applications doivent examiner les jetons d’accès. Les clients **ne doivent pas** les inspecter.
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
 
@@ -183,7 +183,7 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton lors
 
 Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```
 GET /v1.0/me HTTP/1.1
@@ -193,29 +193,24 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtention du consentement pour l’application de niveau intermédiaire
 
-En fonction de l’audience de votre application, vous pouvez envisager différentes stratégies pour garantir la réussite du flux OBO. Dans tous les cas, l’objectif ultime est de garantir qu’un consentement approprié est donné. La façon dont cela se déroule dépend toutefois des utilisateurs pris en charge par votre application.
+Selon l’architecture ou l’utilisation de votre application, vous pouvez envisager différentes stratégies pour garantir la réussite du flux OBO. Dans tous les cas, l’objectif ultime est de garantir qu’un consentement formel a été donné pour que l’application cliente puisse appeler l’application de niveau intermédiaire, et que l’application de niveau intermédiaire soit autorisée à appeler la ressource back-end. 
 
-### <a name="consent-for-azure-ad-only-applications"></a>Consentement pour les applications Azure AD uniquement
+> [!NOTE]
+> Auparavant, le système de compte Microsoft (comptes personnels) ne prenait pas en charge le champ « Application cliente connue » et n’affichait pas non plus le consentement combiné.  Ces deux fonctionnalités ont été ajoutées et toutes les applications de la plateforme d’identités Microsoft peuvent désormais utiliser l’approche d’application cliente connue pour obtenir le consentement nécessaire aux appels OBO. 
 
-#### <a name="default-and-combined-consent"></a>Étendue /.default et consentement combiné
+### <a name="default-and-combined-consent"></a>Étendue /.default et consentement combiné
 
-Pour les applications qui doivent uniquement connecter des comptes professionnels ou scolaires, l’approche « Applications clientes connues » classique est suffisante. L’application de niveau intermédiaire ajoute le client à la liste des applications clientes connues dans son manifeste et le client peut alors déclencher un flux de consentement combiné pour lui-même et l’application de niveau intermédiaire. Sur le point de terminaison de la plateforme d’identités Microsoft, [l’étendue `/.default`](v2-permissions-and-consent.md#the-default-scope) est utilisée. Lors du déclenchement d’un écran de consentement à l’aide des applications clientes connues et de `/.default`, l’écran de consentement affiche les autorisations pour le client et l’API de niveau intermédiaire, et demande également toutes les autorisations requises par l’API de niveau intermédiaire. L’utilisateur fournit le consentement pour les deux applications et le flux OBO fonctionne ensuite.
+L’application de niveau intermédiaire ajoute le client à la liste des applications clientes connues dans son manifeste et le client peut alors déclencher un flux de consentement combiné pour lui-même et l’application de niveau intermédiaire. Sur le point de terminaison de la plateforme d’identités Microsoft, [l’étendue `/.default`](v2-permissions-and-consent.md#the-default-scope) est utilisée. Lors du déclenchement d’un écran de consentement à l’aide des applications clientes connues et de `/.default`, l’écran de consentement affiche les autorisations **à la fois** pour le client et l’API de niveau intermédiaire, et demande également toutes les autorisations exigées par l’API de niveau intermédiaire. L’utilisateur fournit le consentement pour les deux applications et le flux OBO fonctionne ensuite.
 
-À ce stade, le système de comptes Microsoft personnels ne prend pas en charge le consentement combiné et, par conséquent, cette approche ne fonctionne pas pour les applications qui souhaitent connecter spécifiquement des comptes personnels. Les comptes Microsoft personnels utilisés en tant que comptes d’invité dans un locataire sont gérés à l’aide du système Azure AD et peuvent passer par un consentement combiné.
+### <a name="pre-authorized-applications"></a>Applications préalablement autorisées
 
-#### <a name="pre-authorized-applications"></a>Applications préalablement autorisées
+Une ressource peut indiquer qu’une application donnée a toujours l’autorisation de recevoir certaines étendues. Cela est particulièrement utile pour rendre les connexions entre un client front-end et une ressource back-end plus fluides. Une ressource peut déclarer plusieurs applications préalablement autorisées : n’importe quelle application de ce type peut demander ces autorisations dans un flux OBO et les recevoir sans que l’utilisateur ne fournisse un consentement.
 
-Les « applications préalablement autorisées » sont une fonctionnalité du portail d’applications. De cette façon, une ressource peut indiquer qu’une application donnée a toujours l’autorisation de recevoir certaines étendues. Cela est particulièrement utile pour rendre les connexions entre un client front-end et une ressource back-end plus fluides. Une ressource peut déclarer plusieurs applications préalablement autorisées : n’importe quelle application de ce type peut demander ces autorisations dans un flux OBO et les recevoir sans que l’utilisateur ne fournisse un consentement.
-
-#### <a name="admin-consent"></a>Consentement de l’administrateur
+### <a name="admin-consent"></a>Consentement de l’administrateur
 
 Un administrateur de locataire peut garantir que les applications ont l’autorisation d’appeler leurs API requises en fournissant le consentement de l’administrateur pour l’application de niveau intermédiaire. Pour ce faire, l’administrateur peut trouver l’application de niveau intermédiaire dans son locataire, ouvrir la page des autorisations nécessaires et choisir d’accorder l’autorisation pour l’application. Pour en savoir plus sur le consentement de l’administrateur, consultez la [documentation sur le consentement et les autorisations](v2-permissions-and-consent.md).
 
-### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consentement pour les applications de compte Microsoft + Azure AD
-
-En raison de restrictions dans le modèle d’autorisations pour les comptes personnels et l’absence d’un locataire directeur, les exigences de consentement pour les comptes personnels sont légèrement différentes d’Azure AD. Il n’existe aucun locataire pour donner un consentement à l’échelle du locataire et il n’est pas possible de procéder à un consentement combiné. Par conséquent, d’autres stratégies se présentent : notez que celles-ci fonctionnent pour les applications qui doivent aussi uniquement prendre en charge des comptes Azure AD.
-
-#### <a name="use-of-a-single-application"></a>Utilisation d’une application unique
+### <a name="use-of-a-single-application"></a>Utilisation d’une application unique
 
 Dans certains scénarios, vous pouvez avoir uniquement une seule association d’un client de niveau intermédiaire et d’un client front-end. Dans ce scénario, il peut s’avérer plus facile d’en faire une seule application, annulant ainsi complètement la nécessité d’une application de niveau intermédiaire. Pour l’authentification entre le front-end et l’API web, vous pouvez utiliser des cookies, un jeton id_token ou un jeton d’accès demandé pour l’application elle-même. Demandez ensuite le consentement dans cette application unique à la ressource back-end.
 

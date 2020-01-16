@@ -1,23 +1,25 @@
 ---
-title: Configurer l’accès pour plusieurs environnements de service d’intégration (ISE)
-description: Pour plusieurs environnements de service d’intégration (ISE), vous pouvez configurer une adresse IP sortante publique unique pour accéder aux systèmes externes à partir d’Azure Logic Apps
+title: Configurer une adresse IP sortante publique pour les environnements ISE
+description: Découvrez comment configurer une adresse IP sortante publique unique pour les environnements de service d’intégration (ISE) dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 11/27/2019
-ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/16/2019
+ms.openlocfilehash: b2b07882afb6c89c6920726db3c313dbb6a6dfc4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792687"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75453481"
 ---
-# <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Configurer l’accès pour plusieurs environnements de service d’intégration dans Azure Logic Apps
+# <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Configurer une adresse IP unique pour un ou plusieurs environnements de service d’intégration dans Azure Logic Apps
 
-Quand vous utilisez Azure Logic Apps, vous pouvez configurer un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pour héberger des applications logiques qui ont besoin d’accéder à des ressources se trouvant sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous avez plusieurs instances d’ISE devant accéder à d’autres points de terminaison qui ont des restrictions d’adresse IP, déployez un [pare-feu Azure](../firewall/overview.md) ou une [appliance virtuelle réseau](../virtual-network/virtual-networks-overview.md#filter-network-traffic) dans votre réseau virtuel, et routez le trafic sortant via ce pare-feu ou cette appliance virtuelle réseau. Vous pouvez ensuite faire en sorte que toutes les instances d’ISE de votre réseau virtuel utilisent une seule adresse IP publique prédictible pour communiquer avec les systèmes de destination. De cette façon, vous n’avez pas besoin de configurer des ouvertures de pare-feu supplémentaires sur les systèmes de destination pour chaque ISE. Cette rubrique montre comment router le trafic sortant via un pare-feu Azure, mais vous pouvez appliquer des concepts similaires à une appliance virtuelle de réseau virtuel, comme un pare-feu tiers de la Place de marché Azure.
+Quand vous utilisez Azure Logic Apps, vous pouvez configurer un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) pour héberger des applications logiques qui ont besoin d’accéder à des ressources se trouvant sur un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Lorsque vous avez plusieurs instances d’environnement ISE qui doivent accéder à d’autres points de terminaison dotés de restrictions d’adresses IP, déployez un [Pare-feu Azure](../firewall/overview.md) ou une [appliance virtuelle réseau](../virtual-network/virtual-networks-overview.md#filter-network-traffic) dans votre réseau virtuel, et routez le trafic sortant via ce pare-feu ou cette appliance virtuelle réseau. Vous pouvez alors faire en sorte que toutes les instances d’environnement ISE de votre réseau virtuel utilisent une seule adresse IP publique, statique et prédictible pour communiquer avec les systèmes de destination. De cette façon, vous n’avez pas besoin de configurer d’ouvertures de pare-feu supplémentaires sur ces systèmes de destination pour chaque environnement ISE.
 
-## <a name="prerequisites"></a>Prérequis
+Cette rubrique montre comment router le trafic sortant via un Pare-feu Azure, mais vous pouvez appliquer des concepts similaires à une appliance virtuelle de réseau, comme un pare-feu tiers de la Place de marché Azure. Cette rubrique porte sur la configuration pour plusieurs instances d’environnement ISE, mais vous pouvez également utiliser cette approche pour un environnement ISE unique lorsque votre scénario nécessite de limiter le nombre d’adresses IP qui ont besoin d’un accès. Déterminez si les coûts supplémentaires pour le pare-feu ou l’appliance de réseau virtuel ont un sens pour votre scénario. Découvrez plus en détail la [tarification du Pare-feu Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un pare-feu Azure qui s’exécute dans le même réseau virtuel que votre environnement ISE. Si vous ne disposez pas d’un pare-feu, commencez par [ajouter un sous-réseau](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) nommé `AzureFirewallSubnet` à votre réseau virtuel. Vous pouvez ensuite [créer et déployer un pare-feu](../firewall/tutorial-firewall-deploy-portal.md#deploy-the-firewall) dans votre réseau virtuel.
 

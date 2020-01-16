@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/03/2020
 ms.author: b-juche
-ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 630535103656e13ca43d958ef2a4124a4ea940ac
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546940"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658285"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -131,7 +131,7 @@ Oui, vous devez créer une connexion Active Directory avant de déployer un volu
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Combien de connexions Active Directory sont prises en charge ?
 
-Azure NetApp Files prend actuellement en charge une seule connexion Active Directory par abonnement. En outre, la connexion Active Directory est spécifique à un seul compte NetApp ; elle n’est pas partagée entre les comptes. 
+Azure NetApp Files prend en charge une seule connexion Active Directory par compte NetApp, par abonnement et dans chaque région ; la connexion n’est pas partagée entre les comptes NetApp.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Est-ce qu’Azure NetApp Files prend en charge Azure Active Directory ? 
 

@@ -2,14 +2,14 @@
 title: Liaisons pour Fonctions durables - Azure
 description: Guide pratique pour utiliser des déclencheurs et des liaisons pour l’extension Durable Functions pour Azure Functions.
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1f42c6c9b0086d49e539040334c83cfc0c6feb42
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233021"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410218"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Liaisons pour Fonctions durables (Azure Functions)
 
@@ -75,7 +75,7 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 > [!NOTE]
 > Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -110,7 +110,7 @@ public static async Task<string> Run(
 > [!NOTE]
 > Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -191,7 +191,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 module.exports = async function(context) {
@@ -398,7 +398,7 @@ Chaque fonction d’entité dispose d'un type de paramètre de `IDurableEntityCo
 * **DeleteState()**  : supprime l’état de l’entité. 
 * **GetInput\<TInput()**  : Obtient l’entrée pour l’opération en cours. Le paramètre de type `TInput` doit correspondre à un type primitif ou sérialisable JSON.
 * **Return(arg)**  : renvoie une valeur à l'orchestration qui a appelé l’opération. Le paramètre `arg` doit correspondre à un objet primitif ou sérialisable JSON.
-* **SignalEntity(EntityId, operation, input)**  : envoie un message unidirectionnel à une entité. Le paramètre `operation` doit être une chaîne non Null et le paramètre `input` doit être un objet sérialisable JSON ou primitif.
+* **SignalEntity(EntityId, scheduledTimeUtc, operation, input)**  : envoie un message unidirectionnel à une entité. Le paramètre `operation` doit être une chaîne non null, le `scheduledTimeUtc` facultatif doit être une valeur de date et d’heure UTC pour l’appel de l’opération, et le paramètre `input` doit être un objet primitif ou sérialisable par du code JSON.
 * **CreateNewOrchestration(orchestratorFunctionName, input)** : démarre une nouvelle orchestration. Le paramètre `input` doit correspondre à un objet primitif ou sérialisable JSON.
 
 L’objet `IDurableEntityContext` passé à la fonction d’entité est accessible à l’aide de la propriété async-local `Entity.Current`. Cette approche est pratique lorsque vous utilisez le modèle de programmation basé sur une classe.
@@ -456,7 +456,7 @@ L’état de cette entité est un objet de type `Counter`, qui contient un champ
 Pour plus d’informations sur la syntaxe basée sur la classe et sur son utilisation, consultez [Définition des classes d’entités](durable-functions-dotnet-entities.md#defining-entity-classes).
 
 > [!NOTE]
-> La méthode de point d’entrée de la fonction avec l’attribut `[FunctionName]` *doit* être déclarée `static` lors de l’utilisation de classes d’entité. Les méthodes de point d’entrée non statiques peuvent entraîner l’initialisation de plusieurs objets et éventuellement d’autres comportements non définis.
+> La méthode de point d’entrée de la fonction avec l’attribut `[FunctionName]`*doit* être déclarée `static` lors de l’utilisation de classes d’entité. Les méthodes de point d’entrée non statiques peuvent entraîner l’initialisation de plusieurs objets et éventuellement d’autres comportements non définis.
 
 Les classes d’entité disposent des mécanismes spéciaux pour interagir avec les liaisons et l’injection de dépendance .NET. Pour plus d’informations, voir [Construction d’entité](durable-functions-dotnet-entities.md#entity-construction).
 
@@ -519,7 +519,7 @@ Si vous utilisez des scripts de langage (par exemple, des fichiers *.csx* ou *.j
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "durableClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -535,6 +535,7 @@ Dans les fonctions .NET, vous établissez généralement une liaison avec `IDura
 
 * **ReadEntityStateAsync\<T>**  : Lit l’état d’une entité. Ceci retourne une réponse qui indique si l’entité cible existe et, si tel est le cas, son état.
 * **SignalEntityAsync** : Envoie un message unidirectionnel à une entité et attend qu’elle soit mise en file d’attente.
+* **ListEntitiesAsync** : interroge l’état de plusieurs entités. Les entités peuvent être interrogées selon leur *nom* ou l’*heure de la dernière opération*.
 
 Il n’est pas nécessaire de créer l’entité cible avant d’envoyer un signal ; l’état de l’entité peut être créé à partir de la fonction d’entité qui gère le signal.
 

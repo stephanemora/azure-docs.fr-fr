@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83523fd12700789fb5c34230d529e06c0b284147
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e551159ad2d41af37b1f400e91680c49117498d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964983"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423631"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Application Web appelant des API web - Configuration du code
 
@@ -38,8 +38,8 @@ Les bibliothèques prenant en charge le flux du code d’autorisation pour les a
 | Bibliothèque MSAL | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Les plateformes prises en charge sont .NET Framework et .NET Core (et non UWP, Xamarin.iOS et Xamarin.Android, car ces plateformes sont utilisées pour créer des applications clientes publiques) |
-| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Développement en cours, en préversion publique |
-| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Développement en cours, en préversion publique |
+| ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Prise en charge des applications web Python |
+| ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Prise en charge des applications web Java |
 
 Sélectionnez l’onglet correspondant à la plateforme qui vous intéresse :
 
@@ -66,7 +66,7 @@ Pour ce qui est d’ASP.NET, vous allez vous abonner aux événements OIDC du mi
 - et vous vous abonnez à la réception d’un code d’autorisation par l’application web. Il s’agit d’un délégué C#.
 - Une fois le code d’authentification reçu, vous utilisez les bibliothèques MSAL pour l’échanger. Les jetons d’accès et d’actualisation obtenus sont, ensuite, stockés dans le cache associé. À partir de là, le cache peut être utilisé dans d’autres parties de l’application, par exemple dans des contrôleurs, pour acquérir d’autres jetons en mode silencieux.
 
-Les extraits de code indiqués dans cet article et les suivants proviennent de l’[exemple d’application web ASP.NET](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). Vous pouvez vous y référer pour obtenir tous les détails d’implémentation.
+Les extraits de code indiqués dans cet article et les suivants proviennent de l’[exemple d’application web ASP.NET](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). Vous pouvez vous référer à cet exemple pour obtenir tous les détails d’implémentation.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -92,7 +92,7 @@ Dans la pratique, le [tutoriel sur l’application web ASP.NET Core](https://git
 
 Voici le code [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42), qui contient l’appel à la méthode `AddMicrosoftIdentityPlatformAuthentication` qui ajoute l’authentification à l’application web, puis `AddMsal` qui ajoute la possibilité d’appeler des API web. L’appel à `AddInMemoryTokenCaches` a trait au choix d’une implémentation du cache de jetons parmi celles qui sont possibles :
 
-```CSharp
+```csharp
 public class Startup
 {
   // Code not show here
@@ -112,7 +112,7 @@ public class Startup
 
 `Constants.ScopeUserRead` est défini dans [Constants.cs#L5](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Infrastructure/Constants.cs#L5).
 
-```CSharp
+```csharp
 public static class Constants
 {
     public const string ScopeUserRead = "User.Read";
@@ -125,7 +125,7 @@ Vous avez déjà étudié le contenu de `AddMicrosoftIdentityPlatformAuthenticat
 
 Le code pour `AddMsal` se trouve dans [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L108-L159).
 
-```CSharp
+```csharp
 
 /// <summary>
 /// Extensions for IServiceCollection for startup initialization.
@@ -253,7 +253,7 @@ Dans ASP.NET Core, la génération de l’application cliente confidentielle uti
 
 Le code de la méthode `GetOrBuildConfidentialClientApplication()` se trouve dans [Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L290-L333). Il utilise les membres qui ont été injectés par injection de dépendances (passée dans le constructeur de TokenAcquisition dans [Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L47-L59)).
 
-```CSharp
+```csharp
 public class TokenAcquisition : ITokenAcquisition
 {
   // Code omitted here for clarity
@@ -322,7 +322,7 @@ En résumé, `AcquireTokenByAuthorizationCode` échange vraiment le code d’aut
 
 La façon de gérer d’ASP.NET est similaire à celle d’ASP.NET Core, à ceci près que la configuration d’OpenIdConnect et l’abonnement à l’événement `OnAuthorizationCodeReceived` se produisent dans le fichier [App_Start\Startup.Auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs). Vous trouverez des concepts similaires à ceux d’ASP.NET Core, à ceci près que, dans ASP.NET, vous devez spécifier RedirectUri dans [Web.config#L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Cette configuration est un peu moins robuste que ce qui se passe dans ASP.NET Core, car vous avez besoin de la modifier quand vous déployez votre application.
 
-```CSharp
+```csharp
 public partial class Startup
 {
   public void ConfigureAuth(IAppBuilder app)

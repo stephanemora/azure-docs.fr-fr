@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/21/2019
-ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/19/2019
+ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689353"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75494912"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Optimisation des performances pour les clusters Kafka HDInsight Apache
 
 Cet article contient des suggestions pour optimiser les performances de vos charges de travail Apache Kafka dans HDInsight. L’accent est mis sur l’optimisation de la configuration du producteur et du répartiteur. Il existe différentes façons de mesurer les performances, et les optimisations que vous appliquez dépendent de vos besoins.
 
-## <a name="architecture-overview"></a>Présentation de l'architecture
+## <a name="architecture-overview"></a>Vue d’ensemble de l’architecture
 
 Les rubriques Kafka sont utilisées pour organiser des enregistrements. Les enregistrements sont produits par des producteurs et utilisés par des consommateurs. Les producteurs envoient des enregistrements aux répartiteurs Kafka, qui stockent alors les données. Chaque nœud Worker dans votre cluster HDInsight est un répartiteur Kafka.
 
@@ -42,7 +42,7 @@ Les sections suivantes sont consacrées à certaines des propriétés de configu
 
 Les producteurs Apache Kafka assemblent des groupes de messages (appelés lots) qui sont envoyés en tant qu’unité à stocker dans une même partition de stockage. La taille de lot représente le nombre d’octets qui doivent être présents avant que ce groupe soit transmis. Augmenter la valeur du paramètre `batch.size` peut augmenter le débit, car il réduit la surcharge du traitement due aux demandes du réseau et des E/S. Avec une charge faible, une taille de lot augmentée peut augmenter la latence des envois de Kafka, car le producteur attend qu’un lot soit prêt. Avec une charge importante, il est recommandé d’augmenter la taille de lot pour améliorer le débit et la latence.
 
-### <a name="producer-required-acknowledgements"></a>Accusés de réception requis par le producteur
+### <a name="producer-required-acknowledgments"></a>Accusés de réception requis par le producteur
 
 La configuration des accusés de réception (`acks`) requis par le producteur détermine le nombre d’accusés de réception requis par la partition « leader » avant qu’une demande d’écriture soit considérée comme terminée. Ce paramètre affecte la fiabilité des données et il peut prendre les valeurs suivantes : `0`, `1` ou `-1`. La valeur `-1` signifie qu’un accusé de réception doit être reçu de tous les réplicas avant que l’écriture soit terminée. Définir cette valeur sur `acks = -1` offre de meilleures garanties contre la perte de données, mais elle résulte également en une latence plus élevée et un débit inférieur. Si les spécifications de votre application demandent un débit plus élevé, essayez en définissant `acks = 0` ou `acks = 1`. Gardez à l’esprit que ne pas accuser réception pour tous les réplicas peut réduire la fiabilité des données.
 
@@ -57,7 +57,6 @@ L’utilisation de la compression des données va augmenter le nombre d’enregi
 ## <a name="broker-settings"></a>Paramètres du répartiteur
 
 Les sections suivantes sont consacrées à certaines des propriétés les plus importantes pour optimiser les performances de vos répartiteurs Kafka. Pour obtenir une explication détaillée de tous les paramètres des répartiteurs, consultez la [documentation Apache Kafka sur les configurations de répartiteur](https://kafka.apache.org/documentation/#producerconfigs).
-
 
 ### <a name="number-of-disks"></a>Nombre de disques
 

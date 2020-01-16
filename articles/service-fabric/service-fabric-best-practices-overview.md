@@ -1,25 +1,16 @@
 ---
-title: Bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric | Microsoft Docs
-description: Bonnes pratiques relatives à la gestion des clusters et des applications Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric
+description: Bonnes pratiques et considérations relatives à la conception pour développer des clusters, applications et services à l’aide d’Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: pepogors
-ms.openlocfilehash: 5fdbd3f15b11e4c3975ca29627d5984382bcf049
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 46601fd91fccb5bd0866bd999cc7643c37c6d582
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206802"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551775"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Bonnes pratiques relatives aux applications et aux clusters Azure Service Fabric
 

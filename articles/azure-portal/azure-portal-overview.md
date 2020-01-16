@@ -1,20 +1,20 @@
 ---
 title: Vue d’ensemble du portail Azure | Microsoft Docs
-description: Découvrez comment naviguer dans le portail Azure et l’utiliser pour gérer vos services
+description: Le portail Azure est une interface utilisateur graphique que vous pouvez utiliser pour gérer vos services Azure. Découvrez comment explorer et rechercher des ressources dans le portail Azure.
 services: azure-portal
 keywords: portail
-author: kfollis
-ms.author: kfollis
-ms.date: 11/01/2019
+author: mblythe
+ms.author: mblythe
+ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 90bbea1068bb237501daf5e0dfac865ca6b9a12a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 478b090cfe0bfd63bde37dc944cd9fad6e88f179
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579452"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75637607"
 ---
 # <a name="azure-portal-overview"></a>Présentation du portail Azure
 
@@ -70,7 +70,7 @@ La figure ci-dessous étiquette les éléments de base du portail Azure, qui son
 |2| Recherche globale. Utilisez la barre de recherche pour trouver rapidement une ressource spécifique, un service ou de la documentation.|
 |3|Contrôles globaux. Comme tous les éléments globaux, ces fonctionnalités sont persistantes sur le portail et incluent : Cloud Shell, filtre d’abonnement, notifications, paramètres du portail, aide et support, et envoyez-nous vos commentaires.|
 |4|Votre compte. Consultez les informations sur votre compte, changez d’annuaire, déconnectez-vous ou connectez-vous avec un autre compte.|
-|5\.|Menu Portail. Le menu Portail est un élément global qui vous aide à naviguer entre les services. Parfois appelé barre latérale, le mode de menu du portail peut être modifié dans **Paramètres du portail**.|
+|5|Menu Portail. Le menu Portail est un élément global qui vous aide à naviguer entre les services. Parfois appelé barre latérale, le mode de menu du portail peut être modifié dans **Paramètres du portail**.|
 |6|Le menu de ressources. De nombreux services incluent un menu dans le menu de ressources pour vous aider à gérer le service. Cet élément peut être désigné sous le nom de volet gauche.|
 |7|Barre de commandes. Les contrôles de la barre de commandes sont contextuels et dépendent de vos actions.|
 |8|Volet de travail.  Affiche les détails de la ressource à laquelle vous vous intéressez.|

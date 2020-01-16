@@ -1,6 +1,6 @@
 ---
 title: Glossaire Azure Maps | Microsoft Docs
-description: Un glossaire comprenant des termes couramment utilisés relatifs à Azure Maps, Location Based Services et GIS.
+description: Glossaire comprenant des termes couramment utilisés dans Azure Maps, Location Based Services et GIS.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 09/18/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bf5ba30a1fc7b4ee739cb0a591ffe084269541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575360"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408873"
 ---
 # <a name="glossary"></a>Glossaire
 
 Voici une liste de mots couramment utilisés avec Azure Maps.
 
-## <a name="a"></a>A
+## <a name="a"></a>Un
 
 <a name="address-validation"></a> **Validation d’adresse** : Processus de vérification de l’existence d’une adresse.
 
@@ -39,13 +39,13 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="application-programming-interface-api"></a> **Interface de programmation d’applications (API)**  : Spécification qui permet aux développeurs de créer des applications.
 
-<a name="api-key"></a> **Clé API** : Voir Clé Azure Maps.
+<a name="api-key"></a> **Clé API** : Consultez [Authentification par clé partagée](#shared-key-authentication).
 
 <a name="area-of-interest-aoi"></a> **Zone d’intérêt** : Étendue utilisée pour définir un domaine stratégique pour la production d’une carte ou d’une base de données.
 
 <a name="asset-tracking"></a> **Suivi des ressources** : Processus de suivi de l’emplacement d’une ressource telle qu’une personne, un véhicule ou tout autre objet.
 
-<a name="asynchronous-request"></a> **Requête asynchrone** : Requête HTTP qui ouvre une connexion et adresse une requête au serveur qui retourne un identificateur pour la requête asynchrone, puis ferme la connexion. Le serveur continue de traiter la requête et l’utilisateur peut en vérifier l’état à l’aide de l’identificateur. Lorsque le traitement de la requête est terminé, l’utilisateur peut télécharger la réponse. Ce type de requête est généralement utilisé pour les longs processus d’exécution.
+<a name="asynchronous-request"></a> **Requête asynchrone** : Requête HTTP qui ouvre une connexion et adresse une requête au serveur qui retourne un identificateur pour la requête asynchrone, puis ferme la connexion. Le serveur continue de traiter la requête et l’utilisateur peut en vérifier l’état à l’aide de l’identificateur. Lorsque le traitement de la requête est terminé, l’utilisateur peut télécharger la réponse. Ce type de requête est utilisé pour les processus durables.
 
 <a name="autocomplete"></a> **Saisie semi-automatique** : Fonctionnalité dans une application qui anticipe la fin d’un mot que l’utilisateur est en train de taper. 
 
@@ -53,9 +53,11 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**  : Ancien nom d’Azure Maps à l’époque de sa préversion.
 
-<a name="azure-maps-key"></a> **Clé Azure Maps** : Une clé Azure Maps est une chaîne unique utilisée pour authentifier la demande d’application ou de service Azure Maps d’un utilisateur. 
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**  : Azure AD est le service Microsoft basé sur le cloud qui gère les identités et les accès. L’intégration Azure AD d’Azure Maps est actuellement disponible en préversion pour toutes les API Azure Maps. Azure AD prend en charge le contrôle d’accès en fonction du rôle (RBAC) pour permettre un accès fin aux ressources Azure Maps. Pour en savoir plus sur l’intégration Azure AD d’Azure Maps, consultez [Azure Maps et Azure AD](azure-maps-authentication.md) et [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
-## <a name="b"></a>b
+<a name="azure-maps-key"></a> **Clé Azure Maps** : Consultez [Authentification par clé partagée](#shared-key-authentication).
+
+## <a name="b"></a>B
 
 <a name="base-map"></a> **Carte de base** : Partie d’une application de carte qui affiche des informations de référence en arrière-plan comme les routes, les points de repère et les frontières politiques.
 
@@ -99,7 +101,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="country-tertiary-subdivision"></a> **Sous-division tertiaire de pays** : Une sous-division de troisième niveau d’un pays/d’une région ; en général, cette zone est appelée circonscription.
 
-<a name="cross-street"></a> **Intersection** : Point où deux rues ou plus se croisent.
+<a name="cross-street"></a> **Croisement** : Point où deux rues ou plus se croisent.
 
 <a name="cylindrical-projection"></a> **Projection cylindrique** : Projection qui transforme les points d’un sphéroïde ou d’une sphère sur une tangente ou un cylindre sécant. Le cylindre est découpé de haut en bas et aplati en un plan.
 
@@ -125,7 +127,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 ## <a name="e"></a>E
 
-<a name="elevation"></a> **Élevation** : Distance verticale d’un point ou d’un objet au-dessus ou en dessous d’une surface ou donnée de référence (généralement le niveau moyen de la mer). L’élévation fait en général référence à la hauteur verticale de la terre.
+<a name="elevation"></a> **Élévation** : Distance verticale d’un point ou d’un objet au-dessus ou en dessous d’une surface ou donnée de référence (généralement le niveau moyen de la mer). L’élévation fait en général référence à la hauteur verticale de la terre.
 
 <a name="envelope"></a> **Enveloppe** : Voir [Rectangle englobant](#bounding-box).
 
@@ -161,9 +163,9 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="geodesic-path"></a> **Chemin géodésique** : Chemin le plus court entre deux points sur une surface courbe. Lors du rendu sur Azure Maps, ce chemin apparaît comme ligne courbe à cause de la projection de Mercator.
 
-<a name="geofence"></a> **Limite géographique** : Région géographique définie pouvant être utilisée pour déclencher des événements lorsqu’un appareil y entre ou en sort.
+<a name="geofence"></a> **Limite géographique** : Région géographique définie pouvant être utilisée pour déclencher des événements quand un appareil y entre ou en sort.
 
-<a name="geojson"></a> **GeoJSON** : Format de fichier JSON couramment utilisé pour stocker des données vectorielles géographiques comme des points, des lignes et des polygones. **Remarque**: Azure Maps utilise une version étendue de GeoJSON comme [décrit ici](extend-geojson.md).
+<a name="geojson"></a> **GeoJSON** : Format de fichier JSON couramment utilisé pour stocker des données vectorielles géographiques comme des points, des lignes et des polygones. **Remarque** : Azure Maps utilise une version étendue de GeoJSON comme [décrit ici](extend-geojson.md).
 
 <a name="geometry"></a> **Géométrie** : Représente un objet spatial, comme un point, une ligne ou un polygone.
 
@@ -215,7 +217,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 ## <a name="l"></a>L
 
-<a name="landsat"></a> **Landsat** : Satellites multi-spectraux en orbite autour de la Terre, développés par la NASA, qui collectent des images terrestres utilisées par plusieurs domaines comme l’agriculture, la sylviculture et la cartographie.
+<a name="landsat"></a> **Landsat** : Satellites multi-spectraux en orbite autour de la Terre, développés par la NASA, qui collectent des images terrestres utilisées dans plusieurs domaines comme l’agriculture, la sylviculture et la cartographie.
 
 <a name="latitude"></a> **Latitude** : Distance angulaire mesurée en degrés à partir de l’Équateur dans une direction nord ou sud.
 
@@ -223,7 +225,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="lidar"></a> **Lidar** : Acronyme de Light Detection And Ranging. Détection et localisation par la lumière. Une technique de détection à distance qui utilise des lasers pour mesurer des distances sur des surfaces réfléchissantes.
 
-<a name="linear-interpolation"></a> **Interpolation linéaire** : Estimation d’une valeur inconnue à l’aide de la distance linéaire entre des valeurs connues.
+<a name="linear-interpolation"></a>**Interpolation linéaire** : Estimation d’une valeur inconnue à l’aide de la distance linéaire entre des valeurs connues.
 
 <a name="linestring"></a> **LineString** : Géométrie utilisée pour représenter une ligne. Aussi appelée polyligne. 
 
@@ -235,7 +237,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 ## <a name="m"></a>M
 
-<a name="map-tile"></a> **Vignette de la carte** : Image rectangulaire qui représente une partition d’un canevas de carte. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+<a name="map-tile"></a> **Mosaïque de la carte** : Image rectangulaire qui représente une partition d’un canevas de carte. Pour plus d’informations, consultez la [documentation Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
 <a name="marker"></a> **Marqueur** : Également appelé épingle ou punaise. Il s’agit d’une icône qui représente un emplacement sur une carte.
 
@@ -285,6 +287,8 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="postal-code"></a> **Code postal** : Une série de lettres et/ou de chiffres, dans un format spécifique, utilisée par le service postal d’un pays/d’une région pour diviser des zones géographiques en zones plus petites, afin de simplifier la livraison du courrier.
 
+<a name="primary-key"></a> **Clé primaire** : La première des deux clés d’abonnements fournies pour l’authentification par clé partagée Azure Maps. Consultez [Authentification par clé partagée](#shared-key-authentication).
+
 <a name="prime-meridian"></a> **Méridien d’origine** : Ligne de longitude qui représente 0 degré de longitude. En règle générale, les valeurs de longitude diminuent en se déplaçant vers l’ouest jusqu’à 180 degrés, et augmentent en direction de l’est jusqu’à 180 degrés. 
 
 <a name="prj"></a> **PRJ** : Fichier texte qui accompagne souvent un fichier de forme qui contient des informations sur le système de coordonnées projetées dans lequel se trouve le jeu de données.
@@ -319,7 +323,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="rest-service"></a> **Service REST** : Acronyme de Representational State Transfer. Une architecture pour l’échange d’informations entre pairs dans un environnement distribué et décentralisé. Le service REST permet aux programmes sur différents ordinateurs de communiquer indépendamment du système d’exploitation ou de la plateforme en envoyant une requête HTTP à une URL, et de récupérer les données.
 
-<a name="route"></a> **Itinéraire** : Chemin entre deux lieux ou plus, qui peut également inclure des informations supplémentaires comme des instructions sur les points de cheminement qui jalonnent l’itinéraire.
+<a name="route"></a> **Route** : Chemin entre deux lieux ou plus, qui peut également inclure des informations supplémentaires comme des instructions sur les points de cheminement qui jalonnent l’itinéraire.
 
 <a name="requests-per-second-rps"></a> **Demandes par seconde** : Voir [Requêtes par seconde](#queries-per-second-qps). 
 
@@ -329,9 +333,13 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="satellite-imagery"></a> **Imagerie satellite** : Images de la Terre prises par des avions et satellites depuis le ciel ou l’espace.
 
-<a name="software-development-kit-sdk"></a> **Kit de développement logiciel (SDK)**  : Collection de documents, exemples de code et exemples d’application pour aider un développeur à utiliser une API afin de créer des applications.
+<a name="secondary-key"></a> **Clé secondaire** : La seconde des deux clés d’abonnements fournies pour l’authentification par clé partagée Azure Maps. Consultez [Authentification par clé partagée](#shared-key-authentication).
 
 <a name="shapefile-shp"></a> **Fichier de forme (SHP)**  : Également appelé fichier de forme ESRI. Il s’agit d’un format de stockage de données vectorielles contenant l’emplacement, la forme et les attributs de caractéristiques géographiques. Un fichier de forme est stocké dans un ensemble de fichiers connexes.
+
+<a name="shared-key-authentication"></a> **Authentification par clé partagée** : L’authentification par clé partagée s’appuie sur la transmission des clés générées pour les comptes Azure Maps lors de chaque requête envoyée à Azure Maps. Ces clés sont souvent appelées clés d’abonnement. Il est recommandé de regénérer les clés régulièrement pour des raisons de sécurité. Deux clés sont fournies, ce qui signifie que vous pouvez maintenir les connexions à l’aide d’une clé pendant que vous regénérez l’autre clé. Lorsque vous regénérez vos clés, vous devez mettre à jour toutes les applications qui accèdent à ce compte pour qu’elles utilisent les nouvelles clés. Pour en savoir plus sur l’authentification Azure Maps, consultez [Azure Maps et Azure AD](azure-maps-authentication.md) et [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+
+<a name="software-development-kit-sdk"></a> **Kit de développement logiciel (SDK)**  : Collection de documents, exemples de code et exemples d’application pour aider un développeur à utiliser une API afin de créer des applications.
 
 <a name="spherical-mercator-projection"></a> **Projection de Mercator sphérique** : Voir [Web Mercator](#web-mercator). 
 
@@ -340,6 +348,8 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 <a name="spatial-reference"></a> **Référence spatiale** : Système de coordonnées local, régional ou mondial utilisé pour localiser précisément des entités géographiques. Elle définit le système de coordonnées utilisé pour transmettre les coordonnées de la carte indiquant un lieu dans le monde réel. Les références spatiales garantissent l’intégration des données spatiales de différentes couches ou sources en vue d’une analyse et d’un affichage précis. Azure Maps utilise le système de référence de coordonnées [EPSG:3857](https://epsg.io/3857) et WGS 84 pour entrer des données géométriques. 
 
 <a name="sql-spatial"></a> **SQL spatial** : Fait référence à la fonctionnalité spatiale intégrée à SQL Azure et SQL Server 2008 et versions ultérieures. Cette fonctionnalité spatiale est également disponible en tant que bibliothèque .NET qui peut être utilisée indépendamment de SQL Server. Pour plus d’informations, consultez la [Documentation sur les données spatiales (SQL Server)](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server).
+
+<a name="subscription-key"></a> **Clé d’abonnement** : Consultez [Authentification par clé partagée](#shared-key-authentication).
 
 <a name="synchronous-request"></a> **Requête synchrone** : Une requête HTTP ouvre une connexion et attend une réponse. Les navigateurs limitent le nombre de requêtes HTTP simultanées effectuées sur une page. Si plusieurs requêtes synchrones longues sont effectuées en même temps, cette limite peut être atteinte et les requêtes peuvent être retardées jusqu’à la fin d’une des autres requêtes.
 
@@ -353,7 +363,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="thematic-maps"></a> **Cartes thématiques** : Carte simple qui a pour but d’illustrer un thème d’une zone géographique. Un scénario courant pour ce type de carte consistant à colorer les régions administratives telles que des pays/régions, en fonction de certaines métriques de données.
 
-<a name="tile-layer"></a> **Couche de mosaïques** : Couche affichée en assemblant des mosaïques (sections rectangulaires) en une couche continue. Les vignettes peuvent être des images raster ou de vecteur. Les couches de mosaïques Raster sont généralement rendues à l’avance et stockées sous forme d’images sur un serveur. Elles peuvent occuper beaucoup d’espace de stockage. Les couches de mosaïques de vecteur sont affichées à la volée au sein de l’application cliente, par conséquent, les exigences de stockage côté serveur sont plus faibles.
+<a name="tile-layer"></a> **Couche de mosaïques** : Couche affichée en assemblant des mosaïques (sections rectangulaires) en une couche continue. Les vignettes peuvent être des images raster ou de vecteur. Les couches de mosaïques Raster sont généralement rendues à l’avance et stockées sous forme d’images sur un serveur. Elles peuvent occuper beaucoup d’espace de stockage. Les couches de mosaïques de vecteur sont affichées à la volée au sein de l’application cliente ; ainsi, les exigences de stockage côté serveur sont plus faibles.
 
 <a name="time-zone"></a> **Fuseau horaire** : Région du globe qui observe une heure uniforme à des fins commerciales, sociales et juridiques. Les fuseaux horaires ont tendance à respecter les délimitations des pays/régions et de leurs sous-divisions.
 
@@ -388,7 +398,7 @@ Voici une liste de mots couramment utilisés avec Azure Maps.
 
 <a name="web-map-service-wms"></a> **Web Map Service (WMS)**  : WMS est une norme OGC (Open Geographic Consortium) qui définit les services de cartographie basée sur l’image. Les services WMS fournissent des images de carte de zones spécifiques au sein d’une carte sur demande. Les images incluent une symbologie prérendue et peuvent être rendues dans l’un des nombreux styles nommés si définis par le service.
 
-<a name="web-mercator"></a> **Web Mercator** : Également appelé Projection de Mercator sphérique. Il s’agit d’une légère variante de la projection Mercator, utilisée principalement dans les programmes de cartographie basés sur le web. Elle utilise les mêmes formules que la projection de Mercator standard et est utilisée pour des cartes à petite échelle. Toutefois, le Web Mercator utilise les formules sphériques à toutes les échelles, tandis que les cartes Mercator à grande échelle utilisent normalement la forme ellipsoïde de la projection. La différence est imperceptible à l’échelle mondiale mais entraîne une légère déviation sur les cartes locales par rapport aux vraies cartes Mercator ellipsoïdes de la même échelle.
+<a name="web-mercator"></a> **Web Mercator** : Également appelé projection de Mercator sphérique. Il s’agit d’une légère variante de la projection Mercator, utilisée principalement dans les programmes de cartographie basés sur le web. Elle utilise les mêmes formules que la projection de Mercator standard et est utilisée pour des cartes à petite échelle. Toutefois, le Web Mercator utilise les formules sphériques à toutes les échelles, tandis que les cartes Mercator à grande échelle utilisent normalement la forme ellipsoïde de la projection. La différence est imperceptible à l’échelle mondiale mais entraîne une légère déviation sur les cartes locales par rapport aux vraies cartes Mercator ellipsoïdes de la même échelle.
 
 <a name="wgs84"></a> **WGS84** : Ensemble de constantes utilisées pour faire correspondre des coordonnées spatiales à des lieux à la surface de la carte. La donnée WGS84 est la norme utilisée par la plupart des fournisseurs de cartes en ligne et appareils GPS. Azure Maps utilise le système de référence de coordonnées [EPSG:3857](https://epsg.io/3857), variante de WGS 84.
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: 40b277f0b1bfb3501bb246e555d46db5e1ee9f95
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279300"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638253"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>Limites de ressources SQL Database et gouvernance des ressources
 
@@ -99,7 +99,9 @@ Les valeurs minimales et maximales d’IOPS et de débit renvoyées par l’affi
 
 Pour les bases de données De base, Standard et Usage général, qui utilisent des fichiers de données dans le stockage Azure, la valeur `primary_group_max_io` peut ne pas être réalisable si une base de données ne dispose pas de suffisamment de fichiers de données pour fournir de manière cumulative ce nombre d’IOPS, si les données ne sont pas réparties de manière égale entre les fichiers ou si le niveau de performance des blobs sous-jacents restreint l’IOPS/le débit au-dessous de la limite de gouvernance des ressources. De même, avec de petites E/S de journaux générées par la validation fréquente des transactions, la valeur `primary_max_log_rate` peut ne pas être réalisable par une charge de travail en raison de la limite d’IOPS sur le blob de stockage Azure sous-jacent.
 
-Les valeurs d’utilisation des ressources telles que `avg_data_io_percent` et `avg_log_write_percent`, signalées dans les affichages [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) et [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database), sont calculées sous la forme de pourcentages des limites de gouvernance des ressources maximales. Par conséquent, lorsque des facteurs autres que la gouvernance des ressources limitent l’IOPS/le débit, il est possible de voir les courbes d’IOPS/de débit s’aplatir et les latences qui augmentent à mesure que la charge de travail augmente, même si l’utilisation des ressources signalée reste inférieure à 100 %. Pour connaître l’IOPS, le débit et la latence en lecture et écriture par fichier de base de données, utilisez la fonction [sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql). Cette fonction couvre toutes les E/S de la base de données, y compris les E/S en arrière-plan qui ne sont pas prises en compte pour `avg_data_io_percent`, mais utilise l’IOPS et le débit du stockage sous-jacent et peut avoir un impact sur la latence de stockage observée.
+Les valeurs d’utilisation des ressources telles que `avg_data_io_percent` et `avg_log_write_percent`, signalées dans les affichages [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) et [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database), sont calculées sous la forme de pourcentages des limites de gouvernance des ressources maximales. Par conséquent, lorsque des facteurs autres que la gouvernance des ressources limitent l’IOPS/le débit, il est possible de voir les courbes d’IOPS/de débit s’aplatir et les latences qui augmentent à mesure que la charge de travail augmente, même si l’utilisation des ressources signalée reste inférieure à 100 %. 
+
+Pour connaître l’IOPS, le débit et la latence en lecture et écriture par fichier de base de données, utilisez la fonction [sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql). Cette fonction couvre toutes les E/S de la base de données, y compris les E/S en arrière-plan qui ne sont pas prises en compte pour `avg_data_io_percent`, mais utilise l’IOPS et le débit du stockage sous-jacent et peut avoir un impact sur la latence de stockage observée. La fonction met également en évidence une latence supplémentaire qui peut être introduite par la gouvernance des ressources d’E/S pour les lectures et écritures, respectivement dans les colonnes `io_stall_queued_read_ms` et `io_stall_queued_write_ms`.
 
 ### <a name="transaction-log-rate-governance"></a>Gouvernance relative au taux de journalisation des transactions
 
@@ -132,6 +134,6 @@ Lorsque vous rencontrez une limite de taux de journalisation qui entrave l’év
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+- Pour plus d’informations sur les limites générales d’Azure, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Pour plus d’informations sur les DTU et eDTU, consultez [DTU et eDTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - Pour plus d’informations sur les limites de taille de tempdb, consultez [Base de données tempdb dans SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

@@ -1,5 +1,5 @@
 ---
-title: Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI | Microsoft Docs
+title: Basculer entre le mode d’affichage et le mode d’édition pour les rapports
 description: Découvrez comment basculer entre le mode d’affichage et le mode d’édition de vos rapports dans les collections d’espaces de travail Power BI.
 services: power-bi-workspace-collections
 ms.service: power-bi-embedded
@@ -8,12 +8,12 @@ ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 327f2fdcd4d1bc9e71e3aabb3541c6fd30f02811
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b2696560b5d5013fe337b51ec61cbfac9e512610
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672364"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75357662"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Basculer entre le mode d’affichage et le mode d’édition des rapports dans les collections d’espaces de travail Power BI
 
@@ -121,4 +121,4 @@ report.switchMode("edit");
 [Référentiel Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Référentiel Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)
+D’autres questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)

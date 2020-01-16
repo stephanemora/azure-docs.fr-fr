@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 0466b08e551a5fa9da37afe2e5ad175ef28c804e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529573"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887153"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Résoudre des problèmes de performances d’Apache HBase sur Azure HDInsight
 
@@ -57,7 +57,7 @@ Si les performances de vos requêtes se sont mises à baisser soudainement, rega
 
 ## <a name="migration-issues"></a>Problèmes de migration
 
-Si vous opérez une migration vers Azure HDInsight, procédez de manière systématique et précise, de préférence à l’aide d’une automatisation. Évitez d’effectuer une migration manuelle. Vérifiez les points suivants :
+Si vous opérez une migration vers Azure HDInsight, procédez de manière systématique et précise, de préférence à l’aide d’une automatisation. Évitez d’effectuer une migration manuelle. Assurez-vous que :
 
 - Les attributs de table appropriés sont compris dans la migration. Les attributs peuvent inclure la compression, les filtres de Bloom, etc.
 
@@ -95,9 +95,9 @@ Voici quelques-uns des réglages de paramètres que nous avons effectués et qui
 
     - `Phoenix.rpc.index.handler.count`: **50** (en cas de recherches d’index nombreuses ou volumineuses)
 
-    - `Phoenix.stats.updateFrequency`: **1 heure**
+    - `Phoenix.stats.updateFrequency`: 1 heure**
 
-    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: **1 heure**
+    - `Phoenix.coprocessor.maxmetadatacachetimetolivems`: 1 heure**
 
     - `Phoenix.coprocessor.maxmetadatacachesize`: **50 Mo**
 
@@ -106,7 +106,7 @@ Voici quelques-uns des réglages de paramètres que nous avons effectués et qui
    - Les délais d’expiration RPC incluent les délais d’expiration RPC HBase, les délais d’expiration des scanneurs clients HBase et les délais d’expiration des requêtes Phoenix. 
    - Vérifiez que le paramètre `hbase.client.scanner.caching` est défini sur la même valeur côté serveur et côté client. Si les valeurs ne sont pas les mêmes, ce paramètre provoque des erreurs côté client en lien avec `OutOfOrderScannerException`. Ce paramètre doit être défini sur une valeur basse pour les analyses volumineuses. Nous avons défini cette valeur sur **100**.
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 
 Voici les paramètres supplémentaires à prendre en compte pour le paramétrage :
 
@@ -124,4 +124,4 @@ Si votre problème persiste, utilisez l’un des canaux suivants pour obtenir de
 
 - Contactez [@AzureSupport](https://twitter.com/azuresupport). Il s’agit du compte Microsoft Azure officiel pour améliorer l’expérience client. Il fournit à la communauté Azure les ressources appropriées : réponses, support technique et experts.
 
-- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Votre abonnement Microsoft Azure comprend l’accès au support relatif à la gestion et à la facturation des abonnements, et le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Votre abonnement Microsoft Azure comprend l’accès au support relatif à la gestion et à la facturation des abonnements, et le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

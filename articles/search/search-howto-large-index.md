@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: bd158eaf22025a64d7464c632d3f0fa510a4b5a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 12/17/2019
+ms.openlocfilehash: b4b6c57b08de07cae431f015c8d8f53cdf3a50a4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793757"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460729"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Comment indexer des grands ensembles de données dans la Recherche cognitive Azure
 
@@ -23,7 +23,7 @@ Les mêmes techniques s’appliquent également aux processus à exécution long
 
 Les sections suivantes décrivent trois techniques d’indexation de grandes quantités de données.
 
-## <a name="option-1-pass-multiple-documents"></a>Option 1 : Transférer plusieurs documents
+## <a name="option-1-pass-multiple-documents"></a>Option 1 : Transférer plusieurs documents
 
 Un des mécanismes les plus simples pour l’indexation d’un grand jeu de données consiste à soumettre plusieurs documents ou enregistrements dans une même demande. Tant que la charge utile entière est inférieure à 16 Mo, une demande peut gérer jusqu’à 1 000 documents dans une opération de chargement en bloc. Ces limites s’appliquent que vous utilisiez l’[API REST d’ajout de documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou la [méthode Index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) du SDK .NET. Pour l’une ou l’autre des API, vous devez empaqueter 1 000 documents dans le corps de chaque requête.
 
@@ -32,13 +32,13 @@ L’indexation par lot est implémentée pour les demandes individuelles avec RE
 > [!NOTE]
 > Pour réduire la taille du document, évitez d’ajouter des données non interrogeables à un index. Les images et autres données binaires ne peuvent pas faire l’objet de recherches directes et ne doivent pas être stockées dans l’index. Pour intégrer des données non interrogeables dans les résultats de la recherche, vous devez définir un champ sans possibilité de recherche qui stocke une référence d’URL vers la ressource.
 
-## <a name="option-2-add-resources"></a>Option 2 : Ajout de ressources
+## <a name="option-2-add-resources"></a>Option n°2 : Ajout de ressources
 
 Les services qui sont provisionnés à un des [niveaux tarifaires standard](search-sku-tier.md) ont souvent des capacités sous-utilisées pour le stockage et les charges de travail (requêtes ou indexation), ce qui fait de l’[augmentation du nombre de partitions et de réplicas](search-capacity-planning.md) une solution évidente pour prendre en charge les grands jeux de données. Pour optimiser les résultats, vous avez besoin des deux ressources : les partitions pour le stockage et les réplicas pour le travail d’ingestion des données.
 
 L’augmentation des réplicas et des partitions est un événement facturable qui augmente les coûts, mais à moins d’indexer en continu sous une charge maximale, vous pouvez procéder à une mise à l’échelle pour la durée du processus d’indexation, puis baisser de nouveau les niveaux de ressources une fois l’indexation terminée.
 
-## <a name="option-3-use-indexers"></a>Option 3 : Utiliser des indexeurs
+## <a name="option-3-use-indexers"></a>Option 3 : Utiliser des indexeurs
 
 Les [indexeurs](search-indexer-overview.md) sont utilisés pour analyser le contenu pouvant être recherché dans les sources de données Azure prises en charge. Bien qu’ils ne soient pas spécifiquement destinés à l’indexation à grande échelle, plusieurs fonctionnalités des indexeurs sont particulièrement utiles pour prendre en charge les grands jeux de données :
 
@@ -74,7 +74,7 @@ Un traitement parallèle se déroule comme suit :
 + Planifiez une exécution simultanée de tous les indexeurs.
 
 > [!NOTE]
-> Le service Recherche cognitive Azure ne prend pas en charge l’option consistant à dédier des réplicas ou des partitions à des charges de travail spécifiques. Une indexation simultanée de grande envergure surcharge votre système au détriment des performances des requêtes. Si vous avez un environnement de test, exécutez-y d’abord vos opérations d’indexation parallèle afin d’en identifier les inconvénients.
+> Dans Recherche cognitive Azure, vous ne pouvez pas assigner des réplicas ou des partitions individuels à l’indexation ou au traitement des requêtes. Le système détermine la façon dont les ressources sont utilisées. Pour comprendre l’impact sur les performances des requêtes, vous pouvez tenter une indexation parallèle dans un environnement de test avant de la déployer en production.  
 
 ### <a name="how-to-configure-parallel-indexing"></a>Comment configurer l’indexation parallèle
 

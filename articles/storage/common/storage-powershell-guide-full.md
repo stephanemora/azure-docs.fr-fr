@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: d2404ee58f5f44fbe5625f267e6d1c504d0bd237
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131024"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465094"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -161,7 +161,7 @@ Pour régénérer l’autre clé, utilisez `key2` comme nom de clé à la place 
 Régénérez un de vos clés, puis récupérez-la à nouveau pour voir la nouvelle valeur.
 
 > [!NOTE]
-> Vous devez planifier soigneusement la régénération de la clé pour un compte de stockage de production. La régénération d’une ou des deux clés invalidera l’accès pour n’importe quelle application utilisant la clé qui a été régénérée. Pour plus d’informations, consultez l’article [Clés d’accès](storage-account-manage.md#access-keys).
+> Vous devez planifier soigneusement la régénération de la clé pour un compte de stockage de production. La régénération d’une ou des deux clés invalidera l’accès pour n’importe quelle application utilisant la clé qui a été régénérée. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
 
 
 ### <a name="delete-a-storage-account"></a>Suppression d'un compte de stockage
@@ -228,7 +228,7 @@ La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure
 
 Pour découvrir comment accéder à ces clouds et à leur stockage avec PowerShell, consultez [Gestion du stockage dans les clouds indépendants d’Azure avec PowerShell](storage-powershell-independent-clouds.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer toutes les ressources que vous avez créées en supprimant le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
 
@@ -237,7 +237,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous avez appris à effectuer les actions suivantes :
+Cet article couvre les opérations courantes utilisant les applets de commande de plan de gestion pour gérer les comptes de stockage. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Répertorier les comptes de stockage
