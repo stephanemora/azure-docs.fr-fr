@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 8b805f01722c58d60e994a3a6b2440bb115b1bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fa4c7fa42cbc0eceb9efd2f364a0fbcab1698e1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351278"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975687"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
-Cet article répond aux questions courantes sur la migration de Stockage Azure. 
+Cet article répond aux questions courantes sur la migration de Stockage Azure.
 
 ## <a name="faq"></a>Questions fréquentes (FAQ)
 
@@ -31,10 +31,10 @@ Pour copier des fichiers entre des conteneurs, vous utilisez AzCopy. Voir l’ex
     /S
 
 AzCopy utilise l'[API copie d'objet blob](https://docs.microsoft.com/rest/api/storageservices/copy-blob) pour copier chaque fichier dans le conteneur.  
-  
+
 Vous pouvez utiliser n'importe quelle machine virtuelle ou machine locale disposant d'un accès Internet pour exécuter AzCopy. Vous pouvez également utiliser une planification Azure Batch pour effectuer automatiquement cette opération, mais le processus est plus compliqué.  
-  
-Le script d'automatisation est conçu pour le déploiement d'Azure Resource Manager plutôt que pour la manipulation du contenu de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+
+Le script d'automatisation est conçu pour le déploiement d'Azure Resource Manager plutôt que pour la manipulation du contenu de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 **Des frais sont-ils facturés pour la copie de données entre deux partages de fichiers sur un même compte de stockage dans la même région ?**
 
@@ -43,14 +43,14 @@ Non. Ce processus n'entraîne aucuns frais.
 **Comment sauvegarder la totalité de mon compte de stockage sur un autre compte de stockage ?**
 
 Il n'existe aucune option permettant de sauvegarder directement la totalité d'un compte de stockage. Mais vous pouvez déplacer manuellement le conteneur de ce compte de stockage vers un autre compte en utilisant AzCopy ou l'Explorateur de stockage. Les étapes suivantes montrent comment utiliser AzCopy pour déplacer le conteneur:  
- 
+
 
 1.  Installez l'outil de ligne de commande [AzCopy](storage-use-azcopy.md). Cet outil vous aide à déplacer le fichier VHD entre des comptes de stockage.
 
 2.  Après avoir installé AzCopy sur Windows à l'aide du programme d'installation, ouvrez une fenêtre d'invite de commande, puis accédez au dossier d'installation AzCopy sur votre ordinateur. Par défaut, AzCopy est installé dans **%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy** ou **%ProgramFiles%\Microsoft SDKs\Azure\AzCopy**.
 
 3.  Exécutez la commande suivante pour déplacer le conteneur. Vous devez remplacer le texte par les valeurs réelles.   
-     
+
             AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
@@ -157,7 +157,7 @@ Procédez comme suit :
     $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
     $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-    ``` 
+    ```
 
 Pour plus d'informations sur le déploiement d'une machine virtuelle à partir d'un disque managé, voir [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
 
@@ -170,10 +170,10 @@ Utilisez AzCopy pour télécharger les données. Pour plus d'informations, voir 
 Lorsque vous créez un compte de stockage, vous sélectionnez la région primaire pour le compte. La sélection de la région secondaire dépend de la région primaire et ne peut pas être modifiée. Pour plus d’informations, consultez [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy.md).
 
 **Où puis-je obtenir plus d'informations sur le chiffrement du service de stockage Azure (SSE) ?**  
-  
+
 Voir les articles suivants :
 
--  [Guide de sécurité du Stockage Azure](storage-security-guide.md)
+-  [Guide de sécurité du Stockage Azure](../blobs/security-recommendations.md)
 
 -  [Azure Storage Service Encryption pour les données au repos](storage-service-encryption.md)
 
@@ -194,11 +194,11 @@ Vous pouvez utiliser l['Explorateur de stockage](https://azure.microsoft.com/fea
 
 **Existe-t-il des conditions préalables pour modifier la réplication d'un compte de stockage d'un stockage géoredondant à un stockage localement redondant ?**
 
-Non. 
+Non.
 
 **Comment accéder au stockage redondant Azure Files ?**
 
-Un stockage géoredondant avec accès en lecture est requis pour accéder au stockage redondant. Toutefois, Azure Files ne prend en charge que le stockage localement redondant et le stockage géoredondant standard qui n'autorise pas l'accès en lecture seule. 
+Un stockage géoredondant avec accès en lecture est requis pour accéder au stockage redondant. Toutefois, Azure Files ne prend en charge que le stockage localement redondant et le stockage géoredondant standard qui n'autorise pas l'accès en lecture seule.
 
 **Comment passer d'un compte de stockage Premium à un compte de stockage Standard ?**
 
@@ -207,12 +207,12 @@ Procédez comme suit :
 1.  Créez un compte de stockage standard. (Ou utilisez un compte de stockage standard existant dans votre abonnement.)
 
 2.  Téléchargez AzCopy. Exécutez l’une des commandes AzCopy suivantes.
-      
+
     Pour copier des disques entiers dans le compte de stockage :
 
         AzCopy /Source:https://sourceaccount.blob.core.windows.net/mycontainer1
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
-        /SourceKey:key1 /DestKey:key2 /S 
+        /SourceKey:key1 /DestKey:key2 /S
 
     Pour copier un seul disque, indiquez le nom du disque dans le **modèle** :
 
@@ -220,11 +220,11 @@ Procédez comme suit :
         /Dest:https://destaccount.blob.core.windows.net/mycontainer2
         /SourceKey:key1 /DestKey:key2 /Pattern:abc.vhd
 
-   
+
 L'opération peut prendre plusieurs heures.
 
 Pour vous assurer que le transfert s'est déroulé correctement, examinez le conteneur du compte de stockage de destination dans le portail Azure. Une fois les disques copiés dans le compte de stockage standard, vous pouvez les attacher à la machine virtuelle comme un disque existant. Pour plus d’informations, voir [Attachement d’un disque de données géré à une machine virtuelle Windows dans le portail Azure](../../virtual-machines/windows/attach-managed-disk-portal.md).  
-  
+
 **Comment convertir en stockage Azure Premium avec un partage de fichiers ?**
 
 Le stockage Premium n'est pas autorisé avec Partage de fichiers Azure.
@@ -249,7 +249,7 @@ Vous pouvez utiliser l’interface de ligne de commande Azure.
 
       azure storage blob download -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -b "<Remote File Name>" -d "<Local path where the file will be downloaded to>"
 
-- Charger un seul objet blob : 
+- Charger un seul objet blob :
 
       azure storage blob upload -k "<Account Key>" -a "<Storage Account Name>" --container "<Blob Container Name>" -f "<Local File Name>"
 
@@ -257,7 +257,7 @@ Vous pouvez utiliser l’interface de ligne de commande Azure.
 
 Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
--   Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource. 
+-   Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource.
 
 -   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](storage-account-keys-manage.md).
 
@@ -276,9 +276,9 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 -   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez accéder aux données de la région secondaire qu'en procédant à un basculement vers cette région. Pour plus d'informations sur le processus de basculement, consultez [Récupération d'urgence et basculement de compte de stockage (préversion) dans Stockage Azure](storage-disaster-recovery-guidance.md).
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Appliquez l'une des méthodes suivantes :  
-      
+
     - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :  
-     
+
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **Jeton SAS** : Utilisez un jeton SAS pour accéder aux données du point de terminaison. Pour plus d’informations, consultez [Utilisation des signatures d’accès partagé](storage-sas-overview.md).

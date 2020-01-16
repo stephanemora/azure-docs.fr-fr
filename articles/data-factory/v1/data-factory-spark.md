@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d30b2001889a2555f736de0685fe23de1ea0e055
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce5fb014c7d954b3e8430a86430c6a666adff204
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438842"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969245"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -36,23 +36,23 @@ ms.locfileid: "75438842"
 > Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide d’une activité Apache Spark dans Data Factory](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introduction
-L’activité Spark est l’une des [activités de transformation des données](data-factory-data-transformation-activities.md) prises en charge par Data Factory. Cette activité exécute le programme Spark spécifié sur votre cluster Spark dans Azure HDInsight. 
+L’activité Spark est l’une des [activités de transformation des données](data-factory-data-transformation-activities.md) prises en charge par Data Factory. Cette activité exécute le programme Spark spécifié sur votre cluster Spark dans Azure HDInsight.
 
 > [!IMPORTANT]
 > - L’activité Spark ne prend pas en charge les clusters Spark HDInsight qui utilisent Azure Data Lake Store en tant que stockage principal.
 > - L’activité Spark prend en charge uniquement les clusters Spark HDInsight existants (c’est-à-dire vos propres clusters). Elle ne prend pas en charge les services liés HDInsight à la demande.
 
 ## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Procédure pas à pas : Créer un pipeline avec une activité Spark
-Voici les étapes classiques pour créer un pipeline de fabrique de données avec une activité Spark : 
+Voici les étapes classiques pour créer un pipeline de fabrique de données avec une activité Spark :
 
 * Créer une fabrique de données.
 * Créez un service lié Stockage Azure pour lier à la fabrique de données le stockage qui est associé à votre cluster Spark HDInsight.
 * Créez un service lié HDInsight pour lier à la fabrique de données votre cluster Spark dans HDInsight.
-* Créez un jeu de données faisant référence au service lié Stockage. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite. 
+* Créez un jeu de données faisant référence au service lié Stockage. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite.
 * Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight que vous avez créé. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
 ### <a name="prerequisites"></a>Conditions préalables requises
-1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md).
+1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-account-create.md).
 
 1. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
 
@@ -90,10 +90,10 @@ Pour créer une fabrique de données, procédez comme suit :
     ![Panneau Data Factory](./media/data-factory-spark/data-factory-blade.png)
 
 ### <a name="create-linked-services"></a>Créez des services liés
-Dans cette étape, vous créez deux services liés. Un service relie votre cluster Spark à votre fabrique de données, et l’autre service relie votre stockage à votre fabrique de données. 
+Dans cette étape, vous créez deux services liés. Un service relie votre cluster Spark à votre fabrique de données, et l’autre service relie votre stockage à votre fabrique de données.
 
 #### <a name="create-a-storage-linked-service"></a>Créer un service lié pour le stockage
-Dans cette étape, vous liez votre compte de stockage à votre fabrique de données. Un jeu de données que vous allez créer plus loin dans cette procédure fait référence à ce service lié. Le service lié HDInsight que vous définissez dans l’étape suivante fait également référence à ce service lié. 
+Dans cette étape, vous liez votre compte de stockage à votre fabrique de données. Un jeu de données que vous allez créer plus loin dans cette procédure fait référence à ce service lié. Le service lié HDInsight que vous définissez dans l’étape suivante fait également référence à ce service lié.
 
 1. Dans le panneau **Fabrique de données**, sélectionnez **Créer et déployer**. Le Data Factory Editor apparaît.
 
@@ -110,7 +110,7 @@ Dans cette étape, vous liez votre compte de stockage à votre fabrique de donn�
 1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. Une fois le service lié déployé, la fenêtre Draft-1 disparaît. **AzureStorageLinkedService** apparaît dans l’arborescence à gauche.
 
 #### <a name="create-an-hdinsight-linked-service"></a>Créer un service lié HDInsight
-Dans cette étape, vous créez un service lié HDInsight pour lier à la fabrique de données votre cluster Spark HDInsight. Le service lié HDInsight est utilisé pour exécuter le programme Spark spécifié dans l’activité Spark du pipeline de cet exemple. 
+Dans cette étape, vous créez un service lié HDInsight pour lier à la fabrique de données votre cluster Spark HDInsight. Le service lié HDInsight est utilisé pour exécuter le programme Spark spécifié dans l’activité Spark du pipeline de cet exemple.
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau calcul** > **Cluster HDInsight**.
 
@@ -147,14 +147,14 @@ Dans cette étape, vous créez un service lié HDInsight pour lier à la fabriqu
 
     Pour plus d’informations sur le service lié HDInsight, consultez la page consacrée au [service lié HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes. 
+1. Pour déployer le service lié, sélectionnez **Déployer** dans la barre de commandes.
 
 ### <a name="create-the-output-dataset"></a>Créer le jeu de données de sortie
 Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier un jeu de données de sortie pour l’activité Spark du pipeline, même si l’activité ne produit pas de sortie. Vous n’êtes pas obligé de spécifier un jeu de données d’entrée pour l’activité.
 
 1. Dans Data Factory Editor, sélectionnez **Plus** > **Nouveau jeu de données** > **Stockage Blob Azure**.
 
-1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON définit un jeu de données appelé **OutputDataset**. En outre, vous indiquez que les résultats sont stockés dans le conteneur d’objets blob nommé **adfspark** et dans le dossier nommé **pyFiles/output**. Comme mentionné précédemment, ce jeu de données est un jeu de données factice. Le programme Spark, dans cet exemple, ne produit pas de sortie. La section **availability** spécifie que le jeu de données de sortie est produit tous les jours. 
+1. Copiez et collez l’extrait ci-dessous dans la fenêtre Draft-1. L’extrait de code JSON définit un jeu de données appelé **OutputDataset**. En outre, vous indiquez que les résultats sont stockés dans le conteneur d’objets blob nommé **adfspark** et dans le dossier nommé **pyFiles/output**. Comme mentionné précédemment, ce jeu de données est un jeu de données factice. Le programme Spark, dans cet exemple, ne produit pas de sortie. La section **availability** spécifie que le jeu de données de sortie est produit tous les jours.
 
     ```json
     {
@@ -226,7 +226,7 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
     > [!IMPORTANT]
     > Nous vous recommandons de ne pas définir cette propriété sur `Always` dans un environnement de production, sauf si vous dépannez un problème.
 
-    e. La section **outputs** possède un jeu de données de sortie. Vous devez spécifier un jeu de données de sortie même si le programme Spark ne produit pas de sortie. Le jeu de données de sortie pilote la planification du pipeline (horaire, quotidienne). 
+    e. La section **outputs** possède un jeu de données de sortie. Vous devez spécifier un jeu de données de sortie même si le programme Spark ne produit pas de sortie. Le jeu de données de sortie pilote la planification du pipeline (horaire, quotidienne).
 
     Pour plus d’informations sur les propriétés prises en charge par l’activité Spark, consultez la section [Propriétés de l’activité Spark](#spark-activity-properties).
 
@@ -260,12 +260,12 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-1. Vérifiez que les données figurent dans la table hvac. 
+1. Vérifiez que les données figurent dans la table hvac.
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
 <!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 ### <a name="troubleshooting"></a>Dépannage
 Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
@@ -288,7 +288,7 @@ Pour résoudre des problèmes, procédez comme suit :
 Les sections suivantes fournissent des informations sur les entités de fabrique de données pour utiliser le cluster Spark et l’activité Spark dans votre fabrique de données.
 
 ## <a name="spark-activity-properties"></a>Propriétés de l'activité Spark
-Voici l’exemple de définition JSON d’un pipeline avec une activité Spark : 
+Voici l’exemple de définition JSON d’un pipeline avec une activité Spark :
 
 ```json
 {
@@ -342,7 +342,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 ## <a name="folder-structure"></a>Structure de dossiers
 L’activité Spark ne prend pas en charge un script en ligne, contrairement aux activités Pig et Hive. Les travaux Spark sont également plus extensibles que les travaux Pig/Hive. Pour les travaux Spark, vous pouvez fournir plusieurs dépendances, telles que des packages jar (placés dans le CLASSPATH Java), des fichiers Python (placés dans le PYTHONPATH) et tout autre fichier.
 
-Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
+Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob :
 
 | Path | Description | Obligatoire | Type |
 | ---- | ----------- | -------- | ---- |

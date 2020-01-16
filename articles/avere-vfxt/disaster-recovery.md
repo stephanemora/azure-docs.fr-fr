@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414222"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966648"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Guide pour la reprise d’activité pour Avere vFXT pour Azure
 
@@ -60,7 +60,7 @@ Cette section donne des conseils sur la protection de vos données contre les ra
 Les bonnes pratiques pour la protection des données dans Stockage Blob Azure sont les suivantes :
 
 * Copiez fréquemment vos données critiques vers un autre compte de stockage dans une autre région (à la fréquence déterminée par votre plan de reprise d’activité).
-* Contrôlez l’accès aux données sur tous les systèmes cibles pour empêcher la suppression ou l’endommagement accidentel. Envisagez d’utiliser des [verrous de ressources](../azure-resource-manager/resource-group-lock-resources.md) sur le stockage de données.
+* Contrôlez l’accès aux données sur tous les systèmes cibles pour empêcher la suppression ou l’endommagement accidentel. Envisagez d’utiliser des [verrous de ressources](../azure-resource-manager/management/lock-resources.md) sur le stockage de données.
 * Activez la fonctionnalité d’[instantané cloud](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) d’Avere vFXT pour Azure pour vos serveurs de fichiers principaux d’objets blob.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Copier les données du serveur de fichiers principal Avere vFXT vers un compte de sauvegarde

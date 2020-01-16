@@ -54,6 +54,8 @@
       href: spring-cloud-service-registration.md
     - name: Analyser les journaux et les métriques des applications
       href: diagnostic-services.md
+    - name: Streaming des journaux Azure Spring Cloud pour une disponibilité instantanée
+      href: spring-cloud-howto-log-streaming.md
     - name: Automatiser votre pipeline CI/CD dans Azure Spring Cloud
       href: spring-cloud-howto-cicd.md
     - name: Utiliser le stockage persistant dans Azure Spring Cloud

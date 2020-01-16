@@ -17,6 +17,8 @@
   items:
     - name: Lancer le lecteur immersif (Python)
       href: tutorial-python.md
+    - name: Utiliser plusieurs ressources du Lecteur immersif
+      href: tutorial-multiple-resources.md
 - name: Procédure
   items:
     - name: Créer une ressource de Lecteur immersif

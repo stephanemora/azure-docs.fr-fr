@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc5b1f2f8e8b529149184ce173bcdd315311bad4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647252"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975329"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -146,7 +146,7 @@ Il est parfois nécessaire de définir manuellement l’adresse IP d’une inter
 4. Démarrez la machine virtuelle.
 5. [Configurer manuellement](virtual-network-multiple-ip-addresses-portal.md#os-config) les adresses IP secondaires dans le système d’exploitation (ainsi que l’adresse IP principale dans Windows) pour obtenir ce que vous avez défini dans Azure.
 
-Si vous suivez les étapes précédentes, l’adresse IP privée assignée à l’interface réseau dans Azure reste identique à celle assignée dans le système d’exploitation de la machine virtuelle. Pour garder une trace des machines virtuelles de votre abonnement au sein desquelles vous avez défini manuellement les adresses IP dans un système d’exploitation, pensez à ajouter une [balise](../azure-resource-manager/resource-group-using-tags.md) Azure aux machines virtuelles. Vous pouvez utiliser « attribution d’adresses IP : statique », par exemple. De cette manière, vous pouvez facilement trouver les machines virtuelles de votre abonnement pour lesquelles vous avez défini manuellement l’adresse IP dans le système d’exploitation.
+Si vous suivez les étapes précédentes, l’adresse IP privée assignée à l’interface réseau dans Azure reste identique à celle assignée dans le système d’exploitation de la machine virtuelle. Pour garder une trace des machines virtuelles de votre abonnement au sein desquelles vous avez défini manuellement les adresses IP dans un système d’exploitation, pensez à ajouter une [balise](../azure-resource-manager/management/tag-resources.md) Azure aux machines virtuelles. Vous pouvez utiliser « attribution d’adresses IP : statique », par exemple. De cette manière, vous pouvez facilement trouver les machines virtuelles de votre abonnement pour lesquelles vous avez défini manuellement l’adresse IP dans le système d’exploitation.
 
 En plus de permettre à une machine virtuelle de communiquer avec d’autres ressources dans les mêmes réseaux virtuels ou des réseaux virtuels connectés, une adresse IP privée permet à une machine virtuelle de communiquer en sortie vers Internet. Les connexions sortantes correspondent à une adresse de réseau source convertie par Azure en adresse IP publique non prédictible. Pour en savoir plus sur la connectivité Internet sortante d’Azure, voir [À propos de la connectivité Internet sortante d’Azure](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous ne pouvez communiquer en entrée vers l’adresse IP privée d’une machine virtuelle à partir d’Internet. Si vos connexions sortantes requièrent une adresse IP publique prédictible, associez une ressource d’adresse IP publique à une interface réseau.
 

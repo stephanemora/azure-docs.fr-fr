@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.author: helohr
-ms.openlocfilehash: 817cd09797ad861521a462da9c5d0850c65bf562
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ce1af278d67f96873ed611db8dc05938205638dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459577"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980239"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Vue d’ensemble du dépannage, commentaires et support
 
@@ -27,7 +27,7 @@ Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcom
 Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous pouvez rencontrer quand vous configurez un environnement de locataire avec le client Bureau à distance. Une fois votre locataire configuré, vous pouvez utiliser notre nouveau [service Diagnostics](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) pour identifier les problèmes pour les scénarios courants.
 
 >[!NOTE]
-> Nous disposons d'un forum Tech Community auquel vous pouvez accéder pour discuter de vos problèmes avec l'équipe produit et avec les membres actifs de la communauté. Consultez le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour 
+> Nous disposons d'un forum Tech Community auquel vous pouvez accéder pour discuter de vos problèmes avec l'équipe produit et avec les membres actifs de la communauté. Consultez le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour
 
 | **Problème**                                                            | **Solution suggérée**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
@@ -54,6 +54,6 @@ Utilisez le tableau suivant pour identifier et résoudre les problèmes que vous
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

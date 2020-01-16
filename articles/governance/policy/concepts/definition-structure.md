@@ -3,12 +3,12 @@ title: Détails de la structure des définitions de stratégies
 description: Décrit comment les définitions de stratégie permettent d’établir des conventions pour les ressources Azure dans votre organisation.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: f1baffb60234a154df544552dba3c34ced25b518
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436408"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972845"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -76,7 +76,7 @@ Le **mode** détermine les types de ressources à évaluer pour une stratégie. 
 
 Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes les définitions de stratégie créées via le portail utilisent le mode `all`. Si vous utilisez PowerShell ou Azure CLI, vous pouvez spécifier le paramètre **mode** manuellement. Si la définition de stratégie ne comporte pas de valeur **mode**, elle prend la valeur par défaut `all` dans Azure PowerShell et `null` dans Azure CLI. Le mode `null` a le même effet que `indexed`, à savoir assurer une compatibilité descendante.
 
-Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/tag-support.md).
+Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
 
@@ -473,7 +473,7 @@ Exemple 4 : Vérifier que tous les membres du tableau d’objets satisfont l’
             "equals": "description"
         }
     },
-    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+    "equals": "[length(field('Microsoft.Network/networkSecurityGroups/securityRules[*]'))]"
 }
 ```
 
@@ -552,7 +552,7 @@ Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les prop
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions et fonctions définies par l’utilisateur suivantes :
+Toutes les [fonctions de modèle Resource Manager](../../../azure-resource-manager/templates/template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions et fonctions définies par l’utilisateur suivantes :
 
 - copyIndex()
 - deployment()

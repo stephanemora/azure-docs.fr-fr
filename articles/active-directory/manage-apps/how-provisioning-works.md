@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0078e2ed277eef07968660ddc30e3860d9077777
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476039"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719968"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -62,6 +62,7 @@ Vous pouvez personnaliser les mappages d’attributs par défaut en fonction des
 
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Pour ces mappages, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS. Pour plus d’informations, consultez [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md).
 
+## <a name="scoping"></a>Scoping 
 ### <a name="assignment-based-scoping"></a>Étendue basée sur les attributions
 
 Pour le provisionnement sortant entre Azure AD et une application SaaS, les [attributions d’utilisateurs ou de groupes](assign-user-or-group-access-portal.md) constituent la méthode la plus courante pour déterminer les utilisateurs qui sont compris dans l’étendue du provisionnement. Étant donné que les attributions d’utilisateurs sont également utilisées pour l’authentification unique, cette même méthode peut être utilisée pour gérer l’accès et le provisionnement. L’étendue basée sur les attributions ne s’applique pas aux scénarios de provisionnement entrant tels que Workday et Successfactors.

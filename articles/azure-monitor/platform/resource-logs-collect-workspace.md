@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 82738627b84713669cb6ddfc94c22b6f24b49e3a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b0b8757590876669e00e81378411c010514e3036
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530848"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750368"
 ---
 # <a name="collect-azure-platform-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter les journaux de plateforme Azure dans l’espace de travail Log Analytics dans Azure Monitor
-[Les journaux de plateforme](resource-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
+[Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article décrit la collecte de journaux de ressources dans un espace de travail Log Analytics, ce qui vous permet d’analyser ceux-ci avec d’autres données de surveillance collectées dans les journaux Azure Monitor à l’aide de puissantes requêtes de journal, ainsi que d’exploiter d’autres fonctionnalités d’Azure Monitor, telles que les alertes et les visualisations. 
 
 
 ## <a name="what-you-can-do-with-platform-logs-in-a-workspace"></a>Comment utiliser les journaux de plateforme dans un espace de travail
@@ -124,5 +124,5 @@ Vous devez migrer vos journaux pour utiliser le mode Spécifique à la ressource
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez plus d’informations sur les journaux de ressource](resource-logs-overview.md)
+* [Découvrez plus d’informations sur les journaux de ressource](platform-logs-overview.md)
 * [Créer un paramètre de diagnostic pour collecter les journaux et les mesures dans Azure](diagnostic-settings.md).

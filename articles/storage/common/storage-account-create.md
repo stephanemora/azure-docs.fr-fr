@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477055"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975918"
 ---
 # <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Vous pouvez également supprimer le groupe de ressources, ce qui supprime le compte de stockage et toutes les autres ressources de ce groupe. Pour plus d’informations sur la suppression d’un groupe de ressources, consultez [Supprimer un groupe de ressources et des ressources](../../azure-resource-manager/resource-group-delete.md).
+Vous pouvez également supprimer le groupe de ressources, ce qui supprime le compte de stockage et toutes les autres ressources de ce groupe. Pour plus d’informations sur la suppression d’un groupe de ressources, consultez [Supprimer un groupe de ressources et des ressources](../../azure-resource-manager/management/delete-resource-group.md).
 
 > [!WARNING]
 > Il n’est pas possible de restaurer un compte de stockage supprimé ou son contenu avant la suppression. Veillez à sauvegarder tout ce que vous souhaitez conserver avant de supprimer le compte. Ceci vaut également pour toutes les ressources du compte : dès que vous supprimez un objet blob, une table, une file d’attente ou un fichier, la suppression est irréversible.

@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613871"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972343"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utiliser le fournisseur de ressources Stockage Azure pour accéder aux ressources de gestion
 
@@ -72,7 +72,7 @@ Pour obtenir des exemples de code qui montrent comment autoriser et appeler des 
 
 Resource Manager et les modèles de déploiement classique représentent deux façons différentes de déployer et de gérer vos solutions Azure. Microsoft recommande d’utiliser le modèle de déploiement Azure Resource Manager quand vous créez un compte de stockage. Si possible, Microsoft vous recommande également de recréer les comptes de stockage classiques existants avec le modèle Resource Manager. Bien que vous puissiez créer un compte de stockage en utilisant le modèle de déploiement classique, le modèle classique est moins flexible et il sera au final déprécié.
 
-Pour plus d’informations sur les modèles de déploiement Azure, consultez [Déploiement Resource Manager et déploiement classique](../../azure-resource-manager/resource-manager-deployment-model.md).
+Pour plus d’informations sur les modèles de déploiement Azure, consultez [Déploiement Resource Manager et déploiement classique](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

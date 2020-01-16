@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37b6b800cbe0b4272df227e1411257b33a3e0cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37fee7f96a27942a1295cb8c2315fedffc5bdefe
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420807"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030159"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -33,7 +33,7 @@ Les limitations de la solution actuelle sont les suivantes :
 > [!NOTE]
 > Si vous utilisez la solution pour les machines virtuelles classiques, toutes vos machines virtuelles sont traitées séquentiellement par service cloud. Les machines virtuelles sont toujours traitées en parallèle à travers les différents services cloud. Si vous avez plus de 20 machines virtuelles par service cloud, nous vous recommandons de créer plusieurs planifications avec le runbook parent **ScheduledStartStop_Parent** et de spécifier 20 machines virtuelles par planification. Dans les propriétés de planification, spécifiez les noms des machines virtuelles dans le paramètre **VMList**, sous forme d’une liste séparée par des virgules. Sinon, si le travail d’automatisation pour cette solution s’exécute pendant plus de trois heures, il est momentanément déchargé ou arrêté par la limite de [répartition de charge équilibrée](automation-runbook-execution.md#fair-share).
 >
-> Les abonnements Azure Cloud Solution Provider (Azure CSP) prennent uniquement en charge le modèle Azure Resource Manager ; les services hors Azure Resource Manager ne sont pas disponibles dans le programme. Quand la solution Start/Stop s’exécute, vous risquez de recevoir des erreurs du fait qu’elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Si vous utilisez un abonnement CSP, vous devez définir la variable [**External_EnableClassicVMs**](#variables) sur **False** après le déploiement.
+> Les abonnements Azure Cloud Solution Provider (Azure CSP) prennent uniquement en charge le modèle Azure Resource Manager ; les services hors Azure Resource Manager ne sont pas disponibles dans le programme. Quand la solution Start/Stop s’exécute, vous risquez de recevoir des erreurs du fait qu’elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services). Si vous utilisez un abonnement CSP, vous devez définir la variable [**External_EnableClassicVMs**](#variables) sur **False** après le déploiement.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

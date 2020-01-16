@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.author: tamram
-ms.openlocfilehash: 68d0ef14a7b5967d6a4535da85d32128c3a12a19
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 13adf6de420b54299d04a226dab81e75cbb9fef2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477059"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975781"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gérer les clés d’accès au compte de stockage
 
@@ -56,4 +56,4 @@ Effectuez les étapes suivantes pour permuter vos clés de compte de stockage :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md)
-- [Créez un compte de stockage](storage-quickstart-create-account.md)
+- [Créez un compte de stockage](storage-account-create.md)

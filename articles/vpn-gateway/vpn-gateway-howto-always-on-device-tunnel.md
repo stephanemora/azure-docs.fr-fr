@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6f0c33ee7fd5790a060574230f1156c569a63936
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfc5328dfb4f374ea90c8e6352877d4179f031b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425667"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921180"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurer un tunnel de périphérique VPN Always On
 
@@ -102,9 +102,9 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    ```
 1. Copiez le texte suivant et enregistrez-le sous le nom ***VPNProfile.xml*** dans le même dossier que **devicecert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address> <= IP of resource in the vnet or the vnet address space`
 
    ```
    <VPNProfile>  

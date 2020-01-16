@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: b2764e54d0938cbbdc00b19cf3ea1139d3d29828
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 76603642b90bd4d3926e10ce1c5a3c38391362cf
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435267"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749777"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance dans HDInsight via VPN
 
@@ -75,12 +75,12 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 
     ```
     # For headnode0
-    192.xxx.xx.xx hn0-nitinp
-    192.xxx.xx.xx hn0-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     
     # For headnode1
-    192.xxx.xx.xx hn1-nitinp
-    192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
+    192.xxx.xx.xx nitinp
+    192.xxx.xx.xx nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
     ```
 
 1. À partir de l’ordinateur que vous avez connecté au réseau virtuel Azure utilisé par le cluster HDInsight, vérifiez que vous pouvez exécuter une commande ping sur les nœuds principaux aussi bien avec l’adresse IP qu’avec le nom d’hôte.
@@ -141,8 +141,8 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
     Étant donné que nous avons déjà ajouté l’adresse IP et les noms d’hôtes des nœuds principaux du cluster pour le fichier hosts de notre ordinateur de bureau, nous pouvons utiliser les commandes `scp` de la manière suivante :
 
     ```bash
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/core-site.xml .
-    scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/core-site.xml .
+    scp sshuser@nitinp:/etc/hadoop/conf/yarn-site.xml .
     ```
 
     Pour ajouter ces fichiers à votre projet, copiez-les dans le dossier **/src** dans l’arborescence de votre projet, par exemple `<your project directory>\src`.

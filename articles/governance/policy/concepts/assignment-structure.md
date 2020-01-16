@@ -3,12 +3,12 @@ title: Informations détaillées sur la structure d’attribution des stratégie
 description: Décrit la définition d’attribution des stratégies qui est utilisée par Azure Policy pour associer des définitions et des paramètres de stratégie aux ressources à des fins d’évaluation.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f6b097b82d31926b7b5d3099d1f3f23669e78c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f03c654dfc4c8dfdf2bdc5103a5961b4d8ce1e64
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436374"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747206"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -55,7 +55,7 @@ Vous utilisez **displayName** et **description** pour identifier l’attribution
 
 ## <a name="enforcement-mode"></a>Mode d’application
 
-La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/platform/activity-logs-overview.md). Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées. **enforcementMode** diffère de l’effet [Disabled ](./effects.md#disabled), car cet effet empêche l’évaluation des ressources de se produire.
+La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/platform/platform-logs-overview.md). Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées. **enforcementMode** diffère de l’effet [Disabled ](./effects.md#disabled), car cet effet empêche l’évaluation des ressources de se produire.
 
 Cette propriété a les valeurs suivantes :
 

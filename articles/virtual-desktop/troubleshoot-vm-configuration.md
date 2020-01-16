@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459432"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980230"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -209,11 +209,11 @@ Examinez les entrées de registre répertoriées ci-dessous et vérifiez que leu
 
 1. Utilisez le protocole RDP (Remote Desktop Protocol) pour accéder directement à la machine virtuelle hôte de session en tant qu’administrateur local.
 2. Si ce n’est déjà fait, téléchargez et importez le [module PowerShell Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) pour l’utiliser dans votre session PowerShell, puis exécutez cette applet de commande pour vous connecter à votre compte :
-    
+
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
-    
+
 3. Pour installer la pile côte à côte, consultez [Créer un pool d'hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Procédure de résolution d'un dysfonctionnement de pile côte à côte Windows Virtual Desktop
@@ -322,7 +322,7 @@ Pour identifier le numéro de votre version de Windows 10 Entreprise multisessi
 2. Entrez « À propos de » dans la barre de recherche à côté du menu Démarrer.
 3. Sélectionnez **À propos de votre PC**.
 4. Regardez quel nombre figure à côté de « Version ». Le nombre doit être « 1809 » ou « 1903 », comme dans l’image suivante.
-   
+
     ![Capture d’écran de la fenêtre Spécifications Windows. Le numéro de version est mis en surbrillance en bleu.](media/windows-specifications.png)
 
 Maintenant que vous connaissez le numéro de votre version, passez directement à la section correspondante.
@@ -344,6 +344,6 @@ Redéployez le système d’exploitation hôte avec la dernière version de l’
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

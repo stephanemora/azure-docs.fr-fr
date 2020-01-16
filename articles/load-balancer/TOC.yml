@@ -50,6 +50,8 @@
       href: powershell-samples.md
 - name: Concepts
   items:
+    - name: Composants et limitations
+      href: concepts-limitations.md
     - name: Surveillance de l’intégrité
       items:
         - name: Sondes d’intégrité

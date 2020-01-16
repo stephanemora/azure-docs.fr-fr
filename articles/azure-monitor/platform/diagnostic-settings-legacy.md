@@ -7,15 +7,15 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: 4c910fd72805ce8cb1e7baa6b4252d6b2192fe36
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535625"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977568"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Collecter le journal d’activité Azure avec des paramètres hérités
-Le [journal d’activité Azure](activity-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Jusqu’à récemment, vous avez créé un profil de journal pour envoyer des entrées de journal d’activité à un [hub d’événements ou à un compte de stockage](activity-log-export.md) et utilisé un connecteur pour les collecter dans un [espace de travail Log Analytics](activity-log-collect.md). Cet article compare les méthodes, et explique comment utiliser les paramètres hérités existants et comment effacer les paramètres hérités dans la préparation des paramètres de diagnostic.
+Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Jusqu’à récemment, vous avez créé un profil de journal pour envoyer des entrées de journal d’activité à un [hub d’événements ou à un compte de stockage](activity-log-export.md) et utilisé un connecteur pour les collecter dans un [espace de travail Log Analytics](activity-log-collect.md). Cet article compare les méthodes, et explique comment utiliser les paramètres hérités existants et comment effacer les paramètres hérités dans la préparation des paramètres de diagnostic.
 
 
 ## <a name="differences-between-methods"></a>Différences entre les méthodes
@@ -28,7 +28,7 @@ L’utilisation des paramètres de diagnostic présente les avantages suivants p
 - Filtrage de la collecte pour collecter uniquement les journaux de catégories spécifiques.
 - Collecte de toutes les catégories du journal d’activité. Certaines catégories ne sont pas collectées à l’aide de la méthode héritée.
 - Latence plus rapide pour l’ingestion des journaux. La méthode précédente a une latence d’environ 15 minutes, tandis que les paramètres de diagnostic n’ajoutent qu’environ 1 minute.
-  
+
 ### <a name="considerations"></a>Considérations
 Avant d’activer cette fonctionnalité, tenez compte des détails suivants de la collecte des journaux d’activité à l’aide des paramètres de diagnostic.
 
@@ -44,7 +44,7 @@ Les propriétés suivantes ont été supprimées :
 - ActivityStatus
 - ActivitySubstatus
 - NomOpération
-- ResourceProvider 
+- ResourceProvider
 
 Les propriétés suivantes ont été ajoutées :
 
@@ -57,10 +57,10 @@ Les paramètres hérités pour la collecte du journal d’activité continuent d
 
 1. À partir du menu **Azure Monitor** du Portail Azure, sélectionnez **Journal d’activité**.
 3. Cliquez sur **Paramètres de diagnostic**.
-   
+
    ![Paramètres de diagnostic](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Cliquez sur la bannière violette pour obtenir l’expérience héritée. 
+
+4. Cliquez sur la bannière violette pour obtenir l’expérience héritée.
 
     ![Expérience héritée](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ Vous devez désactiver la collecte existante de l’activité avant de l’activ
 ### <a name="disable-log-profile"></a>Désactiver un profil de journal
 
 1. Utilisez la procédure décrite dans [Utiliser des paramètres hérités](#work-with-legacy-settings) pour ouvrir les paramètres hérités.
-2. Désactivez toute collecte dans le stockage ou des hubs d’événements. 
+2. Désactivez toute collecte dans le stockage ou des hubs d’événements.
 
 
 
@@ -93,5 +93,5 @@ La solution de supervision Activity Log Analytics inclut plusieurs requêtes de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur le journal d’activité](../../azure-resource-manager/resource-group-audit.md)
+* [En savoir plus sur le journal d’activité](../../azure-resource-manager/management/view-activity-logs.md)
 * [En savoir plus sur les paramètres de diagnostic](diagnostic-settings.md)

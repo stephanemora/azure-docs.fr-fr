@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: af0c5a42b71829bbfd51d77c047af45c1df6fd4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363640"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75750393"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -877,10 +877,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Tentatives d’envoi de message de télémétrie|Count|Total|Nombre de tentatives d’envoi de messages de télémétrie appareil vers cloud à votre hub IoT|None|
 |d2c.telemetry.ingress.success|Messages de télémétrie envoyés|Count|Total|Nombre de messages de télémétrie appareil vers cloud envoyés avec succès à votre hub IoT|None|
-|c2d.commands.egress.complete.success|Remises des messages du cloud vers l’appareil terminées|Count|Total|Nombre de remises de messages du cloud vers l’appareil terminées avec succès par l’appareil|None|
-|c2d.commands.egress.abandon.success|Messages du cloud vers l’appareil abandonnés|Count|Total|Nombre de messages du cloud vers l’appareil abandonnés par l’appareil|None|
-|c2d.commands.egress.reject.success|Messages du cloud vers l’appareil rejetés|Count|Total|Nombre de messages du cloud vers l’appareil rejetés par l’appareil|None|
-|C2DMessagesExpired|Messages du cloud vers l’appareil ayant expiré (préversion)|Count|Total|Nombre de messages du cloud vers l’appareil ayant expiré|None|
+|c2d.commands.egress.complete.success|Remises de messages cloud vers appareil terminées|Count|Total|Nombre de remises de messages cloud vers appareil terminées avec succès par l’appareil|None|
+|c2d.commands.egress.abandon.success|Messages cloud vers appareil abandonnés|Count|Total|Nombre de messages cloud vers appareil abandonnés par l’appareil|None|
+|c2d.commands.egress.reject.success|Messages cloud vers appareil rejetés|Count|Total|Nombre de messages cloud vers appareil rejetés par l’appareil|None|
+|C2DMessagesExpired|Messages cloud vers appareil ayant expiré (préversion)|Count|Total|Nombre de messages cloud vers appareil ayant expiré|None|
 |devices.totalDevices|Nombre total d’appareils (déconseillé)|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|None|
 |devices.connectedDevices.allProtocol|Appareils connectés (déconseillé) |Count|Total|Nombre d’appareils connectés à votre hub IoT|None|
 |d2c.telemetry.egress.success|Routage : messages de télémétrie remis|Count|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|None|
@@ -2324,4 +2324,4 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur les métriques dans Azure Monitor](data-platform.md)
 * [Créer des alertes sur les métriques](alerts-overview.md)
-* [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](resource-logs-overview.md)
+* [Exporter des métriques vers le stockage, un hub d’événements ou Log Analytics](platform-logs-overview.md)
