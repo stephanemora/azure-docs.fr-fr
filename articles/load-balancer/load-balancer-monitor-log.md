@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428847"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965916"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
 
 Vous pouvez utiliser différents types de journaux d’activité dans Azure pour gérer les instances de Basic Load Balancer et résoudre les problèmes associés. Certains de ces journaux d’activité sont accessibles via le portail. Les journaux peuvent être envoyés en streaming à un hub d’événements ou à un espace de travail Log Analytics. Tous les journaux peuvent être extraits à partir du Stockage Blob Azure et affichés dans différents outils, comme Excel et Power BI.  Pour en savoir plus sur les différents types de journaux d’activité, consultez la liste ci-dessous.
@@ -32,7 +32,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 * **Journaux d’activité de sonde d’intégrité** : Vous pouvez utiliser ces journaux pour connaître les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances du pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
 > [!IMPORTANT]
-> Les journaux Azure Monitor peuvent uniquement être utilisés pour les instances publiques de Basic Load Balancer. Les journaux d’activité ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
+> Les journaux Azure Monitor peuvent uniquement être utilisés pour les instances publiques de Basic Load Balancer. Les journaux d’activité ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
@@ -57,7 +57,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne disposez
     1. Cochez la case en regard d’**Archiver dans un compte de stockage**.
     2. Sélectionnez **Configurer** pour ouvrir le volet **Sélectionnez un compte de stockage**.
     3. Dans la zone déroulante, sélectionnez l’**Abonnement** dans lequel votre compte de stockage a été créé.
-    4. Sélectionnez le nom de votre compte de stockage sous **Compte de stockage** dans la zone déroulante. 
+    4. Sélectionnez le nom de votre compte de stockage sous **Compte de stockage** dans la zone déroulante.
     5. Sélectionnez OK.
 
     ### <a name="stream-to-an-event-hub"></a>Diffuser vers un hub d’événements
@@ -160,7 +160,7 @@ La sortie JSON apparaît dans le champ des propriétés des informations de base
 
 Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
 
-* **Outils Azure** : Récupérez les informations des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande (CLI) Azure, de l’API REST Azure ou du portail Azure. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Outils Azure** : Récupérez les informations des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande (CLI) Azure, de l’API REST Azure ou du portail Azure. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power BI :** si vous n’avez pas encore de compte [Power BI](https:// .microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’activité d’audit Azure pour Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), vous pouvez analyser vos données avec des tableaux de bord préconfigurés ou personnaliser les vues selon vos besoins.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Afficher et analyser les journaux des sondes d’intégrité et des événements

@@ -2,23 +2,23 @@
 title: Simulation de R parallèle avec Azure Batch
 description: Didacticiel - Instructions détaillées pour exécuter une simulation financière de Monte-Carlo dans Azure Batch à l’aide du package doAzureParallel R
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321906"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029207"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutoriel : Exécuter une simulation de R parallèle avec Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutoriel : Exécuter une simulation de R parallèle avec Azure Batch 
 
 Exécutez vos charges de travail R parallèles à l’échelle à l’aide de [doAzureParallel](https://www.github.com/Azure/doAzureParallel), un package léger R qui vous permet d’utiliser Azure Batch directement à partir de votre session R. Le package doAzureParallel s’appuie sur le package R [foreach](https://cran.r-project.org/web/packages/foreach/index.html) bien connu. doAzureParallel prend chaque itération de la boucle foreach et la soumet sous forme de tâche Azure Batch.
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment déployer un pool Batch et exécuter un trava
 > * Créer un pool Batch comme serveur principal parallèle pour votre session R
 > * Exécuter un exemple de simulation parallèle sur le pool
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Une distribution de [R](https://www.r-project.org/) installée, telle que [Microsoft R Open](https://mran.microsoft.com/open). Utilisez la version 3.3.1 ou ultérieure.
 
@@ -110,7 +110,7 @@ Pour ce didacticiel, modifiez la configuration comme suit :
 * Définissez `maxTasksPerNode` sur *2*, pour tirer parti des deux cœurs sur chaque nœud
 * Définissez `dedicatedNodes` sur *0*, afin de pouvoir essayer les machines virtuelles de faible priorité disponibles pour Batch. Définissez `min` de `lowPriorityNodes` sur *5*. Et `max` sur *10*, ou choisissez des valeurs inférieures si vous le souhaitez. 
 
-Conservez les valeurs par défaut pour les autres paramètres, puis enregistrez le fichier. Le résultat doit être semblable à ce qui suit :
+Conservez les valeurs par défaut pour les autres paramètres, puis enregistrez le fichier. Celui-ci doit se présenter comme suit :
 
 ```json
 {
@@ -248,7 +248,7 @@ difftime(end_p, start_p, unit = "min")
 
 Vous vous apercevrez que le fait d’exécuter la simulation sur le pool Batch vous permet d’augmenter de manière significative les performances sur la durée estimée pour exécuter la simulation localement. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Le travail est automatiquement supprimé une fois terminé. Si vous avez besoin du cluster plus longtemps, appelez la fonction `stopCluster` dans le package doAzureParallel pour le supprimer :
 

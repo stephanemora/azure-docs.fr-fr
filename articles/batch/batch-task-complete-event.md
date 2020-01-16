@@ -2,7 +2,7 @@
 title: Événement de fin de tâche Azure Batch | Microsoft Docs
 description: Référence pour l’événement de fin de tâche Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 085ca1d007371c3afd7246078369475da38f9b9f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258257"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026114"
 ---
 # <a name="task-complete-event"></a>Événement de fin de tâche
 
@@ -53,9 +53,9 @@ ms.locfileid: "70258257"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|`jobId`|Chaîne|ID du travail contenant la tâche.|
-|`id`|Chaîne|ID de la tâche.|
-|`taskType`|Chaîne|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
+|`jobId`|String|ID du travail contenant la tâche.|
+|`id`|String|ID de la tâche.|
+|`taskType`|String|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire. Cet événement n’est pas émis pour des tâches de préparation du travail, des tâches de fin de travail ou des tâches de démarrage.|
 |`systemTaskVersion`|Int32|Compteur de tentatives internes d’exécution d’une tâche. En interne, le service Batch peut recommencer une tâche pour prendre en compte des problèmes temporaires. Ces problèmes peuvent être des erreurs de planification internes ou des tentatives de récupération à partir de nœuds de calcul en mauvais état.|
 |[`nodeInfo`](#nodeInfo)|Type complexe|Contient des informations sur le nœud de calcul sur lequel la tâche a été exécutée.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Consultez [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) pour plus de détails.|
@@ -66,8 +66,8 @@ ms.locfileid: "70258257"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|`poolId`|Chaîne|ID du pool sur lequel la tâche a été exécutée.|
-|`nodeId`|Chaîne|ID du nœud sur lequel la tâche a été exécutée.|
+|`poolId`|String|ID du pool sur lequel la tâche a été exécutée.|
+|`nodeId`|String|ID du nœud sur lequel la tâche a été exécutée.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 

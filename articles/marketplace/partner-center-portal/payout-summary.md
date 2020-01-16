@@ -1,18 +1,18 @@
 ---
 title: Récapitulatif des paiements de la place de marché commerciale | Place de marché Azure
 description: La page Récapitulatif des paiements vous montre les détails de l’argent que vous avez gagné avec votre offre. Elle vous permet également de savoir quand vous recevrez des paiements et le montant que vous allez percevoir.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427141"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979696"
 ---
 # <a name="payout-reporting"></a>Rapports de paiement
 
@@ -52,7 +52,7 @@ Si vous vendez des offres sur la Place de marché Azure, **Récapitulatif des pa
 | Transaction non prête pour le paiement | Facturation en cours | Estimation du prochain paiement : Le paiement est dans l’état non traité.  |
 | État de paiement |  | Non traité : <br> Le revenu est éligible au paiement. Il reste dans cet état pendant une période de réflexion telle que définie dans le guide du programme d’incentives. <br> <br> Ensuite : <br> Des vérifications internes en attente sont générées par l’ordre de paiement avant le traitement du paiement. <br> <br> Envoyé : <br> Le paiement a été envoyé à votre banque. |
 
-## <a name="customer-types"></a>Types de clients 
+## <a name="customer-types"></a>Types de clients
 
 ### <a name="enterprise-agreement"></a>Contrat Entreprise
 
@@ -66,7 +66,7 @@ Les clients peuvent également payer à l’aide d’une carte de crédit et d�
 
 Exemple d’un client qui fait un achat avec une carte de crédit.
 
-## <a name="corelation-between-payout-and-usage"></a>Relation entre le paiement et l’utilisation 
+## <a name="corelation-between-payout-and-usage"></a>Relation entre le paiement et l’utilisation
 
 |Description    |    Date  | Commandes/utilisation  | Paiement |
 |----------|----------|-----------|-------------|
@@ -97,33 +97,33 @@ Exemple d’un client qui fait un achat avec une carte de crédit.
 
 ## <a name="transaction-history-download-export"></a>Exportation du téléchargement de l’historique des transactions
 
-Cette option permet de télécharger chaque article de revenu que vous voyez dans la page d’historique des transactions, le type de revenu, la date, le montant associé de la transaction, le client, le produit et d’autres détails transactionnels applicables au programme d’incentives. 
+Cette option permet de télécharger chaque article de revenu que vous voyez dans la page d’historique des transactions, le type de revenu, la date, le montant associé de la transaction, le client, le produit et d’autres détails transactionnels applicables au programme d’incentives.
 
-| Nom de la colonne     | Description    | 
+| Nom de la colonne     | Description    |
 |-------------|-------------------------------|
 | earningId                      | Identificateur unique de chaque revenu                                                                                                       |
-| participantId                  | Identité principale du revenu partenaire dans le cadre du programme                                                                            | 
-| participantIdType              | Principalement, ID des programmes d’incentives et ID de vendeur pour les programmes du Store et la Place de marché Azure                                          | 
-| participantName                | Nom du partenaire de revenu                                                                                                              | 
+| participantId                  | Identité principale du revenu partenaire dans le cadre du programme                                                                            |
+| participantIdType              | Principalement, ID des programmes d’incentives et ID de vendeur pour les programmes du Store et la Place de marché Azure                                          |
+| participantName                | Nom du partenaire de revenu                                                                                                              |
 | partnerCountryCode             | Emplacement/pays du partenaire de revenu                                                                                                  |
-| programName                    | Nom du programme d’incentives/du Store                                                                                                             | 
-| transactionId                  | Identificateur unique de la transaction                                                                                                    | 
-| transactionCurrency            | Devise dans laquelle la transaction cliente d’origine s’est produite (il ne s’agit pas de la devise de l’emplacement du partenaire)                                     | 
-| transactionDate                | Date de la transaction Utile pour les programmes où de nombreuses transactions contribuent à un revenu                                           | 
-| transactionExchangeRate        | Taux de change utilisé pour afficher le montant USD correspondant de la transaction                                                                 | 
-| transactionAmount              | Montant de la transaction dans la devise de transaction d’origine en fonction du revenu généré                                              | 
-| transactionAmountUSD           | Montant de la transaction en USD                                                                                                                | 
-| lever                          | Indique une règle métier pour le revenu                                                                                                  | 
-| earningRate                    | Taux d’incentives appliqué au montant de la transaction pour générer un revenu                                                                      | 
-| quantité                       | Varie selon le programme. Indique la quantité facturée pour les programmes transactionnels                                                            | 
+| programName                    | Nom du programme d’incentives/du Store                                                                                                             |
+| transactionId                  | Identificateur unique de la transaction                                                                                                    |
+| transactionCurrency            | Devise dans laquelle la transaction cliente d’origine s’est produite (il ne s’agit pas de la devise de l’emplacement du partenaire)                                     |
+| transactionDate                | Date de la transaction Utile pour les programmes où de nombreuses transactions contribuent à un revenu                                           |
+| transactionExchangeRate        | Taux de change utilisé pour afficher le montant USD correspondant de la transaction                                                                 |
+| transactionAmount              | Montant de la transaction dans la devise de transaction d’origine en fonction du revenu généré                                              |
+| transactionAmountUSD           | Montant de la transaction en USD                                                                                                                |
+| lever                          | Indique une règle métier pour le revenu                                                                                                  |
+| earningRate                    | Taux d’incentives appliqué au montant de la transaction pour générer un revenu                                                                      |
+| quantité                       | Varie selon le programme. Indique la quantité facturée pour les programmes transactionnels                                                            |
 | quantityType                   | Indique le type de quantité, par exemple : Quantité facturée, utilisateurs actifs mensuels                                                                                     |
-| earningType                    | Indique s’il s’agit de frais, de remise, de coop, de vente, etc.                                                                                          | 
+| earningType                    | Indique s’il s’agit de frais, de remise, de coop, de vente, etc.                                                                                          |
 | earningAmount                  | Montant du revenu dans la devise de la transaction d’origine                                                                                      |
 | earningAmountUSD               | Montant du revenu en USD                                                                                                                    |
 | earningDate                    | Date du revenu                                                                                                                      |
 | calculationDate                | Date à laquelle le revenu a été calculé dans le système                                                                                            |
 | earningExchangeRate            | Taux de change utilisé pour afficher le montant USD correspondant                                                                                  |
-| exchangeRateDate               | Date du taux de change utilisée pour calculer le montant USD du revenu                                                                                   | 
+| exchangeRateDate               | Date du taux de change utilisée pour calculer le montant USD du revenu                                                                                   |
 | paymentAmountWOTax             | Montant du revenu (hors taxe) dans la devise de destination pour les paiements « envoyés » uniquement                                                                 |
 | paymentCurrency                | Devise de destination choisie par le partenaire dans le profil de paiement. Affichée uniquement pour les paiements envoyés                                                   |
 | paymentExchangeRate            | Taux de change utilisé pour calculer paymentAmountWOTax dans la devise de paiement avec ExchangeRateDate                                            |

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4969a1f14e53aabf79495e179213f9763d4c8803
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953744"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893630"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
@@ -108,7 +108,7 @@ Pour vous connecter à des machines virtuelles Linux à l’aide de SSH après l
 
 
 ## <a name="failback-requirements"></a>Conditions requises pour la restauration automatique
-Si vous envisagez d’effectuer une restauration automatique sur votre site local, vous devez respecter plusieurs [prérequis liés à la restauration automatique](vmware-azure-reprotect.md##before-you-begin). Vous pouvez vous y préparer dès maintenant, mais vous n’y êtes pas obligé. Vous pouvez vous y préparer après avoir effectué le basculement sur Azure.
+Si vous envisagez d’effectuer une restauration automatique sur votre site local, vous devez respecter plusieurs [prérequis liés à la restauration automatique](vmware-azure-reprotect.md#before-you-begin). Vous pouvez vous y préparer dès maintenant, mais vous n’y êtes pas obligé. Vous pouvez vous y préparer après avoir effectué le basculement sur Azure.
 
 
 

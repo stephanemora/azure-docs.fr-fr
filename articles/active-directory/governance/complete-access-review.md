@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c6f3405354136e11600ae059f3e05890d3534ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 266234f2872cfe99509d564c9460bfba4a0e2bf2
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422721"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932545"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Effectuer une révision d’accès des groupes et applications dans les révisions d’accès Azure AD
 
@@ -34,7 +34,7 @@ En tant qu’administrateur, vous [créez une révision d’accès de groupes ou
 - Azure AD Premium P2
 - Administrateur général, administrateur d’utilisateurs, administrateur de la sécurité ou lecteur Sécurité
 
-Pour en savoir plus, consultez [Quels utilisateurs doivent avoir des licences ?](access-reviews-overview.md#which-users-must-have-licenses).
+Pour plus d’informations, consultez [Exigences des licences](access-reviews-overview.md#license-requirements).
 
 ## <a name="view-an-access-review"></a>Afficher une révision d’accès
 

@@ -1,0 +1,76 @@
+- name: Documentation sur les réservations Azure
+  href: index.yml
+  items:
+    - name: Vue d’ensemble
+      expanded: true
+      items:
+        - name: Qu’est-ce qu’une réservation Azure ?
+          href: save-compute-costs-reservations.md
+    - name: Guides pratiques
+      items:
+        - name: Acheter une réservation SQL Data Warehouse
+          href: prepay-sql-data-warehouse-charges.md
+        - name: Acheter une réservation Machine virtuelle
+          href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation Stockage Azure
+          href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation Cosmos DB
+          href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation SQL Database
+          href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation Azure Data Explorer
+          href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation Azure Databricks
+          href: prepay-databricks-reserved-capacity.md
+        - name: Acheter une réservation App Service
+          href: prepay-app-service-isolated-stamp.md
+        - name: Acheter des réservations d’abonnement logiciel Azure
+          href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+        - name: Acheter une réservation avec paiements mensuels
+          href: monthly-payments-reservations.md
+        - name: Renouveler des réservations
+          href: reservation-renew.md
+        - name: Réservations d’échange et de remboursement
+          href: exchange-and-refund-azure-reservations.md
+        - name: Gérer les réservations
+          href: manage-reserved-vm-instance.md
+        - name: Consulter les réservations
+          href: view-reservations.md
+    - name: Concepts
+      items:
+        - name: Remises sur les instances de machines virtuelles réservées
+          href: ../manage/understand-vm-reservation-charges.md
+        - name: Remises sur les capacités réservées Stockage Azure
+          href: understand-storage-charges.md
+        - name: Remises sur les capacités réservées Cosmos DB
+          href: understand-cosmosdb-reservation-charges.md
+        - name: Remises sur les capacités réservées SQL Database
+          href: understand-reservation-charges.md
+        - name: Remises sur SQL Data Warehouse
+          href: reservation-discount-azure-sql-dw.md
+        - name: Remises sur Azure Data Explorer
+          href: understand-azure-data-explorer-reservation-charges.md
+        - name: Remises sur Azure Databricks
+          href: reservation-discount-databricks.md
+        - name: Remises sur Azure Database pour MySQL
+          href: understand-reservation-charges-mysql.md
+        - name: Remises sur Azure Database pour PostgreSQL
+          href: understand-reservation-charges-postgresql.md
+        - name: Remises sur Red Hat Linux Enterprise
+          href: understand-rhel-reservation-charges.md
+        - name: Remises sur Azure Database for MariaDB
+          href: understand-reservation-charges-mariadb.md
+        - name: Remises sur App Service
+          href: reservation-discount-app-service-isolated-stamp.md
+        - name: Remises sur les abonnements logiciels Azure
+          href: understand-suse-reservation-charges.md
+        - name: Coûts Windows et SQL non compris
+          href: reserved-instance-windows-software-costs.md
+        - name: Données d’utilisation pour les abonnements individuels
+          href: understand-reserved-instance-usage.md
+        - name: Données d’utilisation pour les clients Entreprise
+          href: understand-reserved-instance-usage-ea.md
+    - name: Informations de référence
+      items:
+        - name: API de réservation Azure
+          href: reservation-apis.md

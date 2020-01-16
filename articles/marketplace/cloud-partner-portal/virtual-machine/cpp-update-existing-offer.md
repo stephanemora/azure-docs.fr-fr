@@ -2,18 +2,18 @@
 title: Mettre à jour une offre de machine virtuelle existante dans la Place de marché Azure
 description: Explique comment mettre à jour une offre de machine virtuelle existante dans Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: ansud
-ms.openlocfilehash: 5cbee909b4bd6353ad8fbe9fcbc126dc4a245012
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823982"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934241"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure
 
@@ -37,9 +37,9 @@ Le portail contient les fonctions **Comparer** et **Historique** qui vous aident
 Vous ne pouvez pas modifier certains attributs d’une offre ou d’une référence SKU de machine virtuelle une fois l’offre publiée dans Place de marché Microsoft Azure, principalement :
 
 -  **ID d’offre** et **ID de l’éditeur** de l’offre
--  **ID de référence SKU** des références SKU existantes
+-  **ID de référence (SKU)** de références (SKU) existantes
 -  Nombre de disques de données de références SKU existantes
--  Modifications du modèle de facturation/licence apportées à des références SKU existantes
+-  Modifications du modèle de facturation/licence apportées à des références (SKU) existantes
 -  Augmentation de prix d’une référence SKU publiée
 
 
@@ -141,7 +141,7 @@ S’ils ont déjà été facturés pour le cycle correspondant à la réduction 
 
 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
-### <a name="simplified-currency-pricing"></a>Tarification simplifiée des devises
+### <a name="simplified-currency-pricing"></a>Tarification simplifiée en devise
 
 Depuis le 1er septembre 2018, une nouvelle section intitulée **Simplified Currency Pricing (Tarification simplifiée en devise)** est ajoutée dans le portail. Microsoft simplifie les activités de la Place de marché Microsoft Azure en améliorant la prévisibilité de la tarification et des prélèvements de vos clients dans le monde entier. Pour ce faire, nous réduisons le nombre de devises dans lesquelles nous facturons vos clients.
 
@@ -161,7 +161,7 @@ Lorsque vous apportez des modifications à une offre déjà publiée, vous pouve
 
 1.  À tout moment dans le processus de modification, cliquez sur le bouton **Comparer** de votre offre.
 
-    ![Bouton de la fonction Comparer](./media/publishvm_037.png)
+    ![Bouton de la fonctionnalité Comparer](./media/publishvm_037.png)
 
 
 2.  Affichez côte à côte les versions des ressources marketing et des métadonnées.

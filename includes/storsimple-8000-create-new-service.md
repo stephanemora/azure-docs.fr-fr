@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 54a1bc9ce04cf10575b26cda7861c1dd458dc831
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 980cbe17e982edb3aa72c3b58908f13a3d63a639
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020866"
 ---
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
@@ -24,28 +24,26 @@ ms.locfileid: "67177112"
     ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman11.png)
 
 3. Dans le panneau **StorSimple Device Manager** qui s’ouvre, procédez comme suit :
-   
+
    1. Fournissez un unique **Nom de la ressource** pour votre service. Il s’agit d’un nom convivial qui peut être utilisé pour identifier le service. Le nom peut comporter entre 2 et 50 caractères qui peuvent être des lettres, des chiffres et des traits d’union. Il doit commencer et se terminer par une lettre ou un chiffre.
 
    2. Choisissez un **abonnement** dans la liste déroulante. L’abonnement est lié à votre compte de facturation. Ce champ n’est pas présent si vous n’avez qu’un seul abonnement.
 
    3. Pour le **Groupe de ressources**, sélectionnez un groupe existant en cliquant sur **Utiliser existant** ou créez-en un avec l’option **Créer**. Pour plus d’informations, consultez la page [Groupes de ressources dans Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
-   
-   4. Indiquez un **emplacement** pour votre service. De manière générale, choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Vous pouvez également prendre en compte les considérations suivantes : 
-      
+
+   4. Indiquez un **emplacement** pour votre service. De manière générale, choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Vous pouvez également prendre en compte les considérations suivantes :
+
       * Si vous avez des charges de travail existantes dans Azure que vous souhaitez également déployer avec votre périphérique StorSimple, nous vous invitons à utiliser ce centre de données.
-      * Votre service StorSimple Device Manager et le stockage Azure peuvent se trouver dans deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](../articles/storage/common/storage-quickstart-create-account.md). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
+      * Votre service StorSimple Device Manager et le stockage Azure peuvent se trouver dans deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](../articles/storage/common/storage-account-create.md). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
 
    5. Sélectionnez **Créer un nouveau compte de stockage** pour créer automatiquement un compte de stockage avec le service. Spécifiez un nom pour ce compte de stockage. Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher.
 
    6. Cochez la case **Épingler au tableau de bord** si vous souhaitez disposer d’un lien rapide vers ce service sur votre tableau de bord.
-      
+
    7. Pour créer le service StorSimple Device Manager, cliquez sur **Créer**.
 
        ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman2.png)
-   
+
 La création de service dure quelques minutes. Une fois le service correctement créé, une notification s’affiche et le nouveau panneau de service s’ouvre.
-   
+
 ![Créer StorSimple Device Manager](./media/storsimple-8000-create-new-service/createssdevman5.png)
-
-

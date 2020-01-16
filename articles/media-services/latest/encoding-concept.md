@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896083"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981102"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Encodage vidéo et audio avec Media Services
 
@@ -95,7 +95,7 @@ Les préréglages suivants sont actuellement pris en charge :
 
 - **EncoderNamedPreset.AACGoodQualityAudio** : produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 kbits/s.
 - **EncoderNamedPreset.AdaptiveStreaming** (recommandé) : Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset.ContentAwareEncodingExperimental** : expose un préréglage expérimental pour l’encodage sensible au contenu. Étant donné un contenu d’entrée, le service tente de déterminer automatiquement le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la remise par streaming adaptatif. Les algorithmes sous-jacents continueront à évoluer au fil du temps. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez [Préréglage expérimental pour l’encodage sensible au contenu](cae-experimental.md).
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** : expose un préréglage expérimental pour l’encodage sensible au contenu. Étant donné un contenu d’entrée, le service tente de déterminer automatiquement le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la remise par streaming adaptatif. Les algorithmes sous-jacents continueront à évoluer au fil du temps. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez [Préréglage expérimental pour l’encodage sensible au contenu](content-aware-encoding.md).
 - **EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de huit fichiers MP4 alignés sur GOP, de 6000 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.
 - **EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de six fichiers MP4 alignés sur GOP, de 3400 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de cinq fichiers MP4 alignés sur GOP, de 1600 kbits/s à 400 kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.

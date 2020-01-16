@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087017"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981433"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Le démarrage de la machine virtuelle Azure est bloqué au niveau de la mise à jour de Windows
 
 Cet article vous aide à résoudre le blocage de votre machine virtuelle au stade Windows Update durant le démarrage. 
 
 > [!NOTE] 
-> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
 
 ## <a name="symptom"></a>Symptôme
 
@@ -44,7 +44,7 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
 
 ### <a name="remove-the-update-that-causes-the-problem"></a>Supprimer la mise à jour à l’origine du problème
 
-1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, voir [Prendre un instantané d’un disque](../windows/snapshot-copy-managed-disk.md). 
+1. Prenez un instantané du disque du système d’exploitation de la machine virtuelle affectée en guise de sauvegarde. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md). 
 2. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](troubleshoot-recovery-disks-portal-windows.md).
 3. Une fois que le disque du système d’exploitation est attaché à la machine virtuelle de récupération, exécutez **diskmgmt.msc** pour ouvrir le programme Gestion des disques, puis vérifiez que le disque attaché est **EN LIGNE**. Notez la lettre de lecteur affectée au disque du système d’exploitation attaché contenant le dossier \windows. Si le disque est chiffré, déchiffrez-le avant de passer aux étapes suivantes dans ce document.
 
@@ -68,7 +68,7 @@ En fonction du nombre de mises à jour qui sont installées ou annulées, le pro
     ```
     dism /Image:<Attached OS disk>:\ /Remove-Package /PackageName:<PACKAGE NAME TO DELETE>
     ```
-    Exemple : 
+    Exemple : 
 
     ```
     dism /Image:F:\ /Remove-Package /PackageName:Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

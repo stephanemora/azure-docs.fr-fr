@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 9cd6c2a39f72c47b06bebfa2a8c457a725484141
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529981"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969656"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
 > [!WARNING]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
+> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-legacy.md).
 
-Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
+Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
 
 ## <a name="archive-activity-log"></a>Archiver le journal d’activité
 Archiver le journal d'activité vers un compte de stockage est utile si vous souhaitez conserver vos données de journal pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours.
@@ -28,12 +28,12 @@ Archiver le journal d'activité vers un compte de stockage est utile si vous sou
 ## <a name="stream-activity-log-to-event-hub"></a>Diffuser en continu le journal d’activité vers Event Hub
 [Azure Event Hubs](/azure/event-hubs/) est une plateforme de streaming de données et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Voici deux façons d’utiliser la fonctionnalité de diffusion en continu pour le journal d’activité :
 * **Diffuser en continu sur des systèmes de journalisation et de télémétrie tiers** : Au fil du temps, la diffusion en continu sur Azure Event Hubs deviendra le mécanisme de diffusion de votre journal d’activité vers les solutions tierces SIEM et Log Analytics.
-* **Créer une plateforme de journalisation et de télémétrie personnalisée** : Si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité. 
+* **Créer une plateforme de journalisation et de télémétrie personnalisée** : Si vous disposez déjà d’une plate-forme de télémétrie personnalisée, ou si vous envisagez d’en créer une, la nature hautement évolutive de publication et d’abonnement d’Event Hubs vous permet d’intégrer avec souplesse le journal d’activité.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="storage-account"></a>Compte de stockage
-Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
+Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-account-create.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
 
 Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 > [!NOTE]
@@ -65,7 +65,7 @@ Si des stratégies de rétention sont définies, mais que le stockage des journa
 
 
 > [!IMPORTANT]
-> Vous pouvez recevoir un message d’erreur lors de la création d’un profil de journal, si le fournisseur de ressources Microsoft.Insights n’est pas inscrit. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ce fournisseur.
+> Vous pouvez recevoir un message d’erreur lors de la création d’un profil de journal, si le fournisseur de ressources Microsoft.Insights n’est pas inscrit. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md) pour inscrire ce fournisseur.
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Créer un profil de journal à l’aide du portail Azure
@@ -77,7 +77,7 @@ Créez ou modifiez un profil de journal avec l'option **Exporter vers Event Hub*
     ![Bouton Exporter dans le portail](media/activity-log-export/portal-export.png)
 
 3. Dans le panneau qui s’affiche, spécifiez ce qui suit :
-   * Régions avec les événements à exporter. Vous devez sélectionner toutes les régions pour être certain de ne manquer aucun événement clé car le journal d'activité est mondial (et non régional) et dès lors, la plupart des événements ne sont pas associés à une région. 
+   * Régions avec les événements à exporter. Vous devez sélectionner toutes les régions pour être certain de ne manquer aucun événement clé car le journal d'activité est mondial (et non régional) et dès lors, la plupart des événements ne sont pas associés à une région.
    * Si vous souhaitez écrire dans un compte de stockage :
        * Le compte de stockage pour lequel vous souhaitez enregistrer les événements.
        * Le nombre de jours pendant lesquels vous souhaitez conserver ces événements dans le stockage. Un paramètre de 0 jour conserve les journaux d’activité indéfiniment.
@@ -167,5 +167,5 @@ Si un profil de journal existe déjà, vous devez tout d’abord le supprimer, p
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur le journal d’activité](../../azure-resource-manager/resource-group-audit.md)
+* [En savoir plus sur le journal d’activité](../../azure-resource-manager/management/view-activity-logs.md)
 * [Collecter le journal d’activité dans les journaux Azure Monitor](activity-log-collect.md)

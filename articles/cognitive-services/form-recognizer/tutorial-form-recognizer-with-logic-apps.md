@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446473"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981262"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
 
@@ -52,7 +52,7 @@ Dans ce tutoriel, nous allons apprendre à extraire les informations de ces tabl
 
 Vous allez utiliser ce conteneur pour charger les exemples de données nécessaires à l’entraînement du modèle.
 
-1. Suivez les instructions fournies dans [Créer un compte de stockage Azure](../../storage/common/storage-quickstart-create-account.md) pour créer un compte de stockage. Nommez le compte de stockage **formrecostorage**.
+1. Suivez les instructions fournies dans [Créer un compte de stockage Azure](../../storage/common/storage-account-create.md) pour créer un compte de stockage. Nommez le compte de stockage **formrecostorage**.
 1. Suivez les instructions fournies dans [Créer un compte de stockage Azure](../../storage/blobs/storage-quickstart-blobs-portal.md) pour créer un conteneur dans le compte de stockage Azure. Nommez le conteneur **formrecocontainer**. Définissez le niveau d’accès public sur **Conteneur (accès en lecture anonyme pour les conteneurs et les objets blob)** .
 
     > [!div class="mx-imgBorder"]

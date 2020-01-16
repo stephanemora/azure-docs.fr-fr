@@ -3,7 +3,7 @@ title: Interface utilisateur du gestionnaire d’instantanés StorSimple | Micro
 description: Décrit l’interface utilisateur de gestionnaire d’instantanés StorSimple et explique comment l’utiliser pour gérer les tâches de sauvegarde et le catalogue de sauvegarde.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
@@ -13,18 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: ''
-ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56771d2e62289485017f34c6a9ab26e1d53610ec
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60845135"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933971"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="console-description"></a>Description de la console
@@ -109,12 +109,12 @@ Le tableau suivant contient une liste alphabétique des actions du Gestionnaire 
 
 | Action | Navigation | Description |
 |:--- |:--- |:--- |
-| Authentifier |Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit dans le volet **Résultats**. |Cliquez sur **Authentifier** pour saisir le mot de passe que vous avez configuré pour l’appareil. |
-| Cloner |Développez **Catalogue de sauvegarde**, développez **Instantanés Cloud**, cliquez sur une sauvegarde datée, puis sélectionnez un volume dans le volet **Résultats**. |Cliquez sur **Clone** pour créer une copie d’instantané cloud et pour stocker celle-ci dans l’emplacement que vous désignez. |
+| Authenticate |Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit dans le volet **Résultats**. |Cliquez sur **Authentifier** pour saisir le mot de passe que vous avez configuré pour l’appareil. |
+| Clone |Développez **Catalogue de sauvegarde**, développez **Instantanés Cloud**, cliquez sur une sauvegarde datée, puis sélectionnez un volume dans le volet **Résultats**. |Cliquez sur **Clone** pour créer une copie d’instantané cloud et pour stocker celle-ci dans l’emplacement que vous désignez. |
 | Configuration d’un appareil |Cliquez avec le bouton droit de la souris sur le nœud **Appareils** . |Cliquez sur **Configurer un appareil** pour configurer un ou plusieurs appareils pour se connecter à l’hôte Windows. |
 | Créer la stratégie de sauvegarde |Effectuez l’une des actions suivantes :<ul><li>Cliquez avec le bouton droit sur **Stratégies de sauvegarde**.</li><li>Cliquez sur ou développez **Groupes de volumes**, puis cliquez avec le bouton droit sur un groupe de volumes.</li><li>Cliquez sur ou développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit sur un groupe de volumes.</li></ul> |Cliquez sur **Créer une stratégie de sauvegarde** pour configurer une sauvegarde planifiée pour un groupe de volumes. |
 | Créer un groupe de volumes |Effectuez l’une des actions suivantes :<ul><li>Cliquez sur le nœud **Volumes**, puis cliquez avec le bouton droit sur un volume dans le volet **Résultats**.</li><li>Cliquez avec le bouton droit de la souris sur le nœud **Groupes de volumes** .</li></ul> |Cliquez sur **Créer un groupe de volumes** pour affecter des volumes à un groupe de volumes. |
-| Supprimer |Cliquez sur un nœud ou sur un résultat (cet élément apparaît dans de nombreux menus **Action** et volets **Actions**). |Cliquez sur **Supprimer** pour supprimer le nœud ou le résultat que vous avez sélectionné. Lorsque la boîte de dialogue de confirmation s’affiche, confirmez ou annulez la suppression. |
+| DELETE |Cliquez sur un nœud ou sur un résultat (cet élément apparaît dans de nombreux menus **Action** et volets **Actions**). |Cliquez sur **Supprimer** pour supprimer le nœud ou le résultat que vous avez sélectionné. Lorsque la boîte de dialogue de confirmation s’affiche, confirmez ou annulez la suppression. |
 | Détails |Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit sur un appareil dans le volet **Résultats**. |Cliquez sur **Détails** pour afficher les détails de configuration d’un appareil. |
 | Modifier |Cliquez sur **Stratégies de sauvegarde**, puis cliquez avec le bouton droit sur une stratégie dans le volet **Résultats**. |Cliquez sur **Modifier** pour modifier la planification de sauvegarde d’un groupe de volumes. |
 | Exporter la liste |Cliquez sur un nœud ou un résultat (cet élément apparaît dans tous les menus **Action** et les volets **Actions**). |Cliquez sur **Exporter la liste** pour enregistrer une liste dans un fichier CSV (fichier de valeurs séparées par des virgules). Vous pouvez ensuite importer ce fichier dans un tableur pour analyse. |
@@ -124,7 +124,7 @@ Le tableau suivant contient une liste alphabétique des actions du Gestionnaire 
 | Actualiser l’appareil |Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit dans le volet **Résultats**. |Cliquez sur **Actualiser l’appareil** pour synchroniser un appareil spécifique connecté avec le Gestionnaire d’instantanés StorSimple. |
 | Actualiser la liste des appareils |Cliquez avec le bouton droit de la souris sur le nœud **Appareils** . |Cliquez sur **Actualiser la liste des appareils** pour synchroniser la liste des appareils connectés avec le Gestionnaire d’instantanés StorSimple. |
 | Relancer l’analyse des volumes |Cliquez avec le bouton droit sur le nœud **Volumes** . |Cliquez sur **Relancer l’analyse des volumes** pour mettre à jour la liste des volumes qui s’affiche dans le volet **Résultats**. |
-| Restore |Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez **Instantanés locaux** ou **Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. |Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
+| Restaurer |Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez **Instantanés locaux** ou **Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. |Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
 | Effectuer la sauvegarde |Effectuez l’une des actions suivantes :<ul><li>Développez **Groupes de volumes**, puis cliquez avec le bouton droit sur un groupe de volumes.</li><li>Développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit sur un groupe de volumes.</li></ul> |Cliquez sur **Créer une sauvegarde** pour démarrer immédiatement une opération de sauvegarde. |
 | Activer/désactiver l’affichage des importations |Cliquez avec le bouton droit sur le nœud supérieur dans le volet **Étendue** (nœud **Gestionnaire d’instantanés StorSimple** dans les exemples). |Cliquez sur **Activer/Désactiver l’affichage des importations** pour afficher ou masquer les groupes de volumes et les sauvegardes associées importés depuis le tableau de bord du service StorSimple Device Manager. |
 
@@ -305,13 +305,13 @@ Le nœud **Travaux** contient des informations sur les travaux de sauvegarde pla
 * Pour afficher la liste des tâches effectuées récemment, développez le nœud **Tâches**, puis cliquez sur **Ces dernières 24 heures**. Une liste de tâches qui ont été effectuées dans les 24 dernières heures s’affiche dans le volet **Résultats** . Le volet **Résultats** contient également des informations sur chaque tâche terminée.
 * Pour afficher une liste des tâches en cours d’exécution, développez le nœud **Tâches**, puis cliquez sur **En cours d’exécution**. La liste des tâches en cours et des informations sur chaque tâche s’affichent dans le volet **Résultats** .
 
-## <a name="results-pane"></a>Volet Résultats
+## <a name="results-pane"></a>Results pane
 Le volet **Résultats** est le volet central de l’interface utilisateur du Gestionnaire d’instantanés StorSimple. Il contient des listes et des informations d’état détaillées sur le nœud sélectionné dans le volet **Étendue** .
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 Pour voir l’exemple suivant, cliquez sur le nœud **Groupes de volumes** dans le volet **Étendue**. Le volet **Résultats** affiche une liste des groupes de volumes contenant des détails sur chaque groupe.
 
-![Volet Résultats](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
+![Results pane](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
 Vous pouvez configurer les détails affichés dans le volet **Résultats** : cliquez avec le bouton droit sur un nœud du volet **Étendue**, cliquez sur **Affichage**, puis sur **Ajout/Suppression de colonnes**.
 
@@ -354,12 +354,12 @@ Le tableau suivant décrit les touches que vous pouvez utiliser pour naviguer da
 ### <a name="menu-bar-shortcut-keys"></a>Touches de raccourci de la barre de menus
 Le tableau suivant décrit les combinaisons de touches de raccourci de la barre de menus. Lorsque vous appuyez sur les touches de raccourci et que le menu s’ouvre, vous pouvez utiliser les touches de raccourci du menu (touches soulignées dans le menu). Pour plus d’informations sur la barre de menus, accédez à la [Barre de menus](#menu-bar).
 
-| Raccourci | Résultat | Touche de raccourci du menu | Résultat |
+| Raccourci | Résultats | Touche de raccourci du menu | Résultats |
 |:--- |:--- |:--- |:--- |
 | ALT + F |Ouvre le menu **Fichier** . |N |Ouvre une nouvelle instance de console. |
 |  |O |Ouvre la page **Outils d’administration** . | |
 |  |S |Enregistre la console du Gestionnaire d’instantanés StorSimple. | |
-|  |A |Ouvre la page **Enregistrer sous** . | |
+|  |Un |Ouvre la page **Enregistrer sous** . | |
 |  |M |Ouvre la page **Ajouter/Supprimer un composant logiciel enfichable** . | |
 |  |P |Ouvre la page **Options** . | |
 |  |H |Ouvre l’aide en ligne. | |
@@ -368,9 +368,9 @@ Le tableau suivant décrit les combinaisons de touches de raccourci de la barre 
 |  |F |Met à jour la console du Gestionnaire d’instantanés StorSimple. | |
 |  |L |Ouvre la page **Exporter la liste** . | |
 |  |H |Ouvre l’aide en ligne. | |
-| ALT + V |Ouvre le menu **Affichage** . |A |Ouvre la page **Ajout/Suppression de colonnes** . |
+| Alt+V |Ouvre le menu **Affichage** . |Un |Ouvre la page **Ajout/Suppression de colonnes** . |
 |  |U |Ouvre la page **Personnalisation de l’affichage** . | |
-| ALT + O |Ouvre le menu **Favoris** . |A |Ouvre la page **Ajouter aux favoris** . |
+| ALT + O |Ouvre le menu **Favoris** . |Un |Ouvre la page **Ajouter aux favoris** . |
 |  |O |Ouvre la page **Organiser les favoris** . | |
 | ALT + W |Ouvre le menu **Fenêtre** . |N |Ouvre une autre fenêtre de Gestionnaire d’instantanés StorSimple. |
 |  |C |Affiche toutes les fenêtres de console ouvertes en cascade. | |
@@ -378,7 +378,7 @@ Le tableau suivant décrit les combinaisons de touches de raccourci de la barre 
 |  |I |Réorganise les icônes sur une rangée horizontale en bas de votre écran. | |
 | ALT + H |Ouvre le menu **Aide** . |H |Ouvre l’aide en ligne. |
 |  |T |Ouvre la page web Microsoft TechNet Tech Center. | |
-|  |A |Ouvre la page **À propos de Microsoft Management Console** . | |
+|  |Un |Ouvre la page **À propos de Microsoft Management Console** . | |
 
 ### <a name="scope-pane-shortcut-keys"></a>Touches de raccourci du volet Étendue
 Les tableaux suivants montrent les combinaisons de touches de raccourci de chaque nœud dans le volet **Étendue** . 
@@ -391,7 +391,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 * [Touches de raccourci du nœud Tâches](#jobs-node-shortcut-keys)
 
 #### <a name="devices-node-shortcut-keys"></a>Touches de raccourci du nœud Périphériques
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
 | C |Ouvre la page **Configurer un appareil** . |
 | D |Actualise la liste des appareils et les détails de l’appareil |
@@ -402,7 +402,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="volumes-node-shortcut-keys"></a>Touches de raccourci du nœud Volumes
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
 | V |Met à jour la liste des volumes. |
 | V (appuyer deux fois) |Ouvre le menu **Affichage** . |
@@ -412,7 +412,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="volume-groups-node-shortcut-keys"></a>Touches de raccourci du nœud Groupes de volumes
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
 | G |Ouvre la page **Créer un groupe de volumes** . |
 | V |Ouvre le menu **Affichage** . |
@@ -422,9 +422,9 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="backup-policies-node-shortcut-keys"></a>Touches de raccourci du nœud Stratégies de sauvegarde
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
-| b |Ouvre la page **Créer une stratégie** . |
+| B |Ouvre la page **Créer une stratégie** . |
 | V |Ouvre le menu **Affichage** . |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes** . |
 | F |Met à jour la console du Gestionnaire d’instantanés StorSimple. |
@@ -432,14 +432,14 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="backup-catalog-node-shortcut-keys"></a>Touches de raccourci du nœud Catalogue de sauvegarde
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes** . |
 | F |Met à jour la console du Gestionnaire d’instantanés StorSimple. |
 | H |Ouvre l’aide en ligne. |
 
 #### <a name="jobs-node-shortcut-keys"></a>Touches de raccourci du nœud Tâches
-| Raccourci du menu | Résultat |
+| Raccourci du menu | Résultats |
 |:--- |:--- |
 | V |Ouvre le menu **Affichage** . |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Tâches** . |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2019
 ms.author: anavin
-ms.openlocfilehash: 3aee53b823af5929ce48045d1addcbc4881b2825
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 768d01346b7697953d44742458c7e507ae7c115a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638270"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894610"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -79,7 +79,7 @@ Les itinéraires Azure se chargent de l’acheminement entre les sous-réseaux, 
 
 ## <a name="azure-vnet-limits"></a>Limites des réseaux virtuels Azure
 
-Le nombre de ressources Azure que vous pouvez déployer est limité. La plupart des limites de mise en réseau Azure sont des valeurs maximales. Toutefois, vous pouvez [augmenter certaines limites de mise en réseau](../azure-supportability/networking-quota-requests.md) comme spécifié dans la page consacrée aux [limites de réseau virtuel](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
+Le nombre de ressources Azure que vous pouvez déployer est limité. La plupart des limites de mise en réseau Azure sont des valeurs maximales. Toutefois, vous pouvez [augmenter certaines limites de mise en réseau](../azure-portal/supportability/networking-quota-requests.md) comme spécifié dans la page consacrée aux [limites de réseau virtuel](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits). 
 
 ## <a name="pricing"></a>Tarifs
 

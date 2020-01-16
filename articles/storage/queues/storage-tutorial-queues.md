@@ -8,23 +8,23 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: cbrooks
-ms.openlocfilehash: c8e1d5c1c11c4fdf902c7be7bc03be298e93a8b9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9cbdc5231fdc9f836f300b1a3a81a237a9efc123
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721140"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968195"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Didacticiel : Utiliser des files d’attente de stockage Azure
+# <a name="tutorial-work-with-azure-storage-queues"></a>Tutoriel : Utiliser des files d’attente de stockage Azure
 
 Stockage File d’attente Azure implémente des files d’attente cloud pour permettre la communication entre les composants d’une application distribuée. Chaque file d’attente gère une liste de messages qui peuvent être ajoutés par un composant expéditeur et traités par un composant récepteur. Avec une file d’attente, votre application peut être mise à l’échelle immédiatement pour répondre à la demande. Cet article explique les étapes de base pour travailler avec une file d’attente de stockage Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 >
 > - Créer un compte de stockage Azure
-> - Création de l'application
+> - Créer l’application
 > - Ajouter la prise en charge du code asynchrone
 > - Créer une file d’attente
 > - Insérer des messages dans une file d’attente
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > - Vérifier les arguments de la ligne de commande
 > - Générer et exécuter l’application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Procurez-vous votre copie gratuite de l’éditeur [Visual Studio Code](https://code.visualstudio.com/download) multiplateforme.
 - Téléchargez et installez le [SDK .NET Core](https://dotnet.microsoft.com/download).
@@ -41,9 +41,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
-Créez d’abord un compte de stockage Azure. Pour obtenir un guide pas à pas de la création d’un compte de stockage, consultez le guide de démarrage rapide [Créer un compte de stockage](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
+Créez d’abord un compte de stockage Azure. Pour obtenir un guide pas à pas de la création d’un compte de stockage, consultez le guide de démarrage rapide [Créer un compte de stockage](../common/storage-account-create.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json).
 
-## <a name="create-the-app"></a>Création de l'application
+## <a name="create-the-app"></a>Créer l’application
 
 Créez une application .NET Core nommée **QueueApp**. Par souci pratique, cette application envoie et reçoit des messages via la file d’attente.
 
@@ -505,7 +505,7 @@ Cette sortie doit s’afficher :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 1. Créer une file d’attente
 2. Ajouter et supprimer des messages dans une file d’attente

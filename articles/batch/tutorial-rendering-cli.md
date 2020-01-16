@@ -2,19 +2,19 @@
 title: Créer le rendu d’une scène dans le cloud - Azure Batch
 description: 'Didacticiel : comment créer le rendu d’une scène Autodesk 3ds Max avec Arnold à l’aide du service Azure Batch Rendering et de l’interface de ligne de commande Azure'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272333"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029199"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutoriel : Créer le rendu d’une scène avec Azure Batch 
 
@@ -29,7 +29,7 @@ Azure Batch propose des fonctionnalités de création de rendus à l’échelle 
 
 Dans ce didacticiel, vous créer le rendu d’une scène 3ds Max avec Batch à l’aide du convertisseur [Arnold](https://www.autodesk.com/products/arnold/overview) à lancer de rayon. Le pool Batch utilise une image de la Place de marché Azure avec des graphiques préinstallés et des applications de rendu qui fournissent des licences de paiement à l’utilisation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. **Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.**
 
@@ -186,7 +186,7 @@ se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ## <a name="render-a-single-frame-scene"></a>Créer le rendu d’une scène à image unique
 
-### <a name="create-a-job"></a>Création d’un travail
+### <a name="create-a-job"></a>Créer un travail
 
 Créer un travail de rendu à exécuter sur le pool à l’aide de la commande [az batch job create](/cli/azure/batch/job#az-batch-job-create). Dans un premier temps, le travail n’a aucune tâche.
 
@@ -330,7 +330,7 @@ Ouvrez un des fichiers sur votre ordinateur. L’image rendue 6 ressemble à ce 
 ![Rendu de l’image de dragon 6](./media/tutorial-rendering-cli/dragon-frame6.png) 
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, le compte Batch, les pools et toutes les ressources associées. Supprimez les ressources comme suit :
 

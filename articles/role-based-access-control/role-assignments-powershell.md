@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c16ec978a0689059c60903182337936960c7a4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707850"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981064"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "74707850"
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
@@ -67,7 +67,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Dans le contrôle d’accès en fonction du rôle (RBAC), vous ajoutez une attribution de rôle pour accorder l’accès.
+Dans le contrôle RBAC, vous ajoutez une attribution de rôle pour accorder l’accès.
 
 ### <a name="user-at-a-resource-group-scope"></a>Utilisateur dans l’étendue d’un groupe de ressources
 
@@ -230,6 +230,6 @@ Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Lister les attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](role-assignments-list-powershell.md)
-- [Tutoriel : Permettre à un groupe d'accéder aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Tutoriel : Permettre à un groupe d'accéder aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutoriel : Créer un rôle personnalisé pour les ressources Azure à l'aide d'Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Gérer les ressources avec Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

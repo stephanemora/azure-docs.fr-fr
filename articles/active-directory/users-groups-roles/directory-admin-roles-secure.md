@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: c5f36e82c2ff95800a058f56f9cc6b80ddf02dbf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900798"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967706"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -362,7 +362,7 @@ Pour améliorer votre plan, Microsoft vous recommande de vérifier régulièreme
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Étapes supplémentaires pour les organisations gérant l’accès à Azure 
 
-Déterminez si vous devez [transférer la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md).
+Déterminez si vous devez [transférer la propriété d’un abonnement Azure à un autre compte](../../cost-management-billing/manage/billing-subscription-transfer.md).
 ‎
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>« Secours » : que faire en cas d’urgence
@@ -375,7 +375,7 @@ Déterminez si vous devez [transférer la propriété d’un abonnement Azure à
 
 3. Accédez à votre combinaison nom d’utilisateur/mot de passe de compte « de secours » pour vous connecter à Azure AD. 
 
-4. Obtenez de l’aide de Microsoft en [ouvrant une demande de support Azure](../../azure-supportability/how-to-create-azure-support-request.md).
+4. Obtenez de l’aide de Microsoft en [ouvrant une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 5. Examinez les [rapports de connexion Azure AD](../reports-monitoring/overview-reports.md). Il peut y avoir un décalage entre l’occurrence d’un événement et le moment où il est inclus dans le rapport.
 

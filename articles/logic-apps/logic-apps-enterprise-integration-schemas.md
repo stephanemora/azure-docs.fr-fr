@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792406"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979374"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Valider des documents XML avec des schémas dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -21,7 +21,7 @@ Pour vérifier que les documents utilisent du code XML valide et qu’ils conti
 
 Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les schémas, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
@@ -31,7 +31,7 @@ Pour connaître les limites associées aux comptes d’intégration et aux artef
   Pour ajouter ce schéma à votre compte d’intégration, vous pouvez associer votre compte de stockage à votre compte d’intégration. 
   Pour cette tâche, voici les éléments dont vous avez besoin : 
 
-  * Un [compte de stockage Azure](../storage/common/storage-account-overview.md) dans lequel vous créez un conteneur d’objets blob pour votre schéma. Découvrez comment [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md). 
+  * Un [compte de stockage Azure](../storage/common/storage-account-overview.md) dans lequel vous créez un conteneur d’objets blob pour votre schéma. Découvrez comment [créer un compte de stockage](../storage/common/storage-account-create.md). 
 
   * Un conteneur d’objets blob pour stocker votre schéma. Découvrez comment [créer un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). 
   Vous aurez besoin de l’URI du contenu de votre conteneur plus tard, lorsque vous ajouterez le schéma à votre compte d’intégration.

@@ -1,18 +1,18 @@
 ---
 title: Meilleures pratiques – Azure Batch
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534877"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026146"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -76,7 +76,7 @@ En cas de défaillance d’un nœud, Batch tente automatiquement de récupérer 
 - **Dépendance de région Azure**  
     Il est recommandé de ne pas dépendre d’une seule région Azure si vous avez une charge de travail urgente ou de production. Bien que rare, il existe des problèmes qui peuvent perturber une région entière. Par exemple, si votre traitement doit démarrer à un moment donné, envisagez d’augmenter l’échelle du pool dans votre région primaire *bien avant votre heure de début*. Si cette mise à l’échelle du pool échoue, vous pouvez vous replier sur l’augmentation de l’échelle d’un pool dans une ou plusieurs régions de sauvegarde. Les pools sur plusieurs comptes et dans différentes régions fournissent une sauvegarde prête et facilement accessible en cas de problème avec un autre pool. Pour plus d’informations, consultez [Conception de votre application pour une haute disponibilité](high-availability-disaster-recovery.md).
 
-## <a name="jobs"></a>Tâches
+## <a name="jobs"></a>travaux
 
 Un travail est un conteneur conçu pour contenir des centaines, des milliers, voire des millions de tâches.
 

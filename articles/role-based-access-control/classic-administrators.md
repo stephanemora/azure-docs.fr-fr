@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554228"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979340"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
-Microsoft vous recommande de gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC). Toutefois, si vous utilisez toujours le modèle de déploiement classique, vous devrez utiliser un rôle d’administrateur d'abonnement classique : Administrateur et coadministrateur de service. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft vous recommande de gérer l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC). Toutefois, si vous utilisez toujours le modèle de déploiement classique, vous devrez utiliser un rôle d’administrateur d'abonnement classique : Administrateur et coadministrateur de service. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/management/deployment-models.md).
 
 Cet article décrit comment ajouter ou modifier les rôles Coadministrateur et Administrateur de services, et comment voir l’Administrateur de compte.
 
@@ -62,7 +62,7 @@ Pour plus d’informations sur la manière d’ajouter un utilisateur invité à
 
 ### <a name="differences-for-guest-users"></a>Différences pour les utilisateurs invités
 
-Les utilisateurs invités qui ont été affectés au rôle de coadministrateur peuvent constater des différences par rapport aux utilisateurs membres avec le rôle coadministrateur. Examinez le scénario suivant :
+Les utilisateurs invités qui ont été affectés au rôle de coadministrateur peuvent constater des différences par rapport aux utilisateurs membres avec le rôle coadministrateur. Examinez le cas suivant :
 
 - L’utilisateur A avec un compte professionnel ou scolaire Azure AD est administrateur de service pour un abonnement Azure.
 - L’utilisateur B dispose d’un compte Microsoft.
@@ -143,8 +143,8 @@ Il ne peut y avoir qu’un seul administrateur de service par abonnement Azure. 
 
 | Compte d’Administrateur de compte | Est-il possible de modifier l’administrateur de service en un autre compte Microsoft ? | Est-il possible de modifier l’administrateur de service en un compte Azure AD dans le même annuaire ? | Est-il possible de modifier l’administrateur de service en un compte Azure AD dans un annuaire différent ? |
 | --- | --- | --- | --- |
-| Compte Microsoft | OUI | Non | Non |
-| Compte Azure AD | OUI | OUI | Non |
+| Compte Microsoft | Oui | Non | Non |
+| Compte Azure AD | Oui | Oui | Non |
 
 Si l’administrateur de compte est un compte Azure AD, vous pouvez modifier l’administrateur de service en un compte Azure AD dans le même annuaire, mais pas dans un autre. Par exemple, abby@contoso.com peut modifier l’administrateur de service en bob@contoso.com, mais ne pas en john@notcontoso.com, sauf si john@notcontoso.com a une présence dans l’annuaire contoso.com.
 
@@ -152,11 +152,11 @@ Pour plus d’informations sur les comptes Microsoft et Azure AD, voir [Qu’est
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 
-L’Administrateur de compte est l’utilisateur qui a initialement souscrit l’abonnement Azure et qui est responsable en tant que propriétaire de facturation de l’abonnement. Pour modifier l’administrateur de compte d’un abonnement, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
+L’Administrateur de compte est l’utilisateur qui a initialement souscrit l’abonnement Azure et qui est responsable en tant que propriétaire de facturation de l’abonnement. Pour modifier l’administrateur de compte d’un abonnement, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md).
 
 Pour voir l’Administrateur de compte, procédez comme suit.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
 
@@ -170,4 +170,4 @@ Pour voir l’Administrateur de compte, procédez comme suit.
 
 * [Comprendre les différents rôles dans Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Gérer l’accès aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](../role-based-access-control/role-assignments-portal.md)
-* [Ajouter ou changer des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md)
+* [Ajouter ou changer des administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

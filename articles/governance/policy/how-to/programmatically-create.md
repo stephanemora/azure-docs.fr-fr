@@ -3,12 +3,12 @@ title: Créer des stratégies par programmation
 description: Cet article vous explique comment créer et gérer des stratégies par programmation pour Azure Policy avec Azure CLI, Azure PowerShell et l’API REST.
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873061"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982465"
 ---
 # <a name="programmatically-create-policies"></a>Créer des stratégies par programmation
 
@@ -16,7 +16,7 @@ Cet article vous explique comment créer et gérer des stratégies par programma
 
 Pour plus d’informations sur la conformité, consultez [Obtention de données de conformité](get-compliance-data.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que les conditions préalables suivantes sont remplies :
 
@@ -30,7 +30,7 @@ Avant de commencer, vérifiez que les conditions préalables suivantes sont remp
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 1. Si ce n’est déjà fait, installez Azure CLI. Vous pouvez obtenir la dernière version sur la page [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows).
 

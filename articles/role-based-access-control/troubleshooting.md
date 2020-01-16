@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707777"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980986"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -41,13 +41,13 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Récupérer le contrôle d’accès en fonction du rôle (RBAC) lorsque les abonnements sont déplacés entre les locataires
 
-- Si vous avez besoin de connaître les étapes permettant de transférer un abonnement à un locataire Azure AD différent, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md).
+- Si vous avez besoin de connaître les étapes permettant de transférer un abonnement à un locataire Azure AD différent, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../cost-management-billing/manage/billing-subscription-transfer.md).
 - Si vous transférez un abonnement vers un autre locataire Azure AD, toutes les attributions de rôle définies sont définitivement supprimées du locataire Azure AD source et ne sont pas migrées sur le locataire Azure AD cible. Vous devez recréer vos attributions de rôle dans le locataire cible. Vous devez également recréer manuellement les identités managées pour les ressources Azure. Pour plus d’informations, consultez [Questions fréquentes et problèmes connus en lien avec les identités managées](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Si vous êtes administrateur général Azure AD et que vous n’avez pas accès à un abonnement après son déplacement entre des locataires, utilisez l’option **Gestion de l’accès pour les ressources Azure** afin d’[élever votre accès](elevate-access-global-admin.md) temporairement et ainsi accéder à l’abonnement.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problèmes liés aux coadministrateurs ou administrateurs de service
 
-- Si vous rencontrez des problèmes avec l’administrateur ou les coadministrateurs du service, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](rbac-and-directory-admin-roles.md).
+- Si vous rencontrez des problèmes avec l’administrateur ou les coadministrateurs du service, consultez [Ajouter ou modifier les administrateurs d’abonnements Azure](../cost-management-billing/manage/add-change-subscription-administrator.md) et [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Accès refusé ou erreurs d’autorisations
 

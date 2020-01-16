@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901700"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969336"
 ---
 # <a name="authoring-and-runtime-keys"></a>Clés de création et d'exécution
 
@@ -95,10 +95,10 @@ Une application est définie par ses ressources Azure, qui sont elles-mêmes dé
 Vous pouvez déplacer votre application LUIS. Utilisez les ressources documentaires suivantes à partir du portail Azure ou de l'interface Azure CLI :
 
 * [Déplacer l'application entre des ressources de création LUIS](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/resource-group-move-resources.md)
-* [Déplacer des ressources au sein d'un même abonnement ou entre des abonnements différents](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Déplacer des ressources au sein d'un même abonnement ou entre des abonnements différents](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Pour transférer la [propriété](../../billing/billing-subscription-transfer.md) de votre abonnement : 
+Pour transférer la [propriété](../../cost-management-billing/manage/billing-subscription-transfer.md) de votre abonnement : 
 
 **Pour les utilisateurs ayant migré - [création d’applications de ressources migrées](luis-migration-authoring.md)**  : En tant que propriétaire de la ressource, vous pouvez ajouter un `contributor`.
 

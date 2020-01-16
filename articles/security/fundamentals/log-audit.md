@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: f53c7e7b045805a28223fb5670afc45c980454bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498389"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750791"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Journal de sécurité et audit Azure
 
@@ -38,9 +38,9 @@ Les applications cloud sont complexes, et se composent de nombreux éléments mo
 - automatiser des actions qui nécessitent autrement une intervention manuelle
 
 Les journaux d’activité Azure sont classés par type :
-* Les **journaux d’activité de contrôle/gestion** fournissent des informations sur les opérations CREATE, UPDATE, and DELETE Azure Resource Manager. Pour plus d’informations, consultez [Journaux d’activité des activités Azure](../../azure-monitor/platform/activity-logs-overview.md).
+* Les **journaux d’activité de contrôle/gestion** fournissent des informations sur les opérations CREATE, UPDATE, and DELETE Azure Resource Manager. Pour plus d’informations, consultez [Journaux d’activité des activités Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
-* Les **journaux de plan de données** fournissent des informations sur les événements déclenchés lors de l’utilisation des ressources Azure. Il s’agit par exemple des journaux d’activité du système d’événements, de la sécurité et des applications Windows dans une machine virtuelle, et des [journaux de diagnostic](../../azure-monitor/platform/resource-logs-overview.md) qui sont configurés via Azure Monitor.
+* Les **journaux de plan de données** fournissent des informations sur les événements déclenchés lors de l’utilisation des ressources Azure. Il s’agit par exemple des journaux d’activité du système d’événements, de la sécurité et des applications Windows dans une machine virtuelle, et des [journaux de diagnostic](../../azure-monitor/platform/platform-logs-overview.md) qui sont configurés via Azure Monitor.
 
 * Les **événements traités** fournissent des informations sur les événements/alertes analysés en votre nom. Les alertes [Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md) en sont un exemple, où [Azure Security Center](../../security-center/security-center-intro.md) a traité et analysé votre abonnement et fournit des alertes de sécurité très concises.
 
@@ -48,8 +48,8 @@ Le tableau suivant liste les principaux types de journaux d’activité disponib
 
 | Catégorie de journal | Type de journal | Usage | Intégration |
 | ------------ | -------- | ------ | ----------- |
-|[Journaux d’activité](../../azure-monitor/platform/activity-logs-overview.md)|Événements de plan de contrôle sur les ressources d’Azure Resource Manager|  Fournissent des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.|    API Rest, [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Journaux de ressources Azure](../../azure-monitor/platform/resource-logs-overview.md)|Données fréquentes sur les opérations des ressources Azure Resource Manager de l’abonnement|   Fournissent des insights sur les opérations que votre ressource réalise elle-même.| Azure Monitor|
+|[Journaux d’activité](../../azure-monitor/platform/platform-logs-overview.md)|Événements de plan de contrôle sur les ressources d’Azure Resource Manager|  Fournissent des informations sur les opérations qui ont été effectuées sur les ressources de votre abonnement.|    API Rest, [Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md)|
+|[Journaux de ressources Azure](../../azure-monitor/platform/platform-logs-overview.md)|Données fréquentes sur les opérations des ressources Azure Resource Manager de l’abonnement|   Fournissent des insights sur les opérations que votre ressource réalise elle-même.| Azure Monitor|
 |[Compte-rendu Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Journaux d’activité et rapports | Signalent les activités de connexion des utilisateurs et fournissent des informations sur l’activité système relative à la gestion des utilisateurs et des groupes.|[API Graph](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Machines virtuelles et services cloud](../../azure-monitor/learn/quick-collect-azurevm.md)|Service du journal des événements Windows et Syslog Linux|  Capture les données système et les données de journalisation sur les machines virtuelles, puis les transfère vers un compte de stockage de votre choix.|   Windows (avec le stockage Diagnostics Azure pour Windows [[WAD](../../monitoring-and-diagnostics/azure-diagnostics.md)]) et Linux dans Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Journalisation du stockage, fournit les données de métriques d’un compte de stockage|Fournit des informations sur les demandes de trace, analyse les tendances d’utilisation et diagnostique les problèmes de votre compte de stockage.|   API REST ou [bibliothèque cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|

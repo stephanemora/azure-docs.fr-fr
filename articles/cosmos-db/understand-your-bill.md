@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2edb7674a82a0388a0e028bee1b222e0e55004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: be1697038674a177eaced03732536c0df5b16983
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754725"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046151"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compréhension de vos factures Azure Cosmos DB
 
@@ -22,7 +22,8 @@ Avec Azure Cosmos DB, vous êtes facturé à l’heure en fonction du débit fou
 
 Cet article s’appuie sur des exemples pour vous aider à comprendre les détails figurant sur la facture mensuelle. Les chiffres indiqués dans les exemples peuvent être différents si vos conteneurs Azure Cosmos fournissent une autre quantité de débit, s’ils s’étendent sur plusieurs régions ou s’ils sont exécutés sur une période supérieure à un mois.
 
->! Remarque : La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes.
+> [!NOTE]
+> La facturation concerne une partie d’une heure d’horloge, et non pas une durée de 60 minutes.
 
 ## <a name="billing-examples"></a>Exemples de facturation
 
@@ -214,8 +215,8 @@ Prenons un autre exemple, dans lequel vous souhaitez anticiper le montant de vot
 
 |**Coût du débit** | | | |
 |----|----|----|----|
-|Type d'opération| Requêtes/s| Avg. RU/requête| RU nécessaires|
-|Écrire| 100 | 5\. | 500|
+|Type d’opération| Requêtes/s| Avg. RU/requête| RU nécessaires|
+|Write| 100 | 5 | 500|
 |Lire| 400| 1| 400|
 
 RU total/s : 500 + 400 = 900 ; coût horaire : 900/100 x 0,008 $ = coût mensuel attendu de 0,072 $ pour le débit (en supposant une durée de 31 jours) : 0,072 $ x 24 x 31 = 53,57 $
@@ -263,8 +264,8 @@ Vous avez réalité acheté un crédit de 8 $ par heure, pour 100 000 RU/s, au p
 Pour approfondir vos connaissances sur l’optimisation des coûts dans Azure Cosmos DB, consultez les articles suivants :
 
 * Pour plus d’informations, consultez [En quoi le modèle de tarification Cosmos DB est rentable pour les clients](total-cost-ownership.md)
-* En savoir plus sur [l’optimisation pour le développement et le test](optimize-dev-test.md)
-* En savoir plus sur [l’optimisation du coût du débit](optimize-cost-throughput.md)
+* En savoir plus sur l’[optimisation pour le développement et le test](optimize-dev-test.md)
+* En savoir plus sur l’[optimisation du coût du débit](optimize-cost-throughput.md)
 * En savoir plus sur l’[optimisation du coût de stockage](optimize-cost-storage.md)
 * En savoir plus sur l’[optimisation du coût des lectures et écritures](optimize-cost-reads-writes.md)
 * En savoir plus sur l’[optimisation du coût des requêtes](optimize-cost-queries.md)

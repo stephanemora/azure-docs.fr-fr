@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439435"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977310"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copier des données à partir d’un objet blob Azure vers Azure SQL Database à l’aide d’Azure Data Factory
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* *Compte Stockage Azure*. Vous utilisez le stockage blob comme magasins de données *source*. Si vous n’avez pas de compte de stockage Azure, consultez [Créer un compte de stockage universel](../storage/common/storage-quickstart-create-account.md).
+* *Compte Stockage Azure*. Vous utilisez le stockage blob comme magasins de données *source*. Si vous n’avez pas de compte de stockage Azure, consultez [Créer un compte de stockage universel](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. Vous utilisez la base de données en tant que magasin de données *récepteur*. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL](../sql-database/sql-database-single-database-get-started.md).
 * *Visual Studio*. La procédure pas à pas décrite dans cet article utilise Visual Studio 2019.
 * *[SDK Azure pour .NET](/dotnet/azure/dotnet-tools)* .
@@ -84,7 +84,7 @@ Ensuite, créez une table SQL de récepteur.
     1. Accédez au [portail Azure](https://portal.azure.com) pour gérer votre serveur SQL. Recherchez et sélectionnez les **serveurs SQL**.
 
     2. Sélectionnez votre serveur.
-    
+
     3. Sous le titre **Sécurité** du menu du serveur SQL, sélectionnez **Pare-feu et réseaux virtuels**.
 
     4. Dans la page **Pare-feu et réseaux virtuels**, sous **Autoriser les services et ressources Azure à accéder à ce serveur**, sélectionnez **ACTIVÉ**.
@@ -154,7 +154,7 @@ Suivez ces étapes pour créer un client de fabrique de données.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 
-Dans cette section, vous créez deux jeux de données : un pour la source, l’autre pour le récepteur. 
+Dans cette section, vous créez deux jeux de données : un pour la source, l’autre pour le récepteur.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Créer un jeu de données pour l’objet blob Azure source
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 Ajoutez le code suivant à la méthode `Main` qui crée un *jeu de données Azure SQL Database*. Pour plus d’informations sur les propriétés prises en charge, consultez [Propriétés du jeu de données Azure SQL Database](connector-azure-sql-database.md#dataset-properties).
 
-Vous définissez un jeu de données qui représente les données du récepteur dans Azure SQL Database. Ce jeu de données fait référence au service lié Azure SQL Database que vous avez créé à l’étape précédente. Il spécifie également la table SQL qui contient les données copiées. 
+Vous définissez un jeu de données qui représente les données du récepteur dans Azure SQL Database. Ce jeu de données fait référence au service lié Azure SQL Database que vous avez créé à l’étape précédente. Il spécifie également la table SQL qui contient les données copiées.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à : 
+Dans cet exemple, le pipeline copie les données d’un emplacement vers un autre dans un stockage Blob Azure. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
@@ -574,7 +574,7 @@ Dans cet exemple, le pipeline copie les données d’un emplacement vers un autr
 > * Démarrer une exécution de pipeline.
 > * Surveiller les exécutions de pipeline et d’activité.
 
-Passez au tutoriel suivant pour en savoir plus sur la copie des données locales vers le cloud : 
+Passez au tutoriel suivant pour en savoir plus sur la copie des données locales vers le cloud :
 
 > [!div class="nextstepaction"]
 >[Copier des données locales vers le cloud](tutorial-hybrid-copy-powershell.md)

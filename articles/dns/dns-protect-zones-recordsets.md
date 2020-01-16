@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: allensu
-ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211443"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969017"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -20,7 +20,7 @@ ms.locfileid: "74211443"
 
 Les enregistrements et zones DNS sont des ressources critiques. La suppression d’une zone DNS, voire d’un seul enregistrement DNS, peut entraîner une interruption de service totale.  Il est donc important que les zones et enregistrements DNS critiques soient protégés contre toute modification non autorisée ou accidentelle.
 
-Cet article explique comment le DNS Azure permet de protéger vos enregistrements et zones DNS contre de telles modifications.  Nous appliquons deux puissantes fonctionnalités de sécurité d’Azure Resource Manager : le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) et les [verrous de ressources](../azure-resource-manager/resource-group-lock-resources.md).
+Cet article explique comment le DNS Azure permet de protéger vos enregistrements et zones DNS contre de telles modifications.  Nous appliquons deux puissantes fonctionnalités de sécurité d’Azure Resource Manager : le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/overview.md) et les [verrous de ressources](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 
@@ -158,7 +158,7 @@ Pour plus d’informations sur la façon de créer, gérer et attribuer des rôl
 
 ## <a name="resource-locks"></a>Verrous de ressources
 
-En plus de RBAC, Azure Resource Manager prend en charge un autre type de contrôle de sécurité permettant de verrouiller des ressources. Si les règles RBAC vous permettent de contrôler les actions d’utilisateurs ou de groupes spécifiques, les verrous appliqués à des ressources valent pour l’ensemble des utilisateurs et des rôles. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+En plus de RBAC, Azure Resource Manager prend en charge un autre type de contrôle de sécurité permettant de verrouiller des ressources. Si les règles RBAC vous permettent de contrôler les actions d’utilisateurs ou de groupes spécifiques, les verrous appliqués à des ressources valent pour l’ensemble des utilisateurs et des rôles. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 Il existe deux types de verrou de ressource : **CanNotDelete** et **ReadOnly**. Vous pouvez les appliquer à une zone DNS ou à un jeu d’enregistrements.  Les sections suivantes décrivent quelques scénarios courants et la manière de les prendre en charge à l’aide de verrous de ressources.
 
@@ -195,7 +195,7 @@ New-AzResourceLock -LockLevel <lock level> -LockName "<lock name>" -ResourceName
 
 ### <a name="protecting-against-zone-deletion"></a>Protection contre la suppression de zone
 
-Lors de la suppression d’une zone dans le DNS Azure, tous les jeux d’enregistrements contenus dans celle-ci sont supprimés.  Il est impossible d’annuler cette opération.  La suppression accidentelle d’une zone critique peut avoir une incidence considérable.  Il est donc très important de protéger les zones contre toute suppression accidentelle.
+Lors de la suppression d’une zone dans le DNS Azure, tous les jeux d’enregistrements contenus dans celle-ci sont supprimés.  Cette opération ne peut pas être annulée.  La suppression accidentelle d’une zone critique peut avoir une incidence considérable.  Il est donc très important de protéger les zones contre toute suppression accidentelle.
 
 L’application d’un verrou CanNotDelete à une zone empêche la suppression de celle-ci.  Toutefois, les ressources enfants héritant des verrous, cela empêche également la suppression de jeux d’enregistrements figurant dans la zone, ce qui peut être indésirable.  Par ailleurs, comme décrit dans la Remarque ci-dessus, ce procédé est également inefficace dans la mesure où il reste toujours possible de supprimer des enregistrements à partir des jeux d’enregistrements existants.
 
@@ -217,4 +217,4 @@ Il est possible d’utiliser les deux approches (verrous de ressources et rôles
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur l’utilisation de RBAC, voir [Prise en main de la gestion des accès dans le portail Azure](../role-based-access-control/overview.md).
-* Pour plus d’informations sur l’utilisation des verrous de ressources, voir [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+* Pour plus d’informations sur l’utilisation des verrous de ressources, voir [Verrouiller des ressources avec Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 0748047581945d513300d929c2d34d20099bf4d6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529692"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747315"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervision de ressources Azure avec Azure Monitor
 Lorsque vous avez des applications critiques et des processus métier basés sur des ressources Azure, vous voulez superviser ces ressources pour connaître leur disponibilité, leurs performances et leur fonctionnement. Cet article décrit les données de supervision générées par les ressources Azure et comment vous pouvez utiliser les fonctionnalités d’Azure Monitor pour analyser ces données et créer des alertes.
@@ -57,8 +57,8 @@ Les ressources dans Azure génèrent les [journaux](../platform/data-platform-lo
 
 
 - [Métriques de plateforme](../platform/data-platform-metrics.md) – Valeurs numériques qui sont collectées automatiquement à intervalles réguliers et qui décrivent un certain aspect d’une ressource à un moment donné. 
-- [Journaux de ressources](../platform/resource-logs-overview.md) – Fournissent des insights sur les opérations effectuées au sein d’une ressource Azure (plan de données), par exemple l’obtention d’un secret à partir d’un coffre de clés ou l’envoi d’une demande à une base de données. Le contenu et la structure des journaux de ressources varient en fonction du service Azure et du type de ressource.
-- [Journal d’activité](../platform/activity-logs-overview.md) – Fournit un insight sur les opérations effectuées sur chaque ressource Azure dans l’abonnement à partir de l’extérieur (plan de gestion), par exemple la création d’une ressource ou le démarrage d’une machine virtuelle. Ces informations répondent aux questions quoi, qui et quand concernant toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources dans le cadre de votre abonnement.
+- [Journaux de ressources](../platform/platform-logs-overview.md) – Fournissent des insights sur les opérations effectuées au sein d’une ressource Azure (plan de données), par exemple l’obtention d’un secret à partir d’un coffre de clés ou l’envoi d’une demande à une base de données. Le contenu et la structure des journaux de ressources varient en fonction du service Azure et du type de ressource.
+- [Journal d’activité](../platform/platform-logs-overview.md) – Fournit un insight sur les opérations effectuées sur chaque ressource Azure dans l’abonnement à partir de l’extérieur (plan de gestion), par exemple la création d’une ressource ou le démarrage d’une machine virtuelle. Ces informations répondent aux questions quoi, qui et quand concernant toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources dans le cadre de votre abonnement.
 
 
 ## <a name="configuration-requirements"></a>Exigences de configuration
@@ -67,8 +67,8 @@ Les ressources dans Azure génèrent les [journaux](../platform/data-platform-lo
 Certaines données de supervision sont collectées automatiquement, mais vous devrez peut-être adapter votre configuration en fonction de vos besoins. Consultez les informations ci-dessous pour obtenir des informations spécifiques pour chaque type de données de supervision.
 
 - [Métriques de plateforme](../platform/data-platform-metrics.md) – Les métriques de plateforme sont collectées automatiquement dans [Métriques Azure Monitor](../platform/data-platform-metrics.md) sans qu’aucune configuration soit requise. Créez un paramètre de diagnostic pour envoyer des entrées aux journaux Azure Monitor ou les transférer en dehors d’Azure.
-- [Journaux de ressources](../platform/resource-logs-overview.md) – Les journaux de ressources sont générés automatiquement par les ressources Azure, mais ne sont pas collectés sans paramètre de diagnostic.  Créez un paramètre de diagnostic pour envoyer des entrées aux journaux Azure Monitor ou les transférer en dehors d’Azure.
-- [Journal d’activité](../platform/activity-logs-overview.md) – Le journal d’activité est collecté automatiquement sans aucune configuration requise et peut être affiché dans le portail Azure. Créez un paramètre de diagnostic pour les copier dans les journaux Azure Monitor ou pour les transférer en dehors d’Azure.
+- [Journaux de ressources](../platform/platform-logs-overview.md) – Les journaux de ressources sont générés automatiquement par les ressources Azure, mais ne sont pas collectés sans paramètre de diagnostic.  Créez un paramètre de diagnostic pour envoyer des entrées aux journaux Azure Monitor ou les transférer en dehors d’Azure.
+- [Journal d’activité](../platform/platform-logs-overview.md) – Le journal d’activité est collecté automatiquement sans aucune configuration requise et peut être affiché dans le portail Azure. Créez un paramètre de diagnostic pour les copier dans les journaux Azure Monitor ou pour les transférer en dehors d’Azure.
 
 ### <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
 La collecte de données dans les journaux d’activité Azure Monitor nécessite un espace de travail Log Analytics. Vous pouvez commencer à superviser votre service rapidement en créant un espace de travail, mais il peut être utile d’utiliser un espace de travail qui collecte des données à partir d’autres services. Consultez [Créer un espace de travail Log Analytics dans le Portail Azure](../learn/quick-create-workspace.md) pour plus d’informations sur la création d’un espace de travail et [Conception de votre déploiement de journaux Azure Monitor](../platform/design-logs-deployment.md) afin de déterminer la meilleure conception d’espace de travail pour vos besoins. Si vous utilisez un espace de travail existant dans votre organisation, vous aurez besoin des autorisations appropriées, comme décrit dans [Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor](../platform/manage-access.md). 

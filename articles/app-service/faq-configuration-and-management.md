@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672506"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967133"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -23,7 +23,7 @@ Cet article contient des réponses aux questions fréquemment posées sur les pr
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Existe-t-il des limitations dont je dois être informé si je souhaite déplacer des ressources App Service ?
 
-Si vous prévoyez de déplacer des ressources App Service vers un nouveau groupe de ressources ou abonnement, il existe effectivement des limitations que vous devez connaître. Pour en savoir plus, voir [Limitations d’App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Si vous prévoyez de déplacer des ressources App Service vers un nouveau groupe de ressources ou abonnement, il existe effectivement des limitations que vous devez connaître. Pour en savoir plus, voir [Limitations d’App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Comment utiliser un nom de domaine personnalisé pour mon application web ?
 
@@ -49,11 +49,11 @@ Pour découvrir comment acheter et configurer un certificat SSL pour votre appli
 
 Actuellement, Azure Application Insights ne prend en charge l’opération de déplacement. Si votre groupe de ressources d’origine inclut une ressource Application Insights, vous ne pouvez pas la déplacer. Si vous incluez la ressource Application Insights lorsque vous tentez de déplacer une application App Service, l’opération de déplacement toute entière échoue. Toutefois, Application Insights et le plan App Service ne doivent pas nécessairement résider dans le même groupe de ressources que l’application pour que celle-ci fonctionne correctement.
 
-Pour en savoir plus, voir [Limitations d’App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Pour en savoir plus, voir [Limitations d’App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Où trouver une liste de conseils et en savoir plus sur les opérations de déplacement de ressources ?
 
-La rubrique [Limitations d’App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md) explique comment déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources dans le même abonnement. Elle contient des informations sur la liste de contrôle de déplacement de ressources, les services qui prennent en charge l’opération de déplacement, les limitations d’App Service et d’autres rubriques.
+La rubrique [Limitations d’App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) explique comment déplacer des ressources vers un nouvel abonnement ou un nouveau groupe de ressources dans le même abonnement. Elle contient des informations sur la liste de contrôle de déplacement de ressources, les services qui prennent en charge l’opération de déplacement, les limitations d’App Service et d’autres rubriques.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Comment définir le fuseau horaire du serveur pour mon application web ?
 
@@ -69,7 +69,7 @@ Pour les services App Services qui s’exécutent sur Windows, consultez la colo
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Pourquoi mes tâches web continues échouent-elles parfois ?
 
-Par défaut, les applications web sont déchargées si elles sont inactives pendant un certain temps. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif**, sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](webjobs-create.md#CreateContinuous).
+Par défaut, les applications web sont déchargées si elles restent inactives pendant un laps de temps défini. Cela permet au système d’économiser des ressources. Dans les offres De base et Standard, vous pouvez activer le paramètre **Toujours actif** afin que l’application web reste chargée en permanence. Si votre application web exécute des tâches web en continu, vous devez activer l’option **Toujours actif**, sans quoi les tâches pourraient ne pas s’exécuter de manière fiable. Pour plus d’informations, voir [Création d’une tâche web exécutée en continu](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Comment obtenir l’adresse IP sortante pour mon application web ?
 
@@ -141,7 +141,7 @@ Si vous utilisez des connexions hybrides pour accéder à SQL Server, une mise �
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 L’exception a été provoquée par un problème avec Hybrid Connection Manager qui a depuis été résolu. Veillez à [mettre à jour votre Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) pour résoudre ce problème.
 
@@ -168,7 +168,7 @@ Dans App Service Environment, vous contrôlez totalement les trafics entrant et 
 
 Pour capturer une trace F12, vous disposez de deux options :
 
-* Trace HTTP F12
+* Sortie console F12
 * Sortie de la console F12
 
 ### <a name="f12-http-trace"></a>Sortie console F12

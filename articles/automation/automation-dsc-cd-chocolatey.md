@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366428"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966742"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -40,7 +40,7 @@ Azure Automation State Configuration étend cette fonctionnalité d’automatisa
 Une ressource DSC est un module de code qui présente des fonctionnalités spécifiques, telles que la gestion de mise en réseau, Active Directory ou SQL Server. La ressource DSC Chocolatey sait comment accéder à un serveur NuGet (entre autres), télécharger les packages, installer les packages et ainsi de suite. Il existe de nombreuses autres ressources DSC dans la [PowerShell Gallery](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Vous-même devez installer ces modules dans le serveur Pull Azure Automation State Configuration afin qu’ils puissent être utilisés par vos configurations.
 
-Les modèles Resource Manager offrent un moyen de générer votre infrastructure par des déclarations (réseaux, sous-réseaux, sécurité du réseau et routage, équilibreurs de charge, NIC, machines virtuelles, etc.). Voici un [article](../azure-resource-manager/resource-manager-deployment-model.md) qui compare le modèle de déploiement Resource Manager (déclaratif) avec le modèle de déploiement Azure Service Management (ASM, ou Classic) (impératif) et présente les fournisseurs des ressources principales, le calcul, le stockage et le réseau.
+Les modèles Resource Manager offrent un moyen de générer votre infrastructure par des déclarations (réseaux, sous-réseaux, sécurité du réseau et routage, équilibreurs de charge, NIC, machines virtuelles, etc.). Voici un [article](../azure-resource-manager/management/deployment-models.md) qui compare le modèle de déploiement Resource Manager (déclaratif) avec le modèle de déploiement Azure Service Management (ASM, ou Classic) (impératif) et présente les fournisseurs des ressources principales, le calcul, le stockage et le réseau.
 
 Un modèle Resource Manager se distingue par sa capacité à installer une extension de machine virtuelle dans la machine virtuelle à mesure de son approvisionnement. Une extension de machine virtuelle possède des fonctionnalités spécifiques, telles que l’exécution d’un script personnalisé, l’installation d’un logiciel antivirus ou encore l’exécution d’un script de configuration DSC. Il existe de nombreux autres types d’extensions de machine virtuelle.
 

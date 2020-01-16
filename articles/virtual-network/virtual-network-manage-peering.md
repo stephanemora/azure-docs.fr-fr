@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: c77608aa7a4d1410277dfbe259fb1f55ea8324ae
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4103930e0d089f5f7c17586f22616431c8aa11d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449382"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978356"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer un peering de réseau virtuel
 
@@ -35,7 +35,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com et connectez-vous avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les peerings.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell localement, vous devez également exécuter `Connect-AzAccount` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les peerings, afin de vous connecter à Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les peerings, afin de vous connecter à Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` avec un compte qui possède les [autorisations nécessaires](#permissions) pour utiliser les peerings, afin de vous connecter à Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
 
@@ -87,7 +87,7 @@ Avant de modifier un peering, familiarisez-vous avec les exigences et contrainte
 **Commandes**
 
 - **Azure CLI** : [az network vnet peering list](/cli/azure/network/vnet/peering) pour afficher la liste des homologations d’un réseau virtuel, [az network vnet peering show](/cli/azure/network/vnet/peering) pour afficher les paramètres d’une homologation spécifique et [az network vnet peering update](/cli/azure/network/vnet/peering) pour modifier les paramètres de l’homologation.|
-- **PowerShell** : [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) pour afficher les paramètres d’appairage et [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) pour modifier les paramètres.
+- **PowerShell** : [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) pour afficher les paramètres de peering et [Set-AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) pour modifier les paramètres.
 
 ## <a name="delete-a-peering"></a>Supprimer un peering
 
@@ -112,15 +112,15 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 
 - <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. L’appairage de réseaux virtuels dans des régions différentes est également appelé *Global VNet Peering*. 
 - Lors de la création d’un Peering mondial, les réseaux virtuels appairés peuvent se trouver dans n’importe quelle région de clouds publics Azure, dans des régions de clouds Azure Chine ou Azure Government. Vous ne pouvez pas appairer entre plusieurs clouds. Par exemple, un réseau virtuel dans le cloud public Azure ne peut pas être appairé à celui d’un cloud Azure Chine.
-- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans un réseau virtuel appairé à l’échelle mondiale. La prise en charge d’un équilibreur de charge de base n’existe que dans la même région. La prise en charge d’un équilibreur de charge de base existe pour les appairages VNet Peering et Global VNet Peering. Les services qui utilisent un équilibreur de charge de base qui ne fonctionne pas sur un appairage Global VNet Peering sont détaillés [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel appairé à l’échelle mondiale. La prise en charge d’un équilibreur de charge de base n’est proposée que dans la même région. La prise en charge d’un Standard Load Balancer existe pour VNet Peering et Global VNet Peering. Les services utilisant un équilibreur de charge de base qui ne fonctionne pas sur un Peering Global VNet Peering sont détaillés [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Vous pouvez utiliser des passerelles distantes ou autoriser un transit par passerelle dans des réseaux virtuels appairés à l’échelle mondiale et en local.
 - Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Quand vous appairez des réseaux virtuels de différents abonnements, les deux abonnements peuvent être associés au même locataire Azure Active Directory ou à un locataire différent. Si vous n’avez pas encore de locataire AD, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). La prise en charge du peering entre réseaux virtuels à partir d’abonnements associés à différents locataires Azure Active Directory n’est pas disponible dans le portail. Vous pouvez utiliser l’interface CLI, PowerShell ou des modèles.
 - Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 - Il n’est pas possible d’ajouter ou de supprimer des plages d’adresses dans l’espace d’adressage d’un réseau virtuel après que celui-ci a été homologué avec un autre réseau virtuel. Pour ajouter ou supprimer des plages d’adresses, supprimez le peering, ajoutez ou supprimez les plages d’adresses, puis recréez le peering. Pour ajouter ou supprimer des plages d’adresses dans des réseaux virtuels, voir [Gérer les réseaux virtuels](manage-virtual-network.md).
-- Vous pouvez homologuer deux réseaux virtuels déployés via le Gestionnaire de ressources, ou homologuer un réseau virtuel déployé via le Gestionnaire de ressources avec un réseau virtuel déployé via le modèle de déploiement classique. Vous ne pouvez pas homologuer deux réseaux virtuels créés via le modèle de déploiement classique. Si vous n’êtes pas familiarisé avec les modèles de déploiement Azure, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour connecter deux réseaux virtuels créés via le modèle de déploiement classique.
+- Vous pouvez homologuer deux réseaux virtuels déployés via le Gestionnaire de ressources, ou homologuer un réseau virtuel déployé via le Gestionnaire de ressources avec un réseau virtuel déployé via le modèle de déploiement classique. Vous ne pouvez pas homologuer deux réseaux virtuels créés via le modèle de déploiement classique. Si vous n’êtes pas familiarisé avec les modèles de déploiement Azure, lisez l’article [Comprendre les modèles de déploiement Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour connecter deux réseaux virtuels créés via le modèle de déploiement classique.
 - Lors du peering de deux réseaux virtuels créés via le Gestionnaire de ressources, un peering doit être configuré pour chaque réseau virtuel dans le peering. L’un des états suivants s’affiche pour le peering : 
-  - *Date :* Lorsque vous créez l’homologation au deuxième réseau virtuel à partir du premier réseau virtuel, l’état d’homologation est *Initiée*. 
-  - *Connecté :* Lorsque vous créez l’homologation à partir du deuxième réseau virtuel au premier réseau virtuel, l’état d’homologation est *Connectée*. Si vous affichez l’état de peering pour le premier réseau virtuel, vous voyez que son état est passé de *Initié* à *Connecté*. Le peering n’est pas correctement établi tant que l’état de peering pour les deux peerings de réseau virtuel est *Connecté*.
+  - *Date :* Lorsque vous créez le peering au deuxième réseau virtuel à partir du premier réseau virtuel, l’état du peering est *Initié*. 
+  - *Connecté :* Lorsque vous créez le peering à partir du deuxième réseau virtuel au premier réseau virtuel, l’état du peering est *Connecté*. Si vous affichez l’état de peering pour le premier réseau virtuel, vous voyez que son état est passé de *Initié* à *Connecté*. Le peering n’est pas correctement établi tant que l’état de peering pour les deux peerings de réseau virtuel est *Connecté*.
 - Lors du peering d’un réseau virtuel créé via le Gestionnaire de ressources avec un réseau virtuel créé via le modèle de déploiement classique, vous configurez un peering uniquement pour le réseau virtuel est déployé via le Gestionnaire de ressources. Vous ne pouvez pas configurer de peering pour un réseau virtuel (classique), ou entre deux réseaux virtuels déployés via le modèle de déploiement classique. Lorsque vous créez le peering à partir du réseau virtuel (Gestionnaire des ressources) au réseau virtuel (classique), l’état de peering est *Mis à jour*, puis passe rapidement à *Connecté*.
 - Un peering est établi entre deux réseaux virtuels. Les peerings ne sont pas transitifs. Imaginons que vous créez des peerings entre :
   - VirtualNetwork1 et VirtualNetwork2
@@ -142,7 +142,7 @@ Les comptes pouvant être utilisés avec le peering de réseaux virtuels doivent
 
 Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) auquel sont assignées les actions appropriées répertoriées dans le tableau suivant :
 
-| Action                                                          | Nom |
+| Action                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Action requise pour créer un peering entre un réseau virtuel A et un réseau virtuel B. Le réseau virtuel A doit être un réseau virtuel (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Action requise pour créer un peering entre un réseau virtuel B (Resource Manager) et un réseau virtuel A                                                       |
@@ -154,7 +154,7 @@ Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle p
 
 - Un peering est généré entre des réseaux virtuels créés via des modèles de déploiement identiques ou différents qui existent dans des abonnements identiques ou différents. Suivez un didacticiel pour l’un des scénarios suivants :
 
-  |Modèle de déploiement Azure             | Abonnement  |
+  |Modèle de déploiement Azure             | Subscription  |
   |---------                          |---------|
   |Les deux modèles Resource Manager              |[Identique](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Différent](create-peering-different-subscriptions.md)|
@@ -163,4 +163,4 @@ Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle p
 
 - Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Créez un peering de réseaux virtuels avec les exemples de scripts [PowerShell](powershell-samples.md) ou [Azure CLI](cli-samples.md), ou à l’aide des [modèles Azure Resource Manager](template-samples.md)
-- Créez et appliquez une [stratégie Azure](policy-samples.md) pour des réseaux virtuels
+- Créer et appliquer une [stratégie Azure](policy-samples.md) pour des réseaux virtuels

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 794f4ad5bba46af53280d35b55b762b9eef8e1a1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675248"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977637"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertes de journal de résolution de problèmes dans Azure Monitor  
 
-Cet article vous explique comment résoudre des problèmes courants pouvant survenir lors de la configuration d'alertes de journal dans Azure Monitor. Il propose également des réponses aux problèmes courants de fonctionnalité ou de configuration des alertes de journal. 
+Cet article vous explique comment résoudre des problèmes courants pouvant survenir lors de la configuration d'alertes de journal dans Azure Monitor. Il propose également des réponses aux problèmes courants de fonctionnalité ou de configuration des alertes de journal.
 
 Le terme *alertes de journal* décrit les règles de déclenchement basées sur une requête de journal dans un [espace de travail Azure Log Analytics](../learn/tutorial-viewdata.md) ou dans [Azure Application Insights](../../azure-monitor/app/analytics.md). En savoir plus sur la fonctionnalité, la terminologie et les types dans [Alertes de journal dans Azure Monitor](../platform/alerts-unified-log.md).
 
@@ -26,17 +26,17 @@ Le terme *alertes de journal* décrit les règles de déclenchement basées sur 
 
 ## <a name="log-alert-didnt-fire"></a>L'alerte de journal ne s'est pas déclenchée
 
-Voici quelques-unes des raisons pour lesquelles l’état d’une [règle d’alerte de journal dans Azure Monitor](../platform/alerts-log.md) ne s’affiche pas [comme étant *déclenché* lorsque cela est prévu](../platform/alerts-managing-alert-states.md). 
+Voici quelques-unes des raisons pour lesquelles l’état d’une [règle d’alerte de journal dans Azure Monitor](../platform/alerts-log.md) ne s’affiche pas [comme étant *déclenché* lorsque cela est prévu](../platform/alerts-managing-alert-states.md).
 
 ### <a name="data-ingestion-time-for-logs"></a>Durée d’ingestion de données pour les journaux d’activité
 
 Une alerte de journal exécute régulièrement votre requête basée sur [Log Analytics](../learn/tutorial-viewdata.md) ou [Application Insights](../../azure-monitor/app/analytics.md). Comme Azure Monitor traite plusieurs téraoctets de données issues de milliers de clients provenant de sources variées partout dans le monde, le service peut nécessiter certains délais. Pour plus d’informations, consultez [Durée d’ingestion de données dans les journaux Azure Monitor](../platform/data-ingestion-time.md).
 
-Pour réduire les délais, le système attend et relance plusieurs fois la requête d’alerte s’il détecte que les données nécessaires n’ont pas encore été ingérées. Le temps d’attente du système est défini de manière exponentielle. Comme l’alerte de journal est déclenchée uniquement une fois que les données sont disponibles, le délai peut être dû à la lenteur de l’ingestion des données du journal. 
+Pour réduire les délais, le système attend et relance plusieurs fois la requête d’alerte s’il détecte que les données nécessaires n’ont pas encore été ingérées. Le temps d’attente du système est défini de manière exponentielle. Comme l’alerte de journal est déclenchée uniquement une fois que les données sont disponibles, le délai peut être dû à la lenteur de l’ingestion des données du journal.
 
 ### <a name="incorrect-time-period-configured"></a>Configuration d'une période incorrecte
 
-Comme décrit dans l’article relatif à la [terminologie des alertes de journal](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), la période indiquée dans la configuration spécifie l'intervalle de temps de la requête. La requête renvoie uniquement les enregistrements créés dans cet intervalle. 
+Comme décrit dans l’article relatif à la [terminologie des alertes de journal](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types), la période indiquée dans la configuration spécifie l'intervalle de temps de la requête. La requête renvoie uniquement les enregistrements créés dans cet intervalle.
 
 La période limite les données extraites pour une requête de journal afin d’empêcher les abus et contourne toute commande de temps (comme **il y a**) utilisée dans une requête de journal. Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont utilisés pour la requête de journal. Si la requête de journal utilise une commande de temps telle que **il y a (1j)** , la requête continue d’utiliser les données collectées entre 12 h 15 et 13 h 15, car la période est définie sur cet intervalle.
 
@@ -52,9 +52,9 @@ Comme décrit à l’étape 8 de l’article relatif à la [création d’une r
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>La règle d’alerte Mesure métrique est incorrecte
 
-Les *alertes de journal Mesure métrique* représentent un sous-type d’alertes de journal dotées de fonctionnalités spécifiques et d’une syntaxe de requête d’alerte limitée. Une règle pour une alerte de journal de mesure métrique requiert que le résultat de la requête soit une série chronologique métrique. Autrement dit, la sortie est une table avec des périodes distinctes de taille égale ainsi que des valeurs agrégées correspondantes. 
+Les *alertes de journal Mesure métrique* représentent un sous-type d’alertes de journal dotées de fonctionnalités spécifiques et d’une syntaxe de requête d’alerte limitée. Une règle pour une alerte de journal de mesure métrique requiert que le résultat de la requête soit une série chronologique métrique. Autrement dit, la sortie est une table avec des périodes distinctes de taille égale ainsi que des valeurs agrégées correspondantes.
 
-Vous pouvez choisir d’ajouter d’autres variables à la table en plus de **AggregatedValue**. Ces variables peuvent être utilisées pour trier la table. 
+Vous pouvez choisir d’ajouter d’autres variables à la table en plus de **AggregatedValue**. Ces variables peuvent être utilisées pour trier la table.
 
 Par exemple, supposons qu’une règle pour une alerte de journal de mesure métrique soit configurée comme suit :
 
@@ -68,9 +68,9 @@ Par exemple, supposons qu’une règle pour une alerte de journal de mesure mét
 
 ![Exécution de la requête de mesure métrique avec plusieurs valeurs](media/alert-log-troubleshoot/LogMMQuery.png)
 
-Étant donné qu’**Aggregate Upon** est défini sur **$table**, les données sont triées sur une colonne **$table** (indiquée en rouge). Ensuite, nous regroupons et recherchons des types du champ **Aggregate Upon**. 
+Étant donné qu’**Aggregate Upon** est défini sur **$table**, les données sont triées sur une colonne **$table** (indiquée en rouge). Ensuite, nous regroupons et recherchons des types du champ **Aggregate Upon**.
 
-Par exemple, pour **$table**, les valeurs pour **availabilityResults** sont considérées comme un tracé/une entité (indiqués en orange). Dans cette valeur tracé/entité, le service d’alerte recherche trois violations consécutives (indiquées en vert). Les violations déclenchent une alerte pour la valeur de table **availabilityResults**. 
+Par exemple, pour **$table**, les valeurs pour **availabilityResults** sont considérées comme un tracé/une entité (indiqués en orange). Dans cette valeur tracé/entité, le service d’alerte recherche trois violations consécutives (indiquées en vert). Les violations déclenchent une alerte pour la valeur de table **availabilityResults**.
 
 De même, si trois violations consécutives se produisent pour toute autre valeur de **$table**, une autre notification d’alerte est déclenchée pour la même chose. Le service d’alerte trie automatiquement les valeurs dans un tracé/une entité (indiqués en orange) par heure.
 
@@ -91,7 +91,7 @@ Une [règle d’alerte de journal dans Azure Monitor](../platform/alerts-log.md)
 
 Log Analytics et Application Insights subissent un traitement et des retards d’ingestion. Lorsque vous exécutez une requête d’alerte de journal, vous constatez peut-être qu’aucune donnée n’est disponible, ou que seules certaines données sont disponibles. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](../platform/data-ingestion-time.md).
 
-Selon la façon dont vous avez configuré la règle d’alerte, un mauvais déclenchement est possible en l’absence partielle ou totale de données dans les journaux d’activité au moment de l’exécution de l’alerte. Dans ce cas, nous vous conseillons de modifier la requête d’alerte ou la configuration. 
+Selon la façon dont vous avez configuré la règle d’alerte, un mauvais déclenchement est possible en l’absence partielle ou totale de données dans les journaux d’activité au moment de l’exécution de l’alerte. Dans ce cas, nous vous conseillons de modifier la requête d’alerte ou la configuration.
 
 Par exemple, si vous configurez la règle d’alerte de journal pour un déclenchement lorsque le nombre de résultats d’une requête analytique est inférieur à 5, l’alerte est déclenchée en l’absence de données (zéro enregistrement) ou de résultats partiels (un enregistrement). Mais après le délai d’ingestion des données, la même requête avec les données complètes peut arriver à un résultat de 10 enregistrements.
 
@@ -111,7 +111,7 @@ Les sections suivantes mentionnent certaines raisons pour lesquelles Azure Monit
 
 Les règles d’alerte de journal créées dans Azure Monitor ciblent une ressource spécifique, telle qu’un espace de travail Log Analytics, une application Azure Application Insights et une ressource Azure. Le service d’alerte de journal exécute alors une requête analytique fournie dans la règle pour la cible spécifiée. Mais après la création de la règle, les utilisateurs suppriment généralement la cible de l’alerte de journal à partir d’Azure ou la déplacent au sein d’Azure. Comme la cible de la règle d’alerte n’est plus valide, l’exécution de la règle échoue.
 
-Dans ce cas, Azure Monitor désactive l’alerte de journal et empêche que vous soyez facturé inutilement lorsque la règle ne peut pas s’exécuter en permanence pendant une période prolongée (par exemple, une semaine). Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé l’alerte de journal via le [journal d’activité Azure](../../azure-resource-manager/resource-group-audit.md). Dans le journal d’activité Azure, un événement est ajouté lorsqu’Azure Monitor désactive la règle d’alerte de journal.
+Dans ce cas, Azure Monitor désactive l’alerte de journal et empêche que vous soyez facturé inutilement lorsque la règle ne peut pas s’exécuter en permanence pendant une période prolongée (par exemple, une semaine). Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé l’alerte de journal via le [journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md). Dans le journal d’activité Azure, un événement est ajouté lorsqu’Azure Monitor désactive la règle d’alerte de journal.
 
 L’exemple d’événement suivant dans le journal d’activité Azure concerne une règle d’alerte qui a été désactivée en raison d’une défaillance permanente.
 
@@ -187,10 +187,10 @@ Chaque règle d’alerte de journal créée dans Azure Monitor dans le cadre de 
 
 [Azure Advisor](../../advisor/advisor-overview.md) vous avertit de ce comportement. Une recommandation est ajoutée pour la règle d’alerte de journal spécifique sur Azure Advisor, dans la catégorie Haute disponibilité, avec un impact moyen et une description permettant de « Réparer votre règle d’alerte de journal pour garantir la surveillance ». Si une requête d’alerte dans la règle d’alerte de journal n’est pas corrigée dans les sept jours suivant une recommandation émise par Azure Advisor, Azure Monitor désactive l’alerte de journal et empêche que vous soyez facturé inutilement lorsque la règle ne peut pas s’exécuter en permanence pendant une période prolongée (par exemple, une semaine).
 
-Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé la règle d’alerte de journal en recherchant un événement dans le [journal d’activité Azure](../../azure-resource-manager/resource-group-audit.md).
+Vous pouvez déterminer l’heure exacte à laquelle Azure Monitor a désactivé la règle d’alerte de journal en recherchant un événement dans le [journal d’activité Azure](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les [alertes de journal dans Azure](../platform/alerts-unified-log.md).
 - En savoir plus sur [Application Insights](../../azure-monitor/app/analytics.md).
-- En savoir plus sur [les requêtes dans les journaux](../log-query/log-query-overview.md).
+- Découvrez plus en détail les [requêtes dans les journaux](../log-query/log-query-overview.md).

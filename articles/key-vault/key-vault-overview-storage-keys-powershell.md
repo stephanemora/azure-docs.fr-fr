@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707097"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980848"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gérer les clés de compte de stockage avec Key Vault et Azure PowerShell
 
@@ -48,13 +48,13 @@ Key Vault est une application Microsoft préinscrite dans tous les locataires Az
 | Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Autres  | Quelconque | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
 
 - [Installer le module Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Création d’un coffre de clés](quick-create-powershell.md)
-- [Création d’un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
+- [Création d’un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-powershell). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
       
 
 ## <a name="manage-storage-account-keys"></a>Gérer les clés de compte de stockage
@@ -241,7 +241,7 @@ Commencez par rechercher la définition de signature d’accès partagé dans vo
 Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
 ```
 
-Le secret correspondant à votre définition SAP a les propriétés suivantes :
+Le secret correspondant à votre définition SAS a les propriétés suivantes :
 
 ```console
 Vault Name   : <YourKeyVaultName>

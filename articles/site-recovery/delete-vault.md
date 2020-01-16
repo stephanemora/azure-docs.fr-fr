@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0e409ffdedbac822aedf48833f2dd85f8e04afa2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894978"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Supprimer un coffre de services Site Recovery
 
@@ -44,7 +44,7 @@ Avant de pouvoir supprimer un coffre, vous devez supprimer les serveurs inscrits
 
 1. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) pour supprimer les machines virtuelles Hyper-V gérées par System Center VMM.
 2. Dissociez et supprimez toutes les stratégies de réplication. Effectuez ce qui suit dans votre coffre > **Infrastructure Site Recovery** > **Pour System Center VMM** > **Stratégies de réplication**.
-3. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) pour annuler l’inscription d’un serveur VMM connecté.
+3. Suivez [ces étapes](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) pour annuler l’inscription d’un serveur VMM connecté.
 4. Ensuite, supprimez le coffre.
 
 ## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>Supprimer un coffre : machine virtuelle Hyper-V sur Azure

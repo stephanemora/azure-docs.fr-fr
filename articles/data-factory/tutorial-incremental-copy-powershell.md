@@ -11,48 +11,48 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 28a9631860691b29c1954d67e521d4ff54c901a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1a3651f82d7818ad105c0a8a7b5fd9fcf073b4a1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439194"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982549"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure à l’aide de PowerShell
 
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure. 
+Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure.
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Préparer le magasin de données pour y stocker la valeur de limite.
 > * Créer une fabrique de données.
-> * créez des services liés. 
+> * créez des services liés.
 > * Créer des jeux de données source, récepteur et filigrane.
 > * Créer un pipeline.
 > * Exécuter le pipeline.
-> * Surveiller l’exécution du pipeline. 
+> * Surveiller l’exécution du pipeline.
 
 ## <a name="overview"></a>Vue d’ensemble
-Voici le diagramme général de la solution : 
+Voici le diagramme général de la solution :
 
 ![Chargement incrémentiel de données](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
-Voici les étapes importantes à suivre pour créer cette solution : 
+Voici les étapes importantes à suivre pour créer cette solution :
 
 1. **Sélectionner la colonne de limite**.
     Sélectionnez une colonne dans le magasin de données sources, qui peut servir à découper les enregistrements nouveaux ou mis à jour pour chaque exécution. Normalement, les données contenues dans cette colonne sélectionnée (par exemple, last_modify_time ou ID) continuent de croître à mesure que des lignes sont créées ou mises à jour. La valeur maximale de cette colonne est utilisée comme limite.
 
 2. **Préparer un magasin de données pour stocker la valeur de limite**.   
     Dans ce tutoriel, la valeur de filigrane est stockée dans une base de données SQL.
-    
-3. **Créer un pipeline avec le flux de travail suivant** : 
-    
+
+3. **Créer un pipeline avec le flux de travail suivant** :
+
     Le pipeline de cette solution compte les activités suivantes :
-  
-    * Créez deux activités de recherche. Servez-vous de la première activité de recherche pour récupérer la dernière valeur de filigrane. Utilisez la deuxième activité de recherche pour récupérer la nouvelle valeur de filigrane. Ces valeurs de filigrane sont transmises à l’activité de copie. 
-    * Créez une activité de copie qui copie les lignes du magasin de données source dont la valeur de la colonne de filigrane est supérieure à l’ancienne valeur de filigrane et inférieure à la nouvelle. Elle copie ensuite les données delta du magasin de données source dans un stockage d’objets blob sous la forme d’un nouveau fichier. 
-    * Créez une activité StoredProcedure qui met à jour la valeur de filigrane pour le pipeline s’exécutant la prochaine fois. 
+
+    * Créez deux activités de recherche. Servez-vous de la première activité de recherche pour récupérer la dernière valeur de filigrane. Utilisez la deuxième activité de recherche pour récupérer la nouvelle valeur de filigrane. Ces valeurs de filigrane sont transmises à l’activité de copie.
+    * Créez une activité de copie qui copie les lignes du magasin de données source dont la valeur de la colonne de filigrane est supérieure à l’ancienne valeur de filigrane et inférieure à la nouvelle. Elle copie ensuite les données delta du magasin de données source dans un stockage d’objets blob sous la forme d’un nouveau fichier.
+    * Créez une activité StoredProcedure qui met à jour la valeur de filigrane pour le pipeline s’exécutant la prochaine fois.
 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -62,14 +62,14 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure SQL Database**. Vous utilisez la base de données comme magasin de données source. Si vous ne disposez pas d’une base de données SQL, consultez [Créer une base de données Azure SQL Database](../sql-database/sql-database-get-started-portal.md) pour connaître la procédure à suivre pour en créer une.
-* **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
+* **Stockage Azure**. Vous utilisez le stockage d’objets blob comme magasin de données récepteur. Si vous ne possédez pas de compte de stockage, consultez l’article [Créer un compte de stockage](../storage/common/storage-account-create.md) pour découvrir comment en créer un. Créez un conteneur sous le nom adftutorial. 
 * **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Créer une table de source de données dans votre base de données SQL
 1. Ouvrez SQL Server Management Studio. Dans l’**Explorateur de serveurs**, cliquez avec le bouton droit sur la base de données, puis choisissez **Nouvelle requête**.
 
-2. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `data_source_table` comme magasin de source de données : 
-    
+2. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `data_source_table` comme magasin de source de données :
+
     ```sql
     create table data_source_table
     (
@@ -101,11 +101,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Créer une autre table dans la base de données SQL pour stocker la valeur de filigrane supérieure
 1. Exécutez la commande SQL suivante sur votre base de données SQL pour créer une table sous le nom `watermarktable` pour stocker la valeur de filigrane :  
-    
+
     ```sql
     create table watermarktable
     (
-    
+
     TableName varchar(255),
     WatermarkValue datetime,
     );
@@ -117,11 +117,11 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 3. Passez en revue les données contenues dans la table `watermarktable`.
-    
+
     ```sql
     Select * from watermarktable
     ```
-    Sortie : 
+    Sortie :
 
     ```
     TableName  | WatermarkValue
@@ -129,7 +129,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### <a name="create-a-stored-procedure-in-your-sql-database"></a>Créer une procédure stockée dans la base de données SQL 
+### <a name="create-a-stored-procedure-in-your-sql-database"></a>Créer une procédure stockée dans la base de données SQL
 
 Exécutez la commande suivante pour créer une procédure stockée dans votre base de données SQL :
 
@@ -138,11 +138,11 @@ CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varc
 AS
 
 BEGIN
-    
+
     UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+    SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
-    
+
 END
 ```
 
@@ -155,30 +155,30 @@ END
 
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Attribuez une valeur différente à la variable `$resourceGroupName`, puis réexécutez la commande.
 
-2. Définissez une variable pour l’emplacement de la fabrique de données. 
+2. Définissez une variable pour l’emplacement de la fabrique de données.
 
     ```powershell
     $location = "East US"
     ```
-3. Pour créer le groupe de ressources Azure, exécutez la commande suivante : 
+3. Pour créer le groupe de ressources Azure, exécutez la commande suivante :
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
+    ```
     Si le groupe de ressources existe déjà, vous pouvez ne pas le remplacer. Attribuez une valeur différente à la variable `$resourceGroupName`, puis réexécutez la commande.
 
-4. Définissez une variable pour le nom de la fabrique de données. 
+4. Définissez une variable pour le nom de la fabrique de données.
 
     > [!IMPORTANT]
-    >  Mettez à jour le nom de la fabrique de données pour le rendre globalement unique. Par exemple, ADFTutorialFactorySP1127. 
+    >  Mettez à jour le nom de la fabrique de données pour le rendre globalement unique. Par exemple, ADFTutorialFactorySP1127.
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Pour créer la fabrique de données, exécutez la cmdlet **Set-AzDataFactoryV2** suivante : 
-    
+5. Pour créer la fabrique de données, exécutez la cmdlet **Set-AzDataFactoryV2** suivante :
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
 Notez les points suivants :
@@ -194,7 +194,7 @@ Notez les points suivants :
 
 
 ## <a name="create-linked-services"></a>Créez des services liés
-Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à votre compte de stockage et à la base de données SQL. 
+Vous allez créer des services liés dans une fabrique de données pour lier vos magasins de données et vos services de calcul à la fabrique de données. Dans cette section, vous créez des services liés à votre compte de stockage et à la base de données SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Créer un service lié pour le stockage
 1. Créez un fichier JSON sous le nom AzureStorageLinkedService.json dans le dossier C:\ADF avec le contenu suivant. (Créez le dossier ADF s’il n’existe pas déjà.) Remplacez `<accountName>` et `<accountKey>` par le nom et la clé de votre compte de stockage avant d’enregistrer le fichier.
@@ -212,7 +212,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     ```
 2. Dans PowerShell, accédez au dossier ADF.
 
-3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* : 
+3. Exécutez la cmdlet **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureStorageLinkedService. Dans l’exemple suivant, vous transmettez les valeurs des paramètres *ResourceGroupName* et *DataFactoryName* :
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -228,7 +228,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Créer un service lié à SQL Database
-1. Créez un fichier JSON nommé AzureSQLDatabaseLinkedService.json dans le dossier C:\ADF avec le contenu suivant. (Créez le dossier ADF s’il n’existe pas déjà.) Avant d’enregistrer le fichier, remplacez &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; et &lt;password&gt; par le nom de votre serveur, le nom de votre base de données, l’ID utilisateur et le mot de passe. 
+1. Créez un fichier JSON nommé AzureSQLDatabaseLinkedService.json dans le dossier C:\ADF avec le contenu suivant. (Créez le dossier ADF s’il n’existe pas déjà.) Avant d’enregistrer le fichier, remplacez &lt;server&gt;, &lt;database&gt;, &lt;user id&gt; et &lt;password&gt; par le nom de votre serveur, le nom de votre base de données, l’ID utilisateur et le mot de passe.
 
     ```json
     {
@@ -243,7 +243,7 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     ```
 2. Dans PowerShell, accédez au dossier ADF.
 
-3. Exécutez l’applet de commande **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureSQLDatabaseLinkedService. 
+3. Exécutez l’applet de commande **Set-AzDataFactoryV2LinkedService** pour créer le service lié AzureSQLDatabaseLinkedService.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -260,11 +260,11 @@ Vous allez créer des services liés dans une fabrique de données pour lier vos
     ```
 
 ## <a name="create-datasets"></a>Créez les jeux de données
-Dans cette étape, vous allez créer des jeux de données pour représenter les données sources et de réception. 
+Dans cette étape, vous allez créer des jeux de données pour représenter les données sources et de réception.
 
 ### <a name="create-a-source-dataset"></a>Créer un jeu de données source
 
-1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SourceDataset.json dans le même dossier avec le contenu suivant :
 
     ```json
     {
@@ -280,18 +280,18 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
             }
         }
     }
-   
+
     ```
     Dans ce didacticiel, vous allez utiliser le nom de table data_source_table. Remplacez-le si vous utilisez une table d’un autre nom.
 
 2. Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Voici l’exemple de sortie de l’applet de commande :
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADF
@@ -302,7 +302,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
 
 ### <a name="create-a-sink-dataset"></a>Créer un jeu de données récepteur
 
-1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom SinkDataset.json dans le même dossier avec le contenu suivant :
 
     ```json
     {
@@ -311,7 +311,7 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
             "type": "AzureBlob",
             "typeProperties": {
                 "folderPath": "adftutorial/incrementalcopy",
-                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
                 "format": {
                     "type": "TextFormat"
                 }
@@ -328,13 +328,13 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     > Cet extrait de code suppose que vous disposez d’un conteneur d’objets blob nommé adftutorial dans le stockage d’objets blob. Créez le conteneur s’il n’existe pas ou attribuez-lui le nom d’un conteneur existant. Le dossier de sortie `incrementalcopy` est automatiquement créé s’il n’existe pas dans le conteneur. Dans ce didacticiel, le nom de fichier est généré dynamiquement à l’aide de l’expression `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données SourceDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Voici l’exemple de sortie de l’applet de commande :
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADF
@@ -344,9 +344,9 @@ Dans cette étape, vous allez créer des jeux de données pour représenter les 
     ```
 
 ## <a name="create-a-dataset-for-a-watermark"></a>Créer un jeu de données pour un filigrane
-Dans cette étape, vous allez créer un jeu de données pour stocker une valeur de limite supérieure. 
+Dans cette étape, vous allez créer un jeu de données pour stocker une valeur de limite supérieure.
 
-1. Créez un fichier JSON sous le nom WatermarkDataset.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom WatermarkDataset.json dans le même dossier avec le contenu suivant :
 
     ```json
     {
@@ -364,13 +364,13 @@ Dans cette étape, vous allez créer un jeu de données pour stocker une valeur 
     }    
     ```
 2.  Exécutez la cmdlet **Set-AzDataFactoryV2Dataset** pour créer le jeu de données WatermarkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Voici l’exemple de sortie de l’applet de commande :
-    
+
     ```json
     DatasetName       : WatermarkDataset
     ResourceGroupName : ADF
@@ -380,10 +380,10 @@ Dans cette étape, vous allez créer un jeu de données pour stocker une valeur 
     ```
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
-Dans ce didacticiel, vous allez créer un pipeline avec deux activités de recherche, une activité de copie et une activité StoredProcedure chaînées dans le même pipeline. 
+Dans ce didacticiel, vous allez créer un pipeline avec deux activités de recherche, une activité de copie et une activité StoredProcedure chaînées dans le même pipeline.
 
 
-1. Créez un fichier JSON sous le nom IncrementalCopyPipeline.json dans le même dossier avec le contenu suivant : 
+1. Créez un fichier JSON sous le nom IncrementalCopyPipeline.json dans le même dossier avec le contenu suivant :
 
     ```json
     {
@@ -398,7 +398,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
                         "type": "SqlSource",
                         "sqlReaderQuery": "select * from watermarktable"
                         },
-    
+
                         "dataset": {
                         "referenceName": "WatermarkDataset",
                         "type": "DatasetReference"
@@ -413,14 +413,14 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
                             "type": "SqlSource",
                             "sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
                         },
-    
+
                         "dataset": {
                         "referenceName": "SourceDataset",
                         "type": "DatasetReference"
                         }
                     }
                 },
-                
+
                 {
                     "name": "IncrementalCopyActivity",
                     "type": "Copy",
@@ -447,7 +447,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
                             ]
                         }
                     ],
-    
+
                     "inputs": [
                         {
                             "referenceName": "SourceDataset",
@@ -461,24 +461,24 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
                         }
                     ]
                 },
-    
+
                 {
                     "name": "StoredProceduretoWriteWatermarkActivity",
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-    
+
                         "storedProcedureName": "usp_write_watermark",
                         "storedProcedureParameters": {
                             "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
                             "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
                         }
                     },
-    
+
                     "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
-    
+
                     "dependsOn": [
                         {
                             "activity": "IncrementalCopyActivity",
@@ -489,19 +489,19 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
                     ]
                 }
             ]
-            
+
         }
     }
     ```
-    
+
 
 2. Exécutez la cmdlet **Set-AzDataFactoryV2Pipeline** pour créer le pipeline IncrementalCopyPipeline.
-    
+
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Voici l'exemple de sortie : 
+   Voici l'exemple de sortie :
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -510,14 +510,14 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
- 
+
 ## <a name="run-the-pipeline"></a>Exécuter le pipeline
 
 1. Exécutez le pipeline IncrementalCopyPipeline en utilisant la cmdlet **Invoke-AzDataFactoryV2Pipeline**. Remplacez les espaces réservés par les noms de votre groupe de ressources et de votre fabrique de données.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-    ``` 
+    ```
 2. Vérifiez l’état du pipeline en exécutant l’applet de commande **Get-AzDataFactoryV2ActivityRun** jusqu’à ce que toutes les activités s’exécutent correctement. Remplacez les espaces réservés des paramètres *RunStartedAfter* et *RunStartedBefore* par les dates qui vous conviennent. Dans ce didacticiel, vous utilisez *-RunStartedAfter « 2017/09/14 »* et *-RunStartedBefore « 2017/09/15 »* .
 
     ```powershell
@@ -525,7 +525,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ```
 
     Voici l'exemple de sortie :
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -540,7 +540,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 7777
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -554,7 +554,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 25437
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -568,7 +568,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 19769
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -595,15 +595,15 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     3,cccc,2017-09-03 02:36:00.0000000
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
-    ``` 
+    ```
 2. Vérifiez la valeur la plus récente dans `watermarktable`. Vous constatez que la valeur de filigrane a été mise à jour.
 
     ```sql
     Select * from watermarktable
     ```
-    
+
     Voici l'exemple de sortie :
- 
+
     TableName | WatermarkValue
     --------- | --------------
     data_source_table | 2017-09-05  8:06:00.000
@@ -615,10 +615,10 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ```sql
     INSERT INTO data_source_table
     VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
-    
+
     INSERT INTO data_source_table
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-    ``` 
+    ```
 
     Données mises à jour dans la base de données SQL :
 
@@ -645,7 +645,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ```
 
     Voici l'exemple de sortie :
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -660,7 +660,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 31758
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -674,7 +674,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 25497
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -688,7 +688,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     DurationInMs      : 20194
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -711,29 +711,26 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     ```sql
     Select * from watermarktable
     ```
-    Exemple de sortie : 
-    
+    Exemple de sortie :
+
     TableName | WatermarkValue
     --------- | ---------------
     data_source_table | 2017-09-07 09:01:00.000
 
-     
+
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez effectué les étapes suivantes : 
+Dans ce tutoriel, vous avez effectué les étapes suivantes :
 
 > [!div class="checklist"]
-> * Préparer le magasin de données pour y stocker la valeur de limite. 
+> * Préparer le magasin de données pour y stocker la valeur de limite.
 > * Créer une fabrique de données.
-> * créez des services liés. 
+> * créez des services liés.
 > * Créer des jeux de données source, récepteur et filigrane.
 > * Créer un pipeline.
 > * Exécuter le pipeline.
-> * Surveiller l’exécution du pipeline. 
+> * Surveiller l’exécution du pipeline.
 
-Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au didacticiel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL. 
+Dans ce didacticiel, le pipeline a copié les données d’une table unique d’une base de données SQL vers un stockage d’objets blob. Passez au didacticiel suivant pour découvrir comment copier les données de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL.
 
 > [!div class="nextstepaction"]
 >[Charger de façon incrémentielle des données provenant de plusieurs tables dans SQL Server vers Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
-
-
-

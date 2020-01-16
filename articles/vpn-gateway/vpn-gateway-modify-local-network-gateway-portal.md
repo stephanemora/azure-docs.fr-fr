@@ -1,26 +1,18 @@
 ---
-title: 'Passerelle VPN : Modifier les paramètres de l’adresse IP de la passerelle : Portail Azure'
+title: 'Passerelle VPN : Modifier les paramètres d’adresse IP de la passerelle : Portail Azure'
 description: Cet article vous guide tout au long du processus de modification des préfixes d’adresse IP de la passerelle de votre réseau local à l’aide du portail Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3a59f618536d44e838bf840264e70b0b2a43cced
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: fdb98242cede36f818604a7a5d713f5f7c75daad
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014905"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864024"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modifier les paramètres de la passerelle du réseau local à l’aide du portail Azure
 
@@ -29,9 +21,9 @@ Parfois, les paramètres de la passerelle de réseau local AddressPrefix ou Gate
 Avant de supprimer la connexion, vous pouvez télécharger la configuration de vos appareils de connexion afin d’obtenir la clé pré-partagée (PSK) définie. Ceci vous évite d’avoir à la redéfinir de l’autre côté.
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
-> * [Interface de ligne de commande Azure](vpn-gateway-modify-local-network-gateway-cli.md)
+> * [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 >
 >
 

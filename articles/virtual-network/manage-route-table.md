@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: 809c0501c95b07f7c39a0885ea30c83507b90d53
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646963"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979618"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -64,10 +64,10 @@ Dans la zone de recherche située en haut du portail, entrez *tables de routage*
 1. Dans la liste, sélectionnez la table de routage dont vous souhaitez afficher les détails. Sous **PARAMÈTRES**, vous pouvez afficher les **Itinéraires** de la table de routage et les **Sous-réseaux** auxquels elle est associée.
 1. Pour en savoir plus sur les paramètres Azure communs, consultez les informations suivantes :
 
-    * [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md)<br>
+    * [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md)<br>
     * [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)<br>
-    * [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Script Automation](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Afficher les détails d’une table de routage (commandes)

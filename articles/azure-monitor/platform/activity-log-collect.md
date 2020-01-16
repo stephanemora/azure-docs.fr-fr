@@ -7,19 +7,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: ae71b71ad7c0425893391954f5ffe8b285370273
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531035"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977657"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor
 
 > [!WARNING]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-subscription.md).
+> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-legacy.md).
 
-Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. Cet article explique comment collecter le journal d’activité dans un espace de travail Log Analytics et utiliser la [solution de supervision](../insights/solutions.md) Activity Log Analytics, qui fournit des requêtes et des vues pour analyser ces données. 
+Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. Cet article explique comment collecter le journal d’activité dans un espace de travail Log Analytics et utiliser la [solution de supervision](../insights/solutions.md) Activity Log Analytics, qui fournit des requêtes et des vues pour analyser ces données. 
 
 Connecter le journal d’activité à un espace de travail Log Analytics offre les avantages suivants :
 
@@ -32,7 +32,7 @@ Connecter le journal d’activité à un espace de travail Log Analytics offre l
 Un seul espace de travail peut être connecté au journal d’activité de plusieurs abonnements dans le même abonné Azure. Pour une collecte dans plusieurs locataires, consultez [Collecter les journaux d’activité Azure de différents abonnements dans un espace de travail Log Analytics dans différents locataires Azure Active Directory](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> Une erreur peut se produire lors de la procédure suivante si les fournisseurs de ressources Microsoft.OperationalInsights et Microsoft.OperationsManagement ne sont pas inscrits pour votre abonnement. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ces fournisseurs.
+> Une erreur peut se produire lors de la procédure suivante si les fournisseurs de ressources Microsoft.OperationalInsights et Microsoft.OperationsManagement ne sont pas inscrits pour votre abonnement. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md) pour inscrire ces fournisseurs.
 
 Suivez la procédure ci-dessous pour connecter le journal d’activité à votre espace de travail Log Analytics :
 
@@ -74,6 +74,6 @@ Cliquez sur la vignette **Journaux d’activité Azure** pour ouvrir l'affichage
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus en détail le [journal d’activité](activity-logs-overview.md).
+- Découvrez plus en détail le [journal d’activité](platform-logs-overview.md).
 - Apprenez-en davantage sur la [plateforme de données Azure Monitor](data-platform.md).
 - Utilisez les [requêtes de journal](../log-query/log-query-overview.md) pour afficher des informations détaillées provenant de votre journal d’activité.

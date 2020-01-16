@@ -1,19 +1,19 @@
 ---
 title: Créer une offre Azure Apps dans la Place de marché commerciale
 description: Découvrez comment créer une offre Azure Apps pour référencer ou vendre votre application sur la Place de marché Azure, sur AppSource ou via le programme Fournisseur de solutions cloud (CSP), en utilisant le portail de la Place de marché commerciale dans l’Espace partenaires Microsoft.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281043"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046047"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -48,7 +48,7 @@ Toutes les applications Azure incluent au moins deux fichiers dans le dossier ra
 
 * Une définition d’interface utilisateur pour l’expérience de création d’applications Azure nommée [createUiDefinition.json](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  Dans l’interface utilisateur, vous spécifiez les éléments qui permettent aux consommateurs de fournir des valeurs de paramètre.
 
-Toutes les nouvelles offres d’applications Azure doivent inclure un [GUID d’attribution de l’utilisation de client partenaire Azure](??).
+Toutes les nouvelles offres d’applications Azure doivent inclure un [GUID d’attribution de l’utilisation de client partenaire Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
@@ -62,14 +62,14 @@ Examinez la documentation suivante relative aux applications Azure, qui fournit 
     * [Publier une définition d’application](https://docs.microsoft.com/azure/managed-applications/publish-managed-app-definition-quickstart)
     * [Déployer une application de catalogue de services](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
-* Tutoriels :
+* Tutoriels :
 
     * [Créer les fichiers de définition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publier l’application de la Place de marché](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
 * Exemples :
 
-    * [Interface de ligne de commande Azure](https://docs.microsoft.com/azure/managed-applications/cli-samples)
+    * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
     * [Solutions d’applications managées](https://docs.microsoft.com/azure/managed-applications/sample-projects)
 
@@ -90,7 +90,7 @@ Votre équipe d’ingénierie doit connaître les technologies Microsoft suivant
 Choisissez un ou plusieurs des environnements de scripts suivants pour faciliter la gestion de votre application Azure :
 
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+* [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Nous vous recommandons d’ajouter les outils suivants à votre environnement de développement :
 
@@ -148,7 +148,7 @@ Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospe
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 La page **Propriétés** est l’emplacement où vous définissez les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, la version de votre application et les contrats légaux associés. Sélectionnez **Enregistrer** après avoir renseigné cette page.
 
@@ -179,7 +179,7 @@ Vous devez définir les informations de la Place de marché (nom de l’offre, d
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
-### <a name="name"></a>Nom
+### <a name="name"></a>Name
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
@@ -319,7 +319,7 @@ Les services Azure Government gèrent des données soumises à certaines réglem
 
 L’onglet **Liste des plans** affiche les informations de chaque plan listé, qui peuvent être différentes d’un plan à un autre dans la même offre.
 
-### <a name="name"></a>Nom
+### <a name="name"></a>Name
 
 Il est prérempli sur la base du nom que vous avez attribué à votre plan au moment de sa création.  Ce nom est utilisé comme titre de ce « plan logiciel » affiché dans la Place de marché.  Il peut comporter jusqu’à 100 caractères.
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: b4c19b1f502d079d7dfcc1edef4674d21f78ac3a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 09a5f004570430fafe5c86f4f8ae048f2d1fe4c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67622072"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981944"
 ---
 # <a name="manage-azure-media-services-v2-accounts"></a>Gérer les comptes Azure Media Services v2
 
@@ -24,7 +24,7 @@ Pour commencer à gérer, chiffrer, coder, analyser, gérer et diffuser en conti
 
 ## <a name="moving-a-media-services-account-between-subscriptions"></a>Déplacement d’un compte Media Services entre abonnements 
 
-Si vous devez déplacer un compte Media Services vers un nouvel abonnement, vous devez d’abord déplacer le groupe de ressources complet qui contient le compte Media Services vers le nouvel abonnement. Vous devez déplacer toutes les ressources jointes : comptes de stockage Azure, profils Azure CDN, etc. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../../azure-resource-manager/resource-group-move-resources.md). Comme avec toutes les ressources dans Azure, les déplacements de groupes de ressources peuvent prendre un certain temps.
+Si vous devez déplacer un compte Media Services vers un nouvel abonnement, vous devez d’abord déplacer le groupe de ressources complet qui contient le compte Media Services vers le nouvel abonnement. Vous devez déplacer toutes les ressources jointes : comptes de stockage Azure, profils Azure CDN, etc. Pour plus d’informations, consultez la page [Déplacement de ressources vers un nouveau groupe de ressources ou un abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md). Comme avec toutes les ressources dans Azure, les déplacements de groupes de ressources peuvent prendre un certain temps.
 
 Media Services v2 ne prend pas en charge le modèle d’architecture multilocataire. Si vous devez déplacer un compte Media Services vers un abonnement dans un nouveau locataire, créez une application Azure Active Directory (Azure AD) dans le nouveau locataire. Ensuite, déplacez votre compte vers l’abonnement dans le nouveau locataire. Une fois terminé le déplacement dans le locataire, vous pouvez commencer à utiliser une application Azure AD à partir du nouveau locataire pour accéder au compte Media Services à l’aide de l’API v2. 
 
@@ -38,7 +38,7 @@ Media Services v2 ne prend pas en charge le modèle d’architecture multilocata
 > [!IMPORTANT]
 > Ne démarrez pas le point de terminaison de streaming tant que le déplacement ne s’est pas terminé correctement.
 
-### <a name="troubleshoot"></a>Résolution des problèmes 
+### <a name="troubleshoot"></a>Dépanner 
 
 Si un compte Media Services ou un compte de stockage Azure associé devient « Déconnecté » suite au déplacement du groupe de ressources, essayez d’utiliser la rotation des clés de compte de stockage. Si la rotation des clés de compte de stockage ne résout pas l’état « Déconnecté » du compte Media Services, envoyez une nouvelle demande de support à partir du menu « Support + dépannage » dans le compte Media Services.  
  

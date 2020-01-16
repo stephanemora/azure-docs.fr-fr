@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 27e166a8798f851f6c086c025dd82957b2dcfb84
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849273"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889056"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Didacticiel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutoriel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
 
 Ce tutoriel explique comment accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant des secrets stockés dans un coffre de clés.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un compte de stockage et un conteneur d’objets blob
@@ -26,17 +26,17 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un espace de travail Azure Databricks et une étendue de secrets
 > * Accéder à votre conteneur d’objets blob à partir d’Azure Databricks
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 > [!Note]
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
-> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
+> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Créer un compte de stockage et un conteneur d’objets blob
 
@@ -76,7 +76,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
    |Propriété|Description|
    |--------|-----------|
-   |Nom|Nom unique pour votre coffre de clés.|
+   |Name|Nom unique pour votre coffre de clés.|
    |Subscription|Choisissez un abonnement.|
    |Resource group|Choisissez un groupe de ressources ou créez-en un.|
    |Location|Choisissez un emplacement.|
@@ -94,7 +94,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
    |Propriété|Valeur|
    |--------|-----------|
    |Options de chargement|Manuel|
-   |Nom|Nom convivial de votre clé de compte de stockage.|
+   |Name|Nom convivial de votre clé de compte de stockage.|
    |Valeur|Clé 1 de votre compte de stockage.|
 
    ![Propriétés du nouveau secret de coffre de clés](./media/store-secrets-azure-key-vault/create-storage-secret.png)
@@ -200,7 +200,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
    ![Erreur de démontage du compte de stockage](./media/store-secrets-azure-key-vault/command5.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez tout votre groupe de ressources en effectuant les étapes suivantes :
 
@@ -212,4 +212,4 @@ Si vous ne pensez pas continuer à utiliser cette application, supprimez tout vo
 
 Passez à l’article suivant pour découvrir comment implémenter un environnement Databricks injecté par réseau virtuel avec un point de terminaison de service activé pour Cosmos DB.
 > [!div class="nextstepaction"]
-> [Tutoriel : Implémenter Azure Databricks avec un point de terminaison Cosmos DB](service-endpoint-cosmosdb.md)
+> [Tutoriel : Implémenter Azure Databricks avec un point de terminaison Cosmos DB](service-endpoint-cosmosdb.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cb21291d4beb9fbba27a56089f13bd0363604eab
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686702"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981829"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -66,7 +66,7 @@ Les réservations sont disponibles aujourd’hui pour les blocs de 100 To ou 1�
 
 Vous pouvez acheter une capacité de réserve Stockage Azure par l’intermédiaire du [Portail Azure](https://portal.azure.com). Payez la réservation comptant ou par paiements mensuels. Pour plus d’informations sur l’achat par mensualités, consultez [Acheter des réservations Azure avec des paiements comptants ou mensuels](/azure/billing/billing-monthly-payments-reservations).
 
-Pour obtenir de l’aide sur l’identification des conditions de réservation appropriées pour votre scénario, consultez [Comprendre la remise sur la capacité de réserve Stockage Azure](../../billing/billing-understand-storage-charges.md).
+Pour obtenir de l’aide sur l’identification des conditions de réservation appropriées pour votre scénario, consultez [Comprendre la remise sur la capacité de réserve Stockage Azure](../../cost-management-billing/reservations/understand-storage-charges.md).
 
 Pour acheter une capacité de réserve, procédez comme suit :
 
@@ -101,7 +101,7 @@ Vous pouvez échanger ou rembourser une réservation avec certaines limitations.
 
 Pour échanger ou rembourser une réservation, accédez aux détails de la réservation dans le Portail Azure. Sélectionnez **Échange** ou **Remboursement**, puis suivez les instructions pour soumettre une demande de support. Une fois la demande traitée, Microsoft vous envoie un e-mail pour confirmer qu’elle a été traitée.
 
-Pour plus d’informations sur les stratégies de réservations Azure, consultez [Échanges et remboursements en libre-service de réservations Azure](../../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Pour plus d’informations sur les stratégies de réservations Azure, consultez [Échanges et remboursements en libre-service de réservations Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ### <a name="exchange-a-reservation"></a>Échanger une réservation
 
@@ -127,5 +127,5 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Qu’est-ce qu’une réservation Azure ?](../../billing/billing-save-compute-costs-reservations.md)
-- [Comprendre comment la remise de réservation est appliquée à Stockage Azure](../../billing/billing-understand-storage-charges.md)
+- [Qu’est-ce qu’une réservation Azure ?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Comprendre comment la remise de réservation est appliquée à Stockage Azure](../../cost-management-billing/reservations/understand-storage-charges.md)

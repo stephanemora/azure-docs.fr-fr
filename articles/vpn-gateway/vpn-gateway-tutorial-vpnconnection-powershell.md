@@ -5,17 +5,17 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 64da55c3dba4b617458b68a8b54a509bab4264d2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 1f4687a6af9cae7172a70527f336b98c75d0e9cd
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152159"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903384"
 ---
-# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Didacticiel : Créer et gérer des connexions VPN S2S à l’aide de PowerShell
+# <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>Tutoriel : Créer et gérer des connexions VPN S2S à l’aide de PowerShell
 
 Les connexions VPN S2S Azure fournissent une connectivité sécurisée entre le réseau local du client et Azure. Ce tutoriel vous guide tout au long du cycle de vie d’une connexion VPN S2S IPsec. Il couvre notamment la création et la gestion d’une connexion VPN S2S. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -33,7 +33,7 @@ Le diagramme suivant montre la topologie de ce tutoriel :
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Effectuez le premier tutoriel intitulé [Créer une passerelle VPN avec Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) pour créer les ressources suivantes :
 
@@ -224,7 +224,7 @@ Si vous n’avez plus besoin de la passerelle de réseau local, supprimez-la. Vo
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si cette configuration fait partie d’un déploiement utilisé comme prototype, test ou preuve de concept, utilisez la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la passerelle VPN et toutes les ressources associées.
 

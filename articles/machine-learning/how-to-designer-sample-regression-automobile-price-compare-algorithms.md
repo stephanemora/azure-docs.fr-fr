@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: a4148389992bc100be66175a75b32d61acaf2f46
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659869"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771442"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Formez et comparez plusieurs modèles de régression pour prédire un prix de voitures basé sur des fonctionnalités techniques avec un concepteur Azure Machine Learning.
 
@@ -25,7 +25,7 @@ ms.locfileid: "75659869"
 
 Découvrez comment générer un pipeline Machine Learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans ce pipeline, pour que vous puissiez résoudre vos propres problèmes de Machine Learning.
 
-Si vous êtes débutant en Machine Learning, commencez par examiner la [version de base](service/how-to-designer-sample-regression-automobile-price-basic.md) de ce pipeline.
+Si vous êtes débutant en Machine Learning, commencez par examiner la [version de base](how-to-designer-sample-regression-automobile-price-basic.md) de ce pipeline.
 
 Voici le graphique complet associé à ce pipeline :
 
@@ -92,9 +92,9 @@ Ces résultats montrent que le modèle créé avec **Régression d’arbre de d�
 
 Explorez les autres échantillons disponibles pour le concepteur :
 
-- [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](service/how-to-designer-sample-regression-automobile-price-basic.md)
-- [Exemple 3 - Classification avec sélection des caractéristiques : Prédiction des revenus](service/how-to-designer-sample-classification-predict-income.md)
-- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Exemple 5 - Classification : Prédire l’évolution](service/how-to-designer-sample-classification-churn.md)
-- [Exemple 6 - Classification : Prédire les retards de vols](service/how-to-designer-sample-classification-flight-delay.md)
+- [Exemple 1 - Régression : Prédire le prix de véhicules automobiles](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Exemple 3 - Classification avec sélection des caractéristiques : Prédiction des revenus](how-to-designer-sample-classification-predict-income.md)
+- [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Exemple 5 - Classification : Prédire l’évolution](how-to-designer-sample-classification-churn.md)
+- [Exemple 6 - Classification : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)
 - [Exemple 7 - Classification de texte : Jeu de données Wikipédia SP 500](how-to-designer-sample-text-classification.md)

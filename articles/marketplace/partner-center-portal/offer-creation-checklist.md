@@ -1,19 +1,19 @@
 ---
 title: Liste de contrôle de création d’offre SaaS – Place de marché commerciale pour Azure
 description: Détails que vous pouvez fournir dans le cadre du processus de création d’offre SaaS. – Place de marché commerciale pour Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824624"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930297"
 ---
 # <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
 
@@ -44,7 +44,7 @@ Les premiers éléments d’informations que vous serez invité à fournir sont 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
 | ID de l’offre  | Obligatoire et non modifiable après la création. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
-| Alias de l’offre  | Requis. |
+| Alias de l’offre  | Obligatoire. |
 
 ## <a name="offer-setup-page"></a>Page de configuration de l’offre
 
@@ -52,13 +52,13 @@ La page de configuration de l’offre vous permet de choisir différents canaux 
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------|  
-| Voulez-vous vendre via Microsoft ?  | Requis. Valeur par défaut : OUI |
+| Voulez-vous vendre via Microsoft ?  | Obligatoire. Valeur par défaut : Oui |
 | Comment voulez-vous que des clients potentiels interagissent avec le référencement de l’offre ? (Invite à l’action)  | Obligatoire en cas de vente sans passer par Microsoft. Valeur par défaut : Essai gratuit, Options : « Obtenir maintenant », « Essai gratuit », « Me contacter ». |
 | URL de la version d’essai  | Obligatoire si « Essai gratuit » est sélectionné comme mode d’interaction des clients avec le référencement de l’offre. |
 | URL de l’offre  | Obligatoire si « Obtenir maintenant » est sélectionné comme mode d’interaction des clients avec le référencement de l’offre. |
 | Canaux  | facultatif. Valeur par défaut : Pas activé dans le canal CSP (revendeur).  |
 | Version d’évaluation | facultatif. Valeur par défaut : Aucune version d’évaluation activée.  |
-| Type de version d’évaluation | Obligatoire version d’évaluation activée. Valeur par défaut : Non sélectionné. Options : Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
+| Type de version d’évaluation | Obligatoire version d’évaluation activée. Valeur par défaut : Aucune sélectionnée. Options : Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
 | Gestion des prospects – Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Page Propriétés
@@ -69,7 +69,7 @@ La page de propriétés est l’emplacement où vous définissez les catégories
 | :---------------- | :-----------|  
 | Catégorie et sous-catégorie | Obligatoire 1 et maximum 3. Valeur par défaut : Aucune sélectionnée. |
 | Secteurs et sous-secteurs | facultatif. 2 secteurs L1 et au maximum 2 sous-secteurs dans chaque secteur L1. Valeur par défaut : Aucune sélectionnée |
-| Version de l’application  | facultatif. Valeur par défaut : Aucune. |
+| Version de l’application  | facultatif. Valeur par défaut : Aucun. |
 | Utiliser le contrat Standard  | facultatif. Par défaut : non sélectionné.  | |
 | Conditions d’utilisation  | Obligatoire si le contrat Standard n’est pas sélectionné.  |
 
@@ -79,13 +79,13 @@ La page de référencement vous permet de fournir le texte et les images que les
 
 | **Nom du champ**    | **Remarques**   |
 | :---------------- | :-----------| 
-| Nom  | Obligatoire, maximum 50 caractères. |
+| Name  | Obligatoire, maximum 50 caractères. |
 | Résumé  | Obligatoire, maximum 100 caractères. | 
 | Description  | Obligatoire, maximum 3 000 caractères. |
 | Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
 | Instructions de prise en main  | Obligatoire, maximum 3 000 caractères. |
 | Mots clés de recherche  | Facultatif, recommandé, maximum 3 mots clés. |
-| URL de la politique de confidentialité  | Requis. |
+| URL de la politique de confidentialité  | Obligatoire. |
 | URL des Ressources Marketing du programme CSP  | facultatif. |
 | Titre + URL de liens utiles  | facultatif. |
 | Titre + Fichier de documents associés  | Obligatoire, min. 1 et max. 3. Doit être au format de fichier PDF. |
@@ -93,7 +93,7 @@ La page de référencement vous permet de fournir le texte et les images que les
 | Logos du Store (Petit, Moyen, Grand, Large, Bannière)  | Petit (48 X 48) et Grand (216 X 216) obligatoires. Les autres tailles sont facultatives mais recommandées : Moyen (90 x 90), Large (255 x 115), Bannière (815 x 290). Le logo doit être au format PNG |
 | Nom + URL + miniature des vidéos  | Facultatif, recommandé, max. 4 vidéos. La miniature doit être au format PNG 1280 x 720. La vidéo doit être hébergée sur YouTube ou Vimeo. |
 | Contacts (Programme Fournisseur de solutions Microsoft Cloud (CSP), Ingénierie, Support)  | Contacts Ingénierie et Support obligatoires (nom, e-mail et le numéro de téléphone) ; Contact Programme CSP facultatif mais recommandé. |
-| URL du support technique  | Requis. |
+| URL du support technique  | Obligatoire. |
 
 ## <a name="preview-page"></a>Page de préversion
 
@@ -138,10 +138,10 @@ La page de tarification et disponibilité de plan est celle dans laquelle vous d
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
 | Disponibilité sur le marché  | Obligatoire, min. 1 et max. 141. |
-| Modèle de tarification  | Requis. Valeur par défaut : Taux fixe. Options : Tarification fixe, par utilisateur. |
+| Modèle de tarification  | Obligatoire. Valeur par défaut : Taux fixe. Options : Tarification fixe, par utilisateur. |
 | Minimum et maximum de sièges  | Facultatif, disponible uniquement si le modèle de tarification basée sur ls sièges et sélectionné. |
-| Fréquence de facturation  | Requis. Valeur par défaut : Mensuelle: Options : Mensuelle, Annuelle. |
-| Prix  | Obligatoire, USD par mois, si la fréquence de facturation sélectionnée est mensuelle, ou USD par an si la fréquence de facturation sélectionnée est annuelle. |
+| Fréquence de facturation  | Obligatoire. Valeur par défaut : Mensuelle: Options : Mensuelle, Annuelle. |
+| Price  | Obligatoire, USD par mois, si la fréquence de facturation sélectionnée est mensuelle, ou USD par an si la fréquence de facturation sélectionnée est annuelle. |
 | Public du plan  | facultatif. Valeur par défaut : Plan public. Options : Public, privé, par ID de locataire |
 | Public du plan restreint (ID de locataire + description)  | Obligatoire si le plan sélectionné est privé. Min. 1 et max. 10 ID de locataire en cas d’entrée manuelle. Max. 20 000 en cas d’importation de fichier CSV. |
 
@@ -151,7 +151,7 @@ Disponible uniquement si vous décidez de proposer une version d’évaluation d
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------| 
-| Description  | Requis. |
+| Description  | Obligatoire. |
 | Nom + fichier de manuel utilisateur  | Obligatoire, max. 1 doc. Doit être au format PDF. |
 | Nom de la vidéo, URL + miniature  | Facultatif, recommandé. La miniature doit être 533 x 324 au format JPGP ou PNG. La vidéo doit être hébergée sur YouTube ou Vimeo. |
 

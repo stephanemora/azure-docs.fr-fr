@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 35623be4f0e4495388dc58b1e4d4f6c4663a93fd
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534317"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968486"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Interprétabilité des modèles dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Ce package utilise les techniques d’interprétabilité développées dans la [
 * **Explicatif d’imitation** : L’explicatif d’imitation repose sur l’idée d’entraînement de [modèles de substitution globaux](https://christophm.github.io/interpretable-ml-book/global.html) sur des modèles de boîte noire d’imitation. Un modèle de substitution global est un modèle intrinsèquement interprétable qui est formé pour estimer les prédictions d’un modèle de boîte noire aussi précisément que possible. Un scientifique des données peut interpréter le modèle de substitution pour déduire des conclusions sur le modèle de boîte noire. Vous pouvez utiliser un des modèles interprétables suivants comme modèle de substitution : LightGBM (LGBMExplainableModel), régression linéaire (LinearExplainableModel), modèle explicable Stochastic Gradient Descent (SGDExplainableModel) et arbre de décision (DecisionTreeExplainableModel).
 
 
-* **Explicatif d’importance de fonctionnalité de permutation** : L’importance de fonctionnalité de permutation est une technique utilisée pour expliquer les modèles de classification et de régression qui s’inspirent du [document relatif aux forêts aléatoires de Breiman](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (consultez la section 10). De façon générale, il fonctionne en permutant aléatoirement les données d’une caractéristique à la fois pour l’ensemble du jeu de données et en calculant dans quelle mesure la métrique de performances d’intérêt change. Plus la modification est importante, et plus la fonctionnalité l’est également.
+* **Explicatif d’importance de fonctionnalité de permutation** : L’importance de fonctionnalité de permutation est une technique utilisée pour expliquer les modèles de classification et de régression qui s’inspirent du [document relatif aux forêts aléatoires de Breiman](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (consultez la section 10). De façon générale, il fonctionne en permutant aléatoirement les données d’une caractéristique à la fois pour l’ensemble du jeu de données et en calculant dans quelle mesure la métrique de performances d’intérêt change. Plus la modification est importante, et plus la fonctionnalité l’est également.
 
 * **Explicatif LIME** (`contrib`) : Selon [LIME](https://github.com/marcotcr/lime), l’explicatif LIME utilise l’algorithme de pointe d’explications indépendant du modèle interprétable local (LIME, Local Interpretable Model-agnostic Explanations), pour créer des modèles de substitution locaux. Contrairement aux modèles de substitution globaux, LIME cible la formation de modèles de substitution locaux pour expliquer des prédictions individuelles.
 * **Explicatif de texte HAN** (`contrib`) : L’explicatif de texte HAN utilise un Hierarchical Attention Network pour obtenir des explications sur le modèle à partir de données de texte d’un modèle de texte de boîte noire donné. Il entraîne le modèle de substitution HAN sur la base de sorties prédites d’un modèle de boîte noire donné. Après avoir effectué l’entraînement global sur le corpus de texte, il ajoute une étape de réglage pour un document spécifique afin d’améliorer la précision des explications. HAN utilise un RNN bidirectionnel avec deux couches d’attention, une sur la phrase et l’autre sur le mot. Une fois que le DNN est entraîné sur le modèle de boîte noire et réglé sur un document spécifique, l’utilisateur peut extraire les importances des mots des couches d’attention. HAN se révèle plus précis que LIME ou SHAP pour les données de texte, mais également plus coûteux en termes de temps d’entraînement. Des améliorations ont été apportées pour permettre à l’utilisateur d’initialiser le réseau à l’aide d’incorporations de mots GloVe afin de réduire le temps d’entraînement. Le temps de formation peut être amélioré significativement en exécutant HAN sur une machine virtuelle GPU Azure distante. L’implémentation de HAN est décrite dans le document [« Hierarchical Attention Networks for Document Classification (Yang et al., 2016) »](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).
@@ -114,4 +114,4 @@ Le package `explain` est conçu pour fonctionner avec les cibles de calcul local
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [guide pratique](service/how-to-machine-learning-interpretability-aml.md) pour bénéficier de l’interprétabilité des modèles entraînés à la fois localement et sur des ressources de calcul distantes Azure Machine Learning. Pour obtenir des scénarios supplémentaires, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+Consultez le [guide pratique](how-to-machine-learning-interpretability-aml.md) pour bénéficier de l’interprétabilité des modèles entraînés à la fois localement et sur des ressources de calcul distantes Azure Machine Learning. Pour obtenir des scénarios supplémentaires, consultez les [exemples de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

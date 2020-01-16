@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176751"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980460"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gérer les clés de compte de stockage avec Key Vault et l’interface de ligne de commande Azure
 
@@ -47,13 +47,13 @@ Key Vault est une application Microsoft préinscrite dans tous les locataires Az
 | Azure AD | Azure public | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Autres  | Quelconque | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide, vous devez d’abord effectuer ce qui suit :
 
 - [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli).
 - [Création d’un coffre de clés](quick-create-cli.md)
-- [Création d’un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
+- [Création d’un compte de stockage Azure](../storage/common/storage-account-create.md?tabs=azure-cli). Le nom du compte de stockage doit contenir uniquement des lettres minuscules et des chiffres. Le nom doit compter 3 à 24 caractères.
       
 ## <a name="manage-storage-account-keys"></a>Gérer les clés de compte de stockage
 

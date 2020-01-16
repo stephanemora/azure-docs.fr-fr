@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278792"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980081"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources
 
-Dans cet article, vous découvrirez la procédure permettant de déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources dans la même région. Vous pouvez en savoir plus sur le déplacement des ressources Azure via le portail Azure, PowerShell, Azure CLI ou l’API REST. sur [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../../azure-resource-manager/resource-group-move-resources.md). 
+Dans cet article, vous découvrirez la procédure permettant de déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources dans la même région. Vous pouvez en savoir plus sur le déplacement des ressources Azure via le portail Azure, PowerShell, Azure CLI ou l’API REST. sur [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > Vous ne pouvez pas déplacer un espace de travail vers une autre région.
@@ -107,4 +107,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour obtenir la liste des ressources prenant en charge l’opération de déplacement, consultez [Prise en charge de l’opération de déplacement pour les ressources](../../azure-resource-manager/move-support-resources.md).
+- Pour obtenir la liste des ressources prenant en charge l’opération de déplacement, consultez [Prise en charge de l’opération de déplacement pour les ressources](../../azure-resource-manager/management/move-support-resources.md).

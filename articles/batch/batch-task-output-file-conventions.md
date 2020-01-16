@@ -3,7 +3,7 @@ title: Conserver les sorties de travaux et de tâches dans Azure Storage avec la
 description: Apprenez à utiliser la bibliothèque File Conventions d’Azure Batch pour conserver les sorties de travaux et de tâches dans Azure Storage et l’afficher dans le portail Azure.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302678"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026219"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -39,7 +39,7 @@ Azure Batch offre plusieurs manières de conserver les sorties de tâche. File C
 - Vous pouvez facilement modifier le code de l’application que votre tâche exécute afin de conserver les fichiers à l’aide de la bibliothèque File Conventions.
 - Vous voulez diffuser les données vers Azure Storage alors que la tâche est en cours d’exécution.
 - Vous voulez conserver les données de pools créés avec la configuration de service cloud ou la configuration de machine virtuelle.
-- Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie de tâche par ID ou usage.
+- Votre application cliente ou d’autres tâches du travail doivent localiser et télécharger les fichiers de sortie des tâches par ID ou usage.
 - Vous voulez consulter les sorties de tâche dans le portail Azure.
 
 Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-être envisager une approche différente. Pour en savoir plus sur les autres options de conservation des sorties de tâche, consultez l’article [Conserver les sorties de travail et de tâche terminées dans Azure Storage](batch-task-output.md).
@@ -56,7 +56,7 @@ Si vous développez avec un autre langage que .NET, vous pouvez implémenter le 
 
 Pour conserver les données de sortie dans Azure Storage à l’aide de la bibliothèque File Conventions, vous devez d’abord lier un compte Azure Storage à votre compte Batch. Si ce n’est déjà fait, liez un compte Storage à votre compte Batch à l’aide du [portail Azure](https://portal.azure.com) :
 
-1. Accédez à votre compte Batch dans le portail Azure.
+1. Accédez à votre compte  Batch dans le portail Azure.
 1. Sous **Paramètres**, sélectionnez **Compte Storage**.
 1. Si vous n’avez pas déjà associé de compte Storage à votre compte Batch, cliquez sur **Compte Storage (aucun)** .
 1. Sélectionnez un compte Storage pour votre abonnement dans la liste. Pour de meilleures performances, utilisez un compte Azure Storage qui se trouve dans la même région que le compte Batch où les tâches sont exécutées.

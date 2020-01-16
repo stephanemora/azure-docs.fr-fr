@@ -82,6 +82,8 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows Desktop .NET
               href: tutorial-v2-windows-desktop.md
+            - name: Utiliser le mode d’appareil partagé dans votre application Android
+              href: tutorial-v2-shared-device-mode.md
         - name: Applications démon
           items:
             - name: Application web démon ASP.NET
@@ -208,6 +210,8 @@
                   href: scenario-mobile-app-configuration.md
                 - name: Configuration spécifique aux plateformes mobiles
                   items:
+                    - name: Mode d’appareil partagé pour les appareils Android
+                      href: shared-device-mode.md
                     - name: Xamarin Android
                       href: msal-net-xamarin-android-considerations.md
                     - name: Navigateur système sur Android

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0be2efd3783d9a0a7992819c984c993c64000ecd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc65d368eb4c1beb57099cb6c16fb33bbe5c1f79
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644866"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981505"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Ressources
 Cet article traite de l’alignement et de la gestion des ressources pour DevTest Labs au sein de votre organisation. 
@@ -36,7 +36,7 @@ Avant qu’une organisation utilise Azure pour le développement général d’a
 - La segmentation est-elle nécessaire pour séparer les environnements de développement et de production ? 
 - Quels contrôles sont introduits pour faciliter à long terme la gestion, la stabilité et la croissance ?
 
-La **première pratique recommandée** est d’examiner la taxonomie Azure des organisations. Cette taxonomie souligne les divisions entre les abonnements de développement et de production. Dans le diagramme suivant, la taxonomie suggérée permet une séparation logique entre l’environnement de développement/test et celui de production. Grâce à cette approche, une organisation peut introduire des codes de facturation, qui lui permettront d’effectuer un suivi des coûts associés à chaque environnement séparément. Pour plus d’informations, consultez la section sur la [gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold). En outre, vous pouvez utiliser les [balises Azure](../azure-resource-manager/resource-group-using-tags.md) pour organiser les ressources à des fins de suivi et de facturation.
+La **première pratique recommandée** est d’examiner la taxonomie Azure des organisations. Cette taxonomie souligne les divisions entre les abonnements de développement et de production. Dans le diagramme suivant, la taxonomie suggérée permet une séparation logique entre l’environnement de développement/test et celui de production. Grâce à cette approche, une organisation peut introduire des codes de facturation, qui lui permettront d’effectuer un suivi des coûts associés à chaque environnement séparément. Pour plus d’informations, consultez la section sur la [gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption/appendix/azure-scaffold). En outre, vous pouvez utiliser les [balises Azure](../azure-resource-manager/management/tag-resources.md) pour organiser les ressources à des fins de suivi et de facturation.
 
 La **deuxième pratique recommandée** consiste à activer l’abonnement DevTest au sein du portail Azure Enterprise. L’activation permet à une organisation d’exécuter des systèmes d’exploitation clients qui ne sont en principe pas disponibles dans un abonnement Azure Enterprise. Utilisez ensuite des logiciels d’entreprise où vous payez uniquement pour le calcul, et ne vous inquiétez pas pour les licences. Cela garantit que la facturation pour les services désignés (y compris les images de galerie dans les systèmes IaaS telles que Microsoft SQL Server) est basée sur la consommation uniquement. Pour accéder à plus d’informations sur l’abonnement Azure DevTest, [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0148p/) pour les clients Contrat Entreprise (EA) et [cliquez ici](https://azure.microsoft.com/offers/ms-azr-0023p/) pour les clients Go.
 

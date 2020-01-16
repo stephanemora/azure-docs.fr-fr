@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deec67a2c64a57bbb380b3fd87bf820499e6efed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522957"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980047"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatiser l’ajout d’un utilisateur de labo à un labo dans Azure DevTest Labs
 Azure DevTest Labs vous permet de créer rapidement des environnements de développement/test en libre-service à l’aide du Portail Azure. Toutefois, si vous disposez de plusieurs équipes et de plusieurs instances DevTest Labs, l’automatisation du processus de création peut vous faire gagner du temps. Les [modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) vous permettent de créer des labos, des machines virtuelles de labo, des images personnalisées et des formules, et d’ajouter des utilisateurs de manière automatisée. Cet article concerne spécifiquement l’ajout d’utilisateurs à une instance DevTest Labs.
@@ -85,7 +85,7 @@ L’exemple de modèle Resource Manager ci-après spécifie l’ajout d’un uti
 
 ```
 
-Si vous attribuez le rôle dans le même modèle que celui qui crée le labo, pensez à ajouter une dépendance entre la ressource d’attribution de rôle et le labo. Pour plus d’informations, consultez l’article [Définition de dépendances dans les modèles Azure Resource Manager](../azure-resource-manager/resource-group-define-dependencies.md).
+Si vous attribuez le rôle dans le même modèle que celui qui crée le labo, pensez à ajouter une dépendance entre la ressource d’attribution de rôle et le labo. Pour plus d’informations, consultez l’article [Définition de dépendances dans les modèles Azure Resource Manager](../azure-resource-manager/templates/define-resource-dependency.md).
 
 ### <a name="role-assignment-resource-information"></a>Informations de ressource d’attribution de rôle
 La ressource d’attribution de rôle doit spécifier le type et le nom.
@@ -199,7 +199,7 @@ az role assignment create --roleName "DevTest Labs User" --signInName <email@com
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [Créer et gérer des machines virtuelles avec DevTest Labs à l’aide de l’interface de ligne de commande Azure](devtest-lab-vmcli.md)
 - [Créer une machine virtuelle avec DevTest Labs en utilisant Azure PowerShell](devtest-lab-vm-powershell.md)

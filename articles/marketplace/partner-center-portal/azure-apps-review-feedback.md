@@ -1,19 +1,19 @@
 ---
 title: Gestion des commentaires de révision pour les offres Azure Apps sur la Place de marché commerciale
 description: Comment gérer les commentaires de révision pour une offre Azure Apps afin de répertorier ou de vendre dans la Place de marché Azure, AppSource ou via le programme de fournisseur de solutions Cloud (CSP) avec le portail de la Place de marché commerciale sur Microsoft Partner Center.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 7406a6e35929e3df5d342affbcb4b740efa0cab8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5dd74a7be95ecf92289f2a144c9c509c71ce935b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281027"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933643"
 ---
 # <a name="handling-review-feedback"></a>Gestion des commentaires de révision
 

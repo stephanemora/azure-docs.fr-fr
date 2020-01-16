@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 5b2ab103c2384b53f384c45945b387585fdbb4b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f49d91a2dffbd02067efd82b88963b5cb6eaa8b4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224395"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020951"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Processeurs virtuels par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10 000 |
-| [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |200 |200 |
+| [Coadministrateurs](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) par abonnement |200 |200 |
 | [Comptes de stockage](../articles/storage/common/storage-create-storage-account.md) par abonnement<sup>2</sup> |100 |100 |
 | [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |20 |200 |
 | [Réseaux locaux](/previous-versions/azure/reference/jj157100(v=azure.100)) par abonnement |10 |500 |

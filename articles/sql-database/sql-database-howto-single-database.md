@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811218"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027719"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Utilisation d’une base de données unique dans Azure SQL Database
 
@@ -42,7 +42,7 @@ Dans cette section, vous trouverez des guides, des scripts et des explications p
 - [Activez les notifications par e-mail pour le réglage automatique](sql-database-automatic-tuning-email-notifications.md) afin d’obtenir des informations sur les recommandations de réglage.
 - [Appliquez les recommandations relatives aux performances](sql-database-advisor-portal.md) et optimisez votre base de données.
 - [Créez des alertes](sql-database-insights-alerts-portal.md) pour obtenir des notifications à partir d’Azure SQL Database.
-- [Résolvez les problèmes de connectivité](sql-database-troubleshoot-common-connection-issues.md) si vous remarquez des problèmes de connectivité entre les applications et la base de données. Vous pouvez aussi utiliser [Resource Health pour les problèmes de connectivité](sql-database-resource-health.md).
+- [Résolvez les problèmes de connectivité](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) si vous remarquez des problèmes de connectivité entre les applications et la base de données. Vous pouvez aussi utiliser [Resource Health pour les problèmes de connectivité](sql-database-resource-health.md).
 - [Gérez l’espace fichier](sql-database-file-space-management.md) pour surveiller l’utilisation du stockage dans votre base de données.
 
 ## <a name="query-distributed-data"></a>Interroger des données distribuées

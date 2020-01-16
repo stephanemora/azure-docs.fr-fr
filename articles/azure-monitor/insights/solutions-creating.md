@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402049"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969695"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -23,7 +23,7 @@ Les [solutions de gestion]( solutions.md) fournissent des scénarios de gestion 
 
 ## <a name="what-is-a-management-solution"></a>Qu’est-ce qu’une solution de gestion ?
 
-Les solutions de gestion contiennent des ressources Azure qui fonctionnent ensemble pour réaliser un scénario de gestion spécifique.  Elles sont implémentées en tant que [modèles de gestion des ressources](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) qui contiennent des détails sur la procédure d’installation et de configuration des ressources qu’elles contiennent une fois la solution installée.
+Les solutions de gestion contiennent des ressources Azure qui fonctionnent ensemble pour réaliser un scénario de gestion spécifique.  Elles sont implémentées en tant que [modèles de gestion des ressources](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) qui contiennent des détails sur la procédure d’installation et de configuration des ressources qu’elles contiennent une fois la solution installée.
 
 La stratégie de base consiste à démarrer votre solution de gestion en créant les composants individuels dans votre environnement Azure.  Une fois que la fonctionnalité fonctionne correctement, vous pouvez commencer à les empaqueter dans un [fichier de solution de gestion]( solutions-solution-file.md). 
 
@@ -64,7 +64,7 @@ Une fois que vous avez configuré et testé les composants qui feront partie de 
 
 
 ## <a name="test-your-solution"></a>Tester votre solution
-Lorsque vous développez votre solution, vous devez l’installer et la tester dans votre espace de travail.  Vous pouvez faire cela en utilisant l’une des méthodes disponibles pour [tester et installer des modèles Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
+Lorsque vous développez votre solution, vous devez l’installer et la tester dans votre espace de travail.  Vous pouvez faire cela en utilisant l’une des méthodes disponibles pour [tester et installer des modèles Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="publish-your-solution"></a>Publier votre solution
 Une fois que vous avez terminé et testé votre solution, vous pouvez la rendre disponible aux clients via les sources suivantes.

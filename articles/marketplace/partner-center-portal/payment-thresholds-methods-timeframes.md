@@ -3,16 +3,16 @@ Description: Le délai estimé pour transférer les paiements, les seuils de pai
 title: Seuils, modes et délais de paiement sur la place de marché commerciale | Place de marché Azure
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 8854d5e336dd5aa539bb810f55a45281362500bd
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979994"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931875"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Seuils, modes et délais de paiement
 
@@ -42,155 +42,155 @@ Pour voir les pays/régions dans lesquels ces modes de paiement sont utilisés p
 
 | Country                          | Place de marché Azure | Store, publicité, Mixer et Minecraft | Office | Paiements PayPal |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
-| Afghanistan                      | OUI               | Oui                                      | Non     | Non              |
-| Albanie                          | OUI               | Oui                                      | Oui    | OUI             |
-| Algérie                          | OUI               | Oui                                      | Oui    | OUI             |
-| Andorre                          | Non                | Non                                       | OUI    | OUI             |
-| Angola                           | OUI               | Oui                                      | Oui    | Non              |
-| Antigua-et-Barbuda              | OUI               | Oui                                      | Non     | OUI             |
-| Argentine                        | OUI               | Oui                                      | Oui    | OUI             |
-| Arménie                          | OUI               | Oui                                      | Non     | Non              |
-| Australie                        | OUI               | Oui                                      | Oui    | OUI             |
-| Autriche                          | OUI               | Oui                                      | Oui    | OUI             |
-| Azerbaïdjan                       | OUI               | Oui                                      | Oui    | Non              |
-| Bahreïn                          | OUI               | Oui                                      | Oui    | OUI             |
-| Bangladesh                       | OUI               | Oui                                      | Oui    | Non              |
-| Bélarus                          | OUI               | Oui                                      | Oui    | Non              |
-| Belgique                          | OUI               | Oui                                      | Oui    | OUI             |
-| Bénin                            | OUI               | Oui                                      | Oui    | Non              |
-| Bolivie                          | OUI               | Oui                                      | Oui    | Non              |
-| Bosnie-Herzégovine           | OUI               | Oui                                      | Oui    | OUI             |
-| Botswana                         | OUI               | Oui                                      | Non     | OUI             |
-| Brésil                           | OUI               | Oui                                      | Oui    | OUI             |
-| Bulgarie                         | OUI               | Oui                                      | Oui    | OUI             |
-| Burkina Faso                     | OUI               | Oui                                      | Oui    | Non              |
-| Burundi                          | OUI               | Oui                                      | Oui    | Non              |
-| Cambodge                         | OUI               | Oui                                      | Oui    | Non              |
-| Cameroun                         | OUI               | Oui                                      | Oui    | Non              |
-| Canada                           | OUI               | Oui                                      | Oui    | OUI             |
-| République centrafricaine         | OUI               | Oui                                      | Oui    | Non              |
-| Tchad                             | OUI               | Oui                                      | Oui    | Non              |
-| Chili                            | OUI               | Oui                                      | Oui    | OUI             |
-| Chine                            | Non                | OUI                                      | Oui    | OUI             |
-| Colombie                         | OUI               | Oui                                      | Oui    | OUI             |
-| Comores                          | OUI               | Oui                                      | Non     | Non              |
-| Congo (RDC)                      | OUI               | Oui                                      | Oui    | Non              |
-| République du Congo               | OUI               | Oui                                      | Oui    | Non              |
-| Costa Rica                       | OUI               | Oui                                      | Oui    | OUI             |
-| Côte d’Ivoire                    | OUI               | Oui                                      | Oui    | Non              |
-| Croatie                          | OUI               | Oui                                      | Oui    | Non              |
-| Chypre                           | OUI               | Oui                                      | Oui    | OUI             |
-| République tchèque                   | OUI               | Oui                                      | Oui    | OUI             |
-| Danemark                          | OUI               | Oui                                      | Oui    | OUI             |
-| Dominique                         | OUI               | Oui                                      | Non     | OUI             |
-| République dominicaine               | OUI               | Oui                                      | Oui    | OUI             |
-| Équateur                          | OUI               | Oui                                      | Oui    | OUI             |
-| Égypte                            | OUI               | Oui                                      | Oui    | OUI             |
-| El Salvador                      | OUI               | Oui                                      | Oui    | OUI             |
-| Érythrée                          | OUI               | Oui                                      | Oui    | Non              |
-| Estonie                          | OUI               | Oui                                      | Oui    | OUI             |
-| Éthiopie                         | OUI               | Oui                                      | Oui    | Non              |
-| Îles Fidji                     | OUI               | Oui                                      | Non     | Non              |
-| Finlande                          | OUI               | Oui                                      | Oui    | OUI             |
-| France                           | OUI               | Oui                                      | Oui    | OUI             |
-| Géorgie                          | OUI               | Oui                                      | Oui    | OUI             |
-| Allemagne                          | OUI               | Oui                                      | Oui    | OUI             |
-| Ghana                            | OUI               | Oui                                      | Oui    | Non              |
-| Grèce                           | OUI               | Oui                                      | Oui    | OUI             |
-| Guatemala                        | OUI               | Oui                                      | Oui    | OUI             |
-| Guinée                           | OUI               | Oui                                      | Oui    | Non              |
-| Haïti                            | OUI               | Oui                                      | Oui    | Non              |
-| Honduras                         | OUI               | Oui                                      | Oui    | OUI             |
-| Hong Kong (R.A.S.)                        | OUI               | Oui                                      | Oui    | OUI             |
-| Hongrie                          | OUI               | Oui                                      | Oui    | OUI             |
-| Islande                          | OUI               | Oui                                      | Oui    | Non              |
-| Inde                            | OUI               | Oui                                      | Oui    | OUI             |
-| Indonésie                        | OUI               | Oui                                      | Oui    | OUI             |
-| Irak                             | OUI               | Oui                                      | Non     | Non              |
-| Irlande                          | OUI               | Oui                                      | Oui    | OUI             |
-| Israël                           | OUI               | Oui                                      | Oui    | OUI             |
-| Italie                            | OUI               | Oui                                      | Oui    | OUI             |
-| Jamaïque                          | OUI               | Oui                                      | Oui    | OUI             |
-| Japon                            | OUI               | Oui                                      | Oui    | OUI             |
-| Jordanie                           | OUI               | Oui                                      | Oui    | OUI             |
-| Kazakhstan                       | OUI               | Oui                                      | Oui    | OUI             |
-| Kenya                            | OUI               | Oui                                      | Oui    | OUI             |
-| Corée du Sud                    | OUI               | Oui                                      | Oui    | Non              |
-| Koweït                           | OUI               | Oui                                      | Oui    | OUI             |
-| Kirghizistan                       | Non                | Non                                       | OUI    | Non              |
-| Laos                             | OUI               | Oui                                      | Oui    | Non              |
-| Lettonie                           | OUI               | Oui                                      | Oui    | Non              |
-| Liban                          | OUI               | Oui                                      | Non     | Non              |
-| Liberia                          | OUI               | Oui                                      | Oui    | Non              |
-| Liechtenstein                    | OUI               | Oui                                      | Oui    | OUI             |
-| Lituanie                        | OUI               | Oui                                      | Oui    | Non              |
-| Luxembourg                       | OUI               | Oui                                      | Oui    | OUI             |
-| République de Macédoine                        | Non                | OUI                                      | Oui    | Non              |
-| Madagascar                       | OUI               | Oui                                      | Oui    | Non              |
-| Malawi                           | OUI               | Oui                                      | Oui    | OUI             |
-| Malaisie                         | OUI               | Oui                                      | Oui    | OUI             |
-| Mali                             | OUI               | Oui                                      | Oui    | Non              |
-| Malte                            | OUI               | Oui                                      | Oui    | OUI             |
-| Maurice (île)                        | OUI               | Oui                                      | Non     | OUI             |
-| Mexique                           | OUI               | Oui                                      | Oui    | OUI             |
-| Monaco                           | OUI               | Oui                                      | Non     | Non              |
-| Mongolie                         | OUI               | Oui                                      | Oui    | Non              |
-| Monténégro                       | OUI               | Oui                                      | Oui    | Non              |
-| Maroc                          | OUI               | Oui                                      | Oui    | Non              |
-| Mozambique                       | OUI               | Oui                                      | Oui    | OUI             |
-| Népal                            | OUI               | Oui                                      | Oui    | Non              |
-| Pays-Bas                 | OUI               | Oui                                      | Oui    | OUI             |
-| Nouvelle-Zélande                      | OUI               | Oui                                      | Oui    | OUI             |
-| Nicaragua                        | OUI               | Oui                                      | Oui    | OUI             |
-| Niger                            | OUI               | Oui                                      | Oui    | Non              |
-| Nigeria                          | OUI               | Oui                                      | Oui    | Non              |
-| Norvège                           | OUI               | Oui                                      | Oui    | OUI             |
-| Oman                             | OUI               | Oui                                      | Oui    | OUI             |
-| Pakistan                         | OUI               | Oui                                      | Oui    | Non              |
-| Panama                           | OUI               | Oui                                      | Oui    | OUI             |
-| Paraguay                         | OUI               | Oui                                      | Oui    | Non              |
-| Pérou                             | OUI               | Oui                                      | Oui    | OUI             |
-| Philippines                      | OUI               | Oui                                      | Oui    | OUI             |
-| Pologne                           | OUI               | Oui                                      | Oui    | OUI             |
-| Portugal                         | OUI               | Oui                                      | Oui    | OUI             |
-| Porto Rico                      | Non                | Non                                       | OUI    | Non              |
-| Qatar                            | OUI               | Oui                                      | Oui    | OUI             |
-| Roumanie                          | OUI               | Oui                                      | Oui    | Non              |
-| Russie                           | OUI               | Oui                                      | Non     | OUI             |
-| Rwanda                           | OUI               | Oui                                      | Oui    | Non              |
-| Saint-Vincent-et-les-Grenadines | Non                | OUI                                      | Non     | Non              |
-| Arabie Saoudite                     | OUI               | Oui                                      | Oui    | OUI             |
-| Sénégal                          | OUI               | Oui                                      | Oui    | Non              |
-| Serbie                           | OUI               | Oui                                      | Oui    | Non              |
-| Sierra Leone                     | OUI               | Oui                                      | Oui    | Non              |
-| Singapour                        | OUI               | Oui                                      | Oui    | OUI             |
-| Slovaquie                         | OUI               | Oui                                      | Oui    | OUI             |
-| Slovénie                         | OUI               | Oui                                      | Oui    | OUI             |
-| Somalie                          | OUI               | Oui                                      | Oui    | Non              |
-| Afrique du Sud                     | OUI               | Oui                                      | Oui    | OUI             |
-| Espagne                            | OUI               | Oui                                      | Oui    | OUI             |
-| Sri Lanka                        | OUI               | Oui                                      | Oui    | Non              |
-| Suède                           | OUI               | Oui                                      | Oui    | OUI             |
-| Suisse                      | OUI               | Oui                                      | Oui    | Non              |
-| Taïwan                           | Non                | OUI                                      | Oui    | OUI             |
-| Tadjikistan                       | OUI               | Oui                                      | Non     | Non              |
-| Tanzanie                         | OUI               | Oui                                      | Oui    | Non              |
-| Thaïlande                         | OUI               | Oui                                      | Oui    | OUI             |
-| Timor-Leste                      | OUI               | Oui                                      | Oui    | Non              |
-| Togo                             | OUI               | Oui                                      | Oui    | Non              |
-| Tonga                            | OUI               | Oui                                      | Non     | Non              |
-| Trinité-et-Tobago              | OUI               | Oui                                      | Oui    | OUI             |
-| Tunisie                          | OUI               | Oui                                      | Oui    | Non              |
-| Turquie                           | OUI               | Oui                                      | Oui    | Non              |
-| Turkménistan                     | OUI               | Oui                                      | Non     | Non              |
-| Ouganda                           | OUI               | Oui                                      | Oui    | Non              |
-| Ukraine                          | OUI               | Oui                                      | Non     | Non              |
-| Émirats Arabes Unis             | OUI               | Oui                                      | Oui    | OUI             |
-| Royaume-Uni                   | OUI               | Oui                                      | Oui    | OUI             |
-| États-Unis                    | OUI               | Oui                                      | Oui    | OUI             |
-| Uruguay                          | OUI               | Oui                                      | Oui    | OUI             |
-| Ouzbékistan                       | OUI               | Oui                                      | Non     | Non              |
-| Venezuela                        | OUI               | Oui                                      | Oui    | OUI             |
-| Vietnam                          | OUI               | Oui                                      | Oui    | OUI             |
-| Zambie                           | OUI               | Oui                                      | Oui    | Non              |
-| Zimbabwe                         | OUI               | Oui                                      | Oui    | Non              |
+| Afghanistan                      | Oui               | Oui                                      | Non     | Non              |
+| Albanie                          | Oui               | Oui                                      | Oui    | Oui             |
+| Algérie                          | Oui               | Oui                                      | Oui    | Oui             |
+| Andorre                          | Non                | Non                                       | Oui    | Oui             |
+| Angola                           | Oui               | Oui                                      | Oui    | Non              |
+| Antigua-et-Barbuda              | Oui               | Oui                                      | Non     | Oui             |
+| Argentine                        | Oui               | Oui                                      | Oui    | Oui             |
+| Arménie                          | Oui               | Oui                                      | Non     | Non              |
+| Australie                        | Oui               | Oui                                      | Oui    | Oui             |
+| Autriche                          | Oui               | Oui                                      | Oui    | Oui             |
+| Azerbaïdjan                       | Oui               | Oui                                      | Oui    | Non              |
+| Bahreïn                          | Oui               | Oui                                      | Oui    | Oui             |
+| Bangladesh                       | Oui               | Oui                                      | Oui    | Non              |
+| Bélarus                          | Oui               | Oui                                      | Oui    | Non              |
+| Belgique                          | Oui               | Oui                                      | Oui    | Oui             |
+| Bénin                            | Oui               | Oui                                      | Oui    | Non              |
+| Bolivie                          | Oui               | Oui                                      | Oui    | Non              |
+| Bosnie-Herzégovine           | Oui               | Oui                                      | Oui    | Oui             |
+| Botswana                         | Oui               | Oui                                      | Non     | Oui             |
+| Brésil                           | Oui               | Oui                                      | Oui    | Oui             |
+| Bulgarie                         | Oui               | Oui                                      | Oui    | Oui             |
+| Burkina Faso                     | Oui               | Oui                                      | Oui    | Non              |
+| Burundi                          | Oui               | Oui                                      | Oui    | Non              |
+| Cambodge                         | Oui               | Oui                                      | Oui    | Non              |
+| Cameroun                         | Oui               | Oui                                      | Oui    | Non              |
+| Canada                           | Oui               | Oui                                      | Oui    | Oui             |
+| République centrafricaine         | Oui               | Oui                                      | Oui    | Non              |
+| Tchad                             | Oui               | Oui                                      | Oui    | Non              |
+| Chili                            | Oui               | Oui                                      | Oui    | Oui             |
+| Chine                            | Non                | Oui                                      | Oui    | Oui             |
+| Colombie                         | Oui               | Oui                                      | Oui    | Oui             |
+| Comores                          | Oui               | Oui                                      | Non     | Non              |
+| Congo (RDC)                      | Oui               | Oui                                      | Oui    | Non              |
+| République du Congo               | Oui               | Oui                                      | Oui    | Non              |
+| Costa Rica                       | Oui               | Oui                                      | Oui    | Oui             |
+| Côte d’Ivoire                    | Oui               | Oui                                      | Oui    | Non              |
+| Croatie                          | Oui               | Oui                                      | Oui    | Non              |
+| Chypre                           | Oui               | Oui                                      | Oui    | Oui             |
+| République tchèque                   | Oui               | Oui                                      | Oui    | Oui             |
+| Danemark                          | Oui               | Oui                                      | Oui    | Oui             |
+| Dominique                         | Oui               | Oui                                      | Non     | Oui             |
+| République dominicaine               | Oui               | Oui                                      | Oui    | Oui             |
+| Équateur                          | Oui               | Oui                                      | Oui    | Oui             |
+| Égypte                            | Oui               | Oui                                      | Oui    | Oui             |
+| El Salvador                      | Oui               | Oui                                      | Oui    | Oui             |
+| Érythrée                          | Oui               | Oui                                      | Oui    | Non              |
+| Estonie                          | Oui               | Oui                                      | Oui    | Oui             |
+| Éthiopie                         | Oui               | Oui                                      | Oui    | Non              |
+| Îles Fidji                     | Oui               | Oui                                      | Non     | Non              |
+| Finlande                          | Oui               | Oui                                      | Oui    | Oui             |
+| France                           | Oui               | Oui                                      | Oui    | Oui             |
+| Géorgie                          | Oui               | Oui                                      | Oui    | Oui             |
+| Allemagne                          | Oui               | Oui                                      | Oui    | Oui             |
+| Ghana                            | Oui               | Oui                                      | Oui    | Non              |
+| Grèce                           | Oui               | Oui                                      | Oui    | Oui             |
+| Guatemala                        | Oui               | Oui                                      | Oui    | Oui             |
+| Guinée                           | Oui               | Oui                                      | Oui    | Non              |
+| Haïti                            | Oui               | Oui                                      | Oui    | Non              |
+| Honduras                         | Oui               | Oui                                      | Oui    | Oui             |
+| Hong Kong (R.A.S.)                        | Oui               | Oui                                      | Oui    | Oui             |
+| Hongrie                          | Oui               | Oui                                      | Oui    | Oui             |
+| Islande                          | Oui               | Oui                                      | Oui    | Non              |
+| Inde                            | Oui               | Oui                                      | Oui    | Oui             |
+| Indonésie                        | Oui               | Oui                                      | Oui    | Oui             |
+| Irak                             | Oui               | Oui                                      | Non     | Non              |
+| Irlande                          | Oui               | Oui                                      | Oui    | Oui             |
+| Israël                           | Oui               | Oui                                      | Oui    | Oui             |
+| Italie                            | Oui               | Oui                                      | Oui    | Oui             |
+| Jamaïque                          | Oui               | Oui                                      | Oui    | Oui             |
+| Japon                            | Oui               | Oui                                      | Oui    | Oui             |
+| Jordanie                           | Oui               | Oui                                      | Oui    | Oui             |
+| Kazakhstan                       | Oui               | Oui                                      | Oui    | Oui             |
+| Kenya                            | Oui               | Oui                                      | Oui    | Oui             |
+| Corée du Sud                    | Oui               | Oui                                      | Oui    | Non              |
+| Koweït                           | Oui               | Oui                                      | Oui    | Oui             |
+| Kirghizistan                       | Non                | Non                                       | Oui    | Non              |
+| Laos                             | Oui               | Oui                                      | Oui    | Non              |
+| Lettonie                           | Oui               | Oui                                      | Oui    | Non              |
+| Liban                          | Oui               | Oui                                      | Non     | Non              |
+| Liberia                          | Oui               | Oui                                      | Oui    | Non              |
+| Liechtenstein                    | Oui               | Oui                                      | Oui    | Oui             |
+| Lituanie                        | Oui               | Oui                                      | Oui    | Non              |
+| Luxembourg                       | Oui               | Oui                                      | Oui    | Oui             |
+| République de Macédoine                        | Non                | Oui                                      | Oui    | Non              |
+| Madagascar                       | Oui               | Oui                                      | Oui    | Non              |
+| Malawi                           | Oui               | Oui                                      | Oui    | Oui             |
+| Malaisie                         | Oui               | Oui                                      | Oui    | Oui             |
+| Mali                             | Oui               | Oui                                      | Oui    | Non              |
+| Malte                            | Oui               | Oui                                      | Oui    | Oui             |
+| Maurice (île)                        | Oui               | Oui                                      | Non     | Oui             |
+| Mexique                           | Oui               | Oui                                      | Oui    | Oui             |
+| Monaco                           | Oui               | Oui                                      | Non     | Non              |
+| Mongolie                         | Oui               | Oui                                      | Oui    | Non              |
+| Monténégro                       | Oui               | Oui                                      | Oui    | Non              |
+| Maroc                          | Oui               | Oui                                      | Oui    | Non              |
+| Mozambique                       | Oui               | Oui                                      | Oui    | Oui             |
+| Népal                            | Oui               | Oui                                      | Oui    | Non              |
+| Pays-Bas                 | Oui               | Oui                                      | Oui    | Oui             |
+| Nouvelle-Zélande                      | Oui               | Oui                                      | Oui    | Oui             |
+| Nicaragua                        | Oui               | Oui                                      | Oui    | Oui             |
+| Niger                            | Oui               | Oui                                      | Oui    | Non              |
+| Nigeria                          | Oui               | Oui                                      | Oui    | Non              |
+| Norvège                           | Oui               | Oui                                      | Oui    | Oui             |
+| Oman                             | Oui               | Oui                                      | Oui    | Oui             |
+| Pakistan                         | Oui               | Oui                                      | Oui    | Non              |
+| Panama                           | Oui               | Oui                                      | Oui    | Oui             |
+| Paraguay                         | Oui               | Oui                                      | Oui    | Non              |
+| Pérou                             | Oui               | Oui                                      | Oui    | Oui             |
+| Philippines                      | Oui               | Oui                                      | Oui    | Oui             |
+| Pologne                           | Oui               | Oui                                      | Oui    | Oui             |
+| Portugal                         | Oui               | Oui                                      | Oui    | Oui             |
+| Porto Rico                      | Non                | Non                                       | Oui    | Non              |
+| Qatar                            | Oui               | Oui                                      | Oui    | Oui             |
+| Roumanie                          | Oui               | Oui                                      | Oui    | Non              |
+| Russie                           | Oui               | Oui                                      | Non     | Oui             |
+| Rwanda                           | Oui               | Oui                                      | Oui    | Non              |
+| Saint-Vincent-et-les-Grenadines | Non                | Oui                                      | Non     | Non              |
+| Arabie Saoudite                     | Oui               | Oui                                      | Oui    | Oui             |
+| Sénégal                          | Oui               | Oui                                      | Oui    | Non              |
+| Serbie                           | Oui               | Oui                                      | Oui    | Non              |
+| Sierra Leone                     | Oui               | Oui                                      | Oui    | Non              |
+| Singapour                        | Oui               | Oui                                      | Oui    | Oui             |
+| Slovaquie                         | Oui               | Oui                                      | Oui    | Oui             |
+| Slovénie                         | Oui               | Oui                                      | Oui    | Oui             |
+| Somalie                          | Oui               | Oui                                      | Oui    | Non              |
+| Afrique du Sud                     | Oui               | Oui                                      | Oui    | Oui             |
+| Espagne                            | Oui               | Oui                                      | Oui    | Oui             |
+| Sri Lanka                        | Oui               | Oui                                      | Oui    | Non              |
+| Suède                           | Oui               | Oui                                      | Oui    | Oui             |
+| Suisse                      | Oui               | Oui                                      | Oui    | Non              |
+| Taïwan                           | Non                | Oui                                      | Oui    | Oui             |
+| Tadjikistan                       | Oui               | Oui                                      | Non     | Non              |
+| Tanzanie                         | Oui               | Oui                                      | Oui    | Non              |
+| Thaïlande                         | Oui               | Oui                                      | Oui    | Oui             |
+| Timor-Leste                      | Oui               | Oui                                      | Oui    | Non              |
+| Togo                             | Oui               | Oui                                      | Oui    | Non              |
+| Tonga                            | Oui               | Oui                                      | Non     | Non              |
+| Trinité-et-Tobago              | Oui               | Oui                                      | Oui    | Oui             |
+| Tunisie                          | Oui               | Oui                                      | Oui    | Non              |
+| Turquie                           | Oui               | Oui                                      | Oui    | Non              |
+| Turkménistan                     | Oui               | Oui                                      | Non     | Non              |
+| Ouganda                           | Oui               | Oui                                      | Oui    | Non              |
+| Ukraine                          | Oui               | Oui                                      | Non     | Non              |
+| Émirats Arabes Unis             | Oui               | Oui                                      | Oui    | Oui             |
+| United Kingdom                   | Oui               | Oui                                      | Oui    | Oui             |
+| États-Unis                    | Oui               | Oui                                      | Oui    | Oui             |
+| Uruguay                          | Oui               | Oui                                      | Oui    | Oui             |
+| Ouzbékistan                       | Oui               | Oui                                      | Non     | Non              |
+| Venezuela                        | Oui               | Oui                                      | Oui    | Oui             |
+| Vietnam                          | Oui               | Oui                                      | Oui    | Oui             |
+| Zambie                           | Oui               | Oui                                      | Oui    | Non              |
+| Zimbabwe                         | Oui               | Oui                                      | Oui    | Non              |

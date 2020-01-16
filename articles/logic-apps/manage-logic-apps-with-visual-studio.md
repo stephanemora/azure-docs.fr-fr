@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: ed48082c52a5b4f79fd2030303dbe2bb7bedafe6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456587"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982531"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -90,13 +90,13 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
    ![Ouvrir l’application logique déployée à partir du portail Azure](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   Une fois l'application logique ouverte dans le Concepteur d'applications logiques, au bas de celui-ci, vous pouvez sélectionner **Mode Code** pour examiner la structure de définition de l'application logique sous-jacente. Pour créer un modèle de déploiement pour l’application logique, apprenez à [télécharger un modèle Azure Resource Manager](#download-logic-app) pour cette application logique. Découvrez-en plus sur les [modèles Resource Manager](../azure-resource-manager/template-deployment-overview.md).
+   Une fois l'application logique ouverte dans le Concepteur d'applications logiques, au bas de celui-ci, vous pouvez sélectionner **Mode Code** pour examiner la structure de définition de l'application logique sous-jacente. Pour créer un modèle de déploiement pour l’application logique, apprenez à [télécharger un modèle Azure Resource Manager](#download-logic-app) pour cette application logique. Découvrez-en plus sur les [modèles Resource Manager](../azure-resource-manager/templates/overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Télécharger à partir d’Azure
 
-Vous pouvez télécharger des applications logiques à partir du [portail Azure](https://portal.azure.com) et les enregistrer en tant que modèles [Azure Resource Manager](../azure-resource-manager/management/overview.md). Vous pouvez ensuite modifier localement les modèles avec Visual Studio et personnaliser les applications logiques pour différents environnements de déploiement.  Le téléchargement d’applications logiques *paramètre* automatiquement leurs définitions dans des [modèles Resource Manager](../azure-resource-manager/template-deployment-overview.md), qui utilisent également JSON (JavaScript Objet Notation).
+Vous pouvez télécharger des applications logiques à partir du [portail Azure](https://portal.azure.com) et les enregistrer en tant que modèles [Azure Resource Manager](../azure-resource-manager/management/overview.md). Vous pouvez ensuite modifier localement les modèles avec Visual Studio et personnaliser les applications logiques pour différents environnements de déploiement.  Le téléchargement d’applications logiques *paramètre* automatiquement leurs définitions dans des [modèles Resource Manager](../azure-resource-manager/templates/overview.md), qui utilisent également JSON (JavaScript Objet Notation).
 
 1. Dans Visual Studio, ouvrez Cloud Explorer. Recherchez et sélectionnez l'application logique à télécharger à partir d'Azure.
 
@@ -113,13 +113,13 @@ Vous pouvez télécharger des applications logiques à partir du [portail Azure]
 
 1. Lorsque vous êtes invité à entrer un emplacement, accédez à cet emplacement et enregistrez le modèle Resource Manager de la définition d’application logique au format de fichier JSON (.json).
 
-   Votre définition d’application logique apparaît dans la sous-section `resources` à l’intérieur du modèle Resource Manager. Vous pouvez maintenant modifier la définition d’application logique et le modèle Resource Manager avec Visual Studio. Vous pouvez également ajouter le modèle en tant que projet [Azure Resource Group](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) à une solution Visual Studio. Découvrez plus d’informations sur les [projets Azure Resource Group pour les applications logiques dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Votre définition d’application logique apparaît dans la sous-section `resources` à l’intérieur du modèle Resource Manager. Vous pouvez maintenant modifier la définition d’application logique et le modèle Resource Manager avec Visual Studio. Vous pouvez également ajouter le modèle en tant que projet [Azure Resource Group](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) à une solution Visual Studio. Découvrez plus d’informations sur les [projets Azure Resource Group pour les applications logiques dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
 ## <a name="link-to-integration-account"></a>Lier à un compte d’intégration
 
-Pour créer des applications logiques pour des scénarios d’intégration d’entreprise B2B (Business-to-Business), vous pouvez lier votre application logique à un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) précédemment créé qui existe dans la même région que votre application logique. Un compte d’intégration contient des artefacts B2B, comme des partenaires commerciaux, des contrats, des schémas et des mappages, et permet à votre application logique d’utiliser des connecteurs B2B pour la validation XML, et l’encodage ou le décodage de fichier plat. Vous pouvez [créer ce lien en utilisant le portail Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), mais vous pouvez aussi utiliser Visual Studio après avoir satisfait aux [prérequis](#requirements) : votre application logique existe en tant que fichier JSON (.json) à l’intérieur d’un projet [Azure Resource Group](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Découvrez plus d’informations sur les [projets Azure Resource Group pour les applications logiques dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+Pour créer des applications logiques pour des scénarios d’intégration d’entreprise B2B (Business-to-Business), vous pouvez lier votre application logique à un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) précédemment créé qui existe dans la même région que votre application logique. Un compte d’intégration contient des artefacts B2B, comme des partenaires commerciaux, des contrats, des schémas et des mappages, et permet à votre application logique d’utiliser des connecteurs B2B pour la validation XML, et l’encodage ou le décodage de fichier plat. Vous pouvez [créer ce lien en utilisant le portail Azure](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), mais vous pouvez aussi utiliser Visual Studio après avoir satisfait aux [prérequis](#requirements) : votre application logique existe en tant que fichier JSON (.json) à l’intérieur d’un projet [Azure Resource Group](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Découvrez plus d’informations sur les [projets Azure Resource Group pour les applications logiques dans Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
 
 1. Dans Visual Studio, ouvrez le projet Azure Resource Group qui contient votre application logique.
 
@@ -149,7 +149,7 @@ Quand vous définissez la propriété **Compte d’intégration** dans Visual St
 
 ## <a name="change-deployment-location"></a>Modifier l’emplacement de déploiement
 
-Dans Visual Studio, si votre application logique existe en tant que fichier JSON (.json) au sein d’un [projet de groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) que vous utilisez pour automatiser le déploiement, cette application logique est définie sur un type d’emplacement et un emplacement spécifique. Cet emplacement est soit une région Azure, soit un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment.md) existant.
+Dans Visual Studio, si votre application logique existe en tant que fichier JSON (.json) au sein d’un [projet de groupe de ressources Azure](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) que vous utilisez pour automatiser le déploiement, cette application logique est définie sur un type d’emplacement et un emplacement spécifique. Cet emplacement est soit une région Azure, soit un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment.md) existant.
 
 Pour modifier le type d’emplacement ou l’emplacement de votre application logique, vous devez ouvrir le fichier de définition de flux de travail de votre application logique (.json) à partir de l’Explorateur de solutions à l’aide du Concepteur d’application logique. Vous ne pouvez pas modifier ces propriétés à l’aide de Cloud Explorer.
 

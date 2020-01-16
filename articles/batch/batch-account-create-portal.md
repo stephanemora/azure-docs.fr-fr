@@ -3,7 +3,7 @@ title: Créer un compte dans le Portail Azure - Azure Batch | Microsoft Docs
 description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cceb7cc179f78d6b6d7350e7c4f6c31bb9cbfed
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4eb6b0c64fc40dec48dc9103c67e8e4a0730d7e2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095726"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029808"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 
@@ -31,7 +31,7 @@ Pour plus d’informations sur les comptes et les scénarios Batch, consultez la
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-1. Connectez-vous au [Portail Azure][azure_portal].
+1. Connectez-vous au [portail Azure][azure_portal].
 
 1. Sélectionnez **Créer une ressource** > **Compute** > **Service Batch**.
 
@@ -83,7 +83,7 @@ Si vous choisissez de créer un compte Batch en mode d’abonnement utilisateur,
 
 Quand vous créez votre premier compte Batch en mode Abonnement utilisateur, vous devez inscrire votre abonnement auprès de Batch. (Si vous l’avez déjà fait, passez à la section suivante.)
 
-1. Connectez-vous au [Portail Azure][azure_portal].
+1. Connectez-vous au [portail Azure][azure_portal].
 
 1. Sélectionnez **Tous les services** > **Abonnements**, puis cliquez sur l’abonnement que vous souhaitez utiliser pour le compte Batch.
 
@@ -133,7 +133,7 @@ Consultez [Quotas et limites du service Batch](batch-quota-limit.md) pour plus d
 Vous pouvez créer et gérer des comptes Batch à l’aide du portail Azure, mais également avec les outils suivants :
 
 * [Applets de commande PowerShell pour Batch](batch-powershell-cmdlets-get-started.md)
-* [Interface de ligne de commande Azure](batch-cli-get-started.md)
+* [Azure CLI](batch-cli-get-started.md)
 * [Gestion de lots .NET](batch-management-dotnet.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459172"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979271"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 Azure offre la possibilité d’exécuter des applications et des machines virtuelles sur une infrastructure physique partagée. L’une des principales motivations économiques pour exécuter des applications dans un environnement cloud est la possibilité de répartir le coût des ressources partagées entre plusieurs clients. Cette pratique de mutualisation améliore l’efficacité en multiplexant des ressources entre différents clients à faible coût. Malheureusement, elle présente également le risque de partager des serveurs physiques et d’autres ressources d’infrastructure pour exécuter vos machines virtuelles et applications sensibles appartenant peut-être à un utilisateur arbitraire et potentiellement malveillant.
@@ -190,7 +190,7 @@ Le **contrôle d’accès dans le stockage Azure** dispose d’un modèle de con
 La SAP nous permet d’accorder à un client des autorisations limitées à des objets de notre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Nous pouvons accorder ces autorisations limitées sans partager les clés d’accès de votre compte.
 
 ### <a name="ip-level-storage-isolation"></a>Isolation du stockage au niveau de l’adresse IP
-Vous pouvez activer des pare-feu et définir une plage d’adresses IP pour vos clients approuvés. Avec une plage d’adresses IP, seuls les clients qui ont une adresse IP dans la plage définie peuvent se connecter au [stockage Azure](../../storage/common/storage-security-guide.md).
+Vous pouvez activer des pare-feu et définir une plage d’adresses IP pour vos clients approuvés. Avec une plage d’adresses IP, seuls les clients qui ont une adresse IP dans la plage définie peuvent se connecter au [stockage Azure](../../storage/blobs/security-recommendations.md).
 
 Les données de stockage d’adresses IP peuvent être protégées des utilisateurs non autorisés via un mécanisme de mise en réseau qui est utilisé pour allouer un tunnel dédié de trafic au stockage d’adresses IP.
 
@@ -203,18 +203,18 @@ Azure propose les types de chiffrement suivants pour protéger les données :
 #### <a name="encryption-in-transit"></a>Chiffrement en transit
 Le chiffrement en transit est un mécanisme de protection des données transmises sur des réseaux. Le stockage Azure vous permet de sécuriser les données à l’aide des éléments suivants :
 
--   Le [chiffrement au niveau du transport](../../storage/common/storage-security-guide.md) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
+-   Le [chiffrement au niveau du transport](../../storage/blobs/security-recommendations.md) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
 
--   Le [chiffrement câblé](../../storage/common/storage-security-guide.md), par exemple le chiffrement SMB 3.0 pour les partages de fichiers Azure.
+-   Le [chiffrement câblé](../../storage/blobs/security-recommendations.md), par exemple le chiffrement SMB 3.0 pour les partages de fichiers Azure.
 
--   Le [chiffrement côté client](../../storage/common/storage-security-guide.md), pour chiffrer les données avant leur transfert vers Storage et les déchiffrer après leur transfert à partir de Storage.
+-   Le [chiffrement côté client](../../storage/blobs/security-recommendations.md), pour chiffrer les données avant leur transfert vers Storage et les déchiffrer après leur transfert à partir de Storage.
 
 #### <a name="encryption-at-rest"></a>Chiffrement au repos
 Pour de nombreuses organisations, le [chiffrement des données au repos](isolation-choices.md) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données « au repos ».
 
--   [Storage Service Encryption](../../storage/common/storage-security-guide.md) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
+-   [Storage Service Encryption](../../storage/blobs/security-recommendations.md) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans Azure Storage.
 
--   [Client-side Encryption](../../storage/common/storage-security-guide.md) fournit également la fonctionnalité de chiffrement au repos.
+-   [Client-side Encryption](../../storage/blobs/security-recommendations.md) fournit également la fonctionnalité de chiffrement au repos.
 
 -   [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) vous permet de chiffrer les disques de données et de système d’exploitation utilisés par une machine virtuelle IaaS.
 

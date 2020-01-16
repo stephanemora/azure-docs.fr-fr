@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b6dffb46d8c0fd7201079de3e8509ece516d2f8f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821394"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978469"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -26,7 +26,7 @@ Pour préparer les disques durs à l’aide de l’outil WAImportExport, un cert
 
 |Plateforme |Version |
 |---------|---------|
-|Windows     | Windows 7 Entreprise, Windows 7 Édition intégrale <br> Windows 8 Pro, Windows 8 Entreprise, Windows 8.1 Professionnel, Windows 8.1 Entreprise <br> Windows 10        |
+|Windows     | Windows 7 Entreprise, Windows 7 Édition intégrale <br> Windows 8 Pro, Windows 8 Entreprise, Windows 8.1 Professionnel, Windows 8.1 Entreprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012 et Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Autres logiciels nécessaires pour le client Windows
@@ -43,13 +43,13 @@ Le service Azure Import/Export prend en charge les types de comptes de stockage 
 
 - Comptes de stockage v2 à usage général standard (recommandés pour la plupart des scénarios)
 - Comptes de stockage d’objets blob
-- Comptes de stockage v1 à usage général (déploiements Classic ou Azure Resource Manager) 
+- Comptes de stockage v1 à usage général (déploiements Classic ou Azure Resource Manager)
 
 Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
 
-Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-quickstart-create-account.md).
+Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-account-create.md).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service de réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md)  a été activée. 
 
 ## <a name="supported-storage-types"></a>Types de stockage pris en charge
@@ -57,13 +57,13 @@ Chaque tâche peut servir à transférer des données vers ou à partir d'un seu
 Les types de stockage suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Travail  |Service de stockage |Pris en charge  |Non pris en charge  |
+|Travail  |Service de stockage |Prise en charge  |Non pris en charge  |
 |---------|---------|---------|---------|
-|Importer     |  Stockage d'objets blob Azure <br><br> Présentation du stockage de fichiers       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
-|Exportation     |   Stockage d'objets blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge
+|Importer     |  Stockage Blob Azure <br><br> Présentation du stockage de fichiers       | Objets blob de blocs et de pages pris en charge <br><br> Fichiers pris en charge          |
+|Exporter     |   Stockage Blob Azure       | Objets blob de blocs, de pages et d’ajout pris en charge         | Fichiers Azure non pris en charge
 
 
-## <a name="supported-hardware"></a>Matériel pris en charge 
+## <a name="supported-hardware"></a>Matériel pris en charge
 
 Dans le cadre du service Azure Import/Export, vous avez besoin de disques pris en charge pour copier les données.
 
@@ -72,9 +72,9 @@ Dans le cadre du service Azure Import/Export, vous avez besoin de disques pris e
 Les types de disques suivants sont pris en charge avec le service Azure Import/Export.
 
 
-|Type de disque  |Size  |Pris en charge |
+|Type de disque  |Size  |Prise en charge |
 |---------|---------|---------|
-|SSD    |   2,5"      |SATA III          | 
+|SSD    |   2,5"      |SATA III          |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |
 
 Les types de disque suivants ne sont pas pris en charge :
@@ -88,7 +88,7 @@ Un travail d’importation/exportation peut avoir à lui seul :
 
 Il est possible de répartir un grand nombre de disques entre plusieurs tâches, et il n’existe aucune limite quant au nombre de tâches pouvant être créées. Dans le cas des tâches d’importation, seul le premier volume de données du lecteur est traité. Il doit être formaté avec NTFS.
 
-Au moment de préparer les disques durs et de copier les données avec l’outil WAImportExport, vous pouvez utiliser les adaptateurs USB externes. La plupart des adaptateurs USB 3.0 ou version ultérieure du commerce doivent fonctionner. 
+Au moment de préparer les disques durs et de copier les données avec l’outil WAImportExport, vous pouvez utiliser les adaptateurs USB externes. La plupart des adaptateurs USB 3.0 ou version ultérieure du commerce doivent fonctionner.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -96,4 +96,3 @@ Au moment de préparer les disques durs et de copier les données avec l’outil
 * [Configurer l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
 * [Exemple d’API REST Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)
-

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168951"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981784"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
 
 Cet article explique comment résoudre les problèmes de connexion à une machine virtuelle Azure quand les Services Bureau à distance, ou TermService, ne démarrent pas ou échouent au démarrage.
 
 > [!NOTE]  
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 
@@ -36,14 +36,14 @@ Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez
 
 - Vous consultez à distance les journaux des événements dans la machine virtuelle avec l’observateur d’événements. Il apparaît que les Services Bureau à distance, TermService, ne démarrent pas ou échouent au démarrage. Voici un exemple de journal :
 
-    **Nom du journal** :      System </br>
+    **Nom du journal** :      Système </br>
     **Source** :        Gestionnaire de contrôle des services </br>
     **Date** :          16/12/2017 11:19:36 AM</br>
     **ID d’événement** :      7022</br>
-    **Catégorie de tâche** : Aucun</br>
-    **Niveau** :         Error</br>
+    **Catégorie de tâche** : None</br>
+    **Niveau** :         Error</br>
     **Mots clés** :      Classique</br>
-    **Utilisateur** :          N/A</br>
+    **Utilisateur** :          N/A</br>
     **Ordinateur** :      vm.contoso.com</br>
     **Description** : Le service Services Bureau à distance s’est bloqué au démarrage. 
 

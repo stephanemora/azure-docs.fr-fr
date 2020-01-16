@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799035"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980545"
 ---
-# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Didacticiel : Gérer vos appareils connectés en bloc
+# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutoriel : Gérer vos appareils connectés en bloc
 
 Dans ce tutoriel, vous utilisez l’accélérateur de solution de supervision à distance pour gérer en bloc la configuration de vos appareils connectés.
 
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous avez besoin d’une instance déployée de l’accélérateur de solution de supervision à distance dans votre abonnement Azure.
 
 Si vous n’avez pas encore déployé l’accélérateur de solution de supervision à distance, vous devez suivre le guide de démarrage rapide [Déployer une solution de supervision à distance cloud](quickstart-remote-monitoring-deploy.md).
 
-Vous avez besoin d’un compte de stockage Azure pour héberger vos fichiers de microprogramme. Vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) dans votre abonnement.
+Vous avez besoin d’un compte de stockage Azure pour héberger vos fichiers de microprogramme. Vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage](../storage/common/storage-account-create.md) dans votre abonnement.
 
 Le tutoriel utilise un [DevKit IoT](https://microsoft.github.io/azure-iot-developer-kit/) comme exemple d’appareil.
 
@@ -54,7 +54,7 @@ Les logiciels suivants doivent être installés sur votre machine locale :
 * [Visual Studio Code (VS Code)](https://code.visualstudio.com/).
 * L’extension VS Code [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench).
 
-Avant de commencer :
+Avant de commencer :
 
 * Vérifiez que la [version du chargeur de démarrage sur votre appareil DevKit IoT est 1.4.0 ou ultérieure](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Vérifiez que le SDK IoT DevKit est à la même version que le chargeur de démarrage. Vous pouvez mettre à jour le SDK IoT DevKit à l’aide d’Azure IoT Workbench dans VS Code. Ouvrez la palette de commandes, puis entrez **Arduino : Gestionnaire de cartes**. Pour plus d’informations, consultez [Préparer l’environnement de développement](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
@@ -99,7 +99,7 @@ L’extension VS Code [Azure IoT Workbench](https://marketplace.visualstudio.co
 
 La version initiale du microprogramme de l’appareil est 1.0.0. Le nouveau microprogramme doit avoir un numéro de version ultérieure.
 
-1. Dans VS Code, ouvrez le fichier **FirmwareOTA.ino**, et remplacez la valeur de `currentFirmwareVersion` `1.0.0` par `1.0.1` :
+1. Dans VS Code, ouvrez le fichier **FirmwareOTA.ino**, et remplacez la valeur de `currentFirmwareVersion``1.0.0` par `1.0.1` :
 
     ![Changer la version du microprogramme](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
@@ -135,7 +135,7 @@ Utilisez votre compte de stockage Azure pour héberger votre nouveau fichier de 
 
 ### <a name="build-and-upload-the-original-firmware-to-the-iot-devkit-device"></a>Générer et charger le microprogramme d’origine sur l’appareil DevKit IoT
 
-1. Dans VS Code, ouvrez le fichier **FirmwareOTA.ino**, et rétablissez la valeur de `currentFirmwareVersion` `1.0.0` :
+1. Dans VS Code, ouvrez le fichier **FirmwareOTA.ino**, et rétablissez la valeur de `currentFirmwareVersion``1.0.0` :
 
     ![Version 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
@@ -228,12 +228,12 @@ Dans cette section, vous créez et exécutez un déploiement qui applique la con
 
     |Option|Valeur|
     |---|---|
-    |Nom|Déployer la mise à jour du microprogramme|
+    |Name|Déployer la mise à jour du microprogramme|
     |Type de package|Configuration de l’appareil|
     |Type de configuration|Microprogramme|
     |Package|firmware-update.json|
     |Groupe d’appareils|Appareils DevKit IoT|
-    |Priorité|10|
+    |Priority|10|
 
     ![Créer un déploiement](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 

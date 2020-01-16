@@ -1,19 +1,19 @@
 ---
 title: Facturation à la consommation avec le service de mesure de la consommation de la Place de marché | Place de marché Azure
 description: Cette documentation est un guide pour les éditeurs de logiciels indépendants publiant des offres SaaS avec des modèles de facturation flexibles.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827926"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934183"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturation à la consommation avec le service de mesure de la consommation de la Place de marché
 
@@ -74,7 +74,7 @@ Les dimensions de facturation sont partagées entre tous les plans d’une offre
 Les attributs qui définissent la dimension proprement dite sont partagés entre tous les plans d’une offre.  Avant la publication de l’offre, une modification apportée à ces attributs pour le contexte d’un plan affectera la définition de la dimension dans tous les plans.  Une fois que vous avez publié l’offre, ces attributs ne sont plus modifiables.  Ces attributs sont :
 
 * Identificateur
-* Nom
+* Name
 * Unité de mesure
 
 Les autres attributs d’une dimension sont spécifiques à chaque plan et peuvent avoir des valeurs différentes d’un plan à l’autre.  Avant de publier le plan, vous pouvez modifier ces valeurs : seul ce plan sera affecté.  Une fois que vous avez publié le plan, ces attributs ne sont plus modifiables.  Ces attributs sont :
@@ -104,7 +104,7 @@ Une dimension utilisée avec le service de mesure de la consommation de la Place
 Une fois qu’une offre est publiée avec une dimension, les détails au niveau de l’offre pour cette dimension ne peuvent plus être modifiés :
 
 * Identificateur
-* Nom
+* Name
 * Unité de mesure
 
 Une fois qu’un plan est publié, les détails au niveau du plan ne peuvent plus être modifiés :

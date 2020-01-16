@@ -6,18 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: 95e9f7211c8cd6cb4edd59d099ae9c189bae3780
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 0f5f01c757bf651beddaa76fc3eb8046b21b31eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666922"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979394"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-workflow-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions de flux de travail d’application logique dans Azure Logic Apps
 
-Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code. Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/management/overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md). Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
+Lorsque vous créez des solutions d’intégration d’entreprise avec des flux de travail automatisés dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), les définitions d’application logique sous-jacentes utilisent le JavaScript Object Notation (JSON) avec le [schéma Langue de la définition du flux de travail (WDL)](../logic-apps/logic-apps-workflow-definition-language.md) pour leur description et validation. Ces formats simplifient la lecture et la compréhension des définitions d’application sans en savoir beaucoup sur le code.
+Lorsque vous désirez automatiser la création et le déploiement des applications logiques, vous pouvez inclure des définitions d’application logique en tant que [Ressources Azure](../azure-resource-manager/management/overview.md) dans des [modèles Azure Resource Manager](../azure-resource-manager/templates/overview.md).
+Pour créer, gérer et déployer des applications logiques, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md) ou les [API REST Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/).
 
-Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix. Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éditeur en mode Code lorsque vous travaillez dans le portail Azure ou dans Visual Studio ou copiez la définition dans tout éditeur de votre choix.
+Si vous débutez avec les applications logiques, consultez [procédure de création de votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
 > Certaines fonctionnalités Azure Logic Apps, telle que la définition des paramètres et de plusieurs déclencheurs dans les définitions d’application logique, sont uniquement disponibles dans JSON, et pas le Concepteur d’applications logiques.
@@ -27,7 +30,8 @@ Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éd
 
 1. Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a>.
 
-2. Dans le menu de gauche, choisissez **Tous les services**. Dans la zone de recherche, rechercher « applications logiques », puis à partir des résultats, sélectionnez votre application logique.
+2. Dans le menu de gauche, choisissez **Tous les services**.
+Dans la zone de recherche, rechercher « applications logiques », puis à partir des résultats, sélectionnez votre application logique.
 
 3. Dans le menu de l’application logique, sous **Outils de développement**, choisissez **Affichage du code de l’application logique**.
 
@@ -35,22 +39,25 @@ Pour utiliser des définitions d’application logique dans JSON, ouvrez l’éd
 
 ## <a name="edit-json---visual-studio"></a>Modifier JSON - Visual Studio
 
-Avant de pouvoir travailler sur la définition de votre application logique dans Visual Studio, assurez-vous d’avoir [installé les outils requis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites). Pour créer une application logique avec Visual Studio, consultez [Démarrage rapide : Automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Avant de pouvoir travailler sur la définition de votre application logique dans Visual Studio, assurez-vous d’avoir [installé les outils requis](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
+Pour créer une application logique avec Visual Studio, consultez [Démarrage rapide : Automatiser des tâches et des processus avec Azure Logic Apps - Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment créées et déployées directement depuis le portail Azure ou en tant que projets Azure Resource Manager à partir de Visual Studio.
 
 1. Ouvrez la solution Visual Studio ou le projet [Azure Resource Manager](../azure-resource-manager/management/overview.md), qui contient votre application logique.
 
-2. Recherchez et ouvrez la définition de votre application logique, qui par défaut s’affiche dans un [modèle Resource Manager](../azure-resource-manager/template-deployment-overview.md), nommé **LogicApp.json**. Vous pouvez utiliser et personnaliser ce modèle pour le déploiement vers différents environnements.
+2. Recherchez et ouvrez la définition de votre application logique, qui par défaut s’affiche dans un [modèle Resource Manager](../azure-resource-manager/templates/overview.md), nommé **LogicApp.json**.
+Vous pouvez utiliser et personnaliser ce modèle pour le déploiement vers différents environnements.
 
-3. Ouvrez le menu contextuel de la définition et du modèle de votre application logique. Sélectionnez **Ouvrir avec le Concepteur d’application logique**.
+3. Ouvrez le menu contextuel de la définition et du modèle de votre application logique.
+Sélectionnez **Ouvrir avec le Concepteur d’application logique**.
 
    ![Ouvrir une application logique dans une solution Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
    > [!TIP]
    > Si vous ne voyez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
 
-4. En bas du concepteur, choisissez **Mode Code**. 
+4. En bas du concepteur, choisissez **Mode Code**.
 
    L’éditeur Mode Code s’ouvre et affiche la définition de votre application logique au format JSON.
 
@@ -58,7 +65,7 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 
 ## <a name="parameters"></a>Paramètres
 
-Le cycle de vie du déploiement a généralement des environnements différents pour le développement, le test, la mise en lots et la production. Si vous souhaitez réutiliser des valeurs dans votre application logique sans codage en dur ou qui varient en fonction de vos besoins en matière de déploiement, vous pouvez créer un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md) pour votre définition de flux de travail afin de pouvoir également automatiser le déploiement d’applications logiques. 
+Le cycle de vie du déploiement a généralement des environnements différents pour le développement, le test, la mise en lots et la production. Si vous souhaitez réutiliser des valeurs dans votre application logique sans codage en dur ou qui varient en fonction de vos besoins en matière de déploiement, vous pouvez créer un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md) pour votre définition de flux de travail afin de pouvoir également automatiser le déploiement d’applications logiques.
 
 Suivez ces étapes générales pour *paramétrer*, ou définir et utiliser des paramètres, pour ces valeurs à la place. Vous pouvez ensuite fournir les valeurs dans un fichier de paramètres distinct qui transmet ces valeurs à votre modèle. De cette façon, vous pouvez modifier ces valeurs plus facilement sans avoir à mettre à jour et à redéployer votre application logique. Pour obtenir tous les détails, consultez [Vue d’ensemble : Automatiser le déploiement pour les applications logiques avec des modèles Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
@@ -76,7 +83,10 @@ Suivez ces étapes générales pour *paramétrer*, ou définir et utiliser des p
 
 ## <a name="process-strings-with-functions"></a>Traiter des chaînes avec des fonctions
 
-Logic Apps possède différentes fonctions permettant de manipuler des chaînes. Par exemple, supposons que vous souhaitiez transmettre un nom de société d’une commande à un autre système. Toutefois, vous n’êtes pas sûr de la gestion correcte du codage de caractères. Vous pouvez effectuer un codage base64 sur cette chaîne, mais pour éviter les séquences d’échappement dans l’URL, il est conseillé de remplacer plusieurs caractères. De même, vous avez uniquement besoin d’une sous-chaîne du nom de la société, car les cinq premiers caractères ne sont pas utilisés.
+Logic Apps possède différentes fonctions permettant de manipuler des chaînes.
+Par exemple, supposons que vous souhaitiez transmettre un nom de société d’une commande à un autre système.
+Toutefois, vous n’êtes pas sûr de la gestion correcte du codage de caractères.
+Vous pouvez effectuer un codage base64 sur cette chaîne, mais pour éviter les séquences d’échappement dans l’URL, il est conseillé de remplacer plusieurs caractères. De même, vous avez uniquement besoin d’une sous-chaîne du nom de la société, car les cinq premiers caractères ne sont pas utilisés.
 
 ``` json
 {
@@ -121,7 +131,8 @@ Les étapes suivantes décrivent la façon dont cet exemple traite cette chaîne
 
 2. Pour obtenir une chaîne plus courte, soustrayez `5`.
 
-3. Obtenez à présent un élément [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md). Commencez à l’index `5`, puis passez au reste de la chaîne.
+3. Obtenez à présent un élément [`substring()`](../logic-apps/logic-apps-workflow-definition-language.md).
+Commencez à l’index `5`, puis passez au reste de la chaîne.
 
 4. Nous convertissons cette sous-chaîne en une chaîne [`base64()`](../logic-apps/logic-apps-workflow-definition-language.md).
 
@@ -133,7 +144,8 @@ Les étapes suivantes décrivent la façon dont cet exemple traite cette chaîne
 
 Pour obtenir des résultats différents en fonction de la valeur d’une propriété, vous pouvez créer un mappage qui associe chaque valeur de propriété à un résultat, puis utiliser ce mappage en tant que paramètre.
 
-Par exemple, ce flux de travail définit certaines catégories en tant que paramètres et un mappage qui associe ces catégories à une URL spécifique. Tout d’abord, le flux de travail obtient une liste d’articles. Ensuite, le flux de travail utilise le mappage pour rechercher l’URL correspondant à la catégorie de chaque article.
+Par exemple, ce flux de travail définit certaines catégories en tant que paramètres et un mappage qui associe ces catégories à une URL spécifique.
+Tout d’abord, le flux de travail obtient une liste d’articles. Ensuite, le flux de travail utilise le mappage pour rechercher l’URL correspondant à la catégorie de chaque article.
 
 *   La fonction [`intersection()`](../logic-apps/logic-apps-workflow-definition-language.md) vérifie si la catégorie correspond à une catégorie définie connue.
 
@@ -209,7 +221,8 @@ Par exemple, ce flux de travail définit certaines catégories en tant que param
 
 ## <a name="get-data-with-date-functions"></a>Obtenir des données avec des fonctions de date
 
-Pour obtenir des données à partir d’une source de données qui ne prend pas en charge des *déclencheurs* en mode natif, vous pouvez utiliser des fonctions de date pour utiliser plutôt des heures et des dates. Par exemple, cette expression recherche la durée des étapes de ce flux de travail, de l’intérieur vers l’extérieur :
+Pour obtenir des données à partir d’une source de données qui ne prend pas en charge des *déclencheurs* en mode natif, vous pouvez utiliser des fonctions de date pour utiliser plutôt des heures et des dates.
+Par exemple, cette expression recherche la durée des étapes de ce flux de travail, de l’intérieur vers l’extérieur :
 
 ``` json
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
@@ -219,15 +232,16 @@ Pour obtenir des données à partir d’une source de données qui ne prend pas 
 2. Obtenez l’heure en cours avec l’élément `utcNow()`.
 3. Soustrayez une seconde :
 
-   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
+   [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md)
 
    Vous pouvez utiliser d’autres unités de temps, par exemple `minutes` ou `hours`.
 
-3. À présent, vous pouvez comparer ces deux valeurs. 
+3. À présent, vous pouvez comparer ces deux valeurs.
 
    Si la première valeur est inférieure à la seconde, plus d’une seconde s’est écoulée depuis que la commande a été passée.
 
-Pour mettre en forme les dates, vous pouvez utiliser des formateurs de chaîne. Par exemple, pour obtenir RFC1123, utilisez [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md). En savoir plus sur [la mise en forme des dates](../logic-apps/logic-apps-workflow-definition-language.md).
+Pour mettre en forme les dates, vous pouvez utiliser des formateurs de chaîne. Par exemple, pour obtenir RFC1123, utilisez [`utcnow('r')`](../logic-apps/logic-apps-workflow-definition-language.md).
+En savoir plus sur [la mise en forme des dates](../logic-apps/logic-apps-workflow-definition-language.md).
 
 ``` json
 {

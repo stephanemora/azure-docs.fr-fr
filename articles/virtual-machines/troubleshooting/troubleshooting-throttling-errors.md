@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: db1c6e8e4f1e98db08d5f7ff0ef218fa42d25860
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103296"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045365"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Résolution des erreurs de limitation d’API 
 
@@ -26,13 +26,13 @@ Les requêtes Azure Compute peuvent être limitées à un abonnement et spécifi
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitation par Azure Resource Manager ou les fournisseurs de ressources  
 
-En tant que porte d’entrée d’Azure, Azure Resource Manager procède à l’authentification et à la validation de premier niveau ainsi qu’à la limitation de toutes les requêtes d’API entrantes. Les limites de débit d’appels et en-têtes HTTP de réponse de diagnostic associés Azure Resource Manager sont décrits [ici](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
+En tant que porte d’entrée d’Azure, Azure Resource Manager procède à l’authentification et à la validation de premier niveau ainsi qu’à la limitation de toutes les requêtes d’API entrantes. Les limites de débit d’appels et en-têtes HTTP de réponse de diagnostic associés Azure Resource Manager sont décrits [ici](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
  
 Quand un client API Azure reçoit une erreur de limitation, l’état HTTP est 429, « Trop de requêtes ». Pour comprendre si la limitation des requêtes est effectuée par Azure Resource Manager ou un fournisseur de ressources sous-jacent comme CRP, examinez l’en-tête `x-ms-ratelimit-remaining-subscription-reads` à la recherche de requêtes GET et les en-têtes de réponse `x-ms-ratelimit-remaining-subscription-writes` à la recherche de requêtes autres que GET. Si le nombre d’appels restants est proche de 0, la limite des appels générale de l’abonnement définie par Azure Resource Manager a été atteinte. Les activités de tous les clients de l’abonnement sont comptées ensemble. Sinon, la limitation provient du fournisseur de ressources cible (celui désigné par le segment `/providers/<RP>` de l’URL de requête). 
 
 ## <a name="call-rate-informational-response-headers"></a>En-têtes de réponse d’information de débit d’appels 
 
-| En-tête                            | Format de valeur                           | Exemples                               | Description                                                                                                                                                                                               |
+| En-tête                            | Format de valeur                           | Exemple                               | Description                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Nombre d’appels d’API restants pour la stratégie de limitation portant sur le groupe d’opérations ou de compartiments de ressources avec la cible de cette requête                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Nombre d’appels « facturés » pour cette requête HTTP dans le calcul de la limite de la stratégie applicable. Il s’agit généralement de 1. Les requêtes de lots, par exemple pour la mise à l’échelle d’un groupe de machines virtuelles identiques, peuvent facturer plusieurs comptes. |
@@ -89,7 +89,7 @@ Les statistiques d’appels d’API peuvent fournir de précieuses informations 
 Les applets de commande PowerShell utilisent une API de service REST, qui peut être facilement appelée directement par les clients (mais sans aucune prise en charge formelle pour le moment). Pour afficher le format de requête HTTP, exécutez les applets de commande avec le commutateur -Debug ou surveillez leur exécution avec Fiddler.
 
 
-## <a name="best-practices"></a>Bonnes pratiques 
+## <a name="best-practices"></a>Meilleures pratiques 
 
 - Ne retentez pas les erreurs d’API du service Azure de manière inconditionnelle et/ou immédiate. Une occurrence courante pour le code client est d’entrer dans une boucle de nouvelle tentative rapide quand il rencontre une erreur qui n’est pas renouvelable. Les nouvelles tentatives vont finalement dépasser la limite des appels autorisée pour le groupe d’opérations cible et avoir un impact sur d’autres clients de l’abonnement. 
 - Dans les cas d’automation d’API de volumes importants, envisagez d’implémenter une limitation automatique côté client proactif quand le nombre d’appels disponible pour un groupe d’opérations cible descend en dessous du seuil minimum. 

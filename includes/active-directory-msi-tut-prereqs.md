@@ -2,20 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: active-directory
-author: daveba
+author: MarkusVi
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/13/2018
-ms.author: daveba
+ms.date: 01/14/2020
+ms.author: markvi
 ms.custom: include file
-ms.openlocfilehash: 5e4181c8b88b7321e525846ee60fd6916d796503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea3e135849e07685f81b1cb9a1a63721942d2cb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66226463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971833"
 ---
 - Si vous n’êtes pas familiarisé de la fonctionnalité identités managées pour ressources Azure, consultez cette [Vue d’ensemble](../articles/active-directory/msi-overview.md). Si vous n’avez pas encore de compte Azure, [Inscrivez-vous sur un compte gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Pour effectuer les opérations de création de ressource et de gestion de rôles nécessaires, votre compte doit bénéficier des autorisations « Propriétaire » avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](../articles/role-based-access-control/role-assignments-portal.md).
-- [Connectez-vous au Portail Azure](https://portal.azure.com).
-- [Créer une machine virtuelle avec une identité affectée par le système activée](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity)

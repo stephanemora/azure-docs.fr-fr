@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 2bb275b1ca129d2381fb89fcbe0111c573d4a8e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893346"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979816"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
 
-Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées dans un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de supervision au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention. 
+Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées dans un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de supervision au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention.
 
-- Les métriques de plateforme Azure Monitor sont conservés pendant 93 jours. 
-- Les journaux de diagnostic des ressources s’affichent uniquement s’ils sont routés vers Log Analytics, dans lequel ils présentent une période de rétention configurable d’une durée minimale de 30 jours. 
+- Les métriques de plateforme Azure Monitor sont conservés pendant 93 jours.
+- Les journaux de diagnostic des ressources s’affichent uniquement s’ils sont routés vers Log Analytics, dans lequel ils présentent une période de rétention configurable d’une durée minimale de 30 jours.
 - Les entrées de journal d’activité sont conservées pendant 90 jours.  
 
 Ce didacticiel décrit le processus de configuration de votre environnement Azure pour archiver des données sur un compte de stockage.
@@ -38,15 +38,15 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Vous devez d’abord configurer un compte de stockage sur lequel archiver les données de surveillance. Pour ce faire, [procédez de la manière décrite dans cet article](../../storage/common/storage-quickstart-create-account.md).
+Vous devez d’abord configurer un compte de stockage sur lequel archiver les données de surveillance. Pour ce faire, [procédez de la manière décrite dans cet article](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Router les journaux d’activité d’abonnement vers le compte de stockage
 
-Vous êtes désormais prêt à commencer la configuration de votre environnement Azure pour router les données de surveillance vers un compte de stockage. Tout d’abord, nous configurons les données au niveau de l’abonnement (contenues dans le journal d’activité Azure) de façon à ce qu’elles soient acheminées vers le compte de stockage. Le [**Journal d’activité Azure**](../../azure-monitor/platform/activity-logs-overview.md) fournit un historique des événements au niveau de l’abonnement dans Azure. Vous pouvez le parcourir dans le portail Azure pour déterminer *qui* a créé, mis à jour ou supprimé *quelles* ressources et *quand* il l’a fait.
+Vous êtes désormais prêt à commencer la configuration de votre environnement Azure pour router les données de surveillance vers un compte de stockage. Tout d’abord, nous configurons les données au niveau de l’abonnement (contenues dans le journal d’activité Azure) de façon à ce qu’elles soient acheminées vers le compte de stockage. Le [**Journal d’activité Azure**](../../azure-monitor/platform/platform-logs-overview.md) fournit un historique des événements au niveau de l’abonnement dans Azure. Vous pouvez le parcourir dans le portail Azure pour déterminer *qui* a créé, mis à jour ou supprimé *quelles* ressources et *quand* il l’a fait.
 
 1. Cliquez sur le bouton **Moniteur** dans la liste de navigation de gauche, puis sur **Journal d’activité**.
 
@@ -144,9 +144,9 @@ Les données de surveillance de vos machines virtuelles sont maintenant transfé
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Afficher les données de surveillance figurant dans le compte de stockage
 
 > [!WARNING]
-> À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Si vous avez suivi les étapes précédentes, les données ont commencé à circuler vers votre compte de stockage.
 
@@ -170,7 +170,7 @@ Si vous avez suivi les étapes précédentes, les données ont commencé à circ
 
 Vous avez à présent correctement configuré les données de surveillance à archiver sur un compte de stockage.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 1. Revenez à la section **Exporter le journal d’activité** de l’étape précédente **Router les journaux d’activité d’abonnement vers le compte de stockage**, puis cliquez sur **Réinitialiser**.
 
@@ -199,4 +199,3 @@ Pour tirer le meilleur parti de vos données et en dégager des informations sup
 
 > [!div class="nextstepaction"]
 > [Prise en main d’un espace de travail Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

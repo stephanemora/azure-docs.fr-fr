@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644612"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973027"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -69,7 +69,7 @@ Azure ajoute des itinéraires système par défaut supplémentaires pour les dif
 * **VirtualNetworkServiceEndpoint** : les adresses IP publiques de certains services sont ajoutées à la table de routage par Azure lorsque vous activez un point de terminaison de service pour le service. Les points de terminaison de service sont activés pour des sous-réseaux individuels d’un réseau virtuel, de telle sorte que l’itinéraire est ajouté uniquement à la table de routage d’un sous-réseau pour lequel un point de terminaison de service est activé. Les adresses IP publiques des services Azure changent régulièrement. Azure gère automatiquement les adresses dans la table de routage en cas de changement d’adresses. En savoir plus sur les [points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md), et les services pour lesquels vous pouvez créer des points de terminaison de service.<br>
 
     > [!NOTE]
-    > Les types de tronçon suivants du **peering de réseau virtuel** et **VirtualNetworkServiceEndpoint** sont ajoutés uniquement aux tables de routage des sous-réseaux au sein de réseaux virtuels créés par le biais du modèle de déploiement Azure Resource Manager. Les types de tronçon suivants ne sont pas ajoutés aux tables de routage qui sont associées à des sous-réseaux de réseau virtuel créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
+    > Les types de tronçon suivants du **peering de réseau virtuel** et **VirtualNetworkServiceEndpoint** sont ajoutés uniquement aux tables de routage des sous-réseaux au sein de réseaux virtuels créés par le biais du modèle de déploiement Azure Resource Manager. Les types de tronçon suivants ne sont pas ajoutés aux tables de routage qui sont associées à des sous-réseaux de réseau virtuel créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure.
 
 ## <a name="custom-routes"></a>Itinéraires personnalisés
 
@@ -101,7 +101,7 @@ Vous ne pouvez pas spécifier **Peering de réseau virtuel** ou **VirtualNetwork
 
 ## <a name="next-hop-types-across-azure-tools"></a>Types de tronçon suivants dans les outils Azure
 
-Le nom affiché et référencé pour les types de tronçon suivants diffère entre le portail Azure et les outils en ligne de commande, et entre Azure Resource Manager et les modèles de déploiement classique. Le tableau suivant répertorie les noms utilisés pour faire référence à chaque type de tronçon suivant avec les différents outils et [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+Le nom affiché et référencé pour les types de tronçon suivants diffère entre le portail Azure et les outils en ligne de commande, et entre Azure Resource Manager et les modèles de déploiement classique. Le tableau suivant répertorie les noms utilisés pour faire référence à chaque type de tronçon suivant avec les différents outils et [modèles de déploiement](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Type de tronçon suivant                   |Azure CLI et PowerShell (Gestionnaire des ressources) |Azure CLI classique and PowerShell (classique)|
 |-------------                   |---------                                       |-----|

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456542"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965887"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Déplacer des ressources d’application logique vers d’autres abonnements Azure, des groupes de ressources ou des régions
 
@@ -33,7 +33,7 @@ Pour déplacer votre application logique ou les ressources associées vers un au
 
 ## <a name="move-resources-between-subscriptions"></a>Déplacer des ressources entre des abonnements
 
-Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre abonnement Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/resource-group-move-resources.md).
+Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre abonnement Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez la ressource d’application logique que vous souhaitez déplacer.
 
@@ -51,7 +51,7 @@ Pour déplacer une ressource, telle qu’une application logique ou un compte d�
 
 ## <a name="move-resources-between-resource-groups"></a>Déplacer des ressources entre des groupes de ressources
 
-Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre groupe de ressources Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/resource-group-move-resources.md).
+Pour déplacer une ressource, telle qu’une application logique ou un compte d’intégration, vers un autre groupe de ressources Azure, vous pouvez utiliser l’API Portail Azure, Azure PowerShell, Azure CLI ou REST. Ces étapes couvrent les Portail Azure, que vous pouvez utiliser lorsque la région de la ressource reste la même. Pour plus d’informations, consultez la page [Déplacer des ressources vers un nouveau groupe de ressources ou un abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Avant de déplacer réellement des ressources entre des groupes, vous pouvez tester si vous pouvez déplacer votre ressource vers un autre groupe. Pour plus d’informations, voir [Valider votre opération de déplacement](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
@@ -106,4 +106,4 @@ Le modèle obtenu à partir de Visual Studio comprend uniquement les définition
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déplacer des ressources Azure vers de nouveaux groupes de ressources ou abonnements](../azure-resource-manager/resource-group-move-resources.md)
+[Déplacer des ressources Azure vers de nouveaux groupes de ressources ou abonnements](../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447979"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982145"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>Sérialiser des données de télémétrie à l'aide de Protocol Buffers
 
@@ -24,7 +24,7 @@ Device Simulation prend en charge la version **proto3** du langage Protocol Buff
 
 Protobuf ayant besoin d'un code compilé pour sérialiser les données, vous devez créer une version personnalisée de Device Simulation.
 
-Les étapes décrites dans ce guide pratique expliquent comment :
+Les étapes décrites dans ce guide pratique montrent comment :
 
 1. Préparer un environnement de développement
 1. Spécifier l'utilisation du format Protobuf dans un modèle d'appareil
@@ -32,7 +32,7 @@ Les étapes décrites dans ce guide pratique expliquent comment :
 1. Générer des classes Protobuf
 1. Tester les topologies localement
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer des éléments suivants :
 
@@ -41,7 +41,7 @@ Pour suivre les étapes décrites dans ce guide pratique, vous devez disposer de
 * Postman. Vous pouvez télécharger [Postman pour Mac, Windows ou Linux](https://www.getpostman.com/apps).
 * Un [hub IoT déployé dans votre abonnement Azure](../iot-hub/iot-hub-create-through-portal.md). Vous avez besoin de la chaîne de connexion du hub IoT pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
 * Une [base de données Cosmos DB déployée dans le cadre de votre abonnement Azure](../cosmos-db/create-sql-api-dotnet.md#create-account) qui utilise l'API SQL et qui est configurée avec une [cohérence forte](../cosmos-db/manage-account.md). Vous avez besoin de la chaîne de connexion de la base de données Cosmos DB pour effectuer les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
-* Un [compte de stockage Azure déployé dans le cadre de votre abonnement Azure](../storage/common/storage-quickstart-create-account.md). La chaîne de connexion Compte de stockage est requise pour suivre les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
+* Un [compte de stockage Azure déployé dans le cadre de votre abonnement Azure](../storage/common/storage-account-create.md). La chaîne de connexion Compte de stockage est requise pour suivre les étapes décrites dans ce guide. Vous pouvez obtenir cette chaîne de connexion sur le portail Azure.
 
 ## <a name="prepare-your-development-environment"></a>Préparer votre environnement de développement
 
@@ -70,7 +70,7 @@ Ouvrez le fichier **.vscode/launch.json** et assignez la chaîne de connexion de
 
 Pour exécuter le microservice d'adaptateur de stockage localement, cliquez sur **Déboguer \> Démarrer le débogage**.
 
-Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Quand vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
+Dans Visual Studio Code, la fenêtre **Terminal** affiche la sortie du microservice en cours d'exécution, avec une URL pour la vérification d'intégrité du service web : <http://127.0.0.1:9022/v1/status>. Lorsque vous accédez à cette adresse, vous devez voir l’état « OK: Alive and well ».
 
 Laissez le microservice d'adaptateur de stockage s'exécuter dans cette instance de Visual Studio Code pendant que vous effectuez les étapes suivantes.
 
@@ -265,7 +265,7 @@ Pour configurer et démarrer la simulation :
 
 Pour arrêter la simulation, sélectionnez la demande **Stop simulation** (Arrêter la simulation) dans Postman, puis cliquez sur **Send** (Envoyer).
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez arrêter les deux microservices exécutés localement dans leurs instances de Visual Studio Code (**Déboguer \> Arrêter le débogage**).
 

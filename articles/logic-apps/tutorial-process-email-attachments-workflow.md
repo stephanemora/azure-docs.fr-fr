@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428771"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969117"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutoriel : Automatiser les tâches de traitement des e-mails avec Azure Logic Apps, Azure Functions et Stockage Azure
 
@@ -52,7 +52,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
 
 Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu’objets blob dans un [conteneur de stockage Azure](../storage/common/storage-introduction.md).
 
-1. Avant de créer un conteneur de stockage, [créez un compte de stockage](../storage/common/storage-quickstart-create-account.md) avec ces paramètres sous l’onglet **De base** dans le portail Azure :
+1. Avant de créer un conteneur de stockage, [créez un compte de stockage](../storage/common/storage-account-create.md) avec ces paramètres sous l’onglet **De base** dans le portail Azure :
 
    | Paramètre | Valeur | Description |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
    ![Application de fonction créée](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Pour créer une application de fonction, vous pouvez également utiliser [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou des [modèles PowerShell et Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+   Pour créer une application de fonction, vous pouvez également utiliser [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou des [modèles PowerShell et Resource Manager](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. Dans la liste **Applications de fonctions**, développez votre application de fonction, si ce n’est déjà fait. Sous votre application de fonction, sélectionnez **Fonction**. Dans la barre d’outils des fonctions, sélectionnez **Nouvelle fonction**.
 
@@ -282,7 +282,7 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
       | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. |
       | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications. |
       ||||
-  
+
    1. Dans la liste **Ajouter un nouveau paramètre**, sélectionnez **Filtre Objet**.
 
    1. Une fois que la zone **Filtre Objet** s’affiche dans l’action, spécifiez l’objet comme indiqué ici :
@@ -377,7 +377,8 @@ Vérifiez si la condition fonctionne correctement :
 À présent, définissez les actions à entreprendre pour la branche **Si true**. Pour enregistrer l’e-mail ainsi que les pièces jointes, supprimez le code HTML dans le corps de l’e-mail, puis créez des objets blob dans le conteneur de stockage correspondant à l’e-mail et aux pièces jointes.
 
 > [!NOTE]
-> Votre application logique n’a rien à faire pour la branche **Si false** lorsqu’un e-mail ne contient pas de pièces jointes. À titre d’exercice supplémentaire à l’issue de ce didacticiel, vous pouvez ajouter une action appropriée que vous souhaitez entreprendre pour la branche **Si false**.
+> Votre application logique n’a rien à faire pour la branche **Si false** lorsqu’un e-mail ne contient pas de pièces jointes.
+> À titre d’exercice supplémentaire à l’issue de ce didacticiel, vous pouvez ajouter une action appropriée que vous souhaitez entreprendre pour la branche **Si false**.
 
 ## <a name="call-removehtmlfunction"></a>Appeler RemoveHTMLFunction
 
@@ -605,7 +606,9 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
    ||||
 
    > [!NOTE]
-   > Si vous sélectionnez un champ qui contient un tableau, tel que le champ **Contenu**, qui est un tableau contenant des pièces jointes, le concepteur ajoute automatiquement une boucle For Each autour de l’action qui référence ce champ. De cette façon, votre application logique peut effectuer cette action sur chaque élément du tableau. Pour supprimer la boucle, supprimez le champ du tableau, déplacez l’action de référencement en dehors de la boucle, sélectionnez les points de suspension ( **...** ) dans la barre de titre de la boucle, puis **Supprimer**.
+   > Si vous sélectionnez un champ qui contient un tableau, tel que le champ **Contenu**, qui est un tableau contenant des pièces jointes, le concepteur ajoute automatiquement une boucle For Each autour de l’action qui référence ce champ.
+   > De cette façon, votre application logique peut effectuer cette action sur chaque élément du tableau.
+   > Pour supprimer la boucle, supprimez le champ du tableau, déplacez l’action de référencement en dehors de la boucle, sélectionnez les points de suspension ( **...** ) dans la barre de titre de la boucle, puis **Supprimer**.
 
 1. Enregistrez votre application logique.
 

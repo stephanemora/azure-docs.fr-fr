@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eca19b3774ad285cb143ffc2b6c53360bec85fa4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492352"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968728"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
@@ -60,7 +60,7 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
-1. [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight sont stockées ici.
+1. [Créer un compte de stockage](../../storage/common/storage-account-create.md) : ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight sont stockées ici.
 2. [Personnaliser les clusters Azure HDInsight Hadoop pour la science des données](customize-hadoop-cluster.md) : Cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
 
    * Vous devez lier le compte de stockage créé à l'étape 1 à votre cluster HDInsight, une fois sa création terminée. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.
@@ -285,7 +285,7 @@ Cela génère le résultat suivant :
 La combinaison LATERAL VIEW - explode dans Hive permet de générer une sortie similaire à SQL au lieu de la liste habituelle. Notez que dans ce tableau, la première colonne correspond au centre de l’emplacement et le second à la fréquence de l’emplacement.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Les centiles approximatifs de certaines variables numériques dans le groupe de données de formation
-Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le « percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
+Le calcul de centiles approximatifs avec des variables numériques est également intéressant. Le «percentile\_approx» natif de Hive le fait pour nous. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) contient :
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -424,7 +424,7 @@ Notre processus de création de modèles dans Azure Machine Learning se déroule
 
 Vous êtes désormais prêt à créer des modèles dans Azure Machine Learning Studio. Nos données à échantillon réduit sont enregistrées en tant que tables Hive dans le cluster. Utilisez le module **Importer des données** d’Azure Machine Learning pour lire ces données. Les informations d’identification permettant d’accéder au compte de stockage de ce cluster sont indiquées ci-après.
 
-### <a name="step1"></a> Étape 1 : Récupérer des données des tables Hive dans Azure Machine Learning à l’aide du module Importer des données et l’utiliser pour une expérience d’apprentissage automatique
+### <a name="step1"></a> Étape 1 : Récupérer des données des tables Hive dans Azure Machine Learning à l’aide du module Importer des données et l’utiliser pour une expérience d’apprentissage automatique
 Commencez par sélectionner **+NOUVEAU** -> **EXPÉRIENCE** -> **Expérience vide**. Ensuite, dans la zone **Recherche** en haut à gauche, recherchez « Importer des données ». Effectuez un glisser-déplacer du module **Importer des données** sur le canevas d’expérience (partie centrale de l’écran) afin d’utiliser le module pour l’accès aux données.
 
 Voici à quoi ressemble le module **Importer les données** lors de la récupération des données d’une table Hive :
@@ -458,7 +458,7 @@ Pour sélectionner le groupe de données enregistré et l’utiliser dans une ex
 >
 >
 
-### <a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
+### <a name="step2"></a> Étape 2 : Créer une expérience simple dans Azure Machine Learning pour prédire les clics effectués/non effectués
 Notre expérience Azure Machine Learning Studio (classique) ressemble à ceci :
 
 ![Expérience Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -535,7 +535,7 @@ Cet exemple montre que pour les colonnes sur lesquelles nous avons exécuté le 
 
 Vous êtes maintenant prêt à créer un modèle Azure Machine Learning à l’aide de ces jeux de données transformés. La section suivante explique comment procéder.
 
-### <a name="step3"></a> Étape 3 : Création, formation et notation du modèle
+### <a name="step3"></a> Étape 3 : Création, formation et notation du modèle
 
 #### <a name="choice-of-learner"></a>Choix de l'apprenant
 Vous devez tout d’abord choisir un apprenant. Utilisez un arbre de décision optimisé à deux classes comme apprenant. Voici les options par défaut pour cet apprenant :
@@ -544,7 +544,7 @@ Vous devez tout d’abord choisir un apprenant. Utilisez un arbre de décision o
 
 Pour l’expérience, choisissez les valeurs par défaut. Notez que les valeurs par défaut sont généralement significatives et permettent d’obtenir rapidement des lignes de base pour les performances. Vous pouvez améliorer les performances en balayant les paramètres si vous le souhaitez, une fois que vous avez obtenu une ligne de base.
 
-#### <a name="train-the-model"></a>Formation du modèle
+#### <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 Pour la formation, appelez simplement un module **Former le modèle**. Les deux entrées dans celui-ci sont l'apprenant Arbre de décision optimisé à deux classes et notre jeu de données d'apprentissage. En voici l’illustration :
 
 ![Module de formation de modèle](./media/hive-criteo-walkthrough/2bZDZTy.png)
@@ -554,7 +554,7 @@ Une fois que vous avez formé un modèle, vous êtes prêt à noter le jeu de do
 
 ![Score Model module](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a> Étape 4 : Évaluer le modèle
+### <a name="step4"></a> Étape 4 : Évaluer le modèle
 Enfin, vous devez analyser les performances du modèle. Pour les deux problèmes de classification (binaire) à deux classes, l’ASC est généralement une très bonne mesure. Pour visualiser ceci, raccordez le module **Noter le modèle** à un module **Évaluer le modèle**. Cliquer sur **Visualiser** sur le module **Évaluer le modèle** génère un graphique semblable à celui-ci :
 
 ![Évaluation du modèle du module BDT](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -563,7 +563,7 @@ Pour des problèmes de classification binaire (à deux classes), l'aire sous la 
 
 ![Visualisation du module Évaluer le modèle](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a> Étape 5 : Publication du modèle comme service web
+### <a name="step5"></a> Étape 5 : Publication du modèle comme service web
 La possibilité de publier un modèle Azure Machine Learning en tant que services Web avec un minimum de complications est une fonctionnalité utile qui se doit d'être largement accessible. Une fois cela fait, tout utilisateur peut effectuer des appels vers le service Web avec des données d'entrée pour lesquelles il a besoin de prédictions et le service Web utilise le modèle pour renvoyer ces prédictions.
 
 Pour ce faire, enregistrez tout d’abord notre modèle formé en tant qu’objet de modèle formé. Cette opération s’effectue en cliquant avec le bouton droit sur le module **Former le modèle** et en utilisant l’option **Enregistrer en tant que modèle formé**.

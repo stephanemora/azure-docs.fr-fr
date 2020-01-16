@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: d8b381c1afdea05618d9ad5d791a7597092c8519
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530780"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771510"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
@@ -60,6 +60,6 @@ Dans l’apprentissage par renforcement, l’algorithme choisit une action en r�
 
 * Consultez la liste des algorithmes et des modules dans la [référence des algorithmes et des modules](algorithm-module-reference/module-reference.md).
 
-* [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](service/ui-tutorial-automobile-price-train-score.md).
+* [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md).
 
 * [En savoir plus sur la comparaison entre le Deep Learning et le Machine Learning](concept-deep-learning-vs-machine-learning.md).

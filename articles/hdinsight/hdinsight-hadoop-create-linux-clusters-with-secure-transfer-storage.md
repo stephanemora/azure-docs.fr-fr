@@ -8,30 +8,30 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: 09a6b158c4390f881754c90d52a476f0bc249a5a
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74947637"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979119"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Créer un cluster Apache Hadoop à l’aide de comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
 La fonctionnalité [Transfert sécurisé requis](../storage/common/storage-require-secure-transfer.md) améliore la sécurité de votre compte de stockage Azure en appliquant toutes les demandes à votre compte via une connexion sécurisée. Cette fonctionnalité et le schéma wasbs sont uniquement pris en charge par les clusters HDInsight 3.6 ou version ultérieure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * Abonnement Azure : Pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* Un compte de stockage Azure doté du transfert sécurisé. Pour obtenir des instructions, consultez [Créez un compte de stockage.](../storage/common/storage-quickstart-create-account.md) et [Exiger un transfert sécurisé](../storage/common/storage-require-secure-transfer.md). L’activation du transfert de stockage sécurisé après la création d’un cluster nécessite des étapes supplémentaires qui ne sont pas décrites dans cet article.
+* Un compte de stockage Azure doté du transfert sécurisé. Pour obtenir des instructions, consultez [Créez un compte de stockage.](../storage/common/storage-account-create.md) et [Exiger un transfert sécurisé](../storage/common/storage-require-secure-transfer.md). L’activation du transfert de stockage sécurisé après la création d’un cluster nécessite des étapes supplémentaires qui ne sont pas décrites dans cet article.
 * Un conteneur d’objets blob dans le compte de stockage.
 
 ## <a name="create-cluster"></a>Créer un cluster
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md). Ce modèle se trouve sur [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Aucune expérience avec le modèle Resource Manager n’est nécessaire dans le cadre de cet article. Pour obtenir d’autres méthodes de création de cluster et comprendre les propriétés utilisées dans cet article, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+Cette section vous permet de créer un cluster Hadoop dans HDInsight à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md). Ce modèle se trouve sur [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-existing-default-storage-account/). Aucune expérience avec le modèle Resource Manager n’est nécessaire dans le cadre de cet article. Pour obtenir d’autres méthodes de création de cluster et comprendre les propriétés utilisées dans cet article, consultez [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 1. Cliquez sur l’image suivante pour vous connecter à Azure et ouvrir le modèle Resource Manager dans le portail Azure.
 

@@ -10,16 +10,16 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85c13a7175bca015ab24c8b09500b47e3ea846ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c060462a84b197cdd0aec1beecc0b4d4807feb49
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231648"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030117"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>Convertir des configurations en ressources composites
 
-> S’applique à : Windows PowerShell 5.1
+> S’applique à : Windows PowerShell 5.1
 
 Une fois que vous avez commencé à créer des configurations, vous pouvez créer rapidement des « scénarios » qui gèrent les groupes de paramètres.
 Voici quelques exemples :
@@ -50,13 +50,13 @@ L’applet de commande charge le contenu de votre configuration, obtient la list
 Une fois que vous avez généré un module, vous pouvez incrémenter la version et ajouter des notes de publication chaque fois que vous apportez des modifications et que vous les publiez dans votre propre [référentiel PowerShellGet](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo).
 
 Après avoir créé un module de ressources composites contenant votre configuration (ou plusieurs configurations), vous pouvez les utiliser dans l’[expérience de création composable](/azure/automation/compose-configurationwithcompositeresources) d’Azure ou les ajouter à des [scripts de configuration DSC](/powershell/scripting/dsc/configurations/configurations) pour générer des fichiers MOF et [charger ces mêmes fichiers MOF dans Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
-Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) ou [dans Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) pour extraire les configurations.
+Inscrivez ensuite vos serveurs [localement](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances) ou [dans Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) pour extraire les configurations.
 À l’occasion de la dernière mise à jour du projet, des [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples) ont aussi été publiés pour Azure Automation afin d’automatiser l’importation de configurations à partir de PowerShell Gallery.
 
 Pour tester la création automatique de ressources composites pour DSC, accédez à [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/) et téléchargez la solution ou cliquez sur « Project Site » pour afficher la [documentation](https://github.com/microsoft/compositeresource).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Vue d’ensemble d’Azure Automation DSC](/powershell/scripting/dsc/overview/overview)
+- [Vue d’ensemble de la configuration d’état souhaité Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Ressources DSC](/powershell/scripting/dsc/resources/resources)
 - [Configuration de Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

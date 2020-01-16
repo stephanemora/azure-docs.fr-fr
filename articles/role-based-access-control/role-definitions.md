@@ -15,12 +15,12 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996433"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981013"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -152,7 +152,7 @@ Comme Alice dispose d’une action avec caractère générique (`*`) à une éte
 
 Les autorisations de Bob se limitent aux actions `Actions` et `DataActions` spécifiées dans le rôle [Contributeur aux données blob du stockage](built-in-roles.md#storage-blob-data-contributor). En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
 
-Pour plus d’informations sur la gestion et la sécurité du plan de données pour le stockage, consultez le [guide de sécurité Stockage Microsoft Azure](../storage/common/storage-security-guide.md).
+Pour plus d’informations sur la gestion et la sécurité du plan de données pour le stockage, consultez le [guide de sécurité Stockage Microsoft Azure](../storage/blobs/security-recommendations.md).
 
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Quels outils prennent en charge l’utilisation de RBAC pour les opérations sur les données ?
 
@@ -161,7 +161,7 @@ Pour afficher et utiliser des opérations sur les données, vous devez disposer 
 | Outil  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou ultérieure |
-| [Interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
+| [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
 | [Azure pour .NET](/dotnet/azure/) | 2.8.0-preview ou version ultérieure |
 | [Kit de développement logiciel (SDK) Azure pour Go](/azure/go/azure-sdk-go-install) | 15.0.0 ou version ultérieure |
 | [Azure pour Java](/java/azure/) | 1.9.0 ou version ultérieure |
@@ -217,7 +217,7 @@ La propriété `AssignableScopes` spécifie les étendues (groupes d’administr
 
 La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 
-| Le rôle est disponible à l’attribution | Exemples |
+| Le rôle est disponible à l’attribution | Exemple |
 |----------|---------|
 | Abonnement unique | `"/subscriptions/{subscriptionId1}"` |
 | Deux abonnements | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
@@ -231,5 +231,5 @@ Pour plus d’informations sur `AssignableScopes` pour des rôles personnalisés
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Rôles intégrés pour les ressources Azure](built-in-roles.md)
-* [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+* [Rôles intégrés pour les ressources Azure](custom-roles.md)
 * [Opérations du fournisseur de ressources Azure Resource Manager](resource-provider-operations.md)

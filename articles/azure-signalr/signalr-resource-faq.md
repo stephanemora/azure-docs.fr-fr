@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 013cf619edd998752265b8fa7e58e36869c830c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450212"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891248"
 ---
 # <a name="azure-signalr-service-faq"></a>FAQ sur Azure SignalR Service
 
@@ -37,7 +37,7 @@ Si vous avez des serveurs d’applications, ce message d’erreur signifie qu’
 Les causes possibles sont les suivantes :
 - Aucun serveur d’applications n’est connecté à SignalR Service. Consultez les journaux d’activité des serveurs d’applications à la recherche d’éventuelles erreurs de connexion. Ce cas est rare dans le paramètre de haute disponibilité avec plusieurs serveurs d’applications.
 - Les instances de SignalR Service présentent des problèmes de connectivité. Ce problème est temporaire et fait l’objet d’une récupération automatique.
-S’il persiste pendant plus d’une heure, [ouvrez un problème sur GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [créez une demande de support dans Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+S’il persiste pendant plus d’une heure, [ouvrez un problème sur GitHub](https://github.com/Azure/azure-signalr/issues/new) ou [créez une demande de support dans Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Si plusieurs serveurs d’applications sont en place, les messages d’un client sont-ils envoyés à tous les serveurs ou à un seul d’entre eux ?
 

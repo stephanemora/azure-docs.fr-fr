@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: d131e0112070dcc60e601b2859e8c9df8d40764a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084351"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045977"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C# (préversion)
 
@@ -47,7 +47,7 @@ La figure suivante illustre la manière dont les applications de proxy locales d
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
@@ -122,7 +122,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 ## <a name="ssh-to-a-device-via-device-streams"></a>Liaison SSH à un appareil par le biais de flux d’appareil
 
-Dans cette section, vous allez établir un flux de bout en bout pour tunneliser le trafic SSH.
+Dans cette section, vous allez établir un flux de bout en bout pour tunneler le trafic SSH.
 
 ### <a name="run-the-device-local-proxy-application"></a>Exécuter l’application proxy locale de l’appareil
 
@@ -152,7 +152,7 @@ dotnet run {DeviceConnectionString} localhost 22
 
 ### <a name="run-the-service-local-proxy-application"></a>Exécuter l’application proxy locale du service
 
-Dans une autre fenêtre de terminal locale, accédez à `device-streams-proxy/service` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
+Dans une autre fenêtre de terminal locale, accédez à `iot-hub/quickstarts/device-streams-proxy/service` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
 
 | Nom du paramètre | Valeur du paramètre |
 |----------------|-----------------|
@@ -257,7 +257,7 @@ Utilisez maintenant votre application cliente RDP poru vous connecter à l’app
 
 ![RDP se connecte à l’application de proxy locale de service](./media/quickstart-device-streams-proxy-csharp/rdp-screen-capture.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 4edf17026384ad8a6bfe4ecea847f4a91076634f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646572"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763587"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 > Bien que les extraits de code de cet article utilisent un modèle TensorFlow, vous pouvez appliquer les informations à n’importe quel framework Machine Learning qui prend en charge les GPU.
 
 > [!NOTE]
-> Les informations contenues dans cet article s’appuient sur l’article[How to deploy to Azure Kubernetes Service (Comment déployer sur Azure Kubernetes Service)](service/how-to-deploy-azure-kubernetes-service.md). L’article « How to deploy to Azure Kubernetes Service » couvre généralement le déploiement sur AKS,mais cet article traite du déploiement spécifique au GPU.
+> Les informations contenues dans cet article s’appuient sur l’article[How to deploy to Azure Kubernetes Service (Comment déployer sur Azure Kubernetes Service)](how-to-deploy-azure-kubernetes-service.md). L’article « How to deploy to Azure Kubernetes Service » couvre généralement le déploiement sur AKS,mais cet article traite du déploiement spécifique au GPU.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -45,7 +45,7 @@ L’inférence, ou notation de modèle, est la phase au cours de laquelle le mod
 
     * Pour créer et inscrire le modèle Tensorflow utilisé pour créer ce document, consultez [Entraîner le modèle Tensorflow](how-to-train-tensorflow.md).
 
-* Compréhension générale de [comment et où déployer des modèles](service/how-to-deploy-and-where.md).
+* Compréhension générale de [comment et où déployer des modèles](how-to-deploy-and-where.md).
 
 ## <a name="connect-to-your-workspace"></a>Se connecter à un espace de travail
 
@@ -94,7 +94,7 @@ except ComputeTargetException:
 > [!IMPORTANT]
 > Azure vous facture tant que le cluster AKS existe. Veillez à supprimer votre cluster AKS lorsque vous n’en avec plus besoin.
 
-Pour plus d’informations sur l’utilisation d’AKS avec Azure Machine Learning, consultez [Guide pratique pour déployer sur Azure Kubernetes Service](service/how-to-deploy-azure-kubernetes-service.md).
+Pour plus d’informations sur l’utilisation d’AKS avec Azure Machine Learning, consultez [Guide pratique pour déployer sur Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ## <a name="write-the-entry-script"></a>Écrire le script d’entrée
 
@@ -135,7 +135,7 @@ def run(raw_data):
     return y_hat.tolist()
 ```
 
-Ce fichier est nommé `score.py`. Pour plus d’informations sur les scripts d’entrée, consultez la page [Comment et où déployer](service/how-to-deploy-and-where.md).
+Ce fichier est nommé `score.py`. Pour plus d’informations sur les scripts d’entrée, consultez la page [Comment et où déployer](how-to-deploy-and-where.md).
 
 ## <a name="define-the-conda-environment"></a>Définir l’environnement Conda
 
@@ -289,6 +289,6 @@ aks_target.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déployer le modèle sur FPGA](service/how-to-deploy-fpga-web-service.md)
+* [Déployer le modèle sur FPGA](how-to-deploy-fpga-web-service.md)
 * [Déployer le modèle avec ONNX](concept-onnx.md#deploy-onnx-models-in-azure)
 * [Effectuer l’apprentissage de modèles DNN Tensorflow](how-to-train-tensorflow.md)

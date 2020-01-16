@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005752"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901600"
 ---
 Cet article répertorie les erreurs les plus courantes et leur atténuation lors la migration de ressources IaaS du modèle de déploiement Azure Classic vers la pile Azure Resource Manager.
 
@@ -17,11 +17,11 @@ Cet article répertorie les erreurs les plus courantes et leur atténuation lors
 
 ## <a name="list-of-errors"></a>Liste d’erreurs
 
-| Chaîne d’erreur | Atténuation |
+| Chaîne d’erreur | Limitation des risques |
 | --- | --- |
-| Erreur interne du serveur |Dans certains cas, il s’agit d’une erreur temporaire qui disparaît à la tentative suivante. Si elle persiste, [contactez le support technique Azure](../articles/azure-supportability/how-to-create-azure-support-request.md), car un examen des journaux d’activité de la plateforme est nécessaire. <br><br> **REMARQUE :** une fois l'incident pris en charge par l'équipe du support technique, ne tentez aucune mesure d'atténuation car cela pourrait avoir des conséquences inattendues sur votre environnement. |
+| Erreur interne du serveur |Dans certains cas, il s’agit d’une erreur temporaire qui disparaît à la tentative suivante. Si elle persiste, [contactez le support technique Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md), car un examen des journaux d’activité de la plateforme est nécessaire. <br><br> **REMARQUE :** une fois l'incident pris en charge par l'équipe du support technique, ne tentez aucune mesure d'atténuation car cela pourrait avoir des conséquences inattendues sur votre environnement. |
 | La migration n’est pas prise en charge pour le déploiement {deployment-name} dans le service hébergé {hosted-service-name} car il s’agit d’un déploiement PaaS (Web/Worker). |Cela se produit lorsque le déploiement contient un rôle web/de travail. Étant donné que la migration n’est prise en charge que pour les Machines Virtuelles, veuillez supprimer le rôle web/de travail du déploiement et effectuer une nouvelle tentative de migration. |
-| Échec du déploiement du modèle {template-name}. CorrelationId={guid} |Sur le serveur principal du service de migration, nous utilisons des modèles Azure Resource Manager pour créer des ressources dans la pile Azure Resource Manager. Les modèles étant idempotents, vous pouvez généralement réessayer en toute sécurité l’opération de migration pour passer outre cette erreur. Si elle persiste, veuillez [contactez le support Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) et lui donner le CorrelationId. <br><br> **REMARQUE :** une fois l'incident pris en charge par l'équipe du support technique, ne tentez aucune mesure d'atténuation car cela pourrait avoir des conséquences inattendues sur votre environnement. |
+| Échec du déploiement du modèle {template-name}. CorrelationId={guid} |Sur le serveur principal du service de migration, nous utilisons des modèles Azure Resource Manager pour créer des ressources dans la pile Azure Resource Manager. Les modèles étant idempotents, vous pouvez généralement réessayer en toute sécurité l’opération de migration pour passer outre cette erreur. Si elle persiste, veuillez [contactez le support Azure](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) et lui donner le CorrelationId. <br><br> **REMARQUE :** une fois l'incident pris en charge par l'équipe du support technique, ne tentez aucune mesure d'atténuation car cela pourrait avoir des conséquences inattendues sur votre environnement. |
 | Le réseau virtuel {virtual-network-name} n’existe pas. |Cela peut se produire si vous avez créé le réseau virtuel dans le nouveau Portail Azure. Le nom réel du réseau virtuel suit le modèle « Group * \<nom réseau virtuel> ». |
 | La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient une extension {extension-name} qui n’est pas prise en charge dans Azure Resource Manager. Il est recommandé de la désinstaller de la machine virtuelle avant de poursuivre la migration. |Les extensions XML telles que BGInfo 1.\* ne sont pas prises en charge dans Azure Resource Manager. Par conséquent, elles ne peuvent pas faire l’objet d’une migration. Si elles sont toujours installées sur la machine virtuelle, elles sont automatiquement désinstallées avant la fin de la migration. |
 | La machine virtuelle {vm-name} du service hébergé {hosted-service-name} contient l’extension VMSnapshot/VMSnapshotLinux, dont la migration n’est actuellement pas prise en charge. Désinstallez-la de la machine virtuelle et rajoutez-la à l’aide d’Azure Resource Manager une fois la migration terminée. |C’est le scénario dans lequel la machine virtuelle est configurée pour la Sauvegarde Azure. Étant donné qu’il n’est pas pris en charge pour le moment, suivez la solution de contournement à la page https://aka.ms/vmbackupmigration. |
@@ -169,7 +169,7 @@ $vm = Get-AzVM -ResourceGroupName "MyRG" -Name "MyVM"
 Remove-AzVMSecret -VM $vm
 Update-AzVM -ResourceGroupName "MyRG" -VM $vm
 ```
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```bash
 az vm update -g "myrg" -n "myvm" --set osProfile.Secrets=[]

@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849579"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969829"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Déplacer votre compte Azure Automation vers un autre abonnement
 
-Azure vous permet de déplacer certaines ressources vers un nouveau groupe de ressources ou un nouvel abonnement. Vous pouvez déplacer des ressources via le portail Azure, PowerShell, Azure CLI ou l’API REST. Pour en savoir plus sur le processus, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/resource-group-move-resources.md).
+Azure vous permet de déplacer certaines ressources vers un nouveau groupe de ressources ou un nouvel abonnement. Vous pouvez déplacer des ressources via le portail Azure, PowerShell, Azure CLI ou l’API REST. Pour en savoir plus sur le processus, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Les comptes Azure Automation font partie des ressources que vous pouvez déplacer. Dans cet article, vous allez découvrir les étapes à suivre pour déplacer des comptes Automation vers une autre ressource ou un autre abonnement.
 
@@ -147,4 +147,4 @@ Une fois le déplacement effectué, consultez la liste suivante des tâches à v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le déplacement des ressources dans Azure, consultez [Déplacer des ressources dans Azure](../../azure-resource-manager/move-support-resources.md).
+Pour en savoir plus sur le déplacement des ressources dans Azure, consultez [Déplacer des ressources dans Azure](../../azure-resource-manager/management/move-support-resources.md).

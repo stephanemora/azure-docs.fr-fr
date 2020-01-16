@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582078"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982158"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>Utiliser plusieurs caches pour la récupération après un basculement régional
 
@@ -37,7 +37,7 @@ Pour préparer un cache à l’éventualité d’un basculement, effectuez les �
    1. Commande de montage devant être utilisée par les clients de cache
 
    > [!NOTE]
-   > Azure HPC Cache peut être créé par programmation, soit par le biais d’un [modèle Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md), soit en accédant directement à son API. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
+   > Azure HPC Cache peut être créé par programmation, soit par le biais d’un [modèle Azure Resource Manager](../azure-resource-manager/templates/overview.md), soit en accédant directement à son API. Pour plus d’informations, contactez l’équipe Azure HPC Cache.
 
 ## <a name="failover-example"></a>Exemple de basculement
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646742"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980106"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -34,7 +34,7 @@ Voici quelques-uns des avantages du peering de réseaux virtuels, qu’il soit l
 * Possibilité pour les ressources d’un réseau virtuel de communiquer avec celles d’un autre réseau virtuel.
 * Possibilité de transférer des données entre des réseaux virtuels dans des abonnements Azure, des locataires Azure Active Directory, des modèles de déploiement et des régions Azure.
 * Possibilité d’appairer des réseaux virtuels créés via Azure Resource Manager.
-* Possibilité d’appairer un réseau virtuel créé via Resource Manager à un réseau créé par le biais du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Possibilité d’appairer un réseau virtuel créé via Resource Manager à un réseau créé par le biais du modèle de déploiement classique. Pour en savoir plus sur les modèles de déploiement Azure, consultez l’article [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Aucune interruption des ressources dans un réseau virtuel lors de la création du peering ou après que le peering est créé.
 
 Le trafic réseau entre les réseaux virtuels homologués est privé. Le trafic entre les réseaux virtuels reste sur le réseau principal de Microsoft. Aucun chiffrement et aucune connexion Internet publique, ni passerelle ne sont nécessaires pour que les réseau virtuels communiquent.

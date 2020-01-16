@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 61436b4317e85b67387a75e87c31a1c6cd13d84f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8aaf5f5fbcabf3476284f0d5e9f4f50ef3e92bd6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895405"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891634"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Démarrage rapide : Lancer une application Azure Spring Cloud à l’aide du plug-in Maven
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 > * Affecter un point de terminaison public pour votre application
 
 >[!Note]
-> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres en préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à une utilisation en contexte de production.  Pour en savoir plus sur le support offert avec les préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [demande de support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 
 >[!TIP]
@@ -57,6 +57,9 @@ Pour suivre ce guide de démarrage rapide :
 
 Le déploiement du service prend environ 5 minutes. Une fois le service déployé, sélectionnez **Accéder à la ressource**. La page **Vue d’ensemble** de l’instance de service s’affiche.
 
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=provision)
+
 ## <a name="set-up-your-configuration-server"></a>Configurer votre serveur de configuration
 
 1. Dans la page **Vue d’ensemble** du service, sélectionnez **Serveur de configuration**.
@@ -64,6 +67,9 @@ Le déploiement du service prend environ 5 minutes. Une fois le service déploy
 
     > [!div class="mx-imgBorder"]
     > ![Définir et appliquer les paramètres de configuration](media/maven-qs-apply-config.jpg)
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=config-server)
 
 ## <a name="clone-and-build-the-sample-application-repository"></a>Cloner et générer le dépôt d’exemples d’applications
 
@@ -105,6 +111,9 @@ Le déploiement du service prend environ 5 minutes. Une fois le service déploy
    ```
 
 1. Une fois le déploiement terminé, vous pouvez accéder à PiggyMetrics à l’aide de l’URL fournie dans la sortie de la commande précédente.
+
+> [!div class="nextstepaction"]
+> [J’ai rencontré un problème](https://www.research.net/r/javae2e?tutorial=asc-maven-quickstart&step=deploy)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

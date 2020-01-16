@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166988"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974504"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -20,7 +20,7 @@ Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux d’ac
 
 Vous pouvez accéder à certains de ces journaux d’activité via le portail. Les journaux d’activité peuvent être envoyés au service [Journaux d’activité Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md), au stockage et aux hubs d’événements, puis analysés dans les journaux d’activité Azure Monitor ou par différents outils comme Excel et Power BI.
 
-Les métriques sont légères et peuvent prendre en charge des scénarios en temps quasi réel, ce qui les rend utiles pour les alertes et la détection rapide de problèmes. 
+Les métriques sont légères et peuvent prendre en charge des scénarios en temps quasi réel, ce qui les rend utiles pour les alertes et la détection rapide de problèmes.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -33,7 +33,7 @@ Les métriques sont légères et peuvent prendre en charge des scénarios en tem
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ Les métriques sont légères et peuvent prendre en charge des scénarios en tem
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,7 +83,7 @@ Pour stocker vos journaux d’activité, vous disposez de trois options :
 
    Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
 
-   Vous pouvez utiliser les [journaux d’activité Azure](../azure-resource-manager/resource-group-audit.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure.
+   Vous pouvez utiliser les [journaux d’activité Azure](../azure-resource-manager/management/view-activity-logs.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure.
 
 ## <a name="metrics"></a>Mesures
 

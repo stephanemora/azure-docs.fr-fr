@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326896"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863595"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Spécifications techniques d’Azure Data Box Edge
 
@@ -35,7 +35,7 @@ Pour les scénarios de machine learning, chaque appareil Data Box Edge dispose d
 
 | Caractéristique           | Valeur                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+| FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
 
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications des blocs d’alimentation
@@ -46,8 +46,8 @@ L’appareil Data Box Edge a deux blocs d’alimentation de 100-240 V avec des 
 |-------------------------|----------------------------|
 | Puissance de sortie maximale    | 750 W                     |
 | Fréquence               | 50/60 Hz                   |
-| Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
-| Enfichable à chaud           | OUI                        |
+| Sélection de la plage de tension | Détermination automatique : 100-240 V AC |
+| Enfichable à chaud           | Oui                        |
 
 <!--## Power consumption statistics
 

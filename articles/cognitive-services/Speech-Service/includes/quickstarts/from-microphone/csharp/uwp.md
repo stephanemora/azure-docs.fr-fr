@@ -1,23 +1,22 @@
 ---
 title: 'Démarrage rapide : Reconnaître la voix à partir d’un microphone, C# (UWP) – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: TBD
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e6934e908111773cef3f7ddcfc2a971d8e1706bf
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818705"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927759"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -25,7 +24,7 @@ Avant de commencer :
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=uwp)
-> * Vérifier d’avoir accès à un microphone pour la capture audio
+> * Veiller à avoir accès à un microphone pour la capture audio
 
 Si vous l’avez déjà fait, c’est parfait. Poursuivons.
 
@@ -33,9 +32,9 @@ Si vous l’avez déjà fait, c’est parfait. Poursuivons.
 
 La première étape consiste à vérifier que votre projet est ouvert dans Visual Studio.
 
-## <a name="start-with-some-boilerplate-code"></a>Commencer par du code réutilisable
+## <a name="start-with-some-boilerplate-code"></a>Commencer avec du code réutilisable
 
-Nous allons ajouter du code qui servira de squelette à notre projet.
+Nous allons ajouter du code qui servira de squelette à notre projet
 
 1. Dans l’**Explorateur de solutions**, ouvrez `MainPage.xaml`.
 
@@ -69,7 +68,7 @@ Créons maintenant un `SpeechRecognizer`. Cet objet est créé à l’intérieur
 
 ## <a name="display-the-recognition-results-or-errors"></a>Afficher les résultats de la reconnaissance (ou les erreurs)
 
-Une fois que le résultat de la reconnaissance est retourné par le service Speech, vous pouvez l’utiliser. Nous allons faire simple et afficher le résultat dans le panneau d’état.
+Lorsque le résultat de la reconnaissance est retourné par le service de reconnaissance vocale, vous pouvez effectuer une opération avec celui-ci. Nous allons faire simple et afficher le résultat dans le panneau d’état.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=68-93)]
 

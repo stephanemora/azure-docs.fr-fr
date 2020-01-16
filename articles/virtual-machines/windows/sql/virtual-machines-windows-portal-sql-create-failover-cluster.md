@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a69741ba3ced91b6b0d1fc4bcd4aea887452151
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 20c231e4f3052797eac79a3c97a3d8148690b8c5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792186"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965435"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -47,7 +47,7 @@ Pour plus d’informations sur les Espaces de stockage direct, consultez [l’é
 
 La technologie Espaces de stockage direct prend en charge deux types d’architectures : convergée et hyper-convergée. L’architecture dans ce document est hyper-convergée. Une infrastructure hyper-convergée place le stockage sur les mêmes serveurs que ceux qui hébergent l’application en cluster. Dans cette architecture, le stockage se trouve sur chaque nœud de l’instance de cluster de basculement SQL Server.
 
-## <a name="licensing-and-pricing"></a>Licences et tarification
+## <a name="licensing-and-pricing"></a>Licences et tarifs
 
 Sur les machines virtuelles Azure, vous pouvez acquérir une licence SQL Server à l’aide des images de machines virtuelles avec paiement à l’utilisation (PAYG) ou BYOL (apportez votre propre licence). Le type d’image que vous choisissez affecte la façon dont vous êtes facturé.
 
@@ -78,10 +78,10 @@ Un point important à connaître est que sur un cluster de basculement invité d
 Vous devez également avoir une compréhension générale de ces technologies :
 
 - [Solutions hyper-convergées utilisant les Espaces de stockage direct dans Windows Server 2016](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Groupes de ressources Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, **décochez la case en regard de la machine virtuelle appropriée**. L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités n’opèrent pas pour les machines virtuelles SQL une fois l’agent réinstallé en mode de gestion léger.
+> Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, **décochez la case en regard de la machine virtuelle appropriée**. L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL une fois l’agent réinstallé en mode de gestion léger.
 
 ### <a name="what-to-have"></a>Éléments à mettre en place
 
@@ -98,7 +98,7 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 
 Une fois ces conditions préalables en place, vous pouvez commencer la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles.
 
-## <a name="step-1-create-the-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
+## <a name="step-1-create-the-virtual-machines"></a>Étape 1 : Créer les machines virtuelles
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com) avec votre abonnement.
 
@@ -112,7 +112,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
    1. Sélectionnez **Groupe à haute disponibilité**.
    1. Sélectionnez **Create** (Créer).
    1. Sous **Créer un groupe à haute disponibilité**, indiquez les valeurs suivantes :
-      - **Nom** : Nom du groupe à haute disponibilité.
+      - **Name** : Nom du groupe à haute disponibilité.
       - **Abonnement**: Votre abonnement Azure.
       - **Groupe de ressources** : Si vous souhaitez utiliser un groupe existant, cliquez sur **Sélectionner un groupe existant** et sélectionnez le groupe dans la liste. Sinon, sélectionnez **Créer** et entrez un nom pour le groupe.
       - **Emplacement** : Définissez l’emplacement où vous souhaitez créer vos machines virtuelles.
@@ -197,7 +197,7 @@ Une fois ces conditions préalables en place, vous pouvez commencer la création
 
 Une fois les machines virtuelles créées et configurées, vous pouvez configurer le cluster de basculement.
 
-## <a name="step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct"></a>Étape 2 : Configurer le cluster de basculement Windows Server avec la technologie Espaces de stockage direct
+## <a name="step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct"></a>Étape 2 : Configurer le cluster de basculement Windows Server avec la technologie Espaces de stockage direct
 
 L’étape suivante consiste à configurer le cluster de basculement avec la technologie Espaces de stockage direct. Au cours de cette étape, vous allez effectuer les sous-étapes suivantes :
 
@@ -373,7 +373,7 @@ Pour créer l’équilibrage de charge :
 
    - **Abonnement**: Votre abonnement Azure.
    - **Groupe de ressources** : Le groupe de ressources qui contient vos machines virtuelles.
-   - **Nom** : Nom qui identifie l’équilibreur de charge.
+   - **Name** : Nom qui identifie l’équilibreur de charge.
    - **Région** : L’emplacement Azure qui contient vos machines virtuelles.
    - **Type** : Public ou privé. Un équilibrage de charge privé est accessible à partir du réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
    - **SKU** : Standard.
@@ -405,7 +405,7 @@ Pour créer l’équilibrage de charge :
 
 1. Dans le panneau **Ajouter une sonde d’intégrité**, <a name="probe"></a>définissez les paramètres de la sonde d’intégrité :
 
-   - **Nom** : Nom de la sonde d’intégrité.
+   - **Name** : Nom de la sonde d’intégrité.
    - **Protocole** : TCP.
    - **Port** : Définissez le port que vous avez créé dans le pare-feu pour la sonde d’intégrité dans [cette étape](#ports). Dans cet article, l’exemple utilise le port TCP `59999`.
    - **Intervalle** : 5 secondes.
@@ -421,13 +421,13 @@ Pour créer l’équilibrage de charge :
 
 1. Configurez les paramètres de règles d’équilibrage de charge :
 
-   - **Nom** : Nom des règles d’équilibrage de charge.
+   - **Name** : Nom des règles d’équilibrage de charge.
    - **Adresse IP du serveur frontal** : L’adresse IP de la ressource réseau de cluster FCI SQL Server.
    - **Port** : Le port TCP FCI SQL Server. Le port d’instance par défaut est 1433.
    - **Port principal** : Utilise le même port que la valeur **Port** lorsque vous activez **Adresse IP flottante (retour direct du serveur)** .
    - **Pool principal** : Le nom du pool principal que vous avez configuré précédemment.
    - **Sonde d’intégrité** : La sonde d’intégrité que vous avez configurée précédemment.
-   - **Persistance de session** : Aucune.
+   - **Persistance de session** : Aucun.
    - **Délai d’inactivité (minutes)**  : 4.
    - **Adresse IP flottante (retour direct du serveur)**  : activé.
 

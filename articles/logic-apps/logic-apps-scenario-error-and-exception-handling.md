@@ -7,14 +7,14 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 99141787c5133b578c943f0e11e5ab15171a2e3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792973"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771561"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
 Ce scénario décrit comment vous pouvez étendre une application logique pour assurer une meilleure prise en charge de la gestion des exceptions. Nous avons employé un cas d’utilisation réel pour répondre à la question : « Azure Logic Apps prend-il en charge la gestion des exceptions et des erreurs ? »
 
@@ -25,7 +25,7 @@ Ce scénario décrit comment vous pouvez étendre une application logique pour a
 
 Voici le récit du cas d’utilisation qui sous-tend ce scénario : 
 
-Un fameux organisme de santé nous a engagés pour développer une solution Azure afin de mettre en place un portail pour les patients à l’aide de Microsoft Dynamics CRM Online. L’organisme avait besoin d’envoyer des enregistrements de rendez-vous entre le portail patient Dynamics CRM Online et Salesforce. Il nous a été demandé d’utiliser la norme [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
+Un fameux organisme de santé nous a engagés pour développer une solution Azure afin de mettre en place un portail pour les patients à l’aide de Microsoft Dynamics CRM Online. L’organisme avait besoin d’envoyer des enregistrements de rendez-vous entre le portail patient Dynamics CRM Online et Salesforce. Il nous a été demandé d’utiliser la norme [HL7 FHIR](https://www.hl7.org/implement/standards/fhir/) pour tous les dossiers des patients.
 
 Le projet comportait deux exigences principales :  
 
@@ -122,7 +122,7 @@ Nous devons journaliser la source (requête) du dossier du patient à partir du 
 
 L’exemple de code d’application logique suivant indique comment gérer la journalisation.
 
-#### <a name="log-entry"></a>Entrée de journal
+#### <a name="log-entry"></a>Entrée du journal
 
 Voici le code source de l’application logique permettant d’insérer une entrée de journal.
 

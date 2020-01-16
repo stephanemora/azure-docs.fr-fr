@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des partages de fichiers Azure Files
 description: Dans ce didacticiel, vous allez apprendre à utiliser le Portail Azure pour configurer un coffre Recovery Services et sauvegarder des partages de fichiers Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171863"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921644"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Sauvegarder des partages de fichiers Azure dans le portail Azure
 
@@ -20,7 +20,7 @@ Dans ce guide, vous apprendrez comment :
 > * Configurer un coffre Recovery Services pour sauvegarder des fichiers Azure
 > * Exécuter un travail de sauvegarde à la demande pour créer un point de restauration
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est présent dans l’un des [types de compte de stockage pris en charge](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Après avoir vérifié ce point, vous pouvez protéger vos partages de fichiers.
 
@@ -28,7 +28,6 @@ Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est pré
 
 La sauvegarde de partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage v1 et v2 universels sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
 
-* Vous ne pouvez pas protéger les partages de fichiers Azure dans des comptes de stockage qui ont activé les réseaux virtuels ou le pare-feu.
 * Il n’y a aucune interface CLI disponible pour la protection d’Azure Files à l’aide de Sauvegarde Azure.
 * Vous pouvez effectuer une seule sauvegarde planifiée par jour.
 * Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.

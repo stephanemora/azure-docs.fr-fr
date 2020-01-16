@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162587"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981803"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Impossible de se connecter à distance à une machine virtuelle car le port RDP n’est pas activé dans le NSG
 
@@ -25,7 +25,7 @@ Cet article explique comment résoudre un problème dans lequel il est impossibl
 
 
 > [!NOTE] 
-> Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager pour les nouveaux déploiements, plutôt que le modèle de déploiement classique. 
+> Azure comporte deux modèles de déploiement pour la création et l’utilisation de ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Nous vous recommandons d’utiliser le modèle de déploiement Resource Manager pour les nouveaux déploiements, plutôt que le modèle de déploiement classique. 
 
 ## <a name="symptom"></a>Symptôme
 
@@ -42,12 +42,12 @@ Pour activer le port RDP dans un NSG, procédez comme suit :
 4. Dans **Règles des port d’entrée**, vérifiez que le port du protocole RDP est correctement défini. Voici un exemple de configuration : 
 
     **Priorité** : 300 </br>
-    **Nom** : Port_3389 </br>
+    **Name** : Port_3389 </br>
     **Port (destination)**  : 3389 </br>
     **Protocole** : TCP </br>
     **Source** : Quelconque </br>
     **Destinations** : Quelconque </br>
-    **Action** : AUTORISER </br>
+    **Action** : Allow </br>
 
 Si vous spécifiez l’adresse IP source, ce paramètre autorise uniquement le trafic provenant d’une adresse IP ou plage d’adresses IP spécifique pour se connecter à la machine virtuelle. Vérifiez que l’ordinateur que vous utilisez pour démarrer la session RDP est dans la plage.
 

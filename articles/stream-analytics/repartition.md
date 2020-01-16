@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/19/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bbea71464e8a1f4e93e510106d372257f155b0c6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c70cfb6c1626908a2ba4e707a890f6dc7481c51a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935061"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732380"
 ---
 # <a name="use-repartitioning-to-optimize-processing-with-azure-stream-analytics"></a>Utiliser le repartitionnement pour optimiser le traitement avec Azure Stream Analytics
 
@@ -21,11 +21,11 @@ Cet article explique comment utiliser le repartitionnement pour adapter votre re
 Vous ne pourrez peut-être pas utiliser la [parallélisation](stream-analytics-parallelization.md) dans les cas suivants :
 
 * Vous ne contrôlez pas la clé de partition pour votre flux d’entrée.
-* Votre source répartit les entrées sur plusieurs partitions qui doivent être fusionnées ultérieurement. 
-
-## <a name="how-to-repartition"></a>Repartitionnement
+* Votre source répartit les entrées sur plusieurs partitions qui doivent être fusionnées ultérieurement.
 
 Un repartitionnement, ou redistribution, est nécessaire quand vous traitez des données sur un flux qui n’est pas partitionné selon un schéma d’entrée naturel comme **PartitionId** pour Event Hubs. Quand vous effectuez un repartitionnement, chaque partition peut être traitée de façon indépendante, ce qui vous permet d’effectuer un scale-out de votre pipeline de streaming.
+
+## <a name="how-to-repartition"></a>Repartitionnement
 
 Pour effectuer le repartitionnement, utilisez le mot clé **INTO** après une instruction **PARTITION BY** dans votre requête. Dans l’exemple suivant, les données sont partitionnées par **DeviceID** en 10 partitions. Le hachage de **DeviceID** est utilisé pour déterminer quelle partition doit accepter quel sous-flux. Les données sont vidées de façon indépendante pour chaque flux partitionné, avec l’hypothèse que la sortie prend en charge les écritures partitionnées et qu’elle comporte 10 partitions.
 

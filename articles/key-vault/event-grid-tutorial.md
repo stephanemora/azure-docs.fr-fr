@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133341"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981607"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)
 
@@ -22,7 +22,7 @@ L’intégration d’Azure Key Vault à Azure Event Grid (en préversion) permet
 
 Ce guide explique comment recevoir des notifications de Key Vault via Event Grid, et comment répondre aux changements d’état via Azure Automation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 - Un coffre de clés dans votre abonnement Azure. Vous pouvez créer rapidement un coffre de clés en suivant les étapes décrites dans [Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI](quick-create-cli.md).
@@ -180,11 +180,11 @@ Vérifiez que votre abonnement Event Grid est correctement configuré. Ce test s
 
 1. Sélectionnez la tâche récente, puis examinez la requête POST envoyée au Webhook par Event Grid. Examinez le JSON et vérifiez que les paramètres de votre coffre de clés et du type d’événement sont corrects. Si le paramètre « type d’événement » de l’objet JSON correspond à l’événement qui s’est produit dans le coffre de clés (dans cet exemple, Microsoft.KeyVault.SecretNearExpiry), le test a réussi.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="you-cant-create-an-event-subscription"></a>Vous ne pouvez pas créer un abonnement à un événement
 
-Réinscrivez Event Grid et le fournisseur de coffres de clés auprès de vos fournisseurs de ressources d’abonnement Azure. Voir [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md).
+Réinscrivez Event Grid et le fournisseur de coffres de clés auprès de vos fournisseurs de ressources d’abonnement Azure. Voir [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -195,8 +195,8 @@ Si vous avez utilisé un système d’interrogation pour rechercher les changeme
 En savoir plus :
 
 
-- Vue d’ensemble : [Monitoring de Key Vault avec Azure Event Grid (préversion)](event-grid-overview.md)
-- Activation [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](event-grid-logicapps.md)
+- Présentation : [Monitoring de Key Vault avec Azure Event Grid (préversion)](event-grid-overview.md)
+- Procédure : [Recevoir un e-mail en cas de changement d’un secret de coffre de clés](event-grid-logicapps.md)
 - [Schéma des événements Azure Event Grid pour Azure Key Vault (préversion)](../event-grid/event-schema-key-vault.md)
 - [Vue d’ensemble d’Azure Key Vault](key-vault-overview.md)
 - [Vue d’ensemble d’Azure Event Grid](../event-grid/overview.md)

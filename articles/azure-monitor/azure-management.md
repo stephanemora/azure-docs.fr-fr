@@ -1,18 +1,18 @@
 ---
-title: Gestion Azure et Microsoft Operations Management Suite (OMS) | Microsoft Docs
-description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure qui étaient auparavant regroupés dans l’offre Operations Management Suite (OMS).
+title: Gestion d’Azure
+description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2018
-ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 337b340df10eb406fef3148b1d8bfde66b3b8ff6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597366"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979829"
 ---
 # <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 
@@ -29,14 +29,14 @@ Le schéma ci-dessous illustre les différents domaines de gestion requis pour m
 
 Les sections suivantes décrivent en bref les différents domaines de gestion et contiennent des liens vers du contenu détaillé sur les principaux services Azure destinés à répondre à ces besoins.
 
-## <a name="monitor"></a>Surveiller
+## <a name="monitor"></a>Moniteur
 La surveillance consiste à recueillir et à analyser des données afin de déterminer les performances, l’intégrité et la disponibilité de votre application métier et des ressources dont elle dépend. Une stratégie de surveillance efficace vous aidera à comprendre le fonctionnement détaillé des différents composants de votre application et à accroître la durée de fonctionnement en vous signalant de manière proactive les problèmes critiques, afin que vous puissiez les résoudre au plus vite. La supervision dans Azure est fournie principalement par [Azure Monitor](../azure-monitor/overview.md) qui pourvoit des magasins communs pour le stockage des données de surveillance, des sources de données multiples pour la collecte des données à partir de différents niveaux prenant en charge votre application, ainsi que des fonctionnalités afin d’analyser et de répondre aux données collectées.
 
-## <a name="configure"></a>Configuration
+## <a name="configure"></a>Configurer
 La configuration fait référence au déploiement initial et à la configuration des applications et des ressources, ainsi qu’à leur maintenance continue au moyen de correctifs et de mises à jour.  L’automatisation de ces tâches au moyen de script et de stratégie vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et efficacité.  [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration.  En plus des runbooks pour automatiser les processus, il fournit la configuration et la gestion des mises à jour, ce qui vous aide à gérer la configuration via la stratégie et à identifier et déployer les mises à jour.
 
 ## <a name="govern"></a>Gouvernance
-La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure.  Elle implique la planification de vos initiatives et la définition de priorités stratégiques.  La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services.  [Azure Policy](../governance/policy/overview.md) vous permet de créer, assigner et gérer des définitions de stratégie qui appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. [Azure Cost Management](../cost-management/overview-cost-mgt.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google.
+La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure.  Elle implique la planification de vos initiatives et la définition de priorités stratégiques.  La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services.  [Azure Policy](../governance/policy/overview.md) vous permet de créer, assigner et gérer des définitions de stratégie qui appliquent différentes règles et actions sur vos ressources, qui restent donc conformes aux standards et aux contrats de niveau de service de l’entreprise. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) vous permet de suivre l’utilisation du cloud et les dépenses liées à vos ressources Azure et celles d’autres fournisseurs de services cloud, notamment AWS et Google.
 
 ## <a name="secure"></a>Sécuriser
 La gestion de la sécurité de vos applications, ressources et données implique d’évaluer les menaces, de collecter et d’analyser les données de sécurité, et de garantir que vos applications et ressources sont conçues et configurées de manière sécurisée.  [Azure Security Center](../security-center/security-center-intro.md) assure la surveillance de la sécurité et l’analyse des menaces, et inclut des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides.  Consultez également la [Présentation d’Azure Security](../security/fundamentals/overview.md) pour plus d’informations sur la sécurité dans Azure et des conseils sur la configuration des ressources Azure en toute sécurité.

@@ -7,18 +7,18 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
-ms.openlocfilehash: f3f89de07e2e17a4dda47ce3650391af38663004
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087201"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894310"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Exceptions OutOfMemoryError pour Apache Spark dans Azure HDInsight
 
 Cet article décrit la procédure à suivre pour résoudre les problèmes rencontrés lors de l’utilisation de composants Apache Spark dans des clusters Azure HDInsight.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scénario : Exception OutOfMemoryError pour Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scénario : Exception OutOfMemoryError pour Apache Spark
 
 ### <a name="issue"></a>Problème
 
@@ -56,7 +56,7 @@ java.lang.OutOfMemoryError
 
 La cause la plus probable de cette exception est que le segment de mémoire allouée aux machines virtuelles Java (JVM) est insuffisant. Ces JVM sont lancées en tant qu’exécuteurs ou pilotes dans le cadre de l’application Apache Spark.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Déterminez le volume maximal de données que l’application Spark va traiter. Estimez ce volume en fonction du volume maximal des données d’entrée, des données intermédiaires produites par la transformation des données d’entrée et des données de sortie produites à partir des données intermédiaires. Si l’estimation initiale n’est pas suffisante, augmentez légèrement le volume, et itérez jusqu'à ce que les erreurs de mémoire diminuent.
 
@@ -90,7 +90,7 @@ La cause la plus probable de cette exception est que le segment de mémoire allo
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scénario : Erreur d’espace du tas Java lors de la tentative d’ouverture du serveur d’historique Apache Spark
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scénario : Erreur d’espace du tas Java lors de la tentative d’ouverture du serveur d’historique Apache Spark
 
 ### <a name="issue"></a>Problème
 
@@ -114,7 +114,7 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 **2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
 ```
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Vous pouvez augmenter la mémoire du serveur d’historique Spark en modifiant la propriété `SPARK_DAEMON_MEMORY` dans la configuration Spark et en redémarrant tous les services.
 
@@ -130,7 +130,7 @@ Veillez à redémarrer tous les services affectés à partir d’Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scénario : Échec du démarrage du serveur Livy sur le cluster Apache Spark
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scénario : Échec du démarrage du serveur Livy sur le cluster Apache Spark
 
 ### <a name="issue"></a>Problème
 
@@ -200,7 +200,7 @@ Lorsque Livy Server se termine de manière inattendue, toutes les connexions aux
 
 Quand un grand nombre de travaux sont envoyés via Livy, dans le cadre de la haute disponibilité, Livy Server stocke ces états de session dans ZK (sur les clusters HDInsight) et récupère ces sessions lorsque le service Livy est redémarré. Lors du redémarrage après un arrêt inattendu, Livy crée un thread par session, ce qui accumule un certain nombre de sessions à récupérer en raison de la création d’un trop grand nombre de threads.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Supprimez toutes les entrées en suivant les étapes décrites ci-dessous.
 
@@ -255,4 +255,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
