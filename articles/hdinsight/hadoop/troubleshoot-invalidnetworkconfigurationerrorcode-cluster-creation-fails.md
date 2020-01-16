@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 5b8d031af9dbe6019d71e2a1caa3d3f25d4024ea
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: f857ee47f5dd8018d2e26aab47252533b0b17617
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044463"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887102"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
@@ -30,7 +30,7 @@ La description de l’erreur contient le message « Échec de la résolution du 
 
 Cette erreur pointe vers un problème de configuration DNS personnalisée. Les serveurs DNS au sein d’un réseau virtuel peuvent transférer les requêtes DNS aux programmes de résolution récursifs d’Azure pour résoudre les noms d’hôte au sein de ce réseau virtuel (pour plus d’informations, consultez [Résolution de noms dans les réseaux virtuels](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)). Les programmes de résolution récursifs d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16. Cette adresse IP est uniquement accessible à partir des machines virtuelles Azure. Par conséquent, il ne fonctionnera pas si vous utilisez un serveur DNS local ou si votre serveur DNS est une machine virtuelle Azure, qui ne fait pas partie du réseau virtuel du cluster.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Utilisez SSH dans la machine virtuelle qui fait partie du cluster, puis exécutez la commande `hostname -f`. Cela renverra le nom de domaine complet de l’hôte (appelé `<host_fqdn>` dans les instructions ci-dessous).
 
@@ -56,7 +56,7 @@ La description de l’erreur contient le message « Échec de la connexion au co
 
 Le Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autoriser les connexions sortantes vers toutes les adresses IP pour autoriser l’accès à ces services. Les étapes de résolution exactes varient selon que vous avez configuré un groupe de sécurité réseau (NSG) ou des règles définies par l’utilisateur (UDR). Pour plus d’informations sur ces configurations, reportez-vous à la section sur le [contrôle du trafic réseau avec HDInsight avec les groupes de sécurité réseau et les itinéraires définis par l’utilisateur](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 * Si votre cluster utilise un [groupe de sécurité réseau (NSG](../../virtual-network/virtual-network-vnet-plan-design-arm.md)).
 
@@ -78,4 +78,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

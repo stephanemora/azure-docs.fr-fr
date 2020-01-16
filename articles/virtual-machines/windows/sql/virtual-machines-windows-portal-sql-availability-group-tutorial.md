@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer un groupe de disponibilité'
+title: 'Tutoriel : Configurer un groupe de disponibilité'
 description: Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure.
 services: virtual-machines
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ed5fc923c82fb0d0e4004e18159d943564c6f55e
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037510"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045827"
 ---
-# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Didacticiel : Configurer manuellement un groupe de disponibilité sur une machine virtuelle Azure SQL Server
+# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Tutoriel : Configurer manuellement un groupe de disponibilité sur une machine virtuelle Azure SQL Server
 
 Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure. Il crée un groupe de disponibilité avec un réplica de base de données sur deux serveurs SQL Server.
 
@@ -32,21 +32,21 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 Le tableau suivant répertorie les conditions requises que vous devez remplir avant de commencer ce didacticiel :
 
-|  |Prérequis |Description |
+|  |Condition requise |Description |
 |----- |----- |----- |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server | Compte du domaine |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server Agent | Compte du domaine |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ports du pare-feu ouverts | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de groupe de disponibilité : **59999** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge principal du cluster : **58888** ou n’importe quel port disponible |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ajout de la fonctionnalité de Clustering de basculement | Fonctionnalité requise sur les deux serveurs SQL Server |
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du domaine d’installation | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server | Compte du domaine |
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server Agent | Compte du domaine |  
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ports du pare-feu ouverts | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de groupe de disponibilité : **59999** ou n’importe quel port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge principal du cluster : **58888** ou n’importe quel port disponible |
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ajout de la fonctionnalité de Clustering de basculement | Fonctionnalité requise sur les deux serveurs SQL Server |
+|![Carré](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du domaine d’installation | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
 
 
 Avant de commencer ce didacticiel, vous devez [remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Si ces conditions préalables sont déjà remplies, vous pouvez passer à l’étape [Création d’un cluster](#CreateCluster).
@@ -58,7 +58,7 @@ Avant de commencer ce didacticiel, vous devez [remplir les conditions préalable
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## <a name="create-the-cluster"></a>Création du cluster
+## <a name="create-the-cluster"></a>Créer le cluster
 
 Une fois les conditions préalables remplies, la première étape consiste à créer un cluster de basculement Windows Server comprenant deux serveurs SQL Server et un serveur témoin.
 
@@ -348,7 +348,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
 Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requiert un équilibrage de charge. Cet équilibreur de charge stocke les adresses IP des écouteurs du groupe de disponibilité et du cluster de basculement Windows Server. Cette section indique comment créer l’équilibrage de charge dans le portail Azure.
 
-Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur de charge Standard offre davantage de fonctionnalités qu’un équilibreur de charge De base. Pour un groupe de disponibilité, un équilibreur de charge Standard est requis si vous utilisez une zone de disponibilité (au lieu d’un groupe à haute disponibilité). Pour plus d’informations sur la différence entre les types d’équilibreurs de charge, voir [Comparaison des références SKU de Load Balancer](../../../load-balancer/load-balancer-overview.md#skus).
+Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur de charge Standard offre davantage de fonctionnalités qu’un équilibreur de charge De base. Pour un groupe de disponibilité, un équilibreur de charge Standard est requis si vous utilisez une zone de disponibilité (au lieu d’un groupe à haute disponibilité). Pour plus d’informations sur la différence entre les types d’équilibreurs de charge, voir [Comparaison des références SKU de Load Balancer](../../../load-balancer/concepts-limitations.md#skus).
 
 1. Dans le portail Azure, accédez au groupe de ressources où se trouvent vos serveurs SQL Server et cliquez sur **+ Ajouter**.
 1. Recherchez **Équilibrage de charge**. Choisissez l’équilibrage de charge publié par Microsoft.
@@ -402,12 +402,12 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Définissez la sonde d’intégrité de l’écouteur comme suit :
 
-   | Paramètre | Description | Exemples
+   | Paramètre | Description | Exemple
    | --- | --- |---
    | **Nom** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 59999 |
-   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5\. |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5 |
    | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
 
 1. Cliquez sur **OK** pour configurer la sonde d’intégrité.
@@ -418,7 +418,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Configurez les règles d’équilibrage de charge de l’écouteur comme suit.
 
-   | Paramètre | Description | Exemples
+   | Paramètre | Description | Exemple
    | --- | --- |---
    | **Nom** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
@@ -428,7 +428,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | SQLAlwaysOnEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
-   | **Adresse IP flottante (retour serveur direct)** | |activé |
+   | **Adresse IP flottante (retour direct du serveur)** | |activé |
 
    > [!WARNING]
    > Le retour au serveur direct est configuré lors de la création. Cette valeur n’est pas modifiable.
@@ -445,12 +445,12 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
 1. Définissez la sonde d’intégrité de l’adresse IP du cluster principal WSFC comme suit :
 
-   | Paramètre | Description | Exemples
+   | Paramètre | Description | Exemple
    | --- | --- |---
    | **Nom** | Texte | WSFCEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 58888 |
-   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5\. |
+   | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5 |
    | **Seuil de défaillance sur le plan de l’intégrité** | Nombre d’échecs de sonde consécutifs qui doivent se produire pour qu’une machine virtuelle soit considérée comme défectueuse.  | 2 |
 
 1. Cliquez sur **OK** pour configurer la sonde d’intégrité.
@@ -459,7 +459,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
 1. Définissez les règles d’équilibrage de charge de l’adresse IP du cluster principal comme suit.
 
-   | Paramètre | Description | Exemples
+   | Paramètre | Description | Exemple
    | --- | --- |---
    | **Nom** | Texte | WSFCEndPoint |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. Celle-ci diffère de l’adresse IP de l’écouteur |
@@ -469,7 +469,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | WSFCEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
-   | **Adresse IP flottante (retour serveur direct)** | |activé |
+   | **Adresse IP flottante (retour direct du serveur)** | |activé |
 
    > [!WARNING]
    > Le retour au serveur direct est configuré lors de la création. Cette valeur n’est pas modifiable.

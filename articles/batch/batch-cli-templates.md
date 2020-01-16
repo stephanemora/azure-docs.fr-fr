@@ -2,21 +2,21 @@
 title: Exécuter des travaux de bout en bout à l’aide de modèles - Azure Batch| Microsoft Docs
 description: Créez des pools, travails et tâches Batch avec des modèles de fichier et l’interface de ligne de commande Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095315"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029737"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Utiliser des modèles d’interface de ligne de commande Azure Batch et le transfert de fichiers
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser une extension Azure Batch de l’interface Azure CLI pour 
 
 Créez et utilisez des modèles de fichier JSON avec Azure CLI pour créer des pools, travaux et tâches Batch. Utilisez des commandes d’extension LCI pour charger facilement les fichiers d’entrée des travaux dans le compte de stockage associé au compte Batch, et télécharger les fichiers de sortie de travaux.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Une extension de l’interface Azure CLI permet aux utilisateurs qui ne sont pas des développeurs d’utiliser Batch de bout en bout. En utilisant juste des commandes CLI, vous pouvez créer un pool, charger des données d’entrée, créer des travaux et des tâches associées, et télécharger les données de sortie produites. Aucun code supplémentaire n’est nécessaire. Exécutez les commandes CLI directement, ou intégrez-les dans des scripts.
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 38aa45a9fe9e182fa98756725a8b20d737929d23
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 654ca34ae4c0e393920965083567e3d9c71148d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585356"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863629"
 ---
 # <a name="what-is-azure-stack-edge"></a>Qu’est-ce qu’Azure Stack Edge ? 
 
@@ -27,7 +27,7 @@ Azure Stack Edge est une solution matérielle en tant que service. Microsoft fou
 
 Voici différents scénarios d’utilisation d’Azure Stack Edge pour l’inférence rapide de Machine Learning (ML) à la périphérie et le prétraitement des données avant leur envoi à Azure.
 
-- **Inférence avec Azure Machine Learning** : Azure Stack Edge vous permet d’exécuter des modèles Machine Learning (ML) pour obtenir des résultats rapides qui peuvent être traités avant l’envoi des données vers le cloud. Le jeu de données complet peut également être transféré pour continuer à reformer et améliorer vos modèles ML. Pour plus d’informations sur l’utilisation des modèles accélérés matériellement d’Azure ML sur un appareil Azure Stack Edge, consultez [Déployer des modèles accélérés matériellement Azure ML sur Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inférence avec Azure Machine Learning** : Azure Stack Edge vous permet d’exécuter des modèles Machine Learning (ML) pour obtenir des résultats rapides qui peuvent être traités avant l’envoi des données vers le cloud. Le jeu de données complet peut également être transféré pour continuer à reformer et améliorer vos modèles ML. Pour plus d’informations sur l’utilisation des modèles accélérés matériellement d’Azure ML sur un appareil Azure Stack Edge, consultez [Déployer des modèles accélérés matériellement Azure ML sur Azure Stack Edge](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Prétraiter les données** : transformez les données avant de les envoyer à Azure pour créer un jeu de données plus actionnable. Le prétraitement peut servir à : 
 
@@ -57,7 +57,7 @@ Azure Stack Edge intègre les fonctionnalités suivantes :
 |Limitation de bande passante| Limiter l’utilisation de la bande passante pendant les heures de pointe.|
 
 
-## <a name="components"></a>Composants
+## <a name="components"></a>Components
 
 La solution Azure Stack Edge se compose d’une ressource Azure Stack Edge, d’un appareil physique Azure Stack Edge et d’une interface utilisateur web locale.
 

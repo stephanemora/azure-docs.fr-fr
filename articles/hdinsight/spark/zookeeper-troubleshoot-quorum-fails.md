@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: 7091e638743fb8cd1488fe7e332378bf89304af1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a0874826529b5c9ca5d6d4107fe820cd522d81d0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087080"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894048"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Le serveur Apache ZooKeeper ne parvient pas à former un quorum dans Azure HDInsight
 
@@ -31,7 +31,7 @@ Le serveur Apache ZooKeeper n’est pas sain, ce qui peut se caractériser par l
 
 Lorsque le volume de fichiers d’instantanés est important ou que les fichiers d’instantanés sont endommagés, le serveur ZooKeeper ne parvient pas à former un quorum, ce qui entraîne la non-intégrité des services liés à ZooKeeper. Le serveur ZooKeeper ne supprimera pas les anciens fichiers instantanés de son répertoire de données, il s'agit plutôt d'une tâche périodique que les utilisateurs doivent effectuer pour maintenir l’intégrité de ZooKeeper. Pour en savoir plus, consultez [Atouts et limitations de ZooKeeper](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 Vérifiez le répertoire de données de ZooKeeper `/hadoop/zookeeper/version-2` et `/hadoop/hdinsight-zookeepe/version-2` pour savoir si le fichier des captures instantanées est volumineux. En présence de captures instantanées volumineuses, procédez comme suit :
 
@@ -49,4 +49,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 - Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+- Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

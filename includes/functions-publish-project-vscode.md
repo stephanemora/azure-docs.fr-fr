@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843198"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021057"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publication du projet sur Azure
 
@@ -37,8 +37,8 @@ Cette section suppose que vous créez une nouvelle application de fonction dans 
 
     Lorsque vous appuyez sur Entrée, les ressources Azure suivantes sont créées dans votre abonnement :
 
-    * **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)**  : contient toutes les ressources Azure créées. Le nom est basé sur le nom de votre application de fonction.
-    * **[Compte de stockage](../articles/storage/common/storage-quickstart-create-account.md)**  : un compte de stockage standard est créé avec un nom unique, basé sur le nom de votre application de fonction.
+    * **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)**  : contient toutes les ressources Azure créées. Le nom est basé sur le nom de votre application de fonction.
+    * **[Compte de stockage](../articles/storage/common/storage-account-create.md)**  : un compte de stockage standard est créé avec un nom unique, basé sur le nom de votre application de fonction.
     * **[Plan d'hébergement](../articles/azure-functions/functions-scale.md)**  : un plan de consommation est créé dans la région USA Ouest pour héberger votre application de fonction serverless.
     * **Application de fonction** : votre projet est déployé dans cette nouvelle application de fonction avant d'y être exécuté.
 

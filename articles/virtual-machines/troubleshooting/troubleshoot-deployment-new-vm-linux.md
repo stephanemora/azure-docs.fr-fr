@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090020"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981422"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Résoudre les problèmes de déploiement Resource Manager liés à la création d’une machine virtuelle Linux dans Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ Pour toute autre question ou problèmes concernant le déploiement de machine vi
 ## <a name="collect-activity-logs"></a>Collecte des journaux d’activité
 Pour résoudre les problèmes, commencez par collecter les journaux d’activité afin d’identifier l’erreur associée au problème. Les liens suivants contiennent des informations détaillées sur la marche à suivre.
 
-[Voir les opérations de déploiement](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Voir les opérations de déploiement](../../azure-resource-manager/templates/deployment-history.md)
 
 [Afficher les journaux d’activité pour gérer les ressources Azure](../../resource-group-audit.md)
 
@@ -69,7 +69,7 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
 
 **Cause 1 :** Le cluster ne peut pas prendre en charge la taille de machine virtuelle demandée.
 
-**Résolution 1 :**
+**Résolution 1 :**
 
 * Relancez la requête en utilisant une taille inférieure pour la machine virtuelle.
 * Si la taille de la machine virtuelle requise ne peut pas être modifiée :
@@ -80,7 +80,7 @@ Cette erreur se produit lorsque la nouvelle demande de la machine virtuelle est 
 
 **Cause 2 :** Le cluster n’a pas de ressources libres.
 
-**Résolution 2 :**
+**Résolution 2 :**
 
 * Relancez la demande ultérieurement.
 * Si la nouvelle machine virtuelle peut faire partie d’un autre groupe à haute disponibilité

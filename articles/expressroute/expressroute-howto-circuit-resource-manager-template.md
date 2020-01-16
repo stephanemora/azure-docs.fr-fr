@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 25ed38e72f5a21622a87e36ad811ffd66f6a4c90
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 78da84a462566cca1a2800174849159ace8dd6dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083506"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981148"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Création d’un circuit ExpressRoute en utilisant le modèle Azure Resource Manager
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
-> * [Interface de ligne de commande Azure](howto-circuit-cli.md)
+> * [Azure CLI](howto-circuit-cli.md)
 > * [Modèle Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-circuit-classic.md)
@@ -80,9 +80,9 @@ Il faut quelques instants pour créer un Event Hub.
 
 Dans ce tutoriel, Azure PowerShell permet de déployer le modèle. Pour d’autres méthodes de déploiement de modèle, consultez :
 
-* [En utilisant le Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-* [En utilisant Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
-* [En utilisant l’API REST](../azure-resource-manager/resource-group-template-deploy-rest.md).
+* [En utilisant le Portail Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [En utilisant Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [En utilisant l’API REST](../azure-resource-manager/templates/deploy-rest.md).
 
 ## <a name="delete"></a>Annulation de l’approvisionnement et suppression d’un circuit ExpressRoute
 

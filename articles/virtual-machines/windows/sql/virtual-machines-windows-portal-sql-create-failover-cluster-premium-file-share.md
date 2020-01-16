@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f92226a76462289b9f26ae9d3bab22d780fb35db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464997"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965340"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -42,7 +42,7 @@ Un point important à connaître est que sur un cluster de basculement de machin
 Vous devez également avoir une compréhension générale de ces technologies :
 
 - [Partage de fichiers Premium Azure](../../../storage/files/storage-how-to-create-premium-fileshare.md)
-- [Groupes de ressources Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
+- [Groupes de ressources Azure](../../../azure-resource-manager/management/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
 > Pour le moment, les instances de cluster de basculement SQL Server sur des machines virtuelles Azure sont prises en charge uniquement avec le [mode de gestion léger](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) de l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Pour passer du mode d’extension complet au mode d’extension léger, supprimez la ressource **Machine virtuelle SQL** pour les machines virtuelles correspondantes, puis inscrivez-les auprès du fournisseur de ressources de machine virtuelle SQL en mode léger. Quand vous supprimez la ressource **Machine virtuelle SQL** à partir du portail Azure, **décochez la case en regard de la machine virtuelle appropriée**. L’extension complète prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées et la gestion avancée du portail. Ces fonctionnalités ne fonctionnent pas pour les machines virtuelles SQL une fois l’agent réinstallé en mode de gestion léger.

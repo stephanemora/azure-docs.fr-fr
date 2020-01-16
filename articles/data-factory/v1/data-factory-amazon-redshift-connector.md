@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c9e10df9f2be2a07bc7b7af0e01905d5b278d35
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924882"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894209"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -34,7 +34,7 @@ Actuellement, Data Factory prend uniquement en charge le déplacement de donnée
 > [!TIP]
 > Pour obtenir de meilleures performances lors de la copie de grandes quantités de données d’Amazon Redshift, utilisez le mécanisme Redshift intégré **UNLOAD** via Amazon Simple Storage Service (Amazon S3). Pour plus d’informations, consultez la section [Utiliser UNLOAD pour copier des données à partir d’Amazon Redshift](#use-unload-to-copy-data-from-amazon-redshift).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Si vous déplacez des données vers un magasin de données local, vous devez installer la [passerelle de gestion des données](data-factory-data-management-gateway.md) sur une machine locale. Accordez l’accès d’une passerelle au cluster Amazon Redshift à l’aide de l’adresse IP de l’ordinateur local. Pour obtenir des instructions, consultez la rubrique relative à l’[autorisation d’accès au cluster](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html).
 * Pour déplacer des données vers une banque de données Azure, procédez de la manière décrite dans [calcul de l’adresse IP et des plages SQL utilisés par les centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -61,12 +61,12 @@ Le tableau suivant décrit les éléments JSON spécifiques du service lié Amaz
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |OUI |
-| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |OUI |
+| **type** |Cette propriété doit être définie sur **AmazonRedshift**. |Oui |
+| **server** |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
 | **port** |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non (valeur par défaut : 5439) |
-| **database** |Nom de la base de données Amazon Redshift. |OUI |
-| **nom d’utilisateur** |Nom de l’utilisateur ayant accès à la base de données. |OUI |
-| **mot de passe** |Mot de passe du compte d’utilisateur. |OUI |
+| **database** |Nom de la base de données Amazon Redshift. |Oui |
+| **username** |Nom de l’utilisateur ayant accès à la base de données. |Oui |
+| **mot de passe** |Mot de passe du compte d’utilisateur. |Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
@@ -146,7 +146,7 @@ L’exemple contient les entités de fabrique de données suivantes :
 * Un service lié de type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 * Un [jeu de données](data-factory-create-datasets.md) d’entrée de type [RelationalTable](#dataset-properties)
 * Un [jeu de données](data-factory-create-datasets.md) de sortie de type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
-* Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise les propriétés [RelationalSource](#copy-activity-properties) et [BlobSink](data-factory-azure-blob-connector.md##copy-activity-properties)
+* Un [pipeline](data-factory-create-pipelines.md) avec une activité de copie qui utilise les propriétés [RelationalSource](#copy-activity-properties) et [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 L’exemple copie toutes les heures les données de résultat d’une requête d’Amazon Redshift vers un stockage Blob Azure. Les propriétés JSON utilisées dans l’exemple sont décrites dans les sections suivant les définitions des entités.
 
@@ -331,16 +331,16 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | --- | --- |
 | SMALLINT |Int16 |
 | INTEGER |Int32 |
-| BIGINT |Int64 |
-| DÉCIMAL |Decimal |
-| REAL |Single |
+| bigint |Int64 |
+| DECIMAL |Decimal |
+| real |Unique |
 | DOUBLE PRECISION |Double |
 | BOOLEAN |String |
-| CHAR |Chaîne |
-| VARCHAR |Chaîne |
+| CHAR |String |
+| VARCHAR |String |
 | DATE |DateTime |
-| TIMESTAMP |DateTime |
-| TEXT |Chaîne |
+| timestamp |DateTime |
+| TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

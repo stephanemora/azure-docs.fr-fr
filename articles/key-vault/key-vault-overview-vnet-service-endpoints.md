@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 6e85e33cf0488cf688303c590c2bbaf5d671d9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467107"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980485"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Points de terminaison de service de réseau virtuel pour Azure Key Vault
 
@@ -21,7 +21,7 @@ Les points de terminaison de service de réseau virtuel pour Azure Key Vault per
 
 Il existe une exception importante à cette restriction. Si un utilisateur a choisi d’autoriser les services Microsoft approuvés, les connexions à partir de ces services se font à travers le pare-feu. Par exemple, ces services incluent Office 365 Exchange Online, Office 365 SharePoint Online, Calcul Azure, Azure Resource Manager et Sauvegarde Azure. Ces utilisateurs doivent néanmoins toujours présenter un jeton Azure Active Directory valide et disposer d’autorisations (configurées en tant que stratégies d’accès) pour effectuer l’opération demandée. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="usage-scenarios"></a>Scénarios d’utilisation
+## <a name="usage-scenarios"></a>Scénarios d’usage
 
 Vous pouvez configurer des [pare-feux et réseaux virtuels Key Vault](key-vault-network-security.md) pour refuser par défaut l’accès au trafic en provenance de tous les réseaux (y compris le trafic Internet). Vous pouvez accorder l’accès au trafic en provenance de réseaux virtuels Azure ou de plages d’adresses IP Internet publiques spécifiques, ce qui vous permet de créer une limite réseau sécurisée pour vos applications.
 
@@ -63,7 +63,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Service approuvé|Scénarios d’utilisation pris en charge|
 | --- | --- |
 |Service de déploiement de machines virtuelles Azure|[Déployer des certificats sur des machines virtuelles à partir d’un coffre de clés géré par le client](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)|
-|Service de déploiement modèle Azure Resource Manager|[Passage de valeurs sécurisées lors du déploiement](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
+|Service de déploiement modèle Azure Resource Manager|[Passage de valeurs sécurisées lors du déploiement](../azure-resource-manager/templates/key-vault-parameter.md)|
 |Service de chiffrement de volume Azure Disk Encryption|Autoriser l’accès à la clé BitLocker (machine virtuelle Windows) ou à la phrase secrète DM (machine virtuelle Linux), et à la clé de chiffrement lors du déploiement de machines virtuelles. Ceci active [Azure Disk Encryption](../security/fundamentals/encryption-overview.md).|
 |Sauvegarde Azure|Autoriser la sauvegarde et restauration des clés et des secrets pertinents lors de la sauvegarde de Machines virtuelles Azure avec [Sauvegarde Azure](../backup/backup-introduction-to-azure-backup.md).|
 |Exchange Online et SharePoint Online|Autoriser l’accès à la clé du client pour Azure Storage Service Encryption avec une [clé de client](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
@@ -74,7 +74,7 @@ Voici une liste de services approuvés qui sont autorisés à accéder à un cof
 |Azure Data Lake Store|[Chiffrement de données dans Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) avec une clé gérée par le client.|
 |Azure Databricks|[Service d'analyse rapide, simple et collaboratif basé sur Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
 |Gestion des API Azure|[Déployer des certificats pour un domaine personnalisé à partir de Key Vault à l’aide de MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
-|Azure Data Factory|[Récupérer les informations d’identification du magasin de données dans Key Vault à partir de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
+|Azure Data Factory|[Récupérer les informations d’identification du magasin de données dans Key Vault à partir de Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 
 
 

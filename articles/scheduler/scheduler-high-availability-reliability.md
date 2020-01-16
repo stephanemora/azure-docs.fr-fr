@@ -9,19 +9,19 @@ ms.reviewer: klam
 ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.openlocfilehash: 3cc15d173ad735d77505f636bd230e0876371271
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6a729df7eb08f8dacff4b0d35d011854208510ff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300930"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979282"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Haute disponibilité et fiabilité pour Azure Scheluler
 
 > [!IMPORTANT]
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Pour poursuivre les travaux que vous avez configurés dans Scheduler, veuillez [migrer vers Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) dès que possible. 
 
-Azure Scheduler assure à la fois la [haute disponibilité](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) et la fiabilité pour vos travaux. Pour plus d’informations, consultez [Contrat SLA pour Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+Azure Scheduler assure à la fois la [haute disponibilité](https://docs.microsoft.com/azure/architecture/framework/#resiliency) et la fiabilité pour vos travaux. Pour plus d’informations, consultez [Contrat SLA pour Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## <a name="high-availability"></a>Haute disponibilité
 

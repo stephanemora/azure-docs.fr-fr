@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: 8a5b7bd366c504f0f5f4652728bf265289fb92e8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 418026d5569cd7e4a7c5239f99650833b1b9514d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929673"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892935"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copier des données vers un index de recherche cognitive Azure à l’aide d’Azure Data Factory
 
@@ -42,9 +42,9 @@ Les propriétés prises en charge pour le service lié Recherche cognitive Azure
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureSearch** | OUI |
-| url | URL du service de recherche. | OUI |
-| key | Clé d’administration du service de recherche. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| type | La propriété type doit être définie sur : **AzureSearch** | Oui |
+| url | URL du service de recherche. | Oui |
+| key | Clé d’administration du service de recherche. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 > [!IMPORTANT]
@@ -80,8 +80,8 @@ Pour copier des données dans Recherche cognitive Azure, les propriétés suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | OUI |
-| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | OUI |
+| type | La propriété type du jeu de données doit être définie sur : **AzureSearchIndex** | Oui |
+| indexName | Nom de l’index de recherche. Data Factory ne crée pas l’index. L’index doit exister dans Recherche cognitive Azure. | Oui |
 
 **Exemple :**
 
@@ -112,7 +112,7 @@ Pour copier des données vers Recherche cognitive Azure, définissez **AzureSear
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AzureSearchIndexSink** | Oui |
 | writeBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).<br/><br/>Les valeurs autorisées sont les suivantes : **Merge** (par défaut) et **Upload**. | Non |
 | writeBatchSize | Charge des données dans l’index de recherche lorsque la taille de la mémoire tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property).<br/><br/>Valeurs autorisées : entier de 1 à 1000 ; la valeur par défaut est 1000. | Non |
 
@@ -169,7 +169,7 @@ Le tableau suivant indique si un type de données Recherche cognitive Azure est 
 
 | Type de données Recherche cognitive Azure | Pris en charge dans le récepteur de Recherche cognitive Azure |
 | ---------------------- | ------------------------------ |
-| Chaîne | O |
+| String | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
@@ -181,4 +181,4 @@ Le tableau suivant indique si un type de données Recherche cognitive Azure est 
 Les autres types de données, par exemple ComplexType, ne sont pas pris en charge pour le moment. Pour obtenir la liste complète des types de données pris en charge par Recherche cognitive Azure, consultez [Types de données pris en charge (Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -2,20 +2,20 @@
 title: Surveiller Azure Batch | Microsoft Docs
 description: Découvrez les services de supervision Azure, les métriques, les journaux de diagnostic et d’autres fonctionnalités de supervision d’Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: ef57e0f63f8cfad5bc5fa5710661657176171194
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.author: jushiman
+ms.openlocfilehash: 05881dc5c2df9103a57af699cf807d6d66db27b9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530797"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029540"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 
@@ -33,7 +33,7 @@ L’une des méthodes pour récupérer des événements dans votre journal d’a
 
 ## <a name="batch-account-level-monitoring"></a>Surveillance au niveau du compte Batch
 
-Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et éventuellement des [journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision](batch-diagnostics.md).
+Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et éventuellement des [journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision](batch-diagnostics.md).
  
 > [!NOTE]
 > Les métriques sont disponibles par défaut dans votre compte Batch sans configuration supplémentaire, et elles ont un historique roulant de 30 jours. Vous devez activer la journalisation des diagnostics pour un compte Batch. Le stockage ou le traitement des données du journal de diagnostic peut induire des frais supplémentaires. 

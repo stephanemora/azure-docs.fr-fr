@@ -1,5 +1,5 @@
 ---
-title: 'Architecture : Apache Hadoop local vers Azure HDInsight'
+title: 'Architecture : Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant l’architecture pour la migration des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 9f532e7bbf9e24e431341344b3172c988f69bfc3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2d0d5bb871612bc5e16a26eb49808c39661ffb50
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951528"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934687"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant l’architecture
 
@@ -38,12 +38,12 @@ Le tableau suivant présente les différentes méthodes permettant de créer un 
 
 |Outil|Basé sur le navigateur|Ligne de commande|API REST|Kit SDK|
 |---|---|---|---|---|
-|[Portail Azure](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md).|X|X|X|X|
 |[Azure CLI (version 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[Kit de développement logiciel (SDK) .NET](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
+|[Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
 |[Kit de développement logiciel (SDK) Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
 |[Kit SDK Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
 |[Modèles Microsoft Azure Resource Manager](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||

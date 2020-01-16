@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: a8a5b8df4307d9a73477944351c2889a86bdb2b4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535261"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968547"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Déployer des modèles Machine Learning sur Azure App Service (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Pour plus d’informations sur les fonctionnalités fournies par Azure App Servi
     > * `model` - Modèle inscrit qui sera déployé.
     > * `inference_config` - Configuration d’inférence pour le modèle.
     >
-    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 
@@ -67,7 +67,7 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
     >
     > Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-run-batch-predictions.md), qui donnent accès aux magasins de travail lors du scoring.
 
-    Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+    Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
 
@@ -93,7 +93,7 @@ Ces entités sont encapsulées dans une __configuration d'inférence__. La confi
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
 
-Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Lors du déploiement vers Azure App Service, il n’est pas nécessaire de créer une __configuration de déploiement__.
@@ -103,7 +103,7 @@ Pour plus d’informations sur la configuration de l’inférence, consultez [D�
 Pour créer l’image du Docker qui est déployée sur Azure App Service, utilisez [Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). L’extrait de code suivant montre comment construire une nouvelle image à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
-> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -121,7 +121,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 
 ## <a name="deploy-image-as-a-web-app"></a>Déployer une image en tant qu’application web
 
-1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<acrinstance>` par la valeur retournée précédemment par `package.location` : 
+1. Utilisez la commande suivante pour obtenir les informations d’identification de connexion de l’instance d’Azure Container Registry qui contient l’image. Remplacez `<acrinstance>` par la valeur retournée précédemment par `package.location` :
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -168,7 +168,7 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     Cette commande retourne des informations semblables à celles du document JSON suivant :
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

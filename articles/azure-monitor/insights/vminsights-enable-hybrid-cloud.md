@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 40d89dd675e063283d1ed90cf145575b8164e4e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400703"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969681"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Cet article explique comment activer Azure Monitor pour machines virtuelles (préversion) pour des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou un autre environnement cloud. À la fin de ce processus, vous aurez commencé à analyser vos machines virtuelles dans votre environnement et saurez reconnaître les problèmes de performances ou de disponibilité. 
+Cet article explique comment activer Azure Monitor pour machines virtuelles (préversion) pour des machines virtuelles ou des ordinateurs physiques hébergés dans votre centre de données ou un autre environnement cloud. À la fin de ce processus, vous aurez commencé à analyser vos machines virtuelles dans votre environnement et saurez reconnaître les problèmes de performances ou de disponibilité.
 
 Avant de commencer, veillez à consulter les [conditions préalables](vminsights-enable-overview.md) et vérifiez que votre abonnement et vos ressources répondent aux exigences. Passez en revue les exigences et les méthodes de déploiement pour l’[agent Log Analytique Linux et Windows](../../log-analytics/log-analytics-agent-overview.md).
 
@@ -121,7 +121,7 @@ configuration ServiceMap {
     Node localhost
     {
         # Download and install the Dependency agent
-        xRemoteFile DAPackage 
+        xRemoteFile DAPackage
         {
             Uri = "https://aka.ms/dependencyagentwindows"
             DestinationPath = $DAPackageLocalPath
@@ -154,8 +154,8 @@ Si l’espace de travail Log Analytics référencé par la solution n’est pas 
 Cette méthode inclut un modèle JSON spécifiant la configuration requise pour activer les composants de la solution dans votre espace de travail Log Analytics.
 
 Si vous ne savez pas comment déployer des ressources à l’aide d’un modèle, consultez les sections suivantes :
-* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+* [Déployer des ressources à l’aide de modèles Resource Manager et de l’interface de ligne de commande Azure](../../azure-resource-manager/templates/deploy-cli.md)
 
 Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interface CLI localement. Vous devez exécuter Azure CLI 2.0.27 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Pour installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -232,13 +232,13 @@ Si votre installation de l’agent de dépendances a réussi, mais que vous ne v
 
 1. L’agent de dépendances est-il correctement installé ? Vous pouvez vous en assurer en vérifiant si le service est installé et en cours d’exécution.
 
-    **Windows** : recherchez le service nommé « Microsoft Dependency Agent ». 
+    **Windows** : recherchez le service nommé « Microsoft Dependency Agent ».
 
     **Linux** : recherchez « microsoft-dependency-agent » dans les processus en cours d’exécution.
 
 2. Utilisez-vous le [niveau tarifaire Gratuit de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ? Le plan Gratuit autorise jusqu’à 5 ordinateurs uniques. Les ordinateurs suivants ne s’affichent pas sur la carte, même si les cinq précédents n’envoient plus de données.
 
-3. L’ordinateur envoie-t-il des données de journal et de performances aux journaux Azure Monitor ? Exécutez la requête suivante sur votre ordinateur : 
+3. L’ordinateur envoie-t-il des données de journal et de performances aux journaux Azure Monitor ? Exécutez la requête suivante sur votre ordinateur :
 
     ```Kusto
     Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
@@ -248,7 +248,7 @@ Si votre installation de l’agent de dépendances a réussi, mais que vous ne v
 
 #### <a name="computer-appears-on-the-map-but-has-no-processes"></a>L’ordinateur s’affiche sur la carte, mais n’a aucun processus
 
-Si vous voyez votre serveur sur la carte, mais qu’il ne comporte aucune donnée de processus ou de connexion, cela indique que l’agent de dépendances est installé et en cours d’exécution, mais que le pilote en mode noyau ne s’est pas chargé. 
+Si vous voyez votre serveur sur la carte, mais qu’il ne comporte aucune donnée de processus ou de connexion, cela indique que l’agent de dépendances est installé et en cours d’exécution, mais que le pilote en mode noyau ne s’est pas chargé.
 
 Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) ou le fichier /var/opt/microsoft/dependency-agent/log/service.log (Linux). Les dernières lignes du fichier doivent indiquer la raison pour laquelle le noyau ne s’est pas chargé. Par exemple, le noyau n’est peut-être pas pris en charge sous Linux si vous l’avez mis à jour.
 
@@ -256,7 +256,7 @@ Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.lo
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
- 
+
 - Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
 
 - Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md).

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792489"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979406"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformer des données XML à l’aide de mappages dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -23,7 +23,7 @@ Par exemple, imaginons que vous receviez régulièrement des commandes ou des fa
 
 Pour connaître les limites associées aux comptes d’intégration et aux artefacts tels que les mappages, consultez [Limites et informations de configuration pour Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -36,9 +36,9 @@ Pour connaître les limites associées aux comptes d’intégration et aux artef
   * Pour les assemblys, vous avez besoin d’un conteneur d’objets blob Azure dans lequel vous pouvez charger votre assembly ainsi que l’emplacement de ce conteneur. De cette façon, vous pourrez fournir cet emplacement lorsque vous ajouterez l’assembly à votre compte d’intégration. 
   Pour cette tâche, vous avez besoin des éléments suivants :
 
-    | Item | Description |
+    | Élément | Description |
     |------|-------------|
-    | [Compte Azure Storage](../storage/common/storage-account-overview.md) | Dans ce compte, créez un conteneur d’objets blob Azure pour votre assembly. Découvrez comment [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md). |
+    | [Compte Azure Storage](../storage/common/storage-account-overview.md) | Dans ce compte, créez un conteneur d’objets blob Azure pour votre assembly. Découvrez comment [créer un compte de stockage](../storage/common/storage-account-create.md). |
     | Conteneur d’objets blob | Dans ce conteneur, vous pouvez charger votre assembly. Vous aurez également besoin de l’emplacement de ce conteneur lorsque vous ajouterez l’assembly à votre compte d’intégration. Découvrez comment [créer un conteneur d’objets blob](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Cet outil facilite la gestion des comptes de stockage et des conteneurs d’objets blob. Pour utiliser l’Explorateur Stockage, [téléchargez et installez l’Explorateur Stockage Azure](https://www.storageexplorer.com/). Ensuite, connectez l’Explorateur Stockage à votre compte de stockage en suivant les étapes décrites dans [Prise en main de l’Explorateur Stockage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Pour en savoir plus, consultez [Démarrage rapide : Créer un objet blob dans le stockage d’objets avec l’Explorateur Stockage Azure](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Sinon, dans le portail Azure, vous pouvez aussi sélectionner votre compte de stockage. Dans le menu de votre compte de stockage, sélectionnez **Explorateur Stockage**. |
     |||

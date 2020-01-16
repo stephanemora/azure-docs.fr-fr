@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: c15602163ee1916047b9cb35a516a049f951b302
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 308a474970db54022e5351fdf349d9572fbafb0d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195950"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888564"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -28,7 +28,7 @@ La vidéo suivante illustre l’utilisation de ce conteneur.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les prérequis à l’exécution du conteneur LUIS :
 
@@ -55,7 +55,7 @@ API de création d’applications empaquetées :
 
 Ce conteneur prend en charge des valeurs minimales et recommandées pour les paramètres :
 
-|Conteneur| Minimale | Recommandé | TPS<br>(Minimum, maximum)|
+|Conteneur| Minimum | Recommandé | TPS<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
 |LUIS|1 cœur, 2 Go de mémoire|1 cœur, 4 Go de mémoire|20, 40|
 
@@ -84,7 +84,7 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 
 1. [Exportez le package](#export-packaged-app-from-luis) pour le conteneur à partir du portail LUIS ou des API LUIS.
 1. Déplacez le fichier de package dans le répertoire d’**entrée** requis sur l’[ordinateur hôte](#the-host-computer). Vous ne devez ni renommer, ni modifier, ni remplacer, ni décompresser le fichier de package LUIS.
-1. [Exécutez le conteneur](##run-the-container-with-docker-run) avec le _montage d’entrée_ et les paramètres de facturation requis. D’autres [exemples](luis-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
+1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec le _montage d’entrée_ et les paramètres de facturation requis. D’autres [exemples](luis-container-configuration.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 1. [Interrogation du point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
 1. Quand vous en avez terminé avec le conteneur, [importez les journaux d’activité du point de terminaison](#import-the-endpoint-logs-for-active-learning) à partir du montage de sortie dans le portail LUIS et [arrêtez](#stop-the-container) le conteneur.
 1. Utilisez l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md) du portail LUIS dans la page **Review endpoint utterances** (Passer en revue les énoncés du point de terminaison) afin d’améliorer l’application.
@@ -166,7 +166,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Valeur |
+| Espace réservé | Valeur |
 |-------------|-------|
 | **{APP_ID}** | ID d’application de l’application LUIS publiée. |
 | **{SLOT_NAME}** | Environnement de l’application LUIS publiée. Utilisez l’une des valeurs suivantes :<br/>`PRODUCTION`<br/>`STAGING` |
@@ -185,7 +185,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Placeholder | Valeur |
+| Espace réservé | Valeur |
 |-------------|-------|
 | **{APP_ID}** | ID d’application de l’application LUIS entraînée. |
 | **{APP_VERSION}** | Version de l’application LUIS entraînée. |
@@ -271,7 +271,7 @@ Les paramètres de requête configurent ce qui est retourné dans la réponse de
 |Paramètre de requête.|Type|Objectif|
 |--|--|--|
 |`q`|string|Énoncé de l’utilisateur.|
-|`timezoneOffset`|number|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
+|`timezoneOffset`|nombre|timezoneOffset vous permet de [changer le fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilisé par l’entité prédéfinie datetimeV2.|
 |`verbose`|boolean|Retourne toutes les intentions et leurs scores quand la valeur est true. La valeur par défaut est false, ce qui retourne uniquement la première intention.|
 |`staging`|boolean|Retourne une requête à partir des résultats de l’environnement intermédiaire si la valeur est true. |
 |`log`|boolean|Enregistre les requêtes, qui peuvent être utilisées ultérieurement pour l’[apprentissage actif](luis-how-to-review-endpoint-utterances.md). La valeur par défaut est true.|
@@ -355,7 +355,7 @@ Une fois le journal chargé, [passez en revue les énoncés de point de terminai
 
 Pour arrêter le conteneur, dans l’environnement de ligne de commande où le conteneur est en cours d’exécution, appuyez sur **Ctrl+C**.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous exécutez le conteneur avec un [montage](luis-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 

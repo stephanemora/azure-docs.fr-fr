@@ -2,22 +2,22 @@
 title: Exécuter une charge de travail parallèle - Azure Batch Python
 description: Didacticiel - Traiter des fichiers multimédias en parallèle avec ffmpeg dans Azure Batch à l’aide de la bibliothèque cliente Python Batch
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bc73c3c40754d1c3eeb6c86f6c9578047a22d73e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090783"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029251"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Didacticiel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API Python
 
 Utilisez Azure Batch pour exécuter des programmes de traitement par lots de calcul haute performance (HPC) en parallèle, efficacement et à grande échelle dans Azure. Ce didacticiel vous permet de découvrir un exemple d’exécution Python d’une charge de travail parallèle utilisant Batch. Vous découvrez un workflow d’application Batch courant et comment interagir par programme avec les ressources de stockage et Batch. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous convertissez des fichiers de multimédia MP4 en parall
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Python 2.7 ou 3.3 ou version ultérieure](https://www.python.org/downloads/)
 
@@ -76,7 +76,7 @@ _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
 
-### <a name="run-the-app"></a>Exécution de l'application
+### <a name="run-the-app"></a>Exécuter l’application
 
 Pour exécuter le script :
 
@@ -199,7 +199,7 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool)
 ```
 
-### <a name="create-a-job"></a>Création d’un travail
+### <a name="create-a-job"></a>Créer un travail
 
 Un programme de traitement par lots spécifie un pool pour exécuter des tâches et des paramètres facultatifs tels qu’une priorité et un calendrier pour le travail. L’exemple crée un travail avec un appel à `create_job`. Cette fonction définie utilise la classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) pour créer un travail sur votre pool. La méthode [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) soumet le pool au service Batch. Dans un premier temps, le travail n’a aucune tâche.
 
@@ -265,7 +265,7 @@ while datetime.datetime.now() < timeout_expiration:
 ...
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir exécuté les tâches, l’application supprime automatiquement le conteneur de stockage d’entrée créé et vous donne la possibilité de supprimer le travail et le pool Azure Batch. Les classes [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) et [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) de BatchServiceClient disposent toutes deux de méthodes de suppression, appelées si l’utilisateur confirme la suppression. Bien que vous ne soyez pas facturé pour les travaux et les tâches à proprement parler, les nœuds de calcul vous sont facturés. Par conséquent, nous vous conseillons d’affecter les pools uniquement en fonction des besoins. Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. Toutefois, les fichiers d’entrée et de sortie restent dans le compte de stockage.
 

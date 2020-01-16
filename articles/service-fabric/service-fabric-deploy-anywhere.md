@@ -3,21 +3,24 @@ title: Vue d’ensemble d’Azure et des clusters Service Fabric autonomes
 description: Vous pouvez créer des cluster Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans tout environnement dans lequel vous avez des ordinateurs Windows Server ou Linux interconnectés, que ce soit en local sur Microsoft Azure ou à l’aide d’un fournisseur de cloud.
 author: dkkapur
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 01/07/2020
 ms.author: dekapur
-ms.openlocfilehash: 71f3858fed43465f646ccbe1e78ccac9cba237f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: a3627effe10039ded5007f9dd060bf1865929040
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458193"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751145"
 ---
 # <a name="comparing-azure-and-standalone-service-fabric-clusters-on-windows-server-and-linux"></a>Comparaison entre Azure et des clusters Service Fabric autonomes sur Windows Server et Linux
+
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou machine virtuelle faisant partie d’un cluster est appelée un nœud de cluster. Les clusters peuvent être mis à l’échelle pour des milliers de nœuds. Si vous ajoutez des nœuds au cluster, Service Fabric rééquilibre les réplicas de partition du service et les instances sur le nombre de nœuds augmenté. Les performances globales de l’application s’améliorent tandis que le conflit d’accès à la mémoire diminue. Si les nœuds du cluster ne sont pas utilisés efficacement, vous pouvez diminuer le nombre de nœuds dans le cluster. Service Fabric rééquilibre à nouveau les réplicas de partition et les instances sur le nombre réduit de nœuds afin de mieux utiliser le matériel sur chaque nœud.
 
 Service Fabric permet la création de clusters Service Fabric sur toute machine virtuelle ou tout ordinateur exécutant Windows Server ou Linux. Cela signifie que vous pouvez déployer et exécuter des applications Service Fabric dans n’importe quel environnement dans lequel des ordinateurs Windows Server ou Linux sont interconnectés, que ce soit en local, sur Microsoft Azure ou avec n’importe quel fournisseur de cloud.
 
 ## <a name="benefits-of-clusters-on-azure"></a>Avantages des clusters sur Azure
+
 Dans Azure, nous intégrons d’autres fonctionnalités et services Azure qui rendent l’exploitation et la gestion du cluster plus simple et plus fiable.
 
 * **Portail Azure :** facilite la création et la gestion de clusters.
@@ -28,6 +31,7 @@ Dans Azure, nous intégrons d’autres fonctionnalités et services Azure qui re
 * **Mise à l’échelle automatique :** pour les clusters sur Azure, nous fournissons une fonctionnalité de mise à l’échelle automatique intégrée en raison de la présence de groupes de machines virtuelles identiques. Dans des environnements locaux ou d’autres environnements cloud, vous devez créer votre propre fonctionnalité de mise à l’échelle automatique ou mettre à l’échelle manuellement à l’aide des API que Service Fabric expose pour la mise à l’échelle des clusters.
 
 ## <a name="benefits-of-standalone-clusters"></a>Avantages des clusters autonomes
+
 * Vous pouvez choisir n’importe quel fournisseur de cloud pour héberger votre cluster.
 * Une fois écrites, les applications Service Fabric peuvent être exécutées dans plusieurs environnements d’hébergement sans modification ou avec des modifications minimales.
 * Les connaissances en matière de génération d’applications Service Fabric s’appliquent d’un environnement d’hébergement à un autre.

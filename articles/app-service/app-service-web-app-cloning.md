@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: ccff07009d2f46f6d91b8e3c57158aa6ede3607e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 332f7a562fc8c1d7b2bbebb0e596a068797c2ce3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671433"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967222"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonage de l’application Azure App Service à l’aide de PowerShell
 
@@ -23,7 +23,7 @@ Avec la publication de Microsoft Azure PowerShell version 1.1.0, une nouvelle o
 Le clonage d’application est pris en charge par les plans App Service Standard, Premium, Premium V2 et Isolé. Cette nouvelle fonctionnalité utilise les mêmes limitations que la fonctionnalité de sauvegarde App Service. Consultez [Sauvegarder une application dans Azure App Service](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonage d’une application existante
-Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application de la région USA Centre Nord. Cela peut être effectué à l’aide de la version Azure Resource Manager de l’applet de commande PowerShell pour créer une application avec l’option `-SourceWebApp`.
+Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application de la région USA Centre Nord. Cela peut être effectué à l’aide de la version Azure Resource Manager de l’applet de commande PowerShell pour créer une application avec l’option `-SourceWebApp`.
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
@@ -56,7 +56,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonage d’une application existante vers un App Service Environment
-Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application d’un environnement App Service Environment (ASE) existant.
+Scénario : Vous souhaitez cloner le contenu d’une application de la région USA Centre Sud vers une nouvelle application d’un environnement App Service Environment (ASE) existant.
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’application source (dans ce cas nommée `source-webapp`) :
 
@@ -73,7 +73,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 Le paramètre `Location` est requis en raison de l’héritage, mais il est ignoré lorsque vous créez l’application dans un environnement ASE. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Clonage d’un emplacement d’application existant
-Scénario : Vous souhaitez cloner un emplacement de déploiement d’une application vers une nouvelle application ou un nouvel emplacement. La nouvelle application peut résider dans la même région que l’emplacement d’application d’origine ou dans une autre région.
+Scénario : Vous souhaitez cloner un emplacement de déploiement d’une application vers une nouvelle application ou un nouvel emplacement. La nouvelle application peut résider dans la même région que l’emplacement d’application d’origine ou dans une autre région.
 
 En connaissant le nom du groupe de ressources qui contient l’application source, vous pouvez utiliser la commande PowerShell suivante pour obtenir les informations de l’emplacement d’application source (dans ce cas nommé `source-appslot`) lié à `source-app` :
 
@@ -91,14 +91,14 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 La création d’applications sur plusieurs régions et la configuration d’Azure Traffic Manager pour router le trafic vers toutes les applications constituent un scénario contribuant largement à garantir que les applications des clients sont hautement disponibles. Au moment de cloner une application existante, vous avez la possibilité de connecter les deux applications à un nouveau profil de gestionnaire de trafic ou à un profil existant. Notez que seule la version Azure Resource Manager de Traffic Manager est prise en charge.
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Création d’un profil Traffic Manager lors du clonage d’une application
-Scénario : Vous souhaitez cloner une application vers une autre région tout en configurant un profil de gestionnaire de trafic Azure Resource Manager qui inclut les deux applications. La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en configurant un nouveau profil Traffic Manager :
+Scénario : Vous souhaitez cloner une application vers une autre région tout en configurant un profil de gestionnaire de trafic Azure Resource Manager qui inclut les deux applications. La commande suivante illustre la création d’un clone de l’application source vers une nouvelle application tout en configurant un nouveau profil Traffic Manager :
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
 ### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Ajout d’une nouvelle application clonée à un profil Traffic Manager existant
-Scénario : Vous disposez déjà d’un profil de gestionnaire de trafic Azure Resource Manager auquel vous souhaitez ajouter les deux applications comme points de terminaison. Pour ce faire, vous devez tout d’abord assembler l’ID du profile Traffic Manager existant. Vous devez disposer de l’ID d’abonnement, du nom de groupe de ressources et du nom du profil Traffic Manager existant.
+Scénario : Vous disposez déjà d’un profil de gestionnaire de trafic Azure Resource Manager auquel vous souhaitez ajouter les deux applications comme points de terminaison. Pour ce faire, vous devez tout d’abord assembler l’ID du profile Traffic Manager existant. Vous devez disposer de l’ID d’abonnement, du nom de groupe de ressources et du nom du profil Traffic Manager existant.
 
 ```powershell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
@@ -124,10 +124,10 @@ Voici les restrictions connues du clonage d’application :
 * Les adresses IP sortantes changent si vous clonez vers une unité d’échelle différente
 * Non disponible pour les applications Linux
 
-### <a name="references"></a>Références
+### <a name="references"></a>References
 * [Clonage de l’application Azure App Service ](app-service-web-app-cloning.md)
 * [Sauvegarder une application dans Azure App Service](manage-backup.md)
 * [Prise en charge d’Azure Resource Manager pour la version préliminaire d’Azure Traffic Manager](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Présentation de l'environnement App Service](environment/intro.md)
-* [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/manage-resources-powershell.md)
+* [Utilisation d'Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 

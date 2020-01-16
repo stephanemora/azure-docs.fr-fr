@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c8629975d375dda32fdd9aee42b4ae09069a2049
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a7a3c6edbbeca96a90f8003fda1b92fc8bf99fec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005412"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020918"
 ---
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Ce plan de migration affecte-t-il l’un de mes services ou applications existants qui s’exécutent sur des machines virtuelles Azure ? 
 
@@ -21,7 +21,7 @@ Non. Les machines virtuelles (Classic) sont des services entièrement pris en ch
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>Que se passera-t-il pour mes machines virtuelles si je n’envisage pas de procéder à cette migration dans un avenir proche ? 
 
-Nous ne déconseillons pas l’utilisation des API et du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons donc vivement de passer en revue [certaines des avancées réalisées](../articles/azure-resource-manager/resource-manager-deployment-model.md) en matière d’IaaS dans Resource Manager.
+Nous ne déconseillons pas l’utilisation des API et du modèle de ressource Classic existants. Compte tenu des fonctionnalités avancées offertes par le modèle de déploiement Resource Manager, notre objectif est de faciliter la migration. Nous vous recommandons donc vivement de passer en revue [certaines des avancées réalisées](../articles/azure-resource-manager/management/deployment-models.md) en matière d’IaaS dans Resource Manager.
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>Quelles sont les implications de ce plan de migration pour mes outils existants ? 
 
@@ -52,7 +52,7 @@ Pendant la migration, les ressources Classic sont converties en ressources Resou
 <a name="vault">Lorsque</a> vous faites évoluer une machine virtuelle du mode Classic vers le mode Resource Manager, les sauvegardes effectuées avant cette migration ne sont pas transférées vers la nouvelle machine virtuelle Resource Manager. Toutefois, si vous souhaitez conserver vos sauvegardes des machines virtuelles Classic, procédez comme suit avant la migration. 
 
 1. Dans le coffre Recovery Services, accédez à l’onglet **Éléments protégés**, puis sélectionnez la machine virtuelle. 
-2. Cliquez sur Arrêter la protection. Laissez l’option *Supprimer les données de sauvegarde associées* **non cochée**.
+2. Cliquez sur Arrêter la protection. Laissez l’option *Supprimer les données de sauvegarde associées***non cochée**.
 
 > [!NOTE]
 > Les frais de sauvegarde vous seront facturés tant que vous conserverez les données. Les copies de sauvegarde seront supprimées en fonction de la durée de rétention définie. Toutefois, la dernière copie de sauvegarde est systématiquement conservée jusqu’à ce que vous supprimiez explicitement les données de sauvegarde. Il est recommandé de vérifier la durée de rétention de la machine virtuelle et de déclencher l’option « Supprimer les données de sauvegarde » sur l’élément protégé dans le coffre à l’issue de la durée de rétention. 

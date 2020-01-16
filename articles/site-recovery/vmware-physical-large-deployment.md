@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 36cc63721fe003934aabfb3ae2a03a4113937ca4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082221"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895791"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurer la récupération d’urgence à grande échelle de machines virtuelles VMware et de serveurs physiques
 
@@ -26,7 +26,7 @@ Dans le cadre de votre stratégie de continuité d’activité et reprise d’ac
 - Lorsque vous planifiez une récupération d’urgence à grande échelle pour des machines virtuelles VMware et déterminez les ressources Azure dont vous avez besoin, vous pouvez spécifier une valeur RTO qui sera utilisée pour les calculs de capacité.
 
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Meilleures pratiques générales pour la récupération d’urgence à grande échelle. Ces meilleures pratiques sont décrites plus en détail dans les sections suivantes du document.
 
@@ -85,7 +85,7 @@ Nous tenons à nous assurer que les quotas disponibles dans l’abonnement cible
 
 **Tâche** | **Détails** | **Action**
 --- | --- | ---
-**Vérifier les cœurs** | Si les cœurs que compte le quota disponible ne sont pas en nombre égal ou supérieur au nombre total cible au moment du basculement, les basculements échoueront. | Pour les machines virtuelles VMware, vérifiez que l’abonnement cible contient suffisamment de cœurs pour respecter la recommandation du Planificateur de déploiement en matière de cœurs.<br/><br/> Pour les serveurs physiques, vérifiez que les cœurs Azure répondent à vos estimations manuelles.<br/><br/> Pour vérifier les quotas, dans le portail Azure > **Abonnement**, cliquez sur **Utilisation + quotas**.<br/><br/> [Apprenez-en davantage](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sur l’augmentation des quotas.
+**Vérifier les cœurs** | Si les cœurs que compte le quota disponible ne sont pas en nombre égal ou supérieur au nombre total cible au moment du basculement, les basculements échoueront. | Pour les machines virtuelles VMware, vérifiez que l’abonnement cible contient suffisamment de cœurs pour respecter la recommandation du Planificateur de déploiement en matière de cœurs.<br/><br/> Pour les serveurs physiques, vérifiez que les cœurs Azure répondent à vos estimations manuelles.<br/><br/> Pour vérifier les quotas, dans le portail Azure > **Abonnement**, cliquez sur **Utilisation + quotas**.<br/><br/> [Apprenez-en davantage](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) sur l’augmentation des quotas.
 **Vérifier les limites de nombre de basculements** | Le nombre de basculements ne doit pas dépasser les limites de nombre de basculements de Site Recovery. |  Si le nombre de basculements dépasse les limites, vous pouvez ajouter des abonnements pour basculer vers plusieurs abonnements ou augmenter le quota pour un abonnement. 
 
 
@@ -100,7 +100,7 @@ Que signifie « conforme » ? Pour démarrer une machine virtuelle Azure, Azu
 
 **La machine est-elle conforme pour Azure ?** | **Limites de machine virtuelle Azure (basculement de disque managé)**
 --- | --- 
-OUI | 2000
+Oui | 2000
 Non | 1 000
 
 - Les limites supposent qu’un minimum d’autres travaux sont en cours dans la région cible pour l’abonnement.
@@ -129,7 +129,7 @@ La capacité du serveur de configuration dépend du nombre de machines à répli
 
 **UC** | **Mémoire** | **Disque cache** | **Limite de machine répliquée**
  --- | --- | --- | ---
-8 processeurs virtuels<br> 2 sockets * 4 cœurs à 2,5 GHz | 16 Go | 600 Go | Jusqu’à 550 machines<br> En supposant que chaque machine source dispose de trois disques de 100 Go chacun.
+8 processeurs virtuels<br> 2 sockets * 4 cœurs à 2,5 GHz | 16 Go | 600 Go | Jusqu’à 550 machines<br> En supposant que chaque machine source dispose de trois disques de 100 Go chacun.
 
 - Ces limites sont basées sur un serveur de configuration configuré à l’aide d’un modèle OVF.
 - Les limites sont basées sur l’hypothèse que n’utilisez pas le serveur de processus qui s’exécute par défaut sur le serveur de configuration.

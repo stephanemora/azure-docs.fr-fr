@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffd459980c4750295e1045c3f8c1bb7fc18a25df
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689359"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771919"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -228,7 +228,7 @@ Pour obtenir une documentation complète, consultez le [site web du package](htt
 
 ### <a name="azure-machine-learning-integration-with-event-grid"></a>Intégration entre Azure Machine Learning et Event Grid 
 
-Azure Machine Learning est désormais un fournisseur de ressources pour Event Grid. Il est possible de configurer des événements Machine Learning sur le Portail Azure ou avec Azure CLI. Les utilisateurs peuvent créer des événements pour la fin d’une exécution, l’inscription de modèles, le déploiement de modèles et la détection d’une dérive de données. Ces événements peuvent être routés vers des gestionnaires d’événements pris en charge par Event Grid à des fins de consommation. Pour plus d’informations, voir les articles [Schémas](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [Concepts](https://docs.microsoft.com/azure/machine-learning/service/concept-event-grid-integration) et [Tutoriel](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-event-grid) sur les événements Machine Learning.
+Azure Machine Learning est désormais un fournisseur de ressources pour Event Grid. Il est possible de configurer des événements Machine Learning sur le Portail Azure ou avec Azure CLI. Les utilisateurs peuvent créer des événements pour la fin d’une exécution, l’inscription de modèles, le déploiement de modèles et la détection d’une dérive de données. Ces événements peuvent être routés vers des gestionnaires d’événements pris en charge par Event Grid à des fins de consommation. Pour plus d’informations, voir les articles [Schémas](https://docs.microsoft.com/azure/event-grid/event-schema-machine-learning), [Concepts](https://docs.microsoft.com/azure/machine-learning/concept-event-grid-integration) et [Tutoriel](https://docs.microsoft.com/azure/machine-learning/how-to-use-event-grid) sur les événements Machine Learning.
 
 ## <a name="2019-10-31"></a>2019-10-31
 
@@ -236,7 +236,7 @@ Azure Machine Learning est désormais un fournisseur de ressources pour Event Gr
 
 + **Nouvelles fonctionnalités**
   + Ajout de superviseurs de jeu de données via le package [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift), permettant la supervision des jeux de données de série chronologique pour détecter la dérive de données ou d’autres modifications statistiques au fil du temps. Des alertes et des événements peuvent être déclenchés si une dérive est détectée ou si d’autres conditions sur les données sont remplies. Consultez [notre documentation](https://aka.ms/datadrift) pour plus d’informations.
-  + Annonce de deux nouvelles éditions (également appelées références SKU) dans Azure Machine Learning. Avec cette version, vous pouvez désormais créer un espace de travail Azure Machine Learning De base ou Entreprise. Tous les espaces de travail existants sont dirigés par défaut vers l’édition De base, et vous pouvez accéder au portail Azure ou à Studio pour mettre à niveau l’espace de travail à tout moment. Vous pouvez créer un espace de travail De base ou Entreprise à partir du portail Azure. Lisez [notre documentation](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) pour en savoir plus. À partir du SDK, l’édition de votre espace de travail peut être déterminée à l’aide de la propriété « sku » de votre objet espace de travail.
+  + Annonce de deux nouvelles éditions (également appelées références SKU) dans Azure Machine Learning. Avec cette version, vous pouvez désormais créer un espace de travail Azure Machine Learning De base ou Entreprise. Tous les espaces de travail existants sont dirigés par défaut vers l’édition De base, et vous pouvez accéder au portail Azure ou à Studio pour mettre à niveau l’espace de travail à tout moment. Vous pouvez créer un espace de travail De base ou Entreprise à partir du portail Azure. Lisez [notre documentation](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) pour en savoir plus. À partir du SDK, l’édition de votre espace de travail peut être déterminée à l’aide de la propriété « sku » de votre objet espace de travail.
   + Nous avons également apporté des améliorations à la Capacité de calcul Azure Machine Learning : vous pouvez désormais visualiser les métriques de vos clusters (comme le nombre total de nœuds, les nœuds en cours d’exécution, le quota total de cœurs) dans Azure Monitor, en plus de la visualisation des journaux de diagnostic pour le débogage. En outre, vous pouvez également afficher les exécutions en cours ou en file d’attente sur votre cluster et des détails comme les adresses IP des différents nœuds de votre cluster. Vous pouvez les afficher dans le portail ou à l’aide des fonctions correspondantes dans le SDK ou l’interface CLI.
 
   + **Fonctionnalités préliminaires**
@@ -1031,7 +1031,7 @@ Nous avons rétabli une modification qui a amélioré les performances, car elle
   + Nouvelles fonctionnalités de Machine Learning automatisé :
     + Préapprentissage STL pour la prévision
     + Le clustering k-moyennes est activé pour le balayage de fonctionnalité
-  + Les approbations de Quota de AmlCompute ont gagné en vitesse ! Nous avons maintenant automatisé le processus pour approuver des demandes de votre quota dans un seuil. Pour plus d’informations sur le fonctionnement des quotas, Découvrez [comment gérer les quotas](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-quotas).
+  + Les approbations de Quota de AmlCompute ont gagné en vitesse ! Nous avons maintenant automatisé le processus pour approuver des demandes de votre quota dans un seuil. Pour plus d’informations sur le fonctionnement des quotas, Découvrez [comment gérer les quotas](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
 + **Fonctionnalités préliminaires**
     + Intégration avec le suivi [MLflow](https://mlflow.org) 1.0.0 via le package azureml-mlflow ([exemples de notebooks](https://aka.ms/azureml-mlflow-examples)).

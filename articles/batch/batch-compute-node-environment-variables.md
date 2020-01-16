@@ -2,7 +2,7 @@
 title: Variables d’environnement runtime des tâches - Azure Batch | Microsoft Docs
 description: Référence et conseils pour les variables d’environnement runtime des tâches pour Azure Batch Analytics.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/12/2019
-ms.author: lahugh
-ms.openlocfilehash: cb087b261780ba88bd26bea3e14fc875e5c63566
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.author: jushiman
+ms.openlocfilehash: fd3c8ac9e65f7f77be070e1d1d108490e61eb248
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177155"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027192"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement runtime Azure Batch
 
@@ -42,9 +42,9 @@ Les lignes de commande exécutées par des tâches sur des nœuds de calcul ne s
 
 `/bin/sh -c MyTaskApplication $MY_ENV_VAR`
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 
-| Nom de la variable                     | Description                                                              | Disponibilité | Exemples |
+| Nom de la variable                     | Description                                                              | Disponibilité | Exemple |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Nom du compte Batch auquel la tâche appartient.                  | Toutes les tâches.   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | URL du compte Batch. | Toutes les tâches. | `https://myaccount.westus.batch.azure.com` |

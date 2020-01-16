@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cfcf63274fc4bd77e7cb8fd792ed7d2782b36003
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1217028dc6c206633f13fe44951732809cd72d22
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535541"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762791"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
 
@@ -110,14 +110,14 @@ Les réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les articles suivants expliquent comment utiliser la technologie du deep learning dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri) :
+Les articles suivants expliquent comment utiliser la technologie du deep learning dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri) :
 
-- [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+- [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+- [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
-- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+- [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
 
 Utilisez également l’[Aide-mémoire de l’algorithme de Machine Learning](algorithm-cheat-sheet.md) pour choisir des algorithmes pour votre modèle.

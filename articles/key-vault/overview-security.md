@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884791"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981565"
 ---
 # <a name="azure-key-vault-security"></a>Sécurité d’Azure Key Vault
 
@@ -82,17 +82,17 @@ La journalisation de Key Vault enregistre les informations sur les activités ef
 
 - Toutes les authentifiées requêtes d’API REST, y compris les demandes ayant échoué
   - Opérations sur le coffre de clés lui-même. Ces opérations incluent la création, la suppression, la définition des stratégies d’accès et la mise à jour des attributs de coffre de clés (par exemple, les balises).
-  - Opérations sur les clés et secrets dans le coffre de clés, y compris :
+  - Les opérations sur les clés et secrets dans le coffre de clés, à savoir :
     - Création, modification ou suppression de ces clés ou secrets.
     - Signature, vérification, chiffrement, déchiffrement, inclusion dans un wrapper et retrait d’un wrapper de clés, obtention des secrets, et liste de clés et secrets (et leurs versions).
-- les requêtes non authentifiées qui génèrent une réponse 401. Par exemple, il s’agit des requêtes qui ne possèdent pas de jeton de porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.
+- les requêtes non authentifiées qui génèrent une réponse 401. Il s’agit notamment des requêtes dépourvues de jeton du porteur, dont le format est incorrect, qui ont expiré ou qui comportent un jeton non valide.
 
-Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. C’est à vous de gérer vos journaux dans votre compte de stockage. 
+Vous pouvez accéder aux informations de journalisation 10 minutes après l’opération sur le coffre de clés. C’est à vous de gérer vos journaux dans votre compte de stockage.
 
 - Utilisez les méthodes de contrôle d’accès Azure standard pour assurer la sécurité de vos journaux d’activité en limitant l’accès à ces derniers.
 - Supprimez les journaux d’activité que vous ne souhaitez plus conserver dans votre compte de stockage.
 
-Pour toute recommandation quant à la gestion sécurisée des comptes de stockage, voir le [guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md).
+Pour toute recommandation quant à la gestion sécurisée des comptes de stockage, voir le [guide de sécurité du Stockage Azure](../storage/blobs/security-recommendations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

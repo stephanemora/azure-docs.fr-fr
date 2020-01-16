@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c1f3384b88de7b58457251cf72b2815267cb29
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535681"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772582"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps : Gestion des modèles, déploiement et surveillance avec Azure Machine Learning
 
@@ -35,9 +35,9 @@ Azure Machine Learning propose les fonctionnalités MLOps suivantes :
 
 Utilisez des pipelines ML d’Azure Machine Learning pour réunir toutes les étapes impliquées dans votre processus d’entraînement de modèle.
 
-Un pipeline ML peut contenir des étapes allant de la préparation des données à l’extraction de fonctionnalité, pour le réglage d’hyperparamètre sur l’évaluation du modèle. Pour plus d’informations, consultez [Pipelines ML](service/concept-ml-pipelines.md).
+Un pipeline ML peut contenir des étapes allant de la préparation des données à l’extraction de fonctionnalité, pour le réglage d’hyperparamètre sur l’évaluation du modèle. Pour plus d’informations, consultez [Pipelines ML](concept-ml-pipelines.md).
 
-Si vous utilisez le [Concepteur](service/concept-designer.md) pour créer vos pipelines ML, vous pouvez à tout moment cliquer sur **« ... »** en haut à droite de la page du Concepteur, puis sélectionner **Cloner**. Le clonage de votre pipeline vous permet d’itérer votre conception de pipeline sans perdre vos anciennes versions.  
+Si vous utilisez le [Concepteur](concept-designer.md) pour créer vos pipelines ML, vous pouvez à tout moment cliquer sur **« ... »** en haut à droite de la page du Concepteur, puis sélectionner **Cloner**. Le clonage de votre pipeline vous permet d’itérer votre conception de pipeline sans perdre vos anciennes versions.  
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>Inscrire, empaqueter et déployer des modèles à partir de n’importe quel emplacement
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf1e5f9f47ebdc132bdc826af3e54d206095085
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3ec56d37ca2c0a199968707b3d93f4797be2beca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603409"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888666"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory : Démarrage rapide
 
@@ -31,7 +31,7 @@ L’authentification unique transparente (Seamless SSO) Azure Active Directory (
 
 Pour déployer l’authentification unique transparente, procédez comme suit.
 
-## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
+## <a name="step-1-check-the-prerequisites"></a>Étape 1 : Vérifier les prérequis
 
 Vérifiez que les prérequis suivants sont remplis :
 
@@ -55,7 +55,7 @@ Vérifiez que les prérequis suivants sont remplis :
 
 * **Utiliser les dernières versions de clients Office 365** : Pour obtenir une utilisation de l’authentification unique sans assistance avec les clients Office 365 (Outlook, Word, Excel, etc.), vos utilisateurs doivent utiliser la version 16.0.8730.xxxx ou une version ultérieure.
 
-## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
+## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
 Activez Seamless SSO via [Azure AD Connect](whatis-hybrid-identity.md).
 
@@ -130,7 +130,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
    - **Nom de la valeur** : URL Azure AD vers laquelle les tickets Kerberos sont transférés.
    - **Valeur** (données) : **1** indique la zone Intranet.
 
-     Le résultat ressemble à :
+     Le résultat ressemble à ceci :
 
      Nom de la valeur : `https://autologon.microsoftazuread-sso.com`
   
@@ -156,7 +156,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
 2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
-3. Accédez à **Configuration utilisateur** > **Préférences** > **Paramètres Windows** > **Registre**  >  **Nouveau** > **Élément de Registre**.
+3. Accédez à **Configuration utilisateur** > **Préférences** > **Paramètres Windows** > **Registre** > **Nouveau** > **Élément de Registre**.
 
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso15.png)
 
@@ -213,7 +213,7 @@ Pour tester la fonctionnalité d’un utilisateur spécifique, assurez-vous que 
   - L’utilisateur se connecte à un appareil d’entreprise.
   - L'appareil est joint à votre domaine Active Directory. L’appareil _n’a pas_ besoin d’être [joint à Azure AD](../active-directory-azureadjoin-overview.md).
   - L’appareil dispose d’une connexion directe à votre contrôleur de domaine, soit sur le réseau câblé ou sans fil de l’entreprise, soit par le biais d’une connexion d’accès à distance, comme une connexion VPN.
-  - Vous avez [déployé la fonctionnalité](##step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
+  - Vous avez [déployé la fonctionnalité](#step-3-roll-out-the-feature) pour cet utilisateur via la stratégie de groupe.
 
 Pour tester le scénario dans lequel l’utilisateur entre uniquement le nom d’utilisateur, mais pas le mot de passe :
    - Connectez-vous à `https://myapps.microsoft.com/` dans une nouvelle session de navigateur privée.

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8cb328c36a1120e5a30732c36e53d9669fc6a67c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530865"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980073"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Archiver des journaux de ressource Azure dans un compte de stockage
-[Les journaux de plateforme](resource-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la collecte de journaux de plateforme dans un compte de stockage Azure en vue de conserver les données pour archivage.
+[Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la collecte de journaux de plateforme dans un compte de stockage Azure en vue de conserver les données pour archivage.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
-Vous devez [créer un compte de stockage Azure](../../storage/common/storage-quickstart-create-account.md) si vous n’en avez pas encore un. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
+Vous devez [créer un compte de stockage Azure](../../storage/common/storage-account-create.md) si vous n’en avez pas encore un. Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que la ressource qui envoie des journaux, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
 
 
 > [!IMPORTANT]
@@ -63,7 +63,7 @@ Dans le fichier PT1H.json, chaque événement est stocké au format suivant. Il 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez plus d’informations sur les journaux de ressource](resource-logs-overview.md)
+* [Découvrez plus d’informations sur les journaux de ressource](platform-logs-overview.md)
 * [Créer un paramètre de diagnostic pour collecter les journaux et les mesures dans Azure](diagnostic-settings.md).
 * [Télécharger des objets blob pour analyse](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Archiver des journaux d’activité Azure Active Directory avec Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)

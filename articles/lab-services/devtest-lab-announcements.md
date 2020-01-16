@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84120b07de3a03a049493eb973b6dc46f8668387
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311476"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976447"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publier une annonce dans un lab avec Azure DevTest Labs
 
@@ -35,7 +35,7 @@ La fonctionnalité d’annonce est destinée à être utilisée pour les notific
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Étapes de la publication d’une annonce dans un lab existant
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si nécessaire, sélectionnez **Autres services**, puis **DevTest Labs** dans la liste. (Votre lab peut déjà être affiché dans le Tableau de bord sous **Toutes les ressources**).
 1. Dans la liste des labs, sélectionnez le lab dans lequel vous souhaitez publier une annonce.
 1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.
@@ -160,10 +160,10 @@ Vous pouvez spécifier une annonce dans le cadre d’un modèle Azure Resource M
 
 Vous pouvez déployer un modèle Azure Resource Manager à l’aide d’une des méthodes suivantes :
 
-- [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Si vous modifiez ou définissez une stratégie de lab, vous avez peut-être envie de publier une annonce pour en informer les utilisateurs. La page [Définir des stratégies et des planifications](devtest-lab-set-lab-policy.md) vous renseigne sur l’application de conventions et de restrictions sur votre abonnement à l’aide de stratégies personnalisées.

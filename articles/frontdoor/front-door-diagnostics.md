@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e379e67fb733c968a755afd245d079239f559c89
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677893"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751404"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Supervision des journaux et des métriques dans Azure Front Door Service
 
@@ -59,7 +59,7 @@ Vous pouvez accéder aux journaux d’activité de votre service Azure Front Doo
 ## <a name="diagnostic-logging"></a>Journaux de diagnostic
 Les journaux de diagnostic offrent des informations détaillées sur les opérations et erreurs qui sont importantes pour l’audit et le dépannage. Les journaux de diagnostic diffèrent des journaux d’activité.
 
-Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/resource-logs-overview.md).
+Les journaux d’activité fournissent des informations détaillées sur les opérations effectuées sur des ressources Azure. Les journaux de diagnostic fournissent des informations détaillées sur les opérations effectuées par votre ressource. Pour plus d’informations, consultez [Journaux de diagnostic Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
 
 ![Journaux de diagnostic](./media/front-door-diagnostics/diagnostic-log.png)
 

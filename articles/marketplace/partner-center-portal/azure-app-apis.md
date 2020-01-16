@@ -1,19 +1,19 @@
 ---
 title: API d’intégration sur la place de marché commerciale
 description: Prérequis de l’API pour les applications Azure sur la place de marché commerciale dans l’Espace partenaires Microsoft.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: e0904169924aed7aeb1df5297a3a20f14cf7c6ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c14d8c6f27e4b0f4a4a75fa14b83455ff30ee35a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475175"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933662"
 ---
 # <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API d’intégration des applications Azure dans l’Espace partenaires
 

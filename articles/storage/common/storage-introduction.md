@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4725329ace12a2bfb285253c52249f242da31619
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084645"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970213"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -21,7 +21,7 @@ Le Stockage Azure est une solution de stockage cloud de Microsoft pour les scén
 
 - **Durable et hautement disponible.** La redondance garantit que vos données sont sécurisées en cas de défaillance matérielle temporaire. Vous pouvez également choisir de répliquer des données entre des centres de données ou des régions géographiques pour une protection supplémentaire contre les catastrophes locales ou les catastrophes naturelles. Les données ainsi répliquées restent hautement disponibles en cas de panne inattendue.
 - **Sécurisé.** Toutes les données écrites dans le Stockage Azure sont chiffrées par le service. Le Stockage Azure vous permet de contrôler de manière plus précise qui a accès à vos données.
-- **Évolutif.** Le Stockage Azure est conçu pour être hautement évolutif afin de répondre aux besoins de stockage de données et de performances des applications actuelles. 
+- **Évolutif.** Le Stockage Azure est conçu pour être hautement évolutif afin de répondre aux besoins de stockage de données et de performances des applications actuelles.
 - **Géré.** Microsoft Azure gère la maintenance du matériel, les mises à jour et les problèmes critiques pour vous.
 - **Accessible.** Les données dans le Stockage Azure sont accessibles n’importe où dans le monde via HTTP ou HTTPS. Microsoft fournit des bibliothèques clientes pour le Stockage Azure dans une variété de langages, dont .NET, Java, Node.js, Python, PHP, Ruby, Go et autres encore, ainsi qu’une API REST avancée. Le stockage Azure prend en charge l’écriture de scripts Azure PowerShell ou l’interface de ligne de commande Azure. De plus, le portail Azure et l’Explorateur Stockage Azure offrent des solutions visuelles simples pour utiliser vos données.  
 
@@ -31,14 +31,14 @@ Le Stockage Azure inclut les services de données suivants :
 
 - [Objets blob Azure](../blobs/storage-blobs-introduction.md) : magasin d’objets hautement scalable pour les données texte ou binaires.
 - [Azure Files](../files/storage-files-introduction.md) : partages de fichiers gérés pour les déploiements sur le cloud ou locaux.
-- [Files d’attente Azure](../queues/storage-queues-introduction.md) : magasin de messagerie pour une messagerie fiable entre les composants d’application. 
+- [Files d’attente Azure](../queues/storage-queues-introduction.md) : magasin de messagerie pour une messagerie fiable entre les composants d’application.
 - [Tables Azure](../tables/table-storage-overview.md) : magasin NoSQL pour le stockage sans schéma de données structurées.
 
-Chaque service est accessible via un compte de stockage. Pour commencer, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
+Chaque service est accessible via un compte de stockage. Pour commencer, consultez [Créer un compte de stockage](storage-account-create.md).
 
 ## <a name="blob-storage"></a>Stockage d'objets blob
 
-Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées, telles que des données texte ou binaires. 
+Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées, telles que des données texte ou binaires.
 
 Le stockage Blob est idéal pour :
 
@@ -108,7 +108,7 @@ Chaque demande adressée au Stockage Azure doit être autorisée. Stockage Azure
 
 ## <a name="encryption"></a>Chiffrement
 
-Il existe deux types de chiffrement de base pour les services de stockage. Pour en savoir plus sur la sécurité et le chiffrement, consultez le [guide de sécurité pour le stockage Azure](storage-security-guide.md).
+Il existe deux types de chiffrement de base pour les services de stockage. Pour en savoir plus sur la sécurité et le chiffrement, consultez le [guide de sécurité pour le stockage Azure](../blobs/security-recommendations.md).
 
 ### <a name="encryption-at-rest"></a>Chiffrement au repos
 
@@ -171,4 +171,4 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour démarrer et exécuter avec le stockage Azure, consultez la section [Créer un compte de stockage](storage-quickstart-create-account.md).
+Pour démarrer et exécuter avec le stockage Azure, consultez la section [Créer un compte de stockage](storage-account-create.md).

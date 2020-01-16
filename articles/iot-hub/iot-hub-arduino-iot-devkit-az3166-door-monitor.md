@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954751"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977299"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Moniteur de porte : envoyer un e-mail quand une porte est ouverte à l’aide d’Azure Functions et SendGrid           
 
@@ -65,9 +65,9 @@ Vous voyez maintenant le formulaire d’inscription de SendGrid.
 
 Remplissez le formulaire d’inscription :
 
-   * **Groupe de ressources** : Créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Groupe de ressources** : Créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
-   * **Nom** : Nom de votre service SendGrid. Choisissez un nom unique, différent des autres services dont vous disposez.
+   * **Name** : Nom de votre service SendGrid. Choisissez un nom unique, différent des autres services dont vous disposez.
 
    * **Mot de passe** : Le service nécessite un mot de passe qui ne servira à rien d’autre dans ce projet.
 
@@ -105,7 +105,7 @@ Le formulaire d’inscription s’affiche.
 
 Renseignez les champs du formulaire d’inscription.
 
-   * **Groupe de ressources** : Créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Groupe de ressources** : Créez un groupe de ressources pour héberger le service SendGrid ou utilisez-en un existant. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Nom du hub Iot** : Nom de votre IoT Hub. Choisissez un nom unique, différent des autres services dont vous disposez.
 

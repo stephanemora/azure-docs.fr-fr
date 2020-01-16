@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 36959804a0dff0c332c0e1511044769898f6f68d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 65db6cfa64658edc4e604a009e672ba3aa5e86f3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534353"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893995"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Activer la journalisation dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,22 +83,6 @@ compute_target = ComputeTarget.attach(
 compute.wait_for_completion(show_output=True)
 ```
 
-## <a name="logging-during-image-creation"></a>Journalisation lors de la création d’images
-
-Le fait d’activer la journalisation lors de la création d’images permet de voir les éventuelles erreurs qui se produisent pendant le processus de build. Définissez le paramètre `show_output` sur la fonction `wait_for_deployment()`.
-
-```python
-from azureml.core.webservice import Webservice
-
-service = Webservice.deploy_from_image(deployment_config=your_config,
-                                       image=image,
-                                       name="example-image",
-                                       workspace=ws
-                                       )
-
-service.wait_for_deployment(show_output=True)
-```
-
 ## <a name="logging-for-deployed-models"></a>Journalisation pour les modèles déployés
 
 Pour récupérer les journaux d’activité d’un service web déjà déployé, chargez ce service et utilisez la fonction `get_logs()`. Les journaux d’activité peuvent contenir des informations détaillées sur les éventuelles erreurs qui se seraient produites au cours du déploiement.
@@ -117,7 +101,7 @@ Vous pouvez également consigner les appels de procédure personnalisés de votr
 service.update(enable_app_insights=True)
 ```
 
-Pour plus d’informations sur l’utilisation d’Application Insights dans Azure Machine Learning Studio, voir le [guide pratique](service/how-to-enable-app-insights.md).
+Pour plus d’informations sur l’utilisation d’Application Insights dans Azure Machine Learning Studio, voir le [guide pratique](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Paramètres de journalisation natifs de Python
 

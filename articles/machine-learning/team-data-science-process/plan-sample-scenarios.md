@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de02e94014fa2a28e364c4f85bcb31a1a4827b8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495053"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981129"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
@@ -29,7 +29,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 > **Pour tous les scénarios suivants, vous devez effectuer les opérations suivantes :**
 > <br/>
 > 
-> * [Créez un compte de stockage](../../storage/common/storage-quickstart-create-account.md)
+> * [Créez un compte de stockage](../../storage/common/storage-account-create.md)
 >   <br/>
 > * [Création d’un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md)
 > 
@@ -38,7 +38,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 ## <a name="smalllocal"></a>Scénario \#1 : jeu de données tabulaires petit à moyen dans des fichiers locaux
 ![Fichiers locaux petits à moyens][1]
 
-#### <a name="additional-azure-resources-none"></a>Autres ressources Azure : Aucun
+#### <a name="additional-azure-resources-none"></a>Autres ressources Azure : None
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Téléchargez un jeu de données.
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux téléchargés.
@@ -186,7 +186,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
 
 1. Détachez la base de données à l’emplacement source. Pour plus d’informations, consultez la rubrique [Détacher une base de données](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. Dans l’Explorateur Windows ou l’invite de commandes Windows, copiez les fichiers de la base de données détachée et les fichiers journaux à l’emplacement cible sur la machine virtuelle SQL Server dans Azure.
-1. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez la rubrique [Attacher une base de données](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
+1. Attachez les fichiers copiés à l’instance SQL Server cible. Pour plus d’informations, consultez [Attach a Database](https://technet.microsoft.com/library/ms190209\(v=sql.110\).aspx).
 
 [Déplacer une base de données à l’aide de la méthode de détachement et d’attachement (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 

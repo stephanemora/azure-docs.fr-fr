@@ -4,14 +4,14 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/21/2019
-ms.openlocfilehash: f583796fc353852ef3898e28fa96524e08cfb4ad
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 119ef52bd801f66cd25a844d3a87b1906881c484
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414550"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021158"
 ---
-Vous pouvez faire des économies en optant pour une instance de machine virtuelle réservée Azure. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
+Vous pouvez faire des économies en optant pour une instance de machine virtuelle réservée Azure. La remise de réservation est appliquée automatiquement au nombre de machines virtuelles en cours d’exécution qui correspondent à l’étendue et aux attributs de la réservation. Vous n’avez pas besoin d’attribuer une réservation à une machine virtuelle pour obtenir les remises. Un achat d’instance réservée couvre uniquement la partie Calcul de l’utilisation de votre machine virtuelle. Pour les machines virtuelles Windows, le compteur d’utilisation est divisé en deux compteurs distincts. Il existe un compteur de calcul, qui est le même que le compteur Linux et un compteur IP Windows. Les frais que vous voyez lorsque vous effectuez l’achat sont uniquement pour les coûts de calcul. Les frais n’incluent pas les coûts des logiciels Windows. Pour plus d’informations sur les coûts liés aux logiciels, consultez [Coûts des logiciels non inclus dans Azure Reserved VM Instances](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md).
 
 ## <a name="determine-the-right-vm-size-before-you-buy"></a>Déterminer la taille de machine virtuelle adaptée avant l’achat
 
@@ -72,13 +72,13 @@ Des instances de machines virtuelles réservées sont disponibles pour la plupar
 
 - **Clouds** : les réservations ne sont pas disponibles à l’achat dans les régions Allemagne et Chine.
 
-- **Quota insuffisant** : une réservation dont l’étendue est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a un quota limite de 10 processeurs virtuels pour la série D, vous ne pouvez pas acheter de réservation pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, si l’abonnement a un quota de 10 processeurs virtuels pour la série D et a deux instances Standard_D1 déployées, vous pouvez acheter une réservation pour 10 instances Standard_D1 dans cet abonnement. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](../articles/azure-supportability/resource-manager-core-quotas-request.md).
+- **Quota insuffisant** : une réservation dont l’étendue est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a un quota limite de 10 processeurs virtuels pour la série D, vous ne pouvez pas acheter de réservation pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, si l’abonnement a un quota de 10 processeurs virtuels pour la série D et a deux instances Standard_D1 déployées, vous pouvez acheter une réservation pour 10 instances Standard_D1 dans cet abonnement. Pour résoudre ce problème, vous pouvez [créer une demande d’augmentation de quota](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 - **Restrictions de capacité** : dans de rares cas, Azure limite l’achat de nouvelles réservations pour certaines tailles de machine virtuelle, en raison d’une faible capacité dans une région donnée.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Acheter une instance de machine virtuelle réservée
 
-Vous pouvez acheter une instance de machine virtuelle réservée dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](../articles/billing/billing-monthly-payments-reservations.md).
+Vous pouvez acheter une instance de machine virtuelle réservée dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D). Payez la réservation [à l’avance ou par paiements mensuels](../articles/cost-management-billing/reservations/monthly-payments-reservations.md).
 Ces conditions s’appliquent à l’achat d’une instance de machine virtuelle réservée :
 
 - Vous devez avoir le rôle Propriétaire pour au moins un abonnement EA ou un abonnement assorti d’un paiement à l’utilisation.
@@ -87,7 +87,7 @@ Ces conditions s’appliquent à l’achat d’une instance de machine virtuelle
 
 Pour acheter une instance :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Tous les services** > **Réservations**.
 1. Sélectionnez **Ajouter** pour acheter une nouvelle réservation, puis cliquez sur **Machine virtuelle**.
 1. Complétez les champs obligatoires. Les instances de machines virtuelles en cours d’exécution qui correspondent aux attributs que vous sélectionnez se qualifient pour bénéficier de la remise de réservation. Le nombre réel de vos instances de machines virtuelles qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
@@ -111,13 +111,13 @@ Si vous avez un Accord Entreprise, vous pouvez utiliser l’option **Ajouter** p
 
 Vos données d’utilisation ont un prix effectif de zéro pour l’utilisation qui bénéficie d’une remise de réservation. Vous pouvez voir l’instance de machine virtuelle qui a reçu la remise de réservation pour chaque réservation.
 
-Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, consultez [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md) si vous êtes un client EA. Si vous avez un abonnement individuel, consultez [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md).
+Pour plus d’informations sur l’affichage des remises de réservation dans les données d’utilisation, consultez [Comprendre l’utilisation de la réservation Azure pour l’inscription de votre entreprise](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) si vous êtes un client EA. Si vous avez un abonnement individuel, consultez [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Modifier une réservation après achat
 
 Vous pouvez apporter les modifications suivantes à une réservation après achat :
 
-- Mettre à jour l’étendue de la réservation
+- Mettez à jour l’étendue de la réservation
 - Flexibilité de taille d’instance (le cas échéant)
 - Propriété
 
@@ -134,7 +134,7 @@ Toutefois, vous pouvez *échanger* une réservation si vous souhaitez y apporter
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../articles/cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
@@ -142,12 +142,12 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour découvrir comment gérer une réservation, consultez [Gérer les réservations Azure](../articles/billing/billing-manage-reserved-vm-instance.md).
+- Pour découvrir comment gérer une réservation, consultez [Gérer les réservations Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md).
 - Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
-    - [Qu’est-ce qu’une réservation Azure ?](../articles/billing/billing-save-compute-costs-reservations.md)
-    - [Gérer les réservations dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
-    - [Comprendre comment la remise de réservation est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
-    - [Comprendre l’utilisation d’une réservation pour un abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
-    - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
-    - [Coûts des logiciels Windows non inclus dans les réservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
+    - [Qu’est-ce qu’une réservation Azure ?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+    - [Gérer les réservations dans Azure](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    - [Comprendre comment la remise de réservation est appliquée](../articles/cost-management-billing/manage/understand-vm-reservation-charges.md)
+    - [Comprendre l’utilisation d’une réservation pour un abonnement avec paiement à l’utilisation](../articles/cost-management-billing/reservations/understand-reserved-instance-usage.md)
+    - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../articles/cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    - [Coûts des logiciels Windows non inclus dans les réservations](../articles/cost-management-billing/reservations/reserved-instance-windows-software-costs.md)
     - [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)

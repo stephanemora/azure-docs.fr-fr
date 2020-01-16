@@ -4,18 +4,18 @@ ms.service: service-bus-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
-ms.openlocfilehash: 3e3617f68d58e51f24affaae7d69812195b72fd0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 500db9f6d299ea81b1f1b1be864df5d91ba1eae7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210214"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020961"
 ---
-1. Connectez-vous au [Portail Azure][Azure portal].
+1. Connectez-vous au [portail Azure][Azure portal].
 1. Sélectionnez **Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit.
 1. Sélectionnez **Créer**, puis entrez un nom d’espace de noms dans le champ **Nom**. Le portail Azure vérifie si le nom est disponible.
 1. Choisissez un abonnement Azure dans lequel créer l’espace de noms.
-1. Pour l’option [Groupe de ressources](../articles/azure-resource-manager/manage-resource-groups-portal.md), choisissez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
+1. Pour l’option [Groupe de ressources](../articles/azure-resource-manager/management/manage-resource-groups-portal.md), choisissez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  
 1. Sélectionnez le pays ou la région où votre espace de noms doit être hébergé.
 
     ![Créer un espace de noms][create-namespace]

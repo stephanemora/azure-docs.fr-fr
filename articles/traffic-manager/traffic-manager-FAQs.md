@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784826"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045314"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -29,7 +29,7 @@ Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-m
 Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’adresse IP pour permettre aux clients de se connecter. Si vous souhaitez une adresse IP statique pour votre service, celle-ci doit être configurée au niveau du service, pas dans Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quels types de trafic peuvent être routés à l’aide de Traffic Manager ?
-Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
+Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
 
@@ -384,11 +384,11 @@ Pour les profils avec une méthode de routage différente de MultiValue :
 
 |Requête entrante|    Type de point de terminaison|  Réponse fournie|
 |--|--|--|
-|TOUTES |  A / AAAA / CNAME |  Point de terminaison cible| 
-|A |    A / CNAME | Point de terminaison cible|
-|A |    AAAA |  NODATA |
+|ANY |  A / AAAA / CNAME |  Point de terminaison cible| 
+|Un |    A / CNAME | Point de terminaison cible|
+|Un |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Point de terminaison cible|
-|AAAA | A | NODATA |
+|AAAA | Un | NODATA |
 |CNAME |    CNAME | Point de terminaison cible|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -397,8 +397,8 @@ Pour les profils avec la méthode de routage MultiValue :
 
 |Requête entrante|    Type de point de terminaison | Réponse fournie|
 |--|--|--|
-|TOUTES |  Combinaison de A et AAAA | Points de terminaison cibles|
-|A |    Combinaison de A et AAAA | Uniquement des points de terminaison de cibles de type A|
+|ANY |  Combinaison de A et AAAA | Points de terminaison cibles|
+|Un |    Combinaison de A et AAAA | Uniquement des points de terminaison de cibles de type A|
 |AAAA   |Combinaison de A et AAAA|     Uniquement des points de terminaison cibles de type A|
 |CNAME |    Combinaison de A et AAAA | NODATA |
 

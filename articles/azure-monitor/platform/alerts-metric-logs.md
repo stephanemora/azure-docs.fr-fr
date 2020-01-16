@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226532"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977614"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -357,7 +357,7 @@ Supposons que le code JSON ci-dessus soit enregistré sous le nom metricfromLogs
 }
 ```
 
-En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom metricfromLogsAlertStatic.parameters.json, vous pouvez créer une alerte de métrique pour des journaux d’activité à l’aide du [modèle de ressource pour la création dans le portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom metricfromLogsAlertStatic.parameters.json, vous pouvez créer une alerte de métrique pour des journaux d’activité à l’aide du [modèle de ressource pour la création dans le portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 Vous pouvez également utiliser la commande Azure PowerShell ci-dessous :
 
@@ -673,7 +673,7 @@ Supposons que le code JSON ci-dessus soit enregistré sous le nom metricfromLogs
 }
 ```
 
-En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom metricfromLogsAlertDynamic.parameters.json, vous pouvez créer une alerte de métrique pour les journaux d’activité à l’aide du [modèle de ressource pour la création dans le portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+En supposant que le fichier de paramètre ci-dessus est enregistré sous le nom metricfromLogsAlertDynamic.parameters.json, vous pouvez créer une alerte de métrique pour les journaux d’activité à l’aide du [modèle de ressource pour la création dans le portail Azure](../../azure-resource-manager/templates/deploy-portal.md).
 
 Vous pouvez également utiliser la commande Azure PowerShell ci-dessous :
 

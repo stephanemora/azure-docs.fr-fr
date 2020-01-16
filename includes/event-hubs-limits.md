@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 2aca4f2c236112b80e9fc985cf80ccad6d82bde3
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996891"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901925"
 ---
 Le tableau suivant répertorie les quotas et les limites propres à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Pour plus d’informations sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -25,8 +25,8 @@ Les limites suivantes sont communes aux niveaux de base, standard et dédié.
 | Nombre d’Event Hubs par espace de noms |Espace de noms |Les demandes suivantes de création d’un Event Hub sont rejetées. |10 |
 | Nombre de partitions par Event Hub |Entité |- |32 |
 | Taille maximale du nom d’un Event Hub |Entité |- |50 caractères |
-| Nombre de récepteurs non epoch par groupe de consommateurs |Entité |- |5\. |
-| Unités de débit maximales |Espace de noms |Le dépassement de la limite d’unités de débit entraîne la limitation de vos données et la génération d’une exception de [serveur occupé](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Vous pouvez demander une plus grande quantité d’unités de débit pour le niveau Standard en remplissant une [demande de support](/azure/azure-supportability/how-to-create-azure-support-request). Les [unités de débit supplémentaires](../articles/event-hubs/event-hubs-auto-inflate.md) sont disponibles par blocs de 20 sur la base d’un engagement d’achat ferme. |20 |
+| Nombre de récepteurs non epoch par groupe de consommateurs |Entité |- |5 |
+| Unités de débit maximales |Espace de noms |Le dépassement de la limite d’unités de débit entraîne la limitation de vos données et la génération d’une exception de [serveur occupé](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Vous pouvez demander une plus grande quantité d’unités de débit pour le niveau Standard en remplissant une [demande de support](/azure/azure-portal/supportability/how-to-create-azure-support-request). Les [unités de débit supplémentaires](../articles/event-hubs/event-hubs-auto-inflate.md) sont disponibles par blocs de 20 sur la base d’un engagement d’achat ferme. |20 |
 | Nombre de règles d’autorisation par espace de noms |Espace de noms|Les demandes suivantes pour la création de règle d’autorisation sont rejetées.|12 |
 | Nombre d’appels à la méthode GetRuntimeInformation | Entité | - | 50 par seconde | 
 | Nombre de règles de réseau virtuel (VNet) et de configuration IP | Entité | - | 128 | 
@@ -38,8 +38,8 @@ Les limites suivantes sont communes aux niveaux de base, standard et dédié.
 | Nombre de groupes de consommateurs par Event Hub |Entité | &nbsp; |1 |20 |
 | Nombre de connexions AMQP par espace de noms |Espace de noms |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |100 |5 000|
 | Période de rétention maximale des données d’événement |Entité | &nbsp; |1 jour |1 à 7 jours |
-|Espace de noms où Apache Kafka est activé|Espace de noms |L’espace de noms Event Hubs diffuse en continu des applications à l’aide du protocole Kafka |Non | OUI |
-|Capture |Entité | En cas d’activation, des microlots sont créés sur le même flux |Non |OUI |
+|Espace de noms où Apache Kafka est activé|Espace de noms |L’espace de noms Event Hubs diffuse en continu des applications à l’aide du protocole Kafka |Non | Oui |
+|Capture |Entité | En cas d’activation, des microlots sont créés sur le même flux |Non |Oui |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Quotas et limites de l’offre Event Hubs Dedicated

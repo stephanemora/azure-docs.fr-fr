@@ -4,12 +4,12 @@ description: Découvrez comment gérer des interactions humaines et les délais 
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9346c53ec122b3e6fac124298029c7f8e70bf622
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232822"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769572"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interaction humaine dans l’extension Fonctions durables : exemple de vérification par téléphone
 
@@ -40,7 +40,7 @@ Cet article détaille les fonctions suivantes de l’exemple d’application :
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-Les sections suivantes décrivent la configuration et le code utilisé pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
+Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
 
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>L'orchestration de vérification SMS (Visual Studio Code et exemple de code du portail Azure)
 
@@ -54,7 +54,7 @@ Voici le code qui implémente la fonction :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -85,7 +85,7 @@ Voici le code qui génère le code de demande d’accès à 4 chiffres, et envoi
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -153,7 +153,7 @@ Content-Length: 145
 Voici l’orchestration, présentée sous la forme d’un seul fichier C# dans un projet Visual Studio :
 
 > [!NOTE]
-> Vous devez installer le package Nuget `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
+> Il est nécessaire d’installer le package NuGet `Microsoft.Azure.WebJobs.Extensions.Twilio` pour exécuter l’exemple de code ci-dessous.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 

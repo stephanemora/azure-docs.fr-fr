@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: 828f3078c992bed4fa556a374468e69dd58ebc04
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 75b2120b9fef904114d532e83d571c08e1a1034d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494509"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772310"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -93,6 +93,6 @@ En savoir plus sur la tarification Azure Migrate [ici](https://azure.microsoft.c
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Regrouper des machines à l’aide de dépendances de machines](how-to-create-group-machine-dependencies.md)
-- [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#what-is-dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
+- [Découvrez plus en détail](common-questions-discovery-assessment.md#what-is-dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
 
 

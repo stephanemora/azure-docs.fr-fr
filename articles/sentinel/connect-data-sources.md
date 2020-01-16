@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c6fd3de43f80c4cbe8f1f822faebad861c64d64
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cbd452fcf4056c1bcf4d5b8d6debb9d8f4a6f11c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610605"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976101"
 ---
 # <a name="connect-data-sources"></a>Connecter des sources de données
 
@@ -97,7 +97,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 | **Type de données** | **Comment se connecter** | **Connecteur de données ?** | **Commentaires** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Connecter AWS](connect-aws.md) | V | |
-| AzureActivity | [Connecter les journaux d’activité Azure](connect-azure-activity.md) et [Vue d’ensemble des journaux d’activité](../azure-monitor/platform/activity-logs-overview.md)| V | |
+| AzureActivity | [Connecter les journaux d’activité Azure](connect-azure-activity.md) et [Vue d’ensemble des journaux d’activité](../azure-monitor/platform/platform-logs-overview.md)| V | |
 | AuditLogs | [Connecter Azure AD](connect-azure-active-directory.md)  | V | |
 | SigninLogs | [Connecter Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Diagnostics Azure](../firewall/tutorial-diagnostics.md) | V | |
@@ -105,7 +105,7 @@ Vous pouvez également déployer l’agent manuellement sur une machine virtuell
 | AzureNetworkAnalytics_CL  | [Schéma Traffic Analytics](../network-watcher/traffic-analytics.md) [Traffic Analytics](../network-watcher/traffic-analytics.md)  | | |
 | CommonSecurityLog  | [Connecter CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Connecter Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Connecter les événements de sécurité Windows](connect-windows-security-events.md)  | V | Pour les classeurs des protocoles non sécurisés, consultez le blog relatif à la [configuration des classeurs des protocoles non sécurisés](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
+| SecurityEvents | [Connecter les événements de sécurité Windows](connect-windows-security-events.md)  | V | Pour les classeurs des protocoles non sécurisés, consultez le blog relatif à la [configuration des classeurs des protocoles non sécurisés](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | syslog | [Connecter Syslog](connect-syslog.md) | V | |
 | Pare-feu d’applications web (WAF) Microsoft (AzureDiagnostics) |[Connecter un pare-feu d’applications web Microsoft](connect-microsoft-waf.md) | V | |
 | SymantecICDx_CL | [Connecter Symantec](connect-symantec.md) | V | |

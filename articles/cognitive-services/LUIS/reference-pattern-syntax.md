@@ -10,25 +10,25 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e1393b02948f2d86329263504d582fe78a474377
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 696f4bdc22bed01a4b5be8bff63ade482a8dbe0a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974340"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890249"
 ---
 # <a name="pattern-syntax"></a>Syntaxe du modèle
 
 La syntaxe du modèle est un modèle d’énoncé. Le modèle doit contenir les mots et entités que vous souhaitez faire correspondre, ainsi que les mots et la ponctuation que vous souhaitez ignorer. Ce n’est **pas** une expression régulière.
 
 > [!CAUTION]
-> Les modèles incluent uniquement les parents d’entité appris par l’ordinateur, pas les sous-composants.
+> Les modèles incluent uniquement les parents d’entité issus de l’apprentissage automatique, pas les sous-composants.
 
 Les entités des modèles sont placées entre accolades, `{}`. Les modèles peuvent inclure des entités et des entités avec rôles. [Pattern.any](luis-concept-entity-types.md#patternany-entity) est une entité qui n’est utilisée que dans les modèles.
 
 Les modèles acceptent la syntaxe suivante :
 
-|Fonction|Syntaxe|Niveau d’imbrication|Exemples|
+|Fonction|Syntaxe|Niveau d’imbrication|Exemple|
 |--|--|--|--|
 |entité| {} – accolades|2|Où se trouve le formulaire {nom-entité} ?|
 |facultatif|[] – crochets<BR><BR>Les niveaux d’imbrication de la syntaxe facultative et de la syntaxe de regroupement sont limités à trois, pour toutes les combinaisons possibles |2|Le point d’interrogation est facultatif [?]|
@@ -54,24 +54,24 @@ Si Entity1 est un emplacement comportant des rôles comme l’origine (Seattle) 
 |--|--|
 |RedWest-C|correspond à l’entité de regroupement externe|
 |Seattle|correspond à l’une des entités de regroupement internes|
-|Cairo|correspond à l’une des entités de regroupement internes|
+|Le Caire|correspond à l’une des entités de regroupement internes|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>Limites d’imbrication des groupes à syntaxe facultative
 
 Les combinaisons entre les syntaxes **regroupement** et **facultatif** sont limitées à trois niveaux d’imbrication.
 
-|Autorisé|Exemples|
+|Autorisé|Exemple|
 |--|--|
-|OUI|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
+|Oui|( [ ( test1 &#x7c; test2 ) ] &#x7c; test3 )|
 |Non|( [ ( [ test1 ] &#x7c; test2 ) ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites d’imbrication des groupes à syntaxe de type ou
 
 Les combinaisons entre les syntaxes **regroupement** et **ou** sont limitées à deux barres verticales.
 
-|Autorisé|Exemples|
+|Autorisé|Exemple|
 |--|--|
-|OUI|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
+|Oui|( test1 &#x7c; test2 &#x7c; ( test3 &#x7c; test4 ) )|
 |Non|( test1 &#x7c; test2 &#x7c; test3 &#x7c; ( test4 &#x7c; test5 ) ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxe pour ajouter une entité à un modèle
@@ -142,7 +142,7 @@ Les signes de ponctuation (`?`, `!` et `.`) doivent être ignorés, avec la synt
 Découvrez-en plus sur les modèles :
 
 * [Comment ajouter des modèles](luis-how-to-model-intent-pattern.md)
-* [Comment ajouter une entité pattern.any](luis-how-to-add-entities.md##add-a-patternany-entity)
+* [Comment ajouter une entité pattern.any](luis-how-to-add-entities.md#add-a-patternany-entity)
 * [Concepts des modèles](luis-concept-patterns.md)
 
 Découvrez comment les [sentiments](luis-reference-prebuilt-sentiment.md) sont retournés dans la réponse .json.

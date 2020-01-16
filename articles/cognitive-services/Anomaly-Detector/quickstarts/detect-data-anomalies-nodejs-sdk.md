@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: b8cbf69aa0788b3b8e0130396f192cb5bc045f3d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17ca1a7671718b5b96df0add7775fb82d4d97303
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448888"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770439"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Détecteur d’anomalies pour Node.js
 
@@ -67,7 +67,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 Installez les packages NPM `ms-rest-azure` et `azure-cognitiveservices-anomalydetector`. La bibliothèque d’analyse de volume partagé de cluster est également utilisée dans ce guide de démarrage rapide :
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
+npm install  @azure/cognitiveservices-anomalydetector @azure/ms-rest-js csv-parse
 ```
 
 Le fichier `package.json` de votre application sera mis à jour avec les dépendances.

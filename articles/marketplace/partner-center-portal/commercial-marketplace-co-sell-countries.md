@@ -1,25 +1,25 @@
 ---
 title: Codes pays/région de co-vente | Place de marché Azure
 description: Utilisez ces codes pays/région à deux lettres lorsque vous fournissez des coordonnées dans la page de co-vente de votre offre.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: dc27756cd231bc744e539321af7884cc85ca1e9a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 925218879ce0dc1c69054f861e37e86c122d47f9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812926"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934349"
 ---
 # <a name="co-sell-country-and-region-codes"></a>Codes pays/région de co-vente
 
 Utilisez ces codes pays/région à deux lettres lorsque vous devez [fournir des coordonnées dans la page de co-vente de votre offre](commercial-marketplace-co-sell.md).
 
-Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ».
+Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ».
 
 Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres en les séparant par une virgule (par exemple, entrez « US, CA, FR » sans guillemets).
 
@@ -36,7 +36,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Andorre                             | AD        |
 | Angola                              | AO        |
 | Antarctique                          | AQ        |
-| Antigua-et-Barbuda                 | AG        |
+| Antigua-et-Barbuda                 | Groupe de disponibilité        |
 | Argentine                           | AR        |
 | Arménie                             | AM        |
 | Aruba                               | AW        |
@@ -192,7 +192,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Corée du Nord                         | KP        |
 | Îles Marianne du Nord            | MP        |
 | Macédoine du Nord                     | MK        |
-| Norvège                              | NON        |
+| Norvège                              | Non        |
 | Oman                                | OM        |
 | Pakistan                            | PK        |
 | Palau                               | PW        |
@@ -210,7 +210,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | La Réunion                             | RE        |
 | Roumanie                             | RO        |
 | Russie                              | RU        |
-| Rwanda                              | RW        |
+| Rwanda                              | L/E        |
 | Saint-Barthélemy                    | BL        |
 | Saint-Christophe-et-Niévès               | KN        |
 | Sainte-Lucie                         | LC        |
@@ -250,7 +250,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Timor-Leste                         | TL        |
 | Togo                                | TG        |
 | Tokelau                             | TK        |
-| Tonga                               | À        |
+| Tonga                               | TO        |
 | Trinité-et-Tobago                 | TT        |
 | Tunisie                             | TN        |
 | Turquie                              | TR        |
@@ -260,11 +260,11 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Ouganda                              | UG        |
 | Ukraine                             | UA        |
 | Émirats Arabes Unis                | AE        |
-| Royaume-Uni                      | GB        |
+| United Kingdom                      | Go        |
 | États-Unis                       | US        |
 | Uruguay                             | UY        |
-| Données Îles éloignées               | UM        |
-| Données Îles Vierges                 | VI        |
+| États-Unis Îles éloignées               | UM        |
+| États-Unis Îles Vierges                 | VI        |
 | Ouzbékistan                          | UZ        |
 | Vanuatu                             | VU        |
 | État de la Cité du Vatican                        | VA        |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce49dcaa06288ba9e7a4d232338c727064d59685
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505969"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894840"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit les différentes opérations qui peuvent être effectuées sur vos contrôleurs d’appareil StorSimple. Les contrôleurs de votre appareil StorSimple sont des contrôleurs redondants (homologues) en mode actif/passif. À un moment donné, un seul contrôleur est actif et procède au traitement de toutes les opérations de disque et du réseau. L’autre contrôleur est en mode passif. Si le contrôleur actif est défaillant, le contrôleur passif devient automatiquement actif.
 
@@ -47,7 +47,7 @@ Le redémarrage d’un appareil n’est pas sans interruption pour les initiateu
 
 > [!IMPORTANT]
 > * **Un contrôleur en cours d’exécution ne doit jamais être physiquement supprimé, car cela entraînerait une perte de redondance et une augmentation des risques d’interruption.**
-> * La procédure suivante s’applique uniquement à l’appareil physique StorSimple. Pour plus d’informations sur le démarrage, l’arrêt et le redémarrage de la StorSimple Cloud Appliance, consultez la rubrique [Utilisation de l’appliance cloud](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * La procédure suivante s’applique uniquement à l’appareil physique StorSimple. Pour plus d’informations sur le démarrage, l’arrêt et le redémarrage de la StorSimple Cloud Appliance, consultez la rubrique [Utilisation de l’appliance cloud](storsimple-8000-cloud-appliance-u2.md#work-with-the-storsimple-cloud-appliance).
 
 Vous pouvez redémarrer ou arrêter un contrôleur d’appareil donné à l’aide du portail Azure du service StorSimple Device Manager ou de Windows PowerShell pour StorSimple.
 

@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: a808387c891b4078092c5cac1bf95df8472ff0f6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974131"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Différences entre Azure Machine Learning et Machine Learning Studio (classique)
 
@@ -29,7 +29,7 @@ Cet article compare les caractéristiques, les fonctionnalités et l’interface
 Le concepteur Azure Machine Learning offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio (classique), le concepteur utilise vos propres ressources de calcul, est évolutif, et est entièrement intégré à Azure Machine Learning.  
 
 > [!TIP]
-> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/ui-concept-visual-interface) (préversion), qui fournit des modules ML par glisser-déposer __plus__ l’extensibilité, la gestion de versions et la sécurité de l’entreprise.
+> Les clients qui utilisent ou évaluent actuellement Machine Learning Studio (classique) sont encouragés à essayer le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer) (préversion), qui fournit des modules ML par glisser-déposer __plus__ l’extensibilité, la gestion de versions et la sécurité de l’entreprise.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Comparaison : Azure Machine Learning et Machine Learning Studio (classique)
 

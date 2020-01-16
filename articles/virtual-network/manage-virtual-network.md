@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 10da1c8e1a4516e3346e5a93cb9fffdac12e23ae
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638627"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982244"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -79,7 +79,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
      ![Vue d’ensemble de l’interface réseau](./media/manage-virtual-network/vnet-overview.png)
 
-     Vous pouvez déplacer un réseau virtuel vers un autre abonnement ou un autre groupe de ressources en sélectionnant l’option **Modifier** en regard de **Groupe de ressources** ou **Nom de l’abonnement**. Pour savoir comment déplacer un réseau virtuel, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article répertorie les conditions préalables et explique comment déplacer des ressources à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Toutes les ressources connectées au réseau virtuel doivent être déplacées avec celui-ci.
+     Vous pouvez déplacer un réseau virtuel vers un autre abonnement ou un autre groupe de ressources en sélectionnant l’option **Modifier** en regard de **Groupe de ressources** ou **Nom de l’abonnement**. Pour savoir comment déplacer un réseau virtuel, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article répertorie les conditions préalables et explique comment déplacer des ressources à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Toutes les ressources connectées au réseau virtuel doivent être déplacées avec celui-ci.
    - **Espace d’adressage** : les espaces d’adressage affectés au réseau virtuel sont listés. Pour savoir comment ajouter et supprimer une plage d’adresses, procédez comme indiqué dans la section [Ajouter ou supprimer une plage d’adresses](#add-or-remove-an-address-range).
    - **Appareils connectés** : toutes les ressources connectées au réseau virtuel sont listées. Dans la capture d’écran précédente, trois interfaces réseau et un équilibreur de charge sont connectés au réseau virtuel. Toutes les ressources que vous créez et connectez au réseau virtuel sont répertoriées. Si vous supprimez une ressource connectée au réseau virtuel, elle n’apparaît plus dans la liste.
    - **Sous-réseaux** : la liste des sous-réseaux présents dans le réseau virtuel est affichée. Pour savoir comment ajouter et supprimer un sous-réseau, consultez [Gérer des sous-réseaux](virtual-network-manage-subnet.md).
@@ -88,10 +88,10 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
    - **Propriétés** : affiche les paramètres du réseau virtuel, dont l’ID de ressource et l’abonnement Azure dans lequel il figure.
    - **Diagramme** : le diagramme fournit une représentation visuelle de tous les appareils connectés au réseau virtuel. Il comporte des informations clés sur les appareils. Pour gérer un appareil affiché dans le diagramme, sélectionnez-le.
    - **Paramètres Azure courants** : Pour en savoir plus sur les paramètres Azure communs, consultez les informations suivantes :
-     - [Journal d’activité](../azure-monitor/platform/activity-logs-overview.md)
+     - [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md)
      - [Contrôle d’accès (IAM)](../role-based-access-control/overview.md)
-     - [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Script Automation](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Commandes**

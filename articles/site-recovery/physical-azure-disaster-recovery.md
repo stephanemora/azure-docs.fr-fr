@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936170"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980309"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurer la récupération d’urgence vers Azure pour des serveurs physiques locaux
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence de serveurs physiques Windows et Linux locaux vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence de serveurs physiques Windows et Linux locaux vers Azure. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer les prérequis Azure et locaux
@@ -27,7 +27,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence de s
 > * Créer une stratégie de réplication
 > * Activer la réplication pour un serveur
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -73,7 +73,7 @@ Configurez un [réseau Azure](../virtual-network/quick-create-portal.md).
 
 ## <a name="set-up-an-azure-storage-account"></a>Configurer un compte de stockage Azure
 
-Configurez un [compte de stockage Azure](../storage/common/storage-quickstart-create-account.md).
+Configurez un [compte de stockage Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery réplique les machines virtuelles locales sur le stockage Azure. Des machines virtuelles Azure sont créées à partir du stockage après le basculement.
 - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
@@ -178,7 +178,7 @@ Activez la réplication pour chaque serveur.
 7. Sélectionnez le sous-réseau et le réseau Azure auxquels les machines virtuelles Azure se connectent lorsqu’elles sont créées après le basculement.
 8. Sélectionnez **Effectuez maintenant la configuration pour les machines sélectionnées** pour appliquer le paramètre réseau à l’ensemble des machines que vous sélectionnez à des fins de protection. Sélectionnez **Configurer ultérieurement** pour sélectionner le réseau Azure pour chaque machine. 
 9. Dans **Machines physiques**, cliquez sur **+Machines physiques**. Spécifiez le nom et l’adresse IP. Sélectionnez le système d’exploitation de la machine que vous souhaitez répliquer. La détection et l’affichage de la liste des serveurs peuvent prendre quelques minutes. 
-10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte utilisé par le serveur de processus pour installer automatiquement le service Mobilité sur la machine.
+10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte à utiliser par le serveur de processus pour installer automatiquement le service Mobilité sur la machine.
 11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. 
 12. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 

@@ -2,7 +2,7 @@
 title: Déclencher une tâche Batch à l’aide d’Azure Functions
 description: 'Tutoriel : Appliquer la reconnaissance optique de caractères (OCR) à des documents numérisés quand ils sont ajoutés à un objet blob de stockage'
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: d5a5197227ff62ca0c610e2c4e269480690d3faf
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343108"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029227"
 ---
-# <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Didacticiel : Déclencher une tâche Batch à l’aide d’Azure Functions
+# <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Tutoriel : Déclencher une tâche Batch à l’aide d’Azure Functions
 
 Dans ce tutoriel, vous allez apprendre à déclencher une tâche Batch à l’aide d’Azure Functions. Nous allons examiner un exemple dans lequel la reconnaissance optique de caractères (OCR) est appliquée à des documents ajoutés à un conteneur d’objets blob de stockage Azure par le biais d’Azure Batch. Pour rationaliser le traitement OCR, nous allons configurer une fonction Azure qui exécute une tâche OCR Batch chaque fois qu’un fichier est ajouté au conteneur d’objets blob.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un compte Azure Batch et un compte Stockage Azure lié. Consultez [Créer un compte Batch](quick-create-portal.md#create-a-batch-account) pour plus d’informations sur la façon de créer et lier des comptes.
@@ -31,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à déclencher une tâche Batch à l’ai
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Créer un pool Batch et une tâche Batch avec Batch Explorer
 
@@ -47,7 +47,7 @@ Dans cette section, vous allez utiliser Batch Explorer pour créer le pool Batch
     1. Choisissez `Standard_f2s_v2` comme taille de machine virtuelle.
     1. Activez la tâche de démarrage et ajoutez la commande `/bin/bash -c "sudo update-locale LC_ALL=C.UTF-8 LANG=C.UTF-8; sudo apt-get update; sudo apt-get -y install ocrmypdf"`. Veillez à définir l’identité de l’utilisateur sur l’**utilisateur par défaut de la tâche (administrateur)** , ce qui permet aux tâches de démarrage d’inclure des commandes avec `sudo`.
     1. Sélectionnez **OK**.
-### <a name="create-a-job"></a>Création d’un travail
+### <a name="create-a-job"></a>Créer un travail
 
 1. Créez une tâche sur le pool en sélectionnant **Tâches** dans la barre de gauche, puis le bouton **Ajouter** au-dessus du formulaire de recherche. 
     1. Choisissez un ID et un nom d’affichage. Pour cet exemple, nous allons utiliser `ocr-job`.
@@ -92,8 +92,8 @@ De plus, vous pouvez regarder les fichiers journaux défiler au bas de la fenêt
 2019-05-29T19:45:25.846 [Information] Creating job...
 2019-05-29T19:45:25.847 [Information] Accessing input container <inputContainer>...
 2019-05-29T19:45:25.847 [Information] Adding <fileName> as a resource file...
-2019-06-21T20:02:35.129 [Information] Name of output text file: <outputTxtFile>
-2019-06-21T20:02:35.130 [Information] Name of output PDF file: <outputPdfFile>
+2019-05-29T19:45:25.848 [Information] Name of output text file: <outputTxtFile>
+2019-05-29T19:45:25.848 [Information] Name of output PDF file: <outputPdfFile>
 2019-05-29T19:45:26.200 [Information] Adding OCR task <taskID> for <fileName> <size of fileName>...
 ```
 

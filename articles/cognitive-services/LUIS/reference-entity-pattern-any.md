@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695093"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979175"
 ---
-# <a name="patternany-entity"></a>Entité Pattern.any 
+# <a name="patternany-entity"></a>Entité Pattern.any
 
 Pattern.any est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  
 
@@ -25,13 +25,13 @@ Les entités pattern.any doivent être marquées dans les exemples de modèles [
 
 **L’entité convient bien quand :**
 
-* La fin de l’entité peut être confondue avec le reste du texte de l’énoncé. 
+* La fin de l’entité peut être confondue avec le reste du texte de l’énoncé.
 
 ## <a name="usage"></a>Usage
 
-Si une application cliente recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un modèle d’énoncé utilisant pattern.any pour cette recherche de livre est `Was {BookTitle} written by an American this year[?]`. 
+Si une application cliente recherche des livres en fonction du titre, pattern.any extrait le titre complet. Un modèle d’énoncé utilisant pattern.any pour cette recherche de livre est `Was {BookTitle} written by an American this year[?]`.
 
-Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L’énoncé principal est la manière dont LUIS a initialement pu voir l’énoncé. Il est clair que le titre du livre a un début et une fin. L’énoncé inférieur utilise une entité pattern.any pour marquer le début et la fin de l’entité. 
+Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L’énoncé principal est la manière dont LUIS a initialement pu voir l’énoncé. Il est clair que le titre du livre a un début et une fin. L’énoncé inférieur utilise une entité pattern.any pour marquer le début et la fin de l’entité.
 
 |Énoncé d’une entité en gras|
 |--|
@@ -45,7 +45,7 @@ Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L�
 
 ## <a name="example-json"></a>Exemple JSON
 
-Examinez la requête suivante :
+Considérez la requête suivante :
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
@@ -104,8 +104,8 @@ Il s’agit du JSON si `verbose=true` est défini dans la chaîne de requête :
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce [tutoriel](luis-tutorial-pattern-any.md), vous allez utiliser l’entité **Pattern.any** pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé.
+Dans ce [tutoriel](luis-tutorial-pattern.md), vous allez utiliser l’entité **Pattern.any** pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé.

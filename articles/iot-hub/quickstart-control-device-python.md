@@ -9,19 +9,19 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/21/2019
-ms.openlocfilehash: b36e5d88c67a4aabf530aa8d945c17870e9c126b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 01/09/2020
+ms.openlocfilehash: 11768a0d72549d917d93c0f6f7f4d0c7e8217da4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892649"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864396"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub est un service Azure qui vous permet de gérer vos appareils IoT à partir du cloud et d’envoyer de gros volumes de données de télémétrie d’appareils vers le cloud à des fins de stockage et de traitement. Dans ce guide de démarrage rapide, vous utilisez une *méthode directe* pour contrôler un appareil simulé connecté à votre IoT Hub. Vous pouvez utiliser les méthodes directes pour modifier à distance le comportement d’un appareil connecté à votre IoT Hub.
+IoT Hub est un service Azure qui vous permet de gérer vos appareils IoT à partir du cloud et d’envoyer de gros volumes de données de télémétrie d’appareils au cloud afin de les stocker et de les traiter. Dans ce guide de démarrage rapide, vous utilisez une *méthode directe* pour contrôler un appareil simulé connecté à votre IoT Hub. Vous pouvez utiliser les méthodes directes pour modifier à distance le comportement d’un appareil connecté à votre IoT Hub.
 
 Ce démarrage rapide utilise deux applications Python prédéfinies :
 
@@ -29,15 +29,11 @@ Ce démarrage rapide utilise deux applications Python prédéfinies :
 
 * Une application back-end qui appelle les méthodes directes sur l’appareil simulé. Pour appeler une méthode directe sur un appareil, cette application se connecte à un point de terminaison côté service sur votre IoT Hub.
 
-> [!IMPORTANT]
-> Dans cet article, l’application back-end utilise le client du service Python V1 et l’application de l’appareil utilise le client d’appareil Python V2. Le client du service V1 se trouve dans la [branche dépréciée v1](https://github.com/Azure/azure-iot-sdk-python/tree/v1-deprecated) du dépôt GitHub du SDK Azure IoT Python. Le package Pip du client du service V1, *Azure-iothub-service-client*, comporte des exigences strictes propres à la plateforme (notamment la version de Python installée sur votre machine de développement). Ces exigences sont indiquées dans la section **Prérequis**.
->
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure IoT pour Azure CLI à votre instance Cloud Shell. L’extension IoT ajoute des commandes IoT Hub, IoT Edge et IoT Device Provisioning Service (DPS) à Azure CLI.
 
@@ -47,13 +43,7 @@ az extension add --name azure-cli-iot-ext
 
 Si ce n’est déjà fait, téléchargez l’exemple de projet Python à partir de https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip et extrayez l’archive ZIP.
 
-**Pour Windows**, les prérequis suivants sont nécessaires pour installer le package Pip du client du service V1 IoT Hub :
-
-* Veillez à avoir la [version Python **3.6.x**](https://www.python.org/downloads/) installée.
-
-* Vérifiez que [Microsoft Redistributable Visual C++ pour Visual Studio](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) est installé.
-
-**Pour les plateformes non-Windows**, consultez la [table de distribution du package Pip Python](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md#python-pip-package-distribution-table) dans la documentation du SDK V1. Vérifiez que la version Python 3.x spécifiée pour votre plateforme et tous les éléments requis associés sont installés sur votre machine de développement. L’installation de Python 3.x au lieu de 2.7 active les opérations asynchrones dans le client d’appareil V2, qui est également utilisé dans ce guide de démarrage rapide.
+[Python version 3.7 ou ultérieure](https://www.python.org/downloads/) doit être installé sur votre machine de développement. Pour les autres versions de Python prises en charge, consultez les [fonctionnalités des appareils Azure IoT](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features) dans la documentation du SDK.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -132,7 +122,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
-    ![Exécuter l’appareil simulé](./media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![Exécuter l’appareil simulé](./media/quickstart-control-device-python/simulated-device-1.png)
 
 ## <a name="call-the-direct-method"></a>Appeler la méthode directe
 
@@ -147,7 +137,7 @@ L’application back-end se connecte au point de terminaison côté service sur 
 1. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour installer les bibliothèques requises pour l’application d’appareil simulé :
 
     ```cmd/sh
-    pip install azure-iothub-service-client future
+    pip install azure-iot-hub
     ```
 
 1. Dans la fenêtre de terminal local, exécutez les commandes suivantes pour exécuter l’application back-end :
@@ -158,17 +148,13 @@ L’application back-end se connecte au point de terminaison côté service sur 
 
     La capture d’écran suivante montre la sortie lorsque l’application effectue un appel de méthode directe sur l’appareil et reçoit un accusé de réception :
 
-    ![Exécuter l’application back-end](./media/quickstart-control-device-python/BackEndApplication.png)
+    ![Exécuter l’application back-end](./media/quickstart-control-device-python/backend-application.png)
 
     Après avoir exécuté l’application back-end, un message s’affiche dans la fenêtre de la console exécutant l’appareil simulé, et la fréquence à laquelle il envoie les messages change :
 
-    ![Changement dans le client simulé](./media/quickstart-control-device-python/SimulatedDevice-2.png)
+    ![Changement dans le client simulé](./media/quickstart-control-device-python/simulated-device-2.png)
 
-    > [!NOTE]
-    > Si vous recevez une erreur lors de l’importation de *iothub_service_client*, vérifiez que vous avez installé la version exacte de Python et tous les autres artefacts associés spécifiés pour votre plateforme dans [Prérequis](#prerequisites). Si, après avoir vérifié les prérequis, vous recevez toujours une erreur, vous devrez peut-être générer le client du service pour votre plateforme. Pour apprendre à générer le SDK pour votre plateforme, consultez les [instructions d’installation devbox](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md) dans la documentation du SDK V1.
-    >
-
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
@@ -179,4 +165,4 @@ Dans ce guide de démarrage rapide, vous avez appelé une méthode directe sur u
 Pour savoir comment acheminer les messages appareil-à-cloud vers différentes destinations dans le cloud, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Didacticiel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)
+> [Tutoriel : acheminer les données de télémétrie vers différents points de terminaison pour traitement](tutorial-routing.md)

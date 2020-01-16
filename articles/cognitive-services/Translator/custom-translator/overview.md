@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: e002a5fbe38596d6507eec81ba3dd2a05c25153a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975803"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982689"
 ---
 # <a name="what-is-custom-translator"></a>Qu’est-ce que Custom Translator ?
 
@@ -24,13 +24,13 @@ Les systèmes de traduction créés avec [Custom Translator](https://portal.cust
 
 Custom Translator prend en charge plus de trente-six langues et mappe directement vers les langues disponibles pour les systèmes NMT. Pour une liste complète, consultez [Langues Microsoft Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Custom Translator offre différentes fonctionnalités pour créer un système de traduction personnalisé et y accéder.
 
 |Fonctionnalité  |Description  |
 |---------|---------|
-|[Tirer parti de la technologie de traduction automatique neuronale](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Améliorez votre traduction en tirant parti de la traduction automatique neuronale (NMT) fournie par Custom Translator.       |
+|[Tirer parti de la technologie de traduction automatique neuronale](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Améliorez votre traduction en tirant parti de la traduction automatique neuronale (NMT) fournie par Custom Translator.       |
 |[Créer des systèmes qui connaissent la terminologie de votre activité](what-are-parallel-documents.md)     |  Personnalisez et créez des systèmes de traduction en utilisant des documents parallèles qui comprennent la terminologie utilisée dans votre entreprise et votre secteur d’activité.       |
 |[Utiliser un dictionnaire pour générer vos modèles](what-is-dictionary.md)     |   Si vous n’avez pas de jeu de données d’entraînement, vous pouvez entraîner un modèle avec uniquement des données de dictionnaire.       |
 |[Collaborer avec d’autres personnes](how-to-manage-settings.md#share-your-workspace)     |   Collaborez avec votre équipe en partageant votre travail avec différentes personnes.     |
@@ -38,7 +38,7 @@ Custom Translator offre différentes fonctionnalités pour créer un système de
 
 ## <a name="get-better-translations"></a>Obtenir de meilleures traductions
 
-Microsoft Translator a publié un service de [Traduction automatique neuronale (NTM)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. Le service NMT a présenté une avancée majeure en termes de qualité de traduction par rapport à la technologie standard de [traduction automatique statistique (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Dans la mesure où le service NMT saisit mieux le contexte des phrases dans leur ensemble avant de les traduire, il offre de meilleures traductions dans un style plus naturel et plus fluide. [Custom Translator](https://portal.customtranslator.azure.ai) fournit le service NMT pour vos modèles personnalisés, ce qui donnera lieu à une amélioration de la qualité de traduction.
+Microsoft Translator a publié un service de [Traduction automatique neuronale (NTM)](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) en 2016. Le service NMT a présenté une avancée majeure en termes de qualité de traduction par rapport à la technologie standard de [traduction automatique statistique (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation). Dans la mesure où le service NMT saisit mieux le contexte des phrases dans leur ensemble avant de les traduire, il offre de meilleures traductions dans un style plus naturel et plus fluide. [Custom Translator](https://portal.customtranslator.azure.ai) fournit le service NMT pour vos modèles personnalisés, ce qui donnera lieu à une amélioration de la qualité de traduction.
 
 Vous pouvez utiliser des documents déjà traduits pour créer un système de traduction. Ces documents présentent un style et une terminologie spécifiques à un domaine, qui sont meilleurs qu’un système de traduction standard. Les utilisateurs peuvent charger des documents ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX et XLSX.
 

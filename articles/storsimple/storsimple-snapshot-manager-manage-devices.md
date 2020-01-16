@@ -3,7 +3,7 @@ title: Gérer les appareils avec le Gestionnaire d’instantanés StorSimple | 
 description: Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple.
 services: storsimple
 documentationcenter: ''
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 51632b8b68640814fc113a94925b6d6deaca4c5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: a037ddc5a43b288349b17dc7d954991a2c634aa3
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682485"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931725"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour connecter et gérer des appareils StorSimple
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez utiliser les nœuds du volet **Étendue** du Gestionnaire d’instantanés StorSimple afin de vérifier les données importées de l’appareil StorSimple et d’actualiser les appareils de stockage connectés. Par ailleurs, lorsque vous cliquez sur le nœud **Appareils**, vous pouvez consulter une liste des appareils connectés et des informations de statut correspondantes dans le volet **Résultats**.
 
 ![Appareils connectés](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_connect_devices.png)
@@ -33,7 +33,7 @@ En fonction de vos sélections **Affichage**, le volet **Résultats** indique le
 
 | Colonne de résultats | Description |
 |:--- |:--- |
-| Nom |Le nom de l’appareil, tel que configuré dans le portail Azure Classic |
+| Name |Le nom de l’appareil, tel que configuré dans le portail Azure Classic |
 | Modèle |Le numéro de modèle de l’appareil |
 | Version |La version du logiciel installé sur l’appareil |
 | Statut |La disponibilité de l’appareil |
@@ -49,7 +49,7 @@ Si vous cliquez avec le bouton droit sur le nœud **Appareils** du volet **Éten
 Si vous cliquez sur le nœud **Appareils** puis cliquez avec le bouton droit sur le volet **Résultats**, vous pouvez sélectionner les actions suivantes :
 
 * Authentification d’un appareil
-* Affichage des détails sur l’appareil
+* Afficher les détails sur l’appareil
 * Actualisation d’un appareil
 * Suppression de la configuration d’un appareil
 * Modification du mot de passe d’un appareil
@@ -96,7 +96,7 @@ Appliquez la procédure suivante pour connecter un appareil StorSimple et véri
    
    * Si, pour une raison quelconque, l’appareil est indisponible, le Gestionnaire d’instantanés StorSimple renvoie un message d’erreur. 
    
-   * Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Lorsque vous sélectionnez un appareil, il apparaît dans le volet **Résultats**, et le champ de statut indique que l’appareil est **Disponible**. Le Gestionnaire d’instantanés StorSimple importe les groupes de volumes configurés pour l’appareil, à condition que les groupes de volumes présentent des sauvegardes associées. Les stratégies de sauvegarde ne sont pas importées. Les groupes de volumes qui ne présentent pas de sauvegardes associées ne sont pas importés.
+   * Si l’appareil est disponible, le Gestionnaire d’instantanés StorSimple ajoute une connexion. Lorsque vous sélectionnez un appareil, il apparaît dans le volet **Résultats**, et le champ de statut indique que l’appareil est **Disponible**. Le Gestionnaire d’instantanés StorSimple importe les groupes de volumes configurés pour l’appareil, à condition que les groupes de volumes présentent des sauvegardes associées. Les stratégies de sauvegarde ne sont pas importées. Les groupes de volumes qui ne sont associés à aucune sauvegarde ne sont pas importés.
 2. Cliquez sur l’icône de bureau pour démarrer le Gestionnaire d’instantanés StorSimple.
 3. Cliquez sur le nœud supérieur du volet **Étendue**, puis cliquez sur **Basculer l’affichage des importations**.
    

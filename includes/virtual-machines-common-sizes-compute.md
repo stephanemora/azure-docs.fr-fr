@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 21b982389b186e949b21352f4b11bd6b4aa06dcb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dd94f29317e703a68ba1b4a78639f635034d4492
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279213"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75752281"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -27,9 +27,9 @@ Affichant le coût le plus bas par heure, la série Fsv2 offre le meilleur rappo
 
 ACU : 195 - 210
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 | Size             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
@@ -44,6 +44,15 @@ Mise en cache du Stockage Premium :  Pris en charge
 
 <sup>1</sup> Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®.
 
-<sup>2</sup> L’utilisation de plus de 64 processeurs virtuels nécessite l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
+<sup>2</sup> L’utilisation de plus de 64 processeurs virtuels nécessite l’un de ces systèmes d’exploitation invités pris en charge :
+- Windows Server 2016 ou version ultérieure
+- Ubuntu 16.04 LTS or version ultérieure, avec noyau Azure adapté (noyau 4.15 ou version ultérieure)
+- SLES 12 SP2 ou version ultérieure
+- RHEL ou CentOS version 6.7 à 6.10, avec le package LIS fourni par Microsoft 4.3.1 (ou version ultérieure) installé
+- RHEL ou CentOS version 7.3, avec le package LIS fourni par Microsoft 4.2.1 (ou version ultérieure) installé
+- RHEL ou CentOS 7.6 ou version ultérieure
+- Oracle Linux avec UEK4 ou version ultérieure
+- Debian 9 avec le noyau backports, Debian 10 ou version ultérieure
+- CoreOS avec un noyau 4.14 ou version ultérieure
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.

@@ -1,18 +1,14 @@
 ---
 title: Évaluer des serveurs physiques en vue d’une migration vers Azure avec Azure Migrate Server Assessment
 description: Décrit comment évaluer des serveurs physiques locaux pour la migration vers Azure avec Azure Migrate Server Assessment.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280546"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028993"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Évaluer des serveurs physiques avec Azure Migrate : Server Assessment
 
@@ -20,7 +16,7 @@ Cet article explique comment évaluer des serveurs physiques locaux à l’aide 
 
 [Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
 
-Ce didacticiel est le deuxième d’une série expliquant comment évaluer et migrer des serveurs virtuels physiques vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel est le deuxième d’une série expliquant comment évaluer et migrer des serveurs virtuels physiques vers Azure. Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Configurer un projet Azure Migrate.
 > * Configurez une appliance Azure Migrate qui s’exécute localement pour évaluer les serveurs physiques.
@@ -29,12 +25,12 @@ Ce didacticiel est le deuxième d’une série expliquant comment évaluer et mi
 > * Passer en revue l’évaluation.
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, pour vous permettre de configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Effectuez](tutorial-prepare-physical.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
@@ -141,7 +137,7 @@ Le cas échéant, vous pouvez accéder aux journaux de script dans C:\ProgramDat
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que l’appliance peut se connecter aux [URL Azure](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Vérifiez que l’appliance peut se connecter aux [URL Azure](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Configurer l’appliance
@@ -166,7 +162,7 @@ Configurez l’appliance pour la première fois.
 2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
-3. Une fois la connexion effectuée, revenez à l’application web.
+3. Une fois la connexion réussie, revenez à l’application web.
 4. Sélectionnez l’abonnement où le projet Azure Migrate a été créé. Sélectionnez ensuite le projet.
 5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 6. Cliquez sur **S'inscrire**.
@@ -196,11 +192,11 @@ Une fois la découverte effectuée, vous pouvez vérifier que les serveurs appar
 
 ## <a name="set-up-an-assessment"></a>Configurer une évaluation
 
-Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Évaluation de serveur.
+Vous pouvez créer deux types d’évaluation à l’aide d’Azure Migrate : Server Assessment.
 
 **Évaluation** | **Détails** | **Données**
 --- | --- | ---
-**En fonction des performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
+**Basée sur les performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
 **Localement** | Évaluations basées sur le dimensionnement local. | **Taille de machine virtuelle recommandée** : En fonction de la taille du serveur local<br/><br> **Type de disque recommandé** : En fonction du paramètre de type de stockage que vous sélectionnez pour l’évaluation.
 
 
@@ -211,7 +207,7 @@ Exécutez une évaluation comme suit :
 1. Passez en revue les [meilleures pratiques](best-practices-assessment.md) liées à la création d’évaluations.
 2. Sous l’onglet **Serveurs**, dans la vignette **Azure Migrate : Mosaïque**  d’évaluation de serveur, cliquez sur **Évaluer**.
 
-    ![Évaluation](./media/tutorial-assess-physical/assess.png)
+    ![Évaluer](./media/tutorial-assess-physical/assess.png)
 
 2. Dans **Évaluer les serveurs**, spécifiez un nom pour l’évaluation.
 3. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.

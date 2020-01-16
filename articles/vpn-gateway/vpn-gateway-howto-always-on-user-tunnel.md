@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 099ed3c3c0ac2abe034388849385a45b44b32b34
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: bff2ed48a78bfbae984dea5e5474971817023bc6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74145953"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75729319"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurer un tunnel utilisateur VPN Always On
 
@@ -31,11 +31,11 @@ Le tunnel appareil et le tunnel utilisateur fonctionnent tous deux de façon ind
 
 Dans les sections suivantes, vous allez configurer une passerelle VPN et un tunnel utilisateur.
 
-## <a name="step-1-configure-a-vpn-gateway"></a>Étape 1 : Configurer une passerelle VPN
+## <a name="step-1-configure-a-vpn-gateway"></a>Étape 1 : Configurer une passerelle VPN
 
 Pour configurer la passerelle VPN afin de d’utiliser le protocole IKEv2 et l’authentification basée sur les certificats, veuillez vous reporter à l’article [Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="step-2-configure-a-user-tunnel"></a>Étape 2 : Configurer un tunnel utilisateur
+## <a name="step-2-configure-a-user-tunnel"></a>Étape 2 : Configurer un tunnel utilisateur
 
 1. Installez des certificats clients sur le client Windows 10 comme indiqué dans l’article [Installer des certificats client pour des connexions d’authentification par certificat P2S](point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin d’utilisateurs actuel.
 
@@ -99,9 +99,10 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    ```
 1. Copiez le texte suivant et enregistrez-le sous le nom *VPNProfile.xml* dans le même dossier que *usercert.ps1*. Modifiez le texte suivant pour correspondre à votre environnement :
 
-   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
-   * `<Address>192.168.3.5</Address>`
-   * `<Address>192.168.3.4</Address>`
+   * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
+   * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<Address>192.168.3.4</Address>  <= IP of resource in the vnet or the vnet address space`
+   * `<PrefixSize>32</PrefixSize>     <= Subnet mask`
 
    ```
     <VPNProfile>  

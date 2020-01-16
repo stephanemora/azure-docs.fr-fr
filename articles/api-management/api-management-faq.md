@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073664"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967455"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -28,7 +28,7 @@ Découvrez les réponses aux questions les plus fréquentes, les modèles et les
 ## <a name="contact-us"></a>Nous contacter
 * [Comment dois-je procéder pour poser une question à l’équipe de gestion des API Microsoft Azure ?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 * [Qu’est-ce que cela signifie lorsqu’une fonctionnalité est disponible en version préliminaire ?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Comment sécuriser la connexion entre la passerelle de gestion des API et mes services principaux ?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Comment copier une instance de service Gestion des API vers une nouvelle instance ?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -83,7 +83,7 @@ Oui, vous pouvez gérer le service Gestion des API par programme en utilisant :
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Comment ajouter un utilisateur au groupe d’administrateurs ?
 Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
 3. Dans Gestion des API, attribuez le rôle **Contributeur de services de gestion d’API** à l’utilisateur.
 
@@ -119,7 +119,7 @@ Oui. Consultez les modèles de démarrage rapide [Service Gestion des API Azure]
 Oui. Vous pouvez utiliser PowerShell, ou l’envoyer directement à l’API. Cela désactive la validation de chaîne de certificat et vous permet d’utiliser des certificats auto-signés ou signés de manière privée lors des communications entre la fonction Gestion des API et les services back end.
 
 #### <a name="powershell-method"></a>Méthode PowerShell ####
-Utilisez les cmdlets PowerShell [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau back end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un back end existant) et définissez le paramètre `-SkipCertificateChainValidation` sur `True`. 
+Utilisez les cmdlets PowerShell [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (pour un nouveau back end) ou [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (pour un back end existant) et définissez le paramètre `-SkipCertificateChainValidation` sur `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -139,13 +139,13 @@ Oui. Le service Gestion des API est compatible avec Azure ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Pourquoi exigeons-nous un sous-réseau dédié dans les réseaux virtuels de type Resource Manager lorsque le service Gestion des API est déployé dans ceux-ci ?
 Nous exigeons un sous-réseau dédié pour le service Gestion des API parce qu’il repose sur le modèle de déploiement Classic (couche PAAS V1). Alors que nous pouvons effectuer le déploiement dans un réseau virtuel Resource Manager (couche V2), il y a des conséquences à cela. Le modèle de déploiement Classic dans Azure n’est pas fortement couplé au modèle Resource Manager, donc si vous créez une ressource dans la couche V2, la couche V1 n’en a pas connaissance et des problèmes peuvent survenir, tels que la tentative d’utilisation d’une adresse IP par le service Gestion des API, alors que cette adresse IP est déjà allouée à une carte réseau (créée sur V2).
-Pour en savoir plus sur la différence entre les modèles Classic et Resource Manager dans Azure, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/resource-manager-deployment-model.md).
+Pour en savoir plus sur la différence entre les modèles Classic et Resource Manager dans Azure, consultez [Déploiement Azure Resource Manager et déploiement classique : comprendre les modèles de déploiement et l’état de vos ressources](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Quelle est la taille minimale de sous-réseau requise lors du déploiement du service Gestion des API dans un réseau virtuel ?
 La taille minimale de sous-réseau requise pour déployer le service Gestion des API est [/29](../virtual-network/virtual-networks-faq.md#configuration), qui est la taille minimale de sous-réseau qu’Azure prend en charge.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Puis-je déplacer un service Gestion des API d’un abonnement à un autre ?
-Oui. Pour savoir comment procéder, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/resource-group-move-resources.md).
+Oui. Pour savoir comment procéder, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Existe-t-il des restrictions ou des problèmes connus liés à l’importation de mon API ?
 [Problèmes connus et restrictions](api-management-api-import-restrictions.md) pour les formats Open API(Swagger), WSDL et WADL.

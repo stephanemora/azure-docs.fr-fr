@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707826"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981037"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et de l’API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Cet article explique comment attribuer des rôles à l’aide de l’API REST.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
@@ -34,11 +34,11 @@ Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
 ## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Dans le contrôle d’accès en fonction du rôle (RBAC), vous ajoutez une attribution de rôle pour accorder l’accès. Pour ajouter une attribution de rôle, utilisez l’API REST [Créer des attributions de rôles](/rest/api/authorization/roleassignments/create) et spécifiez le principal de sécurité, la définition de rôle et l’étendue. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write`. Parmi les rôles intégrés, seuls ceux du [propriétaire](built-in-roles.md#owner) et de [l’administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) se voient accorder l’accès à cette opération.
+Dans le contrôle RBAC, vous ajoutez une attribution de rôle pour accorder l’accès. Pour ajouter une attribution de rôle, utilisez l’API REST [Créer des attributions de rôles](/rest/api/authorization/roleassignments/create) et spécifiez le principal de sécurité, la définition de rôle et l’étendue. Pour appeler cette API, vous devez avoir accès à l’opération `Microsoft.Authorization/roleAssignments/write`. Parmi les rôles intégrés, seuls ceux du [propriétaire](built-in-roles.md#owner) et de [l’administrateur des accès utilisateur](built-in-roles.md#user-access-administrator) se voient accorder l’accès à cette opération.
 
 1. Utilisez l’API REST [Liste de définitions de rôles](/rest/api/authorization/roledefinitions/list) ou consultez [Rôles intégrés](built-in-roles.md) pour obtenir l’identificateur de la définition de rôle que vous souhaitez assigner.
 
-1. Utilisez un outil GUID pour générer un identificateur unique qui servira d’identificateur d’attribution de rôle. Il est au format : `00000000-0000-0000-0000-000000000000`
+1. Utilisez un outil GUID pour générer un identificateur unique qui servira d’identificateur d’attribution de rôle. Cet identificateur est au format : `00000000-0000-0000-0000-000000000000`.
 
 1. Commencez par la requête et le corps suivants :
 
@@ -105,6 +105,6 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Lister les attributions de rôles à l’aide du RBAC Azure et de l’API REST](role-assignments-list-rest.md)
-- [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](../azure-resource-manager/templates/deploy-rest.md)
 - [Référence de l'API REST Azure](/rest/api/azure/)
 - [Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST](custom-roles-rest.md)

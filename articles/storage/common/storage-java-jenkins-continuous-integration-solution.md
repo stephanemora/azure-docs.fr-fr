@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839130"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970170"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Utilisation de Stockage Azure avec une solution d’intégration continue Jenkins
 
@@ -35,7 +35,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
 * Performances lorsque vos clients et partenaires téléchargent vos artefacts de build.
 * Contrôle sur les stratégies d'accès utilisateur, avec choix entre accès anonyme, accès par signature d'accès partagé basé sur l'expiration, accès privé, etc.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Une solution d’intégration continue Jenkins.
   
     Si vous ne disposez pas d'une solution Jenkins CI, vous pouvez en exécuter une à l'aide de la technique suivante :
@@ -49,7 +49,7 @@ L'utilisation du service BLOB pour héberger vos artefacts de build dans un envi
      
       Une solution Jenkins CI type serait configurée pour s'exécuter en tant que service, mais l'exécution du fichier .war Jenkins depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
 * Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <https://www.azure.com>.
-* Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
+* Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-account-create.md).
 * Une bonne connaissance de la solution Jenkins CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Jenkins CI.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Utilisation du service BLOB avec Jenkins CI
@@ -104,7 +104,7 @@ Pour les besoins de la formation, vous devez d’abord créer une tâche qui cr�
 12. Sélectionnez **Save** (Enregistrer) pour enregistrer vos paramètres.
 13. Dans le tableau de bord Jenkins, sélectionnez **Build Now** (Générer maintenant) pour exécuter **MyJob**. Examinez l'état dans la sortie de la console. Les messages d'état du stockage Azure sont inclus dans la sortie de la console lorsque l'action post-build commence à télécharger les artefacts de build.
 14. Une fois la tâche terminée correctement, vous pouvez examiner les artefacts de build en ouvrant l’objet blob public.
-    1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+    1. Connectez-vous au [portail Azure](https://portal.azure.com).
     2. Sélectionnez **Stockage**.
     3. Sélectionnez le nom du compte de stockage que vous avez utilisé pour Jenkins.
     4. Sélectionnez **Conteneurs**.
@@ -118,7 +118,7 @@ Les étapes suivantes expliquent comment configurer une étape de génération p
 1. Dans la section **Build** (Générer) de la configuration de la tâche, sélectionnez **Add build step** (Ajouter une étape de génération) et sélectionnez **Download from Azure Blob storage** (Télécharger à partir de Stockage Blob Azure).
 2. Dans le champ **Nom du compte de stockage**, sélectionnez le compte de stockage à utiliser.
 3. Dans le champ **Nom du conteneur**, indiquez le nom du conteneur dans lequel se trouvent les objets blob que vous souhaitez télécharger. Vous pouvez utiliser des variables d'environnement.
-4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\** * désignera tous les objets blob dont le nom commence par **projet**.
+4. Dans le champ **Nom d'objet blob**, indiquez le nom de l'objet blob. Vous pouvez utiliser des variables d'environnement. Vous pouvez aussi utiliser un astérisque comme caractère générique après avoir indiqué la ou les premières lettres du nom de l’objet blob. Par exemple, **projet\\** * désigne tous les objets blob dont le nom commence par **projet**.
 5. [Facultatif] Dans le champ **Chemin de téléchargement**, indiquez l'emplacement de l'ordinateur Jenkins où vous souhaitez télécharger les fichiers depuis le stockage d'objets blob Azure. Vous pouvez utiliser des variables d’environnement. Si vous n'entrez rien dans le champ **Chemin de téléchargement**, les fichiers du stockage d'objets blob Azure seront téléchargés dans l'espace de travail de la tâche.
 
 Si vous souhaitez télécharger d’autres éléments depuis le stockage d’objets blob Azure, vous pouvez créer des étapes de génération supplémentaires.
@@ -130,7 +130,7 @@ La section suivante présente les composants du service Blob.
 
 * **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Un compte de stockage est le plus haut niveau de l’espace de noms permettant d’accéder aux objets blob. Un compte peut contenir un nombre illimité de conteneurs, tant que sa taille totale ne dépasse pas 100 To.
 * **Conteneur** : Un conteneur regroupe un ensemble d’objets blob. Tous les objets blob doivent figurer dans un conteneur. Un compte peut contenir un nombre illimité de conteneurs. Un conteneur peut stocker un nombre illimité d’objets blob.
-* **Objet blob** : fichier de n'importe quel type et de n'importe quelle taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Objet blob** : Fichier de tout type et de toute taille. Il existe deux types d’objets blob qui peuvent être enregistrés dans un stockage Azure : les objets blob de blocs et les objets blob de pages. La plupart des fichiers sont des objets blob de blocs. Un objet blob de blocs peut avoir une taille maximale de 200 Go. Ce didacticiel utilise des objets blob de blocs. Les objets blob de pages, autre type d'objet blob, peuvent avoir une taille maximale de 1 To et sont plus efficaces lorsque les plages d'octets d'un fichier sont fréquemment modifiées. Pour plus d’informations sur les objets blob, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Format d’URL** : Les objets blob sont adressables à l’aide du format d’URL suivant :
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -147,7 +147,7 @@ Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Présentation de Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)
-* [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
+* [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Référence du Kit de développement logiciel (SDK) du client Azure Storage](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Blog de l'équipe Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)

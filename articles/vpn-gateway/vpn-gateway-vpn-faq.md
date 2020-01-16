@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: fa4e403733c418a4ceff417dd0cf7b54f9409a49
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151664"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895980"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -72,7 +72,7 @@ Les passerelles basées sur des itinéraires implémentent les VPN basés sur de
 Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
 1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
 1. Supprimez la passerelle :
-1. [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 1. [Azure PowerShell - Classique](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 1. [Créer une passerelle du type souhaité et terminer la configuration VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

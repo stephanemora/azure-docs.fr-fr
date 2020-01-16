@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 4162775153a48dc8ea28e06f7c99f9927b9c602a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8280bb057edea5697b8fa3248ddf755376f62c49
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444770"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978253"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus à l’aide d’un modèle Azure Resource Manager
 
@@ -42,11 +42,11 @@ Dans ce guide de démarrage rapide, vous utilisez un [modèle Resource Manager e
 
 [!code-json[create-azure-service-bus-namespace](~/quickstart-templates/101-servicebus-create-namespace/azuredeploy.json)]
 
-Pour obtenir d’autres modèles, consultez [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
+Pour obtenir d’autres exemples de modèles, voir [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular).
 
 Pour créer un espace de noms Service Bus à l’aide d’un modèle :
 
-1. Sélectionnez **Essayer** à partir du bloc de code suivant, puis suivez les instructions pour vous connecter à Azure Cloud Shell.
+1. Sélectionnez **Essayer** à partir du bloc de code suivant, puis suivez les instructions permettant de vous connecter à Azure Cloud Shell.
 
     ```azurepowershell-interactive
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
@@ -63,7 +63,7 @@ Pour créer un espace de noms Service Bus à l’aide d’un modèle :
     Le nom du groupe de ressources correspond au nom du Service Bus auquel **rg** a été ajouté.
 
 2. Sélectionnez **Copier** pour copier le script PowerShell.
-3. Cliquez avec le bouton droit sur la console shell, puis sélectionnez **Coller**.
+3. Cliquez avec le bouton droit sur la console d’interpréteur de commandes, puis sélectionnez **Coller**.
 
 Il faut quelques instants pour créer un Event Hub.
 
@@ -80,13 +80,13 @@ Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBu
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-Dans ce tutoriel, Azure PowerShell permet de déployer le modèle. Pour d’autres méthodes de déploiement de modèle, consultez :
+Dans ce tutoriel, Azure PowerShell permet de déployer le modèle. Pour d’autres méthodes de déploiement de modèle, consultez :
 
-* [En utilisant le Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [À l’aide d’Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [À l’aide de l’API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [En utilisant le Portail Azure](../azure-resource-manager/templates/deploy-portal.md).
+* [En utilisant Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+* [En utilisant l’API REST](../azure-resource-manager/templates/deploy-rest.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources. Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter les première et deuxième lignes du script suivant.
 

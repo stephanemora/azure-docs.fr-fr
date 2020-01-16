@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 26eec9cdd327ceb51e72deb1d6f40d585ce368fb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74215994"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896134"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Problèmes d’authentification dans Azure HDInsight
 
@@ -36,7 +36,7 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 Le code d’erreur 50126 d’Azure AD signifie que la stratégie `AllowCloudPasswordValidation` n’a pas été définie par le locataire.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 L’administrateur de la société du locataire Azure AD doit autoriser Azure AD à utiliser des hachages de mot de passe pour les utilisateurs d’ADFS.  Appliquez la stratégie `AllowCloudPasswordValidationPolicy` comme montré dans l’article [Utiliser le pack Sécurité Entreprise dans HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
@@ -56,7 +56,7 @@ La connexion échoue avec le code d’erreur 50034. Le message d’erreur ressem
 
 Le nom d’utilisateur est incorrect (il n’existe pas). L’utilisateur n’utilise pas le même nom d’utilisateur que celui utilisé dans le Portail Azure.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Utilisez le nom d’utilisateur qui fonctionne dans ce portail.
 
@@ -76,7 +76,7 @@ Le compte d’utilisateur est verrouillé, code d’erreur 50053. Le message d�
 
 Un trop grand nombre de tentatives de connexion avec un mot de passe incorrect.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Patientez 30 minutes, arrêtez toutes les applications susceptibles de tenter de s’authentifier.
 
@@ -96,7 +96,7 @@ Le mot de passe a expiré, code d’erreur 50053. Le message d’erreur ressembl
 
 Le mot de passe a expiré.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Modifiez le mot de passe dans le Portail Azure (sur votre système local), puis patientez 30 minutes que la synchronisation reprenne.
 
@@ -112,7 +112,7 @@ Réception du message d’erreur `interaction_required`.
 
 La stratégie d’accès conditionnel ou MFA est appliquée à l’utilisateur. Étant donné que l’authentification interactive n’est pas encore prise en charge, l’utilisateur ou le cluster doit être exempté de l’accès conditionnel/MFA. Si vous choisissez d’exempter le cluster (stratégie d’exemption basée sur l’adresse IP), assurez-vous que les `ServiceEndpoints` AD sont activés pour ce réseau virtuel.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Utilisez la stratégie d’accès conditionnel et exemptez les clusters HDInisght de l'authentification MFA comme indiqué dans [Configurer un cluster HDInsight avec le pack Sécurité Entreprise à l’aide des services Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -128,7 +128,7 @@ La connexion est refusée.
 
 Pour accéder à cette phase, c’est l’authentification Kerberos qui pose problème, pas l’authentification OAuth. Si ce cluster est sauvegardé par ADLS, la connexion OAuth a réussi avant la tentative d’authentification Kerberos. Sur les clusters WASB, la connexion OAuth n’est pas tentée. Il y a de nombreuses raisons d’échec pour l’authentification Kerberos, comme les hachages de mot de passe non synchonisés, les comptes d’utilisateur bloqués dans Azure AD DS, etc. La synchronisation des hachages de mot de passe se fait uniquement lorsque l’utilisateur modifie le mot de passe. Lorsque vous créez l’instance Azure AD DS, elle commence à synchroniser les mots de passe qui sont modifiés après la création. Elle ne synchronise pas rétroactivement les mots de passe qui ont été définis avant son commencement.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Si vous pensez que les mots de passe ne sont pas synchronisés, essayez de modifier le mot de passe et attendez quelques minutes pour la synchronisation.
 
@@ -146,7 +146,7 @@ Essayez de vous connecter par SSH. Vous devez essayer de vous authentifier (kini
 
 Varie.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour que kinit réussisse, vous devez connaître votre `sAMAccountName` (il s’agit du nom de compte court sans le domaine). `sAMAccountName` constitue généralement le préfixe du compte (comme bob dans `bob@contoso.com`). Pour certains utilisateurs, il peut être différent. Vous devez avoir la possibilité de parcourir/rechercher le répertoire pour connaître votre `sAMAccountName`.
 
@@ -172,7 +172,7 @@ kinit échoue avec échec `Preauthentication`.
 
 Nom d’utilisateur ou mot de passe incorrect.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Vérifiez votre nom d’utilisateur et votre mot de passe. Vérifiez également les autres propriétés décrites ci-dessus. Pour activer le débogage détaillé, exécutez `export KRB5_TRACE=/tmp/krb.log` à partir de la session avant d’essayer kinit.
 
@@ -188,7 +188,7 @@ La commande Job/HDFS échoue à cause de `TokenNotFoundException`.
 
 Le jeton d’accès OAuth requis est introuvable pour que le travail/la commande aboutisse. Le pilote ADLS/ABFS essaiera de récupérer le jeton d’accès OAuth auprès du service d’informations d’identification avant d’effectuer des demandes de stockage. Ce jeton est inscrit lorsque vous vous connectez au portail Ambari à l’aide du même utilisateur.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Vérifiez que vous êtes connecté au portail Ambari une seule fois via le nom d’utilisateur dont l’identité est utilisée pour exécuter le travail.
 
@@ -204,7 +204,7 @@ L’utilisateur reçoit un message d’erreur `Error fetching access token`.
 
 Cette erreur se produit par intermittence lorsque les utilisateurs essaient d’accéder au ADLS Gen2 à l’aide de listes de contrôle d’accès et que le jeton Kerberos a expiré.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 * Pour Azure Data Lake Storage Gen1, nettoyez le cache du navigateur et reconnectez-vous à Ambari.
 
@@ -220,4 +220,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

@@ -1,23 +1,22 @@
 ---
 title: 'Démarrage rapide : Reconnaître la voix venant d’un microphone, C++ (macOS) – Service Speech'
 titleSuffix: Azure Cognitive Services
-description: Découvrir la reconnaissance vocale en C++ sur macOS avec le SDK Speech
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 885e853528eb0b20079e6a7739450687ed001b8e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 08459238173b379280cb513ccb3242e4f15ef0bc
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818659"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928125"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -51,7 +50,7 @@ Avant de commencer :
   g++ helloworld.cpp -o helloworld --std=c++14 -F${SPEECHSDK_ROOT} -framework MicrosoftCognitiveServicesSpeech
   ```
 
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 1. Configurez le chemin de la bibliothèque du chargeur pour qu’il pointe vers la bibliothèque du kit SDK Speech.
 

@@ -1,30 +1,24 @@
 ---
-title: 'Configurer le transit par passerelle VPN pour le peering de réseaux virtuels : Azure Resource Manager | Microsoft Docs'
+title: Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 description: Configurez le transit par passerelle VPN pour le peering de réseaux virtuels.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c3d2352467a1ed8e7979acac403908303ba3bc4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60457372"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834549"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configurer le transit par passerelle VPN pour le peering de réseaux virtuels
 
-Cet article explique comment configurer le transit par passerelle pour le peering de réseaux virtuels. L’[homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) connecte en toute transparence deux réseaux virtuels Azure de manière à les fusionner en un seul réseau virtuel à des fins de connectivité. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) est une propriété d’homologation qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel homologué pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le diagramme suivant illustre le fonctionnement du transit par passerelle avec le peering de réseaux virtuels.
+Cet article explique comment configurer le transit par passerelle pour le peering de réseaux virtuels. Le [peering de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) connecte en toute transparence deux réseaux virtuels Azure de manière à les fusionner en un seul réseau virtuel à des fins de connectivité. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) est une propriété de peering qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel appairé pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le diagramme suivant illustre le fonctionnement du transit par passerelle avec le peering de réseaux virtuels.
 
 ![Transit par passerelle](./media/vpn-gateway-peering-gateway-transit/gatewaytransit.png)
 
@@ -37,7 +31,7 @@ Deux scénarios sont décrits dans le présent document :
 1. Les deux réseaux virtuels utilisent le modèle de déploiement Resource Manager
 2. Le réseau virtuel spoke utilise le modèle de déploiement Classic et le réseau virtuel hub avec la passerelle utilise le modèle Resource Manager
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -51,19 +45,19 @@ L’exemple présenté dans ce document requiert la création des ressources sui
 Consultez les documents suivants pour connaître les procédures associées :
 
 1. [Créer une passerelle VPN dans un réseau virtuel](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Créer une homologation de réseaux virtuels présentant le même modèle de déploiement](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Créer une homologation de réseaux virtuels présentant des modèles de déploiement différents](../virtual-network/create-peering-different-deployment-models.md)
+2. [Créer un peering de réseaux virtuels présentant le même modèle de déploiement](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Créer un peering de réseaux virtuels présentant des modèles de déploiement différents](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Autorisations
 
 Les comptes que vous utilisez pour créer un peering de réseaux virtuels doivent être dotés des autorisations ou des rôles nécessaires. Dans l’exemple ci-dessous, si vous avez effectué un peering entre deux réseaux virtuels nommés Hub-RM et Spoke-Classic, votre compte doit être doté des autorisations ou des rôles suivants pour chaque réseau virtuel :
     
-|Réseau virtuel|Modèle de déploiement|Rôle|Autorisations|
+|Réseau virtuel|Modèle de déploiement|Role|Autorisations|
 |---|---|---|---|
 |Hub-RM|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Gestionnaire de ressources|[Contributeur de réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Classique|[Collaborateur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+||Classique|[Contributeur de réseau classique](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Apprenez-en davantage sur les [rôles intégrés](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) et l’affectation d’autorisations spécifiques aux [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Gestionnaire des ressources uniquement).
 

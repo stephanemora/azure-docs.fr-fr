@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 51f72011b89656d8f56e996d4654a2714f2f482b
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 8c2bbd3aff8c2c10864fb2fa8937c9159ecd3606
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615604"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972449"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Présentation du Stockage Blob Azure
 
@@ -41,7 +41,7 @@ Par exemple, si le nom de votre compte de stockage est *mystorageaccount*, le po
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-Pour créer un compte de stockage, consultez [Créez un compte de stockage](../common/storage-quickstart-create-account.md). Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Pour créer un compte de stockage, consultez [Créez un compte de stockage](../common/storage-account-create.md). Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="containers"></a>Containers
 
@@ -73,5 +73,5 @@ Plusieurs solutions existent pour migrer des données existantes vers le stockag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Créez un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Objectifs de performance et d’extensibilité du Stockage Azure](../common/storage-scalability-targets.md)
+- [Créez un compte de stockage](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Objectifs de performance et d’extensibilité du Stockage Blob](scalability-targets.md)

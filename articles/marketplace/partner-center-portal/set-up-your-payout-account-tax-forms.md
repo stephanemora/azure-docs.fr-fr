@@ -3,16 +3,16 @@ Description: Afin de recevoir l’argent provenant de la vente d’offres sur le
 title: Configurer votre compte de paiement et vos déclarations de taxe | Place de marché Azure
 ms.date: 12/10/2019
 ms.topic: article
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
-ms.openlocfilehash: 73ee800a837e7cd201025c93c7e88ad46f7fe256
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6ef9711d6047a75ca5058f12e95d72a79628e30
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979970"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934154"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Configurer votre compte de paiement et vos déclarations de taxe
 

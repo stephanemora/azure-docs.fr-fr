@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243219"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974866"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -37,7 +37,7 @@ Parfois, vous sélectionnez les métriques et les ressources appropriées, mais 
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Le fournisseur de ressources Microsoft.Insights n’est pas inscrit pour votre abonnement.
 
-L’exploration de métriques nécessite que le fournisseur de ressources *Microsoft.Insights* soit inscrit dans votre abonnement. Dans de nombreux cas, il est inscrit automatiquement (une fois que vous avez configuré une règle d’alerte, que vous avez personnalisé les paramètres de diagnostic pour une ressource quelconque ou que vous avez configuré une règle de mise à l’échelle automatique). Si le fournisseur de ressources Microsoft.Insights n’est pas inscrit, vous devez l’inscrire manuellement en suivant les étapes décrites dans [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md).
+L’exploration de métriques nécessite que le fournisseur de ressources *Microsoft.Insights* soit inscrit dans votre abonnement. Dans de nombreux cas, il est inscrit automatiquement (une fois que vous avez configuré une règle d’alerte, que vous avez personnalisé les paramètres de diagnostic pour une ressource quelconque ou que vous avez configuré une règle de mise à l’échelle automatique). Si le fournisseur de ressources Microsoft.Insights n’est pas inscrit, vous devez l’inscrire manuellement en suivant les étapes décrites dans [Fournisseurs et types de ressources Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Solution :** Sous **Abonnements**, ouvrez l’onglet **Fournisseurs de ressources** et vérifiez que *Microsoft.Insights* est inscrit pour votre abonnement.
 
@@ -73,7 +73,7 @@ La collecte des métriques de **SE invité** nécessite la configuration de l’
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Message « Erreur durant la récupération des données » sur le tableau de bord
 
-Ce problème peut se produire lorsque votre tableau de bord a été créé avec une métrique qui a ensuite été dépréciée, puis supprimée dans Azure. Pour vérifier si c’est le cas, ouvrez l’onglet **Métriques** de votre ressource et examinez les métriques disponibles dans le sélecteur de métriques. Si aucune métrique n’est affichée, cela signifie que la métrique a été supprimée d’Azure. En règle générale, quand une métrique est déconseillée, une nouvelle métrique, plus efficace, offre une perspective similaire sur l’intégrité des ressources.
+Ce problème peut se produire quand votre tableau de bord a été créé avec une métrique qui a ensuite été dépréciéeet supprimée dans Azure. Pour vérifier si c’est le cas, ouvrez l’onglet **Métriques** de votre ressource et examinez les métriques disponibles dans le sélecteur de métriques. Si aucune métrique n’est affichée, cela signifie que la métrique a été supprimée d’Azure. En règle générale, quand une métrique est déconseillée, une nouvelle métrique, plus efficace, offre une perspective similaire sur l’intégrité des ressources.
 
 **Solution :** Mettez à jour la vignette défaillante en choisissant une autre métrique pour votre graphique sur le tableau de bord. Vous pouvez [consulter une liste des métriques disponibles pour les services Azure](metrics-supported.md).
 
@@ -95,7 +95,7 @@ Dans de nombreux cas, la baisse des valeurs de métrique perçue est due à une 
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Impossible de choisir l’espace de noms et les métriques de SE invité
 
-Deux catégories de métriques sont disponibles pour les machines virtuelles et groupes de machines virtuelles identiques : Les métriques **Ordinateur hôte de l’ordinateur virtuel** qui sont collectées par l’environnement d’hébergement Azure et les métriques de **SE invité (classique)** qui sont collectées par l’[agent de surveillance](agents-overview.md) exécuté sur vos machines virtuelles. Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](diagnostics-extension-overview.md).
+Deux catégories de métriques sont disponibles pour les machines virtuelles et groupes de machines virtuelles identiques : Métriques d’**hôte de machine virtuelle** qui sont collectées par l’environnement d’hébergement Azure et métriques de **SE invité (classique)** qui sont collectées par l’[agent de surveillance](agents-overview.md) exécuté sur vos machines virtuelles. Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](diagnostics-extension-overview.md).
 
 Par défaut, les métriques de SE invité sont stockées dans le compte de Stockage Azure, que vous sélectionnez dans l’onglet **Paramètres de diagnostic** de votre ressource. Si les métriques de SE invité ne sont pas collectées ou si Metrics Explorer ne peut pas y accéder, vous verrez seulement l’espace de noms de la métrique **Ordinateur hôte de l’ordinateur virtuel** :
 
@@ -117,5 +117,5 @@ Par défaut, les métriques de SE invité sont stockées dans le compte de Stock
 
 * [Découvrez comment bien démarrer avec Metrics Explorer](metrics-getting-started.md).
 * [Découvrez les fonctionnalités avancées de Metrics Explorer](metrics-charts.md).
-* [Consultez la liste des métriques disponibles pour les services Azure](metrics-supported.md).
+* [Consulter la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [Consulter des exemples de graphiques configurés](metric-chart-samples.md)

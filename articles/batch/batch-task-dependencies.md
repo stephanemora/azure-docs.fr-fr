@@ -3,7 +3,7 @@ title: Utiliser des dépendances de tâches pour exécuter des tâches basées s
 description: Créez des tâches qui dépendent de l’achèvement d’autres tâches pour le traitement de charges de travail de type MapReduce ou Big Data dans Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a1378a5c00acbbce5e7ec73a75902ec55140575
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094622"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026237"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Créer des dépendances de tâches pour exécuter des tâches qui dépendent d’autres tâches
 
@@ -74,7 +74,7 @@ Cet extrait de code crée une tâche dépendante avec l’ID de tâche « Flowe
 ## <a name="dependency-scenarios"></a>scénarios de dépendance
 Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azure Batch : un-à-un, un-à-plusieurs et dépendance de plage d’ID de tâche. Ces scénarios peuvent être combinés pour créer un quatrième scénario : plusieurs-à-plusieurs.
 
-| Scénario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemples |  |
+| Scénario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exemple |  |
 |:---:| --- | --- |
 |  [Un-à-un](#one-to-one) |*taskB* dépend de *taskA* <p/> *taskB* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* n’est pas terminée |![Schéma : dépendance de tâches un-à-un][1] |
 |  [Un-à-plusieurs](#one-to-many) |*taskC* dépend de *taskA* et de *taskB* <p/> *taskC* n’est pas planifié pour s’exécuter tant que l’exécution de *taskA* et *taskB* n’est pas terminée |![Schéma : dépendance de tâches un-à-plusieurs][2] |
@@ -85,7 +85,7 @@ Vous pouvez utiliser trois scénarios de dépendance de tâches de base dans Azu
 > 
 > Dans les exemples de cette section, une tâche dépendante s’exécute uniquement après l’achèvement des tâches parentes. Ce comportement est le comportement par défaut d’une tâche dépendante. Vous pouvez exécuter une tâche dépendante après l’échec d’une tâche parente en indiquant l’action de dépendance destinée à se substituer au comportement par défaut. Pour plus d’informations, consultez la section [Actions de dépendance](#dependency-actions).
 
-### <a name="one-to-one"></a>Un-à-un
+### <a name="one-to-one"></a>Un à un
 Dans une relation un-à-un, une tâche dépend de la bonne exécution d’une tâche parente. Pour créer la dépendance, fournissez un ID de tâche unique à la méthode statique [TaskDependencies][net_taskdependencies].[OnId][net_onid] lorsque vous renseignez la propriété [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
@@ -210,7 +210,7 @@ L’exemple de projet [TaskDependencies][github_taskdependencies] est l’un des
 - Comment exécuter ces tâches sur un pool de nœuds de calcul
 
 ## <a name="next-steps"></a>Étapes suivantes
-### <a name="application-deployment"></a>Déploiement des applications
+### <a name="application-deployment"></a>Déploiement d'applications
 La fonctionnalité [packages d’application](batch-application-packages.md) de Batch est un moyen facile de déployer et contrôler les versions des applications exécutées par vos tâches sur des nœuds de calcul.
 
 ### <a name="installing-applications-and-staging-data"></a>Installation d’applications et de données intermédiaires

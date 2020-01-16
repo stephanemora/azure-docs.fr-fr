@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e0339f5118d4745b6abe0268f021f8284a5f11f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: fd53b95472c72d70721612d8684779c206aad74e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689116"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888795"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Résolution des problèmes liés aux appareils hybrides joints à Azure Active Directory 
 
@@ -245,7 +245,7 @@ Applicable uniquement pour les comptes de domaine fédérés.
 Causes de l’échec :
 
 - Impossible d’obtenir un jeton d’accès en mode silencieux pour la ressource DRS.
-   - Les appareils Windows 10 acquièrent un jeton d’authentification auprès du service de fédération en utilisant l’Authentification Windows intégrée sur un point de terminaison WS-Trust actif. Détails : [Configuration du serveur de fédération](hybrid-azuread-join-manual.md##set-up-issuance-of-claims)
+   - Les appareils Windows 10 acquièrent un jeton d’authentification auprès du service de fédération en utilisant l’Authentification Windows intégrée sur un point de terminaison WS-Trust actif. Détails : [Configuration du serveur de fédération](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Codes d’erreur courants :**
 

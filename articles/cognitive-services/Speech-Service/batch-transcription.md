@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 765a74ac20d6a1c79dfc31c5e11b1f214dd2aa97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446968"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921471"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -159,6 +159,7 @@ Pour les fichiers audio d’entrée mono, un fichier de résultat de transcripti
                   "Duration": number                       'time in milliseconds'
                   "OffsetInSeconds": number                'Real number. Two decimal places'
                   "DurationInSeconds": number              'Real number. Two decimal places'
+                  "Confidence": number                     'between 0 and 1'
                 }
               ]
             }
@@ -172,7 +173,7 @@ Pour les fichiers audio d’entrée mono, un fichier de résultat de transcripti
 
 Le résultat contient les formes suivantes :
 
-|Forme|Contenu|
+|Formulaire|Contenu|
 |-|-|
 |`Lexical`|Les mots réels sont reconnus.
 |`ITN`|Forme « normalisation du texte inversée » du texte reconnu. Abréviations (« Docteur Smith » en « Dr Smith »), numéros de téléphone, et d’autres transformations sont appliquées.

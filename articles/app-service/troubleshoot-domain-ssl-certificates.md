@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688346"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966974"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -88,7 +88,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 
     **Solution**: si le certificat est marqué comme Fraude et que le problème n’a pas été résolu après 24 heures, effectuez les étapes suivantes :
 
-    1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+    1. Connectez-vous au [portail Azure](https://portal.azure.com).
     2. Accédez à **App Service Certificates**, puis sélectionnez le certificat.
     3. Sélectionnez **Configuration du certificat** > **Étape 2 : Vérifier** > **Vérification du domaine**. Cette étape envoie une notification par e-mail au fournisseur de certificats Azure pour résoudre le problème.
 
@@ -190,7 +190,7 @@ App Service synchronise automatiquement votre certificat sous 48 heures. Lorsqu
 
 Vous pouvez forcer une synchronisation du certificat :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **App Service Certificates**, puis le certificat.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **App Service Certificates**, puis le certificat.
 2. Sélectionnez **Recréer la clé et synchroniser**, puis **Synchroniser**. La synchronisation prend un certain temps. 
 3. Une fois la synchronisation terminée, la notification suivante s’affiche : « Toutes les ressources ont été mises à jour avec succès avec le dernier certificat. »
 
@@ -262,11 +262,11 @@ Ce problème se produit pour l’une des raisons suivantes :
 
     |Type d’enregistrement|Host|Pointe vers|
     |------|------|-----|
-    |A|@|Adresse IP d’une application|
+    |Un|@|Adresse IP d’une application|
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Dois-je configurer mon domaine personnalisé pour mon site web après l’avoir acheté ?**
 
@@ -318,6 +318,6 @@ Vous pouvez gérer votre domaine même si vous n’avez pas d’application web 
 
 **Puis-je déplacer une application web avec un domaine personnalisé vers un autre abonnement ou depuis un environnement App Service v1 vers v2 ?**
 
-Oui, vous pouvez déplacer votre application web sur plusieurs abonnements. Suivez les instructions dans [Déplacer des ressources dans Azure](../azure-resource-manager/resource-group-move-resources.md). Il existe quelques limites au déplacement d’une application web. Pour plus d’informations, consultez [Limites de déplacement des ressources App Service](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Oui, vous pouvez déplacer votre application web sur plusieurs abonnements. Suivez les instructions dans [Déplacer des ressources dans Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Il existe quelques limites au déplacement d’une application web. Pour plus d’informations, consultez [Limites de déplacement des ressources App Service](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 Après avoir déplacé l’application web, les liaisons de nom d’hôte des domaines dans les paramètres des domaines personnalisés doivent demeurer identiques. Aucune action supplémentaire n’est nécessaire pour configurer les liaisons de nom d’hôte.

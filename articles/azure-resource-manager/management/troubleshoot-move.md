@@ -3,12 +3,12 @@ title: Résoudre les erreurs de transfert
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 422ecb92e264d7e728282bbe8ee491a642cf013f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a65f7daa0f5e3b1c8c6ddfdbecc0ff7d53e5afd
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474479"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891275"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Résoudre les problèmes liés au déplacement de ressources vers un nouveau groupe de ressource ou abonnement
 
@@ -21,7 +21,7 @@ Vous devez convertir votre abonnement Azure si vous souhaitez le mettre à nivea
 * Pour mettre à niveau votre essai gratuit, consultez [Passer d’un essai gratuit ou d’un abonnement Azure Microsoft Imagine au paiement à l’utilisation](../../billing/billing-upgrade-azure-subscription.md).
 * Pour changer un compte de paiement à l’utilisation, consultez [Remplacer votre abonnement Paiement à l’utilisation Azure par une autre offre](../../billing/billing-how-to-switch-azure-offer.md).
 
-Si vous ne pouvez pas convertir l’abonnement, [créez une demande de support Azure](../../azure-supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
+Si vous ne pouvez pas convertir l’abonnement, [créez une demande de support Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
 
 ## <a name="service-limitations"></a>Limitations de service
 
@@ -44,7 +44,7 @@ Quand vous obtenez un message d’erreur indiquant qu’une ressource ne peut pa
 
 Si le groupe de ressources source ou cible contient un réseau virtuel, les états de toutes les ressources dépendantes pour le réseau virtuel sont vérifiés au cours du déplacement. La vérification comprend les ressources qui dépendent directement et indirectement du réseau virtuel. Si l’une de ces ressources est en état d’échec, le déplacement est bloqué. Par exemple, si une machine virtuelle qui utilise le réseau virtuel a échoué, le déplacement est bloqué. Le déplacement est bloqué même lorsque la machine virtuelle n’est pas l’une des ressources déplacées et ne se trouve pas dans l’un des groupes de ressources à déplacer.
 
-Lorsque vous recevez cette erreur, deux options s’offrent à vous. Déplacez vos ressources vers un groupe de ressources qui n’a pas de réseau virtuel ou [contactez le support technique](../../azure-supportability/how-to-create-azure-support-request.md).
+Lorsque vous recevez cette erreur, deux options s’offrent à vous. Déplacez vos ressources vers un groupe de ressources qui n’a pas de réseau virtuel ou [contactez le support technique](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

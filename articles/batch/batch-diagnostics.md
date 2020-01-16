@@ -3,7 +3,7 @@ title: Métriques, alertes et journaux de diagnostic - Azure Batch | Microsoft D
 description: Enregistrez et analysez les événements du journal de diagnostic pour des ressources de compte Azure Batch telles que des pools et des tâches.
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 616c5df38131d1b28387bcdda02c08b3a6825fb4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ffe8eb58fba570bf6002884ee365e76d9b53a273
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530814"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027207"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux d’activité Batch pour l’évaluation de diagnostic et la supervision
 
  
-Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/resource-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
+Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../azure-monitor/platform/data-platform-metrics.md) et des [journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../azure-monitor/platform/alerts-overview.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
@@ -109,7 +109,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
     ![Diagnostics Batch](media/batch-diagnostics/diagnostics-portal.png)
 
-D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
+D’autres options sont disponibles pour activer la collecte de journaux : vous pouvez notamment utiliser Azure Monitor dans le portail pour configurer les paramètres de diagnostic, prendre un [modèle Resource Manager](../azure-monitor/platform/diagnostic-settings-template.md) ou utiliser Azure PowerShell ou CLI. Consultez [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Accéder aux journaux de diagnostics dans le stockage

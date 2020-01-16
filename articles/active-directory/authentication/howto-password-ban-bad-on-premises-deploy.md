@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 481e1762e805f162aa515dd4d12cc7b6b2e95d71
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560254"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888955"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -34,7 +34,7 @@ Durant la phase d’audit, de nombreuses organisations constatent les points sui
 
 Il est également possible que la validation de mot de passe renforcée affecte l’automatisation de votre déploiement de contrôleur de domaine Active Directory existante. Nous vous recommandons d’effectuer au moins une promotion DC et une rétrogradation DC au cours de l’évaluation de la période d’audit afin d’aider à dévoiler ces problèmes à l’avance.  Pour plus d'informations, consultez les pages suivantes :
 
-* [Ntdsutil.exe ne peut pas définir un mot de passe de mode de réparation des services d’annuaire faible](howto-password-ban-bad-on-premises-troubleshoot.md##ntdsutilexe-fails-to-set-a-weak-dsrm-password)
+* [Ntdsutil.exe ne peut pas définir un mot de passe de mode de réparation des services d’annuaire faible](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [La promotion du réplica du contrôleur de domaine échoue en raison d’un mot de passe de mode de réparation des services d’annuaire faible](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [La rétrogradation du contrôleur de domaine échoue en raison d’un mot de passe administrateur local faible](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 

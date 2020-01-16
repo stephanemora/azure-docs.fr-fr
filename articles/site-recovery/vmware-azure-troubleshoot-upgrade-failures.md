@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 0e6631d36f8b8153c34f787f8941b45b7522aceb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: b59f933fedd5f1d3ed3f7972b1a1fe653df31be2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083921"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893910"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Résoudre les problèmes de mise à niveau du fournisseur Microsoft Azure Site Recovery
 
@@ -27,7 +27,7 @@ La mise à niveau n’est pas prise en charge, car une version plus récente du 
 Suivez les étapes ci-dessous pour effectuer la mise à niveau :
 
 1. Téléchargez le programme d’installation unifiée de Microsoft Azure Site Recovery :
-   1. Dans la section « Liens des correctifs cumulatifs actuellement pris en charge » de l’article [Mises à jour de service dans Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups), sélectionnez le fournisseur que vous souhaitez installer.
+   1. Dans la section « Liens des correctifs cumulatifs actuellement pris en charge » de l’article [Mises à jour de service dans Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups), sélectionnez le fournisseur que vous souhaitez installer.
    2. Sur la page des correctifs cumulatifs, localisez la section **Informations de mise à jour** et téléchargez le correctif cumulatif du programme d’installation unifiée de Microsoft Azure Site Recovery.
 
 2. Ouvrez une invite de commandes et accédez au dossier dans lequel vous avez téléchargé le fichier d’installation unifiée. Extrayez les fichiers d’installation du téléchargement avec la commande suivante : MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;chemin d'accès du dossier des fichiers extraits&gt;.
@@ -51,7 +51,7 @@ Résolution du problème :
 1. Lancez l’Éditeur du Registre (regedit.exe) et ouvrez la branche HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10.
 1. Vérifiez la valeur de la clé `Build_Version`. S’il s’agit de la dernière version, réduisez le numéro de version. Par exemple, si la dernière version est 9.22. \* et que la clé `Build_Version` est définie sur cette valeur de clé, réduisez-la à 9.21.\*.
 1. Téléchargez la dernière version du programme d’installation unifiée de Microsoft Azure Site Recovery :
-   1. Dans la section « Liens des correctifs cumulatifs actuellement pris en charge » de l’article [Mises à jour de service dans Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups), sélectionnez le fournisseur que vous souhaitez installer.
+   1. Dans la section « Liens des correctifs cumulatifs actuellement pris en charge » de l’article [Mises à jour de service dans Azure Site Recovery](service-updates-how-to.md#links-to-currently-supported-update-rollups), sélectionnez le fournisseur que vous souhaitez installer.
    2. Sur la page des correctifs cumulatifs, localisez la section **Informations de mise à jour** et téléchargez le correctif cumulatif du programme d’installation unifiée de Microsoft Azure Site Recovery.
 1. Ouvrez une invite de commandes et accédez au dossier dans lequel vous avez téléchargé le fichier d’installation unifiée. Extrayez les fichiers d’installation du téléchargement avec la commande suivante : MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;chemin d'accès du dossier des fichiers extraits&gt;.
 

@@ -1,18 +1,18 @@
 ---
-title: 'Didacticiel : Gérer la gouvernance des balises'
+title: 'Tutoriel : Gérer la gouvernance des balises'
 description: Dans ce tutoriel, vous utilisez l’effet modify d’Azure Policy pour créer et appliquer un modèle de gouvernance des balises sur des ressources nouvelles ou existantes.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 5e9cb9a4acb930c117374281a3debaeecce47110
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482250"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965997"
 ---
-# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Didacticiel : Gérer la gouvernance des balises avec Azure Policy
+# <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutoriel : Gérer la gouvernance des balises avec Azure Policy
 
-Les [balises](../../../azure-resource-manager/resource-group-using-tags.md) représentent un aspect essentiel de l’organisation des ressources Azure dans une taxonomie. Dès lors que les [meilleures pratiques de gestion des balises](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) sont suivies, les balises peuvent servir de base à l’application des stratégies d’entreprise avec Azure Policy ou au [suivi des coûts avec Cost Management](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+Les [balises](../../../azure-resource-manager/management/tag-resources.md) représentent un aspect essentiel de l’organisation des ressources Azure dans une taxonomie. Dès lors que les [meilleures pratiques de gestion des balises](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources) sont suivies, les balises peuvent servir de base à l’application des stratégies d’entreprise avec Azure Policy ou au [suivi des coûts avec Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
 Quels que soient l’usage et la finalité des balises utilisées, il est important de pouvoir en ajouter, en modifier et en supprimer rapidement sur des ressources Azure.
 
 L’effet [modify](../concepts/effects.md#modify) d’Azure Policy est conçu pour faciliter la gouvernance des balises à toutes les phases de gouvernance des ressources. **modify** est utile dans les cas suivants :
@@ -28,7 +28,7 @@ Dans ce didacticiel, vous allez apprendre à effectuer les tâches suivantes :
 > - Associer chaque spécification à une définition de stratégie
 > - Regrouper les stratégies de balises dans une initiative
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, vous devez disposer d’un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -194,7 +194,7 @@ Une fois les stratégies de balises ci-dessus créées, groupez-les en une initi
 
 Comme les stratégies [deployIfNotExists](../concepts/effects.md#deployifnotexists), la stratégie **modify** utilise des tâches de correction pour modifier les ressources non conformes existantes. Suivez les instructions indiquées dans [Guide pratique pour corriger les ressources](../how-to/remediate-resources.md) pour identifier vos ressources **modify** non conformes et corriger les balises en fonction de la taxonomie définie.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
 

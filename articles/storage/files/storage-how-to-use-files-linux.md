@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3d8d7c6d3c4e752480310c122bcb7db237b3022b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ef9609cded29c94260d027212abbf0c62f8653c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209411"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772106"
 ---
 # <a name="use-azure-files-with-linux"></a>Utiliser Azure Files avec Linux
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans des distributions Linux à l’aide du [client SMB en mode noyau](https://wiki.samba.org/index.php/LinuxCIFS). Cet article présente deux méthodes de montage d’un partage de fichiers Azure : à la demande avec la commande `mount` et au démarrage en créant une entrée dans `/etc/fstab`.
@@ -25,7 +25,7 @@ La méthode recommandée pour monter un partage de fichiers Azure sur Linux est 
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10+ |
-| openSUSE | 13.2+ | 42.3+ |
+| OpenSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
 Si vous utilisez une distribution Linux non listée dans le tableau ci-dessus, vous pouvez vérifier si votre distribution Linux prend en charge SMB 3.0 avec le chiffrement en vérifiant la version du noyau Linux. SMB 3.0 avec chiffrement a été ajouté à la version 4.11 du noyau Linux. La commande `uname` retourne la version du noyau Linux en cours d’utilisation :
@@ -34,7 +34,7 @@ Si vous utilisez une distribution Linux non listée dans le tableau ci-dessus, v
 uname -r
 ```
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Vérifiez que le package cifs-utils est installé.**  
@@ -80,7 +80,7 @@ uname -r
         --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
-    fileHost=$(echo $fileHost | tr -d "/")
+    fileHost=$(echo $smbPath | tr -d "/")
 
     nc -zvw3 $fileHost 445
     ```
@@ -202,18 +202,18 @@ Pour monter un partage de fichiers Azure sur Linux, le port 445 doit être acce
 | Distribution | Possibilité de désactivation de SMB 1 |
 |--------------|-------------------|
 | Ubuntu 14.04-16.04 | Non |
-| Ubuntu 18.04 | OUI |
-| Ubuntu 19.04+ | OUI |
+| Ubuntu 18.04 | Oui |
+| Ubuntu 19.04+ | Oui |
 | Debian 8-9 | Non |
-| Debian 10+ | OUI |
-| Fedora 29+ | OUI |
+| Debian 10+ | Oui |
+| Fedora 29+ | Oui |
 | CentOS 7 | Non | 
-| CentOS 8+ | OUI |
+| CentOS 8+ | Oui |
 | Red Hat Enterprise Linux 6.x-7.x | Non |
-| Red Hat Enterprise Linux 8+ | OUI |
+| Red Hat Enterprise Linux 8+ | Oui |
 | openSUSE Leap 15.0 | Non |
-| openSUSE Leap 15.1+ | OUI |
-| openSUSE Tumbleweed | OUI |
+| openSUSE Leap 15.1+ | Oui |
+| openSUSE Tumbleweed | Oui |
 | SUSE Linux Enterprise 11.x-12.x | Non |
 | SUSE Linux Enterprise 15 | Non |
 | SUSE Linux Enterprise 15.1 | Non |

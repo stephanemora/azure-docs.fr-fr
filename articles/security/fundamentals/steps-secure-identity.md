@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973908"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -47,11 +47,11 @@ Les suggestions faites dans ce document sont alignées sur [Identity Secure Scor
 
 Avant de commencer, assurez-vous de ne pas être compromis pendant que vous lisez cette liste de vérification. Vous devez d’abord protéger vos comptes privilégiés.
 
-Les attaquants qui prennent le contrôle de comptes privilégiés peuvent causer des dégâts considérables. Il est donc essentiel de protéger d’abord ces comptes. Activez et exigez l’utilisation d’[Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) pour tous les administrateurs de votre organisation, avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) ou un [accès conditionnel](../../active-directory/conditional-access/plan-conditional-access.md). Si vous n’avez pas encore implémenté l’authentification MFA, faites-le maintenant ! C’est particulièrement important.
+Les attaquants qui prennent le contrôle de comptes privilégiés peuvent causer des dégâts considérables. Il est donc essentiel de protéger d’abord ces comptes. Activez et exigez l’utilisation d’[Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) pour tous les administrateurs de votre organisation, avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) ou un [accès conditionnel](../../active-directory/conditional-access/plan-conditional-access.md). Si vous n’avez pas encore implémenté l’authentification MFA, faites-le maintenant ! C’est particulièrement important.
 
 Vous êtes prêt ? Nous pouvons commencer la liste de vérification.
 
-## <a name="step-1---strengthen-your-credentials"></a>Étape 1 - Renforcer vos informations d’identification 
+## <a name="step-1---strengthen-your-credentials"></a>Étape 1 - Renforcer vos informations d’identification
 
 La plupart des failles de sécurité en entreprise proviennent d’un compte compromis avec l’une des méthodes, telles que le jet de mot de passe, la réexécution de violation ou le hameçonnage. En savoir plus sur ces attaques dans cette vidéo (45 min) :
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ La plupart des failles de sécurité en entreprise proviennent d’un compte com
 
 Étant donné la fréquence à laquelle les mots de passe sont devinés, hameçonnés, volés par un logiciel malveillant ou réutilisés, il est essentiel de renforcer le mot de passe à l’aide d’une certaine forme d’informations d’identification fortes : en savoir plus sur [Azure multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 
-Pour activer facilement le niveau de base de sécurité des identités, vous pouvez utiliser l’activation en un clic avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Les paramètres par défaut de sécurité appliquent Azure MFA pour tous les utilisateurs d’un locataire, et bloquent les connexions à partir des protocoles hérités à l’échelle du locataire.
+Pour activer facilement le niveau de base de sécurité des identités, vous pouvez utiliser l’activation en un clic avec les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Les paramètres par défaut de sécurité appliquent Azure MFA pour tous les utilisateurs d’un locataire, et bloquent les connexions à partir des protocoles hérités à l’échelle du locataire.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Commencer à interdire des mots de passe couramment attaqués et à désactiver la complexité traditionnelle et les règles d’expiration.
 
@@ -86,7 +86,7 @@ Si votre organisation utilise une solution d’identité hybride avec authentifi
 En savoir plus sur le fonctionnement de la [synchronisation de hachage du mot de passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
 > [!NOTE]
-> Si vous activez la synchronisation du hachage de mot de passe et que vous utilisez Azure AD Domain Services, les hachages Kerberos (AES 256) et éventuellement NTLM (RC4, no salt) sont également chiffrés et synchronisés dans Azure AD. 
+> Si vous activez la synchronisation du hachage de mot de passe et que vous utilisez Azure AD Domain Services, les hachages Kerberos (AES 256) et éventuellement NTLM (RC4, no salt) sont également chiffrés et synchronisés dans Azure AD.
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implémenter le verrouillage intelligent extranet AD FS
 
@@ -106,7 +106,7 @@ Les applications utilisant leurs propres méthodes héritées pour s’authentif
 
 1. Bloquez [l’authentification héritée, si vous utilisez AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurez [SharePoint Online et Exchange Online pour utiliser l’authentification moderne](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Si vous avez Azure AD Premium, utilisez des [stratégies d’accès conditionnel](../../active-directory/conditional-access/conditions.md) pour bloquer l’authentification héritée. Sinon, utilisez les [paramètres par défaut de Sécurité Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
+3. Si vous avez Azure AD Premium, utilisez des [stratégies d’accès conditionnel](../../active-directory/conditional-access/conditions.md) pour bloquer l’authentification héritée. Sinon, utilisez les [paramètres par défaut de Sécurité Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Bloquer les points d’entrée d’authentification non valide
 
@@ -123,7 +123,7 @@ Assurez-vous que les utilisateurs peuvent demander l’approbation de l’admini
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Mettre en œuvre Azure AD Privileged Identity Management
 
-Un autre impact de la « violation supposée » est le besoin de réduire la probabilité qu’un compte compromis peut fonctionner avec un rôle privilégié. 
+Un autre impact de la « violation supposée » est le besoin de réduire la probabilité qu’un compte compromis peut fonctionner avec un rôle privilégié.
 
 [Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) vous aide à réduire les privilèges de compte en vous aidant à :
 
@@ -172,13 +172,13 @@ La [surveillance d’AD FS avec Azure AD Connect Health](../../active-directory/
 
 Azure AD Identity Protection fournit deux rapports importants que vous devez surveiller tous les jours :
 1. Les rapports sur les connexions à risque mettent en avant les activités de connexion d’utilisateurs que vous devriez examiner parce qu’il est possible que la connexion n’ait pas été établie par le propriétaire légitime.
-2. Les rapports sur les utilisateurs à risque mettent l’accent sur des comptes d’utilisateurs qui ont pu être compromis, par exemple, parce qu’une fuite des informations d’identification a été détectée ou que l’utilisateur s’est connecté à partir de différents emplacements alors qu’un déplacement était objectivement impossible. 
+2. Les rapports sur les utilisateurs à risque mettent l’accent sur des comptes d’utilisateurs qui ont pu être compromis, par exemple, parce qu’une fuite des informations d’identification a été détectée ou que l’utilisateur s’est connecté à partir de différents emplacements alors qu’un déplacement était objectivement impossible.
 
 ![Utilisateurs associés à un indicateur de risque](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Applications d’audit et autorisations accordées
 
-Les utilisateurs risquent d’entrer en contact à leur insu avec un site web ou des applications compromis qui pourront ainsi accéder aux informations de leur profil et à des données à caractère personnel telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations accordées par les utilisateurs ou désactiver la capacité des utilisateurs à donner leur consentement par défaut. 
+Les utilisateurs risquent d’entrer en contact à leur insu avec un site web ou des applications compromis qui pourront ainsi accéder aux informations de leur profil et à des données à caractère personnel telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations accordées par les utilisateurs ou désactiver la capacité des utilisateurs à donner leur consentement par défaut.
 
 Outre l’audit des autorisations fournies par les utilisateurs, il peut être utile d’essayer de [localiser les applications OAuth risquées ou indésirables](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) spécifiquement (fonctionnalité disponible pour les environnements Premium).
 

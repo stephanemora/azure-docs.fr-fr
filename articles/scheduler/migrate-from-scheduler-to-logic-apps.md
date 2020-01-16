@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890173"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911996"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrer des travaux Azure Scheduler vers Azure Logic Apps
 
@@ -33,7 +33,7 @@ Cet article vous montre comment planifier des travaux ponctuels et des travaux r
 
 Pour plus d’informations, voir [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md). Vous pouvez également tenter de créer votre première application logique en suivant les instructions de ce guide de démarrage rapide : [Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -108,7 +108,7 @@ Par exemple, dans l’application Postman, vous pouvez créer une requête POST 
 
 | Méthode de requête | URL | body | headers |
 |----------------|-----|------|---------|
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Dans la zone **raw**, entrez la charge utile à envoyer dans la demande. <p>**Remarque**: Ce paramètre configure automatiquement les valeurs d’en-tête sous **Headers**. | **Clé** : Content-Type <br>**Valeur** : application/json |
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>Dans la zone **raw**, entrez la charge utile à envoyer dans la demande. <p>**Remarque** : Ce paramètre configure automatiquement les valeurs d’en-tête sous **Headers**. | **Clé** : Content-Type <br>**Valeur** : application/json |
 |||||
 
 ![Envoyer la requête pour déclencher manuellement votre application logique](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -191,9 +191,9 @@ Dans Azure Scheduler, si l’action par défaut échoue à s’exécuter, vous p
 
 1. Quand vous avez terminé, cliquez sur **Terminé**.
 
-Pour en savoir plus sur la gestion des exceptions, consultez [Gérer les erreurs et exceptions - Propriété RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Pour en savoir plus sur la gestion des exceptions, consultez [Gérer les erreurs et exceptions - Propriété RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 <a name="retire-date"></a>
 
@@ -212,7 +212,7 @@ Pour en savoir plus sur la gestion des exceptions, consultez [Gérer les erreurs
 **Q** : Où puis-je obtenir de l’aide pour migrer mes travaux Scheduler ? <br>
 **R** : Voici quelques moyens d’obtenir de l’aide : 
 
-**Portail Azure**
+**Azure portal**
 
 Si votre abonnement Azure s’accompagne d’un plan de support payant, vous pouvez créer une demande de support technique dans le portail Azure. Sinon, choisissez une autre option de support.
 
@@ -237,4 +237,4 @@ Si votre abonnement Azure s’accompagne d’un plan de support payant, vous pou
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer et exécuter des travaux et des workflows récurrents avec Azure Logic Apps](../connectors/connectors-native-recurrence.md)
-* [Tutoriel : Contrôler le trafic à l’aide d’une application logique planifiée](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
+* [Tutoriel : Contrôler le trafic à l’aide d’une application logique planifiée](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)

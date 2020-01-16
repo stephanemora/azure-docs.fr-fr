@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: f3ecb3bedb8e0f55590aca1aa1c0e0c185f9acc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2146b1bd782aba5d98729a2d37d956744e469ba1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369250"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860246"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Choisir une technologie de traitement de streaming et d’analytique en temps réel sur Azure
 
@@ -41,10 +41,6 @@ Azure Stream Analytics fournit une riche expérience prête à l’emploi. Vous 
 * Latence de bout en bout inférieure à 100 ms à partir de l’entrée arrivant à Event Hubs, à la sortie dans Event Hubs, notamment le délai réseau depuis et vers Event Hubs, à haut débit soutenu.
 
 ## <a name="when-to-use-other-technologies"></a>Quand utiliser d’autres technologies
-
-### <a name="you-need-to-input-from-or-output-to-kafka"></a>Vous avez besoin d’une entrée ou sortie à partir de ou vers Kafka
-
-Azure Stream Analytics ne comporte pas d’adaptateur d’entrée ni de sortie Apache Kafka. Si vous avez des événements qui arrivent ou que vous devez envoyer à Kafka, et que vous n’avez pas besoin d’exécuter votre propre cluster Kafka, vous pouvez continuer à utiliser Stream Analytics en envoyant des événements à Event Hubs à l’aide de l’API Kafka Event Hubs, sans modifier l’expéditeur d’événement. Si vous n’avez pas besoin exécuter votre propre cluster Kafka, vous pouvez utiliser Spark Structured Streaming, qui est entièrement pris en charge sur [Azure Databricks](../azure-databricks/index.yml), ou Storm sur [Azure HDInsight](../hdinsight/storm/apache-storm-overview.md).
 
 ### <a name="you-want-to-write-udfs-udas-and-custom-deserializers-in-a-language-other-than-javascript-or-c"></a>Vous voulez écrire des fonctions définies par l’utilisateur, des agrégats définis par l’utilisateur et des désérialiseurs personnalisés dans un langage autre que JavaScript ou C#
 

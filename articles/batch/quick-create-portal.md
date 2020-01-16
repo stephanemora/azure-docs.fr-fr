@@ -2,19 +2,19 @@
 title: Démarrage rapide Azure - Exécution d’un travail Batch - Portail
 description: Apprenez rapidement à exécuter un travail Batch avec le portail Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 92f8499a10c07e7d5ea74e49c374cef192b8a47f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 294d1658559dd426245cf66a47a8791f8b370533
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029418"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Démarrage rapide : Exécuter votre premier travail Batch dans le portail Azure
 
@@ -45,7 +45,7 @@ Suivez ces étapes pour créer un compte Batch d’exemple à des fins de test. 
 
 Lorsque le message **Déploiement réussi** s’affiche, accédez au compte Batch dans le portail.
 
-## <a name="create-a-pool-of-compute-nodes"></a>Création d’un pool de nœuds de calcul
+## <a name="create-a-pool-of-compute-nodes"></a>Créer un pool de nœuds de calcul
 
 Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Windows à des fins de test. Le pool pour cet exemple rapide se compose de 2 nœuds exécutant une image Windows Server 2012 R2 à partir de la Place de marché Microsoft Azure.
 
@@ -82,7 +82,7 @@ Azure Batch crée le pool immédiatement, mais prend quelques minutes pour allou
 
 Après quelques minutes, l’état du pool est **Stable** et les nœuds démarrent. Sélectionnez **Nœuds** pour vérifier l’état des nœuds. Lorsque l’état d’un nœud est **Inactif**, il est prêt à exécuter des tâches. 
 
-## <a name="create-a-job"></a>Création d’un travail
+## <a name="create-a-job"></a>Créer un travail
 
 Maintenant que vous disposez d’un pool, créez un travail à exécuter sur celui-ci. Un travail Batch est un groupe logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. Dans un premier temps, le travail n’a aucune tâche. 
 
@@ -90,11 +90,11 @@ Maintenant que vous disposez d’un pool, créez un travail à exécuter sur cel
 
 2. Entrez un **ID de travail** appelé *myjob*. Dans **Pool**, sélectionnez *mypool*. Conservez les valeurs par défaut pour les paramètres restants, puis cliquez sur **OK**.
 
-   ![Création d’un travail][job_create]
+   ![Créer un travail][job_create]
 
 Une fois que le travail est créé, la page **Tâches** s’ouvre.
 
-## <a name="create-tasks"></a>Création de tâches
+## <a name="create-tasks"></a>Créer des tâches
 
 À présent créez des tâches d’exemple à exécuter dans le travail. En général, vous créez plusieurs tâches qu’Azure Batch met en file d’attente et distribue pour les exécuter sur les nœuds de calcul. Dans cet exemple, vous créez deux tâches identiques. Chaque tâche exécute une ligne de commande pour afficher les variables d’environnement Azure Batch sur un nœud de calcul, puis attend 90 secondes. 
 
@@ -114,15 +114,15 @@ Après avoir créé une tâche, Azure Batch la met en file d’attente pour l’
 
 Pour créer une seconde tâche, revenez à l’étape 1. Entrez un autre **ID de tâche**, mais spécifiez une ligne de commande identique. Si la première tâche est en cours d’exécution, Azure Batch démarre la deuxième tâche sur l’autre nœud dans le pool.
 
-## <a name="view-task-output"></a>Afficher les sorties des tâches
+## <a name="view-task-output"></a>Afficher la sortie des tâches
 
 Les exemples de tâche précédents se terminent en quelques minutes. Pour afficher la sortie d’une tâche terminée, cliquez sur **Fichiers sur le nœud**, puis sélectionnez le fichier `stdout.txt`. Ce fichier montre la sortie standard de la tâche. Le contenu ressemble à ce qui suit :
 
-![Afficher les sorties des tâches][task_output]
+![Afficher la sortie des tâches][task_output]
 
 Le contenu affiche les variables d’environnement Azure Batch qui sont définies sur le nœud. Lorsque vous créez vos propres travaux Batch et tâches, vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les applications et les scripts exécutés par les lignes de commande.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez poursuivre les exemples et didacticiels Azure Batch, utilisez le compte Batch et le compte de stockage lié créés dans ce démarrage rapide. Il n’existe aucun frais pour le compte Batch proprement dit.
 

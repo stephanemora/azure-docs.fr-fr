@@ -10,16 +10,16 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231378"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895961"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
+# <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
 ::: zone-end
 
@@ -35,18 +35,18 @@ Une fois les disques connectés et déverrouillés, vous pouvez copier des donn�
 
 Ce didacticiel explique comment copier des données à partir de votre ordinateur hôte, puis générer les sommes de contrôle pour vérifier l’intégrité des données.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Copier des données sur un disque Data Box
 > * Vérifier les données
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous que :
 - Vous avez terminé le [Tutoriel : Installer et configurer votre offre Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Vos disques sont déverrouillés et connectés à un ordinateur client.
-- Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Vérifiez que le type de stockage prévu pour vos données correspond aux [types de stockage pris en charge](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Vérifiez les [limites applicables aux disques managés dans la section sur les limites de taille des objets Azure](data-box-disk-limits.md#azure-object-size-limits).
 
@@ -62,8 +62,8 @@ Passez en revue les considérations suivantes avant de commencer la copie des do
    > [!IMPORTANT]
    >  Si vous avez spécifié des disques managés en tant que destination de stockage pendant la création de commandes, la section suivante s’applique.
 
-- Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés vers les dossiers précréés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’a pas déjà été utilisé pour un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.
-- Vous devez toujours copier les disques durs virtuels dans un des dossiers précréés. Si vous copiez les disques durs virtuels ailleurs que dans ces dossiers ou dans un dossier que vous avez créé vous-même, les disques durs virtuels sont chargés dans le compte de stockage Azure comme objets blob de pages au lieu de disques non managés.
+- Vous pouvez avoir un seul disque managé du même nom dans un groupe de ressources sur l’ensemble des dossiers précréés et de Data Box Disk. Les disques durs virtuels chargés dans les dossiers pré-créés doivent donc avoir des noms uniques. Assurez-vous que le nom donné n’est pas déjà attribué à un autre disque managé existant dans un groupe de ressources. Si plusieurs disques durs virtuels ont le même nom, un seul de ces disques est converti en disque managé avec ce nom. Les autres disques durs virtuels sont chargés comme objets blob de pages dans le compte de stockage de préproduction.
+- Vous devez toujours copier les disques durs virtuels dans l’un des dossiers pré-créés. Si vous copiez les disques durs virtuels ailleurs que dans ces dossiers ou dans un dossier que vous avez créé vous-même, les disques durs virtuels sont chargés dans le compte de stockage Azure comme objets blob de pages au lieu de disques non managés.
 - Seuls les disques durs virtuels fixes peuvent être chargés pour créer des disques managés. Les disques durs virtuels dynamiques, les disques durs virtuels de différenciation ou les fichiers VHDX ne sont pas pris en charge.
 
 
@@ -270,7 +270,7 @@ Si vous constatez des erreurs avec l’outil de fractionnement des données de c
 Une fois la copie des données terminée, vous pouvez passer à leur validation. Si vous avez utilisé l’outil Split Copy, ignorez la validation (car l’outil s’en charge aussi) et passez au tutoriel suivant.
 
 
-## <a name="validate-data"></a>Valider les données
+## <a name="validate-data"></a>Valider des données
 
 Si vous n’avez pas utilisé l’outil Split Copy pour copier les données, vous devez les valider. Pour vérifier les données, procédez comme suit.
 
@@ -329,7 +329,7 @@ Effectuez les étapes suivantes pour vous connecter et copier des données à pa
 
 Appliquez la procédure facultative de [fractionnement et copie](data-box-disk-deploy-copy-data.md#split-and-copy-data-to-disks) quand vous utilisez plusieurs disques et que vous disposez d’un jeu de données volumineux qui doit être fractionné et copié sur la totalité des disques.
 
-### <a name="validate-data"></a>Valider les données
+### <a name="validate-data"></a>Valider des données
 
 Effectuez les étapes suivantes pour vérifier vos données.
 

@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 08/12/2019
 ms.author: cephalin
-ms.openlocfilehash: 4f3236c0a167a2b6f7586c6cb5fea8e30f55a86c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 92e39f128e90ba83a919388e217f0edc86f81770
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954085"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769662"
 ---
 ## <a name="rest"></a>Déployer un fichier ZIP avec l’API REST 
 
@@ -19,7 +19,7 @@ Pour l’authentification HTTP BASIC, vous avez besoin de vos informations d’i
 
 ### <a name="with-curl"></a>Avec cURL
 
-L’exemple suivant utilise l’outil cURL pour déployer un fichier .zip. Remplacez les espaces réservés `<username>`, `<password>`, `<zip_file_path>` et `<app_name>`. Quand vous y êtes invité par cURL, tapez le mot de passe.
+L’exemple suivant utilise l’outil cURL pour déployer un fichier .zip. Remplacez les espaces réservés `<deployment_user>`, `<zip_file_path>` et `<app_name>`. Quand vous y êtes invité par cURL, tapez le mot de passe.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy

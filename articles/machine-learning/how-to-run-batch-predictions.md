@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 47fa0d97f21c5e3734cb1104c7d0ab72c14d9679
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ee594bf4e17a06c8333f0836a17e75cc99a2dde3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532272"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771851"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Exécuter l’inférence par lots sur de grandes quantités de données à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -92,7 +92,7 @@ Vous devez maintenant configurer les entrées et les sorties de données, notamm
 
 Vous pouvez également référencer d’autres jeux de données dans votre script d’inférence personnalisé. Par exemple, vous pouvez l’utiliser pour accéder aux étiquettes de votre script afin d’étiqueter les images à l’aide de `Dataset.register` et `Dataset.get_by_name`.
 
-Pour plus d’informations sur les jeux de données Azure Machine Learning, consultez [Créer des jeux de données et y accéder (préversion)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets).
+Pour plus d’informations sur les jeux de données Azure Machine Learning, consultez [Créer des jeux de données et y accéder (préversion)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
 Les objets `PipelineData` sont utilisés pour transférer les données intermédiaires entre chaque étape du pipeline. Dans cet exemple, vous les utiliserez pour les sorties d’inférence.
 

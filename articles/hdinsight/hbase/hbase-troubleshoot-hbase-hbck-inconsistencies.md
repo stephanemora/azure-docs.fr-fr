@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/08/2019
-ms.openlocfilehash: 5fc338e83c172e26d621ef89dcfb047d01d510fa
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: fa02ac0dfe229f3e82d1c1c62d83ca06a81efca6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091684"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887323"
 ---
 # <a name="scenario-hbase-hbck-command-returns-inconsistencies-in-azure-hdinsight"></a>Scénario : la commande `hbase hbck` retourne des incohérences dans Azure HDInsight
 
@@ -26,7 +26,7 @@ Région xxx sur HDFS, mais non listée dans `hbase:meta` ou déployée sur un se
 
 Varie.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 1. Corrigez la table méta en exécutant :
 
@@ -49,7 +49,7 @@ Région XXX non déployée sur un RegionServer. Cela signifie que la région est
 
 Varie.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Mettez les régions en ligne en exécutant :
 
@@ -65,7 +65,7 @@ hbase hbck -ignorePreCheckPermission –fixAssignment
 
 Varie.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Fusionnez manuellement les régions qui se chevauchent. Accédez à la section de table de l’interface utilisateur web HBase HMaster, puis sélectionnez le lien de table qui présente le problème. Vous verrez la clé de début/clé de fin de chaque région appartenant à cette table. Fusionnez ensuite les régions qui se chevauchent. Dans l’interpréteur de commandes HBase, effectuez `merge_region 'xxxxxxxx','yyyyyyy', true`. Par exemple :
 
@@ -89,7 +89,7 @@ Impossible de charger `.regioninfo` pour la région `/hbase/data/default/tablex/
 
 Cela est probablement dû à la suppression partielle de la région lorsque RegionServer se bloque ou la machine virtuelle redémarre. Actuellement, le Stockage Azure est un système de fichiers d’objets blob plat et certaines opérations sur les fichiers ne sont pas atomiques.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Nettoyez manuellement ces fichiers et dossiers restants :
 
@@ -109,4 +109,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous à [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client. Connexion de la communauté Azure aux ressources appropriées : réponses, support technique et experts.
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453410"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979430"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Créer et gérer des comptes d’intégration pour l’intégration d’entreprise B2B dans Azure Logic Apps
 
@@ -77,7 +77,7 @@ Pour cette tâche, vous pouvez utiliser le Portail Azure en suivant les étapes 
 
 ## <a name="link-to-logic-app"></a>Créer un lien vers l’application logique
 
-Pour donner à vos applications logiques l’accès à un compte d’intégration contenant vos artefacts B2B, vous devez d’abord lier votre compte d’intégration à votre application logique. L’application logique et le compte d’intégration doivent être présents dans la même région. Pour effectuer cette tâche, vous pouvez utiliser le portail Azure. Si vous utilisez Visual Studio et que votre application logique se trouve dans un [projet Azure Resource Group](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md), vous pouvez [lier votre application logique à un compte d’intégration avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
+Pour donner à vos applications logiques l’accès à un compte d’intégration contenant vos artefacts B2B, vous devez d’abord lier votre compte d’intégration à votre application logique. L’application logique et le compte d’intégration doivent être présents dans la même région. Pour effectuer cette tâche, vous pouvez utiliser le portail Azure. Si vous utilisez Visual Studio et que votre application logique se trouve dans un [projet Azure Resource Group](../azure-resource-manager/templates/create-visual-studio-deployment-project.md), vous pouvez [lier votre application logique à un compte d’intégration avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Dans le portail Azure, recherchez et sélectionnez votre application logique.
 

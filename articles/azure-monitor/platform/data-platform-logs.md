@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 269744d5e9552d87c3fa619f33e02c833b3841be
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2772535ff5eb7cf1e50c40b8ff075f67e71e1326
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894162"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751018"
 ---
 # <a name="logs-in-azure-monitor"></a>Journaux dans Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "74894162"
 Les journaux dans Azure Monitor sont particulièrement utiles pour effectuer des analyses complexes de données provenant de diverses sources. Cet article décrit comment les journaux sont structurés dans Azure Monitor, ce que vous pouvez faire des données, et identifie les différentes sources de données qui stockent des données dans des Journaux.
 
 > [!NOTE]
-> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](activity-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations fonctionnelles dans un [journal de ressources](resource-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de ressources ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
+> Il est important de faire la distinction entre les journaux Azure Monitor et les sources des données de journal dans Azure. Par exemple, les événements de niveau abonnement dans Azure sont écrits dans un [journal d’activité](platform-logs-overview.md) que vous pouvez voir à partir du menu Azure Monitor. La plupart des ressources écrivent des informations opérationnelles dans un [journal de ressources](platform-logs-overview.md) que vous pouvez transférer à différents emplacements. Les journaux Azure Monitor constituent une plateforme de données de journal qui collecte des journaux d’activité et des journaux de ressources ainsi que d’autres données de supervision pour fournir une analyse approfondie de l’ensemble de vos ressources.
 
 ## <a name="what-are-azure-monitor-logs"></a>Présentation des journaux Azure Monitor
 
@@ -47,7 +47,7 @@ Le tableau suivant répertorie les différentes façons d’utiliser des journau
 | Visualisation | Épingler les résultats de requête affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../../azure-portal/azure-portal-dashboards.md).<br>Créer un [classeur](../app/usage-workbooks.md) à combiner avec plusieurs jeux de données dans un rapport interactif. <br>Exporter les résultats d’une requête vers [Power BI](powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.<br>Exporter les résultats d’une requête vers [Grafana](grafana-plugin.md) afin de profiter de ses tableaux de bord et de les combiner avec d’autres sources de données.|
 | Alerte | Configurer une [règle d’alerte de journal](alerts-log.md) qui envoie une notification ou prend une [action de façon automatique](action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.<br>Configurer une [règle d’alerte de métrique](alerts-metric-logs.md) sur certains journaux de données de journal extraits en tant que métriques. |
 | Récupération | Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide d’[Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Accéder aux résultats de requête de journal à partir d’une ligne de commande à l’aide de [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Accéder aux résultats de requête de journal à partir d’une application personnalisée à l’aide d’une [API REST](https://dev.loganalytics.io/). |
-| Exportation | Générer un flux de travail pour récupérer des données de journal et les copier vers un emplacement externe à l’aide de [Logic Apps](~/articles/logic-apps/index.yml). |
+| Exporter | Générer un flux de travail pour récupérer des données de journal et les copier vers un emplacement externe à l’aide de [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Comment les données sont-elles structurées dans Azure Monitor ?
@@ -99,7 +99,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 | System Center Operations Manager | Connecter le groupe de gestion Operations Manager à Azure Monitor pour collecter des données d’événements et de performances d’agents locaux dans des journaux. Pour plus d’informations sur cette configuration, voir [Connexion d’Operations Manager à Log Analytics](om-agents.md). |
 
 
-### <a name="applications"></a>APPLICATIONS
+### <a name="applications"></a>Applications
 
 | Données | Description |
 |:---|:---|
@@ -115,7 +115,7 @@ Azure Monitor peut collecter des données de journal à partir de diverses sourc
 | Azure Monitor pour des conteneurs | Données d’inventaire et de performances collectées par [Azure Monitor pour conteneurs](../insights/container-insights-overview.md). Pour obtenir la liste des tableaux, voir [Détails sur la collecte de données des conteneurs](../insights/container-insights-log-search.md#container-records). |
 | Azure Monitor pour machines virtuelles | Données de carte et de performances collectées par [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md). Pour plus d’informations sur l’interrogation de ces données, voir [Comment interroger des journaux d’activité à partir d’Azure Monitor pour machines virtuelles](../insights/vminsights-log-search.md). |
 
-### <a name="custom"></a>Personnalisée 
+### <a name="custom"></a>Custom 
 
 | Données | Description |
 |:---|:---|

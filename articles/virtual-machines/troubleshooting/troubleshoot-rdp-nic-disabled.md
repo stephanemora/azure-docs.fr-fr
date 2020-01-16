@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 666868d723b5e040b69762cdb39f472f2f8822c9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 3849106fbc488f456a4d267d0ccef76647c1939f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057923"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981311"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Impossible de connecter un bureau à distance à une machine virtuelle car l'interface réseau est désactivée
 
 Cet article explique comment résoudre un problème où une connexion Bureau à distance à des machines virtuelles Azure Windows est impossible si l’interface réseau est désactivée.
 
 > [!NOTE]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/management/deployment-models.md). Cet article traite du modèle de déploiement Resource Manager, que nous recommandons pour les nouveaux déploiements plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 
@@ -34,7 +34,7 @@ Vous ne pouvez pas établir de connexion RDP ni aucun autre type de connexion à
 
 Avant de suivre cette procédure, faites en sauvegarde en prenant un instantané du disque du système d’exploitation de la machine virtuelle affectée. Pour plus d’informations, consultez [Créer un instantané](../windows/snapshot-copy-managed-disk.md).
 
-Pour activer l'interface de la machine virtuelle, utilisez la console série ou [réinitialisez l'interface réseau](##reset-network-interface) de la machine virtuelle.
+Pour activer l'interface de la machine virtuelle, utilisez la console série ou [réinitialisez l'interface réseau](#reset-network-interface) de la machine virtuelle.
 
 ### <a name="use-serial-control"></a>Utiliser le contrôle série
 

@@ -3,12 +3,12 @@ title: Vue d’ensemble de la gestion Azure - Gouvernance Azure
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure.
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132848"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980900"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Vue d’ensemble des services de gestion dans Azure
 
@@ -24,11 +24,11 @@ Aucun service Azure ne répond complètement aux exigences d’un domaine de ges
 
 Les sections suivantes décrivent en bref les différents domaines de gestion et contiennent des liens vers du contenu détaillé sur les principaux services Azure destinés à répondre à ces besoins.
 
-## <a name="monitor"></a>Surveiller
+## <a name="monitor"></a>Moniteur
 
 La supervision consiste à collecter et analyser des données afin de déterminer les performances, l’intégrité et la disponibilité de vos ressources. Une stratégie de supervision efficace vous permet de comprendre le fonctionnement des composants et d’augmenter la durée de fonctionnement avec des notifications. Lisez une vue d’ensemble de la supervision qui décrit les différents services utilisés dans la [Supervision des applications et des ressources Azure](../monitoring/monitoring-overview.md).
 
-## <a name="configure"></a>Configuration
+## <a name="configure"></a>Configurer
 
 La configuration fait référence au déploiement initial et à la configuration des ressources ainsi qu’à leur maintenance continue.
 L’automatisation de ces tâches vous permet d’éviter la redondance, en réduisant le temps et les efforts et en augmentant votre précision et votre efficacité. [Azure Automation](../automation/automation-intro.md) fournit la majeure partie des services d’automatisation des tâches de configuration. Alors que les runbooks gèrent l’automatisation des processus, la gestion de la configuration et des mises à jour vous aide à gérer la configuration.
@@ -36,7 +36,7 @@ L’automatisation de ces tâches vous permet d’éviter la redondance, en réd
 ## <a name="govern"></a>Gouvernance
 
 La gouvernance propose des mécanismes et des processus pour garder le contrôle sur vos applications et ressources dans Azure. Elle implique la planification de vos initiatives et la définition de priorités stratégiques.
-La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management](../cost-management/overview-cost-mgt.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
+La gouvernance dans Azure est principalement mise en œuvre à l’aide de deux services. [Azure Policy](./policy/overview.md) vous permet de créer, d’attribuer et de gérer des définitions de stratégie afin d’appliquer des règles pour vos ressources. Cette fonctionnalité maintient ces ressources conformes aux standards de votre entreprise. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) vous permet de suivre l’utilisation du Cloud et les dépenses liées à vos ressources Azure et à d’autres fournisseurs de Cloud.
 
 ## <a name="secure"></a>Sécuriser
 

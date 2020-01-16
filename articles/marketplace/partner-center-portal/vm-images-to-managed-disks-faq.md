@@ -1,19 +1,19 @@
 ---
 title: Déplacement des images de machines virtuelles de la Place de marché Azure vers un stockage sur disque managé
 description: Afin de fournir un stockage et une prise en charge plus rapides et plus fiables des nouvelles fonctionnalités et capacités de la Place de marché, nous allons déplacer les images de machines virtuelles de la Place de marché vers un stockage sur disque managé.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 81503b08c5c45a671ac7996905f0772dccaf2f5a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456677"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933532"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Déplacement des images de machines virtuelles de la Place de marché Azure vers un stockage sur disque managé
 

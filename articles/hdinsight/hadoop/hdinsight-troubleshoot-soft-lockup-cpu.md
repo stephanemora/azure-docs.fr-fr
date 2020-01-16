@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/05/2019
-ms.openlocfilehash: 1d357566a7b2478fff77ed4d88af4ee8a9535050
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 701e314ad2a3762b1e8ca022ce18d9435ce2db37
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044737"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894101"
 ---
 # <a name="scenario-watchdog-bug-soft-lockup---cpu-error-from-an-azure-hdinsight-cluster"></a>Scénario : Erreur « watchdog: BUG: soft lockup - CPU » sur un cluster Azure HDInsight
 
@@ -26,7 +26,7 @@ Les journaux syslogs du noyau contiennent le message d’erreur : `watchdog: BU
 
 Un [bogue](https://bugzilla.kernel.org/show_bug.cgi?id=199437) dans le noyau Linux est à l’origine de verrouillages logiciels du processeur.
 
-## <a name="resolution"></a>Résolution :
+## <a name="resolution"></a>Résolution
 
 Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Linux et redémarre les machines à différents moments au cours des 24 heures. Exécutez l’action de script dans deux lots. Le premier lot se trouve sur tous les nœuds, à l’exception du nœud principal. Le deuxième lot est sur le nœud principal. Ne s’exécute pas sur le nœud principal et d’autres nœuds en même temps.
 
@@ -39,10 +39,10 @@ Appliquer le correctif du noyau. Le script ci-dessous met à niveau le noyau Lin
     | Propriété | Valeur |
     | --- | --- |
     | Type de script | -Personnalisé |
-    | Nom |Correctif pour le problème de verrouillage logiciel du noyau |
+    | Name |Correctif pour le problème de verrouillage logiciel du noyau |
     | URI de script bash |`https://raw.githubusercontent.com/hdinsight/hdinsight.github.io/master/ClusterCRUD/KernelSoftLockFix/scripts/KernelSoftLockIssue_FixAndReboot.sh` |
     | Type(s) de nœud |Worker, Zookeeper |
-    | parameters |N/A |
+    | Paramètres |N/A |
 
     Sélectionnez **Conservez cette action de script...**  si vous souhaitez exécuter le script lorsque des nœuds sont ajoutés.
 
@@ -62,4 +62,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

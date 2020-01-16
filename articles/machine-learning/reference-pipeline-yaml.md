@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: c4fe7a696461b617307c2cd87276a91d6a1edaeb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535609"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771630"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Définir des pipelines d’apprentissage automatique en YAML
 
@@ -439,4 +439,4 @@ Schedule:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [utiliser l’extension CLI pour Azure Machine Learning](service/reference-azure-machine-learning-cli.md).
+Découvrez comment [utiliser l’extension CLI pour Azure Machine Learning](reference-azure-machine-learning-cli.md).

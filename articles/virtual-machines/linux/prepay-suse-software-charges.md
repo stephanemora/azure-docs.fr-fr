@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e4cab8963e3083d265d0254c81b78fbabb84a269
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091536"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973133"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Prépayer les abonnements logiciels Azure
 
@@ -47,7 +47,7 @@ La remise sur réservation est automatiquement appliquée au compteur de logicie
 
 ## <a name="discount-applies-to-different-suse-vm-sizes"></a>La remise s’applique à différentes tailles de machine virtuelle SUSE
 
-Comme pour les instances réservées de machine virtuelle, les abonnements logiciels SUSE Linux offrent une certaine flexibilité quant à la taille des instances. Votre remise s’applique même quand vous déployez une machine virtuelle dont la taille est différente de celle de l’abonnement SUSE que vous avez acheté. Pour plus d’informations, consultez [Comprendre comment la remise sur les abonnements logiciels est appliquée](../../billing/billing-understand-suse-reservation-charges.md).
+Comme pour les instances réservées de machine virtuelle, les abonnements logiciels SUSE Linux offrent une certaine flexibilité quant à la taille des instances. Votre remise s’applique même quand vous déployez une machine virtuelle dont la taille est différente de celle de l’abonnement SUSE que vous avez acheté. Pour plus d’informations, consultez [Comprendre comment la remise sur les abonnements logiciels est appliquée](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="redhat-plan-discount"></a>Remise sur abonnement Red Hat
 
@@ -58,7 +58,7 @@ Les remises sur abonnement RedHat s’appliquent uniquement à la taille de mach
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Les annulations et les échanges sont interdits
 
-Vous ne pouvez pas annuler ou échanger un abonnement SUSE ou RedHat que vous avez acheté. Pour être sûr d’acheter l’abonnement logiciel qui vous convient, étudiez votre utilisation. Pour savoir comment déterminer ce que vous avez acheté, consultez [Comprendre comment la remise sur les abonnements logiciels est appliquée](../../billing/billing-understand-suse-reservation-charges.md).
+Vous ne pouvez pas annuler ou échanger un abonnement SUSE ou RedHat que vous avez acheté. Pour être sûr d’acheter l’abonnement logiciel qui vous convient, étudiez votre utilisation. Pour savoir comment déterminer ce que vous avez acheté, consultez [Comprendre comment la remise sur les abonnements logiciels est appliquée](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 
@@ -66,12 +66,12 @@ Si vous avez des questions ou besoin d’aide, [créez une demande de support](h
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment gérer une réservation, consultez [Gérer les réservations Azure](../../billing/billing-manage-reserved-vm-instance.md).
+Pour découvrir comment gérer une réservation, consultez [Gérer les réservations Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
-Pour en savoir plus, consultez les articles suivants :
+Pour en savoir plus, consultez les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](../../billing/billing-save-compute-costs-reservations.md)
-- [Gérer les réservations dans Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Comprendre l’application des remises de réservation SUSE](../../billing/billing-understand-suse-reservation-charges.md)
-- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../../billing/billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Qu’est-ce qu’une réservation Azure ?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Gérer les réservations dans Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Comprendre l’application des remises de réservation SUSE](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

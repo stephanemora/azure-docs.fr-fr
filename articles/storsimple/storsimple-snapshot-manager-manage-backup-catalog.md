@@ -3,7 +3,7 @@ title: Catalogue de sauvegarde du Gestionnaire d’instantanés StorSimple | Mi
 description: Décrit comment utiliser le composant logiciel enfichable MMC du Gestionnaire d’instantanés StorSimple pour afficher et gérer le catalogue de sauvegarde.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: dc24ebd59fd977ef35766c304aec5824e2c7bb4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 38ef7774263e4b28b7c316fd0870ca8f7b89d6b8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127178"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931704"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Utiliser le Gestionnaire d’instantanés StorSimple pour gérer le catalogue de sauvegarde
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La principale fonction de StorSimple Snapshot Manager consiste à permettre la création de copies de sauvegarde des volumes StorSimple cohérentes au niveau applicatif sous la forme d’instantanés. Les instantanés sont ensuite répertoriés dans un fichier XML appelé *catalogue de sauvegarde*. Le catalogue de sauvegarde organise les instantanés par groupe de volumes, puis par instantané local ou instantané cloud.
 
 Ce didacticiel explique comment utiliser le nœud **Catalogue de sauvegarde** pour effectuer les tâches suivantes :
@@ -56,7 +56,7 @@ Vous pouvez afficher le catalogue de sauvegarde en développant le nœud **Catal
 ## <a name="restore-a-volume"></a>Restaurer un volume
 Pour restaurer un volume à partir d’une sauvegarde, procédez comme suit.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 Si ce n’est pas déjà fait, créez un volume et un groupe de volumes, puis supprimez le volume. Par défaut, le Gestionnaire d’instantanés StorSimple sauvegarde un volume avant d’autoriser sa suppression. Cette précaution permet d’éviter la perte de données si le volume est supprimé par inadvertance ou si les données doivent être récupérées pour une raison quelconque. 
 
 Le Gestionnaire d’instantanés StorSimple affiche le message suivant pendant la création de la sauvegarde préventive.
@@ -112,11 +112,11 @@ Pour supprimer un instantané du catalogue de sauvegarde, procédez comme suit.
 ## <a name="recover-a-file"></a>Récupérer un fichier
 Si un fichier est supprimé accidentellement d’un volume, vous pouvez le restaurer en récupérant un instantané antérieur à la suppression, en utilisant cet instantané pour créer un clone du volume, puis en copiant le fichier du volume cloné dans le volume d’origine.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, assurez-vous que vous disposez d’une sauvegarde actuelle du groupe de volumes. Ensuite, supprimez un fichier stocké sur un des volumes de ce groupe de volumes. Enfin, procédez comme suit pour restaurer le fichier supprimé de votre sauvegarde. 
 
 #### <a name="to-recover-a-deleted-file"></a>Pour récupérer un fichier supprimé
-1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple sur votre bureau. La fenêtre de console du Gestionnaire d’instantanés StorSimple s’affiche. 
+1. Cliquez sur l’icône du Gestionnaire d’instantanés StorSimple de votre bureau. La fenêtre de console du Gestionnaire d’instantanés StorSimple s’affiche. 
 2. Dans le volet **Étendue**, développez le **Catalogue de sauvegarde**, puis accédez à un instantané qui contient le fichier supprimé. En règle générale, vous devez sélectionner un instantané créé juste avant la suppression.
 3. Recherchez le volume à cloner, cliquez dessus avec le bouton droit, puis cliquez sur **Cloner**. La boîte de dialogue **Cloner l’instantané cloud** s’affiche.
    

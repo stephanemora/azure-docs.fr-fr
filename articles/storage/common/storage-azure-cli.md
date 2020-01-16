@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b80c29788bd2f8d5172795aa2c92a80e460ff81f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460461"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978521"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
@@ -23,7 +23,7 @@ L’interface Azure CLI multiplateforme et open source offre un ensemble de comm
 
 Dans ce guide, nous vous montrons comment utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) pour effectuer plusieurs tâches avec les ressources dans votre compte de stockage Azure. Avant de commencer ce guide, nous vous recommandons de télécharger et d’installer la dernière version d’Azure CLI, ou d’effectuer la mise à niveau vers cette version.
 
-Les exemples dans le guide partent du principe que vous utilisez le shell Bash sur Ubuntu, mais les autres plateformes devraient fonctionner de manière similaire. 
+Les exemples dans le guide partent du principe que vous utilisez le shell Bash sur Ubuntu, mais les autres plateformes devraient fonctionner de manière similaire.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -34,7 +34,7 @@ Ce guide part du principe que vous comprenez les concepts de base de Microsoft A
 
 ### <a name="accounts"></a>Comptes
 * **Compte Azure** : Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/).
-* **Compte de stockage** : Consultez [Créer un compte de stockage](storage-quickstart-create-account.md) dans [À propos des comptes de stockage Azure](storage-create-storage-account.md).
+* **Compte de stockage** : Consultez [Créer un compte de stockage](storage-account-create.md) dans [À propos des comptes de stockage Azure](storage-account-overview.md).
 
 ### <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 
@@ -335,7 +335,7 @@ Le type de contenu, également appelé type MIME, identifie le format des donné
 
 ```azurecli
 az storage blob update
-    --container-name <container_name> 
+    --container-name <container_name>
     --name <blob_name>
     --content-type <content_type>
 ```
@@ -390,7 +390,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### <a name="copy-files"></a>Copie des fichiers      
 Vous pouvez copier un fichier dans un autre, un fichier dans un objet blob ou un objet blob dans un fichier. Par exemple, pour copier un fichier vers un répertoire dans un partage différent :        
-        
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
@@ -524,7 +524,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 Vous pouvez supprimer un instantané de partage à l’aide de la commande `az storage share delete` en définissant le paramètre `--snapshot` sur l’horodatage de l’instantané de partage :
 
 ```cli
-az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z'
 ```
 
 Exemple de sortie
@@ -535,7 +535,7 @@ Exemple de sortie
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les ressources supplémentaires ci-dessous pour en savoir plus sur l’utilisation d’Azure CLI. 
+Consultez les ressources supplémentaires ci-dessous pour en savoir plus sur l’utilisation d’Azure CLI.
 
 * [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Informations de référence sur les commandes Azure CLI](/cli/azure)

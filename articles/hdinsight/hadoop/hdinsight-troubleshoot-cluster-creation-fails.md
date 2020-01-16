@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 607eacc531166d9d770f31cc64825e8ffea9ca76
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810680"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980498"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Résoudre les problèmes de création de cluster avec Azure HDInsight
 
@@ -51,7 +51,7 @@ Les pare-feu de votre réseau virtuel ou de votre compte de stockage peuvent ref
 
 Autorisez le trafic à partir des adresses IP dans le tableau ci-dessous.
 
-| Adresse IP source | Destination | Direction |
+| Adresse IP source | Destination | Sens |
 |---|---|---|
 | 168.61.49.99 | *:443 | Trafic entrant |
 | 23.99.5.239 | *:443 | Trafic entrant |
@@ -64,7 +64,7 @@ Si vous utilisez ExpressRoute ou votre propre serveur DNS personnalisé, consult
 
 ## <a name="resources-locks"></a>Verrous de ressources  
 
-Vérifiez qu’il n’y aucun [verrou sur votre réseau virtuel ou groupe de ressources](../../azure-resource-manager/resource-group-lock-resources.md).  
+Vérifiez qu’il n’y aucun [verrou sur votre réseau virtuel ou groupe de ressources](../../azure-resource-manager/management/lock-resources.md).  
 
 ## <a name="unsupported-component-versions"></a>Versions de composants non prises en charge
 

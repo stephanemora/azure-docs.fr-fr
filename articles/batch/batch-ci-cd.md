@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449800"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982710"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utiliser Azure Pipelines pour créer et déployer des solutions HPC
 
@@ -192,7 +192,7 @@ Le modèle suivant présente un exemple de création d’un pool Azure Batch (le
 
 Enfin, nous avons un modèle qui se comporte comme un orchestrateur. Ce modèle est responsable du déploiement des modèles de fonctionnalités.
 
-Vous trouverez également plus d’informations sur la [création de modèles Azure Resource Manager liés](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) dans un article distinct.
+Vous trouverez également plus d’informations sur la [création de modèles Azure Resource Manager liés](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) dans un article distinct.
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure Pipelines peut également être utilisé pour déployer votre application 
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Déploiement de l’application et de l’infrastructure sous-jacente
 
-Il existe plusieurs étapes dans le processus de déploiement de l’infrastructure. Étant donné que nous avons utilisé des [modèles liés](../azure-resource-manager/resource-group-linked-templates.md), ces modèles doivent être accessibles à partir d’un point de terminaison public (HTTP ou HTTPS). Il peut s’agir d’un référentiel sur GitHub, d’un compte de stockage d’objets Blob Azure ou d’un autre emplacement de stockage. Les artefacts du modèle téléchargé peuvent rester sécurisés, car ils peuvent être conservés en mode privé, tout en étant accessibles grâce à une sorte de jeton de signature d’accès partagé (SAS). L’exemple suivant montre comment déployer une infrastructure avec des modèles à partir d’un objet blob Stockage Azure.
+Il existe plusieurs étapes dans le processus de déploiement de l’infrastructure. Étant donné que nous avons utilisé des [modèles liés](../azure-resource-manager/templates/linked-templates.md), ces modèles doivent être accessibles à partir d’un point de terminaison public (HTTP ou HTTPS). Il peut s’agir d’un référentiel sur GitHub, d’un compte de stockage d’objets Blob Azure ou d’un autre emplacement de stockage. Les artefacts du modèle téléchargé peuvent rester sécurisés, car ils peuvent être conservés en mode privé, tout en étant accessibles grâce à une sorte de jeton de signature d’accès partagé (SAS). L’exemple suivant montre comment déployer une infrastructure avec des modèles à partir d’un objet blob Stockage Azure.
 
 1. Créez une **Nouvelle définition de mise en production** et sélectionnez une définition vide. Nous devons ensuite renommer l’environnement qui vient d’être créé avec un nom approprié pour notre pipeline.
 

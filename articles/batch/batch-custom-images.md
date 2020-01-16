@@ -2,18 +2,18 @@
 title: Approvisionner un pool personnalisé à partir d’une image managée - Azure Batch | Microsoft Docs
 description: Créez un pool Batch à partir d’une ressource d’image managée pour approvisionner les nœuds de calcul avec les logiciels et les données pour votre application.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519260"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029751"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image managée pour créer un pool de machines virtuelles
 
@@ -22,7 +22,7 @@ Pour créer une image personnalisée destinée aux machines virtuelles de votre 
 > [!TIP]
 > Dans la plupart des cas, vous devez créer des images personnalisées à l’aide de Shared Image Gallery. À l’aide de Shared Image Gallery, vous pouvez approvisionner des pools plus rapidement, mettre à l’échelle de grandes quantités de machines virtuelles et améliorer la fiabilité lors de la configuration des machines virtuelles. Pour en savoir plus, consultez [Utiliser Shared Image Gallery pour créer un pool personnalisé](batch-sig-images.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez avoir ou créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés. Pour plus d’informations et connaître les étapes de préparation d’une image managée, consultez la section suivante.
   - Utilisez une image personnalisée unique pour chaque pool que vous créez.

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 13fbab52c16fcde72da8073b429fe6fb4665c21b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: afa03399933bdc8bd8ff869125955cfd9e0abecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74763876"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981931"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour PostgreSQL - Serveur unique
 
@@ -29,7 +29,7 @@ Le tableau suivant compare l’ERT et le RPO pour les fonctionnalités disponibl
 | Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Utilisez le [verrouillage des ressources Azure](../azure-resource-manager/resource-group-lock-resources.md) pour éviter la suppression accidentelle de votre serveur.
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Utilisez le [verrouillage des ressources Azure](../azure-resource-manager/management/lock-resources.md) pour éviter la suppression accidentelle de votre serveur.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 
@@ -43,7 +43,7 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 Vous pouvez attendre que votre serveur redevienne disponible une fois la panne réparée au niveau du centre de données. Cette solution vaut pour les applications qui peuvent s’accommoder d’un certain temps d’indisponibilité du serveur, par exemple dans un environnement de développement. Quand un centre de données connaît une panne, vous ne savez pas combien de temps cela peut durer. Cette solution n’est donc valable que si vous n’avez pas besoin du serveur pendant un certain temps.
 
-## <a name="geo-restore"></a>Géo-restauration
+## <a name="geo-restore"></a>La géorestauration
 
 La fonctionnalité de géorestauration permet de restaurer le serveur à l’aide de sauvegardes géoredondantes. Les sauvegardes sont hébergées dans la [région appairée](../best-practices-availability-paired-regions.md) de votre serveur. Vous pouvez effectuer une restauration à partir de ces sauvegardes dans n’importe quelle autre région. La géorestauration crée un serveur avec les données issues des sauvegardes. Pour plus d’informations sur la géorestauration, consultez cet [article sur les concepts de sauvegarde et de restauration](concepts-backup.md).
 

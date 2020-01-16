@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 951c81b2d65fe17f6e79dbdd699051ba43b86c49
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924865"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867391"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge
 
@@ -20,21 +20,21 @@ Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
-Quand un appareil IoT Edge passe en mode hors connexion, le hub IoT Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Ensuite, il authentifie, pour le compte d’IoT Hub, les modules et les appareils enfants afin qu’ils puissent continuer à fonctionner. Enfin, il rend possible la communication entre les appareils enfants qui communiquent normalement par le biais d’IoT Hub. 
+Quand un appareil IoT Edge passe en mode hors connexion, le hub IoT Edge assure trois rôles. Tout d’abord, il stocke tous les messages à acheminer en amont jusqu’à ce que l’appareil puisse se reconnecter. Ensuite, il authentifie, pour le compte d’IoT Hub, les modules et les appareils enfants afin qu’ils puissent continuer à fonctionner. Enfin, il rend possible la communication entre les appareils enfants qui communiquent normalement par le biais d’IoT Hub.
 
 L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors connexion :
 
 1. **Configurer des appareils**
 
-   Sur les appareils IoT Edge, les fonctionnalités hors connexion sont automatiquement activées. Pour étendre ces fonctionnalités à d’autres appareils IoT, vous devez déclarer une relation parent-enfant entre les différents appareils dans IoT Hub. Ensuite, vous configurez les appareils enfants pour qu’ils fassent confiance à l’appareil parent qui leur est affecté et acheminent les communications vers le cloud par l’intermédiaire du parent en tant que passerelle. 
+   Sur les appareils IoT Edge, les fonctionnalités hors connexion sont automatiquement activées. Pour étendre ces fonctionnalités à d’autres appareils IoT, vous devez déclarer une relation parent-enfant entre les différents appareils dans IoT Hub. Ensuite, vous configurez les appareils enfants pour qu’ils fassent confiance à l’appareil parent qui leur est affecté et acheminent les communications vers le cloud par l’intermédiaire du parent en tant que passerelle.
 
 2. **Synchroniser avec IoT Hub**
 
-   Après l’installation du runtime IoT Edge, l’appareil IoT Edge doit être connecté au moins une fois pour pouvoir se synchroniser avec IoT Hub. Lors de cette synchronisation, l’appareil IoT Edge obtient des informations sur tous les appareils enfants qui lui sont assignés. De plus, l’appareil IoT Edge met à jour en toute sécurité son cache local pour permettre les opérations hors connexion et il récupère les paramètres du stockage local des messages de télémétrie. 
+   Après l’installation du runtime IoT Edge, l’appareil IoT Edge doit être connecté au moins une fois pour pouvoir se synchroniser avec IoT Hub. Lors de cette synchronisation, l’appareil IoT Edge obtient des informations sur tous les appareils enfants qui lui sont assignés. De plus, l’appareil IoT Edge met à jour en toute sécurité son cache local pour permettre les opérations hors connexion et il récupère les paramètres du stockage local des messages de télémétrie.
 
 3. **Passer en mode hors connexion**
 
-   Même quand ils ne sont plus connectés à IoT Hub, l’appareil IoT Edge, ses modules déployés et ses appareils IoT enfants peuvent continuer à fonctionner pendant une durée indéterminée. Les modules et les appareils enfants hors connexion peuvent démarrer et redémarrer en s’authentifiant auprès du hub IoT Edge. Les données de télémétrie liées qui sont transmises en amont à IoT Hub sont stockées localement. La communication entre les modules ou entre les appareils IoT enfants est maintenue par le biais de méthodes ou messages directs. 
+   Même quand ils ne sont plus connectés à IoT Hub, l’appareil IoT Edge, ses modules déployés et ses appareils IoT enfants peuvent continuer à fonctionner pendant une durée indéterminée. Les modules et les appareils enfants hors connexion peuvent démarrer et redémarrer en s’authentifiant auprès du hub IoT Edge. Les données de télémétrie liées qui sont transmises en amont à IoT Hub sont stockées localement. La communication entre les modules ou entre les appareils IoT enfants est maintenue par le biais de méthodes ou messages directs.
 
 4. **Reconnecter et resynchroniser avec IoT Hub**
 
@@ -44,13 +44,11 @@ L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors 
 
 ## <a name="restrictions-and-limits"></a>Restrictions et limites
 
-Les fonctionnalités hors connexion étendues décrites dans cet article sont disponibles pour [la version 1.0.7 d’IoT Edge ou une version ultérieure](https://github.com/Azure/azure-iotedge/releases). Les versions antérieures fournissent toutefois certaines fonctionnalités hors connexion. Les appareils IoT Edge existants qui n’ont pas de fonctionnalités hors connexion étendues ne peuvent pas être mis à niveau en changeant de version de runtime. Pour bénéficier de ces fonctionnalités, ils doivent être reconfigurés avec une nouvelle identité d’appareil IoT Edge. 
+Les fonctionnalités hors connexion étendues décrites dans cet article sont disponibles pour [la version 1.0.7 d’IoT Edge ou une version ultérieure](https://github.com/Azure/azure-iotedge/releases). Les versions antérieures fournissent toutefois certaines fonctionnalités hors connexion. Les appareils IoT Edge existants qui n’ont pas de fonctionnalités hors connexion étendues ne peuvent pas être mis à niveau en changeant de version de runtime. Pour bénéficier de ces fonctionnalités, ils doivent être reconfigurés avec une nouvelle identité d’appareil IoT Edge.
 
-La prise en charge des fonctionnalités hors connexion étendues est proposée dans toutes les régions où IoT Hub est disponible, **à l’exception** de la région USA Est.
+Seuls des appareils non IoT Edge peuvent être ajoutés en tant qu’appareils enfants.
 
-Seuls des appareils non IoT Edge peuvent être ajoutés en tant qu’appareils enfants. 
-
-Les appareils IoT Edge et leurs appareils enfants assignés peuvent fonctionner en mode hors connexion pendant une durée indéterminée dès lors qu’ils ont été synchronisés une fois. Toutefois, le stockage des messages dépend du paramètre de durée de vie (TTL) et de l’espace disque disponible pour stocker les messages. 
+Les appareils IoT Edge et leurs appareils enfants assignés peuvent fonctionner en mode hors connexion pendant une durée indéterminée dès lors qu’ils ont été synchronisés une fois. Toutefois, le stockage des messages dépend du paramètre de durée de vie (TTL) et de l’espace disque disponible pour stocker les messages.
 
 ## <a name="set-up-parent-and-child-devices"></a>Configurer des appareils parents et enfants
 
@@ -62,14 +60,14 @@ Les appareils enfants sont des appareils non IoT Edge inscrits auprès du même 
 
 Les sections suivantes fournissent des exemples sur la manière dont vous pouvez déclarer la relation parent/enfant dans IoT Hub pour les appareils IoT existants. Si vous créez des identités d’appareil pour vos appareils enfants, consultez [Authentifier un appareil en aval auprès d’Azure IoT Hub](how-to-authenticate-downstream-device.md) pour plus d’informations.
 
-#### <a name="option-1-iot-hub-portal"></a>Option 1 : Portail IoT Hub
+#### <a name="option-1-iot-hub-portal"></a>Option 1 : Portail IoT Hub
 
 Vous pouvez déclarer les relations parent-enfant au moment où vous créez un appareil. Pour les appareils existants, vous pouvez déclarer les relations dans la page de détails de l’appareil IoT Edge parent ou de l’appareil IoT enfant. 
 
    ![Gérer les appareils enfants à partir de la page de détails de l’appareil IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
 
-#### <a name="option-2-use-the-az-command-line-tool"></a>Option 2 : Utiliser l’outil de ligne de commande `az`
+#### <a name="option-2-use-the-az-command-line-tool"></a>Option n°2 : Utiliser l’outil de ligne de commande `az`
 
 À l’aide de l’interface de ligne de commande [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) avec l’[extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou version ultérieure), vous pouvez gérer les relations parent-enfant avec les sous-commandes [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest). L’exemple ci-dessous utilise une requête pour affecter tous les appareils non IoT Edge dans le hub à des appareils enfants d’un appareil IoT Edge. 
 
@@ -96,7 +94,7 @@ az iot hub device-identity add-children \
 
 Vous pouvez modifier la [requête](../iot-hub/iot-hub-devguide-query-language.md) pour sélectionner un autre sous-ensemble des appareils. L’exécution de la commande peut prendre plusieurs secondes si vous spécifiez un grand nombre d’appareils.
 
-#### <a name="option-3-use-iot-hub-service-sdk"></a>Option 3 : Utiliser le SDK IoT Hub Service 
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Option 3 : Utiliser le SDK IoT Hub Service 
 
 Enfin, vous pouvez gérer les relations parent-enfants par programme en utilisant le SDK IoT Hub Service C#, Java ou Node.js. Voici un [exemple d’affectation d’un appareil enfant](https://aka.ms/set-child-iot-device-c-sharp) avec le SDK C#.
 
@@ -104,7 +102,8 @@ Enfin, vous pouvez gérer les relations parent-enfants par programme en utilisan
 
 Vous pouvez considérer une relation parent/enfant comme une passerelle transparente, dans laquelle l’appareil enfant possède sa propre identité dans IoT Hub mais communique avec le cloud via son parent. Pour une communication sécurisée, l’appareil enfant doit pouvoir vérifier que l’appareil parent provient d’une source fiable. Autrement, des tiers risqueraient de configurer des appareils malveillants pour usurper l’identité des parents et intercepter les communications. 
 
-Une façon de créer cette relation d’approbation est décrite en détail dans les articles suivants : 
+Une façon de créer cette relation d’approbation est décrite en détail dans les articles suivants :
+
 * [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md)
 * [Connecter un appareil en aval (enfant) à une passerelle Azure IoT Edge](how-to-connect-downstream-device.md)
 

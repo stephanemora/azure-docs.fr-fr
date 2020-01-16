@@ -4,12 +4,12 @@ description: Concepts de sécurité et d’accès aux données Azure Blockchain 
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: e1a40acfec6b0dc5cdf21fb84b341b6b4987797a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455718"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982223"
 ---
 # <a name="azure-blockchain-service-security"></a>Sécurité d’Azure Blockchain Service
 
@@ -23,7 +23,7 @@ Les ressources Azure Blockchain Service sont isolées dans un réseau virtuel pr
 
 ## <a name="encryption"></a>Chiffrement
 
-Les données utilisateur sont stockées dans le service Stockage Azure. Elles sont chiffrées en transit et au repos à des fins de sécurité et de confidentialité. Pour plus d'informations, consultez les pages suivantes : [Guide de sécurité du Stockage Azure](../../storage/common/storage-security-guide.md).
+Les données utilisateur sont stockées dans le service Stockage Azure. Elles sont chiffrées en transit et au repos à des fins de sécurité et de confidentialité. Pour plus d'informations, consultez les pages suivantes : [Guide de sécurité du Stockage Azure](../../storage/blobs/security-recommendations.md).
 
 ## <a name="authentication"></a>Authentication
 
@@ -37,7 +37,7 @@ Il existe trois modes d’authentification pour l’accès RPC.
 
 L’authentification de base utilise un en-tête d’authentification HTTP contenant le nom d’utilisateur et le mot de passe. Le nom d’utilisateur est le nom du nœud de blockchain. Le mot de passe est défini lors de l’approvisionnement d’un membre ou d’un nœud. Il peut être modifié à l’aide du Portail Azure ou de l’interface de ligne de commande (CLI) Azure.
 
-### <a name="access-keys"></a>Clés d’accès
+### <a name="access-keys"></a>Clés d'accès
 
 Les clés d’accès utilisent une chaîne générée de manière aléatoire incluse dans l’URL du point de terminaison. Deux clés d’accès permettent d’activer la rotation des clés. Les clés peuvent être régénérées à partir du Portail Azure et d’Azure CLI.
 

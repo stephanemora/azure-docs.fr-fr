@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961412"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970498"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Déplacer des machines virtuelles Azure entre Azure Government et des régions publiques 
 
@@ -20,7 +20,7 @@ Vous souhaitez peut-être déplacer vos machines virtuelles IaaS entre Azure Gov
 
 En plus de l’utilisation du service [Azure Site Recovery](site-recovery-overview.md) pour gérer et orchestrer la reprise d’activité après sinistre des ordinateurs locaux et des machines virtuelles Azure dans le cadre de la continuité d’activité et de la reprise d’activité, vous pouvez utiliser Site Recovery pour gérer le déplacement des machines virtuelles Azure vers une région secondaire.       
 
-Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Azure Government et des régions publiques à l’aide d’Azure Site Recovery. Ceci peut être étendu au déplacement de machines virtuelles entre des paires de régions ne se trouvant pas dans le même cluster géographique. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment déplacer des machines virtuelles Azure entre Azure Government et des régions publiques à l’aide d’Azure Site Recovery. Ceci peut être étendu au déplacement de machines virtuelles entre des paires de régions ne se trouvant pas dans le même cluster géographique. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Vérifier la configuration requise
@@ -65,7 +65,7 @@ Configurer une cible [réseau Azure](../virtual-network/quick-create-portal.md).
 
 ### <a name="set-up-an-azure-storage-account"></a>Configurer un compte de stockage Azure
 
-Configurez un [compte de stockage Azure](../storage/common/storage-quickstart-create-account.md).
+Configurez un [compte de stockage Azure](../storage/common/storage-account-create.md).
 
 - Site Recovery réplique les machines virtuelles locales sur le stockage Azure. Des machines virtuelles Azure sont créées à partir du stockage après le basculement.
 - Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services.
@@ -104,7 +104,7 @@ Le service Mobilité doit être installé sur chaque serveur que vous souhaitez 
 
 4. Vous devez [créer un réseau hors production](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) manuellement dans la région cible si vous souhaitez tester la configuration avant d’effectuer le déplacement final vers la région cible. Cette pratique est recommandée dans la mesure où elle limite les interférences avec l’environnement de production.
 
-## <a name="copy-data-to-the-target-region"></a>Copier des données vers la région cible
+## <a name="copy-data-to-the-target-region"></a>Copier les données vers la région cible
 Suivez les étapes ci-dessous pour copier les données vers la région cible à l’aide d’Azure Site Recovery.
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Créez le coffre dans n’importe quelle région, à l’exception de la région source.
@@ -197,7 +197,7 @@ La stratégie est automatiquement associée au serveur de configuration. Par dé
    > [!WARNING]
    > Vous devez entrer l’adresse IP de la machine virtuelle Azure que vous avez l’intention de déplacer
 
-10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte utilisé par le serveur de processus pour installer automatiquement le service Mobilité sur la machine.
+10. Dans **Propriétés** > **Configurer les propriétés**, sélectionnez le compte à utiliser par le serveur de processus pour installer automatiquement le service Mobilité sur la machine.
 11. Dans **Paramètres de réplication** > **Configurer les paramètres de réplication**, vérifiez que la stratégie de réplication correcte est sélectionnée. 
 12. Cliquez sur **Activer la réplication**. Vous pouvez suivre la progression du travail **Activer la protection** dans **Paramètres** > **Travaux** > **Travaux Site Recovery**. Une fois le travail **Finaliser la protection** exécuté, la machine est prête pour le basculement.
 
@@ -212,7 +212,7 @@ Pour effectuer le monitoring des serveurs, vous pouvez consulter l’heure de le
 
    - **Dernier point traité** : bascule la machine virtuelle vers le dernier point de récupération qui a été traité par le service Site Recovery. L’horodatage est affiché. Cette option, qui n’implique aucun traitement de données, offre un objectif de délai de récupération faible.
    - **Dernier point de cohérence des applications** : cette option bascule toutes les machines virtuelles vers le dernier point de récupération de cohérence des applications. L’horodatage est affiché.
-   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
+   - **Personnalisé** : sélectionnez n’importe quel point de récupération.
 
 3. Sélectionnez le réseau virtuel Azure cible vers lequel vous voulez déplacer les machines virtuelles Azure afin de tester la configuration. 
 
@@ -227,7 +227,7 @@ Pour effectuer le monitoring des serveurs, vous pouvez consulter l’heure de le
 
 1. Accédez au coffre puis, dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle et ensuite sur **Basculement**.
 2. Dans **Basculement**, sélectionnez **Dernier**. 
-3. Sélectionnez **Arrêtez la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**. 
+3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter la machine virtuelle source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**. 
 4. Une fois que la tâche est terminée, vérifiez que la machine virtuelle apparaît bien dans la région Azure cible choisie.
 5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Valider**. Cette étape termine le processus de déplacement vers la région cible. Attendez la fin de la tâche de validation.
 

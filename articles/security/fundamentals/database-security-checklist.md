@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 4a6796c0a9a64bc40255de64b39ce881e1b8855c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9298b802417f5a7162ef74bb0f7906144aae4e35
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934727"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745707"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
 Pour aider à améliorer la sécurité, les bases de données Azure incluent un nombre de contrôles de sécurité intégrés que vous pouvez utiliser pour limiter et contrôler l’accès.
 
-Il s’agit des actions suivantes :
+notamment :
 
 -   Pare-feu qui vous permet de créer des [règles de pare-feu](../../sql-database/sql-database-firewall-configure.md) limitant la connectivité par adresse IP
 -   Pare-feu au niveau du serveur accessible depuis le portail Azure
@@ -53,11 +53,11 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 |<br> Accès à la base de données | <ul><li>[Authentification](../../sql-database/sql-database-control-access.md) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](../../sql-database/sql-database-control-access.md), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
 |<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|
 |**Surveillance proactive**||  
-| <br>Suivi et détection| <ul><li>L’[audit](../../sql-database/sql-database-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-create-storage-account.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md).</li><li>La [détection des menaces](../../sql-database/sql-database-threat-detection.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
+| <br>Suivi et détection| <ul><li>L’[audit](../../sql-database/sql-database-auditing.md) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](../../storage/common/storage-create-storage-account.md).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>La [détection des menaces](../../sql-database/sql-database-threat-detection.md) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Supervision des données](../../security-center/security-center-enable-auditing-on-sql-databases.md), avec Azure Security Center comme solution de supervision de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusion
-Azure Database est une plateforme robuste de base de données, avec un éventail complet de fonctionnalités de sécurité qui répondent à nombreuses exigences en matière de conformité réglementaire et organisationnelles. Vous pouvez facilement protéger les données en contrôlant l’accès physique à vos données et à l’aide de diverses options de sécurité des données au niveau des fichiers, des colonnes ou des lignes avec le chiffrement transparent des données, le chiffrement au niveau des cellules ou de la sécurité au niveau des lignes. Always Encrypted active également des opérations sur les données chiffrées, ce qui simplifie le processus des mises à jour d’application. À son tour, l’accès aux journaux d’activité d’audit de l’activité SQL Database vous offre les informations dont vous avez besoin, ce qui vous permet de savoir quand et comment les utilisateurs ont accédé aux données.
+Azure Database est une plateforme robuste de base de données, avec un éventail complet de fonctionnalités de sécurité qui répondent à de nombreuses exigences en matière de conformité réglementaire et organisationnelles. Vous pouvez facilement protéger les données en contrôlant l’accès physique à vos données et à l’aide de diverses options de sécurité des données au niveau des fichiers, des colonnes ou des lignes avec le chiffrement transparent des données, le chiffrement au niveau des cellules ou de la sécurité au niveau des lignes. Always Encrypted active également des opérations sur les données chiffrées, ce qui simplifie le processus des mises à jour d’application. À son tour, l’accès aux journaux d’activité d’audit de l’activité SQL Database vous offre les informations dont vous avez besoin, ce qui vous permet de savoir quand et comment les utilisateurs ont accédé aux données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Quelques étapes simples suffisent pour améliorer la protection d’une base de données contre les utilisateurs malveillants ou tout accès non autorisé. Ce didacticiel vous apprend à effectuer les opérations suivantes :

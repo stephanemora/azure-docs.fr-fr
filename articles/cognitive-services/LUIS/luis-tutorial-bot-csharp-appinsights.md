@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Application Insights, C# - LUIS'
+title: 'Tutoriel : Application Insights, C# - LUIS'
 titleSuffix: Azure Cognitive Services
 description: Ce didacticiel montre comment ajouter des informations de bot et LUIS à un stockage de données de télémétrie Application Insights.
 services: cognitive-services
@@ -11,26 +11,26 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 036ecbbbd2ea562f3e809691a1b3af62578893f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b9c47685253e2a70c7b5e947debaac6f5f3264b2
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498970"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888292"
 ---
-# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Didacticiel : Ajouter des résultats LUIS à Application Insights à partir d’un bot en C#
+# <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-c"></a>Tutoriel : Ajouter des résultats LUIS à Application Insights à partir d’un bot en C#
 
 Ce didacticiel montre comment ajouter des informations de bot et LUIS à un stockage de données de télémétrie [Application Insights](https://azure.microsoft.com/services/application-insights/). Une fois que vous disposez de ces données, vous pouvez les interroger avec le langage de requête Kusto ou Power BI pour analyser, agréger et générer des rapports sur les intentions et les entités de l’énoncé en temps réel. Cette analyse vous aide à déterminer si vous devez ajouter ou modifier les intentions et les entités de votre application LUIS.
 
 [!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Capturer des données de bot et LUIS dans Application Insights
 > * Interroger Application Insights pour obtenir des données LUIS
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Bot Azure Bot Service créé avec Application Insights activé.
 * Code de bot téléchargé à partir du **[didacticiel](luis-csharp-tutorial-bf-v4.md)** précédent sur les bots. 
@@ -162,7 +162,7 @@ Pour ajouter des données à Application Insights, vous avez besoin de la clé d
 1. Dans Visual Studio, créez et exécutez le bot. 
 1. Démarrer l’émulateur de bot et ouvrez le bot. Cette [étape](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) est présentée dans le didacticiel précédent.
 
-1. Posez une question au bot. Cette [étape](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) est présentée dans le didacticiel précédent.
+1. Posez une question au bot. Cette [étape](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) est présentée dans le didacticiel précédent.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Afficher les entrées de LUIS dans Application Insights
 
@@ -186,7 +186,7 @@ Application Insights vous permet d’interroger les données avec le langage [Ku
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-1. Exécutez la requête. Les nouvelles colonnes des principaux score, intention et énoncé sont disponibles. Sélectionnez la colonne topIntent pour la trier.
+1. Exécute la requête. Les nouvelles colonnes des principaux score, intention et énoncé sont disponibles. Sélectionnez la colonne topIntent pour la trier.
 
 Apprenez-en davantage sur le [langage de requête Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou l’[exportation des données vers Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 

@@ -2,20 +2,20 @@
 title: Démarrage rapide Azure - Exécution d’un travail Batch - CLI
 description: Apprenez rapidement à exécuter un travail Batch avec l’interface de ligne de commande Azure.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322506"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029481"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Démarrage rapide : Exécuter votre premier travail Batch avec Azure CLI
 
@@ -74,7 +74,7 @@ az batch account login \
     --shared-key-auth
 ```
 
-## <a name="create-a-pool-of-compute-nodes"></a>Création d’un pool de nœuds de calcul
+## <a name="create-a-pool-of-compute-nodes"></a>Créer un pool de nœuds de calcul
 
 Maintenant que vous avez un compte Batch, créez un pool d’exemple de nœuds de calcul Linux à l’aide de la commande [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). L’exemple suivant crée un pool appelé *mypool* avec 2 nœuds de taille *Standard_A1_v2* exécutant Ubuntu 16.04 LTS. La taille de nœud suggérée offre un bon compromis entre performances et coûts pour cet exemple rapide.
  
@@ -95,7 +95,7 @@ az batch pool show --pool-id mypool \
 
 Continuez les étapes suivantes pour créer un travail et des tâches durant la modification de l’état du pool. Le pool est prêt à exécuter des tâches lorsque l’état de l’allocation est `steady` et que tous les nœuds sont en cours d’exécution. 
 
-## <a name="create-a-job"></a>Création d’un travail
+## <a name="create-a-job"></a>Créer un travail
 
 Maintenant que vous disposez d’un pool, créez un travail à exécuter sur celui-ci.  Un travail Batch est un groupe logique d’une ou de plusieurs tâches. Un travail inclut les paramètres communs aux tâches, tels que la priorité et le pool pour exécuter des tâches. Créez un travail Batch à l’aide de la commande [az batch job create](/cli/azure/batch/job#az-batch-job-create). L’exemple suivant crée un travail *myjob* sur le pool *mypool*. Dans un premier temps, le travail n’a aucune tâche.
 
@@ -105,7 +105,7 @@ az batch job create \
     --pool-id mypool
 ```
 
-## <a name="create-tasks"></a>Création de tâches
+## <a name="create-tasks"></a>Créer des tâches
 
 Utilisez maintenant la commande [az batch task create](/cli/azure/batch/task#az-batch-task-create) pour créer des tâches à exécuter dans le travail. Dans cet exemple, vous créez quatre tâches identiques. Chaque tâche exécute une `command-line` pour afficher les variables d’environnement Azure Batch sur un nœud de calcul, puis attend 90 secondes. Lorsque vous utilisez Azure Batch, cette ligne de commande se trouve là où vous spécifiez votre application ou votre script. Azure Batch fournit plusieurs façons de déployer des applications et des scripts sur des nœuds de calcul.
 
@@ -137,7 +137,7 @@ az batch task show \
 
 La sortie de la commande inclut de nombreux détails, mais notez le `exitCode` de la ligne de commande de la tâche et le `nodeId`. Un `exitCode` de 0 indique que la ligne de commande de la tâche s’est correctement effectuée. Le `nodeId` indique l’ID du nœud de pool sur lequel la tâche a été exécutée.
 
-## <a name="view-task-output"></a>Afficher les sorties des tâches
+## <a name="view-task-output"></a>Afficher la sortie des tâches
 
 Pour répertorier les fichiers créés par une tâche sur un nœud de calcul, utilisez la commande [az batch task file list](/cli/azure/batch/task). La commande suivante répertorie les fichiers créés par *mytask1* : 
 
@@ -189,7 +189,7 @@ AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous souhaitez poursuivre les exemples et didacticiels Azure Batch, utilisez le compte Batch et le compte de stockage lié créés dans ce démarrage rapide. Il n’existe aucun frais pour le compte Batch proprement dit.
 
 Vous êtes facturé pour les pools pendant que les nœuds sont en cours d’exécution, même si aucun travail n’est planifié. Lorsque vous n’avez plus besoin d’un pool, supprimez-le avec la commande [az batch pool delete](/cli/azure/batch/pool#az-batch-pool-delete). Lorsque vous supprimez le pool, toutes les sorties de tâche sur les nœuds sont supprimées. 

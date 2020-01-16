@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769096"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969265"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Prépayer des unités de majoration Azure Data Explorer avec la capacité de réserve Azure Data Explorer
 
@@ -27,8 +27,8 @@ Vous pouvez acheter une capacité de réserve Azure Data Explorer sur le [Portai
 * Pour le programme Fournisseur de solutions cloud (CSP), seuls des agents d’administration ou de agents commerciaux peuvent acheter une capacité de réserve Azure Data Explorer.
 
 Pour plus d’informations sur la facturation d’achats de réservations aux clients d’Entreprise et aux clients avec Paiement à l’utilisation, consultez :
-* [Comprendre l’utilisation d’une réservation Azure pour votre accord de mise en œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec Paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
+* [Comprendre l’utilisation d’une réservation Azure pour votre accord de mise en œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec Paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>Déterminer l’utilisation de majoration appropriée avant l’achat
 
@@ -36,7 +36,7 @@ La taille de la réservation doit être basée sur le nombre total d’unités d
 
 ## <a name="buy-azure-data-explorer-reserved-capacity"></a>Acheter une capacité de réserve Azure Data Explorer
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Tous les services** > **Réservations** > **Acheter**. Sélectionnez **Ajouter**
 1. Dans le volet **Sélectionner le type de produit**, sélectionnez **Azure Data Explorer** pour acheter une nouvelle réservation pour les unités de majoration Azure Data Explorer. 
 1. Sélectionnez **Acheter**
@@ -54,7 +54,7 @@ Si vous devez annuler votre réservation de capacité de réserve Azure Data Exp
 
 Si vous devez modifier la durée de votre réservation de capacité de réserve Azure Data Explorer, vous pouvez l’échanger contre une autre réservation de valeur égale ou supérieure. La date de début du terme de la nouvelle réservation ne couvre pas la réservation échangée. La période de 1 ou 3 ans commence lorsque vous créez la nouvelle réservation. Pour demander un échange, accédez à la réservation dans le Portail Azure et sélectionnez **Échange** pour créer une demande de support.
 
-Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Pour plus d’informations sur l’échange ou le remboursement des réservations, voir [Échanges et remboursements de réservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>Gérer votre réservation de capacité de réserve
 
@@ -63,17 +63,17 @@ La remise accordée sur la réservation d’unités de majoration Azure Data Exp
 
 > [!NOTE]
 > * Vous pouvez mettre à jour l’étendue de la réservation de capacité de réserve Azure Data Explorer par le biais du [Portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API.
-> * Pour savoir comment gérer la réservation de capacité de réserve Azure Data Explorer, consultez [Gérer la capacité de réserve Azure Data Explorer](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * Pour savoir comment gérer la réservation de capacité de réserve Azure Data Explorer, consultez [Gérer la capacité de réserve Azure Data Explorer](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-* [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)
-* [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)
-* [Comprendre la remise sur réservation Azure](../billing/billing-understand-reservation-charges.md)
-* [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
-* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Qu’est-ce qu’une réservation Azure ?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Gérer les réservations Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Comprendre la remise sur réservation Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Réservations Azure dans le cadre du programme Fournisseur de solutions Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Nous contacter

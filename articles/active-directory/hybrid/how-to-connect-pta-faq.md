@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290756"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932387"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Questions fréquentes (FAQ)
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : Forum aux questions
 
 Cet article présente les réponses aux questions fréquemment posées sur l’authentification directe d’Azure Active Directory (Azure AD). N'hésitez pas à le consulter pour vous tenir au courant des mises à jour.
 
@@ -160,7 +160,7 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>J’ai un ancien locataire qui a été configuré à l’origine avec AD FS.  Bien que nous ayons récemment migré vers PTA, nos modifications de nom d’utilisateur principal (UPN) ne se synchronisent pas avec Azure AD.  Pourquoi la synchronisation n’a-t-elle pas lieu ?
 
-R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
+A : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent pas dans les circonstances suivantes :
 
 - Votre client Azure AD a été créé avant le 15 juin 2015.
 - Vous étiez à l’origine fédéré avec votre client Azure AD par le biais d’AD FS pour l’authentification.
@@ -168,7 +168,7 @@ R : Il peut arriver que les modifications de noms UPN locaux ne se synchronisent
 
 En effet, le comportement par défaut des locataires créés avant le 15 juin 2015 consistait à bloquer les changements de noms UPN.  Si souhaitez les débloquer, exécutez la cmdlet PowerShell suivante :  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Les locataires créés après le 15 juin 2015 ont le comportement par défaut, c’est-à-dire qu’ils synchronisent les modifications de noms UPN.   
 
@@ -178,9 +178,9 @@ Les locataires créés après le 15 juin 2015 ont le comportement par défaut, c
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : Découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
 - [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
-- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
+- [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : apprenez à configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d'utilisateur.
 - [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne la fonctionnalité d'authentification directe.
-- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d'authentification directe.
+- [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : apprenez à résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques détaillées sur la fonctionnalité d’authentification directe.
 - [Authentification unique fluide Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.

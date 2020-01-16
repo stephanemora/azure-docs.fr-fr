@@ -1,17 +1,14 @@
 ---
 title: Configurer une appliance Azure Migrate pour Hyper-V
 description: Découvrez comment configurer une appliance Azure Migrate pour évaluer et migrer des machines virtuelles Hyper-V.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: a94d11d48728b03dd978af85db4b6c2af4887938
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534502"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029091"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurer une appliance pour les machines virtuelles Hyper-V
 
@@ -28,9 +25,9 @@ L’appliance de machines virtuelles Hyper-V est une appliance légère utilisé
 ## <a name="appliance-deployment-steps"></a>Étapes de déploiement d’appliance
 
 Pour configurer l’appliance, vous devez :
-- Télécharger un disque dur virtuel Hyper-V compressé à partir du portail Azure.
+- Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
 - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
-- Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate.
+- Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 ## <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
 
@@ -82,7 +79,7 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-appliance.md#url-access).
 
 ## <a name="configure-the-appliance"></a>Configurer l’appliance
 
@@ -108,7 +105,7 @@ Configurez l’appliance pour la première fois.
 2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
-3. Une fois la connexion effectuée, revenez à l’application web.
+3. Une fois la connexion réussie, revenez à l’application web.
 4. Sélectionnez l’abonnement où le projet Azure Migrate a été créé. Sélectionnez ensuite le projet.
 5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 6. Cliquez sur **S'inscrire**.
