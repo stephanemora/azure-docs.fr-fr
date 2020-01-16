@@ -1,25 +1,16 @@
 ---
-title: Extensibilité des services Service Fabric | Microsoft Docs
-description: Décrit comment mettre à l'échelle les services Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Extensibilité des services Service Fabric
+description: En savoir plus sur la mise à l’échelle dans Azure Service Fabric et les différentes techniques utilisées pour mettre à l’échelle des applications.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/26/2019
 ms.author: masnider
-ms.openlocfilehash: f44a44c0923374b2f6024903213305f1defb3b94
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 17827342b67d37d9fbeb56654824e004367823ef
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035916"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610010"
 ---
 # <a name="scaling-in-service-fabric"></a>Mise à l’échelle dans Service Fabric
 Azure Service Fabric facilite la création d’applications évolutives en gérant les services, les partitions et les réplicas sur les nœuds d’un cluster. L’exécution de nombreuses charges de travail sur un même appareil permet une utilisation maximale des ressources, mais permet également de choisir la façon dont vous mettez à l’échelle vos charges de travail. Cette vidéo Channel 9 décrit comment vous pouvez générer des applications de microservices scalables :
@@ -32,7 +23,7 @@ Dans Service Fabric, la mise à l’échelle s’effectue de plusieurs manières
 2. En créant ou en supprimant de nouveaux services nommés
 3. En créant ou en supprimant de nouvelles instances d’application nommées
 4. En utilisant des services partitionnés
-5. En ajoutant et en supprimant des nœuds d’un cluster 
+5. Mise à l’échelle par l’ajout ou la suppression de nœuds dans un cluster 
 6. En utilisant des métriques Cluster Resource Manager
 
 ## <a name="scaling-by-creating-or-removing-stateless-service-instances"></a>En créant ou en supprimant des instances de services sans état

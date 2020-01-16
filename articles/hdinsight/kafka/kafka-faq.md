@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 057c77d4ddb4a760e196c0dc8d508efe15e6699d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519852"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75530933"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Forum aux questions sur Apache Kafka dans Azure HDInsight
 
@@ -38,7 +38,7 @@ Pour obtenir une description plus détaillée de différents types de nœuds, co
 
 ## <a name="do-apache-kafka-apis-work-with-hdinsight"></a>Les API Apache Kafka fonctionnent-elles avec HDInsight ?
 
-Oui, HDInsight utilise les API Kafka natives. Le code de votre application cliente n’a pas besoin d’être modifié. Consultez le [tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka](./apache-kafka-producer-consumer-api.md) pour voir comment vous pouvez utiliser les API de producteur/consommateur basées sur Java avec votre cluster.
+Oui, HDInsight utilise les API Kafka natives. Le code de votre application cliente n’a pas besoin d’être modifié. Voir le [tutoriel : Utiliser les API de producteur et de consommateur Apache Kafka](./apache-kafka-producer-consumer-api.md) pour voir comment vous pouvez utiliser les API de producteur/consommateur basées sur Java avec votre cluster.
 
 ## <a name="can-i-change-cluster-configurations"></a>Puis-je modifier les configurations de cluster ?
 
@@ -46,7 +46,7 @@ Oui, via le portail Ambari. Chaque composant du portail comporte une section **c
 
 ## <a name="what-type-of-authentication-does-hdinsight-support-for-apache-kafka"></a>Quel type d’authentification HDInsight prend-il en charge pour Apache Kafka ?
 
-Avec le [Package de sécurité d'entreprise (ESP)](../domain-joined/apache-domain-joined-architecture.md), vous pouvez obtenir une sécurité au niveau de la rubrique pour les clusters Kafka. Consultez le [tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)](../domain-joined/apache-domain-joined-run-kafka.md) pour plus d’informations.
+Avec le [Package de sécurité d'entreprise (ESP)](../domain-joined/apache-domain-joined-architecture.md), vous pouvez obtenir une sécurité au niveau de la rubrique pour les clusters Kafka. Voir le [tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)](../domain-joined/apache-domain-joined-run-kafka.md) pour plus d’informations.
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>Mes données sont-elles chiffrées ? Puis-je utiliser mes propres clés ?
 
@@ -65,6 +65,10 @@ Pour que les clients Kafka communiquent avec les répartiteurs Kafka, ils doiven
 ## <a name="can-i-add-more-disk-space-on-an-existing-cluster"></a>Puis-je ajouter de l’espace disque sur un cluster existant ?
 
 Pour augmenter la quantité d’espace disponible pour les messages Kafka, vous pouvez augmenter le nombre de nœuds. Actuellement, l’ajout de disques à un cluster existant n’est pas pris en charge.
+
+## <a name="can-a-kafka-cluster-work-with-databricks"></a>Un cluster Kafka peut-il fonctionner avec Databricks ? 
+
+Oui, les clusters Kafka peuvent fonctionner avec Databricks tant qu’ils se trouvent dans le même réseau virtuel. Pour utiliser un cluster Kafka avec Databricks, créez un réseau virtuel avec un cluster HDInsight Kafka dans celui-ci, puis spécifiez ce réseau virtuel lorsque vous créez votre espace de travail Databricks et utilisez l’injection de réseau virtuel. Pour plus d’informations, consultez [Déployer Azure Databricks dans votre propre réseau virtuel Azure (injection de réseau virtuel)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Vous devrez fournir les noms du répartiteur de démarrage du cluster Kafka lors de la création de l’espace de travail Databricks. Pour plus d’informations sur la récupération des noms de service du répartiteur Kafka, consultez [Obtenir les informations sur les hôtes Apache Zookeeper et Répartiteur](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Comment puis-je bénéficier d’une durabilité maximale des données ?
 

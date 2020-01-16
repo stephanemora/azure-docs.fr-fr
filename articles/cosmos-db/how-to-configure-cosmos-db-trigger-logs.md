@@ -1,17 +1,17 @@
 ---
-title: Configurer et lire les journaux lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
+title: Configurez et lisez les journaux avec le déclencheur Azure Functions pour Cosmos DB
 description: Découvrez comment exposer les journaux au pipeline de journalisation Azure Functions lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 17b2d4854e3222e5bdb607c6c80b0ec5ed6177d3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093598"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441828"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Guide pratique pour configurer et lire les journaux lors de l’utilisation du déclencheur Azure Functions pour Cosmos DB
 
@@ -39,7 +39,7 @@ Pour activer la journalisation en cas d’utilisation du déclencheur Azure Func
 }
 ```
 
-Une fois qu’Azure Functions a été déployé avec la configuration mise à jour, les journaux du déclencheur Azure Functions pour Cosmos DB sont inclus dans les traces. Vous pouvez consulter les journaux dans le fournisseur de journalisation configuré sous *Category* `Host.Triggers.CosmosDB`.
+Une fois qu’Azure Functions a été déployé avec la configuration mise à jour, les journaux du déclencheur Azure Functions pour Cosmos DB sont inclus dans les traces. Vous pouvez consulter les journaux dans le fournisseur de journalisation configuré sous *Category*`Host.Triggers.CosmosDB`.
 
 ## <a name="query-the-logs"></a>Interroger les journaux
 

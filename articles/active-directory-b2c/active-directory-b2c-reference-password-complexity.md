@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d37d1ae3871e8b14a44540883b1d03c29b58d27e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 5879bbda9dba0d5484ffe6e7083243a299347f9c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367484"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurer les exigences de complexité pour les mots de passe dans Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ Si vous utilisez des stratégies personnalisées, vous pouvez ([configurer la co
 
 ## <a name="configure-password-complexity"></a>Configurer la complexité du mot de passe
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-4. Sélectionnez **Flux d’utilisateurs**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
+3. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+4. Sélectionnez **Flux utilisateur (stratégies)** .
 2. Sélectionnez un flux d’utilisateur, puis cliquez sur **Propriétés**.
 3. Sous **Complexité du mot de passe**, changez la complexité du mot de passe de ce flux d’utilisateur : **Simple**, **Fort** ou **Personnalisé**.
 
@@ -50,7 +50,7 @@ Si vous utilisez des stratégies personnalisées, vous pouvez ([configurer la co
 | --- | --- |
 | Simple | Un mot de passe entre 8 et 64 caractères. |
 | Remarque | Un mot de passe entre 8 et 64 caractères. Trois de ces quatre types d’éléments : minuscules, majuscules, chiffres ou symboles. |
-| Personnalisée | C’est l’option qui fournit le contrôle le plus poussé sur les règles de complexité du mot de passe.  Elle permet de configurer une longueur personnalisée,  et d’accepter les mots de passe composés exclusivement de chiffres (codes confidentiels). |
+| Custom | C’est l’option qui fournit le contrôle le plus poussé sur les règles de complexité du mot de passe.  Elle permet de configurer une longueur personnalisée,  et d’accepter les mots de passe composés exclusivement de chiffres (codes confidentiels). |
 
 ## <a name="custom-options"></a>Options personnalisées
 
@@ -72,7 +72,7 @@ Permet de contrôler les critères de longueur du mot de passe.
 
 Permet de contrôler les différents types de caractères utilisés dans le mot de passe.
 
-- **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins deux types de caractères, par exemple, un nombre et une minuscule.
+- **2 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un nombre et une minuscule.
 - **3 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (2 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient au moins trois types de caractères, par exemple, un chiffre, une minuscule et une majuscule.
 - **4 of 4: Lowercase character, Uppercase character, Number (0-9), Symbol** (4 sur 4 : minuscule, majuscule, chiffre (0-9), symbole) garantit que le mot de passe contient les quatre types de caractères.
 

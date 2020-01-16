@@ -1,24 +1,16 @@
 ---
-title: Configurer votre environnement de développement sur Mac OS X afin de travailler avec Azure Service Fabric | Microsoft Docs
-description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Mac OS X.
-services: service-fabric
-documentationcenter: linux
+title: Configurer votre environnement de développement sur macOS
+description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur macOS.
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 178b8c120bc7a886eaca94d1551e489f96ba22b2
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035276"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609874"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -30,7 +22,7 @@ ms.locfileid: "69035276"
 
 Vous pouvez générer des applications Azure Service Fabric pour qu’elles s’exécutent sur les clusters Linux à l’aide de Mac OS X. Ce document explique comment configurer votre Mac pour le développement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Azure Service Fabric n’est pas exécuté en mode natif sur Mac OS X. Pour exécuter un cluster Service Fabric local, une image de conteneur Docker préconfigurée est fournie. Avant de commencer, vous avez besoin des éléments suivants :
 
 * Au moins 4 Go de RAM.

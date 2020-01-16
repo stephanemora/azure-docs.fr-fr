@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 25e11ae1311df9d0392340b32e0691298f78ee1c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74709889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462264"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
 
@@ -80,6 +80,32 @@ Pour lister l’accès pour un utilisateur, un groupe, un principal de service o
     ![Volet Affectations](./media/role-assignments-list-portal/check-access-assignments.png)
 
     Dans ce volet, vous pouvez voir les rôles attribués au principal de sécurité sélectionné et la portée. S’il existe des affectations de refus dans cette étendue, ou héritées par cette étendue, elles sont listées.
+
+## <a name="list-role-assignments-for-a-system-assigned-managed-identity"></a>Répertorier les attributions de rôles pour une identité gérée affectée par le système
+
+1. Dans le Portail Azure, ouvrez une identité gérée affectée par le système.
+
+1. Dans le menu de gauche, cliquez sur **identité**.
+
+    ![Identité managée affectée par le système](./media/role-assignments-list-portal/identity-system-assigned.png)
+
+1. Sous **Attributions de rôle**, cliquez sur **Afficher les rôles RBAC Azure affectés à cette identité gérée**.
+
+    Vous voyez une liste de rôles affectés à l’identité gérée affectée par le système sélectionnée à différentes étendues, telles que groupe d’administration, abonnement, groupe de ressources ou ressource. Cette liste inclut toutes les attributions de rôles que vous êtes autorisé à lire.
+
+    ![Attributions de rôles pour une identité gérée affectée par le système](./media/role-assignments-list-portal/azure-resources-system-assigned.png)
+
+## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>Répertorier les attributions de rôles pour une identité gérée affectée par l’utilisateur
+
+1. Dans le Portail Azure, ouvrez une identité gérée affectée par le système.
+
+1. Cliquez sur **Ressources Azure**.
+
+    Vous voyez une liste de rôles affectés à l’identité gérée affectée à l’utilisateur sélectionnée à différentes étendues, telles que groupe d’administration, abonnement, groupe de ressources ou ressource. Cette liste inclut toutes les attributions de rôles que vous êtes autorisé à lire.
+
+    ![Attributions de rôles pour une identité gérée affectée par le système](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
+
+1. Pour changer d’abonnement, cliquez sur la liste **Abonnements**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

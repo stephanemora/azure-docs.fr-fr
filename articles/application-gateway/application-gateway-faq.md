@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996649"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658302"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -20,7 +20,7 @@ ms.locfileid: "74996649"
 
 Vous trouverez ci-dessous les questions fréquentes sur Azure Application Gateway.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-application-gateway"></a>Présentation de Application Gateway
 
@@ -158,7 +158,7 @@ Consultez [Les routes définies par l’utilisateur prises en charge dans le sou
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?
 
-Consultez [Limites d’Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits).
+Consultez [Limites d’Application Gateway](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ### <a name="can-i-simultaneously-use-application-gateway-for-both-external-and-internal-traffic"></a>Puis-je utiliser simultanément Application Gateway pour le trafic externe et interne ?
 
@@ -200,6 +200,9 @@ Non.
 
 Oui. Pour plus d'informations, consultez [Migrer Azure Application Gateway et le pare-feu d’applications web de v1 à v2](migrate-v1-v2.md).
 
+### <a name="does-application-gateway-support-ipv6"></a>Application Gateway prend-il en charge IPv6 ?
+
+Application Gateway v2 ne prend pas en charge IPv6 pour le moment. Il peut fonctionner dans un réseau virtuel à double pile à l’aide de IPv4 uniquement, mais le sous-réseau de passerelle doit être uniquement en IPv4. Application Gateway v1 ne prend pas en charge la double pile Réseaux virtuels. 
 
 ## <a name="configuration---ssl"></a>Configuration - SSL
 
@@ -380,6 +383,30 @@ Oui. Si votre configuration correspond au scénario suivant, vous ne verrez pas 
 - Vous avez déployé Application Gateway v2
 - Vous avez un NSG sur le sous-réseau Application Gateway
 - Vous avez activé les journaux de flux NSG sur ce groupe de sécurité réseau
+
+### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>Comment utiliser Application Gateway v2 avec uniquement une adresse IP frontend privée ?
+
+Application Gateway v2 ne prend actuellement pas en charge le mode IP privé. Cette méthode prend en charge les combinaisons suivantes :
+* adresse IP privée et adresse IP publique
+* adresse IP publique uniquement
+
+Toutefois, si vous souhaitez utiliser Application Gateway v2 avec uniquement une adresse IP privée, vous pouvez suivre le processus ci-dessous :
+1. Créer une Application Gateway avec une adresse IP frontend publique et privée
+2. Ne créez aucun écouteur pour l’adresse IP de serveur frontend public. Application Gateway n’écoute aucun trafic sur l’adresse IP publique si aucun écouteur n’est créé pour celui-ci.
+3. Créez et associez un [groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview) pour le sous-réseau Application Gateway avec la configuration suivante dans l’ordre de priorité :
+    
+    a. Autorisez le trafic de la source en tant que balise de service **GatewayManager** et de la destination en tant que **N’importe laquelle** et du port de destination en tant que **65200-65535**. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par l’authentification par certificat. Les entités externes, y compris les administrateurs d’utilisateurs de la passerelle, ne peuvent pas initier de modifications sur ces points de terminaison sans que les certificats appropriés soient en place.
+    
+    b. Autorisez le trafic de la source en tant que balise de service **AzureLoadBalancer** et de la destination en tant que **N’importe laquelle**.
+    
+    c. Refusez tout trafic entrant à partir de la source en tant que balise de service **Internet** et la destination et port de destination en tant que **N’importe laquelle**. Donnez à cette règle la *priorité la plus faible* dans les règles de trafic entrant
+    
+    d. Conserver les règles par défaut, comme autoriser les VirtualNetwork entrants, afin que l’accès à l’adresse IP privée ne soit pas bloqué
+    
+    e. La connectivité Internet sortante ne peut pas être bloquée. Dans le cas contraire, vous rencontrerez des problèmes avec la journalisation, les mesures, etc.
+
+Exemple de configuration de groupe de sécurité réseau pour un accès d’adresse IP privée uniquement : ![Configuration Application Gateway v2 NSG pour l’accès IP privé uniquement](./media/application-gateway-faq/appgw-privip-nsg.png)
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

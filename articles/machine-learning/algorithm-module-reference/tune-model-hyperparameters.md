@@ -1,7 +1,7 @@
 ---
 title: Optimiser les hyperparamètres du modèle
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Optimiser les hyperparamètres du modèle dans le service Azure Machine Learning pour effectuer un balayage de paramètres sur un modèle afin de déterminer les réglages de paramètres optimaux.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Optimiser les hyperparamètres de modèle dans Azure Machine Learning pour effectuer un balayage de paramètre sur un modèle afin de déterminer les réglages de paramètres optimaux.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428407"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -155,5 +155,5 @@ Presque tous les apprenants dans Azure Machine Learning prennent en charge la va
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
 

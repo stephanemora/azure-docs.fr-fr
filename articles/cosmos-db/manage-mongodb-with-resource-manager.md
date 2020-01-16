@@ -1,17 +1,17 @@
 ---
-title: Modèles Azure Resource Manager pour l’API Azure Cosmos DB pour MongoDB
+title: Modèles Resource Manager pour Azure Cosmos DB API pour MongoDB
 description: Utilisez des modèles Azure Resource Manager pour créer et configurer l’API Azure Cosmos DB pour MongoDB.
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: e0d28de67082c4b4d582f62653ad474e9ad5dadd
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 66f1ea27692433b72fe05ea89454806bf851c519
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445251"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API MongoDB Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
@@ -19,10 +19,10 @@ Cet article explique comment effectuer différentes opérations pour automatiser
 
 ## Créer une API Azure Cosmos DB pour un compte, une base de données et une collection MongoDB<a id="create-resource"></a>
 
-Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos pour l’API MongoDB avec deux collections qui partagent un débit de 400 RU/s au niveau de la base de données. Copiez le modèle et déployez-le comme indiqué ci-dessous ou consultez la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) et procédez au déploiement à partir du Portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
+Créez des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos pour l’API MongoDB avec deux collections qui partagent un débit de 400 RU/s au niveau de la base de données. Copiez le modèle et déployez-le comme indiqué ci-dessous ou consultez la [galerie Démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) et procédez au déploiement à partir du portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un modèle et spécifier le chemin d’accès local avec le paramètre `--template-file`.
 
 > [!NOTE]
-> Les noms de comptes doivent être en minuscules et contenir au plus 44 caractères.
+> Les noms de compte doivent comporter au maximum 44 caractères en minuscules.
 > Pour mettre à jour les RU/s, renvoyez le modèle avec des valeurs de propriété de débit mises à jour.
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
@@ -51,7 +51,7 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-La commande `az cosmosdb show` montre le compte Azure Cosmos nouvellement créé, une fois que ce dernier a été configuré. Si vous choisissez d’utiliser une version de l’interface Azure CLI installée localement au lieu d’utiliser Cloud Shell, consultez l’article [Interface de ligne de commande Azure (CLI)](/cli/azure/).
+La commande `az cosmosdb show` montre le compte Azure Cosmos nouvellement créé, une fois que ce dernier a été configuré. Si vous choisissez d’utiliser une version de l’interface Azure CLI installée localement au lieu d’utiliser Cloud Shell, consultez l’article [Azure CLI](/cli/azure/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,17 +4,17 @@ description: Fichier Include
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 12/31/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 90e6e5c8d6d4f10e2d63f80b9c0840854424f5a7
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981085"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75616191"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>Comparaison entre la disponibilité générale et la version préliminaire
 
@@ -49,6 +49,8 @@ Au maximum deux sources d’événements par instance sont prise en charge.
 
 * Découvrez comment [ajouter une source Event Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
 * Configurez [une source de hub IoT](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
+
+Par défaut, les [environnements en préversion préliminaire prennent en charge des débits](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-storage-ingress) d’entrée allant jusqu’à **1 mégaoctet par seconde (Mo/s) par environnement**. Les clients peuvent augmenter le débit de leurs environnements en préversion jusqu’à **16 Mo/s** si nécessaire. Une limite de **0,5 Mo/s** par partition est également fixée. 
 
 ### <a name="api-limits"></a>Limites de l’API
 

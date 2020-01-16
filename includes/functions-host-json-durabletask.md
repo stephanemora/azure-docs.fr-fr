@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 614d93a16b9149a217b5ff1004031e0a2d7337ca
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d430d7d94f8eed76bb78042a174aeddf2e6ccaa3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615054"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75410205"
 ---
 Paramètres de configuration de [Fonctions durables](../articles/azure-functions/durable-functions-overview.md).
 
-### <a name="durable-functions-1x"></a>Durable Functions 1.x
+### <a name="durable-functions-1x"></a>Durable Functions 1.x
 
 ```json
 {
@@ -52,14 +52,15 @@ Paramètres de configuration de [Fonctions durables](../articles/azure-functions
   "durableTask": {
     "hubName": "MyTaskHub",
     "storageProvider": {
-      "controlQueueBatchSize": 32,
-      "partitionCount": 4,
-      "controlQueueVisibilityTimeout": "00:05:00",
-      "workItemQueueVisibilityTimeout": "00:05:00",
-      "maxQueuePollingInterval": "00:00:30",
       "connectionStringName": "AzureWebJobsStorage",
+      "controlQueueBatchSize": 32,
+      "controlQueueBufferThreshold": 256,
+      "controlQueueVisibilityTimeout": "00:05:00",
+      "maxQueuePollingInterval": "00:00:30",
+      "partitionCount": 4,
       "trackingStoreConnectionStringName": "TrackingStorage",
-      "trackingStoreNamePrefix": "DurableTask"
+      "trackingStoreNamePrefix": "DurableTask",
+      "workItemQueueVisibilityTimeout": "00:05:00",
     },
     "tracing": {
       "traceInputsAndOutputs": false,
@@ -82,7 +83,8 @@ Paramètres de configuration de [Fonctions durables](../articles/azure-functions
     "maxConcurrentActivityFunctions": 10,
     "maxConcurrentOrchestratorFunctions": 10,
     "extendedSessionsEnabled": false,
-    "extendedSessionIdleTimeoutInSeconds": 30
+    "extendedSessionIdleTimeoutInSeconds": 30,
+    "useGracefulShutdown": false
   }
 }
 ```
@@ -93,6 +95,7 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |---------|---------|---------|
 |hubName|DurableFunctionsHub|D'autres noms de [hub de tâches](../articles/azure-functions/durable-functions-task-hubs.md) peuvent être utilisés pour isoler plusieurs applications Durable Functions les unes des autres, même si elles s'appuient sur le même principal de stockage.|
 |controlQueueBatchSize|32|Nombre de messages à extraire de la file d’attente de contrôle en une seule fois.|
+|controlQueueBufferThreshold|256|Nombre de messages de file d’attente de contrôle qui peuvent être mis en mémoire tampon à la fois, auquel cas le répartiteur attend avant de retirer des messages supplémentaires de la file d’attente.|
 |partitionCount |4|Nombre de partitions pour la file d’attente de contrôle. Doit être un entier positif compris entre 1 et 16.|
 |controlQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente de contrôle.|
 |workItemQueueVisibilityTimeout |5 minutes|Délai d’expiration de la visibilité des messages supprimés de la file d’attente des éléments de travail.|
@@ -109,5 +112,6 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 |eventGridPublishRetryCount|0|Nombre de nouvelles tentatives à effectuer en cas d’échec de la publication de la rubrique Event Grid.|
 |eventGridPublishRetryInterval|5 minutes|L’intervalle avant nouvelle tentative de publication Event Grid au format *hh:mm:ss*.|
 |eventGridPublishEventTypes||Liste des types d’événement à publier sur Event Grid. Si elle n’est pas spécifiée, cela signifie que tous les types d’événement seront publiés. Les valeurs autorisées sont `Started`, `Completed`, `Failed` et `Terminated`.|
+|useGracefulShutdown|false|(Préversion) Activez l’arrêt approprié pour réduire le risque d’échecs d’arrêt de l’hôte dans les exécutions de fonctions in-process.|
 
 La plupart de ces paramètres sont destinés à l’optimisation des performances. Pour plus d’informations, consultez [Performances et mise à l’échelle](../articles/azure-functions/durable-functions-perf-and-scale.md).

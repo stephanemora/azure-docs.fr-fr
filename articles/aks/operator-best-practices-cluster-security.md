@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442920"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -27,6 +27,8 @@ Cet article est dédié à la sécurisation de votre cluster AKS. Vous allez app
 > * Maintenir les nœuds à jour et appliquer automatiquement des correctifs de sécurité
 
 Vous pouvez également consulter les meilleures pratiques relatives à la [gestion des images conteneur][best-practices-container-image-management] et à la [sécurité du pod][best-practices-pod-security].
+
+Vous pouvez également utiliser [Intégration des services Azure Kubernetes avec Security Center][security-center-aks] pour détecter les menaces et afficher des recommandations pour sécuriser vos clusters AKS.
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Sécuriser l’accès aux nœuds de cluster et au serveur d’API
 
@@ -53,7 +55,7 @@ De la même façon que vous devez accorder aux utilisateurs ou groupes le nombre
 Pour un contrôle plus précis des actions de conteneur, vous pouvez également utiliser les fonctionnalités de sécurité Linux intégrées telles que *AppArmor* et *seccomp*. Ces fonctionnalités sont définies au niveau du nœud, puis implémentées via un manifeste de pod. Les fonctionnalités de sécurité Linux intégrées sont disponibles sur les nœuds et les pods Linux uniquement.
 
 > [!NOTE]
-> Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Des fonctionnalités de sécurité supplémentaires, comme *AppArmor*, *seccomp* ou des *stratégies de sécurité Pod*, ainsi que des contrôles d'accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l'exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
+> Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Des fonctionnalités de sécurité supplémentaires, comme *AppArmor*, *seccomp* ou des *stratégies de sécurité Pod*, ainsi que des contrôles d'accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l’exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
 
 ### <a name="app-armor"></a>AppArmor
 
@@ -235,3 +237,4 @@ Cet article était dédié à la sécurisation de votre cluster AKS. Pour implé
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [pod-security-contexts]: developer-best-practices-pod-security.md#secure-pod-access-to-resources
 [aks-ssh]: ssh.md
+[security-center-aks]: /azure/security-center/azure-kubernetes-service-integration

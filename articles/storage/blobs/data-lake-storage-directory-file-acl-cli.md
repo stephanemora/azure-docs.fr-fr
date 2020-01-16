@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534294"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75462591"
 ---
-# <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Utiliser Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
+# <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Utilisez Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
 Cet article vous explique comment utiliser l’[interface de ligne de commande (CLI) Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) pour créer et gérer des répertoires, des fichiers et des autorisations dans des comptes de stockage dotés d’un espace de noms hiérarchique. 
 
@@ -24,7 +24,7 @@ Cet article vous explique comment utiliser l’[interface de ligne de commande (
 > L’extension `storage-preview` qui est présentée dans cet article est actuellement une fonctionnalité d’évaluation publique.
 
 [Exemple](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Mappage de Gen1 à Gen2](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Envoyer des commentaires](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 > [!div class="checklist"]
 > * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -102,7 +102,7 @@ az storage blob directory show -c my-file-system -d my-directory --account-name 
 
 Renommez ou déplacez un répertoire à l’aide de la commande `az storage blob directory move`.
 
-Cet exemple renomme un répertoire du nom `my-directory` au nom `my-new-directory`.
+Cet exemple renomme un répertoire `my-directory` en `my-new-directory`.
 
 ```azurecli
 az storage blob directory move -c my-file-system -d my-new-directory -s my-directory --account-name mystorageaccount
@@ -154,11 +154,11 @@ Cet exemple répertorie le contenu d’un répertoire nommé `my-directory` qui 
 az storage blob directory list -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Télécharger un fichier dans un répertoire
+## <a name="upload-a-file-to-a-directory"></a>Charger un fichier dans un répertoire
 
 Téléchargez un fichier dans un répertoire à l’aide de la commande `az storage blob directory upload`.
 
-Cet exemple télécharge un fichier nommé `upload.txt` dans un répertoire nommé `my-directory`. 
+Cet exemple charge un fichier nommé `upload.txt` dans un répertoire nommé `my-directory`. 
 
 ```azurecli
 az storage blob directory upload -c my-file-system --account-name mystorageaccount -s "C:\mylocaldirectory\upload.txt" -d my-directory
@@ -200,9 +200,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 
 ## <a name="manage-permissions"></a>Gérer les autorisations
 
-Vous pouvez récupérer, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers.
+Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers.
 
-### <a name="get-directory-and-file-permissions"></a>Obtenir des autorisations d’accès aux répertoires et aux fichiers
+### <a name="get-directory-and-file-permissions"></a>Obtenir les autorisations d’un répertoire ou d’un fichier
 
 Obtenez l’ACL d’un **répertoire** à l’aide de la commande `az storage blob directory access show`.
 
@@ -220,13 +220,13 @@ Cet exemple obtient l’ACL d’un fichier, puis imprime l’ACL sur la console.
 az storage blob access show -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
 
-L’image suivante montre la sortie après avoir obtenu l’ACL d’un répertoire.
+L’image suivante montre la sortie après l’obtention de la liste ACL d’un répertoire.
 
-![Obtenir la sortie ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
+![Obtenir la sortie de liste ACL](./media/data-lake-storage-directory-file-acl-cli/get-acl.png)
 
-Dans cet exemple, l’utilisateur propriétaire dispose des autorisations de lecture, d’écriture et d’exécution. Le groupe propriétaire dispose uniquement des autorisations de lecture et d’exécution. Pour plus d’informations sur ces listes de contrôle d’accès, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Dans cet exemple, l’utilisateur propriétaire dispose d’autorisations de lecture, d’écriture et d’exécution. Le groupe propriétaire dispose uniquement d’autorisations de lecture et d’exécution. Pour plus d’informations sur les listes de contrôle d’accès, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="set-directory-and-file-permissions"></a>Définir des autorisations d’accès aux répertoires et aux fichiers
+### <a name="set-directory-and-file-permissions"></a>Définir les autorisations d’un répertoire ou d’un fichier
 
 Utilisez la commande `az storage blob directory access set` pour définir l’ACL d’un **répertoire**. 
 
@@ -243,13 +243,13 @@ Cet exemple définit l’ACL d’un fichier pour l’utilisateur propriétaire, 
 ```azurecli
 az storage blob access set -a "user::rw-,group::rw-,other::-wx" -b my-directory/upload.txt -c my-file-system --account-name mystorageaccount
 ```
-L’image suivante montre la sortie après avoir défini l’ACL d’un fichier.
+L’image suivante montre la sortie après la définition de la liste ACL d’un fichier.
 
-![Obtenir la sortie ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Obtenir la sortie de liste ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
-Dans cet exemple, l’utilisateur propriétaire et le groupe propriétaire disposent uniquement des autorisations de lecture et d’écriture. Tous les autres utilisateurs disposent d’autorisations d’écriture et d’exécution. Pour plus d’informations sur ces listes de contrôle d’accès, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+Dans cet exemple, l’utilisateur propriétaire et le groupe propriétaire disposent uniquement des autorisations de lecture et d’écriture. Tous les autres utilisateurs disposent des autorisations d’écriture et d’exécution. Pour plus d’informations sur les listes de contrôle d’accès, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
-### <a name="update-directory-and-file-permissions"></a>Mettre à jour des autorisations d’accès aux répertoires et aux fichiers
+### <a name="update-directory-and-file-permissions"></a>Mettre à jour les autorisations d’un répertoire ou d’un fichier
 
 Une autre façon de définir cette autorisation consiste à utiliser la commande `az storage blob directory access update` ou `az storage blob access update`. 
 

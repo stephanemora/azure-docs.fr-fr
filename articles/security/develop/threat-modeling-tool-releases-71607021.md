@@ -1,26 +1,18 @@
 ---
-title: Versions de Threat Modeling Tool - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+title: Disponibilité générale de Microsoft Threat Modeling Tool version 7/2/2019 - Azure
 description: Compilation des notes de publication pour l’outil de modélisation des menaces
-services: security
-documentationcenter: na
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: jegeib
-ms.openlocfilehash: 44fd84af629fadfc96d738e81f2568359ee19d66
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d26ff015156f5d050a74733ff82c811ff5f1700a
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219854"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548777"
 ---
 # <a name="threat-modeling-tool-update-release-71607021---722019"></a>Version mise à jour de Threat Modeling Tool 7.1.60702.1 - 2 juillet 2019
 
@@ -38,13 +30,13 @@ Un jeu de stencils pour la modélisation des appareils médicaux a été fourni 
 
 ![Option de validation du modèle](./media/threat-modeling-tool-releases-71607021/tmt-template-selection.png)
 
-## <a name="system-requirements"></a>Conditions requises pour le système
+## <a name="system-requirements"></a>Configuration système requise
 
-- Systèmes d'exploitation pris en charge
+- Systèmes d’exploitation pris en charge
   - [Mise à jour anniversaire Windows 10](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) ou version ultérieure
 - Version .NET obligatoire
   - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) ou version ultérieure
-- Conditions supplémentaires
+- Autres conditions requises
   - Une connexion Internet est nécessaire pour recevoir les mises à jour de l’outil ainsi que les modèles.
 
 ## <a name="documentation-and-feedback"></a>Documentation et commentaires

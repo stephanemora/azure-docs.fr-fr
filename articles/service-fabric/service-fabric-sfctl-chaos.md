@@ -1,25 +1,16 @@
 ---
-title: CLI Azure Service Fabric - sfctl chaos | Microsoft Docs
-description: Décrit les commandes sfctl chaos de l’interface de ligne de commande CLI Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: Interface CLI Azure Service Fabric – sfctl chaos
+description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour la gestion de chaos.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: f48ef260ab05f98da99c3ae317d0c350d018119f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b91c11dfb9b1249420429bee20f12439fffa4853
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901759"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646175"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Permet de démarrer, d’arrêter et de créer des rapports sur le service de test chaos.
@@ -46,7 +37,7 @@ Pour obtenir le segment suivant des événements Chaos, vous pouvez spécifier l
 
 |Argument|Description|
 | --- | --- |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --end-time-utc | Heure de fichier Windows représentant l’heure de fin de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
 | --max-results | Nombre maximal de résultats à renvoyer dans le cadre des requêtes paginées. Ce paramètre définit la limite supérieure du nombre de résultats renvoyés. Le nombre de résultats renvoyés peut être inférieur au nombre maximal de résultats spécifié s’ils ne tiennent pas dans le message conformément aux restrictions de taille maximale définies dans la configuration. Si ce paramètre est défini sur zéro ou n’est pas spécifié, la requête paginée comprend le nombre maximal de résultats pouvant tenir dans le message renvoyé. |
 | --start-time-utc | Heure de fichier Windows représentant l’heure de début de l’intervalle de temps pour lequel un rapport Chaos doit être généré. Pour plus d’informations, consultez [DateTime.ToFileTimeUtc, méthode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx). |
@@ -56,11 +47,11 @@ Pour obtenir le segment suivant des événements Chaos, vous pouvez spécifier l
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl chaos get
 Permet d’obtenir l’état de Chaos.
@@ -77,11 +68,11 @@ Obtenez l’état de Chaos indiquant si Chaos est en cours d’exécution ou non
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos start
 Démarre Chaos dans le cluster.
@@ -110,11 +101,11 @@ Si Chaos n’est pas encore exécuté dans le cluster, Chaos est démarré avec 
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos stop
 Arrête Chaos s’il est en cours d’exécution dans le cluster et place la planification de Chaos dans un état arrêté.
@@ -131,11 +122,11 @@ Arrête Chaos pour l’empêcher d’exécuter de nouvelles erreurs. Les erreurs
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

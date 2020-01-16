@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73182213"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564692"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -53,7 +53,7 @@ Le suivi des opérations de plan de contrôle sur les disques managés peut impl
 - Créez un disque managé à partir d’un instantané.
 - Convertissez des disques non managés en disques managés.
 
-# <a name="performance-application-checklist-for-disks"></a>Liste de vérification des applications hautes performances pour les disques
+## <a name="performance-application-checklist-for-disks"></a>Liste de vérification des applications hautes performances pour les disques
 
 La première étape de la conception d’applications hautes performances exécutées sur le Stockage Azure Premium consiste à comprendre les exigences de performances de votre application. Après avoir recueilli ces exigences de performances, vous pourrez optimiser votre application de manière à obtenir les meilleures performances possibles.
 
@@ -99,7 +99,7 @@ Les compteurs PerfMon sont disponibles pour le processeur, pour la mémoire et p
 | **Débit** |Quantité de données lues ou écrites sur le disque par seconde. |Nb d’octets de lecture de disque/s <br> Nb d’octets d’écriture de disque/s |kB_read/s <br> kB_wrtn/s |
 | **Latence** |Durée totale d’exécution d’une demande d’E/S sur le disque. |Temps de lecture moyen du disque/s <br> Temps d’écriture moyen du disque/s |await <br> svctm |
 | **Taille d’E/S** |La taille des demandes d’E/S émises sur les disques de stockage. |Nb moyen d’octets en lecture du disque <br> Nb moyen d’octets en écriture du disque |avgrq-sz |
-| **Profondeur de file d’attente** |Nombre de demandes d’E/S en attente de lecture ou d’écriture sur le disque de stockage. |Longueur de file d’attente actuelle du disque |avgqu-sz |
+| **Profondeur de file d’attente** |Nombre de demandes d’E/S en attente de lecture ou d’écriture sur le disque de stockage. |Longueur actuelle de la file d'attente du disque |avgqu-sz |
 | **Bande passante Mémoire** |Quantité de mémoire nécessaire pour une exécution fluide de l’application |% d’octets dédiés utilisés |Use vmstat |
 | **Bande passante UC** |Quantité d’UC nécessaire pour une application fluide de l’application |% temps processeur |%util |
 
@@ -170,9 +170,9 @@ Pour évaluer les effets de la taille des E/S sur les performances de l’applic
 
 ## <a name="high-scale-vm-sizes"></a>Tailles des machines virtuelles à grande échelle
 
-Lorsque vous commencez la conception d’une application, l’une des premières choses à faire est de choisir une machine virtuelle qui hébergera votre application. Premium Storage est fourni avec des tailles de machine virtuelle à grande échelle capables d’exécuter des applications qui requièrent une plus grande puissance de calcul et de hautes performances d’E/S du disque local. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et l’utilisation d’un disque SSD comme disque local. Les séries DS, DSv2 et GS sont des exemples de machines virtuelles à grande échelle prenant en charge le stockage Premium.
+Lorsque vous commencez la conception d’une application, l’une des premières choses à faire est de choisir une machine virtuelle qui hébergera votre application. Premium Storage est fourni avec des tailles de machine virtuelle à grande échelle capables d’exécuter des applications qui requièrent une plus grande puissance de calcul et de hautes performances d’E/S du disque local. Ces machines virtuelles se caractérisent par des processeurs plus rapides, un rapport mémoire-cœur plus élevé et l’utilisation d’un disque SSD comme disque local. Les machines virtuelles de la série DS et GS sont des exemples de machines virtuelles à grande échelle prenant en charge le stockage Premium.
 
-Ces machines virtuelles sont disponibles en différentes tailles, avec un nombre de cœurs de processeur, une mémoire, un système d’exploitation et une taille de disque temporaire différents. Chaque taille de chaque machine virtuelle possède également un nombre maximal de disques de données que vous pouvez attacher à la machine virtuelle. Par conséquent, la taille de machine virtuelle choisie affectera la quantité de traitement, de mémoire et de capacité de stockage disponible pour votre application. Elle affecte également le coût de traitement et de stockage. Vous trouverez ci-dessous les spécifications de la plus grande taille de machine virtuelle d’une série DS, d’une série DSv2 et d’une série GS :
+Ces machines virtuelles sont disponibles en différentes tailles, avec un nombre de cœurs de processeur, une mémoire, un système d’exploitation et une taille de disque temporaire différents. Chaque taille de chaque machine virtuelle possède également un nombre maximal de disques de données que vous pouvez attacher à la machine virtuelle. Par conséquent, la taille de machine virtuelle choisie affectera la quantité de traitement, de mémoire et de capacité de stockage disponible pour votre application. Elle affecte également le coût de traitement et de stockage. Par exemple, voici les spécifications de la plus grande taille de machine virtuelle dans une série DS et une série GS :
 
 | Taille de la machine virtuelle | Cœurs d’unité centrale | Mémoire | Tailles du disque de la machine virtuelle | Bande passante disques de données | Taille du cache | E/S par seconde | Limites d’E/S du cache de bande passante |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -252,7 +252,7 @@ Voici les paramètres de cache de disque recommandés pour les disques de donné
 
 | **Paramètre de mise en cache du disque** | **Conditions recommandées d’utilisation de ce paramètre** |
 | --- | --- |
-| Aucun |Configurer le cache hôte sur cette option pour les disques en lecture seule et les disques gourmands en écriture. |
+| None |Configurer le cache hôte sur cette option pour les disques en lecture seule et les disques gourmands en écriture. |
 | Lecture seule |Configurer le cache hôte en lecture seule pour les disques en lecture seule et les disques en lecture/écriture. |
 | Lecture/écriture |Configurer le cache hôte en lecture/écriture uniquement si votre application gère correctement l’écriture des données mises en cache sur les disques persistants lorsque cela est nécessaire. |
 
@@ -292,29 +292,31 @@ Certaines versions nécessitent également la dernière version 4.0 de Linux Int
 
 | Distribution | Version | Noyau pris en charge | Détails |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 ou ultérieure| 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-us-30GB |
-| Ubuntu | 14.04 ou ultérieure| 3.13.0-44.73+  | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-us-30GB |
+| Ubuntu | 12.04 ou ultérieure| 3.2.0-75.110+ | &nbsp; |
+| Ubuntu | 14.04 ou ultérieure| 3.13.0-44.73+  | &nbsp; |
 | Debian | 7.x, 8.x ou ultérieure| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 ou ultérieure| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12 ou ultérieure| 3.12.36-38.1+ | &nbsp; |
 | SUSE | SLES 11 SP4 ou ultérieure| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0 ou ultérieure| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 ou ultérieure| &nbsp; | [LIS4 requis](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consultez la remarque dans la section suivante* |
-| CentOS | 7.1 ou ultérieure| 3.10.0-229.1.2.el7+ | [LIS4 recommandé](https://www.microsoft.com/download/details.aspx?id=51612) <br> *Consultez la remarque dans la section suivante* |
+| CoreOS | 584.0.0 ou ultérieure| 3.18.4+ | &nbsp; |
+| CentOS | 6.5, 6.6, 6.7, 7.0 ou ultérieure| &nbsp; | [LIS4 requis](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Consultez la remarque dans la section suivante* |
+| CentOS | 7.1 ou ultérieure| 3.10.0-229.1.2.el7+ | [LIS4 recommandé](https://www.microsoft.com/download/details.aspx?id=55106) <br> *Consultez la remarque dans la section suivante* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ ou ultérieure | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ ou ultérieure | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 ou ultérieure | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
-| Oracle | 6.4-6.7 ou ultérieure | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 7.0-7.1 ou ultérieure | &nbsp; | UEK4 ou RHCK avec [LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
+| Oracle | 6.4-6.7 ou ultérieure | &nbsp; | UEK4 ou RHCK avec [LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Pilotes LIS pour Openlogic CentOS
 
 Si vous exécutez des machines virtuelles OpenLogic CentOS, exécutez la commande suivante pour installer les pilotes les plus récents :
 
 ```
-sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
+sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
 sudo yum install microsoft-hyper-v
+sudo reboot
 ```
 
-Pour activer les nouveaux pilotes, redémarrez la machine virtuelle.
+Dans certains cas, la commande ci-dessus met également à niveau le noyau. Si une mise à jour du noyau est nécessaire, vous devrez peut-être réexécuter les commandes ci-dessus après avoir redémarré pour installer complètement le package Microsoft-Hyper-v.
+
 
 ## <a name="disk-striping"></a>Entrelacement de disques
 
@@ -382,4 +384,3 @@ Pour un volume entrelacé, conservez une profondeur de file d’attente suffisam
 Azure Premium Storage configure la valeur spécifiée d’E/S par seconde et de débit en fonction des tailles de machine virtuelle et des tailles de disque que vous choisissez. Chaque fois que votre application tentera de dépasser les limites de ce que la machine virtuelle ou le disque peut gérer, Premium Storage lui imposera une limitation. Cette limitation se manifeste sous la forme d’une dégradation des performances de votre application, à savoir une latence plus élevée, un débit réduit ou un nombre inférieur d’IOPS. Sans cette limitation, votre application risquerait de planter en demandant plus que ses ressources ne lui permettent d’effectuer. Par conséquent, pour éviter les problèmes de performances associés à une limitation, veillez à toujours fournir suffisamment de ressources pour votre application. Tenez compte des explications données ci-dessus dans les sections relatives aux tailles de disque et aux tailles de machine virtuelle. Le benchmarking offre le meilleur moyen de déterminer les ressources dont vous aurez besoin pour héberger votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-

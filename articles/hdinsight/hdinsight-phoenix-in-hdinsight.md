@@ -5,22 +5,21 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: b1d81296c996ab09cb6482cb970496779ccf8bd6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311649"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435494"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix dans Azure HDInsight
 
 [Apache Phoenix](https://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source basée sur [Apache HBase](hbase/apache-hbase-overview.md). Phoenix vous donne les moyens d’utiliser des requêtes de type SQL sur HBase. Phoenix utilise en dessous des pilotes JDBC pour permettre aux utilisateurs de créer, supprimer et modifier des tables SQL, index, vues et séquences, ainsi que des lignes d’upsert individuellement et en bloc. Phoenix utilise une compilation native noSQL au lieu de MapReduce pour compiler les requêtes, ce qui permet de créer des applications à faible latence sur HBase. Phoenix ajoute des co-processeurs pour prendre en charge le code fourni par le client en cours d’exécution dans l’espace d’adressage du serveur, en exécutant le code colocalisé avec les données. Cette approche réduit le transfert de données client/serveur.
 
 Apache Phoenix affiche des requêtes Big Data aux utilisateurs non-développeurs, qui peuvent recourir à une syntaxe de type SQL en lieu et place de la programmation. Phoenix est hautement optimisé pour HBase, contrairement à d’autres outils comme [Apache Hive](hadoop/hdinsight-use-hive.md) et Apache Spark SQL. Cela permet aux développeurs d’écrire des requêtes hautement performantes avec un volume de code bien moindre.
-<!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Quand vous envoyez une requête SQL, Phoenix la compile en appels natifs HBase et exécute l’analyse (ou le plan) en parallèle à des fins d’optimisation. Grâce à cette couche d’abstraction, les développeurs n’ont pas à écrire de tâches MapReduce, et peuvent ainsi se concentrer sur la logique métier et le workflow de leur application vis-à-vis du stockage des Big Data de Phoenix.
 
@@ -38,7 +37,7 @@ Créez un index secondaire avec la commande `CREATE INDEX` :
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
 ```
 
-Cette approche peut générer une augmentation significative des performances par rapport à l’exécution des requêtes avec index unique. Ce type d’index secondaire est un **index couvrant** comportant l’ensemble des colonnes incluses dans la requête. Par conséquent, aucune recherche de table n’est requise et l’index satisfait l’intégralité de la requête.
+Cette approche peut générer une augmentation significative des performances par rapport à l’exécution des requêtes avec index unique. Ce type d’index secondaire est un **index couvrant** comportant l’ensemble des colonnes incluses dans la requête. Par conséquent, aucune recherche de tableau n’est requise et l’index satisfait l’intégralité de la requête.
 
 ### <a name="views"></a>Les vues
 
@@ -51,8 +50,8 @@ Par exemple, voici une table physique nommée `product_metrics` avec la définit
 ```sql
 CREATE  TABLE product_metrics (
     metric_type CHAR(1),
-    created_by VARCHAR, 
-    created_date DATE, 
+    created_by VARCHAR,
+    created_date DATE,
     metric_id INTEGER
     CONSTRAINT pk PRIMARY KEY (metric_type, created_by, created_date, metric_id));
 ```
@@ -138,3 +137,5 @@ Un cluster HDInsight HBase comprend l’[interface utilisateur Ambari](hdinsight
 ## <a name="see-also"></a>Voir aussi
 
 * [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight](hbase/apache-hbase-query-with-phoenix.md)
+
+* [Utiliser Apache Zeppelin pour exécuter des requêtes Apache Phoenix sur Apache HBase dans Azure HDInsight](./hbase/apache-hbase-phoenix-zeppelin.md)

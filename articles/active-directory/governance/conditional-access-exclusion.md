@@ -1,5 +1,5 @@
 ---
-title: Utiliser les révisions d’accès pour gérer les utilisateurs exclus des stratégies d’accès conditionnel - Azure Active Directory | Microsoft Docs
+title: Gérer les utilisateurs exclus des stratégies d’accès conditionnel - Azure AD
 description: Découvrez comment utiliser les révisions d’accès Azure Active Directory (Azure AD) pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 246503fec6436bf49dcd5fb89c2dc0ed345a43ca
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: d1d7bce940f2b614c239e8b5e5719d96da10a6c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422714"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utiliser les révisions d’accès Azure AD pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
@@ -97,7 +97,7 @@ Vous pouvez à présent créer une stratégie d’accès conditionnel qui utilis
 
 Examinons deux exemples dans lesquels vous pouvez utiliser les révisions d’accès pour gérer les exclusions dans les stratégies d’accès conditionnel.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemple 1 : Révision d’accès relative aux utilisateurs accédant au locataire à partir de pays/régions bloqués
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemple 1 : Révision d’accès relative aux utilisateurs accédant au locataire à partir de pays/régions bloqués
 
 Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès à partir de certains pays/régions. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
@@ -118,7 +118,7 @@ Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloq
 
     ![Volet Créer une révision d’accès pour l’exemple 1](./media/conditional-access-exclusion/create-access-review-1.png)
 
-## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemple 2 : Révision d’accès relative aux utilisateurs accédant au locataire avec l’authentification héritée
+## <a name="example-2-access-review-for-users-accessing-with-legacy-authentication"></a>Exemple 2 : Révision d’accès relative aux utilisateurs accédant au locataire avec l’authentification héritée
 
 Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès des utilisateurs ayant recours à l’authentification héritée et à des versions de client antérieures. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
@@ -159,4 +159,4 @@ En tant qu’administrateur informatique, vous savez que la gestion des groupes 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Créer une révision d’accès de groupes ou d’applications](create-access-review.md)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](../conditional-access/overview.md)

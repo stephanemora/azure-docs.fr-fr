@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177020"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466744"
 ---
 L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau sur lesquels le groupe de disponibilité de SQL Server écoute. Pour créer l’écouteur de groupe de disponibilité, procédez comme suit :
 
@@ -140,4 +140,4 @@ Si nécessaire, répétez les étapes ci-dessus afin de définir les paramètres
    b. Définissez les paramètres du cluster en exécutant le script PowerShell sur l’un des nœuds du cluster.  
 
 >[!WARNING]
->Le port pour la sonde d’intégrité de l’écouteur du groupe de disponibilité doit être différent du port pour la sonde d’intégrité de l’adresse IP principale du cluster. Dans ces exemples, le port de l’écouteur est 59999, et l’adresse IP principale du cluster est 58888. Une règle de pare-feu d’autorisation du trafic entrant doit être définie pour les deux ports.
+>Le port pour la sonde d’intégrité de l’écouteur du groupe de disponibilité doit être différent du port pour la sonde d’intégrité de l’adresse IP principale du cluster. Dans ces exemples, le port de l’écouteur est 59999 et le port de la sonde d’intégrité de l’adresse IP principale du cluster est 58888. Une règle de pare-feu d’autorisation du trafic entrant doit être définie pour les deux ports.

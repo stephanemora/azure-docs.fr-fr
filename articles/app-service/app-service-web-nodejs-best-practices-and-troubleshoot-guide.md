@@ -1,19 +1,19 @@
 ---
 title: Bonnes pratiques et résolution des problèmes liés à Node.js
 description: Découvrez les bonnes pratiques et les procédures de résolution des problèmes pour les applications Node.js s’exécutant dans Azure App Service.
-author: ranjithr
+author: msangapu-msft
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bwren
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 682884d11b298a97e27056af3c10802dfd410e4c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672046"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430560"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Bonnes pratiques et guide de résolution des problèmes pour les applications Node sur Azure App Service
 
@@ -251,7 +251,7 @@ Voici quelques solutions qui pourront vous aider à accélérer le processus :
 
 ## <a name="iisnode-http-status-and-substatus"></a>État et sous-état http IISNODE
 
-Le [fichier source](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h) `cnodeconstants` répertorie toutes les combinaisons d’état/sous-état qu’iisnode peut retourner en cas d’erreur.
+Le [fichier source](https://github.com/Azure/iisnode/blob/master/src/iisnode/cnodeconstants.h)`cnodeconstants` répertorie toutes les combinaisons d’état/sous-état qu’iisnode peut retourner en cas d’erreur.
 
 Activez FREB pour votre application afin de voir le code d’erreur win32 (pour des raisons de performances, veillez à activer FREB uniquement sur les sites de test).
 
@@ -269,7 +269,7 @@ Activez FREB pour votre application afin de voir le code d’erreur win32 (pour 
 
 NODE.exe possède un paramètre appelé `NODE_PENDING_PIPE_INSTANCES`. Sur Azure App Service, cette valeur est 5000. Cela signifie que node.exe peut accepter 5 000 requêtes à la fois sur le canal nommé. Cette valeur doit être suffisante pour la plupart des applications node exécutées sur Azure App Service. Vous ne devriez pas rencontrer l’état 503.1003 sur Azure App Service en raison de la valeur élevée de `NODE_PENDING_PIPE_INSTANCES`
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 Cliquez sur ces liens pour en savoir plus sur les applications node.js dans Azure App Service.
 

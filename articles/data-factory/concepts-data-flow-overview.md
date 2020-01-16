@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/7/2019
-ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 210c1814325e689dd70af9caa7fad08deed933e1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444503"
 ---
 # <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 
@@ -61,6 +61,8 @@ Si vous exécutez des flux de données dans un pipeline en parallèle, ADF crée
 
 Parmi ces trois options, celle-ci s’exécutera probablement dans le délai le plus bref. Toutefois, chaque flux de données parallèle s’exécute en même temps sur des clusters distincts de sorte que l’ordre des événements n’est pas déterministe.
 
+Si vous exécutez vos activités de flux de données en parallèle à l’intérieur de vos pipelines, il est recommandé de ne pas utiliser la TTL. Cela est dû au fait que les exécutions parallèles de flux de données utilisant simultanément le même Azure Integration Runtime entraînent l’utilisation de plusieurs instances de pools à chaud pour votre fabrique de données.
+
 ##### <a name="overload-single-data-flow"></a>Surcharger le flux de données unique
 
 Si vous placez toute votre logique à l’intérieur d’un seul flux de données, ADF s’exécute dans le même contexte d’exécution de travail sur une instance de cluster Spark unique.
@@ -85,11 +87,11 @@ Le premier onglet du volet de configuration de chaque transformation contient le
 
 ![Onglet Paramètres de la source](media/data-flow/source1.png "Onglet Paramètres de la source")
 
-#### <a name="optimize"></a>Optimisation
+#### <a name="optimize"></a>Optimiser
 
 L’onglet **Optimiser** contient des paramètres pour configurer des schémas de partitionnement.
 
-![Optimize](media/data-flow/optimize1.png "Optimisation")
+![Optimize](media/data-flow/optimize1.png "Optimiser")
 
 Le paramètre par défaut, **Utiliser le partitionnement actuel**, indique à Azure Data Factory d’utiliser le schéma de partitionnement natif pour les flux de données s’exécutant sur Spark. Dans la plupart des scénarios, nous vous recommandons d’utiliser ce paramètre.
 

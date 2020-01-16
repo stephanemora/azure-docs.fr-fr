@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: fb2a11850370766ab174c67dd122f33879fb432a
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 12/19/2019
+ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444526"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -81,7 +81,7 @@ Même si vos données ne sont pas partitionnées dans vos tables de destination,
 
 ### <a name="disable-indexes-on-write"></a>Désactivez les index lors de l’écriture
 
-Dans votre pipeline, ajoutez une [Activité de procédure stockée](transform-data-using-stored-procedure.md) avant votre activité de flux de données qui désactive les index sur vos tables cibles écrites à partir de votre récepteur. Après votre activité de flux de données, ajoutez une autre activité de procédure stockée qui active ces index.
+Dans votre pipeline, ajoutez une [Activité de procédure stockée](transform-data-using-stored-procedure.md) avant votre activité de flux de données qui désactive les index sur vos tables cibles écrites à partir de votre récepteur. Après votre activité de flux de données, ajoutez une autre activité de procédure stockée qui active ces index. Ou utilisez les scripts de prétraitement et de post-traitement dans un récepteur de base de données.
 
 ### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Augmenter la taille de vos bases de données Azure SQL DB et Azure SQL DW
 
@@ -114,7 +114,7 @@ Pour éviter d’épuiser les ressources de nœud de calcul, conservez le schém
 
 ### <a name="looping-through-file-lists"></a>Bouclage parmi les listes de fichiers
 
-Un flux de données de mappage s’exécute mieux quand la transformation de la source effectue une itération sur plusieurs fichiers au lieu d’effectuer une boucle à l’aide de l’activité « For Each ». Nous vous recommandons d’utiliser des caractères génériques ou des listes de fichiers dans votre transformation de la source. Le processus de flux de données s’exécutera plus rapidement si la boucle peut se produire dans le cluster Spark. Pour plus d’informations, consultez [Utilisation des caractères génériques dans la transformation de la source](data-flow-source.md#file-based-source-options).
+Un flux de données de mappage s’exécute mieux quand la transformation de la source effectue une itération sur plusieurs fichiers au lieu d’effectuer une boucle à l’aide de l’activité « For Each ». Nous vous recommandons d’utiliser des caractères génériques ou des listes de fichiers dans votre transformation de la source. Le processus de flux de données s’exécutera plus rapidement si la boucle peut se produire dans le cluster Spark. Pour plus d’informations, consultez [Utilisation des caractères génériques dans la transformation de la source](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
 
 Par exemple, si vous avez une liste de fichiers de données de juillet 2019 que vous voulez traiter dans un dossier du Stockage Blob, voici un caractère générique que vous pouvez utiliser dans votre transformation de la source.
 
@@ -127,7 +127,7 @@ Si vous utilisez des caractères génériques, votre pipeline ne contiendra qu�
 La définition des propriétés de débit et de lot sur les récepteurs CosmosDB prend effet uniquement pendant l’exécution de ce flux de données à partir d’une activité de flux de données de pipeline. Les paramètres de la collection d’origine sont honorés par CosmosDB après l’exécution de votre flux de données.
 
 * Taille du lot : Calculez la taille de ligne approximative de vos données et vérifiez que le produit rowSize * taille du lot est inférieur à deux millions. Le cas échéant, augmentez la taille du lot pour obtenir un meilleur débit.
-* Débit : Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
+* Débit : Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
 *   Budget du débit d’écriture : Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
 
 ## <a name="next-steps"></a>Étapes suivantes

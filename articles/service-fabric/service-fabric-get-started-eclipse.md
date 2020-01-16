@@ -1,25 +1,16 @@
 ---
-title: Plug-in Azure Service Fabric pour Eclipse | Documents Microsoft
-description: Prise en main du plug-in Service Fabric pour Eclipse
-services: service-fabric
-documentationcenter: java
+title: Plug-in Azure Service Fabric pour Eclipse
+description: En savoir plus sur la prise en main d’Azure Service Fabric dans Java à l’aide d’Eclipse et du plug-in Service Fabric fourni.
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: b779873488f1fff754d4105249b28f545738c11b
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035431"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645699"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric pour le développement d’applications Java sous Eclipse
 Eclipse est l’un des environnements de développement intégrés (IDE) les plus largement utilisés par les développeurs Java. Dans cet article, nous décrivons comment configurer votre environnement de développement Eclipse pour utiliser Azure Service Fabric. Découvrez comment installer le plug-in Service Fabric, créer une application Service Fabric et déployer votre application Service Fabric dans un cluster Service Fabric local ou distant sur Eclipse. 

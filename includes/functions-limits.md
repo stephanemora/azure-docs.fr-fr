@@ -4,19 +4,19 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: eb61bf5734d0aea1534735b23a2b95b52000f5ad
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 8946da455b4a395814d4cb5a833932c2e3d56f0a
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322905"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75658523"
 ---
 | Ressource | [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Montée en charge | Basé sur les événements | Basé sur les événements | [Manuel/Mise à l’échelle automatique](../articles/app-service/manage-scale-up.md) | 
 | Nombre maximal d’instances | 200 | 100 | 10-20 |
-|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) (min) par défaut |5\. | 30 |30<sup>2</sup> |
-|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) max. (min) |10 | 60 | illimité<sup>3</sup> |
+|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) (min) par défaut |5 | 30 |30<sup>2</sup> |
+|[Durée du délai d’expiration](../articles/azure-functions/functions-scale.md#timeout) maximum (min) |10 | 60 | illimité<sup>3</sup> |
 | Nbre max. de connexions sortantes (par instance) | 600 actives (1 200 au total) | unbounded | unbounded |
 | Taille de requête max. (Mo)<sup>4</sup> | 100 | 100 | 100 |
 | Longueur de chaîne de requête max.<sup>4</sup> | 4096 | 4096 | 4096 |
@@ -29,7 +29,7 @@ ms.locfileid: "74322905"
 | Domaines personnalisés par application</a> |500<sup>7</sup> |500 |500 |
 | domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-bindings.md) |connexion SNI SSL illimitée incluse | connexions 1 IP SSL et SNI SSL illimitées incluses |connexions 1 IP SSL et SNI SSL illimitées incluses | 
 
-<sup>1</sup> Pour connaître les limites spécifiques des différentes options du plan App Service, consultez les [limites du plan App Service](../articles/azure-subscription-service-limits.md#app-service-limits).  
+<sup>1</sup> Pour connaître les limites spécifiques des différentes options du plan App Service, consultez les [limites du plan App Service](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> Par défaut, le délai d’attente du runtime de Functions 1.x dans un plan App Service est illimité.  
 <sup>3</sup> Nécessite que le plan App Service soit défini sur [Always On](../articles/azure-functions/functions-scale.md#always-on). Facturation aux [tarifs](https://azure.microsoft.com/pricing/details/app-service/) standard.  
 <sup>4</sup> Ces limites sont [définies dans l’hôte](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  

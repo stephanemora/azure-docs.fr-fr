@@ -1,18 +1,20 @@
 ---
-title: Utiliser Azure Machine Learning Services dans Azure Notebooks
+title: Utiliser Azure Machine Learning dans la préversion d’Azure Notebooks
 description: Un aperçu des exemples de notebooks pour Azure Machine Learning Services que vous pouvez utiliser avec Azure Notebooks.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: e3c4fbdf35bf7ea1f4dddbceb9d7235c67ed13a4
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3c0e0e9ccea079d7e8f4e35e9af2a0e1c1ec5051
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277455"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646950"
 ---
-# <a name="use-azure-machine-learning-in-a-notebook"></a>Utiliser Azure Machine Learning dans un notebook
+# <a name="use-azure-machine-learning-in-azure-notebooks-preview"></a>Utiliser Azure Machine Learning dans la préversion d’Azure Notebooks
 
 Azure Notebooks est préconfiguré avec l’environnement nécessaire pour travailler avec [Azure Machine Learning](/azure/machine-learning/service/). Vous pouvez facilement cloner un exemple de projet dans votre compte Notebooks pour explorer un large éventail de scénarios Machine Learning.
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="clone-the-sample-into-your-account"></a>Cloner l’exemple dans votre compte
 
@@ -37,9 +39,9 @@ Azure Notebooks est préconfiguré avec l’environnement nécessaire pour trava
 
 La documentation Azure Machine Learning contient toutes sortes d’autres ressources qui vous guident tout au long de votre utilisation de Machine Learning dans des notebooks :
 
-- [Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Démarrage rapide : Utilisation de Python pour démarrer avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutoriel 1 : Effectuer l'apprentissage d’un modèle de classification d’images avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 - [Tutoriel 2 : Déployer un modèle de classification d’images dans Azure Container Instances (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [Tutoriel : Effectuer l'apprentissage d’un modèle de classification avec Machine Learning automatisé dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [Tutoriel : Effectuer l'apprentissage d’un modèle de classification avec Machine Learning automatisé dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Consultez également la documentation relative à [Azure Machine Learning SDK pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

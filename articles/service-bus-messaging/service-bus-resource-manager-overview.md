@@ -14,18 +14,18 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 196b00f1268eada20d0e35473dc6eb43c9e48df6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111137"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75452338"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Création de ressources Service Bus à l’aide de modèles Azure Resource Manager
 
 Cet article décrit comment créer et déployer des ressources Service Bus à l'aide de modèles Azure Resource Manager, de PowerShell et du fournisseur de ressources Service Bus.
 
-Les modèles Azure Resource Manager vous permettent de définir les ressources à déployer pour une solution et de spécifier les paramètres et variables qui permettent d'entrer des valeurs pour les différents environnements. Le modèle est écrit en JSON et se compose d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour plus d’informations sur l’écriture de modèles Azure Resource Manager et sur le format du modèle, consultez [Structure et syntaxe de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Les modèles Azure Resource Manager vous permettent de définir les ressources à déployer pour une solution et de spécifier les paramètres et variables qui permettent d'entrer des valeurs pour les différents environnements. Le modèle est écrit en JSON et se compose d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour plus d’informations sur l’écriture de modèles Azure Resource Manager et sur le format du modèle, consultez [Structure et syntaxe de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 > [!NOTE]
 > Les exemples de cet article montrent comment utiliser Azure Resource Manager pour créer un espace de noms et une entité de messagerie (file d'attente) Service Bus. Pour accéder à d’autres exemples de modèles, recherchez **Service Bus** dans la [galerie de modèles de démarrage rapide Azure][Azure Quickstart Templates gallery].
@@ -54,7 +54,7 @@ La procédure suivante décrit comment utiliser PowerShell pour déployer un mod
 6. Si vous le souhaitez, définissez le mode de déploiement.
 7. Déployez le modèle.
 
-Pour des informations complètes sur le déploiement de modèles Azure Resource Manager, consultez [Déployer des ressources à l’aide de modèles Azure Resource Manager][Deploy resources with Azure Resource Manager templates].
+Pour des informations complètes sur le déploiement de modèles Azure Resource Manager, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell][Deploy resources with Azure Resource Manager templates].
 
 ### <a name="install-powershell"></a>Installer PowerShell
 
@@ -157,7 +157,7 @@ Pour utiliser un fichier de paramètres facultatif, copiez le fichier [201-servi
 }
 ```
 
-Pour plus d’informations, consultez l’article [Paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+Pour plus d’informations, consultez l’article [Paramètres](../azure-resource-manager/templates/parameter-files.md).
 
 ### <a name="log-in-to-azure-and-set-the-azure-subscription"></a>Se connecter à Azure et définir l’abonnement Azure
 
@@ -257,9 +257,9 @@ Vous avez maintenant vu le flux de travail et les commandes de base pour le dép
 
 * [Présentation d’Azure Resource Manager][Azure Resource Manager overview]
 * [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell][Deploy resources with Azure Resource Manager templates]
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Types de ressources Microsoft.ServiceBus](/azure/templates/microsoft.servicebus/allversions)
 
-[Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
+[Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus
